@@ -122,7 +122,7 @@ public final class ARBVertexBlend {
 
 	/** Returns the {@link ARBVertexBlend} instance for the current context. */
 	public static ARBVertexBlend getInstance() {
-		return GL.getCapabilities().__ARBVertexBlend;
+		return checkFunctionality(GL.getCapabilities().__ARBVertexBlend);
 	}
 
 	static ARBVertexBlend create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -148,8 +148,6 @@ public final class ARBVertexBlend {
 	@JavadocExclude
 	public static void nglWeightfvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightfvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglWeightfvARB(size, weights, __functionAddress);
 	}
 
@@ -180,8 +178,6 @@ public final class ARBVertexBlend {
 	@JavadocExclude
 	public static void nglWeightbvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightbvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglWeightbvARB(size, weights, __functionAddress);
 	}
 
@@ -212,8 +208,6 @@ public final class ARBVertexBlend {
 	@JavadocExclude
 	public static void nglWeightubvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightubvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglWeightubvARB(size, weights, __functionAddress);
 	}
 
@@ -244,8 +238,6 @@ public final class ARBVertexBlend {
 	@JavadocExclude
 	public static void nglWeightsvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightsvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglWeightsvARB(size, weights, __functionAddress);
 	}
 
@@ -276,8 +268,6 @@ public final class ARBVertexBlend {
 	@JavadocExclude
 	public static void nglWeightusvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightusvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglWeightusvARB(size, weights, __functionAddress);
 	}
 
@@ -308,8 +298,6 @@ public final class ARBVertexBlend {
 	@JavadocExclude
 	public static void nglWeightivARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightivARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglWeightivARB(size, weights, __functionAddress);
 	}
 
@@ -340,8 +328,6 @@ public final class ARBVertexBlend {
 	@JavadocExclude
 	public static void nglWeightuivARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightuivARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglWeightuivARB(size, weights, __functionAddress);
 	}
 
@@ -372,8 +358,6 @@ public final class ARBVertexBlend {
 	@JavadocExclude
 	public static void nglWeightdvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightdvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglWeightdvARB(size, weights, __functionAddress);
 	}
 
@@ -404,8 +388,6 @@ public final class ARBVertexBlend {
 	@JavadocExclude
 	public static void nglWeightPointerARB(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().WeightPointerARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglWeightPointerARB(size, type, stride, pointer, __functionAddress);
 	}
 
@@ -450,8 +432,6 @@ public final class ARBVertexBlend {
 	 */
 	public static void glVertexBlendARB(int count) {
 		long __functionAddress = getInstance().VertexBlendARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexBlendARB(count, __functionAddress);
 	}
 

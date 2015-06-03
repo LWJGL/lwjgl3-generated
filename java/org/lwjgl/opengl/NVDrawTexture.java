@@ -37,7 +37,7 @@ public final class NVDrawTexture {
 
 	/** Returns the {@link NVDrawTexture} instance for the current context. */
 	public static NVDrawTexture getInstance() {
-		return GL.getCapabilities().__NVDrawTexture;
+		return checkFunctionality(GL.getCapabilities().__NVDrawTexture);
 	}
 
 	static NVDrawTexture create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -75,8 +75,6 @@ public final class NVDrawTexture {
 	 */
 	public static void glDrawTextureNV(int texture, int sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1) {
 		long __functionAddress = getInstance().DrawTextureNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawTextureNV(texture, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1, __functionAddress);
 	}
 

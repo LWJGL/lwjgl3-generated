@@ -140,7 +140,7 @@ public final class ARBShaderImageLoadStore {
 
 	/** Returns the {@link ARBShaderImageLoadStore} instance for the current context. */
 	public static ARBShaderImageLoadStore getInstance() {
-		return GL.getCapabilities().__ARBShaderImageLoadStore;
+		return checkFunctionality(GL.getCapabilities().__ARBShaderImageLoadStore);
 	}
 
 	static ARBShaderImageLoadStore create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -170,8 +170,6 @@ public final class ARBShaderImageLoadStore {
 	 */
 	public static void glBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format) {
 		long __functionAddress = getInstance().BindImageTexture;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL42.nglBindImageTexture(unit, texture, level, layered, layer, access, format, __functionAddress);
 	}
 
@@ -184,8 +182,6 @@ public final class ARBShaderImageLoadStore {
 	 */
 	public static void glMemoryBarrier(int barriers) {
 		long __functionAddress = getInstance().MemoryBarrier;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL42.nglMemoryBarrier(barriers, __functionAddress);
 	}
 

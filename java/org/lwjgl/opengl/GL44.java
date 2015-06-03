@@ -115,7 +115,7 @@ public final class GL44 {
 
 	/** Returns the {@link GL44} instance for the current context. */
 	public static GL44 getInstance() {
-		return GL.getCapabilities().__GL44;
+		return checkFunctionality(GL.getCapabilities().__GL44);
 	}
 
 	static GL44 create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -141,8 +141,6 @@ public final class GL44 {
 	@JavadocExclude
 	public static void nglBufferStorage(int target, long size, long data, int flags) {
 		long __functionAddress = getInstance().BufferStorage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBufferStorage(target, size, data, flags, __functionAddress);
 	}
 
@@ -242,8 +240,6 @@ public final class GL44 {
 	@JavadocExclude
 	public static void nglClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearTexSubImage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data, __functionAddress);
 	}
 
@@ -311,8 +307,6 @@ public final class GL44 {
 	@JavadocExclude
 	public static void nglClearTexImage(int texture, int level, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearTexImage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClearTexImage(texture, level, format, type, data, __functionAddress);
 	}
 
@@ -365,8 +359,6 @@ public final class GL44 {
 	@JavadocExclude
 	public static void nglBindBuffersBase(int target, int first, int count, long buffers) {
 		long __functionAddress = getInstance().BindBuffersBase;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindBuffersBase(target, first, count, buffers, __functionAddress);
 	}
 
@@ -412,8 +404,6 @@ public final class GL44 {
 	@JavadocExclude
 	public static void nglBindBuffersRange(int target, int first, int count, long buffers, long offsets, long sizes) {
 		long __functionAddress = getInstance().BindBuffersRange;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindBuffersRange(target, first, count, buffers, offsets, sizes, __functionAddress);
 	}
 
@@ -474,8 +464,6 @@ public final class GL44 {
 	@JavadocExclude
 	public static void nglBindTextures(int first, int count, long textures) {
 		long __functionAddress = getInstance().BindTextures;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindTextures(first, count, textures, __functionAddress);
 	}
 
@@ -540,8 +528,6 @@ public final class GL44 {
 	@JavadocExclude
 	public static void nglBindSamplers(int first, int count, long samplers) {
 		long __functionAddress = getInstance().BindSamplers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindSamplers(first, count, samplers, __functionAddress);
 	}
 
@@ -590,8 +576,6 @@ public final class GL44 {
 	@JavadocExclude
 	public static void nglBindImageTextures(int first, int count, long textures) {
 		long __functionAddress = getInstance().BindImageTextures;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindImageTextures(first, count, textures, __functionAddress);
 	}
 
@@ -651,8 +635,6 @@ public final class GL44 {
 	@JavadocExclude
 	public static void nglBindVertexBuffers(int first, int count, long buffers, long offsets, long strides) {
 		long __functionAddress = getInstance().BindVertexBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindVertexBuffers(first, count, buffers, offsets, strides, __functionAddress);
 	}
 

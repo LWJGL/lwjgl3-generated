@@ -91,7 +91,7 @@ public final class EXTTextureArray {
 
 	/** Returns the {@link EXTTextureArray} instance for the current context. */
 	public static EXTTextureArray getInstance() {
-		return GL.getCapabilities().__EXTTextureArray;
+		return checkFunctionality(GL.getCapabilities().__EXTTextureArray);
 	}
 
 	static EXTTextureArray create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -123,8 +123,6 @@ public final class EXTTextureArray {
 	 */
 	public static void glFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer) {
 		long __functionAddress = getInstance().FramebufferTextureLayerEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFramebufferTextureLayerEXT(target, attachment, texture, level, layer, __functionAddress);
 	}
 

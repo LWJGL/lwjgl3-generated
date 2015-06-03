@@ -369,7 +369,7 @@ public final class GL20 {
 
 	/** Returns the {@link GL20} instance for the current context. */
 	public static GL20 getInstance() {
-		return GL.getCapabilities().__GL20;
+		return checkFunctionality(GL.getCapabilities().__GL20);
 	}
 
 	static GL20 create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -412,8 +412,6 @@ Creates a program object.
 	 */
 	public static int glCreateProgram() {
 		long __functionAddress = getInstance().CreateProgram;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglCreateProgram(__functionAddress);
 	}
 
@@ -432,8 +430,6 @@ Creates a program object.
 	 */
 	public static void glDeleteProgram(int program) {
 		long __functionAddress = getInstance().DeleteProgram;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDeleteProgram(program, __functionAddress);
 	}
 
@@ -453,8 +449,6 @@ Creates a program object.
 	 */
 	public static boolean glIsProgram(int program) {
 		long __functionAddress = getInstance().IsProgram;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsProgram(program, __functionAddress);
 	}
 
@@ -473,8 +467,6 @@ Creates a program object.
 	 */
 	public static int glCreateShader(int type) {
 		long __functionAddress = getInstance().CreateShader;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglCreateShader(type, __functionAddress);
 	}
 
@@ -493,8 +485,6 @@ Creates a program object.
 	 */
 	public static void glDeleteShader(int shader) {
 		long __functionAddress = getInstance().DeleteShader;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDeleteShader(shader, __functionAddress);
 	}
 
@@ -514,8 +504,6 @@ Creates a program object.
 	 */
 	public static boolean glIsShader(int shader) {
 		long __functionAddress = getInstance().IsShader;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsShader(shader, __functionAddress);
 	}
 
@@ -546,8 +534,6 @@ Creates a program object.
 	 */
 	public static void glAttachShader(int program, int shader) {
 		long __functionAddress = getInstance().AttachShader;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglAttachShader(program, shader, __functionAddress);
 	}
 
@@ -567,8 +553,6 @@ Creates a program object.
 	 */
 	public static void glDetachShader(int program, int shader) {
 		long __functionAddress = getInstance().DetachShader;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDetachShader(program, shader, __functionAddress);
 	}
 
@@ -582,8 +566,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglShaderSource(int shader, int count, long strings, long length) {
 		long __functionAddress = getInstance().ShaderSource;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglShaderSource(shader, count, strings, length, __functionAddress);
 	}
 
@@ -654,8 +636,6 @@ Creates a program object.
 	 */
 	public static void glCompileShader(int shader) {
 		long __functionAddress = getInstance().CompileShader;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCompileShader(shader, __functionAddress);
 	}
 
@@ -674,8 +654,6 @@ Creates a program object.
 	 */
 	public static void glLinkProgram(int program) {
 		long __functionAddress = getInstance().LinkProgram;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglLinkProgram(program, __functionAddress);
 	}
 
@@ -694,8 +672,6 @@ Creates a program object.
 	 */
 	public static void glUseProgram(int program) {
 		long __functionAddress = getInstance().UseProgram;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUseProgram(program, __functionAddress);
 	}
 
@@ -714,8 +690,6 @@ Creates a program object.
 	 */
 	public static void glValidateProgram(int program) {
 		long __functionAddress = getInstance().ValidateProgram;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglValidateProgram(program, __functionAddress);
 	}
 
@@ -735,8 +709,6 @@ Creates a program object.
 	 */
 	public static void glUniform1f(int location, float v0) {
 		long __functionAddress = getInstance().Uniform1f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform1f(location, v0, __functionAddress);
 	}
 
@@ -757,8 +729,6 @@ Creates a program object.
 	 */
 	public static void glUniform2f(int location, float v0, float v1) {
 		long __functionAddress = getInstance().Uniform2f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform2f(location, v0, v1, __functionAddress);
 	}
 
@@ -780,8 +750,6 @@ Creates a program object.
 	 */
 	public static void glUniform3f(int location, float v0, float v1, float v2) {
 		long __functionAddress = getInstance().Uniform3f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform3f(location, v0, v1, v2, __functionAddress);
 	}
 
@@ -804,8 +772,6 @@ Creates a program object.
 	 */
 	public static void glUniform4f(int location, float v0, float v1, float v2, float v3) {
 		long __functionAddress = getInstance().Uniform4f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform4f(location, v0, v1, v2, v3, __functionAddress);
 	}
 
@@ -825,8 +791,6 @@ Creates a program object.
 	 */
 	public static void glUniform1i(int location, int v0) {
 		long __functionAddress = getInstance().Uniform1i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform1i(location, v0, __functionAddress);
 	}
 
@@ -847,8 +811,6 @@ Creates a program object.
 	 */
 	public static void glUniform2i(int location, int v0, int v1) {
 		long __functionAddress = getInstance().Uniform2i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform2i(location, v0, v1, __functionAddress);
 	}
 
@@ -870,8 +832,6 @@ Creates a program object.
 	 */
 	public static void glUniform3i(int location, int v0, int v1, int v2) {
 		long __functionAddress = getInstance().Uniform3i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform3i(location, v0, v1, v2, __functionAddress);
 	}
 
@@ -894,8 +854,6 @@ Creates a program object.
 	 */
 	public static void glUniform4i(int location, int v0, int v1, int v2, int v3) {
 		long __functionAddress = getInstance().Uniform4i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform4i(location, v0, v1, v2, v3, __functionAddress);
 	}
 
@@ -909,8 +867,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglUniform1fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform1fv(location, count, value, __functionAddress);
 	}
 
@@ -944,8 +900,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglUniform2fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform2fv(location, count, value, __functionAddress);
 	}
 
@@ -979,8 +933,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglUniform3fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform3fv(location, count, value, __functionAddress);
 	}
 
@@ -1014,8 +966,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglUniform4fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform4fv(location, count, value, __functionAddress);
 	}
 
@@ -1049,8 +999,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglUniform1iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform1iv(location, count, value, __functionAddress);
 	}
 
@@ -1084,8 +1032,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglUniform2iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform2iv(location, count, value, __functionAddress);
 	}
 
@@ -1119,8 +1065,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglUniform3iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform3iv(location, count, value, __functionAddress);
 	}
 
@@ -1154,8 +1098,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglUniform4iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform4iv(location, count, value, __functionAddress);
 	}
 
@@ -1189,8 +1131,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglUniformMatrix2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix2fv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -1225,8 +1165,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglUniformMatrix3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix3fv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -1261,8 +1199,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglUniformMatrix4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix4fv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -1297,8 +1233,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetShaderiv(int shader, int pname, long params) {
 		long __functionAddress = getInstance().GetShaderiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetShaderiv(shader, pname, params, __functionAddress);
 	}
 
@@ -1342,8 +1276,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetProgramiv(int program, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetProgramiv(program, pname, params, __functionAddress);
 	}
 
@@ -1387,8 +1319,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetShaderInfoLog(int shader, int maxLength, long length, long infoLog) {
 		long __functionAddress = getInstance().GetShaderInfoLog;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetShaderInfoLog(shader, maxLength, length, infoLog, __functionAddress);
 	}
 
@@ -1446,8 +1376,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetProgramInfoLog(int program, int maxLength, long length, long infoLog) {
 		long __functionAddress = getInstance().GetProgramInfoLog;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetProgramInfoLog(program, maxLength, length, infoLog, __functionAddress);
 	}
 
@@ -1505,8 +1433,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetAttachedShaders(int program, int maxCount, long count, long shaders) {
 		long __functionAddress = getInstance().GetAttachedShaders;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetAttachedShaders(program, maxCount, count, shaders, __functionAddress);
 	}
 
@@ -1564,8 +1490,6 @@ Creates a program object.
 	@JavadocExclude
 	public static int nglGetUniformLocation(int program, long name) {
 		long __functionAddress = getInstance().GetUniformLocation;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGetUniformLocation(program, name, __functionAddress);
 	}
 
@@ -1600,8 +1524,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetActiveUniform(int program, int index, int maxLength, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetActiveUniform;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetActiveUniform(program, index, maxLength, length, size, type, name, __functionAddress);
 	}
 
@@ -1675,8 +1597,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetUniformfv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetUniformfv(program, location, params, __functionAddress);
 	}
 
@@ -1720,8 +1640,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetUniformiv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetUniformiv(program, location, params, __functionAddress);
 	}
 
@@ -1765,8 +1683,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetShaderSource(int shader, int maxLength, long length, long source) {
 		long __functionAddress = getInstance().GetShaderSource;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetShaderSource(shader, maxLength, length, source, __functionAddress);
 	}
 
@@ -1830,8 +1746,6 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib1f(int index, float v0) {
 		long __functionAddress = getInstance().VertexAttrib1f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib1f(index, v0, __functionAddress);
 	}
 
@@ -1851,8 +1765,6 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib1s(int index, short v0) {
 		long __functionAddress = getInstance().VertexAttrib1s;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib1s(index, v0, __functionAddress);
 	}
 
@@ -1872,8 +1784,6 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib1d(int index, double v0) {
 		long __functionAddress = getInstance().VertexAttrib1d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib1d(index, v0, __functionAddress);
 	}
 
@@ -1894,8 +1804,6 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib2f(int index, float v0, float v1) {
 		long __functionAddress = getInstance().VertexAttrib2f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib2f(index, v0, v1, __functionAddress);
 	}
 
@@ -1916,8 +1824,6 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib2s(int index, short v0, short v1) {
 		long __functionAddress = getInstance().VertexAttrib2s;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib2s(index, v0, v1, __functionAddress);
 	}
 
@@ -1938,8 +1844,6 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib2d(int index, double v0, double v1) {
 		long __functionAddress = getInstance().VertexAttrib2d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib2d(index, v0, v1, __functionAddress);
 	}
 
@@ -1961,8 +1865,6 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib3f(int index, float v0, float v1, float v2) {
 		long __functionAddress = getInstance().VertexAttrib3f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib3f(index, v0, v1, v2, __functionAddress);
 	}
 
@@ -1984,8 +1886,6 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib3s(int index, short v0, short v1, short v2) {
 		long __functionAddress = getInstance().VertexAttrib3s;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib3s(index, v0, v1, v2, __functionAddress);
 	}
 
@@ -2007,8 +1907,6 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib3d(int index, double v0, double v1, double v2) {
 		long __functionAddress = getInstance().VertexAttrib3d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib3d(index, v0, v1, v2, __functionAddress);
 	}
 
@@ -2031,8 +1929,6 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib4f(int index, float v0, float v1, float v2, float v3) {
 		long __functionAddress = getInstance().VertexAttrib4f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib4f(index, v0, v1, v2, v3, __functionAddress);
 	}
 
@@ -2055,8 +1951,6 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib4s(int index, short v0, short v1, short v2, short v3) {
 		long __functionAddress = getInstance().VertexAttrib4s;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib4s(index, v0, v1, v2, v3, __functionAddress);
 	}
 
@@ -2079,8 +1973,6 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib4d(int index, double v0, double v1, double v2, double v3) {
 		long __functionAddress = getInstance().VertexAttrib4d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib4d(index, v0, v1, v2, v3, __functionAddress);
 	}
 
@@ -2103,8 +1995,6 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib4Nub(int index, byte x, byte y, byte z, byte w) {
 		long __functionAddress = getInstance().VertexAttrib4Nub;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib4Nub(index, x, y, z, w, __functionAddress);
 	}
 
@@ -2118,8 +2008,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib1fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib1fv(index, v, __functionAddress);
 	}
 
@@ -2154,8 +2042,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib1sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1sv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib1sv(index, v, __functionAddress);
 	}
 
@@ -2190,8 +2076,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib1dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib1dv(index, v, __functionAddress);
 	}
 
@@ -2226,8 +2110,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib2fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib2fv(index, v, __functionAddress);
 	}
 
@@ -2262,8 +2144,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib2sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2sv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib2sv(index, v, __functionAddress);
 	}
 
@@ -2298,8 +2178,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib2dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib2dv(index, v, __functionAddress);
 	}
 
@@ -2334,8 +2212,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib3fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib3fv(index, v, __functionAddress);
 	}
 
@@ -2370,8 +2246,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib3sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3sv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib3sv(index, v, __functionAddress);
 	}
 
@@ -2406,8 +2280,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib3dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib3dv(index, v, __functionAddress);
 	}
 
@@ -2442,8 +2314,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib4fv(index, v, __functionAddress);
 	}
 
@@ -2478,8 +2348,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4sv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib4sv(index, v, __functionAddress);
 	}
 
@@ -2514,8 +2382,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib4dv(index, v, __functionAddress);
 	}
 
@@ -2550,8 +2416,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4iv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib4iv(index, v, __functionAddress);
 	}
 
@@ -2586,8 +2450,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4bv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4bv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib4bv(index, v, __functionAddress);
 	}
 
@@ -2615,8 +2477,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4ubv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4ubv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib4ubv(index, v, __functionAddress);
 	}
 
@@ -2644,8 +2504,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4usv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4usv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib4usv(index, v, __functionAddress);
 	}
 
@@ -2680,8 +2538,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4uiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib4uiv(index, v, __functionAddress);
 	}
 
@@ -2716,8 +2572,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4Nbv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nbv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib4Nbv(index, v, __functionAddress);
 	}
 
@@ -2745,8 +2599,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4Nsv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nsv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib4Nsv(index, v, __functionAddress);
 	}
 
@@ -2781,8 +2633,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4Niv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Niv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib4Niv(index, v, __functionAddress);
 	}
 
@@ -2817,8 +2667,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4Nubv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nubv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib4Nubv(index, v, __functionAddress);
 	}
 
@@ -2846,8 +2694,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4Nusv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nusv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib4Nusv(index, v, __functionAddress);
 	}
 
@@ -2882,8 +2728,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4Nuiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttrib4Nuiv(index, v, __functionAddress);
 	}
 
@@ -2918,8 +2762,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexAttribPointer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribPointer(index, size, type, normalized, stride, pointer, __functionAddress);
 	}
 
@@ -3000,8 +2842,6 @@ Creates a program object.
 	 */
 	public static void glEnableVertexAttribArray(int index) {
 		long __functionAddress = getInstance().EnableVertexAttribArray;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEnableVertexAttribArray(index, __functionAddress);
 	}
 
@@ -3020,8 +2860,6 @@ Creates a program object.
 	 */
 	public static void glDisableVertexAttribArray(int index) {
 		long __functionAddress = getInstance().DisableVertexAttribArray;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDisableVertexAttribArray(index, __functionAddress);
 	}
 
@@ -3035,8 +2873,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglBindAttribLocation(int program, int index, long name) {
 		long __functionAddress = getInstance().BindAttribLocation;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindAttribLocation(program, index, name, __functionAddress);
 	}
 
@@ -3072,8 +2908,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetActiveAttrib(int program, int index, int maxLength, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetActiveAttrib;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetActiveAttrib(program, index, maxLength, length, size, type, name, __functionAddress);
 	}
 
@@ -3130,8 +2964,6 @@ Creates a program object.
 	@JavadocExclude
 	public static int nglGetAttribLocation(int program, long name) {
 		long __functionAddress = getInstance().GetAttribLocation;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGetAttribLocation(program, name, __functionAddress);
 	}
 
@@ -3166,8 +2998,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetVertexAttribiv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetVertexAttribiv(index, pname, params, __functionAddress);
 	}
 
@@ -3211,8 +3041,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetVertexAttribfv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetVertexAttribfv(index, pname, params, __functionAddress);
 	}
 
@@ -3248,8 +3076,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetVertexAttribdv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribdv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetVertexAttribdv(index, pname, params, __functionAddress);
 	}
 
@@ -3285,8 +3111,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetVertexAttribPointerv(int index, int pname, long pointer) {
 		long __functionAddress = getInstance().GetVertexAttribPointerv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetVertexAttribPointerv(index, pname, pointer, __functionAddress);
 	}
 
@@ -3330,8 +3154,6 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglDrawBuffers(int n, long bufs) {
 		long __functionAddress = getInstance().DrawBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawBuffers(n, bufs, __functionAddress);
 	}
 
@@ -3377,8 +3199,6 @@ Creates a program object.
 	 */
 	public static void glBlendEquationSeparate(int modeRGB, int modeAlpha) {
 		long __functionAddress = getInstance().BlendEquationSeparate;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBlendEquationSeparate(modeRGB, modeAlpha, __functionAddress);
 	}
 
@@ -3401,8 +3221,6 @@ Creates a program object.
 	 */
 	public static void glStencilOpSeparate(int face, int sfail, int dpfail, int dppass) {
 		long __functionAddress = getInstance().StencilOpSeparate;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglStencilOpSeparate(face, sfail, dpfail, dppass, __functionAddress);
 	}
 
@@ -3425,8 +3243,6 @@ Creates a program object.
 	 */
 	public static void glStencilFuncSeparate(int face, int func, int ref, int mask) {
 		long __functionAddress = getInstance().StencilFuncSeparate;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglStencilFuncSeparate(face, func, ref, mask, __functionAddress);
 	}
 
@@ -3446,8 +3262,6 @@ Creates a program object.
 	 */
 	public static void glStencilMaskSeparate(int face, int mask) {
 		long __functionAddress = getInstance().StencilMaskSeparate;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglStencilMaskSeparate(face, mask, __functionAddress);
 	}
 

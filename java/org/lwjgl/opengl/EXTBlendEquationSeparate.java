@@ -45,7 +45,7 @@ public final class EXTBlendEquationSeparate {
 
 	/** Returns the {@link EXTBlendEquationSeparate} instance for the current context. */
 	public static EXTBlendEquationSeparate getInstance() {
-		return GL.getCapabilities().__EXTBlendEquationSeparate;
+		return checkFunctionality(GL.getCapabilities().__EXTBlendEquationSeparate);
 	}
 
 	static EXTBlendEquationSeparate create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -74,8 +74,6 @@ public final class EXTBlendEquationSeparate {
 	 */
 	public static void glBlendEquationSeparateEXT(int modeRGB, int modeAlpha) {
 		long __functionAddress = getInstance().BlendEquationSeparateEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBlendEquationSeparateEXT(modeRGB, modeAlpha, __functionAddress);
 	}
 

@@ -83,7 +83,7 @@ public final class ARBDrawElementsBaseVertex {
 
 	/** Returns the {@link ARBDrawElementsBaseVertex} instance for the current context. */
 	public static ARBDrawElementsBaseVertex getInstance() {
-		return GL.getCapabilities().__ARBDrawElementsBaseVertex;
+		return checkFunctionality(GL.getCapabilities().__ARBDrawElementsBaseVertex);
 	}
 
 	static ARBDrawElementsBaseVertex create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -104,8 +104,6 @@ public final class ARBDrawElementsBaseVertex {
 	@JavadocExclude
 	public static void nglDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex) {
 		long __functionAddress = getInstance().DrawElementsBaseVertex;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL32.nglDrawElementsBaseVertex(mode, count, type, indices, basevertex, __functionAddress);
 	}
 
@@ -167,8 +165,6 @@ public final class ARBDrawElementsBaseVertex {
 	@JavadocExclude
 	public static void nglDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex) {
 		long __functionAddress = getInstance().DrawRangeElementsBaseVertex;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL32.nglDrawRangeElementsBaseVertex(mode, start, end, count, type, indices, basevertex, __functionAddress);
 	}
 
@@ -232,8 +228,6 @@ public final class ARBDrawElementsBaseVertex {
 	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int primcount, int basevertex) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseVertex;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL32.nglDrawElementsInstancedBaseVertex(mode, count, type, indices, primcount, basevertex, __functionAddress);
 	}
 
@@ -296,8 +290,6 @@ public final class ARBDrawElementsBaseVertex {
 	@JavadocExclude
 	public static void nglMultiDrawElementsBaseVertex(int mode, long count, int type, long indices, int primcount, long basevertex) {
 		long __functionAddress = getInstance().MultiDrawElementsBaseVertex;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL32.nglMultiDrawElementsBaseVertex(mode, count, type, indices, primcount, basevertex, __functionAddress);
 	}
 

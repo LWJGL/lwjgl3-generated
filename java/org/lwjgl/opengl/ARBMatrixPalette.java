@@ -76,7 +76,7 @@ public final class ARBMatrixPalette {
 
 	/** Returns the {@link ARBMatrixPalette} instance for the current context. */
 	public static ARBMatrixPalette getInstance() {
-		return GL.getCapabilities().__ARBMatrixPalette;
+		return checkFunctionality(GL.getCapabilities().__ARBMatrixPalette);
 	}
 
 	static ARBMatrixPalette create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -104,8 +104,6 @@ public final class ARBMatrixPalette {
 	 */
 	public static void glCurrentPaletteMatrixARB(int index) {
 		long __functionAddress = getInstance().CurrentPaletteMatrixARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCurrentPaletteMatrixARB(index, __functionAddress);
 	}
 
@@ -119,8 +117,6 @@ public final class ARBMatrixPalette {
 	@JavadocExclude
 	public static void nglMatrixIndexuivARB(int size, long indices) {
 		long __functionAddress = getInstance().MatrixIndexuivARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMatrixIndexuivARB(size, indices, __functionAddress);
 	}
 
@@ -151,8 +147,6 @@ public final class ARBMatrixPalette {
 	@JavadocExclude
 	public static void nglMatrixIndexubvARB(int size, long indices) {
 		long __functionAddress = getInstance().MatrixIndexubvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMatrixIndexubvARB(size, indices, __functionAddress);
 	}
 
@@ -183,8 +177,6 @@ public final class ARBMatrixPalette {
 	@JavadocExclude
 	public static void nglMatrixIndexusvARB(int size, long indices) {
 		long __functionAddress = getInstance().MatrixIndexusvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMatrixIndexusvARB(size, indices, __functionAddress);
 	}
 
@@ -215,8 +207,6 @@ public final class ARBMatrixPalette {
 	@JavadocExclude
 	public static void nglMatrixIndexPointerARB(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().MatrixIndexPointerARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMatrixIndexPointerARB(size, type, stride, pointer, __functionAddress);
 	}
 

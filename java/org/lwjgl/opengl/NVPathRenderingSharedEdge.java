@@ -58,7 +58,7 @@ public final class NVPathRenderingSharedEdge {
 
 	/** Returns the {@link NVPathRenderingSharedEdge} instance for the current context. */
 	public static NVPathRenderingSharedEdge getInstance() {
-		return GL.getCapabilities().__NVPathRenderingSharedEdge;
+		return checkFunctionality(GL.getCapabilities().__NVPathRenderingSharedEdge);
 	}
 
 	static NVPathRenderingSharedEdge create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -87,8 +87,6 @@ public final class NVPathRenderingSharedEdge {
 	 */
 	public static void glPointParameteriNV(int pname, int param) {
 		long __functionAddress = getInstance().PointParameteriNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPointParameteriNV(pname, param, __functionAddress);
 	}
 
@@ -102,8 +100,6 @@ public final class NVPathRenderingSharedEdge {
 	@JavadocExclude
 	public static void nglPointParameterivNV(int pname, long params) {
 		long __functionAddress = getInstance().PointParameterivNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPointParameterivNV(pname, params, __functionAddress);
 	}
 

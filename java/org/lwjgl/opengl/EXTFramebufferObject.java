@@ -187,7 +187,7 @@ public final class EXTFramebufferObject {
 
 	/** Returns the {@link EXTFramebufferObject} instance for the current context. */
 	public static EXTFramebufferObject getInstance() {
-		return GL.getCapabilities().__EXTFramebufferObject;
+		return checkFunctionality(GL.getCapabilities().__EXTFramebufferObject);
 	}
 
 	static EXTFramebufferObject create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -218,8 +218,6 @@ public final class EXTFramebufferObject {
 	 */
 	public static boolean glIsRenderbufferEXT(int renderbuffer) {
 		long __functionAddress = getInstance().IsRenderbufferEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsRenderbufferEXT(renderbuffer, __functionAddress);
 	}
 
@@ -237,8 +235,6 @@ public final class EXTFramebufferObject {
 	 */
 	public static void glBindRenderbufferEXT(int target, int renderbuffer) {
 		long __functionAddress = getInstance().BindRenderbufferEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindRenderbufferEXT(target, renderbuffer, __functionAddress);
 	}
 
@@ -252,8 +248,6 @@ public final class EXTFramebufferObject {
 	@JavadocExclude
 	public static void nglDeleteRenderbuffersEXT(int n, long renderbuffers) {
 		long __functionAddress = getInstance().DeleteRenderbuffersEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDeleteRenderbuffersEXT(n, renderbuffers, __functionAddress);
 	}
 
@@ -291,8 +285,6 @@ public final class EXTFramebufferObject {
 	@JavadocExclude
 	public static void nglGenRenderbuffersEXT(int n, long renderbuffers) {
 		long __functionAddress = getInstance().GenRenderbuffersEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGenRenderbuffersEXT(n, renderbuffers, __functionAddress);
 	}
 
@@ -337,8 +329,6 @@ public final class EXTFramebufferObject {
 	 */
 	public static void glRenderbufferStorageEXT(int target, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRenderbufferStorageEXT(target, internalformat, width, height, __functionAddress);
 	}
 
@@ -352,8 +342,6 @@ public final class EXTFramebufferObject {
 	@JavadocExclude
 	public static void nglGetRenderbufferParameterivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetRenderbufferParameterivEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetRenderbufferParameterivEXT(target, pname, params, __functionAddress);
 	}
 
@@ -398,8 +386,6 @@ public final class EXTFramebufferObject {
 	 */
 	public static boolean glIsFramebufferEXT(int framebuffer) {
 		long __functionAddress = getInstance().IsFramebufferEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsFramebufferEXT(framebuffer, __functionAddress);
 	}
 
@@ -417,8 +403,6 @@ public final class EXTFramebufferObject {
 	 */
 	public static void glBindFramebufferEXT(int target, int framebuffer) {
 		long __functionAddress = getInstance().BindFramebufferEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindFramebufferEXT(target, framebuffer, __functionAddress);
 	}
 
@@ -432,8 +416,6 @@ public final class EXTFramebufferObject {
 	@JavadocExclude
 	public static void nglDeleteFramebuffersEXT(int n, long framebuffers) {
 		long __functionAddress = getInstance().DeleteFramebuffersEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDeleteFramebuffersEXT(n, framebuffers, __functionAddress);
 	}
 
@@ -471,8 +453,6 @@ public final class EXTFramebufferObject {
 	@JavadocExclude
 	public static void nglGenFramebuffersEXT(int n, long framebuffers) {
 		long __functionAddress = getInstance().GenFramebuffersEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGenFramebuffersEXT(n, framebuffers, __functionAddress);
 	}
 
@@ -514,8 +494,6 @@ public final class EXTFramebufferObject {
 	 */
 	public static int glCheckFramebufferStatusEXT(int target) {
 		long __functionAddress = getInstance().CheckFramebufferStatusEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglCheckFramebufferStatusEXT(target, __functionAddress);
 	}
 
@@ -536,8 +514,6 @@ public final class EXTFramebufferObject {
 	 */
 	public static void glFramebufferTexture1DEXT(int target, int attachment, int textarget, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTexture1DEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFramebufferTexture1DEXT(target, attachment, textarget, texture, level, __functionAddress);
 	}
 
@@ -558,8 +534,6 @@ public final class EXTFramebufferObject {
 	 */
 	public static void glFramebufferTexture2DEXT(int target, int attachment, int textarget, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTexture2DEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFramebufferTexture2DEXT(target, attachment, textarget, texture, level, __functionAddress);
 	}
 
@@ -581,8 +555,6 @@ public final class EXTFramebufferObject {
 	 */
 	public static void glFramebufferTexture3DEXT(int target, int attachment, int textarget, int texture, int level, int zoffset) {
 		long __functionAddress = getInstance().FramebufferTexture3DEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFramebufferTexture3DEXT(target, attachment, textarget, texture, level, zoffset, __functionAddress);
 	}
 
@@ -602,8 +574,6 @@ public final class EXTFramebufferObject {
 	 */
 	public static void glFramebufferRenderbufferEXT(int target, int attachment, int renderbuffertarget, int renderbuffer) {
 		long __functionAddress = getInstance().FramebufferRenderbufferEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFramebufferRenderbufferEXT(target, attachment, renderbuffertarget, renderbuffer, __functionAddress);
 	}
 
@@ -617,8 +587,6 @@ public final class EXTFramebufferObject {
 	@JavadocExclude
 	public static void nglGetFramebufferAttachmentParameterivEXT(int target, int attachment, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferAttachmentParameterivEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetFramebufferAttachmentParameterivEXT(target, attachment, pname, params, __functionAddress);
 	}
 
@@ -664,8 +632,6 @@ public final class EXTFramebufferObject {
 	 */
 	public static void glGenerateMipmapEXT(int target) {
 		long __functionAddress = getInstance().GenerateMipmapEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGenerateMipmapEXT(target, __functionAddress);
 	}
 

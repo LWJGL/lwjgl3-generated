@@ -63,7 +63,7 @@ public final class ARBBufferStorage {
 
 	/** Returns the {@link ARBBufferStorage} instance for the current context. */
 	public static ARBBufferStorage getInstance() {
-		return GL.getCapabilities().__ARBBufferStorage;
+		return checkFunctionality(GL.getCapabilities().__ARBBufferStorage);
 	}
 
 	static ARBBufferStorage create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -84,8 +84,6 @@ public final class ARBBufferStorage {
 	@JavadocExclude
 	public static void nglBufferStorage(int target, long size, long data, int flags) {
 		long __functionAddress = getInstance().BufferStorage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL44.nglBufferStorage(target, size, data, flags, __functionAddress);
 	}
 

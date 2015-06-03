@@ -76,7 +76,7 @@ public final class AL11 {
 
 	/** Returns the {@link AL11} instance for the current context. */
 	public static AL11 getInstance() {
-		return AL.getCapabilities().__AL11;
+		return checkFunctionality(AL.getCapabilities().__AL11);
 	}
 
 	static AL11 create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -108,8 +108,6 @@ public final class AL11 {
 	 */
 	public static void alListener3i(int paramName, float value1, float value2, float value3) {
 		long __functionAddress = getInstance().Listener3i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalListener3i(paramName, value1, value2, value3, __functionAddress);
 	}
 
@@ -123,8 +121,6 @@ public final class AL11 {
 	@JavadocExclude
 	public static void nalGetListeneriv(int param, long values) {
 		long __functionAddress = getInstance().GetListeneriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetListeneriv(param, values, __functionAddress);
 	}
 
@@ -164,8 +160,6 @@ public final class AL11 {
 	 */
 	public static void alSource3i(int source, int paramName, int value1, int value2, int value3) {
 		long __functionAddress = getInstance().Source3i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSource3i(source, paramName, value1, value2, value3, __functionAddress);
 	}
 
@@ -179,8 +173,6 @@ public final class AL11 {
 	@JavadocExclude
 	public static void nalListeneriv(int listener, long value) {
 		long __functionAddress = getInstance().Listeneriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalListeneriv(listener, value, __functionAddress);
 	}
 
@@ -213,8 +205,6 @@ public final class AL11 {
 	@JavadocExclude
 	public static void nalSourceiv(int source, int paramName, long value) {
 		long __functionAddress = getInstance().Sourceiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSourceiv(source, paramName, value, __functionAddress);
 	}
 
@@ -253,8 +243,6 @@ public final class AL11 {
 	 */
 	public static void alBufferf(int buffer, int paramName, float value) {
 		long __functionAddress = getInstance().Bufferf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalBufferf(buffer, paramName, value, __functionAddress);
 	}
 
@@ -275,8 +263,6 @@ public final class AL11 {
 	 */
 	public static void alBuffer3f(int buffer, int paramName, float value1, float value2, float value3) {
 		long __functionAddress = getInstance().Buffer3f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalBuffer3f(buffer, paramName, value1, value2, value3, __functionAddress);
 	}
 
@@ -290,8 +276,6 @@ public final class AL11 {
 	@JavadocExclude
 	public static void nalBufferfv(int buffer, int paramName, long value) {
 		long __functionAddress = getInstance().Bufferfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalBufferfv(buffer, paramName, value, __functionAddress);
 	}
 
@@ -330,8 +314,6 @@ public final class AL11 {
 	 */
 	public static void alBufferi(int buffer, int paramName, int value) {
 		long __functionAddress = getInstance().Bufferi;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalBufferi(buffer, paramName, value, __functionAddress);
 	}
 
@@ -352,8 +334,6 @@ public final class AL11 {
 	 */
 	public static void alBuffer3i(int buffer, int paramName, int value1, int value2, int value3) {
 		long __functionAddress = getInstance().Buffer3i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalBuffer3i(buffer, paramName, value1, value2, value3, __functionAddress);
 	}
 
@@ -367,8 +347,6 @@ public final class AL11 {
 	@JavadocExclude
 	public static void nalBufferiv(int buffer, int paramName, long value) {
 		long __functionAddress = getInstance().Bufferiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalBufferiv(buffer, paramName, value, __functionAddress);
 	}
 
@@ -402,8 +380,6 @@ public final class AL11 {
 	@JavadocExclude
 	public static void nalGetBufferi(int buffer, int param, long value) {
 		long __functionAddress = getInstance().GetBufferi;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetBufferi(buffer, param, value, __functionAddress);
 	}
 
@@ -445,8 +421,6 @@ public final class AL11 {
 	@JavadocExclude
 	public static void nalGetBufferiv(int buffer, int param, long values) {
 		long __functionAddress = getInstance().GetBufferiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetBufferiv(buffer, param, values, __functionAddress);
 	}
 
@@ -480,8 +454,6 @@ public final class AL11 {
 	@JavadocExclude
 	public static void nalGetBufferf(int buffer, int param, long value) {
 		long __functionAddress = getInstance().GetBufferf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetBufferf(buffer, param, value, __functionAddress);
 	}
 
@@ -523,8 +495,6 @@ public final class AL11 {
 	@JavadocExclude
 	public static void nalGetBufferfv(int buffer, int param, long values) {
 		long __functionAddress = getInstance().GetBufferfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetBufferfv(buffer, param, values, __functionAddress);
 	}
 
@@ -561,8 +531,6 @@ public final class AL11 {
 	 */
 	public static void alSpeedOfSound(float value) {
 		long __functionAddress = getInstance().SpeedOfSound;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSpeedOfSound(value, __functionAddress);
 	}
 

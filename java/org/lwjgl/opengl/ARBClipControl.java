@@ -48,7 +48,7 @@ public final class ARBClipControl {
 
 	/** Returns the {@link ARBClipControl} instance for the current context. */
 	public static ARBClipControl getInstance() {
-		return GL.getCapabilities().__ARBClipControl;
+		return checkFunctionality(GL.getCapabilities().__ARBClipControl);
 	}
 
 	static ARBClipControl create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -79,8 +79,6 @@ public final class ARBClipControl {
 	 */
 	public static void glClipControl(int origin, int depth) {
 		long __functionAddress = getInstance().ClipControl;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL45.nglClipControl(origin, depth, __functionAddress);
 	}
 

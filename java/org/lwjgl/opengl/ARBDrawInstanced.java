@@ -49,7 +49,7 @@ public final class ARBDrawInstanced {
 
 	/** Returns the {@link ARBDrawInstanced} instance for the current context. */
 	public static ARBDrawInstanced getInstance() {
-		return GL.getCapabilities().__ARBDrawInstanced;
+		return checkFunctionality(GL.getCapabilities().__ARBDrawInstanced);
 	}
 
 	static ARBDrawInstanced create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -80,8 +80,6 @@ public final class ARBDrawInstanced {
 	 */
 	public static void glDrawArraysInstancedARB(int mode, int first, int count, int primcount) {
 		long __functionAddress = getInstance().DrawArraysInstancedARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawArraysInstancedARB(mode, first, count, primcount, __functionAddress);
 	}
 
@@ -95,8 +93,6 @@ public final class ARBDrawInstanced {
 	@JavadocExclude
 	public static void nglDrawElementsInstancedARB(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = getInstance().DrawElementsInstancedARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawElementsInstancedARB(mode, count, type, indices, primcount, __functionAddress);
 	}
 

@@ -45,7 +45,7 @@ public final class EXTBlendMinmax {
 
 	/** Returns the {@link EXTBlendMinmax} instance for the current context. */
 	public static EXTBlendMinmax getInstance() {
-		return GL.getCapabilities().__EXTBlendMinmax;
+		return checkFunctionality(GL.getCapabilities().__EXTBlendMinmax);
 	}
 
 	static EXTBlendMinmax create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -73,8 +73,6 @@ public final class EXTBlendMinmax {
 	 */
 	public static void glBlendEquationEXT(int mode) {
 		long __functionAddress = getInstance().BlendEquationEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBlendEquationEXT(mode, __functionAddress);
 	}
 

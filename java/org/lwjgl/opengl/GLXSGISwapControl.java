@@ -32,7 +32,7 @@ public final class GLXSGISwapControl {
 
 	/** Returns the {@link GLXSGISwapControl} instance for the current context. */
 	public static GLXSGISwapControl getInstance() {
-		return GL.getCapabilities().__GLXSGISwapControl;
+		return checkFunctionality(GL.getCapabilities().__GLXSGISwapControl);
 	}
 
 	static GLXSGISwapControl create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -65,8 +65,6 @@ public final class GLXSGISwapControl {
 	 */
 	public static int glXSwapIntervalSGI(int interval) {
 		long __functionAddress = getInstance().SwapIntervalSGI;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglXSwapIntervalSGI(interval, __functionAddress);
 	}
 

@@ -57,7 +57,7 @@ public final class ARBTextureStorage {
 
 	/** Returns the {@link ARBTextureStorage} instance for the current context. */
 	public static ARBTextureStorage getInstance() {
-		return GL.getCapabilities().__ARBTextureStorage;
+		return checkFunctionality(GL.getCapabilities().__ARBTextureStorage);
 	}
 
 	static ARBTextureStorage create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -86,8 +86,6 @@ public final class ARBTextureStorage {
 	 */
 	public static void glTexStorage1D(int target, int levels, int internalformat, int width) {
 		long __functionAddress = getInstance().TexStorage1D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL42.nglTexStorage1D(target, levels, internalformat, width, __functionAddress);
 	}
 
@@ -104,8 +102,6 @@ public final class ARBTextureStorage {
 	 */
 	public static void glTexStorage2D(int target, int levels, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().TexStorage2D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL42.nglTexStorage2D(target, levels, internalformat, width, height, __functionAddress);
 	}
 
@@ -123,8 +119,6 @@ public final class ARBTextureStorage {
 	 */
 	public static void glTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth) {
 		long __functionAddress = getInstance().TexStorage3D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL42.nglTexStorage3D(target, levels, internalformat, width, height, depth, __functionAddress);
 	}
 

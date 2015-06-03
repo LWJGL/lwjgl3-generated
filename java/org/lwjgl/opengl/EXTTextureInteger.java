@@ -129,7 +129,7 @@ public final class EXTTextureInteger {
 
 	/** Returns the {@link EXTTextureInteger} instance for the current context. */
 	public static EXTTextureInteger getInstance() {
-		return GL.getCapabilities().__EXTTextureInteger;
+		return checkFunctionality(GL.getCapabilities().__EXTTextureInteger);
 	}
 
 	static EXTTextureInteger create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -161,8 +161,6 @@ public final class EXTTextureInteger {
 	 */
 	public static void glClearColorIiEXT(int r, int g, int b, int a) {
 		long __functionAddress = getInstance().ClearColorIiEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClearColorIiEXT(r, g, b, a, __functionAddress);
 	}
 
@@ -182,8 +180,6 @@ public final class EXTTextureInteger {
 	 */
 	public static void glClearColorIuiEXT(int r, int g, int b, int a) {
 		long __functionAddress = getInstance().ClearColorIuiEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClearColorIuiEXT(r, g, b, a, __functionAddress);
 	}
 
@@ -197,8 +193,6 @@ public final class EXTTextureInteger {
 	@JavadocExclude
 	public static void nglTexParameterIivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIivEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexParameterIivEXT(target, pname, params, __functionAddress);
 	}
 
@@ -239,8 +233,6 @@ public final class EXTTextureInteger {
 	@JavadocExclude
 	public static void nglTexParameterIuivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIuivEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexParameterIuivEXT(target, pname, params, __functionAddress);
 	}
 
@@ -281,8 +273,6 @@ public final class EXTTextureInteger {
 	@JavadocExclude
 	public static void nglGetTexParameterIivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIivEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTexParameterIivEXT(target, pname, params, __functionAddress);
 	}
 
@@ -324,8 +314,6 @@ public final class EXTTextureInteger {
 	@JavadocExclude
 	public static void nglGetTexParameterIuivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIuivEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTexParameterIuivEXT(target, pname, params, __functionAddress);
 	}
 

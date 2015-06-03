@@ -272,7 +272,7 @@ public final class ARBImaging {
 
 	/** Returns the {@link ARBImaging} instance for the current context. */
 	public static ARBImaging getInstance() {
-		return GL.getCapabilities().__ARBImaging;
+		return checkFunctionality(GL.getCapabilities().__ARBImaging);
 	}
 
 	static ARBImaging create(java.util.Set<String> ext, FunctionProvider provider, boolean fc) {
@@ -305,8 +305,6 @@ public final class ARBImaging {
 	@JavadocExclude
 	public static void nglColorTable(int target, int internalformat, int width, int format, int type, long table) {
 		long __functionAddress = getInstance().ColorTable;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColorTable(target, internalformat, width, format, type, table, __functionAddress);
 	}
 
@@ -371,8 +369,6 @@ public final class ARBImaging {
 	 */
 	public static void glCopyColorTable(int target, int internalformat, int x, int y, int width) {
 		long __functionAddress = getInstance().CopyColorTable;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCopyColorTable(target, internalformat, x, y, width, __functionAddress);
 	}
 
@@ -386,8 +382,6 @@ public final class ARBImaging {
 	@JavadocExclude
 	public static void nglColorTableParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().ColorTableParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColorTableParameteriv(target, pname, params, __functionAddress);
 	}
 
@@ -421,8 +415,6 @@ public final class ARBImaging {
 	@JavadocExclude
 	public static void nglColorTableParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().ColorTableParameterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColorTableParameterfv(target, pname, params, __functionAddress);
 	}
 
@@ -456,8 +448,6 @@ public final class ARBImaging {
 	@JavadocExclude
 	public static void nglGetColorTable(int target, int format, int type, long table) {
 		long __functionAddress = getInstance().GetColorTable;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetColorTable(target, format, type, table, __functionAddress);
 	}
 
@@ -513,8 +503,6 @@ public final class ARBImaging {
 	@JavadocExclude
 	public static void nglGetColorTableParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetColorTableParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetColorTableParameteriv(target, pname, params, __functionAddress);
 	}
 
@@ -556,8 +544,6 @@ public final class ARBImaging {
 	@JavadocExclude
 	public static void nglGetColorTableParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetColorTableParameterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetColorTableParameterfv(target, pname, params, __functionAddress);
 	}
 
@@ -599,8 +585,6 @@ public final class ARBImaging {
 	@JavadocExclude
 	public static void nglColorSubTable(int target, int start, int count, int format, int type, long data) {
 		long __functionAddress = getInstance().ColorSubTable;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColorSubTable(target, start, count, format, type, data, __functionAddress);
 	}
 
@@ -644,8 +628,6 @@ public final class ARBImaging {
 	 */
 	public static void glCopyColorSubTable(int target, int start, int x, int y, int width) {
 		long __functionAddress = getInstance().CopyColorSubTable;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCopyColorSubTable(target, start, x, y, width, __functionAddress);
 	}
 
@@ -659,8 +641,6 @@ public final class ARBImaging {
 	@JavadocExclude
 	public static void nglConvolutionFilter1D(int target, int internalformat, int width, int format, int type, long data) {
 		long __functionAddress = getInstance().ConvolutionFilter1D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglConvolutionFilter1D(target, internalformat, width, format, type, data, __functionAddress);
 	}
 
@@ -697,8 +677,6 @@ public final class ARBImaging {
 	@JavadocExclude
 	public static void nglConvolutionFilter2D(int target, int internalformat, int width, int height, int format, int type, long data) {
 		long __functionAddress = getInstance().ConvolutionFilter2D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglConvolutionFilter2D(target, internalformat, width, height, format, type, data, __functionAddress);
 	}
 
@@ -744,8 +722,6 @@ public final class ARBImaging {
 	 */
 	public static void glCopyConvolutionFilter1D(int target, int internalformat, int x, int y, int width) {
 		long __functionAddress = getInstance().CopyConvolutionFilter1D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCopyConvolutionFilter1D(target, internalformat, x, y, width, __functionAddress);
 	}
 
@@ -768,8 +744,6 @@ public final class ARBImaging {
 	 */
 	public static void glCopyConvolutionFilter2D(int target, int internalformat, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().CopyConvolutionFilter2D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCopyConvolutionFilter2D(target, internalformat, x, y, width, height, __functionAddress);
 	}
 
@@ -783,8 +757,6 @@ public final class ARBImaging {
 	@JavadocExclude
 	public static void nglGetConvolutionFilter(int target, int format, int type, long image) {
 		long __functionAddress = getInstance().GetConvolutionFilter;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetConvolutionFilter(target, format, type, image, __functionAddress);
 	}
 
@@ -819,8 +791,6 @@ public final class ARBImaging {
 	@JavadocExclude
 	public static void nglSeparableFilter2D(int target, int internalformat, int width, int height, int format, int type, long row, long column) {
 		long __functionAddress = getInstance().SeparableFilter2D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSeparableFilter2D(target, internalformat, width, height, format, type, row, column, __functionAddress);
 	}
 
@@ -868,8 +838,6 @@ public final class ARBImaging {
 	@JavadocExclude
 	public static void nglGetSeparableFilter(int target, int format, int type, long row, long column, long span) {
 		long __functionAddress = getInstance().GetSeparableFilter;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetSeparableFilter(target, format, type, row, column, span, __functionAddress);
 	}
 
@@ -920,8 +888,6 @@ public final class ARBImaging {
 	 */
 	public static void glConvolutionParameteri(int target, int pname, int param) {
 		long __functionAddress = getInstance().ConvolutionParameteri;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglConvolutionParameteri(target, pname, param, __functionAddress);
 	}
 
@@ -935,8 +901,6 @@ public final class ARBImaging {
 	@JavadocExclude
 	public static void nglConvolutionParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().ConvolutionParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglConvolutionParameteriv(target, pname, params, __functionAddress);
 	}
 
@@ -975,8 +939,6 @@ public final class ARBImaging {
 	 */
 	public static void glConvolutionParameterf(int target, int pname, float param) {
 		long __functionAddress = getInstance().ConvolutionParameterf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglConvolutionParameterf(target, pname, param, __functionAddress);
 	}
 
@@ -990,8 +952,6 @@ public final class ARBImaging {
 	@JavadocExclude
 	public static void nglConvolutionParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().ConvolutionParameterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglConvolutionParameterfv(target, pname, params, __functionAddress);
 	}
 
@@ -1025,8 +985,6 @@ public final class ARBImaging {
 	@JavadocExclude
 	public static void nglGetConvolutionParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetConvolutionParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetConvolutionParameteriv(target, pname, params, __functionAddress);
 	}
 
@@ -1068,8 +1026,6 @@ public final class ARBImaging {
 	@JavadocExclude
 	public static void nglGetConvolutionParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetConvolutionParameterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetConvolutionParameterfv(target, pname, params, __functionAddress);
 	}
 
@@ -1117,8 +1073,6 @@ public final class ARBImaging {
 	 */
 	public static void glHistogram(int target, int width, int internalformat, boolean sink) {
 		long __functionAddress = getInstance().Histogram;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglHistogram(target, width, internalformat, sink, __functionAddress);
 	}
 
@@ -1135,8 +1089,6 @@ public final class ARBImaging {
 	 */
 	public static void glResetHistogram(int target) {
 		long __functionAddress = getInstance().ResetHistogram;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglResetHistogram(target, __functionAddress);
 	}
 
@@ -1150,8 +1102,6 @@ public final class ARBImaging {
 	@JavadocExclude
 	public static void nglGetHistogram(int target, boolean reset, int format, int type, long values) {
 		long __functionAddress = getInstance().GetHistogram;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetHistogram(target, reset, format, type, values, __functionAddress);
 	}
 
@@ -1187,8 +1137,6 @@ public final class ARBImaging {
 	@JavadocExclude
 	public static void nglGetHistogramParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetHistogramParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetHistogramParameteriv(target, pname, params, __functionAddress);
 	}
 
@@ -1230,8 +1178,6 @@ public final class ARBImaging {
 	@JavadocExclude
 	public static void nglGetHistogramParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetHistogramParameterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetHistogramParameterfv(target, pname, params, __functionAddress);
 	}
 
@@ -1278,8 +1224,6 @@ public final class ARBImaging {
 	 */
 	public static void glMinmax(int target, int internalformat, boolean sink) {
 		long __functionAddress = getInstance().Minmax;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMinmax(target, internalformat, sink, __functionAddress);
 	}
 
@@ -1296,8 +1240,6 @@ public final class ARBImaging {
 	 */
 	public static void glResetMinmax(int target) {
 		long __functionAddress = getInstance().ResetMinmax;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglResetMinmax(target, __functionAddress);
 	}
 
@@ -1311,8 +1253,6 @@ public final class ARBImaging {
 	@JavadocExclude
 	public static void nglGetMinmax(int target, boolean reset, int format, int type, long values) {
 		long __functionAddress = getInstance().GetMinmax;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetMinmax(target, reset, format, type, values, __functionAddress);
 	}
 
@@ -1349,8 +1289,6 @@ public final class ARBImaging {
 	@JavadocExclude
 	public static void nglGetMinmaxParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetMinmaxParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetMinmaxParameteriv(target, pname, params, __functionAddress);
 	}
 
@@ -1392,8 +1330,6 @@ public final class ARBImaging {
 	@JavadocExclude
 	public static void nglGetMinmaxParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetMinmaxParameterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetMinmaxParameterfv(target, pname, params, __functionAddress);
 	}
 
@@ -1437,8 +1373,6 @@ public final class ARBImaging {
 	 */
 	public static void glBlendColor(float red, float green, float blue, float alpha) {
 		long __functionAddress = getInstance().BlendColor;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL14.nglBlendColor(red, green, blue, alpha, __functionAddress);
 	}
 
@@ -1451,8 +1385,6 @@ public final class ARBImaging {
 	 */
 	public static void glBlendEquation(int mode) {
 		long __functionAddress = getInstance().BlendEquation;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL14.nglBlendEquation(mode, __functionAddress);
 	}
 

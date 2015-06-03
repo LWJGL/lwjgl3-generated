@@ -40,7 +40,7 @@ public final class NVXConditionalRender {
 
 	/** Returns the {@link NVXConditionalRender} instance for the current context. */
 	public static NVXConditionalRender getInstance() {
-		return GL.getCapabilities().__NVXConditionalRender;
+		return checkFunctionality(GL.getCapabilities().__NVXConditionalRender);
 	}
 
 	static NVXConditionalRender create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -68,8 +68,6 @@ public final class NVXConditionalRender {
 	 */
 	public static void glBeginConditionalRenderNVX(int id) {
 		long __functionAddress = getInstance().BeginConditionalRenderNVX;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBeginConditionalRenderNVX(id, __functionAddress);
 	}
 
@@ -82,8 +80,6 @@ public final class NVXConditionalRender {
 	/**  */
 	public static void glEndConditionalRenderNVX() {
 		long __functionAddress = getInstance().EndConditionalRenderNVX;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEndConditionalRenderNVX(__functionAddress);
 	}
 

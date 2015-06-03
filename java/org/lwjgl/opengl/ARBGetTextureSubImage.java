@@ -38,7 +38,7 @@ public final class ARBGetTextureSubImage {
 
 	/** Returns the {@link ARBGetTextureSubImage} instance for the current context. */
 	public static ARBGetTextureSubImage getInstance() {
-		return GL.getCapabilities().__ARBGetTextureSubImage;
+		return checkFunctionality(GL.getCapabilities().__ARBGetTextureSubImage);
 	}
 
 	static ARBGetTextureSubImage create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -59,8 +59,6 @@ public final class ARBGetTextureSubImage {
 	@JavadocExclude
 	public static void nglGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = getInstance().GetTextureSubImage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL45.nglGetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, bufSize, pixels, __functionAddress);
 	}
 
@@ -129,8 +127,6 @@ public final class ARBGetTextureSubImage {
 	@JavadocExclude
 	public static void nglGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int bufSize, long pixels) {
 		long __functionAddress = getInstance().GetCompressedTextureSubImage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL45.nglGetCompressedTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, bufSize, pixels, __functionAddress);
 	}
 

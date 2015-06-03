@@ -34,7 +34,7 @@ public final class SOFTBufferSubData {
 
 	/** Returns the {@link SOFTBufferSubData} instance for the current context. */
 	public static SOFTBufferSubData getInstance() {
-		return AL.getCapabilities().__SOFTBufferSubData;
+		return checkFunctionality(AL.getCapabilities().__SOFTBufferSubData);
 	}
 
 	static SOFTBufferSubData create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -59,8 +59,6 @@ public final class SOFTBufferSubData {
 	@JavadocExclude
 	public static void nalBufferSubDataSOFT(int buffer, int format, long data, int offset, int length) {
 		long __functionAddress = getInstance().BufferSubDataSOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalBufferSubDataSOFT(buffer, format, data, offset, length, __functionAddress);
 	}
 

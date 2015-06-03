@@ -51,7 +51,7 @@ public final class NVVertexArrayRange {
 
 	/** Returns the {@link NVVertexArrayRange} instance for the current context. */
 	public static NVVertexArrayRange getInstance() {
-		return GL.getCapabilities().__NVVertexArrayRange;
+		return checkFunctionality(GL.getCapabilities().__NVVertexArrayRange);
 	}
 
 	static NVVertexArrayRange create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -76,8 +76,6 @@ public final class NVVertexArrayRange {
 	@JavadocExclude
 	public static void nglVertexArrayRangeNV(int length, long pointer) {
 		long __functionAddress = getInstance().VertexArrayRangeNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexArrayRangeNV(length, pointer, __functionAddress);
 	}
 
@@ -100,8 +98,6 @@ public final class NVVertexArrayRange {
 	/**  */
 	public static void glFlushVertexArrayRangeNV() {
 		long __functionAddress = getInstance().FlushVertexArrayRangeNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFlushVertexArrayRangeNV(__functionAddress);
 	}
 

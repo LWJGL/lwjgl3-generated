@@ -77,7 +77,7 @@ public final class ARBSamplerObjects {
 
 	/** Returns the {@link ARBSamplerObjects} instance for the current context. */
 	public static ARBSamplerObjects getInstance() {
-		return GL.getCapabilities().__ARBSamplerObjects;
+		return checkFunctionality(GL.getCapabilities().__ARBSamplerObjects);
 	}
 
 	static ARBSamplerObjects create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -100,8 +100,6 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglGenSamplers(int count, long samplers) {
 		long __functionAddress = getInstance().GenSamplers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL33.nglGenSamplers(count, samplers, __functionAddress);
 	}
 
@@ -136,8 +134,6 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglDeleteSamplers(int count, long samplers) {
 		long __functionAddress = getInstance().DeleteSamplers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL33.nglDeleteSamplers(count, samplers, __functionAddress);
 	}
 
@@ -174,8 +170,6 @@ public final class ARBSamplerObjects {
 	 */
 	public static boolean glIsSampler(int sampler) {
 		long __functionAddress = getInstance().IsSampler;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return GL33.nglIsSampler(sampler, __functionAddress);
 	}
 
@@ -189,8 +183,6 @@ public final class ARBSamplerObjects {
 	 */
 	public static void glBindSampler(int unit, int sampler) {
 		long __functionAddress = getInstance().BindSampler;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL33.nglBindSampler(unit, sampler, __functionAddress);
 	}
 
@@ -205,8 +197,6 @@ public final class ARBSamplerObjects {
 	 */
 	public static void glSamplerParameteri(int sampler, int pname, int param) {
 		long __functionAddress = getInstance().SamplerParameteri;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL33.nglSamplerParameteri(sampler, pname, param, __functionAddress);
 	}
 
@@ -221,8 +211,6 @@ public final class ARBSamplerObjects {
 	 */
 	public static void glSamplerParameterf(int sampler, int pname, float param) {
 		long __functionAddress = getInstance().SamplerParameterf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL33.nglSamplerParameterf(sampler, pname, param, __functionAddress);
 	}
 
@@ -232,8 +220,6 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL33.nglSamplerParameteriv(sampler, pname, params, __functionAddress);
 	}
 
@@ -259,8 +245,6 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL33.nglSamplerParameterfv(sampler, pname, params, __functionAddress);
 	}
 
@@ -286,8 +270,6 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterIiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL33.nglSamplerParameterIiv(sampler, pname, params, __functionAddress);
 	}
 
@@ -313,8 +295,6 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterIuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL33.nglSamplerParameterIuiv(sampler, pname, params, __functionAddress);
 	}
 
@@ -340,8 +320,6 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglGetSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL33.nglGetSamplerParameteriv(sampler, pname, params, __functionAddress);
 	}
 
@@ -379,8 +357,6 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglGetSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL33.nglGetSamplerParameterfv(sampler, pname, params, __functionAddress);
 	}
 
@@ -418,8 +394,6 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglGetSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL33.nglGetSamplerParameterIiv(sampler, pname, params, __functionAddress);
 	}
 
@@ -457,8 +431,6 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglGetSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL33.nglGetSamplerParameterIuiv(sampler, pname, params, __functionAddress);
 	}
 

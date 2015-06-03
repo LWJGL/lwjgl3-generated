@@ -40,7 +40,7 @@ public final class EXTMigrateMemobject {
 
 	/** Returns the {@link EXTMigrateMemobject} instance for the currently loaded ICD. */
 	public static EXTMigrateMemobject getInstance() {
-		return CL.getICD().__EXTMigrateMemobject;
+		return checkFunctionality(CL.getICD().__EXTMigrateMemobject);
 	}
 
 	static EXTMigrateMemobject create(FunctionProvider provider) {
@@ -63,10 +63,8 @@ public final class EXTMigrateMemobject {
 	@JavadocExclude
 	public static int nclEnqueueMigrateMemObjectEXT(long command_queue, int num_mem_objects, long mem_objects, long flags, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueMigrateMemObjectEXT;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		}
 		return nclEnqueueMigrateMemObjectEXT(command_queue, num_mem_objects, mem_objects, flags, num_events_in_wait_list, event_wait_list, event, __functionAddress);
 	}
 

@@ -77,7 +77,7 @@ public final class ARBViewportArray {
 
 	/** Returns the {@link ARBViewportArray} instance for the current context. */
 	public static ARBViewportArray getInstance() {
-		return GL.getCapabilities().__ARBViewportArray;
+		return checkFunctionality(GL.getCapabilities().__ARBViewportArray);
 	}
 
 	static ARBViewportArray create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -99,8 +99,6 @@ public final class ARBViewportArray {
 	@JavadocExclude
 	public static void nglViewportArrayv(int first, int count, long v) {
 		long __functionAddress = getInstance().ViewportArrayv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL41.nglViewportArrayv(first, count, v, __functionAddress);
 	}
 
@@ -135,8 +133,6 @@ public final class ARBViewportArray {
 	 */
 	public static void glViewportIndexedf(int index, float x, float y, float w, float h) {
 		long __functionAddress = getInstance().ViewportIndexedf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL41.nglViewportIndexedf(index, x, y, w, h, __functionAddress);
 	}
 
@@ -146,8 +142,6 @@ public final class ARBViewportArray {
 	@JavadocExclude
 	public static void nglViewportIndexedfv(int index, long v) {
 		long __functionAddress = getInstance().ViewportIndexedfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL41.nglViewportIndexedfv(index, v, __functionAddress);
 	}
 
@@ -176,8 +170,6 @@ public final class ARBViewportArray {
 	@JavadocExclude
 	public static void nglScissorArrayv(int first, int count, long v) {
 		long __functionAddress = getInstance().ScissorArrayv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL41.nglScissorArrayv(first, count, v, __functionAddress);
 	}
 
@@ -212,8 +204,6 @@ public final class ARBViewportArray {
 	 */
 	public static void glScissorIndexed(int index, int left, int bottom, int width, int height) {
 		long __functionAddress = getInstance().ScissorIndexed;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL41.nglScissorIndexed(index, left, bottom, width, height, __functionAddress);
 	}
 
@@ -223,8 +213,6 @@ public final class ARBViewportArray {
 	@JavadocExclude
 	public static void nglScissorIndexedv(int index, long v) {
 		long __functionAddress = getInstance().ScissorIndexedv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL41.nglScissorIndexedv(index, v, __functionAddress);
 	}
 
@@ -253,8 +241,6 @@ public final class ARBViewportArray {
 	@JavadocExclude
 	public static void nglDepthRangeArrayv(int first, int count, long v) {
 		long __functionAddress = getInstance().DepthRangeArrayv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL41.nglDepthRangeArrayv(first, count, v, __functionAddress);
 	}
 
@@ -287,8 +273,6 @@ public final class ARBViewportArray {
 	 */
 	public static void glDepthRangeIndexed(int index, double zNear, double zFar) {
 		long __functionAddress = getInstance().DepthRangeIndexed;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL41.nglDepthRangeIndexed(index, zNear, zFar, __functionAddress);
 	}
 
@@ -298,8 +282,6 @@ public final class ARBViewportArray {
 	@JavadocExclude
 	public static void nglGetFloati_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetFloati_v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL41.nglGetFloati_v(target, index, data, __functionAddress);
 	}
 
@@ -337,8 +319,6 @@ public final class ARBViewportArray {
 	@JavadocExclude
 	public static void nglGetDoublei_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetDoublei_v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL41.nglGetDoublei_v(target, index, data, __functionAddress);
 	}
 

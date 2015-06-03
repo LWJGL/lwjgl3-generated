@@ -105,7 +105,7 @@ public final class CL11 {
 
 	/** Returns the {@link CL11} instance for the currently loaded ICD. */
 	public static CL11 getInstance() {
-		return CL.getICD().__CL11;
+		return checkFunctionality(CL.getICD().__CL11);
 	}
 
 	static CL11 create(FunctionProvider provider) {
@@ -129,10 +129,8 @@ public final class CL11 {
 	@JavadocExclude
 	public static long nclCreateSubBuffer(long buffer, long flags, int buffer_create_type, long buffer_create_info, long errcode_ret) {
 		long __functionAddress = getInstance().CreateSubBuffer;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(buffer);
-		}
 		return nclCreateSubBuffer(buffer, flags, buffer_create_type, buffer_create_info, errcode_ret, __functionAddress);
 	}
 
@@ -220,10 +218,8 @@ public final class CL11 {
 	 */
 	public static int clSetMemObjectDestructorCallback(long memobj, CLMemObjectDestructorCallback pfn_notify, long user_data) {
 		long __functionAddress = getInstance().SetMemObjectDestructorCallback;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(memobj);
-		}
 		return nclSetMemObjectDestructorCallback(memobj, pfn_notify.getPointer(), user_data, __functionAddress);
 	}
 
@@ -238,7 +234,6 @@ public final class CL11 {
 	public static int nclEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, long buffer_offset, long host_offset, long region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueReadBufferRect;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 			checkPointer(buffer);
 		}
@@ -395,7 +390,6 @@ public final class CL11 {
 	public static int nclEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, long buffer_offset, long host_offset, long region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueWriteBufferRect;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 			checkPointer(buffer);
 		}
@@ -552,7 +546,6 @@ public final class CL11 {
 	public static int nclEnqueueCopyBufferRect(long command_queue, long src_buffer, long dst_buffer, long src_origin, long dst_origin, long region, long src_row_pitch, long src_slice_pitch, long dst_row_pitch, long dst_slice_pitch, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueCopyBufferRect;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 			checkPointer(src_buffer);
 			checkPointer(dst_buffer);
@@ -659,10 +652,8 @@ public final class CL11 {
 	@JavadocExclude
 	public static long nclCreateUserEvent(long context, long errcode_ret) {
 		long __functionAddress = getInstance().CreateUserEvent;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		}
 		return nclCreateUserEvent(context, errcode_ret, __functionAddress);
 	}
 
@@ -740,10 +731,8 @@ public final class CL11 {
 	 */
 	public static int clSetUserEventStatus(long event, int execution_status) {
 		long __functionAddress = getInstance().SetUserEventStatus;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(event);
-		}
 		return nclSetUserEventStatus(event, execution_status, __functionAddress);
 	}
 
@@ -799,10 +788,8 @@ public final class CL11 {
 	 */
 	public static int clSetEventCallback(long event, int command_exec_callback_type, CLEventCallback pfn_notify, long user_data) {
 		long __functionAddress = getInstance().SetEventCallback;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(event);
-		}
 		return nclSetEventCallback(event, command_exec_callback_type, pfn_notify.getPointer(), user_data, __functionAddress);
 	}
 

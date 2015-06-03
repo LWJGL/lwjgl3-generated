@@ -50,7 +50,7 @@ public final class ARBES31Compatibility {
 
 	/** Returns the {@link ARBES31Compatibility} instance for the current context. */
 	public static ARBES31Compatibility getInstance() {
-		return GL.getCapabilities().__ARBES31Compatibility;
+		return checkFunctionality(GL.getCapabilities().__ARBES31Compatibility);
 	}
 
 	static ARBES31Compatibility create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -86,8 +86,6 @@ public final class ARBES31Compatibility {
 	 */
 	public static void glMemoryBarrierByRegion(int barriers) {
 		long __functionAddress = getInstance().MemoryBarrierByRegion;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL45.nglMemoryBarrierByRegion(barriers, __functionAddress);
 	}
 

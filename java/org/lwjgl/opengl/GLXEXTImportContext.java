@@ -50,7 +50,7 @@ public final class GLXEXTImportContext {
 
 	/** Returns the {@link GLXEXTImportContext} instance for the current context. */
 	public static GLXEXTImportContext getInstance() {
-		return GL.getCapabilities().__GLXEXTImportContext;
+		return checkFunctionality(GL.getCapabilities().__GLXEXTImportContext);
 	}
 
 	static GLXEXTImportContext create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -74,8 +74,6 @@ public final class GLXEXTImportContext {
 	/** Returns the display associated with the current context. */
 	public static long glXGetCurrentDisplayEXT() {
 		long __functionAddress = getInstance().GetCurrentDisplayEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglXGetCurrentDisplayEXT(__functionAddress);
 	}
 
@@ -90,7 +88,6 @@ public final class GLXEXTImportContext {
 	public static int nglXQueryContextInfoEXT(long display, long context, int attribute, long value) {
 		long __functionAddress = getInstance().QueryContextInfoEXT;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(context);
 		}
@@ -131,10 +128,8 @@ public final class GLXEXTImportContext {
 	 */
 	public static long glXGetContextIDEXT(long context) {
 		long __functionAddress = getInstance().GetContextIDEXT;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		}
 		return nglXGetContextIDEXT(context, __functionAddress);
 	}
 
@@ -152,10 +147,8 @@ public final class GLXEXTImportContext {
 	 */
 	public static long glXImportContextEXT(long display, long contextID) {
 		long __functionAddress = getInstance().ImportContextEXT;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		}
 		return nglXImportContextEXT(display, contextID, __functionAddress);
 	}
 
@@ -174,7 +167,6 @@ public final class GLXEXTImportContext {
 	public static void glXFreeContextEXT(long display, long context) {
 		long __functionAddress = getInstance().FreeContextEXT;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(context);
 		}

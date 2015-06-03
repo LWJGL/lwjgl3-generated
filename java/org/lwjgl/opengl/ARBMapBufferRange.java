@@ -58,7 +58,7 @@ public final class ARBMapBufferRange {
 
 	/** Returns the {@link ARBMapBufferRange} instance for the current context. */
 	public static ARBMapBufferRange getInstance() {
-		return GL.getCapabilities().__ARBMapBufferRange;
+		return checkFunctionality(GL.getCapabilities().__ARBMapBufferRange);
 	}
 
 	static ARBMapBufferRange create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -79,8 +79,6 @@ public final class ARBMapBufferRange {
 	@JavadocExclude
 	public static long nglMapBufferRange(int target, long offset, long length, int access) {
 		long __functionAddress = getInstance().MapBufferRange;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return GL30.nglMapBufferRange(target, offset, length, access, __functionAddress);
 	}
 
@@ -120,8 +118,6 @@ public final class ARBMapBufferRange {
 	 */
 	public static void glFlushMappedBufferRange(int target, long offset, long length) {
 		long __functionAddress = getInstance().FlushMappedBufferRange;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglFlushMappedBufferRange(target, offset, length, __functionAddress);
 	}
 

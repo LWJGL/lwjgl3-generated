@@ -41,7 +41,7 @@ public final class WGLARBMakeCurrentRead {
 
 	/** Returns the {@link WGLARBMakeCurrentRead} instance for the current context. */
 	public static WGLARBMakeCurrentRead getInstance() {
-		return GL.getCapabilities().__WGLARBMakeCurrentRead;
+		return checkFunctionality(GL.getCapabilities().__WGLARBMakeCurrentRead);
 	}
 
 	static WGLARBMakeCurrentRead create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -92,7 +92,6 @@ public final class WGLARBMakeCurrentRead {
 	public static int wglMakeContextCurrentARB(long drawDC, long readDC, long hglrc) {
 		long __functionAddress = getInstance().MakeContextCurrentARB;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(drawDC);
 			checkPointer(readDC);
 			checkPointer(hglrc);
@@ -109,8 +108,6 @@ public final class WGLARBMakeCurrentRead {
 	/** Returns the "read" device context for the current OpenGL context. */
 	public static long wglGetCurrentReadDCARB() {
 		long __functionAddress = getInstance().GetCurrentReadDCARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nwglGetCurrentReadDCARB(__functionAddress);
 	}
 

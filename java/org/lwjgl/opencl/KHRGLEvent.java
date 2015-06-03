@@ -41,7 +41,7 @@ public final class KHRGLEvent {
 
 	/** Returns the {@link KHRGLEvent} instance for the currently loaded ICD. */
 	public static KHRGLEvent getInstance() {
-		return CL.getICD().__KHRGLEvent;
+		return checkFunctionality(CL.getICD().__KHRGLEvent);
 	}
 
 	static KHRGLEvent create(FunctionProvider provider) {
@@ -65,7 +65,6 @@ public final class KHRGLEvent {
 	public static long nclCreateEventFromGLsyncKHR(long context, long sync, long errcode_ret) {
 		long __functionAddress = getInstance().CreateEventFromGLsyncKHR;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 			checkPointer(sync);
 		}

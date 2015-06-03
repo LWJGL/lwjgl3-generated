@@ -71,7 +71,7 @@ public final class ARBShaderSubroutine {
 
 	/** Returns the {@link ARBShaderSubroutine} instance for the current context. */
 	public static ARBShaderSubroutine getInstance() {
-		return GL.getCapabilities().__ARBShaderSubroutine;
+		return checkFunctionality(GL.getCapabilities().__ARBShaderSubroutine);
 	}
 
 	static ARBShaderSubroutine create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -93,8 +93,6 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static int nglGetSubroutineUniformLocation(int program, int shadertype, long name) {
 		long __functionAddress = getInstance().GetSubroutineUniformLocation;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return GL40.nglGetSubroutineUniformLocation(program, shadertype, name, __functionAddress);
 	}
 
@@ -124,8 +122,6 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static int nglGetSubroutineIndex(int program, int shadertype, long name) {
 		long __functionAddress = getInstance().GetSubroutineIndex;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return GL40.nglGetSubroutineIndex(program, shadertype, name, __functionAddress);
 	}
 
@@ -155,8 +151,6 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static void nglGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, long values) {
 		long __functionAddress = getInstance().GetActiveSubroutineUniformiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, values, __functionAddress);
 	}
 
@@ -196,8 +190,6 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static void nglGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize, long length, long name) {
 		long __functionAddress = getInstance().GetActiveSubroutineUniformName;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, length, name, __functionAddress);
 	}
 
@@ -251,8 +243,6 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static void nglGetActiveSubroutineName(int program, int shadertype, int index, int bufsize, long length, long name) {
 		long __functionAddress = getInstance().GetActiveSubroutineName;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglGetActiveSubroutineName(program, shadertype, index, bufsize, length, name, __functionAddress);
 	}
 
@@ -306,8 +296,6 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static void nglUniformSubroutinesuiv(int shadertype, int count, long indices) {
 		long __functionAddress = getInstance().UniformSubroutinesuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglUniformSubroutinesuiv(shadertype, count, indices, __functionAddress);
 	}
 
@@ -342,8 +330,6 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static void nglGetUniformSubroutineuiv(int shadertype, int location, long params) {
 		long __functionAddress = getInstance().GetUniformSubroutineuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglGetUniformSubroutineuiv(shadertype, location, params, __functionAddress);
 	}
 
@@ -381,8 +367,6 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static void nglGetProgramStageiv(int program, int shadertype, int pname, long values) {
 		long __functionAddress = getInstance().GetProgramStageiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglGetProgramStageiv(program, shadertype, pname, values, __functionAddress);
 	}
 

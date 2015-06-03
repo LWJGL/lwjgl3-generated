@@ -34,7 +34,7 @@ public final class WGLARBExtensionsString {
 
 	/** Returns the {@link WGLARBExtensionsString} instance for the current context. */
 	public static WGLARBExtensionsString getInstance() {
-		return GL.getCapabilities().__WGLARBExtensionsString;
+		return checkFunctionality(GL.getCapabilities().__WGLARBExtensionsString);
 	}
 
 	static WGLARBExtensionsString create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -59,10 +59,8 @@ public final class WGLARBExtensionsString {
 	@JavadocExclude
 	public static long nwglGetExtensionsStringARB(long hdc) {
 		long __functionAddress = getInstance().GetExtensionsStringARB;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		}
 		return nwglGetExtensionsStringARB(hdc, __functionAddress);
 	}
 

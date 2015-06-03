@@ -102,7 +102,7 @@ public final class CL10GL {
 
 	/** Returns the {@link CL10GL} instance for the currently loaded ICD. */
 	public static CL10GL getInstance() {
-		return CL.getICD().__CL10GL;
+		return checkFunctionality(CL.getICD().__CL10GL);
 	}
 
 	static CL10GL create(FunctionProvider provider) {
@@ -126,10 +126,8 @@ public final class CL10GL {
 	@JavadocExclude
 	public static long nclCreateFromGLBuffer(long context, long flags, int bufobj, long errcode_ret) {
 		long __functionAddress = getInstance().CreateFromGLBuffer;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		}
 		return nclCreateFromGLBuffer(context, flags, bufobj, errcode_ret, __functionAddress);
 	}
 
@@ -182,10 +180,8 @@ public final class CL10GL {
 	@JavadocExclude
 	public static long nclCreateFromGLTexture2D(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret) {
 		long __functionAddress = getInstance().CreateFromGLTexture2D;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		}
 		return nclCreateFromGLTexture2D(context, flags, texture_target, miplevel, texture, errcode_ret, __functionAddress);
 	}
 
@@ -249,10 +245,8 @@ public final class CL10GL {
 	@JavadocExclude
 	public static long nclCreateFromGLTexture3D(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret) {
 		long __functionAddress = getInstance().CreateFromGLTexture3D;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		}
 		return nclCreateFromGLTexture3D(context, flags, texture_target, miplevel, texture, errcode_ret, __functionAddress);
 	}
 
@@ -315,10 +309,8 @@ public final class CL10GL {
 	@JavadocExclude
 	public static long nclCreateFromGLRenderbuffer(long context, long flags, int renderbuffer, long errcode_ret) {
 		long __functionAddress = getInstance().CreateFromGLRenderbuffer;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		}
 		return nclCreateFromGLRenderbuffer(context, flags, renderbuffer, errcode_ret, __functionAddress);
 	}
 
@@ -373,10 +365,8 @@ public final class CL10GL {
 	@JavadocExclude
 	public static int nclGetGLObjectInfo(long memobj, long gl_object_type, long gl_object_name) {
 		long __functionAddress = getInstance().GetGLObjectInfo;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(memobj);
-		}
 		return nclGetGLObjectInfo(memobj, gl_object_type, gl_object_name, __functionAddress);
 	}
 
@@ -415,10 +405,8 @@ public final class CL10GL {
 	@JavadocExclude
 	public static int nclGetGLTextureInfo(long memobj, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetGLTextureInfo;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(memobj);
-		}
 		return nclGetGLTextureInfo(memobj, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
 	}
 
@@ -473,10 +461,8 @@ public final class CL10GL {
 	@JavadocExclude
 	public static int nclEnqueueAcquireGLObjects(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueAcquireGLObjects;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		}
 		return nclEnqueueAcquireGLObjects(command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event, __functionAddress);
 	}
 
@@ -555,10 +541,8 @@ public final class CL10GL {
 	@JavadocExclude
 	public static int nclEnqueueReleaseGLObjects(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueReleaseGLObjects;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		}
 		return nclEnqueueReleaseGLObjects(command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event, __functionAddress);
 	}
 

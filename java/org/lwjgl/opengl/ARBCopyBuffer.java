@@ -41,7 +41,7 @@ public final class ARBCopyBuffer {
 
 	/** Returns the {@link ARBCopyBuffer} instance for the current context. */
 	public static ARBCopyBuffer getInstance() {
-		return GL.getCapabilities().__ARBCopyBuffer;
+		return checkFunctionality(GL.getCapabilities().__ARBCopyBuffer);
 	}
 
 	static ARBCopyBuffer create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -79,8 +79,6 @@ public final class ARBCopyBuffer {
 	 */
 	public static void glCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
 		long __functionAddress = getInstance().CopyBufferSubData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL31.nglCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size, __functionAddress);
 	}
 

@@ -48,7 +48,7 @@ public final class ARBClearBufferObject {
 
 	/** Returns the {@link ARBClearBufferObject} instance for the current context. */
 	public static ARBClearBufferObject getInstance() {
-		return GL.getCapabilities().__ARBClearBufferObject;
+		return checkFunctionality(GL.getCapabilities().__ARBClearBufferObject);
 	}
 
 	static ARBClearBufferObject create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -70,8 +70,6 @@ public final class ARBClearBufferObject {
 	@JavadocExclude
 	public static void nglClearBufferData(int target, int internalformat, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearBufferData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglClearBufferData(target, internalformat, format, type, data, __functionAddress);
 	}
 
@@ -112,8 +110,6 @@ public final class ARBClearBufferObject {
 	@JavadocExclude
 	public static void nglClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearBufferSubData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglClearBufferSubData(target, internalformat, offset, size, format, type, data, __functionAddress);
 	}
 

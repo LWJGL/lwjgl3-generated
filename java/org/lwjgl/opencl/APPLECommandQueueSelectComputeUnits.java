@@ -33,7 +33,7 @@ public final class APPLECommandQueueSelectComputeUnits {
 
 	/** Returns the {@link APPLECommandQueueSelectComputeUnits} instance for the currently loaded ICD. */
 	public static APPLECommandQueueSelectComputeUnits getInstance() {
-		return CL.getICD().__APPLECommandQueueSelectComputeUnits;
+		return checkFunctionality(CL.getICD().__APPLECommandQueueSelectComputeUnits);
 	}
 
 	static APPLECommandQueueSelectComputeUnits create(FunctionProvider provider) {
@@ -53,7 +53,6 @@ public final class APPLECommandQueueSelectComputeUnits {
 	public static long nclCreateCommandQueueWithPropertiesAPPLE(long context, long device, long properties, long errcode_ret) {
 		long __functionAddress = getInstance().CreateCommandQueueWithPropertiesAPPLE;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 			checkPointer(device);
 		}

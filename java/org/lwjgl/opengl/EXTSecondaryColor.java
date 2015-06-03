@@ -86,7 +86,7 @@ public final class EXTSecondaryColor {
 
 	/** Returns the {@link EXTSecondaryColor} instance for the current context. */
 	public static EXTSecondaryColor getInstance() {
-		return GL.getCapabilities().__EXTSecondaryColor;
+		return checkFunctionality(GL.getCapabilities().__EXTSecondaryColor);
 	}
 
 	static EXTSecondaryColor create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -119,8 +119,6 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3bEXT(byte red, byte green, byte blue) {
 		long __functionAddress = getInstance().SecondaryColor3bEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3bEXT(red, green, blue, __functionAddress);
 	}
 
@@ -139,8 +137,6 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3sEXT(short red, short green, short blue) {
 		long __functionAddress = getInstance().SecondaryColor3sEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3sEXT(red, green, blue, __functionAddress);
 	}
 
@@ -159,8 +155,6 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3iEXT(int red, int green, int blue) {
 		long __functionAddress = getInstance().SecondaryColor3iEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3iEXT(red, green, blue, __functionAddress);
 	}
 
@@ -179,8 +173,6 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3fEXT(float red, float green, float blue) {
 		long __functionAddress = getInstance().SecondaryColor3fEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3fEXT(red, green, blue, __functionAddress);
 	}
 
@@ -199,8 +191,6 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3dEXT(double red, double green, double blue) {
 		long __functionAddress = getInstance().SecondaryColor3dEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3dEXT(red, green, blue, __functionAddress);
 	}
 
@@ -219,8 +209,6 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3ubEXT(byte red, byte green, byte blue) {
 		long __functionAddress = getInstance().SecondaryColor3ubEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3ubEXT(red, green, blue, __functionAddress);
 	}
 
@@ -239,8 +227,6 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3usEXT(short red, short green, short blue) {
 		long __functionAddress = getInstance().SecondaryColor3usEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3usEXT(red, green, blue, __functionAddress);
 	}
 
@@ -259,8 +245,6 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3uiEXT(int red, int green, int blue) {
 		long __functionAddress = getInstance().SecondaryColor3uiEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3uiEXT(red, green, blue, __functionAddress);
 	}
 
@@ -274,8 +258,6 @@ public final class EXTSecondaryColor {
 	@JavadocExclude
 	public static void nglSecondaryColor3bvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3bvEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3bvEXT(v, __functionAddress);
 	}
 
@@ -300,8 +282,6 @@ public final class EXTSecondaryColor {
 	@JavadocExclude
 	public static void nglSecondaryColor3svEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3svEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3svEXT(v, __functionAddress);
 	}
 
@@ -333,8 +313,6 @@ public final class EXTSecondaryColor {
 	@JavadocExclude
 	public static void nglSecondaryColor3ivEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3ivEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3ivEXT(v, __functionAddress);
 	}
 
@@ -366,8 +344,6 @@ public final class EXTSecondaryColor {
 	@JavadocExclude
 	public static void nglSecondaryColor3fvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3fvEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3fvEXT(v, __functionAddress);
 	}
 
@@ -399,8 +375,6 @@ public final class EXTSecondaryColor {
 	@JavadocExclude
 	public static void nglSecondaryColor3dvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3dvEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3dvEXT(v, __functionAddress);
 	}
 
@@ -432,8 +406,6 @@ public final class EXTSecondaryColor {
 	@JavadocExclude
 	public static void nglSecondaryColor3ubvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3ubvEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3ubvEXT(v, __functionAddress);
 	}
 
@@ -458,8 +430,6 @@ public final class EXTSecondaryColor {
 	@JavadocExclude
 	public static void nglSecondaryColor3usvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3usvEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3usvEXT(v, __functionAddress);
 	}
 
@@ -491,8 +461,6 @@ public final class EXTSecondaryColor {
 	@JavadocExclude
 	public static void nglSecondaryColor3uivEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3uivEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3uivEXT(v, __functionAddress);
 	}
 
@@ -524,8 +492,6 @@ public final class EXTSecondaryColor {
 	@JavadocExclude
 	public static void nglSecondaryColorPointerEXT(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().SecondaryColorPointerEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSecondaryColorPointerEXT(size, type, stride, pointer, __functionAddress);
 	}
 

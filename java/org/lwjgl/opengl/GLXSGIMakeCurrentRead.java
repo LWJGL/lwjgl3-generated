@@ -35,7 +35,7 @@ public final class GLXSGIMakeCurrentRead {
 
 	/** Returns the {@link GLXSGIMakeCurrentRead} instance for the current context. */
 	public static GLXSGIMakeCurrentRead getInstance() {
-		return GL.getCapabilities().__GLXSGIMakeCurrentRead;
+		return checkFunctionality(GL.getCapabilities().__GLXSGIMakeCurrentRead);
 	}
 
 	static GLXSGIMakeCurrentRead create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -66,10 +66,8 @@ public final class GLXSGIMakeCurrentRead {
 	 */
 	public static int glXMakeCurrentReadSGI(long display, long draw, long read, long ctx) {
 		long __functionAddress = getInstance().MakeCurrentReadSGI;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		}
 		return nglXMakeCurrentReadSGI(display, draw, read, ctx, __functionAddress);
 	}
 
@@ -82,8 +80,6 @@ public final class GLXSGIMakeCurrentRead {
 	/** Returns the name of the {@code GLXDrawable} currently being used as a pixel query source. */
 	public static long glXGetCurrentReadDrawableSGI() {
 		long __functionAddress = getInstance().GetCurrentReadDrawableSGI;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglXGetCurrentReadDrawableSGI(__functionAddress);
 	}
 

@@ -72,7 +72,7 @@ public final class ARBES2Compatibility {
 
 	/** Returns the {@link ARBES2Compatibility} instance for the current context. */
 	public static ARBES2Compatibility getInstance() {
-		return GL.getCapabilities().__ARBES2Compatibility;
+		return checkFunctionality(GL.getCapabilities().__ARBES2Compatibility);
 	}
 
 	static ARBES2Compatibility create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -92,8 +92,6 @@ public final class ARBES2Compatibility {
 	/** Releases resources allocated by the shader compiler. This is a hint from the application, and does not prevent later use of the shader compiler. */
 	public static void glReleaseShaderCompiler() {
 		long __functionAddress = getInstance().ReleaseShaderCompiler;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL41.nglReleaseShaderCompiler(__functionAddress);
 	}
 
@@ -103,8 +101,6 @@ public final class ARBES2Compatibility {
 	@JavadocExclude
 	public static void nglShaderBinary(int count, long shaders, int binaryformat, long binary, int length) {
 		long __functionAddress = getInstance().ShaderBinary;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL41.nglShaderBinary(count, shaders, binaryformat, binary, length, __functionAddress);
 	}
 
@@ -136,8 +132,6 @@ public final class ARBES2Compatibility {
 	@JavadocExclude
 	public static void nglGetShaderPrecisionFormat(int shadertype, int precisiontype, long range, long precision) {
 		long __functionAddress = getInstance().GetShaderPrecisionFormat;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL41.nglGetShaderPrecisionFormat(shadertype, precisiontype, range, precision, __functionAddress);
 	}
 
@@ -186,8 +180,6 @@ public final class ARBES2Compatibility {
 	 */
 	public static void glDepthRangef(float zNear, float zFar) {
 		long __functionAddress = getInstance().DepthRangef;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL41.nglDepthRangef(zNear, zFar, __functionAddress);
 	}
 
@@ -200,8 +192,6 @@ public final class ARBES2Compatibility {
 	 */
 	public static void glClearDepthf(float depth) {
 		long __functionAddress = getInstance().ClearDepthf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL41.nglClearDepthf(depth, __functionAddress);
 	}
 

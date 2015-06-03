@@ -56,7 +56,7 @@ public final class ARBDrawBuffers {
 
 	/** Returns the {@link ARBDrawBuffers} instance for the current context. */
 	public static ARBDrawBuffers getInstance() {
-		return GL.getCapabilities().__ARBDrawBuffers;
+		return checkFunctionality(GL.getCapabilities().__ARBDrawBuffers);
 	}
 
 	static ARBDrawBuffers create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -81,8 +81,6 @@ public final class ARBDrawBuffers {
 	@JavadocExclude
 	public static void nglDrawBuffersARB(int n, long bufs) {
 		long __functionAddress = getInstance().DrawBuffersARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawBuffersARB(n, bufs, __functionAddress);
 	}
 

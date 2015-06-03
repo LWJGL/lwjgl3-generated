@@ -56,7 +56,7 @@ public final class WGLNVGPUAffinity {
 
 	/** Returns the {@link WGLNVGPUAffinity} instance for the current context. */
 	public static WGLNVGPUAffinity getInstance() {
-		return GL.getCapabilities().__WGLNVGPUAffinity;
+		return checkFunctionality(GL.getCapabilities().__WGLNVGPUAffinity);
 	}
 
 	static WGLNVGPUAffinity create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -81,8 +81,6 @@ public final class WGLNVGPUAffinity {
 	@JavadocExclude
 	public static int nwglEnumGpusNV(int gpuIndex, long gpu) {
 		long __functionAddress = getInstance().EnumGpusNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nwglEnumGpusNV(gpuIndex, gpu, __functionAddress);
 	}
 
@@ -115,10 +113,8 @@ public final class WGLNVGPUAffinity {
 	@JavadocExclude
 	public static int nwglEnumGpuDevicesNV(long gpu, int deviceIndex, long gpuDevice) {
 		long __functionAddress = getInstance().EnumGpuDevicesNV;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(gpu);
-		}
 		return nwglEnumGpuDevicesNV(gpu, deviceIndex, gpuDevice, __functionAddress);
 	}
 
@@ -145,8 +141,6 @@ public final class WGLNVGPUAffinity {
 	@JavadocExclude
 	public static long nwglCreateAffinityDCNV(long gpuList) {
 		long __functionAddress = getInstance().CreateAffinityDCNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nwglCreateAffinityDCNV(gpuList, __functionAddress);
 	}
 
@@ -183,10 +177,8 @@ public final class WGLNVGPUAffinity {
 	@JavadocExclude
 	public static int nwglEnumGpusFromAffinityDCNV(long affinityDC, int gpuIndex, long gpu) {
 		long __functionAddress = getInstance().EnumGpusFromAffinityDCNV;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(affinityDC);
-		}
 		return nwglEnumGpusFromAffinityDCNV(affinityDC, gpuIndex, gpu, __functionAddress);
 	}
 
@@ -223,10 +215,8 @@ public final class WGLNVGPUAffinity {
 	 */
 	public static int wglDeleteDCNV(long hdc) {
 		long __functionAddress = getInstance().DeleteDCNV;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		}
 		return nwglDeleteDCNV(hdc, __functionAddress);
 	}
 

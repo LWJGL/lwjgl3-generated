@@ -284,7 +284,7 @@ public final class GL41 {
 
 	/** Returns the {@link GL41} instance for the current context. */
 	public static GL41 getInstance() {
-		return GL.getCapabilities().__GL41;
+		return checkFunctionality(GL.getCapabilities().__GL41);
 	}
 
 	static GL41 create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -328,8 +328,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glReleaseShaderCompiler() {
 		long __functionAddress = getInstance().ReleaseShaderCompiler;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglReleaseShaderCompiler(__functionAddress);
 	}
 
@@ -343,8 +341,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglShaderBinary(int count, long shaders, int binaryformat, long binary, int length) {
 		long __functionAddress = getInstance().ShaderBinary;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglShaderBinary(count, shaders, binaryformat, binary, length, __functionAddress);
 	}
 
@@ -382,8 +378,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglGetShaderPrecisionFormat(int shadertype, int precisiontype, long range, long precision) {
 		long __functionAddress = getInstance().GetShaderPrecisionFormat;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetShaderPrecisionFormat(shadertype, precisiontype, range, precision, __functionAddress);
 	}
 
@@ -440,8 +434,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glDepthRangef(float zNear, float zFar) {
 		long __functionAddress = getInstance().DepthRangef;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDepthRangef(zNear, zFar, __functionAddress);
 	}
 
@@ -460,8 +452,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glClearDepthf(float depth) {
 		long __functionAddress = getInstance().ClearDepthf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClearDepthf(depth, __functionAddress);
 	}
 
@@ -475,8 +465,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglGetProgramBinary(int program, int bufSize, long length, long binaryFormat, long binary) {
 		long __functionAddress = getInstance().GetProgramBinary;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetProgramBinary(program, bufSize, length, binaryFormat, binary, __functionAddress);
 	}
 
@@ -542,8 +530,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramBinary(int program, int binaryFormat, long binary, int length) {
 		long __functionAddress = getInstance().ProgramBinary;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramBinary(program, binaryFormat, binary, length, __functionAddress);
 	}
 
@@ -585,8 +571,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramParameteri(int program, int pname, int value) {
 		long __functionAddress = getInstance().ProgramParameteri;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramParameteri(program, pname, value, __functionAddress);
 	}
 
@@ -607,8 +591,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glUseProgramStages(int pipeline, int stages, int program) {
 		long __functionAddress = getInstance().UseProgramStages;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUseProgramStages(pipeline, stages, program, __functionAddress);
 	}
 
@@ -628,8 +610,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glActiveShaderProgram(int pipeline, int program) {
 		long __functionAddress = getInstance().ActiveShaderProgram;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglActiveShaderProgram(pipeline, program, __functionAddress);
 	}
 
@@ -643,8 +623,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static int nglCreateShaderProgramv(int type, int count, long strings) {
 		long __functionAddress = getInstance().CreateShaderProgramv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglCreateShaderProgramv(type, count, strings, __functionAddress);
 	}
 
@@ -726,8 +704,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glBindProgramPipeline(int pipeline) {
 		long __functionAddress = getInstance().BindProgramPipeline;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindProgramPipeline(pipeline, __functionAddress);
 	}
 
@@ -741,8 +717,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglDeleteProgramPipelines(int n, long pipelines) {
 		long __functionAddress = getInstance().DeleteProgramPipelines;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDeleteProgramPipelines(n, pipelines, __functionAddress);
 	}
 
@@ -782,8 +756,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglGenProgramPipelines(int n, long pipelines) {
 		long __functionAddress = getInstance().GenProgramPipelines;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGenProgramPipelines(n, pipelines, __functionAddress);
 	}
 
@@ -829,8 +801,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static boolean glIsProgramPipeline(int pipeline) {
 		long __functionAddress = getInstance().IsProgramPipeline;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsProgramPipeline(pipeline, __functionAddress);
 	}
 
@@ -844,8 +814,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglGetProgramPipelineiv(int pipeline, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramPipelineiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetProgramPipelineiv(pipeline, pname, params, __functionAddress);
 	}
 
@@ -896,8 +864,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform1i(int program, int location, int x) {
 		long __functionAddress = getInstance().ProgramUniform1i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform1i(program, location, x, __functionAddress);
 	}
 
@@ -919,8 +885,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform2i(int program, int location, int x, int y) {
 		long __functionAddress = getInstance().ProgramUniform2i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform2i(program, location, x, y, __functionAddress);
 	}
 
@@ -943,8 +907,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform3i(int program, int location, int x, int y, int z) {
 		long __functionAddress = getInstance().ProgramUniform3i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform3i(program, location, x, y, z, __functionAddress);
 	}
 
@@ -968,8 +930,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform4i(int program, int location, int x, int y, int z, int w) {
 		long __functionAddress = getInstance().ProgramUniform4i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform4i(program, location, x, y, z, w, __functionAddress);
 	}
 
@@ -990,8 +950,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform1ui(int program, int location, int x) {
 		long __functionAddress = getInstance().ProgramUniform1ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform1ui(program, location, x, __functionAddress);
 	}
 
@@ -1013,8 +971,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform2ui(int program, int location, int x, int y) {
 		long __functionAddress = getInstance().ProgramUniform2ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform2ui(program, location, x, y, __functionAddress);
 	}
 
@@ -1037,8 +993,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform3ui(int program, int location, int x, int y, int z) {
 		long __functionAddress = getInstance().ProgramUniform3ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform3ui(program, location, x, y, z, __functionAddress);
 	}
 
@@ -1062,8 +1016,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform4ui(int program, int location, int x, int y, int z, int w) {
 		long __functionAddress = getInstance().ProgramUniform4ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform4ui(program, location, x, y, z, w, __functionAddress);
 	}
 
@@ -1084,8 +1036,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform1f(int program, int location, float x) {
 		long __functionAddress = getInstance().ProgramUniform1f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform1f(program, location, x, __functionAddress);
 	}
 
@@ -1107,8 +1057,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform2f(int program, int location, float x, float y) {
 		long __functionAddress = getInstance().ProgramUniform2f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform2f(program, location, x, y, __functionAddress);
 	}
 
@@ -1131,8 +1079,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform3f(int program, int location, float x, float y, float z) {
 		long __functionAddress = getInstance().ProgramUniform3f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform3f(program, location, x, y, z, __functionAddress);
 	}
 
@@ -1156,8 +1102,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform4f(int program, int location, float x, float y, float z, float w) {
 		long __functionAddress = getInstance().ProgramUniform4f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform4f(program, location, x, y, z, w, __functionAddress);
 	}
 
@@ -1178,8 +1122,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform1d(int program, int location, double x) {
 		long __functionAddress = getInstance().ProgramUniform1d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform1d(program, location, x, __functionAddress);
 	}
 
@@ -1201,8 +1143,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform2d(int program, int location, double x, double y) {
 		long __functionAddress = getInstance().ProgramUniform2d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform2d(program, location, x, y, __functionAddress);
 	}
 
@@ -1225,8 +1165,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform3d(int program, int location, double x, double y, double z) {
 		long __functionAddress = getInstance().ProgramUniform3d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform3d(program, location, x, y, z, __functionAddress);
 	}
 
@@ -1250,8 +1188,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform4d(int program, int location, double x, double y, double z, double w) {
 		long __functionAddress = getInstance().ProgramUniform4d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform4d(program, location, x, y, z, w, __functionAddress);
 	}
 
@@ -1265,8 +1201,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform1iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform1iv(program, location, count, value, __functionAddress);
 	}
 
@@ -1301,8 +1235,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform2iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform2iv(program, location, count, value, __functionAddress);
 	}
 
@@ -1337,8 +1269,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform3iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform3iv(program, location, count, value, __functionAddress);
 	}
 
@@ -1373,8 +1303,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform4iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform4iv(program, location, count, value, __functionAddress);
 	}
 
@@ -1409,8 +1337,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform1uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform1uiv(program, location, count, value, __functionAddress);
 	}
 
@@ -1445,8 +1371,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform2uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform2uiv(program, location, count, value, __functionAddress);
 	}
 
@@ -1481,8 +1405,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform3uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform3uiv(program, location, count, value, __functionAddress);
 	}
 
@@ -1517,8 +1439,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform4uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform4uiv(program, location, count, value, __functionAddress);
 	}
 
@@ -1553,8 +1473,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform1fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform1fv(program, location, count, value, __functionAddress);
 	}
 
@@ -1589,8 +1507,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform2fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform2fv(program, location, count, value, __functionAddress);
 	}
 
@@ -1625,8 +1541,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform3fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform3fv(program, location, count, value, __functionAddress);
 	}
 
@@ -1661,8 +1575,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform4fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform4fv(program, location, count, value, __functionAddress);
 	}
 
@@ -1697,8 +1609,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform1dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform1dv(program, location, count, value, __functionAddress);
 	}
 
@@ -1733,8 +1643,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform2dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform2dv(program, location, count, value, __functionAddress);
 	}
 
@@ -1769,8 +1677,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform3dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform3dv(program, location, count, value, __functionAddress);
 	}
 
@@ -1805,8 +1711,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform4dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniform4dv(program, location, count, value, __functionAddress);
 	}
 
@@ -1841,8 +1745,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniformMatrix2fv(program, location, count, transpose, value, __functionAddress);
 	}
 
@@ -1878,8 +1780,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniformMatrix3fv(program, location, count, transpose, value, __functionAddress);
 	}
 
@@ -1915,8 +1815,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniformMatrix4fv(program, location, count, transpose, value, __functionAddress);
 	}
 
@@ -1952,8 +1850,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniformMatrix2dv(program, location, count, transpose, value, __functionAddress);
 	}
 
@@ -1989,8 +1885,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniformMatrix3dv(program, location, count, transpose, value, __functionAddress);
 	}
 
@@ -2026,8 +1920,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniformMatrix4dv(program, location, count, transpose, value, __functionAddress);
 	}
 
@@ -2063,8 +1955,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x3fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniformMatrix2x3fv(program, location, count, transpose, value, __functionAddress);
 	}
 
@@ -2100,8 +1990,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x2fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniformMatrix3x2fv(program, location, count, transpose, value, __functionAddress);
 	}
 
@@ -2137,8 +2025,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x4fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniformMatrix2x4fv(program, location, count, transpose, value, __functionAddress);
 	}
 
@@ -2174,8 +2060,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x2fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniformMatrix4x2fv(program, location, count, transpose, value, __functionAddress);
 	}
 
@@ -2211,8 +2095,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x4fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniformMatrix3x4fv(program, location, count, transpose, value, __functionAddress);
 	}
 
@@ -2248,8 +2130,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x3fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniformMatrix4x3fv(program, location, count, transpose, value, __functionAddress);
 	}
 
@@ -2285,8 +2165,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x3dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x3dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniformMatrix2x3dv(program, location, count, transpose, value, __functionAddress);
 	}
 
@@ -2322,8 +2200,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x2dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x2dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniformMatrix3x2dv(program, location, count, transpose, value, __functionAddress);
 	}
 
@@ -2359,8 +2235,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x4dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x4dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniformMatrix2x4dv(program, location, count, transpose, value, __functionAddress);
 	}
 
@@ -2396,8 +2270,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x2dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x2dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniformMatrix4x2dv(program, location, count, transpose, value, __functionAddress);
 	}
 
@@ -2433,8 +2305,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x4dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x4dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniformMatrix3x4dv(program, location, count, transpose, value, __functionAddress);
 	}
 
@@ -2470,8 +2340,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x3dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x3dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniformMatrix4x3dv(program, location, count, transpose, value, __functionAddress);
 	}
 
@@ -2512,8 +2380,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glValidateProgramPipeline(int pipeline) {
 		long __functionAddress = getInstance().ValidateProgramPipeline;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglValidateProgramPipeline(pipeline, __functionAddress);
 	}
 
@@ -2527,8 +2393,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglGetProgramPipelineInfoLog(int pipeline, int bufSize, long length, long infoLog) {
 		long __functionAddress = getInstance().GetProgramPipelineInfoLog;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetProgramPipelineInfoLog(pipeline, bufSize, length, infoLog, __functionAddress);
 	}
 
@@ -2592,8 +2456,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glVertexAttribL1d(int index, double x) {
 		long __functionAddress = getInstance().VertexAttribL1d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribL1d(index, x, __functionAddress);
 	}
 
@@ -2614,8 +2476,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glVertexAttribL2d(int index, double x, double y) {
 		long __functionAddress = getInstance().VertexAttribL2d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribL2d(index, x, y, __functionAddress);
 	}
 
@@ -2637,8 +2497,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glVertexAttribL3d(int index, double x, double y, double z) {
 		long __functionAddress = getInstance().VertexAttribL3d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribL3d(index, x, y, z, __functionAddress);
 	}
 
@@ -2661,8 +2519,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glVertexAttribL4d(int index, double x, double y, double z, double w) {
 		long __functionAddress = getInstance().VertexAttribL4d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribL4d(index, x, y, z, w, __functionAddress);
 	}
 
@@ -2676,8 +2532,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglVertexAttribL1dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL1dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribL1dv(index, v, __functionAddress);
 	}
 
@@ -2712,8 +2566,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglVertexAttribL2dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL2dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribL2dv(index, v, __functionAddress);
 	}
 
@@ -2748,8 +2600,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglVertexAttribL3dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL3dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribL3dv(index, v, __functionAddress);
 	}
 
@@ -2784,8 +2634,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglVertexAttribL4dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL4dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribL4dv(index, v, __functionAddress);
 	}
 
@@ -2820,8 +2668,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglVertexAttribLPointer(int index, int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexAttribLPointer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribLPointer(index, size, type, stride, pointer, __functionAddress);
 	}
 
@@ -2868,8 +2714,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglGetVertexAttribLdv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribLdv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetVertexAttribLdv(index, pname, params, __functionAddress);
 	}
 
@@ -2901,8 +2745,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglViewportArrayv(int first, int count, long v) {
 		long __functionAddress = getInstance().ViewportArrayv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglViewportArrayv(first, count, v, __functionAddress);
 	}
 
@@ -2945,8 +2787,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glViewportIndexedf(int index, float x, float y, float w, float h) {
 		long __functionAddress = getInstance().ViewportIndexedf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglViewportIndexedf(index, x, y, w, h, __functionAddress);
 	}
 
@@ -2960,8 +2800,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglViewportIndexedfv(int index, long v) {
 		long __functionAddress = getInstance().ViewportIndexedfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglViewportIndexedfv(index, v, __functionAddress);
 	}
 
@@ -2996,8 +2834,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglScissorArrayv(int first, int count, long v) {
 		long __functionAddress = getInstance().ScissorArrayv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglScissorArrayv(first, count, v, __functionAddress);
 	}
 
@@ -3040,8 +2876,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glScissorIndexed(int index, int left, int bottom, int width, int height) {
 		long __functionAddress = getInstance().ScissorIndexed;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglScissorIndexed(index, left, bottom, width, height, __functionAddress);
 	}
 
@@ -3055,8 +2889,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglScissorIndexedv(int index, long v) {
 		long __functionAddress = getInstance().ScissorIndexedv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglScissorIndexedv(index, v, __functionAddress);
 	}
 
@@ -3091,8 +2923,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglDepthRangeArrayv(int first, int count, long v) {
 		long __functionAddress = getInstance().DepthRangeArrayv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDepthRangeArrayv(first, count, v, __functionAddress);
 	}
 
@@ -3133,8 +2963,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glDepthRangeIndexed(int index, double zNear, double zFar) {
 		long __functionAddress = getInstance().DepthRangeIndexed;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDepthRangeIndexed(index, zNear, zFar, __functionAddress);
 	}
 
@@ -3148,8 +2976,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglGetFloati_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetFloati_v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetFloati_v(target, index, data, __functionAddress);
 	}
 
@@ -3193,8 +3019,6 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglGetDoublei_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetDoublei_v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetDoublei_v(target, index, data, __functionAddress);
 	}
 

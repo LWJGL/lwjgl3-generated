@@ -38,7 +38,7 @@ public final class EXTPolygonOffsetClamp {
 
 	/** Returns the {@link EXTPolygonOffsetClamp} instance for the current context. */
 	public static EXTPolygonOffsetClamp getInstance() {
-		return GL.getCapabilities().__EXTPolygonOffsetClamp;
+		return checkFunctionality(GL.getCapabilities().__EXTPolygonOffsetClamp);
 	}
 
 	static EXTPolygonOffsetClamp create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -74,8 +74,6 @@ public final class EXTPolygonOffsetClamp {
 	 */
 	public static void glPolygonOffsetClampEXT(float factor, float units, float clamp) {
 		long __functionAddress = getInstance().PolygonOffsetClampEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPolygonOffsetClampEXT(factor, units, clamp, __functionAddress);
 	}
 

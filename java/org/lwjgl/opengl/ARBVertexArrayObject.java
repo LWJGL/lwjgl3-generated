@@ -51,7 +51,7 @@ public final class ARBVertexArrayObject {
 
 	/** Returns the {@link ARBVertexArrayObject} instance for the current context. */
 	public static ARBVertexArrayObject getInstance() {
-		return GL.getCapabilities().__ARBVertexArrayObject;
+		return checkFunctionality(GL.getCapabilities().__ARBVertexArrayObject);
 	}
 
 	static ARBVertexArrayObject create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -75,8 +75,6 @@ public final class ARBVertexArrayObject {
 	 */
 	public static void glBindVertexArray(int array) {
 		long __functionAddress = getInstance().BindVertexArray;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglBindVertexArray(array, __functionAddress);
 	}
 
@@ -86,8 +84,6 @@ public final class ARBVertexArrayObject {
 	@JavadocExclude
 	public static void nglDeleteVertexArrays(int n, long arrays) {
 		long __functionAddress = getInstance().DeleteVertexArrays;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglDeleteVertexArrays(n, arrays, __functionAddress);
 	}
 
@@ -121,8 +117,6 @@ public final class ARBVertexArrayObject {
 	@JavadocExclude
 	public static void nglGenVertexArrays(int n, long arrays) {
 		long __functionAddress = getInstance().GenVertexArrays;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglGenVertexArrays(n, arrays, __functionAddress);
 	}
 
@@ -160,8 +154,6 @@ public final class ARBVertexArrayObject {
 	 */
 	public static boolean glIsVertexArray(int array) {
 		long __functionAddress = getInstance().IsVertexArray;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return GL30.nglIsVertexArray(array, __functionAddress);
 	}
 

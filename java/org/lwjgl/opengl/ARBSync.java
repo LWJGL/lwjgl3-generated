@@ -93,7 +93,7 @@ public final class ARBSync {
 
 	/** Returns the {@link ARBSync} instance for the current context. */
 	public static ARBSync getInstance() {
-		return GL.getCapabilities().__ARBSync;
+		return checkFunctionality(GL.getCapabilities().__ARBSync);
 	}
 
 	static ARBSync create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -119,8 +119,6 @@ public final class ARBSync {
 	 */
 	public static long glFenceSync(int condition, int flags) {
 		long __functionAddress = getInstance().FenceSync;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return GL32.nglFenceSync(condition, flags, __functionAddress);
 	}
 
@@ -133,10 +131,8 @@ public final class ARBSync {
 	 */
 	public static boolean glIsSync(long sync) {
 		long __functionAddress = getInstance().IsSync;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		}
 		return GL32.nglIsSync(sync, __functionAddress);
 	}
 
@@ -149,10 +145,8 @@ public final class ARBSync {
 	 */
 	public static void glDeleteSync(long sync) {
 		long __functionAddress = getInstance().DeleteSync;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		}
 		GL32.nglDeleteSync(sync, __functionAddress);
 	}
 
@@ -176,10 +170,8 @@ public final class ARBSync {
 	 */
 	public static int glClientWaitSync(long sync, int flags, long timeout) {
 		long __functionAddress = getInstance().ClientWaitSync;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		}
 		return GL32.nglClientWaitSync(sync, flags, timeout, __functionAddress);
 	}
 
@@ -200,10 +192,8 @@ public final class ARBSync {
 	 */
 	public static void glWaitSync(long sync, int flags, long timeout) {
 		long __functionAddress = getInstance().WaitSync;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		}
 		GL32.nglWaitSync(sync, flags, timeout, __functionAddress);
 	}
 
@@ -213,8 +203,6 @@ public final class ARBSync {
 	@JavadocExclude
 	public static void nglGetInteger64v(int pname, long params) {
 		long __functionAddress = getInstance().GetInteger64v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL32.nglGetInteger64v(pname, params, __functionAddress);
 	}
 
@@ -251,10 +239,8 @@ public final class ARBSync {
 	@JavadocExclude
 	public static void nglGetSynciv(long sync, int pname, int bufSize, long length, long values) {
 		long __functionAddress = getInstance().GetSynciv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		}
 		GL32.nglGetSynciv(sync, pname, bufSize, length, values, __functionAddress);
 	}
 

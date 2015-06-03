@@ -72,7 +72,7 @@ public final class GLXAMDGPUAssociation {
 
 	/** Returns the {@link GLXAMDGPUAssociation} instance for the current context. */
 	public static GLXAMDGPUAssociation getInstance() {
-		return GL.getCapabilities().__GLXAMDGPUAssociation;
+		return checkFunctionality(GL.getCapabilities().__GLXAMDGPUAssociation);
 	}
 
 	static GLXAMDGPUAssociation create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -111,10 +111,8 @@ public final class GLXAMDGPUAssociation {
 	 */
 	public static void glXBlitContextFramebufferAMD(long dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
 		long __functionAddress = getInstance().BlitContextFramebufferAMD;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(dstCtx);
-		}
 		nglXBlitContextFramebufferAMD(dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter, __functionAddress);
 	}
 
@@ -132,10 +130,8 @@ public final class GLXAMDGPUAssociation {
 	 */
 	public static long glXCreateAssociatedContextAMD(int id, long share_list) {
 		long __functionAddress = getInstance().CreateAssociatedContextAMD;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(share_list);
-		}
 		return nglXCreateAssociatedContextAMD(id, share_list, __functionAddress);
 	}
 
@@ -149,10 +145,8 @@ public final class GLXAMDGPUAssociation {
 	@JavadocExclude
 	public static long nglXCreateAssociatedContextAttribsAMD(int id, long share_context, long attribList) {
 		long __functionAddress = getInstance().CreateAssociatedContextAttribsAMD;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(share_context);
-		}
 		return nglXCreateAssociatedContextAttribsAMD(id, share_context, attribList, __functionAddress);
 	}
 
@@ -185,10 +179,8 @@ public final class GLXAMDGPUAssociation {
 	 */
 	public static int glXDeleteAssociatedContextAMD(long ctx) {
 		long __functionAddress = getInstance().DeleteAssociatedContextAMD;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		}
 		return nglXDeleteAssociatedContextAMD(ctx, __functionAddress);
 	}
 
@@ -205,10 +197,8 @@ public final class GLXAMDGPUAssociation {
 	 */
 	public static int glXGetContextGPUIDAMD(long ctx) {
 		long __functionAddress = getInstance().GetContextGPUIDAMD;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		}
 		return nglXGetContextGPUIDAMD(ctx, __functionAddress);
 	}
 
@@ -221,8 +211,6 @@ public final class GLXAMDGPUAssociation {
 	/** Queries the crrent associated context. */
 	public static long glXGetCurrentAssociatedContextAMD() {
 		long __functionAddress = getInstance().GetCurrentAssociatedContextAMD;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglXGetCurrentAssociatedContextAMD(__functionAddress);
 	}
 
@@ -240,8 +228,6 @@ public final class GLXAMDGPUAssociation {
 	 */
 	public static int glXGetGPUIDsAMD(int maxCount, int ids) {
 		long __functionAddress = getInstance().GetGPUIDsAMD;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglXGetGPUIDsAMD(maxCount, ids, __functionAddress);
 	}
 
@@ -255,8 +241,6 @@ public final class GLXAMDGPUAssociation {
 	@JavadocExclude
 	public static int nglXGetGPUInfoAMD(int id, int property, int dataType, int size, long data) {
 		long __functionAddress = getInstance().GetGPUInfoAMD;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglXGetGPUInfoAMD(id, property, dataType, size, data, __functionAddress);
 	}
 
@@ -286,10 +270,8 @@ public final class GLXAMDGPUAssociation {
 	 */
 	public static int glXMakeAssociatedContextCurrentAMD(long ctx) {
 		long __functionAddress = getInstance().MakeAssociatedContextCurrentAMD;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		}
 		return nglXMakeAssociatedContextCurrentAMD(ctx, __functionAddress);
 	}
 

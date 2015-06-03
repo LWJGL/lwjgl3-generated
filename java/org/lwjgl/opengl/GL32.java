@@ -240,7 +240,7 @@ public final class GL32 {
 
 	/** Returns the {@link GL32} instance for the current context. */
 	public static GL32 getInstance() {
-		return GL.getCapabilities().__GL32;
+		return checkFunctionality(GL.getCapabilities().__GL32);
 	}
 
 	static GL32 create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -268,8 +268,6 @@ public final class GL32 {
 	@JavadocExclude
 	public static void nglGetBufferParameteri64v(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferParameteri64v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetBufferParameteri64v(target, pname, params, __functionAddress);
 	}
 
@@ -313,8 +311,6 @@ public final class GL32 {
 	@JavadocExclude
 	public static void nglDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex) {
 		long __functionAddress = getInstance().DrawElementsBaseVertex;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawElementsBaseVertex(mode, count, type, indices, basevertex, __functionAddress);
 	}
 
@@ -382,8 +378,6 @@ public final class GL32 {
 	@JavadocExclude
 	public static void nglDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex) {
 		long __functionAddress = getInstance().DrawRangeElementsBaseVertex;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawRangeElementsBaseVertex(mode, start, end, count, type, indices, basevertex, __functionAddress);
 	}
 
@@ -453,8 +447,6 @@ public final class GL32 {
 	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int primcount, int basevertex) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseVertex;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawElementsInstancedBaseVertex(mode, count, type, indices, primcount, basevertex, __functionAddress);
 	}
 
@@ -523,8 +515,6 @@ public final class GL32 {
 	@JavadocExclude
 	public static void nglMultiDrawElementsBaseVertex(int mode, long count, int type, long indices, int primcount, long basevertex) {
 		long __functionAddress = getInstance().MultiDrawElementsBaseVertex;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiDrawElementsBaseVertex(mode, count, type, indices, primcount, basevertex, __functionAddress);
 	}
 
@@ -575,8 +565,6 @@ public final class GL32 {
 	 */
 	public static void glProvokingVertex(int mode) {
 		long __functionAddress = getInstance().ProvokingVertex;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProvokingVertex(mode, __functionAddress);
 	}
 
@@ -602,8 +590,6 @@ public final class GL32 {
 	 */
 	public static void glTexImage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TexImage2DMultisample;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexImage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations, __functionAddress);
 	}
 
@@ -630,8 +616,6 @@ public final class GL32 {
 	 */
 	public static void glTexImage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TexImage3DMultisample;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexImage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations, __functionAddress);
 	}
 
@@ -645,8 +629,6 @@ public final class GL32 {
 	@JavadocExclude
 	public static void nglGetMultisamplefv(int pname, int index, long val) {
 		long __functionAddress = getInstance().GetMultisamplefv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetMultisamplefv(pname, index, val, __functionAddress);
 	}
 
@@ -696,8 +678,6 @@ public final class GL32 {
 	 */
 	public static void glSampleMaski(int index, int mask) {
 		long __functionAddress = getInstance().SampleMaski;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSampleMaski(index, mask, __functionAddress);
 	}
 
@@ -719,8 +699,6 @@ public final class GL32 {
 	 */
 	public static void glFramebufferTexture(int target, int attachment, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTexture;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFramebufferTexture(target, attachment, texture, level, __functionAddress);
 	}
 
@@ -741,8 +719,6 @@ public final class GL32 {
 	 */
 	public static long glFenceSync(int condition, int flags) {
 		long __functionAddress = getInstance().FenceSync;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglFenceSync(condition, flags, __functionAddress);
 	}
 
@@ -761,10 +737,8 @@ public final class GL32 {
 	 */
 	public static boolean glIsSync(long sync) {
 		long __functionAddress = getInstance().IsSync;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		}
 		return nglIsSync(sync, __functionAddress);
 	}
 
@@ -783,10 +757,8 @@ public final class GL32 {
 	 */
 	public static void glDeleteSync(long sync) {
 		long __functionAddress = getInstance().DeleteSync;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		}
 		nglDeleteSync(sync, __functionAddress);
 	}
 
@@ -816,10 +788,8 @@ public final class GL32 {
 	 */
 	public static int glClientWaitSync(long sync, int flags, long timeout) {
 		long __functionAddress = getInstance().ClientWaitSync;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		}
 		return nglClientWaitSync(sync, flags, timeout, __functionAddress);
 	}
 
@@ -846,10 +816,8 @@ public final class GL32 {
 	 */
 	public static void glWaitSync(long sync, int flags, long timeout) {
 		long __functionAddress = getInstance().WaitSync;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		}
 		nglWaitSync(sync, flags, timeout, __functionAddress);
 	}
 
@@ -863,8 +831,6 @@ public final class GL32 {
 	@JavadocExclude
 	public static void nglGetInteger64v(int pname, long params) {
 		long __functionAddress = getInstance().GetInteger64v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetInteger64v(pname, params, __functionAddress);
 	}
 
@@ -907,8 +873,6 @@ public final class GL32 {
 	@JavadocExclude
 	public static void nglGetInteger64i_v(int pname, int index, long params) {
 		long __functionAddress = getInstance().GetInteger64i_v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetInteger64i_v(pname, index, params, __functionAddress);
 	}
 
@@ -952,10 +916,8 @@ public final class GL32 {
 	@JavadocExclude
 	public static void nglGetSynciv(long sync, int pname, int bufSize, long length, long values) {
 		long __functionAddress = getInstance().GetSynciv;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		}
 		nglGetSynciv(sync, pname, bufSize, length, values, __functionAddress);
 	}
 

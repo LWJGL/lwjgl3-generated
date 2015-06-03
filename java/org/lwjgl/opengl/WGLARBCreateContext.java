@@ -52,7 +52,7 @@ public final class WGLARBCreateContext {
 
 	/** Returns the {@link WGLARBCreateContext} instance for the current context. */
 	public static WGLARBCreateContext getInstance() {
-		return GL.getCapabilities().__WGLARBCreateContext;
+		return checkFunctionality(GL.getCapabilities().__WGLARBCreateContext);
 	}
 
 	static WGLARBCreateContext create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -77,10 +77,8 @@ public final class WGLARBCreateContext {
 	@JavadocExclude
 	public static long nwglCreateContextAttribsARB(long hdc, long shareContext, long attribList) {
 		long __functionAddress = getInstance().CreateContextAttribsARB;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		}
 		return nwglCreateContextAttribsARB(hdc, shareContext, attribList, __functionAddress);
 	}
 

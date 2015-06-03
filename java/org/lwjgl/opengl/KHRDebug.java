@@ -190,7 +190,7 @@ public final class KHRDebug {
 
 	/** Returns the {@link KHRDebug} instance for the current context. */
 	public static KHRDebug getInstance() {
-		return GL.getCapabilities().__KHRDebug;
+		return checkFunctionality(GL.getCapabilities().__KHRDebug);
 	}
 
 	static KHRDebug create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -212,8 +212,6 @@ public final class KHRDebug {
 	@JavadocExclude
 	public static void nglDebugMessageControl(int source, int type, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = getInstance().DebugMessageControl;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglDebugMessageControl(source, type, severity, count, ids, enabled, __functionAddress);
 	}
 
@@ -273,8 +271,6 @@ public final class KHRDebug {
 	@JavadocExclude
 	public static void nglDebugMessageInsert(int source, int type, int id, int severity, int length, long message) {
 		long __functionAddress = getInstance().DebugMessageInsert;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglDebugMessageInsert(source, type, id, severity, length, message, __functionAddress);
 	}
 
@@ -351,8 +347,6 @@ public final class KHRDebug {
 	 */
 	public static void glDebugMessageCallback(GLDebugMessageCallback callback, long userParam) {
 		long __functionAddress = getInstance().DebugMessageCallback;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglDebugMessageCallback(callback == null ? NULL : callback.getPointer(), userParam, __functionAddress);
 	}
 
@@ -362,8 +356,6 @@ public final class KHRDebug {
 	@JavadocExclude
 	public static int nglGetDebugMessageLog(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
 		long __functionAddress = getInstance().GetDebugMessageLog;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return GL43.nglGetDebugMessageLog(count, bufsize, sources, types, ids, severities, lengths, messageLog, __functionAddress);
 	}
 
@@ -430,8 +422,6 @@ public final class KHRDebug {
 	@JavadocExclude
 	public static void nglPushDebugGroup(int source, int id, int length, long message) {
 		long __functionAddress = getInstance().PushDebugGroup;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglPushDebugGroup(source, id, length, message, __functionAddress);
 	}
 
@@ -484,8 +474,6 @@ public final class KHRDebug {
 	 */
 	public static void glPopDebugGroup() {
 		long __functionAddress = getInstance().PopDebugGroup;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglPopDebugGroup(__functionAddress);
 	}
 
@@ -495,8 +483,6 @@ public final class KHRDebug {
 	@JavadocExclude
 	public static void nglObjectLabel(int identifier, int name, int length, long label) {
 		long __functionAddress = getInstance().ObjectLabel;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglObjectLabel(identifier, name, length, label, __functionAddress);
 	}
 
@@ -533,8 +519,6 @@ public final class KHRDebug {
 	@JavadocExclude
 	public static void nglGetObjectLabel(int identifier, int name, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectLabel;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglGetObjectLabel(identifier, name, bufSize, length, label, __functionAddress);
 	}
 
@@ -587,10 +571,8 @@ public final class KHRDebug {
 	@JavadocExclude
 	public static void nglObjectPtrLabel(long ptr, int length, long label) {
 		long __functionAddress = getInstance().ObjectPtrLabel;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(ptr);
-		}
 		GL43.nglObjectPtrLabel(ptr, length, label, __functionAddress);
 	}
 
@@ -626,10 +608,8 @@ public final class KHRDebug {
 	@JavadocExclude
 	public static void nglGetObjectPtrLabel(long ptr, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectPtrLabel;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(ptr);
-		}
 		GL43.nglGetObjectPtrLabel(ptr, bufSize, length, label, __functionAddress);
 	}
 

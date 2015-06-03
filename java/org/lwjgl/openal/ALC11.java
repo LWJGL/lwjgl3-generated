@@ -54,7 +54,7 @@ public final class ALC11 {
 
 	/** Returns the {@link ALC11} instance for the current context. */
 	public static ALC11 getInstance() {
-		return ALC.getCapabilities().__ALC11;
+		return checkFunctionality(ALC.getCapabilities().__ALC11);
 	}
 
 	static ALC11 create(java.util.Set<String> ext, FunctionProviderLocal provider) {
@@ -79,8 +79,6 @@ public final class ALC11 {
 	@JavadocExclude
 	public static long nalcCaptureOpenDevice(long devicename, int frequency, int format, int buffersize) {
 		long __functionAddress = getInstance().CaptureOpenDevice;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalcCaptureOpenDevice(devicename, frequency, format, buffersize, __functionAddress);
 	}
 
@@ -121,10 +119,8 @@ public final class ALC11 {
 	 */
 	public static boolean alcCaptureCloseDevice(long device) {
 		long __functionAddress = getInstance().CaptureCloseDevice;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		}
 		return nalcCaptureCloseDevice(device, __functionAddress);
 	}
 
@@ -145,10 +141,8 @@ public final class ALC11 {
 	 */
 	public static void alcCaptureStart(long device) {
 		long __functionAddress = getInstance().CaptureStart;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		}
 		nalcCaptureStart(device, __functionAddress);
 	}
 
@@ -168,10 +162,8 @@ public final class ALC11 {
 	 */
 	public static void alcCaptureStop(long device) {
 		long __functionAddress = getInstance().CaptureStop;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		}
 		nalcCaptureStop(device, __functionAddress);
 	}
 
@@ -185,10 +177,8 @@ public final class ALC11 {
 	@JavadocExclude
 	public static void nalcCaptureSamples(long device, long buffer, int samples) {
 		long __functionAddress = getInstance().CaptureSamples;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		}
 		nalcCaptureSamples(device, buffer, samples, __functionAddress);
 	}
 

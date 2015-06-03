@@ -38,7 +38,7 @@ public final class GLXSGIXSwapBarrier {
 
 	/** Returns the {@link GLXSGIXSwapBarrier} instance for the current context. */
 	public static GLXSGIXSwapBarrier getInstance() {
-		return GL.getCapabilities().__GLXSGIXSwapBarrier;
+		return checkFunctionality(GL.getCapabilities().__GLXSGIXSwapBarrier);
 	}
 
 	static GLXSGIXSwapBarrier create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -70,7 +70,6 @@ public final class GLXSGIXSwapBarrier {
 	public static void glXBindSwapBarrierSGIX(long display, long drawable, int barrier) {
 		long __functionAddress = getInstance().BindSwapBarrierSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(drawable);
 		}
@@ -87,10 +86,8 @@ public final class GLXSGIXSwapBarrier {
 	@JavadocExclude
 	public static int nglXQueryMaxSwapBarriersSGIX(long display, int screen, long max) {
 		long __functionAddress = getInstance().QueryMaxSwapBarriersSGIX;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		}
 		return nglXQueryMaxSwapBarriersSGIX(display, screen, max, __functionAddress);
 	}
 

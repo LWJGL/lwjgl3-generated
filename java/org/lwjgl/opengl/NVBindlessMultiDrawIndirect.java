@@ -47,7 +47,7 @@ public final class NVBindlessMultiDrawIndirect {
 
 	/** Returns the {@link NVBindlessMultiDrawIndirect} instance for the current context. */
 	public static NVBindlessMultiDrawIndirect getInstance() {
-		return GL.getCapabilities().__NVBindlessMultiDrawIndirect;
+		return checkFunctionality(GL.getCapabilities().__NVBindlessMultiDrawIndirect);
 	}
 
 	static NVBindlessMultiDrawIndirect create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -72,8 +72,6 @@ public final class NVBindlessMultiDrawIndirect {
 	@JavadocExclude
 	public static void nglMultiDrawArraysIndirectBindlessNV(int mode, long indirect, int drawCount, int stride, int vertexBufferCount) {
 		long __functionAddress = getInstance().MultiDrawArraysIndirectBindlessNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiDrawArraysIndirectBindlessNV(mode, indirect, drawCount, stride, vertexBufferCount, __functionAddress);
 	}
 
@@ -113,8 +111,6 @@ public final class NVBindlessMultiDrawIndirect {
 	@JavadocExclude
 	public static void nglMultiDrawElementsIndirectBindlessNV(int mode, int type, long indirect, int drawCount, int stride, int vertexBufferCount) {
 		long __functionAddress = getInstance().MultiDrawElementsIndirectBindlessNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiDrawElementsIndirectBindlessNV(mode, type, indirect, drawCount, stride, vertexBufferCount, __functionAddress);
 	}
 

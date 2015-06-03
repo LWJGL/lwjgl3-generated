@@ -48,7 +48,7 @@ public final class KHRTerminateContext {
 
 	/** Returns the {@link KHRTerminateContext} instance for the currently loaded ICD. */
 	public static KHRTerminateContext getInstance() {
-		return CL.getICD().__KHRTerminateContext;
+		return checkFunctionality(CL.getICD().__KHRTerminateContext);
 	}
 
 	static KHRTerminateContext create(FunctionProvider provider) {
@@ -98,10 +98,8 @@ public final class KHRTerminateContext {
 	 */
 	public static int clTerminateContextKHR(long context) {
 		long __functionAddress = getInstance().TerminateContextKHR;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		}
 		return nclTerminateContextKHR(context, __functionAddress);
 	}
 

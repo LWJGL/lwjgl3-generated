@@ -83,7 +83,7 @@ public final class ARBShaderStorageBufferObject {
 
 	/** Returns the {@link ARBShaderStorageBufferObject} instance for the current context. */
 	public static ARBShaderStorageBufferObject getInstance() {
-		return GL.getCapabilities().__ARBShaderStorageBufferObject;
+		return checkFunctionality(GL.getCapabilities().__ARBShaderStorageBufferObject);
 	}
 
 	static ARBShaderStorageBufferObject create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -109,8 +109,6 @@ public final class ARBShaderStorageBufferObject {
 	 */
 	public static void glShaderStorageBlockBinding(int program, int storageBlockIndex, int storageBlockBinding) {
 		long __functionAddress = getInstance().ShaderStorageBlockBinding;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglShaderStorageBlockBinding(program, storageBlockIndex, storageBlockBinding, __functionAddress);
 	}
 

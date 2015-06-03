@@ -58,7 +58,7 @@ public final class ARBBlendFuncExtended {
 
 	/** Returns the {@link ARBBlendFuncExtended} instance for the current context. */
 	public static ARBBlendFuncExtended getInstance() {
-		return GL.getCapabilities().__ARBBlendFuncExtended;
+		return checkFunctionality(GL.getCapabilities().__ARBBlendFuncExtended);
 	}
 
 	static ARBBlendFuncExtended create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -79,8 +79,6 @@ public final class ARBBlendFuncExtended {
 	@JavadocExclude
 	public static void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name) {
 		long __functionAddress = getInstance().BindFragDataLocationIndexed;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL33.nglBindFragDataLocationIndexed(program, colorNumber, index, name, __functionAddress);
 	}
 
@@ -111,8 +109,6 @@ public final class ARBBlendFuncExtended {
 	@JavadocExclude
 	public static int nglGetFragDataIndex(int program, long name) {
 		long __functionAddress = getInstance().GetFragDataIndex;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return GL33.nglGetFragDataIndex(program, name, __functionAddress);
 	}
 

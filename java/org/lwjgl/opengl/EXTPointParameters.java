@@ -78,7 +78,7 @@ public final class EXTPointParameters {
 
 	/** Returns the {@link EXTPointParameters} instance for the current context. */
 	public static EXTPointParameters getInstance() {
-		return GL.getCapabilities().__EXTPointParameters;
+		return checkFunctionality(GL.getCapabilities().__EXTPointParameters);
 	}
 
 	static EXTPointParameters create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -107,8 +107,6 @@ public final class EXTPointParameters {
 	 */
 	public static void glPointParameterfEXT(int pname, float param) {
 		long __functionAddress = getInstance().PointParameterfEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPointParameterfEXT(pname, param, __functionAddress);
 	}
 
@@ -122,8 +120,6 @@ public final class EXTPointParameters {
 	@JavadocExclude
 	public static void nglPointParameterfvEXT(int pname, long params) {
 		long __functionAddress = getInstance().PointParameterfvEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPointParameterfvEXT(pname, params, __functionAddress);
 	}
 

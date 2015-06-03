@@ -62,7 +62,7 @@ public final class ARBGetProgramBinary {
 
 	/** Returns the {@link ARBGetProgramBinary} instance for the current context. */
 	public static ARBGetProgramBinary getInstance() {
-		return GL.getCapabilities().__ARBGetProgramBinary;
+		return checkFunctionality(GL.getCapabilities().__ARBGetProgramBinary);
 	}
 
 	static ARBGetProgramBinary create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -83,8 +83,6 @@ public final class ARBGetProgramBinary {
 	@JavadocExclude
 	public static void nglGetProgramBinary(int program, int bufSize, long length, long binaryFormat, long binary) {
 		long __functionAddress = getInstance().GetProgramBinary;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL41.nglGetProgramBinary(program, bufSize, length, binaryFormat, binary, __functionAddress);
 	}
 
@@ -144,8 +142,6 @@ public final class ARBGetProgramBinary {
 	@JavadocExclude
 	public static void nglProgramBinary(int program, int binaryFormat, long binary, int length) {
 		long __functionAddress = getInstance().ProgramBinary;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL41.nglProgramBinary(program, binaryFormat, binary, length, __functionAddress);
 	}
 
@@ -179,8 +175,6 @@ public final class ARBGetProgramBinary {
 	 */
 	public static void glProgramParameteri(int program, int pname, int value) {
 		long __functionAddress = getInstance().ProgramParameteri;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL41.nglProgramParameteri(program, pname, value, __functionAddress);
 	}
 

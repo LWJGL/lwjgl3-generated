@@ -51,7 +51,7 @@ public final class GLXARBCreateContext {
 
 	/** Returns the {@link GLXARBCreateContext} instance for the current context. */
 	public static GLXARBCreateContext getInstance() {
-		return GL.getCapabilities().__GLXARBCreateContext;
+		return checkFunctionality(GL.getCapabilities().__GLXARBCreateContext);
 	}
 
 	static GLXARBCreateContext create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -77,7 +77,6 @@ public final class GLXARBCreateContext {
 	public static long nglXCreateContextAttribsARB(long display, long config, long share_context, int direct, long attrib_list) {
 		long __functionAddress = getInstance().CreateContextAttribsARB;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}

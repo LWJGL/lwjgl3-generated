@@ -82,7 +82,7 @@ public final class KHRBlendEquationAdvanced {
 
 	/** Returns the {@link KHRBlendEquationAdvanced} instance for the current context. */
 	public static KHRBlendEquationAdvanced getInstance() {
-		return GL.getCapabilities().__KHRBlendEquationAdvanced;
+		return checkFunctionality(GL.getCapabilities().__KHRBlendEquationAdvanced);
 	}
 
 	static KHRBlendEquationAdvanced create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -113,8 +113,6 @@ public final class KHRBlendEquationAdvanced {
 	 */
 	public static void glBlendBarrierKHR() {
 		long __functionAddress = getInstance().BlendBarrierKHR;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBlendBarrierKHR(__functionAddress);
 	}
 

@@ -34,7 +34,7 @@ public final class EXTThreadLocalContext {
 
 	/** Returns the {@link EXTThreadLocalContext} instance for the current context. */
 	public static EXTThreadLocalContext getInstance() {
-		return ALC.getCapabilities().__EXTThreadLocalContext;
+		return checkFunctionality(ALC.getCapabilities().__EXTThreadLocalContext);
 	}
 
 	static EXTThreadLocalContext create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {
@@ -63,10 +63,8 @@ public final class EXTThreadLocalContext {
 	 */
 	public static boolean alcSetThreadContext(long context) {
 		long __functionAddress = getInstance().SetThreadContext;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		}
 		return nalcSetThreadContext(context, __functionAddress);
 	}
 
@@ -79,8 +77,6 @@ public final class EXTThreadLocalContext {
 	/** Retrieve a handle to the thread-specific context of the calling thread. This function will return {@code NULL} if no thread- specific context is set. */
 	public static long alcGetThreadContext() {
 		long __functionAddress = getInstance().GetThreadContext;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalcGetThreadContext(__functionAddress);
 	}
 

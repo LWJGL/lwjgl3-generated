@@ -241,7 +241,7 @@ public final class GL42 {
 
 	/** Returns the {@link GL42} instance for the current context. */
 	public static GL42 getInstance() {
-		return GL.getCapabilities().__GL42;
+		return checkFunctionality(GL.getCapabilities().__GL42);
 	}
 
 	static GL42 create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -268,8 +268,6 @@ public final class GL42 {
 	@JavadocExclude
 	public static void nglGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveAtomicCounterBufferiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, params, __functionAddress);
 	}
 
@@ -322,8 +320,6 @@ public final class GL42 {
 	 */
 	public static void glTexStorage1D(int target, int levels, int internalformat, int width) {
 		long __functionAddress = getInstance().TexStorage1D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexStorage1D(target, levels, internalformat, width, __functionAddress);
 	}
 
@@ -346,8 +342,6 @@ public final class GL42 {
 	 */
 	public static void glTexStorage2D(int target, int levels, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().TexStorage2D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexStorage2D(target, levels, internalformat, width, height, __functionAddress);
 	}
 
@@ -371,8 +365,6 @@ public final class GL42 {
 	 */
 	public static void glTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth) {
 		long __functionAddress = getInstance().TexStorage3D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexStorage3D(target, levels, internalformat, width, height, depth, __functionAddress);
 	}
 
@@ -393,8 +385,6 @@ public final class GL42 {
 	 */
 	public static void glDrawTransformFeedbackInstanced(int mode, int id, int primcount) {
 		long __functionAddress = getInstance().DrawTransformFeedbackInstanced;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawTransformFeedbackInstanced(mode, id, primcount, __functionAddress);
 	}
 
@@ -416,8 +406,6 @@ public final class GL42 {
 	 */
 	public static void glDrawTransformFeedbackStreamInstanced(int mode, int id, int stream, int primcount) {
 		long __functionAddress = getInstance().DrawTransformFeedbackStreamInstanced;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawTransformFeedbackStreamInstanced(mode, id, stream, primcount, __functionAddress);
 	}
 
@@ -440,8 +428,6 @@ public final class GL42 {
 	 */
 	public static void glDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance) {
 		long __functionAddress = getInstance().DrawArraysInstancedBaseInstance;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawArraysInstancedBaseInstance(mode, first, count, primcount, baseinstance, __functionAddress);
 	}
 
@@ -455,8 +441,6 @@ public final class GL42 {
 	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseInstance(int mode, int count, int type, long indices, int primcount, int baseinstance) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseInstance;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawElementsInstancedBaseInstance(mode, count, type, indices, primcount, baseinstance, __functionAddress);
 	}
 
@@ -525,8 +509,6 @@ public final class GL42 {
 	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indices, int primcount, int basevertex, int baseinstance) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseVertexBaseInstance;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawElementsInstancedBaseVertexBaseInstance(mode, count, type, indices, primcount, basevertex, baseinstance, __functionAddress);
 	}
 
@@ -607,8 +589,6 @@ public final class GL42 {
 	 */
 	public static void glBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format) {
 		long __functionAddress = getInstance().BindImageTexture;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindImageTexture(unit, texture, level, layered, layer, access, format, __functionAddress);
 	}
 
@@ -627,8 +607,6 @@ public final class GL42 {
 	 */
 	public static void glMemoryBarrier(int barriers) {
 		long __functionAddress = getInstance().MemoryBarrier;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMemoryBarrier(barriers, __functionAddress);
 	}
 
@@ -642,8 +620,6 @@ public final class GL42 {
 	@JavadocExclude
 	public static void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params) {
 		long __functionAddress = getInstance().GetInternalformativ;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetInternalformativ(target, internalformat, pname, bufSize, params, __functionAddress);
 	}
 

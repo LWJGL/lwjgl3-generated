@@ -93,7 +93,7 @@ public final class ALC10 {
 
 	/** Returns the {@link ALC10} instance for the current context. */
 	public static ALC10 getInstance() {
-		return ALC.getCapabilities().__ALC10;
+		return checkFunctionality(ALC.getCapabilities().__ALC10);
 	}
 
 	static ALC10 create(java.util.Set<String> ext, FunctionProviderLocal provider) {
@@ -120,8 +120,6 @@ public final class ALC10 {
 	@JavadocExclude
 	public static long nalcOpenDevice(long deviceSpecifier) {
 		long __functionAddress = getInstance().OpenDevice;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalcOpenDevice(deviceSpecifier, __functionAddress);
 	}
 
@@ -162,10 +160,8 @@ public final class ALC10 {
 	 */
 	public static boolean alcCloseDevice(long deviceHandle) {
 		long __functionAddress = getInstance().CloseDevice;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(deviceHandle);
-		}
 		return nalcCloseDevice(deviceHandle, __functionAddress);
 	}
 
@@ -179,10 +175,8 @@ public final class ALC10 {
 	@JavadocExclude
 	public static long nalcCreateContext(long deviceHandle, long attrList) {
 		long __functionAddress = getInstance().CreateContext;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(deviceHandle);
-		}
 		return nalcCreateContext(deviceHandle, attrList, __functionAddress);
 	}
 
@@ -224,8 +218,6 @@ public final class ALC10 {
 	 */
 	public static boolean alcMakeContextCurrent(long context) {
 		long __functionAddress = getInstance().MakeContextCurrent;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalcMakeContextCurrent(context, __functionAddress);
 	}
 
@@ -247,10 +239,8 @@ public final class ALC10 {
 	 */
 	public static void alcProcessContext(long context) {
 		long __functionAddress = getInstance().ProcessContext;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		}
 		nalcProcessContext(context, __functionAddress);
 	}
 
@@ -270,10 +260,8 @@ public final class ALC10 {
 	 */
 	public static void alcSuspendContext(long context) {
 		long __functionAddress = getInstance().SuspendContext;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		}
 		nalcSuspendContext(context, __functionAddress);
 	}
 
@@ -294,10 +282,8 @@ public final class ALC10 {
 	 */
 	public static void alcDestroyContext(long context) {
 		long __functionAddress = getInstance().DestroyContext;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		}
 		nalcDestroyContext(context, __functionAddress);
 	}
 
@@ -310,8 +296,6 @@ public final class ALC10 {
 	/** Queries for, and obtains a handle to, the current context for the application. If there is no current context, NULL is returned. */
 	public static long alcGetCurrentContext() {
 		long __functionAddress = getInstance().GetCurrentContext;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalcGetCurrentContext(__functionAddress);
 	}
 
@@ -328,10 +312,8 @@ public final class ALC10 {
 	 */
 	public static long alcGetContextsDevice(long context) {
 		long __functionAddress = getInstance().GetContextsDevice;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		}
 		return nalcGetContextsDevice(context, __functionAddress);
 	}
 
@@ -345,8 +327,6 @@ public final class ALC10 {
 	@JavadocExclude
 	public static boolean nalcIsExtensionPresent(long deviceHandle, long extName) {
 		long __functionAddress = getInstance().IsExtensionPresent;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalcIsExtensionPresent(deviceHandle, extName, __functionAddress);
 	}
 
@@ -382,8 +362,6 @@ public final class ALC10 {
 	@JavadocExclude
 	public static long nalcGetProcAddress(long deviceHandle, long funcName) {
 		long __functionAddress = getInstance().GetProcAddress;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalcGetProcAddress(deviceHandle, funcName, __functionAddress);
 	}
 
@@ -422,8 +400,6 @@ public final class ALC10 {
 	@JavadocExclude
 	public static int nalcGetEnumValue(long deviceHandle, long enumName) {
 		long __functionAddress = getInstance().GetEnumValue;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalcGetEnumValue(deviceHandle, enumName, __functionAddress);
 	}
 
@@ -467,10 +443,8 @@ public final class ALC10 {
 	 */
 	public static int alcGetError(long deviceHandle) {
 		long __functionAddress = getInstance().GetError;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(deviceHandle);
-		}
 		return nalcGetError(deviceHandle, __functionAddress);
 	}
 
@@ -484,8 +458,6 @@ public final class ALC10 {
 	@JavadocExclude
 	public static long nalcGetString(long deviceHandle, int token) {
 		long __functionAddress = getInstance().GetString;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalcGetString(deviceHandle, token, __functionAddress);
 	}
 
@@ -512,8 +484,6 @@ public final class ALC10 {
 	@JavadocExclude
 	public static void nalcGetIntegerv(long deviceHandle, int token, int size, long dest) {
 		long __functionAddress = getInstance().GetIntegerv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalcGetIntegerv(deviceHandle, token, size, dest, __functionAddress);
 	}
 

@@ -155,7 +155,7 @@ public final class ARBDebugOutput {
 
 	/** Returns the {@link ARBDebugOutput} instance for the current context. */
 	public static ARBDebugOutput getInstance() {
-		return GL.getCapabilities().__ARBDebugOutput;
+		return checkFunctionality(GL.getCapabilities().__ARBDebugOutput);
 	}
 
 	static ARBDebugOutput create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -180,8 +180,6 @@ public final class ARBDebugOutput {
 	@JavadocExclude
 	public static void nglDebugMessageControlARB(int source, int type, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = getInstance().DebugMessageControlARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDebugMessageControlARB(source, type, severity, count, ids, enabled, __functionAddress);
 	}
 
@@ -230,8 +228,6 @@ public final class ARBDebugOutput {
 	@JavadocExclude
 	public static void nglDebugMessageInsertARB(int source, int type, int id, int severity, int length, long buf) {
 		long __functionAddress = getInstance().DebugMessageInsertARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDebugMessageInsertARB(source, type, id, severity, length, buf, __functionAddress);
 	}
 
@@ -314,8 +310,6 @@ public final class ARBDebugOutput {
 	 */
 	public static void glDebugMessageCallbackARB(GLDebugMessageARBCallback callback, long userParam) {
 		long __functionAddress = getInstance().DebugMessageCallbackARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDebugMessageCallbackARB(callback == null ? NULL : callback.getPointer(), userParam, __functionAddress);
 	}
 
@@ -329,8 +323,6 @@ public final class ARBDebugOutput {
 	@JavadocExclude
 	public static int nglGetDebugMessageLogARB(int count, int bufSize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
 		long __functionAddress = getInstance().GetDebugMessageLogARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGetDebugMessageLogARB(count, bufSize, sources, types, ids, severities, lengths, messageLog, __functionAddress);
 	}
 

@@ -50,7 +50,7 @@ public final class EXTRasterMultisample {
 
 	/** Returns the {@link EXTRasterMultisample} instance for the current context. */
 	public static EXTRasterMultisample getInstance() {
-		return GL.getCapabilities().__EXTRasterMultisample;
+		return checkFunctionality(GL.getCapabilities().__EXTRasterMultisample);
 	}
 
 	static EXTRasterMultisample create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -102,8 +102,6 @@ public final class EXTRasterMultisample {
 	 */
 	public static void glRasterSamplesEXT(int samples, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().RasterSamplesEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterSamplesEXT(samples, fixedsamplelocations, __functionAddress);
 	}
 

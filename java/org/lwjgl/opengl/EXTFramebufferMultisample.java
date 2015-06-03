@@ -77,7 +77,7 @@ public final class EXTFramebufferMultisample {
 
 	/** Returns the {@link EXTFramebufferMultisample} instance for the current context. */
 	public static EXTFramebufferMultisample getInstance() {
-		return GL.getCapabilities().__EXTFramebufferMultisample;
+		return checkFunctionality(GL.getCapabilities().__EXTFramebufferMultisample);
 	}
 
 	static EXTFramebufferMultisample create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -109,8 +109,6 @@ public final class EXTFramebufferMultisample {
 	 */
 	public static void glRenderbufferStorageMultisampleEXT(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageMultisampleEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRenderbufferStorageMultisampleEXT(target, samples, internalformat, width, height, __functionAddress);
 	}
 

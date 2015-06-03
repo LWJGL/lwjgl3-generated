@@ -90,7 +90,7 @@ public final class AMDDebugOutput {
 
 	/** Returns the {@link AMDDebugOutput} instance for the current context. */
 	public static AMDDebugOutput getInstance() {
-		return GL.getCapabilities().__AMDDebugOutput;
+		return checkFunctionality(GL.getCapabilities().__AMDDebugOutput);
 	}
 
 	static AMDDebugOutput create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -115,8 +115,6 @@ public final class AMDDebugOutput {
 	@JavadocExclude
 	public static void nglDebugMessageEnableAMD(int category, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = getInstance().DebugMessageEnableAMD;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDebugMessageEnableAMD(category, severity, count, ids, enabled, __functionAddress);
 	}
 
@@ -175,8 +173,6 @@ public final class AMDDebugOutput {
 	@JavadocExclude
 	public static void nglDebugMessageInsertAMD(int category, int severity, int id, int length, long buf) {
 		long __functionAddress = getInstance().DebugMessageInsertAMD;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDebugMessageInsertAMD(category, severity, id, length, buf, __functionAddress);
 	}
 
@@ -251,8 +247,6 @@ public final class AMDDebugOutput {
 	 */
 	public static void glDebugMessageCallbackAMD(GLDebugMessageAMDCallback callback, long userParam) {
 		long __functionAddress = getInstance().DebugMessageCallbackAMD;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDebugMessageCallbackAMD(callback == null ? NULL : callback.getPointer(), userParam, __functionAddress);
 	}
 
@@ -266,8 +260,6 @@ public final class AMDDebugOutput {
 	@JavadocExclude
 	public static int nglGetDebugMessageLogAMD(int count, int bufsize, long categories, long severities, long ids, long lengths, long messageLog) {
 		long __functionAddress = getInstance().GetDebugMessageLogAMD;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGetDebugMessageLogAMD(count, bufsize, categories, severities, ids, lengths, messageLog, __functionAddress);
 	}
 

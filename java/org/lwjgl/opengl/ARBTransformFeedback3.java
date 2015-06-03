@@ -74,7 +74,7 @@ public final class ARBTransformFeedback3 {
 
 	/** Returns the {@link ARBTransformFeedback3} instance for the current context. */
 	public static ARBTransformFeedback3 getInstance() {
-		return GL.getCapabilities().__ARBTransformFeedback3;
+		return checkFunctionality(GL.getCapabilities().__ARBTransformFeedback3);
 	}
 
 	static ARBTransformFeedback3 create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -100,8 +100,6 @@ public final class ARBTransformFeedback3 {
 	 */
 	public static void glDrawTransformFeedbackStream(int mode, int id, int stream) {
 		long __functionAddress = getInstance().DrawTransformFeedbackStream;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglDrawTransformFeedbackStream(mode, id, stream, __functionAddress);
 	}
 
@@ -116,8 +114,6 @@ public final class ARBTransformFeedback3 {
 	 */
 	public static void glBeginQueryIndexed(int target, int index, int id) {
 		long __functionAddress = getInstance().BeginQueryIndexed;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglBeginQueryIndexed(target, index, id, __functionAddress);
 	}
 
@@ -131,8 +127,6 @@ public final class ARBTransformFeedback3 {
 	 */
 	public static void glEndQueryIndexed(int target, int index) {
 		long __functionAddress = getInstance().EndQueryIndexed;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglEndQueryIndexed(target, index, __functionAddress);
 	}
 
@@ -142,8 +136,6 @@ public final class ARBTransformFeedback3 {
 	@JavadocExclude
 	public static void nglGetQueryIndexediv(int target, int index, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryIndexediv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglGetQueryIndexediv(target, index, pname, params, __functionAddress);
 	}
 

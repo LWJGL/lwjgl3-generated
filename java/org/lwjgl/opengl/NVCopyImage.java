@@ -32,7 +32,7 @@ public final class NVCopyImage {
 
 	/** Returns the {@link NVCopyImage} instance for the current context. */
 	public static NVCopyImage getInstance() {
-		return GL.getCapabilities().__NVCopyImage;
+		return checkFunctionality(GL.getCapabilities().__NVCopyImage);
 	}
 
 	static NVCopyImage create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -74,8 +74,6 @@ public final class NVCopyImage {
 	 */
 	public static void glCopyImageSubDataNV(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth) {
 		long __functionAddress = getInstance().CopyImageSubDataNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCopyImageSubDataNV(srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth, __functionAddress);
 	}
 

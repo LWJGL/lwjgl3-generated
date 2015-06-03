@@ -55,7 +55,7 @@ public final class ARBTransposeMatrix {
 
 	/** Returns the {@link ARBTransposeMatrix} instance for the current context. */
 	public static ARBTransposeMatrix getInstance() {
-		return GL.getCapabilities().__ARBTransposeMatrix;
+		return checkFunctionality(GL.getCapabilities().__ARBTransposeMatrix);
 	}
 
 	static ARBTransposeMatrix create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -80,8 +80,6 @@ public final class ARBTransposeMatrix {
 	@JavadocExclude
 	public static void nglLoadTransposeMatrixfARB(long m) {
 		long __functionAddress = getInstance().LoadTransposeMatrixfARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglLoadTransposeMatrixfARB(m, __functionAddress);
 	}
 
@@ -121,8 +119,6 @@ public final class ARBTransposeMatrix {
 	@JavadocExclude
 	public static void nglLoadTransposeMatrixdARB(long m) {
 		long __functionAddress = getInstance().LoadTransposeMatrixdARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglLoadTransposeMatrixdARB(m, __functionAddress);
 	}
 
@@ -154,8 +150,6 @@ public final class ARBTransposeMatrix {
 	@JavadocExclude
 	public static void nglMultTransposeMatrixfARB(long m) {
 		long __functionAddress = getInstance().MultTransposeMatrixfARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultTransposeMatrixfARB(m, __functionAddress);
 	}
 
@@ -187,8 +181,6 @@ public final class ARBTransposeMatrix {
 	@JavadocExclude
 	public static void nglMultTransposeMatrixdARB(long m) {
 		long __functionAddress = getInstance().MultTransposeMatrixdARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultTransposeMatrixdARB(m, __functionAddress);
 	}
 

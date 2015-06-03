@@ -36,7 +36,7 @@ public final class GLXSGIVideoSync {
 
 	/** Returns the {@link GLXSGIVideoSync} instance for the current context. */
 	public static GLXSGIVideoSync getInstance() {
-		return GL.getCapabilities().__GLXSGIVideoSync;
+		return checkFunctionality(GL.getCapabilities().__GLXSGIVideoSync);
 	}
 
 	static GLXSGIVideoSync create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -61,8 +61,6 @@ public final class GLXSGIVideoSync {
 	@JavadocExclude
 	public static int nglXGetVideoSyncSGI(long count) {
 		long __functionAddress = getInstance().GetVideoSyncSGI;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglXGetVideoSyncSGI(count, __functionAddress);
 	}
 
@@ -94,8 +92,6 @@ public final class GLXSGIVideoSync {
 	@JavadocExclude
 	public static int nglXWaitVideoSyncSGI(int divisor, int remainder, long count) {
 		long __functionAddress = getInstance().WaitVideoSyncSGI;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglXWaitVideoSyncSGI(divisor, remainder, count, __functionAddress);
 	}
 

@@ -56,7 +56,7 @@ public final class KHRGLSharing {
 
 	/** Returns the {@link KHRGLSharing} instance for the currently loaded ICD. */
 	public static KHRGLSharing getInstance() {
-		return CL.getICD().__KHRGLSharing;
+		return checkFunctionality(CL.getICD().__KHRGLSharing);
 	}
 
 	static KHRGLSharing create(FunctionProvider provider) {
@@ -79,8 +79,6 @@ public final class KHRGLSharing {
 	@JavadocExclude
 	public static int nclGetGLContextInfoKHR(long properties, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetGLContextInfoKHR;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nclGetGLContextInfoKHR(properties, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
 	}
 

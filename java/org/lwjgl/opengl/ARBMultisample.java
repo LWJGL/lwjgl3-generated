@@ -63,7 +63,7 @@ public final class ARBMultisample {
 
 	/** Returns the {@link ARBMultisample} instance for the current context. */
 	public static ARBMultisample getInstance() {
-		return GL.getCapabilities().__ARBMultisample;
+		return checkFunctionality(GL.getCapabilities().__ARBMultisample);
 	}
 
 	static ARBMultisample create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -96,8 +96,6 @@ public final class ARBMultisample {
 	 */
 	public static void glSampleCoverageARB(float value, boolean invert) {
 		long __functionAddress = getInstance().SampleCoverageARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSampleCoverageARB(value, invert, __functionAddress);
 	}
 

@@ -109,7 +109,7 @@ public final class ARBShaderAtomicCounters {
 
 	/** Returns the {@link ARBShaderAtomicCounters} instance for the current context. */
 	public static ARBShaderAtomicCounters getInstance() {
-		return GL.getCapabilities().__ARBShaderAtomicCounters;
+		return checkFunctionality(GL.getCapabilities().__ARBShaderAtomicCounters);
 	}
 
 	static ARBShaderAtomicCounters create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -130,8 +130,6 @@ public final class ARBShaderAtomicCounters {
 	@JavadocExclude
 	public static void nglGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveAtomicCounterBufferiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL42.nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, params, __functionAddress);
 	}
 

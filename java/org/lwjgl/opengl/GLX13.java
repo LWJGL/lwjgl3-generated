@@ -123,7 +123,7 @@ public final class GLX13 {
 
 	/** Returns the {@link GLX13} instance for the current context. */
 	public static GLX13 getInstance() {
-		return GL.getCapabilities().__GLX13;
+		return checkFunctionality(GL.getCapabilities().__GLX13);
 	}
 
 	static GLX13 create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -150,10 +150,8 @@ public final class GLX13 {
 	@JavadocExclude
 	public static long nglXGetFBConfigs(long display, int screen, long nelements) {
 		long __functionAddress = getInstance().GetFBConfigs;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		}
 		return nglXGetFBConfigs(display, screen, nelements, __functionAddress);
 	}
 
@@ -180,10 +178,8 @@ public final class GLX13 {
 	@JavadocExclude
 	public static long nglXChooseFBConfig(long display, int screen, long attrib_list, long nelements) {
 		long __functionAddress = getInstance().ChooseFBConfig;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		}
 		return nglXChooseFBConfig(display, screen, attrib_list, nelements, __functionAddress);
 	}
 
@@ -224,7 +220,6 @@ public final class GLX13 {
 	public static int nglXGetFBConfigAttrib(long display, long config, int attribute, long value) {
 		long __functionAddress = getInstance().GetFBConfigAttrib;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -263,7 +258,6 @@ public final class GLX13 {
 	public static long nglXGetVisualFromFBConfig(long display, long config) {
 		long __functionAddress = getInstance().GetVisualFromFBConfig;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -292,7 +286,6 @@ public final class GLX13 {
 	public static long nglXCreateWindow(long display, long config, long win, long attrib_list) {
 		long __functionAddress = getInstance().CreateWindow;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -331,7 +324,6 @@ public final class GLX13 {
 	public static long nglXCreatePixmap(long display, long config, long pixmap, long attrib_list) {
 		long __functionAddress = getInstance().CreatePixmap;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -374,7 +366,6 @@ public final class GLX13 {
 	public static void glXDestroyPixmap(long display, long pixmap) {
 		long __functionAddress = getInstance().DestroyPixmap;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(pixmap);
 		}
@@ -392,7 +383,6 @@ public final class GLX13 {
 	public static long nglXCreatePbuffer(long display, long config, long attrib_list) {
 		long __functionAddress = getInstance().CreatePbuffer;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -434,7 +424,6 @@ public final class GLX13 {
 	public static void glXDestroyPbuffer(long display, long pbuf) {
 		long __functionAddress = getInstance().DestroyPbuffer;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(pbuf);
 		}
@@ -452,7 +441,6 @@ public final class GLX13 {
 	public static void nglXQueryDrawable(long display, long draw, int attribute, long value) {
 		long __functionAddress = getInstance().QueryDrawable;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(draw);
 		}
@@ -498,7 +486,6 @@ public final class GLX13 {
 	public static long glXCreateNewContext(long display, long config, int render_type, long share_list, int direct) {
 		long __functionAddress = getInstance().CreateNewContext;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -521,10 +508,8 @@ public final class GLX13 {
 	 */
 	public static int glXMakeContextCurrent(long display, long draw, long read, long ctx) {
 		long __functionAddress = getInstance().MakeContextCurrent;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		}
 		return nglXMakeContextCurrent(display, draw, read, ctx, __functionAddress);
 	}
 
@@ -537,8 +522,6 @@ public final class GLX13 {
 	/** Returns the current GLXDrawable used for reading in the current thread. */
 	public static long glXGetCurrentReadDrawable() {
 		long __functionAddress = getInstance().GetCurrentReadDrawable;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglXGetCurrentReadDrawable(__functionAddress);
 	}
 
@@ -553,7 +536,6 @@ public final class GLX13 {
 	public static int nglXQueryContext(long display, long ctx, int attribute, long value) {
 		long __functionAddress = getInstance().QueryContext;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(ctx);
 		}
@@ -597,7 +579,6 @@ public final class GLX13 {
 	public static void glXSelectEvent(long display, long draw, long event_mask) {
 		long __functionAddress = getInstance().SelectEvent;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(draw);
 		}
@@ -615,7 +596,6 @@ public final class GLX13 {
 	public static void nglXGetSelectedEvent(long display, long draw, long event_mask) {
 		long __functionAddress = getInstance().GetSelectedEvent;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(draw);
 		}

@@ -128,7 +128,7 @@ public final class ARBTessellationShader {
 
 	/** Returns the {@link ARBTessellationShader} instance for the current context. */
 	public static ARBTessellationShader getInstance() {
-		return GL.getCapabilities().__ARBTessellationShader;
+		return checkFunctionality(GL.getCapabilities().__ARBTessellationShader);
 	}
 
 	static ARBTessellationShader create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -153,8 +153,6 @@ public final class ARBTessellationShader {
 	 */
 	public static void glPatchParameteri(int pname, int value) {
 		long __functionAddress = getInstance().PatchParameteri;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglPatchParameteri(pname, value, __functionAddress);
 	}
 
@@ -164,8 +162,6 @@ public final class ARBTessellationShader {
 	@JavadocExclude
 	public static void nglPatchParameterfv(int pname, long values) {
 		long __functionAddress = getInstance().PatchParameterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglPatchParameterfv(pname, values, __functionAddress);
 	}
 

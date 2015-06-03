@@ -95,7 +95,7 @@ public final class GLXSGIXPBuffer {
 
 	/** Returns the {@link GLXSGIXPBuffer} instance for the current context. */
 	public static GLXSGIXPBuffer getInstance() {
-		return GL.getCapabilities().__GLXSGIXPBuffer;
+		return checkFunctionality(GL.getCapabilities().__GLXSGIXPBuffer);
 	}
 
 	static GLXSGIXPBuffer create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -121,7 +121,6 @@ public final class GLXSGIXPBuffer {
 	public static long nglXCreateGLXPbufferSGIX(long display, long config, int width, int height, long attrib_list) {
 		long __functionAddress = getInstance().CreateGLXPbufferSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -165,7 +164,6 @@ public final class GLXSGIXPBuffer {
 	public static void glXDestroyGLXPbufferSGIX(long display, long pbuf) {
 		long __functionAddress = getInstance().DestroyGLXPbufferSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(pbuf);
 		}
@@ -183,7 +181,6 @@ public final class GLXSGIXPBuffer {
 	public static void nglXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, long value) {
 		long __functionAddress = getInstance().QueryGLXPbufferSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(pbuf);
 		}
@@ -227,7 +224,6 @@ public final class GLXSGIXPBuffer {
 	public static void glXSelectEventSGIX(long display, long drawable, long mask) {
 		long __functionAddress = getInstance().SelectEventSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(drawable);
 		}
@@ -245,7 +241,6 @@ public final class GLXSGIXPBuffer {
 	public static void nglXGetSelectedEventSGIX(long display, long drawable, long mask) {
 		long __functionAddress = getInstance().GetSelectedEventSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(drawable);
 		}

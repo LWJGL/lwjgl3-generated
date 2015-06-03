@@ -57,7 +57,7 @@ public final class ARBDrawIndirect {
 
 	/** Returns the {@link ARBDrawIndirect} instance for the current context. */
 	public static ARBDrawIndirect getInstance() {
-		return GL.getCapabilities().__ARBDrawIndirect;
+		return checkFunctionality(GL.getCapabilities().__ARBDrawIndirect);
 	}
 
 	static ARBDrawIndirect create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -78,8 +78,6 @@ public final class ARBDrawIndirect {
 	@JavadocExclude
 	public static void nglDrawArraysIndirect(int mode, long indirect) {
 		long __functionAddress = getInstance().DrawArraysIndirect;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglDrawArraysIndirect(mode, indirect, __functionAddress);
 	}
 
@@ -134,8 +132,6 @@ public final class ARBDrawIndirect {
 	@JavadocExclude
 	public static void nglDrawElementsIndirect(int mode, int type, long indirect) {
 		long __functionAddress = getInstance().DrawElementsIndirect;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglDrawElementsIndirect(mode, type, indirect, __functionAddress);
 	}
 

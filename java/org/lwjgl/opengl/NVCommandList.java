@@ -221,7 +221,7 @@ public final class NVCommandList {
 
 	/** Returns the {@link NVCommandList} instance for the current context. */
 	public static NVCommandList getInstance() {
-		return GL.getCapabilities().__NVCommandList;
+		return checkFunctionality(GL.getCapabilities().__NVCommandList);
 	}
 
 	static NVCommandList create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -249,8 +249,6 @@ public final class NVCommandList {
 	@JavadocExclude
 	public static void nglCreateStatesNV(int n, long states) {
 		long __functionAddress = getInstance().CreateStatesNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCreateStatesNV(n, states, __functionAddress);
 	}
 
@@ -289,8 +287,6 @@ public final class NVCommandList {
 	@JavadocExclude
 	public static void nglDeleteStatesNV(int n, long states) {
 		long __functionAddress = getInstance().DeleteStatesNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDeleteStatesNV(n, states, __functionAddress);
 	}
 
@@ -332,8 +328,6 @@ public final class NVCommandList {
 	 */
 	public static boolean glIsStateNV(int state) {
 		long __functionAddress = getInstance().IsStateNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsStateNV(state, __functionAddress);
 	}
 
@@ -367,8 +361,6 @@ public final class NVCommandList {
 	 */
 	public static void glStateCaptureNV(int state, int mode) {
 		long __functionAddress = getInstance().StateCaptureNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglStateCaptureNV(state, mode, __functionAddress);
 	}
 
@@ -387,8 +379,6 @@ public final class NVCommandList {
 	 */
 	public static int glGetCommandHeaderNV(int tokenID, int size) {
 		long __functionAddress = getInstance().GetCommandHeaderNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGetCommandHeaderNV(tokenID, size, __functionAddress);
 	}
 
@@ -406,8 +396,6 @@ public final class NVCommandList {
 	 */
 	public static short glGetStageIndexNV(int shadertype) {
 		long __functionAddress = getInstance().GetStageIndexNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGetStageIndexNV(shadertype, __functionAddress);
 	}
 
@@ -421,8 +409,6 @@ public final class NVCommandList {
 	@JavadocExclude
 	public static void nglDrawCommandsNV(int primitiveMode, int buffer, long indirects, long sizes, int count) {
 		long __functionAddress = getInstance().DrawCommandsNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawCommandsNV(primitiveMode, buffer, indirects, sizes, count, __functionAddress);
 	}
 
@@ -461,8 +447,6 @@ public final class NVCommandList {
 	@JavadocExclude
 	public static void nglDrawCommandsAddressNV(int primitiveMode, long indirects, long sizes, int count) {
 		long __functionAddress = getInstance().DrawCommandsAddressNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawCommandsAddressNV(primitiveMode, indirects, sizes, count, __functionAddress);
 	}
 
@@ -500,8 +484,6 @@ public final class NVCommandList {
 	@JavadocExclude
 	public static void nglDrawCommandsStatesNV(int buffer, long indirects, long sizes, long states, long fbos, int count) {
 		long __functionAddress = getInstance().DrawCommandsStatesNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawCommandsStatesNV(buffer, indirects, sizes, states, fbos, count, __functionAddress);
 	}
 
@@ -548,8 +530,6 @@ public final class NVCommandList {
 	@JavadocExclude
 	public static void nglDrawCommandsStatesAddressNV(long indirects, long sizes, long states, long fbos, int count) {
 		long __functionAddress = getInstance().DrawCommandsStatesAddressNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawCommandsStatesAddressNV(indirects, sizes, states, fbos, count, __functionAddress);
 	}
 
@@ -595,8 +575,6 @@ public final class NVCommandList {
 	@JavadocExclude
 	public static void nglCreateCommandListsNV(int n, long lists) {
 		long __functionAddress = getInstance().CreateCommandListsNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCreateCommandListsNV(n, lists, __functionAddress);
 	}
 
@@ -635,8 +613,6 @@ public final class NVCommandList {
 	@JavadocExclude
 	public static void nglDeleteCommandListsNV(int n, long lists) {
 		long __functionAddress = getInstance().DeleteCommandListsNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDeleteCommandListsNV(n, lists, __functionAddress);
 	}
 
@@ -678,8 +654,6 @@ public final class NVCommandList {
 	 */
 	public static boolean glIsCommandListNV(int list) {
 		long __functionAddress = getInstance().IsCommandListNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsCommandListNV(list, __functionAddress);
 	}
 
@@ -693,8 +667,6 @@ public final class NVCommandList {
 	@JavadocExclude
 	public static void nglListDrawCommandsStatesClientNV(int list, int segment, long indirects, long sizes, long states, long fbos, int count) {
 		long __functionAddress = getInstance().ListDrawCommandsStatesClientNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglListDrawCommandsStatesClientNV(list, segment, indirects, sizes, states, fbos, count, __functionAddress);
 	}
 
@@ -753,8 +725,6 @@ public final class NVCommandList {
 	 */
 	public static void glCommandListSegmentsNV(int list, int segments) {
 		long __functionAddress = getInstance().CommandListSegmentsNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCommandListSegmentsNV(list, segments, __functionAddress);
 	}
 
@@ -772,8 +742,6 @@ public final class NVCommandList {
 	 */
 	public static void glCompileCommandListNV(int list) {
 		long __functionAddress = getInstance().CompileCommandListNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCompileCommandListNV(list, __functionAddress);
 	}
 
@@ -792,8 +760,6 @@ public final class NVCommandList {
 	 */
 	public static void glCallCommandListNV(int list) {
 		long __functionAddress = getInstance().CallCommandListNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCallCommandListNV(list, __functionAddress);
 	}
 

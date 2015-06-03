@@ -374,7 +374,7 @@ public final class ARBFramebufferObject {
 
 	/** Returns the {@link ARBFramebufferObject} instance for the current context. */
 	public static ARBFramebufferObject getInstance() {
-		return GL.getCapabilities().__ARBFramebufferObject;
+		return checkFunctionality(GL.getCapabilities().__ARBFramebufferObject);
 	}
 
 	static ARBFramebufferObject create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -402,8 +402,6 @@ public final class ARBFramebufferObject {
 	 */
 	public static boolean glIsRenderbuffer(int renderbuffer) {
 		long __functionAddress = getInstance().IsRenderbuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return GL30.nglIsRenderbuffer(renderbuffer, __functionAddress);
 	}
 
@@ -417,8 +415,6 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glBindRenderbuffer(int target, int renderbuffer) {
 		long __functionAddress = getInstance().BindRenderbuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglBindRenderbuffer(target, renderbuffer, __functionAddress);
 	}
 
@@ -428,8 +424,6 @@ public final class ARBFramebufferObject {
 	@JavadocExclude
 	public static void nglDeleteRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = getInstance().DeleteRenderbuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglDeleteRenderbuffers(n, renderbuffers, __functionAddress);
 	}
 
@@ -463,8 +457,6 @@ public final class ARBFramebufferObject {
 	@JavadocExclude
 	public static void nglGenRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = getInstance().GenRenderbuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglGenRenderbuffers(n, renderbuffers, __functionAddress);
 	}
 
@@ -505,8 +497,6 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glRenderbufferStorage(int target, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglRenderbufferStorage(target, internalformat, width, height, __functionAddress);
 	}
 
@@ -525,8 +515,6 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageMultisample;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglRenderbufferStorageMultisample(target, samples, internalformat, width, height, __functionAddress);
 	}
 
@@ -536,8 +524,6 @@ public final class ARBFramebufferObject {
 	@JavadocExclude
 	public static void nglGetRenderbufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetRenderbufferParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglGetRenderbufferParameteriv(target, pname, params, __functionAddress);
 	}
 
@@ -578,8 +564,6 @@ public final class ARBFramebufferObject {
 	 */
 	public static boolean glIsFramebuffer(int framebuffer) {
 		long __functionAddress = getInstance().IsFramebuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return GL30.nglIsFramebuffer(framebuffer, __functionAddress);
 	}
 
@@ -593,8 +577,6 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glBindFramebuffer(int target, int framebuffer) {
 		long __functionAddress = getInstance().BindFramebuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglBindFramebuffer(target, framebuffer, __functionAddress);
 	}
 
@@ -604,8 +586,6 @@ public final class ARBFramebufferObject {
 	@JavadocExclude
 	public static void nglDeleteFramebuffers(int n, long framebuffers) {
 		long __functionAddress = getInstance().DeleteFramebuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglDeleteFramebuffers(n, framebuffers, __functionAddress);
 	}
 
@@ -639,8 +619,6 @@ public final class ARBFramebufferObject {
 	@JavadocExclude
 	public static void nglGenFramebuffers(int n, long framebuffers) {
 		long __functionAddress = getInstance().GenFramebuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglGenFramebuffers(n, framebuffers, __functionAddress);
 	}
 
@@ -678,8 +656,6 @@ public final class ARBFramebufferObject {
 	 */
 	public static int glCheckFramebufferStatus(int target) {
 		long __functionAddress = getInstance().CheckFramebufferStatus;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return GL30.nglCheckFramebufferStatus(target, __functionAddress);
 	}
 
@@ -696,8 +672,6 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glFramebufferTexture1D(int target, int attachment, int textarget, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTexture1D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglFramebufferTexture1D(target, attachment, textarget, texture, level, __functionAddress);
 	}
 
@@ -714,8 +688,6 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTexture2D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglFramebufferTexture2D(target, attachment, textarget, texture, level, __functionAddress);
 	}
 
@@ -733,8 +705,6 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glFramebufferTexture3D(int target, int attachment, int textarget, int texture, int level, int layer) {
 		long __functionAddress = getInstance().FramebufferTexture3D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglFramebufferTexture3D(target, attachment, textarget, texture, level, layer, __functionAddress);
 	}
 
@@ -751,8 +721,6 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer) {
 		long __functionAddress = getInstance().FramebufferTextureLayer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglFramebufferTextureLayer(target, attachment, texture, level, layer, __functionAddress);
 	}
 
@@ -768,8 +736,6 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer) {
 		long __functionAddress = getInstance().FramebufferRenderbuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer, __functionAddress);
 	}
 
@@ -779,8 +745,6 @@ public final class ARBFramebufferObject {
 	@JavadocExclude
 	public static void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferAttachmentParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglGetFramebufferAttachmentParameteriv(target, attachment, pname, params, __functionAddress);
 	}
 
@@ -831,8 +795,6 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
 		long __functionAddress = getInstance().BlitFramebuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter, __functionAddress);
 	}
 
@@ -845,8 +807,6 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glGenerateMipmap(int target) {
 		long __functionAddress = getInstance().GenerateMipmap;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglGenerateMipmap(target, __functionAddress);
 	}
 

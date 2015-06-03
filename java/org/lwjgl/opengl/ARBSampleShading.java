@@ -53,7 +53,7 @@ public final class ARBSampleShading {
 
 	/** Returns the {@link ARBSampleShading} instance for the current context. */
 	public static ARBSampleShading getInstance() {
-		return GL.getCapabilities().__ARBSampleShading;
+		return checkFunctionality(GL.getCapabilities().__ARBSampleShading);
 	}
 
 	static ARBSampleShading create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -81,8 +81,6 @@ public final class ARBSampleShading {
 	 */
 	public static void glMinSampleShadingARB(float value) {
 		long __functionAddress = getInstance().MinSampleShadingARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMinSampleShadingARB(value, __functionAddress);
 	}
 

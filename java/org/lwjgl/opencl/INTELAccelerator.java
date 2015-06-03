@@ -70,7 +70,7 @@ public final class INTELAccelerator {
 
 	/** Returns the {@link INTELAccelerator} instance for the currently loaded ICD. */
 	public static INTELAccelerator getInstance() {
-		return CL.getICD().__INTELAccelerator;
+		return checkFunctionality(CL.getICD().__INTELAccelerator);
 	}
 
 	static INTELAccelerator create(FunctionProvider provider) {
@@ -93,10 +93,8 @@ public final class INTELAccelerator {
 	@JavadocExclude
 	public static long nclCreateAcceleratorINTEL(long context, int accelerator_type, long descriptor_size, long descriptor, long errcode_ret) {
 		long __functionAddress = getInstance().CreateAcceleratorINTEL;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		}
 		return nclCreateAcceleratorINTEL(context, accelerator_type, descriptor_size, descriptor, errcode_ret, __functionAddress);
 	}
 
@@ -167,10 +165,8 @@ public final class INTELAccelerator {
 	 */
 	public static int clRetainAcceleratorINTEL(long accelerator) {
 		long __functionAddress = getInstance().RetainAcceleratorINTEL;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(accelerator);
-		}
 		return nclRetainAcceleratorINTEL(accelerator, __functionAddress);
 	}
 
@@ -195,10 +191,8 @@ public final class INTELAccelerator {
 	 */
 	public static int clReleaseAcceleratorINTEL(long accelerator) {
 		long __functionAddress = getInstance().ReleaseAcceleratorINTEL;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(accelerator);
-		}
 		return nclReleaseAcceleratorINTEL(accelerator, __functionAddress);
 	}
 
@@ -212,10 +206,8 @@ public final class INTELAccelerator {
 	@JavadocExclude
 	public static int nclGetAcceleratorInfoINTEL(long accelerator, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetAcceleratorInfoINTEL;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(accelerator);
-		}
 		return nclGetAcceleratorInfoINTEL(accelerator, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
 	}
 

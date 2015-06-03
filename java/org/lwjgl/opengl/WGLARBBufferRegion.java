@@ -48,7 +48,7 @@ public final class WGLARBBufferRegion {
 
 	/** Returns the {@link WGLARBBufferRegion} instance for the current context. */
 	public static WGLARBBufferRegion getInstance() {
-		return GL.getCapabilities().__WGLARBBufferRegion;
+		return checkFunctionality(GL.getCapabilities().__WGLARBBufferRegion);
 	}
 
 	static WGLARBBufferRegion create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -79,10 +79,8 @@ public final class WGLARBBufferRegion {
 	 */
 	public static long wglCreateBufferRegionARB(long hdc, int layerPlane, int type) {
 		long __functionAddress = getInstance().CreateBufferRegionARB;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		}
 		return nwglCreateBufferRegionARB(hdc, layerPlane, type, __functionAddress);
 	}
 
@@ -99,10 +97,8 @@ public final class WGLARBBufferRegion {
 	 */
 	public static void wglDeleteBufferRegionARB(long region) {
 		long __functionAddress = getInstance().DeleteBufferRegionARB;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(region);
-		}
 		nwglDeleteBufferRegionARB(region, __functionAddress);
 	}
 
@@ -130,10 +126,8 @@ public final class WGLARBBufferRegion {
 	 */
 	public static int wglSaveBufferRegionARB(long region, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().SaveBufferRegionARB;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(region);
-		}
 		return nwglSaveBufferRegionARB(region, x, y, width, height, __functionAddress);
 	}
 
@@ -156,10 +150,8 @@ public final class WGLARBBufferRegion {
 	 */
 	public static int wglRestoreBufferRegionARB(long region, int x, int y, int width, int height, int xSrc, int ySrc) {
 		long __functionAddress = getInstance().RestoreBufferRegionARB;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(region);
-		}
 		return nwglRestoreBufferRegionARB(region, x, y, width, height, xSrc, ySrc, __functionAddress);
 	}
 

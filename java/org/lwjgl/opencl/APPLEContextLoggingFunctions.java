@@ -42,7 +42,7 @@ public final class APPLEContextLoggingFunctions {
 
 	/** Returns the {@link APPLEContextLoggingFunctions} instance for the currently loaded ICD. */
 	public static APPLEContextLoggingFunctions getInstance() {
-		return CL.getICD().__APPLEContextLoggingFunctions;
+		return checkFunctionality(CL.getICD().__APPLEContextLoggingFunctions);
 	}
 
 	static APPLEContextLoggingFunctions create(FunctionProvider provider) {
@@ -65,8 +65,6 @@ public final class APPLEContextLoggingFunctions {
 	@JavadocExclude
 	public static void nclLogMessagesToSystemLogAPPLE(long errstr, long private_info, long cb, long user_data) {
 		long __functionAddress = getInstance().LogMessagesToSystemLogAPPLE;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nclLogMessagesToSystemLogAPPLE(errstr, private_info, cb, user_data, __functionAddress);
 	}
 
@@ -92,8 +90,6 @@ public final class APPLEContextLoggingFunctions {
 	@JavadocExclude
 	public static void nclLogMessagesToStdoutAPPLE(long errstr, long private_info, long cb, long user_data) {
 		long __functionAddress = getInstance().LogMessagesToStdoutAPPLE;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nclLogMessagesToStdoutAPPLE(errstr, private_info, cb, user_data, __functionAddress);
 	}
 
@@ -119,8 +115,6 @@ public final class APPLEContextLoggingFunctions {
 	@JavadocExclude
 	public static void nclLogMessagesToStderrAPPLE(long errstr, long private_info, long cb, long user_data) {
 		long __functionAddress = getInstance().LogMessagesToStderrAPPLE;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nclLogMessagesToStderrAPPLE(errstr, private_info, cb, user_data, __functionAddress);
 	}
 

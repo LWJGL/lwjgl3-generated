@@ -63,7 +63,7 @@ public final class NVInternalformatSampleQuery {
 
 	/** Returns the {@link NVInternalformatSampleQuery} instance for the current context. */
 	public static NVInternalformatSampleQuery getInstance() {
-		return GL.getCapabilities().__NVInternalformatSampleQuery;
+		return checkFunctionality(GL.getCapabilities().__NVInternalformatSampleQuery);
 	}
 
 	static NVInternalformatSampleQuery create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -88,8 +88,6 @@ public final class NVInternalformatSampleQuery {
 	@JavadocExclude
 	public static void nglGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int bufSize, long params) {
 		long __functionAddress = getInstance().GetInternalformatSampleivNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetInternalformatSampleivNV(target, internalformat, samples, pname, bufSize, params, __functionAddress);
 	}
 

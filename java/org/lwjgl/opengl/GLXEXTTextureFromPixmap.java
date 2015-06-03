@@ -95,7 +95,7 @@ public final class GLXEXTTextureFromPixmap {
 
 	/** Returns the {@link GLXEXTTextureFromPixmap} instance for the current context. */
 	public static GLXEXTTextureFromPixmap getInstance() {
-		return GL.getCapabilities().__GLXEXTTextureFromPixmap;
+		return checkFunctionality(GL.getCapabilities().__GLXEXTTextureFromPixmap);
 	}
 
 	static GLXEXTTextureFromPixmap create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -121,7 +121,6 @@ public final class GLXEXTTextureFromPixmap {
 	public static void nglXBindTexImageEXT(long display, long drawable, int buffer, long attrib_list) {
 		long __functionAddress = getInstance().BindTexImageEXT;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(drawable);
 		}
@@ -166,7 +165,6 @@ public final class GLXEXTTextureFromPixmap {
 	public static void glXReleaseTexImageEXT(long display, long drawable, int buffer) {
 		long __functionAddress = getInstance().ReleaseTexImageEXT;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(drawable);
 		}

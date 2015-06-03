@@ -63,7 +63,7 @@ public final class ARBSparseTexture {
 
 	/** Returns the {@link ARBSparseTexture} instance for the current context. */
 	public static ARBSparseTexture getInstance() {
-		return GL.getCapabilities().__ARBSparseTexture;
+		return checkFunctionality(GL.getCapabilities().__ARBSparseTexture);
 	}
 
 	static ARBSparseTexture create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -156,8 +156,6 @@ public final class ARBSparseTexture {
 	 */
 	public static void glTexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit) {
 		long __functionAddress = getInstance().TexPageCommitmentARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexPageCommitmentARB(target, level, xoffset, yoffset, zoffset, width, height, depth, commit, __functionAddress);
 	}
 

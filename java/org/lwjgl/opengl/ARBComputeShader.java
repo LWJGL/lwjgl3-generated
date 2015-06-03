@@ -91,7 +91,7 @@ public final class ARBComputeShader {
 
 	/** Returns the {@link ARBComputeShader} instance for the current context. */
 	public static ARBComputeShader getInstance() {
-		return GL.getCapabilities().__ARBComputeShader;
+		return checkFunctionality(GL.getCapabilities().__ARBComputeShader);
 	}
 
 	static ARBComputeShader create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -117,8 +117,6 @@ public final class ARBComputeShader {
 	 */
 	public static void glDispatchCompute(int num_groups_x, int num_groups_y, int num_groups_z) {
 		long __functionAddress = getInstance().DispatchCompute;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglDispatchCompute(num_groups_x, num_groups_y, num_groups_z, __functionAddress);
 	}
 
@@ -145,10 +143,8 @@ public final class ARBComputeShader {
 	 */
 	public static void glDispatchComputeIndirect(long indirect) {
 		long __functionAddress = getInstance().DispatchComputeIndirect;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL43.GL_DISPATCH_INDIRECT_BUFFER_BINDING, true);
-		}
 		GL43.nglDispatchComputeIndirect(indirect, __functionAddress);
 	}
 

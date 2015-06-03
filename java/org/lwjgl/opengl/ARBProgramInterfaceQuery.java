@@ -123,7 +123,7 @@ public final class ARBProgramInterfaceQuery {
 
 	/** Returns the {@link ARBProgramInterfaceQuery} instance for the current context. */
 	public static ARBProgramInterfaceQuery getInstance() {
-		return GL.getCapabilities().__ARBProgramInterfaceQuery;
+		return checkFunctionality(GL.getCapabilities().__ARBProgramInterfaceQuery);
 	}
 
 	static ARBProgramInterfaceQuery create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -145,8 +145,6 @@ public final class ARBProgramInterfaceQuery {
 	@JavadocExclude
 	public static void nglGetProgramInterfaceiv(int program, int programInterface, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramInterfaceiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglGetProgramInterfaceiv(program, programInterface, pname, params, __functionAddress);
 	}
 
@@ -185,8 +183,6 @@ public final class ARBProgramInterfaceQuery {
 	@JavadocExclude
 	public static int nglGetProgramResourceIndex(int program, int programInterface, long name) {
 		long __functionAddress = getInstance().GetProgramResourceIndex;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return GL43.nglGetProgramResourceIndex(program, programInterface, name, __functionAddress);
 	}
 
@@ -216,8 +212,6 @@ public final class ARBProgramInterfaceQuery {
 	@JavadocExclude
 	public static void nglGetProgramResourceName(int program, int programInterface, int index, int bufSize, long length, long name) {
 		long __functionAddress = getInstance().GetProgramResourceName;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglGetProgramResourceName(program, programInterface, index, bufSize, length, name, __functionAddress);
 	}
 
@@ -271,8 +265,6 @@ public final class ARBProgramInterfaceQuery {
 	@JavadocExclude
 	public static void nglGetProgramResourceiv(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params) {
 		long __functionAddress = getInstance().GetProgramResourceiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglGetProgramResourceiv(program, programInterface, index, propCount, props, bufSize, length, params, __functionAddress);
 	}
 
@@ -319,8 +311,6 @@ public final class ARBProgramInterfaceQuery {
 	@JavadocExclude
 	public static int nglGetProgramResourceLocation(int program, int programInterface, long name) {
 		long __functionAddress = getInstance().GetProgramResourceLocation;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return GL43.nglGetProgramResourceLocation(program, programInterface, name, __functionAddress);
 	}
 
@@ -350,8 +340,6 @@ public final class ARBProgramInterfaceQuery {
 	@JavadocExclude
 	public static int nglGetProgramResourceLocationIndex(int program, int programInterface, long name) {
 		long __functionAddress = getInstance().GetProgramResourceLocationIndex;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return GL43.nglGetProgramResourceLocationIndex(program, programInterface, name, __functionAddress);
 	}
 

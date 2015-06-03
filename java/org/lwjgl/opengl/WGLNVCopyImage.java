@@ -32,7 +32,7 @@ public final class WGLNVCopyImage {
 
 	/** Returns the {@link WGLNVCopyImage} instance for the current context. */
 	public static WGLNVCopyImage getInstance() {
-		return GL.getCapabilities().__WGLNVCopyImage;
+		return checkFunctionality(GL.getCapabilities().__WGLNVCopyImage);
 	}
 
 	static WGLNVCopyImage create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -79,7 +79,6 @@ public final class WGLNVCopyImage {
 	public static int wglCopyImageSubDataNV(long srcRC, int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, long dstRC, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth) {
 		long __functionAddress = getInstance().CopyImageSubDataNV;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(srcRC);
 			checkPointer(dstRC);
 		}

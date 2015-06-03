@@ -293,7 +293,7 @@ public final class GL40 {
 
 	/** Returns the {@link GL40} instance for the current context. */
 	public static GL40 getInstance() {
-		return GL.getCapabilities().__GL40;
+		return checkFunctionality(GL.getCapabilities().__GL40);
 	}
 
 	static GL40 create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -332,8 +332,6 @@ public final class GL40 {
 	 */
 	public static void glBlendEquationi(int buf, int mode) {
 		long __functionAddress = getInstance().BlendEquationi;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBlendEquationi(buf, mode, __functionAddress);
 	}
 
@@ -354,8 +352,6 @@ public final class GL40 {
 	 */
 	public static void glBlendEquationSeparatei(int buf, int modeRGB, int modeAlpha) {
 		long __functionAddress = getInstance().BlendEquationSeparatei;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBlendEquationSeparatei(buf, modeRGB, modeAlpha, __functionAddress);
 	}
 
@@ -376,8 +372,6 @@ public final class GL40 {
 	 */
 	public static void glBlendFunci(int buf, int sfactor, int dfactor) {
 		long __functionAddress = getInstance().BlendFunci;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBlendFunci(buf, sfactor, dfactor, __functionAddress);
 	}
 
@@ -400,8 +394,6 @@ public final class GL40 {
 	 */
 	public static void glBlendFuncSeparatei(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
 		long __functionAddress = getInstance().BlendFuncSeparatei;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBlendFuncSeparatei(buf, srcRGB, dstRGB, srcAlpha, dstAlpha, __functionAddress);
 	}
 
@@ -415,8 +407,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglDrawArraysIndirect(int mode, long indirect) {
 		long __functionAddress = getInstance().DrawArraysIndirect;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawArraysIndirect(mode, indirect, __functionAddress);
 	}
 
@@ -477,8 +467,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglDrawElementsIndirect(int mode, int type, long indirect) {
 		long __functionAddress = getInstance().DrawElementsIndirect;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawElementsIndirect(mode, type, indirect, __functionAddress);
 	}
 
@@ -559,8 +547,6 @@ public final class GL40 {
 	 */
 	public static void glUniform1d(int location, double x) {
 		long __functionAddress = getInstance().Uniform1d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform1d(location, x, __functionAddress);
 	}
 
@@ -581,8 +567,6 @@ public final class GL40 {
 	 */
 	public static void glUniform2d(int location, double x, double y) {
 		long __functionAddress = getInstance().Uniform2d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform2d(location, x, y, __functionAddress);
 	}
 
@@ -604,8 +588,6 @@ public final class GL40 {
 	 */
 	public static void glUniform3d(int location, double x, double y, double z) {
 		long __functionAddress = getInstance().Uniform3d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform3d(location, x, y, z, __functionAddress);
 	}
 
@@ -628,8 +610,6 @@ public final class GL40 {
 	 */
 	public static void glUniform4d(int location, double x, double y, double z, double w) {
 		long __functionAddress = getInstance().Uniform4d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform4d(location, x, y, z, w, __functionAddress);
 	}
 
@@ -643,8 +623,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniform1dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform1dv(location, count, value, __functionAddress);
 	}
 
@@ -678,8 +656,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniform2dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform2dv(location, count, value, __functionAddress);
 	}
 
@@ -713,8 +689,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniform3dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform3dv(location, count, value, __functionAddress);
 	}
 
@@ -748,8 +722,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniform4dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform4dv(location, count, value, __functionAddress);
 	}
 
@@ -783,8 +755,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniformMatrix2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix2dv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -819,8 +789,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniformMatrix3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix3dv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -855,8 +823,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniformMatrix4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix4dv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -891,8 +857,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniformMatrix2x3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x3dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix2x3dv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -927,8 +891,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniformMatrix2x4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x4dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix2x4dv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -963,8 +925,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniformMatrix3x2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x2dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix3x2dv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -999,8 +959,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniformMatrix3x4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x4dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix3x4dv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -1035,8 +993,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniformMatrix4x2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x2dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix4x2dv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -1071,8 +1027,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniformMatrix4x3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x3dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix4x3dv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -1107,8 +1061,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglGetUniformdv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformdv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetUniformdv(program, location, params, __functionAddress);
 	}
 
@@ -1157,8 +1109,6 @@ public final class GL40 {
 	 */
 	public static void glMinSampleShading(float value) {
 		long __functionAddress = getInstance().MinSampleShading;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMinSampleShading(value, __functionAddress);
 	}
 
@@ -1172,8 +1122,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static int nglGetSubroutineUniformLocation(int program, int shadertype, long name) {
 		long __functionAddress = getInstance().GetSubroutineUniformLocation;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGetSubroutineUniformLocation(program, shadertype, name, __functionAddress);
 	}
 
@@ -1209,8 +1157,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static int nglGetSubroutineIndex(int program, int shadertype, long name) {
 		long __functionAddress = getInstance().GetSubroutineIndex;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGetSubroutineIndex(program, shadertype, name, __functionAddress);
 	}
 
@@ -1246,8 +1192,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, long values) {
 		long __functionAddress = getInstance().GetActiveSubroutineUniformiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, values, __functionAddress);
 	}
 
@@ -1293,8 +1237,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize, long length, long name) {
 		long __functionAddress = getInstance().GetActiveSubroutineUniformName;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, length, name, __functionAddress);
 	}
 
@@ -1354,8 +1296,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglGetActiveSubroutineName(int program, int shadertype, int index, int bufsize, long length, long name) {
 		long __functionAddress = getInstance().GetActiveSubroutineName;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetActiveSubroutineName(program, shadertype, index, bufsize, length, name, __functionAddress);
 	}
 
@@ -1415,8 +1355,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniformSubroutinesuiv(int shadertype, int count, long indices) {
 		long __functionAddress = getInstance().UniformSubroutinesuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformSubroutinesuiv(shadertype, count, indices, __functionAddress);
 	}
 
@@ -1457,8 +1395,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglGetUniformSubroutineuiv(int shadertype, int location, long params) {
 		long __functionAddress = getInstance().GetUniformSubroutineuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetUniformSubroutineuiv(shadertype, location, params, __functionAddress);
 	}
 
@@ -1502,8 +1438,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglGetProgramStageiv(int program, int shadertype, int pname, long values) {
 		long __functionAddress = getInstance().GetProgramStageiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetProgramStageiv(program, shadertype, pname, values, __functionAddress);
 	}
 
@@ -1554,8 +1488,6 @@ public final class GL40 {
 	 */
 	public static void glPatchParameteri(int pname, int value) {
 		long __functionAddress = getInstance().PatchParameteri;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPatchParameteri(pname, value, __functionAddress);
 	}
 
@@ -1569,8 +1501,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglPatchParameterfv(int pname, long values) {
 		long __functionAddress = getInstance().PatchParameterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPatchParameterfv(pname, values, __functionAddress);
 	}
 
@@ -1613,8 +1543,6 @@ public final class GL40 {
 	 */
 	public static void glBindTransformFeedback(int target, int id) {
 		long __functionAddress = getInstance().BindTransformFeedback;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindTransformFeedback(target, id, __functionAddress);
 	}
 
@@ -1628,8 +1556,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglDeleteTransformFeedbacks(int n, long ids) {
 		long __functionAddress = getInstance().DeleteTransformFeedbacks;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDeleteTransformFeedbacks(n, ids, __functionAddress);
 	}
 
@@ -1669,8 +1595,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglGenTransformFeedbacks(int n, long ids) {
 		long __functionAddress = getInstance().GenTransformFeedbacks;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGenTransformFeedbacks(n, ids, __functionAddress);
 	}
 
@@ -1716,8 +1640,6 @@ public final class GL40 {
 	 */
 	public static boolean glIsTransformFeedback(int id) {
 		long __functionAddress = getInstance().IsTransformFeedback;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsTransformFeedback(id, __functionAddress);
 	}
 
@@ -1744,8 +1666,6 @@ public final class GL40 {
 	 */
 	public static void glPauseTransformFeedback() {
 		long __functionAddress = getInstance().PauseTransformFeedback;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPauseTransformFeedback(__functionAddress);
 	}
 
@@ -1764,8 +1684,6 @@ public final class GL40 {
 	 */
 	public static void glResumeTransformFeedback() {
 		long __functionAddress = getInstance().ResumeTransformFeedback;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglResumeTransformFeedback(__functionAddress);
 	}
 
@@ -1785,8 +1703,6 @@ public final class GL40 {
 	 */
 	public static void glDrawTransformFeedback(int mode, int id) {
 		long __functionAddress = getInstance().DrawTransformFeedback;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawTransformFeedback(mode, id, __functionAddress);
 	}
 
@@ -1807,8 +1723,6 @@ public final class GL40 {
 	 */
 	public static void glDrawTransformFeedbackStream(int mode, int id, int stream) {
 		long __functionAddress = getInstance().DrawTransformFeedbackStream;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawTransformFeedbackStream(mode, id, stream, __functionAddress);
 	}
 
@@ -1829,8 +1743,6 @@ public final class GL40 {
 	 */
 	public static void glBeginQueryIndexed(int target, int index, int id) {
 		long __functionAddress = getInstance().BeginQueryIndexed;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBeginQueryIndexed(target, index, id, __functionAddress);
 	}
 
@@ -1850,8 +1762,6 @@ public final class GL40 {
 	 */
 	public static void glEndQueryIndexed(int target, int index) {
 		long __functionAddress = getInstance().EndQueryIndexed;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEndQueryIndexed(target, index, __functionAddress);
 	}
 
@@ -1865,8 +1775,6 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglGetQueryIndexediv(int target, int index, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryIndexediv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetQueryIndexediv(target, index, pname, params, __functionAddress);
 	}
 

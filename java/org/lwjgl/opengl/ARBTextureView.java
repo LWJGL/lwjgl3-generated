@@ -57,7 +57,7 @@ public final class ARBTextureView {
 
 	/** Returns the {@link ARBTextureView} instance for the current context. */
 	public static ARBTextureView getInstance() {
-		return GL.getCapabilities().__ARBTextureView;
+		return checkFunctionality(GL.getCapabilities().__ARBTextureView);
 	}
 
 	static ARBTextureView create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -88,8 +88,6 @@ public final class ARBTextureView {
 	 */
 	public static void glTextureView(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers) {
 		long __functionAddress = getInstance().TextureView;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglTextureView(texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers, __functionAddress);
 	}
 

@@ -46,7 +46,7 @@ public final class ARBTextureBufferRange {
 
 	/** Returns the {@link ARBTextureBufferRange} instance for the current context. */
 	public static ARBTextureBufferRange getInstance() {
-		return GL.getCapabilities().__ARBTextureBufferRange;
+		return checkFunctionality(GL.getCapabilities().__ARBTextureBufferRange);
 	}
 
 	static ARBTextureBufferRange create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -74,8 +74,6 @@ public final class ARBTextureBufferRange {
 	 */
 	public static void glTexBufferRange(int target, int internalformat, int buffer, long offset, long size) {
 		long __functionAddress = getInstance().TexBufferRange;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglTexBufferRange(target, internalformat, buffer, offset, size, __functionAddress);
 	}
 

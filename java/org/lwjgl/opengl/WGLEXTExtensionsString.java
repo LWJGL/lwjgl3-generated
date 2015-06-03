@@ -29,7 +29,7 @@ public final class WGLEXTExtensionsString {
 
 	/** Returns the {@link WGLEXTExtensionsString} instance for the current context. */
 	public static WGLEXTExtensionsString getInstance() {
-		return GL.getCapabilities().__WGLEXTExtensionsString;
+		return checkFunctionality(GL.getCapabilities().__WGLEXTExtensionsString);
 	}
 
 	static WGLEXTExtensionsString create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -54,8 +54,6 @@ public final class WGLEXTExtensionsString {
 	@JavadocExclude
 	public static long nwglGetExtensionsStringEXT() {
 		long __functionAddress = getInstance().GetExtensionsStringEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nwglGetExtensionsStringEXT(__functionAddress);
 	}
 

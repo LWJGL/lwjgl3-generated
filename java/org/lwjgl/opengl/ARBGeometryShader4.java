@@ -95,7 +95,7 @@ public final class ARBGeometryShader4 {
 
 	/** Returns the {@link ARBGeometryShader4} instance for the current context. */
 	public static ARBGeometryShader4 getInstance() {
-		return GL.getCapabilities().__ARBGeometryShader4;
+		return checkFunctionality(GL.getCapabilities().__ARBGeometryShader4);
 	}
 
 	static ARBGeometryShader4 create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -138,8 +138,6 @@ public final class ARBGeometryShader4 {
 	 */
 	public static void glProgramParameteriARB(int program, int pname, int value) {
 		long __functionAddress = getInstance().ProgramParameteriARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramParameteriARB(program, pname, value, __functionAddress);
 	}
 
@@ -171,8 +169,6 @@ public final class ARBGeometryShader4 {
 	 */
 	public static void glFramebufferTextureARB(int target, int attachment, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTextureARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFramebufferTextureARB(target, attachment, texture, level, __functionAddress);
 	}
 
@@ -198,8 +194,6 @@ public final class ARBGeometryShader4 {
 	 */
 	public static void glFramebufferTextureLayerARB(int target, int attachment, int texture, int level, int layer) {
 		long __functionAddress = getInstance().FramebufferTextureLayerARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFramebufferTextureLayerARB(target, attachment, texture, level, layer, __functionAddress);
 	}
 
@@ -224,8 +218,6 @@ public final class ARBGeometryShader4 {
 	 */
 	public static void glFramebufferTextureFaceARB(int target, int attachment, int texture, int level, int face) {
 		long __functionAddress = getInstance().FramebufferTextureFaceARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFramebufferTextureFaceARB(target, attachment, texture, level, face, __functionAddress);
 	}
 

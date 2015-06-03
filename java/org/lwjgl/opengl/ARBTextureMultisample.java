@@ -97,7 +97,7 @@ public final class ARBTextureMultisample {
 
 	/** Returns the {@link ARBTextureMultisample} instance for the current context. */
 	public static ARBTextureMultisample getInstance() {
-		return GL.getCapabilities().__ARBTextureMultisample;
+		return checkFunctionality(GL.getCapabilities().__ARBTextureMultisample);
 	}
 
 	static ARBTextureMultisample create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -128,8 +128,6 @@ public final class ARBTextureMultisample {
 	 */
 	public static void glTexImage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TexImage2DMultisample;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL32.nglTexImage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations, __functionAddress);
 	}
 
@@ -150,8 +148,6 @@ public final class ARBTextureMultisample {
 	 */
 	public static void glTexImage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TexImage3DMultisample;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL32.nglTexImage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations, __functionAddress);
 	}
 
@@ -161,8 +157,6 @@ public final class ARBTextureMultisample {
 	@JavadocExclude
 	public static void nglGetMultisamplefv(int pname, int index, long val) {
 		long __functionAddress = getInstance().GetMultisamplefv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL32.nglGetMultisamplefv(pname, index, val, __functionAddress);
 	}
 
@@ -204,8 +198,6 @@ public final class ARBTextureMultisample {
 	 */
 	public static void glSampleMaski(int index, int mask) {
 		long __functionAddress = getInstance().SampleMaski;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL32.nglSampleMaski(index, mask, __functionAddress);
 	}
 

@@ -42,7 +42,7 @@ public final class ARBCLEvent {
 
 	/** Returns the {@link ARBCLEvent} instance for the current context. */
 	public static ARBCLEvent getInstance() {
-		return GL.getCapabilities().__ARBCLEvent;
+		return checkFunctionality(GL.getCapabilities().__ARBCLEvent);
 	}
 
 	static ARBCLEvent create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -82,7 +82,6 @@ public final class ARBCLEvent {
 	public static long glCreateSyncFromCLeventARB(long context, long event, int flags) {
 		long __functionAddress = getInstance().CreateSyncFromCLeventARB;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 			checkPointer(event);
 		}

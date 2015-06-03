@@ -32,7 +32,7 @@ public final class ARBTextureBarrier {
 
 	/** Returns the {@link ARBTextureBarrier} instance for the current context. */
 	public static ARBTextureBarrier getInstance() {
-		return GL.getCapabilities().__ARBTextureBarrier;
+		return checkFunctionality(GL.getCapabilities().__ARBTextureBarrier);
 	}
 
 	static ARBTextureBarrier create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -52,8 +52,6 @@ public final class ARBTextureBarrier {
 	/** Guarantees that writes have completed and caches have been invalidated before subsequent Draws are executed. */
 	public static void glTextureBarrier() {
 		long __functionAddress = getInstance().TextureBarrier;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL45.nglTextureBarrier(__functionAddress);
 	}
 

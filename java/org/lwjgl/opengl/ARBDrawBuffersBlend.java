@@ -43,7 +43,7 @@ public final class ARBDrawBuffersBlend {
 
 	/** Returns the {@link ARBDrawBuffersBlend} instance for the current context. */
 	public static ARBDrawBuffersBlend getInstance() {
-		return GL.getCapabilities().__ARBDrawBuffersBlend;
+		return checkFunctionality(GL.getCapabilities().__ARBDrawBuffersBlend);
 	}
 
 	static ARBDrawBuffersBlend create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -82,8 +82,6 @@ public final class ARBDrawBuffersBlend {
 	 */
 	public static void glBlendEquationiARB(int buf, int mode) {
 		long __functionAddress = getInstance().BlendEquationiARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBlendEquationiARB(buf, mode, __functionAddress);
 	}
 
@@ -112,8 +110,6 @@ public final class ARBDrawBuffersBlend {
 	 */
 	public static void glBlendEquationSeparateiARB(int buf, int modeRGB, int modeAlpha) {
 		long __functionAddress = getInstance().BlendEquationSeparateiARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBlendEquationSeparateiARB(buf, modeRGB, modeAlpha, __functionAddress);
 	}
 
@@ -141,8 +137,6 @@ public final class ARBDrawBuffersBlend {
 	 */
 	public static void glBlendFunciARB(int buf, int src, int dst) {
 		long __functionAddress = getInstance().BlendFunciARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBlendFunciARB(buf, src, dst, __functionAddress);
 	}
 
@@ -172,8 +166,6 @@ public final class ARBDrawBuffersBlend {
 	 */
 	public static void glBlendFuncSeparateiARB(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
 		long __functionAddress = getInstance().BlendFuncSeparateiARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBlendFuncSeparateiARB(buf, srcRGB, dstRGB, srcAlpha, dstAlpha, __functionAddress);
 	}
 

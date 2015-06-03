@@ -135,7 +135,7 @@ public final class NVShaderBufferLoad {
 
 	/** Returns the {@link NVShaderBufferLoad} instance for the current context. */
 	public static NVShaderBufferLoad getInstance() {
-		return GL.getCapabilities().__NVShaderBufferLoad;
+		return checkFunctionality(GL.getCapabilities().__NVShaderBufferLoad);
 	}
 
 	static NVShaderBufferLoad create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -167,8 +167,6 @@ public final class NVShaderBufferLoad {
 	 */
 	public static void glMakeBufferResidentNV(int target, int access) {
 		long __functionAddress = getInstance().MakeBufferResidentNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMakeBufferResidentNV(target, access, __functionAddress);
 	}
 
@@ -185,8 +183,6 @@ public final class NVShaderBufferLoad {
 	 */
 	public static void glMakeBufferNonResidentNV(int target) {
 		long __functionAddress = getInstance().MakeBufferNonResidentNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMakeBufferNonResidentNV(target, __functionAddress);
 	}
 
@@ -203,8 +199,6 @@ public final class NVShaderBufferLoad {
 	 */
 	public static boolean glIsBufferResidentNV(int target) {
 		long __functionAddress = getInstance().IsBufferResidentNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsBufferResidentNV(target, __functionAddress);
 	}
 
@@ -222,8 +216,6 @@ public final class NVShaderBufferLoad {
 	 */
 	public static void glMakeNamedBufferResidentNV(int buffer, int access) {
 		long __functionAddress = getInstance().MakeNamedBufferResidentNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMakeNamedBufferResidentNV(buffer, access, __functionAddress);
 	}
 
@@ -240,8 +232,6 @@ public final class NVShaderBufferLoad {
 	 */
 	public static void glMakeNamedBufferNonResidentNV(int buffer) {
 		long __functionAddress = getInstance().MakeNamedBufferNonResidentNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMakeNamedBufferNonResidentNV(buffer, __functionAddress);
 	}
 
@@ -258,8 +248,6 @@ public final class NVShaderBufferLoad {
 	 */
 	public static boolean glIsNamedBufferResidentNV(int buffer) {
 		long __functionAddress = getInstance().IsNamedBufferResidentNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsNamedBufferResidentNV(buffer, __functionAddress);
 	}
 
@@ -273,8 +261,6 @@ public final class NVShaderBufferLoad {
 	@JavadocExclude
 	public static void nglGetBufferParameterui64vNV(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferParameterui64vNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetBufferParameterui64vNV(target, pname, params, __functionAddress);
 	}
 
@@ -316,8 +302,6 @@ public final class NVShaderBufferLoad {
 	@JavadocExclude
 	public static void nglGetNamedBufferParameterui64vNV(int buffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedBufferParameterui64vNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetNamedBufferParameterui64vNV(buffer, pname, params, __functionAddress);
 	}
 
@@ -359,8 +343,6 @@ public final class NVShaderBufferLoad {
 	@JavadocExclude
 	public static void nglGetIntegerui64vNV(int value, long result) {
 		long __functionAddress = getInstance().GetIntegerui64vNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetIntegerui64vNV(value, result, __functionAddress);
 	}
 
@@ -405,8 +387,6 @@ public final class NVShaderBufferLoad {
 	 */
 	public static void glUniformui64NV(int location, long value) {
 		long __functionAddress = getInstance().Uniformui64NV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformui64NV(location, value, __functionAddress);
 	}
 
@@ -420,8 +400,6 @@ public final class NVShaderBufferLoad {
 	@JavadocExclude
 	public static void nglUniformui64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniformui64vNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformui64vNV(location, count, value, __functionAddress);
 	}
 
@@ -453,8 +431,6 @@ public final class NVShaderBufferLoad {
 	@JavadocExclude
 	public static void nglGetUniformui64vNV(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformui64vNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetUniformui64vNV(program, location, params, __functionAddress);
 	}
 
@@ -501,8 +477,6 @@ public final class NVShaderBufferLoad {
 	 */
 	public static void glProgramUniformui64NV(int program, int location, long value) {
 		long __functionAddress = getInstance().ProgramUniformui64NV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniformui64NV(program, location, value, __functionAddress);
 	}
 
@@ -516,8 +490,6 @@ public final class NVShaderBufferLoad {
 	@JavadocExclude
 	public static void nglProgramUniformui64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniformui64vNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniformui64vNV(program, location, count, value, __functionAddress);
 	}
 

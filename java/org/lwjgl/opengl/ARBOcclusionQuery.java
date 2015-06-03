@@ -96,7 +96,7 @@ public final class ARBOcclusionQuery {
 
 	/** Returns the {@link ARBOcclusionQuery} instance for the current context. */
 	public static ARBOcclusionQuery getInstance() {
-		return GL.getCapabilities().__ARBOcclusionQuery;
+		return checkFunctionality(GL.getCapabilities().__ARBOcclusionQuery);
 	}
 
 	static ARBOcclusionQuery create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -122,8 +122,6 @@ public final class ARBOcclusionQuery {
 	@JavadocExclude
 	public static void nglGenQueriesARB(int n, long ids) {
 		long __functionAddress = getInstance().GenQueriesARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGenQueriesARB(n, ids, __functionAddress);
 	}
 
@@ -162,8 +160,6 @@ public final class ARBOcclusionQuery {
 	@JavadocExclude
 	public static void nglDeleteQueriesARB(int n, long ids) {
 		long __functionAddress = getInstance().DeleteQueriesARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDeleteQueriesARB(n, ids, __functionAddress);
 	}
 
@@ -204,8 +200,6 @@ public final class ARBOcclusionQuery {
 	 */
 	public static boolean glIsQueryARB(int id) {
 		long __functionAddress = getInstance().IsQueryARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsQueryARB(id, __functionAddress);
 	}
 
@@ -223,8 +217,6 @@ public final class ARBOcclusionQuery {
 	 */
 	public static void glBeginQueryARB(int target, int id) {
 		long __functionAddress = getInstance().BeginQueryARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBeginQueryARB(target, id, __functionAddress);
 	}
 
@@ -241,8 +233,6 @@ public final class ARBOcclusionQuery {
 	 */
 	public static void glEndQueryARB(int target) {
 		long __functionAddress = getInstance().EndQueryARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEndQueryARB(target, __functionAddress);
 	}
 
@@ -256,8 +246,6 @@ public final class ARBOcclusionQuery {
 	@JavadocExclude
 	public static void nglGetQueryivARB(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryivARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetQueryivARB(target, pname, params, __functionAddress);
 	}
 
@@ -299,8 +287,6 @@ public final class ARBOcclusionQuery {
 	@JavadocExclude
 	public static void nglGetQueryObjectivARB(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectivARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetQueryObjectivARB(id, pname, params, __functionAddress);
 	}
 
@@ -342,8 +328,6 @@ public final class ARBOcclusionQuery {
 	@JavadocExclude
 	public static void nglGetQueryObjectuivARB(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectuivARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetQueryObjectuivARB(id, pname, params, __functionAddress);
 	}
 

@@ -60,7 +60,7 @@ public final class EXTDepthBoundsTest {
 
 	/** Returns the {@link EXTDepthBoundsTest} instance for the current context. */
 	public static EXTDepthBoundsTest getInstance() {
-		return GL.getCapabilities().__EXTDepthBoundsTest;
+		return checkFunctionality(GL.getCapabilities().__EXTDepthBoundsTest);
 	}
 
 	static EXTDepthBoundsTest create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -89,8 +89,6 @@ public final class EXTDepthBoundsTest {
 	 */
 	public static void glDepthBoundsEXT(double zmin, double zmax) {
 		long __functionAddress = getInstance().DepthBoundsEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDepthBoundsEXT(zmin, zmax, __functionAddress);
 	}
 

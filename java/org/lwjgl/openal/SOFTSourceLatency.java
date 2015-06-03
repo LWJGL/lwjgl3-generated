@@ -73,7 +73,7 @@ public final class SOFTSourceLatency {
 
 	/** Returns the {@link SOFTSourceLatency} instance for the current context. */
 	public static SOFTSourceLatency getInstance() {
-		return AL.getCapabilities().__SOFTSourceLatency;
+		return checkFunctionality(AL.getCapabilities().__SOFTSourceLatency);
 	}
 
 	static SOFTSourceLatency create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -104,8 +104,6 @@ public final class SOFTSourceLatency {
 	 */
 	public static void alSourcedSOFT(int source, int param, double value) {
 		long __functionAddress = getInstance().SourcedSOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSourcedSOFT(source, param, value, __functionAddress);
 	}
 
@@ -126,8 +124,6 @@ public final class SOFTSourceLatency {
 	 */
 	public static void alSource3dSOFT(int source, int param, double value1, double value2, double value3) {
 		long __functionAddress = getInstance().Source3dSOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSource3dSOFT(source, param, value1, value2, value3, __functionAddress);
 	}
 
@@ -141,8 +137,6 @@ public final class SOFTSourceLatency {
 	@JavadocExclude
 	public static void nalSourcedvSOFT(int source, int param, long value) {
 		long __functionAddress = getInstance().SourcedvSOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSourcedvSOFT(source, param, value, __functionAddress);
 	}
 
@@ -172,8 +166,6 @@ public final class SOFTSourceLatency {
 	@JavadocExclude
 	public static void nalGetSourcedSOFT(int source, int param, long value) {
 		long __functionAddress = getInstance().GetSourcedSOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetSourcedSOFT(source, param, value, __functionAddress);
 	}
 
@@ -203,8 +195,6 @@ public final class SOFTSourceLatency {
 	@JavadocExclude
 	public static void nalGetSource3dSOFT(int source, int param, long value1, long value2, long value3) {
 		long __functionAddress = getInstance().GetSource3dSOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetSource3dSOFT(source, param, value1, value2, value3, __functionAddress);
 	}
 
@@ -236,8 +226,6 @@ public final class SOFTSourceLatency {
 	@JavadocExclude
 	public static void nalGetSourcedvSOFT(int source, int param, long values) {
 		long __functionAddress = getInstance().GetSourcedvSOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetSourcedvSOFT(source, param, values, __functionAddress);
 	}
 
@@ -272,8 +260,6 @@ public final class SOFTSourceLatency {
 	 */
 	public static void alSourcei64SOFT(int source, int param, long value) {
 		long __functionAddress = getInstance().Sourcei64SOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSourcei64SOFT(source, param, value, __functionAddress);
 	}
 
@@ -294,8 +280,6 @@ public final class SOFTSourceLatency {
 	 */
 	public static void alSource3i64SOFT(int source, int param, long value1, long value2, long value3) {
 		long __functionAddress = getInstance().Source3i64SOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSource3i64SOFT(source, param, value1, value2, value3, __functionAddress);
 	}
 
@@ -309,8 +293,6 @@ public final class SOFTSourceLatency {
 	@JavadocExclude
 	public static void nalSourcei64vSOFT(int source, int param, long values) {
 		long __functionAddress = getInstance().Sourcei64vSOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSourcei64vSOFT(source, param, values, __functionAddress);
 	}
 
@@ -340,8 +322,6 @@ public final class SOFTSourceLatency {
 	@JavadocExclude
 	public static void nalGetSourcei64SOFT(int source, int param, long value) {
 		long __functionAddress = getInstance().GetSourcei64SOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetSourcei64SOFT(source, param, value, __functionAddress);
 	}
 
@@ -371,8 +351,6 @@ public final class SOFTSourceLatency {
 	@JavadocExclude
 	public static void nalGetSource3i64SOFT(int source, int param, long value1, long value2, long value3) {
 		long __functionAddress = getInstance().GetSource3i64SOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetSource3i64SOFT(source, param, value1, value2, value3, __functionAddress);
 	}
 
@@ -404,8 +382,6 @@ public final class SOFTSourceLatency {
 	@JavadocExclude
 	public static void nalGetSourcei64vSOFT(int source, int param, long values) {
 		long __functionAddress = getInstance().GetSourcei64vSOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetSourcei64vSOFT(source, param, values, __functionAddress);
 	}
 

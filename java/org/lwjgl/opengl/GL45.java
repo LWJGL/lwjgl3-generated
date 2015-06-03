@@ -315,7 +315,7 @@ public final class GL45 {
 
 	/** Returns the {@link GL45} instance for the current context. */
 	public static GL45 getInstance() {
-		return GL.getCapabilities().__GL45;
+		return checkFunctionality(GL.getCapabilities().__GL45);
 	}
 
 	static GL45 create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -374,8 +374,6 @@ public final class GL45 {
 	 */
 	public static void glClipControl(int origin, int depth) {
 		long __functionAddress = getInstance().ClipControl;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClipControl(origin, depth, __functionAddress);
 	}
 
@@ -389,8 +387,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglCreateTransformFeedbacks(int n, long ids) {
 		long __functionAddress = getInstance().CreateTransformFeedbacks;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCreateTransformFeedbacks(n, ids, __functionAddress);
 	}
 
@@ -438,8 +434,6 @@ public final class GL45 {
 	 */
 	public static void glTransformFeedbackBufferBase(int xfb, int index, int buffer) {
 		long __functionAddress = getInstance().TransformFeedbackBufferBase;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTransformFeedbackBufferBase(xfb, index, buffer, __functionAddress);
 	}
 
@@ -462,8 +456,6 @@ public final class GL45 {
 	 */
 	public static void glTransformFeedbackBufferRange(int xfb, int index, int buffer, long offset, long size) {
 		long __functionAddress = getInstance().TransformFeedbackBufferRange;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTransformFeedbackBufferRange(xfb, index, buffer, offset, size, __functionAddress);
 	}
 
@@ -477,8 +469,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetTransformFeedbackiv(int xfb, int pname, long param) {
 		long __functionAddress = getInstance().GetTransformFeedbackiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTransformFeedbackiv(xfb, pname, param, __functionAddress);
 	}
 
@@ -522,8 +512,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetTransformFeedbacki_v(int xfb, int pname, int index, long param) {
 		long __functionAddress = getInstance().GetTransformFeedbacki_v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTransformFeedbacki_v(xfb, pname, index, param, __functionAddress);
 	}
 
@@ -568,8 +556,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetTransformFeedbacki64_v(int xfb, int pname, int index, long param) {
 		long __functionAddress = getInstance().GetTransformFeedbacki64_v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTransformFeedbacki64_v(xfb, pname, index, param, __functionAddress);
 	}
 
@@ -614,8 +600,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglCreateBuffers(int n, long buffers) {
 		long __functionAddress = getInstance().CreateBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCreateBuffers(n, buffers, __functionAddress);
 	}
 
@@ -657,8 +641,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglNamedBufferStorage(int buffer, long size, long data, int flags) {
 		long __functionAddress = getInstance().NamedBufferStorage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNamedBufferStorage(buffer, size, data, flags, __functionAddress);
 	}
 
@@ -751,8 +733,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglNamedBufferData(int buffer, long size, long data, int usage) {
 		long __functionAddress = getInstance().NamedBufferData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNamedBufferData(buffer, size, data, usage, __functionAddress);
 	}
 
@@ -812,8 +792,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglNamedBufferSubData(int buffer, long offset, long size, long data) {
 		long __functionAddress = getInstance().NamedBufferSubData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNamedBufferSubData(buffer, offset, size, data, __functionAddress);
 	}
 
@@ -877,8 +855,6 @@ public final class GL45 {
 	 */
 	public static void glCopyNamedBufferSubData(int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size) {
 		long __functionAddress = getInstance().CopyNamedBufferSubData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCopyNamedBufferSubData(readBuffer, writeBuffer, readOffset, writeOffset, size, __functionAddress);
 	}
 
@@ -892,8 +868,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglClearNamedBufferData(int buffer, int internalformat, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearNamedBufferData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClearNamedBufferData(buffer, internalformat, format, type, data, __functionAddress);
 	}
 
@@ -940,8 +914,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglClearNamedBufferSubData(int buffer, int internalformat, long offset, long size, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearNamedBufferSubData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClearNamedBufferSubData(buffer, internalformat, offset, size, format, type, data, __functionAddress);
 	}
 
@@ -990,8 +962,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static long nglMapNamedBuffer(int buffer, int access) {
 		long __functionAddress = getInstance().MapNamedBuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglMapNamedBuffer(buffer, access, __functionAddress);
 	}
 
@@ -1031,8 +1001,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static long nglMapNamedBufferRange(int buffer, long offset, long length, int access) {
 		long __functionAddress = getInstance().MapNamedBufferRange;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglMapNamedBufferRange(buffer, offset, length, access, __functionAddress);
 	}
 
@@ -1072,8 +1040,6 @@ public final class GL45 {
 	 */
 	public static boolean glUnmapNamedBuffer(int buffer) {
 		long __functionAddress = getInstance().UnmapNamedBuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglUnmapNamedBuffer(buffer, __functionAddress);
 	}
 
@@ -1094,8 +1060,6 @@ public final class GL45 {
 	 */
 	public static void glFlushMappedNamedBufferRange(int buffer, long offset, long length) {
 		long __functionAddress = getInstance().FlushMappedNamedBufferRange;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFlushMappedNamedBufferRange(buffer, offset, length, __functionAddress);
 	}
 
@@ -1109,8 +1073,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetNamedBufferParameteriv(int buffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedBufferParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetNamedBufferParameteriv(buffer, pname, params, __functionAddress);
 	}
 
@@ -1154,8 +1116,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetNamedBufferParameteri64v(int buffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedBufferParameteri64v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetNamedBufferParameteri64v(buffer, pname, params, __functionAddress);
 	}
 
@@ -1199,8 +1159,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetNamedBufferPointerv(int buffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedBufferPointerv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetNamedBufferPointerv(buffer, pname, params, __functionAddress);
 	}
 
@@ -1244,8 +1202,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetNamedBufferSubData(int buffer, long offset, long size, long data) {
 		long __functionAddress = getInstance().GetNamedBufferSubData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetNamedBufferSubData(buffer, offset, size, data, __functionAddress);
 	}
 
@@ -1300,8 +1256,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglCreateFramebuffers(int n, long framebuffers) {
 		long __functionAddress = getInstance().CreateFramebuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCreateFramebuffers(n, framebuffers, __functionAddress);
 	}
 
@@ -1350,8 +1304,6 @@ public final class GL45 {
 	 */
 	public static void glNamedFramebufferRenderbuffer(int framebuffer, int attachment, int renderbuffertarget, int renderbuffer) {
 		long __functionAddress = getInstance().NamedFramebufferRenderbuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNamedFramebufferRenderbuffer(framebuffer, attachment, renderbuffertarget, renderbuffer, __functionAddress);
 	}
 
@@ -1372,8 +1324,6 @@ public final class GL45 {
 	 */
 	public static void glNamedFramebufferParameteri(int framebuffer, int pname, int param) {
 		long __functionAddress = getInstance().NamedFramebufferParameteri;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNamedFramebufferParameteri(framebuffer, pname, param, __functionAddress);
 	}
 
@@ -1395,8 +1345,6 @@ public final class GL45 {
 	 */
 	public static void glNamedFramebufferTexture(int framebuffer, int attachment, int texture, int level) {
 		long __functionAddress = getInstance().NamedFramebufferTexture;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNamedFramebufferTexture(framebuffer, attachment, texture, level, __functionAddress);
 	}
 
@@ -1419,8 +1367,6 @@ public final class GL45 {
 	 */
 	public static void glNamedFramebufferTextureLayer(int framebuffer, int attachment, int texture, int level, int layer) {
 		long __functionAddress = getInstance().NamedFramebufferTextureLayer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNamedFramebufferTextureLayer(framebuffer, attachment, texture, level, layer, __functionAddress);
 	}
 
@@ -1440,8 +1386,6 @@ public final class GL45 {
 	 */
 	public static void glNamedFramebufferDrawBuffer(int framebuffer, int buf) {
 		long __functionAddress = getInstance().NamedFramebufferDrawBuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNamedFramebufferDrawBuffer(framebuffer, buf, __functionAddress);
 	}
 
@@ -1455,8 +1399,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglNamedFramebufferDrawBuffers(int framebuffer, int n, long bufs) {
 		long __functionAddress = getInstance().NamedFramebufferDrawBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNamedFramebufferDrawBuffers(framebuffer, n, bufs, __functionAddress);
 	}
 
@@ -1503,8 +1445,6 @@ public final class GL45 {
 	 */
 	public static void glNamedFramebufferReadBuffer(int framebuffer, int src) {
 		long __functionAddress = getInstance().NamedFramebufferReadBuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNamedFramebufferReadBuffer(framebuffer, src, __functionAddress);
 	}
 
@@ -1518,8 +1458,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglInvalidateNamedFramebufferData(int framebuffer, int numAttachments, long attachments) {
 		long __functionAddress = getInstance().InvalidateNamedFramebufferData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglInvalidateNamedFramebufferData(framebuffer, numAttachments, attachments, __functionAddress);
 	}
 
@@ -1560,8 +1498,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglInvalidateNamedFramebufferSubData(int framebuffer, int numAttachments, long attachments, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().InvalidateNamedFramebufferSubData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglInvalidateNamedFramebufferSubData(framebuffer, numAttachments, attachments, x, y, width, height, __functionAddress);
 	}
 
@@ -1606,8 +1542,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearNamedFramebufferiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClearNamedFramebufferiv(framebuffer, buffer, drawbuffer, value, __functionAddress);
 	}
 
@@ -1645,8 +1579,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearNamedFramebufferuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClearNamedFramebufferuiv(framebuffer, buffer, drawbuffer, value, __functionAddress);
 	}
 
@@ -1683,8 +1615,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglClearNamedFramebufferfv(int framebuffer, int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearNamedFramebufferfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClearNamedFramebufferfv(framebuffer, buffer, drawbuffer, value, __functionAddress);
 	}
 
@@ -1730,8 +1660,6 @@ public final class GL45 {
 	 */
 	public static void glClearNamedFramebufferfi(int framebuffer, int buffer, float depth, int stencil) {
 		long __functionAddress = getInstance().ClearNamedFramebufferfi;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClearNamedFramebufferfi(framebuffer, buffer, depth, stencil, __functionAddress);
 	}
 
@@ -1761,8 +1689,6 @@ public final class GL45 {
 	 */
 	public static void glBlitNamedFramebuffer(int readFramebuffer, int drawFramebuffer, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
 		long __functionAddress = getInstance().BlitNamedFramebuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBlitNamedFramebuffer(readFramebuffer, drawFramebuffer, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter, __functionAddress);
 	}
 
@@ -1782,8 +1708,6 @@ public final class GL45 {
 	 */
 	public static int glCheckNamedFramebufferStatus(int framebuffer, int target) {
 		long __functionAddress = getInstance().CheckNamedFramebufferStatus;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglCheckNamedFramebufferStatus(framebuffer, target, __functionAddress);
 	}
 
@@ -1797,8 +1721,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetNamedFramebufferParameteriv(int framebuffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedFramebufferParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetNamedFramebufferParameteriv(framebuffer, pname, params, __functionAddress);
 	}
 
@@ -1842,8 +1764,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedFramebufferAttachmentParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetNamedFramebufferAttachmentParameteriv(framebuffer, attachment, pname, params, __functionAddress);
 	}
 
@@ -1888,8 +1808,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglCreateRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = getInstance().CreateRenderbuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCreateRenderbuffers(n, renderbuffers, __functionAddress);
 	}
 
@@ -1938,8 +1856,6 @@ public final class GL45 {
 	 */
 	public static void glNamedRenderbufferStorage(int renderbuffer, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().NamedRenderbufferStorage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNamedRenderbufferStorage(renderbuffer, internalformat, width, height, __functionAddress);
 	}
 
@@ -1962,8 +1878,6 @@ public final class GL45 {
 	 */
 	public static void glNamedRenderbufferStorageMultisample(int renderbuffer, int samples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().NamedRenderbufferStorageMultisample;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNamedRenderbufferStorageMultisample(renderbuffer, samples, internalformat, width, height, __functionAddress);
 	}
 
@@ -1977,8 +1891,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetNamedRenderbufferParameteriv(int renderbuffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedRenderbufferParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetNamedRenderbufferParameteriv(renderbuffer, pname, params, __functionAddress);
 	}
 
@@ -2022,8 +1934,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglCreateTextures(int target, int n, long textures) {
 		long __functionAddress = getInstance().CreateTextures;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCreateTextures(target, n, textures, __functionAddress);
 	}
 
@@ -2072,8 +1982,6 @@ public final class GL45 {
 	 */
 	public static void glTextureBuffer(int texture, int internalformat, int buffer) {
 		long __functionAddress = getInstance().TextureBuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureBuffer(texture, internalformat, buffer, __functionAddress);
 	}
 
@@ -2096,8 +2004,6 @@ public final class GL45 {
 	 */
 	public static void glTextureBufferRange(int texture, int internalformat, int buffer, long offset, long size) {
 		long __functionAddress = getInstance().TextureBufferRange;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureBufferRange(texture, internalformat, buffer, offset, size, __functionAddress);
 	}
 
@@ -2119,8 +2025,6 @@ public final class GL45 {
 	 */
 	public static void glTextureStorage1D(int texture, int levels, int internalformat, int width) {
 		long __functionAddress = getInstance().TextureStorage1D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureStorage1D(texture, levels, internalformat, width, __functionAddress);
 	}
 
@@ -2143,8 +2047,6 @@ public final class GL45 {
 	 */
 	public static void glTextureStorage2D(int texture, int levels, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().TextureStorage2D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureStorage2D(texture, levels, internalformat, width, height, __functionAddress);
 	}
 
@@ -2168,8 +2070,6 @@ public final class GL45 {
 	 */
 	public static void glTextureStorage3D(int texture, int levels, int internalformat, int width, int height, int depth) {
 		long __functionAddress = getInstance().TextureStorage3D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureStorage3D(texture, levels, internalformat, width, height, depth, __functionAddress);
 	}
 
@@ -2194,8 +2094,6 @@ public final class GL45 {
 	 */
 	public static void glTextureStorage2DMultisample(int texture, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TextureStorage2DMultisample;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureStorage2DMultisample(texture, samples, internalformat, width, height, fixedsamplelocations, __functionAddress);
 	}
 
@@ -2221,8 +2119,6 @@ public final class GL45 {
 	 */
 	public static void glTextureStorage3DMultisample(int texture, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TextureStorage3DMultisample;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureStorage3DMultisample(texture, samples, internalformat, width, height, depth, fixedsamplelocations, __functionAddress);
 	}
 
@@ -2236,8 +2132,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureSubImage1D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, pixels, __functionAddress);
 	}
 
@@ -2305,8 +2199,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureSubImage2D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, pixels, __functionAddress);
 	}
 
@@ -2376,8 +2268,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureSubImage3D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels, __functionAddress);
 	}
 
@@ -2449,8 +2339,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTextureSubImage1D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCompressedTextureSubImage1D(texture, level, xoffset, width, format, imageSize, data, __functionAddress);
 	}
 
@@ -2499,8 +2387,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTextureSubImage2D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCompressedTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, imageSize, data, __functionAddress);
 	}
 
@@ -2551,8 +2437,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTextureSubImage3D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCompressedTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data, __functionAddress);
 	}
 
@@ -2615,8 +2499,6 @@ public final class GL45 {
 	 */
 	public static void glCopyTextureSubImage1D(int texture, int level, int xoffset, int x, int y, int width) {
 		long __functionAddress = getInstance().CopyTextureSubImage1D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCopyTextureSubImage1D(texture, level, xoffset, x, y, width, __functionAddress);
 	}
 
@@ -2642,8 +2524,6 @@ public final class GL45 {
 	 */
 	public static void glCopyTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().CopyTextureSubImage2D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCopyTextureSubImage2D(texture, level, xoffset, yoffset, x, y, width, height, __functionAddress);
 	}
 
@@ -2670,8 +2550,6 @@ public final class GL45 {
 	 */
 	public static void glCopyTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().CopyTextureSubImage3D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCopyTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, x, y, width, height, __functionAddress);
 	}
 
@@ -2692,8 +2570,6 @@ public final class GL45 {
 	 */
 	public static void glTextureParameterf(int texture, int pname, float param) {
 		long __functionAddress = getInstance().TextureParameterf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureParameterf(texture, pname, param, __functionAddress);
 	}
 
@@ -2707,8 +2583,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglTextureParameterfv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureParameterfv(texture, pname, params, __functionAddress);
 	}
 
@@ -2751,8 +2625,6 @@ public final class GL45 {
 	 */
 	public static void glTextureParameteri(int texture, int pname, int param) {
 		long __functionAddress = getInstance().TextureParameteri;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureParameteri(texture, pname, param, __functionAddress);
 	}
 
@@ -2766,8 +2638,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglTextureParameterIiv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameterIiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureParameterIiv(texture, pname, params, __functionAddress);
 	}
 
@@ -2810,8 +2680,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglTextureParameterIuiv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameterIuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureParameterIuiv(texture, pname, params, __functionAddress);
 	}
 
@@ -2854,8 +2722,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglTextureParameteriv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureParameteriv(texture, pname, params, __functionAddress);
 	}
 
@@ -2896,8 +2762,6 @@ public final class GL45 {
 	 */
 	public static void glGenerateTextureMipmap(int texture) {
 		long __functionAddress = getInstance().GenerateTextureMipmap;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGenerateTextureMipmap(texture, __functionAddress);
 	}
 
@@ -2921,8 +2785,6 @@ public final class GL45 {
 	 */
 	public static void glBindTextureUnit(int unit, int texture) {
 		long __functionAddress = getInstance().BindTextureUnit;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindTextureUnit(unit, texture, __functionAddress);
 	}
 
@@ -2936,8 +2798,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetTextureImage(int texture, int level, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = getInstance().GetTextureImage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTextureImage(texture, level, format, type, bufSize, pixels, __functionAddress);
 	}
 
@@ -3006,8 +2866,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetCompressedTextureImage(int texture, int level, int bufSize, long pixels) {
 		long __functionAddress = getInstance().GetCompressedTextureImage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetCompressedTextureImage(texture, level, bufSize, pixels, __functionAddress);
 	}
 
@@ -3058,8 +2916,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetTextureLevelParameterfv(int texture, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureLevelParameterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTextureLevelParameterfv(texture, level, pname, params, __functionAddress);
 	}
 
@@ -3104,8 +2960,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetTextureLevelParameteriv(int texture, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureLevelParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTextureLevelParameteriv(texture, level, pname, params, __functionAddress);
 	}
 
@@ -3150,8 +3004,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetTextureParameterfv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTextureParameterfv(texture, pname, params, __functionAddress);
 	}
 
@@ -3195,8 +3047,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetTextureParameterIiv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterIiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTextureParameterIiv(texture, pname, params, __functionAddress);
 	}
 
@@ -3240,8 +3090,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetTextureParameterIuiv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterIuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTextureParameterIuiv(texture, pname, params, __functionAddress);
 	}
 
@@ -3285,8 +3133,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetTextureParameteriv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTextureParameteriv(texture, pname, params, __functionAddress);
 	}
 
@@ -3330,8 +3176,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglCreateVertexArrays(int n, long arrays) {
 		long __functionAddress = getInstance().CreateVertexArrays;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCreateVertexArrays(n, arrays, __functionAddress);
 	}
 
@@ -3378,8 +3222,6 @@ public final class GL45 {
 	 */
 	public static void glDisableVertexArrayAttrib(int vaobj, int index) {
 		long __functionAddress = getInstance().DisableVertexArrayAttrib;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDisableVertexArrayAttrib(vaobj, index, __functionAddress);
 	}
 
@@ -3399,8 +3241,6 @@ public final class GL45 {
 	 */
 	public static void glEnableVertexArrayAttrib(int vaobj, int index) {
 		long __functionAddress = getInstance().EnableVertexArrayAttrib;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEnableVertexArrayAttrib(vaobj, index, __functionAddress);
 	}
 
@@ -3420,8 +3260,6 @@ public final class GL45 {
 	 */
 	public static void glVertexArrayElementBuffer(int vaobj, int buffer) {
 		long __functionAddress = getInstance().VertexArrayElementBuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexArrayElementBuffer(vaobj, buffer, __functionAddress);
 	}
 
@@ -3444,8 +3282,6 @@ public final class GL45 {
 	 */
 	public static void glVertexArrayVertexBuffer(int vaobj, int bindingindex, int buffer, long offset, int stride) {
 		long __functionAddress = getInstance().VertexArrayVertexBuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexArrayVertexBuffer(vaobj, bindingindex, buffer, offset, stride, __functionAddress);
 	}
 
@@ -3459,8 +3295,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglVertexArrayVertexBuffers(int vaobj, int first, int count, long buffers, long offsets, long strides) {
 		long __functionAddress = getInstance().VertexArrayVertexBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexArrayVertexBuffers(vaobj, first, count, buffers, offsets, strides, __functionAddress);
 	}
 
@@ -3515,8 +3349,6 @@ public final class GL45 {
 	 */
 	public static void glVertexArrayAttribFormat(int vaobj, int attribindex, int size, int type, boolean normalized, int relativeoffset) {
 		long __functionAddress = getInstance().VertexArrayAttribFormat;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexArrayAttribFormat(vaobj, attribindex, size, type, normalized, relativeoffset, __functionAddress);
 	}
 
@@ -3539,8 +3371,6 @@ public final class GL45 {
 	 */
 	public static void glVertexArrayAttribIFormat(int vaobj, int attribindex, int size, int type, int relativeoffset) {
 		long __functionAddress = getInstance().VertexArrayAttribIFormat;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexArrayAttribIFormat(vaobj, attribindex, size, type, relativeoffset, __functionAddress);
 	}
 
@@ -3563,8 +3393,6 @@ public final class GL45 {
 	 */
 	public static void glVertexArrayAttribLFormat(int vaobj, int attribindex, int size, int type, int relativeoffset) {
 		long __functionAddress = getInstance().VertexArrayAttribLFormat;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexArrayAttribLFormat(vaobj, attribindex, size, type, relativeoffset, __functionAddress);
 	}
 
@@ -3585,8 +3413,6 @@ public final class GL45 {
 	 */
 	public static void glVertexArrayAttribBinding(int vaobj, int attribindex, int bindingindex) {
 		long __functionAddress = getInstance().VertexArrayAttribBinding;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexArrayAttribBinding(vaobj, attribindex, bindingindex, __functionAddress);
 	}
 
@@ -3607,8 +3433,6 @@ public final class GL45 {
 	 */
 	public static void glVertexArrayBindingDivisor(int vaobj, int bindingindex, int divisor) {
 		long __functionAddress = getInstance().VertexArrayBindingDivisor;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexArrayBindingDivisor(vaobj, bindingindex, divisor, __functionAddress);
 	}
 
@@ -3622,8 +3446,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetVertexArrayiv(int vaobj, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetVertexArrayiv(vaobj, pname, param, __functionAddress);
 	}
 
@@ -3667,8 +3489,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetVertexArrayIndexediv(int vaobj, int index, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayIndexediv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetVertexArrayIndexediv(vaobj, index, pname, param, __functionAddress);
 	}
 
@@ -3713,8 +3533,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetVertexArrayIndexed64iv(int vaobj, int index, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayIndexed64iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetVertexArrayIndexed64iv(vaobj, index, pname, param, __functionAddress);
 	}
 
@@ -3759,8 +3577,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglCreateSamplers(int n, long samplers) {
 		long __functionAddress = getInstance().CreateSamplers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCreateSamplers(n, samplers, __functionAddress);
 	}
 
@@ -3801,8 +3617,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglCreateProgramPipelines(int n, long pipelines) {
 		long __functionAddress = getInstance().CreateProgramPipelines;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCreateProgramPipelines(n, pipelines, __functionAddress);
 	}
 
@@ -3843,8 +3657,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglCreateQueries(int target, int n, long ids) {
 		long __functionAddress = getInstance().CreateQueries;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCreateQueries(target, n, ids, __functionAddress);
 	}
 
@@ -3903,8 +3715,6 @@ public final class GL45 {
 	 */
 	public static void glMemoryBarrierByRegion(int barriers) {
 		long __functionAddress = getInstance().MemoryBarrierByRegion;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMemoryBarrierByRegion(barriers, __functionAddress);
 	}
 
@@ -3918,8 +3728,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = getInstance().GetTextureSubImage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, bufSize, pixels, __functionAddress);
 	}
 
@@ -3994,8 +3802,6 @@ public final class GL45 {
 	@JavadocExclude
 	public static void nglGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int bufSize, long pixels) {
 		long __functionAddress = getInstance().GetCompressedTextureSubImage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetCompressedTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, bufSize, pixels, __functionAddress);
 	}
 
@@ -4071,8 +3877,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 */
 	public static void glTextureBarrier() {
 		long __functionAddress = getInstance().TextureBarrier;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureBarrier(__functionAddress);
 	}
 
@@ -4118,8 +3922,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 */
 	public static int glGetGraphicsResetStatus() {
 		long __functionAddress = getInstance().GetGraphicsResetStatus;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGetGraphicsResetStatus(__functionAddress);
 	}
 
@@ -4133,8 +3935,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	@JavadocExclude
 	public static void nglReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = getInstance().ReadnPixels;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglReadnPixels(x, y, width, height, format, type, bufSize, pixels, __functionAddress);
 	}
 
@@ -4198,8 +3998,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	@JavadocExclude
 	public static void nglGetnUniformfv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetnUniformfv(program, location, bufSize, params, __functionAddress);
 	}
 
@@ -4234,8 +4032,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	@JavadocExclude
 	public static void nglGetnUniformiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetnUniformiv(program, location, bufSize, params, __functionAddress);
 	}
 
@@ -4270,8 +4066,6 @@ Guarantees that writes have completed and caches have been invalidated before su
 	@JavadocExclude
 	public static void nglGetnUniformuiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetnUniformuiv(program, location, bufSize, params, __functionAddress);
 	}
 

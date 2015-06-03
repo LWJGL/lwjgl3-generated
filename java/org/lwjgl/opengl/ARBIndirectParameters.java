@@ -56,7 +56,7 @@ public final class ARBIndirectParameters {
 
 	/** Returns the {@link ARBIndirectParameters} instance for the current context. */
 	public static ARBIndirectParameters getInstance() {
-		return GL.getCapabilities().__ARBIndirectParameters;
+		return checkFunctionality(GL.getCapabilities().__ARBIndirectParameters);
 	}
 
 	static ARBIndirectParameters create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -81,8 +81,6 @@ public final class ARBIndirectParameters {
 	@JavadocExclude
 	public static void nglMultiDrawArraysIndirectCountARB(int mode, long indirect, long drawcount, int maxdrawcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawArraysIndirectCountARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiDrawArraysIndirectCountARB(mode, indirect, drawcount, maxdrawcount, stride, __functionAddress);
 	}
 
@@ -132,8 +130,6 @@ public final class ARBIndirectParameters {
 	@JavadocExclude
 	public static void nglMultiDrawElementsIndirectCountARB(int mode, int type, long indirect, long drawcount, int maxdrawcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawElementsIndirectCountARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiDrawElementsIndirectCountARB(mode, type, indirect, drawcount, maxdrawcount, stride, __functionAddress);
 	}
 

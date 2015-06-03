@@ -105,7 +105,7 @@ public final class WGLARBPixelFormat {
 
 	/** Returns the {@link WGLARBPixelFormat} instance for the current context. */
 	public static WGLARBPixelFormat getInstance() {
-		return GL.getCapabilities().__WGLARBPixelFormat;
+		return checkFunctionality(GL.getCapabilities().__WGLARBPixelFormat);
 	}
 
 	static WGLARBPixelFormat create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -130,10 +130,8 @@ public final class WGLARBPixelFormat {
 	@JavadocExclude
 	public static int nwglGetPixelFormatAttribivARB(long hdc, int pixelFormat, int layerPlane, int n, long attributes, long values) {
 		long __functionAddress = getInstance().GetPixelFormatAttribivARB;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		}
 		return nwglGetPixelFormatAttribivARB(hdc, pixelFormat, layerPlane, n, attributes, values, __functionAddress);
 	}
 
@@ -181,10 +179,8 @@ public final class WGLARBPixelFormat {
 	@JavadocExclude
 	public static int nwglGetPixelFormatAttribfvARB(long hdc, int pixelFormat, int layerPlane, int n, long attributes, long values) {
 		long __functionAddress = getInstance().GetPixelFormatAttribfvARB;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		}
 		return nwglGetPixelFormatAttribfvARB(hdc, pixelFormat, layerPlane, n, attributes, values, __functionAddress);
 	}
 
@@ -232,10 +228,8 @@ public final class WGLARBPixelFormat {
 	@JavadocExclude
 	public static int nwglChoosePixelFormatARB(long hdc, long attribIList, long attribFList, int maxFormats, long formats, long numFormats) {
 		long __functionAddress = getInstance().ChoosePixelFormatARB;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		}
 		return nwglChoosePixelFormatARB(hdc, attribIList, attribFList, maxFormats, formats, numFormats, __functionAddress);
 	}
 

@@ -648,7 +648,7 @@ public final class GL30 {
 
 	/** Returns the {@link GL30} instance for the current context. */
 	public static GL30 getInstance() {
-		return GL.getCapabilities().__GL30;
+		return checkFunctionality(GL.getCapabilities().__GL30);
 	}
 
 	static GL30 create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -687,8 +687,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static long nglGetStringi(int name, int index) {
 		long __functionAddress = getInstance().GetStringi;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGetStringi(name, index, __functionAddress);
 	}
 
@@ -713,8 +711,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglClearBufferiv(int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearBufferiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClearBufferiv(buffer, drawbuffer, value, __functionAddress);
 	}
 
@@ -751,8 +747,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglClearBufferuiv(int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearBufferuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClearBufferuiv(buffer, drawbuffer, value, __functionAddress);
 	}
 
@@ -788,8 +782,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglClearBufferfv(int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearBufferfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClearBufferfv(buffer, drawbuffer, value, __functionAddress);
 	}
 
@@ -834,8 +826,6 @@ public final class GL30 {
 	 */
 	public static void glClearBufferfi(int buffer, int drawbuffer, float depth, int stencil) {
 		long __functionAddress = getInstance().ClearBufferfi;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClearBufferfi(buffer, drawbuffer, depth, stencil, __functionAddress);
 	}
 
@@ -855,8 +845,6 @@ public final class GL30 {
 	 */
 	public static void glVertexAttribI1i(int index, int x) {
 		long __functionAddress = getInstance().VertexAttribI1i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI1i(index, x, __functionAddress);
 	}
 
@@ -877,8 +865,6 @@ public final class GL30 {
 	 */
 	public static void glVertexAttribI2i(int index, int x, int y) {
 		long __functionAddress = getInstance().VertexAttribI2i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI2i(index, x, y, __functionAddress);
 	}
 
@@ -900,8 +886,6 @@ public final class GL30 {
 	 */
 	public static void glVertexAttribI3i(int index, int x, int y, int z) {
 		long __functionAddress = getInstance().VertexAttribI3i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI3i(index, x, y, z, __functionAddress);
 	}
 
@@ -924,8 +908,6 @@ public final class GL30 {
 	 */
 	public static void glVertexAttribI4i(int index, int x, int y, int z, int w) {
 		long __functionAddress = getInstance().VertexAttribI4i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI4i(index, x, y, z, w, __functionAddress);
 	}
 
@@ -945,8 +927,6 @@ public final class GL30 {
 	 */
 	public static void glVertexAttribI1ui(int index, int x) {
 		long __functionAddress = getInstance().VertexAttribI1ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI1ui(index, x, __functionAddress);
 	}
 
@@ -967,8 +947,6 @@ public final class GL30 {
 	 */
 	public static void glVertexAttribI2ui(int index, int x, int y) {
 		long __functionAddress = getInstance().VertexAttribI2ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI2ui(index, x, y, __functionAddress);
 	}
 
@@ -990,8 +968,6 @@ public final class GL30 {
 	 */
 	public static void glVertexAttribI3ui(int index, int x, int y, int z) {
 		long __functionAddress = getInstance().VertexAttribI3ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI3ui(index, x, y, z, __functionAddress);
 	}
 
@@ -1014,8 +990,6 @@ public final class GL30 {
 	 */
 	public static void glVertexAttribI4ui(int index, int x, int y, int z, int w) {
 		long __functionAddress = getInstance().VertexAttribI4ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI4ui(index, x, y, z, w, __functionAddress);
 	}
 
@@ -1029,8 +1003,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI1iv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI1iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI1iv(index, v, __functionAddress);
 	}
 
@@ -1065,8 +1037,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI2iv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI2iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI2iv(index, v, __functionAddress);
 	}
 
@@ -1101,8 +1071,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI3iv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI3iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI3iv(index, v, __functionAddress);
 	}
 
@@ -1137,8 +1105,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI4iv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI4iv(index, v, __functionAddress);
 	}
 
@@ -1173,8 +1139,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI1uiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI1uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI1uiv(index, v, __functionAddress);
 	}
 
@@ -1209,8 +1173,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI2uiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI2uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI2uiv(index, v, __functionAddress);
 	}
 
@@ -1245,8 +1207,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI3uiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI3uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI3uiv(index, v, __functionAddress);
 	}
 
@@ -1281,8 +1241,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI4uiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI4uiv(index, v, __functionAddress);
 	}
 
@@ -1317,8 +1275,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI4bv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4bv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI4bv(index, v, __functionAddress);
 	}
 
@@ -1346,8 +1302,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI4sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4sv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI4sv(index, v, __functionAddress);
 	}
 
@@ -1382,8 +1336,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI4ubv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4ubv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI4ubv(index, v, __functionAddress);
 	}
 
@@ -1411,8 +1363,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI4usv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4usv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribI4usv(index, v, __functionAddress);
 	}
 
@@ -1447,8 +1397,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribIPointer(int index, int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexAttribIPointer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribIPointer(index, size, type, stride, pointer, __functionAddress);
 	}
 
@@ -1502,8 +1450,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglGetVertexAttribIiv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribIiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetVertexAttribIiv(index, pname, params, __functionAddress);
 	}
 
@@ -1547,8 +1493,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglGetVertexAttribIuiv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribIuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetVertexAttribIuiv(index, pname, params, __functionAddress);
 	}
 
@@ -1598,8 +1542,6 @@ public final class GL30 {
 	 */
 	public static void glUniform1ui(int location, int v0) {
 		long __functionAddress = getInstance().Uniform1ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform1ui(location, v0, __functionAddress);
 	}
 
@@ -1620,8 +1562,6 @@ public final class GL30 {
 	 */
 	public static void glUniform2ui(int location, int v0, int v1) {
 		long __functionAddress = getInstance().Uniform2ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform2ui(location, v0, v1, __functionAddress);
 	}
 
@@ -1643,8 +1583,6 @@ public final class GL30 {
 	 */
 	public static void glUniform3ui(int location, int v0, int v1, int v2) {
 		long __functionAddress = getInstance().Uniform3ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform3ui(location, v0, v1, v2, __functionAddress);
 	}
 
@@ -1667,8 +1605,6 @@ public final class GL30 {
 	 */
 	public static void glUniform4ui(int location, int v0, int v1, int v2, int v3) {
 		long __functionAddress = getInstance().Uniform4ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform4ui(location, v0, v1, v2, v3, __functionAddress);
 	}
 
@@ -1682,8 +1618,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglUniform1uiv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform1uiv(location, count, value, __functionAddress);
 	}
 
@@ -1717,8 +1651,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglUniform2uiv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform2uiv(location, count, value, __functionAddress);
 	}
 
@@ -1752,8 +1684,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglUniform3uiv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform3uiv(location, count, value, __functionAddress);
 	}
 
@@ -1787,8 +1717,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglUniform4uiv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform4uiv(location, count, value, __functionAddress);
 	}
 
@@ -1822,8 +1750,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglGetUniformuiv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetUniformuiv(program, location, params, __functionAddress);
 	}
 
@@ -1867,8 +1793,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglBindFragDataLocation(int program, int colorNumber, long name) {
 		long __functionAddress = getInstance().BindFragDataLocation;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindFragDataLocation(program, colorNumber, name, __functionAddress);
 	}
 
@@ -1904,8 +1828,6 @@ public final class GL30 {
 	@JavadocExclude
 	public static int nglGetFragDataLocation(int program, long name) {
 		long __functionAddress = getInstance().GetFragDataLocation;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGetFragDataLocation(program, name, __functionAddress);
 	}
 
@@ -1946,8 +1868,6 @@ public final class GL30 {
 	 */
 	public static void glBeginConditionalRender(int id, int mode) {
 		long __functionAddress = getInstance().BeginConditionalRender;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBeginConditionalRender(id, mode, __functionAddress);
 	}
 
@@ -1964,8 +1884,6 @@ Ends conditional rendering.
 	 */
 	public static void glEndConditionalRender() {
 		long __functionAddress = getInstance().EndConditionalRender;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEndConditionalRender(__functionAddress);
 	}
 
@@ -1979,8 +1897,6 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static long nglMapBufferRange(int target, long offset, long length, int access) {
 		long __functionAddress = getInstance().MapBufferRange;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglMapBufferRange(target, offset, length, access, __functionAddress);
 	}
 
@@ -2028,8 +1944,6 @@ Ends conditional rendering.
 	 */
 	public static void glFlushMappedBufferRange(int target, long offset, long length) {
 		long __functionAddress = getInstance().FlushMappedBufferRange;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFlushMappedBufferRange(target, offset, length, __functionAddress);
 	}
 
@@ -2049,8 +1963,6 @@ Ends conditional rendering.
 	 */
 	public static void glClampColor(int target, int clamp) {
 		long __functionAddress = getInstance().ClampColor;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClampColor(target, clamp, __functionAddress);
 	}
 
@@ -2069,8 +1981,6 @@ Ends conditional rendering.
 	 */
 	public static boolean glIsRenderbuffer(int renderbuffer) {
 		long __functionAddress = getInstance().IsRenderbuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsRenderbuffer(renderbuffer, __functionAddress);
 	}
 
@@ -2090,8 +2000,6 @@ Ends conditional rendering.
 	 */
 	public static void glBindRenderbuffer(int target, int renderbuffer) {
 		long __functionAddress = getInstance().BindRenderbuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindRenderbuffer(target, renderbuffer, __functionAddress);
 	}
 
@@ -2105,8 +2013,6 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglDeleteRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = getInstance().DeleteRenderbuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDeleteRenderbuffers(n, renderbuffers, __functionAddress);
 	}
 
@@ -2146,8 +2052,6 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglGenRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = getInstance().GenRenderbuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGenRenderbuffers(n, renderbuffers, __functionAddress);
 	}
 
@@ -2196,8 +2100,6 @@ Ends conditional rendering.
 	 */
 	public static void glRenderbufferStorage(int target, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRenderbufferStorage(target, internalformat, width, height, __functionAddress);
 	}
 
@@ -2222,8 +2124,6 @@ Ends conditional rendering.
 	 */
 	public static void glRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageMultisample;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRenderbufferStorageMultisample(target, samples, internalformat, width, height, __functionAddress);
 	}
 
@@ -2237,8 +2137,6 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglGetRenderbufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetRenderbufferParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetRenderbufferParameteriv(target, pname, params, __functionAddress);
 	}
 
@@ -2287,8 +2185,6 @@ Ends conditional rendering.
 	 */
 	public static boolean glIsFramebuffer(int framebuffer) {
 		long __functionAddress = getInstance().IsFramebuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsFramebuffer(framebuffer, __functionAddress);
 	}
 
@@ -2308,8 +2204,6 @@ Ends conditional rendering.
 	 */
 	public static void glBindFramebuffer(int target, int framebuffer) {
 		long __functionAddress = getInstance().BindFramebuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindFramebuffer(target, framebuffer, __functionAddress);
 	}
 
@@ -2323,8 +2217,6 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglDeleteFramebuffers(int n, long framebuffers) {
 		long __functionAddress = getInstance().DeleteFramebuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDeleteFramebuffers(n, framebuffers, __functionAddress);
 	}
 
@@ -2364,8 +2256,6 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglGenFramebuffers(int n, long framebuffers) {
 		long __functionAddress = getInstance().GenFramebuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGenFramebuffers(n, framebuffers, __functionAddress);
 	}
 
@@ -2411,8 +2301,6 @@ Ends conditional rendering.
 	 */
 	public static int glCheckFramebufferStatus(int target) {
 		long __functionAddress = getInstance().CheckFramebufferStatus;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglCheckFramebufferStatus(target, __functionAddress);
 	}
 
@@ -2435,8 +2323,6 @@ Ends conditional rendering.
 	 */
 	public static void glFramebufferTexture1D(int target, int attachment, int textarget, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTexture1D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFramebufferTexture1D(target, attachment, textarget, texture, level, __functionAddress);
 	}
 
@@ -2459,8 +2345,6 @@ Ends conditional rendering.
 	 */
 	public static void glFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTexture2D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFramebufferTexture2D(target, attachment, textarget, texture, level, __functionAddress);
 	}
 
@@ -2484,8 +2368,6 @@ Ends conditional rendering.
 	 */
 	public static void glFramebufferTexture3D(int target, int attachment, int textarget, int texture, int level, int layer) {
 		long __functionAddress = getInstance().FramebufferTexture3D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFramebufferTexture3D(target, attachment, textarget, texture, level, layer, __functionAddress);
 	}
 
@@ -2508,8 +2390,6 @@ Ends conditional rendering.
 	 */
 	public static void glFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer) {
 		long __functionAddress = getInstance().FramebufferTextureLayer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFramebufferTextureLayer(target, attachment, texture, level, layer, __functionAddress);
 	}
 
@@ -2531,8 +2411,6 @@ Ends conditional rendering.
 	 */
 	public static void glFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer) {
 		long __functionAddress = getInstance().FramebufferRenderbuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer, __functionAddress);
 	}
 
@@ -2546,8 +2424,6 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferAttachmentParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, params, __functionAddress);
 	}
 
@@ -2606,8 +2482,6 @@ Ends conditional rendering.
 	 */
 	public static void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
 		long __functionAddress = getInstance().BlitFramebuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter, __functionAddress);
 	}
 
@@ -2626,8 +2500,6 @@ Ends conditional rendering.
 	 */
 	public static void glGenerateMipmap(int target) {
 		long __functionAddress = getInstance().GenerateMipmap;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGenerateMipmap(target, __functionAddress);
 	}
 
@@ -2641,8 +2513,6 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglTexParameterIiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexParameterIiv(target, pname, params, __functionAddress);
 	}
 
@@ -2685,8 +2555,6 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglTexParameterIuiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexParameterIuiv(target, pname, params, __functionAddress);
 	}
 
@@ -2729,8 +2597,6 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglGetTexParameterIiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTexParameterIiv(target, pname, params, __functionAddress);
 	}
 
@@ -2774,8 +2640,6 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglGetTexParameterIuiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTexParameterIuiv(target, pname, params, __functionAddress);
 	}
 
@@ -2828,8 +2692,6 @@ Ends conditional rendering.
 	 */
 	public static void glColorMaski(int buf, boolean r, boolean g, boolean b, boolean a) {
 		long __functionAddress = getInstance().ColorMaski;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColorMaski(buf, r, g, b, a, __functionAddress);
 	}
 
@@ -2843,8 +2705,6 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglGetBooleani_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetBooleani_v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetBooleani_v(target, index, data, __functionAddress);
 	}
 
@@ -2881,8 +2741,6 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglGetIntegeri_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetIntegeri_v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetIntegeri_v(target, index, data, __functionAddress);
 	}
 
@@ -2932,8 +2790,6 @@ Ends conditional rendering.
 	 */
 	public static void glEnablei(int cap, int index) {
 		long __functionAddress = getInstance().Enablei;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEnablei(cap, index, __functionAddress);
 	}
 
@@ -2953,8 +2809,6 @@ Ends conditional rendering.
 	 */
 	public static void glDisablei(int target, int index) {
 		long __functionAddress = getInstance().Disablei;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDisablei(target, index, __functionAddress);
 	}
 
@@ -2974,8 +2828,6 @@ Ends conditional rendering.
 	 */
 	public static boolean glIsEnabledi(int target, int index) {
 		long __functionAddress = getInstance().IsEnabledi;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsEnabledi(target, index, __functionAddress);
 	}
 
@@ -2998,8 +2850,6 @@ Ends conditional rendering.
 	 */
 	public static void glBindBufferRange(int target, int index, int buffer, long offset, long size) {
 		long __functionAddress = getInstance().BindBufferRange;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindBufferRange(target, index, buffer, offset, size, __functionAddress);
 	}
 
@@ -3020,8 +2870,6 @@ Ends conditional rendering.
 	 */
 	public static void glBindBufferBase(int target, int index, int buffer) {
 		long __functionAddress = getInstance().BindBufferBase;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindBufferBase(target, index, buffer, __functionAddress);
 	}
 
@@ -3040,8 +2888,6 @@ Ends conditional rendering.
 	 */
 	public static void glBeginTransformFeedback(int primitiveMode) {
 		long __functionAddress = getInstance().BeginTransformFeedback;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBeginTransformFeedback(primitiveMode, __functionAddress);
 	}
 
@@ -3058,8 +2904,6 @@ Ends transform feedback operation.
 	 */
 	public static void glEndTransformFeedback() {
 		long __functionAddress = getInstance().EndTransformFeedback;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEndTransformFeedback(__functionAddress);
 	}
 
@@ -3073,8 +2917,6 @@ Ends transform feedback operation.
 	@JavadocExclude
 	public static void nglTransformFeedbackVaryings(int program, int count, long varyings, int bufferMode) {
 		long __functionAddress = getInstance().TransformFeedbackVaryings;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTransformFeedbackVaryings(program, count, varyings, bufferMode, __functionAddress);
 	}
 
@@ -3127,8 +2969,6 @@ Ends transform feedback operation.
 	@JavadocExclude
 	public static void nglGetTransformFeedbackVarying(int program, int index, int bufSize, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetTransformFeedbackVarying;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTransformFeedbackVarying(program, index, bufSize, length, size, type, name, __functionAddress);
 	}
 
@@ -3207,8 +3047,6 @@ Ends transform feedback operation.
 	 */
 	public static void glBindVertexArray(int array) {
 		long __functionAddress = getInstance().BindVertexArray;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindVertexArray(array, __functionAddress);
 	}
 
@@ -3222,8 +3060,6 @@ Ends transform feedback operation.
 	@JavadocExclude
 	public static void nglDeleteVertexArrays(int n, long arrays) {
 		long __functionAddress = getInstance().DeleteVertexArrays;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDeleteVertexArrays(n, arrays, __functionAddress);
 	}
 
@@ -3263,8 +3099,6 @@ Ends transform feedback operation.
 	@JavadocExclude
 	public static void nglGenVertexArrays(int n, long arrays) {
 		long __functionAddress = getInstance().GenVertexArrays;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGenVertexArrays(n, arrays, __functionAddress);
 	}
 
@@ -3310,8 +3144,6 @@ Ends transform feedback operation.
 	 */
 	public static boolean glIsVertexArray(int array) {
 		long __functionAddress = getInstance().IsVertexArray;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsVertexArray(array, __functionAddress);
 	}
 

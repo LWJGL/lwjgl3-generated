@@ -86,7 +86,7 @@ public final class GLXSGIXFBConfig {
 
 	/** Returns the {@link GLXSGIXFBConfig} instance for the current context. */
 	public static GLXSGIXFBConfig getInstance() {
-		return GL.getCapabilities().__GLXSGIXFBConfig;
+		return checkFunctionality(GL.getCapabilities().__GLXSGIXFBConfig);
 	}
 
 	static GLXSGIXFBConfig create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -113,7 +113,6 @@ public final class GLXSGIXFBConfig {
 	public static int nglXGetFBConfigAttribSGIX(long display, long config, int attribute, long value) {
 		long __functionAddress = getInstance().GetFBConfigAttribSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -151,10 +150,8 @@ public final class GLXSGIXFBConfig {
 	@JavadocExclude
 	public static long nglXChooseFBConfigSGIX(long display, int screen, long attrib_list, long nelements) {
 		long __functionAddress = getInstance().ChooseFBConfigSGIX;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		}
 		return nglXChooseFBConfigSGIX(display, screen, attrib_list, nelements, __functionAddress);
 	}
 
@@ -196,7 +193,6 @@ public final class GLXSGIXFBConfig {
 	public static long glXCreateGLXPixmapWithConfigSGIX(long display, long config, long pixmap) {
 		long __functionAddress = getInstance().CreateGLXPixmapWithConfigSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -221,7 +217,6 @@ public final class GLXSGIXFBConfig {
 	public static long glXCreateContextWithConfigSGIX(long display, long config, int render_type, long share_list, int direct) {
 		long __functionAddress = getInstance().CreateContextWithConfigSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 			checkPointer(share_list);
@@ -240,7 +235,6 @@ public final class GLXSGIXFBConfig {
 	public static long nglXGetVisualFromFBConfigSGIX(long display, long config) {
 		long __functionAddress = getInstance().GetVisualFromFBConfigSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -268,10 +262,8 @@ public final class GLXSGIXFBConfig {
 	@JavadocExclude
 	public static long nglXGetFBConfigFromVisualSGIX(long display, long vis) {
 		long __functionAddress = getInstance().GetFBConfigFromVisualSGIX;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		}
 		return nglXGetFBConfigFromVisualSGIX(display, vis, __functionAddress);
 	}
 

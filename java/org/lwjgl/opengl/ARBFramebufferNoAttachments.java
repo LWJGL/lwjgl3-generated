@@ -83,7 +83,7 @@ public final class ARBFramebufferNoAttachments {
 
 	/** Returns the {@link ARBFramebufferNoAttachments} instance for the current context. */
 	public static ARBFramebufferNoAttachments getInstance() {
-		return GL.getCapabilities().__ARBFramebufferNoAttachments;
+		return checkFunctionality(GL.getCapabilities().__ARBFramebufferNoAttachments);
 	}
 
 	static ARBFramebufferNoAttachments create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -111,8 +111,6 @@ public final class ARBFramebufferNoAttachments {
 	 */
 	public static void glFramebufferParameteri(int target, int pname, int param) {
 		long __functionAddress = getInstance().FramebufferParameteri;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglFramebufferParameteri(target, pname, param, __functionAddress);
 	}
 
@@ -122,8 +120,6 @@ public final class ARBFramebufferNoAttachments {
 	@JavadocExclude
 	public static void nglGetFramebufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglGetFramebufferParameteriv(target, pname, params, __functionAddress);
 	}
 

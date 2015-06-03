@@ -1387,7 +1387,7 @@ public final class GL11 {
 
 	/** Returns the {@link GL11} instance for the current context. */
 	public static GL11 getInstance() {
-		return GL.getCapabilities().__GL11;
+		return checkFunctionality(GL.getCapabilities().__GL11);
 	}
 
 	static GL11 create(java.util.Set<String> ext, FunctionProvider provider, boolean fc) {
@@ -1460,8 +1460,6 @@ public final class GL11 {
 	 */
 	public static void glEnable(int target) {
 		long __functionAddress = getInstance().Enable;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEnable(target, __functionAddress);
 	}
 
@@ -1480,8 +1478,6 @@ public final class GL11 {
 	 */
 	public static void glDisable(int target) {
 		long __functionAddress = getInstance().Disable;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDisable(target, __functionAddress);
 	}
 
@@ -1502,8 +1498,6 @@ public final class GL11 {
 	 */
 	public static void glAccum(int op, float value) {
 		long __functionAddress = getInstance().Accum;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglAccum(op, value, __functionAddress);
 	}
 
@@ -1525,8 +1519,6 @@ public final class GL11 {
 	 */
 	public static void glAlphaFunc(int func, float ref) {
 		long __functionAddress = getInstance().AlphaFunc;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglAlphaFunc(func, ref, __functionAddress);
 	}
 
@@ -1540,8 +1532,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static boolean nglAreTexturesResident(int n, long textures, long residences) {
 		long __functionAddress = getInstance().AreTexturesResident;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglAreTexturesResident(n, textures, residences, __functionAddress);
 	}
 
@@ -1595,8 +1585,6 @@ public final class GL11 {
 	 */
 	public static void glArrayElement(int i) {
 		long __functionAddress = getInstance().ArrayElement;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglArrayElement(i, __functionAddress);
 	}
 
@@ -1615,8 +1603,6 @@ public final class GL11 {
 	 */
 	public static void glBegin(int mode) {
 		long __functionAddress = getInstance().Begin;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBegin(mode, __functionAddress);
 	}
 
@@ -1640,8 +1626,6 @@ public final class GL11 {
 	 */
 	public static void glBindTexture(int target, int texture) {
 		long __functionAddress = getInstance().BindTexture;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindTexture(target, texture, __functionAddress);
 	}
 
@@ -1655,8 +1639,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglBitmap(int w, int h, float xOrig, float yOrig, float xInc, float yInc, long data) {
 		long __functionAddress = getInstance().Bitmap;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBitmap(w, h, xOrig, yOrig, xInc, yInc, data, __functionAddress);
 	}
 
@@ -1703,8 +1685,6 @@ public final class GL11 {
 	 */
 	public static void glBlendFunc(int sfactor, int dfactor) {
 		long __functionAddress = getInstance().BlendFunc;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBlendFunc(sfactor, dfactor, __functionAddress);
 	}
 
@@ -1723,8 +1703,6 @@ public final class GL11 {
 	 */
 	public static void glCallList(int list) {
 		long __functionAddress = getInstance().CallList;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCallList(list, __functionAddress);
 	}
 
@@ -1738,8 +1716,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglCallLists(int n, int type, long lists) {
 		long __functionAddress = getInstance().CallLists;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCallLists(n, type, lists, __functionAddress);
 	}
 
@@ -1794,8 +1770,6 @@ public final class GL11 {
 	 */
 	public static void glClear(int mask) {
 		long __functionAddress = getInstance().Clear;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClear(mask, __functionAddress);
 	}
 
@@ -1817,8 +1791,6 @@ public final class GL11 {
 	 */
 	public static void glClearAccum(float red, float green, float blue, float alpha) {
 		long __functionAddress = getInstance().ClearAccum;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClearAccum(red, green, blue, alpha, __functionAddress);
 	}
 
@@ -1840,8 +1812,6 @@ public final class GL11 {
 	 */
 	public static void glClearColor(float red, float green, float blue, float alpha) {
 		long __functionAddress = getInstance().ClearColor;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClearColor(red, green, blue, alpha, __functionAddress);
 	}
 
@@ -1861,8 +1831,6 @@ public final class GL11 {
 	 */
 	public static void glClearDepth(double depth) {
 		long __functionAddress = getInstance().ClearDepth;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClearDepth(depth, __functionAddress);
 	}
 
@@ -1883,8 +1851,6 @@ public final class GL11 {
 	 */
 	public static void glClearIndex(float index) {
 		long __functionAddress = getInstance().ClearIndex;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClearIndex(index, __functionAddress);
 	}
 
@@ -1903,8 +1869,6 @@ public final class GL11 {
 	 */
 	public static void glClearStencil(int s) {
 		long __functionAddress = getInstance().ClearStencil;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClearStencil(s, __functionAddress);
 	}
 
@@ -1918,8 +1882,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglClipPlane(int plane, long equation) {
 		long __functionAddress = getInstance().ClipPlane;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClipPlane(plane, equation, __functionAddress);
 	}
 
@@ -1961,8 +1923,6 @@ public final class GL11 {
 	 */
 	public static void glColor3b(byte red, byte green, byte blue) {
 		long __functionAddress = getInstance().Color3b;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor3b(red, green, blue, __functionAddress);
 	}
 
@@ -1983,8 +1943,6 @@ public final class GL11 {
 	 */
 	public static void glColor3s(short red, short green, short blue) {
 		long __functionAddress = getInstance().Color3s;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor3s(red, green, blue, __functionAddress);
 	}
 
@@ -2005,8 +1963,6 @@ public final class GL11 {
 	 */
 	public static void glColor3i(int red, int green, int blue) {
 		long __functionAddress = getInstance().Color3i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor3i(red, green, blue, __functionAddress);
 	}
 
@@ -2027,8 +1983,6 @@ public final class GL11 {
 	 */
 	public static void glColor3f(float red, float green, float blue) {
 		long __functionAddress = getInstance().Color3f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor3f(red, green, blue, __functionAddress);
 	}
 
@@ -2049,8 +2003,6 @@ public final class GL11 {
 	 */
 	public static void glColor3d(double red, double green, double blue) {
 		long __functionAddress = getInstance().Color3d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor3d(red, green, blue, __functionAddress);
 	}
 
@@ -2071,8 +2023,6 @@ public final class GL11 {
 	 */
 	public static void glColor3ub(byte red, byte green, byte blue) {
 		long __functionAddress = getInstance().Color3ub;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor3ub(red, green, blue, __functionAddress);
 	}
 
@@ -2093,8 +2043,6 @@ public final class GL11 {
 	 */
 	public static void glColor3us(short red, short green, short blue) {
 		long __functionAddress = getInstance().Color3us;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor3us(red, green, blue, __functionAddress);
 	}
 
@@ -2115,8 +2063,6 @@ public final class GL11 {
 	 */
 	public static void glColor3ui(int red, int green, int blue) {
 		long __functionAddress = getInstance().Color3ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor3ui(red, green, blue, __functionAddress);
 	}
 
@@ -2130,8 +2076,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglColor3bv(long v) {
 		long __functionAddress = getInstance().Color3bv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor3bv(v, __functionAddress);
 	}
 
@@ -2158,8 +2102,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglColor3sv(long v) {
 		long __functionAddress = getInstance().Color3sv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor3sv(v, __functionAddress);
 	}
 
@@ -2193,8 +2135,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglColor3iv(long v) {
 		long __functionAddress = getInstance().Color3iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor3iv(v, __functionAddress);
 	}
 
@@ -2228,8 +2168,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglColor3fv(long v) {
 		long __functionAddress = getInstance().Color3fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor3fv(v, __functionAddress);
 	}
 
@@ -2263,8 +2201,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglColor3dv(long v) {
 		long __functionAddress = getInstance().Color3dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor3dv(v, __functionAddress);
 	}
 
@@ -2298,8 +2234,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglColor3ubv(long v) {
 		long __functionAddress = getInstance().Color3ubv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor3ubv(v, __functionAddress);
 	}
 
@@ -2326,8 +2260,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglColor3usv(long v) {
 		long __functionAddress = getInstance().Color3usv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor3usv(v, __functionAddress);
 	}
 
@@ -2361,8 +2293,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglColor3uiv(long v) {
 		long __functionAddress = getInstance().Color3uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor3uiv(v, __functionAddress);
 	}
 
@@ -2404,8 +2334,6 @@ public final class GL11 {
 	 */
 	public static void glColor4b(byte red, byte green, byte blue, byte alpha) {
 		long __functionAddress = getInstance().Color4b;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor4b(red, green, blue, alpha, __functionAddress);
 	}
 
@@ -2427,8 +2355,6 @@ public final class GL11 {
 	 */
 	public static void glColor4s(short red, short green, short blue, short alpha) {
 		long __functionAddress = getInstance().Color4s;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor4s(red, green, blue, alpha, __functionAddress);
 	}
 
@@ -2450,8 +2376,6 @@ public final class GL11 {
 	 */
 	public static void glColor4i(int red, int green, int blue, int alpha) {
 		long __functionAddress = getInstance().Color4i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor4i(red, green, blue, alpha, __functionAddress);
 	}
 
@@ -2473,8 +2397,6 @@ public final class GL11 {
 	 */
 	public static void glColor4f(float red, float green, float blue, float alpha) {
 		long __functionAddress = getInstance().Color4f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor4f(red, green, blue, alpha, __functionAddress);
 	}
 
@@ -2496,8 +2418,6 @@ public final class GL11 {
 	 */
 	public static void glColor4d(double red, double green, double blue, double alpha) {
 		long __functionAddress = getInstance().Color4d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor4d(red, green, blue, alpha, __functionAddress);
 	}
 
@@ -2519,8 +2439,6 @@ public final class GL11 {
 	 */
 	public static void glColor4ub(byte red, byte green, byte blue, byte alpha) {
 		long __functionAddress = getInstance().Color4ub;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor4ub(red, green, blue, alpha, __functionAddress);
 	}
 
@@ -2542,8 +2460,6 @@ public final class GL11 {
 	 */
 	public static void glColor4us(short red, short green, short blue, short alpha) {
 		long __functionAddress = getInstance().Color4us;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor4us(red, green, blue, alpha, __functionAddress);
 	}
 
@@ -2565,8 +2481,6 @@ public final class GL11 {
 	 */
 	public static void glColor4ui(int red, int green, int blue, int alpha) {
 		long __functionAddress = getInstance().Color4ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor4ui(red, green, blue, alpha, __functionAddress);
 	}
 
@@ -2580,8 +2494,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglColor4bv(long v) {
 		long __functionAddress = getInstance().Color4bv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor4bv(v, __functionAddress);
 	}
 
@@ -2608,8 +2520,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglColor4sv(long v) {
 		long __functionAddress = getInstance().Color4sv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor4sv(v, __functionAddress);
 	}
 
@@ -2643,8 +2553,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglColor4iv(long v) {
 		long __functionAddress = getInstance().Color4iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor4iv(v, __functionAddress);
 	}
 
@@ -2678,8 +2586,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglColor4fv(long v) {
 		long __functionAddress = getInstance().Color4fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor4fv(v, __functionAddress);
 	}
 
@@ -2713,8 +2619,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglColor4dv(long v) {
 		long __functionAddress = getInstance().Color4dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor4dv(v, __functionAddress);
 	}
 
@@ -2748,8 +2652,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglColor4ubv(long v) {
 		long __functionAddress = getInstance().Color4ubv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor4ubv(v, __functionAddress);
 	}
 
@@ -2776,8 +2678,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglColor4usv(long v) {
 		long __functionAddress = getInstance().Color4usv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor4usv(v, __functionAddress);
 	}
 
@@ -2811,8 +2711,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglColor4uiv(long v) {
 		long __functionAddress = getInstance().Color4uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColor4uiv(v, __functionAddress);
 	}
 
@@ -2854,8 +2752,6 @@ public final class GL11 {
 	 */
 	public static void glColorMask(boolean red, boolean green, boolean blue, boolean alpha) {
 		long __functionAddress = getInstance().ColorMask;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColorMask(red, green, blue, alpha, __functionAddress);
 	}
 
@@ -2877,8 +2773,6 @@ public final class GL11 {
 	 */
 	public static void glColorMaterial(int face, int mode) {
 		long __functionAddress = getInstance().ColorMaterial;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColorMaterial(face, mode, __functionAddress);
 	}
 
@@ -2892,8 +2786,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglColorPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().ColorPointer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColorPointer(size, type, stride, pointer, __functionAddress);
 	}
 
@@ -2960,8 +2852,6 @@ public final class GL11 {
 	 */
 	public static void glCopyPixels(int x, int y, int width, int height, int type) {
 		long __functionAddress = getInstance().CopyPixels;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCopyPixels(x, y, width, height, type, __functionAddress);
 	}
 
@@ -2982,8 +2872,6 @@ public final class GL11 {
 	 */
 	public static void glCullFace(int mode) {
 		long __functionAddress = getInstance().CullFace;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCullFace(mode, __functionAddress);
 	}
 
@@ -3004,8 +2892,6 @@ public final class GL11 {
 	 */
 	public static void glDeleteLists(int list, int range) {
 		long __functionAddress = getInstance().DeleteLists;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDeleteLists(list, range, __functionAddress);
 	}
 
@@ -3024,8 +2910,6 @@ public final class GL11 {
 	 */
 	public static void glDepthFunc(int func) {
 		long __functionAddress = getInstance().DepthFunc;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDepthFunc(func, __functionAddress);
 	}
 
@@ -3044,8 +2928,6 @@ public final class GL11 {
 	 */
 	public static void glDepthMask(boolean flag) {
 		long __functionAddress = getInstance().DepthMask;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDepthMask(flag, __functionAddress);
 	}
 
@@ -3065,8 +2947,6 @@ public final class GL11 {
 	 */
 	public static void glDepthRange(double zNear, double zFar) {
 		long __functionAddress = getInstance().DepthRange;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDepthRange(zNear, zFar, __functionAddress);
 	}
 
@@ -3085,8 +2965,6 @@ public final class GL11 {
 	 */
 	public static void glDisableClientState(int array) {
 		long __functionAddress = getInstance().DisableClientState;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDisableClientState(array, __functionAddress);
 	}
 
@@ -3111,8 +2989,6 @@ public final class GL11 {
 	 */
 	public static void glDrawArrays(int mode, int first, int count) {
 		long __functionAddress = getInstance().DrawArrays;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawArrays(mode, first, count, __functionAddress);
 	}
 
@@ -3134,8 +3010,6 @@ public final class GL11 {
 	 */
 	public static void glDrawBuffer(int buf) {
 		long __functionAddress = getInstance().DrawBuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawBuffer(buf, __functionAddress);
 	}
 
@@ -3149,8 +3023,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglDrawElements(int mode, int count, int type, long indices) {
 		long __functionAddress = getInstance().DrawElements;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawElements(mode, count, type, indices, __functionAddress);
 	}
 
@@ -3219,8 +3091,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglDrawPixels(int width, int height, int format, int type, long pixels) {
 		long __functionAddress = getInstance().DrawPixels;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDrawPixels(width, height, format, type, pixels, __functionAddress);
 	}
 
@@ -3290,8 +3160,6 @@ public final class GL11 {
 	 */
 	public static void glEdgeFlag(boolean flag) {
 		long __functionAddress = getInstance().EdgeFlag;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEdgeFlag(flag, __functionAddress);
 	}
 
@@ -3305,8 +3173,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglEdgeFlagv(long flag) {
 		long __functionAddress = getInstance().EdgeFlagv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEdgeFlagv(flag, __functionAddress);
 	}
 
@@ -3333,8 +3199,6 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglEdgeFlagPointer(int stride, long pointer) {
 		long __functionAddress = getInstance().EdgeFlagPointer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEdgeFlagPointer(stride, pointer, __functionAddress);
 	}
 
@@ -3374,8 +3238,6 @@ public final class GL11 {
 	 */
 	public static void glEnableClientState(int array) {
 		long __functionAddress = getInstance().EnableClientState;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEnableClientState(array, __functionAddress);
 	}
 
@@ -3392,8 +3254,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 */
 	public static void glEnd() {
 		long __functionAddress = getInstance().End;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEnd(__functionAddress);
 	}
 
@@ -3412,8 +3272,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 */
 	public static void glEvalCoord1f(float u) {
 		long __functionAddress = getInstance().EvalCoord1f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEvalCoord1f(u, __functionAddress);
 	}
 
@@ -3427,8 +3285,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	@JavadocExclude
 	public static void nglEvalCoord1fv(long u) {
 		long __functionAddress = getInstance().EvalCoord1fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEvalCoord1fv(u, __functionAddress);
 	}
 
@@ -3463,8 +3319,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 */
 	public static void glEvalCoord1d(double u) {
 		long __functionAddress = getInstance().EvalCoord1d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEvalCoord1d(u, __functionAddress);
 	}
 
@@ -3478,8 +3332,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	@JavadocExclude
 	public static void nglEvalCoord1dv(long u) {
 		long __functionAddress = getInstance().EvalCoord1dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEvalCoord1dv(u, __functionAddress);
 	}
 
@@ -3515,8 +3367,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 */
 	public static void glEvalCoord2f(float u, float v) {
 		long __functionAddress = getInstance().EvalCoord2f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEvalCoord2f(u, v, __functionAddress);
 	}
 
@@ -3530,8 +3380,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	@JavadocExclude
 	public static void nglEvalCoord2fv(long u) {
 		long __functionAddress = getInstance().EvalCoord2fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEvalCoord2fv(u, __functionAddress);
 	}
 
@@ -3567,8 +3415,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 */
 	public static void glEvalCoord2d(double u, double v) {
 		long __functionAddress = getInstance().EvalCoord2d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEvalCoord2d(u, v, __functionAddress);
 	}
 
@@ -3582,8 +3428,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	@JavadocExclude
 	public static void nglEvalCoord2dv(long u) {
 		long __functionAddress = getInstance().EvalCoord2dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEvalCoord2dv(u, __functionAddress);
 	}
 
@@ -3620,8 +3464,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 */
 	public static void glEvalMesh1(int mode, int i1, int i2) {
 		long __functionAddress = getInstance().EvalMesh1;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEvalMesh1(mode, i1, i2, __functionAddress);
 	}
 
@@ -3644,8 +3486,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 */
 	public static void glEvalMesh2(int mode, int i1, int i2, int j1, int j2) {
 		long __functionAddress = getInstance().EvalMesh2;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEvalMesh2(mode, i1, i2, j1, j2, __functionAddress);
 	}
 
@@ -3664,8 +3504,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 */
 	public static void glEvalPoint1(int i) {
 		long __functionAddress = getInstance().EvalPoint1;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEvalPoint1(i, __functionAddress);
 	}
 
@@ -3685,8 +3523,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 */
 	public static void glEvalPoint2(int i, int j) {
 		long __functionAddress = getInstance().EvalPoint2;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEvalPoint2(i, j, __functionAddress);
 	}
 
@@ -3700,8 +3536,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	@JavadocExclude
 	public static void nglFeedbackBuffer(int size, int type, long buffer) {
 		long __functionAddress = getInstance().FeedbackBuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFeedbackBuffer(size, type, buffer, __functionAddress);
 	}
 
@@ -3739,8 +3573,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 */
 	public static void glFinish() {
 		long __functionAddress = getInstance().Finish;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFinish(__functionAddress);
 	}
 
@@ -3757,8 +3589,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glFlush() {
 		long __functionAddress = getInstance().Flush;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFlush(__functionAddress);
 	}
 
@@ -3778,8 +3608,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glFogi(int pname, int param) {
 		long __functionAddress = getInstance().Fogi;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFogi(pname, param, __functionAddress);
 	}
 
@@ -3793,8 +3621,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglFogiv(int pname, long params) {
 		long __functionAddress = getInstance().Fogiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFogiv(pname, params, __functionAddress);
 	}
 
@@ -3835,8 +3661,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glFogf(int pname, float param) {
 		long __functionAddress = getInstance().Fogf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFogf(pname, param, __functionAddress);
 	}
 
@@ -3850,8 +3674,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglFogfv(int pname, long params) {
 		long __functionAddress = getInstance().Fogfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFogfv(pname, params, __functionAddress);
 	}
 
@@ -3893,8 +3715,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glFrontFace(int dir) {
 		long __functionAddress = getInstance().FrontFace;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFrontFace(dir, __functionAddress);
 	}
 
@@ -3916,8 +3736,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static int glGenLists(int s) {
 		long __functionAddress = getInstance().GenLists;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGenLists(s, __functionAddress);
 	}
 
@@ -3931,8 +3749,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGenTextures(int n, long textures) {
 		long __functionAddress = getInstance().GenTextures;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGenTextures(n, textures, __functionAddress);
 	}
 
@@ -3974,8 +3790,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglDeleteTextures(int n, long textures) {
 		long __functionAddress = getInstance().DeleteTextures;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDeleteTextures(n, textures, __functionAddress);
 	}
 
@@ -4021,8 +3835,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetClipPlane(int plane, long equation) {
 		long __functionAddress = getInstance().GetClipPlane;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetClipPlane(plane, equation, __functionAddress);
 	}
 
@@ -4058,8 +3870,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetBooleanv(int pname, long params) {
 		long __functionAddress = getInstance().GetBooleanv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetBooleanv(pname, params, __functionAddress);
 	}
 
@@ -4099,8 +3909,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetFloatv(int pname, long params) {
 		long __functionAddress = getInstance().GetFloatv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetFloatv(pname, params, __functionAddress);
 	}
 
@@ -4147,8 +3955,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetIntegerv(int pname, long params) {
 		long __functionAddress = getInstance().GetIntegerv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetIntegerv(pname, params, __functionAddress);
 	}
 
@@ -4195,8 +4001,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetDoublev(int pname, long params) {
 		long __functionAddress = getInstance().GetDoublev;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetDoublev(pname, params, __functionAddress);
 	}
 
@@ -4249,8 +4053,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static int glGetError() {
 		long __functionAddress = getInstance().GetError;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGetError(__functionAddress);
 	}
 
@@ -4264,8 +4066,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetLightiv(int light, int pname, long data) {
 		long __functionAddress = getInstance().GetLightiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetLightiv(light, pname, data, __functionAddress);
 	}
 
@@ -4309,8 +4109,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetLightfv(int light, int pname, long data) {
 		long __functionAddress = getInstance().GetLightfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetLightfv(light, pname, data, __functionAddress);
 	}
 
@@ -4354,8 +4152,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetMapiv(int target, int query, long data) {
 		long __functionAddress = getInstance().GetMapiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetMapiv(target, query, data, __functionAddress);
 	}
 
@@ -4399,8 +4195,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetMapfv(int target, int query, long data) {
 		long __functionAddress = getInstance().GetMapfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetMapfv(target, query, data, __functionAddress);
 	}
 
@@ -4444,8 +4238,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetMapdv(int target, int query, long data) {
 		long __functionAddress = getInstance().GetMapdv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetMapdv(target, query, data, __functionAddress);
 	}
 
@@ -4489,8 +4281,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetMaterialiv(int face, int pname, long data) {
 		long __functionAddress = getInstance().GetMaterialiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetMaterialiv(face, pname, data, __functionAddress);
 	}
 
@@ -4522,8 +4312,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetMaterialfv(int face, int pname, long data) {
 		long __functionAddress = getInstance().GetMaterialfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetMaterialfv(face, pname, data, __functionAddress);
 	}
 
@@ -4555,8 +4343,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetPixelMapfv(int map, long data) {
 		long __functionAddress = getInstance().GetPixelMapfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetPixelMapfv(map, data, __functionAddress);
 	}
 
@@ -4602,8 +4388,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetPixelMapusv(int map, long data) {
 		long __functionAddress = getInstance().GetPixelMapusv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetPixelMapusv(map, data, __functionAddress);
 	}
 
@@ -4649,8 +4433,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetPixelMapuiv(int map, long data) {
 		long __functionAddress = getInstance().GetPixelMapuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetPixelMapuiv(map, data, __functionAddress);
 	}
 
@@ -4696,8 +4478,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetPointerv(int pname, long params) {
 		long __functionAddress = getInstance().GetPointerv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetPointerv(pname, params, __functionAddress);
 	}
 
@@ -4740,8 +4520,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetPolygonStipple(long pattern) {
 		long __functionAddress = getInstance().GetPolygonStipple;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetPolygonStipple(pattern, __functionAddress);
 	}
 
@@ -4777,8 +4555,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static long nglGetString(int name) {
 		long __functionAddress = getInstance().GetString;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGetString(name, __functionAddress);
 	}
 
@@ -4802,8 +4578,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetTexEnviv(int env, int pname, long data) {
 		long __functionAddress = getInstance().GetTexEnviv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTexEnviv(env, pname, data, __functionAddress);
 	}
 
@@ -4847,8 +4621,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetTexEnvfv(int env, int pname, long data) {
 		long __functionAddress = getInstance().GetTexEnvfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTexEnvfv(env, pname, data, __functionAddress);
 	}
 
@@ -4892,8 +4664,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetTexGeniv(int coord, int pname, long data) {
 		long __functionAddress = getInstance().GetTexGeniv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTexGeniv(coord, pname, data, __functionAddress);
 	}
 
@@ -4937,8 +4707,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetTexGenfv(int coord, int pname, long data) {
 		long __functionAddress = getInstance().GetTexGenfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTexGenfv(coord, pname, data, __functionAddress);
 	}
 
@@ -4982,8 +4750,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetTexGendv(int coord, int pname, long data) {
 		long __functionAddress = getInstance().GetTexGendv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTexGendv(coord, pname, data, __functionAddress);
 	}
 
@@ -5027,8 +4793,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetTexImage(int tex, int level, int format, int type, long pixels) {
 		long __functionAddress = getInstance().GetTexImage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTexImage(tex, level, format, type, pixels, __functionAddress);
 	}
 
@@ -5094,8 +4858,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetTexLevelParameteriv(int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTexLevelParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTexLevelParameteriv(target, level, pname, params, __functionAddress);
 	}
 
@@ -5140,8 +4902,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetTexLevelParameterfv(int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTexLevelParameterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTexLevelParameterfv(target, level, pname, params, __functionAddress);
 	}
 
@@ -5186,8 +4946,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetTexParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTexParameteriv(target, pname, params, __functionAddress);
 	}
 
@@ -5231,8 +4989,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetTexParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTexParameterfv(target, pname, params, __functionAddress);
 	}
 
@@ -5283,8 +5039,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glHint(int target, int hint) {
 		long __functionAddress = getInstance().Hint;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglHint(target, hint, __functionAddress);
 	}
 
@@ -5303,8 +5057,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glIndexi(int index) {
 		long __functionAddress = getInstance().Indexi;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglIndexi(index, __functionAddress);
 	}
 
@@ -5323,8 +5075,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glIndexub(byte index) {
 		long __functionAddress = getInstance().Indexub;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglIndexub(index, __functionAddress);
 	}
 
@@ -5343,8 +5093,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glIndexs(short index) {
 		long __functionAddress = getInstance().Indexs;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglIndexs(index, __functionAddress);
 	}
 
@@ -5363,8 +5111,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glIndexf(float index) {
 		long __functionAddress = getInstance().Indexf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglIndexf(index, __functionAddress);
 	}
 
@@ -5383,8 +5129,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glIndexd(double index) {
 		long __functionAddress = getInstance().Indexd;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglIndexd(index, __functionAddress);
 	}
 
@@ -5398,8 +5142,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglIndexiv(long index) {
 		long __functionAddress = getInstance().Indexiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglIndexiv(index, __functionAddress);
 	}
 
@@ -5433,8 +5175,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglIndexubv(long index) {
 		long __functionAddress = getInstance().Indexubv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglIndexubv(index, __functionAddress);
 	}
 
@@ -5461,8 +5201,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglIndexsv(long index) {
 		long __functionAddress = getInstance().Indexsv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglIndexsv(index, __functionAddress);
 	}
 
@@ -5496,8 +5234,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglIndexfv(long index) {
 		long __functionAddress = getInstance().Indexfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglIndexfv(index, __functionAddress);
 	}
 
@@ -5531,8 +5267,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglIndexdv(long index) {
 		long __functionAddress = getInstance().Indexdv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglIndexdv(index, __functionAddress);
 	}
 
@@ -5573,8 +5307,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glIndexMask(int mask) {
 		long __functionAddress = getInstance().IndexMask;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglIndexMask(mask, __functionAddress);
 	}
 
@@ -5588,8 +5320,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglIndexPointer(int type, int stride, long pointer) {
 		long __functionAddress = getInstance().IndexPointer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglIndexPointer(type, stride, pointer, __functionAddress);
 	}
 
@@ -5663,8 +5393,6 @@ Clears the selection name stack.
 	 */
 	public static void glInitNames() {
 		long __functionAddress = getInstance().InitNames;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglInitNames(__functionAddress);
 	}
 
@@ -5678,8 +5406,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglInterleavedArrays(int format, int stride, long pointer) {
 		long __functionAddress = getInstance().InterleavedArrays;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglInterleavedArrays(format, stride, pointer, __functionAddress);
 	}
 
@@ -5748,8 +5474,6 @@ Clears the selection name stack.
 	 */
 	public static boolean glIsEnabled(int cap) {
 		long __functionAddress = getInstance().IsEnabled;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsEnabled(cap, __functionAddress);
 	}
 
@@ -5768,8 +5492,6 @@ Clears the selection name stack.
 	 */
 	public static boolean glIsList(int list) {
 		long __functionAddress = getInstance().IsList;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsList(list, __functionAddress);
 	}
 
@@ -5788,8 +5510,6 @@ Clears the selection name stack.
 	 */
 	public static boolean glIsTexture(int texture) {
 		long __functionAddress = getInstance().IsTexture;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsTexture(texture, __functionAddress);
 	}
 
@@ -5809,8 +5529,6 @@ Clears the selection name stack.
 	 */
 	public static void glLightModeli(int pname, int param) {
 		long __functionAddress = getInstance().LightModeli;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglLightModeli(pname, param, __functionAddress);
 	}
 
@@ -5830,8 +5548,6 @@ Clears the selection name stack.
 	 */
 	public static void glLightModelf(int pname, float param) {
 		long __functionAddress = getInstance().LightModelf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglLightModelf(pname, param, __functionAddress);
 	}
 
@@ -5845,8 +5561,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglLightModeliv(int pname, long params) {
 		long __functionAddress = getInstance().LightModeliv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglLightModeliv(pname, params, __functionAddress);
 	}
 
@@ -5881,8 +5595,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglLightModelfv(int pname, long params) {
 		long __functionAddress = getInstance().LightModelfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglLightModelfv(pname, params, __functionAddress);
 	}
 
@@ -5924,8 +5636,6 @@ Clears the selection name stack.
 	 */
 	public static void glLighti(int light, int pname, int param) {
 		long __functionAddress = getInstance().Lighti;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglLighti(light, pname, param, __functionAddress);
 	}
 
@@ -5946,8 +5656,6 @@ Clears the selection name stack.
 	 */
 	public static void glLightf(int light, int pname, float param) {
 		long __functionAddress = getInstance().Lightf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglLightf(light, pname, param, __functionAddress);
 	}
 
@@ -5961,8 +5669,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglLightiv(int light, int pname, long params) {
 		long __functionAddress = getInstance().Lightiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglLightiv(light, pname, params, __functionAddress);
 	}
 
@@ -5998,8 +5704,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglLightfv(int light, int pname, long params) {
 		long __functionAddress = getInstance().Lightfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglLightfv(light, pname, params, __functionAddress);
 	}
 
@@ -6043,8 +5747,6 @@ Clears the selection name stack.
 	 */
 	public static void glLineStipple(int factor, short pattern) {
 		long __functionAddress = getInstance().LineStipple;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglLineStipple(factor, pattern, __functionAddress);
 	}
 
@@ -6063,8 +5765,6 @@ Clears the selection name stack.
 	 */
 	public static void glLineWidth(float width) {
 		long __functionAddress = getInstance().LineWidth;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglLineWidth(width, __functionAddress);
 	}
 
@@ -6083,8 +5783,6 @@ Clears the selection name stack.
 	 */
 	public static void glListBase(int base) {
 		long __functionAddress = getInstance().ListBase;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglListBase(base, __functionAddress);
 	}
 
@@ -6098,8 +5796,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglLoadMatrixf(long m) {
 		long __functionAddress = getInstance().LoadMatrixf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglLoadMatrixf(m, __functionAddress);
 	}
 
@@ -6144,8 +5840,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglLoadMatrixd(long m) {
 		long __functionAddress = getInstance().LoadMatrixd;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglLoadMatrixd(m, __functionAddress);
 	}
 
@@ -6190,8 +5884,6 @@ Clears the selection name stack.
 	 */
 	public static void glLoadIdentity() {
 		long __functionAddress = getInstance().LoadIdentity;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglLoadIdentity(__functionAddress);
 	}
 
@@ -6210,8 +5902,6 @@ Clears the selection name stack.
 	 */
 	public static void glLoadName(int name) {
 		long __functionAddress = getInstance().LoadName;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglLoadName(name, __functionAddress);
 	}
 
@@ -6230,8 +5920,6 @@ Clears the selection name stack.
 	 */
 	public static void glLogicOp(int op) {
 		long __functionAddress = getInstance().LogicOp;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglLogicOp(op, __functionAddress);
 	}
 
@@ -6245,8 +5933,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglMap1f(int target, float u1, float u2, int stride, int order, long points) {
 		long __functionAddress = getInstance().Map1f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMap1f(target, u1, u2, stride, order, points, __functionAddress);
 	}
 
@@ -6286,8 +5972,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglMap1d(int target, double u1, double u2, int stride, int order, long points) {
 		long __functionAddress = getInstance().Map1d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMap1d(target, u1, u2, stride, order, points, __functionAddress);
 	}
 
@@ -6326,8 +6010,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, long points) {
 		long __functionAddress = getInstance().Map2f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMap2f(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points, __functionAddress);
 	}
 
@@ -6370,8 +6052,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, long points) {
 		long __functionAddress = getInstance().Map2d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMap2d(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points, __functionAddress);
 	}
 
@@ -6421,8 +6101,6 @@ Clears the selection name stack.
 	 */
 	public static void glMapGrid1f(int n, float u1, float u2) {
 		long __functionAddress = getInstance().MapGrid1f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMapGrid1f(n, u1, u2, __functionAddress);
 	}
 
@@ -6443,8 +6121,6 @@ Clears the selection name stack.
 	 */
 	public static void glMapGrid1d(int n, double u1, double u2) {
 		long __functionAddress = getInstance().MapGrid1d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMapGrid1d(n, u1, u2, __functionAddress);
 	}
 
@@ -6468,8 +6144,6 @@ Clears the selection name stack.
 	 */
 	public static void glMapGrid2f(int un, float u1, float u2, int vn, float v1, float v2) {
 		long __functionAddress = getInstance().MapGrid2f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMapGrid2f(un, u1, u2, vn, v1, v2, __functionAddress);
 	}
 
@@ -6493,8 +6167,6 @@ Clears the selection name stack.
 	 */
 	public static void glMapGrid2d(int un, double u1, double u2, int vn, double v1, double v2) {
 		long __functionAddress = getInstance().MapGrid2d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMapGrid2d(un, u1, u2, vn, v1, v2, __functionAddress);
 	}
 
@@ -6515,8 +6187,6 @@ Clears the selection name stack.
 	 */
 	public static void glMateriali(int face, int pname, int param) {
 		long __functionAddress = getInstance().Materiali;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMateriali(face, pname, param, __functionAddress);
 	}
 
@@ -6537,8 +6207,6 @@ Clears the selection name stack.
 	 */
 	public static void glMaterialf(int face, int pname, float param) {
 		long __functionAddress = getInstance().Materialf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMaterialf(face, pname, param, __functionAddress);
 	}
 
@@ -6552,8 +6220,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglMaterialiv(int face, int pname, long params) {
 		long __functionAddress = getInstance().Materialiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMaterialiv(face, pname, params, __functionAddress);
 	}
 
@@ -6589,8 +6255,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglMaterialfv(int face, int pname, long params) {
 		long __functionAddress = getInstance().Materialfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMaterialfv(face, pname, params, __functionAddress);
 	}
 
@@ -6631,8 +6295,6 @@ Clears the selection name stack.
 	 */
 	public static void glMatrixMode(int mode) {
 		long __functionAddress = getInstance().MatrixMode;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMatrixMode(mode, __functionAddress);
 	}
 
@@ -6646,8 +6308,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglMultMatrixf(long m) {
 		long __functionAddress = getInstance().MultMatrixf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultMatrixf(m, __functionAddress);
 	}
 
@@ -6681,8 +6341,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglMultMatrixd(long m) {
 		long __functionAddress = getInstance().MultMatrixd;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultMatrixd(m, __functionAddress);
 	}
 
@@ -6737,8 +6395,6 @@ Clears the selection name stack.
 	 */
 	public static void glFrustum(double l, double r, double b, double t, double n, double f) {
 		long __functionAddress = getInstance().Frustum;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFrustum(l, r, b, t, n, f, __functionAddress);
 	}
 
@@ -6758,8 +6414,6 @@ Clears the selection name stack.
 	 */
 	public static void glNewList(int n, int mode) {
 		long __functionAddress = getInstance().NewList;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNewList(n, mode, __functionAddress);
 	}
 
@@ -6777,8 +6431,6 @@ Clears the selection name stack.
 	 */
 	public static void glEndList() {
 		long __functionAddress = getInstance().EndList;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEndList(__functionAddress);
 	}
 
@@ -6799,8 +6451,6 @@ Clears the selection name stack.
 	 */
 	public static void glNormal3f(float nx, float ny, float nz) {
 		long __functionAddress = getInstance().Normal3f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNormal3f(nx, ny, nz, __functionAddress);
 	}
 
@@ -6821,8 +6471,6 @@ Clears the selection name stack.
 	 */
 	public static void glNormal3b(byte nx, byte ny, byte nz) {
 		long __functionAddress = getInstance().Normal3b;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNormal3b(nx, ny, nz, __functionAddress);
 	}
 
@@ -6843,8 +6491,6 @@ Clears the selection name stack.
 	 */
 	public static void glNormal3s(short nx, short ny, short nz) {
 		long __functionAddress = getInstance().Normal3s;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNormal3s(nx, ny, nz, __functionAddress);
 	}
 
@@ -6865,8 +6511,6 @@ Clears the selection name stack.
 	 */
 	public static void glNormal3i(int nx, int ny, int nz) {
 		long __functionAddress = getInstance().Normal3i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNormal3i(nx, ny, nz, __functionAddress);
 	}
 
@@ -6887,8 +6531,6 @@ Clears the selection name stack.
 	 */
 	public static void glNormal3d(double nx, double ny, double nz) {
 		long __functionAddress = getInstance().Normal3d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNormal3d(nx, ny, nz, __functionAddress);
 	}
 
@@ -6902,8 +6544,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglNormal3fv(long v) {
 		long __functionAddress = getInstance().Normal3fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNormal3fv(v, __functionAddress);
 	}
 
@@ -6937,8 +6577,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglNormal3bv(long v) {
 		long __functionAddress = getInstance().Normal3bv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNormal3bv(v, __functionAddress);
 	}
 
@@ -6965,8 +6603,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglNormal3sv(long v) {
 		long __functionAddress = getInstance().Normal3sv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNormal3sv(v, __functionAddress);
 	}
 
@@ -7000,8 +6636,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglNormal3iv(long v) {
 		long __functionAddress = getInstance().Normal3iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNormal3iv(v, __functionAddress);
 	}
 
@@ -7035,8 +6669,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglNormal3dv(long v) {
 		long __functionAddress = getInstance().Normal3dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNormal3dv(v, __functionAddress);
 	}
 
@@ -7070,8 +6702,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglNormalPointer(int type, int stride, long pointer) {
 		long __functionAddress = getInstance().NormalPointer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNormalPointer(type, stride, pointer, __functionAddress);
 	}
 
@@ -7149,8 +6779,6 @@ Clears the selection name stack.
 	 */
 	public static void glOrtho(double l, double r, double b, double t, double n, double f) {
 		long __functionAddress = getInstance().Ortho;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglOrtho(l, r, b, t, n, f, __functionAddress);
 	}
 
@@ -7171,8 +6799,6 @@ Clears the selection name stack.
 	 */
 	public static void glPassThrough(float token) {
 		long __functionAddress = getInstance().PassThrough;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPassThrough(token, __functionAddress);
 	}
 
@@ -7186,8 +6812,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglPixelMapfv(int map, int size, long values) {
 		long __functionAddress = getInstance().PixelMapfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPixelMapfv(map, size, values, __functionAddress);
 	}
 
@@ -7232,8 +6856,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglPixelMapusv(int map, int size, long values) {
 		long __functionAddress = getInstance().PixelMapusv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPixelMapusv(map, size, values, __functionAddress);
 	}
 
@@ -7278,8 +6900,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglPixelMapuiv(int map, int size, long values) {
 		long __functionAddress = getInstance().PixelMapuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPixelMapuiv(map, size, values, __functionAddress);
 	}
 
@@ -7330,8 +6950,6 @@ Clears the selection name stack.
 	 */
 	public static void glPixelStorei(int pname, int param) {
 		long __functionAddress = getInstance().PixelStorei;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPixelStorei(pname, param, __functionAddress);
 	}
 
@@ -7351,8 +6969,6 @@ Clears the selection name stack.
 	 */
 	public static void glPixelStoref(int pname, int param) {
 		long __functionAddress = getInstance().PixelStoref;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPixelStoref(pname, param, __functionAddress);
 	}
 
@@ -7372,8 +6988,6 @@ Clears the selection name stack.
 	 */
 	public static void glPixelTransferi(int pname, int param) {
 		long __functionAddress = getInstance().PixelTransferi;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPixelTransferi(pname, param, __functionAddress);
 	}
 
@@ -7393,8 +7007,6 @@ Clears the selection name stack.
 	 */
 	public static void glPixelTransferf(int pname, float param) {
 		long __functionAddress = getInstance().PixelTransferf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPixelTransferf(pname, param, __functionAddress);
 	}
 
@@ -7422,8 +7034,6 @@ Clears the selection name stack.
 	 */
 	public static void glPixelZoom(float xfactor, float yfactor) {
 		long __functionAddress = getInstance().PixelZoom;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPixelZoom(xfactor, yfactor, __functionAddress);
 	}
 
@@ -7442,8 +7052,6 @@ Clears the selection name stack.
 	 */
 	public static void glPointSize(float size) {
 		long __functionAddress = getInstance().PointSize;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPointSize(size, __functionAddress);
 	}
 
@@ -7467,8 +7075,6 @@ Clears the selection name stack.
 	 */
 	public static void glPolygonMode(int face, int mode) {
 		long __functionAddress = getInstance().PolygonMode;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPolygonMode(face, mode, __functionAddress);
 	}
 
@@ -7492,8 +7098,6 @@ Clears the selection name stack.
 	 */
 	public static void glPolygonOffset(float factor, float units) {
 		long __functionAddress = getInstance().PolygonOffset;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPolygonOffset(factor, units, __functionAddress);
 	}
 
@@ -7507,8 +7111,6 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglPolygonStipple(long pattern) {
 		long __functionAddress = getInstance().PolygonStipple;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPolygonStipple(pattern, __functionAddress);
 	}
 
@@ -7561,8 +7163,6 @@ Clears the selection name stack.
 	 */
 	public static void glPushAttrib(int mask) {
 		long __functionAddress = getInstance().PushAttrib;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPushAttrib(mask, __functionAddress);
 	}
 
@@ -7588,8 +7188,6 @@ Clears the selection name stack.
 	 */
 	public static void glPushClientAttrib(int mask) {
 		long __functionAddress = getInstance().PushClientAttrib;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPushClientAttrib(mask, __functionAddress);
 	}
 
@@ -7606,8 +7204,6 @@ Resets the values of those state variables that were saved with the last {@link 
 	 */
 	public static void glPopAttrib() {
 		long __functionAddress = getInstance().PopAttrib;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPopAttrib(__functionAddress);
 	}
 
@@ -7624,8 +7220,6 @@ Resets the values of those state variables that were saved with the last {@link 
 	 */
 	public static void glPopClientAttrib() {
 		long __functionAddress = getInstance().PopClientAttrib;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPopClientAttrib(__functionAddress);
 	}
 
@@ -7642,8 +7236,6 @@ Pops the top entry off the current matrix stack, replacing the current matrix wi
 	 */
 	public static void glPopMatrix() {
 		long __functionAddress = getInstance().PopMatrix;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPopMatrix(__functionAddress);
 	}
 
@@ -7660,8 +7252,6 @@ Pops one name off the top of the selection name stack.
 	 */
 	public static void glPopName() {
 		long __functionAddress = getInstance().PopName;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPopName(__functionAddress);
 	}
 
@@ -7675,8 +7265,6 @@ Pops one name off the top of the selection name stack.
 	@JavadocExclude
 	public static void nglPrioritizeTextures(int n, long textures, long priorities) {
 		long __functionAddress = getInstance().PrioritizeTextures;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPrioritizeTextures(n, textures, priorities, __functionAddress);
 	}
 
@@ -7718,8 +7306,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glPushMatrix() {
 		long __functionAddress = getInstance().PushMatrix;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPushMatrix(__functionAddress);
 	}
 
@@ -7738,8 +7324,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glPushName(int name) {
 		long __functionAddress = getInstance().PushName;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPushName(name, __functionAddress);
 	}
 
@@ -7765,8 +7349,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos2i(int x, int y) {
 		long __functionAddress = getInstance().RasterPos2i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos2i(x, y, __functionAddress);
 	}
 
@@ -7786,8 +7368,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos2s(short x, short y) {
 		long __functionAddress = getInstance().RasterPos2s;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos2s(x, y, __functionAddress);
 	}
 
@@ -7807,8 +7387,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos2f(float x, float y) {
 		long __functionAddress = getInstance().RasterPos2f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos2f(x, y, __functionAddress);
 	}
 
@@ -7828,8 +7406,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos2d(double x, double y) {
 		long __functionAddress = getInstance().RasterPos2d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos2d(x, y, __functionAddress);
 	}
 
@@ -7843,8 +7419,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos2iv(long coords) {
 		long __functionAddress = getInstance().RasterPos2iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos2iv(coords, __functionAddress);
 	}
 
@@ -7878,8 +7452,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos2sv(long coords) {
 		long __functionAddress = getInstance().RasterPos2sv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos2sv(coords, __functionAddress);
 	}
 
@@ -7913,8 +7485,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos2fv(long coords) {
 		long __functionAddress = getInstance().RasterPos2fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos2fv(coords, __functionAddress);
 	}
 
@@ -7948,8 +7518,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos2dv(long coords) {
 		long __functionAddress = getInstance().RasterPos2dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos2dv(coords, __functionAddress);
 	}
 
@@ -7990,8 +7558,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos3i(int x, int y, int z) {
 		long __functionAddress = getInstance().RasterPos3i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos3i(x, y, z, __functionAddress);
 	}
 
@@ -8012,8 +7578,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos3s(short x, short y, short z) {
 		long __functionAddress = getInstance().RasterPos3s;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos3s(x, y, z, __functionAddress);
 	}
 
@@ -8034,8 +7598,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos3f(float x, float y, float z) {
 		long __functionAddress = getInstance().RasterPos3f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos3f(x, y, z, __functionAddress);
 	}
 
@@ -8056,8 +7618,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos3d(double x, double y, double z) {
 		long __functionAddress = getInstance().RasterPos3d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos3d(x, y, z, __functionAddress);
 	}
 
@@ -8071,8 +7631,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos3iv(long coords) {
 		long __functionAddress = getInstance().RasterPos3iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos3iv(coords, __functionAddress);
 	}
 
@@ -8106,8 +7664,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos3sv(long coords) {
 		long __functionAddress = getInstance().RasterPos3sv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos3sv(coords, __functionAddress);
 	}
 
@@ -8141,8 +7697,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos3fv(long coords) {
 		long __functionAddress = getInstance().RasterPos3fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos3fv(coords, __functionAddress);
 	}
 
@@ -8176,8 +7730,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos3dv(long coords) {
 		long __functionAddress = getInstance().RasterPos3dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos3dv(coords, __functionAddress);
 	}
 
@@ -8219,8 +7771,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos4i(int x, int y, int z, int w) {
 		long __functionAddress = getInstance().RasterPos4i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos4i(x, y, z, w, __functionAddress);
 	}
 
@@ -8242,8 +7792,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos4s(short x, short y, short z, short w) {
 		long __functionAddress = getInstance().RasterPos4s;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos4s(x, y, z, w, __functionAddress);
 	}
 
@@ -8265,8 +7813,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos4f(float x, float y, float z, float w) {
 		long __functionAddress = getInstance().RasterPos4f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos4f(x, y, z, w, __functionAddress);
 	}
 
@@ -8288,8 +7834,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos4d(double x, double y, double z, double w) {
 		long __functionAddress = getInstance().RasterPos4d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos4d(x, y, z, w, __functionAddress);
 	}
 
@@ -8303,8 +7847,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos4iv(long coords) {
 		long __functionAddress = getInstance().RasterPos4iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos4iv(coords, __functionAddress);
 	}
 
@@ -8338,8 +7880,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos4sv(long coords) {
 		long __functionAddress = getInstance().RasterPos4sv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos4sv(coords, __functionAddress);
 	}
 
@@ -8373,8 +7913,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos4fv(long coords) {
 		long __functionAddress = getInstance().RasterPos4fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos4fv(coords, __functionAddress);
 	}
 
@@ -8408,8 +7946,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos4dv(long coords) {
 		long __functionAddress = getInstance().RasterPos4dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterPos4dv(coords, __functionAddress);
 	}
 
@@ -8451,8 +7987,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glReadBuffer(int src) {
 		long __functionAddress = getInstance().ReadBuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglReadBuffer(src, __functionAddress);
 	}
 
@@ -8466,8 +8000,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglReadPixels(int x, int y, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = getInstance().ReadPixels;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglReadPixels(x, y, width, height, format, type, pixels, __functionAddress);
 	}
 
@@ -8553,8 +8085,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRecti(int x1, int y1, int x2, int y2) {
 		long __functionAddress = getInstance().Recti;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRecti(x1, y1, x2, y2, __functionAddress);
 	}
 
@@ -8576,8 +8106,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRects(short x1, short y1, short x2, short y2) {
 		long __functionAddress = getInstance().Rects;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRects(x1, y1, x2, y2, __functionAddress);
 	}
 
@@ -8599,8 +8127,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRectf(float x1, float y1, float x2, float y2) {
 		long __functionAddress = getInstance().Rectf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRectf(x1, y1, x2, y2, __functionAddress);
 	}
 
@@ -8622,8 +8148,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRectd(double x1, double y1, double x2, double y2) {
 		long __functionAddress = getInstance().Rectd;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRectd(x1, y1, x2, y2, __functionAddress);
 	}
 
@@ -8637,8 +8161,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRectiv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRectiv(v1, v2, __functionAddress);
 	}
 
@@ -8677,8 +8199,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRectsv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectsv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRectsv(v1, v2, __functionAddress);
 	}
 
@@ -8717,8 +8237,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRectfv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRectfv(v1, v2, __functionAddress);
 	}
 
@@ -8757,8 +8275,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRectdv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectdv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRectdv(v1, v2, __functionAddress);
 	}
 
@@ -8802,8 +8318,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static int glRenderMode(int mode) {
 		long __functionAddress = getInstance().RenderMode;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglRenderMode(mode, __functionAddress);
 	}
 
@@ -8844,8 +8358,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRotatef(float angle, float x, float y, float z) {
 		long __functionAddress = getInstance().Rotatef;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRotatef(angle, x, y, z, __functionAddress);
 	}
 
@@ -8867,8 +8379,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRotated(double angle, double x, double y, double z) {
 		long __functionAddress = getInstance().Rotated;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRotated(angle, x, y, z, __functionAddress);
 	}
 
@@ -8897,8 +8407,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glScalef(float x, float y, float z) {
 		long __functionAddress = getInstance().Scalef;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglScalef(x, y, z, __functionAddress);
 	}
 
@@ -8919,8 +8427,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glScaled(double x, double y, double z) {
 		long __functionAddress = getInstance().Scaled;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglScaled(x, y, z, __functionAddress);
 	}
 
@@ -8945,8 +8451,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glScissor(int x, int y, int width, int height) {
 		long __functionAddress = getInstance().Scissor;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglScissor(x, y, width, height, __functionAddress);
 	}
 
@@ -8960,8 +8464,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglSelectBuffer(int size, long buffer) {
 		long __functionAddress = getInstance().SelectBuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSelectBuffer(size, buffer, __functionAddress);
 	}
 
@@ -9003,8 +8505,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glShadeModel(int mode) {
 		long __functionAddress = getInstance().ShadeModel;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglShadeModel(mode, __functionAddress);
 	}
 
@@ -9030,8 +8530,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glStencilFunc(int func, int ref, int mask) {
 		long __functionAddress = getInstance().StencilFunc;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglStencilFunc(func, ref, mask, __functionAddress);
 	}
 
@@ -9053,8 +8551,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glStencilMask(int mask) {
 		long __functionAddress = getInstance().StencilMask;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglStencilMask(mask, __functionAddress);
 	}
 
@@ -9083,8 +8579,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glStencilOp(int sfail, int dpfail, int dppass) {
 		long __functionAddress = getInstance().StencilOp;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglStencilOp(sfail, dpfail, dppass, __functionAddress);
 	}
 
@@ -9103,8 +8597,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord1f(float s) {
 		long __functionAddress = getInstance().TexCoord1f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord1f(s, __functionAddress);
 	}
 
@@ -9123,8 +8615,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord1s(short s) {
 		long __functionAddress = getInstance().TexCoord1s;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord1s(s, __functionAddress);
 	}
 
@@ -9143,8 +8633,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord1i(int s) {
 		long __functionAddress = getInstance().TexCoord1i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord1i(s, __functionAddress);
 	}
 
@@ -9163,8 +8651,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord1d(double s) {
 		long __functionAddress = getInstance().TexCoord1d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord1d(s, __functionAddress);
 	}
 
@@ -9178,8 +8664,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord1fv(long v) {
 		long __functionAddress = getInstance().TexCoord1fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord1fv(v, __functionAddress);
 	}
 
@@ -9213,8 +8697,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord1sv(long v) {
 		long __functionAddress = getInstance().TexCoord1sv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord1sv(v, __functionAddress);
 	}
 
@@ -9248,8 +8730,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord1iv(long v) {
 		long __functionAddress = getInstance().TexCoord1iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord1iv(v, __functionAddress);
 	}
 
@@ -9283,8 +8763,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord1dv(long v) {
 		long __functionAddress = getInstance().TexCoord1dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord1dv(v, __functionAddress);
 	}
 
@@ -9324,8 +8802,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord2f(float s, float t) {
 		long __functionAddress = getInstance().TexCoord2f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord2f(s, t, __functionAddress);
 	}
 
@@ -9345,8 +8821,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord2s(short s, short t) {
 		long __functionAddress = getInstance().TexCoord2s;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord2s(s, t, __functionAddress);
 	}
 
@@ -9366,8 +8840,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord2i(int s, int t) {
 		long __functionAddress = getInstance().TexCoord2i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord2i(s, t, __functionAddress);
 	}
 
@@ -9387,8 +8859,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord2d(double s, double t) {
 		long __functionAddress = getInstance().TexCoord2d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord2d(s, t, __functionAddress);
 	}
 
@@ -9402,8 +8872,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord2fv(long v) {
 		long __functionAddress = getInstance().TexCoord2fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord2fv(v, __functionAddress);
 	}
 
@@ -9437,8 +8905,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord2sv(long v) {
 		long __functionAddress = getInstance().TexCoord2sv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord2sv(v, __functionAddress);
 	}
 
@@ -9472,8 +8938,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord2iv(long v) {
 		long __functionAddress = getInstance().TexCoord2iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord2iv(v, __functionAddress);
 	}
 
@@ -9507,8 +8971,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord2dv(long v) {
 		long __functionAddress = getInstance().TexCoord2dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord2dv(v, __functionAddress);
 	}
 
@@ -9549,8 +9011,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord3f(float s, float t, float r) {
 		long __functionAddress = getInstance().TexCoord3f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord3f(s, t, r, __functionAddress);
 	}
 
@@ -9571,8 +9031,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord3s(short s, short t, short r) {
 		long __functionAddress = getInstance().TexCoord3s;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord3s(s, t, r, __functionAddress);
 	}
 
@@ -9593,8 +9051,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord3i(int s, int t, int r) {
 		long __functionAddress = getInstance().TexCoord3i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord3i(s, t, r, __functionAddress);
 	}
 
@@ -9615,8 +9071,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord3d(double s, double t, double r) {
 		long __functionAddress = getInstance().TexCoord3d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord3d(s, t, r, __functionAddress);
 	}
 
@@ -9630,8 +9084,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord3fv(long v) {
 		long __functionAddress = getInstance().TexCoord3fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord3fv(v, __functionAddress);
 	}
 
@@ -9665,8 +9117,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord3sv(long v) {
 		long __functionAddress = getInstance().TexCoord3sv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord3sv(v, __functionAddress);
 	}
 
@@ -9700,8 +9150,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord3iv(long v) {
 		long __functionAddress = getInstance().TexCoord3iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord3iv(v, __functionAddress);
 	}
 
@@ -9735,8 +9183,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord3dv(long v) {
 		long __functionAddress = getInstance().TexCoord3dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord3dv(v, __functionAddress);
 	}
 
@@ -9778,8 +9224,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord4f(float s, float t, float r, float q) {
 		long __functionAddress = getInstance().TexCoord4f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord4f(s, t, r, q, __functionAddress);
 	}
 
@@ -9801,8 +9245,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord4s(short s, short t, short r, short q) {
 		long __functionAddress = getInstance().TexCoord4s;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord4s(s, t, r, q, __functionAddress);
 	}
 
@@ -9824,8 +9266,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord4i(int s, int t, int r, int q) {
 		long __functionAddress = getInstance().TexCoord4i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord4i(s, t, r, q, __functionAddress);
 	}
 
@@ -9847,8 +9287,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord4d(double s, double t, double r, double q) {
 		long __functionAddress = getInstance().TexCoord4d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord4d(s, t, r, q, __functionAddress);
 	}
 
@@ -9862,8 +9300,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord4fv(long v) {
 		long __functionAddress = getInstance().TexCoord4fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord4fv(v, __functionAddress);
 	}
 
@@ -9897,8 +9333,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord4sv(long v) {
 		long __functionAddress = getInstance().TexCoord4sv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord4sv(v, __functionAddress);
 	}
 
@@ -9932,8 +9366,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord4iv(long v) {
 		long __functionAddress = getInstance().TexCoord4iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord4iv(v, __functionAddress);
 	}
 
@@ -9967,8 +9399,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord4dv(long v) {
 		long __functionAddress = getInstance().TexCoord4dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoord4dv(v, __functionAddress);
 	}
 
@@ -10002,8 +9432,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoordPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().TexCoordPointer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoordPointer(size, type, stride, pointer, __functionAddress);
 	}
 
@@ -10062,8 +9490,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexEnvi(int target, int pname, int param) {
 		long __functionAddress = getInstance().TexEnvi;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexEnvi(target, pname, param, __functionAddress);
 	}
 
@@ -10077,8 +9503,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexEnviv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexEnviv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexEnviv(target, pname, params, __functionAddress);
 	}
 
@@ -10121,8 +9545,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexEnvf(int target, int pname, float param) {
 		long __functionAddress = getInstance().TexEnvf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexEnvf(target, pname, param, __functionAddress);
 	}
 
@@ -10136,8 +9558,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexEnvfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexEnvfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexEnvfv(target, pname, params, __functionAddress);
 	}
 
@@ -10188,8 +9608,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexGeni(int coord, int pname, int param) {
 		long __functionAddress = getInstance().TexGeni;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexGeni(coord, pname, param, __functionAddress);
 	}
 
@@ -10203,8 +9621,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexGeniv(int coord, int pname, long params) {
 		long __functionAddress = getInstance().TexGeniv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexGeniv(coord, pname, params, __functionAddress);
 	}
 
@@ -10247,8 +9663,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexGenf(int coord, int pname, float param) {
 		long __functionAddress = getInstance().TexGenf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexGenf(coord, pname, param, __functionAddress);
 	}
 
@@ -10262,8 +9676,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexGenfv(int coord, int pname, long params) {
 		long __functionAddress = getInstance().TexGenfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexGenfv(coord, pname, params, __functionAddress);
 	}
 
@@ -10306,8 +9718,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexGend(int coord, int pname, double param) {
 		long __functionAddress = getInstance().TexGend;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexGend(coord, pname, param, __functionAddress);
 	}
 
@@ -10321,8 +9731,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexGendv(int coord, int pname, long params) {
 		long __functionAddress = getInstance().TexGendv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexGendv(coord, pname, params, __functionAddress);
 	}
 
@@ -10358,8 +9766,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexImage2D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, pixels, __functionAddress);
 	}
 
@@ -10429,8 +9835,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexImage1D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexImage1D(target, level, internalformat, width, border, format, type, pixels, __functionAddress);
 	}
 
@@ -10525,8 +9929,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glCopyTexImage2D(int target, int level, int internalFormat, int x, int y, int width, int height, int border) {
 		long __functionAddress = getInstance().CopyTexImage2D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCopyTexImage2D(target, level, internalFormat, x, y, width, height, border, __functionAddress);
 	}
 
@@ -10555,8 +9957,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glCopyTexImage1D(int target, int level, int internalFormat, int x, int y, int width, int border) {
 		long __functionAddress = getInstance().CopyTexImage1D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCopyTexImage1D(target, level, internalFormat, x, y, width, border, __functionAddress);
 	}
 
@@ -10582,8 +9982,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glCopyTexSubImage1D(int target, int level, int xoffset, int x, int y, int width) {
 		long __functionAddress = getInstance().CopyTexSubImage1D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCopyTexSubImage1D(target, level, xoffset, x, y, width, __functionAddress);
 	}
 
@@ -10611,8 +10009,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glCopyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().CopyTexSubImage2D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height, __functionAddress);
 	}
 
@@ -10633,8 +10029,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexParameteri(int target, int pname, int param) {
 		long __functionAddress = getInstance().TexParameteri;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexParameteri(target, pname, param, __functionAddress);
 	}
 
@@ -10648,8 +10042,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexParameteriv(target, pname, params, __functionAddress);
 	}
 
@@ -10692,8 +10084,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexParameterf(int target, int pname, float param) {
 		long __functionAddress = getInstance().TexParameterf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexParameterf(target, pname, param, __functionAddress);
 	}
 
@@ -10707,8 +10097,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexParameterfv(target, pname, params, __functionAddress);
 	}
 
@@ -10744,8 +10132,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexSubImage1D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexSubImage1D(target, level, xoffset, width, format, type, pixels, __functionAddress);
 	}
 
@@ -10813,8 +10199,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexSubImage2D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels, __functionAddress);
 	}
 
@@ -10900,8 +10284,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTranslatef(float x, float y, float z) {
 		long __functionAddress = getInstance().Translatef;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTranslatef(x, y, z, __functionAddress);
 	}
 
@@ -10922,8 +10304,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTranslated(double x, double y, double z) {
 		long __functionAddress = getInstance().Translated;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTranslated(x, y, z, __functionAddress);
 	}
 
@@ -10944,8 +10324,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex2f(float x, float y) {
 		long __functionAddress = getInstance().Vertex2f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex2f(x, y, __functionAddress);
 	}
 
@@ -10965,8 +10343,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex2s(short x, short y) {
 		long __functionAddress = getInstance().Vertex2s;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex2s(x, y, __functionAddress);
 	}
 
@@ -10986,8 +10362,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex2i(int x, int y) {
 		long __functionAddress = getInstance().Vertex2i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex2i(x, y, __functionAddress);
 	}
 
@@ -11007,8 +10381,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex2d(double x, double y) {
 		long __functionAddress = getInstance().Vertex2d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex2d(x, y, __functionAddress);
 	}
 
@@ -11022,8 +10394,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex2fv(long coords) {
 		long __functionAddress = getInstance().Vertex2fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex2fv(coords, __functionAddress);
 	}
 
@@ -11057,8 +10427,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex2sv(long coords) {
 		long __functionAddress = getInstance().Vertex2sv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex2sv(coords, __functionAddress);
 	}
 
@@ -11092,8 +10460,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex2iv(long coords) {
 		long __functionAddress = getInstance().Vertex2iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex2iv(coords, __functionAddress);
 	}
 
@@ -11127,8 +10493,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex2dv(long coords) {
 		long __functionAddress = getInstance().Vertex2dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex2dv(coords, __functionAddress);
 	}
 
@@ -11170,8 +10534,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex3f(float x, float y, float z) {
 		long __functionAddress = getInstance().Vertex3f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex3f(x, y, z, __functionAddress);
 	}
 
@@ -11192,8 +10554,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex3s(short x, short y, short z) {
 		long __functionAddress = getInstance().Vertex3s;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex3s(x, y, z, __functionAddress);
 	}
 
@@ -11214,8 +10574,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex3i(int x, int y, int z) {
 		long __functionAddress = getInstance().Vertex3i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex3i(x, y, z, __functionAddress);
 	}
 
@@ -11236,8 +10594,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex3d(double x, double y, double z) {
 		long __functionAddress = getInstance().Vertex3d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex3d(x, y, z, __functionAddress);
 	}
 
@@ -11251,8 +10607,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex3fv(long coords) {
 		long __functionAddress = getInstance().Vertex3fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex3fv(coords, __functionAddress);
 	}
 
@@ -11286,8 +10640,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex3sv(long coords) {
 		long __functionAddress = getInstance().Vertex3sv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex3sv(coords, __functionAddress);
 	}
 
@@ -11321,8 +10673,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex3iv(long coords) {
 		long __functionAddress = getInstance().Vertex3iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex3iv(coords, __functionAddress);
 	}
 
@@ -11356,8 +10706,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex3dv(long coords) {
 		long __functionAddress = getInstance().Vertex3dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex3dv(coords, __functionAddress);
 	}
 
@@ -11399,8 +10747,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex4f(float x, float y, float z, float w) {
 		long __functionAddress = getInstance().Vertex4f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex4f(x, y, z, w, __functionAddress);
 	}
 
@@ -11422,8 +10768,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex4s(short x, short y, short z, short w) {
 		long __functionAddress = getInstance().Vertex4s;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex4s(x, y, z, w, __functionAddress);
 	}
 
@@ -11445,8 +10789,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex4i(int x, int y, int z, int w) {
 		long __functionAddress = getInstance().Vertex4i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex4i(x, y, z, w, __functionAddress);
 	}
 
@@ -11468,8 +10810,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex4d(double x, double y, double z, double w) {
 		long __functionAddress = getInstance().Vertex4d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex4d(x, y, z, w, __functionAddress);
 	}
 
@@ -11483,8 +10823,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex4fv(long coords) {
 		long __functionAddress = getInstance().Vertex4fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex4fv(coords, __functionAddress);
 	}
 
@@ -11518,8 +10856,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex4sv(long coords) {
 		long __functionAddress = getInstance().Vertex4sv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex4sv(coords, __functionAddress);
 	}
 
@@ -11553,8 +10889,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex4iv(long coords) {
 		long __functionAddress = getInstance().Vertex4iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex4iv(coords, __functionAddress);
 	}
 
@@ -11588,8 +10922,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex4dv(long coords) {
 		long __functionAddress = getInstance().Vertex4dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertex4dv(coords, __functionAddress);
 	}
 
@@ -11623,8 +10955,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertexPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexPointer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexPointer(size, type, stride, pointer, __functionAddress);
 	}
 
@@ -11708,8 +11038,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glViewport(int x, int y, int w, int h) {
 		long __functionAddress = getInstance().Viewport;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglViewport(x, y, w, h, __functionAddress);
 	}
 

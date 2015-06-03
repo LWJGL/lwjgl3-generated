@@ -101,7 +101,7 @@ public final class NVBlendEquationAdvanced {
 
 	/** Returns the {@link NVBlendEquationAdvanced} instance for the current context. */
 	public static NVBlendEquationAdvanced getInstance() {
-		return GL.getCapabilities().__NVBlendEquationAdvanced;
+		return checkFunctionality(GL.getCapabilities().__NVBlendEquationAdvanced);
 	}
 
 	static NVBlendEquationAdvanced create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -130,8 +130,6 @@ public final class NVBlendEquationAdvanced {
 	 */
 	public static void glBlendParameteriNV(int pname, int value) {
 		long __functionAddress = getInstance().BlendParameteriNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBlendParameteriNV(pname, value, __functionAddress);
 	}
 
@@ -144,8 +142,6 @@ public final class NVBlendEquationAdvanced {
 	/**  */
 	public static void glBlendBarrierNV() {
 		long __functionAddress = getInstance().BlendBarrierNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBlendBarrierNV(__functionAddress);
 	}
 

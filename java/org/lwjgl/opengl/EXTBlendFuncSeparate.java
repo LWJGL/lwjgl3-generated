@@ -40,7 +40,7 @@ public final class EXTBlendFuncSeparate {
 
 	/** Returns the {@link EXTBlendFuncSeparate} instance for the current context. */
 	public static EXTBlendFuncSeparate getInstance() {
-		return GL.getCapabilities().__EXTBlendFuncSeparate;
+		return checkFunctionality(GL.getCapabilities().__EXTBlendFuncSeparate);
 	}
 
 	static EXTBlendFuncSeparate create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -71,8 +71,6 @@ public final class EXTBlendFuncSeparate {
 	 */
 	public static void glBlendFuncSeparateEXT(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha) {
 		long __functionAddress = getInstance().BlendFuncSeparateEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBlendFuncSeparateEXT(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha, __functionAddress);
 	}
 

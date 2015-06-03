@@ -60,7 +60,7 @@ public final class ARBTimerQuery {
 
 	/** Returns the {@link ARBTimerQuery} instance for the current context. */
 	public static ARBTimerQuery getInstance() {
-		return GL.getCapabilities().__ARBTimerQuery;
+		return checkFunctionality(GL.getCapabilities().__ARBTimerQuery);
 	}
 
 	static ARBTimerQuery create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -85,8 +85,6 @@ public final class ARBTimerQuery {
 	 */
 	public static void glQueryCounter(int id, int target) {
 		long __functionAddress = getInstance().QueryCounter;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL33.nglQueryCounter(id, target, __functionAddress);
 	}
 
@@ -96,8 +94,6 @@ public final class ARBTimerQuery {
 	@JavadocExclude
 	public static void nglGetQueryObjecti64v(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjecti64v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL33.nglGetQueryObjecti64v(id, pname, params, __functionAddress);
 	}
 
@@ -135,8 +131,6 @@ public final class ARBTimerQuery {
 	@JavadocExclude
 	public static void nglGetQueryObjectui64v(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectui64v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL33.nglGetQueryObjectui64v(id, pname, params, __functionAddress);
 	}
 

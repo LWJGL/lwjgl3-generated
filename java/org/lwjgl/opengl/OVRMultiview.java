@@ -58,7 +58,7 @@ public final class OVRMultiview {
 
 	/** Returns the {@link OVRMultiview} instance for the current context. */
 	public static OVRMultiview getInstance() {
-		return GL.getCapabilities().__OVRMultiview;
+		return checkFunctionality(GL.getCapabilities().__OVRMultiview);
 	}
 
 	static OVRMultiview create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -129,8 +129,6 @@ public final class OVRMultiview {
 	 */
 	public static void glFramebufferTextureMultiviewOVR(int target, int attachment, int texture, int level, int baseViewIndex, int numViews) {
 		long __functionAddress = getInstance().FramebufferTextureMultiviewOVR;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFramebufferTextureMultiviewOVR(target, attachment, texture, level, baseViewIndex, numViews, __functionAddress);
 	}
 

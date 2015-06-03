@@ -719,7 +719,7 @@ public final class EXTEfx {
 
 	/** Returns the {@link EXTEfx} instance for the current context. */
 	public static EXTEfx getInstance() {
-		return AL.getCapabilities().__EXTEfx;
+		return checkFunctionality(AL.getCapabilities().__EXTEfx);
 	}
 
 	static EXTEfx create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -749,8 +749,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalGenEffects(int n, long effects) {
 		long __functionAddress = getInstance().GenEffects;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGenEffects(n, effects, __functionAddress);
 	}
 
@@ -789,8 +787,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalDeleteEffects(int n, long effects) {
 		long __functionAddress = getInstance().DeleteEffects;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalDeleteEffects(n, effects, __functionAddress);
 	}
 
@@ -831,8 +827,6 @@ public final class EXTEfx {
 	 */
 	public static boolean alIsEffect(int effect) {
 		long __functionAddress = getInstance().IsEffect;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalIsEffect(effect, __functionAddress);
 	}
 
@@ -851,8 +845,6 @@ public final class EXTEfx {
 	 */
 	public static void alEffecti(int effect, int param, int value) {
 		long __functionAddress = getInstance().Effecti;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalEffecti(effect, param, value, __functionAddress);
 	}
 
@@ -866,8 +858,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalEffectiv(int effect, int param, long values) {
 		long __functionAddress = getInstance().Effectiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalEffectiv(effect, param, values, __functionAddress);
 	}
 
@@ -902,8 +892,6 @@ public final class EXTEfx {
 	 */
 	public static void alEffectf(int effect, int param, float value) {
 		long __functionAddress = getInstance().Effectf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalEffectf(effect, param, value, __functionAddress);
 	}
 
@@ -917,8 +905,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalEffectfv(int effect, int param, long values) {
 		long __functionAddress = getInstance().Effectfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalEffectfv(effect, param, values, __functionAddress);
 	}
 
@@ -948,8 +934,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalGetEffecti(int effect, int param, long value) {
 		long __functionAddress = getInstance().GetEffecti;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetEffecti(effect, param, value, __functionAddress);
 	}
 
@@ -991,8 +975,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalGetEffectiv(int effect, int param, long values) {
 		long __functionAddress = getInstance().GetEffectiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetEffectiv(effect, param, values, __functionAddress);
 	}
 
@@ -1026,8 +1008,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalGetEffectf(int effect, int param, long value) {
 		long __functionAddress = getInstance().GetEffectf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetEffectf(effect, param, value, __functionAddress);
 	}
 
@@ -1069,8 +1049,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalGetEffectfv(int effect, int param, long values) {
 		long __functionAddress = getInstance().GetEffectfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetEffectfv(effect, param, values, __functionAddress);
 	}
 
@@ -1104,8 +1082,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalGenFilters(int n, long filters) {
 		long __functionAddress = getInstance().GenFilters;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGenFilters(n, filters, __functionAddress);
 	}
 
@@ -1144,8 +1120,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalDeleteFilters(int n, long filters) {
 		long __functionAddress = getInstance().DeleteFilters;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalDeleteFilters(n, filters, __functionAddress);
 	}
 
@@ -1186,8 +1160,6 @@ public final class EXTEfx {
 	 */
 	public static boolean alIsFilter(int filter) {
 		long __functionAddress = getInstance().IsFilter;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalIsFilter(filter, __functionAddress);
 	}
 
@@ -1206,8 +1178,6 @@ public final class EXTEfx {
 	 */
 	public static void alFilteri(int filter, int param, int value) {
 		long __functionAddress = getInstance().Filteri;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalFilteri(filter, param, value, __functionAddress);
 	}
 
@@ -1221,8 +1191,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalFilteriv(int filter, int param, long values) {
 		long __functionAddress = getInstance().Filteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalFilteriv(filter, param, values, __functionAddress);
 	}
 
@@ -1257,8 +1225,6 @@ public final class EXTEfx {
 	 */
 	public static void alFilterf(int filter, int param, float value) {
 		long __functionAddress = getInstance().Filterf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalFilterf(filter, param, value, __functionAddress);
 	}
 
@@ -1272,8 +1238,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalFilterfv(int filter, int param, long values) {
 		long __functionAddress = getInstance().Filterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalFilterfv(filter, param, values, __functionAddress);
 	}
 
@@ -1303,8 +1267,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalGetFilteri(int filter, int param, long value) {
 		long __functionAddress = getInstance().GetFilteri;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetFilteri(filter, param, value, __functionAddress);
 	}
 
@@ -1346,8 +1308,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalGetFilteriv(int filter, int param, long values) {
 		long __functionAddress = getInstance().GetFilteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetFilteriv(filter, param, values, __functionAddress);
 	}
 
@@ -1381,8 +1341,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalGetFilterf(int filter, int param, long value) {
 		long __functionAddress = getInstance().GetFilterf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetFilterf(filter, param, value, __functionAddress);
 	}
 
@@ -1424,8 +1382,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalGetFilterfv(int filter, int param, long values) {
 		long __functionAddress = getInstance().GetFilterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetFilterfv(filter, param, values, __functionAddress);
 	}
 
@@ -1459,8 +1415,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalGenAuxiliaryEffectSlots(int n, long effectSlots) {
 		long __functionAddress = getInstance().GenAuxiliaryEffectSlots;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGenAuxiliaryEffectSlots(n, effectSlots, __functionAddress);
 	}
 
@@ -1499,8 +1453,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalDeleteAuxiliaryEffectSlots(int n, long effectSlots) {
 		long __functionAddress = getInstance().DeleteAuxiliaryEffectSlots;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalDeleteAuxiliaryEffectSlots(n, effectSlots, __functionAddress);
 	}
 
@@ -1541,8 +1493,6 @@ public final class EXTEfx {
 	 */
 	public static boolean alIsAuxiliaryEffectSlot(int effectSlot) {
 		long __functionAddress = getInstance().IsAuxiliaryEffectSlot;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalIsAuxiliaryEffectSlot(effectSlot, __functionAddress);
 	}
 
@@ -1561,8 +1511,6 @@ public final class EXTEfx {
 	 */
 	public static void alAuxiliaryEffectSloti(int effectSlot, int param, int value) {
 		long __functionAddress = getInstance().AuxiliaryEffectSloti;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalAuxiliaryEffectSloti(effectSlot, param, value, __functionAddress);
 	}
 
@@ -1576,8 +1524,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalAuxiliaryEffectSlotiv(int effectSlot, int param, long values) {
 		long __functionAddress = getInstance().AuxiliaryEffectSlotiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalAuxiliaryEffectSlotiv(effectSlot, param, values, __functionAddress);
 	}
 
@@ -1612,8 +1558,6 @@ public final class EXTEfx {
 	 */
 	public static void alAuxiliaryEffectSlotf(int effectSlot, int param, float value) {
 		long __functionAddress = getInstance().AuxiliaryEffectSlotf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalAuxiliaryEffectSlotf(effectSlot, param, value, __functionAddress);
 	}
 
@@ -1627,8 +1571,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalAuxiliaryEffectSlotfv(int effectSlot, int param, long values) {
 		long __functionAddress = getInstance().AuxiliaryEffectSlotfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalAuxiliaryEffectSlotfv(effectSlot, param, values, __functionAddress);
 	}
 
@@ -1658,8 +1600,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalGetAuxiliaryEffectSloti(int effectSlot, int param, long value) {
 		long __functionAddress = getInstance().GetAuxiliaryEffectSloti;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetAuxiliaryEffectSloti(effectSlot, param, value, __functionAddress);
 	}
 
@@ -1701,8 +1641,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalGetAuxiliaryEffectSlotiv(int effectSlot, int param, long values) {
 		long __functionAddress = getInstance().GetAuxiliaryEffectSlotiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetAuxiliaryEffectSlotiv(effectSlot, param, values, __functionAddress);
 	}
 
@@ -1736,8 +1674,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalGetAuxiliaryEffectSlotf(int effectSlot, int param, long value) {
 		long __functionAddress = getInstance().GetAuxiliaryEffectSlotf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetAuxiliaryEffectSlotf(effectSlot, param, value, __functionAddress);
 	}
 
@@ -1779,8 +1715,6 @@ public final class EXTEfx {
 	@JavadocExclude
 	public static void nalGetAuxiliaryEffectSlotfv(int effectSlot, int param, long values) {
 		long __functionAddress = getInstance().GetAuxiliaryEffectSlotfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetAuxiliaryEffectSlotfv(effectSlot, param, values, __functionAddress);
 	}
 

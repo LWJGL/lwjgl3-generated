@@ -39,7 +39,7 @@ public final class SOFTDeferredUpdates {
 
 	/** Returns the {@link SOFTDeferredUpdates} instance for the current context. */
 	public static SOFTDeferredUpdates getInstance() {
-		return AL.getCapabilities().__SOFTDeferredUpdates;
+		return checkFunctionality(AL.getCapabilities().__SOFTDeferredUpdates);
 	}
 
 	static SOFTDeferredUpdates create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -71,8 +71,6 @@ public final class SOFTDeferredUpdates {
 	 */
 	public static void alDeferUpdatesSOFT() {
 		long __functionAddress = getInstance().DeferUpdatesSOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalDeferUpdatesSOFT(__functionAddress);
 	}
 
@@ -89,8 +87,6 @@ public final class SOFTDeferredUpdates {
 	 */
 	public static void alProcessUpdatesSOFT() {
 		long __functionAddress = getInstance().ProcessUpdatesSOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalProcessUpdatesSOFT(__functionAddress);
 	}
 

@@ -31,7 +31,7 @@ public final class NVTextureBarrier {
 
 	/** Returns the {@link NVTextureBarrier} instance for the current context. */
 	public static NVTextureBarrier getInstance() {
-		return GL.getCapabilities().__NVTextureBarrier;
+		return checkFunctionality(GL.getCapabilities().__NVTextureBarrier);
 	}
 
 	static NVTextureBarrier create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -55,8 +55,6 @@ public final class NVTextureBarrier {
 	/**  */
 	public static void glTextureBarrierNV() {
 		long __functionAddress = getInstance().TextureBarrierNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureBarrierNV(__functionAddress);
 	}
 

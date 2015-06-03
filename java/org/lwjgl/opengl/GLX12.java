@@ -26,7 +26,7 @@ public final class GLX12 {
 
 	/** Returns the {@link GLX12} instance for the current context. */
 	public static GLX12 getInstance() {
-		return GL.getCapabilities().__GLX12;
+		return checkFunctionality(GL.getCapabilities().__GLX12);
 	}
 
 	static GLX12 create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -50,8 +50,6 @@ public final class GLX12 {
 	/** Returns the display associated with the current context and drawable. */
 	public static long glXGetCurrentDisplay() {
 		long __functionAddress = getInstance().GetCurrentDisplay;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglXGetCurrentDisplay(__functionAddress);
 	}
 

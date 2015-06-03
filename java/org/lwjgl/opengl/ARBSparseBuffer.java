@@ -45,7 +45,7 @@ public final class ARBSparseBuffer {
 
 	/** Returns the {@link ARBSparseBuffer} instance for the current context. */
 	public static ARBSparseBuffer getInstance() {
-		return GL.getCapabilities().__ARBSparseBuffer;
+		return checkFunctionality(GL.getCapabilities().__ARBSparseBuffer);
 	}
 
 	static ARBSparseBuffer create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -79,8 +79,6 @@ public final class ARBSparseBuffer {
 	 */
 	public static void glBufferPageCommitmentARB(int target, long offset, long size, boolean commit) {
 		long __functionAddress = getInstance().BufferPageCommitmentARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBufferPageCommitmentARB(target, offset, size, commit, __functionAddress);
 	}
 

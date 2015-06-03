@@ -55,7 +55,7 @@ public final class EXTBindableUniform {
 
 	/** Returns the {@link EXTBindableUniform} instance for the current context. */
 	public static EXTBindableUniform getInstance() {
-		return GL.getCapabilities().__EXTBindableUniform;
+		return checkFunctionality(GL.getCapabilities().__EXTBindableUniform);
 	}
 
 	static EXTBindableUniform create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -85,8 +85,6 @@ public final class EXTBindableUniform {
 	 */
 	public static void glUniformBufferEXT(int program, int location, int buffer) {
 		long __functionAddress = getInstance().UniformBufferEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformBufferEXT(program, location, buffer, __functionAddress);
 	}
 
@@ -104,8 +102,6 @@ public final class EXTBindableUniform {
 	 */
 	public static int glGetUniformBufferSizeEXT(int program, int location) {
 		long __functionAddress = getInstance().GetUniformBufferSizeEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGetUniformBufferSizeEXT(program, location, __functionAddress);
 	}
 
@@ -123,8 +119,6 @@ public final class EXTBindableUniform {
 	 */
 	public static long glGetUniformOffsetEXT(int program, int location) {
 		long __functionAddress = getInstance().GetUniformOffsetEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGetUniformOffsetEXT(program, location, __functionAddress);
 	}
 

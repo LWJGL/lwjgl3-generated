@@ -68,7 +68,7 @@ public final class NVFramebufferMixedSamples {
 
 	/** Returns the {@link NVFramebufferMixedSamples} instance for the current context. */
 	public static NVFramebufferMixedSamples getInstance() {
-		return GL.getCapabilities().__NVFramebufferMixedSamples;
+		return checkFunctionality(GL.getCapabilities().__NVFramebufferMixedSamples);
 	}
 
 	static NVFramebufferMixedSamples create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -97,8 +97,6 @@ public final class NVFramebufferMixedSamples {
 	 */
 	public static void glRasterSamplesEXT(int samples, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().RasterSamplesEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglRasterSamplesEXT(samples, fixedsamplelocations, __functionAddress);
 	}
 
@@ -112,8 +110,6 @@ public final class NVFramebufferMixedSamples {
 	@JavadocExclude
 	public static void nglCoverageModulationTableNV(int n, long v) {
 		long __functionAddress = getInstance().CoverageModulationTableNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCoverageModulationTableNV(n, v, __functionAddress);
 	}
 
@@ -142,8 +138,6 @@ public final class NVFramebufferMixedSamples {
 	@JavadocExclude
 	public static void nglGetCoverageModulationTableNV(int bufsize, long v) {
 		long __functionAddress = getInstance().GetCoverageModulationTableNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetCoverageModulationTableNV(bufsize, v, __functionAddress);
 	}
 
@@ -175,8 +169,6 @@ public final class NVFramebufferMixedSamples {
 	 */
 	public static void glCoverageModulationNV(int components) {
 		long __functionAddress = getInstance().CoverageModulationNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCoverageModulationNV(components, __functionAddress);
 	}
 

@@ -236,7 +236,7 @@ public final class CL12 {
 
 	/** Returns the {@link CL12} instance for the currently loaded ICD. */
 	public static CL12 getInstance() {
-		return CL.getICD().__CL12;
+		return checkFunctionality(CL.getICD().__CL12);
 	}
 
 	static CL12 create(FunctionProvider provider) {
@@ -261,10 +261,8 @@ public final class CL12 {
 	@JavadocExclude
 	public static long nclGetExtensionFunctionAddressForPlatform(long platform, long func_name) {
 		long __functionAddress = getInstance().GetExtensionFunctionAddressForPlatform;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(platform);
-		}
 		return nclGetExtensionFunctionAddressForPlatform(platform, func_name, __functionAddress);
 	}
 
@@ -308,10 +306,8 @@ public final class CL12 {
 	 */
 	public static int clRetainDevice(long device) {
 		long __functionAddress = getInstance().RetainDevice;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		}
 		return nclRetainDevice(device, __functionAddress);
 	}
 
@@ -339,10 +335,8 @@ public final class CL12 {
 	 */
 	public static int clReleaseDevice(long device) {
 		long __functionAddress = getInstance().ReleaseDevice;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		}
 		return nclReleaseDevice(device, __functionAddress);
 	}
 
@@ -356,10 +350,8 @@ public final class CL12 {
 	@JavadocExclude
 	public static int nclCreateSubDevices(long in_device, long properties, int num_devices, long out_devices, long num_devices_ret) {
 		long __functionAddress = getInstance().CreateSubDevices;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(in_device);
-		}
 		return nclCreateSubDevices(in_device, properties, num_devices, out_devices, num_devices_ret, __functionAddress);
 	}
 
@@ -434,10 +426,8 @@ public final class CL12 {
 	@JavadocExclude
 	public static long nclCreateImage(long context, long flags, long image_format, long image_desc, long host_ptr, long errcode_ret) {
 		long __functionAddress = getInstance().CreateImage;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		}
 		return nclCreateImage(context, flags, image_format, image_desc, host_ptr, errcode_ret, __functionAddress);
 	}
 
@@ -540,10 +530,8 @@ public final class CL12 {
 	@JavadocExclude
 	public static long nclCreateProgramWithBuiltInKernels(long context, int num_devices, long device_list, long kernel_names, long errcode_ret) {
 		long __functionAddress = getInstance().CreateProgramWithBuiltInKernels;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		}
 		return nclCreateProgramWithBuiltInKernels(context, num_devices, device_list, kernel_names, errcode_ret, __functionAddress);
 	}
 
@@ -616,10 +604,8 @@ public final class CL12 {
 	@JavadocExclude
 	public static int nclCompileProgram(long program, int num_devices, long device_list, long options, int num_input_headers, long input_headers, long header_include_names, long pfn_notify, long user_data) {
 		long __functionAddress = getInstance().CompileProgram;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(program);
-		}
 		return nclCompileProgram(program, num_devices, device_list, options, num_input_headers, input_headers, header_include_names, pfn_notify, user_data, __functionAddress);
 	}
 
@@ -719,10 +705,8 @@ public final class CL12 {
 	@JavadocExclude
 	public static long nclLinkProgram(long context, int num_devices, long device_list, long options, int num_input_programs, long input_programs, long pfn_notify, long user_data) {
 		long __functionAddress = getInstance().LinkProgram;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		}
 		return nclLinkProgram(context, num_devices, device_list, options, num_input_programs, input_programs, pfn_notify, user_data, __functionAddress);
 	}
 
@@ -844,10 +828,8 @@ public final class CL12 {
 	 */
 	public static int clUnloadPlatformCompiler(long platform) {
 		long __functionAddress = getInstance().UnloadPlatformCompiler;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(platform);
-		}
 		return nclUnloadPlatformCompiler(platform, __functionAddress);
 	}
 
@@ -861,10 +843,8 @@ public final class CL12 {
 	@JavadocExclude
 	public static int nclGetKernelArgInfo(long kernel, int arg_indx, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetKernelArgInfo;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(kernel);
-		}
 		return nclGetKernelArgInfo(kernel, arg_indx, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
 	}
 
@@ -930,7 +910,6 @@ public final class CL12 {
 	public static int nclEnqueueFillBuffer(long command_queue, long buffer, long pattern, long pattern_size, long offset, long size, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueFillBuffer;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 			checkPointer(buffer);
 		}
@@ -1007,7 +986,6 @@ public final class CL12 {
 	public static int nclEnqueueFillImage(long command_queue, long image, long fill_color, long origin, long region, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueFillImage;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 			checkPointer(image);
 		}
@@ -1086,10 +1064,8 @@ public final class CL12 {
 	@JavadocExclude
 	public static int nclEnqueueMigrateMemObjects(long command_queue, int num_mem_objects, long mem_objects, long flags, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueMigrateMemObjects;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		}
 		return nclEnqueueMigrateMemObjects(command_queue, num_mem_objects, mem_objects, flags, num_events_in_wait_list, event_wait_list, event, __functionAddress);
 	}
 
@@ -1164,10 +1140,8 @@ public final class CL12 {
 	@JavadocExclude
 	public static int nclEnqueueMarkerWithWaitList(long command_queue, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueMarkerWithWaitList;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		}
 		return nclEnqueueMarkerWithWaitList(command_queue, num_events_in_wait_list, event_wait_list, event, __functionAddress);
 	}
 
@@ -1222,10 +1196,8 @@ public final class CL12 {
 	@JavadocExclude
 	public static int nclEnqueueBarrierWithWaitList(long command_queue, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueBarrierWithWaitList;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		}
 		return nclEnqueueBarrierWithWaitList(command_queue, num_events_in_wait_list, event_wait_list, event, __functionAddress);
 	}
 

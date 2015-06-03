@@ -151,7 +151,7 @@ public final class ARBGPUShaderFP64 {
 
 	/** Returns the {@link ARBGPUShaderFP64} instance for the current context. */
 	public static ARBGPUShaderFP64 getInstance() {
-		return GL.getCapabilities().__ARBGPUShaderFP64;
+		return checkFunctionality(GL.getCapabilities().__ARBGPUShaderFP64);
 	}
 
 	static ARBGPUShaderFP64 create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -195,8 +195,6 @@ public final class ARBGPUShaderFP64 {
 	 */
 	public static void glUniform1d(int location, double x) {
 		long __functionAddress = getInstance().Uniform1d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglUniform1d(location, x, __functionAddress);
 	}
 
@@ -211,8 +209,6 @@ public final class ARBGPUShaderFP64 {
 	 */
 	public static void glUniform2d(int location, double x, double y) {
 		long __functionAddress = getInstance().Uniform2d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglUniform2d(location, x, y, __functionAddress);
 	}
 
@@ -228,8 +224,6 @@ public final class ARBGPUShaderFP64 {
 	 */
 	public static void glUniform3d(int location, double x, double y, double z) {
 		long __functionAddress = getInstance().Uniform3d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglUniform3d(location, x, y, z, __functionAddress);
 	}
 
@@ -246,8 +240,6 @@ public final class ARBGPUShaderFP64 {
 	 */
 	public static void glUniform4d(int location, double x, double y, double z, double w) {
 		long __functionAddress = getInstance().Uniform4d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglUniform4d(location, x, y, z, w, __functionAddress);
 	}
 
@@ -257,8 +249,6 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniform1dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglUniform1dv(location, count, value, __functionAddress);
 	}
 
@@ -286,8 +276,6 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniform2dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglUniform2dv(location, count, value, __functionAddress);
 	}
 
@@ -315,8 +303,6 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniform3dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglUniform3dv(location, count, value, __functionAddress);
 	}
 
@@ -344,8 +330,6 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniform4dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglUniform4dv(location, count, value, __functionAddress);
 	}
 
@@ -373,8 +357,6 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniformMatrix2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglUniformMatrix2dv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -403,8 +385,6 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniformMatrix3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglUniformMatrix3dv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -433,8 +413,6 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniformMatrix4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglUniformMatrix4dv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -463,8 +441,6 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniformMatrix2x3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x3dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglUniformMatrix2x3dv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -493,8 +469,6 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniformMatrix2x4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x4dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglUniformMatrix2x4dv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -523,8 +497,6 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniformMatrix3x2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x2dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglUniformMatrix3x2dv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -553,8 +525,6 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniformMatrix3x4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x4dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglUniformMatrix3x4dv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -583,8 +553,6 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniformMatrix4x2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x2dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglUniformMatrix4x2dv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -613,8 +581,6 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniformMatrix4x3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x3dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglUniformMatrix4x3dv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -643,8 +609,6 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglGetUniformdv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformdv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglGetUniformdv(program, location, params, __functionAddress);
 	}
 

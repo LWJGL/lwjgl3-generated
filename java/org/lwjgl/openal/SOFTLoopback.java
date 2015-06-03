@@ -64,7 +64,7 @@ public final class SOFTLoopback {
 
 	/** Returns the {@link SOFTLoopback} instance for the current context. */
 	public static SOFTLoopback getInstance() {
-		return ALC.getCapabilities().__SOFTLoopback;
+		return checkFunctionality(ALC.getCapabilities().__SOFTLoopback);
 	}
 
 	static SOFTLoopback create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {
@@ -89,8 +89,6 @@ public final class SOFTLoopback {
 	@JavadocExclude
 	public static long nalcLoopbackOpenDeviceSOFT(long deviceName) {
 		long __functionAddress = getInstance().LoopbackOpenDeviceSOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalcLoopbackOpenDeviceSOFT(deviceName, __functionAddress);
 	}
 
@@ -142,10 +140,8 @@ public final class SOFTLoopback {
 	 */
 	public static boolean alcIsRenderFormatSupportedSOFT(long device, int frequency, int channels, int type) {
 		long __functionAddress = getInstance().IsRenderFormatSupportedSOFT;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		}
 		return nalcIsRenderFormatSupportedSOFT(device, frequency, channels, type, __functionAddress);
 	}
 
@@ -159,10 +155,8 @@ public final class SOFTLoopback {
 	@JavadocExclude
 	public static void nalcRenderSamplesSOFT(long device, long buffer, int samples) {
 		long __functionAddress = getInstance().RenderSamplesSOFT;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		}
 		nalcRenderSamplesSOFT(device, buffer, samples, __functionAddress);
 	}
 

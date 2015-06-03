@@ -123,7 +123,7 @@ public final class WGLARBRenderTexture {
 
 	/** Returns the {@link WGLARBRenderTexture} instance for the current context. */
 	public static WGLARBRenderTexture getInstance() {
-		return GL.getCapabilities().__WGLARBRenderTexture;
+		return checkFunctionality(GL.getCapabilities().__WGLARBRenderTexture);
 	}
 
 	static WGLARBRenderTexture create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -154,10 +154,8 @@ public final class WGLARBRenderTexture {
 	 */
 	public static int wglBindTexImageARB(long pbuffer, int buffer) {
 		long __functionAddress = getInstance().BindTexImageARB;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(pbuffer);
-		}
 		return nwglBindTexImageARB(pbuffer, buffer, __functionAddress);
 	}
 
@@ -176,10 +174,8 @@ public final class WGLARBRenderTexture {
 	 */
 	public static int wglReleaseTexImageARB(long pbuffer, int buffer) {
 		long __functionAddress = getInstance().ReleaseTexImageARB;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(pbuffer);
-		}
 		return nwglReleaseTexImageARB(pbuffer, buffer, __functionAddress);
 	}
 
@@ -193,10 +189,8 @@ public final class WGLARBRenderTexture {
 	@JavadocExclude
 	public static int nwglSetPbufferAttribARB(long pbuffer, long attribList) {
 		long __functionAddress = getInstance().SetPbufferAttribARB;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(pbuffer);
-		}
 		return nwglSetPbufferAttribARB(pbuffer, attribList, __functionAddress);
 	}
 

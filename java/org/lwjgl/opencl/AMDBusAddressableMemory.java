@@ -70,7 +70,7 @@ public final class AMDBusAddressableMemory {
 
 	/** Returns the {@link AMDBusAddressableMemory} instance for the currently loaded ICD. */
 	public static AMDBusAddressableMemory getInstance() {
-		return CL.getICD().__AMDBusAddressableMemory;
+		return checkFunctionality(CL.getICD().__AMDBusAddressableMemory);
 	}
 
 	static AMDBusAddressableMemory create(FunctionProvider provider) {
@@ -94,7 +94,6 @@ public final class AMDBusAddressableMemory {
 	public static int nclEnqueueWaitSignalAMD(long command_queue, long mem_object, int value, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueWaitSignalAMD;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 			checkPointer(mem_object);
 		}
@@ -151,7 +150,6 @@ public final class AMDBusAddressableMemory {
 	public static int nclEnqueueWriteSignalAMD(long command_queue, long mem_object, int value, long offset, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueWriteSignalAMD;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 			checkPointer(mem_object);
 		}
@@ -212,10 +210,8 @@ public final class AMDBusAddressableMemory {
 	@JavadocExclude
 	public static int nclEnqueueMakeBuffersResidentAMD(long command_queue, int num_mem_objs, long mem_objects, int blocking_make_resident, long bus_addresses, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueMakeBuffersResidentAMD;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		}
 		return nclEnqueueMakeBuffersResidentAMD(command_queue, num_mem_objs, mem_objects, blocking_make_resident, bus_addresses, num_events_in_wait_list, event_wait_list, event, __functionAddress);
 	}
 

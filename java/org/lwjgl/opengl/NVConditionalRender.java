@@ -53,7 +53,7 @@ public final class NVConditionalRender {
 
 	/** Returns the {@link NVConditionalRender} instance for the current context. */
 	public static NVConditionalRender getInstance() {
-		return GL.getCapabilities().__NVConditionalRender;
+		return checkFunctionality(GL.getCapabilities().__NVConditionalRender);
 	}
 
 	static NVConditionalRender create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -82,8 +82,6 @@ public final class NVConditionalRender {
 	 */
 	public static void glBeginConditionalRenderNV(int id, int mode) {
 		long __functionAddress = getInstance().BeginConditionalRenderNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBeginConditionalRenderNV(id, mode, __functionAddress);
 	}
 
@@ -96,8 +94,6 @@ public final class NVConditionalRender {
 	/**  */
 	public static void glEndConditionalRenderNV() {
 		long __functionAddress = getInstance().EndConditionalRenderNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEndConditionalRenderNV(__functionAddress);
 	}
 

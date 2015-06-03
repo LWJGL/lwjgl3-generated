@@ -42,7 +42,7 @@ public final class CL12GL {
 
 	/** Returns the {@link CL12GL} instance for the currently loaded ICD. */
 	public static CL12GL getInstance() {
-		return CL.getICD().__CL12GL;
+		return checkFunctionality(CL.getICD().__CL12GL);
 	}
 
 	static CL12GL create(FunctionProvider provider) {
@@ -65,10 +65,8 @@ public final class CL12GL {
 	@JavadocExclude
 	public static long nclCreateFromGLTexture(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret) {
 		long __functionAddress = getInstance().CreateFromGLTexture;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		}
 		return nclCreateFromGLTexture(context, flags, texture_target, miplevel, texture, errcode_ret, __functionAddress);
 	}
 

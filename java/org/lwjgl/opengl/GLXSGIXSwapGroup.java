@@ -35,7 +35,7 @@ public final class GLXSGIXSwapGroup {
 
 	/** Returns the {@link GLXSGIXSwapGroup} instance for the current context. */
 	public static GLXSGIXSwapGroup getInstance() {
-		return GL.getCapabilities().__GLXSGIXSwapGroup;
+		return checkFunctionality(GL.getCapabilities().__GLXSGIXSwapGroup);
 	}
 
 	static GLXSGIXSwapGroup create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -68,7 +68,6 @@ public final class GLXSGIXSwapGroup {
 	public static void glXJoinSwapGroupSGIX(long display, long drawable, long member) {
 		long __functionAddress = getInstance().JoinSwapGroupSGIX;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(drawable);
 		}

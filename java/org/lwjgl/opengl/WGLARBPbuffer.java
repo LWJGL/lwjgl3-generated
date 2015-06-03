@@ -79,7 +79,7 @@ public final class WGLARBPbuffer {
 
 	/** Returns the {@link WGLARBPbuffer} instance for the current context. */
 	public static WGLARBPbuffer getInstance() {
-		return GL.getCapabilities().__WGLARBPbuffer;
+		return checkFunctionality(GL.getCapabilities().__WGLARBPbuffer);
 	}
 
 	static WGLARBPbuffer create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -104,10 +104,8 @@ public final class WGLARBPbuffer {
 	@JavadocExclude
 	public static long nwglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, long attribList) {
 		long __functionAddress = getInstance().CreatePbufferARB;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		}
 		return nwglCreatePbufferARB(hdc, pixelFormat, width, height, attribList, __functionAddress);
 	}
 
@@ -149,10 +147,8 @@ public final class WGLARBPbuffer {
 	 */
 	public static long wglGetPbufferDCARB(long pbuffer) {
 		long __functionAddress = getInstance().GetPbufferDCARB;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(pbuffer);
-		}
 		return nwglGetPbufferDCARB(pbuffer, __functionAddress);
 	}
 
@@ -171,7 +167,6 @@ public final class WGLARBPbuffer {
 	public static int wglReleasePbufferDCARB(long pbuffer, long hdc) {
 		long __functionAddress = getInstance().ReleasePbufferDCARB;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(pbuffer);
 			checkPointer(hdc);
 		}
@@ -194,10 +189,8 @@ public final class WGLARBPbuffer {
 	 */
 	public static int wglDestroyPbufferARB(long pbuffer) {
 		long __functionAddress = getInstance().DestroyPbufferARB;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(pbuffer);
-		}
 		return nwglDestroyPbufferARB(pbuffer, __functionAddress);
 	}
 
@@ -211,10 +204,8 @@ public final class WGLARBPbuffer {
 	@JavadocExclude
 	public static int nwglQueryPbufferARB(long pbuffer, int attribute, long value) {
 		long __functionAddress = getInstance().QueryPbufferARB;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(pbuffer);
-		}
 		return nwglQueryPbufferARB(pbuffer, attribute, value, __functionAddress);
 	}
 

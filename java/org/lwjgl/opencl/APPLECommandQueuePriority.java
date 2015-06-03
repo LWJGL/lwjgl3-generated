@@ -36,7 +36,7 @@ public final class APPLECommandQueuePriority {
 
 	/** Returns the {@link APPLECommandQueuePriority} instance for the currently loaded ICD. */
 	public static APPLECommandQueuePriority getInstance() {
-		return CL.getICD().__APPLECommandQueuePriority;
+		return checkFunctionality(CL.getICD().__APPLECommandQueuePriority);
 	}
 
 	static APPLECommandQueuePriority create(FunctionProvider provider) {
@@ -60,7 +60,6 @@ public final class APPLECommandQueuePriority {
 	public static long nclCreateCommandQueueWithPropertiesAPPLE(long context, long device, long properties, long errcode_ret) {
 		long __functionAddress = getInstance().CreateCommandQueueWithPropertiesAPPLE;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 			checkPointer(device);
 		}

@@ -43,7 +43,7 @@ public final class EXTBlendColor {
 
 	/** Returns the {@link EXTBlendColor} instance for the current context. */
 	public static EXTBlendColor getInstance() {
-		return GL.getCapabilities().__EXTBlendColor;
+		return checkFunctionality(GL.getCapabilities().__EXTBlendColor);
 	}
 
 	static EXTBlendColor create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -74,8 +74,6 @@ public final class EXTBlendColor {
 	 */
 	public static void glBlendColorEXT(float red, float green, float blue, float alpha) {
 		long __functionAddress = getInstance().BlendColorEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBlendColorEXT(red, green, blue, alpha, __functionAddress);
 	}
 

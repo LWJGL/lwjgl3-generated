@@ -114,7 +114,7 @@ public final class EXTTransformFeedback {
 
 	/** Returns the {@link EXTTransformFeedback} instance for the current context. */
 	public static EXTTransformFeedback getInstance() {
-		return GL.getCapabilities().__EXTTransformFeedback;
+		return checkFunctionality(GL.getCapabilities().__EXTTransformFeedback);
 	}
 
 	static EXTTransformFeedback create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -147,8 +147,6 @@ public final class EXTTransformFeedback {
 	 */
 	public static void glBindBufferRangeEXT(int target, int index, int buffer, long offset, long size) {
 		long __functionAddress = getInstance().BindBufferRangeEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindBufferRangeEXT(target, index, buffer, offset, size, __functionAddress);
 	}
 
@@ -168,8 +166,6 @@ public final class EXTTransformFeedback {
 	 */
 	public static void glBindBufferOffsetEXT(int target, int index, int buffer, long offset) {
 		long __functionAddress = getInstance().BindBufferOffsetEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindBufferOffsetEXT(target, index, buffer, offset, __functionAddress);
 	}
 
@@ -188,8 +184,6 @@ public final class EXTTransformFeedback {
 	 */
 	public static void glBindBufferBaseEXT(int target, int index, int buffer) {
 		long __functionAddress = getInstance().BindBufferBaseEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindBufferBaseEXT(target, index, buffer, __functionAddress);
 	}
 
@@ -206,8 +200,6 @@ public final class EXTTransformFeedback {
 	 */
 	public static void glBeginTransformFeedbackEXT(int primitiveMode) {
 		long __functionAddress = getInstance().BeginTransformFeedbackEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBeginTransformFeedbackEXT(primitiveMode, __functionAddress);
 	}
 
@@ -220,8 +212,6 @@ public final class EXTTransformFeedback {
 	/**  */
 	public static void glEndTransformFeedbackEXT() {
 		long __functionAddress = getInstance().EndTransformFeedbackEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEndTransformFeedbackEXT(__functionAddress);
 	}
 
@@ -235,8 +225,6 @@ public final class EXTTransformFeedback {
 	@JavadocExclude
 	public static void nglTransformFeedbackVaryingsEXT(int program, int count, long varyings, int bufferMode) {
 		long __functionAddress = getInstance().TransformFeedbackVaryingsEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTransformFeedbackVaryingsEXT(program, count, varyings, bufferMode, __functionAddress);
 	}
 
@@ -287,8 +275,6 @@ public final class EXTTransformFeedback {
 	@JavadocExclude
 	public static void nglGetTransformFeedbackVaryingEXT(int program, int index, int bufSize, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetTransformFeedbackVaryingEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTransformFeedbackVaryingEXT(program, index, bufSize, length, size, type, name, __functionAddress);
 	}
 
@@ -362,8 +348,6 @@ public final class EXTTransformFeedback {
 	@JavadocExclude
 	public static void nglGetIntegerIndexedvEXT(int param, int index, long values) {
 		long __functionAddress = getInstance().GetIntegerIndexedvEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetIntegerIndexedvEXT(param, index, values, __functionAddress);
 	}
 
@@ -405,8 +389,6 @@ public final class EXTTransformFeedback {
 	@JavadocExclude
 	public static void nglGetBooleanIndexedvEXT(int param, int index, long values) {
 		long __functionAddress = getInstance().GetBooleanIndexedvEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetBooleanIndexedvEXT(param, index, values, __functionAddress);
 	}
 

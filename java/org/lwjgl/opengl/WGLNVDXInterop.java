@@ -58,7 +58,7 @@ public final class WGLNVDXInterop {
 
 	/** Returns the {@link WGLNVDXInterop} instance for the current context. */
 	public static WGLNVDXInterop getInstance() {
-		return GL.getCapabilities().__WGLNVDXInterop;
+		return checkFunctionality(GL.getCapabilities().__WGLNVDXInterop);
 	}
 
 	static WGLNVDXInterop create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -89,7 +89,6 @@ public final class WGLNVDXInterop {
 	public static int wglDXSetResourceShareHandleNV(long dxObject, long shareHandle) {
 		long __functionAddress = getInstance().DXSetResourceShareHandleNV;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(dxObject);
 			checkPointer(shareHandle);
 		}
@@ -109,10 +108,8 @@ public final class WGLNVDXInterop {
 	 */
 	public static long wglDXOpenDeviceNV(long dxDevice) {
 		long __functionAddress = getInstance().DXOpenDeviceNV;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(dxDevice);
-		}
 		return nwglDXOpenDeviceNV(dxDevice, __functionAddress);
 	}
 
@@ -129,10 +126,8 @@ public final class WGLNVDXInterop {
 	 */
 	public static int wglDXCloseDeviceNV(long device) {
 		long __functionAddress = getInstance().DXCloseDeviceNV;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		}
 		return nwglDXCloseDeviceNV(device, __functionAddress);
 	}
 
@@ -154,7 +149,6 @@ public final class WGLNVDXInterop {
 	public static long wglDXRegisterObjectNV(long device, long dxResource, int name, int type, int access) {
 		long __functionAddress = getInstance().DXRegisterObjectNV;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
 			checkPointer(dxResource);
 		}
@@ -176,7 +170,6 @@ public final class WGLNVDXInterop {
 	public static int wglDXUnregisterObjectNV(long device, long object) {
 		long __functionAddress = getInstance().DXUnregisterObjectNV;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
 			checkPointer(object);
 		}
@@ -197,10 +190,8 @@ public final class WGLNVDXInterop {
 	 */
 	public static int wglDXObjectAccessNV(long object, int access) {
 		long __functionAddress = getInstance().DXObjectAccessNV;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(object);
-		}
 		return nwglDXObjectAccessNV(object, access, __functionAddress);
 	}
 
@@ -214,10 +205,8 @@ public final class WGLNVDXInterop {
 	@JavadocExclude
 	public static int nwglDXLockObjectsNV(long device, int count, long objects) {
 		long __functionAddress = getInstance().DXLockObjectsNV;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		}
 		return nwglDXLockObjectsNV(device, count, objects, __functionAddress);
 	}
 
@@ -256,10 +245,8 @@ public final class WGLNVDXInterop {
 	@JavadocExclude
 	public static int nwglDXUnlockObjectsNV(long device, int count, long objects) {
 		long __functionAddress = getInstance().DXUnlockObjectsNV;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		}
 		return nwglDXUnlockObjectsNV(device, count, objects, __functionAddress);
 	}
 

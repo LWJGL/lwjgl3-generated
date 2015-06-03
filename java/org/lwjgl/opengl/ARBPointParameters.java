@@ -57,7 +57,7 @@ public final class ARBPointParameters {
 
 	/** Returns the {@link ARBPointParameters} instance for the current context. */
 	public static ARBPointParameters getInstance() {
-		return GL.getCapabilities().__ARBPointParameters;
+		return checkFunctionality(GL.getCapabilities().__ARBPointParameters);
 	}
 
 	static ARBPointParameters create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -86,8 +86,6 @@ public final class ARBPointParameters {
 	 */
 	public static void glPointParameterfARB(int pname, float param) {
 		long __functionAddress = getInstance().PointParameterfARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPointParameterfARB(pname, param, __functionAddress);
 	}
 
@@ -101,8 +99,6 @@ public final class ARBPointParameters {
 	@JavadocExclude
 	public static void nglPointParameterfvARB(int pname, long params) {
 		long __functionAddress = getInstance().PointParameterfvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPointParameterfvARB(pname, params, __functionAddress);
 	}
 

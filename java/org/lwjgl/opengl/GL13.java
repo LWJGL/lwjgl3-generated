@@ -309,7 +309,7 @@ public final class GL13 {
 
 	/** Returns the {@link GL13} instance for the current context. */
 	public static GL13 getInstance() {
-		return GL.getCapabilities().__GL13;
+		return checkFunctionality(GL.getCapabilities().__GL13);
 	}
 
 	static GL13 create(java.util.Set<String> ext, FunctionProvider provider, boolean fc) {
@@ -343,8 +343,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage3D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, data, __functionAddress);
 	}
 
@@ -395,8 +393,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage2D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data, __functionAddress);
 	}
 
@@ -446,8 +442,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage1D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCompressedTexImage1D(target, level, internalformat, width, border, imageSize, data, __functionAddress);
 	}
 
@@ -496,8 +490,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage3D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data, __functionAddress);
 	}
 
@@ -550,8 +542,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage2D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data, __functionAddress);
 	}
 
@@ -602,8 +592,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage1D;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, data, __functionAddress);
 	}
 
@@ -652,8 +640,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglGetCompressedTexImage(int target, int level, long pixels) {
 		long __functionAddress = getInstance().GetCompressedTexImage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetCompressedTexImage(target, level, pixels, __functionAddress);
 	}
 
@@ -711,8 +697,6 @@ public final class GL13 {
 	 */
 	public static void glSampleCoverage(float value, boolean invert) {
 		long __functionAddress = getInstance().SampleCoverage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSampleCoverage(value, invert, __functionAddress);
 	}
 
@@ -732,8 +716,6 @@ public final class GL13 {
 	 */
 	public static void glActiveTexture(int texture) {
 		long __functionAddress = getInstance().ActiveTexture;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglActiveTexture(texture, __functionAddress);
 	}
 
@@ -753,8 +735,6 @@ public final class GL13 {
 	 */
 	public static void glClientActiveTexture(int texture) {
 		long __functionAddress = getInstance().ClientActiveTexture;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClientActiveTexture(texture, __functionAddress);
 	}
 
@@ -774,8 +754,6 @@ public final class GL13 {
 	 */
 	public static void glMultiTexCoord1f(int texture, float s) {
 		long __functionAddress = getInstance().MultiTexCoord1f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord1f(texture, s, __functionAddress);
 	}
 
@@ -795,8 +773,6 @@ public final class GL13 {
 	 */
 	public static void glMultiTexCoord1s(int texture, short s) {
 		long __functionAddress = getInstance().MultiTexCoord1s;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord1s(texture, s, __functionAddress);
 	}
 
@@ -816,8 +792,6 @@ public final class GL13 {
 	 */
 	public static void glMultiTexCoord1i(int texture, int s) {
 		long __functionAddress = getInstance().MultiTexCoord1i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord1i(texture, s, __functionAddress);
 	}
 
@@ -837,8 +811,6 @@ public final class GL13 {
 	 */
 	public static void glMultiTexCoord1d(int texture, double s) {
 		long __functionAddress = getInstance().MultiTexCoord1d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord1d(texture, s, __functionAddress);
 	}
 
@@ -852,8 +824,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord1fv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord1fv(texture, v, __functionAddress);
 	}
 
@@ -888,8 +858,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord1sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1sv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord1sv(texture, v, __functionAddress);
 	}
 
@@ -924,8 +892,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord1iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord1iv(texture, v, __functionAddress);
 	}
 
@@ -960,8 +926,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord1dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord1dv(texture, v, __functionAddress);
 	}
 
@@ -1003,8 +967,6 @@ public final class GL13 {
 	 */
 	public static void glMultiTexCoord2f(int texture, float s, float t) {
 		long __functionAddress = getInstance().MultiTexCoord2f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord2f(texture, s, t, __functionAddress);
 	}
 
@@ -1025,8 +987,6 @@ public final class GL13 {
 	 */
 	public static void glMultiTexCoord2s(int texture, short s, short t) {
 		long __functionAddress = getInstance().MultiTexCoord2s;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord2s(texture, s, t, __functionAddress);
 	}
 
@@ -1047,8 +1007,6 @@ public final class GL13 {
 	 */
 	public static void glMultiTexCoord2i(int texture, int s, int t) {
 		long __functionAddress = getInstance().MultiTexCoord2i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord2i(texture, s, t, __functionAddress);
 	}
 
@@ -1069,8 +1027,6 @@ public final class GL13 {
 	 */
 	public static void glMultiTexCoord2d(int texture, double s, double t) {
 		long __functionAddress = getInstance().MultiTexCoord2d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord2d(texture, s, t, __functionAddress);
 	}
 
@@ -1084,8 +1040,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord2fv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord2fv(texture, v, __functionAddress);
 	}
 
@@ -1120,8 +1074,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord2sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2sv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord2sv(texture, v, __functionAddress);
 	}
 
@@ -1156,8 +1108,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord2iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord2iv(texture, v, __functionAddress);
 	}
 
@@ -1192,8 +1142,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord2dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord2dv(texture, v, __functionAddress);
 	}
 
@@ -1236,8 +1184,6 @@ public final class GL13 {
 	 */
 	public static void glMultiTexCoord3f(int texture, float s, float t, float r) {
 		long __functionAddress = getInstance().MultiTexCoord3f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord3f(texture, s, t, r, __functionAddress);
 	}
 
@@ -1259,8 +1205,6 @@ public final class GL13 {
 	 */
 	public static void glMultiTexCoord3s(int texture, short s, short t, short r) {
 		long __functionAddress = getInstance().MultiTexCoord3s;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord3s(texture, s, t, r, __functionAddress);
 	}
 
@@ -1282,8 +1226,6 @@ public final class GL13 {
 	 */
 	public static void glMultiTexCoord3i(int texture, int s, int t, int r) {
 		long __functionAddress = getInstance().MultiTexCoord3i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord3i(texture, s, t, r, __functionAddress);
 	}
 
@@ -1305,8 +1247,6 @@ public final class GL13 {
 	 */
 	public static void glMultiTexCoord3d(int texture, double s, double t, double r) {
 		long __functionAddress = getInstance().MultiTexCoord3d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord3d(texture, s, t, r, __functionAddress);
 	}
 
@@ -1320,8 +1260,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord3fv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord3fv(texture, v, __functionAddress);
 	}
 
@@ -1356,8 +1294,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord3sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3sv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord3sv(texture, v, __functionAddress);
 	}
 
@@ -1392,8 +1328,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord3iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord3iv(texture, v, __functionAddress);
 	}
 
@@ -1428,8 +1362,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord3dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord3dv(texture, v, __functionAddress);
 	}
 
@@ -1473,8 +1405,6 @@ public final class GL13 {
 	 */
 	public static void glMultiTexCoord4f(int texture, float s, float t, float r, float q) {
 		long __functionAddress = getInstance().MultiTexCoord4f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord4f(texture, s, t, r, q, __functionAddress);
 	}
 
@@ -1497,8 +1427,6 @@ public final class GL13 {
 	 */
 	public static void glMultiTexCoord4s(int texture, short s, short t, short r, short q) {
 		long __functionAddress = getInstance().MultiTexCoord4s;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord4s(texture, s, t, r, q, __functionAddress);
 	}
 
@@ -1521,8 +1449,6 @@ public final class GL13 {
 	 */
 	public static void glMultiTexCoord4i(int texture, int s, int t, int r, int q) {
 		long __functionAddress = getInstance().MultiTexCoord4i;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord4i(texture, s, t, r, q, __functionAddress);
 	}
 
@@ -1545,8 +1471,6 @@ public final class GL13 {
 	 */
 	public static void glMultiTexCoord4d(int texture, double s, double t, double r, double q) {
 		long __functionAddress = getInstance().MultiTexCoord4d;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord4d(texture, s, t, r, q, __functionAddress);
 	}
 
@@ -1560,8 +1484,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord4fv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord4fv(texture, v, __functionAddress);
 	}
 
@@ -1596,8 +1518,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord4sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4sv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord4sv(texture, v, __functionAddress);
 	}
 
@@ -1632,8 +1552,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord4iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4iv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord4iv(texture, v, __functionAddress);
 	}
 
@@ -1668,8 +1586,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord4dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4dv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord4dv(texture, v, __functionAddress);
 	}
 
@@ -1704,8 +1620,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglLoadTransposeMatrixf(long m) {
 		long __functionAddress = getInstance().LoadTransposeMatrixf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglLoadTransposeMatrixf(m, __functionAddress);
 	}
 
@@ -1747,8 +1661,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglLoadTransposeMatrixd(long m) {
 		long __functionAddress = getInstance().LoadTransposeMatrixd;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglLoadTransposeMatrixd(m, __functionAddress);
 	}
 
@@ -1782,8 +1694,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglMultTransposeMatrixf(long m) {
 		long __functionAddress = getInstance().MultTransposeMatrixf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultTransposeMatrixf(m, __functionAddress);
 	}
 
@@ -1817,8 +1727,6 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglMultTransposeMatrixd(long m) {
 		long __functionAddress = getInstance().MultTransposeMatrixd;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultTransposeMatrixd(m, __functionAddress);
 	}
 

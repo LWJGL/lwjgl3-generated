@@ -69,7 +69,7 @@ public final class ARBInvalidateSubdata {
 
 	/** Returns the {@link ARBInvalidateSubdata} instance for the current context. */
 	public static ARBInvalidateSubdata getInstance() {
-		return GL.getCapabilities().__ARBInvalidateSubdata;
+		return checkFunctionality(GL.getCapabilities().__ARBInvalidateSubdata);
 	}
 
 	static ARBInvalidateSubdata create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -101,8 +101,6 @@ public final class ARBInvalidateSubdata {
 	 */
 	public static void glInvalidateTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth) {
 		long __functionAddress = getInstance().InvalidateTexSubImage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglInvalidateTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, __functionAddress);
 	}
 
@@ -116,8 +114,6 @@ public final class ARBInvalidateSubdata {
 	 */
 	public static void glInvalidateTexImage(int texture, int level) {
 		long __functionAddress = getInstance().InvalidateTexImage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglInvalidateTexImage(texture, level, __functionAddress);
 	}
 
@@ -132,8 +128,6 @@ public final class ARBInvalidateSubdata {
 	 */
 	public static void glInvalidateBufferSubData(int buffer, long offset, long length) {
 		long __functionAddress = getInstance().InvalidateBufferSubData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglInvalidateBufferSubData(buffer, offset, length, __functionAddress);
 	}
 
@@ -146,8 +140,6 @@ public final class ARBInvalidateSubdata {
 	 */
 	public static void glInvalidateBufferData(int buffer) {
 		long __functionAddress = getInstance().InvalidateBufferData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglInvalidateBufferData(buffer, __functionAddress);
 	}
 
@@ -157,8 +149,6 @@ public final class ARBInvalidateSubdata {
 	@JavadocExclude
 	public static void nglInvalidateFramebuffer(int target, int numAttachments, long attachments) {
 		long __functionAddress = getInstance().InvalidateFramebuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglInvalidateFramebuffer(target, numAttachments, attachments, __functionAddress);
 	}
 
@@ -193,8 +183,6 @@ public final class ARBInvalidateSubdata {
 	@JavadocExclude
 	public static void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().InvalidateSubFramebuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglInvalidateSubFramebuffer(target, numAttachments, attachments, x, y, width, height, __functionAddress);
 	}
 

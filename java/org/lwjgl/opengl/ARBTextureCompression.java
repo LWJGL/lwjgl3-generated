@@ -86,7 +86,7 @@ public final class ARBTextureCompression {
 
 	/** Returns the {@link ARBTextureCompression} instance for the current context. */
 	public static ARBTextureCompression getInstance() {
-		return GL.getCapabilities().__ARBTextureCompression;
+		return checkFunctionality(GL.getCapabilities().__ARBTextureCompression);
 	}
 
 	static ARBTextureCompression create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -112,8 +112,6 @@ public final class ARBTextureCompression {
 	@JavadocExclude
 	public static void nglCompressedTexImage3DARB(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage3DARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCompressedTexImage3DARB(target, level, internalformat, width, height, depth, border, imageSize, data, __functionAddress);
 	}
 
@@ -162,8 +160,6 @@ public final class ARBTextureCompression {
 	@JavadocExclude
 	public static void nglCompressedTexImage2DARB(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage2DARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCompressedTexImage2DARB(target, level, internalformat, width, height, border, imageSize, data, __functionAddress);
 	}
 
@@ -211,8 +207,6 @@ public final class ARBTextureCompression {
 	@JavadocExclude
 	public static void nglCompressedTexImage1DARB(int target, int level, int internalformat, int width, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage1DARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCompressedTexImage1DARB(target, level, internalformat, width, border, imageSize, data, __functionAddress);
 	}
 
@@ -259,8 +253,6 @@ public final class ARBTextureCompression {
 	@JavadocExclude
 	public static void nglCompressedTexSubImage3DARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage3DARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCompressedTexSubImage3DARB(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data, __functionAddress);
 	}
 
@@ -311,8 +303,6 @@ public final class ARBTextureCompression {
 	@JavadocExclude
 	public static void nglCompressedTexSubImage2DARB(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage2DARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCompressedTexSubImage2DARB(target, level, xoffset, yoffset, width, height, format, imageSize, data, __functionAddress);
 	}
 
@@ -361,8 +351,6 @@ public final class ARBTextureCompression {
 	@JavadocExclude
 	public static void nglCompressedTexSubImage1DARB(int target, int level, int xoffset, int width, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage1DARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCompressedTexSubImage1DARB(target, level, xoffset, width, format, imageSize, data, __functionAddress);
 	}
 
@@ -409,8 +397,6 @@ public final class ARBTextureCompression {
 	@JavadocExclude
 	public static void nglGetCompressedTexImageARB(int target, int level, long pixels) {
 		long __functionAddress = getInstance().GetCompressedTexImageARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetCompressedTexImageARB(target, level, pixels, __functionAddress);
 	}
 

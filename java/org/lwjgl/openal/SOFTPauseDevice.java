@@ -35,7 +35,7 @@ public final class SOFTPauseDevice {
 
 	/** Returns the {@link SOFTPauseDevice} instance for the current context. */
 	public static SOFTPauseDevice getInstance() {
-		return ALC.getCapabilities().__SOFTPauseDevice;
+		return checkFunctionality(ALC.getCapabilities().__SOFTPauseDevice);
 	}
 
 	static SOFTPauseDevice create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {
@@ -66,10 +66,8 @@ public final class SOFTPauseDevice {
 	 */
 	public static void alcDevicePauseSOFT(long device) {
 		long __functionAddress = getInstance().DevicePauseSOFT;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		}
 		nalcDevicePauseSOFT(device, __functionAddress);
 	}
 
@@ -92,10 +90,8 @@ public final class SOFTPauseDevice {
 	 */
 	public static void alcDeviceResumeSOFT(long device) {
 		long __functionAddress = getInstance().DeviceResumeSOFT;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		}
 		nalcDeviceResumeSOFT(device, __functionAddress);
 	}
 

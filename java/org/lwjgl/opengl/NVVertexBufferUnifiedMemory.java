@@ -98,7 +98,7 @@ public final class NVVertexBufferUnifiedMemory {
 
 	/** Returns the {@link NVVertexBufferUnifiedMemory} instance for the current context. */
 	public static NVVertexBufferUnifiedMemory getInstance() {
-		return GL.getCapabilities().__NVVertexBufferUnifiedMemory;
+		return checkFunctionality(GL.getCapabilities().__NVVertexBufferUnifiedMemory);
 	}
 
 	static NVVertexBufferUnifiedMemory create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -131,8 +131,6 @@ public final class NVVertexBufferUnifiedMemory {
 	 */
 	public static void glBufferAddressRangeNV(int pname, int index, long address, long length) {
 		long __functionAddress = getInstance().BufferAddressRangeNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBufferAddressRangeNV(pname, index, address, length, __functionAddress);
 	}
 
@@ -151,8 +149,6 @@ public final class NVVertexBufferUnifiedMemory {
 	 */
 	public static void glVertexFormatNV(int size, int type, int stride) {
 		long __functionAddress = getInstance().VertexFormatNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexFormatNV(size, type, stride, __functionAddress);
 	}
 
@@ -170,8 +166,6 @@ public final class NVVertexBufferUnifiedMemory {
 	 */
 	public static void glNormalFormatNV(int type, int stride) {
 		long __functionAddress = getInstance().NormalFormatNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNormalFormatNV(type, stride, __functionAddress);
 	}
 
@@ -190,8 +184,6 @@ public final class NVVertexBufferUnifiedMemory {
 	 */
 	public static void glColorFormatNV(int size, int type, int stride) {
 		long __functionAddress = getInstance().ColorFormatNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColorFormatNV(size, type, stride, __functionAddress);
 	}
 
@@ -209,8 +201,6 @@ public final class NVVertexBufferUnifiedMemory {
 	 */
 	public static void glIndexFormatNV(int type, int stride) {
 		long __functionAddress = getInstance().IndexFormatNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglIndexFormatNV(type, stride, __functionAddress);
 	}
 
@@ -229,8 +219,6 @@ public final class NVVertexBufferUnifiedMemory {
 	 */
 	public static void glTexCoordFormatNV(int size, int type, int stride) {
 		long __functionAddress = getInstance().TexCoordFormatNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoordFormatNV(size, type, stride, __functionAddress);
 	}
 
@@ -247,8 +235,6 @@ public final class NVVertexBufferUnifiedMemory {
 	 */
 	public static void glEdgeFlagFormatNV(int stride) {
 		long __functionAddress = getInstance().EdgeFlagFormatNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEdgeFlagFormatNV(stride, __functionAddress);
 	}
 
@@ -267,8 +253,6 @@ public final class NVVertexBufferUnifiedMemory {
 	 */
 	public static void glSecondaryColorFormatNV(int size, int type, int stride) {
 		long __functionAddress = getInstance().SecondaryColorFormatNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSecondaryColorFormatNV(size, type, stride, __functionAddress);
 	}
 
@@ -286,8 +270,6 @@ public final class NVVertexBufferUnifiedMemory {
 	 */
 	public static void glFogCoordFormatNV(int type, int stride) {
 		long __functionAddress = getInstance().FogCoordFormatNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFogCoordFormatNV(type, stride, __functionAddress);
 	}
 
@@ -308,8 +290,6 @@ public final class NVVertexBufferUnifiedMemory {
 	 */
 	public static void glVertexAttribFormatNV(int index, int size, int type, boolean normalized, int stride) {
 		long __functionAddress = getInstance().VertexAttribFormatNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribFormatNV(index, size, type, normalized, stride, __functionAddress);
 	}
 
@@ -329,8 +309,6 @@ public final class NVVertexBufferUnifiedMemory {
 	 */
 	public static void glVertexAttribIFormatNV(int index, int size, int type, int stride) {
 		long __functionAddress = getInstance().VertexAttribIFormatNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribIFormatNV(index, size, type, stride, __functionAddress);
 	}
 
@@ -344,8 +322,6 @@ public final class NVVertexBufferUnifiedMemory {
 	@JavadocExclude
 	public static void nglGetIntegerui64i_vNV(int value, int index, long result) {
 		long __functionAddress = getInstance().GetIntegerui64i_vNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetIntegerui64i_vNV(value, index, result, __functionAddress);
 	}
 

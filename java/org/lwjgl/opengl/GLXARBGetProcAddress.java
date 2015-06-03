@@ -37,7 +37,7 @@ public final class GLXARBGetProcAddress {
 
 	/** Returns the {@link GLXARBGetProcAddress} instance for the current context. */
 	public static GLXARBGetProcAddress getInstance() {
-		return GL.getCapabilities().__GLXARBGetProcAddress;
+		return checkFunctionality(GL.getCapabilities().__GLXARBGetProcAddress);
 	}
 
 	static GLXARBGetProcAddress create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -62,8 +62,6 @@ public final class GLXARBGetProcAddress {
 	@JavadocExclude
 	public static long nglXGetProcAddressARB(long procName) {
 		long __functionAddress = getInstance().GetProcAddressARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglXGetProcAddressARB(procName, __functionAddress);
 	}
 

@@ -59,7 +59,7 @@ public final class ARBColorBufferFloat {
 
 	/** Returns the {@link ARBColorBufferFloat} instance for the current context. */
 	public static ARBColorBufferFloat getInstance() {
-		return GL.getCapabilities().__ARBColorBufferFloat;
+		return checkFunctionality(GL.getCapabilities().__ARBColorBufferFloat);
 	}
 
 	static ARBColorBufferFloat create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -88,8 +88,6 @@ public final class ARBColorBufferFloat {
 	 */
 	public static void glClampColorARB(int target, int clamp) {
 		long __functionAddress = getInstance().ClampColorARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClampColorARB(target, clamp, __functionAddress);
 	}
 

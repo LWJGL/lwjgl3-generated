@@ -92,7 +92,7 @@ public final class ARBBindlessTexture {
 
 	/** Returns the {@link ARBBindlessTexture} instance for the current context. */
 	public static ARBBindlessTexture getInstance() {
-		return GL.getCapabilities().__ARBBindlessTexture;
+		return checkFunctionality(GL.getCapabilities().__ARBBindlessTexture);
 	}
 
 	static ARBBindlessTexture create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -124,8 +124,6 @@ public final class ARBBindlessTexture {
 	 */
 	public static long glGetTextureHandleARB(int texture) {
 		long __functionAddress = getInstance().GetTextureHandleARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGetTextureHandleARB(texture, __functionAddress);
 	}
 
@@ -168,8 +166,6 @@ public final class ARBBindlessTexture {
 	 */
 	public static long glGetTextureSamplerHandleARB(int texture, int sampler) {
 		long __functionAddress = getInstance().GetTextureSamplerHandleARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGetTextureSamplerHandleARB(texture, sampler, __functionAddress);
 	}
 
@@ -191,8 +187,6 @@ public final class ARBBindlessTexture {
 	 */
 	public static void glMakeTextureHandleResidentARB(long handle) {
 		long __functionAddress = getInstance().MakeTextureHandleResidentARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMakeTextureHandleResidentARB(handle, __functionAddress);
 	}
 
@@ -212,8 +206,6 @@ public final class ARBBindlessTexture {
 	 */
 	public static void glMakeTextureHandleNonResidentARB(long handle) {
 		long __functionAddress = getInstance().MakeTextureHandleNonResidentARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMakeTextureHandleNonResidentARB(handle, __functionAddress);
 	}
 
@@ -263,8 +255,6 @@ public final class ARBBindlessTexture {
 	 */
 	public static long glGetImageHandleARB(int texture, int level, boolean layered, int layer, int format) {
 		long __functionAddress = getInstance().GetImageHandleARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGetImageHandleARB(texture, level, layered, layer, format, __functionAddress);
 	}
 
@@ -291,8 +281,6 @@ public final class ARBBindlessTexture {
 	 */
 	public static void glMakeImageHandleResidentARB(long handle, int access) {
 		long __functionAddress = getInstance().MakeImageHandleResidentARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMakeImageHandleResidentARB(handle, access, __functionAddress);
 	}
 
@@ -309,8 +297,6 @@ public final class ARBBindlessTexture {
 	 */
 	public static void glMakeImageHandleNonResidentARB(long handle) {
 		long __functionAddress = getInstance().MakeImageHandleNonResidentARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMakeImageHandleNonResidentARB(handle, __functionAddress);
 	}
 
@@ -328,8 +314,6 @@ public final class ARBBindlessTexture {
 	 */
 	public static void glUniformHandleui64ARB(int location, long value) {
 		long __functionAddress = getInstance().UniformHandleui64ARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformHandleui64ARB(location, value, __functionAddress);
 	}
 
@@ -343,8 +327,6 @@ public final class ARBBindlessTexture {
 	@JavadocExclude
 	public static void nglUniformHandleui64vARB(int location, int count, long values) {
 		long __functionAddress = getInstance().UniformHandleui64vARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformHandleui64vARB(location, count, values, __functionAddress);
 	}
 
@@ -381,8 +363,6 @@ public final class ARBBindlessTexture {
 	 */
 	public static void glProgramUniformHandleui64ARB(int program, int location, long value) {
 		long __functionAddress = getInstance().ProgramUniformHandleui64ARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniformHandleui64ARB(program, location, value, __functionAddress);
 	}
 
@@ -396,8 +376,6 @@ public final class ARBBindlessTexture {
 	@JavadocExclude
 	public static void nglProgramUniformHandleui64vARB(int program, int location, int count, long values) {
 		long __functionAddress = getInstance().ProgramUniformHandleui64vARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglProgramUniformHandleui64vARB(program, location, count, values, __functionAddress);
 	}
 
@@ -433,8 +411,6 @@ public final class ARBBindlessTexture {
 	 */
 	public static boolean glIsTextureHandleResidentARB(long handle) {
 		long __functionAddress = getInstance().IsTextureHandleResidentARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsTextureHandleResidentARB(handle, __functionAddress);
 	}
 
@@ -451,8 +427,6 @@ public final class ARBBindlessTexture {
 	 */
 	public static boolean glIsImageHandleResidentARB(long handle) {
 		long __functionAddress = getInstance().IsImageHandleResidentARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsImageHandleResidentARB(handle, __functionAddress);
 	}
 
@@ -470,8 +444,6 @@ public final class ARBBindlessTexture {
 	 */
 	public static void glVertexAttribL1ui64ARB(int index, long x) {
 		long __functionAddress = getInstance().VertexAttribL1ui64ARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribL1ui64ARB(index, x, __functionAddress);
 	}
 
@@ -485,8 +457,6 @@ public final class ARBBindlessTexture {
 	@JavadocExclude
 	public static void nglVertexAttribL1ui64vARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL1ui64vARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribL1ui64vARB(index, v, __functionAddress);
 	}
 
@@ -515,8 +485,6 @@ public final class ARBBindlessTexture {
 	@JavadocExclude
 	public static void nglGetVertexAttribLui64vARB(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribLui64vARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetVertexAttribLui64vARB(index, pname, params, __functionAddress);
 	}
 

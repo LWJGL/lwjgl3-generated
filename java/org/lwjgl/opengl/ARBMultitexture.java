@@ -143,7 +143,7 @@ public final class ARBMultitexture {
 
 	/** Returns the {@link ARBMultitexture} instance for the current context. */
 	public static ARBMultitexture getInstance() {
-		return GL.getCapabilities().__ARBMultitexture;
+		return checkFunctionality(GL.getCapabilities().__ARBMultitexture);
 	}
 
 	static ARBMultitexture create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -178,8 +178,6 @@ public final class ARBMultitexture {
 	 */
 	public static void glActiveTextureARB(int texture) {
 		long __functionAddress = getInstance().ActiveTextureARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglActiveTextureARB(texture, __functionAddress);
 	}
 
@@ -197,8 +195,6 @@ public final class ARBMultitexture {
 	 */
 	public static void glClientActiveTextureARB(int texture) {
 		long __functionAddress = getInstance().ClientActiveTextureARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClientActiveTextureARB(texture, __functionAddress);
 	}
 
@@ -216,8 +212,6 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord1fARB(int texture, float s) {
 		long __functionAddress = getInstance().MultiTexCoord1fARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord1fARB(texture, s, __functionAddress);
 	}
 
@@ -235,8 +229,6 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord1sARB(int texture, short s) {
 		long __functionAddress = getInstance().MultiTexCoord1sARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord1sARB(texture, s, __functionAddress);
 	}
 
@@ -254,8 +246,6 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord1iARB(int texture, int s) {
 		long __functionAddress = getInstance().MultiTexCoord1iARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord1iARB(texture, s, __functionAddress);
 	}
 
@@ -273,8 +263,6 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord1dARB(int texture, double s) {
 		long __functionAddress = getInstance().MultiTexCoord1dARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord1dARB(texture, s, __functionAddress);
 	}
 
@@ -288,8 +276,6 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord1fvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1fvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord1fvARB(texture, v, __functionAddress);
 	}
 
@@ -322,8 +308,6 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord1svARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1svARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord1svARB(texture, v, __functionAddress);
 	}
 
@@ -356,8 +340,6 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord1ivARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1ivARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord1ivARB(texture, v, __functionAddress);
 	}
 
@@ -390,8 +372,6 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord1dvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1dvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord1dvARB(texture, v, __functionAddress);
 	}
 
@@ -429,8 +409,6 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord2fARB(int texture, float s, float t) {
 		long __functionAddress = getInstance().MultiTexCoord2fARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord2fARB(texture, s, t, __functionAddress);
 	}
 
@@ -449,8 +427,6 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord2sARB(int texture, short s, short t) {
 		long __functionAddress = getInstance().MultiTexCoord2sARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord2sARB(texture, s, t, __functionAddress);
 	}
 
@@ -469,8 +445,6 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord2iARB(int texture, int s, int t) {
 		long __functionAddress = getInstance().MultiTexCoord2iARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord2iARB(texture, s, t, __functionAddress);
 	}
 
@@ -489,8 +463,6 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord2dARB(int texture, double s, double t) {
 		long __functionAddress = getInstance().MultiTexCoord2dARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord2dARB(texture, s, t, __functionAddress);
 	}
 
@@ -504,8 +476,6 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord2fvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2fvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord2fvARB(texture, v, __functionAddress);
 	}
 
@@ -538,8 +508,6 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord2svARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2svARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord2svARB(texture, v, __functionAddress);
 	}
 
@@ -572,8 +540,6 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord2ivARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2ivARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord2ivARB(texture, v, __functionAddress);
 	}
 
@@ -606,8 +572,6 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord2dvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2dvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord2dvARB(texture, v, __functionAddress);
 	}
 
@@ -646,8 +610,6 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord3fARB(int texture, float s, float t, float r) {
 		long __functionAddress = getInstance().MultiTexCoord3fARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord3fARB(texture, s, t, r, __functionAddress);
 	}
 
@@ -667,8 +629,6 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord3sARB(int texture, short s, short t, short r) {
 		long __functionAddress = getInstance().MultiTexCoord3sARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord3sARB(texture, s, t, r, __functionAddress);
 	}
 
@@ -688,8 +648,6 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord3iARB(int texture, int s, int t, int r) {
 		long __functionAddress = getInstance().MultiTexCoord3iARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord3iARB(texture, s, t, r, __functionAddress);
 	}
 
@@ -709,8 +667,6 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord3dARB(int texture, double s, double t, double r) {
 		long __functionAddress = getInstance().MultiTexCoord3dARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord3dARB(texture, s, t, r, __functionAddress);
 	}
 
@@ -724,8 +680,6 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord3fvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3fvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord3fvARB(texture, v, __functionAddress);
 	}
 
@@ -758,8 +712,6 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord3svARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3svARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord3svARB(texture, v, __functionAddress);
 	}
 
@@ -792,8 +744,6 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord3ivARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3ivARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord3ivARB(texture, v, __functionAddress);
 	}
 
@@ -826,8 +776,6 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord3dvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3dvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord3dvARB(texture, v, __functionAddress);
 	}
 
@@ -867,8 +815,6 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord4fARB(int texture, float s, float t, float r, float q) {
 		long __functionAddress = getInstance().MultiTexCoord4fARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord4fARB(texture, s, t, r, q, __functionAddress);
 	}
 
@@ -889,8 +835,6 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord4sARB(int texture, short s, short t, short r, short q) {
 		long __functionAddress = getInstance().MultiTexCoord4sARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord4sARB(texture, s, t, r, q, __functionAddress);
 	}
 
@@ -911,8 +855,6 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord4iARB(int texture, int s, int t, int r, int q) {
 		long __functionAddress = getInstance().MultiTexCoord4iARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord4iARB(texture, s, t, r, q, __functionAddress);
 	}
 
@@ -933,8 +875,6 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord4dARB(int texture, double s, double t, double r, double q) {
 		long __functionAddress = getInstance().MultiTexCoord4dARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord4dARB(texture, s, t, r, q, __functionAddress);
 	}
 
@@ -948,8 +888,6 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord4fvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4fvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord4fvARB(texture, v, __functionAddress);
 	}
 
@@ -982,8 +920,6 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord4svARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4svARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord4svARB(texture, v, __functionAddress);
 	}
 
@@ -1016,8 +952,6 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord4ivARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4ivARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord4ivARB(texture, v, __functionAddress);
 	}
 
@@ -1050,8 +984,6 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord4dvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4dvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoord4dvARB(texture, v, __functionAddress);
 	}
 

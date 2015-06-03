@@ -186,7 +186,7 @@ public final class ARBInternalformatQuery2 {
 
 	/** Returns the {@link ARBInternalformatQuery2} instance for the current context. */
 	public static ARBInternalformatQuery2 getInstance() {
-		return GL.getCapabilities().__ARBInternalformatQuery2;
+		return checkFunctionality(GL.getCapabilities().__ARBInternalformatQuery2);
 	}
 
 	static ARBInternalformatQuery2 create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -207,8 +207,6 @@ public final class ARBInternalformatQuery2 {
 	@JavadocExclude
 	public static void nglGetInternalformati64v(int target, int internalformat, int pname, int bufSize, long params) {
 		long __functionAddress = getInstance().GetInternalformati64v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglGetInternalformati64v(target, internalformat, pname, bufSize, params, __functionAddress);
 	}
 

@@ -44,7 +44,7 @@ public final class ARBTextureStorageMultisample {
 
 	/** Returns the {@link ARBTextureStorageMultisample} instance for the current context. */
 	public static ARBTextureStorageMultisample getInstance() {
-		return GL.getCapabilities().__ARBTextureStorageMultisample;
+		return checkFunctionality(GL.getCapabilities().__ARBTextureStorageMultisample);
 	}
 
 	static ARBTextureStorageMultisample create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -76,8 +76,6 @@ public final class ARBTextureStorageMultisample {
 	 */
 	public static void glTexStorage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TexStorage2DMultisample;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglTexStorage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations, __functionAddress);
 	}
 
@@ -97,8 +95,6 @@ public final class ARBTextureStorageMultisample {
 	 */
 	public static void glTexStorage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TexStorage3DMultisample;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglTexStorage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations, __functionAddress);
 	}
 

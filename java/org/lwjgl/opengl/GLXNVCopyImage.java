@@ -34,7 +34,7 @@ public final class GLXNVCopyImage {
 
 	/** Returns the {@link GLXNVCopyImage} instance for the current context. */
 	public static GLXNVCopyImage getInstance() {
-		return GL.getCapabilities().__GLXNVCopyImage;
+		return checkFunctionality(GL.getCapabilities().__GLXNVCopyImage);
 	}
 
 	static GLXNVCopyImage create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -81,10 +81,8 @@ public final class GLXNVCopyImage {
 	 */
 	public static void glXCopyImageSubDataNV(long display, long srcCtx, int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, long dstCtx, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth) {
 		long __functionAddress = getInstance().CopyImageSubDataNV;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		}
 		nglXCopyImageSubDataNV(display, srcCtx, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstCtx, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth, __functionAddress);
 	}
 

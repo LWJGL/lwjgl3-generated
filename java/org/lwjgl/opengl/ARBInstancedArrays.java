@@ -51,7 +51,7 @@ public final class ARBInstancedArrays {
 
 	/** Returns the {@link ARBInstancedArrays} instance for the current context. */
 	public static ARBInstancedArrays getInstance() {
-		return GL.getCapabilities().__ARBInstancedArrays;
+		return checkFunctionality(GL.getCapabilities().__ARBInstancedArrays);
 	}
 
 	static ARBInstancedArrays create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -82,8 +82,6 @@ public final class ARBInstancedArrays {
 	 */
 	public static void glVertexAttribDivisorARB(int index, int divisor) {
 		long __functionAddress = getInstance().VertexAttribDivisorARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribDivisorARB(index, divisor, __functionAddress);
 	}
 

@@ -114,7 +114,7 @@ public final class SOFTBufferSamples {
 
 	/** Returns the {@link SOFTBufferSamples} instance for the current context. */
 	public static SOFTBufferSamples getInstance() {
-		return AL.getCapabilities().__SOFTBufferSamples;
+		return checkFunctionality(AL.getCapabilities().__SOFTBufferSamples);
 	}
 
 	static SOFTBufferSamples create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -139,8 +139,6 @@ public final class SOFTBufferSamples {
 	@JavadocExclude
 	public static void nalBufferSamplesSOFT(int buffer, int samplerate, int internalformat, int samples, int channels, int type, long data) {
 		long __functionAddress = getInstance().BufferSamplesSOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalBufferSamplesSOFT(buffer, samplerate, internalformat, samples, channels, type, data, __functionAddress);
 	}
 
@@ -187,8 +185,6 @@ public final class SOFTBufferSamples {
 	 */
 	public static boolean alIsBufferFormatSupportedSOFT(int format) {
 		long __functionAddress = getInstance().IsBufferFormatSupportedSOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalIsBufferFormatSupportedSOFT(format, __functionAddress);
 	}
 
@@ -202,8 +198,6 @@ public final class SOFTBufferSamples {
 	@JavadocExclude
 	public static void nalBufferSubSamplesSOFT(int buffer, int offset, int samples, int channels, int type, long data) {
 		long __functionAddress = getInstance().BufferSubSamplesSOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalBufferSubSamplesSOFT(buffer, offset, samples, channels, type, data, __functionAddress);
 	}
 
@@ -239,8 +233,6 @@ public final class SOFTBufferSamples {
 	@JavadocExclude
 	public static void nalGetBufferSamplesSOFT(int buffer, int offset, int samples, int channels, int type, long data) {
 		long __functionAddress = getInstance().GetBufferSamplesSOFT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetBufferSamplesSOFT(buffer, offset, samples, channels, type, data, __functionAddress);
 	}
 

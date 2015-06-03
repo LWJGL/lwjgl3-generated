@@ -142,7 +142,7 @@ public final class ARBRobustness {
 
 	/** Returns the {@link ARBRobustness} instance for the current context. */
 	public static ARBRobustness getInstance() {
-		return GL.getCapabilities().__ARBRobustness;
+		return checkFunctionality(GL.getCapabilities().__ARBRobustness);
 	}
 
 	static ARBRobustness create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -200,8 +200,6 @@ public final class ARBRobustness {
 	 */
 	public static int glGetGraphicsResetStatusARB() {
 		long __functionAddress = getInstance().GetGraphicsResetStatusARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGetGraphicsResetStatusARB(__functionAddress);
 	}
 
@@ -551,8 +549,6 @@ public final class ARBRobustness {
 	@JavadocExclude
 	public static void nglReadnPixelsARB(int x, int y, int width, int height, int format, int type, int bufSize, long data) {
 		long __functionAddress = getInstance().ReadnPixelsARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglReadnPixelsARB(x, y, width, height, format, type, bufSize, data, __functionAddress);
 	}
 

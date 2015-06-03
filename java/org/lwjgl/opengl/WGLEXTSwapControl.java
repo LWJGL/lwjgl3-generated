@@ -35,7 +35,7 @@ public final class WGLEXTSwapControl {
 
 	/** Returns the {@link WGLEXTSwapControl} instance for the current context. */
 	public static WGLEXTSwapControl getInstance() {
-		return GL.getCapabilities().__WGLEXTSwapControl;
+		return checkFunctionality(GL.getCapabilities().__WGLEXTSwapControl);
 	}
 
 	static WGLEXTSwapControl create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -73,8 +73,6 @@ public final class WGLEXTSwapControl {
 	 */
 	public static int wglSwapIntervalEXT(int interval) {
 		long __functionAddress = getInstance().SwapIntervalEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nwglSwapIntervalEXT(interval, __functionAddress);
 	}
 
@@ -87,8 +85,6 @@ public final class WGLEXTSwapControl {
 	/** Returns the current swap interval for the window associated with the current context. */
 	public static int wglGetSwapIntervalEXT() {
 		long __functionAddress = getInstance().GetSwapIntervalEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nwglGetSwapIntervalEXT(__functionAddress);
 	}
 

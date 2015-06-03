@@ -73,7 +73,7 @@ public final class KHRRobustness {
 
 	/** Returns the {@link KHRRobustness} instance for the current context. */
 	public static KHRRobustness getInstance() {
-		return GL.getCapabilities().__KHRRobustness;
+		return checkFunctionality(GL.getCapabilities().__KHRRobustness);
 	}
 
 	static KHRRobustness create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -124,8 +124,6 @@ public final class KHRRobustness {
 	 */
 	public static int glGetGraphicsResetStatus() {
 		long __functionAddress = getInstance().GetGraphicsResetStatus;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return GL45.nglGetGraphicsResetStatus(__functionAddress);
 	}
 
@@ -135,8 +133,6 @@ public final class KHRRobustness {
 	@JavadocExclude
 	public static void nglReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = getInstance().ReadnPixels;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL45.nglReadnPixels(x, y, width, height, format, type, bufSize, pixels, __functionAddress);
 	}
 
@@ -194,8 +190,6 @@ public final class KHRRobustness {
 	@JavadocExclude
 	public static void nglGetnUniformfv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL45.nglGetnUniformfv(program, location, bufSize, params, __functionAddress);
 	}
 
@@ -224,8 +218,6 @@ public final class KHRRobustness {
 	@JavadocExclude
 	public static void nglGetnUniformiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL45.nglGetnUniformiv(program, location, bufSize, params, __functionAddress);
 	}
 
@@ -254,8 +246,6 @@ public final class KHRRobustness {
 	@JavadocExclude
 	public static void nglGetnUniformuiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL45.nglGetnUniformuiv(program, location, bufSize, params, __functionAddress);
 	}
 

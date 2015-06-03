@@ -213,7 +213,7 @@ public final class GL33 {
 
 	/** Returns the {@link GL33} instance for the current context. */
 	public static GL33 getInstance() {
-		return GL.getCapabilities().__GL33;
+		return checkFunctionality(GL.getCapabilities().__GL33);
 	}
 
 	static GL33 create(java.util.Set<String> ext, FunctionProvider provider, boolean fc) {
@@ -248,8 +248,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name) {
 		long __functionAddress = getInstance().BindFragDataLocationIndexed;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindFragDataLocationIndexed(program, colorNumber, index, name, __functionAddress);
 	}
 
@@ -286,8 +284,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static int nglGetFragDataIndex(int program, long name) {
 		long __functionAddress = getInstance().GetFragDataIndex;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGetFragDataIndex(program, name, __functionAddress);
 	}
 
@@ -322,8 +318,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglGenSamplers(int count, long samplers) {
 		long __functionAddress = getInstance().GenSamplers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGenSamplers(count, samplers, __functionAddress);
 	}
 
@@ -364,8 +358,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglDeleteSamplers(int count, long samplers) {
 		long __functionAddress = getInstance().DeleteSamplers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDeleteSamplers(count, samplers, __functionAddress);
 	}
 
@@ -410,8 +402,6 @@ public final class GL33 {
 	 */
 	public static boolean glIsSampler(int sampler) {
 		long __functionAddress = getInstance().IsSampler;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsSampler(sampler, __functionAddress);
 	}
 
@@ -431,8 +421,6 @@ public final class GL33 {
 	 */
 	public static void glBindSampler(int unit, int sampler) {
 		long __functionAddress = getInstance().BindSampler;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindSampler(unit, sampler, __functionAddress);
 	}
 
@@ -453,8 +441,6 @@ public final class GL33 {
 	 */
 	public static void glSamplerParameteri(int sampler, int pname, int param) {
 		long __functionAddress = getInstance().SamplerParameteri;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSamplerParameteri(sampler, pname, param, __functionAddress);
 	}
 
@@ -475,8 +461,6 @@ public final class GL33 {
 	 */
 	public static void glSamplerParameterf(int sampler, int pname, float param) {
 		long __functionAddress = getInstance().SamplerParameterf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSamplerParameterf(sampler, pname, param, __functionAddress);
 	}
 
@@ -490,8 +474,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSamplerParameteriv(sampler, pname, params, __functionAddress);
 	}
 
@@ -523,8 +505,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSamplerParameterfv(sampler, pname, params, __functionAddress);
 	}
 
@@ -556,8 +536,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterIiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSamplerParameterIiv(sampler, pname, params, __functionAddress);
 	}
 
@@ -589,8 +567,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterIuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSamplerParameterIuiv(sampler, pname, params, __functionAddress);
 	}
 
@@ -622,8 +598,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglGetSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetSamplerParameteriv(sampler, pname, params, __functionAddress);
 	}
 
@@ -667,8 +641,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglGetSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetSamplerParameterfv(sampler, pname, params, __functionAddress);
 	}
 
@@ -712,8 +684,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglGetSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetSamplerParameterIiv(sampler, pname, params, __functionAddress);
 	}
 
@@ -757,8 +727,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglGetSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetSamplerParameterIuiv(sampler, pname, params, __functionAddress);
 	}
 
@@ -808,8 +776,6 @@ public final class GL33 {
 	 */
 	public static void glQueryCounter(int id, int target) {
 		long __functionAddress = getInstance().QueryCounter;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglQueryCounter(id, target, __functionAddress);
 	}
 
@@ -823,8 +789,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglGetQueryObjecti64v(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjecti64v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetQueryObjecti64v(id, pname, params, __functionAddress);
 	}
 
@@ -868,8 +832,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglGetQueryObjectui64v(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectui64v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetQueryObjectui64v(id, pname, params, __functionAddress);
 	}
 
@@ -919,8 +881,6 @@ public final class GL33 {
 	 */
 	public static void glVertexAttribDivisor(int index, int divisor) {
 		long __functionAddress = getInstance().VertexAttribDivisor;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribDivisor(index, divisor, __functionAddress);
 	}
 
@@ -940,8 +900,6 @@ public final class GL33 {
 	 */
 	public static void glVertexP2ui(int type, int value) {
 		long __functionAddress = getInstance().VertexP2ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexP2ui(type, value, __functionAddress);
 	}
 
@@ -961,8 +919,6 @@ public final class GL33 {
 	 */
 	public static void glVertexP3ui(int type, int value) {
 		long __functionAddress = getInstance().VertexP3ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexP3ui(type, value, __functionAddress);
 	}
 
@@ -982,8 +938,6 @@ public final class GL33 {
 	 */
 	public static void glVertexP4ui(int type, int value) {
 		long __functionAddress = getInstance().VertexP4ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexP4ui(type, value, __functionAddress);
 	}
 
@@ -997,8 +951,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglVertexP2uiv(int type, long value) {
 		long __functionAddress = getInstance().VertexP2uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexP2uiv(type, value, __functionAddress);
 	}
 
@@ -1033,8 +985,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglVertexP3uiv(int type, long value) {
 		long __functionAddress = getInstance().VertexP3uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexP3uiv(type, value, __functionAddress);
 	}
 
@@ -1069,8 +1019,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglVertexP4uiv(int type, long value) {
 		long __functionAddress = getInstance().VertexP4uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexP4uiv(type, value, __functionAddress);
 	}
 
@@ -1111,8 +1059,6 @@ public final class GL33 {
 	 */
 	public static void glTexCoordP1ui(int type, int coords) {
 		long __functionAddress = getInstance().TexCoordP1ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoordP1ui(type, coords, __functionAddress);
 	}
 
@@ -1132,8 +1078,6 @@ public final class GL33 {
 	 */
 	public static void glTexCoordP2ui(int type, int coords) {
 		long __functionAddress = getInstance().TexCoordP2ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoordP2ui(type, coords, __functionAddress);
 	}
 
@@ -1153,8 +1097,6 @@ public final class GL33 {
 	 */
 	public static void glTexCoordP3ui(int type, int coords) {
 		long __functionAddress = getInstance().TexCoordP3ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoordP3ui(type, coords, __functionAddress);
 	}
 
@@ -1174,8 +1116,6 @@ public final class GL33 {
 	 */
 	public static void glTexCoordP4ui(int type, int coords) {
 		long __functionAddress = getInstance().TexCoordP4ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoordP4ui(type, coords, __functionAddress);
 	}
 
@@ -1189,8 +1129,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglTexCoordP1uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP1uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoordP1uiv(type, coords, __functionAddress);
 	}
 
@@ -1225,8 +1163,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglTexCoordP2uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP2uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoordP2uiv(type, coords, __functionAddress);
 	}
 
@@ -1261,8 +1197,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglTexCoordP3uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP3uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoordP3uiv(type, coords, __functionAddress);
 	}
 
@@ -1297,8 +1231,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglTexCoordP4uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP4uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexCoordP4uiv(type, coords, __functionAddress);
 	}
 
@@ -1340,8 +1272,6 @@ public final class GL33 {
 	 */
 	public static void glMultiTexCoordP1ui(int texture, int type, int coords) {
 		long __functionAddress = getInstance().MultiTexCoordP1ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoordP1ui(texture, type, coords, __functionAddress);
 	}
 
@@ -1362,8 +1292,6 @@ public final class GL33 {
 	 */
 	public static void glMultiTexCoordP2ui(int texture, int type, int coords) {
 		long __functionAddress = getInstance().MultiTexCoordP2ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoordP2ui(texture, type, coords, __functionAddress);
 	}
 
@@ -1384,8 +1312,6 @@ public final class GL33 {
 	 */
 	public static void glMultiTexCoordP3ui(int texture, int type, int coords) {
 		long __functionAddress = getInstance().MultiTexCoordP3ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoordP3ui(texture, type, coords, __functionAddress);
 	}
 
@@ -1406,8 +1332,6 @@ public final class GL33 {
 	 */
 	public static void glMultiTexCoordP4ui(int texture, int type, int coords) {
 		long __functionAddress = getInstance().MultiTexCoordP4ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoordP4ui(texture, type, coords, __functionAddress);
 	}
 
@@ -1421,8 +1345,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglMultiTexCoordP1uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP1uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoordP1uiv(texture, type, coords, __functionAddress);
 	}
 
@@ -1458,8 +1380,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglMultiTexCoordP2uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP2uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoordP2uiv(texture, type, coords, __functionAddress);
 	}
 
@@ -1495,8 +1415,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglMultiTexCoordP3uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP3uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoordP3uiv(texture, type, coords, __functionAddress);
 	}
 
@@ -1532,8 +1450,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglMultiTexCoordP4uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP4uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMultiTexCoordP4uiv(texture, type, coords, __functionAddress);
 	}
 
@@ -1575,8 +1491,6 @@ public final class GL33 {
 	 */
 	public static void glNormalP3ui(int type, int coords) {
 		long __functionAddress = getInstance().NormalP3ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNormalP3ui(type, coords, __functionAddress);
 	}
 
@@ -1590,8 +1504,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglNormalP3uiv(int type, long coords) {
 		long __functionAddress = getInstance().NormalP3uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNormalP3uiv(type, coords, __functionAddress);
 	}
 
@@ -1632,8 +1544,6 @@ public final class GL33 {
 	 */
 	public static void glColorP3ui(int type, int color) {
 		long __functionAddress = getInstance().ColorP3ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColorP3ui(type, color, __functionAddress);
 	}
 
@@ -1653,8 +1563,6 @@ public final class GL33 {
 	 */
 	public static void glColorP4ui(int type, int color) {
 		long __functionAddress = getInstance().ColorP4ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColorP4ui(type, color, __functionAddress);
 	}
 
@@ -1668,8 +1576,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglColorP3uiv(int type, long color) {
 		long __functionAddress = getInstance().ColorP3uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColorP3uiv(type, color, __functionAddress);
 	}
 
@@ -1704,8 +1610,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglColorP4uiv(int type, long color) {
 		long __functionAddress = getInstance().ColorP4uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglColorP4uiv(type, color, __functionAddress);
 	}
 
@@ -1746,8 +1650,6 @@ public final class GL33 {
 	 */
 	public static void glSecondaryColorP3ui(int type, int color) {
 		long __functionAddress = getInstance().SecondaryColorP3ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSecondaryColorP3ui(type, color, __functionAddress);
 	}
 
@@ -1761,8 +1663,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglSecondaryColorP3uiv(int type, long color) {
 		long __functionAddress = getInstance().SecondaryColorP3uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSecondaryColorP3uiv(type, color, __functionAddress);
 	}
 
@@ -1805,8 +1705,6 @@ public final class GL33 {
 	 */
 	public static void glVertexAttribP1ui(int index, int type, boolean normalized, int value) {
 		long __functionAddress = getInstance().VertexAttribP1ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribP1ui(index, type, normalized, value, __functionAddress);
 	}
 
@@ -1828,8 +1726,6 @@ public final class GL33 {
 	 */
 	public static void glVertexAttribP2ui(int index, int type, boolean normalized, int value) {
 		long __functionAddress = getInstance().VertexAttribP2ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribP2ui(index, type, normalized, value, __functionAddress);
 	}
 
@@ -1851,8 +1747,6 @@ public final class GL33 {
 	 */
 	public static void glVertexAttribP3ui(int index, int type, boolean normalized, int value) {
 		long __functionAddress = getInstance().VertexAttribP3ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribP3ui(index, type, normalized, value, __functionAddress);
 	}
 
@@ -1874,8 +1768,6 @@ public final class GL33 {
 	 */
 	public static void glVertexAttribP4ui(int index, int type, boolean normalized, int value) {
 		long __functionAddress = getInstance().VertexAttribP4ui;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribP4ui(index, type, normalized, value, __functionAddress);
 	}
 
@@ -1889,8 +1781,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglVertexAttribP1uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP1uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribP1uiv(index, type, normalized, value, __functionAddress);
 	}
 
@@ -1927,8 +1817,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglVertexAttribP2uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP2uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribP2uiv(index, type, normalized, value, __functionAddress);
 	}
 
@@ -1965,8 +1853,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglVertexAttribP3uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP3uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribP3uiv(index, type, normalized, value, __functionAddress);
 	}
 
@@ -2003,8 +1889,6 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglVertexAttribP4uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP4uiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglVertexAttribP4uiv(index, type, normalized, value, __functionAddress);
 	}
 

@@ -44,7 +44,7 @@ public final class ARBMultiDrawIndirect {
 
 	/** Returns the {@link ARBMultiDrawIndirect} instance for the current context. */
 	public static ARBMultiDrawIndirect getInstance() {
-		return GL.getCapabilities().__ARBMultiDrawIndirect;
+		return checkFunctionality(GL.getCapabilities().__ARBMultiDrawIndirect);
 	}
 
 	static ARBMultiDrawIndirect create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -65,8 +65,6 @@ public final class ARBMultiDrawIndirect {
 	@JavadocExclude
 	public static void nglMultiDrawArraysIndirect(int mode, long indirect, int primcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawArraysIndirect;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglMultiDrawArraysIndirect(mode, indirect, primcount, stride, __functionAddress);
 	}
 
@@ -128,8 +126,6 @@ public final class ARBMultiDrawIndirect {
 	@JavadocExclude
 	public static void nglMultiDrawElementsIndirect(int mode, int type, long indirect, int primcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawElementsIndirect;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglMultiDrawElementsIndirect(mode, type, indirect, primcount, stride, __functionAddress);
 	}
 

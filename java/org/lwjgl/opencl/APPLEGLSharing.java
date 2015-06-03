@@ -52,7 +52,7 @@ public final class APPLEGLSharing {
 
 	/** Returns the {@link APPLEGLSharing} instance for the currently loaded ICD. */
 	public static APPLEGLSharing getInstance() {
-		return CL.getICD().__APPLEGLSharing;
+		return checkFunctionality(CL.getICD().__APPLEGLSharing);
 	}
 
 	static APPLEGLSharing create(FunctionProvider provider) {
@@ -76,7 +76,6 @@ public final class APPLEGLSharing {
 	public static int nclGetGLContextInfoAPPLE(long context, long platform_gl_ctx, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetGLContextInfoAPPLE;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 			checkPointer(platform_gl_ctx);
 		}

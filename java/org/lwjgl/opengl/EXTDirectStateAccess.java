@@ -602,7 +602,7 @@ public final class EXTDirectStateAccess {
 
 	/** Returns the {@link EXTDirectStateAccess} instance for the current context. */
 	public static EXTDirectStateAccess getInstance() {
-		return GL.getCapabilities().__EXTDirectStateAccess;
+		return checkFunctionality(GL.getCapabilities().__EXTDirectStateAccess);
 	}
 
 	static EXTDirectStateAccess create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -742,8 +742,6 @@ public final class EXTDirectStateAccess {
 	 */
 	public static void glClientAttribDefaultEXT(int mask) {
 		long __functionAddress = getInstance().ClientAttribDefaultEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglClientAttribDefaultEXT(mask, __functionAddress);
 	}
 
@@ -760,8 +758,6 @@ public final class EXTDirectStateAccess {
 	 */
 	public static void glPushClientAttribDefaultEXT(int mask) {
 		long __functionAddress = getInstance().PushClientAttribDefaultEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPushClientAttribDefaultEXT(mask, __functionAddress);
 	}
 
@@ -775,8 +771,6 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglMatrixLoadfEXT(int matrixMode, long m) {
 		long __functionAddress = getInstance().MatrixLoadfEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMatrixLoadfEXT(matrixMode, m, __functionAddress);
 	}
 
@@ -809,8 +803,6 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglMatrixLoaddEXT(int matrixMode, long m) {
 		long __functionAddress = getInstance().MatrixLoaddEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMatrixLoaddEXT(matrixMode, m, __functionAddress);
 	}
 
@@ -843,8 +835,6 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglMatrixMultfEXT(int matrixMode, long m) {
 		long __functionAddress = getInstance().MatrixMultfEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMatrixMultfEXT(matrixMode, m, __functionAddress);
 	}
 
@@ -877,8 +867,6 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglMatrixMultdEXT(int matrixMode, long m) {
 		long __functionAddress = getInstance().MatrixMultdEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMatrixMultdEXT(matrixMode, m, __functionAddress);
 	}
 
@@ -914,8 +902,6 @@ public final class EXTDirectStateAccess {
 	 */
 	public static void glMatrixLoadIdentityEXT(int matrixMode) {
 		long __functionAddress = getInstance().MatrixLoadIdentityEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMatrixLoadIdentityEXT(matrixMode, __functionAddress);
 	}
 
@@ -936,8 +922,6 @@ public final class EXTDirectStateAccess {
 	 */
 	public static void glMatrixRotatefEXT(int matrixMode, float angle, float x, float y, float z) {
 		long __functionAddress = getInstance().MatrixRotatefEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMatrixRotatefEXT(matrixMode, angle, x, y, z, __functionAddress);
 	}
 
@@ -958,8 +942,6 @@ public final class EXTDirectStateAccess {
 	 */
 	public static void glMatrixRotatedEXT(int matrixMode, double angle, double x, double y, double z) {
 		long __functionAddress = getInstance().MatrixRotatedEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMatrixRotatedEXT(matrixMode, angle, x, y, z, __functionAddress);
 	}
 
@@ -979,8 +961,6 @@ public final class EXTDirectStateAccess {
 	 */
 	public static void glMatrixScalefEXT(int matrixMode, float x, float y, float z) {
 		long __functionAddress = getInstance().MatrixScalefEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMatrixScalefEXT(matrixMode, x, y, z, __functionAddress);
 	}
 
@@ -1000,8 +980,6 @@ public final class EXTDirectStateAccess {
 	 */
 	public static void glMatrixScaledEXT(int matrixMode, double x, double y, double z) {
 		long __functionAddress = getInstance().MatrixScaledEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMatrixScaledEXT(matrixMode, x, y, z, __functionAddress);
 	}
 
@@ -1021,8 +999,6 @@ public final class EXTDirectStateAccess {
 	 */
 	public static void glMatrixTranslatefEXT(int matrixMode, float x, float y, float z) {
 		long __functionAddress = getInstance().MatrixTranslatefEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMatrixTranslatefEXT(matrixMode, x, y, z, __functionAddress);
 	}
 
@@ -1042,8 +1018,6 @@ public final class EXTDirectStateAccess {
 	 */
 	public static void glMatrixTranslatedEXT(int matrixMode, double x, double y, double z) {
 		long __functionAddress = getInstance().MatrixTranslatedEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMatrixTranslatedEXT(matrixMode, x, y, z, __functionAddress);
 	}
 
@@ -1066,8 +1040,6 @@ public final class EXTDirectStateAccess {
 	 */
 	public static void glMatrixOrthoEXT(int matrixMode, double l, double r, double b, double t, double n, double f) {
 		long __functionAddress = getInstance().MatrixOrthoEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMatrixOrthoEXT(matrixMode, l, r, b, t, n, f, __functionAddress);
 	}
 
@@ -1090,8 +1062,6 @@ public final class EXTDirectStateAccess {
 	 */
 	public static void glMatrixFrustumEXT(int matrixMode, double l, double r, double b, double t, double n, double f) {
 		long __functionAddress = getInstance().MatrixFrustumEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMatrixFrustumEXT(matrixMode, l, r, b, t, n, f, __functionAddress);
 	}
 
@@ -1108,8 +1078,6 @@ public final class EXTDirectStateAccess {
 	 */
 	public static void glMatrixPushEXT(int matrixMode) {
 		long __functionAddress = getInstance().MatrixPushEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMatrixPushEXT(matrixMode, __functionAddress);
 	}
 
@@ -1126,8 +1094,6 @@ public final class EXTDirectStateAccess {
 	 */
 	public static void glMatrixPopEXT(int matrixMode) {
 		long __functionAddress = getInstance().MatrixPopEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglMatrixPopEXT(matrixMode, __functionAddress);
 	}
 
@@ -1147,8 +1113,6 @@ public final class EXTDirectStateAccess {
 	 */
 	public static void glTextureParameteriEXT(int texture, int target, int pname, int param) {
 		long __functionAddress = getInstance().TextureParameteriEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureParameteriEXT(texture, target, pname, param, __functionAddress);
 	}
 
@@ -1162,8 +1126,6 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglTextureParameterivEXT(int texture, int target, int pname, long param) {
 		long __functionAddress = getInstance().TextureParameterivEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureParameterivEXT(texture, target, pname, param, __functionAddress);
 	}
 
@@ -1204,8 +1166,6 @@ public final class EXTDirectStateAccess {
 	 */
 	public static void glTextureParameterfEXT(int texture, int target, int pname, float param) {
 		long __functionAddress = getInstance().TextureParameterfEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureParameterfEXT(texture, target, pname, param, __functionAddress);
 	}
 
@@ -1219,8 +1179,6 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglTextureParameterfvEXT(int texture, int target, int pname, long param) {
 		long __functionAddress = getInstance().TextureParameterfvEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureParameterfvEXT(texture, target, pname, param, __functionAddress);
 	}
 
@@ -1255,8 +1213,6 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureImage1DEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureImage1DEXT(texture, target, level, internalformat, width, border, format, type, pixels, __functionAddress);
 	}
 
@@ -1324,8 +1280,6 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureImage2DEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureImage2DEXT(texture, target, level, internalformat, width, height, border, format, type, pixels, __functionAddress);
 	}
 
@@ -1394,8 +1348,6 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureSubImage1DEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureSubImage1DEXT(texture, target, level, xoffset, width, format, type, pixels, __functionAddress);
 	}
 
@@ -1462,8 +1414,6 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureSubImage2DEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, width, height, format, type, pixels, __functionAddress);
 	}
 
@@ -1542,8 +1492,6 @@ public final class EXTDirectStateAccess {
 	 */
 	public static void glCopyTextureImage1DEXT(int texture, int target, int level, int internalformat, int x, int y, int width, int border) {
 		long __functionAddress = getInstance().CopyTextureImage1DEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCopyTextureImage1DEXT(texture, target, level, internalformat, x, y, width, border, __functionAddress);
 	}
 
@@ -1568,8 +1516,6 @@ public final class EXTDirectStateAccess {
 	 */
 	public static void glCopyTextureImage2DEXT(int texture, int target, int level, int internalformat, int x, int y, int width, int height, int border) {
 		long __functionAddress = getInstance().CopyTextureImage2DEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCopyTextureImage2DEXT(texture, target, level, internalformat, x, y, width, height, border, __functionAddress);
 	}
 
@@ -1592,8 +1538,6 @@ public final class EXTDirectStateAccess {
 	 */
 	public static void glCopyTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int x, int y, int width) {
 		long __functionAddress = getInstance().CopyTextureSubImage1DEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCopyTextureSubImage1DEXT(texture, target, level, xoffset, x, y, width, __functionAddress);
 	}
 
@@ -1618,8 +1562,6 @@ public final class EXTDirectStateAccess {
 	 */
 	public static void glCopyTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().CopyTextureSubImage2DEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCopyTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, x, y, width, height, __functionAddress);
 	}
 
@@ -1633,8 +1575,6 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetTextureImageEXT(int texture, int target, int level, int format, int type, long pixels) {
 		long __functionAddress = getInstance().GetTextureImageEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTextureImageEXT(texture, target, level, format, type, pixels, __functionAddress);
 	}
 
@@ -1699,8 +1639,6 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetTextureParameterfvEXT(int texture, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterfvEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTextureParameterfvEXT(texture, target, pname, params, __functionAddress);
 	}
 
@@ -1743,8 +1681,6 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetTextureParameterivEXT(int texture, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterivEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTextureParameterivEXT(texture, target, pname, params, __functionAddress);
 	}
 
@@ -1787,8 +1723,6 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetTextureLevelParameterfvEXT(int texture, int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureLevelParameterfvEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTextureLevelParameterfvEXT(texture, target, level, pname, params, __functionAddress);
 	}
 
@@ -1832,8 +1766,6 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetTextureLevelParameterivEXT(int texture, int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureLevelParameterivEXT;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetTextureLevelParameterivEXT(texture, target, level, pname, params, __functionAddress);
 	}
 

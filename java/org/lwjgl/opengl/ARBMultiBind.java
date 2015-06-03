@@ -58,7 +58,7 @@ public final class ARBMultiBind {
 
 	/** Returns the {@link ARBMultiBind} instance for the current context. */
 	public static ARBMultiBind getInstance() {
-		return GL.getCapabilities().__ARBMultiBind;
+		return checkFunctionality(GL.getCapabilities().__ARBMultiBind);
 	}
 
 	static ARBMultiBind create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -79,8 +79,6 @@ public final class ARBMultiBind {
 	@JavadocExclude
 	public static void nglBindBuffersBase(int target, int first, int count, long buffers) {
 		long __functionAddress = getInstance().BindBuffersBase;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL44.nglBindBuffersBase(target, first, count, buffers, __functionAddress);
 	}
 
@@ -120,8 +118,6 @@ public final class ARBMultiBind {
 	@JavadocExclude
 	public static void nglBindBuffersRange(int target, int first, int count, long buffers, long offsets, long sizes) {
 		long __functionAddress = getInstance().BindBuffersRange;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL44.nglBindBuffersRange(target, first, count, buffers, offsets, sizes, __functionAddress);
 	}
 
@@ -176,8 +172,6 @@ public final class ARBMultiBind {
 	@JavadocExclude
 	public static void nglBindTextures(int first, int count, long textures) {
 		long __functionAddress = getInstance().BindTextures;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL44.nglBindTextures(first, count, textures, __functionAddress);
 	}
 
@@ -236,8 +230,6 @@ public final class ARBMultiBind {
 	@JavadocExclude
 	public static void nglBindSamplers(int first, int count, long samplers) {
 		long __functionAddress = getInstance().BindSamplers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL44.nglBindSamplers(first, count, samplers, __functionAddress);
 	}
 
@@ -280,8 +272,6 @@ public final class ARBMultiBind {
 	@JavadocExclude
 	public static void nglBindImageTextures(int first, int count, long textures) {
 		long __functionAddress = getInstance().BindImageTextures;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL44.nglBindImageTextures(first, count, textures, __functionAddress);
 	}
 
@@ -335,8 +325,6 @@ public final class ARBMultiBind {
 	@JavadocExclude
 	public static void nglBindVertexBuffers(int first, int count, long buffers, long offsets, long strides) {
 		long __functionAddress = getInstance().BindVertexBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL44.nglBindVertexBuffers(first, count, buffers, offsets, strides, __functionAddress);
 	}
 

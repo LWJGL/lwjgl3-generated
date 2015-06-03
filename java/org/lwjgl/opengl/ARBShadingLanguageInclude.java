@@ -101,7 +101,7 @@ public final class ARBShadingLanguageInclude {
 
 	/** Returns the {@link ARBShadingLanguageInclude} instance for the current context. */
 	public static ARBShadingLanguageInclude getInstance() {
-		return GL.getCapabilities().__ARBShadingLanguageInclude;
+		return checkFunctionality(GL.getCapabilities().__ARBShadingLanguageInclude);
 	}
 
 	static ARBShadingLanguageInclude create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -127,8 +127,6 @@ public final class ARBShadingLanguageInclude {
 	@JavadocExclude
 	public static void nglNamedStringARB(int type, int namelen, long name, int stringlen, long string) {
 		long __functionAddress = getInstance().NamedStringARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNamedStringARB(type, namelen, name, stringlen, string, __functionAddress);
 	}
 
@@ -177,8 +175,6 @@ public final class ARBShadingLanguageInclude {
 	@JavadocExclude
 	public static void nglDeleteNamedStringARB(int namelen, long name) {
 		long __functionAddress = getInstance().DeleteNamedStringARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDeleteNamedStringARB(namelen, name, __functionAddress);
 	}
 
@@ -217,8 +213,6 @@ public final class ARBShadingLanguageInclude {
 	@JavadocExclude
 	public static void nglCompileShaderIncludeARB(int shader, int count, long path, long length) {
 		long __functionAddress = getInstance().CompileShaderIncludeARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCompileShaderIncludeARB(shader, count, path, length, __functionAddress);
 	}
 
@@ -259,8 +253,6 @@ public final class ARBShadingLanguageInclude {
 	@JavadocExclude
 	public static boolean nglIsNamedStringARB(int namelen, long name) {
 		long __functionAddress = getInstance().IsNamedStringARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsNamedStringARB(namelen, name, __functionAddress);
 	}
 
@@ -300,8 +292,6 @@ public final class ARBShadingLanguageInclude {
 	@JavadocExclude
 	public static void nglGetNamedStringARB(int namelen, long name, int bufSize, long stringlen, long string) {
 		long __functionAddress = getInstance().GetNamedStringARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetNamedStringARB(namelen, name, bufSize, stringlen, string, __functionAddress);
 	}
 
@@ -374,8 +364,6 @@ public final class ARBShadingLanguageInclude {
 	@JavadocExclude
 	public static void nglGetNamedStringivARB(int namelen, long name, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedStringivARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetNamedStringivARB(namelen, name, pname, params, __functionAddress);
 	}
 

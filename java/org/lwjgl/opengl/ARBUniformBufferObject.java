@@ -170,7 +170,7 @@ public final class ARBUniformBufferObject {
 
 	/** Returns the {@link ARBUniformBufferObject} instance for the current context. */
 	public static ARBUniformBufferObject getInstance() {
-		return GL.getCapabilities().__ARBUniformBufferObject;
+		return checkFunctionality(GL.getCapabilities().__ARBUniformBufferObject);
 	}
 
 	static ARBUniformBufferObject create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -192,8 +192,6 @@ public final class ARBUniformBufferObject {
 	@JavadocExclude
 	public static void nglGetUniformIndices(int program, int uniformCount, long uniformNames, long uniformIndices) {
 		long __functionAddress = getInstance().GetUniformIndices;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL31.nglGetUniformIndices(program, uniformCount, uniformNames, uniformIndices, __functionAddress);
 	}
 
@@ -248,8 +246,6 @@ public final class ARBUniformBufferObject {
 	@JavadocExclude
 	public static void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveUniformsiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL31.nglGetActiveUniformsiv(program, uniformCount, uniformIndices, pname, params, __functionAddress);
 	}
 
@@ -292,8 +288,6 @@ public final class ARBUniformBufferObject {
 	@JavadocExclude
 	public static void nglGetActiveUniformName(int program, int uniformIndex, int bufSize, long length, long uniformName) {
 		long __functionAddress = getInstance().GetActiveUniformName;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL31.nglGetActiveUniformName(program, uniformIndex, bufSize, length, uniformName, __functionAddress);
 	}
 
@@ -346,8 +340,6 @@ public final class ARBUniformBufferObject {
 	@JavadocExclude
 	public static int nglGetUniformBlockIndex(int program, long uniformBlockName) {
 		long __functionAddress = getInstance().GetUniformBlockIndex;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return GL31.nglGetUniformBlockIndex(program, uniformBlockName, __functionAddress);
 	}
 
@@ -376,8 +368,6 @@ public final class ARBUniformBufferObject {
 	@JavadocExclude
 	public static void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveUniformBlockiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL31.nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, params, __functionAddress);
 	}
 
@@ -416,8 +406,6 @@ public final class ARBUniformBufferObject {
 	@JavadocExclude
 	public static void nglGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, long length, long uniformBlockName) {
 		long __functionAddress = getInstance().GetActiveUniformBlockName;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL31.nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, length, uniformBlockName, __functionAddress);
 	}
 
@@ -477,8 +465,6 @@ public final class ARBUniformBufferObject {
 	 */
 	public static void glBindBufferRange(int target, int index, int buffer, long offset, long size) {
 		long __functionAddress = getInstance().BindBufferRange;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglBindBufferRange(target, index, buffer, offset, size, __functionAddress);
 	}
 
@@ -493,8 +479,6 @@ public final class ARBUniformBufferObject {
 	 */
 	public static void glBindBufferBase(int target, int index, int buffer) {
 		long __functionAddress = getInstance().BindBufferBase;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglBindBufferBase(target, index, buffer, __functionAddress);
 	}
 
@@ -504,8 +488,6 @@ public final class ARBUniformBufferObject {
 	@JavadocExclude
 	public static void nglGetIntegeri_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetIntegeri_v;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL30.nglGetIntegeri_v(target, index, data, __functionAddress);
 	}
 
@@ -548,8 +530,6 @@ public final class ARBUniformBufferObject {
 	 */
 	public static void glUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding) {
 		long __functionAddress = getInstance().UniformBlockBinding;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL31.nglUniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding, __functionAddress);
 	}
 

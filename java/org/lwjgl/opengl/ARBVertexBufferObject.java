@@ -141,7 +141,7 @@ public final class ARBVertexBufferObject {
 
 	/** Returns the {@link ARBVertexBufferObject} instance for the current context. */
 	public static ARBVertexBufferObject getInstance() {
-		return GL.getCapabilities().__ARBVertexBufferObject;
+		return checkFunctionality(GL.getCapabilities().__ARBVertexBufferObject);
 	}
 
 	static ARBVertexBufferObject create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -171,8 +171,6 @@ public final class ARBVertexBufferObject {
 	 */
 	public static void glBindBufferARB(int target, int buffer) {
 		long __functionAddress = getInstance().BindBufferARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindBufferARB(target, buffer, __functionAddress);
 	}
 
@@ -186,8 +184,6 @@ public final class ARBVertexBufferObject {
 	@JavadocExclude
 	public static void nglDeleteBuffersARB(int n, long buffers) {
 		long __functionAddress = getInstance().DeleteBuffersARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDeleteBuffersARB(n, buffers, __functionAddress);
 	}
 
@@ -225,8 +221,6 @@ public final class ARBVertexBufferObject {
 	@JavadocExclude
 	public static void nglGenBuffersARB(int n, long buffers) {
 		long __functionAddress = getInstance().GenBuffersARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGenBuffersARB(n, buffers, __functionAddress);
 	}
 
@@ -268,8 +262,6 @@ public final class ARBVertexBufferObject {
 	 */
 	public static boolean glIsBufferARB(int buffer) {
 		long __functionAddress = getInstance().IsBufferARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsBufferARB(buffer, __functionAddress);
 	}
 
@@ -283,8 +275,6 @@ public final class ARBVertexBufferObject {
 	@JavadocExclude
 	public static void nglBufferDataARB(int target, long size, long data, int usage) {
 		long __functionAddress = getInstance().BufferDataARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBufferDataARB(target, size, data, usage, __functionAddress);
 	}
 
@@ -358,8 +348,6 @@ public final class ARBVertexBufferObject {
 	@JavadocExclude
 	public static void nglBufferSubDataARB(int target, long offset, long size, long data) {
 		long __functionAddress = getInstance().BufferSubDataARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBufferSubDataARB(target, offset, size, data, __functionAddress);
 	}
 
@@ -392,8 +380,6 @@ public final class ARBVertexBufferObject {
 	@JavadocExclude
 	public static void nglGetBufferSubDataARB(int target, long offset, long size, long data) {
 		long __functionAddress = getInstance().GetBufferSubDataARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetBufferSubDataARB(target, offset, size, data, __functionAddress);
 	}
 
@@ -446,8 +432,6 @@ public final class ARBVertexBufferObject {
 	@JavadocExclude
 	public static long nglMapBufferARB(int target, int access) {
 		long __functionAddress = getInstance().MapBufferARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglMapBufferARB(target, access, __functionAddress);
 	}
 
@@ -500,8 +484,6 @@ public final class ARBVertexBufferObject {
 	 */
 	public static boolean glUnmapBufferARB(int target) {
 		long __functionAddress = getInstance().UnmapBufferARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglUnmapBufferARB(target, __functionAddress);
 	}
 
@@ -515,8 +497,6 @@ public final class ARBVertexBufferObject {
 	@JavadocExclude
 	public static void nglGetBufferParameterivARB(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferParameterivARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetBufferParameterivARB(target, pname, params, __functionAddress);
 	}
 
@@ -554,8 +534,6 @@ public final class ARBVertexBufferObject {
 	@JavadocExclude
 	public static void nglGetBufferPointervARB(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferPointervARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetBufferPointervARB(target, pname, params, __functionAddress);
 	}
 

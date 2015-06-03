@@ -239,7 +239,7 @@ public final class AL10 {
 
 	/** Returns the {@link AL10} instance for the current context. */
 	public static AL10 getInstance() {
-		return AL.getCapabilities().__AL10;
+		return checkFunctionality(AL.getCapabilities().__AL10);
 	}
 
 	static AL10 create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -280,8 +280,6 @@ public final class AL10 {
 	 */
 	public static int alGetError() {
 		long __functionAddress = getInstance().GetError;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalGetError(__functionAddress);
 	}
 
@@ -298,8 +296,6 @@ public final class AL10 {
 	 */
 	public static void alEnable(int target) {
 		long __functionAddress = getInstance().Enable;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalEnable(target, __functionAddress);
 	}
 
@@ -316,8 +312,6 @@ public final class AL10 {
 	 */
 	public static void alDisable(int target) {
 		long __functionAddress = getInstance().Disable;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalDisable(target, __functionAddress);
 	}
 
@@ -334,8 +328,6 @@ public final class AL10 {
 	 */
 	public static boolean alIsEnabled(int target) {
 		long __functionAddress = getInstance().IsEnabled;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalIsEnabled(target, __functionAddress);
 	}
 
@@ -352,8 +344,6 @@ public final class AL10 {
 	 */
 	public static boolean alGetBoolean(int paramName) {
 		long __functionAddress = getInstance().GetBoolean;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalGetBoolean(paramName, __functionAddress);
 	}
 
@@ -370,8 +360,6 @@ public final class AL10 {
 	 */
 	public static int alGetInteger(int paramName) {
 		long __functionAddress = getInstance().GetInteger;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalGetInteger(paramName, __functionAddress);
 	}
 
@@ -388,8 +376,6 @@ public final class AL10 {
 	 */
 	public static float alGetFloat(int paramName) {
 		long __functionAddress = getInstance().GetFloat;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalGetFloat(paramName, __functionAddress);
 	}
 
@@ -406,8 +392,6 @@ public final class AL10 {
 	 */
 	public static double alGetDouble(int paramName) {
 		long __functionAddress = getInstance().GetDouble;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalGetDouble(paramName, __functionAddress);
 	}
 
@@ -421,8 +405,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalGetBooleanv(int paramName, long dest) {
 		long __functionAddress = getInstance().GetBooleanv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetBooleanv(paramName, dest, __functionAddress);
 	}
 
@@ -448,8 +430,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalGetIntegerv(int paramName, long dest) {
 		long __functionAddress = getInstance().GetIntegerv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetIntegerv(paramName, dest, __functionAddress);
 	}
 
@@ -482,8 +462,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalGetFloatv(int paramName, long dest) {
 		long __functionAddress = getInstance().GetFloatv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetFloatv(paramName, dest, __functionAddress);
 	}
 
@@ -516,8 +494,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalGetDoublev(int paramName, long dest) {
 		long __functionAddress = getInstance().GetDoublev;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetDoublev(paramName, dest, __functionAddress);
 	}
 
@@ -550,8 +526,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static long nalGetString(int paramName) {
 		long __functionAddress = getInstance().GetString;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalGetString(paramName, __functionAddress);
 	}
 
@@ -588,8 +562,6 @@ public final class AL10 {
 	 */
 	public static void alDistanceModel(int modelName) {
 		long __functionAddress = getInstance().DistanceModel;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalDistanceModel(modelName, __functionAddress);
 	}
 
@@ -639,8 +611,6 @@ public final class AL10 {
 	 */
 	public static void alDopplerFactor(float dopplerFactor) {
 		long __functionAddress = getInstance().DopplerFactor;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalDopplerFactor(dopplerFactor, __functionAddress);
 	}
 
@@ -668,8 +638,6 @@ public final class AL10 {
 	 */
 	public static void alDopplerVelocity(float dopplerVelocity) {
 		long __functionAddress = getInstance().DopplerVelocity;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalDopplerVelocity(dopplerVelocity, __functionAddress);
 	}
 
@@ -687,8 +655,6 @@ public final class AL10 {
 	 */
 	public static void alListenerf(int paramName, float value) {
 		long __functionAddress = getInstance().Listenerf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalListenerf(paramName, value, __functionAddress);
 	}
 
@@ -706,8 +672,6 @@ public final class AL10 {
 	 */
 	public static void alListeneri(int paramName, int values) {
 		long __functionAddress = getInstance().Listeneri;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalListeneri(paramName, values, __functionAddress);
 	}
 
@@ -727,8 +691,6 @@ public final class AL10 {
 	 */
 	public static void alListener3f(int paramName, float value1, float value2, float value3) {
 		long __functionAddress = getInstance().Listener3f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalListener3f(paramName, value1, value2, value3, __functionAddress);
 	}
 
@@ -742,8 +704,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalListenerfv(int paramName, long values) {
 		long __functionAddress = getInstance().Listenerfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalListenerfv(paramName, values, __functionAddress);
 	}
 
@@ -776,8 +736,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalGetListenerf(int paramName, long value) {
 		long __functionAddress = getInstance().GetListenerf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetListenerf(paramName, value, __functionAddress);
 	}
 
@@ -818,8 +776,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalGetListeneri(int paramName, long value) {
 		long __functionAddress = getInstance().GetListeneri;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetListeneri(paramName, value, __functionAddress);
 	}
 
@@ -860,8 +816,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalGetListener3f(int paramName, long value1, long value2, long value3) {
 		long __functionAddress = getInstance().GetListener3f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetListener3f(paramName, value1, value2, value3, __functionAddress);
 	}
 
@@ -902,8 +856,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalGetListenerfv(int paramName, long values) {
 		long __functionAddress = getInstance().GetListenerfv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetListenerfv(paramName, values, __functionAddress);
 	}
 
@@ -936,8 +888,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalGenSources(int n, long srcNames) {
 		long __functionAddress = getInstance().GenSources;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGenSources(n, srcNames, __functionAddress);
 	}
 
@@ -976,8 +926,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalDeleteSources(int n, long sources) {
 		long __functionAddress = getInstance().DeleteSources;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalDeleteSources(n, sources, __functionAddress);
 	}
 
@@ -1018,8 +966,6 @@ public final class AL10 {
 	 */
 	public static boolean alIsSource(int sourceName) {
 		long __functionAddress = getInstance().IsSource;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalIsSource(sourceName, __functionAddress);
 	}
 
@@ -1038,8 +984,6 @@ public final class AL10 {
 	 */
 	public static void alSourcef(int source, int param, float value) {
 		long __functionAddress = getInstance().Sourcef;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSourcef(source, param, value, __functionAddress);
 	}
 
@@ -1060,8 +1004,6 @@ public final class AL10 {
 	 */
 	public static void alSource3f(int source, int param, float v1, float v2, float v3) {
 		long __functionAddress = getInstance().Source3f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSource3f(source, param, v1, v2, v3, __functionAddress);
 	}
 
@@ -1075,8 +1017,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalSourcefv(int source, int param, long values) {
 		long __functionAddress = getInstance().Sourcefv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSourcefv(source, param, values, __functionAddress);
 	}
 
@@ -1115,8 +1055,6 @@ public final class AL10 {
 	 */
 	public static void alSourcei(int source, int param, int value) {
 		long __functionAddress = getInstance().Sourcei;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSourcei(source, param, value, __functionAddress);
 	}
 
@@ -1130,8 +1068,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalGetSourcef(int source, int param, long value) {
 		long __functionAddress = getInstance().GetSourcef;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetSourcef(source, param, value, __functionAddress);
 	}
 
@@ -1173,8 +1109,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalGetSource3f(int source, int param, long v1, long v2, long v3) {
 		long __functionAddress = getInstance().GetSource3f;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetSource3f(source, param, v1, v2, v3, __functionAddress);
 	}
 
@@ -1216,8 +1150,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalGetSourcefv(int source, int param, long values) {
 		long __functionAddress = getInstance().GetSourcefv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetSourcefv(source, param, values, __functionAddress);
 	}
 
@@ -1251,8 +1183,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalGetSourcei(int source, int param, long value) {
 		long __functionAddress = getInstance().GetSourcei;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetSourcei(source, param, value, __functionAddress);
 	}
 
@@ -1294,8 +1224,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalSourceQueueBuffers(int sourceName, int numBuffers, long bufferNames) {
 		long __functionAddress = getInstance().SourceQueueBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSourceQueueBuffers(sourceName, numBuffers, bufferNames, __functionAddress);
 	}
 
@@ -1338,8 +1266,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalSourceUnqueueBuffers(int sourceName, int numEntries, long bufferNames) {
 		long __functionAddress = getInstance().SourceUnqueueBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSourceUnqueueBuffers(sourceName, numEntries, bufferNames, __functionAddress);
 	}
 
@@ -1393,8 +1319,6 @@ public final class AL10 {
 	 */
 	public static void alSourcePlay(int source) {
 		long __functionAddress = getInstance().SourcePlay;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSourcePlay(source, __functionAddress);
 	}
 
@@ -1415,8 +1339,6 @@ public final class AL10 {
 	 */
 	public static void alSourcePause(int source) {
 		long __functionAddress = getInstance().SourcePause;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSourcePause(source, __functionAddress);
 	}
 
@@ -1437,8 +1359,6 @@ public final class AL10 {
 	 */
 	public static void alSourceStop(int source) {
 		long __functionAddress = getInstance().SourceStop;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSourceStop(source, __functionAddress);
 	}
 
@@ -1460,8 +1380,6 @@ public final class AL10 {
 	 */
 	public static void alSourceRewind(int source) {
 		long __functionAddress = getInstance().SourceRewind;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSourceRewind(source, __functionAddress);
 	}
 
@@ -1475,8 +1393,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalSourcePlayv(int n, long sources) {
 		long __functionAddress = getInstance().SourcePlayv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSourcePlayv(n, sources, __functionAddress);
 	}
 
@@ -1507,8 +1423,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalSourcePausev(int n, long sources) {
 		long __functionAddress = getInstance().SourcePausev;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSourcePausev(n, sources, __functionAddress);
 	}
 
@@ -1539,8 +1453,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalSourceStopv(int n, long sources) {
 		long __functionAddress = getInstance().SourceStopv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSourceStopv(n, sources, __functionAddress);
 	}
 
@@ -1571,8 +1483,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalSourceRewindv(int n, long sources) {
 		long __functionAddress = getInstance().SourceRewindv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalSourceRewindv(n, sources, __functionAddress);
 	}
 
@@ -1603,8 +1513,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalGenBuffers(int n, long bufferNames) {
 		long __functionAddress = getInstance().GenBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGenBuffers(n, bufferNames, __functionAddress);
 	}
 
@@ -1643,8 +1551,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalDeleteBuffers(int n, long bufferNames) {
 		long __functionAddress = getInstance().DeleteBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalDeleteBuffers(n, bufferNames, __functionAddress);
 	}
 
@@ -1685,8 +1591,6 @@ public final class AL10 {
 	 */
 	public static boolean alIsBuffer(int bufferName) {
 		long __functionAddress = getInstance().IsBuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalIsBuffer(bufferName, __functionAddress);
 	}
 
@@ -1700,8 +1604,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalGetBufferf(int bufferName, int paramName, long value) {
 		long __functionAddress = getInstance().GetBufferf;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetBufferf(bufferName, paramName, value, __functionAddress);
 	}
 
@@ -1743,8 +1645,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalGetBufferi(int bufferName, int paramName, long value) {
 		long __functionAddress = getInstance().GetBufferi;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalGetBufferi(bufferName, paramName, value, __functionAddress);
 	}
 
@@ -1786,8 +1686,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static void nalBufferData(int bufferName, int format, long data, int size, int frequency) {
 		long __functionAddress = getInstance().BufferData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nalBufferData(bufferName, format, data, size, frequency, __functionAddress);
 	}
 
@@ -1844,8 +1742,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static int nalGetEnumValue(long enumName) {
 		long __functionAddress = getInstance().GetEnumValue;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalGetEnumValue(enumName, __functionAddress);
 	}
 
@@ -1877,8 +1773,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static long nalGetProcAddress(long funcName) {
 		long __functionAddress = getInstance().GetProcAddress;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalGetProcAddress(funcName, __functionAddress);
 	}
 
@@ -1916,8 +1810,6 @@ public final class AL10 {
 	@JavadocExclude
 	public static boolean nalIsExtensionPresent(long extName) {
 		long __functionAddress = getInstance().IsExtensionPresent;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nalIsExtensionPresent(extName, __functionAddress);
 	}
 

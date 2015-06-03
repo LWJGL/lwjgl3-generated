@@ -62,7 +62,7 @@ public final class ARBTextureBufferObject {
 
 	/** Returns the {@link ARBTextureBufferObject} instance for the current context. */
 	public static ARBTextureBufferObject getInstance() {
-		return GL.getCapabilities().__ARBTextureBufferObject;
+		return checkFunctionality(GL.getCapabilities().__ARBTextureBufferObject);
 	}
 
 	static ARBTextureBufferObject create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -112,8 +112,6 @@ public final class ARBTextureBufferObject {
 	 */
 	public static void glTexBufferARB(int target, int internalformat, int buffer) {
 		long __functionAddress = getInstance().TexBufferARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglTexBufferARB(target, internalformat, buffer, __functionAddress);
 	}
 

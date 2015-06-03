@@ -36,7 +36,7 @@ public final class GLX14 {
 
 	/** Returns the {@link GLX14} instance for the current context. */
 	public static GLX14 getInstance() {
-		return GL.getCapabilities().__GLX14;
+		return checkFunctionality(GL.getCapabilities().__GLX14);
 	}
 
 	static GLX14 create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -61,8 +61,6 @@ public final class GLX14 {
 	@JavadocExclude
 	public static long nglXGetProcAddress(long procName) {
 		long __functionAddress = getInstance().GetProcAddress;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglXGetProcAddress(procName, __functionAddress);
 	}
 

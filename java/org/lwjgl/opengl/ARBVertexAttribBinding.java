@@ -93,7 +93,7 @@ public final class ARBVertexAttribBinding {
 
 	/** Returns the {@link ARBVertexAttribBinding} instance for the current context. */
 	public static ARBVertexAttribBinding getInstance() {
-		return GL.getCapabilities().__ARBVertexAttribBinding;
+		return checkFunctionality(GL.getCapabilities().__ARBVertexAttribBinding);
 	}
 
 	static ARBVertexAttribBinding create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -126,8 +126,6 @@ public final class ARBVertexAttribBinding {
 	 */
 	public static void glBindVertexBuffer(int bindingindex, int buffer, long offset, int stride) {
 		long __functionAddress = getInstance().BindVertexBuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglBindVertexBuffer(bindingindex, buffer, offset, stride, __functionAddress);
 	}
 
@@ -145,8 +143,6 @@ public final class ARBVertexAttribBinding {
 	 */
 	public static void glVertexAttribFormat(int attribindex, int size, int type, boolean normalized, int relativeoffset) {
 		long __functionAddress = getInstance().VertexAttribFormat;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglVertexAttribFormat(attribindex, size, type, normalized, relativeoffset, __functionAddress);
 	}
 
@@ -162,8 +158,6 @@ public final class ARBVertexAttribBinding {
 	 */
 	public static void glVertexAttribIFormat(int attribindex, int size, int type, int relativeoffset) {
 		long __functionAddress = getInstance().VertexAttribIFormat;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglVertexAttribIFormat(attribindex, size, type, relativeoffset, __functionAddress);
 	}
 
@@ -179,8 +173,6 @@ public final class ARBVertexAttribBinding {
 	 */
 	public static void glVertexAttribLFormat(int attribindex, int size, int type, int relativeoffset) {
 		long __functionAddress = getInstance().VertexAttribLFormat;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglVertexAttribLFormat(attribindex, size, type, relativeoffset, __functionAddress);
 	}
 
@@ -194,8 +186,6 @@ public final class ARBVertexAttribBinding {
 	 */
 	public static void glVertexAttribBinding(int attribindex, int bindingindex) {
 		long __functionAddress = getInstance().VertexAttribBinding;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglVertexAttribBinding(attribindex, bindingindex, __functionAddress);
 	}
 
@@ -209,8 +199,6 @@ public final class ARBVertexAttribBinding {
 	 */
 	public static void glVertexBindingDivisor(int bindingindex, int divisor) {
 		long __functionAddress = getInstance().VertexBindingDivisor;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglVertexBindingDivisor(bindingindex, divisor, __functionAddress);
 	}
 

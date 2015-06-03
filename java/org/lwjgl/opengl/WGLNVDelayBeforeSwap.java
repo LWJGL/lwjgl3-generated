@@ -36,7 +36,7 @@ public final class WGLNVDelayBeforeSwap {
 
 	/** Returns the {@link WGLNVDelayBeforeSwap} instance for the current context. */
 	public static WGLNVDelayBeforeSwap getInstance() {
-		return GL.getCapabilities().__WGLNVDelayBeforeSwap;
+		return checkFunctionality(GL.getCapabilities().__WGLNVDelayBeforeSwap);
 	}
 
 	static WGLNVDelayBeforeSwap create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -86,10 +86,8 @@ public final class WGLNVDelayBeforeSwap {
 	 */
 	public static int wglDelayBeforeSwapNV(long hDC, float seconds) {
 		long __functionAddress = getInstance().DelayBeforeSwapNV;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(hDC);
-		}
 		return nwglDelayBeforeSwapNV(hDC, seconds, __functionAddress);
 	}
 

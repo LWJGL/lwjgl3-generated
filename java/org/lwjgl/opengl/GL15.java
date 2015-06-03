@@ -160,7 +160,7 @@ public final class GL15 {
 
 	/** Returns the {@link GL15} instance for the current context. */
 	public static GL15 getInstance() {
-		return GL.getCapabilities().__GL15;
+		return checkFunctionality(GL.getCapabilities().__GL15);
 	}
 
 	static GL15 create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -193,8 +193,6 @@ public final class GL15 {
 	 */
 	public static void glBindBuffer(int target, int buffer) {
 		long __functionAddress = getInstance().BindBuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBindBuffer(target, buffer, __functionAddress);
 	}
 
@@ -208,8 +206,6 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglDeleteBuffers(int n, long buffers) {
 		long __functionAddress = getInstance().DeleteBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDeleteBuffers(n, buffers, __functionAddress);
 	}
 
@@ -249,8 +245,6 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglGenBuffers(int n, long buffers) {
 		long __functionAddress = getInstance().GenBuffers;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGenBuffers(n, buffers, __functionAddress);
 	}
 
@@ -296,8 +290,6 @@ public final class GL15 {
 	 */
 	public static boolean glIsBuffer(int buffer) {
 		long __functionAddress = getInstance().IsBuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsBuffer(buffer, __functionAddress);
 	}
 
@@ -311,8 +303,6 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglBufferData(int target, long size, long data, int usage) {
 		long __functionAddress = getInstance().BufferData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBufferData(target, size, data, usage, __functionAddress);
 	}
 
@@ -388,8 +378,6 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglBufferSubData(int target, long offset, long size, long data) {
 		long __functionAddress = getInstance().BufferSubData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBufferSubData(target, offset, size, data, __functionAddress);
 	}
 
@@ -444,8 +432,6 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglGetBufferSubData(int target, long offset, long size, long data) {
 		long __functionAddress = getInstance().GetBufferSubData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetBufferSubData(target, offset, size, data, __functionAddress);
 	}
 
@@ -500,8 +486,6 @@ public final class GL15 {
 	@JavadocExclude
 	public static long nglMapBuffer(int target, int access) {
 		long __functionAddress = getInstance().MapBuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglMapBuffer(target, access, __functionAddress);
 	}
 
@@ -558,8 +542,6 @@ public final class GL15 {
 	 */
 	public static boolean glUnmapBuffer(int target) {
 		long __functionAddress = getInstance().UnmapBuffer;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglUnmapBuffer(target, __functionAddress);
 	}
 
@@ -573,8 +555,6 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglGetBufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferParameteriv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetBufferParameteriv(target, pname, params, __functionAddress);
 	}
 
@@ -618,8 +598,6 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglGetBufferPointerv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferPointerv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetBufferPointerv(target, pname, params, __functionAddress);
 	}
 
@@ -663,8 +641,6 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglGenQueries(int n, long ids) {
 		long __functionAddress = getInstance().GenQueries;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGenQueries(n, ids, __functionAddress);
 	}
 
@@ -705,8 +681,6 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglDeleteQueries(int n, long ids) {
 		long __functionAddress = getInstance().DeleteQueries;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDeleteQueries(n, ids, __functionAddress);
 	}
 
@@ -751,8 +725,6 @@ public final class GL15 {
 	 */
 	public static boolean glIsQuery(int id) {
 		long __functionAddress = getInstance().IsQuery;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglIsQuery(id, __functionAddress);
 	}
 
@@ -772,8 +744,6 @@ public final class GL15 {
 	 */
 	public static void glBeginQuery(int target, int id) {
 		long __functionAddress = getInstance().BeginQuery;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglBeginQuery(target, id, __functionAddress);
 	}
 
@@ -792,8 +762,6 @@ public final class GL15 {
 	 */
 	public static void glEndQuery(int target) {
 		long __functionAddress = getInstance().EndQuery;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglEndQuery(target, __functionAddress);
 	}
 
@@ -807,8 +775,6 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglGetQueryiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetQueryiv(target, pname, params, __functionAddress);
 	}
 
@@ -852,8 +818,6 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglGetQueryObjectiv(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetQueryObjectiv(id, pname, params, __functionAddress);
 	}
 
@@ -897,8 +861,6 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglGetQueryObjectuiv(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectuiv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetQueryObjectuiv(id, pname, params, __functionAddress);
 	}
 

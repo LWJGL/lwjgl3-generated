@@ -42,7 +42,7 @@ public final class ARBCopyImage {
 
 	/** Returns the {@link ARBCopyImage} instance for the current context. */
 	public static ARBCopyImage getInstance() {
-		return GL.getCapabilities().__ARBCopyImage;
+		return checkFunctionality(GL.getCapabilities().__ARBCopyImage);
 	}
 
 	static ARBCopyImage create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -80,8 +80,6 @@ public final class ARBCopyImage {
 	 */
 	public static void glCopyImageSubData(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth) {
 		long __functionAddress = getInstance().CopyImageSubData;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL43.nglCopyImageSubData(srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth, __functionAddress);
 	}
 

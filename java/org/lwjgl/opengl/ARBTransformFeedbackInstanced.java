@@ -40,7 +40,7 @@ public final class ARBTransformFeedbackInstanced {
 
 	/** Returns the {@link ARBTransformFeedbackInstanced} instance for the current context. */
 	public static ARBTransformFeedbackInstanced getInstance() {
-		return GL.getCapabilities().__ARBTransformFeedbackInstanced;
+		return checkFunctionality(GL.getCapabilities().__ARBTransformFeedbackInstanced);
 	}
 
 	static ARBTransformFeedbackInstanced create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -66,8 +66,6 @@ public final class ARBTransformFeedbackInstanced {
 	 */
 	public static void glDrawTransformFeedbackInstanced(int mode, int id, int primcount) {
 		long __functionAddress = getInstance().DrawTransformFeedbackInstanced;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL42.nglDrawTransformFeedbackInstanced(mode, id, primcount, __functionAddress);
 	}
 
@@ -83,8 +81,6 @@ public final class ARBTransformFeedbackInstanced {
 	 */
 	public static void glDrawTransformFeedbackStreamInstanced(int mode, int id, int stream, int primcount) {
 		long __functionAddress = getInstance().DrawTransformFeedbackStreamInstanced;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL42.nglDrawTransformFeedbackStreamInstanced(mode, id, stream, primcount, __functionAddress);
 	}
 

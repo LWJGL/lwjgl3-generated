@@ -47,7 +47,7 @@ public final class NVConservativeRaster {
 
 	/** Returns the {@link NVConservativeRaster} instance for the current context. */
 	public static NVConservativeRaster getInstance() {
-		return GL.getCapabilities().__NVConservativeRaster;
+		return checkFunctionality(GL.getCapabilities().__NVConservativeRaster);
 	}
 
 	static NVConservativeRaster create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -83,8 +83,6 @@ public final class NVConservativeRaster {
 	 */
 	public static void glSubpixelPrecisionBiasNV(int xbits, int ybits) {
 		long __functionAddress = getInstance().SubpixelPrecisionBiasNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglSubpixelPrecisionBiasNV(xbits, ybits, __functionAddress);
 	}
 

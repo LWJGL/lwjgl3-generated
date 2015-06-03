@@ -175,7 +175,7 @@ public final class ARBShaderObjects {
 
 	/** Returns the {@link ARBShaderObjects} instance for the current context. */
 	public static ARBShaderObjects getInstance() {
-		return GL.getCapabilities().__ARBShaderObjects;
+		return checkFunctionality(GL.getCapabilities().__ARBShaderObjects);
 	}
 
 	static ARBShaderObjects create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -219,8 +219,6 @@ public final class ARBShaderObjects {
 	 */
 	public static void glDeleteObjectARB(int obj) {
 		long __functionAddress = getInstance().DeleteObjectARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDeleteObjectARB(obj, __functionAddress);
 	}
 
@@ -237,8 +235,6 @@ public final class ARBShaderObjects {
 	 */
 	public static int glGetHandleARB(int pname) {
 		long __functionAddress = getInstance().GetHandleARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGetHandleARB(pname, __functionAddress);
 	}
 
@@ -256,8 +252,6 @@ public final class ARBShaderObjects {
 	 */
 	public static void glDetachObjectARB(int containerObj, int attachedObj) {
 		long __functionAddress = getInstance().DetachObjectARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglDetachObjectARB(containerObj, attachedObj, __functionAddress);
 	}
 
@@ -274,8 +268,6 @@ public final class ARBShaderObjects {
 	 */
 	public static int glCreateShaderObjectARB(int shaderType) {
 		long __functionAddress = getInstance().CreateShaderObjectARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglCreateShaderObjectARB(shaderType, __functionAddress);
 	}
 
@@ -289,8 +281,6 @@ public final class ARBShaderObjects {
 	@JavadocExclude
 	public static void nglShaderSourceARB(int shaderObj, int count, long string, long length) {
 		long __functionAddress = getInstance().ShaderSourceARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglShaderSourceARB(shaderObj, count, string, length, __functionAddress);
 	}
 
@@ -367,8 +357,6 @@ public final class ARBShaderObjects {
 	 */
 	public static void glCompileShaderARB(int shaderObj) {
 		long __functionAddress = getInstance().CompileShaderARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglCompileShaderARB(shaderObj, __functionAddress);
 	}
 
@@ -388,8 +376,6 @@ public final class ARBShaderObjects {
 	 */
 	public static int glCreateProgramObjectARB() {
 		long __functionAddress = getInstance().CreateProgramObjectARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglCreateProgramObjectARB(__functionAddress);
 	}
 
@@ -407,8 +393,6 @@ public final class ARBShaderObjects {
 	 */
 	public static void glAttachObjectARB(int containerObj, int obj) {
 		long __functionAddress = getInstance().AttachObjectARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglAttachObjectARB(containerObj, obj, __functionAddress);
 	}
 
@@ -435,8 +419,6 @@ public final class ARBShaderObjects {
 	 */
 	public static void glLinkProgramARB(int programObj) {
 		long __functionAddress = getInstance().LinkProgramARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglLinkProgramARB(programObj, __functionAddress);
 	}
 
@@ -464,8 +446,6 @@ public final class ARBShaderObjects {
 	 */
 	public static void glUseProgramObjectARB(int programObj) {
 		long __functionAddress = getInstance().UseProgramObjectARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUseProgramObjectARB(programObj, __functionAddress);
 	}
 
@@ -494,8 +474,6 @@ public final class ARBShaderObjects {
 	 */
 	public static void glValidateProgramARB(int programObj) {
 		long __functionAddress = getInstance().ValidateProgramARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglValidateProgramARB(programObj, __functionAddress);
 	}
 
@@ -513,8 +491,6 @@ public final class ARBShaderObjects {
 	 */
 	public static void glUniform1fARB(int location, float v0) {
 		long __functionAddress = getInstance().Uniform1fARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform1fARB(location, v0, __functionAddress);
 	}
 
@@ -533,8 +509,6 @@ public final class ARBShaderObjects {
 	 */
 	public static void glUniform2fARB(int location, float v0, float v1) {
 		long __functionAddress = getInstance().Uniform2fARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform2fARB(location, v0, v1, __functionAddress);
 	}
 
@@ -554,8 +528,6 @@ public final class ARBShaderObjects {
 	 */
 	public static void glUniform3fARB(int location, float v0, float v1, float v2) {
 		long __functionAddress = getInstance().Uniform3fARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform3fARB(location, v0, v1, v2, __functionAddress);
 	}
 
@@ -576,8 +548,6 @@ public final class ARBShaderObjects {
 	 */
 	public static void glUniform4fARB(int location, float v0, float v1, float v2, float v3) {
 		long __functionAddress = getInstance().Uniform4fARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform4fARB(location, v0, v1, v2, v3, __functionAddress);
 	}
 
@@ -595,8 +565,6 @@ public final class ARBShaderObjects {
 	 */
 	public static void glUniform1iARB(int location, int v0) {
 		long __functionAddress = getInstance().Uniform1iARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform1iARB(location, v0, __functionAddress);
 	}
 
@@ -615,8 +583,6 @@ public final class ARBShaderObjects {
 	 */
 	public static void glUniform2iARB(int location, int v0, int v1) {
 		long __functionAddress = getInstance().Uniform2iARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform2iARB(location, v0, v1, __functionAddress);
 	}
 
@@ -636,8 +602,6 @@ public final class ARBShaderObjects {
 	 */
 	public static void glUniform3iARB(int location, int v0, int v1, int v2) {
 		long __functionAddress = getInstance().Uniform3iARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform3iARB(location, v0, v1, v2, __functionAddress);
 	}
 
@@ -658,8 +622,6 @@ public final class ARBShaderObjects {
 	 */
 	public static void glUniform4iARB(int location, int v0, int v1, int v2, int v3) {
 		long __functionAddress = getInstance().Uniform4iARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform4iARB(location, v0, v1, v2, v3, __functionAddress);
 	}
 
@@ -673,8 +635,6 @@ public final class ARBShaderObjects {
 	@JavadocExclude
 	public static void nglUniform1fvARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1fvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform1fvARB(location, count, value, __functionAddress);
 	}
 
@@ -706,8 +666,6 @@ public final class ARBShaderObjects {
 	@JavadocExclude
 	public static void nglUniform2fvARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2fvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform2fvARB(location, count, value, __functionAddress);
 	}
 
@@ -739,8 +697,6 @@ public final class ARBShaderObjects {
 	@JavadocExclude
 	public static void nglUniform3fvARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3fvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform3fvARB(location, count, value, __functionAddress);
 	}
 
@@ -772,8 +728,6 @@ public final class ARBShaderObjects {
 	@JavadocExclude
 	public static void nglUniform4fvARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4fvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform4fvARB(location, count, value, __functionAddress);
 	}
 
@@ -805,8 +759,6 @@ public final class ARBShaderObjects {
 	@JavadocExclude
 	public static void nglUniform1ivARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1ivARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform1ivARB(location, count, value, __functionAddress);
 	}
 
@@ -838,8 +790,6 @@ public final class ARBShaderObjects {
 	@JavadocExclude
 	public static void nglUniform2ivARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2ivARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform2ivARB(location, count, value, __functionAddress);
 	}
 
@@ -871,8 +821,6 @@ public final class ARBShaderObjects {
 	@JavadocExclude
 	public static void nglUniform3ivARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3ivARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform3ivARB(location, count, value, __functionAddress);
 	}
 
@@ -904,8 +852,6 @@ public final class ARBShaderObjects {
 	@JavadocExclude
 	public static void nglUniform4ivARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4ivARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniform4ivARB(location, count, value, __functionAddress);
 	}
 
@@ -937,8 +883,6 @@ public final class ARBShaderObjects {
 	@JavadocExclude
 	public static void nglUniformMatrix2fvARB(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2fvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix2fvARB(location, count, transpose, value, __functionAddress);
 	}
 
@@ -971,8 +915,6 @@ public final class ARBShaderObjects {
 	@JavadocExclude
 	public static void nglUniformMatrix3fvARB(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3fvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix3fvARB(location, count, transpose, value, __functionAddress);
 	}
 
@@ -1005,8 +947,6 @@ public final class ARBShaderObjects {
 	@JavadocExclude
 	public static void nglUniformMatrix4fvARB(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4fvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix4fvARB(location, count, transpose, value, __functionAddress);
 	}
 
@@ -1039,8 +979,6 @@ public final class ARBShaderObjects {
 	@JavadocExclude
 	public static void nglGetObjectParameterfvARB(int obj, int pname, long params) {
 		long __functionAddress = getInstance().GetObjectParameterfvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetObjectParameterfvARB(obj, pname, params, __functionAddress);
 	}
 
@@ -1074,8 +1012,6 @@ public final class ARBShaderObjects {
 	@JavadocExclude
 	public static void nglGetObjectParameterivARB(int obj, int pname, long params) {
 		long __functionAddress = getInstance().GetObjectParameterivARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetObjectParameterivARB(obj, pname, params, __functionAddress);
 	}
 
@@ -1117,8 +1053,6 @@ public final class ARBShaderObjects {
 	@JavadocExclude
 	public static void nglGetInfoLogARB(int obj, int maxLength, long length, long infoLog) {
 		long __functionAddress = getInstance().GetInfoLogARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetInfoLogARB(obj, maxLength, length, infoLog, __functionAddress);
 	}
 
@@ -1186,8 +1120,6 @@ public final class ARBShaderObjects {
 	@JavadocExclude
 	public static void nglGetAttachedObjectsARB(int containerObj, int maxCount, long count, long obj) {
 		long __functionAddress = getInstance().GetAttachedObjectsARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetAttachedObjectsARB(containerObj, maxCount, count, obj, __functionAddress);
 	}
 
@@ -1245,8 +1177,6 @@ public final class ARBShaderObjects {
 	@JavadocExclude
 	public static int nglGetUniformLocationARB(int programObj, long name) {
 		long __functionAddress = getInstance().GetUniformLocationARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return nglGetUniformLocationARB(programObj, name, __functionAddress);
 	}
 
@@ -1289,8 +1219,6 @@ public final class ARBShaderObjects {
 	@JavadocExclude
 	public static void nglGetActiveUniformARB(int programObj, int index, int maxLength, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetActiveUniformARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetActiveUniformARB(programObj, index, maxLength, length, size, type, name, __functionAddress);
 	}
 
@@ -1384,8 +1312,6 @@ public final class ARBShaderObjects {
 	@JavadocExclude
 	public static void nglGetUniformfvARB(int programObj, int location, long params) {
 		long __functionAddress = getInstance().GetUniformfvARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetUniformfvARB(programObj, location, params, __functionAddress);
 	}
 
@@ -1427,8 +1353,6 @@ public final class ARBShaderObjects {
 	@JavadocExclude
 	public static void nglGetUniformivARB(int programObj, int location, long params) {
 		long __functionAddress = getInstance().GetUniformivARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetUniformivARB(programObj, location, params, __functionAddress);
 	}
 
@@ -1470,8 +1394,6 @@ public final class ARBShaderObjects {
 	@JavadocExclude
 	public static void nglGetShaderSourceARB(int obj, int maxLength, long length, long source) {
 		long __functionAddress = getInstance().GetShaderSourceARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetShaderSourceARB(obj, maxLength, length, source, __functionAddress);
 	}
 

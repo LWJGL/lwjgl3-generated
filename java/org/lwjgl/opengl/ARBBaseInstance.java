@@ -48,7 +48,7 @@ public final class ARBBaseInstance {
 
 	/** Returns the {@link ARBBaseInstance} instance for the current context. */
 	public static ARBBaseInstance getInstance() {
-		return GL.getCapabilities().__ARBBaseInstance;
+		return checkFunctionality(GL.getCapabilities().__ARBBaseInstance);
 	}
 
 	static ARBBaseInstance create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -76,8 +76,6 @@ public final class ARBBaseInstance {
 	 */
 	public static void glDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance) {
 		long __functionAddress = getInstance().DrawArraysInstancedBaseInstance;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL42.nglDrawArraysInstancedBaseInstance(mode, first, count, primcount, baseinstance, __functionAddress);
 	}
 
@@ -87,8 +85,6 @@ public final class ARBBaseInstance {
 	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseInstance(int mode, int count, int type, long indices, int primcount, int baseinstance) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseInstance;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL42.nglDrawElementsInstancedBaseInstance(mode, count, type, indices, primcount, baseinstance, __functionAddress);
 	}
 
@@ -151,8 +147,6 @@ public final class ARBBaseInstance {
 	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indices, int primcount, int basevertex, int baseinstance) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseVertexBaseInstance;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL42.nglDrawElementsInstancedBaseVertexBaseInstance(mode, count, type, indices, primcount, basevertex, baseinstance, __functionAddress);
 	}
 

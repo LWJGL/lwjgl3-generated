@@ -43,7 +43,7 @@ public final class NVFragmentCoverageToColor {
 
 	/** Returns the {@link NVFragmentCoverageToColor} instance for the current context. */
 	public static NVFragmentCoverageToColor getInstance() {
-		return GL.getCapabilities().__NVFragmentCoverageToColor;
+		return checkFunctionality(GL.getCapabilities().__NVFragmentCoverageToColor);
 	}
 
 	static NVFragmentCoverageToColor create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -71,8 +71,6 @@ public final class NVFragmentCoverageToColor {
 	 */
 	public static void glFragmentCoverageColorNV(int color) {
 		long __functionAddress = getInstance().FragmentCoverageColorNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFragmentCoverageColorNV(color, __functionAddress);
 	}
 

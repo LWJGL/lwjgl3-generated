@@ -71,7 +71,7 @@ public final class ARBTransformFeedback2 {
 
 	/** Returns the {@link ARBTransformFeedback2} instance for the current context. */
 	public static ARBTransformFeedback2 getInstance() {
-		return GL.getCapabilities().__ARBTransformFeedback2;
+		return checkFunctionality(GL.getCapabilities().__ARBTransformFeedback2);
 	}
 
 	static ARBTransformFeedback2 create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -97,8 +97,6 @@ public final class ARBTransformFeedback2 {
 	 */
 	public static void glBindTransformFeedback(int target, int id) {
 		long __functionAddress = getInstance().BindTransformFeedback;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglBindTransformFeedback(target, id, __functionAddress);
 	}
 
@@ -108,8 +106,6 @@ public final class ARBTransformFeedback2 {
 	@JavadocExclude
 	public static void nglDeleteTransformFeedbacks(int n, long ids) {
 		long __functionAddress = getInstance().DeleteTransformFeedbacks;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglDeleteTransformFeedbacks(n, ids, __functionAddress);
 	}
 
@@ -143,8 +139,6 @@ public final class ARBTransformFeedback2 {
 	@JavadocExclude
 	public static void nglGenTransformFeedbacks(int n, long ids) {
 		long __functionAddress = getInstance().GenTransformFeedbacks;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglGenTransformFeedbacks(n, ids, __functionAddress);
 	}
 
@@ -182,8 +176,6 @@ public final class ARBTransformFeedback2 {
 	 */
 	public static boolean glIsTransformFeedback(int id) {
 		long __functionAddress = getInstance().IsTransformFeedback;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		return GL40.nglIsTransformFeedback(id, __functionAddress);
 	}
 
@@ -204,8 +196,6 @@ public final class ARBTransformFeedback2 {
 	 */
 	public static void glPauseTransformFeedback() {
 		long __functionAddress = getInstance().PauseTransformFeedback;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglPauseTransformFeedback(__functionAddress);
 	}
 
@@ -218,8 +208,6 @@ public final class ARBTransformFeedback2 {
 	 */
 	public static void glResumeTransformFeedback() {
 		long __functionAddress = getInstance().ResumeTransformFeedback;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglResumeTransformFeedback(__functionAddress);
 	}
 
@@ -233,8 +221,6 @@ public final class ARBTransformFeedback2 {
 	 */
 	public static void glDrawTransformFeedback(int mode, int id) {
 		long __functionAddress = getInstance().DrawTransformFeedback;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL40.nglDrawTransformFeedback(mode, id, __functionAddress);
 	}
 

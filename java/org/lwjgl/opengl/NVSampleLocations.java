@@ -71,7 +71,7 @@ public final class NVSampleLocations {
 
 	/** Returns the {@link NVSampleLocations} instance for the current context. */
 	public static NVSampleLocations getInstance() {
-		return GL.getCapabilities().__NVSampleLocations;
+		return checkFunctionality(GL.getCapabilities().__NVSampleLocations);
 	}
 
 	static NVSampleLocations create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -96,8 +96,6 @@ public final class NVSampleLocations {
 	@JavadocExclude
 	public static void nglFramebufferSampleLocationsfvNV(int target, int start, int count, long v) {
 		long __functionAddress = getInstance().FramebufferSampleLocationsfvNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglFramebufferSampleLocationsfvNV(target, start, count, v, __functionAddress);
 	}
 
@@ -130,8 +128,6 @@ public final class NVSampleLocations {
 	@JavadocExclude
 	public static void nglNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, long v) {
 		long __functionAddress = getInstance().NamedFramebufferSampleLocationsfvNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglNamedFramebufferSampleLocationsfvNV(framebuffer, start, count, v, __functionAddress);
 	}
 
@@ -167,8 +163,6 @@ public final class NVSampleLocations {
 	 */
 	public static void glResolveDepthValuesNV() {
 		long __functionAddress = getInstance().ResolveDepthValuesNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglResolveDepthValuesNV(__functionAddress);
 	}
 

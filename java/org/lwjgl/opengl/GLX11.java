@@ -40,7 +40,7 @@ public final class GLX11 {
 
 	/** Returns the {@link GLX11} instance for the current context. */
 	public static GLX11 getInstance() {
-		return GL.getCapabilities().__GLX11;
+		return checkFunctionality(GL.getCapabilities().__GLX11);
 	}
 
 	static GLX11 create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -65,10 +65,8 @@ public final class GLX11 {
 	@JavadocExclude
 	public static long nglXQueryExtensionsString(long display, int screen) {
 		long __functionAddress = getInstance().QueryExtensionsString;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		}
 		return nglXQueryExtensionsString(display, screen, __functionAddress);
 	}
 
@@ -93,10 +91,8 @@ public final class GLX11 {
 	@JavadocExclude
 	public static long nglXGetClientString(long display, int name) {
 		long __functionAddress = getInstance().GetClientString;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		}
 		return nglXGetClientString(display, name, __functionAddress);
 	}
 
@@ -121,10 +117,8 @@ public final class GLX11 {
 	@JavadocExclude
 	public static long nglXQueryServerString(long display, int screen, int name) {
 		long __functionAddress = getInstance().QueryServerString;
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		}
 		return nglXQueryServerString(display, screen, name, __functionAddress);
 	}
 

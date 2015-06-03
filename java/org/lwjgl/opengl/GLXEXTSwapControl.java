@@ -33,7 +33,7 @@ public final class GLXEXTSwapControl {
 
 	/** Returns the {@link GLXEXTSwapControl} instance for the current context. */
 	public static GLXEXTSwapControl getInstance() {
-		return GL.getCapabilities().__GLXEXTSwapControl;
+		return checkFunctionality(GL.getCapabilities().__GLXEXTSwapControl);
 	}
 
 	static GLXEXTSwapControl create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -66,7 +66,6 @@ public final class GLXEXTSwapControl {
 	public static void glXSwapIntervalEXT(long display, long drawable, int interval) {
 		long __functionAddress = getInstance().SwapIntervalEXT;
 		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(drawable);
 		}

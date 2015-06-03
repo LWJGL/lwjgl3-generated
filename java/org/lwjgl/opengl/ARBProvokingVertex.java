@@ -56,7 +56,7 @@ public final class ARBProvokingVertex {
 
 	/** Returns the {@link ARBProvokingVertex} instance for the current context. */
 	public static ARBProvokingVertex getInstance() {
-		return GL.getCapabilities().__ARBProvokingVertex;
+		return checkFunctionality(GL.getCapabilities().__ARBProvokingVertex);
 	}
 
 	static ARBProvokingVertex create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -80,8 +80,6 @@ public final class ARBProvokingVertex {
 	 */
 	public static void glProvokingVertex(int mode) {
 		long __functionAddress = getInstance().ProvokingVertex;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL32.nglProvokingVertex(mode, __functionAddress);
 	}
 

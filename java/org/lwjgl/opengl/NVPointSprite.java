@@ -67,7 +67,7 @@ public final class NVPointSprite {
 
 	/** Returns the {@link NVPointSprite} instance for the current context. */
 	public static NVPointSprite getInstance() {
-		return GL.getCapabilities().__NVPointSprite;
+		return checkFunctionality(GL.getCapabilities().__NVPointSprite);
 	}
 
 	static NVPointSprite create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -96,8 +96,6 @@ public final class NVPointSprite {
 	 */
 	public static void glPointParameteriNV(int pname, int param) {
 		long __functionAddress = getInstance().PointParameteriNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPointParameteriNV(pname, param, __functionAddress);
 	}
 
@@ -111,8 +109,6 @@ public final class NVPointSprite {
 	@JavadocExclude
 	public static void nglPointParameterivNV(int pname, long params) {
 		long __functionAddress = getInstance().PointParameterivNV;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglPointParameterivNV(pname, params, __functionAddress);
 	}
 

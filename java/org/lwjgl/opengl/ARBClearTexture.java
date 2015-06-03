@@ -54,7 +54,7 @@ public final class ARBClearTexture {
 
 	/** Returns the {@link ARBClearTexture} instance for the current context. */
 	public static ARBClearTexture getInstance() {
-		return GL.getCapabilities().__ARBClearTexture;
+		return checkFunctionality(GL.getCapabilities().__ARBClearTexture);
 	}
 
 	static ARBClearTexture create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -75,8 +75,6 @@ public final class ARBClearTexture {
 	@JavadocExclude
 	public static void nglClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearTexSubImage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL44.nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data, __functionAddress);
 	}
 
@@ -138,8 +136,6 @@ public final class ARBClearTexture {
 	@JavadocExclude
 	public static void nglClearTexImage(int texture, int level, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearTexImage;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		GL44.nglClearTexImage(texture, level, format, type, data, __functionAddress);
 	}
 

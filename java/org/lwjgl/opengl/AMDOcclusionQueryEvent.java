@@ -48,7 +48,7 @@ public final class AMDOcclusionQueryEvent {
 
 	/** Returns the {@link AMDOcclusionQueryEvent} instance for the current context. */
 	public static AMDOcclusionQueryEvent getInstance() {
-		return GL.getCapabilities().__AMDOcclusionQueryEvent;
+		return checkFunctionality(GL.getCapabilities().__AMDOcclusionQueryEvent);
 	}
 
 	static AMDOcclusionQueryEvent create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -79,8 +79,6 @@ public final class AMDOcclusionQueryEvent {
 	 */
 	public static void glQueryObjectParameteruiAMD(int target, int id, int pname, int param) {
 		long __functionAddress = getInstance().QueryObjectParameteruiAMD;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglQueryObjectParameteruiAMD(target, id, pname, param, __functionAddress);
 	}
 

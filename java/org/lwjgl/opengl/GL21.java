@@ -88,7 +88,7 @@ public final class GL21 {
 
 	/** Returns the {@link GL21} instance for the current context. */
 	public static GL21 getInstance() {
-		return GL.getCapabilities().__GL21;
+		return checkFunctionality(GL.getCapabilities().__GL21);
 	}
 
 	static GL21 create(java.util.Set<String> ext, FunctionProvider provider) {
@@ -114,8 +114,6 @@ public final class GL21 {
 	@JavadocExclude
 	public static void nglUniformMatrix2x3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x3fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix2x3fv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -150,8 +148,6 @@ public final class GL21 {
 	@JavadocExclude
 	public static void nglUniformMatrix3x2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x2fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix3x2fv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -186,8 +182,6 @@ public final class GL21 {
 	@JavadocExclude
 	public static void nglUniformMatrix2x4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x4fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix2x4fv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -222,8 +216,6 @@ public final class GL21 {
 	@JavadocExclude
 	public static void nglUniformMatrix4x2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x2fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix4x2fv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -258,8 +250,6 @@ public final class GL21 {
 	@JavadocExclude
 	public static void nglUniformMatrix3x4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x4fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix3x4fv(location, count, transpose, value, __functionAddress);
 	}
 
@@ -294,8 +284,6 @@ public final class GL21 {
 	@JavadocExclude
 	public static void nglUniformMatrix4x3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x3fv;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglUniformMatrix4x3fv(location, count, transpose, value, __functionAddress);
 	}
 
