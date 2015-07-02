@@ -77,18 +77,19 @@ public final class OVRUtil {
 
 	/** JNI method for {@link #ovrTimewarpProjectionDesc_FromProjection TimewarpProjectionDesc_FromProjection} */
 	@JavadocExclude
-	public static native void novrTimewarpProjectionDesc_FromProjection(long projection, long __result);
+	public static native void novrTimewarpProjectionDesc_FromProjection(long projection, int projectionModFlags, long __result);
 
 	/**
 	 * Extracts the required data from the result of {@link #ovrMatrix4f_Projection Matrix4f_Projection}.
 	 *
-	 * @param projection the project matrix from which to extract {@link OVRTimewarpProjectionDesc}
-	 * @param __result   the extracted ovrTimewarpProjectionDesc
+	 * @param projection         the project matrix from which to extract {@link OVRTimewarpProjectionDesc}
+	 * @param projectionModFlags a combination of the ovrProjectionModifier flags. One or more of:<br>{@link #ovrProjection_None Projection_None}, {@link #ovrProjection_RightHanded Projection_RightHanded}, {@link #ovrProjection_FarLessThanNear Projection_FarLessThanNear}, {@link #ovrProjection_FarClipAtInfinity Projection_FarClipAtInfinity}, {@link #ovrProjection_ClipRangeOpenGL Projection_ClipRangeOpenGL}
+	 * @param __result           the extracted ovrTimewarpProjectionDesc
 	 */
-	public static void ovrTimewarpProjectionDesc_FromProjection(ByteBuffer projection, ByteBuffer __result) {
+	public static void ovrTimewarpProjectionDesc_FromProjection(ByteBuffer projection, int projectionModFlags, ByteBuffer __result) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(projection, OVRMatrix4f.SIZEOF);
-		novrTimewarpProjectionDesc_FromProjection(memAddress(projection), memAddress(__result));
+		novrTimewarpProjectionDesc_FromProjection(memAddress(projection), projectionModFlags, memAddress(__result));
 	}
 
 	// --- [ ovrMatrix4f_OrthoSubProjection ] ---

@@ -22,7 +22,7 @@ public final class OVRKeys {
 		OVR_KEY_MAX_EYE_TO_PLATE_DISTANCE = "MaxEyeToPlateDist",
 		OVR_KEY_EYE_CUP                   = "EyeCup",
 		OVR_KEY_CUSTOM_EYE_RENDER         = "CustomEyeRender",
-		OVR_KEY_CAMERA_POSITION           = "CenteredFromWorld";
+		OVR_KEY_CAMERA_POSITION           = "CenteredFromWorld2";
 
 	/**  */
 	public static final String OVR_DEFAULT_GENDER = "Unknown";

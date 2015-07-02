@@ -67,10 +67,9 @@ public final class WGLARBMakeCurrentRead {
 	 * by the calling thread are drawn on the device identified by {@code drawDC} and read on the device identified by {@code readDC}.
 	 * 
 	 * <p>The {@code drawDC} and {@code readDC} parameters must refer to drawing surfaces supported by OpenGL. These parameters need not be the same {@code hdc}
-	 * that was passed to {@link org.lwjgl.system.windows.WGL#wglCreateContext CreateContext} when {@code hglrc} was created. {@code drawDC} must have the same pixel format
-	 * and be created on the same physical device as the {@code hdc} that was passed into wglCreateContext. {@code readDC} must be created on the same device
-	 * as the {@code hdc} that was passed to wglCreateContext and it must support the same pixel type as the pixel format of the {@code hdc} that was passed to
-	 * wglCreateContext.</p>
+	 * that was passed to {@link WGL#wglCreateContext CreateContext} when {@code hglrc} was created. {@code drawDC} must have the same pixel format and be created on the same
+	 * physical device as the {@code hdc} that was passed into wglCreateContext. {@code readDC} must be created on the same device as the {@code hdc} that was
+	 * passed to wglCreateContext and it must support the same pixel type as the pixel format of the {@code hdc} that was passed to wglCreateContext.</p>
 	 * 
 	 * <p>If {@code wglMakeContextCurrentARB} is used to associate a different device for reads than for draws, the "read" device will be used for the following
 	 * OpenGL operations:

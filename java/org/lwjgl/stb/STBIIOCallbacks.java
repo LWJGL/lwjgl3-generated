@@ -11,7 +11,7 @@ import org.lwjgl.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Image IO callbacks, used by {@link STBImage#stb_load_from_callbacks}. */
+/** Image IO callbacks, used by {@link STBImage#stbi_load_from_callbacks}. */
 public final class STBIIOCallbacks implements Pointer {
 
 	/** The struct size in bytes. */

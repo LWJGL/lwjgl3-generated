@@ -12,9 +12,9 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Projection information for {@link OVR#ovrLayerEyeFovDepth}.
+ * Projection information for {@link OVRLayerEyeFovDepth}.
  * 
- * <p>Use the utility function {@link OVR#ovrTimewarpProjectionDesc_FromProjection} to generate this structure from the application's projection matrix.</p>
+ * <p>Use the utility function {@link OVRUtil#ovrTimewarpProjectionDesc_FromProjection} to generate this structure from the application's projection matrix.</p>
  */
 public final class OVRTimewarpProjectionDesc implements Pointer {
 

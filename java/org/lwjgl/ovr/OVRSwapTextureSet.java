@@ -17,8 +17,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>An ovrSwapTextureSet per layer is passed to {@link OVR#ovrHmd_SubmitFrame} via one of the ovrLayer types. The {@code TextureCount} refers to the flip chain
  * count and not an eye count. See the layer structs and functions for information about how to use ovrSwapTextureSet.</p>
  * 
- * <p>ovrSwapTextureSets must be created by either the ovrHmd_CreateSwapTextureSetD3D11 or {@link OVR#ovrHmd_CreateSwapTextureSetGL} factory function, and must be
- * destroyed by {@link OVR#ovrHmd_DestroySwapTextureSet}.</p>
+ * <p>ovrSwapTextureSets must be created by either the ovrHmd_CreateSwapTextureSetD3D11 or {@link OVRGL#ovrHmd_CreateSwapTextureSetGL} factory function, and must
+ * be destroyed by {@link OVR#ovrHmd_DestroySwapTextureSet}.</p>
  */
 public final class OVRSwapTextureSet implements Pointer {
 

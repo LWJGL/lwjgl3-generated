@@ -215,7 +215,7 @@ public final class STBImage {
 	 * <p>The three functions you must define are "read" (reads some bytes of data), "skip" (skips some bytes of data), "eof" (reports if the stream is at the
 	 * end).</p>
 	 *
-	 * @param clbk     an {@link STBIOCallbacks} struct
+	 * @param clbk     an {@link STBIIOCallbacks} struct
 	 * @param user     a pointer to user data
 	 * @param x        outputs the image width in pixels
 	 * @param y        outputs the image height in pixels
@@ -302,7 +302,7 @@ public final class STBImage {
 	public static native long nstbi_loadf_from_memory(long buffer, int len, long x, long y, long comp, int req_comp);
 
 	/**
-	 * Floating-point version of {@link #stbi_load_memory load_memory}.
+	 * Floating-point version of {@link #stbi_load_from_memory load_from_memory}.
 	 *
 	 * @param buffer   the buffer from which to load the image data
 	 * @param len      the buffer length, in bytes
@@ -342,7 +342,7 @@ public final class STBImage {
 	/**
 	 * Floating-point version of {@link #stbi_load_from_callbacks load_from_callbacks}.
 	 *
-	 * @param clbk     an {@link STBIOCallbacks} struct
+	 * @param clbk     an {@link STBIIOCallbacks} struct
 	 * @param user     a pointer to user data
 	 * @param x        outputs the image width in pixels
 	 * @param y        outputs the image height in pixels
@@ -466,7 +466,7 @@ public final class STBImage {
 	/**
 	 * Callback version of {@link #stbi_is_hdr is_hdr}.
 	 *
-	 * @param clbk an {@link STBIOCallbacks} struct
+	 * @param clbk an {@link STBIIOCallbacks} struct
 	 * @param user a pointer to user data
 	 */
 	public static int stbi_is_hdr_from_callbacks(ByteBuffer clbk, ByteBuffer user) {

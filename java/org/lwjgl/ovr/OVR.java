@@ -36,8 +36,8 @@ import static org.lwjgl.system.APIUtil.*;
  * <li>Render the scene content into {@code CurrentIndex} of ovrTextureSet for each eye and layer you plan to update this frame. Increment texture set
  * {@code CurrentIndex}.</li>
  * <li>Call {@link #ovrHmd_SubmitFrame Hmd_SubmitFrame} to render the distorted layers to the back buffer and present them on the HMD. If {@link #ovrHmd_SubmitFrame Hmd_SubmitFrame} returns
- * {@link #ovrSuccess_NotVisible Success_NotVisible}, there is no need to render the scene for the next loop iteration. Instead, just call {@link #ovrHmd_SubmitFrame Hmd_SubmitFrame} again until it returns
- * {@link #ovrSuccess Success}.</li>
+ * {@link OVRErrorCode#ovrSuccess_NotVisible Success_NotVisible}, there is no need to render the scene for the next loop iteration. Instead, just call {@link #ovrHmd_SubmitFrame Hmd_SubmitFrame} again
+ * until it returns {@link OVRErrorCode#ovrSuccess Success}.</li>
  * </ul>
  * 
  * <h3>Shutdown</h3>
@@ -52,78 +52,6 @@ public final class OVR {
 	public static final int
 		ovrFalse = 0x0,
 		ovrTrue  = 0x1;
-
-	/** This is a general success result. */
-	public static final int ovrSuccess = 0x0;
-
-	/**
-	 * Returned from a call to {@link #ovrHmd_SubmitFrame Hmd_SubmitFrame}. The call succeeded, but what the app rendered will not be visible on the HMD. Ideally the app should continue
-	 * calling {@link #ovrHmd_SubmitFrame Hmd_SubmitFrame}, but not do any rendering. When the result becomes {@link #ovrSuccess Success}, rendering should continue as usual.
-	 */
-	public static final int ovrSuccess_NotVisible = 0x3E8;
-
-	/** Failure to allocate memory. */
-	public static final int ovrError_MemoryAllocationFailure = -1000;
-
-	/** Failure to create a socket. */
-	public static final int ovrError_SocketCreationFailure = -1001;
-
-	/** Invalid HMD parameter provided. */
-	public static final int ovrError_InvalidHmd = -1002;
-
-	/** The operation timed out. */
-	public static final int ovrError_Timeout = -1003;
-
-	/** The system or component has not been initialized. */
-	public static final int ovrError_NotInitialized = -1004;
-
-	/** Invalid parameter provided. See error info or log for details. */
-	public static final int ovrError_InvalidParameter = -1005;
-
-	/** Generic service error. See error info or log for details. */
-	public static final int ovrError_ServiceError = -1006;
-
-	/** The given HMD doesn't exist. */
-	public static final int ovrError_NoHmd = -1007;
-
-	/** First Audio error. */
-	public static final int ovrError_AudioReservedBegin = -2000;
-
-	/** Last Audio error. */
-	public static final int ovrError_AudioReservedEnd = -2999;
-
-	/** Generic initialization error. */
-	public static final int ovrError_Initialize = -3000;
-
-	/** Couldn't load LibOVRRT. */
-	public static final int ovrError_LibLoad = -3001;
-
-	/** LibOVRRT version incompatibility. */
-	public static final int ovrError_LibVersion = -3002;
-
-	/** Couldn't connect to the OVR Service. */
-	public static final int ovrError_ServiceConnection = -3003;
-
-	/** OVR Service version incompatibility. */
-	public static final int ovrError_ServiceVersion = -3004;
-
-	/** The operating system version is incompatible. */
-	public static final int ovrError_IncompatibleOS = -3005;
-
-	/** Unable to initialize the HMD display. */
-	public static final int ovrError_DisplayInit = -3006;
-
-	/** Unable to start the server. Is it already running? */
-	public static final int ovrError_ServerStart = -3007;
-
-	/** Attempting to re-initialize with a different version. */
-	public static final int ovrError_Reinitialization = -3008;
-
-	/** Headset has no bundle adjustment data. */
-	public static final int ovrError_InvalidBundleAdjustment = -4000;
-
-	/** The USB hub cannot handle the camera frame bandwidth. */
-	public static final int ovrError_USBBandwidth = -4001;
 
 	/**
 	 * When a debug library is requested, a slower debugging version of the library will run which can be used to help solve problems in the library and debug
@@ -154,13 +82,12 @@ public final class OVR {
 
 	/** HMD types */
 	public static final int
-		ovrHmd_None      = 0x0,
-		ovrHmd_DK1       = 0x3,
-		ovrHmd_DKHD      = 0x4,
-		ovrHmd_DK2       = 0x6,
-		ovrHmd_BlackStar = 0x7,
-		ovrHmd_CB        = 0x8,
-		ovrHmd_Other     = 0x9;
+		ovrHmd_None  = 0x0,
+		ovrHmd_DK1   = 0x3,
+		ovrHmd_DKHD  = 0x4,
+		ovrHmd_DK2   = 0x6,
+		ovrHmd_CB    = 0x8,
+		ovrHmd_Other = 0x9;
 
 	/** (read only) Specifies that the HMD is a virtual debug device. */
 	public static final int ovrHmdCap_DebugDevice = 0x10;
@@ -177,11 +104,8 @@ public final class OVR {
 	/** (read/write) Adjusts prediction dynamically based on internally measured latency. */
 	public static final int ovrHmdCap_DynamicPrediction = 0x200;
 
-	/** (read/write) Supports rendering without VSync for debugging. */
-	public static final int ovrHmdCap_NoVSync = 0x1000;
-
 	/** Indicates to the developer what caps they can and cannot modify. These are processed by the client. */
-	public static final int ovrHmdCap_Writable_Mask = ovrHmdCap_LowPersistence | ovrHmdCap_DynamicPrediction | ovrHmdCap_NoVSync;
+	public static final int ovrHmdCap_Writable_Mask = ovrHmdCap_LowPersistence | ovrHmdCap_DynamicPrediction;
 
 	/** Indicates to the developer what caps they can and cannot modify. These are processed by the service. */
 	public static final int ovrHmdCap_Service_Mask = ovrHmdCap_LowPersistence | ovrHmdCap_DynamicPrediction;
@@ -244,6 +168,20 @@ public final class OVR {
 		ovrLayerFlag_HighQuality               = 0x1,
 		ovrLayerFlag_TextureOriginAtBottomLeft = 0x2;
 
+	/**
+	 * Performance HUD enables the HMD user to see information critical to the real-time operation of the VR application such as latency timing, and CPU & GPU
+	 * performance metrics.
+	 * 
+	 * <p>App can toggle performance HUD modes as such:
+	 * <pre><code style="font-family: monospace">
+	 * ovrPerfHudMode PerfHudMode = ovrPerfHud_LatencyTiming;
+	 * ovrHmd_SetInt(Hmd, "PerfHudMode", (int)PerfHudMode);</code></pre></p>
+	 */
+	public static final int
+		ovrPerfHud_Off           = 0x0,
+		ovrPerfHud_LatencyTiming = 0x1,
+		ovrPerfHud_RenderTiming  = 0x2;
+
 	static { LWJGLUtil.initialize(); }
 
 	private OVR() {}
@@ -258,7 +196,7 @@ public final class OVR {
 	 * Initialize LibOVR for application usage. This includes finding and loading the LibOVRRT shared library. No LibOVR API functions, other than
 	 * {@link #ovr_GetLastErrorInfo _GetLastErrorInfo}, can be called unless ovr_Initialize succeeds. A successful call to ovr_Initialize must be eventually followed by a call to
 	 * {@link #ovr_Shutdown _Shutdown}. ovr_Initialize calls are idempotent. Calling ovr_Initialize twice does not require two matching calls to {@link #ovr_Shutdown _Shutdown}. If already
-	 * initialized, the return value is {@link #ovrSuccess Success}.
+	 * initialized, the return value is {@link OVRErrorCode#ovrSuccess Success}.
 	 * 
 	 * <p>LibOVRRT shared library search order:
 	 * <ol>
@@ -274,15 +212,15 @@ public final class OVR {
 	 * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link #ovr_GetLastErrorInfo _GetLastErrorInfo} to get more information. Example failed results
 	 *         include:
 	 *         <ul>
-	 *         <li>{@link #ovrError_Initialize Error_Initialize}: Generic initialization error.</li>
-	 *         <li>{@link #ovrError_LibLoad Error_LibLoad}: Couldn't load LibOVRRT.</li>
-	 *         <li>{@link #ovrError_LibVersion Error_LibVersion}: LibOVRRT version incompatibility.</li>
-	 *         <li>{@link #ovrError_ServiceConnection Error_ServiceConnection}: Couldn't connect to the OVR Service.</li>
-	 *         <li>{@link #ovrError_ServiceVersion Error_ServiceVersion}: OVR Service version incompatibility.</li>
-	 *         <li>{@link #ovrError_IncompatibleOS Error_IncompatibleOS}: The operating system version is incompatible.</li>
-	 *         <li>{@link #ovrError_DisplayInit Error_DisplayInit}: Unable to initialize the HMD display.</li>
-	 *         <li>{@link #ovrError_ServerStart Error_ServerStart}:  Unable to start the server. Is it already running?</li>
-	 *         <li>{@link #ovrError_Reinitialization Error_Reinitialization}: Attempted to re-initialize with a different version.</li>
+	 *         <li>{@link OVRErrorCode#ovrError_Initialize Error_Initialize}: Generic initialization error.</li>
+	 *         <li>{@link OVRErrorCode#ovrError_LibLoad Error_LibLoad}: Couldn't load LibOVRRT.</li>
+	 *         <li>{@link OVRErrorCode#ovrError_LibVersion Error_LibVersion}: LibOVRRT version incompatibility.</li>
+	 *         <li>{@link OVRErrorCode#ovrError_ServiceConnection Error_ServiceConnection}: Couldn't connect to the OVR Service.</li>
+	 *         <li>{@link OVRErrorCode#ovrError_ServiceVersion Error_ServiceVersion}: OVR Service version incompatibility.</li>
+	 *         <li>{@link OVRErrorCode#ovrError_IncompatibleOS Error_IncompatibleOS}: The operating system version is incompatible.</li>
+	 *         <li>{@link OVRErrorCode#ovrError_DisplayInit Error_DisplayInit}: Unable to initialize the HMD display.</li>
+	 *         <li>{@link OVRErrorCode#ovrError_ServerStart Error_ServerStart}:  Unable to start the server. Is it already running?</li>
+	 *         <li>{@link OVRErrorCode#ovrError_Reinitialization Error_Reinitialization}: Attempted to re-initialize with a different version.</li>
 	 *         </ul>
 	 */
 	public static int ovr_Initialize(ByteBuffer params) {
@@ -396,6 +334,8 @@ public final class OVR {
 	 * <p>If one or more HMDs are present, an integer value is returned which indicates the number present. The number present indicates the range of valid
 	 * indexes that can be passed to {@link #ovrHmd_Create Hmd_Create}. If no HMDs are present, the return value is zero. If there is an error, a negative error {@code ovrResult}
 	 * value is returned.</p>
+	 * 
+	 * <p>ovrHmd_Detect can be called at any time between ovrInitialize and ovrShutdown and can be called multiple times or from multiple threads.</p>
 	 *
 	 * @return an integer that specifies the number of HMDs currently present. Upon failure, {@code OVR_SUCCESS(result)} is false.
 	 */
@@ -410,8 +350,8 @@ public final class OVR {
 	/**
 	 * Creates a handle to an HMD which doubles as a description structure.
 	 * 
-	 * <p>Upon success the returned ovrHmd* must be freed with {@link #ovrHmd_Destroy Hmd_Destroy}. A second call to {@link #ovrHmd_Create Hmd_Create} with the same index as a previously successful call
-	 * will result in an error return value.</p>
+	 * <p>Upon success the returned ovrHmd* must be freed with {@link #ovrHmd_Destroy Hmd_Destroy}. A second call to {@link #ovrHmd_Create Hmd_Create} or {@link #ovrHmd_CreateDebug Hmd_CreateDebug} with the same index as a
+	 * previously successful call will result in an error return value if the previous Hmd has not been destroyed.</p>
 	 *
 	 * @param index a value in the range of {@code [0 .. ovrHmd_Detect()-1]]}.
 	 * @param pHmd  a pointer to an {@code ovrHmd} which will be written to upon success.
@@ -419,11 +359,15 @@ public final class OVR {
 	 * @return an {@code ovrResult} indicating success or failure
 	 */
 	public static int ovrHmd_Create(int index, ByteBuffer pHmd) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(pHmd, 1 << POINTER_SHIFT);
 		return novrHmd_Create(index, memAddress(pHmd));
 	}
 
 	/** Alternative version of: {@link #ovrHmd_Create Hmd_Create} */
 	public static int ovrHmd_Create(int index, PointerBuffer pHmd) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(pHmd, 1);
 		return novrHmd_Create(index, memAddress(pHmd));
 	}
 
@@ -436,19 +380,24 @@ public final class OVR {
 	/**
 	 * Creates a fake HMD used for debugging only.
 	 * 
-	 * <p>This is not tied to specific hardware, but may be used to debug some of the related rendering.</p>
+	 * <p>Upon success the returned ovrHmd* must be freed with {@link #ovrHmd_Destroy Hmd_Destroy}. A second call to {@link #ovrHmd_Create Hmd_Create} or {@link #ovrHmd_CreateDebug Hmd_CreateDebug} with the same index as a
+	 * previously successful call will result in an error return value if the previous Hmd has not been destroyed.</p>
 	 *
-	 * @param type indicates the HMD type to emulate. One of:<br>{@link #ovrHmd_None Hmd_None}, {@link #ovrHmd_DK1 Hmd_DK1}, {@link #ovrHmd_DKHD Hmd_DKHD}, {@link #ovrHmd_DK2 Hmd_DK2}, {@link #ovrHmd_BlackStar Hmd_BlackStar}, {@link #ovrHmd_CB Hmd_CB}, {@link #ovrHmd_Other Hmd_Other}
+	 * @param type indicates the HMD type to emulate. One of:<br>{@link #ovrHmd_None Hmd_None}, {@link #ovrHmd_DK1 Hmd_DK1}, {@link #ovrHmd_DKHD Hmd_DKHD}, {@link #ovrHmd_DK2 Hmd_DK2}, {@link #ovrHmd_CB Hmd_CB}, {@link #ovrHmd_Other Hmd_Other}
 	 * @param pHmd a pointer to an {@code ovrHmd} which will be written to upon success.
 	 *
 	 * @return an {@code ovrResult} indicating success or failure
 	 */
 	public static int ovrHmd_CreateDebug(int type, ByteBuffer pHmd) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(pHmd, 1 << POINTER_SHIFT);
 		return novrHmd_CreateDebug(type, memAddress(pHmd));
 	}
 
 	/** Alternative version of: {@link #ovrHmd_CreateDebug Hmd_CreateDebug} */
 	public static int ovrHmd_CreateDebug(int type, PointerBuffer pHmd) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(pHmd, 1);
 		return novrHmd_CreateDebug(type, memAddress(pHmd));
 	}
 
@@ -500,7 +449,7 @@ public final class OVR {
 	 * Modifies capability bits described by {@code ovrHmdCaps} that can be modified, such as {@link #ovrHmdCap_LowPersistence HmdCap_LowPersistence}.
 	 *
 	 * @param hmd     an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
-	 * @param hmdCaps a combination of 0 or more {@code ovrHmdCaps}. One or more of:<br>{@link #ovrHmdCap_DebugDevice HmdCap_DebugDevice}, {@link #ovrHmdCap_LowPersistence HmdCap_LowPersistence}, {@link #ovrHmdCap_DynamicPrediction HmdCap_DynamicPrediction}, {@link #ovrHmdCap_NoVSync HmdCap_NoVSync}
+	 * @param hmdCaps a combination of 0 or more {@code ovrHmdCaps}. One or more of:<br>{@link #ovrHmdCap_DebugDevice HmdCap_DebugDevice}, {@link #ovrHmdCap_LowPersistence HmdCap_LowPersistence}, {@link #ovrHmdCap_DynamicPrediction HmdCap_DynamicPrediction}
 	 */
 	public static void ovrHmd_SetEnabledCaps(long hmd, int hmdCaps) {
 		if ( LWJGLUtil.CHECKS )
@@ -517,7 +466,8 @@ public final class OVR {
 	/**
 	 * Starts sensor sampling, enabling specified capabilities, described by {@code ovrTrackingCaps}.
 	 * 
-	 * <p>Use 0 for both {@code supportedTrackingCaps} and {@code requiredTrackingCaps} to disable tracking.</p>
+	 * <p>Use 0 for both {@code supportedTrackingCaps} and {@code requiredTrackingCaps} to disable tracking. ovrHmd_ConfigureTracking can be called multiple
+	 * times with the same or different values for a given {@code ovrHmd}.</p>
 	 *
 	 * @param hmd                   an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
 	 * @param supportedTrackingCaps specifies support that is requested. The function will succeed even if these caps are not available (i.e. sensor or camera is unplugged). Support
@@ -587,14 +537,14 @@ public final class OVR {
 	 * Destroys an {@link OVRSwapTextureSet} and frees all the resources associated with it.
 	 *
 	 * @param hmd        an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
-	 * @param textureSet the {@link OVRSwapTextureSet} to destroy
+	 * @param textureSet the {@link OVRSwapTextureSet} to destroy. If it is {@code NULL} then this function has no effect.
 	 */
 	public static void ovrHmd_DestroySwapTextureSet(long hmd, ByteBuffer textureSet) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(hmd);
-			checkBuffer(textureSet, OVRSwapTextureSet.SIZEOF);
+			if ( textureSet != null ) checkBuffer(textureSet, OVRSwapTextureSet.SIZEOF);
 		}
-		novrHmd_DestroySwapTextureSet(hmd, memAddress(textureSet));
+		novrHmd_DestroySwapTextureSet(hmd, memAddressSafe(textureSet));
 	}
 
 	// --- [ ovrHmd_DestroyMirrorTexture ] ---
@@ -607,14 +557,14 @@ public final class OVR {
 	 * Destroys a mirror texture previously created by one of the mirror texture creation functions.
 	 *
 	 * @param hmd           an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
-	 * @param mirrorTexture the {@link OVRTexture} to destroy
+	 * @param mirrorTexture the {@link OVRTexture} to destroy. If it is {@code NULL} then this function has no effect.
 	 */
 	public static void ovrHmd_DestroyMirrorTexture(long hmd, ByteBuffer mirrorTexture) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(hmd);
-			checkBuffer(mirrorTexture, OVRTexture.SIZEOF);
+			if ( mirrorTexture != null ) checkBuffer(mirrorTexture, OVRTexture.SIZEOF);
 		}
-		novrHmd_DestroyMirrorTexture(hmd, memAddress(mirrorTexture));
+		novrHmd_DestroyMirrorTexture(hmd, memAddressSafe(mirrorTexture));
 	}
 
 	// --- [ ovrHmd_GetFovTextureSize ] ---
@@ -696,7 +646,7 @@ public final class OVR {
 	 * ovrResult result = ovrHmd_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code></pre>
 	 *
 	 * @param hmd           an {@code ovrHmd} previously returned by {@link #ovrHmd_Create Hmd_Create}
-	 * @param frameIndex    the targeted frame index, or 0, to refer to one frame after the last time {@link #ovrHmd_SubmitFrame Hmd_SubmitFrame} was called
+	 * @param frameIndex    the targeted application frame index, or 0 to refer to one frame after the last time {@link #ovrHmd_SubmitFrame Hmd_SubmitFrame} was called
 	 * @param viewScaleDesc provides additional information needed only if {@code layerPtrList} contains a {@link #ovrLayerType_QuadInWorld LayerType_QuadInWorld} or {@link #ovrLayerType_QuadHeadLocked LayerType_QuadHeadLocked}. If {@code NULL}, a
 	 *                      default version is used based on the current configuration and a 1.0 world scale.
 	 * @param layerPtrList  a list of {@code ovrLayer} pointers, which can include {@code NULL} entries to indicate that any previously shown layer at that index is to not be
@@ -707,10 +657,10 @@ public final class OVR {
 	 *
 	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon one of the possible success values:
 	 *         <ul>
-	 *         <li>{@link #ovrSuccess Success}: rendering completed successfully.</li>
-	 *         <li>{@link #ovrSuccess_NotVisible Success_NotVisible}: rendering completed successfully but was not displayed on the HMD, usually because another application currently has ownership
-	 *         of the HMD. Applications receiving this result should stop rendering new content, but continue to call ovrHmd_SubmitFrame periodically until it
-	 *         returns a value other than {@link #ovrSuccess_NotVisible Success_NotVisible}.</li>
+	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: rendering completed successfully.</li>
+	 *         <li>{@link OVRErrorCode#ovrSuccess_NotVisible Success_NotVisible}: rendering completed successfully but was not displayed on the HMD, usually because another application currently
+	 *         has ownership of the HMD. Applications receiving this result should stop rendering new content, but continue to call ovrHmd_SubmitFrame
+	 *         periodically until it returns a value other than {@link OVRErrorCode#ovrSuccess_NotVisible Success_NotVisible}.</li>
 	 *         </ul>
 	 */
 	public static int ovrHmd_SubmitFrame(long hmd, int frameIndex, ByteBuffer viewScaleDesc, ByteBuffer layerPtrList, int layerCount) {

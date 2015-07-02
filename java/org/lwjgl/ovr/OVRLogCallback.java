@@ -13,7 +13,7 @@ import org.lwjgl.system.libffi.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
-/** Instances of this interface may be passed to the {@code LogCallback} member of the {@link OVRInitFlags} struct. */
+/** Instances of this interface may be passed to the {@code LogCallback} member of the {@link OVRInitParams} struct. */
 public abstract class OVRLogCallback extends Closure.Void {
 
 	private static final ByteBuffer    CIF  = FFICIF.malloc();

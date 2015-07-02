@@ -136,6 +136,8 @@ public final class ContextCapabilities {
 	final EXTBlendEquationSeparate         __EXTBlendEquationSeparate;
 	final EXTBlendFuncSeparate             __EXTBlendFuncSeparate;
 	final EXTBlendMinmax                   __EXTBlendMinmax;
+	final EXTDebugLabel                    __EXTDebugLabel;
+	final EXTDebugMarker                   __EXTDebugMarker;
 	final EXTDepthBoundsTest               __EXTDepthBoundsTest;
 	final EXTDirectStateAccess             __EXTDirectStateAccess;
 	final EXTFramebufferBlit               __EXTFramebufferBlit;
@@ -145,9 +147,12 @@ public final class ContextCapabilities {
 	final EXTPolygonOffsetClamp            __EXTPolygonOffsetClamp;
 	final EXTRasterMultisample             __EXTRasterMultisample;
 	final EXTSecondaryColor                __EXTSecondaryColor;
+	final EXTShaderImageLoadStore          __EXTShaderImageLoadStore;
 	final EXTTextureArray                  __EXTTextureArray;
 	final EXTTextureInteger                __EXTTextureInteger;
 	final EXTTransformFeedback             __EXTTransformFeedback;
+	final EXTVertexAttrib64bit             __EXTVertexAttrib64bit;
+	final EXTX11SyncObject                 __EXTX11SyncObject;
 	final KHRBlendEquationAdvanced         __KHRBlendEquationAdvanced;
 	final KHRDebug                         __KHRDebug;
 	final KHRRobustness                    __KHRRobustness;
@@ -278,6 +283,8 @@ public final class ContextCapabilities {
 	public final boolean GLX_EXT_framebuffer_sRGB;
 	/** When true, {@link GLXEXTImportContext} is supported. */
 	public final boolean GLX_EXT_import_context;
+	/** When true, {@link GLXEXTStereoTree} is supported. */
+	public final boolean GLX_EXT_stereo_tree;
 	/** When true, {@link GLXEXTSwapControl} is supported. */
 	public final boolean GLX_EXT_swap_control;
 	/** When true, {@link GLXEXTSwapControlTear} is supported. */
@@ -1182,6 +1189,10 @@ public final class ContextCapabilities {
 	public final boolean GL_EXT_blend_minmax;
 	/** When true, {@link EXTBlendSubtract} is supported. */
 	public final boolean GL_EXT_blend_subtract;
+	/** When true, {@link EXTDebugLabel} is supported. */
+	public final boolean GL_EXT_debug_label;
+	/** When true, {@link EXTDebugMarker} is supported. */
+	public final boolean GL_EXT_debug_marker;
 	/** When true, {@link EXTDepthBoundsTest} is supported. */
 	public final boolean GL_EXT_depth_bounds_test;
 	/** When true, {@link EXTDirectStateAccess} is supported. */
@@ -1220,6 +1231,25 @@ public final class ContextCapabilities {
 	public final boolean GL_EXT_raster_multisample;
 	/** When true, {@link EXTSecondaryColor} is supported. */
 	public final boolean GL_EXT_secondary_color;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/EXT/shader_image_load_formatted.txt">EXT_shader_image_load_formatted</a> extension is supported.
+	 * 
+	 * <p>{@link ARBShaderImageLoadStore ARB_shader_image_load_store} (and OpenGL 4.2) added support for random access load and store from/to texture images, but due to hardware
+	 * limitations, loads were required to declare the image format in the shader source. This extension relaxes that requirement, and the return values from
+	 * {@code imageLoad} can be format-converted based on the format of the image binding.</p>
+	 */
+	public final boolean GL_EXT_shader_image_load_formatted;
+	/** When true, {@link EXTShaderImageLoadStore} is supported. */
+	public final boolean GL_EXT_shader_image_load_store;
+	/**
+	 * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/shader_integer_mix.txt">EXT_shader_integer_mix</a> extension.
+	 * 
+	 * <p>GLSL 1.30 (and GLSL ES 3.00) expanded the mix() built-in function to operate on a boolean third argument that does not interpolate but selects. This
+	 * extension extends mix() to select between int, uint, and bool components.</p>
+	 * 
+	 * <p>Requires {@link GL30 OpenGL 3.0}.</p>
+	 */
+	public final boolean GL_EXT_shader_integer_mix;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/EXT/shadow_funcs.txt">EXT_shadow_funcs</a> extension is supported.
 	 * 
@@ -1278,8 +1308,14 @@ public final class ContextCapabilities {
 	public final boolean GL_EXT_texture_shared_exponent;
 	/** When true, {@link EXTTextureSRGB} is supported. */
 	public final boolean GL_EXT_texture_sRGB;
+	/** When true, {@link EXTTextureSRGBDecode} is supported. */
+	public final boolean GL_EXT_texture_sRGB_decode;
 	/** When true, {@link EXTTransformFeedback} is supported. */
 	public final boolean GL_EXT_transform_feedback;
+	/** When true, {@link EXTVertexAttrib64bit} is supported. */
+	public final boolean GL_EXT_vertex_attrib_64bit;
+	/** When true, {@link EXTX11SyncObject} is supported. */
+	public final boolean GL_EXT_x11_sync_object;
 	/** When true, {@link KHRBlendEquationAdvanced} is supported. */
 	public final boolean GL_KHR_blend_equation_advanced;
 	/** When true, {@link KHRBlendEquationAdvancedCoherent} is supported. */
@@ -1671,6 +1707,7 @@ public final class ContextCapabilities {
 		GLX_EXT_fbconfig_packed_float = ext.contains("GLX_EXT_fbconfig_packed_float");
 		GLX_EXT_framebuffer_sRGB = ext.contains("GLX_EXT_framebuffer_sRGB");
 		GLX_EXT_import_context = (__GLXEXTImportContext = GLXEXTImportContext.create(ext, provider)) != null;
+		GLX_EXT_stereo_tree = ext.contains("GLX_EXT_stereo_tree");
 		GLX_EXT_swap_control = (__GLXEXTSwapControl = GLXEXTSwapControl.create(ext, provider)) != null;
 		GLX_EXT_swap_control_tear = ext.contains("GLX_EXT_swap_control_tear");
 		GLX_EXT_texture_from_pixmap = (__GLXEXTTextureFromPixmap = GLXEXTTextureFromPixmap.create(ext, provider)) != null;
@@ -1864,6 +1901,8 @@ public final class ContextCapabilities {
 		GL_EXT_blend_func_separate = (__EXTBlendFuncSeparate = EXTBlendFuncSeparate.create(ext, provider)) != null;
 		GL_EXT_blend_minmax = (__EXTBlendMinmax = EXTBlendMinmax.create(ext, provider)) != null;
 		GL_EXT_blend_subtract = ext.contains("GL_EXT_blend_subtract");
+		GL_EXT_debug_label = (__EXTDebugLabel = EXTDebugLabel.create(ext, provider)) != null;
+		GL_EXT_debug_marker = (__EXTDebugMarker = EXTDebugMarker.create(ext, provider)) != null;
 		GL_EXT_depth_bounds_test = (__EXTDepthBoundsTest = EXTDepthBoundsTest.create(ext, provider)) != null;
 		GL_EXT_direct_state_access = (__EXTDirectStateAccess = EXTDirectStateAccess.create(ext, provider)) != null;
 		GL_EXT_framebuffer_blit = (__EXTFramebufferBlit = EXTFramebufferBlit.create(ext, provider)) != null;
@@ -1878,6 +1917,9 @@ public final class ContextCapabilities {
 		GL_EXT_post_depth_coverage = ext.contains("GL_EXT_post_depth_coverage");
 		GL_EXT_raster_multisample = (__EXTRasterMultisample = EXTRasterMultisample.create(ext, provider)) != null;
 		GL_EXT_secondary_color = (__EXTSecondaryColor = EXTSecondaryColor.create(ext, provider)) != null;
+		GL_EXT_shader_image_load_formatted = ext.contains("GL_EXT_shader_image_load_formatted");
+		GL_EXT_shader_image_load_store = (__EXTShaderImageLoadStore = EXTShaderImageLoadStore.create(ext, provider)) != null;
+		GL_EXT_shader_integer_mix = ext.contains("GL_EXT_shader_integer_mix");
 		GL_EXT_shadow_funcs = ext.contains("GL_EXT_shadow_funcs");
 		GL_EXT_shared_texture_palette = ext.contains("GL_EXT_shared_texture_palette");
 		GL_EXT_sparse_texture2 = ext.contains("GL_EXT_sparse_texture2");
@@ -1892,7 +1934,10 @@ public final class ContextCapabilities {
 		GL_EXT_texture_mirror_clamp = ext.contains("GL_EXT_texture_mirror_clamp");
 		GL_EXT_texture_shared_exponent = ext.contains("GL_EXT_texture_shared_exponent");
 		GL_EXT_texture_sRGB = ext.contains("GL_EXT_texture_sRGB");
+		GL_EXT_texture_sRGB_decode = ext.contains("GL_EXT_texture_sRGB_decode");
 		GL_EXT_transform_feedback = (__EXTTransformFeedback = EXTTransformFeedback.create(ext, provider)) != null;
+		GL_EXT_vertex_attrib_64bit = (__EXTVertexAttrib64bit = EXTVertexAttrib64bit.create(ext, provider)) != null;
+		GL_EXT_x11_sync_object = (__EXTX11SyncObject = EXTX11SyncObject.create(ext, provider)) != null;
 		GL_KHR_blend_equation_advanced = (__KHRBlendEquationAdvanced = KHRBlendEquationAdvanced.create(ext, provider)) != null;
 		GL_KHR_blend_equation_advanced_coherent = ext.contains("GL_KHR_blend_equation_advanced_coherent");
 		GL_KHR_context_flush_control = ext.contains("GL_KHR_context_flush_control");

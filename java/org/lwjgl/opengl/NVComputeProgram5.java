@@ -10,7 +10,7 @@ package org.lwjgl.opengl;
  * 
  * <p>This extension builds on the ARB_compute_shader extension to provide new assembly compute program capability for OpenGL.</p>
  * 
- * <p>Requires {@link GL40 OpenGL 4.0}, {@link {@link #GL_GL_NV_gpu_program4 GL_NV_gpu_program4} NV_gpu_program4}, {@link {@link #GL_GL_NV_gpu_program5 GL_NV_gpu_program5} NV_gpu_program5}, {@link ARBComputeShader ARB_compute_shader}.</p>
+ * <p>Requires {@link GL40 OpenGL 4.0}, <a href="http://www.opengl.org/registry/specs/NV/gpu_program4.txt">NV_gpu_program4</a>, <a href="http://www.opengl.org/registry/specs/NV/gpu_program5.txt">NV_gpu_program5</a>, {@link ARBComputeShader ARB_compute_shader}.</p>
  */
 public final class NVComputeProgram5 {
 

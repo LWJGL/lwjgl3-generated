@@ -10,6 +10,8 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 
+import org.lwjgl.system.linux.X;
+
 /** Native bindings to the GLFW library's Linux native access functions. */
 public final class GLFWLinux {
 

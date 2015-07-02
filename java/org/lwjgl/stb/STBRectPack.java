@@ -61,7 +61,7 @@ public final class STBRectPack {
 	public static void stbrp_pack_rects(ByteBuffer context, ByteBuffer rects, int num_rects) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(context, STBRPContext.SIZEOF);
-			checkBuffer(rects, num_rects * STBRPContext.SIZEOF);
+			checkBuffer(rects, num_rects * STBRPRect.SIZEOF);
 		}
 		nstbrp_pack_rects(memAddress(context), memAddress(rects), num_rects);
 	}
@@ -70,7 +70,7 @@ public final class STBRectPack {
 	public static void stbrp_pack_rects(ByteBuffer context, ByteBuffer rects) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(context, STBRPContext.SIZEOF);
-		nstbrp_pack_rects(memAddress(context), memAddress(rects), rects.remaining() / STBRPContext.SIZEOF);
+		nstbrp_pack_rects(memAddress(context), memAddress(rects), rects.remaining() / STBRPRect.SIZEOF);
 	}
 
 	// --- [ stbrp_init_target ] ---
@@ -91,17 +91,17 @@ public final class STBRectPack {
 	 * <p>Note: to guarantee best results, either:
 	 * <ol>
 	 * <li>make sure {@code num_nodes &ge; width}</li>
-	 * <li>or, call {@link #stbrp_allow_out_of_mem allow_out_of_mem} with {@code allow_out_of_mem = 1}</li>
+	 * <li>or, call {@link #stbrp_setup_allow_out_of_mem setup_allow_out_of_mem} with {@code allow_out_of_mem = 1}</li>
 	 * </ol>
 	 * If you don't do either of the above things, widths will be quantized to multiples of small integers to guarantee the algorithm doesn't run out of
 	 * temporary storage.</p>
 	 * 
-	 * <p>If you do {@link #STBRP_2 2}, then the non-quantized algorithm will be used, but the algorithm may run out of temporary storage and be unable to pack some rectangles.</p>
+	 * <p>If you do #2, then the non-quantized algorithm will be used, but the algorithm may run out of temporary storage and be unable to pack some rectangles.</p>
 	 *
 	 * @param context   an {@link STBRPContext} struct
 	 * @param width     the rectangle width
 	 * @param height    the rectangle height
-	 * @param nodes     an array of {@link STBRTNode} structs
+	 * @param nodes     an array of {@link STBRPNode} structs
 	 * @param num_nodes the number of structs in {@code nodes}
 	 */
 	public static void stbrp_init_target(ByteBuffer context, int width, int height, ByteBuffer nodes, int num_nodes) {

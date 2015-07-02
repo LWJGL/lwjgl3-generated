@@ -13,7 +13,8 @@ import static org.lwjgl.system.Checks.*;
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/texture_multisample.txt">NV_texture_multisample</a> extension.
  * 
- * <p>This specification extends {@link {@link #GL_GL_NV_gpu_program4 GL_NV_gpu_program4} NV_gpu_program4} to support per-sample fetching from multisample textures described in ARB_texture_multisample.</p>
+ * <p>This specification extends <a href="http://www.opengl.org/registry/specs/NV/gpu_program4.txt">NV_gpu_program4</a> to support per-sample fetching from multisample textures described in
+ * {@link ARBTextureMultisample ARB_texture_multisample}.</p>
  * 
  * <p>Requires {@link GL20 OpenGL 2.0}, {@link ARBTextureMultisample ARB_texture_multisample}.</p>
  */

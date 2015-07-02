@@ -14,7 +14,7 @@ package org.lwjgl.opengl;
  * shaders to access a large number of buffer objects without needing to repeatedly bind buffers to a limited number of fixed-functionality binding
  * points.</p>
  * 
- * <p>Requires {@link GL30 OpenGL 3.0}, GLSL 1.30, {@link NVShaderBufferLoad NV_shader_buffer_load}, {@link {@link #GL_GL_NV_gpu_program5 GL_NV_gpu_program5} NV_gpu_program5} and/or {@link {@link #GL_GL_NV_gpu_shader5 GL_NV_gpu_shader5} NV_gpu_shader5}.</p>
+ * <p>Requires {@link GL30 OpenGL 3.0}, GLSL 1.30, {@link NVShaderBufferLoad NV_shader_buffer_load}, <a href="http://www.opengl.org/registry/specs/NV/gpu_program5.txt">NV_gpu_program5</a> and/or <a href="http://www.opengl.org/registry/specs/NV/gpu_shader5.txt">NV_gpu_shader5</a>.</p>
  */
 public final class NVShaderBufferStore {
 
