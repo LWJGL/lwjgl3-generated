@@ -150,6 +150,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glVertexP2ui(int type, int value) {
 		long __functionAddress = getInstance().VertexP2ui;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglVertexP2ui(type, value, __functionAddress);
 	}
 
@@ -163,6 +165,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glVertexP3ui(int type, int value) {
 		long __functionAddress = getInstance().VertexP3ui;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglVertexP3ui(type, value, __functionAddress);
 	}
 
@@ -176,6 +180,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glVertexP4ui(int type, int value) {
 		long __functionAddress = getInstance().VertexP4ui;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglVertexP4ui(type, value, __functionAddress);
 	}
 
@@ -185,6 +191,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglVertexP2uiv(int type, long value) {
 		long __functionAddress = getInstance().VertexP2uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglVertexP2uiv(type, value, __functionAddress);
 	}
 
@@ -213,6 +221,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglVertexP3uiv(int type, long value) {
 		long __functionAddress = getInstance().VertexP3uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglVertexP3uiv(type, value, __functionAddress);
 	}
 
@@ -241,6 +251,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglVertexP4uiv(int type, long value) {
 		long __functionAddress = getInstance().VertexP4uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglVertexP4uiv(type, value, __functionAddress);
 	}
 
@@ -273,6 +285,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glTexCoordP1ui(int type, int coords) {
 		long __functionAddress = getInstance().TexCoordP1ui;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglTexCoordP1ui(type, coords, __functionAddress);
 	}
 
@@ -286,6 +300,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glTexCoordP2ui(int type, int coords) {
 		long __functionAddress = getInstance().TexCoordP2ui;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglTexCoordP2ui(type, coords, __functionAddress);
 	}
 
@@ -299,6 +315,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glTexCoordP3ui(int type, int coords) {
 		long __functionAddress = getInstance().TexCoordP3ui;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglTexCoordP3ui(type, coords, __functionAddress);
 	}
 
@@ -312,6 +330,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glTexCoordP4ui(int type, int coords) {
 		long __functionAddress = getInstance().TexCoordP4ui;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglTexCoordP4ui(type, coords, __functionAddress);
 	}
 
@@ -321,6 +341,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglTexCoordP1uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP1uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglTexCoordP1uiv(type, coords, __functionAddress);
 	}
 
@@ -349,6 +371,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglTexCoordP2uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP2uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglTexCoordP2uiv(type, coords, __functionAddress);
 	}
 
@@ -377,6 +401,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglTexCoordP3uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP3uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglTexCoordP3uiv(type, coords, __functionAddress);
 	}
 
@@ -405,6 +431,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglTexCoordP4uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP4uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglTexCoordP4uiv(type, coords, __functionAddress);
 	}
 
@@ -438,6 +466,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glMultiTexCoordP1ui(int texture, int type, int coords) {
 		long __functionAddress = getInstance().MultiTexCoordP1ui;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglMultiTexCoordP1ui(texture, type, coords, __functionAddress);
 	}
 
@@ -452,6 +482,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glMultiTexCoordP2ui(int texture, int type, int coords) {
 		long __functionAddress = getInstance().MultiTexCoordP2ui;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglMultiTexCoordP2ui(texture, type, coords, __functionAddress);
 	}
 
@@ -466,6 +498,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glMultiTexCoordP3ui(int texture, int type, int coords) {
 		long __functionAddress = getInstance().MultiTexCoordP3ui;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglMultiTexCoordP3ui(texture, type, coords, __functionAddress);
 	}
 
@@ -480,6 +514,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glMultiTexCoordP4ui(int texture, int type, int coords) {
 		long __functionAddress = getInstance().MultiTexCoordP4ui;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglMultiTexCoordP4ui(texture, type, coords, __functionAddress);
 	}
 
@@ -489,6 +525,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglMultiTexCoordP1uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP1uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglMultiTexCoordP1uiv(texture, type, coords, __functionAddress);
 	}
 
@@ -518,6 +556,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglMultiTexCoordP2uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP2uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglMultiTexCoordP2uiv(texture, type, coords, __functionAddress);
 	}
 
@@ -547,6 +587,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglMultiTexCoordP3uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP3uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglMultiTexCoordP3uiv(texture, type, coords, __functionAddress);
 	}
 
@@ -576,6 +618,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglMultiTexCoordP4uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP4uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglMultiTexCoordP4uiv(texture, type, coords, __functionAddress);
 	}
 
@@ -609,6 +653,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glNormalP3ui(int type, int coords) {
 		long __functionAddress = getInstance().NormalP3ui;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglNormalP3ui(type, coords, __functionAddress);
 	}
 
@@ -618,6 +664,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglNormalP3uiv(int type, long coords) {
 		long __functionAddress = getInstance().NormalP3uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglNormalP3uiv(type, coords, __functionAddress);
 	}
 
@@ -650,6 +698,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glColorP3ui(int type, int color) {
 		long __functionAddress = getInstance().ColorP3ui;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglColorP3ui(type, color, __functionAddress);
 	}
 
@@ -663,6 +713,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glColorP4ui(int type, int color) {
 		long __functionAddress = getInstance().ColorP4ui;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglColorP4ui(type, color, __functionAddress);
 	}
 
@@ -672,6 +724,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglColorP3uiv(int type, long color) {
 		long __functionAddress = getInstance().ColorP3uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglColorP3uiv(type, color, __functionAddress);
 	}
 
@@ -700,6 +754,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglColorP4uiv(int type, long color) {
 		long __functionAddress = getInstance().ColorP4uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglColorP4uiv(type, color, __functionAddress);
 	}
 
@@ -732,6 +788,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glSecondaryColorP3ui(int type, int color) {
 		long __functionAddress = getInstance().SecondaryColorP3ui;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglSecondaryColorP3ui(type, color, __functionAddress);
 	}
 
@@ -741,6 +799,8 @@ public final class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglSecondaryColorP3uiv(int type, long color) {
 		long __functionAddress = getInstance().SecondaryColorP3uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		GL33.nglSecondaryColorP3uiv(type, color, __functionAddress);
 	}
 

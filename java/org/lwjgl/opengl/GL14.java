@@ -341,6 +341,8 @@ public final class GL14 {
 	 */
 	public static void glFogCoordf(float coord) {
 		long __functionAddress = getInstance().FogCoordf;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglFogCoordf(coord, __functionAddress);
 	}
 
@@ -359,6 +361,8 @@ public final class GL14 {
 	 */
 	public static void glFogCoordd(double coord) {
 		long __functionAddress = getInstance().FogCoordd;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglFogCoordd(coord, __functionAddress);
 	}
 
@@ -372,6 +376,8 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglFogCoordfv(long coord) {
 		long __functionAddress = getInstance().FogCoordfv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglFogCoordfv(coord, __functionAddress);
 	}
 
@@ -405,6 +411,8 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglFogCoorddv(long coord) {
 		long __functionAddress = getInstance().FogCoorddv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglFogCoorddv(coord, __functionAddress);
 	}
 
@@ -438,6 +446,8 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglFogCoordPointer(int type, int stride, long pointer) {
 		long __functionAddress = getInstance().FogCoordPointer;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglFogCoordPointer(type, stride, pointer, __functionAddress);
 	}
 
@@ -672,6 +682,8 @@ public final class GL14 {
 	 */
 	public static void glSecondaryColor3b(byte red, byte green, byte blue) {
 		long __functionAddress = getInstance().SecondaryColor3b;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3b(red, green, blue, __functionAddress);
 	}
 
@@ -692,6 +704,8 @@ public final class GL14 {
 	 */
 	public static void glSecondaryColor3s(short red, short green, short blue) {
 		long __functionAddress = getInstance().SecondaryColor3s;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3s(red, green, blue, __functionAddress);
 	}
 
@@ -712,6 +726,8 @@ public final class GL14 {
 	 */
 	public static void glSecondaryColor3i(int red, int green, int blue) {
 		long __functionAddress = getInstance().SecondaryColor3i;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3i(red, green, blue, __functionAddress);
 	}
 
@@ -732,6 +748,8 @@ public final class GL14 {
 	 */
 	public static void glSecondaryColor3f(float red, float green, float blue) {
 		long __functionAddress = getInstance().SecondaryColor3f;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3f(red, green, blue, __functionAddress);
 	}
 
@@ -752,6 +770,8 @@ public final class GL14 {
 	 */
 	public static void glSecondaryColor3d(double red, double green, double blue) {
 		long __functionAddress = getInstance().SecondaryColor3d;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3d(red, green, blue, __functionAddress);
 	}
 
@@ -772,6 +792,8 @@ public final class GL14 {
 	 */
 	public static void glSecondaryColor3ub(byte red, byte green, byte blue) {
 		long __functionAddress = getInstance().SecondaryColor3ub;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3ub(red, green, blue, __functionAddress);
 	}
 
@@ -792,6 +814,8 @@ public final class GL14 {
 	 */
 	public static void glSecondaryColor3us(short red, short green, short blue) {
 		long __functionAddress = getInstance().SecondaryColor3us;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3us(red, green, blue, __functionAddress);
 	}
 
@@ -812,6 +836,8 @@ public final class GL14 {
 	 */
 	public static void glSecondaryColor3ui(int red, int green, int blue) {
 		long __functionAddress = getInstance().SecondaryColor3ui;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3ui(red, green, blue, __functionAddress);
 	}
 
@@ -825,6 +851,8 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglSecondaryColor3bv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3bv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3bv(v, __functionAddress);
 	}
 
@@ -851,6 +879,8 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglSecondaryColor3sv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3sv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3sv(v, __functionAddress);
 	}
 
@@ -884,6 +914,8 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglSecondaryColor3iv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3iv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3iv(v, __functionAddress);
 	}
 
@@ -917,6 +949,8 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglSecondaryColor3fv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3fv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3fv(v, __functionAddress);
 	}
 
@@ -950,6 +984,8 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglSecondaryColor3dv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3dv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3dv(v, __functionAddress);
 	}
 
@@ -983,6 +1019,8 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglSecondaryColor3ubv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3ubv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3ubv(v, __functionAddress);
 	}
 
@@ -1009,6 +1047,8 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglSecondaryColor3usv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3usv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3usv(v, __functionAddress);
 	}
 
@@ -1042,6 +1082,8 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglSecondaryColor3uiv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3uiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglSecondaryColor3uiv(v, __functionAddress);
 	}
 
@@ -1075,6 +1117,8 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglSecondaryColorPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().SecondaryColorPointer;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglSecondaryColorPointer(size, type, stride, pointer, __functionAddress);
 	}
 
@@ -1159,6 +1203,8 @@ public final class GL14 {
 	 */
 	public static void glWindowPos2i(int x, int y) {
 		long __functionAddress = getInstance().WindowPos2i;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglWindowPos2i(x, y, __functionAddress);
 	}
 
@@ -1178,6 +1224,8 @@ public final class GL14 {
 	 */
 	public static void glWindowPos2s(short x, short y) {
 		long __functionAddress = getInstance().WindowPos2s;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglWindowPos2s(x, y, __functionAddress);
 	}
 
@@ -1197,6 +1245,8 @@ public final class GL14 {
 	 */
 	public static void glWindowPos2f(float x, float y) {
 		long __functionAddress = getInstance().WindowPos2f;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglWindowPos2f(x, y, __functionAddress);
 	}
 
@@ -1216,6 +1266,8 @@ public final class GL14 {
 	 */
 	public static void glWindowPos2d(double x, double y) {
 		long __functionAddress = getInstance().WindowPos2d;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglWindowPos2d(x, y, __functionAddress);
 	}
 
@@ -1229,6 +1281,8 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglWindowPos2iv(long p) {
 		long __functionAddress = getInstance().WindowPos2iv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglWindowPos2iv(p, __functionAddress);
 	}
 
@@ -1262,6 +1316,8 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglWindowPos2sv(long p) {
 		long __functionAddress = getInstance().WindowPos2sv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglWindowPos2sv(p, __functionAddress);
 	}
 
@@ -1295,6 +1351,8 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglWindowPos2fv(long p) {
 		long __functionAddress = getInstance().WindowPos2fv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglWindowPos2fv(p, __functionAddress);
 	}
 
@@ -1328,6 +1386,8 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglWindowPos2dv(long p) {
 		long __functionAddress = getInstance().WindowPos2dv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglWindowPos2dv(p, __functionAddress);
 	}
 
@@ -1368,6 +1428,8 @@ public final class GL14 {
 	 */
 	public static void glWindowPos3i(int x, int y, int z) {
 		long __functionAddress = getInstance().WindowPos3i;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglWindowPos3i(x, y, z, __functionAddress);
 	}
 
@@ -1388,6 +1450,8 @@ public final class GL14 {
 	 */
 	public static void glWindowPos3s(short x, short y, short z) {
 		long __functionAddress = getInstance().WindowPos3s;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglWindowPos3s(x, y, z, __functionAddress);
 	}
 
@@ -1408,6 +1472,8 @@ public final class GL14 {
 	 */
 	public static void glWindowPos3f(float x, float y, float z) {
 		long __functionAddress = getInstance().WindowPos3f;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglWindowPos3f(x, y, z, __functionAddress);
 	}
 
@@ -1428,6 +1494,8 @@ public final class GL14 {
 	 */
 	public static void glWindowPos3d(double x, double y, double z) {
 		long __functionAddress = getInstance().WindowPos3d;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglWindowPos3d(x, y, z, __functionAddress);
 	}
 
@@ -1441,6 +1509,8 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglWindowPos3iv(long p) {
 		long __functionAddress = getInstance().WindowPos3iv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglWindowPos3iv(p, __functionAddress);
 	}
 
@@ -1474,6 +1544,8 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglWindowPos3sv(long p) {
 		long __functionAddress = getInstance().WindowPos3sv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglWindowPos3sv(p, __functionAddress);
 	}
 
@@ -1507,6 +1579,8 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglWindowPos3fv(long p) {
 		long __functionAddress = getInstance().WindowPos3fv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglWindowPos3fv(p, __functionAddress);
 	}
 
@@ -1540,6 +1614,8 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglWindowPos3dv(long p) {
 		long __functionAddress = getInstance().WindowPos3dv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
 		nglWindowPos3dv(p, __functionAddress);
 	}
 
