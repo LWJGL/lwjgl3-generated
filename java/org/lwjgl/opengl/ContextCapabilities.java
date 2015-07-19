@@ -168,7 +168,7 @@ public final class ContextCapabilities {
 	final NVFragmentCoverageToColor        __NVFragmentCoverageToColor;
 	final NVFramebufferMixedSamples        __NVFramebufferMixedSamples;
 	final NVInternalformatSampleQuery      __NVInternalformatSampleQuery;
-	final NVPathRenderingSharedEdge        __NVPathRenderingSharedEdge;
+	final NVPathRendering                  __NVPathRendering;
 	final NVPointSprite                    __NVPointSprite;
 	final NVSampleLocations                __NVSampleLocations;
 	final NVShaderBufferLoad               __NVShaderBufferLoad;
@@ -1475,6 +1475,8 @@ public final class ContextCapabilities {
 	 * <p>Requires {@link GL20 OpenGL 2.0}, {@link #GL_NV_gpu_program4 NV_gpu_program4} and {@link #GL_NV_parameter_buffer_object NV_parameter_buffer_object}.</p>
 	 */
 	public final boolean GL_NV_parameter_buffer_object2;
+	/** When true, {@link NVPathRendering} is supported. */
+	public final boolean GL_NV_path_rendering;
 	/** When true, {@link NVPathRenderingSharedEdge} is supported. */
 	public final boolean GL_NV_path_rendering_shared_edge;
 	/** When true, {@link NVPointSprite} is supported. */
@@ -1976,7 +1978,8 @@ public final class ContextCapabilities {
 		GL_NV_multisample_coverage = ext.contains("GL_NV_multisample_coverage");
 		GL_NV_packed_depth_stencil = ext.contains("GL_NV_packed_depth_stencil");
 		GL_NV_parameter_buffer_object2 = ext.contains("GL_NV_parameter_buffer_object2");
-		GL_NV_path_rendering_shared_edge = (__NVPathRenderingSharedEdge = NVPathRenderingSharedEdge.create(ext, provider)) != null;
+		GL_NV_path_rendering = (__NVPathRendering = NVPathRendering.create(ext, provider)) != null;
+		GL_NV_path_rendering_shared_edge = ext.contains("GL_NV_path_rendering_shared_edge");
 		GL_NV_point_sprite = (__NVPointSprite = NVPointSprite.create(ext, provider)) != null;
 		GL_NV_sample_locations = (__NVSampleLocations = NVSampleLocations.create(ext, provider)) != null;
 		GL_NV_sample_mask_override_coverage = ext.contains("GL_NV_sample_mask_override_coverage");
