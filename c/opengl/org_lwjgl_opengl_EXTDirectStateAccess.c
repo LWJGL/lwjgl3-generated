@@ -6,223 +6,223 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glClientAttribDefaultEXTPROC) (GLbitfield);
-typedef GLvoid (APIENTRY *glPushClientAttribDefaultEXTPROC) (GLbitfield);
-typedef GLvoid (APIENTRY *glMatrixLoadfEXTPROC) (GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glMatrixLoaddEXTPROC) (GLenum, const GLdouble *);
-typedef GLvoid (APIENTRY *glMatrixMultfEXTPROC) (GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glMatrixMultdEXTPROC) (GLenum, const GLdouble *);
-typedef GLvoid (APIENTRY *glMatrixLoadIdentityEXTPROC) (GLenum);
-typedef GLvoid (APIENTRY *glMatrixRotatefEXTPROC) (GLenum, GLfloat, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glMatrixRotatedEXTPROC) (GLenum, GLdouble, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glMatrixScalefEXTPROC) (GLenum, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glMatrixScaledEXTPROC) (GLenum, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glMatrixTranslatefEXTPROC) (GLenum, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glMatrixTranslatedEXTPROC) (GLenum, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glMatrixOrthoEXTPROC) (GLenum, GLdouble, GLdouble, GLdouble, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glMatrixFrustumEXTPROC) (GLenum, GLdouble, GLdouble, GLdouble, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glMatrixPushEXTPROC) (GLenum);
-typedef GLvoid (APIENTRY *glMatrixPopEXTPROC) (GLenum);
-typedef GLvoid (APIENTRY *glTextureParameteriEXTPROC) (GLuint, GLenum, GLenum, GLint);
-typedef GLvoid (APIENTRY *glTextureParameterivEXTPROC) (GLuint, GLenum, GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glTextureParameterfEXTPROC) (GLuint, GLenum, GLenum, GLfloat);
-typedef GLvoid (APIENTRY *glTextureParameterfvEXTPROC) (GLuint, GLenum, GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glTextureImage1DEXTPROC) (GLuint, GLenum, GLint, GLint, GLsizei, GLint, GLenum, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glTextureImage2DEXTPROC) (GLuint, GLenum, GLint, GLint, GLsizei, GLsizei, GLint, GLenum, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glTextureSubImage1DEXTPROC) (GLuint, GLenum, GLint, GLint, GLsizei, GLenum, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glTextureSubImage2DEXTPROC) (GLuint, GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glCopyTextureImage1DEXTPROC) (GLuint, GLenum, GLint, GLenum, GLint, GLint, GLsizei, GLint);
-typedef GLvoid (APIENTRY *glCopyTextureImage2DEXTPROC) (GLuint, GLenum, GLint, GLenum, GLint, GLint, GLsizei, GLsizei, GLint);
-typedef GLvoid (APIENTRY *glCopyTextureSubImage1DEXTPROC) (GLuint, GLenum, GLint, GLint, GLint, GLint, GLsizei);
-typedef GLvoid (APIENTRY *glCopyTextureSubImage2DEXTPROC) (GLuint, GLenum, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei);
-typedef GLvoid (APIENTRY *glGetTextureImageEXTPROC) (GLuint, GLenum, GLint, GLenum, GLenum, GLvoid *);
-typedef GLvoid (APIENTRY *glGetTextureParameterfvEXTPROC) (GLuint, GLenum, GLenum, GLfloat *);
-typedef GLvoid (APIENTRY *glGetTextureParameterivEXTPROC) (GLuint, GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetTextureLevelParameterfvEXTPROC) (GLuint, GLenum, GLint, GLenum, GLfloat *);
-typedef GLvoid (APIENTRY *glGetTextureLevelParameterivEXTPROC) (GLuint, GLenum, GLint, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glTextureImage3DEXTPROC) (GLuint, GLenum, GLint, GLint, GLsizei, GLsizei, GLsizei, GLint, GLenum, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glTextureSubImage3DEXTPROC) (GLuint, GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glCopyTextureSubImage3DEXTPROC) (GLuint, GLenum, GLint, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei);
-typedef GLvoid (APIENTRY *glBindMultiTextureEXTPROC) (GLenum, GLenum, GLuint);
-typedef GLvoid (APIENTRY *glMultiTexCoordPointerEXTPROC) (GLenum, GLint, GLenum, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glMultiTexEnvfEXTPROC) (GLenum, GLenum, GLenum, GLfloat);
-typedef GLvoid (APIENTRY *glMultiTexEnvfvEXTPROC) (GLenum, GLenum, GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glMultiTexEnviEXTPROC) (GLenum, GLenum, GLenum, GLint);
-typedef GLvoid (APIENTRY *glMultiTexEnvivEXTPROC) (GLenum, GLenum, GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glMultiTexGendEXTPROC) (GLenum, GLenum, GLenum, GLdouble);
-typedef GLvoid (APIENTRY *glMultiTexGendvEXTPROC) (GLenum, GLenum, GLenum, const GLdouble *);
-typedef GLvoid (APIENTRY *glMultiTexGenfEXTPROC) (GLenum, GLenum, GLenum, GLfloat);
-typedef GLvoid (APIENTRY *glMultiTexGenfvEXTPROC) (GLenum, GLenum, GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glMultiTexGeniEXTPROC) (GLenum, GLenum, GLenum, GLint);
-typedef GLvoid (APIENTRY *glMultiTexGenivEXTPROC) (GLenum, GLenum, GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glGetMultiTexEnvfvEXTPROC) (GLenum, GLenum, GLenum, GLfloat *);
-typedef GLvoid (APIENTRY *glGetMultiTexEnvivEXTPROC) (GLenum, GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetMultiTexGendvEXTPROC) (GLenum, GLenum, GLenum, GLdouble *);
-typedef GLvoid (APIENTRY *glGetMultiTexGenfvEXTPROC) (GLenum, GLenum, GLenum, GLfloat *);
-typedef GLvoid (APIENTRY *glGetMultiTexGenivEXTPROC) (GLenum, GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glMultiTexParameteriEXTPROC) (GLenum, GLenum, GLenum, GLint);
-typedef GLvoid (APIENTRY *glMultiTexParameterivEXTPROC) (GLenum, GLenum, GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glMultiTexParameterfEXTPROC) (GLenum, GLenum, GLenum, GLfloat);
-typedef GLvoid (APIENTRY *glMultiTexParameterfvEXTPROC) (GLenum, GLenum, GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glMultiTexImage1DEXTPROC) (GLenum, GLenum, GLint, GLint, GLsizei, GLint, GLenum, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glMultiTexImage2DEXTPROC) (GLenum, GLenum, GLint, GLint, GLsizei, GLsizei, GLint, GLenum, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glMultiTexSubImage1DEXTPROC) (GLenum, GLenum, GLint, GLint, GLsizei, GLenum, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glMultiTexSubImage2DEXTPROC) (GLenum, GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glCopyMultiTexImage1DEXTPROC) (GLenum, GLenum, GLint, GLenum, GLint, GLint, GLsizei, GLint);
-typedef GLvoid (APIENTRY *glCopyMultiTexImage2DEXTPROC) (GLenum, GLenum, GLint, GLenum, GLint, GLint, GLsizei, GLsizei, GLint);
-typedef GLvoid (APIENTRY *glCopyMultiTexSubImage1DEXTPROC) (GLenum, GLenum, GLint, GLint, GLint, GLint, GLsizei);
-typedef GLvoid (APIENTRY *glCopyMultiTexSubImage2DEXTPROC) (GLenum, GLenum, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei);
-typedef GLvoid (APIENTRY *glGetMultiTexImageEXTPROC) (GLenum, GLenum, GLint, GLenum, GLenum, GLvoid *);
-typedef GLvoid (APIENTRY *glGetMultiTexParameterfvEXTPROC) (GLenum, GLenum, GLenum, GLfloat *);
-typedef GLvoid (APIENTRY *glGetMultiTexParameterivEXTPROC) (GLenum, GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetMultiTexLevelParameterfvEXTPROC) (GLenum, GLenum, GLint, GLenum, GLfloat *);
-typedef GLvoid (APIENTRY *glGetMultiTexLevelParameterivEXTPROC) (GLenum, GLenum, GLint, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glMultiTexImage3DEXTPROC) (GLenum, GLenum, GLint, GLint, GLsizei, GLsizei, GLsizei, GLint, GLenum, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glMultiTexSubImage3DEXTPROC) (GLenum, GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glCopyMultiTexSubImage3DEXTPROC) (GLenum, GLenum, GLint, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei);
-typedef GLvoid (APIENTRY *glEnableClientStateIndexedEXTPROC) (GLenum, GLuint);
-typedef GLvoid (APIENTRY *glDisableClientStateIndexedEXTPROC) (GLenum, GLuint);
-typedef GLvoid (APIENTRY *glEnableClientStateiEXTPROC) (GLenum, GLuint);
-typedef GLvoid (APIENTRY *glDisableClientStateiEXTPROC) (GLenum, GLuint);
-typedef GLvoid (APIENTRY *glGetFloatIndexedvEXTPROC) (GLenum, GLuint, GLfloat *);
-typedef GLvoid (APIENTRY *glGetDoubleIndexedvEXTPROC) (GLenum, GLuint, GLdouble *);
-typedef GLvoid (APIENTRY *glGetPointerIndexedvEXTPROC) (GLenum, GLuint, GLvoid **);
-typedef GLvoid (APIENTRY *glGetFloati_vEXTPROC) (GLenum, GLuint, GLfloat *);
-typedef GLvoid (APIENTRY *glGetDoublei_vEXTPROC) (GLenum, GLuint, GLdouble *);
-typedef GLvoid (APIENTRY *glGetPointeri_vEXTPROC) (GLenum, GLuint, GLvoid **);
-typedef GLvoid (APIENTRY *glEnableIndexedEXTPROC) (GLenum, GLuint);
-typedef GLvoid (APIENTRY *glDisableIndexedEXTPROC) (GLenum, GLuint);
+typedef void (APIENTRY *glClientAttribDefaultEXTPROC) (GLbitfield);
+typedef void (APIENTRY *glPushClientAttribDefaultEXTPROC) (GLbitfield);
+typedef void (APIENTRY *glMatrixLoadfEXTPROC) (GLenum, const GLfloat *);
+typedef void (APIENTRY *glMatrixLoaddEXTPROC) (GLenum, const GLdouble *);
+typedef void (APIENTRY *glMatrixMultfEXTPROC) (GLenum, const GLfloat *);
+typedef void (APIENTRY *glMatrixMultdEXTPROC) (GLenum, const GLdouble *);
+typedef void (APIENTRY *glMatrixLoadIdentityEXTPROC) (GLenum);
+typedef void (APIENTRY *glMatrixRotatefEXTPROC) (GLenum, GLfloat, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glMatrixRotatedEXTPROC) (GLenum, GLdouble, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glMatrixScalefEXTPROC) (GLenum, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glMatrixScaledEXTPROC) (GLenum, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glMatrixTranslatefEXTPROC) (GLenum, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glMatrixTranslatedEXTPROC) (GLenum, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glMatrixOrthoEXTPROC) (GLenum, GLdouble, GLdouble, GLdouble, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glMatrixFrustumEXTPROC) (GLenum, GLdouble, GLdouble, GLdouble, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glMatrixPushEXTPROC) (GLenum);
+typedef void (APIENTRY *glMatrixPopEXTPROC) (GLenum);
+typedef void (APIENTRY *glTextureParameteriEXTPROC) (GLuint, GLenum, GLenum, GLint);
+typedef void (APIENTRY *glTextureParameterivEXTPROC) (GLuint, GLenum, GLenum, const GLint *);
+typedef void (APIENTRY *glTextureParameterfEXTPROC) (GLuint, GLenum, GLenum, GLfloat);
+typedef void (APIENTRY *glTextureParameterfvEXTPROC) (GLuint, GLenum, GLenum, const GLfloat *);
+typedef void (APIENTRY *glTextureImage1DEXTPROC) (GLuint, GLenum, GLint, GLint, GLsizei, GLint, GLenum, GLenum, const void *);
+typedef void (APIENTRY *glTextureImage2DEXTPROC) (GLuint, GLenum, GLint, GLint, GLsizei, GLsizei, GLint, GLenum, GLenum, const void *);
+typedef void (APIENTRY *glTextureSubImage1DEXTPROC) (GLuint, GLenum, GLint, GLint, GLsizei, GLenum, GLenum, const void *);
+typedef void (APIENTRY *glTextureSubImage2DEXTPROC) (GLuint, GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, const void *);
+typedef void (APIENTRY *glCopyTextureImage1DEXTPROC) (GLuint, GLenum, GLint, GLenum, GLint, GLint, GLsizei, GLint);
+typedef void (APIENTRY *glCopyTextureImage2DEXTPROC) (GLuint, GLenum, GLint, GLenum, GLint, GLint, GLsizei, GLsizei, GLint);
+typedef void (APIENTRY *glCopyTextureSubImage1DEXTPROC) (GLuint, GLenum, GLint, GLint, GLint, GLint, GLsizei);
+typedef void (APIENTRY *glCopyTextureSubImage2DEXTPROC) (GLuint, GLenum, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei);
+typedef void (APIENTRY *glGetTextureImageEXTPROC) (GLuint, GLenum, GLint, GLenum, GLenum, void *);
+typedef void (APIENTRY *glGetTextureParameterfvEXTPROC) (GLuint, GLenum, GLenum, GLfloat *);
+typedef void (APIENTRY *glGetTextureParameterivEXTPROC) (GLuint, GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGetTextureLevelParameterfvEXTPROC) (GLuint, GLenum, GLint, GLenum, GLfloat *);
+typedef void (APIENTRY *glGetTextureLevelParameterivEXTPROC) (GLuint, GLenum, GLint, GLenum, GLint *);
+typedef void (APIENTRY *glTextureImage3DEXTPROC) (GLuint, GLenum, GLint, GLint, GLsizei, GLsizei, GLsizei, GLint, GLenum, GLenum, const void *);
+typedef void (APIENTRY *glTextureSubImage3DEXTPROC) (GLuint, GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLenum, const void *);
+typedef void (APIENTRY *glCopyTextureSubImage3DEXTPROC) (GLuint, GLenum, GLint, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei);
+typedef void (APIENTRY *glBindMultiTextureEXTPROC) (GLenum, GLenum, GLuint);
+typedef void (APIENTRY *glMultiTexCoordPointerEXTPROC) (GLenum, GLint, GLenum, GLsizei, const void *);
+typedef void (APIENTRY *glMultiTexEnvfEXTPROC) (GLenum, GLenum, GLenum, GLfloat);
+typedef void (APIENTRY *glMultiTexEnvfvEXTPROC) (GLenum, GLenum, GLenum, const GLfloat *);
+typedef void (APIENTRY *glMultiTexEnviEXTPROC) (GLenum, GLenum, GLenum, GLint);
+typedef void (APIENTRY *glMultiTexEnvivEXTPROC) (GLenum, GLenum, GLenum, const GLint *);
+typedef void (APIENTRY *glMultiTexGendEXTPROC) (GLenum, GLenum, GLenum, GLdouble);
+typedef void (APIENTRY *glMultiTexGendvEXTPROC) (GLenum, GLenum, GLenum, const GLdouble *);
+typedef void (APIENTRY *glMultiTexGenfEXTPROC) (GLenum, GLenum, GLenum, GLfloat);
+typedef void (APIENTRY *glMultiTexGenfvEXTPROC) (GLenum, GLenum, GLenum, const GLfloat *);
+typedef void (APIENTRY *glMultiTexGeniEXTPROC) (GLenum, GLenum, GLenum, GLint);
+typedef void (APIENTRY *glMultiTexGenivEXTPROC) (GLenum, GLenum, GLenum, const GLint *);
+typedef void (APIENTRY *glGetMultiTexEnvfvEXTPROC) (GLenum, GLenum, GLenum, GLfloat *);
+typedef void (APIENTRY *glGetMultiTexEnvivEXTPROC) (GLenum, GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGetMultiTexGendvEXTPROC) (GLenum, GLenum, GLenum, GLdouble *);
+typedef void (APIENTRY *glGetMultiTexGenfvEXTPROC) (GLenum, GLenum, GLenum, GLfloat *);
+typedef void (APIENTRY *glGetMultiTexGenivEXTPROC) (GLenum, GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glMultiTexParameteriEXTPROC) (GLenum, GLenum, GLenum, GLint);
+typedef void (APIENTRY *glMultiTexParameterivEXTPROC) (GLenum, GLenum, GLenum, const GLint *);
+typedef void (APIENTRY *glMultiTexParameterfEXTPROC) (GLenum, GLenum, GLenum, GLfloat);
+typedef void (APIENTRY *glMultiTexParameterfvEXTPROC) (GLenum, GLenum, GLenum, const GLfloat *);
+typedef void (APIENTRY *glMultiTexImage1DEXTPROC) (GLenum, GLenum, GLint, GLint, GLsizei, GLint, GLenum, GLenum, const void *);
+typedef void (APIENTRY *glMultiTexImage2DEXTPROC) (GLenum, GLenum, GLint, GLint, GLsizei, GLsizei, GLint, GLenum, GLenum, const void *);
+typedef void (APIENTRY *glMultiTexSubImage1DEXTPROC) (GLenum, GLenum, GLint, GLint, GLsizei, GLenum, GLenum, const void *);
+typedef void (APIENTRY *glMultiTexSubImage2DEXTPROC) (GLenum, GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, const void *);
+typedef void (APIENTRY *glCopyMultiTexImage1DEXTPROC) (GLenum, GLenum, GLint, GLenum, GLint, GLint, GLsizei, GLint);
+typedef void (APIENTRY *glCopyMultiTexImage2DEXTPROC) (GLenum, GLenum, GLint, GLenum, GLint, GLint, GLsizei, GLsizei, GLint);
+typedef void (APIENTRY *glCopyMultiTexSubImage1DEXTPROC) (GLenum, GLenum, GLint, GLint, GLint, GLint, GLsizei);
+typedef void (APIENTRY *glCopyMultiTexSubImage2DEXTPROC) (GLenum, GLenum, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei);
+typedef void (APIENTRY *glGetMultiTexImageEXTPROC) (GLenum, GLenum, GLint, GLenum, GLenum, void *);
+typedef void (APIENTRY *glGetMultiTexParameterfvEXTPROC) (GLenum, GLenum, GLenum, GLfloat *);
+typedef void (APIENTRY *glGetMultiTexParameterivEXTPROC) (GLenum, GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGetMultiTexLevelParameterfvEXTPROC) (GLenum, GLenum, GLint, GLenum, GLfloat *);
+typedef void (APIENTRY *glGetMultiTexLevelParameterivEXTPROC) (GLenum, GLenum, GLint, GLenum, GLint *);
+typedef void (APIENTRY *glMultiTexImage3DEXTPROC) (GLenum, GLenum, GLint, GLint, GLsizei, GLsizei, GLsizei, GLint, GLenum, GLenum, const void *);
+typedef void (APIENTRY *glMultiTexSubImage3DEXTPROC) (GLenum, GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLenum, const void *);
+typedef void (APIENTRY *glCopyMultiTexSubImage3DEXTPROC) (GLenum, GLenum, GLint, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei);
+typedef void (APIENTRY *glEnableClientStateIndexedEXTPROC) (GLenum, GLuint);
+typedef void (APIENTRY *glDisableClientStateIndexedEXTPROC) (GLenum, GLuint);
+typedef void (APIENTRY *glEnableClientStateiEXTPROC) (GLenum, GLuint);
+typedef void (APIENTRY *glDisableClientStateiEXTPROC) (GLenum, GLuint);
+typedef void (APIENTRY *glGetFloatIndexedvEXTPROC) (GLenum, GLuint, GLfloat *);
+typedef void (APIENTRY *glGetDoubleIndexedvEXTPROC) (GLenum, GLuint, GLdouble *);
+typedef void (APIENTRY *glGetPointerIndexedvEXTPROC) (GLenum, GLuint, void **);
+typedef void (APIENTRY *glGetFloati_vEXTPROC) (GLenum, GLuint, GLfloat *);
+typedef void (APIENTRY *glGetDoublei_vEXTPROC) (GLenum, GLuint, GLdouble *);
+typedef void (APIENTRY *glGetPointeri_vEXTPROC) (GLenum, GLuint, void **);
+typedef void (APIENTRY *glEnableIndexedEXTPROC) (GLenum, GLuint);
+typedef void (APIENTRY *glDisableIndexedEXTPROC) (GLenum, GLuint);
 typedef GLboolean (APIENTRY *glIsEnabledIndexedEXTPROC) (GLenum, GLuint);
-typedef GLvoid (APIENTRY *glGetIntegerIndexedvEXTPROC) (GLenum, GLuint, GLint *);
-typedef GLvoid (APIENTRY *glGetBooleanIndexedvEXTPROC) (GLenum, GLuint, GLboolean *);
-typedef GLvoid (APIENTRY *glNamedProgramStringEXTPROC) (GLuint, GLenum, GLenum, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glNamedProgramLocalParameter4dEXTPROC) (GLuint, GLenum, GLuint, GLdouble, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glNamedProgramLocalParameter4dvEXTPROC) (GLuint, GLenum, GLuint, const GLdouble *);
-typedef GLvoid (APIENTRY *glNamedProgramLocalParameter4fEXTPROC) (GLuint, GLenum, GLuint, GLfloat, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glNamedProgramLocalParameter4fvEXTPROC) (GLuint, GLenum, GLuint, const GLfloat *);
-typedef GLvoid (APIENTRY *glGetNamedProgramLocalParameterdvEXTPROC) (GLuint, GLenum, GLuint, GLdouble *);
-typedef GLvoid (APIENTRY *glGetNamedProgramLocalParameterfvEXTPROC) (GLuint, GLenum, GLuint, GLfloat *);
-typedef GLvoid (APIENTRY *glGetNamedProgramivEXTPROC) (GLuint, GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetNamedProgramStringEXTPROC) (GLuint, GLenum, GLenum, GLvoid *);
-typedef GLvoid (APIENTRY *glCompressedTextureImage3DEXTPROC) (GLuint, GLenum, GLint, GLenum, GLsizei, GLsizei, GLsizei, GLint, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glCompressedTextureImage2DEXTPROC) (GLuint, GLenum, GLint, GLenum, GLsizei, GLsizei, GLint, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glCompressedTextureImage1DEXTPROC) (GLuint, GLenum, GLint, GLenum, GLsizei, GLint, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glCompressedTextureSubImage3DEXTPROC) (GLuint, GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glCompressedTextureSubImage2DEXTPROC) (GLuint, GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glCompressedTextureSubImage1DEXTPROC) (GLuint, GLenum, GLint, GLint, GLsizei, GLenum, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glGetCompressedTextureImageEXTPROC) (GLuint, GLenum, GLint, GLvoid *);
-typedef GLvoid (APIENTRY *glCompressedMultiTexImage3DEXTPROC) (GLenum, GLenum, GLint, GLenum, GLsizei, GLsizei, GLsizei, GLint, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glCompressedMultiTexImage2DEXTPROC) (GLenum, GLenum, GLint, GLenum, GLsizei, GLsizei, GLint, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glCompressedMultiTexImage1DEXTPROC) (GLenum, GLenum, GLint, GLenum, GLsizei, GLint, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glCompressedMultiTexSubImage3DEXTPROC) (GLenum, GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glCompressedMultiTexSubImage2DEXTPROC) (GLenum, GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glCompressedMultiTexSubImage1DEXTPROC) (GLenum, GLenum, GLint, GLint, GLsizei, GLenum, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glGetCompressedMultiTexImageEXTPROC) (GLenum, GLenum, GLint, GLvoid *);
-typedef GLvoid (APIENTRY *glMatrixLoadTransposefEXTPROC) (GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glMatrixLoadTransposedEXTPROC) (GLenum, const GLdouble *);
-typedef GLvoid (APIENTRY *glMatrixMultTransposefEXTPROC) (GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glMatrixMultTransposedEXTPROC) (GLenum, const GLdouble *);
-typedef GLvoid (APIENTRY *glNamedBufferDataEXTPROC) (GLuint, GLsizeiptr, const GLvoid *, GLenum);
-typedef GLvoid (APIENTRY *glNamedBufferSubDataEXTPROC) (GLuint, GLintptr, GLsizeiptr, const GLvoid *);
-typedef GLvoid * (APIENTRY *glMapNamedBufferEXTPROC) (GLuint, GLenum);
+typedef void (APIENTRY *glGetIntegerIndexedvEXTPROC) (GLenum, GLuint, GLint *);
+typedef void (APIENTRY *glGetBooleanIndexedvEXTPROC) (GLenum, GLuint, GLboolean *);
+typedef void (APIENTRY *glNamedProgramStringEXTPROC) (GLuint, GLenum, GLenum, GLsizei, const void *);
+typedef void (APIENTRY *glNamedProgramLocalParameter4dEXTPROC) (GLuint, GLenum, GLuint, GLdouble, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glNamedProgramLocalParameter4dvEXTPROC) (GLuint, GLenum, GLuint, const GLdouble *);
+typedef void (APIENTRY *glNamedProgramLocalParameter4fEXTPROC) (GLuint, GLenum, GLuint, GLfloat, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glNamedProgramLocalParameter4fvEXTPROC) (GLuint, GLenum, GLuint, const GLfloat *);
+typedef void (APIENTRY *glGetNamedProgramLocalParameterdvEXTPROC) (GLuint, GLenum, GLuint, GLdouble *);
+typedef void (APIENTRY *glGetNamedProgramLocalParameterfvEXTPROC) (GLuint, GLenum, GLuint, GLfloat *);
+typedef void (APIENTRY *glGetNamedProgramivEXTPROC) (GLuint, GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGetNamedProgramStringEXTPROC) (GLuint, GLenum, GLenum, void *);
+typedef void (APIENTRY *glCompressedTextureImage3DEXTPROC) (GLuint, GLenum, GLint, GLenum, GLsizei, GLsizei, GLsizei, GLint, GLsizei, const void *);
+typedef void (APIENTRY *glCompressedTextureImage2DEXTPROC) (GLuint, GLenum, GLint, GLenum, GLsizei, GLsizei, GLint, GLsizei, const void *);
+typedef void (APIENTRY *glCompressedTextureImage1DEXTPROC) (GLuint, GLenum, GLint, GLenum, GLsizei, GLint, GLsizei, const void *);
+typedef void (APIENTRY *glCompressedTextureSubImage3DEXTPROC) (GLuint, GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLsizei, const void *);
+typedef void (APIENTRY *glCompressedTextureSubImage2DEXTPROC) (GLuint, GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLsizei, const void *);
+typedef void (APIENTRY *glCompressedTextureSubImage1DEXTPROC) (GLuint, GLenum, GLint, GLint, GLsizei, GLenum, GLsizei, const void *);
+typedef void (APIENTRY *glGetCompressedTextureImageEXTPROC) (GLuint, GLenum, GLint, void *);
+typedef void (APIENTRY *glCompressedMultiTexImage3DEXTPROC) (GLenum, GLenum, GLint, GLenum, GLsizei, GLsizei, GLsizei, GLint, GLsizei, const void *);
+typedef void (APIENTRY *glCompressedMultiTexImage2DEXTPROC) (GLenum, GLenum, GLint, GLenum, GLsizei, GLsizei, GLint, GLsizei, const void *);
+typedef void (APIENTRY *glCompressedMultiTexImage1DEXTPROC) (GLenum, GLenum, GLint, GLenum, GLsizei, GLint, GLsizei, const void *);
+typedef void (APIENTRY *glCompressedMultiTexSubImage3DEXTPROC) (GLenum, GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLsizei, const void *);
+typedef void (APIENTRY *glCompressedMultiTexSubImage2DEXTPROC) (GLenum, GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLsizei, const void *);
+typedef void (APIENTRY *glCompressedMultiTexSubImage1DEXTPROC) (GLenum, GLenum, GLint, GLint, GLsizei, GLenum, GLsizei, const void *);
+typedef void (APIENTRY *glGetCompressedMultiTexImageEXTPROC) (GLenum, GLenum, GLint, void *);
+typedef void (APIENTRY *glMatrixLoadTransposefEXTPROC) (GLenum, const GLfloat *);
+typedef void (APIENTRY *glMatrixLoadTransposedEXTPROC) (GLenum, const GLdouble *);
+typedef void (APIENTRY *glMatrixMultTransposefEXTPROC) (GLenum, const GLfloat *);
+typedef void (APIENTRY *glMatrixMultTransposedEXTPROC) (GLenum, const GLdouble *);
+typedef void (APIENTRY *glNamedBufferDataEXTPROC) (GLuint, GLsizeiptr, const void *, GLenum);
+typedef void (APIENTRY *glNamedBufferSubDataEXTPROC) (GLuint, GLintptr, GLsizeiptr, const void *);
+typedef void * (APIENTRY *glMapNamedBufferEXTPROC) (GLuint, GLenum);
 typedef GLboolean (APIENTRY *glUnmapNamedBufferEXTPROC) (GLuint);
-typedef GLvoid (APIENTRY *glGetNamedBufferParameterivEXTPROC) (GLuint, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetNamedBufferSubDataEXTPROC) (GLuint, GLintptr, GLsizeiptr, GLvoid *);
-typedef GLvoid (APIENTRY *glProgramUniform1fEXTPROC) (GLuint, GLint, GLfloat);
-typedef GLvoid (APIENTRY *glProgramUniform2fEXTPROC) (GLuint, GLint, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glProgramUniform3fEXTPROC) (GLuint, GLint, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glProgramUniform4fEXTPROC) (GLuint, GLint, GLfloat, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glProgramUniform1iEXTPROC) (GLuint, GLint, GLint);
-typedef GLvoid (APIENTRY *glProgramUniform2iEXTPROC) (GLuint, GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glProgramUniform3iEXTPROC) (GLuint, GLint, GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glProgramUniform4iEXTPROC) (GLuint, GLint, GLint, GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glProgramUniform1fvEXTPROC) (GLuint, GLint, GLsizei, const GLfloat *);
-typedef GLvoid (APIENTRY *glProgramUniform2fvEXTPROC) (GLuint, GLint, GLsizei, const GLfloat *);
-typedef GLvoid (APIENTRY *glProgramUniform3fvEXTPROC) (GLuint, GLint, GLsizei, const GLfloat *);
-typedef GLvoid (APIENTRY *glProgramUniform4fvEXTPROC) (GLuint, GLint, GLsizei, const GLfloat *);
-typedef GLvoid (APIENTRY *glProgramUniform1ivEXTPROC) (GLuint, GLint, GLsizei, const GLint *);
-typedef GLvoid (APIENTRY *glProgramUniform2ivEXTPROC) (GLuint, GLint, GLsizei, const GLint *);
-typedef GLvoid (APIENTRY *glProgramUniform3ivEXTPROC) (GLuint, GLint, GLsizei, const GLint *);
-typedef GLvoid (APIENTRY *glProgramUniform4ivEXTPROC) (GLuint, GLint, GLsizei, const GLint *);
-typedef GLvoid (APIENTRY *glProgramUniformMatrix2fvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLfloat *);
-typedef GLvoid (APIENTRY *glProgramUniformMatrix3fvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLfloat *);
-typedef GLvoid (APIENTRY *glProgramUniformMatrix4fvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLfloat *);
-typedef GLvoid (APIENTRY *glProgramUniformMatrix2x3fvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLfloat *);
-typedef GLvoid (APIENTRY *glProgramUniformMatrix3x2fvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLfloat *);
-typedef GLvoid (APIENTRY *glProgramUniformMatrix2x4fvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLfloat *);
-typedef GLvoid (APIENTRY *glProgramUniformMatrix4x2fvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLfloat *);
-typedef GLvoid (APIENTRY *glProgramUniformMatrix3x4fvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLfloat *);
-typedef GLvoid (APIENTRY *glProgramUniformMatrix4x3fvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLfloat *);
-typedef GLvoid (APIENTRY *glTextureBufferEXTPROC) (GLuint, GLenum, GLenum, GLuint);
-typedef GLvoid (APIENTRY *glMultiTexBufferEXTPROC) (GLenum, GLenum, GLenum, GLuint);
-typedef GLvoid (APIENTRY *glTextureParameterIivEXTPROC) (GLuint, GLenum, GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glTextureParameterIuivEXTPROC) (GLuint, GLenum, GLenum, const GLuint *);
-typedef GLvoid (APIENTRY *glGetTextureParameterIivEXTPROC) (GLuint, GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetTextureParameterIuivEXTPROC) (GLuint, GLenum, GLenum, GLuint *);
-typedef GLvoid (APIENTRY *glMultiTexParameterIivEXTPROC) (GLenum, GLenum, GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glMultiTexParameterIuivEXTPROC) (GLenum, GLenum, GLenum, const GLuint *);
-typedef GLvoid (APIENTRY *glGetMultiTexParameterIivEXTPROC) (GLenum, GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetMultiTexParameterIuivEXTPROC) (GLenum, GLenum, GLenum, GLuint *);
-typedef GLvoid (APIENTRY *glProgramUniform1uiEXTPROC) (GLuint, GLint, GLuint);
-typedef GLvoid (APIENTRY *glProgramUniform2uiEXTPROC) (GLuint, GLint, GLuint, GLuint);
-typedef GLvoid (APIENTRY *glProgramUniform3uiEXTPROC) (GLuint, GLint, GLuint, GLuint, GLuint);
-typedef GLvoid (APIENTRY *glProgramUniform4uiEXTPROC) (GLuint, GLint, GLuint, GLuint, GLuint, GLuint);
-typedef GLvoid (APIENTRY *glProgramUniform1uivEXTPROC) (GLuint, GLint, GLsizei, const GLuint *);
-typedef GLvoid (APIENTRY *glProgramUniform2uivEXTPROC) (GLuint, GLint, GLsizei, const GLuint *);
-typedef GLvoid (APIENTRY *glProgramUniform3uivEXTPROC) (GLuint, GLint, GLsizei, const GLuint *);
-typedef GLvoid (APIENTRY *glProgramUniform4uivEXTPROC) (GLuint, GLint, GLsizei, const GLuint *);
-typedef GLvoid (APIENTRY *glNamedProgramLocalParameters4fvEXTPROC) (GLuint, GLenum, GLuint, GLsizei, const GLfloat *);
-typedef GLvoid (APIENTRY *glNamedProgramLocalParameterI4iEXTPROC) (GLuint, GLenum, GLuint, GLint, GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glNamedProgramLocalParameterI4ivEXTPROC) (GLuint, GLenum, GLuint, const GLint *);
-typedef GLvoid (APIENTRY *glNamedProgramLocalParametersI4ivEXTPROC) (GLuint, GLenum, GLuint, GLsizei, const GLint *);
-typedef GLvoid (APIENTRY *glNamedProgramLocalParameterI4uiEXTPROC) (GLuint, GLenum, GLuint, GLuint, GLuint, GLuint, GLuint);
-typedef GLvoid (APIENTRY *glNamedProgramLocalParameterI4uivEXTPROC) (GLuint, GLenum, GLuint, const GLuint *);
-typedef GLvoid (APIENTRY *glNamedProgramLocalParametersI4uivEXTPROC) (GLuint, GLenum, GLuint, GLsizei, const GLuint *);
-typedef GLvoid (APIENTRY *glGetNamedProgramLocalParameterIivEXTPROC) (GLuint, GLenum, GLuint, GLint *);
-typedef GLvoid (APIENTRY *glGetNamedProgramLocalParameterIuivEXTPROC) (GLuint, GLenum, GLuint, GLuint *);
-typedef GLvoid (APIENTRY *glNamedRenderbufferStorageEXTPROC) (GLuint, GLenum, GLsizei, GLsizei);
-typedef GLvoid (APIENTRY *glGetNamedRenderbufferParameterivEXTPROC) (GLuint, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glNamedRenderbufferStorageMultisampleEXTPROC) (GLuint, GLsizei, GLenum, GLsizei, GLsizei);
-typedef GLvoid (APIENTRY *glNamedRenderbufferStorageMultisampleCoverageEXTPROC) (GLuint, GLsizei, GLsizei, GLenum, GLsizei, GLsizei);
+typedef void (APIENTRY *glGetNamedBufferParameterivEXTPROC) (GLuint, GLenum, GLint *);
+typedef void (APIENTRY *glGetNamedBufferSubDataEXTPROC) (GLuint, GLintptr, GLsizeiptr, void *);
+typedef void (APIENTRY *glProgramUniform1fEXTPROC) (GLuint, GLint, GLfloat);
+typedef void (APIENTRY *glProgramUniform2fEXTPROC) (GLuint, GLint, GLfloat, GLfloat);
+typedef void (APIENTRY *glProgramUniform3fEXTPROC) (GLuint, GLint, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glProgramUniform4fEXTPROC) (GLuint, GLint, GLfloat, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glProgramUniform1iEXTPROC) (GLuint, GLint, GLint);
+typedef void (APIENTRY *glProgramUniform2iEXTPROC) (GLuint, GLint, GLint, GLint);
+typedef void (APIENTRY *glProgramUniform3iEXTPROC) (GLuint, GLint, GLint, GLint, GLint);
+typedef void (APIENTRY *glProgramUniform4iEXTPROC) (GLuint, GLint, GLint, GLint, GLint, GLint);
+typedef void (APIENTRY *glProgramUniform1fvEXTPROC) (GLuint, GLint, GLsizei, const GLfloat *);
+typedef void (APIENTRY *glProgramUniform2fvEXTPROC) (GLuint, GLint, GLsizei, const GLfloat *);
+typedef void (APIENTRY *glProgramUniform3fvEXTPROC) (GLuint, GLint, GLsizei, const GLfloat *);
+typedef void (APIENTRY *glProgramUniform4fvEXTPROC) (GLuint, GLint, GLsizei, const GLfloat *);
+typedef void (APIENTRY *glProgramUniform1ivEXTPROC) (GLuint, GLint, GLsizei, const GLint *);
+typedef void (APIENTRY *glProgramUniform2ivEXTPROC) (GLuint, GLint, GLsizei, const GLint *);
+typedef void (APIENTRY *glProgramUniform3ivEXTPROC) (GLuint, GLint, GLsizei, const GLint *);
+typedef void (APIENTRY *glProgramUniform4ivEXTPROC) (GLuint, GLint, GLsizei, const GLint *);
+typedef void (APIENTRY *glProgramUniformMatrix2fvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLfloat *);
+typedef void (APIENTRY *glProgramUniformMatrix3fvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLfloat *);
+typedef void (APIENTRY *glProgramUniformMatrix4fvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLfloat *);
+typedef void (APIENTRY *glProgramUniformMatrix2x3fvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLfloat *);
+typedef void (APIENTRY *glProgramUniformMatrix3x2fvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLfloat *);
+typedef void (APIENTRY *glProgramUniformMatrix2x4fvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLfloat *);
+typedef void (APIENTRY *glProgramUniformMatrix4x2fvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLfloat *);
+typedef void (APIENTRY *glProgramUniformMatrix3x4fvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLfloat *);
+typedef void (APIENTRY *glProgramUniformMatrix4x3fvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLfloat *);
+typedef void (APIENTRY *glTextureBufferEXTPROC) (GLuint, GLenum, GLenum, GLuint);
+typedef void (APIENTRY *glMultiTexBufferEXTPROC) (GLenum, GLenum, GLenum, GLuint);
+typedef void (APIENTRY *glTextureParameterIivEXTPROC) (GLuint, GLenum, GLenum, const GLint *);
+typedef void (APIENTRY *glTextureParameterIuivEXTPROC) (GLuint, GLenum, GLenum, const GLuint *);
+typedef void (APIENTRY *glGetTextureParameterIivEXTPROC) (GLuint, GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGetTextureParameterIuivEXTPROC) (GLuint, GLenum, GLenum, GLuint *);
+typedef void (APIENTRY *glMultiTexParameterIivEXTPROC) (GLenum, GLenum, GLenum, const GLint *);
+typedef void (APIENTRY *glMultiTexParameterIuivEXTPROC) (GLenum, GLenum, GLenum, const GLuint *);
+typedef void (APIENTRY *glGetMultiTexParameterIivEXTPROC) (GLenum, GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGetMultiTexParameterIuivEXTPROC) (GLenum, GLenum, GLenum, GLuint *);
+typedef void (APIENTRY *glProgramUniform1uiEXTPROC) (GLuint, GLint, GLuint);
+typedef void (APIENTRY *glProgramUniform2uiEXTPROC) (GLuint, GLint, GLuint, GLuint);
+typedef void (APIENTRY *glProgramUniform3uiEXTPROC) (GLuint, GLint, GLuint, GLuint, GLuint);
+typedef void (APIENTRY *glProgramUniform4uiEXTPROC) (GLuint, GLint, GLuint, GLuint, GLuint, GLuint);
+typedef void (APIENTRY *glProgramUniform1uivEXTPROC) (GLuint, GLint, GLsizei, const GLuint *);
+typedef void (APIENTRY *glProgramUniform2uivEXTPROC) (GLuint, GLint, GLsizei, const GLuint *);
+typedef void (APIENTRY *glProgramUniform3uivEXTPROC) (GLuint, GLint, GLsizei, const GLuint *);
+typedef void (APIENTRY *glProgramUniform4uivEXTPROC) (GLuint, GLint, GLsizei, const GLuint *);
+typedef void (APIENTRY *glNamedProgramLocalParameters4fvEXTPROC) (GLuint, GLenum, GLuint, GLsizei, const GLfloat *);
+typedef void (APIENTRY *glNamedProgramLocalParameterI4iEXTPROC) (GLuint, GLenum, GLuint, GLint, GLint, GLint, GLint);
+typedef void (APIENTRY *glNamedProgramLocalParameterI4ivEXTPROC) (GLuint, GLenum, GLuint, const GLint *);
+typedef void (APIENTRY *glNamedProgramLocalParametersI4ivEXTPROC) (GLuint, GLenum, GLuint, GLsizei, const GLint *);
+typedef void (APIENTRY *glNamedProgramLocalParameterI4uiEXTPROC) (GLuint, GLenum, GLuint, GLuint, GLuint, GLuint, GLuint);
+typedef void (APIENTRY *glNamedProgramLocalParameterI4uivEXTPROC) (GLuint, GLenum, GLuint, const GLuint *);
+typedef void (APIENTRY *glNamedProgramLocalParametersI4uivEXTPROC) (GLuint, GLenum, GLuint, GLsizei, const GLuint *);
+typedef void (APIENTRY *glGetNamedProgramLocalParameterIivEXTPROC) (GLuint, GLenum, GLuint, GLint *);
+typedef void (APIENTRY *glGetNamedProgramLocalParameterIuivEXTPROC) (GLuint, GLenum, GLuint, GLuint *);
+typedef void (APIENTRY *glNamedRenderbufferStorageEXTPROC) (GLuint, GLenum, GLsizei, GLsizei);
+typedef void (APIENTRY *glGetNamedRenderbufferParameterivEXTPROC) (GLuint, GLenum, GLint *);
+typedef void (APIENTRY *glNamedRenderbufferStorageMultisampleEXTPROC) (GLuint, GLsizei, GLenum, GLsizei, GLsizei);
+typedef void (APIENTRY *glNamedRenderbufferStorageMultisampleCoverageEXTPROC) (GLuint, GLsizei, GLsizei, GLenum, GLsizei, GLsizei);
 typedef GLenum (APIENTRY *glCheckNamedFramebufferStatusEXTPROC) (GLuint, GLenum);
-typedef GLvoid (APIENTRY *glNamedFramebufferTexture1DEXTPROC) (GLuint, GLenum, GLenum, GLuint, GLint);
-typedef GLvoid (APIENTRY *glNamedFramebufferTexture2DEXTPROC) (GLuint, GLenum, GLenum, GLuint, GLint);
-typedef GLvoid (APIENTRY *glNamedFramebufferTexture3DEXTPROC) (GLuint, GLenum, GLenum, GLuint, GLint, GLint);
-typedef GLvoid (APIENTRY *glNamedFramebufferRenderbufferEXTPROC) (GLuint, GLenum, GLenum, GLuint);
-typedef GLvoid (APIENTRY *glGetNamedFramebufferAttachmentParameterivEXTPROC) (GLuint, GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGenerateTextureMipmapEXTPROC) (GLuint, GLenum);
-typedef GLvoid (APIENTRY *glGenerateMultiTexMipmapEXTPROC) (GLenum, GLenum);
-typedef GLvoid (APIENTRY *glFramebufferDrawBufferEXTPROC) (GLuint, GLenum);
-typedef GLvoid (APIENTRY *glFramebufferDrawBuffersEXTPROC) (GLuint, GLsizei, const GLenum *);
-typedef GLvoid (APIENTRY *glFramebufferReadBufferEXTPROC) (GLuint, GLenum);
-typedef GLvoid (APIENTRY *glGetFramebufferParameterivEXTPROC) (GLuint, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glNamedCopyBufferSubDataEXTPROC) (GLuint, GLuint, GLintptr, GLintptr, GLsizeiptr);
-typedef GLvoid (APIENTRY *glNamedFramebufferTextureEXTPROC) (GLuint, GLenum, GLuint, GLint);
-typedef GLvoid (APIENTRY *glNamedFramebufferTextureLayerEXTPROC) (GLuint, GLenum, GLuint, GLint, GLint);
-typedef GLvoid (APIENTRY *glNamedFramebufferTextureFaceEXTPROC) (GLuint, GLenum, GLuint, GLint, GLenum);
-typedef GLvoid (APIENTRY *glTextureRenderbufferEXTPROC) (GLuint, GLenum, GLuint);
-typedef GLvoid (APIENTRY *glMultiTexRenderbufferEXTPROC) (GLenum, GLenum, GLuint);
-typedef GLvoid (APIENTRY *glVertexArrayVertexOffsetEXTPROC) (GLuint, GLuint, GLint, GLenum, GLsizei, GLintptr);
-typedef GLvoid (APIENTRY *glVertexArrayColorOffsetEXTPROC) (GLuint, GLuint, GLint, GLenum, GLsizei, GLintptr);
-typedef GLvoid (APIENTRY *glVertexArrayEdgeFlagOffsetEXTPROC) (GLuint, GLuint, GLsizei, GLintptr);
-typedef GLvoid (APIENTRY *glVertexArrayIndexOffsetEXTPROC) (GLuint, GLuint, GLenum, GLsizei, GLintptr);
-typedef GLvoid (APIENTRY *glVertexArrayNormalOffsetEXTPROC) (GLuint, GLuint, GLenum, GLsizei, GLintptr);
-typedef GLvoid (APIENTRY *glVertexArrayTexCoordOffsetEXTPROC) (GLuint, GLuint, GLint, GLenum, GLsizei, GLintptr);
-typedef GLvoid (APIENTRY *glVertexArrayMultiTexCoordOffsetEXTPROC) (GLuint, GLuint, GLenum, GLint, GLenum, GLsizei, GLintptr);
-typedef GLvoid (APIENTRY *glVertexArrayFogCoordOffsetEXTPROC) (GLuint, GLuint, GLenum, GLsizei, GLintptr);
-typedef GLvoid (APIENTRY *glVertexArraySecondaryColorOffsetEXTPROC) (GLuint, GLuint, GLint, GLenum, GLsizei, GLintptr);
-typedef GLvoid (APIENTRY *glVertexArrayVertexAttribOffsetEXTPROC) (GLuint, GLuint, GLuint, GLint, GLenum, GLboolean, GLsizei, GLintptr);
-typedef GLvoid (APIENTRY *glVertexArrayVertexAttribIOffsetEXTPROC) (GLuint, GLuint, GLuint, GLint, GLenum, GLsizei, GLintptr);
-typedef GLvoid (APIENTRY *glEnableVertexArrayEXTPROC) (GLuint, GLenum);
-typedef GLvoid (APIENTRY *glDisableVertexArrayEXTPROC) (GLuint, GLenum);
-typedef GLvoid (APIENTRY *glEnableVertexArrayAttribEXTPROC) (GLuint, GLuint);
-typedef GLvoid (APIENTRY *glDisableVertexArrayAttribEXTPROC) (GLuint, GLuint);
-typedef GLvoid (APIENTRY *glGetVertexArrayIntegervEXTPROC) (GLuint, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetVertexArrayPointervEXTPROC) (GLuint, GLenum, GLvoid **);
-typedef GLvoid (APIENTRY *glGetVertexArrayIntegeri_vEXTPROC) (GLuint, GLuint, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetVertexArrayPointeri_vEXTPROC) (GLuint, GLuint, GLenum, GLvoid **);
-typedef GLvoid * (APIENTRY *glMapNamedBufferRangeEXTPROC) (GLuint, GLintptr, GLsizeiptr, GLbitfield);
-typedef GLvoid (APIENTRY *glFlushMappedNamedBufferRangeEXTPROC) (GLuint, GLintptr, GLsizeiptr);
+typedef void (APIENTRY *glNamedFramebufferTexture1DEXTPROC) (GLuint, GLenum, GLenum, GLuint, GLint);
+typedef void (APIENTRY *glNamedFramebufferTexture2DEXTPROC) (GLuint, GLenum, GLenum, GLuint, GLint);
+typedef void (APIENTRY *glNamedFramebufferTexture3DEXTPROC) (GLuint, GLenum, GLenum, GLuint, GLint, GLint);
+typedef void (APIENTRY *glNamedFramebufferRenderbufferEXTPROC) (GLuint, GLenum, GLenum, GLuint);
+typedef void (APIENTRY *glGetNamedFramebufferAttachmentParameterivEXTPROC) (GLuint, GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGenerateTextureMipmapEXTPROC) (GLuint, GLenum);
+typedef void (APIENTRY *glGenerateMultiTexMipmapEXTPROC) (GLenum, GLenum);
+typedef void (APIENTRY *glFramebufferDrawBufferEXTPROC) (GLuint, GLenum);
+typedef void (APIENTRY *glFramebufferDrawBuffersEXTPROC) (GLuint, GLsizei, const GLenum *);
+typedef void (APIENTRY *glFramebufferReadBufferEXTPROC) (GLuint, GLenum);
+typedef void (APIENTRY *glGetFramebufferParameterivEXTPROC) (GLuint, GLenum, GLint *);
+typedef void (APIENTRY *glNamedCopyBufferSubDataEXTPROC) (GLuint, GLuint, GLintptr, GLintptr, GLsizeiptr);
+typedef void (APIENTRY *glNamedFramebufferTextureEXTPROC) (GLuint, GLenum, GLuint, GLint);
+typedef void (APIENTRY *glNamedFramebufferTextureLayerEXTPROC) (GLuint, GLenum, GLuint, GLint, GLint);
+typedef void (APIENTRY *glNamedFramebufferTextureFaceEXTPROC) (GLuint, GLenum, GLuint, GLint, GLenum);
+typedef void (APIENTRY *glTextureRenderbufferEXTPROC) (GLuint, GLenum, GLuint);
+typedef void (APIENTRY *glMultiTexRenderbufferEXTPROC) (GLenum, GLenum, GLuint);
+typedef void (APIENTRY *glVertexArrayVertexOffsetEXTPROC) (GLuint, GLuint, GLint, GLenum, GLsizei, GLintptr);
+typedef void (APIENTRY *glVertexArrayColorOffsetEXTPROC) (GLuint, GLuint, GLint, GLenum, GLsizei, GLintptr);
+typedef void (APIENTRY *glVertexArrayEdgeFlagOffsetEXTPROC) (GLuint, GLuint, GLsizei, GLintptr);
+typedef void (APIENTRY *glVertexArrayIndexOffsetEXTPROC) (GLuint, GLuint, GLenum, GLsizei, GLintptr);
+typedef void (APIENTRY *glVertexArrayNormalOffsetEXTPROC) (GLuint, GLuint, GLenum, GLsizei, GLintptr);
+typedef void (APIENTRY *glVertexArrayTexCoordOffsetEXTPROC) (GLuint, GLuint, GLint, GLenum, GLsizei, GLintptr);
+typedef void (APIENTRY *glVertexArrayMultiTexCoordOffsetEXTPROC) (GLuint, GLuint, GLenum, GLint, GLenum, GLsizei, GLintptr);
+typedef void (APIENTRY *glVertexArrayFogCoordOffsetEXTPROC) (GLuint, GLuint, GLenum, GLsizei, GLintptr);
+typedef void (APIENTRY *glVertexArraySecondaryColorOffsetEXTPROC) (GLuint, GLuint, GLint, GLenum, GLsizei, GLintptr);
+typedef void (APIENTRY *glVertexArrayVertexAttribOffsetEXTPROC) (GLuint, GLuint, GLuint, GLint, GLenum, GLboolean, GLsizei, GLintptr);
+typedef void (APIENTRY *glVertexArrayVertexAttribIOffsetEXTPROC) (GLuint, GLuint, GLuint, GLint, GLenum, GLsizei, GLintptr);
+typedef void (APIENTRY *glEnableVertexArrayEXTPROC) (GLuint, GLenum);
+typedef void (APIENTRY *glDisableVertexArrayEXTPROC) (GLuint, GLenum);
+typedef void (APIENTRY *glEnableVertexArrayAttribEXTPROC) (GLuint, GLuint);
+typedef void (APIENTRY *glDisableVertexArrayAttribEXTPROC) (GLuint, GLuint);
+typedef void (APIENTRY *glGetVertexArrayIntegervEXTPROC) (GLuint, GLenum, GLint *);
+typedef void (APIENTRY *glGetVertexArrayPointervEXTPROC) (GLuint, GLenum, void **);
+typedef void (APIENTRY *glGetVertexArrayIntegeri_vEXTPROC) (GLuint, GLuint, GLenum, GLint *);
+typedef void (APIENTRY *glGetVertexArrayPointeri_vEXTPROC) (GLuint, GLuint, GLenum, void **);
+typedef void * (APIENTRY *glMapNamedBufferRangeEXTPROC) (GLuint, GLintptr, GLsizeiptr, GLbitfield);
+typedef void (APIENTRY *glFlushMappedNamedBufferRangeEXTPROC) (GLuint, GLintptr, GLsizeiptr);
 
 EXTERN_C_ENTER
 
@@ -359,28 +359,28 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglTexturePara
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglTextureImage1DEXT(JNIEnv *__env, jclass clazz, jint texture, jint target, jint level, jint internalformat, jint width, jint border, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
-	const GLvoid *pixels = (const GLvoid *)(intptr_t)pixelsAddress;
+	const void *pixels = (const void *)(intptr_t)pixelsAddress;
 	glTextureImage1DEXTPROC glTextureImage1DEXT = (glTextureImage1DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glTextureImage1DEXT(texture, target, level, internalformat, width, border, format, type, pixels);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglTextureImage2DEXT(JNIEnv *__env, jclass clazz, jint texture, jint target, jint level, jint internalformat, jint width, jint height, jint border, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
-	const GLvoid *pixels = (const GLvoid *)(intptr_t)pixelsAddress;
+	const void *pixels = (const void *)(intptr_t)pixelsAddress;
 	glTextureImage2DEXTPROC glTextureImage2DEXT = (glTextureImage2DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glTextureImage2DEXT(texture, target, level, internalformat, width, height, border, format, type, pixels);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglTextureSubImage1DEXT(JNIEnv *__env, jclass clazz, jint texture, jint target, jint level, jint xoffset, jint width, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
-	const GLvoid *pixels = (const GLvoid *)(intptr_t)pixelsAddress;
+	const void *pixels = (const void *)(intptr_t)pixelsAddress;
 	glTextureSubImage1DEXTPROC glTextureSubImage1DEXT = (glTextureSubImage1DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glTextureSubImage1DEXT(texture, target, level, xoffset, width, format, type, pixels);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglTextureSubImage2DEXT(JNIEnv *__env, jclass clazz, jint texture, jint target, jint level, jint xoffset, jint yoffset, jint width, jint height, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
-	const GLvoid *pixels = (const GLvoid *)(intptr_t)pixelsAddress;
+	const void *pixels = (const void *)(intptr_t)pixelsAddress;
 	glTextureSubImage2DEXTPROC glTextureSubImage2DEXT = (glTextureSubImage2DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, width, height, format, type, pixels);
@@ -411,7 +411,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglCopyTexture
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglGetTextureImageEXT(JNIEnv *__env, jclass clazz, jint texture, jint target, jint level, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
-	GLvoid *pixels = (GLvoid *)(intptr_t)pixelsAddress;
+	void *pixels = (void *)(intptr_t)pixelsAddress;
 	glGetTextureImageEXTPROC glGetTextureImageEXT = (glGetTextureImageEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetTextureImageEXT(texture, target, level, format, type, pixels);
@@ -446,14 +446,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglGetTextureL
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglTextureImage3DEXT(JNIEnv *__env, jclass clazz, jint texture, jint target, jint level, jint internalformat, jint width, jint height, jint depth, jint border, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
-	const GLvoid *pixels = (const GLvoid *)(intptr_t)pixelsAddress;
+	const void *pixels = (const void *)(intptr_t)pixelsAddress;
 	glTextureImage3DEXTPROC glTextureImage3DEXT = (glTextureImage3DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glTextureImage3DEXT(texture, target, level, internalformat, width, height, depth, border, format, type, pixels);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglTextureSubImage3DEXT(JNIEnv *__env, jclass clazz, jint texture, jint target, jint level, jint xoffset, jint yoffset, jint zoffset, jint width, jint height, jint depth, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
-	const GLvoid *pixels = (const GLvoid *)(intptr_t)pixelsAddress;
+	const void *pixels = (const void *)(intptr_t)pixelsAddress;
 	glTextureSubImage3DEXTPROC glTextureSubImage3DEXT = (glTextureSubImage3DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glTextureSubImage3DEXT(texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -472,7 +472,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglBindMultiTe
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglMultiTexCoordPointerEXT(JNIEnv *__env, jclass clazz, jint texunit, jint size, jint type, jint stride, jlong pointerAddress, jlong __functionAddress) {
-	const GLvoid *pointer = (const GLvoid *)(intptr_t)pointerAddress;
+	const void *pointer = (const void *)(intptr_t)pointerAddress;
 	glMultiTexCoordPointerEXTPROC glMultiTexCoordPointerEXT = (glMultiTexCoordPointerEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glMultiTexCoordPointerEXT(texunit, size, type, stride, pointer);
@@ -605,28 +605,28 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglMultiTexPar
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglMultiTexImage1DEXT(JNIEnv *__env, jclass clazz, jint texunit, jint target, jint level, jint internalformat, jint width, jint border, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
-	const GLvoid *pixels = (const GLvoid *)(intptr_t)pixelsAddress;
+	const void *pixels = (const void *)(intptr_t)pixelsAddress;
 	glMultiTexImage1DEXTPROC glMultiTexImage1DEXT = (glMultiTexImage1DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glMultiTexImage1DEXT(texunit, target, level, internalformat, width, border, format, type, pixels);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglMultiTexImage2DEXT(JNIEnv *__env, jclass clazz, jint texunit, jint target, jint level, jint internalformat, jint width, jint height, jint border, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
-	const GLvoid *pixels = (const GLvoid *)(intptr_t)pixelsAddress;
+	const void *pixels = (const void *)(intptr_t)pixelsAddress;
 	glMultiTexImage2DEXTPROC glMultiTexImage2DEXT = (glMultiTexImage2DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glMultiTexImage2DEXT(texunit, target, level, internalformat, width, height, border, format, type, pixels);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglMultiTexSubImage1DEXT(JNIEnv *__env, jclass clazz, jint texunit, jint target, jint level, jint xoffset, jint width, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
-	const GLvoid *pixels = (const GLvoid *)(intptr_t)pixelsAddress;
+	const void *pixels = (const void *)(intptr_t)pixelsAddress;
 	glMultiTexSubImage1DEXTPROC glMultiTexSubImage1DEXT = (glMultiTexSubImage1DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glMultiTexSubImage1DEXT(texunit, target, level, xoffset, width, format, type, pixels);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglMultiTexSubImage2DEXT(JNIEnv *__env, jclass clazz, jint texunit, jint target, jint level, jint xoffset, jint yoffset, jint width, jint height, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
-	const GLvoid *pixels = (const GLvoid *)(intptr_t)pixelsAddress;
+	const void *pixels = (const void *)(intptr_t)pixelsAddress;
 	glMultiTexSubImage2DEXTPROC glMultiTexSubImage2DEXT = (glMultiTexSubImage2DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glMultiTexSubImage2DEXT(texunit, target, level, xoffset, yoffset, width, height, format, type, pixels);
@@ -657,7 +657,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglCopyMultiTe
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglGetMultiTexImageEXT(JNIEnv *__env, jclass clazz, jint texunit, jint target, jint level, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
-	GLvoid *pixels = (GLvoid *)(intptr_t)pixelsAddress;
+	void *pixels = (void *)(intptr_t)pixelsAddress;
 	glGetMultiTexImageEXTPROC glGetMultiTexImageEXT = (glGetMultiTexImageEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetMultiTexImageEXT(texunit, target, level, format, type, pixels);
@@ -692,14 +692,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglGetMultiTex
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglMultiTexImage3DEXT(JNIEnv *__env, jclass clazz, jint texunit, jint target, jint level, jint internalformat, jint width, jint height, jint depth, jint border, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
-	const GLvoid *pixels = (const GLvoid *)(intptr_t)pixelsAddress;
+	const void *pixels = (const void *)(intptr_t)pixelsAddress;
 	glMultiTexImage3DEXTPROC glMultiTexImage3DEXT = (glMultiTexImage3DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glMultiTexImage3DEXT(texunit, target, level, internalformat, width, height, depth, border, format, type, pixels);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglMultiTexSubImage3DEXT(JNIEnv *__env, jclass clazz, jint texunit, jint target, jint level, jint xoffset, jint yoffset, jint zoffset, jint width, jint height, jint depth, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
-	const GLvoid *pixels = (const GLvoid *)(intptr_t)pixelsAddress;
+	const void *pixels = (const void *)(intptr_t)pixelsAddress;
 	glMultiTexSubImage3DEXTPROC glMultiTexSubImage3DEXT = (glMultiTexSubImage3DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glMultiTexSubImage3DEXT(texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -750,7 +750,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglGetDoubleIn
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglGetPointerIndexedvEXT(JNIEnv *__env, jclass clazz, jint target, jint index, jlong paramsAddress, jlong __functionAddress) {
-	GLvoid **params = (GLvoid **)(intptr_t)paramsAddress;
+	void **params = (void **)(intptr_t)paramsAddress;
 	glGetPointerIndexedvEXTPROC glGetPointerIndexedvEXT = (glGetPointerIndexedvEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetPointerIndexedvEXT(target, index, params);
@@ -771,7 +771,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglGetDoublei_
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglGetPointeri_1vEXT(JNIEnv *__env, jclass clazz, jint pname, jint index, jlong paramsAddress, jlong __functionAddress) {
-	GLvoid **params = (GLvoid **)(intptr_t)paramsAddress;
+	void **params = (void **)(intptr_t)paramsAddress;
 	glGetPointeri_vEXTPROC glGetPointeri_vEXT = (glGetPointeri_vEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetPointeri_vEXT(pname, index, params);
@@ -810,7 +810,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglGetBooleanI
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglNamedProgramStringEXT(JNIEnv *__env, jclass clazz, jint program, jint target, jint format, jint len, jlong stringAddress, jlong __functionAddress) {
-	const GLvoid *string = (const GLvoid *)(intptr_t)stringAddress;
+	const void *string = (const void *)(intptr_t)stringAddress;
 	glNamedProgramStringEXTPROC glNamedProgramStringEXT = (glNamedProgramStringEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glNamedProgramStringEXT(program, target, format, len, string);
@@ -864,105 +864,105 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglGetNamedPro
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglGetNamedProgramStringEXT(JNIEnv *__env, jclass clazz, jint program, jint target, jint pname, jlong stringAddress, jlong __functionAddress) {
-	GLvoid *string = (GLvoid *)(intptr_t)stringAddress;
+	void *string = (void *)(intptr_t)stringAddress;
 	glGetNamedProgramStringEXTPROC glGetNamedProgramStringEXT = (glGetNamedProgramStringEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetNamedProgramStringEXT(program, target, pname, string);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglCompressedTextureImage3DEXT(JNIEnv *__env, jclass clazz, jint texture, jint target, jint level, jint internalformat, jint width, jint height, jint depth, jint border, jint imageSize, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glCompressedTextureImage3DEXTPROC glCompressedTextureImage3DEXT = (glCompressedTextureImage3DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glCompressedTextureImage3DEXT(texture, target, level, internalformat, width, height, depth, border, imageSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglCompressedTextureImage2DEXT(JNIEnv *__env, jclass clazz, jint texture, jint target, jint level, jint internalformat, jint width, jint height, jint border, jint imageSize, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glCompressedTextureImage2DEXTPROC glCompressedTextureImage2DEXT = (glCompressedTextureImage2DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glCompressedTextureImage2DEXT(texture, target, level, internalformat, width, height, border, imageSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglCompressedTextureImage1DEXT(JNIEnv *__env, jclass clazz, jint texture, jint target, jint level, jint internalformat, jint width, jint border, jint imageSize, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glCompressedTextureImage1DEXTPROC glCompressedTextureImage1DEXT = (glCompressedTextureImage1DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glCompressedTextureImage1DEXT(texture, target, level, internalformat, width, border, imageSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglCompressedTextureSubImage3DEXT(JNIEnv *__env, jclass clazz, jint texture, jint target, jint level, jint xoffset, jint yoffset, jint zoffset, jint width, jint height, jint depth, jint format, jint imageSize, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glCompressedTextureSubImage3DEXTPROC glCompressedTextureSubImage3DEXT = (glCompressedTextureSubImage3DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glCompressedTextureSubImage3DEXT(texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglCompressedTextureSubImage2DEXT(JNIEnv *__env, jclass clazz, jint texture, jint target, jint level, jint xoffset, jint yoffset, jint width, jint height, jint format, jint imageSize, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glCompressedTextureSubImage2DEXTPROC glCompressedTextureSubImage2DEXT = (glCompressedTextureSubImage2DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glCompressedTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, width, height, format, imageSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglCompressedTextureSubImage1DEXT(JNIEnv *__env, jclass clazz, jint texture, jint target, jint level, jint xoffset, jint width, jint format, jint imageSize, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glCompressedTextureSubImage1DEXTPROC glCompressedTextureSubImage1DEXT = (glCompressedTextureSubImage1DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glCompressedTextureSubImage1DEXT(texture, target, level, xoffset, width, format, imageSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglGetCompressedTextureImageEXT(JNIEnv *__env, jclass clazz, jint texture, jint target, jint level, jlong imgAddress, jlong __functionAddress) {
-	GLvoid *img = (GLvoid *)(intptr_t)imgAddress;
+	void *img = (void *)(intptr_t)imgAddress;
 	glGetCompressedTextureImageEXTPROC glGetCompressedTextureImageEXT = (glGetCompressedTextureImageEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetCompressedTextureImageEXT(texture, target, level, img);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglCompressedMultiTexImage3DEXT(JNIEnv *__env, jclass clazz, jint texunit, jint target, jint level, jint internalformat, jint width, jint height, jint depth, jint border, jint imageSize, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glCompressedMultiTexImage3DEXTPROC glCompressedMultiTexImage3DEXT = (glCompressedMultiTexImage3DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glCompressedMultiTexImage3DEXT(texunit, target, level, internalformat, width, height, depth, border, imageSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglCompressedMultiTexImage2DEXT(JNIEnv *__env, jclass clazz, jint texunit, jint target, jint level, jint internalformat, jint width, jint height, jint border, jint imageSize, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glCompressedMultiTexImage2DEXTPROC glCompressedMultiTexImage2DEXT = (glCompressedMultiTexImage2DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glCompressedMultiTexImage2DEXT(texunit, target, level, internalformat, width, height, border, imageSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglCompressedMultiTexImage1DEXT(JNIEnv *__env, jclass clazz, jint texunit, jint target, jint level, jint internalformat, jint width, jint border, jint imageSize, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glCompressedMultiTexImage1DEXTPROC glCompressedMultiTexImage1DEXT = (glCompressedMultiTexImage1DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glCompressedMultiTexImage1DEXT(texunit, target, level, internalformat, width, border, imageSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglCompressedMultiTexSubImage3DEXT(JNIEnv *__env, jclass clazz, jint texunit, jint target, jint level, jint xoffset, jint yoffset, jint zoffset, jint width, jint height, jint depth, jint format, jint imageSize, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glCompressedMultiTexSubImage3DEXTPROC glCompressedMultiTexSubImage3DEXT = (glCompressedMultiTexSubImage3DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glCompressedMultiTexSubImage3DEXT(texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglCompressedMultiTexSubImage2DEXT(JNIEnv *__env, jclass clazz, jint texunit, jint target, jint level, jint xoffset, jint yoffset, jint width, jint height, jint format, jint imageSize, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glCompressedMultiTexSubImage2DEXTPROC glCompressedMultiTexSubImage2DEXT = (glCompressedMultiTexSubImage2DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glCompressedMultiTexSubImage2DEXT(texunit, target, level, xoffset, yoffset, width, height, format, imageSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglCompressedMultiTexSubImage1DEXT(JNIEnv *__env, jclass clazz, jint texunit, jint target, jint level, jint xoffset, jint width, jint format, jint imageSize, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glCompressedMultiTexSubImage1DEXTPROC glCompressedMultiTexSubImage1DEXT = (glCompressedMultiTexSubImage1DEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glCompressedMultiTexSubImage1DEXT(texunit, target, level, xoffset, width, format, imageSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglGetCompressedMultiTexImageEXT(JNIEnv *__env, jclass clazz, jint texunit, jint target, jint level, jlong imgAddress, jlong __functionAddress) {
-	GLvoid *img = (GLvoid *)(intptr_t)imgAddress;
+	void *img = (void *)(intptr_t)imgAddress;
 	glGetCompressedMultiTexImageEXTPROC glGetCompressedMultiTexImageEXT = (glGetCompressedMultiTexImageEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetCompressedMultiTexImageEXT(texunit, target, level, img);
@@ -997,14 +997,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglMatrixMultT
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglNamedBufferDataEXT(JNIEnv *__env, jclass clazz, jint buffer, jlong size, jlong dataAddress, jint usage, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glNamedBufferDataEXTPROC glNamedBufferDataEXT = (glNamedBufferDataEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glNamedBufferDataEXT(buffer, (GLsizeiptr)size, data, usage);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglNamedBufferSubDataEXT(JNIEnv *__env, jclass clazz, jint buffer, jlong offset, jlong size, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glNamedBufferSubDataEXTPROC glNamedBufferSubDataEXT = (glNamedBufferSubDataEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glNamedBufferSubDataEXT(buffer, (GLintptr)offset, (GLsizeiptr)size, data);
@@ -1030,7 +1030,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglGetNamedBuf
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglGetNamedBufferSubDataEXT(JNIEnv *__env, jclass clazz, jint buffer, jlong offset, jlong size, jlong dataAddress, jlong __functionAddress) {
-	GLvoid *data = (GLvoid *)(intptr_t)dataAddress;
+	void *data = (void *)(intptr_t)dataAddress;
 	glGetNamedBufferSubDataEXTPROC glGetNamedBufferSubDataEXT = (glGetNamedBufferSubDataEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetNamedBufferSubDataEXT(buffer, (GLintptr)offset, (GLsizeiptr)size, data);
@@ -1618,7 +1618,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglGetVertexAr
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglGetVertexArrayPointervEXT(JNIEnv *__env, jclass clazz, jint vaobj, jint pname, jlong paramAddress, jlong __functionAddress) {
-	GLvoid **param = (GLvoid **)(intptr_t)paramAddress;
+	void **param = (void **)(intptr_t)paramAddress;
 	glGetVertexArrayPointervEXTPROC glGetVertexArrayPointervEXT = (glGetVertexArrayPointervEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetVertexArrayPointervEXT(vaobj, pname, param);
@@ -1632,7 +1632,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglGetVertexAr
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglGetVertexArrayPointeri_1vEXT(JNIEnv *__env, jclass clazz, jint vaobj, jint index, jint pname, jlong paramAddress, jlong __functionAddress) {
-	GLvoid **param = (GLvoid **)(intptr_t)paramAddress;
+	void **param = (void **)(intptr_t)paramAddress;
 	glGetVertexArrayPointeri_vEXTPROC glGetVertexArrayPointeri_vEXT = (glGetVertexArrayPointeri_vEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetVertexArrayPointeri_vEXT(vaobj, index, pname, param);

@@ -6,18 +6,18 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glBufferAddressRangeNVPROC) (GLenum, GLuint, GLuint64EXT, GLsizeiptr);
-typedef GLvoid (APIENTRY *glVertexFormatNVPROC) (GLint, GLenum, GLsizei);
-typedef GLvoid (APIENTRY *glNormalFormatNVPROC) (GLenum, GLsizei);
-typedef GLvoid (APIENTRY *glColorFormatNVPROC) (GLint, GLenum, GLsizei);
-typedef GLvoid (APIENTRY *glIndexFormatNVPROC) (GLenum, GLsizei);
-typedef GLvoid (APIENTRY *glTexCoordFormatNVPROC) (GLint, GLenum, GLsizei);
-typedef GLvoid (APIENTRY *glEdgeFlagFormatNVPROC) (GLsizei);
-typedef GLvoid (APIENTRY *glSecondaryColorFormatNVPROC) (GLint, GLenum, GLsizei);
-typedef GLvoid (APIENTRY *glFogCoordFormatNVPROC) (GLenum, GLsizei);
-typedef GLvoid (APIENTRY *glVertexAttribFormatNVPROC) (GLuint, GLint, GLenum, GLboolean, GLsizei);
-typedef GLvoid (APIENTRY *glVertexAttribIFormatNVPROC) (GLuint, GLint, GLenum, GLsizei);
-typedef GLvoid (APIENTRY *glGetIntegerui64i_vNVPROC) (GLenum, GLuint, GLuint64EXT *);
+typedef void (APIENTRY *glBufferAddressRangeNVPROC) (GLenum, GLuint, GLuint64EXT, GLsizeiptr);
+typedef void (APIENTRY *glVertexFormatNVPROC) (GLint, GLenum, GLsizei);
+typedef void (APIENTRY *glNormalFormatNVPROC) (GLenum, GLsizei);
+typedef void (APIENTRY *glColorFormatNVPROC) (GLint, GLenum, GLsizei);
+typedef void (APIENTRY *glIndexFormatNVPROC) (GLenum, GLsizei);
+typedef void (APIENTRY *glTexCoordFormatNVPROC) (GLint, GLenum, GLsizei);
+typedef void (APIENTRY *glEdgeFlagFormatNVPROC) (GLsizei);
+typedef void (APIENTRY *glSecondaryColorFormatNVPROC) (GLint, GLenum, GLsizei);
+typedef void (APIENTRY *glFogCoordFormatNVPROC) (GLenum, GLsizei);
+typedef void (APIENTRY *glVertexAttribFormatNVPROC) (GLuint, GLint, GLenum, GLboolean, GLsizei);
+typedef void (APIENTRY *glVertexAttribIFormatNVPROC) (GLuint, GLint, GLenum, GLsizei);
+typedef void (APIENTRY *glGetIntegerui64i_vNVPROC) (GLenum, GLuint, GLuint64EXT *);
 
 EXTERN_C_ENTER
 

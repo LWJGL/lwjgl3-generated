@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glSubpixelPrecisionBiasNVPROC) (GLuint, GLuint);
+typedef void (APIENTRY *glSubpixelPrecisionBiasNVPROC) (GLuint, GLuint);
 
 EXTERN_C_ENTER
 

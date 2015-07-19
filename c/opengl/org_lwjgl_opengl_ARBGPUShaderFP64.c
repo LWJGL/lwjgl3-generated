@@ -6,23 +6,23 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glProgramUniform1dEXTPROC) (GLuint, GLint, GLdouble);
-typedef GLvoid (APIENTRY *glProgramUniform2dEXTPROC) (GLuint, GLint, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glProgramUniform3dEXTPROC) (GLuint, GLint, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glProgramUniform4dEXTPROC) (GLuint, GLint, GLdouble, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glProgramUniform1dvEXTPROC) (GLuint, GLint, GLsizei, const GLdouble *);
-typedef GLvoid (APIENTRY *glProgramUniform2dvEXTPROC) (GLuint, GLint, GLsizei, const GLdouble *);
-typedef GLvoid (APIENTRY *glProgramUniform3dvEXTPROC) (GLuint, GLint, GLsizei, const GLdouble *);
-typedef GLvoid (APIENTRY *glProgramUniform4dvEXTPROC) (GLuint, GLint, GLsizei, const GLdouble *);
-typedef GLvoid (APIENTRY *glProgramUniformMatrix2dvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLdouble *);
-typedef GLvoid (APIENTRY *glProgramUniformMatrix3dvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLdouble *);
-typedef GLvoid (APIENTRY *glProgramUniformMatrix4dvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLdouble *);
-typedef GLvoid (APIENTRY *glProgramUniformMatrix2x3dvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLdouble *);
-typedef GLvoid (APIENTRY *glProgramUniformMatrix2x4dvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLdouble *);
-typedef GLvoid (APIENTRY *glProgramUniformMatrix3x2dvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLdouble *);
-typedef GLvoid (APIENTRY *glProgramUniformMatrix3x4dvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLdouble *);
-typedef GLvoid (APIENTRY *glProgramUniformMatrix4x2dvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLdouble *);
-typedef GLvoid (APIENTRY *glProgramUniformMatrix4x3dvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLdouble *);
+typedef void (APIENTRY *glProgramUniform1dEXTPROC) (GLuint, GLint, GLdouble);
+typedef void (APIENTRY *glProgramUniform2dEXTPROC) (GLuint, GLint, GLdouble, GLdouble);
+typedef void (APIENTRY *glProgramUniform3dEXTPROC) (GLuint, GLint, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glProgramUniform4dEXTPROC) (GLuint, GLint, GLdouble, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glProgramUniform1dvEXTPROC) (GLuint, GLint, GLsizei, const GLdouble *);
+typedef void (APIENTRY *glProgramUniform2dvEXTPROC) (GLuint, GLint, GLsizei, const GLdouble *);
+typedef void (APIENTRY *glProgramUniform3dvEXTPROC) (GLuint, GLint, GLsizei, const GLdouble *);
+typedef void (APIENTRY *glProgramUniform4dvEXTPROC) (GLuint, GLint, GLsizei, const GLdouble *);
+typedef void (APIENTRY *glProgramUniformMatrix2dvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLdouble *);
+typedef void (APIENTRY *glProgramUniformMatrix3dvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLdouble *);
+typedef void (APIENTRY *glProgramUniformMatrix4dvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLdouble *);
+typedef void (APIENTRY *glProgramUniformMatrix2x3dvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLdouble *);
+typedef void (APIENTRY *glProgramUniformMatrix2x4dvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLdouble *);
+typedef void (APIENTRY *glProgramUniformMatrix3x2dvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLdouble *);
+typedef void (APIENTRY *glProgramUniformMatrix3x4dvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLdouble *);
+typedef void (APIENTRY *glProgramUniformMatrix4x2dvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLdouble *);
+typedef void (APIENTRY *glProgramUniformMatrix4x3dvEXTPROC) (GLuint, GLint, GLsizei, GLboolean, const GLdouble *);
 
 EXTERN_C_ENTER
 

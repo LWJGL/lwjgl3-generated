@@ -6,15 +6,15 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glBindBufferRangeEXTPROC) (GLenum, GLuint, GLuint, GLintptr, GLsizeiptr);
-typedef GLvoid (APIENTRY *glBindBufferOffsetEXTPROC) (GLenum, GLuint, GLuint, GLintptr);
-typedef GLvoid (APIENTRY *glBindBufferBaseEXTPROC) (GLenum, GLuint, GLuint);
-typedef GLvoid (APIENTRY *glBeginTransformFeedbackEXTPROC) (GLenum);
-typedef GLvoid (APIENTRY *glEndTransformFeedbackEXTPROC) (void);
-typedef GLvoid (APIENTRY *glTransformFeedbackVaryingsEXTPROC) (GLuint, GLsizei, const GLchar * const *, GLenum);
-typedef GLvoid (APIENTRY *glGetTransformFeedbackVaryingEXTPROC) (GLuint, GLuint, GLsizei, GLsizei *, GLsizei *, GLenum *, GLchar *);
-typedef GLvoid (APIENTRY *glGetIntegerIndexedvEXTPROC) (GLenum, GLuint, GLint *);
-typedef GLvoid (APIENTRY *glGetBooleanIndexedvEXTPROC) (GLenum, GLuint, GLboolean *);
+typedef void (APIENTRY *glBindBufferRangeEXTPROC) (GLenum, GLuint, GLuint, GLintptr, GLsizeiptr);
+typedef void (APIENTRY *glBindBufferOffsetEXTPROC) (GLenum, GLuint, GLuint, GLintptr);
+typedef void (APIENTRY *glBindBufferBaseEXTPROC) (GLenum, GLuint, GLuint);
+typedef void (APIENTRY *glBeginTransformFeedbackEXTPROC) (GLenum);
+typedef void (APIENTRY *glEndTransformFeedbackEXTPROC) (void);
+typedef void (APIENTRY *glTransformFeedbackVaryingsEXTPROC) (GLuint, GLsizei, const GLchar * const *, GLenum);
+typedef void (APIENTRY *glGetTransformFeedbackVaryingEXTPROC) (GLuint, GLuint, GLsizei, GLsizei *, GLsizei *, GLenum *, GLchar *);
+typedef void (APIENTRY *glGetIntegerIndexedvEXTPROC) (GLenum, GLuint, GLint *);
+typedef void (APIENTRY *glGetBooleanIndexedvEXTPROC) (GLenum, GLuint, GLboolean *);
 
 EXTERN_C_ENTER
 

@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glDrawBuffersARBPROC) (GLsizei, const GLenum *);
+typedef void (APIENTRY *glDrawBuffersARBPROC) (GLsizei, const GLenum *);
 
 EXTERN_C_ENTER
 

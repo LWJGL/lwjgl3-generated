@@ -6,10 +6,10 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glRasterSamplesEXTPROC) (GLuint, GLboolean);
-typedef GLvoid (APIENTRY *glCoverageModulationTableNVPROC) (GLsizei, const GLfloat *);
-typedef GLvoid (APIENTRY *glGetCoverageModulationTableNVPROC) (GLsizei, GLfloat *);
-typedef GLvoid (APIENTRY *glCoverageModulationNVPROC) (GLenum);
+typedef void (APIENTRY *glRasterSamplesEXTPROC) (GLuint, GLboolean);
+typedef void (APIENTRY *glCoverageModulationTableNVPROC) (GLsizei, const GLfloat *);
+typedef void (APIENTRY *glGetCoverageModulationTableNVPROC) (GLsizei, GLfloat *);
+typedef void (APIENTRY *glCoverageModulationNVPROC) (GLenum);
 
 EXTERN_C_ENTER
 

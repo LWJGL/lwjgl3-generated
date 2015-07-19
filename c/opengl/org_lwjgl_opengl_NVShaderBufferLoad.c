@@ -6,20 +6,20 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glMakeBufferResidentNVPROC) (GLenum, GLenum);
-typedef GLvoid (APIENTRY *glMakeBufferNonResidentNVPROC) (GLenum);
+typedef void (APIENTRY *glMakeBufferResidentNVPROC) (GLenum, GLenum);
+typedef void (APIENTRY *glMakeBufferNonResidentNVPROC) (GLenum);
 typedef GLboolean (APIENTRY *glIsBufferResidentNVPROC) (GLenum);
-typedef GLvoid (APIENTRY *glMakeNamedBufferResidentNVPROC) (GLuint, GLenum);
-typedef GLvoid (APIENTRY *glMakeNamedBufferNonResidentNVPROC) (GLuint);
+typedef void (APIENTRY *glMakeNamedBufferResidentNVPROC) (GLuint, GLenum);
+typedef void (APIENTRY *glMakeNamedBufferNonResidentNVPROC) (GLuint);
 typedef GLboolean (APIENTRY *glIsNamedBufferResidentNVPROC) (GLuint);
-typedef GLvoid (APIENTRY *glGetBufferParameterui64vNVPROC) (GLenum, GLenum, GLuint64EXT *);
-typedef GLvoid (APIENTRY *glGetNamedBufferParameterui64vNVPROC) (GLuint, GLenum, GLuint64EXT *);
-typedef GLvoid (APIENTRY *glGetIntegerui64vNVPROC) (GLenum, GLuint64EXT *);
-typedef GLvoid (APIENTRY *glUniformui64NVPROC) (GLint, GLuint64EXT);
-typedef GLvoid (APIENTRY *glUniformui64vNVPROC) (GLint, GLsizei, const GLuint64EXT *);
-typedef GLvoid (APIENTRY *glGetUniformui64vNVPROC) (GLuint, GLint, GLuint64EXT *);
-typedef GLvoid (APIENTRY *glProgramUniformui64NVPROC) (GLuint, GLint, GLuint64EXT);
-typedef GLvoid (APIENTRY *glProgramUniformui64vNVPROC) (GLuint, GLint, GLsizei, const GLuint64EXT *);
+typedef void (APIENTRY *glGetBufferParameterui64vNVPROC) (GLenum, GLenum, GLuint64EXT *);
+typedef void (APIENTRY *glGetNamedBufferParameterui64vNVPROC) (GLuint, GLenum, GLuint64EXT *);
+typedef void (APIENTRY *glGetIntegerui64vNVPROC) (GLenum, GLuint64EXT *);
+typedef void (APIENTRY *glUniformui64NVPROC) (GLint, GLuint64EXT);
+typedef void (APIENTRY *glUniformui64vNVPROC) (GLint, GLsizei, const GLuint64EXT *);
+typedef void (APIENTRY *glGetUniformui64vNVPROC) (GLuint, GLint, GLuint64EXT *);
+typedef void (APIENTRY *glProgramUniformui64NVPROC) (GLuint, GLint, GLuint64EXT);
+typedef void (APIENTRY *glProgramUniformui64vNVPROC) (GLuint, GLint, GLsizei, const GLuint64EXT *);
 
 EXTERN_C_ENTER
 

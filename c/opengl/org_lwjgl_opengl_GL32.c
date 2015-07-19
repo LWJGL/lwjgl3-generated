@@ -6,25 +6,25 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glGetBufferParameteri64vPROC) (GLenum, GLenum, GLint64 *);
-typedef GLvoid (APIENTRY *glDrawElementsBaseVertexPROC) (GLenum, GLsizei, GLenum, const GLvoid *, GLint);
-typedef GLvoid (APIENTRY *glDrawRangeElementsBaseVertexPROC) (GLenum, GLuint, GLuint, GLsizei, GLenum, const GLvoid *, GLint);
-typedef GLvoid (APIENTRY *glDrawElementsInstancedBaseVertexPROC) (GLenum, GLsizei, GLenum, const GLvoid *, GLsizei, GLint);
-typedef GLvoid (APIENTRY *glMultiDrawElementsBaseVertexPROC) (GLenum, const GLsizei *, GLenum, const GLvoid **, GLsizei, GLint *);
-typedef GLvoid (APIENTRY *glProvokingVertexPROC) (GLenum);
-typedef GLvoid (APIENTRY *glTexImage2DMultisamplePROC) (GLenum, GLsizei, GLint, GLsizei, GLsizei, GLboolean);
-typedef GLvoid (APIENTRY *glTexImage3DMultisamplePROC) (GLenum, GLsizei, GLint, GLsizei, GLsizei, GLsizei, GLboolean);
-typedef GLvoid (APIENTRY *glGetMultisamplefvPROC) (GLenum, GLuint, GLfloat *);
-typedef GLvoid (APIENTRY *glSampleMaskiPROC) (GLuint, GLbitfield);
-typedef GLvoid (APIENTRY *glFramebufferTexturePROC) (GLenum, GLenum, GLuint, GLint);
+typedef void (APIENTRY *glGetBufferParameteri64vPROC) (GLenum, GLenum, GLint64 *);
+typedef void (APIENTRY *glDrawElementsBaseVertexPROC) (GLenum, GLsizei, GLenum, const void *, GLint);
+typedef void (APIENTRY *glDrawRangeElementsBaseVertexPROC) (GLenum, GLuint, GLuint, GLsizei, GLenum, const void *, GLint);
+typedef void (APIENTRY *glDrawElementsInstancedBaseVertexPROC) (GLenum, GLsizei, GLenum, const void *, GLsizei, GLint);
+typedef void (APIENTRY *glMultiDrawElementsBaseVertexPROC) (GLenum, const GLsizei *, GLenum, const void **, GLsizei, GLint *);
+typedef void (APIENTRY *glProvokingVertexPROC) (GLenum);
+typedef void (APIENTRY *glTexImage2DMultisamplePROC) (GLenum, GLsizei, GLint, GLsizei, GLsizei, GLboolean);
+typedef void (APIENTRY *glTexImage3DMultisamplePROC) (GLenum, GLsizei, GLint, GLsizei, GLsizei, GLsizei, GLboolean);
+typedef void (APIENTRY *glGetMultisamplefvPROC) (GLenum, GLuint, GLfloat *);
+typedef void (APIENTRY *glSampleMaskiPROC) (GLuint, GLbitfield);
+typedef void (APIENTRY *glFramebufferTexturePROC) (GLenum, GLenum, GLuint, GLint);
 typedef GLsync (APIENTRY *glFenceSyncPROC) (GLenum, GLbitfield);
 typedef GLboolean (APIENTRY *glIsSyncPROC) (GLsync);
-typedef GLvoid (APIENTRY *glDeleteSyncPROC) (GLsync);
+typedef void (APIENTRY *glDeleteSyncPROC) (GLsync);
 typedef GLenum (APIENTRY *glClientWaitSyncPROC) (GLsync, GLbitfield, GLuint64);
-typedef GLvoid (APIENTRY *glWaitSyncPROC) (GLsync, GLbitfield, GLuint64);
-typedef GLvoid (APIENTRY *glGetInteger64vPROC) (GLenum, GLint64 *);
-typedef GLvoid (APIENTRY *glGetInteger64i_vPROC) (GLenum, GLuint, GLint64 *);
-typedef GLvoid (APIENTRY *glGetSyncivPROC) (GLsync, GLenum, GLsizei, GLsizei *, GLint *);
+typedef void (APIENTRY *glWaitSyncPROC) (GLsync, GLbitfield, GLuint64);
+typedef void (APIENTRY *glGetInteger64vPROC) (GLenum, GLint64 *);
+typedef void (APIENTRY *glGetInteger64i_vPROC) (GLenum, GLuint, GLint64 *);
+typedef void (APIENTRY *glGetSyncivPROC) (GLsync, GLenum, GLsizei, GLsizei *, GLint *);
 
 EXTERN_C_ENTER
 
@@ -36,21 +36,21 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglGetBufferParameteri64v(JNIE
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglDrawElementsBaseVertex(JNIEnv *__env, jclass clazz, jint mode, jint count, jint type, jlong indicesAddress, jint basevertex, jlong __functionAddress) {
-	const GLvoid *indices = (const GLvoid *)(intptr_t)indicesAddress;
+	const void *indices = (const void *)(intptr_t)indicesAddress;
 	glDrawElementsBaseVertexPROC glDrawElementsBaseVertex = (glDrawElementsBaseVertexPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glDrawElementsBaseVertex(mode, count, type, indices, basevertex);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglDrawRangeElementsBaseVertex(JNIEnv *__env, jclass clazz, jint mode, jint start, jint end, jint count, jint type, jlong indicesAddress, jint basevertex, jlong __functionAddress) {
-	const GLvoid *indices = (const GLvoid *)(intptr_t)indicesAddress;
+	const void *indices = (const void *)(intptr_t)indicesAddress;
 	glDrawRangeElementsBaseVertexPROC glDrawRangeElementsBaseVertex = (glDrawRangeElementsBaseVertexPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glDrawRangeElementsBaseVertex(mode, start, end, count, type, indices, basevertex);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglDrawElementsInstancedBaseVertex(JNIEnv *__env, jclass clazz, jint mode, jint count, jint type, jlong indicesAddress, jint primcount, jint basevertex, jlong __functionAddress) {
-	const GLvoid *indices = (const GLvoid *)(intptr_t)indicesAddress;
+	const void *indices = (const void *)(intptr_t)indicesAddress;
 	glDrawElementsInstancedBaseVertexPROC glDrawElementsInstancedBaseVertex = (glDrawElementsInstancedBaseVertexPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glDrawElementsInstancedBaseVertex(mode, count, type, indices, primcount, basevertex);
@@ -58,7 +58,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglDrawElementsInstancedBaseVe
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglMultiDrawElementsBaseVertex(JNIEnv *__env, jclass clazz, jint mode, jlong countAddress, jint type, jlong indicesAddress, jint primcount, jlong basevertexAddress, jlong __functionAddress) {
 	const GLsizei *count = (const GLsizei *)(intptr_t)countAddress;
-	const GLvoid **indices = (const GLvoid **)(intptr_t)indicesAddress;
+	const void **indices = (const void **)(intptr_t)indicesAddress;
 	GLint *basevertex = (GLint *)(intptr_t)basevertexAddress;
 	glMultiDrawElementsBaseVertexPROC glMultiDrawElementsBaseVertex = (glMultiDrawElementsBaseVertexPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)

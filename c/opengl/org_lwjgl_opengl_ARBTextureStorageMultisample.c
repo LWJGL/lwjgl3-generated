@@ -6,8 +6,8 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glTextureStorage2DMultisampleEXTPROC) (GLuint, GLenum, GLsizei, GLenum, GLsizei, GLsizei, GLboolean);
-typedef GLvoid (APIENTRY *glTextureStorage3DMultisampleEXTPROC) (GLuint, GLenum, GLsizei, GLenum, GLsizei, GLsizei, GLsizei, GLboolean);
+typedef void (APIENTRY *glTextureStorage2DMultisampleEXTPROC) (GLuint, GLenum, GLsizei, GLenum, GLsizei, GLsizei, GLboolean);
+typedef void (APIENTRY *glTextureStorage3DMultisampleEXTPROC) (GLuint, GLenum, GLsizei, GLenum, GLsizei, GLsizei, GLsizei, GLboolean);
 
 EXTERN_C_ENTER
 

@@ -8,7 +8,7 @@
 #include "WGL.h"
 
 typedef UINT (APIENTRY *wglGetGPUIDsAMDPROC) (UINT, UINT *);
-typedef int (APIENTRY *wglGetGPUInfoAMDPROC) (UINT, int, GLenum, UINT, GLvoid *);
+typedef int (APIENTRY *wglGetGPUInfoAMDPROC) (UINT, int, GLenum, UINT, void *);
 typedef UINT (APIENTRY *wglGetContextGPUIDAMDPROC) (HGLRC);
 typedef HGLRC (APIENTRY *wglCreateAssociatedContextAMDPROC) (UINT);
 typedef HGLRC (APIENTRY *wglCreateAssociatedContextAttribsAMDPROC) (UINT, HGLRC, const int *);
@@ -27,7 +27,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLAMDGPUAssociation_nwglGetGPUIDsA
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_WGLAMDGPUAssociation_nwglGetGPUInfoAMD(JNIEnv *__env, jclass clazz, jint id, jint property, jint dataType, jint size, jlong dataAddress, jlong __functionAddress) {
-	GLvoid *data = (GLvoid *)(intptr_t)dataAddress;
+	void *data = (void *)(intptr_t)dataAddress;
 	wglGetGPUInfoAMDPROC wglGetGPUInfoAMD = (wglGetGPUInfoAMDPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)wglGetGPUInfoAMD(id, property, dataType, size, data);

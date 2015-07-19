@@ -6,9 +6,9 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glTextureStorage1DEXTPROC) (GLuint, GLenum, GLsizei, GLenum, GLsizei);
-typedef GLvoid (APIENTRY *glTextureStorage2DEXTPROC) (GLuint, GLenum, GLsizei, GLenum, GLsizei, GLsizei);
-typedef GLvoid (APIENTRY *glTextureStorage3DEXTPROC) (GLuint, GLenum, GLsizei, GLenum, GLsizei, GLsizei, GLsizei);
+typedef void (APIENTRY *glTextureStorage1DEXTPROC) (GLuint, GLenum, GLsizei, GLenum, GLsizei);
+typedef void (APIENTRY *glTextureStorage2DEXTPROC) (GLuint, GLenum, GLsizei, GLenum, GLsizei, GLsizei);
+typedef void (APIENTRY *glTextureStorage3DEXTPROC) (GLuint, GLenum, GLsizei, GLenum, GLsizei, GLsizei, GLsizei);
 
 EXTERN_C_ENTER
 

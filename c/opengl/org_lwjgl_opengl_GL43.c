@@ -6,61 +6,61 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glClearBufferDataPROC) (GLenum, GLenum, GLenum, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glClearBufferSubDataPROC) (GLenum, GLenum, GLintptr, GLsizeiptr, GLenum, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glDispatchComputePROC) (GLuint, GLuint, GLuint);
-typedef GLvoid (APIENTRY *glDispatchComputeIndirectPROC) (GLintptr);
-typedef GLvoid (APIENTRY *glCopyImageSubDataPROC) (GLuint, GLenum, GLint, GLint, GLint, GLint, GLuint, GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei);
-typedef GLvoid (APIENTRY *glDebugMessageControlPROC) (GLenum, GLenum, GLenum, GLsizei, const GLuint *, GLboolean);
-typedef GLvoid (APIENTRY *glDebugMessageInsertPROC) (GLenum, GLenum, GLuint, GLenum, GLsizei, const GLchar *);
-typedef GLvoid (APIENTRY *glDebugMessageCallbackPROC) (GLDEBUGPROC, const void *);
+typedef void (APIENTRY *glClearBufferDataPROC) (GLenum, GLenum, GLenum, GLenum, const void *);
+typedef void (APIENTRY *glClearBufferSubDataPROC) (GLenum, GLenum, GLintptr, GLsizeiptr, GLenum, GLenum, const void *);
+typedef void (APIENTRY *glDispatchComputePROC) (GLuint, GLuint, GLuint);
+typedef void (APIENTRY *glDispatchComputeIndirectPROC) (GLintptr);
+typedef void (APIENTRY *glCopyImageSubDataPROC) (GLuint, GLenum, GLint, GLint, GLint, GLint, GLuint, GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei);
+typedef void (APIENTRY *glDebugMessageControlPROC) (GLenum, GLenum, GLenum, GLsizei, const GLuint *, GLboolean);
+typedef void (APIENTRY *glDebugMessageInsertPROC) (GLenum, GLenum, GLuint, GLenum, GLsizei, const GLchar *);
+typedef void (APIENTRY *glDebugMessageCallbackPROC) (GLDEBUGPROC, const void *);
 typedef GLuint (APIENTRY *glGetDebugMessageLogPROC) (GLuint, GLsizei, GLenum *, GLenum *, GLuint *, GLenum *, GLsizei *, GLchar *);
-typedef GLvoid (APIENTRY *glPushDebugGroupPROC) (GLenum, GLuint, GLsizei, const GLchar *);
-typedef GLvoid (APIENTRY *glPopDebugGroupPROC) (void);
-typedef GLvoid (APIENTRY *glObjectLabelPROC) (GLenum, GLuint, GLsizei, const GLchar *);
-typedef GLvoid (APIENTRY *glGetObjectLabelPROC) (GLenum, GLuint, GLsizei, GLsizei *, GLchar *);
-typedef GLvoid (APIENTRY *glObjectPtrLabelPROC) (void *, GLsizei, const GLchar *);
-typedef GLvoid (APIENTRY *glGetObjectPtrLabelPROC) (void *, GLsizei, GLsizei *, GLchar *);
-typedef GLvoid (APIENTRY *glFramebufferParameteriPROC) (GLenum, GLenum, GLint);
-typedef GLvoid (APIENTRY *glGetFramebufferParameterivPROC) (GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetInternalformati64vPROC) (GLenum, GLenum, GLenum, GLsizei, GLint64 *);
-typedef GLvoid (APIENTRY *glInvalidateTexSubImagePROC) (GLuint, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei);
-typedef GLvoid (APIENTRY *glInvalidateTexImagePROC) (GLuint, GLint);
-typedef GLvoid (APIENTRY *glInvalidateBufferSubDataPROC) (GLuint, GLintptr, GLsizeiptr);
-typedef GLvoid (APIENTRY *glInvalidateBufferDataPROC) (GLuint);
-typedef GLvoid (APIENTRY *glInvalidateFramebufferPROC) (GLenum, GLsizei, const GLenum *);
-typedef GLvoid (APIENTRY *glInvalidateSubFramebufferPROC) (GLenum, GLsizei, const GLenum *, GLint, GLint, GLsizei, GLsizei);
-typedef GLvoid (APIENTRY *glMultiDrawArraysIndirectPROC) (GLenum, const GLvoid *, GLsizei, GLsizei);
-typedef GLvoid (APIENTRY *glMultiDrawElementsIndirectPROC) (GLenum, GLenum, const GLvoid *, GLsizei, GLsizei);
-typedef GLvoid (APIENTRY *glGetProgramInterfaceivPROC) (GLuint, GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glPushDebugGroupPROC) (GLenum, GLuint, GLsizei, const GLchar *);
+typedef void (APIENTRY *glPopDebugGroupPROC) (void);
+typedef void (APIENTRY *glObjectLabelPROC) (GLenum, GLuint, GLsizei, const GLchar *);
+typedef void (APIENTRY *glGetObjectLabelPROC) (GLenum, GLuint, GLsizei, GLsizei *, GLchar *);
+typedef void (APIENTRY *glObjectPtrLabelPROC) (void *, GLsizei, const GLchar *);
+typedef void (APIENTRY *glGetObjectPtrLabelPROC) (void *, GLsizei, GLsizei *, GLchar *);
+typedef void (APIENTRY *glFramebufferParameteriPROC) (GLenum, GLenum, GLint);
+typedef void (APIENTRY *glGetFramebufferParameterivPROC) (GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGetInternalformati64vPROC) (GLenum, GLenum, GLenum, GLsizei, GLint64 *);
+typedef void (APIENTRY *glInvalidateTexSubImagePROC) (GLuint, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei);
+typedef void (APIENTRY *glInvalidateTexImagePROC) (GLuint, GLint);
+typedef void (APIENTRY *glInvalidateBufferSubDataPROC) (GLuint, GLintptr, GLsizeiptr);
+typedef void (APIENTRY *glInvalidateBufferDataPROC) (GLuint);
+typedef void (APIENTRY *glInvalidateFramebufferPROC) (GLenum, GLsizei, const GLenum *);
+typedef void (APIENTRY *glInvalidateSubFramebufferPROC) (GLenum, GLsizei, const GLenum *, GLint, GLint, GLsizei, GLsizei);
+typedef void (APIENTRY *glMultiDrawArraysIndirectPROC) (GLenum, const void *, GLsizei, GLsizei);
+typedef void (APIENTRY *glMultiDrawElementsIndirectPROC) (GLenum, GLenum, const void *, GLsizei, GLsizei);
+typedef void (APIENTRY *glGetProgramInterfaceivPROC) (GLuint, GLenum, GLenum, GLint *);
 typedef GLuint (APIENTRY *glGetProgramResourceIndexPROC) (GLuint, GLenum, const GLchar *);
-typedef GLvoid (APIENTRY *glGetProgramResourceNamePROC) (GLuint, GLenum, GLuint, GLsizei, GLsizei *, GLchar *);
-typedef GLvoid (APIENTRY *glGetProgramResourceivPROC) (GLuint, GLenum, GLuint, GLsizei, const GLenum *, GLsizei, GLsizei *, GLint *);
+typedef void (APIENTRY *glGetProgramResourceNamePROC) (GLuint, GLenum, GLuint, GLsizei, GLsizei *, GLchar *);
+typedef void (APIENTRY *glGetProgramResourceivPROC) (GLuint, GLenum, GLuint, GLsizei, const GLenum *, GLsizei, GLsizei *, GLint *);
 typedef GLint (APIENTRY *glGetProgramResourceLocationPROC) (GLuint, GLenum, const GLchar *);
 typedef GLint (APIENTRY *glGetProgramResourceLocationIndexPROC) (GLuint, GLenum, const GLchar *);
-typedef GLvoid (APIENTRY *glShaderStorageBlockBindingPROC) (GLuint, GLuint, GLuint);
-typedef GLvoid (APIENTRY *glTexBufferRangePROC) (GLenum, GLenum, GLuint, GLintptr, GLsizeiptr);
-typedef GLvoid (APIENTRY *glTexStorage2DMultisamplePROC) (GLenum, GLsizei, GLenum, GLsizei, GLsizei, GLboolean);
-typedef GLvoid (APIENTRY *glTexStorage3DMultisamplePROC) (GLenum, GLsizei, GLenum, GLsizei, GLsizei, GLsizei, GLboolean);
-typedef GLvoid (APIENTRY *glTextureViewPROC) (GLuint, GLenum, GLuint, GLenum, GLuint, GLuint, GLuint, GLuint);
-typedef GLvoid (APIENTRY *glBindVertexBufferPROC) (GLuint, GLuint, GLintptr, GLsizei);
-typedef GLvoid (APIENTRY *glVertexAttribFormatPROC) (GLuint, GLint, GLenum, GLboolean, GLuint);
-typedef GLvoid (APIENTRY *glVertexAttribIFormatPROC) (GLuint, GLint, GLenum, GLuint);
-typedef GLvoid (APIENTRY *glVertexAttribLFormatPROC) (GLuint, GLint, GLenum, GLuint);
-typedef GLvoid (APIENTRY *glVertexAttribBindingPROC) (GLuint, GLuint);
-typedef GLvoid (APIENTRY *glVertexBindingDivisorPROC) (GLuint, GLuint);
+typedef void (APIENTRY *glShaderStorageBlockBindingPROC) (GLuint, GLuint, GLuint);
+typedef void (APIENTRY *glTexBufferRangePROC) (GLenum, GLenum, GLuint, GLintptr, GLsizeiptr);
+typedef void (APIENTRY *glTexStorage2DMultisamplePROC) (GLenum, GLsizei, GLenum, GLsizei, GLsizei, GLboolean);
+typedef void (APIENTRY *glTexStorage3DMultisamplePROC) (GLenum, GLsizei, GLenum, GLsizei, GLsizei, GLsizei, GLboolean);
+typedef void (APIENTRY *glTextureViewPROC) (GLuint, GLenum, GLuint, GLenum, GLuint, GLuint, GLuint, GLuint);
+typedef void (APIENTRY *glBindVertexBufferPROC) (GLuint, GLuint, GLintptr, GLsizei);
+typedef void (APIENTRY *glVertexAttribFormatPROC) (GLuint, GLint, GLenum, GLboolean, GLuint);
+typedef void (APIENTRY *glVertexAttribIFormatPROC) (GLuint, GLint, GLenum, GLuint);
+typedef void (APIENTRY *glVertexAttribLFormatPROC) (GLuint, GLint, GLenum, GLuint);
+typedef void (APIENTRY *glVertexAttribBindingPROC) (GLuint, GLuint);
+typedef void (APIENTRY *glVertexBindingDivisorPROC) (GLuint, GLuint);
 
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglClearBufferData(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint format, jint type, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glClearBufferDataPROC glClearBufferData = (glClearBufferDataPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glClearBufferData(target, internalformat, format, type, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglClearBufferSubData(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jlong offset, jlong size, jint format, jint type, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glClearBufferSubDataPROC glClearBufferSubData = (glClearBufferSubDataPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glClearBufferSubData(target, internalformat, (GLintptr)offset, (GLsizeiptr)size, format, type, data);
@@ -222,14 +222,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglInvalidateSubFramebuffer(JN
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglMultiDrawArraysIndirect(JNIEnv *__env, jclass clazz, jint mode, jlong indirectAddress, jint primcount, jint stride, jlong __functionAddress) {
-	const GLvoid *indirect = (const GLvoid *)(intptr_t)indirectAddress;
+	const void *indirect = (const void *)(intptr_t)indirectAddress;
 	glMultiDrawArraysIndirectPROC glMultiDrawArraysIndirect = (glMultiDrawArraysIndirectPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glMultiDrawArraysIndirect(mode, indirect, primcount, stride);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglMultiDrawElementsIndirect(JNIEnv *__env, jclass clazz, jint mode, jint type, jlong indirectAddress, jint primcount, jint stride, jlong __functionAddress) {
-	const GLvoid *indirect = (const GLvoid *)(intptr_t)indirectAddress;
+	const void *indirect = (const void *)(intptr_t)indirectAddress;
 	glMultiDrawElementsIndirectPROC glMultiDrawElementsIndirect = (glMultiDrawElementsIndirectPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glMultiDrawElementsIndirect(mode, type, indirect, primcount, stride);

@@ -6,8 +6,8 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glBlendParameteriNVPROC) (GLenum, GLint);
-typedef GLvoid (APIENTRY *glBlendBarrierNVPROC) (void);
+typedef void (APIENTRY *glBlendParameteriNVPROC) (GLenum, GLint);
+typedef void (APIENTRY *glBlendBarrierNVPROC) (void);
 
 EXTERN_C_ENTER
 

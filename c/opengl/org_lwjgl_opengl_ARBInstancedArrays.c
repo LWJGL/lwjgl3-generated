@@ -6,8 +6,8 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glVertexAttribDivisorARBPROC) (GLuint, GLuint);
-typedef GLvoid (APIENTRY *glVertexArrayVertexAttribDivisorEXTPROC) (GLuint, GLuint, GLuint);
+typedef void (APIENTRY *glVertexAttribDivisorARBPROC) (GLuint, GLuint);
+typedef void (APIENTRY *glVertexArrayVertexAttribDivisorEXTPROC) (GLuint, GLuint, GLuint);
 
 EXTERN_C_ENTER
 

@@ -8,20 +8,20 @@
 
 typedef GLuint64 (APIENTRY *glGetTextureHandleARBPROC) (GLuint);
 typedef GLuint64 (APIENTRY *glGetTextureSamplerHandleARBPROC) (GLuint, GLuint);
-typedef GLvoid (APIENTRY *glMakeTextureHandleResidentARBPROC) (GLuint64);
-typedef GLvoid (APIENTRY *glMakeTextureHandleNonResidentARBPROC) (GLuint64);
+typedef void (APIENTRY *glMakeTextureHandleResidentARBPROC) (GLuint64);
+typedef void (APIENTRY *glMakeTextureHandleNonResidentARBPROC) (GLuint64);
 typedef GLuint64 (APIENTRY *glGetImageHandleARBPROC) (GLuint, GLint, GLboolean, GLint, GLenum);
-typedef GLvoid (APIENTRY *glMakeImageHandleResidentARBPROC) (GLuint64, GLenum);
-typedef GLvoid (APIENTRY *glMakeImageHandleNonResidentARBPROC) (GLuint64);
-typedef GLvoid (APIENTRY *glUniformHandleui64ARBPROC) (GLint, GLuint64);
-typedef GLvoid (APIENTRY *glUniformHandleui64vARBPROC) (GLint, GLsizei, const GLuint64 *);
-typedef GLvoid (APIENTRY *glProgramUniformHandleui64ARBPROC) (GLuint, GLint, GLuint64);
-typedef GLvoid (APIENTRY *glProgramUniformHandleui64vARBPROC) (GLuint, GLint, GLsizei, const GLuint64 *);
+typedef void (APIENTRY *glMakeImageHandleResidentARBPROC) (GLuint64, GLenum);
+typedef void (APIENTRY *glMakeImageHandleNonResidentARBPROC) (GLuint64);
+typedef void (APIENTRY *glUniformHandleui64ARBPROC) (GLint, GLuint64);
+typedef void (APIENTRY *glUniformHandleui64vARBPROC) (GLint, GLsizei, const GLuint64 *);
+typedef void (APIENTRY *glProgramUniformHandleui64ARBPROC) (GLuint, GLint, GLuint64);
+typedef void (APIENTRY *glProgramUniformHandleui64vARBPROC) (GLuint, GLint, GLsizei, const GLuint64 *);
 typedef GLboolean (APIENTRY *glIsTextureHandleResidentARBPROC) (GLuint64);
 typedef GLboolean (APIENTRY *glIsImageHandleResidentARBPROC) (GLuint64);
-typedef GLvoid (APIENTRY *glVertexAttribL1ui64ARBPROC) (GLuint, GLuint64);
-typedef GLvoid (APIENTRY *glVertexAttribL1ui64vARBPROC) (GLuint, const GLuint64 *);
-typedef GLvoid (APIENTRY *glGetVertexAttribLui64vARBPROC) (GLuint, GLenum, GLuint64 *);
+typedef void (APIENTRY *glVertexAttribL1ui64ARBPROC) (GLuint, GLuint64);
+typedef void (APIENTRY *glVertexAttribL1ui64vARBPROC) (GLuint, const GLuint64 *);
+typedef void (APIENTRY *glGetVertexAttribLui64vARBPROC) (GLuint, GLenum, GLuint64 *);
 
 EXTERN_C_ENTER
 

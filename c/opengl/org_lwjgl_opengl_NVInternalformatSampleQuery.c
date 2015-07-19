@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glGetInternalformatSampleivNVPROC) (GLenum, GLenum, GLsizei, GLenum, GLsizei, GLint *);
+typedef void (APIENTRY *glGetInternalformatSampleivNVPROC) (GLenum, GLenum, GLsizei, GLenum, GLsizei, GLint *);
 
 EXTERN_C_ENTER
 

@@ -6,342 +6,342 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glEnablePROC) (GLenum);
-typedef GLvoid (APIENTRY *glDisablePROC) (GLenum);
-typedef GLvoid (APIENTRY *glAccumPROC) (GLenum, GLfloat);
-typedef GLvoid (APIENTRY *glAlphaFuncPROC) (GLenum, GLfloat);
+typedef void (APIENTRY *glEnablePROC) (GLenum);
+typedef void (APIENTRY *glDisablePROC) (GLenum);
+typedef void (APIENTRY *glAccumPROC) (GLenum, GLfloat);
+typedef void (APIENTRY *glAlphaFuncPROC) (GLenum, GLfloat);
 typedef GLboolean (APIENTRY *glAreTexturesResidentPROC) (GLsizei, const GLuint *, GLboolean *);
-typedef GLvoid (APIENTRY *glArrayElementPROC) (GLint);
-typedef GLvoid (APIENTRY *glBeginPROC) (GLenum);
-typedef GLvoid (APIENTRY *glBindTexturePROC) (GLenum, GLuint);
-typedef GLvoid (APIENTRY *glBitmapPROC) (GLsizei, GLsizei, GLfloat, GLfloat, GLfloat, GLfloat, const GLubyte *);
-typedef GLvoid (APIENTRY *glBlendFuncPROC) (GLenum, GLenum);
-typedef GLvoid (APIENTRY *glCallListPROC) (GLuint);
-typedef GLvoid (APIENTRY *glCallListsPROC) (GLsizei, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glClearPROC) (GLbitfield);
-typedef GLvoid (APIENTRY *glClearAccumPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glClearColorPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glClearDepthPROC) (GLdouble);
-typedef GLvoid (APIENTRY *glClearIndexPROC) (GLfloat);
-typedef GLvoid (APIENTRY *glClearStencilPROC) (GLint);
-typedef GLvoid (APIENTRY *glClipPlanePROC) (GLenum, const GLdouble *);
-typedef GLvoid (APIENTRY *glColor3bPROC) (GLbyte, GLbyte, GLbyte);
-typedef GLvoid (APIENTRY *glColor3sPROC) (GLshort, GLshort, GLshort);
-typedef GLvoid (APIENTRY *glColor3iPROC) (GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glColor3fPROC) (GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glColor3dPROC) (GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glColor3ubPROC) (GLubyte, GLubyte, GLubyte);
-typedef GLvoid (APIENTRY *glColor3usPROC) (GLushort, GLushort, GLushort);
-typedef GLvoid (APIENTRY *glColor3uiPROC) (GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glColor3bvPROC) (const GLbyte *);
-typedef GLvoid (APIENTRY *glColor3svPROC) (const GLshort *);
-typedef GLvoid (APIENTRY *glColor3ivPROC) (const GLint *);
-typedef GLvoid (APIENTRY *glColor3fvPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glColor3dvPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glColor3ubvPROC) (const GLubyte *);
-typedef GLvoid (APIENTRY *glColor3usvPROC) (const GLushort *);
-typedef GLvoid (APIENTRY *glColor3uivPROC) (const GLuint *);
-typedef GLvoid (APIENTRY *glColor4bPROC) (GLbyte, GLbyte, GLbyte, GLbyte);
-typedef GLvoid (APIENTRY *glColor4sPROC) (GLshort, GLshort, GLshort, GLshort);
-typedef GLvoid (APIENTRY *glColor4iPROC) (GLint, GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glColor4fPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glColor4dPROC) (GLdouble, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glColor4ubPROC) (GLubyte, GLubyte, GLubyte, GLubyte);
-typedef GLvoid (APIENTRY *glColor4usPROC) (GLushort, GLushort, GLushort, GLushort);
-typedef GLvoid (APIENTRY *glColor4uiPROC) (GLint, GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glColor4bvPROC) (const GLbyte *);
-typedef GLvoid (APIENTRY *glColor4svPROC) (const GLshort *);
-typedef GLvoid (APIENTRY *glColor4ivPROC) (const GLint *);
-typedef GLvoid (APIENTRY *glColor4fvPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glColor4dvPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glColor4ubvPROC) (const GLubyte *);
-typedef GLvoid (APIENTRY *glColor4usvPROC) (const GLushort *);
-typedef GLvoid (APIENTRY *glColor4uivPROC) (const GLuint *);
-typedef GLvoid (APIENTRY *glColorMaskPROC) (GLboolean, GLboolean, GLboolean, GLboolean);
-typedef GLvoid (APIENTRY *glColorMaterialPROC) (GLenum, GLenum);
-typedef GLvoid (APIENTRY *glColorPointerPROC) (GLint, GLenum, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glCopyPixelsPROC) (GLint, GLint, GLsizei, GLsizei, GLenum);
-typedef GLvoid (APIENTRY *glCullFacePROC) (GLenum);
-typedef GLvoid (APIENTRY *glDeleteListsPROC) (GLuint, GLsizei);
-typedef GLvoid (APIENTRY *glDepthFuncPROC) (GLenum);
-typedef GLvoid (APIENTRY *glDepthMaskPROC) (GLboolean);
-typedef GLvoid (APIENTRY *glDepthRangePROC) (GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glDisableClientStatePROC) (GLenum);
-typedef GLvoid (APIENTRY *glDrawArraysPROC) (GLenum, GLint, GLsizei);
-typedef GLvoid (APIENTRY *glDrawBufferPROC) (GLenum);
-typedef GLvoid (APIENTRY *glDrawElementsPROC) (GLenum, GLsizei, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glDrawPixelsPROC) (GLsizei, GLsizei, GLenum, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glEdgeFlagPROC) (GLboolean);
-typedef GLvoid (APIENTRY *glEdgeFlagvPROC) (const GLboolean *);
-typedef GLvoid (APIENTRY *glEdgeFlagPointerPROC) (GLsizei, const GLboolean *);
-typedef GLvoid (APIENTRY *glEnableClientStatePROC) (GLenum);
-typedef GLvoid (APIENTRY *glEndPROC) (void);
-typedef GLvoid (APIENTRY *glEvalCoord1fPROC) (GLfloat);
-typedef GLvoid (APIENTRY *glEvalCoord1fvPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glEvalCoord1dPROC) (GLdouble);
-typedef GLvoid (APIENTRY *glEvalCoord1dvPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glEvalCoord2fPROC) (GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glEvalCoord2fvPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glEvalCoord2dPROC) (GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glEvalCoord2dvPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glEvalMesh1PROC) (GLenum, GLint, GLint);
-typedef GLvoid (APIENTRY *glEvalMesh2PROC) (GLenum, GLint, GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glEvalPoint1PROC) (GLint);
-typedef GLvoid (APIENTRY *glEvalPoint2PROC) (GLint, GLint);
-typedef GLvoid (APIENTRY *glFeedbackBufferPROC) (GLsizei, GLenum, GLfloat *);
-typedef GLvoid (APIENTRY *glFinishPROC) (void);
-typedef GLvoid (APIENTRY *glFlushPROC) (void);
-typedef GLvoid (APIENTRY *glFogiPROC) (GLenum, GLint);
-typedef GLvoid (APIENTRY *glFogivPROC) (GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glFogfPROC) (GLenum, GLfloat);
-typedef GLvoid (APIENTRY *glFogfvPROC) (GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glFrontFacePROC) (GLenum);
+typedef void (APIENTRY *glArrayElementPROC) (GLint);
+typedef void (APIENTRY *glBeginPROC) (GLenum);
+typedef void (APIENTRY *glBindTexturePROC) (GLenum, GLuint);
+typedef void (APIENTRY *glBitmapPROC) (GLsizei, GLsizei, GLfloat, GLfloat, GLfloat, GLfloat, const GLubyte *);
+typedef void (APIENTRY *glBlendFuncPROC) (GLenum, GLenum);
+typedef void (APIENTRY *glCallListPROC) (GLuint);
+typedef void (APIENTRY *glCallListsPROC) (GLsizei, GLenum, const void *);
+typedef void (APIENTRY *glClearPROC) (GLbitfield);
+typedef void (APIENTRY *glClearAccumPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glClearColorPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glClearDepthPROC) (GLdouble);
+typedef void (APIENTRY *glClearIndexPROC) (GLfloat);
+typedef void (APIENTRY *glClearStencilPROC) (GLint);
+typedef void (APIENTRY *glClipPlanePROC) (GLenum, const GLdouble *);
+typedef void (APIENTRY *glColor3bPROC) (GLbyte, GLbyte, GLbyte);
+typedef void (APIENTRY *glColor3sPROC) (GLshort, GLshort, GLshort);
+typedef void (APIENTRY *glColor3iPROC) (GLint, GLint, GLint);
+typedef void (APIENTRY *glColor3fPROC) (GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glColor3dPROC) (GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glColor3ubPROC) (GLubyte, GLubyte, GLubyte);
+typedef void (APIENTRY *glColor3usPROC) (GLushort, GLushort, GLushort);
+typedef void (APIENTRY *glColor3uiPROC) (GLint, GLint, GLint);
+typedef void (APIENTRY *glColor3bvPROC) (const GLbyte *);
+typedef void (APIENTRY *glColor3svPROC) (const GLshort *);
+typedef void (APIENTRY *glColor3ivPROC) (const GLint *);
+typedef void (APIENTRY *glColor3fvPROC) (const GLfloat *);
+typedef void (APIENTRY *glColor3dvPROC) (const GLdouble *);
+typedef void (APIENTRY *glColor3ubvPROC) (const GLubyte *);
+typedef void (APIENTRY *glColor3usvPROC) (const GLushort *);
+typedef void (APIENTRY *glColor3uivPROC) (const GLuint *);
+typedef void (APIENTRY *glColor4bPROC) (GLbyte, GLbyte, GLbyte, GLbyte);
+typedef void (APIENTRY *glColor4sPROC) (GLshort, GLshort, GLshort, GLshort);
+typedef void (APIENTRY *glColor4iPROC) (GLint, GLint, GLint, GLint);
+typedef void (APIENTRY *glColor4fPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glColor4dPROC) (GLdouble, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glColor4ubPROC) (GLubyte, GLubyte, GLubyte, GLubyte);
+typedef void (APIENTRY *glColor4usPROC) (GLushort, GLushort, GLushort, GLushort);
+typedef void (APIENTRY *glColor4uiPROC) (GLint, GLint, GLint, GLint);
+typedef void (APIENTRY *glColor4bvPROC) (const GLbyte *);
+typedef void (APIENTRY *glColor4svPROC) (const GLshort *);
+typedef void (APIENTRY *glColor4ivPROC) (const GLint *);
+typedef void (APIENTRY *glColor4fvPROC) (const GLfloat *);
+typedef void (APIENTRY *glColor4dvPROC) (const GLdouble *);
+typedef void (APIENTRY *glColor4ubvPROC) (const GLubyte *);
+typedef void (APIENTRY *glColor4usvPROC) (const GLushort *);
+typedef void (APIENTRY *glColor4uivPROC) (const GLuint *);
+typedef void (APIENTRY *glColorMaskPROC) (GLboolean, GLboolean, GLboolean, GLboolean);
+typedef void (APIENTRY *glColorMaterialPROC) (GLenum, GLenum);
+typedef void (APIENTRY *glColorPointerPROC) (GLint, GLenum, GLsizei, const void *);
+typedef void (APIENTRY *glCopyPixelsPROC) (GLint, GLint, GLsizei, GLsizei, GLenum);
+typedef void (APIENTRY *glCullFacePROC) (GLenum);
+typedef void (APIENTRY *glDeleteListsPROC) (GLuint, GLsizei);
+typedef void (APIENTRY *glDepthFuncPROC) (GLenum);
+typedef void (APIENTRY *glDepthMaskPROC) (GLboolean);
+typedef void (APIENTRY *glDepthRangePROC) (GLdouble, GLdouble);
+typedef void (APIENTRY *glDisableClientStatePROC) (GLenum);
+typedef void (APIENTRY *glDrawArraysPROC) (GLenum, GLint, GLsizei);
+typedef void (APIENTRY *glDrawBufferPROC) (GLenum);
+typedef void (APIENTRY *glDrawElementsPROC) (GLenum, GLsizei, GLenum, const void *);
+typedef void (APIENTRY *glDrawPixelsPROC) (GLsizei, GLsizei, GLenum, GLenum, const void *);
+typedef void (APIENTRY *glEdgeFlagPROC) (GLboolean);
+typedef void (APIENTRY *glEdgeFlagvPROC) (const GLboolean *);
+typedef void (APIENTRY *glEdgeFlagPointerPROC) (GLsizei, const GLboolean *);
+typedef void (APIENTRY *glEnableClientStatePROC) (GLenum);
+typedef void (APIENTRY *glEndPROC) (void);
+typedef void (APIENTRY *glEvalCoord1fPROC) (GLfloat);
+typedef void (APIENTRY *glEvalCoord1fvPROC) (const GLfloat *);
+typedef void (APIENTRY *glEvalCoord1dPROC) (GLdouble);
+typedef void (APIENTRY *glEvalCoord1dvPROC) (const GLdouble *);
+typedef void (APIENTRY *glEvalCoord2fPROC) (GLfloat, GLfloat);
+typedef void (APIENTRY *glEvalCoord2fvPROC) (const GLfloat *);
+typedef void (APIENTRY *glEvalCoord2dPROC) (GLdouble, GLdouble);
+typedef void (APIENTRY *glEvalCoord2dvPROC) (const GLdouble *);
+typedef void (APIENTRY *glEvalMesh1PROC) (GLenum, GLint, GLint);
+typedef void (APIENTRY *glEvalMesh2PROC) (GLenum, GLint, GLint, GLint, GLint);
+typedef void (APIENTRY *glEvalPoint1PROC) (GLint);
+typedef void (APIENTRY *glEvalPoint2PROC) (GLint, GLint);
+typedef void (APIENTRY *glFeedbackBufferPROC) (GLsizei, GLenum, GLfloat *);
+typedef void (APIENTRY *glFinishPROC) (void);
+typedef void (APIENTRY *glFlushPROC) (void);
+typedef void (APIENTRY *glFogiPROC) (GLenum, GLint);
+typedef void (APIENTRY *glFogivPROC) (GLenum, const GLint *);
+typedef void (APIENTRY *glFogfPROC) (GLenum, GLfloat);
+typedef void (APIENTRY *glFogfvPROC) (GLenum, const GLfloat *);
+typedef void (APIENTRY *glFrontFacePROC) (GLenum);
 typedef GLuint (APIENTRY *glGenListsPROC) (GLsizei);
-typedef GLvoid (APIENTRY *glGenTexturesPROC) (GLsizei, GLuint *);
-typedef GLvoid (APIENTRY *glDeleteTexturesPROC) (GLsizei, const GLuint *);
-typedef GLvoid (APIENTRY *glGetClipPlanePROC) (GLenum, GLdouble *);
-typedef GLvoid (APIENTRY *glGetBooleanvPROC) (GLenum, GLboolean *);
-typedef GLvoid (APIENTRY *glGetFloatvPROC) (GLenum, GLfloat *);
-typedef GLvoid (APIENTRY *glGetIntegervPROC) (GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetDoublevPROC) (GLenum, GLdouble *);
+typedef void (APIENTRY *glGenTexturesPROC) (GLsizei, GLuint *);
+typedef void (APIENTRY *glDeleteTexturesPROC) (GLsizei, const GLuint *);
+typedef void (APIENTRY *glGetClipPlanePROC) (GLenum, GLdouble *);
+typedef void (APIENTRY *glGetBooleanvPROC) (GLenum, GLboolean *);
+typedef void (APIENTRY *glGetFloatvPROC) (GLenum, GLfloat *);
+typedef void (APIENTRY *glGetIntegervPROC) (GLenum, GLint *);
+typedef void (APIENTRY *glGetDoublevPROC) (GLenum, GLdouble *);
 typedef GLenum (APIENTRY *glGetErrorPROC) (void);
-typedef GLvoid (APIENTRY *glGetLightivPROC) (GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetLightfvPROC) (GLenum, GLenum, GLfloat *);
-typedef GLvoid (APIENTRY *glGetMapivPROC) (GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetMapfvPROC) (GLenum, GLenum, GLfloat *);
-typedef GLvoid (APIENTRY *glGetMapdvPROC) (GLenum, GLenum, GLdouble *);
-typedef GLvoid (APIENTRY *glGetMaterialivPROC) (GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetMaterialfvPROC) (GLenum, GLenum, GLfloat *);
-typedef GLvoid (APIENTRY *glGetPixelMapfvPROC) (GLenum, GLfloat *);
-typedef GLvoid (APIENTRY *glGetPixelMapusvPROC) (GLenum, GLushort *);
-typedef GLvoid (APIENTRY *glGetPixelMapuivPROC) (GLenum, GLuint *);
-typedef GLvoid (APIENTRY *glGetPointervPROC) (GLenum, GLvoid **);
-typedef GLvoid (APIENTRY *glGetPolygonStipplePROC) (GLvoid *);
+typedef void (APIENTRY *glGetLightivPROC) (GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGetLightfvPROC) (GLenum, GLenum, GLfloat *);
+typedef void (APIENTRY *glGetMapivPROC) (GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGetMapfvPROC) (GLenum, GLenum, GLfloat *);
+typedef void (APIENTRY *glGetMapdvPROC) (GLenum, GLenum, GLdouble *);
+typedef void (APIENTRY *glGetMaterialivPROC) (GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGetMaterialfvPROC) (GLenum, GLenum, GLfloat *);
+typedef void (APIENTRY *glGetPixelMapfvPROC) (GLenum, GLfloat *);
+typedef void (APIENTRY *glGetPixelMapusvPROC) (GLenum, GLushort *);
+typedef void (APIENTRY *glGetPixelMapuivPROC) (GLenum, GLuint *);
+typedef void (APIENTRY *glGetPointervPROC) (GLenum, void **);
+typedef void (APIENTRY *glGetPolygonStipplePROC) (void *);
 typedef const GLubyte * (APIENTRY *glGetStringPROC) (GLenum);
-typedef GLvoid (APIENTRY *glGetTexEnvivPROC) (GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetTexEnvfvPROC) (GLenum, GLenum, GLfloat *);
-typedef GLvoid (APIENTRY *glGetTexGenivPROC) (GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetTexGenfvPROC) (GLenum, GLenum, GLfloat *);
-typedef GLvoid (APIENTRY *glGetTexGendvPROC) (GLenum, GLenum, GLdouble *);
-typedef GLvoid (APIENTRY *glGetTexImagePROC) (GLenum, GLint, GLenum, GLenum, GLvoid *);
-typedef GLvoid (APIENTRY *glGetTexLevelParameterivPROC) (GLenum, GLint, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetTexLevelParameterfvPROC) (GLenum, GLint, GLenum, GLfloat *);
-typedef GLvoid (APIENTRY *glGetTexParameterivPROC) (GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetTexParameterfvPROC) (GLenum, GLenum, GLfloat *);
-typedef GLvoid (APIENTRY *glHintPROC) (GLenum, GLenum);
-typedef GLvoid (APIENTRY *glIndexiPROC) (GLint);
-typedef GLvoid (APIENTRY *glIndexubPROC) (GLubyte);
-typedef GLvoid (APIENTRY *glIndexsPROC) (GLshort);
-typedef GLvoid (APIENTRY *glIndexfPROC) (GLfloat);
-typedef GLvoid (APIENTRY *glIndexdPROC) (GLdouble);
-typedef GLvoid (APIENTRY *glIndexivPROC) (const GLint *);
-typedef GLvoid (APIENTRY *glIndexubvPROC) (const GLubyte *);
-typedef GLvoid (APIENTRY *glIndexsvPROC) (const GLshort *);
-typedef GLvoid (APIENTRY *glIndexfvPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glIndexdvPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glIndexMaskPROC) (GLuint);
-typedef GLvoid (APIENTRY *glIndexPointerPROC) (GLenum, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glInitNamesPROC) (void);
-typedef GLvoid (APIENTRY *glInterleavedArraysPROC) (GLenum, GLsizei, const GLvoid *);
+typedef void (APIENTRY *glGetTexEnvivPROC) (GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGetTexEnvfvPROC) (GLenum, GLenum, GLfloat *);
+typedef void (APIENTRY *glGetTexGenivPROC) (GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGetTexGenfvPROC) (GLenum, GLenum, GLfloat *);
+typedef void (APIENTRY *glGetTexGendvPROC) (GLenum, GLenum, GLdouble *);
+typedef void (APIENTRY *glGetTexImagePROC) (GLenum, GLint, GLenum, GLenum, void *);
+typedef void (APIENTRY *glGetTexLevelParameterivPROC) (GLenum, GLint, GLenum, GLint *);
+typedef void (APIENTRY *glGetTexLevelParameterfvPROC) (GLenum, GLint, GLenum, GLfloat *);
+typedef void (APIENTRY *glGetTexParameterivPROC) (GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGetTexParameterfvPROC) (GLenum, GLenum, GLfloat *);
+typedef void (APIENTRY *glHintPROC) (GLenum, GLenum);
+typedef void (APIENTRY *glIndexiPROC) (GLint);
+typedef void (APIENTRY *glIndexubPROC) (GLubyte);
+typedef void (APIENTRY *glIndexsPROC) (GLshort);
+typedef void (APIENTRY *glIndexfPROC) (GLfloat);
+typedef void (APIENTRY *glIndexdPROC) (GLdouble);
+typedef void (APIENTRY *glIndexivPROC) (const GLint *);
+typedef void (APIENTRY *glIndexubvPROC) (const GLubyte *);
+typedef void (APIENTRY *glIndexsvPROC) (const GLshort *);
+typedef void (APIENTRY *glIndexfvPROC) (const GLfloat *);
+typedef void (APIENTRY *glIndexdvPROC) (const GLdouble *);
+typedef void (APIENTRY *glIndexMaskPROC) (GLuint);
+typedef void (APIENTRY *glIndexPointerPROC) (GLenum, GLsizei, const void *);
+typedef void (APIENTRY *glInitNamesPROC) (void);
+typedef void (APIENTRY *glInterleavedArraysPROC) (GLenum, GLsizei, const void *);
 typedef GLboolean (APIENTRY *glIsEnabledPROC) (GLenum);
 typedef GLboolean (APIENTRY *glIsListPROC) (GLuint);
 typedef GLboolean (APIENTRY *glIsTexturePROC) (GLuint);
-typedef GLvoid (APIENTRY *glLightModeliPROC) (GLenum, GLint);
-typedef GLvoid (APIENTRY *glLightModelfPROC) (GLenum, GLfloat);
-typedef GLvoid (APIENTRY *glLightModelivPROC) (GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glLightModelfvPROC) (GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glLightiPROC) (GLenum, GLenum, GLint);
-typedef GLvoid (APIENTRY *glLightfPROC) (GLenum, GLenum, GLfloat);
-typedef GLvoid (APIENTRY *glLightivPROC) (GLenum, GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glLightfvPROC) (GLenum, GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glLineStipplePROC) (GLint, GLushort);
-typedef GLvoid (APIENTRY *glLineWidthPROC) (GLfloat);
-typedef GLvoid (APIENTRY *glListBasePROC) (GLuint);
-typedef GLvoid (APIENTRY *glLoadMatrixfPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glLoadMatrixdPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glLoadIdentityPROC) (void);
-typedef GLvoid (APIENTRY *glLoadNamePROC) (GLuint);
-typedef GLvoid (APIENTRY *glLogicOpPROC) (GLenum);
-typedef GLvoid (APIENTRY *glMap1fPROC) (GLenum, GLfloat, GLfloat, GLint, GLint, const GLfloat *);
-typedef GLvoid (APIENTRY *glMap1dPROC) (GLenum, GLdouble, GLdouble, GLint, GLint, const GLdouble *);
-typedef GLvoid (APIENTRY *glMap2fPROC) (GLenum, GLfloat, GLfloat, GLint, GLint, GLfloat, GLfloat, GLint, GLint, const GLfloat *);
-typedef GLvoid (APIENTRY *glMap2dPROC) (GLenum, GLdouble, GLdouble, GLint, GLint, GLdouble, GLdouble, GLint, GLint, const GLdouble *);
-typedef GLvoid (APIENTRY *glMapGrid1fPROC) (GLint, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glMapGrid1dPROC) (GLint, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glMapGrid2fPROC) (GLint, GLfloat, GLfloat, GLint, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glMapGrid2dPROC) (GLint, GLdouble, GLdouble, GLint, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glMaterialiPROC) (GLenum, GLenum, GLint);
-typedef GLvoid (APIENTRY *glMaterialfPROC) (GLenum, GLenum, GLfloat);
-typedef GLvoid (APIENTRY *glMaterialivPROC) (GLenum, GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glMaterialfvPROC) (GLenum, GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glMatrixModePROC) (GLenum);
-typedef GLvoid (APIENTRY *glMultMatrixfPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glMultMatrixdPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glFrustumPROC) (GLdouble, GLdouble, GLdouble, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glNewListPROC) (GLuint, GLenum);
-typedef GLvoid (APIENTRY *glEndListPROC) (void);
-typedef GLvoid (APIENTRY *glNormal3fPROC) (GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glNormal3bPROC) (GLbyte, GLbyte, GLbyte);
-typedef GLvoid (APIENTRY *glNormal3sPROC) (GLshort, GLshort, GLshort);
-typedef GLvoid (APIENTRY *glNormal3iPROC) (GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glNormal3dPROC) (GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glNormal3fvPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glNormal3bvPROC) (const GLbyte *);
-typedef GLvoid (APIENTRY *glNormal3svPROC) (const GLshort *);
-typedef GLvoid (APIENTRY *glNormal3ivPROC) (const GLint *);
-typedef GLvoid (APIENTRY *glNormal3dvPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glNormalPointerPROC) (GLenum, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glOrthoPROC) (GLdouble, GLdouble, GLdouble, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glPassThroughPROC) (GLfloat);
-typedef GLvoid (APIENTRY *glPixelMapfvPROC) (GLenum, GLsizei, const GLfloat *);
-typedef GLvoid (APIENTRY *glPixelMapusvPROC) (GLenum, GLsizei, const GLushort *);
-typedef GLvoid (APIENTRY *glPixelMapuivPROC) (GLenum, GLsizei, const GLuint *);
-typedef GLvoid (APIENTRY *glPixelStoreiPROC) (GLenum, GLint);
-typedef GLvoid (APIENTRY *glPixelStorefPROC) (GLenum, GLint);
-typedef GLvoid (APIENTRY *glPixelTransferiPROC) (GLenum, GLint);
-typedef GLvoid (APIENTRY *glPixelTransferfPROC) (GLenum, GLfloat);
-typedef GLvoid (APIENTRY *glPixelZoomPROC) (GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glPointSizePROC) (GLfloat);
-typedef GLvoid (APIENTRY *glPolygonModePROC) (GLenum, GLenum);
-typedef GLvoid (APIENTRY *glPolygonOffsetPROC) (GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glPolygonStipplePROC) (const GLubyte *);
-typedef GLvoid (APIENTRY *glPushAttribPROC) (GLbitfield);
-typedef GLvoid (APIENTRY *glPushClientAttribPROC) (GLbitfield);
-typedef GLvoid (APIENTRY *glPopAttribPROC) (void);
-typedef GLvoid (APIENTRY *glPopClientAttribPROC) (void);
-typedef GLvoid (APIENTRY *glPopMatrixPROC) (void);
-typedef GLvoid (APIENTRY *glPopNamePROC) (void);
-typedef GLvoid (APIENTRY *glPrioritizeTexturesPROC) (GLsizei, const GLuint *, const GLfloat *);
-typedef GLvoid (APIENTRY *glPushMatrixPROC) (void);
-typedef GLvoid (APIENTRY *glPushNamePROC) (GLuint);
-typedef GLvoid (APIENTRY *glRasterPos2iPROC) (GLint, GLint);
-typedef GLvoid (APIENTRY *glRasterPos2sPROC) (GLshort, GLshort);
-typedef GLvoid (APIENTRY *glRasterPos2fPROC) (GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glRasterPos2dPROC) (GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glRasterPos2ivPROC) (const GLint *);
-typedef GLvoid (APIENTRY *glRasterPos2svPROC) (const GLshort *);
-typedef GLvoid (APIENTRY *glRasterPos2fvPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glRasterPos2dvPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glRasterPos3iPROC) (GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glRasterPos3sPROC) (GLshort, GLshort, GLshort);
-typedef GLvoid (APIENTRY *glRasterPos3fPROC) (GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glRasterPos3dPROC) (GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glRasterPos3ivPROC) (const GLint *);
-typedef GLvoid (APIENTRY *glRasterPos3svPROC) (const GLshort *);
-typedef GLvoid (APIENTRY *glRasterPos3fvPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glRasterPos3dvPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glRasterPos4iPROC) (GLint, GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glRasterPos4sPROC) (GLshort, GLshort, GLshort, GLshort);
-typedef GLvoid (APIENTRY *glRasterPos4fPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glRasterPos4dPROC) (GLdouble, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glRasterPos4ivPROC) (const GLint *);
-typedef GLvoid (APIENTRY *glRasterPos4svPROC) (const GLshort *);
-typedef GLvoid (APIENTRY *glRasterPos4fvPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glRasterPos4dvPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glReadBufferPROC) (GLenum);
-typedef GLvoid (APIENTRY *glReadPixelsPROC) (GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, GLvoid *);
-typedef GLvoid (APIENTRY *glRectiPROC) (GLint, GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glRectsPROC) (GLshort, GLshort, GLshort, GLshort);
-typedef GLvoid (APIENTRY *glRectfPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glRectdPROC) (GLdouble, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glRectivPROC) (const GLint *, const GLint *);
-typedef GLvoid (APIENTRY *glRectsvPROC) (const GLshort *, const GLshort *);
-typedef GLvoid (APIENTRY *glRectfvPROC) (const GLfloat *, const GLfloat *);
-typedef GLvoid (APIENTRY *glRectdvPROC) (const GLdouble *, const GLdouble *);
+typedef void (APIENTRY *glLightModeliPROC) (GLenum, GLint);
+typedef void (APIENTRY *glLightModelfPROC) (GLenum, GLfloat);
+typedef void (APIENTRY *glLightModelivPROC) (GLenum, const GLint *);
+typedef void (APIENTRY *glLightModelfvPROC) (GLenum, const GLfloat *);
+typedef void (APIENTRY *glLightiPROC) (GLenum, GLenum, GLint);
+typedef void (APIENTRY *glLightfPROC) (GLenum, GLenum, GLfloat);
+typedef void (APIENTRY *glLightivPROC) (GLenum, GLenum, const GLint *);
+typedef void (APIENTRY *glLightfvPROC) (GLenum, GLenum, const GLfloat *);
+typedef void (APIENTRY *glLineStipplePROC) (GLint, GLushort);
+typedef void (APIENTRY *glLineWidthPROC) (GLfloat);
+typedef void (APIENTRY *glListBasePROC) (GLuint);
+typedef void (APIENTRY *glLoadMatrixfPROC) (const GLfloat *);
+typedef void (APIENTRY *glLoadMatrixdPROC) (const GLdouble *);
+typedef void (APIENTRY *glLoadIdentityPROC) (void);
+typedef void (APIENTRY *glLoadNamePROC) (GLuint);
+typedef void (APIENTRY *glLogicOpPROC) (GLenum);
+typedef void (APIENTRY *glMap1fPROC) (GLenum, GLfloat, GLfloat, GLint, GLint, const GLfloat *);
+typedef void (APIENTRY *glMap1dPROC) (GLenum, GLdouble, GLdouble, GLint, GLint, const GLdouble *);
+typedef void (APIENTRY *glMap2fPROC) (GLenum, GLfloat, GLfloat, GLint, GLint, GLfloat, GLfloat, GLint, GLint, const GLfloat *);
+typedef void (APIENTRY *glMap2dPROC) (GLenum, GLdouble, GLdouble, GLint, GLint, GLdouble, GLdouble, GLint, GLint, const GLdouble *);
+typedef void (APIENTRY *glMapGrid1fPROC) (GLint, GLfloat, GLfloat);
+typedef void (APIENTRY *glMapGrid1dPROC) (GLint, GLdouble, GLdouble);
+typedef void (APIENTRY *glMapGrid2fPROC) (GLint, GLfloat, GLfloat, GLint, GLfloat, GLfloat);
+typedef void (APIENTRY *glMapGrid2dPROC) (GLint, GLdouble, GLdouble, GLint, GLdouble, GLdouble);
+typedef void (APIENTRY *glMaterialiPROC) (GLenum, GLenum, GLint);
+typedef void (APIENTRY *glMaterialfPROC) (GLenum, GLenum, GLfloat);
+typedef void (APIENTRY *glMaterialivPROC) (GLenum, GLenum, const GLint *);
+typedef void (APIENTRY *glMaterialfvPROC) (GLenum, GLenum, const GLfloat *);
+typedef void (APIENTRY *glMatrixModePROC) (GLenum);
+typedef void (APIENTRY *glMultMatrixfPROC) (const GLfloat *);
+typedef void (APIENTRY *glMultMatrixdPROC) (const GLdouble *);
+typedef void (APIENTRY *glFrustumPROC) (GLdouble, GLdouble, GLdouble, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glNewListPROC) (GLuint, GLenum);
+typedef void (APIENTRY *glEndListPROC) (void);
+typedef void (APIENTRY *glNormal3fPROC) (GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glNormal3bPROC) (GLbyte, GLbyte, GLbyte);
+typedef void (APIENTRY *glNormal3sPROC) (GLshort, GLshort, GLshort);
+typedef void (APIENTRY *glNormal3iPROC) (GLint, GLint, GLint);
+typedef void (APIENTRY *glNormal3dPROC) (GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glNormal3fvPROC) (const GLfloat *);
+typedef void (APIENTRY *glNormal3bvPROC) (const GLbyte *);
+typedef void (APIENTRY *glNormal3svPROC) (const GLshort *);
+typedef void (APIENTRY *glNormal3ivPROC) (const GLint *);
+typedef void (APIENTRY *glNormal3dvPROC) (const GLdouble *);
+typedef void (APIENTRY *glNormalPointerPROC) (GLenum, GLsizei, const void *);
+typedef void (APIENTRY *glOrthoPROC) (GLdouble, GLdouble, GLdouble, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glPassThroughPROC) (GLfloat);
+typedef void (APIENTRY *glPixelMapfvPROC) (GLenum, GLsizei, const GLfloat *);
+typedef void (APIENTRY *glPixelMapusvPROC) (GLenum, GLsizei, const GLushort *);
+typedef void (APIENTRY *glPixelMapuivPROC) (GLenum, GLsizei, const GLuint *);
+typedef void (APIENTRY *glPixelStoreiPROC) (GLenum, GLint);
+typedef void (APIENTRY *glPixelStorefPROC) (GLenum, GLint);
+typedef void (APIENTRY *glPixelTransferiPROC) (GLenum, GLint);
+typedef void (APIENTRY *glPixelTransferfPROC) (GLenum, GLfloat);
+typedef void (APIENTRY *glPixelZoomPROC) (GLfloat, GLfloat);
+typedef void (APIENTRY *glPointSizePROC) (GLfloat);
+typedef void (APIENTRY *glPolygonModePROC) (GLenum, GLenum);
+typedef void (APIENTRY *glPolygonOffsetPROC) (GLfloat, GLfloat);
+typedef void (APIENTRY *glPolygonStipplePROC) (const GLubyte *);
+typedef void (APIENTRY *glPushAttribPROC) (GLbitfield);
+typedef void (APIENTRY *glPushClientAttribPROC) (GLbitfield);
+typedef void (APIENTRY *glPopAttribPROC) (void);
+typedef void (APIENTRY *glPopClientAttribPROC) (void);
+typedef void (APIENTRY *glPopMatrixPROC) (void);
+typedef void (APIENTRY *glPopNamePROC) (void);
+typedef void (APIENTRY *glPrioritizeTexturesPROC) (GLsizei, const GLuint *, const GLfloat *);
+typedef void (APIENTRY *glPushMatrixPROC) (void);
+typedef void (APIENTRY *glPushNamePROC) (GLuint);
+typedef void (APIENTRY *glRasterPos2iPROC) (GLint, GLint);
+typedef void (APIENTRY *glRasterPos2sPROC) (GLshort, GLshort);
+typedef void (APIENTRY *glRasterPos2fPROC) (GLfloat, GLfloat);
+typedef void (APIENTRY *glRasterPos2dPROC) (GLdouble, GLdouble);
+typedef void (APIENTRY *glRasterPos2ivPROC) (const GLint *);
+typedef void (APIENTRY *glRasterPos2svPROC) (const GLshort *);
+typedef void (APIENTRY *glRasterPos2fvPROC) (const GLfloat *);
+typedef void (APIENTRY *glRasterPos2dvPROC) (const GLdouble *);
+typedef void (APIENTRY *glRasterPos3iPROC) (GLint, GLint, GLint);
+typedef void (APIENTRY *glRasterPos3sPROC) (GLshort, GLshort, GLshort);
+typedef void (APIENTRY *glRasterPos3fPROC) (GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glRasterPos3dPROC) (GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glRasterPos3ivPROC) (const GLint *);
+typedef void (APIENTRY *glRasterPos3svPROC) (const GLshort *);
+typedef void (APIENTRY *glRasterPos3fvPROC) (const GLfloat *);
+typedef void (APIENTRY *glRasterPos3dvPROC) (const GLdouble *);
+typedef void (APIENTRY *glRasterPos4iPROC) (GLint, GLint, GLint, GLint);
+typedef void (APIENTRY *glRasterPos4sPROC) (GLshort, GLshort, GLshort, GLshort);
+typedef void (APIENTRY *glRasterPos4fPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glRasterPos4dPROC) (GLdouble, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glRasterPos4ivPROC) (const GLint *);
+typedef void (APIENTRY *glRasterPos4svPROC) (const GLshort *);
+typedef void (APIENTRY *glRasterPos4fvPROC) (const GLfloat *);
+typedef void (APIENTRY *glRasterPos4dvPROC) (const GLdouble *);
+typedef void (APIENTRY *glReadBufferPROC) (GLenum);
+typedef void (APIENTRY *glReadPixelsPROC) (GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, void *);
+typedef void (APIENTRY *glRectiPROC) (GLint, GLint, GLint, GLint);
+typedef void (APIENTRY *glRectsPROC) (GLshort, GLshort, GLshort, GLshort);
+typedef void (APIENTRY *glRectfPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glRectdPROC) (GLdouble, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glRectivPROC) (const GLint *, const GLint *);
+typedef void (APIENTRY *glRectsvPROC) (const GLshort *, const GLshort *);
+typedef void (APIENTRY *glRectfvPROC) (const GLfloat *, const GLfloat *);
+typedef void (APIENTRY *glRectdvPROC) (const GLdouble *, const GLdouble *);
 typedef GLint (APIENTRY *glRenderModePROC) (GLenum);
-typedef GLvoid (APIENTRY *glRotatefPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glRotatedPROC) (GLdouble, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glScalefPROC) (GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glScaledPROC) (GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glScissorPROC) (GLint, GLint, GLsizei, GLsizei);
-typedef GLvoid (APIENTRY *glSelectBufferPROC) (GLsizei, GLuint *);
-typedef GLvoid (APIENTRY *glShadeModelPROC) (GLenum);
-typedef GLvoid (APIENTRY *glStencilFuncPROC) (GLenum, GLint, GLuint);
-typedef GLvoid (APIENTRY *glStencilMaskPROC) (GLuint);
-typedef GLvoid (APIENTRY *glStencilOpPROC) (GLenum, GLenum, GLenum);
-typedef GLvoid (APIENTRY *glTexCoord1fPROC) (GLfloat);
-typedef GLvoid (APIENTRY *glTexCoord1sPROC) (GLshort);
-typedef GLvoid (APIENTRY *glTexCoord1iPROC) (GLint);
-typedef GLvoid (APIENTRY *glTexCoord1dPROC) (GLdouble);
-typedef GLvoid (APIENTRY *glTexCoord1fvPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glTexCoord1svPROC) (const GLshort *);
-typedef GLvoid (APIENTRY *glTexCoord1ivPROC) (const GLint *);
-typedef GLvoid (APIENTRY *glTexCoord1dvPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glTexCoord2fPROC) (GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glTexCoord2sPROC) (GLshort, GLshort);
-typedef GLvoid (APIENTRY *glTexCoord2iPROC) (GLint, GLint);
-typedef GLvoid (APIENTRY *glTexCoord2dPROC) (GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glTexCoord2fvPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glTexCoord2svPROC) (const GLshort *);
-typedef GLvoid (APIENTRY *glTexCoord2ivPROC) (const GLint *);
-typedef GLvoid (APIENTRY *glTexCoord2dvPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glTexCoord3fPROC) (GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glTexCoord3sPROC) (GLshort, GLshort, GLshort);
-typedef GLvoid (APIENTRY *glTexCoord3iPROC) (GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glTexCoord3dPROC) (GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glTexCoord3fvPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glTexCoord3svPROC) (const GLshort *);
-typedef GLvoid (APIENTRY *glTexCoord3ivPROC) (const GLint *);
-typedef GLvoid (APIENTRY *glTexCoord3dvPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glTexCoord4fPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glTexCoord4sPROC) (GLshort, GLshort, GLshort, GLshort);
-typedef GLvoid (APIENTRY *glTexCoord4iPROC) (GLint, GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glTexCoord4dPROC) (GLdouble, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glTexCoord4fvPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glTexCoord4svPROC) (const GLshort *);
-typedef GLvoid (APIENTRY *glTexCoord4ivPROC) (const GLint *);
-typedef GLvoid (APIENTRY *glTexCoord4dvPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glTexCoordPointerPROC) (GLint, GLenum, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glTexEnviPROC) (GLenum, GLenum, GLint);
-typedef GLvoid (APIENTRY *glTexEnvivPROC) (GLenum, GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glTexEnvfPROC) (GLenum, GLenum, GLfloat);
-typedef GLvoid (APIENTRY *glTexEnvfvPROC) (GLenum, GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glTexGeniPROC) (GLenum, GLenum, GLint);
-typedef GLvoid (APIENTRY *glTexGenivPROC) (GLenum, GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glTexGenfPROC) (GLenum, GLenum, GLfloat);
-typedef GLvoid (APIENTRY *glTexGenfvPROC) (GLenum, GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glTexGendPROC) (GLenum, GLenum, GLdouble);
-typedef GLvoid (APIENTRY *glTexGendvPROC) (GLenum, GLenum, const GLdouble *);
-typedef GLvoid (APIENTRY *glTexImage2DPROC) (GLenum, GLint, GLint, GLsizei, GLsizei, GLint, GLenum, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glTexImage1DPROC) (GLenum, GLint, GLint, GLsizei, GLint, GLenum, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glCopyTexImage2DPROC) (GLenum, GLint, GLenum, GLint, GLint, GLsizei, GLsizei, GLint);
-typedef GLvoid (APIENTRY *glCopyTexImage1DPROC) (GLenum, GLint, GLenum, GLint, GLint, GLsizei, GLint);
-typedef GLvoid (APIENTRY *glCopyTexSubImage1DPROC) (GLenum, GLint, GLint, GLint, GLint, GLsizei);
-typedef GLvoid (APIENTRY *glCopyTexSubImage2DPROC) (GLenum, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei);
-typedef GLvoid (APIENTRY *glTexParameteriPROC) (GLenum, GLenum, GLint);
-typedef GLvoid (APIENTRY *glTexParameterivPROC) (GLenum, GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glTexParameterfPROC) (GLenum, GLenum, GLfloat);
-typedef GLvoid (APIENTRY *glTexParameterfvPROC) (GLenum, GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glTexSubImage1DPROC) (GLenum, GLint, GLint, GLsizei, GLenum, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glTexSubImage2DPROC) (GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glTranslatefPROC) (GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glTranslatedPROC) (GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glVertex2fPROC) (GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glVertex2sPROC) (GLshort, GLshort);
-typedef GLvoid (APIENTRY *glVertex2iPROC) (GLint, GLint);
-typedef GLvoid (APIENTRY *glVertex2dPROC) (GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glVertex2fvPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glVertex2svPROC) (const GLshort *);
-typedef GLvoid (APIENTRY *glVertex2ivPROC) (const GLint *);
-typedef GLvoid (APIENTRY *glVertex2dvPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glVertex3fPROC) (GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glVertex3sPROC) (GLshort, GLshort, GLshort);
-typedef GLvoid (APIENTRY *glVertex3iPROC) (GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glVertex3dPROC) (GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glVertex3fvPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glVertex3svPROC) (const GLshort *);
-typedef GLvoid (APIENTRY *glVertex3ivPROC) (const GLint *);
-typedef GLvoid (APIENTRY *glVertex3dvPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glVertex4fPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glVertex4sPROC) (GLshort, GLshort, GLshort, GLshort);
-typedef GLvoid (APIENTRY *glVertex4iPROC) (GLint, GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glVertex4dPROC) (GLdouble, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glVertex4fvPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glVertex4svPROC) (const GLshort *);
-typedef GLvoid (APIENTRY *glVertex4ivPROC) (const GLint *);
-typedef GLvoid (APIENTRY *glVertex4dvPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glVertexPointerPROC) (GLint, GLenum, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glViewportPROC) (GLint, GLint, GLsizei, GLsizei);
+typedef void (APIENTRY *glRotatefPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glRotatedPROC) (GLdouble, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glScalefPROC) (GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glScaledPROC) (GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glScissorPROC) (GLint, GLint, GLsizei, GLsizei);
+typedef void (APIENTRY *glSelectBufferPROC) (GLsizei, GLuint *);
+typedef void (APIENTRY *glShadeModelPROC) (GLenum);
+typedef void (APIENTRY *glStencilFuncPROC) (GLenum, GLint, GLuint);
+typedef void (APIENTRY *glStencilMaskPROC) (GLuint);
+typedef void (APIENTRY *glStencilOpPROC) (GLenum, GLenum, GLenum);
+typedef void (APIENTRY *glTexCoord1fPROC) (GLfloat);
+typedef void (APIENTRY *glTexCoord1sPROC) (GLshort);
+typedef void (APIENTRY *glTexCoord1iPROC) (GLint);
+typedef void (APIENTRY *glTexCoord1dPROC) (GLdouble);
+typedef void (APIENTRY *glTexCoord1fvPROC) (const GLfloat *);
+typedef void (APIENTRY *glTexCoord1svPROC) (const GLshort *);
+typedef void (APIENTRY *glTexCoord1ivPROC) (const GLint *);
+typedef void (APIENTRY *glTexCoord1dvPROC) (const GLdouble *);
+typedef void (APIENTRY *glTexCoord2fPROC) (GLfloat, GLfloat);
+typedef void (APIENTRY *glTexCoord2sPROC) (GLshort, GLshort);
+typedef void (APIENTRY *glTexCoord2iPROC) (GLint, GLint);
+typedef void (APIENTRY *glTexCoord2dPROC) (GLdouble, GLdouble);
+typedef void (APIENTRY *glTexCoord2fvPROC) (const GLfloat *);
+typedef void (APIENTRY *glTexCoord2svPROC) (const GLshort *);
+typedef void (APIENTRY *glTexCoord2ivPROC) (const GLint *);
+typedef void (APIENTRY *glTexCoord2dvPROC) (const GLdouble *);
+typedef void (APIENTRY *glTexCoord3fPROC) (GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glTexCoord3sPROC) (GLshort, GLshort, GLshort);
+typedef void (APIENTRY *glTexCoord3iPROC) (GLint, GLint, GLint);
+typedef void (APIENTRY *glTexCoord3dPROC) (GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glTexCoord3fvPROC) (const GLfloat *);
+typedef void (APIENTRY *glTexCoord3svPROC) (const GLshort *);
+typedef void (APIENTRY *glTexCoord3ivPROC) (const GLint *);
+typedef void (APIENTRY *glTexCoord3dvPROC) (const GLdouble *);
+typedef void (APIENTRY *glTexCoord4fPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glTexCoord4sPROC) (GLshort, GLshort, GLshort, GLshort);
+typedef void (APIENTRY *glTexCoord4iPROC) (GLint, GLint, GLint, GLint);
+typedef void (APIENTRY *glTexCoord4dPROC) (GLdouble, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glTexCoord4fvPROC) (const GLfloat *);
+typedef void (APIENTRY *glTexCoord4svPROC) (const GLshort *);
+typedef void (APIENTRY *glTexCoord4ivPROC) (const GLint *);
+typedef void (APIENTRY *glTexCoord4dvPROC) (const GLdouble *);
+typedef void (APIENTRY *glTexCoordPointerPROC) (GLint, GLenum, GLsizei, const void *);
+typedef void (APIENTRY *glTexEnviPROC) (GLenum, GLenum, GLint);
+typedef void (APIENTRY *glTexEnvivPROC) (GLenum, GLenum, const GLint *);
+typedef void (APIENTRY *glTexEnvfPROC) (GLenum, GLenum, GLfloat);
+typedef void (APIENTRY *glTexEnvfvPROC) (GLenum, GLenum, const GLfloat *);
+typedef void (APIENTRY *glTexGeniPROC) (GLenum, GLenum, GLint);
+typedef void (APIENTRY *glTexGenivPROC) (GLenum, GLenum, const GLint *);
+typedef void (APIENTRY *glTexGenfPROC) (GLenum, GLenum, GLfloat);
+typedef void (APIENTRY *glTexGenfvPROC) (GLenum, GLenum, const GLfloat *);
+typedef void (APIENTRY *glTexGendPROC) (GLenum, GLenum, GLdouble);
+typedef void (APIENTRY *glTexGendvPROC) (GLenum, GLenum, const GLdouble *);
+typedef void (APIENTRY *glTexImage2DPROC) (GLenum, GLint, GLint, GLsizei, GLsizei, GLint, GLenum, GLenum, const void *);
+typedef void (APIENTRY *glTexImage1DPROC) (GLenum, GLint, GLint, GLsizei, GLint, GLenum, GLenum, const void *);
+typedef void (APIENTRY *glCopyTexImage2DPROC) (GLenum, GLint, GLenum, GLint, GLint, GLsizei, GLsizei, GLint);
+typedef void (APIENTRY *glCopyTexImage1DPROC) (GLenum, GLint, GLenum, GLint, GLint, GLsizei, GLint);
+typedef void (APIENTRY *glCopyTexSubImage1DPROC) (GLenum, GLint, GLint, GLint, GLint, GLsizei);
+typedef void (APIENTRY *glCopyTexSubImage2DPROC) (GLenum, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei);
+typedef void (APIENTRY *glTexParameteriPROC) (GLenum, GLenum, GLint);
+typedef void (APIENTRY *glTexParameterivPROC) (GLenum, GLenum, const GLint *);
+typedef void (APIENTRY *glTexParameterfPROC) (GLenum, GLenum, GLfloat);
+typedef void (APIENTRY *glTexParameterfvPROC) (GLenum, GLenum, const GLfloat *);
+typedef void (APIENTRY *glTexSubImage1DPROC) (GLenum, GLint, GLint, GLsizei, GLenum, GLenum, const void *);
+typedef void (APIENTRY *glTexSubImage2DPROC) (GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, const void *);
+typedef void (APIENTRY *glTranslatefPROC) (GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glTranslatedPROC) (GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glVertex2fPROC) (GLfloat, GLfloat);
+typedef void (APIENTRY *glVertex2sPROC) (GLshort, GLshort);
+typedef void (APIENTRY *glVertex2iPROC) (GLint, GLint);
+typedef void (APIENTRY *glVertex2dPROC) (GLdouble, GLdouble);
+typedef void (APIENTRY *glVertex2fvPROC) (const GLfloat *);
+typedef void (APIENTRY *glVertex2svPROC) (const GLshort *);
+typedef void (APIENTRY *glVertex2ivPROC) (const GLint *);
+typedef void (APIENTRY *glVertex2dvPROC) (const GLdouble *);
+typedef void (APIENTRY *glVertex3fPROC) (GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glVertex3sPROC) (GLshort, GLshort, GLshort);
+typedef void (APIENTRY *glVertex3iPROC) (GLint, GLint, GLint);
+typedef void (APIENTRY *glVertex3dPROC) (GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glVertex3fvPROC) (const GLfloat *);
+typedef void (APIENTRY *glVertex3svPROC) (const GLshort *);
+typedef void (APIENTRY *glVertex3ivPROC) (const GLint *);
+typedef void (APIENTRY *glVertex3dvPROC) (const GLdouble *);
+typedef void (APIENTRY *glVertex4fPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glVertex4sPROC) (GLshort, GLshort, GLshort, GLshort);
+typedef void (APIENTRY *glVertex4iPROC) (GLint, GLint, GLint, GLint);
+typedef void (APIENTRY *glVertex4dPROC) (GLdouble, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glVertex4fvPROC) (const GLfloat *);
+typedef void (APIENTRY *glVertex4svPROC) (const GLshort *);
+typedef void (APIENTRY *glVertex4ivPROC) (const GLint *);
+typedef void (APIENTRY *glVertex4dvPROC) (const GLdouble *);
+typedef void (APIENTRY *glVertexPointerPROC) (GLint, GLenum, GLsizei, const void *);
+typedef void (APIENTRY *glViewportPROC) (GLint, GLint, GLsizei, GLsizei);
 
 EXTERN_C_ENTER
 
@@ -415,7 +415,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglCallList(JNIEnv *__env, jcl
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglCallLists(JNIEnv *__env, jclass clazz, jint n, jint type, jlong listsAddress, jlong __functionAddress) {
-	const GLvoid *lists = (const GLvoid *)(intptr_t)listsAddress;
+	const void *lists = (const void *)(intptr_t)listsAddress;
 	glCallListsPROC glCallLists = (glCallListsPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glCallLists(n, type, lists);
@@ -685,7 +685,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglColorMaterial(JNIEnv *__env
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglColorPointer(JNIEnv *__env, jclass clazz, jint size, jint type, jint stride, jlong pointerAddress, jlong __functionAddress) {
-	const GLvoid *pointer = (const GLvoid *)(intptr_t)pointerAddress;
+	const void *pointer = (const void *)(intptr_t)pointerAddress;
 	glColorPointerPROC glColorPointer = (glColorPointerPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glColorPointer(size, type, stride, pointer);
@@ -746,14 +746,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglDrawBuffer(JNIEnv *__env, j
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglDrawElements(JNIEnv *__env, jclass clazz, jint mode, jint count, jint type, jlong indicesAddress, jlong __functionAddress) {
-	const GLvoid *indices = (const GLvoid *)(intptr_t)indicesAddress;
+	const void *indices = (const void *)(intptr_t)indicesAddress;
 	glDrawElementsPROC glDrawElements = (glDrawElementsPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glDrawElements(mode, count, type, indices);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglDrawPixels(JNIEnv *__env, jclass clazz, jint width, jint height, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
-	const GLvoid *pixels = (const GLvoid *)(intptr_t)pixelsAddress;
+	const void *pixels = (const void *)(intptr_t)pixelsAddress;
 	glDrawPixelsPROC glDrawPixels = (glDrawPixelsPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glDrawPixels(width, height, format, type, pixels);
@@ -1050,14 +1050,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetPixelMapuiv(JNIEnv *__en
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetPointerv(JNIEnv *__env, jclass clazz, jint pname, jlong paramsAddress, jlong __functionAddress) {
-	GLvoid **params = (GLvoid **)(intptr_t)paramsAddress;
+	void **params = (void **)(intptr_t)paramsAddress;
 	glGetPointervPROC glGetPointerv = (glGetPointervPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetPointerv(pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetPolygonStipple(JNIEnv *__env, jclass clazz, jlong patternAddress, jlong __functionAddress) {
-	GLvoid *pattern = (GLvoid *)(intptr_t)patternAddress;
+	void *pattern = (void *)(intptr_t)patternAddress;
 	glGetPolygonStipplePROC glGetPolygonStipple = (glGetPolygonStipplePROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetPolygonStipple(pattern);
@@ -1105,7 +1105,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetTexGendv(JNIEnv *__env, 
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglGetTexImage(JNIEnv *__env, jclass clazz, jint tex, jint level, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
-	GLvoid *pixels = (GLvoid *)(intptr_t)pixelsAddress;
+	void *pixels = (void *)(intptr_t)pixelsAddress;
 	glGetTexImagePROC glGetTexImage = (glGetTexImagePROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetTexImage(tex, level, format, type, pixels);
@@ -1217,7 +1217,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglIndexMask(JNIEnv *__env, jc
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglIndexPointer(JNIEnv *__env, jclass clazz, jint type, jint stride, jlong pointerAddress, jlong __functionAddress) {
-	const GLvoid *pointer = (const GLvoid *)(intptr_t)pointerAddress;
+	const void *pointer = (const void *)(intptr_t)pointerAddress;
 	glIndexPointerPROC glIndexPointer = (glIndexPointerPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glIndexPointer(type, stride, pointer);
@@ -1230,7 +1230,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglInitNames(JNIEnv *__env, jc
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglInterleavedArrays(JNIEnv *__env, jclass clazz, jint format, jint stride, jlong pointerAddress, jlong __functionAddress) {
-	const GLvoid *pointer = (const GLvoid *)(intptr_t)pointerAddress;
+	const void *pointer = (const void *)(intptr_t)pointerAddress;
 	glInterleavedArraysPROC glInterleavedArrays = (glInterleavedArraysPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glInterleavedArrays(format, stride, pointer);
@@ -1538,7 +1538,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglNormal3dv(JNIEnv *__env, jc
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglNormalPointer(JNIEnv *__env, jclass clazz, jint type, jint stride, jlong pointerAddress, jlong __functionAddress) {
-	const GLvoid *pointer = (const GLvoid *)(intptr_t)pointerAddress;
+	const void *pointer = (const void *)(intptr_t)pointerAddress;
 	glNormalPointerPROC glNormalPointer = (glNormalPointerPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glNormalPointer(type, stride, pointer);
@@ -1851,7 +1851,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglReadBuffer(JNIEnv *__env, j
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglReadPixels(JNIEnv *__env, jclass clazz, jint x, jint y, jint width, jint height, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
-	GLvoid *pixels = (GLvoid *)(intptr_t)pixelsAddress;
+	void *pixels = (void *)(intptr_t)pixelsAddress;
 	glReadPixelsPROC glReadPixels = (glReadPixelsPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glReadPixels(x, y, width, height, format, type, pixels);
@@ -2189,7 +2189,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglTexCoord4dv(JNIEnv *__env, 
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglTexCoordPointer(JNIEnv *__env, jclass clazz, jint size, jint type, jint stride, jlong pointerAddress, jlong __functionAddress) {
-	const GLvoid *pointer = (const GLvoid *)(intptr_t)pointerAddress;
+	const void *pointer = (const void *)(intptr_t)pointerAddress;
 	glTexCoordPointerPROC glTexCoordPointer = (glTexCoordPointerPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glTexCoordPointer(size, type, stride, pointer);
@@ -2261,14 +2261,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglTexGendv(JNIEnv *__env, jcl
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglTexImage2D(JNIEnv *__env, jclass clazz, jint target, jint level, jint internalformat, jint width, jint height, jint border, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
-	const GLvoid *pixels = (const GLvoid *)(intptr_t)pixelsAddress;
+	const void *pixels = (const void *)(intptr_t)pixelsAddress;
 	glTexImage2DPROC glTexImage2D = (glTexImage2DPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglTexImage1D(JNIEnv *__env, jclass clazz, jint target, jint level, jint internalformat, jint width, jint border, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
-	const GLvoid *pixels = (const GLvoid *)(intptr_t)pixelsAddress;
+	const void *pixels = (const void *)(intptr_t)pixelsAddress;
 	glTexImage1DPROC glTexImage1D = (glTexImage1DPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glTexImage1D(target, level, internalformat, width, border, format, type, pixels);
@@ -2325,14 +2325,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglTexParameterfv(JNIEnv *__en
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglTexSubImage1D(JNIEnv *__env, jclass clazz, jint target, jint level, jint xoffset, jint width, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
-	const GLvoid *pixels = (const GLvoid *)(intptr_t)pixelsAddress;
+	const void *pixels = (const void *)(intptr_t)pixelsAddress;
 	glTexSubImage1DPROC glTexSubImage1D = (glTexSubImage1DPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glTexSubImage1D(target, level, xoffset, width, format, type, pixels);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglTexSubImage2D(JNIEnv *__env, jclass clazz, jint target, jint level, jint xoffset, jint yoffset, jint width, jint height, jint format, jint type, jlong pixelsAddress, jlong __functionAddress) {
-	const GLvoid *pixels = (const GLvoid *)(intptr_t)pixelsAddress;
+	const void *pixels = (const void *)(intptr_t)pixelsAddress;
 	glTexSubImage2DPROC glTexSubImage2D = (glTexSubImage2DPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels);
@@ -2507,7 +2507,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglVertex4dv(JNIEnv *__env, jc
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL11_nglVertexPointer(JNIEnv *__env, jclass clazz, jint size, jint type, jint stride, jlong pointerAddress, jlong __functionAddress) {
-	const GLvoid *pointer = (const GLvoid *)(intptr_t)pointerAddress;
+	const void *pointer = (const void *)(intptr_t)pointerAddress;
 	glVertexPointerPROC glVertexPointer = (glVertexPointerPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glVertexPointer(size, type, stride, pointer);

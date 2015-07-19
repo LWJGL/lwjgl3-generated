@@ -6,12 +6,12 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glUniformMatrix2x3fvPROC) (GLint, GLsizei, GLboolean, const GLfloat *);
-typedef GLvoid (APIENTRY *glUniformMatrix3x2fvPROC) (GLint, GLsizei, GLboolean, const GLfloat *);
-typedef GLvoid (APIENTRY *glUniformMatrix2x4fvPROC) (GLint, GLsizei, GLboolean, const GLfloat *);
-typedef GLvoid (APIENTRY *glUniformMatrix4x2fvPROC) (GLint, GLsizei, GLboolean, const GLfloat *);
-typedef GLvoid (APIENTRY *glUniformMatrix3x4fvPROC) (GLint, GLsizei, GLboolean, const GLfloat *);
-typedef GLvoid (APIENTRY *glUniformMatrix4x3fvPROC) (GLint, GLsizei, GLboolean, const GLfloat *);
+typedef void (APIENTRY *glUniformMatrix2x3fvPROC) (GLint, GLsizei, GLboolean, const GLfloat *);
+typedef void (APIENTRY *glUniformMatrix3x2fvPROC) (GLint, GLsizei, GLboolean, const GLfloat *);
+typedef void (APIENTRY *glUniformMatrix2x4fvPROC) (GLint, GLsizei, GLboolean, const GLfloat *);
+typedef void (APIENTRY *glUniformMatrix4x2fvPROC) (GLint, GLsizei, GLboolean, const GLfloat *);
+typedef void (APIENTRY *glUniformMatrix3x4fvPROC) (GLint, GLsizei, GLboolean, const GLfloat *);
+typedef void (APIENTRY *glUniformMatrix4x3fvPROC) (GLint, GLsizei, GLboolean, const GLfloat *);
 
 EXTERN_C_ENTER
 

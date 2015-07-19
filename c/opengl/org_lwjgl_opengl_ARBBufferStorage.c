@@ -6,12 +6,12 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glNamedBufferStorageEXTPROC) (GLuint, GLsizeiptr, const GLvoid *, GLbitfield);
+typedef void (APIENTRY *glNamedBufferStorageEXTPROC) (GLuint, GLsizeiptr, const void *, GLbitfield);
 
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBBufferStorage_nglNamedBufferStorageEXT(JNIEnv *__env, jclass clazz, jint buffer, jlong size, jlong dataAddress, jint flags, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glNamedBufferStorageEXTPROC glNamedBufferStorageEXT = (glNamedBufferStorageEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glNamedBufferStorageEXT(buffer, (GLsizeiptr)size, data, flags);

@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glRasterSamplesEXTPROC) (GLuint, GLboolean);
+typedef void (APIENTRY *glRasterSamplesEXTPROC) (GLuint, GLboolean);
 
 EXTERN_C_ENTER
 

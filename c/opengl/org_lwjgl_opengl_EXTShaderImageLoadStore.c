@@ -6,8 +6,8 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glBindImageTextureEXTPROC) (GLuint, GLuint, GLint, GLboolean, GLint, GLenum, GLint);
-typedef GLvoid (APIENTRY *glMemoryBarrierEXTPROC) (GLbitfield);
+typedef void (APIENTRY *glBindImageTextureEXTPROC) (GLuint, GLuint, GLint, GLboolean, GLint, GLenum, GLint);
+typedef void (APIENTRY *glMemoryBarrierEXTPROC) (GLbitfield);
 
 EXTERN_C_ENTER
 

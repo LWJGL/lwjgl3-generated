@@ -6,99 +6,99 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glCompressedTexImage3DPROC) (GLenum, GLint, GLenum, GLsizei, GLsizei, GLsizei, GLint, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glCompressedTexImage2DPROC) (GLenum, GLint, GLenum, GLsizei, GLsizei, GLint, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glCompressedTexImage1DPROC) (GLenum, GLint, GLenum, GLsizei, GLint, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glCompressedTexSubImage3DPROC) (GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glCompressedTexSubImage2DPROC) (GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glCompressedTexSubImage1DPROC) (GLenum, GLint, GLint, GLsizei, GLenum, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glGetCompressedTexImagePROC) (GLenum, GLint, GLvoid *);
-typedef GLvoid (APIENTRY *glSampleCoveragePROC) (GLfloat, GLboolean);
-typedef GLvoid (APIENTRY *glActiveTexturePROC) (GLenum);
-typedef GLvoid (APIENTRY *glClientActiveTexturePROC) (GLenum);
-typedef GLvoid (APIENTRY *glMultiTexCoord1fPROC) (GLenum, GLfloat);
-typedef GLvoid (APIENTRY *glMultiTexCoord1sPROC) (GLenum, GLshort);
-typedef GLvoid (APIENTRY *glMultiTexCoord1iPROC) (GLenum, GLint);
-typedef GLvoid (APIENTRY *glMultiTexCoord1dPROC) (GLenum, GLdouble);
-typedef GLvoid (APIENTRY *glMultiTexCoord1fvPROC) (GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glMultiTexCoord1svPROC) (GLenum, const GLshort *);
-typedef GLvoid (APIENTRY *glMultiTexCoord1ivPROC) (GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glMultiTexCoord1dvPROC) (GLenum, const GLdouble *);
-typedef GLvoid (APIENTRY *glMultiTexCoord2fPROC) (GLenum, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glMultiTexCoord2sPROC) (GLenum, GLshort, GLshort);
-typedef GLvoid (APIENTRY *glMultiTexCoord2iPROC) (GLenum, GLint, GLint);
-typedef GLvoid (APIENTRY *glMultiTexCoord2dPROC) (GLenum, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glMultiTexCoord2fvPROC) (GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glMultiTexCoord2svPROC) (GLenum, const GLshort *);
-typedef GLvoid (APIENTRY *glMultiTexCoord2ivPROC) (GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glMultiTexCoord2dvPROC) (GLenum, const GLdouble *);
-typedef GLvoid (APIENTRY *glMultiTexCoord3fPROC) (GLenum, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glMultiTexCoord3sPROC) (GLenum, GLshort, GLshort, GLshort);
-typedef GLvoid (APIENTRY *glMultiTexCoord3iPROC) (GLenum, GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glMultiTexCoord3dPROC) (GLenum, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glMultiTexCoord3fvPROC) (GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glMultiTexCoord3svPROC) (GLenum, const GLshort *);
-typedef GLvoid (APIENTRY *glMultiTexCoord3ivPROC) (GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glMultiTexCoord3dvPROC) (GLenum, const GLdouble *);
-typedef GLvoid (APIENTRY *glMultiTexCoord4fPROC) (GLenum, GLfloat, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glMultiTexCoord4sPROC) (GLenum, GLshort, GLshort, GLshort, GLshort);
-typedef GLvoid (APIENTRY *glMultiTexCoord4iPROC) (GLenum, GLint, GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glMultiTexCoord4dPROC) (GLenum, GLdouble, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glMultiTexCoord4fvPROC) (GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glMultiTexCoord4svPROC) (GLenum, const GLshort *);
-typedef GLvoid (APIENTRY *glMultiTexCoord4ivPROC) (GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glMultiTexCoord4dvPROC) (GLenum, const GLdouble *);
-typedef GLvoid (APIENTRY *glLoadTransposeMatrixfPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glLoadTransposeMatrixdPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glMultTransposeMatrixfPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glMultTransposeMatrixdPROC) (const GLdouble *);
+typedef void (APIENTRY *glCompressedTexImage3DPROC) (GLenum, GLint, GLenum, GLsizei, GLsizei, GLsizei, GLint, GLsizei, const void *);
+typedef void (APIENTRY *glCompressedTexImage2DPROC) (GLenum, GLint, GLenum, GLsizei, GLsizei, GLint, GLsizei, const void *);
+typedef void (APIENTRY *glCompressedTexImage1DPROC) (GLenum, GLint, GLenum, GLsizei, GLint, GLsizei, const void *);
+typedef void (APIENTRY *glCompressedTexSubImage3DPROC) (GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLsizei, const void *);
+typedef void (APIENTRY *glCompressedTexSubImage2DPROC) (GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLsizei, const void *);
+typedef void (APIENTRY *glCompressedTexSubImage1DPROC) (GLenum, GLint, GLint, GLsizei, GLenum, GLsizei, const void *);
+typedef void (APIENTRY *glGetCompressedTexImagePROC) (GLenum, GLint, void *);
+typedef void (APIENTRY *glSampleCoveragePROC) (GLfloat, GLboolean);
+typedef void (APIENTRY *glActiveTexturePROC) (GLenum);
+typedef void (APIENTRY *glClientActiveTexturePROC) (GLenum);
+typedef void (APIENTRY *glMultiTexCoord1fPROC) (GLenum, GLfloat);
+typedef void (APIENTRY *glMultiTexCoord1sPROC) (GLenum, GLshort);
+typedef void (APIENTRY *glMultiTexCoord1iPROC) (GLenum, GLint);
+typedef void (APIENTRY *glMultiTexCoord1dPROC) (GLenum, GLdouble);
+typedef void (APIENTRY *glMultiTexCoord1fvPROC) (GLenum, const GLfloat *);
+typedef void (APIENTRY *glMultiTexCoord1svPROC) (GLenum, const GLshort *);
+typedef void (APIENTRY *glMultiTexCoord1ivPROC) (GLenum, const GLint *);
+typedef void (APIENTRY *glMultiTexCoord1dvPROC) (GLenum, const GLdouble *);
+typedef void (APIENTRY *glMultiTexCoord2fPROC) (GLenum, GLfloat, GLfloat);
+typedef void (APIENTRY *glMultiTexCoord2sPROC) (GLenum, GLshort, GLshort);
+typedef void (APIENTRY *glMultiTexCoord2iPROC) (GLenum, GLint, GLint);
+typedef void (APIENTRY *glMultiTexCoord2dPROC) (GLenum, GLdouble, GLdouble);
+typedef void (APIENTRY *glMultiTexCoord2fvPROC) (GLenum, const GLfloat *);
+typedef void (APIENTRY *glMultiTexCoord2svPROC) (GLenum, const GLshort *);
+typedef void (APIENTRY *glMultiTexCoord2ivPROC) (GLenum, const GLint *);
+typedef void (APIENTRY *glMultiTexCoord2dvPROC) (GLenum, const GLdouble *);
+typedef void (APIENTRY *glMultiTexCoord3fPROC) (GLenum, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glMultiTexCoord3sPROC) (GLenum, GLshort, GLshort, GLshort);
+typedef void (APIENTRY *glMultiTexCoord3iPROC) (GLenum, GLint, GLint, GLint);
+typedef void (APIENTRY *glMultiTexCoord3dPROC) (GLenum, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glMultiTexCoord3fvPROC) (GLenum, const GLfloat *);
+typedef void (APIENTRY *glMultiTexCoord3svPROC) (GLenum, const GLshort *);
+typedef void (APIENTRY *glMultiTexCoord3ivPROC) (GLenum, const GLint *);
+typedef void (APIENTRY *glMultiTexCoord3dvPROC) (GLenum, const GLdouble *);
+typedef void (APIENTRY *glMultiTexCoord4fPROC) (GLenum, GLfloat, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glMultiTexCoord4sPROC) (GLenum, GLshort, GLshort, GLshort, GLshort);
+typedef void (APIENTRY *glMultiTexCoord4iPROC) (GLenum, GLint, GLint, GLint, GLint);
+typedef void (APIENTRY *glMultiTexCoord4dPROC) (GLenum, GLdouble, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glMultiTexCoord4fvPROC) (GLenum, const GLfloat *);
+typedef void (APIENTRY *glMultiTexCoord4svPROC) (GLenum, const GLshort *);
+typedef void (APIENTRY *glMultiTexCoord4ivPROC) (GLenum, const GLint *);
+typedef void (APIENTRY *glMultiTexCoord4dvPROC) (GLenum, const GLdouble *);
+typedef void (APIENTRY *glLoadTransposeMatrixfPROC) (const GLfloat *);
+typedef void (APIENTRY *glLoadTransposeMatrixdPROC) (const GLdouble *);
+typedef void (APIENTRY *glMultTransposeMatrixfPROC) (const GLfloat *);
+typedef void (APIENTRY *glMultTransposeMatrixdPROC) (const GLdouble *);
 
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglCompressedTexImage3D(JNIEnv *__env, jclass clazz, jint target, jint level, jint internalformat, jint width, jint height, jint depth, jint border, jint imageSize, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glCompressedTexImage3DPROC glCompressedTexImage3D = (glCompressedTexImage3DPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglCompressedTexImage2D(JNIEnv *__env, jclass clazz, jint target, jint level, jint internalformat, jint width, jint height, jint border, jint imageSize, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glCompressedTexImage2DPROC glCompressedTexImage2D = (glCompressedTexImage2DPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglCompressedTexImage1D(JNIEnv *__env, jclass clazz, jint target, jint level, jint internalformat, jint width, jint border, jint imageSize, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glCompressedTexImage1DPROC glCompressedTexImage1D = (glCompressedTexImage1DPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glCompressedTexImage1D(target, level, internalformat, width, border, imageSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglCompressedTexSubImage3D(JNIEnv *__env, jclass clazz, jint target, jint level, jint xoffset, jint yoffset, jint zoffset, jint width, jint height, jint depth, jint format, jint imageSize, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glCompressedTexSubImage3DPROC glCompressedTexSubImage3D = (glCompressedTexSubImage3DPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglCompressedTexSubImage2D(JNIEnv *__env, jclass clazz, jint target, jint level, jint xoffset, jint yoffset, jint width, jint height, jint format, jint imageSize, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glCompressedTexSubImage2DPROC glCompressedTexSubImage2D = (glCompressedTexSubImage2DPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglCompressedTexSubImage1D(JNIEnv *__env, jclass clazz, jint target, jint level, jint xoffset, jint width, jint format, jint imageSize, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glCompressedTexSubImage1DPROC glCompressedTexSubImage1D = (glCompressedTexSubImage1DPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglGetCompressedTexImage(JNIEnv *__env, jclass clazz, jint target, jint level, jlong pixelsAddress, jlong __functionAddress) {
-	GLvoid *pixels = (GLvoid *)(intptr_t)pixelsAddress;
+	void *pixels = (void *)(intptr_t)pixelsAddress;
 	glGetCompressedTexImagePROC glGetCompressedTexImage = (glGetCompressedTexImagePROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetCompressedTexImage(target, level, pixels);

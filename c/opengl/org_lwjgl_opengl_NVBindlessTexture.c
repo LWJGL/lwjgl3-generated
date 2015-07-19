@@ -8,15 +8,15 @@
 
 typedef GLuint64 (APIENTRY *glGetTextureHandleNVPROC) (GLuint);
 typedef GLuint64 (APIENTRY *glGetTextureSamplerHandleNVPROC) (GLuint, GLuint);
-typedef GLvoid (APIENTRY *glMakeTextureHandleResidentNVPROC) (GLuint64);
-typedef GLvoid (APIENTRY *glMakeTextureHandleNonResidentNVPROC) (GLuint64);
+typedef void (APIENTRY *glMakeTextureHandleResidentNVPROC) (GLuint64);
+typedef void (APIENTRY *glMakeTextureHandleNonResidentNVPROC) (GLuint64);
 typedef GLuint64 (APIENTRY *glGetImageHandleNVPROC) (GLuint, GLint, GLboolean, GLint, GLenum);
-typedef GLvoid (APIENTRY *glMakeImageHandleResidentNVPROC) (GLuint64, GLenum);
-typedef GLvoid (APIENTRY *glMakeImageHandleNonResidentNVPROC) (GLuint64);
-typedef GLvoid (APIENTRY *glUniformHandleui64NVPROC) (GLint, GLuint64);
-typedef GLvoid (APIENTRY *glUniformHandleui64vNVPROC) (GLint, GLsizei, const GLuint64 *);
-typedef GLvoid (APIENTRY *glProgramUniformHandleui64NVPROC) (GLuint, GLint, GLuint64);
-typedef GLvoid (APIENTRY *glProgramUniformHandleui64vNVPROC) (GLuint, GLint, GLsizei, const GLuint64 *);
+typedef void (APIENTRY *glMakeImageHandleResidentNVPROC) (GLuint64, GLenum);
+typedef void (APIENTRY *glMakeImageHandleNonResidentNVPROC) (GLuint64);
+typedef void (APIENTRY *glUniformHandleui64NVPROC) (GLint, GLuint64);
+typedef void (APIENTRY *glUniformHandleui64vNVPROC) (GLint, GLsizei, const GLuint64 *);
+typedef void (APIENTRY *glProgramUniformHandleui64NVPROC) (GLuint, GLint, GLuint64);
+typedef void (APIENTRY *glProgramUniformHandleui64vNVPROC) (GLuint, GLint, GLsizei, const GLuint64 *);
 typedef GLboolean (APIENTRY *glIsTextureHandleResidentNVPROC) (GLuint64);
 typedef GLboolean (APIENTRY *glIsImageHandleResidentNVPROC) (GLuint64);
 

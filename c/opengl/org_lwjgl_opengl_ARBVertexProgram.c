@@ -6,67 +6,67 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glVertexAttrib1sARBPROC) (GLuint, GLshort);
-typedef GLvoid (APIENTRY *glVertexAttrib1fARBPROC) (GLuint, GLfloat);
-typedef GLvoid (APIENTRY *glVertexAttrib1dARBPROC) (GLuint, GLdouble);
-typedef GLvoid (APIENTRY *glVertexAttrib2sARBPROC) (GLuint, GLshort, GLshort);
-typedef GLvoid (APIENTRY *glVertexAttrib2fARBPROC) (GLuint, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glVertexAttrib2dARBPROC) (GLuint, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glVertexAttrib3sARBPROC) (GLuint, GLshort, GLshort, GLshort);
-typedef GLvoid (APIENTRY *glVertexAttrib3fARBPROC) (GLuint, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glVertexAttrib3dARBPROC) (GLuint, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glVertexAttrib4sARBPROC) (GLuint, GLshort, GLshort, GLshort, GLshort);
-typedef GLvoid (APIENTRY *glVertexAttrib4fARBPROC) (GLuint, GLfloat, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glVertexAttrib4dARBPROC) (GLuint, GLdouble, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glVertexAttrib4NubARBPROC) (GLuint, GLubyte, GLubyte, GLubyte, GLubyte);
-typedef GLvoid (APIENTRY *glVertexAttrib1svARBPROC) (GLuint, const GLshort *);
-typedef GLvoid (APIENTRY *glVertexAttrib1fvARBPROC) (GLuint, const GLfloat *);
-typedef GLvoid (APIENTRY *glVertexAttrib1dvARBPROC) (GLuint, const GLdouble *);
-typedef GLvoid (APIENTRY *glVertexAttrib2svARBPROC) (GLuint, const GLshort *);
-typedef GLvoid (APIENTRY *glVertexAttrib2fvARBPROC) (GLuint, const GLfloat *);
-typedef GLvoid (APIENTRY *glVertexAttrib2dvARBPROC) (GLuint, const GLdouble *);
-typedef GLvoid (APIENTRY *glVertexAttrib3svARBPROC) (GLuint, const GLshort *);
-typedef GLvoid (APIENTRY *glVertexAttrib3fvARBPROC) (GLuint, const GLfloat *);
-typedef GLvoid (APIENTRY *glVertexAttrib3dvARBPROC) (GLuint, const GLdouble *);
-typedef GLvoid (APIENTRY *glVertexAttrib4fvARBPROC) (GLuint, const GLfloat *);
-typedef GLvoid (APIENTRY *glVertexAttrib4bvARBPROC) (GLuint, const GLbyte *);
-typedef GLvoid (APIENTRY *glVertexAttrib4svARBPROC) (GLuint, const GLshort *);
-typedef GLvoid (APIENTRY *glVertexAttrib4ivARBPROC) (GLuint, const GLint *);
-typedef GLvoid (APIENTRY *glVertexAttrib4ubvARBPROC) (GLuint, const GLubyte *);
-typedef GLvoid (APIENTRY *glVertexAttrib4usvARBPROC) (GLuint, const GLushort *);
-typedef GLvoid (APIENTRY *glVertexAttrib4uivARBPROC) (GLuint, const GLuint *);
-typedef GLvoid (APIENTRY *glVertexAttrib4dvARBPROC) (GLuint, const GLdouble *);
-typedef GLvoid (APIENTRY *glVertexAttrib4NbvARBPROC) (GLuint, const GLbyte *);
-typedef GLvoid (APIENTRY *glVertexAttrib4NsvARBPROC) (GLuint, const GLshort *);
-typedef GLvoid (APIENTRY *glVertexAttrib4NivARBPROC) (GLuint, const GLint *);
-typedef GLvoid (APIENTRY *glVertexAttrib4NubvARBPROC) (GLuint, const GLubyte *);
-typedef GLvoid (APIENTRY *glVertexAttrib4NusvARBPROC) (GLuint, const GLushort *);
-typedef GLvoid (APIENTRY *glVertexAttrib4NuivARBPROC) (GLuint, const GLuint *);
-typedef GLvoid (APIENTRY *glVertexAttribPointerARBPROC) (GLuint, GLint, GLenum, GLboolean, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glEnableVertexAttribArrayARBPROC) (GLuint);
-typedef GLvoid (APIENTRY *glDisableVertexAttribArrayARBPROC) (GLuint);
-typedef GLvoid (APIENTRY *glProgramStringARBPROC) (GLenum, GLenum, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glBindProgramARBPROC) (GLenum, GLuint);
-typedef GLvoid (APIENTRY *glDeleteProgramsARBPROC) (GLsizei, const GLuint *);
-typedef GLvoid (APIENTRY *glGenProgramsARBPROC) (GLsizei, GLuint *);
-typedef GLvoid (APIENTRY *glProgramEnvParameter4dARBPROC) (GLenum, GLuint, GLdouble, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glProgramEnvParameter4dvARBPROC) (GLenum, GLuint, const GLdouble *);
-typedef GLvoid (APIENTRY *glProgramEnvParameter4fARBPROC) (GLenum, GLuint, GLfloat, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glProgramEnvParameter4fvARBPROC) (GLenum, GLuint, const GLfloat *);
-typedef GLvoid (APIENTRY *glProgramLocalParameter4dARBPROC) (GLenum, GLuint, GLdouble, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glProgramLocalParameter4dvARBPROC) (GLenum, GLuint, const GLdouble *);
-typedef GLvoid (APIENTRY *glProgramLocalParameter4fARBPROC) (GLenum, GLuint, GLfloat, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glProgramLocalParameter4fvARBPROC) (GLenum, GLuint, const GLfloat *);
-typedef GLvoid (APIENTRY *glGetProgramEnvParameterfvARBPROC) (GLenum, GLuint, GLfloat *);
-typedef GLvoid (APIENTRY *glGetProgramEnvParameterdvARBPROC) (GLenum, GLuint, GLdouble *);
-typedef GLvoid (APIENTRY *glGetProgramLocalParameterfvARBPROC) (GLenum, GLuint, GLfloat *);
-typedef GLvoid (APIENTRY *glGetProgramLocalParameterdvARBPROC) (GLenum, GLuint, GLdouble *);
-typedef GLvoid (APIENTRY *glGetProgramivARBPROC) (GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetProgramStringARBPROC) (GLenum, GLenum, GLvoid *);
-typedef GLvoid (APIENTRY *glGetVertexAttribfvARBPROC) (GLuint, GLenum, GLfloat *);
-typedef GLvoid (APIENTRY *glGetVertexAttribdvARBPROC) (GLuint, GLenum, GLdouble *);
-typedef GLvoid (APIENTRY *glGetVertexAttribivARBPROC) (GLuint, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetVertexAttribPointervARBPROC) (GLuint, GLenum, GLvoid **);
+typedef void (APIENTRY *glVertexAttrib1sARBPROC) (GLuint, GLshort);
+typedef void (APIENTRY *glVertexAttrib1fARBPROC) (GLuint, GLfloat);
+typedef void (APIENTRY *glVertexAttrib1dARBPROC) (GLuint, GLdouble);
+typedef void (APIENTRY *glVertexAttrib2sARBPROC) (GLuint, GLshort, GLshort);
+typedef void (APIENTRY *glVertexAttrib2fARBPROC) (GLuint, GLfloat, GLfloat);
+typedef void (APIENTRY *glVertexAttrib2dARBPROC) (GLuint, GLdouble, GLdouble);
+typedef void (APIENTRY *glVertexAttrib3sARBPROC) (GLuint, GLshort, GLshort, GLshort);
+typedef void (APIENTRY *glVertexAttrib3fARBPROC) (GLuint, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glVertexAttrib3dARBPROC) (GLuint, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glVertexAttrib4sARBPROC) (GLuint, GLshort, GLshort, GLshort, GLshort);
+typedef void (APIENTRY *glVertexAttrib4fARBPROC) (GLuint, GLfloat, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glVertexAttrib4dARBPROC) (GLuint, GLdouble, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glVertexAttrib4NubARBPROC) (GLuint, GLubyte, GLubyte, GLubyte, GLubyte);
+typedef void (APIENTRY *glVertexAttrib1svARBPROC) (GLuint, const GLshort *);
+typedef void (APIENTRY *glVertexAttrib1fvARBPROC) (GLuint, const GLfloat *);
+typedef void (APIENTRY *glVertexAttrib1dvARBPROC) (GLuint, const GLdouble *);
+typedef void (APIENTRY *glVertexAttrib2svARBPROC) (GLuint, const GLshort *);
+typedef void (APIENTRY *glVertexAttrib2fvARBPROC) (GLuint, const GLfloat *);
+typedef void (APIENTRY *glVertexAttrib2dvARBPROC) (GLuint, const GLdouble *);
+typedef void (APIENTRY *glVertexAttrib3svARBPROC) (GLuint, const GLshort *);
+typedef void (APIENTRY *glVertexAttrib3fvARBPROC) (GLuint, const GLfloat *);
+typedef void (APIENTRY *glVertexAttrib3dvARBPROC) (GLuint, const GLdouble *);
+typedef void (APIENTRY *glVertexAttrib4fvARBPROC) (GLuint, const GLfloat *);
+typedef void (APIENTRY *glVertexAttrib4bvARBPROC) (GLuint, const GLbyte *);
+typedef void (APIENTRY *glVertexAttrib4svARBPROC) (GLuint, const GLshort *);
+typedef void (APIENTRY *glVertexAttrib4ivARBPROC) (GLuint, const GLint *);
+typedef void (APIENTRY *glVertexAttrib4ubvARBPROC) (GLuint, const GLubyte *);
+typedef void (APIENTRY *glVertexAttrib4usvARBPROC) (GLuint, const GLushort *);
+typedef void (APIENTRY *glVertexAttrib4uivARBPROC) (GLuint, const GLuint *);
+typedef void (APIENTRY *glVertexAttrib4dvARBPROC) (GLuint, const GLdouble *);
+typedef void (APIENTRY *glVertexAttrib4NbvARBPROC) (GLuint, const GLbyte *);
+typedef void (APIENTRY *glVertexAttrib4NsvARBPROC) (GLuint, const GLshort *);
+typedef void (APIENTRY *glVertexAttrib4NivARBPROC) (GLuint, const GLint *);
+typedef void (APIENTRY *glVertexAttrib4NubvARBPROC) (GLuint, const GLubyte *);
+typedef void (APIENTRY *glVertexAttrib4NusvARBPROC) (GLuint, const GLushort *);
+typedef void (APIENTRY *glVertexAttrib4NuivARBPROC) (GLuint, const GLuint *);
+typedef void (APIENTRY *glVertexAttribPointerARBPROC) (GLuint, GLint, GLenum, GLboolean, GLsizei, const void *);
+typedef void (APIENTRY *glEnableVertexAttribArrayARBPROC) (GLuint);
+typedef void (APIENTRY *glDisableVertexAttribArrayARBPROC) (GLuint);
+typedef void (APIENTRY *glProgramStringARBPROC) (GLenum, GLenum, GLsizei, const void *);
+typedef void (APIENTRY *glBindProgramARBPROC) (GLenum, GLuint);
+typedef void (APIENTRY *glDeleteProgramsARBPROC) (GLsizei, const GLuint *);
+typedef void (APIENTRY *glGenProgramsARBPROC) (GLsizei, GLuint *);
+typedef void (APIENTRY *glProgramEnvParameter4dARBPROC) (GLenum, GLuint, GLdouble, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glProgramEnvParameter4dvARBPROC) (GLenum, GLuint, const GLdouble *);
+typedef void (APIENTRY *glProgramEnvParameter4fARBPROC) (GLenum, GLuint, GLfloat, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glProgramEnvParameter4fvARBPROC) (GLenum, GLuint, const GLfloat *);
+typedef void (APIENTRY *glProgramLocalParameter4dARBPROC) (GLenum, GLuint, GLdouble, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glProgramLocalParameter4dvARBPROC) (GLenum, GLuint, const GLdouble *);
+typedef void (APIENTRY *glProgramLocalParameter4fARBPROC) (GLenum, GLuint, GLfloat, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glProgramLocalParameter4fvARBPROC) (GLenum, GLuint, const GLfloat *);
+typedef void (APIENTRY *glGetProgramEnvParameterfvARBPROC) (GLenum, GLuint, GLfloat *);
+typedef void (APIENTRY *glGetProgramEnvParameterdvARBPROC) (GLenum, GLuint, GLdouble *);
+typedef void (APIENTRY *glGetProgramLocalParameterfvARBPROC) (GLenum, GLuint, GLfloat *);
+typedef void (APIENTRY *glGetProgramLocalParameterdvARBPROC) (GLenum, GLuint, GLdouble *);
+typedef void (APIENTRY *glGetProgramivARBPROC) (GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGetProgramStringARBPROC) (GLenum, GLenum, void *);
+typedef void (APIENTRY *glGetVertexAttribfvARBPROC) (GLuint, GLenum, GLfloat *);
+typedef void (APIENTRY *glGetVertexAttribdvARBPROC) (GLuint, GLenum, GLdouble *);
+typedef void (APIENTRY *glGetVertexAttribivARBPROC) (GLuint, GLenum, GLint *);
+typedef void (APIENTRY *glGetVertexAttribPointervARBPROC) (GLuint, GLenum, void **);
 typedef GLboolean (APIENTRY *glIsProgramARBPROC) (GLuint);
 
 EXTERN_C_ENTER
@@ -311,7 +311,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglVertexAttrib4Nu
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglVertexAttribPointerARB(JNIEnv *__env, jclass clazz, jint index, jint size, jint type, jboolean normalized, jint stride, jlong pointerAddress, jlong __functionAddress) {
-	const GLvoid *pointer = (const GLvoid *)(intptr_t)pointerAddress;
+	const void *pointer = (const void *)(intptr_t)pointerAddress;
 	glVertexAttribPointerARBPROC glVertexAttribPointerARB = (glVertexAttribPointerARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glVertexAttribPointerARB(index, size, type, normalized, stride, pointer);
@@ -330,7 +330,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglDisableVertexAt
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglProgramStringARB(JNIEnv *__env, jclass clazz, jint target, jint format, jint len, jlong stringAddress, jlong __functionAddress) {
-	const GLvoid *string = (const GLvoid *)(intptr_t)stringAddress;
+	const void *string = (const void *)(intptr_t)stringAddress;
 	glProgramStringARBPROC glProgramStringARB = (glProgramStringARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glProgramStringARB(target, format, len, string);
@@ -444,7 +444,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglGetProgramivARB
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglGetProgramStringARB(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong stringAddress, jlong __functionAddress) {
-	GLvoid *string = (GLvoid *)(intptr_t)stringAddress;
+	void *string = (void *)(intptr_t)stringAddress;
 	glGetProgramStringARBPROC glGetProgramStringARB = (glGetProgramStringARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetProgramStringARB(target, pname, string);
@@ -472,7 +472,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglGetVertexAttrib
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexProgram_nglGetVertexAttribPointervARB(JNIEnv *__env, jclass clazz, jint index, jint pname, jlong pointerAddress, jlong __functionAddress) {
-	GLvoid **pointer = (GLvoid **)(intptr_t)pointerAddress;
+	void **pointer = (void **)(intptr_t)pointerAddress;
 	glGetVertexAttribPointervARBPROC glGetVertexAttribPointervARB = (glGetVertexAttribPointervARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetVertexAttribPointervARB(index, pname, pointer);

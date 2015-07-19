@@ -6,9 +6,9 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glBufferPageCommitmentARBPROC) (GLenum, GLintptr, GLsizeiptr, GLboolean);
-typedef GLvoid (APIENTRY *glNamedBufferPageCommitmentEXTPROC) (GLuint, GLintptr, GLsizeiptr, GLboolean);
-typedef GLvoid (APIENTRY *glNamedBufferPageCommitmentARBPROC) (GLuint, GLintptr, GLsizeiptr, GLboolean);
+typedef void (APIENTRY *glBufferPageCommitmentARBPROC) (GLenum, GLintptr, GLsizeiptr, GLboolean);
+typedef void (APIENTRY *glNamedBufferPageCommitmentEXTPROC) (GLuint, GLintptr, GLsizeiptr, GLboolean);
+typedef void (APIENTRY *glNamedBufferPageCommitmentARBPROC) (GLuint, GLintptr, GLsizeiptr, GLboolean);
 
 EXTERN_C_ENTER
 

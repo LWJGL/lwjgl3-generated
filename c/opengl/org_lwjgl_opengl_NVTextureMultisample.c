@@ -6,12 +6,12 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glTexImage2DMultisampleCoverageNVPROC) (GLenum, GLsizei, GLsizei, GLint, GLsizei, GLsizei, GLboolean);
-typedef GLvoid (APIENTRY *glTexImage3DMultisampleCoverageNVPROC) (GLenum, GLsizei, GLsizei, GLint, GLsizei, GLsizei, GLsizei, GLboolean);
-typedef GLvoid (APIENTRY *glTextureImage2DMultisampleNVPROC) (GLuint, GLenum, GLsizei, GLint, GLsizei, GLsizei, GLboolean);
-typedef GLvoid (APIENTRY *glTextureImage3DMultisampleNVPROC) (GLuint, GLenum, GLsizei, GLint, GLsizei, GLsizei, GLsizei, GLboolean);
-typedef GLvoid (APIENTRY *glTextureImage2DMultisampleCoverageNVPROC) (GLuint, GLenum, GLsizei, GLsizei, GLint, GLsizei, GLsizei, GLboolean);
-typedef GLvoid (APIENTRY *glTextureImage3DMultisampleCoverageNVPROC) (GLuint, GLenum, GLsizei, GLsizei, GLint, GLsizei, GLsizei, GLsizei, GLboolean);
+typedef void (APIENTRY *glTexImage2DMultisampleCoverageNVPROC) (GLenum, GLsizei, GLsizei, GLint, GLsizei, GLsizei, GLboolean);
+typedef void (APIENTRY *glTexImage3DMultisampleCoverageNVPROC) (GLenum, GLsizei, GLsizei, GLint, GLsizei, GLsizei, GLsizei, GLboolean);
+typedef void (APIENTRY *glTextureImage2DMultisampleNVPROC) (GLuint, GLenum, GLsizei, GLint, GLsizei, GLsizei, GLboolean);
+typedef void (APIENTRY *glTextureImage3DMultisampleNVPROC) (GLuint, GLenum, GLsizei, GLint, GLsizei, GLsizei, GLsizei, GLboolean);
+typedef void (APIENTRY *glTextureImage2DMultisampleCoverageNVPROC) (GLuint, GLenum, GLsizei, GLsizei, GLint, GLsizei, GLsizei, GLboolean);
+typedef void (APIENTRY *glTextureImage3DMultisampleCoverageNVPROC) (GLuint, GLenum, GLsizei, GLsizei, GLint, GLsizei, GLsizei, GLsizei, GLboolean);
 
 EXTERN_C_ENTER
 

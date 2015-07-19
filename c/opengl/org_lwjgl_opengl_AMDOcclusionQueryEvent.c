@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glQueryObjectParameteruiAMDPROC) (GLenum, GLuint, GLenum, GLuint);
+typedef void (APIENTRY *glQueryObjectParameteruiAMDPROC) (GLenum, GLuint, GLenum, GLuint);
 
 EXTERN_C_ENTER
 

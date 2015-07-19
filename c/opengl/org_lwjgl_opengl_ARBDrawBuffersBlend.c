@@ -6,10 +6,10 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glBlendEquationiARBPROC) (GLuint, GLenum);
-typedef GLvoid (APIENTRY *glBlendEquationSeparateiARBPROC) (GLuint, GLenum, GLenum);
-typedef GLvoid (APIENTRY *glBlendFunciARBPROC) (GLuint, GLenum, GLenum);
-typedef GLvoid (APIENTRY *glBlendFuncSeparateiARBPROC) (GLuint, GLenum, GLenum, GLenum, GLenum);
+typedef void (APIENTRY *glBlendEquationiARBPROC) (GLuint, GLenum);
+typedef void (APIENTRY *glBlendEquationSeparateiARBPROC) (GLuint, GLenum, GLenum);
+typedef void (APIENTRY *glBlendFunciARBPROC) (GLuint, GLenum, GLenum);
+typedef void (APIENTRY *glBlendFuncSeparateiARBPROC) (GLuint, GLenum, GLenum, GLenum, GLenum);
 
 EXTERN_C_ENTER
 

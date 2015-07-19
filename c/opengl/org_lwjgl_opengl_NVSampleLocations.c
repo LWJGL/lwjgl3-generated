@@ -6,9 +6,9 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glFramebufferSampleLocationsfvNVPROC) (GLenum, GLuint, GLsizei, const GLfloat *);
-typedef GLvoid (APIENTRY *glNamedFramebufferSampleLocationsfvNVPROC) (GLuint, GLuint, GLsizei, const GLfloat *);
-typedef GLvoid (APIENTRY *glResolveDepthValuesNVPROC) (void);
+typedef void (APIENTRY *glFramebufferSampleLocationsfvNVPROC) (GLenum, GLuint, GLsizei, const GLfloat *);
+typedef void (APIENTRY *glNamedFramebufferSampleLocationsfvNVPROC) (GLuint, GLuint, GLsizei, const GLfloat *);
+typedef void (APIENTRY *glResolveDepthValuesNVPROC) (void);
 
 EXTERN_C_ENTER
 

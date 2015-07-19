@@ -6,10 +6,10 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glProgramParameteriARBPROC) (GLuint, GLenum, GLint);
-typedef GLvoid (APIENTRY *glFramebufferTextureARBPROC) (GLenum, GLenum, GLuint, GLint);
-typedef GLvoid (APIENTRY *glFramebufferTextureLayerARBPROC) (GLenum, GLenum, GLuint, GLint, GLint);
-typedef GLvoid (APIENTRY *glFramebufferTextureFaceARBPROC) (GLenum, GLenum, GLuint, GLint, GLenum);
+typedef void (APIENTRY *glProgramParameteriARBPROC) (GLuint, GLenum, GLint);
+typedef void (APIENTRY *glFramebufferTextureARBPROC) (GLenum, GLenum, GLuint, GLint);
+typedef void (APIENTRY *glFramebufferTextureLayerARBPROC) (GLenum, GLenum, GLuint, GLint, GLint);
+typedef void (APIENTRY *glFramebufferTextureFaceARBPROC) (GLenum, GLenum, GLuint, GLint, GLenum);
 
 EXTERN_C_ENTER
 

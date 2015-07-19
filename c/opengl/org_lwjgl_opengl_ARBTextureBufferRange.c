@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glTextureBufferRangeEXTPROC) (GLuint, GLenum, GLenum, GLuint, GLintptr, GLsizeiptr);
+typedef void (APIENTRY *glTextureBufferRangeEXTPROC) (GLuint, GLenum, GLenum, GLuint, GLintptr, GLsizeiptr);
 
 EXTERN_C_ENTER
 

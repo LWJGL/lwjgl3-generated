@@ -6,14 +6,14 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glGenQueriesARBPROC) (GLsizei, GLuint *);
-typedef GLvoid (APIENTRY *glDeleteQueriesARBPROC) (GLsizei, const GLuint *);
+typedef void (APIENTRY *glGenQueriesARBPROC) (GLsizei, GLuint *);
+typedef void (APIENTRY *glDeleteQueriesARBPROC) (GLsizei, const GLuint *);
 typedef GLboolean (APIENTRY *glIsQueryARBPROC) (GLuint);
-typedef GLvoid (APIENTRY *glBeginQueryARBPROC) (GLenum, GLuint);
-typedef GLvoid (APIENTRY *glEndQueryARBPROC) (GLenum);
-typedef GLvoid (APIENTRY *glGetQueryivARBPROC) (GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetQueryObjectivARBPROC) (GLuint, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetQueryObjectuivARBPROC) (GLuint, GLenum, GLuint *);
+typedef void (APIENTRY *glBeginQueryARBPROC) (GLenum, GLuint);
+typedef void (APIENTRY *glEndQueryARBPROC) (GLenum);
+typedef void (APIENTRY *glGetQueryivARBPROC) (GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGetQueryObjectivARBPROC) (GLuint, GLenum, GLint *);
+typedef void (APIENTRY *glGetQueryObjectuivARBPROC) (GLuint, GLenum, GLuint *);
 
 EXTERN_C_ENTER
 

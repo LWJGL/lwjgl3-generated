@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glSampleCoverageARBPROC) (GLfloat, GLboolean);
+typedef void (APIENTRY *glSampleCoverageARBPROC) (GLfloat, GLboolean);
 
 EXTERN_C_ENTER
 

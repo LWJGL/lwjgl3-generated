@@ -6,18 +6,18 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glDrawArraysInstancedPROC) (GLenum, GLint, GLsizei, GLsizei);
-typedef GLvoid (APIENTRY *glDrawElementsInstancedPROC) (GLenum, GLsizei, GLenum, const GLvoid *, GLsizei);
-typedef GLvoid (APIENTRY *glCopyBufferSubDataPROC) (GLenum, GLenum, GLintptr, GLintptr, GLsizeiptr);
-typedef GLvoid (APIENTRY *glPrimitiveRestartIndexPROC) (GLuint);
-typedef GLvoid (APIENTRY *glTexBufferPROC) (GLenum, GLenum, GLuint);
-typedef GLvoid (APIENTRY *glGetUniformIndicesPROC) (GLuint, GLsizei, const GLchar **, GLuint *);
-typedef GLvoid (APIENTRY *glGetActiveUniformsivPROC) (GLuint, GLsizei, const GLuint *, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetActiveUniformNamePROC) (GLuint, GLuint, GLsizei, GLsizei *, GLchar *);
+typedef void (APIENTRY *glDrawArraysInstancedPROC) (GLenum, GLint, GLsizei, GLsizei);
+typedef void (APIENTRY *glDrawElementsInstancedPROC) (GLenum, GLsizei, GLenum, const void *, GLsizei);
+typedef void (APIENTRY *glCopyBufferSubDataPROC) (GLenum, GLenum, GLintptr, GLintptr, GLsizeiptr);
+typedef void (APIENTRY *glPrimitiveRestartIndexPROC) (GLuint);
+typedef void (APIENTRY *glTexBufferPROC) (GLenum, GLenum, GLuint);
+typedef void (APIENTRY *glGetUniformIndicesPROC) (GLuint, GLsizei, const GLchar **, GLuint *);
+typedef void (APIENTRY *glGetActiveUniformsivPROC) (GLuint, GLsizei, const GLuint *, GLenum, GLint *);
+typedef void (APIENTRY *glGetActiveUniformNamePROC) (GLuint, GLuint, GLsizei, GLsizei *, GLchar *);
 typedef GLuint (APIENTRY *glGetUniformBlockIndexPROC) (GLuint, const GLchar *);
-typedef GLvoid (APIENTRY *glGetActiveUniformBlockivPROC) (GLuint, GLuint, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetActiveUniformBlockNamePROC) (GLuint, GLuint, GLsizei, GLsizei *, GLchar *);
-typedef GLvoid (APIENTRY *glUniformBlockBindingPROC) (GLuint, GLuint, GLuint);
+typedef void (APIENTRY *glGetActiveUniformBlockivPROC) (GLuint, GLuint, GLenum, GLint *);
+typedef void (APIENTRY *glGetActiveUniformBlockNamePROC) (GLuint, GLuint, GLsizei, GLsizei *, GLchar *);
+typedef void (APIENTRY *glUniformBlockBindingPROC) (GLuint, GLuint, GLuint);
 
 EXTERN_C_ENTER
 
@@ -28,7 +28,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglDrawArraysInstanced(JNIEnv 
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglDrawElementsInstanced(JNIEnv *__env, jclass clazz, jint mode, jint count, jint type, jlong indicesAddress, jint primcount, jlong __functionAddress) {
-	const GLvoid *indices = (const GLvoid *)(intptr_t)indicesAddress;
+	const void *indices = (const void *)(intptr_t)indicesAddress;
 	glDrawElementsInstancedPROC glDrawElementsInstanced = (glDrawElementsInstancedPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glDrawElementsInstanced(mode, count, type, indices, primcount);

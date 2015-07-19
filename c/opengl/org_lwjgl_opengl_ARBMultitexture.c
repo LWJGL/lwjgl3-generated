@@ -6,40 +6,40 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glActiveTextureARBPROC) (GLenum);
-typedef GLvoid (APIENTRY *glClientActiveTextureARBPROC) (GLenum);
-typedef GLvoid (APIENTRY *glMultiTexCoord1fARBPROC) (GLenum, GLfloat);
-typedef GLvoid (APIENTRY *glMultiTexCoord1sARBPROC) (GLenum, GLshort);
-typedef GLvoid (APIENTRY *glMultiTexCoord1iARBPROC) (GLenum, GLint);
-typedef GLvoid (APIENTRY *glMultiTexCoord1dARBPROC) (GLenum, GLdouble);
-typedef GLvoid (APIENTRY *glMultiTexCoord1fvARBPROC) (GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glMultiTexCoord1svARBPROC) (GLenum, const GLshort *);
-typedef GLvoid (APIENTRY *glMultiTexCoord1ivARBPROC) (GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glMultiTexCoord1dvARBPROC) (GLenum, const GLdouble *);
-typedef GLvoid (APIENTRY *glMultiTexCoord2fARBPROC) (GLenum, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glMultiTexCoord2sARBPROC) (GLenum, GLshort, GLshort);
-typedef GLvoid (APIENTRY *glMultiTexCoord2iARBPROC) (GLenum, GLint, GLint);
-typedef GLvoid (APIENTRY *glMultiTexCoord2dARBPROC) (GLenum, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glMultiTexCoord2fvARBPROC) (GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glMultiTexCoord2svARBPROC) (GLenum, const GLshort *);
-typedef GLvoid (APIENTRY *glMultiTexCoord2ivARBPROC) (GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glMultiTexCoord2dvARBPROC) (GLenum, const GLdouble *);
-typedef GLvoid (APIENTRY *glMultiTexCoord3fARBPROC) (GLenum, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glMultiTexCoord3sARBPROC) (GLenum, GLshort, GLshort, GLshort);
-typedef GLvoid (APIENTRY *glMultiTexCoord3iARBPROC) (GLenum, GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glMultiTexCoord3dARBPROC) (GLenum, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glMultiTexCoord3fvARBPROC) (GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glMultiTexCoord3svARBPROC) (GLenum, const GLshort *);
-typedef GLvoid (APIENTRY *glMultiTexCoord3ivARBPROC) (GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glMultiTexCoord3dvARBPROC) (GLenum, const GLdouble *);
-typedef GLvoid (APIENTRY *glMultiTexCoord4fARBPROC) (GLenum, GLfloat, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glMultiTexCoord4sARBPROC) (GLenum, GLshort, GLshort, GLshort, GLshort);
-typedef GLvoid (APIENTRY *glMultiTexCoord4iARBPROC) (GLenum, GLint, GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glMultiTexCoord4dARBPROC) (GLenum, GLdouble, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glMultiTexCoord4fvARBPROC) (GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glMultiTexCoord4svARBPROC) (GLenum, const GLshort *);
-typedef GLvoid (APIENTRY *glMultiTexCoord4ivARBPROC) (GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glMultiTexCoord4dvARBPROC) (GLenum, const GLdouble *);
+typedef void (APIENTRY *glActiveTextureARBPROC) (GLenum);
+typedef void (APIENTRY *glClientActiveTextureARBPROC) (GLenum);
+typedef void (APIENTRY *glMultiTexCoord1fARBPROC) (GLenum, GLfloat);
+typedef void (APIENTRY *glMultiTexCoord1sARBPROC) (GLenum, GLshort);
+typedef void (APIENTRY *glMultiTexCoord1iARBPROC) (GLenum, GLint);
+typedef void (APIENTRY *glMultiTexCoord1dARBPROC) (GLenum, GLdouble);
+typedef void (APIENTRY *glMultiTexCoord1fvARBPROC) (GLenum, const GLfloat *);
+typedef void (APIENTRY *glMultiTexCoord1svARBPROC) (GLenum, const GLshort *);
+typedef void (APIENTRY *glMultiTexCoord1ivARBPROC) (GLenum, const GLint *);
+typedef void (APIENTRY *glMultiTexCoord1dvARBPROC) (GLenum, const GLdouble *);
+typedef void (APIENTRY *glMultiTexCoord2fARBPROC) (GLenum, GLfloat, GLfloat);
+typedef void (APIENTRY *glMultiTexCoord2sARBPROC) (GLenum, GLshort, GLshort);
+typedef void (APIENTRY *glMultiTexCoord2iARBPROC) (GLenum, GLint, GLint);
+typedef void (APIENTRY *glMultiTexCoord2dARBPROC) (GLenum, GLdouble, GLdouble);
+typedef void (APIENTRY *glMultiTexCoord2fvARBPROC) (GLenum, const GLfloat *);
+typedef void (APIENTRY *glMultiTexCoord2svARBPROC) (GLenum, const GLshort *);
+typedef void (APIENTRY *glMultiTexCoord2ivARBPROC) (GLenum, const GLint *);
+typedef void (APIENTRY *glMultiTexCoord2dvARBPROC) (GLenum, const GLdouble *);
+typedef void (APIENTRY *glMultiTexCoord3fARBPROC) (GLenum, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glMultiTexCoord3sARBPROC) (GLenum, GLshort, GLshort, GLshort);
+typedef void (APIENTRY *glMultiTexCoord3iARBPROC) (GLenum, GLint, GLint, GLint);
+typedef void (APIENTRY *glMultiTexCoord3dARBPROC) (GLenum, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glMultiTexCoord3fvARBPROC) (GLenum, const GLfloat *);
+typedef void (APIENTRY *glMultiTexCoord3svARBPROC) (GLenum, const GLshort *);
+typedef void (APIENTRY *glMultiTexCoord3ivARBPROC) (GLenum, const GLint *);
+typedef void (APIENTRY *glMultiTexCoord3dvARBPROC) (GLenum, const GLdouble *);
+typedef void (APIENTRY *glMultiTexCoord4fARBPROC) (GLenum, GLfloat, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glMultiTexCoord4sARBPROC) (GLenum, GLshort, GLshort, GLshort, GLshort);
+typedef void (APIENTRY *glMultiTexCoord4iARBPROC) (GLenum, GLint, GLint, GLint, GLint);
+typedef void (APIENTRY *glMultiTexCoord4dARBPROC) (GLenum, GLdouble, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glMultiTexCoord4fvARBPROC) (GLenum, const GLfloat *);
+typedef void (APIENTRY *glMultiTexCoord4svARBPROC) (GLenum, const GLshort *);
+typedef void (APIENTRY *glMultiTexCoord4ivARBPROC) (GLenum, const GLint *);
+typedef void (APIENTRY *glMultiTexCoord4dvARBPROC) (GLenum, const GLdouble *);
 
 EXTERN_C_ENTER
 

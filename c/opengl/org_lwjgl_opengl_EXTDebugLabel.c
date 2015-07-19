@@ -6,8 +6,8 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glLabelObjectEXTPROC) (GLenum, GLuint, GLsizei, const GLchar *);
-typedef GLvoid (APIENTRY *glGetObjectLabelEXTPROC) (GLenum, GLuint, GLsizei, GLsizei *, GLchar *);
+typedef void (APIENTRY *glLabelObjectEXTPROC) (GLenum, GLuint, GLsizei, const GLchar *);
+typedef void (APIENTRY *glGetObjectLabelEXTPROC) (GLenum, GLuint, GLsizei, GLsizei *, GLchar *);
 
 EXTERN_C_ENTER
 

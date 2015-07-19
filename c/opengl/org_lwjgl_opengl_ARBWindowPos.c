@@ -6,22 +6,22 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glWindowPos2iARBPROC) (GLint, GLint);
-typedef GLvoid (APIENTRY *glWindowPos2sARBPROC) (GLshort, GLshort);
-typedef GLvoid (APIENTRY *glWindowPos2fARBPROC) (GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glWindowPos2dARBPROC) (GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glWindowPos2ivARBPROC) (const GLint *);
-typedef GLvoid (APIENTRY *glWindowPos2svARBPROC) (const GLshort *);
-typedef GLvoid (APIENTRY *glWindowPos2fvARBPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glWindowPos2dvARBPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glWindowPos3iARBPROC) (GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glWindowPos3sARBPROC) (GLshort, GLshort, GLshort);
-typedef GLvoid (APIENTRY *glWindowPos3fARBPROC) (GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glWindowPos3dARBPROC) (GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glWindowPos3ivARBPROC) (const GLint *);
-typedef GLvoid (APIENTRY *glWindowPos3svARBPROC) (const GLshort *);
-typedef GLvoid (APIENTRY *glWindowPos3fvARBPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glWindowPos3dvARBPROC) (const GLdouble *);
+typedef void (APIENTRY *glWindowPos2iARBPROC) (GLint, GLint);
+typedef void (APIENTRY *glWindowPos2sARBPROC) (GLshort, GLshort);
+typedef void (APIENTRY *glWindowPos2fARBPROC) (GLfloat, GLfloat);
+typedef void (APIENTRY *glWindowPos2dARBPROC) (GLdouble, GLdouble);
+typedef void (APIENTRY *glWindowPos2ivARBPROC) (const GLint *);
+typedef void (APIENTRY *glWindowPos2svARBPROC) (const GLshort *);
+typedef void (APIENTRY *glWindowPos2fvARBPROC) (const GLfloat *);
+typedef void (APIENTRY *glWindowPos2dvARBPROC) (const GLdouble *);
+typedef void (APIENTRY *glWindowPos3iARBPROC) (GLint, GLint, GLint);
+typedef void (APIENTRY *glWindowPos3sARBPROC) (GLshort, GLshort, GLshort);
+typedef void (APIENTRY *glWindowPos3fARBPROC) (GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glWindowPos3dARBPROC) (GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glWindowPos3ivARBPROC) (const GLint *);
+typedef void (APIENTRY *glWindowPos3svARBPROC) (const GLshort *);
+typedef void (APIENTRY *glWindowPos3fvARBPROC) (const GLfloat *);
+typedef void (APIENTRY *glWindowPos3dvARBPROC) (const GLdouble *);
 
 EXTERN_C_ENTER
 

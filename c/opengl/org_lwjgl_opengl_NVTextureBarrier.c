@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glTextureBarrierNVPROC) (void);
+typedef void (APIENTRY *glTextureBarrierNVPROC) (void);
 
 EXTERN_C_ENTER
 

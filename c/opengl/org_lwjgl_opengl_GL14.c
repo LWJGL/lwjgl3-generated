@@ -6,53 +6,53 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glBlendColorPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glBlendEquationPROC) (GLenum);
-typedef GLvoid (APIENTRY *glFogCoordfPROC) (GLfloat);
-typedef GLvoid (APIENTRY *glFogCoorddPROC) (GLdouble);
-typedef GLvoid (APIENTRY *glFogCoordfvPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glFogCoorddvPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glFogCoordPointerPROC) (GLenum, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glMultiDrawArraysPROC) (GLenum, const GLint *, const GLsizei *, GLsizei);
-typedef GLvoid (APIENTRY *glMultiDrawElementsPROC) (GLenum, GLsizei *, GLenum, const GLvoid **, GLsizei);
-typedef GLvoid (APIENTRY *glPointParameterfPROC) (GLenum, GLfloat);
-typedef GLvoid (APIENTRY *glPointParameteriPROC) (GLenum, GLint);
-typedef GLvoid (APIENTRY *glPointParameterfvPROC) (GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glPointParameterivPROC) (GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glSecondaryColor3bPROC) (GLbyte, GLbyte, GLbyte);
-typedef GLvoid (APIENTRY *glSecondaryColor3sPROC) (GLshort, GLshort, GLshort);
-typedef GLvoid (APIENTRY *glSecondaryColor3iPROC) (GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glSecondaryColor3fPROC) (GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glSecondaryColor3dPROC) (GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glSecondaryColor3ubPROC) (GLubyte, GLubyte, GLubyte);
-typedef GLvoid (APIENTRY *glSecondaryColor3usPROC) (GLushort, GLushort, GLushort);
-typedef GLvoid (APIENTRY *glSecondaryColor3uiPROC) (GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glSecondaryColor3bvPROC) (const GLbyte *);
-typedef GLvoid (APIENTRY *glSecondaryColor3svPROC) (const GLshort *);
-typedef GLvoid (APIENTRY *glSecondaryColor3ivPROC) (const GLint *);
-typedef GLvoid (APIENTRY *glSecondaryColor3fvPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glSecondaryColor3dvPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glSecondaryColor3ubvPROC) (const GLubyte *);
-typedef GLvoid (APIENTRY *glSecondaryColor3usvPROC) (const GLushort *);
-typedef GLvoid (APIENTRY *glSecondaryColor3uivPROC) (const GLuint *);
-typedef GLvoid (APIENTRY *glSecondaryColorPointerPROC) (GLint, GLenum, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glBlendFuncSeparatePROC) (GLenum, GLenum, GLenum, GLenum);
-typedef GLvoid (APIENTRY *glWindowPos2iPROC) (GLint, GLint);
-typedef GLvoid (APIENTRY *glWindowPos2sPROC) (GLshort, GLshort);
-typedef GLvoid (APIENTRY *glWindowPos2fPROC) (GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glWindowPos2dPROC) (GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glWindowPos2ivPROC) (const GLint *);
-typedef GLvoid (APIENTRY *glWindowPos2svPROC) (const GLshort *);
-typedef GLvoid (APIENTRY *glWindowPos2fvPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glWindowPos2dvPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glWindowPos3iPROC) (GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glWindowPos3sPROC) (GLshort, GLshort, GLshort);
-typedef GLvoid (APIENTRY *glWindowPos3fPROC) (GLfloat, GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glWindowPos3dPROC) (GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glWindowPos3ivPROC) (const GLint *);
-typedef GLvoid (APIENTRY *glWindowPos3svPROC) (const GLshort *);
-typedef GLvoid (APIENTRY *glWindowPos3fvPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glWindowPos3dvPROC) (const GLdouble *);
+typedef void (APIENTRY *glBlendColorPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glBlendEquationPROC) (GLenum);
+typedef void (APIENTRY *glFogCoordfPROC) (GLfloat);
+typedef void (APIENTRY *glFogCoorddPROC) (GLdouble);
+typedef void (APIENTRY *glFogCoordfvPROC) (const GLfloat *);
+typedef void (APIENTRY *glFogCoorddvPROC) (const GLdouble *);
+typedef void (APIENTRY *glFogCoordPointerPROC) (GLenum, GLsizei, const void *);
+typedef void (APIENTRY *glMultiDrawArraysPROC) (GLenum, const GLint *, const GLsizei *, GLsizei);
+typedef void (APIENTRY *glMultiDrawElementsPROC) (GLenum, GLsizei *, GLenum, const void **, GLsizei);
+typedef void (APIENTRY *glPointParameterfPROC) (GLenum, GLfloat);
+typedef void (APIENTRY *glPointParameteriPROC) (GLenum, GLint);
+typedef void (APIENTRY *glPointParameterfvPROC) (GLenum, const GLfloat *);
+typedef void (APIENTRY *glPointParameterivPROC) (GLenum, const GLint *);
+typedef void (APIENTRY *glSecondaryColor3bPROC) (GLbyte, GLbyte, GLbyte);
+typedef void (APIENTRY *glSecondaryColor3sPROC) (GLshort, GLshort, GLshort);
+typedef void (APIENTRY *glSecondaryColor3iPROC) (GLint, GLint, GLint);
+typedef void (APIENTRY *glSecondaryColor3fPROC) (GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glSecondaryColor3dPROC) (GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glSecondaryColor3ubPROC) (GLubyte, GLubyte, GLubyte);
+typedef void (APIENTRY *glSecondaryColor3usPROC) (GLushort, GLushort, GLushort);
+typedef void (APIENTRY *glSecondaryColor3uiPROC) (GLint, GLint, GLint);
+typedef void (APIENTRY *glSecondaryColor3bvPROC) (const GLbyte *);
+typedef void (APIENTRY *glSecondaryColor3svPROC) (const GLshort *);
+typedef void (APIENTRY *glSecondaryColor3ivPROC) (const GLint *);
+typedef void (APIENTRY *glSecondaryColor3fvPROC) (const GLfloat *);
+typedef void (APIENTRY *glSecondaryColor3dvPROC) (const GLdouble *);
+typedef void (APIENTRY *glSecondaryColor3ubvPROC) (const GLubyte *);
+typedef void (APIENTRY *glSecondaryColor3usvPROC) (const GLushort *);
+typedef void (APIENTRY *glSecondaryColor3uivPROC) (const GLuint *);
+typedef void (APIENTRY *glSecondaryColorPointerPROC) (GLint, GLenum, GLsizei, const void *);
+typedef void (APIENTRY *glBlendFuncSeparatePROC) (GLenum, GLenum, GLenum, GLenum);
+typedef void (APIENTRY *glWindowPos2iPROC) (GLint, GLint);
+typedef void (APIENTRY *glWindowPos2sPROC) (GLshort, GLshort);
+typedef void (APIENTRY *glWindowPos2fPROC) (GLfloat, GLfloat);
+typedef void (APIENTRY *glWindowPos2dPROC) (GLdouble, GLdouble);
+typedef void (APIENTRY *glWindowPos2ivPROC) (const GLint *);
+typedef void (APIENTRY *glWindowPos2svPROC) (const GLshort *);
+typedef void (APIENTRY *glWindowPos2fvPROC) (const GLfloat *);
+typedef void (APIENTRY *glWindowPos2dvPROC) (const GLdouble *);
+typedef void (APIENTRY *glWindowPos3iPROC) (GLint, GLint, GLint);
+typedef void (APIENTRY *glWindowPos3sPROC) (GLshort, GLshort, GLshort);
+typedef void (APIENTRY *glWindowPos3fPROC) (GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glWindowPos3dPROC) (GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glWindowPos3ivPROC) (const GLint *);
+typedef void (APIENTRY *glWindowPos3svPROC) (const GLshort *);
+typedef void (APIENTRY *glWindowPos3fvPROC) (const GLfloat *);
+typedef void (APIENTRY *glWindowPos3dvPROC) (const GLdouble *);
 
 EXTERN_C_ENTER
 
@@ -95,7 +95,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglFogCoorddv(JNIEnv *__env, j
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglFogCoordPointer(JNIEnv *__env, jclass clazz, jint type, jint stride, jlong pointerAddress, jlong __functionAddress) {
-	const GLvoid *pointer = (const GLvoid *)(intptr_t)pointerAddress;
+	const void *pointer = (const void *)(intptr_t)pointerAddress;
 	glFogCoordPointerPROC glFogCoordPointer = (glFogCoordPointerPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glFogCoordPointer(type, stride, pointer);
@@ -111,7 +111,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglMultiDrawArrays(JNIEnv *__e
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglMultiDrawElements(JNIEnv *__env, jclass clazz, jint mode, jlong countAddress, jint type, jlong indicesAddress, jint primcount, jlong __functionAddress) {
 	GLsizei *count = (GLsizei *)(intptr_t)countAddress;
-	const GLvoid **indices = (const GLvoid **)(intptr_t)indicesAddress;
+	const void **indices = (const void **)(intptr_t)indicesAddress;
 	glMultiDrawElementsPROC glMultiDrawElements = (glMultiDrawElementsPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glMultiDrawElements(mode, count, type, indices, primcount);
@@ -248,7 +248,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColor3uiv(JNIEnv *
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColorPointer(JNIEnv *__env, jclass clazz, jint size, jint type, jint stride, jlong pointerAddress, jlong __functionAddress) {
-	const GLvoid *pointer = (const GLvoid *)(intptr_t)pointerAddress;
+	const void *pointer = (const void *)(intptr_t)pointerAddress;
 	glSecondaryColorPointerPROC glSecondaryColorPointer = (glSecondaryColorPointerPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glSecondaryColorPointer(size, type, stride, pointer);

@@ -7,25 +7,25 @@
 #include "OpenGL.h"
 
 typedef GLenum (APIENTRY *glGetGraphicsResetStatusARBPROC) (void);
-typedef GLvoid (APIENTRY *glGetnMapdvARBPROC) (GLenum, GLenum, GLsizei, GLdouble *);
-typedef GLvoid (APIENTRY *glGetnMapfvARBPROC) (GLenum, GLenum, GLsizei, GLfloat *);
-typedef GLvoid (APIENTRY *glGetnMapivARBPROC) (GLenum, GLenum, GLsizei, GLint *);
-typedef GLvoid (APIENTRY *glGetnPixelMapfvARBPROC) (GLenum, GLsizei, GLfloat *);
-typedef GLvoid (APIENTRY *glGetnPixelMapuivARBPROC) (GLenum, GLsizei, GLuint *);
-typedef GLvoid (APIENTRY *glGetnPixelMapusvARBPROC) (GLenum, GLsizei, GLushort *);
-typedef GLvoid (APIENTRY *glGetnPolygonStippleARBPROC) (GLsizei, GLubyte *);
-typedef GLvoid (APIENTRY *glGetnTexImageARBPROC) (GLenum, GLint, GLenum, GLenum, GLsizei, GLvoid *);
-typedef GLvoid (APIENTRY *glReadnPixelsARBPROC) (GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, GLsizei, GLvoid *);
-typedef GLvoid (APIENTRY *glGetnColorTableARBPROC) (GLenum, GLenum, GLenum, GLsizei, GLvoid *);
-typedef GLvoid (APIENTRY *glGetnConvolutionFilterARBPROC) (GLenum, GLenum, GLenum, GLsizei, GLvoid *);
-typedef GLvoid (APIENTRY *glGetnSeparableFilterARBPROC) (GLenum, GLenum, GLenum, GLsizei, GLvoid *, GLsizei, GLvoid *, GLvoid *);
-typedef GLvoid (APIENTRY *glGetnHistogramARBPROC) (GLenum, GLboolean, GLenum, GLenum, GLsizei, GLvoid *);
-typedef GLvoid (APIENTRY *glGetnMinmaxARBPROC) (GLenum, GLboolean, GLenum, GLenum, GLsizei, GLvoid *);
-typedef GLvoid (APIENTRY *glGetnCompressedTexImageARBPROC) (GLenum, GLint, GLsizei, GLvoid *);
-typedef GLvoid (APIENTRY *glGetnUniformfvARBPROC) (GLuint, GLint, GLsizei, GLfloat *);
-typedef GLvoid (APIENTRY *glGetnUniformivARBPROC) (GLuint, GLint, GLsizei, GLint *);
-typedef GLvoid (APIENTRY *glGetnUniformuivARBPROC) (GLuint, GLint, GLsizei, GLuint *);
-typedef GLvoid (APIENTRY *glGetnUniformdvARBPROC) (GLuint, GLint, GLsizei, GLdouble *);
+typedef void (APIENTRY *glGetnMapdvARBPROC) (GLenum, GLenum, GLsizei, GLdouble *);
+typedef void (APIENTRY *glGetnMapfvARBPROC) (GLenum, GLenum, GLsizei, GLfloat *);
+typedef void (APIENTRY *glGetnMapivARBPROC) (GLenum, GLenum, GLsizei, GLint *);
+typedef void (APIENTRY *glGetnPixelMapfvARBPROC) (GLenum, GLsizei, GLfloat *);
+typedef void (APIENTRY *glGetnPixelMapuivARBPROC) (GLenum, GLsizei, GLuint *);
+typedef void (APIENTRY *glGetnPixelMapusvARBPROC) (GLenum, GLsizei, GLushort *);
+typedef void (APIENTRY *glGetnPolygonStippleARBPROC) (GLsizei, GLubyte *);
+typedef void (APIENTRY *glGetnTexImageARBPROC) (GLenum, GLint, GLenum, GLenum, GLsizei, void *);
+typedef void (APIENTRY *glReadnPixelsARBPROC) (GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, GLsizei, void *);
+typedef void (APIENTRY *glGetnColorTableARBPROC) (GLenum, GLenum, GLenum, GLsizei, void *);
+typedef void (APIENTRY *glGetnConvolutionFilterARBPROC) (GLenum, GLenum, GLenum, GLsizei, void *);
+typedef void (APIENTRY *glGetnSeparableFilterARBPROC) (GLenum, GLenum, GLenum, GLsizei, void *, GLsizei, void *, void *);
+typedef void (APIENTRY *glGetnHistogramARBPROC) (GLenum, GLboolean, GLenum, GLenum, GLsizei, void *);
+typedef void (APIENTRY *glGetnMinmaxARBPROC) (GLenum, GLboolean, GLenum, GLenum, GLsizei, void *);
+typedef void (APIENTRY *glGetnCompressedTexImageARBPROC) (GLenum, GLint, GLsizei, void *);
+typedef void (APIENTRY *glGetnUniformfvARBPROC) (GLuint, GLint, GLsizei, GLfloat *);
+typedef void (APIENTRY *glGetnUniformivARBPROC) (GLuint, GLint, GLsizei, GLint *);
+typedef void (APIENTRY *glGetnUniformuivARBPROC) (GLuint, GLint, GLsizei, GLuint *);
+typedef void (APIENTRY *glGetnUniformdvARBPROC) (GLuint, GLint, GLsizei, GLdouble *);
 
 EXTERN_C_ENTER
 
@@ -85,58 +85,58 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnPolygonStipple
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnTexImageARB(JNIEnv *__env, jclass clazz, jint tex, jint level, jint format, jint type, jint bufSize, jlong imgAddress, jlong __functionAddress) {
-	GLvoid *img = (GLvoid *)(intptr_t)imgAddress;
+	void *img = (void *)(intptr_t)imgAddress;
 	glGetnTexImageARBPROC glGetnTexImageARB = (glGetnTexImageARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetnTexImageARB(tex, level, format, type, bufSize, img);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglReadnPixelsARB(JNIEnv *__env, jclass clazz, jint x, jint y, jint width, jint height, jint format, jint type, jint bufSize, jlong dataAddress, jlong __functionAddress) {
-	GLvoid *data = (GLvoid *)(intptr_t)dataAddress;
+	void *data = (void *)(intptr_t)dataAddress;
 	glReadnPixelsARBPROC glReadnPixelsARB = (glReadnPixelsARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glReadnPixelsARB(x, y, width, height, format, type, bufSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnColorTableARB(JNIEnv *__env, jclass clazz, jint target, jint format, jint type, jint bufSize, jlong tableAddress, jlong __functionAddress) {
-	GLvoid *table = (GLvoid *)(intptr_t)tableAddress;
+	void *table = (void *)(intptr_t)tableAddress;
 	glGetnColorTableARBPROC glGetnColorTableARB = (glGetnColorTableARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetnColorTableARB(target, format, type, bufSize, table);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnConvolutionFilterARB(JNIEnv *__env, jclass clazz, jint target, jint format, jint type, jint bufSize, jlong imageAddress, jlong __functionAddress) {
-	GLvoid *image = (GLvoid *)(intptr_t)imageAddress;
+	void *image = (void *)(intptr_t)imageAddress;
 	glGetnConvolutionFilterARBPROC glGetnConvolutionFilterARB = (glGetnConvolutionFilterARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetnConvolutionFilterARB(target, format, type, bufSize, image);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnSeparableFilterARB(JNIEnv *__env, jclass clazz, jint target, jint format, jint type, jint rowBufSize, jlong rowAddress, jint columnBufSize, jlong columnAddress, jlong spanAddress, jlong __functionAddress) {
-	GLvoid *row = (GLvoid *)(intptr_t)rowAddress;
-	GLvoid *column = (GLvoid *)(intptr_t)columnAddress;
-	GLvoid *span = (GLvoid *)(intptr_t)spanAddress;
+	void *row = (void *)(intptr_t)rowAddress;
+	void *column = (void *)(intptr_t)columnAddress;
+	void *span = (void *)(intptr_t)spanAddress;
 	glGetnSeparableFilterARBPROC glGetnSeparableFilterARB = (glGetnSeparableFilterARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetnSeparableFilterARB(target, format, type, rowBufSize, row, columnBufSize, column, span);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnHistogramARB(JNIEnv *__env, jclass clazz, jint target, jboolean reset, jint format, jint type, jint bufSize, jlong valuesAddress, jlong __functionAddress) {
-	GLvoid *values = (GLvoid *)(intptr_t)valuesAddress;
+	void *values = (void *)(intptr_t)valuesAddress;
 	glGetnHistogramARBPROC glGetnHistogramARB = (glGetnHistogramARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetnHistogramARB(target, reset, format, type, bufSize, values);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnMinmaxARB(JNIEnv *__env, jclass clazz, jint target, jboolean reset, jint format, jint type, jint bufSize, jlong valuesAddress, jlong __functionAddress) {
-	GLvoid *values = (GLvoid *)(intptr_t)valuesAddress;
+	void *values = (void *)(intptr_t)valuesAddress;
 	glGetnMinmaxARBPROC glGetnMinmaxARB = (glGetnMinmaxARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetnMinmaxARB(target, reset, format, type, bufSize, values);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnCompressedTexImageARB(JNIEnv *__env, jclass clazz, jint target, jint level, jint bufSize, jlong imgAddress, jlong __functionAddress) {
-	GLvoid *img = (GLvoid *)(intptr_t)imgAddress;
+	void *img = (void *)(intptr_t)imgAddress;
 	glGetnCompressedTexImageARBPROC glGetnCompressedTexImageARB = (glGetnCompressedTexImageARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetnCompressedTexImageARB(target, level, bufSize, img);

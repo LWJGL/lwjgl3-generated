@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glFramebufferTextureMultiviewOVRPROC) (GLenum, GLenum, GLuint, GLint, GLint, GLsizei);
+typedef void (APIENTRY *glFramebufferTextureMultiviewOVRPROC) (GLenum, GLenum, GLuint, GLint, GLint, GLsizei);
 
 EXTERN_C_ENTER
 

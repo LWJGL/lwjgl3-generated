@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glUniformBufferEXTPROC) (GLuint, GLint, GLuint);
+typedef void (APIENTRY *glUniformBufferEXTPROC) (GLuint, GLint, GLuint);
 typedef GLint (APIENTRY *glGetUniformBufferSizeEXTPROC) (GLuint, GLint);
 typedef GLintptr (APIENTRY *glGetUniformOffsetEXTPROC) (GLuint, GLint);
 

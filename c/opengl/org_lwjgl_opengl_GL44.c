@@ -6,34 +6,34 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glBufferStoragePROC) (GLenum, GLsizeiptr, const GLvoid *, GLbitfield);
-typedef GLvoid (APIENTRY *glClearTexSubImagePROC) (GLuint, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glClearTexImagePROC) (GLuint, GLint, GLenum, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glBindBuffersBasePROC) (GLenum, GLuint, GLsizei, const GLuint *);
-typedef GLvoid (APIENTRY *glBindBuffersRangePROC) (GLenum, GLuint, GLsizei, const GLuint *, const GLintptr *, const GLsizeiptr *);
-typedef GLvoid (APIENTRY *glBindTexturesPROC) (GLuint, GLsizei, const GLuint *);
-typedef GLvoid (APIENTRY *glBindSamplersPROC) (GLuint, GLsizei, const GLuint *);
-typedef GLvoid (APIENTRY *glBindImageTexturesPROC) (GLuint, GLsizei, const GLuint *);
-typedef GLvoid (APIENTRY *glBindVertexBuffersPROC) (GLuint, GLsizei, const GLuint *, const GLintptr *, const GLsizei *);
+typedef void (APIENTRY *glBufferStoragePROC) (GLenum, GLsizeiptr, const void *, GLbitfield);
+typedef void (APIENTRY *glClearTexSubImagePROC) (GLuint, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLenum, const void *);
+typedef void (APIENTRY *glClearTexImagePROC) (GLuint, GLint, GLenum, GLenum, const void *);
+typedef void (APIENTRY *glBindBuffersBasePROC) (GLenum, GLuint, GLsizei, const GLuint *);
+typedef void (APIENTRY *glBindBuffersRangePROC) (GLenum, GLuint, GLsizei, const GLuint *, const GLintptr *, const GLsizeiptr *);
+typedef void (APIENTRY *glBindTexturesPROC) (GLuint, GLsizei, const GLuint *);
+typedef void (APIENTRY *glBindSamplersPROC) (GLuint, GLsizei, const GLuint *);
+typedef void (APIENTRY *glBindImageTexturesPROC) (GLuint, GLsizei, const GLuint *);
+typedef void (APIENTRY *glBindVertexBuffersPROC) (GLuint, GLsizei, const GLuint *, const GLintptr *, const GLsizei *);
 
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL44_nglBufferStorage(JNIEnv *__env, jclass clazz, jint target, jlong size, jlong dataAddress, jint flags, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glBufferStoragePROC glBufferStorage = (glBufferStoragePROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glBufferStorage(target, (GLsizeiptr)size, data, flags);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL44_nglClearTexSubImage(JNIEnv *__env, jclass clazz, jint texture, jint level, jint xoffset, jint yoffset, jint zoffset, jint width, jint height, jint depth, jint format, jint type, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glClearTexSubImagePROC glClearTexSubImage = (glClearTexSubImagePROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL44_nglClearTexImage(JNIEnv *__env, jclass clazz, jint texture, jint level, jint format, jint type, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glClearTexImagePROC glClearTexImage = (glClearTexImagePROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glClearTexImage(texture, level, format, type, data);

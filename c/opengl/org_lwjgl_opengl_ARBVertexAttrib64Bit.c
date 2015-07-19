@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glVertexArrayVertexAttribLOffsetEXTPROC) (GLuint, GLuint, GLuint, GLint, GLenum, GLsizei, GLintptr);
+typedef void (APIENTRY *glVertexArrayVertexAttribLOffsetEXTPROC) (GLuint, GLuint, GLuint, GLint, GLenum, GLsizei, GLintptr);
 
 EXTERN_C_ENTER
 

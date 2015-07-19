@@ -6,82 +6,82 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glPathCommandsNVPROC) (GLuint, GLsizei, const GLubyte *, GLsizei, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glPathCoordsNVPROC) (GLuint, GLsizei, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glPathSubCommandsNVPROC) (GLuint, GLsizei, GLsizei, GLsizei, const GLubyte *, GLsizei, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glPathSubCoordsNVPROC) (GLuint, GLsizei, GLsizei, GLenum, const GLvoid *);
-typedef GLvoid (APIENTRY *glPathStringNVPROC) (GLuint, GLenum, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glPathGlyphsNVPROC) (GLuint, GLenum, const GLvoid *, GLbitfield, GLsizei, GLenum, const GLvoid *, GLenum, GLuint, GLfloat);
-typedef GLvoid (APIENTRY *glPathGlyphRangeNVPROC) (GLuint, GLenum, const GLvoid *, GLbitfield, GLuint, GLsizei, GLenum, GLuint, GLfloat);
-typedef GLenum (APIENTRY *glPathGlyphIndexArrayNVPROC) (GLuint, GLenum, const GLvoid *, GLbitfield, GLuint, GLsizei, GLuint, GLfloat);
-typedef GLenum (APIENTRY *glPathMemoryGlyphIndexArrayNVPROC) (GLuint, GLenum, GLsizeiptr, const GLvoid *, GLsizei, GLuint, GLsizei, GLuint, GLfloat);
-typedef GLvoid (APIENTRY *glCopyPathNVPROC) (GLuint, GLuint);
-typedef GLvoid (APIENTRY *glInterpolatePathsNVPROC) (GLuint, GLuint, GLuint, GLfloat);
-typedef GLvoid (APIENTRY *glTransformPathNVPROC) (GLuint, GLuint, GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glPathParameterivNVPROC) (GLuint, GLenum, const GLint *);
-typedef GLvoid (APIENTRY *glPathParameteriNVPROC) (GLuint, GLenum, GLint);
-typedef GLvoid (APIENTRY *glPathParameterfvNVPROC) (GLuint, GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glPathParameterfNVPROC) (GLuint, GLenum, GLfloat);
-typedef GLvoid (APIENTRY *glPathDashArrayNVPROC) (GLuint, GLsizei, const GLfloat *);
+typedef void (APIENTRY *glPathCommandsNVPROC) (GLuint, GLsizei, const GLubyte *, GLsizei, GLenum, const void *);
+typedef void (APIENTRY *glPathCoordsNVPROC) (GLuint, GLsizei, GLenum, const void *);
+typedef void (APIENTRY *glPathSubCommandsNVPROC) (GLuint, GLsizei, GLsizei, GLsizei, const GLubyte *, GLsizei, GLenum, const void *);
+typedef void (APIENTRY *glPathSubCoordsNVPROC) (GLuint, GLsizei, GLsizei, GLenum, const void *);
+typedef void (APIENTRY *glPathStringNVPROC) (GLuint, GLenum, GLsizei, const void *);
+typedef void (APIENTRY *glPathGlyphsNVPROC) (GLuint, GLenum, const void *, GLbitfield, GLsizei, GLenum, const void *, GLenum, GLuint, GLfloat);
+typedef void (APIENTRY *glPathGlyphRangeNVPROC) (GLuint, GLenum, const void *, GLbitfield, GLuint, GLsizei, GLenum, GLuint, GLfloat);
+typedef GLenum (APIENTRY *glPathGlyphIndexArrayNVPROC) (GLuint, GLenum, const void *, GLbitfield, GLuint, GLsizei, GLuint, GLfloat);
+typedef GLenum (APIENTRY *glPathMemoryGlyphIndexArrayNVPROC) (GLuint, GLenum, GLsizeiptr, const void *, GLsizei, GLuint, GLsizei, GLuint, GLfloat);
+typedef void (APIENTRY *glCopyPathNVPROC) (GLuint, GLuint);
+typedef void (APIENTRY *glInterpolatePathsNVPROC) (GLuint, GLuint, GLuint, GLfloat);
+typedef void (APIENTRY *glTransformPathNVPROC) (GLuint, GLuint, GLenum, const GLfloat *);
+typedef void (APIENTRY *glPathParameterivNVPROC) (GLuint, GLenum, const GLint *);
+typedef void (APIENTRY *glPathParameteriNVPROC) (GLuint, GLenum, GLint);
+typedef void (APIENTRY *glPathParameterfvNVPROC) (GLuint, GLenum, const GLfloat *);
+typedef void (APIENTRY *glPathParameterfNVPROC) (GLuint, GLenum, GLfloat);
+typedef void (APIENTRY *glPathDashArrayNVPROC) (GLuint, GLsizei, const GLfloat *);
 typedef GLuint (APIENTRY *glGenPathsNVPROC) (GLsizei);
-typedef GLvoid (APIENTRY *glDeletePathsNVPROC) (GLuint, GLsizei);
+typedef void (APIENTRY *glDeletePathsNVPROC) (GLuint, GLsizei);
 typedef GLboolean (APIENTRY *glIsPathNVPROC) (GLuint);
-typedef GLvoid (APIENTRY *glPathStencilFuncNVPROC) (GLenum, GLint, GLuint);
-typedef GLvoid (APIENTRY *glPathStencilDepthOffsetNVPROC) (GLfloat, GLfloat);
-typedef GLvoid (APIENTRY *glStencilFillPathNVPROC) (GLuint, GLenum, GLuint);
-typedef GLvoid (APIENTRY *glStencilStrokePathNVPROC) (GLuint, GLint, GLuint);
-typedef GLvoid (APIENTRY *glStencilFillPathInstancedNVPROC) (GLsizei, GLenum, const GLvoid *, GLuint, GLenum, GLuint, GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glStencilStrokePathInstancedNVPROC) (GLsizei, GLenum, const GLvoid *, GLuint, GLint, GLuint, GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glPathCoverDepthFuncNVPROC) (GLenum);
-typedef GLvoid (APIENTRY *glPathColorGenNVPROC) (GLenum, GLenum, GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glPathTexGenNVPROC) (GLenum, GLenum, GLint, const GLfloat *);
-typedef GLvoid (APIENTRY *glPathFogGenNVPROC) (GLenum);
-typedef GLvoid (APIENTRY *glCoverFillPathNVPROC) (GLuint, GLenum);
-typedef GLvoid (APIENTRY *glCoverStrokePathNVPROC) (GLuint, GLenum);
-typedef GLvoid (APIENTRY *glCoverFillPathInstancedNVPROC) (GLsizei, GLenum, const GLvoid *, GLuint, GLenum, GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glCoverStrokePathInstancedNVPROC) (GLsizei, GLenum, const GLvoid *, GLuint, GLenum, GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glStencilThenCoverFillPathNVPROC) (GLuint, GLenum, GLuint, GLenum);
-typedef GLvoid (APIENTRY *glStencilThenCoverStrokePathNVPROC) (GLuint, GLint, GLuint, GLenum);
-typedef GLvoid (APIENTRY *glStencilThenCoverFillPathInstancedNVPROC) (GLsizei, GLenum, const GLvoid *, GLuint, GLenum, GLuint, GLenum, GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glStencilThenCoverStrokePathInstancedNVPROC) (GLsizei, GLenum, const GLvoid *, GLuint, GLint, GLuint, GLenum, GLenum, const GLfloat *);
-typedef GLenum (APIENTRY *glPathGlyphIndexRangeNVPROC) (GLenum, const GLvoid *, GLbitfield, GLuint, GLfloat, GLuint);
-typedef GLvoid (APIENTRY *glProgramPathFragmentInputGenNVPROC) (GLuint, GLint, GLenum, GLint, const GLfloat *);
-typedef GLvoid (APIENTRY *glGetPathParameterivNVPROC) (GLuint, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetPathParameterfvNVPROC) (GLuint, GLenum, GLfloat *);
-typedef GLvoid (APIENTRY *glGetPathCommandsNVPROC) (GLuint, GLubyte *);
-typedef GLvoid (APIENTRY *glGetPathCoordsNVPROC) (GLuint, GLfloat *);
-typedef GLvoid (APIENTRY *glGetPathDashArrayNVPROC) (GLuint, GLfloat *);
-typedef GLvoid (APIENTRY *glGetPathMetricsNVPROC) (GLbitfield, GLsizei, GLenum, const GLvoid *, GLuint, GLsizei, GLfloat *);
-typedef GLvoid (APIENTRY *glGetPathMetricRangeNVPROC) (GLbitfield, GLuint, GLsizei, GLsizei, GLfloat *);
-typedef GLvoid (APIENTRY *glGetPathSpacingNVPROC) (GLenum, GLsizei, GLenum, const GLvoid *, GLuint, GLfloat, GLfloat, GLenum, GLfloat *);
-typedef GLvoid (APIENTRY *glGetPathColorGenivNVPROC) (GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetPathColorGenfvNVPROC) (GLenum, GLenum, GLfloat *);
-typedef GLvoid (APIENTRY *glGetPathTexGenivNVPROC) (GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetPathTexGenfvNVPROC) (GLenum, GLenum, GLfloat *);
+typedef void (APIENTRY *glPathStencilFuncNVPROC) (GLenum, GLint, GLuint);
+typedef void (APIENTRY *glPathStencilDepthOffsetNVPROC) (GLfloat, GLfloat);
+typedef void (APIENTRY *glStencilFillPathNVPROC) (GLuint, GLenum, GLuint);
+typedef void (APIENTRY *glStencilStrokePathNVPROC) (GLuint, GLint, GLuint);
+typedef void (APIENTRY *glStencilFillPathInstancedNVPROC) (GLsizei, GLenum, const void *, GLuint, GLenum, GLuint, GLenum, const GLfloat *);
+typedef void (APIENTRY *glStencilStrokePathInstancedNVPROC) (GLsizei, GLenum, const void *, GLuint, GLint, GLuint, GLenum, const GLfloat *);
+typedef void (APIENTRY *glPathCoverDepthFuncNVPROC) (GLenum);
+typedef void (APIENTRY *glPathColorGenNVPROC) (GLenum, GLenum, GLenum, const GLfloat *);
+typedef void (APIENTRY *glPathTexGenNVPROC) (GLenum, GLenum, GLint, const GLfloat *);
+typedef void (APIENTRY *glPathFogGenNVPROC) (GLenum);
+typedef void (APIENTRY *glCoverFillPathNVPROC) (GLuint, GLenum);
+typedef void (APIENTRY *glCoverStrokePathNVPROC) (GLuint, GLenum);
+typedef void (APIENTRY *glCoverFillPathInstancedNVPROC) (GLsizei, GLenum, const void *, GLuint, GLenum, GLenum, const GLfloat *);
+typedef void (APIENTRY *glCoverStrokePathInstancedNVPROC) (GLsizei, GLenum, const void *, GLuint, GLenum, GLenum, const GLfloat *);
+typedef void (APIENTRY *glStencilThenCoverFillPathNVPROC) (GLuint, GLenum, GLuint, GLenum);
+typedef void (APIENTRY *glStencilThenCoverStrokePathNVPROC) (GLuint, GLint, GLuint, GLenum);
+typedef void (APIENTRY *glStencilThenCoverFillPathInstancedNVPROC) (GLsizei, GLenum, const void *, GLuint, GLenum, GLuint, GLenum, GLenum, const GLfloat *);
+typedef void (APIENTRY *glStencilThenCoverStrokePathInstancedNVPROC) (GLsizei, GLenum, const void *, GLuint, GLint, GLuint, GLenum, GLenum, const GLfloat *);
+typedef GLenum (APIENTRY *glPathGlyphIndexRangeNVPROC) (GLenum, const void *, GLbitfield, GLuint, GLfloat, GLuint);
+typedef void (APIENTRY *glProgramPathFragmentInputGenNVPROC) (GLuint, GLint, GLenum, GLint, const GLfloat *);
+typedef void (APIENTRY *glGetPathParameterivNVPROC) (GLuint, GLenum, GLint *);
+typedef void (APIENTRY *glGetPathParameterfvNVPROC) (GLuint, GLenum, GLfloat *);
+typedef void (APIENTRY *glGetPathCommandsNVPROC) (GLuint, GLubyte *);
+typedef void (APIENTRY *glGetPathCoordsNVPROC) (GLuint, GLfloat *);
+typedef void (APIENTRY *glGetPathDashArrayNVPROC) (GLuint, GLfloat *);
+typedef void (APIENTRY *glGetPathMetricsNVPROC) (GLbitfield, GLsizei, GLenum, const void *, GLuint, GLsizei, GLfloat *);
+typedef void (APIENTRY *glGetPathMetricRangeNVPROC) (GLbitfield, GLuint, GLsizei, GLsizei, GLfloat *);
+typedef void (APIENTRY *glGetPathSpacingNVPROC) (GLenum, GLsizei, GLenum, const void *, GLuint, GLfloat, GLfloat, GLenum, GLfloat *);
+typedef void (APIENTRY *glGetPathColorGenivNVPROC) (GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGetPathColorGenfvNVPROC) (GLenum, GLenum, GLfloat *);
+typedef void (APIENTRY *glGetPathTexGenivNVPROC) (GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGetPathTexGenfvNVPROC) (GLenum, GLenum, GLfloat *);
 typedef GLboolean (APIENTRY *glIsPointInFillPathNVPROC) (GLuint, GLuint, GLfloat, GLfloat);
 typedef GLboolean (APIENTRY *glIsPointInStrokePathNVPROC) (GLuint, GLfloat, GLfloat);
 typedef GLfloat (APIENTRY *glGetPathLengthNVPROC) (GLuint, GLsizei, GLsizei);
 typedef GLboolean (APIENTRY *glPointAlongPathNVPROC) (GLuint, GLsizei, GLsizei, GLfloat, GLfloat *, GLfloat *, GLfloat *, GLfloat *);
-typedef GLvoid (APIENTRY *glMatrixLoad3x2fNVPROC) (GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glMatrixLoad3x3fNVPROC) (GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glMatrixLoadTranspose3x3fNVPROC) (GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glMatrixMult3x2fNVPROC) (GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glMatrixMult3x3fNVPROC) (GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glMatrixMultTranspose3x3fNVPROC) (GLenum, const GLfloat *);
-typedef GLvoid (APIENTRY *glGetProgramResourcefvNVPROC) (GLuint, GLenum, GLuint, GLsizei, const GLenum *, GLsizei, GLsizei *, GLfloat *);
+typedef void (APIENTRY *glMatrixLoad3x2fNVPROC) (GLenum, const GLfloat *);
+typedef void (APIENTRY *glMatrixLoad3x3fNVPROC) (GLenum, const GLfloat *);
+typedef void (APIENTRY *glMatrixLoadTranspose3x3fNVPROC) (GLenum, const GLfloat *);
+typedef void (APIENTRY *glMatrixMult3x2fNVPROC) (GLenum, const GLfloat *);
+typedef void (APIENTRY *glMatrixMult3x3fNVPROC) (GLenum, const GLfloat *);
+typedef void (APIENTRY *glMatrixMultTranspose3x3fNVPROC) (GLenum, const GLfloat *);
+typedef void (APIENTRY *glGetProgramResourcefvNVPROC) (GLuint, GLenum, GLuint, GLsizei, const GLenum *, GLsizei, GLsizei *, GLfloat *);
 
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglPathCommandsNV(JNIEnv *__env, jclass clazz, jint path, jint numCommands, jlong commandsAddress, jint numCoords, jint coordType, jlong coordsAddress, jlong __functionAddress) {
 	const GLubyte *commands = (const GLubyte *)(intptr_t)commandsAddress;
-	const GLvoid *coords = (const GLvoid *)(intptr_t)coordsAddress;
+	const void *coords = (const void *)(intptr_t)coordsAddress;
 	glPathCommandsNVPROC glPathCommandsNV = (glPathCommandsNVPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glPathCommandsNV(path, numCommands, commands, numCoords, coordType, coords);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglPathCoordsNV(JNIEnv *__env, jclass clazz, jint path, jint numCoords, jint coordType, jlong coordsAddress, jlong __functionAddress) {
-	const GLvoid *coords = (const GLvoid *)(intptr_t)coordsAddress;
+	const void *coords = (const void *)(intptr_t)coordsAddress;
 	glPathCoordsNVPROC glPathCoordsNV = (glPathCoordsNVPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glPathCoordsNV(path, numCoords, coordType, coords);
@@ -89,50 +89,50 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglPathCoordsNV(JNI
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglPathSubCommandsNV(JNIEnv *__env, jclass clazz, jint path, jint commandStart, jint commandsToDelete, jint numCommands, jlong commandsAddress, jint numCoords, jint coordType, jlong coordsAddress, jlong __functionAddress) {
 	const GLubyte *commands = (const GLubyte *)(intptr_t)commandsAddress;
-	const GLvoid *coords = (const GLvoid *)(intptr_t)coordsAddress;
+	const void *coords = (const void *)(intptr_t)coordsAddress;
 	glPathSubCommandsNVPROC glPathSubCommandsNV = (glPathSubCommandsNVPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glPathSubCommandsNV(path, commandStart, commandsToDelete, numCommands, commands, numCoords, coordType, coords);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglPathSubCoordsNV(JNIEnv *__env, jclass clazz, jint path, jint coordStart, jint numCoords, jint coordType, jlong coordsAddress, jlong __functionAddress) {
-	const GLvoid *coords = (const GLvoid *)(intptr_t)coordsAddress;
+	const void *coords = (const void *)(intptr_t)coordsAddress;
 	glPathSubCoordsNVPROC glPathSubCoordsNV = (glPathSubCoordsNVPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glPathSubCoordsNV(path, coordStart, numCoords, coordType, coords);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglPathStringNV(JNIEnv *__env, jclass clazz, jint path, jint format, jint length, jlong pathStringAddress, jlong __functionAddress) {
-	const GLvoid *pathString = (const GLvoid *)(intptr_t)pathStringAddress;
+	const void *pathString = (const void *)(intptr_t)pathStringAddress;
 	glPathStringNVPROC glPathStringNV = (glPathStringNVPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glPathStringNV(path, format, length, pathString);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglPathGlyphsNV(JNIEnv *__env, jclass clazz, jint firstPathName, jint fontTarget, jlong fontNameAddress, jint fontStyle, jint numGlyphs, jint type, jlong charcodesAddress, jint handleMissingGlyphs, jint pathParameterTemplate, jfloat emScale, jlong __functionAddress) {
-	const GLvoid *fontName = (const GLvoid *)(intptr_t)fontNameAddress;
-	const GLvoid *charcodes = (const GLvoid *)(intptr_t)charcodesAddress;
+	const void *fontName = (const void *)(intptr_t)fontNameAddress;
+	const void *charcodes = (const void *)(intptr_t)charcodesAddress;
 	glPathGlyphsNVPROC glPathGlyphsNV = (glPathGlyphsNVPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glPathGlyphsNV(firstPathName, fontTarget, fontName, fontStyle, numGlyphs, type, charcodes, handleMissingGlyphs, pathParameterTemplate, emScale);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglPathGlyphRangeNV(JNIEnv *__env, jclass clazz, jint firstPathName, jint fontTarget, jlong fontNameAddress, jint fontStyle, jint firstGlyph, jint numGlyphs, jint handleMissingGlyphs, jint pathParameterTemplate, jfloat emScale, jlong __functionAddress) {
-	const GLvoid *fontName = (const GLvoid *)(intptr_t)fontNameAddress;
+	const void *fontName = (const void *)(intptr_t)fontNameAddress;
 	glPathGlyphRangeNVPROC glPathGlyphRangeNV = (glPathGlyphRangeNVPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glPathGlyphRangeNV(firstPathName, fontTarget, fontName, fontStyle, firstGlyph, numGlyphs, handleMissingGlyphs, pathParameterTemplate, emScale);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglPathGlyphIndexArrayNV(JNIEnv *__env, jclass clazz, jint firstPathName, jint fontTarget, jlong fontNameAddress, jint fontStyle, jint firstGlyphIndex, jint numGlyphs, jint pathParameterTemplate, jfloat emScale, jlong __functionAddress) {
-	const GLvoid *fontName = (const GLvoid *)(intptr_t)fontNameAddress;
+	const void *fontName = (const void *)(intptr_t)fontNameAddress;
 	glPathGlyphIndexArrayNVPROC glPathGlyphIndexArrayNV = (glPathGlyphIndexArrayNVPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)glPathGlyphIndexArrayNV(firstPathName, fontTarget, fontName, fontStyle, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglPathMemoryGlyphIndexArrayNV(JNIEnv *__env, jclass clazz, jint firstPathName, jint fontTarget, jlong fontSize, jlong fontDataAddress, jint faceIndex, jint firstGlyphIndex, jint numGlyphs, jint pathParameterTemplate, jfloat emScale, jlong __functionAddress) {
-	const GLvoid *fontData = (const GLvoid *)(intptr_t)fontDataAddress;
+	const void *fontData = (const void *)(intptr_t)fontDataAddress;
 	glPathMemoryGlyphIndexArrayNVPROC glPathMemoryGlyphIndexArrayNV = (glPathMemoryGlyphIndexArrayNVPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)glPathMemoryGlyphIndexArrayNV(firstPathName, fontTarget, (GLsizeiptr)fontSize, fontData, faceIndex, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
@@ -233,7 +233,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglStencilStrokePat
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglStencilFillPathInstancedNV(JNIEnv *__env, jclass clazz, jint numPaths, jint pathNameType, jlong pathsAddress, jint pathBase, jint fillMode, jint mask, jint transformType, jlong transformValuesAddress, jlong __functionAddress) {
-	const GLvoid *paths = (const GLvoid *)(intptr_t)pathsAddress;
+	const void *paths = (const void *)(intptr_t)pathsAddress;
 	const GLfloat *transformValues = (const GLfloat *)(intptr_t)transformValuesAddress;
 	glStencilFillPathInstancedNVPROC glStencilFillPathInstancedNV = (glStencilFillPathInstancedNVPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -241,7 +241,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglStencilFillPathI
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglStencilStrokePathInstancedNV(JNIEnv *__env, jclass clazz, jint numPaths, jint pathNameType, jlong pathsAddress, jint pathBase, jint reference, jint mask, jint transformType, jlong transformValuesAddress, jlong __functionAddress) {
-	const GLvoid *paths = (const GLvoid *)(intptr_t)pathsAddress;
+	const void *paths = (const void *)(intptr_t)pathsAddress;
 	const GLfloat *transformValues = (const GLfloat *)(intptr_t)transformValuesAddress;
 	glStencilStrokePathInstancedNVPROC glStencilStrokePathInstancedNV = (glStencilStrokePathInstancedNVPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -287,7 +287,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglCoverStrokePathN
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglCoverFillPathInstancedNV(JNIEnv *__env, jclass clazz, jint numPaths, jint pathNameType, jlong pathsAddress, jint pathBase, jint coverMode, jint transformType, jlong transformValuesAddress, jlong __functionAddress) {
-	const GLvoid *paths = (const GLvoid *)(intptr_t)pathsAddress;
+	const void *paths = (const void *)(intptr_t)pathsAddress;
 	const GLfloat *transformValues = (const GLfloat *)(intptr_t)transformValuesAddress;
 	glCoverFillPathInstancedNVPROC glCoverFillPathInstancedNV = (glCoverFillPathInstancedNVPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -295,7 +295,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglCoverFillPathIns
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglCoverStrokePathInstancedNV(JNIEnv *__env, jclass clazz, jint numPaths, jint pathNameType, jlong pathsAddress, jint pathBase, jint coverMode, jint transformType, jlong transformValuesAddress, jlong __functionAddress) {
-	const GLvoid *paths = (const GLvoid *)(intptr_t)pathsAddress;
+	const void *paths = (const void *)(intptr_t)pathsAddress;
 	const GLfloat *transformValues = (const GLfloat *)(intptr_t)transformValuesAddress;
 	glCoverStrokePathInstancedNVPROC glCoverStrokePathInstancedNV = (glCoverStrokePathInstancedNVPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -315,7 +315,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglStencilThenCover
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglStencilThenCoverFillPathInstancedNV(JNIEnv *__env, jclass clazz, jint numPaths, jint pathNameType, jlong pathsAddress, jint pathBase, jint fillMode, jint mask, jint coverMode, jint transformType, jlong transformValuesAddress, jlong __functionAddress) {
-	const GLvoid *paths = (const GLvoid *)(intptr_t)pathsAddress;
+	const void *paths = (const void *)(intptr_t)pathsAddress;
 	const GLfloat *transformValues = (const GLfloat *)(intptr_t)transformValuesAddress;
 	glStencilThenCoverFillPathInstancedNVPROC glStencilThenCoverFillPathInstancedNV = (glStencilThenCoverFillPathInstancedNVPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -323,7 +323,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglStencilThenCover
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglStencilThenCoverStrokePathInstancedNV(JNIEnv *__env, jclass clazz, jint numPaths, jint pathNameType, jlong pathsAddress, jint pathBase, jint reference, jint mask, jint coverMode, jint transformType, jlong transformValuesAddress, jlong __functionAddress) {
-	const GLvoid *paths = (const GLvoid *)(intptr_t)pathsAddress;
+	const void *paths = (const void *)(intptr_t)pathsAddress;
 	const GLfloat *transformValues = (const GLfloat *)(intptr_t)transformValuesAddress;
 	glStencilThenCoverStrokePathInstancedNVPROC glStencilThenCoverStrokePathInstancedNV = (glStencilThenCoverStrokePathInstancedNVPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -331,7 +331,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglStencilThenCover
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglPathGlyphIndexRangeNV(JNIEnv *__env, jclass clazz, jint fontTarget, jlong fontNameAddress, jint fontStyle, jint pathParameterTemplate, jfloat emScale, jint baseAndCount, jlong __functionAddress) {
-	const GLvoid *fontName = (const GLvoid *)(intptr_t)fontNameAddress;
+	const void *fontName = (const void *)(intptr_t)fontNameAddress;
 	glPathGlyphIndexRangeNVPROC glPathGlyphIndexRangeNV = (glPathGlyphIndexRangeNVPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)glPathGlyphIndexRangeNV(fontTarget, fontName, fontStyle, pathParameterTemplate, emScale, baseAndCount);
@@ -380,7 +380,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglGetPathDashArray
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglGetPathMetricsNV(JNIEnv *__env, jclass clazz, jint metricQueryMask, jint numPaths, jint pathNameType, jlong pathsAddress, jint pathBase, jint stride, jlong metricsAddress, jlong __functionAddress) {
-	const GLvoid *paths = (const GLvoid *)(intptr_t)pathsAddress;
+	const void *paths = (const void *)(intptr_t)pathsAddress;
 	GLfloat *metrics = (GLfloat *)(intptr_t)metricsAddress;
 	glGetPathMetricsNVPROC glGetPathMetricsNV = (glGetPathMetricsNVPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -395,7 +395,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglGetPathMetricRan
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglGetPathSpacingNV(JNIEnv *__env, jclass clazz, jint pathListMode, jint numPaths, jint pathNameType, jlong pathsAddress, jint pathBase, jfloat advanceScale, jfloat kerningScale, jint transformType, jlong returnedSpacingAddress, jlong __functionAddress) {
-	const GLvoid *paths = (const GLvoid *)(intptr_t)pathsAddress;
+	const void *paths = (const void *)(intptr_t)pathsAddress;
 	GLfloat *returnedSpacing = (GLfloat *)(intptr_t)returnedSpacingAddress;
 	glGetPathSpacingNVPROC glGetPathSpacingNV = (glGetPathSpacingNVPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)

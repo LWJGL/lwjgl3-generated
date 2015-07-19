@@ -6,25 +6,25 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glBindBufferPROC) (GLenum, GLuint);
-typedef GLvoid (APIENTRY *glDeleteBuffersPROC) (GLsizei, const GLuint *);
-typedef GLvoid (APIENTRY *glGenBuffersPROC) (GLsizei, GLuint *);
+typedef void (APIENTRY *glBindBufferPROC) (GLenum, GLuint);
+typedef void (APIENTRY *glDeleteBuffersPROC) (GLsizei, const GLuint *);
+typedef void (APIENTRY *glGenBuffersPROC) (GLsizei, GLuint *);
 typedef GLboolean (APIENTRY *glIsBufferPROC) (GLuint);
-typedef GLvoid (APIENTRY *glBufferDataPROC) (GLenum, GLsizeiptr, const GLvoid *, GLenum);
-typedef GLvoid (APIENTRY *glBufferSubDataPROC) (GLenum, GLintptr, GLsizeiptr, const GLvoid *);
-typedef GLvoid (APIENTRY *glGetBufferSubDataPROC) (GLenum, GLintptr, GLsizeiptr, GLvoid *);
-typedef GLvoid * (APIENTRY *glMapBufferPROC) (GLenum, GLenum);
+typedef void (APIENTRY *glBufferDataPROC) (GLenum, GLsizeiptr, const void *, GLenum);
+typedef void (APIENTRY *glBufferSubDataPROC) (GLenum, GLintptr, GLsizeiptr, const void *);
+typedef void (APIENTRY *glGetBufferSubDataPROC) (GLenum, GLintptr, GLsizeiptr, void *);
+typedef void * (APIENTRY *glMapBufferPROC) (GLenum, GLenum);
 typedef GLboolean (APIENTRY *glUnmapBufferPROC) (GLenum);
-typedef GLvoid (APIENTRY *glGetBufferParameterivPROC) (GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetBufferPointervPROC) (GLenum, GLenum, GLvoid **);
-typedef GLvoid (APIENTRY *glGenQueriesPROC) (GLsizei, GLuint *);
-typedef GLvoid (APIENTRY *glDeleteQueriesPROC) (GLsizei, const GLuint *);
+typedef void (APIENTRY *glGetBufferParameterivPROC) (GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGetBufferPointervPROC) (GLenum, GLenum, void **);
+typedef void (APIENTRY *glGenQueriesPROC) (GLsizei, GLuint *);
+typedef void (APIENTRY *glDeleteQueriesPROC) (GLsizei, const GLuint *);
 typedef GLboolean (APIENTRY *glIsQueryPROC) (GLuint);
-typedef GLvoid (APIENTRY *glBeginQueryPROC) (GLenum, GLuint);
-typedef GLvoid (APIENTRY *glEndQueryPROC) (GLenum);
-typedef GLvoid (APIENTRY *glGetQueryivPROC) (GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetQueryObjectivPROC) (GLuint, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetQueryObjectuivPROC) (GLuint, GLenum, GLuint *);
+typedef void (APIENTRY *glBeginQueryPROC) (GLenum, GLuint);
+typedef void (APIENTRY *glEndQueryPROC) (GLenum);
+typedef void (APIENTRY *glGetQueryivPROC) (GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGetQueryObjectivPROC) (GLuint, GLenum, GLint *);
+typedef void (APIENTRY *glGetQueryObjectuivPROC) (GLuint, GLenum, GLuint *);
 
 EXTERN_C_ENTER
 
@@ -55,21 +55,21 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_GL15_nglIsBuffer(JNIEnv *__env,
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL15_nglBufferData(JNIEnv *__env, jclass clazz, jint target, jlong size, jlong dataAddress, jint usage, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glBufferDataPROC glBufferData = (glBufferDataPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glBufferData(target, (GLsizeiptr)size, data, usage);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL15_nglBufferSubData(JNIEnv *__env, jclass clazz, jint target, jlong offset, jlong size, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glBufferSubDataPROC glBufferSubData = (glBufferSubDataPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glBufferSubData(target, (GLintptr)offset, (GLsizeiptr)size, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL15_nglGetBufferSubData(JNIEnv *__env, jclass clazz, jint target, jlong offset, jlong size, jlong dataAddress, jlong __functionAddress) {
-	GLvoid *data = (GLvoid *)(intptr_t)dataAddress;
+	void *data = (void *)(intptr_t)dataAddress;
 	glGetBufferSubDataPROC glGetBufferSubData = (glGetBufferSubDataPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetBufferSubData(target, (GLintptr)offset, (GLsizeiptr)size, data);
@@ -95,7 +95,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL15_nglGetBufferParameteriv(JNIEnv
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL15_nglGetBufferPointerv(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong paramsAddress, jlong __functionAddress) {
-	GLvoid **params = (GLvoid **)(intptr_t)paramsAddress;
+	void **params = (void **)(intptr_t)paramsAddress;
 	glGetBufferPointervPROC glGetBufferPointerv = (glGetBufferPointervPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetBufferPointerv(target, pname, params);

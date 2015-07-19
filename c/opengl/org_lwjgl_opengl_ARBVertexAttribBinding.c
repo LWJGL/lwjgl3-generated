@@ -6,12 +6,12 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glVertexArrayBindVertexBufferEXTPROC) (GLuint, GLuint, GLuint, GLintptr, GLsizei);
-typedef GLvoid (APIENTRY *glVertexArrayVertexAttribFormatEXTPROC) (GLuint, GLuint, GLint, GLenum, GLboolean, GLuint);
-typedef GLvoid (APIENTRY *glVertexArrayVertexAttribIFormatEXTPROC) (GLuint, GLuint, GLint, GLenum, GLuint);
-typedef GLvoid (APIENTRY *glVertexArrayVertexAttribLFormatEXTPROC) (GLuint, GLuint, GLint, GLenum, GLuint);
-typedef GLvoid (APIENTRY *glVertexArrayVertexAttribBindingEXTPROC) (GLuint, GLuint, GLuint);
-typedef GLvoid (APIENTRY *glVertexArrayVertexBindingDivisorEXTPROC) (GLuint, GLuint, GLuint);
+typedef void (APIENTRY *glVertexArrayBindVertexBufferEXTPROC) (GLuint, GLuint, GLuint, GLintptr, GLsizei);
+typedef void (APIENTRY *glVertexArrayVertexAttribFormatEXTPROC) (GLuint, GLuint, GLint, GLenum, GLboolean, GLuint);
+typedef void (APIENTRY *glVertexArrayVertexAttribIFormatEXTPROC) (GLuint, GLuint, GLint, GLenum, GLuint);
+typedef void (APIENTRY *glVertexArrayVertexAttribLFormatEXTPROC) (GLuint, GLuint, GLint, GLenum, GLuint);
+typedef void (APIENTRY *glVertexArrayVertexAttribBindingEXTPROC) (GLuint, GLuint, GLuint);
+typedef void (APIENTRY *glVertexArrayVertexBindingDivisorEXTPROC) (GLuint, GLuint, GLuint);
 
 EXTERN_C_ENTER
 

@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glDispatchComputeGroupSizeARBPROC) (GLuint, GLuint, GLuint, GLuint, GLuint, GLuint);
+typedef void (APIENTRY *glDispatchComputeGroupSizeARBPROC) (GLuint, GLuint, GLuint, GLuint, GLuint, GLuint);
 
 EXTERN_C_ENTER
 

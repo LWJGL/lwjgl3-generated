@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glPolygonOffsetClampEXTPROC) (GLfloat, GLfloat, GLfloat);
+typedef void (APIENTRY *glPolygonOffsetClampEXTPROC) (GLfloat, GLfloat, GLfloat);
 
 EXTERN_C_ENTER
 

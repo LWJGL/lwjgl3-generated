@@ -6,11 +6,11 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glCurrentPaletteMatrixARBPROC) (GLint);
-typedef GLvoid (APIENTRY *glMatrixIndexuivARBPROC) (GLint, GLuint *);
-typedef GLvoid (APIENTRY *glMatrixIndexubvARBPROC) (GLint, GLubyte *);
-typedef GLvoid (APIENTRY *glMatrixIndexusvARBPROC) (GLint, GLushort *);
-typedef GLvoid (APIENTRY *glMatrixIndexPointerARBPROC) (GLint, GLenum, GLsizei, GLvoid *);
+typedef void (APIENTRY *glCurrentPaletteMatrixARBPROC) (GLint);
+typedef void (APIENTRY *glMatrixIndexuivARBPROC) (GLint, GLuint *);
+typedef void (APIENTRY *glMatrixIndexubvARBPROC) (GLint, GLubyte *);
+typedef void (APIENTRY *glMatrixIndexusvARBPROC) (GLint, GLushort *);
+typedef void (APIENTRY *glMatrixIndexPointerARBPROC) (GLint, GLenum, GLsizei, void *);
 
 EXTERN_C_ENTER
 
@@ -42,7 +42,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMatrixPalette_nglMatrixIndexusvA
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMatrixPalette_nglMatrixIndexPointerARB(JNIEnv *__env, jclass clazz, jint size, jint type, jint stride, jlong pointerAddress, jlong __functionAddress) {
-	GLvoid *pointer = (GLvoid *)(intptr_t)pointerAddress;
+	void *pointer = (void *)(intptr_t)pointerAddress;
 	glMatrixIndexPointerARBPROC glMatrixIndexPointerARB = (glMatrixIndexPointerARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glMatrixIndexPointerARB(size, type, stride, pointer);

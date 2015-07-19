@@ -6,10 +6,10 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glLoadTransposeMatrixfARBPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glLoadTransposeMatrixdARBPROC) (const GLdouble *);
-typedef GLvoid (APIENTRY *glMultTransposeMatrixfARBPROC) (const GLfloat *);
-typedef GLvoid (APIENTRY *glMultTransposeMatrixdARBPROC) (const GLdouble *);
+typedef void (APIENTRY *glLoadTransposeMatrixfARBPROC) (const GLfloat *);
+typedef void (APIENTRY *glLoadTransposeMatrixdARBPROC) (const GLdouble *);
+typedef void (APIENTRY *glMultTransposeMatrixfARBPROC) (const GLfloat *);
+typedef void (APIENTRY *glMultTransposeMatrixdARBPROC) (const GLdouble *);
 
 EXTERN_C_ENTER
 

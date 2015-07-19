@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glFragmentCoverageColorNVPROC) (GLuint);
+typedef void (APIENTRY *glFragmentCoverageColorNVPROC) (GLuint);
 
 EXTERN_C_ENTER
 

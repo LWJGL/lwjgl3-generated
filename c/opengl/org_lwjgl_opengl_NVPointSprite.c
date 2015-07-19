@@ -6,8 +6,8 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glPointParameteriNVPROC) (GLenum, GLint);
-typedef GLvoid (APIENTRY *glPointParameterivNVPROC) (GLenum, const GLint *);
+typedef void (APIENTRY *glPointParameteriNVPROC) (GLenum, GLint);
+typedef void (APIENTRY *glPointParameterivNVPROC) (GLenum, const GLint *);
 
 EXTERN_C_ENTER
 

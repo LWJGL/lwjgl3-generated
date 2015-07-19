@@ -6,23 +6,23 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glCreateStatesNVPROC) (GLsizei, GLuint *);
-typedef GLvoid (APIENTRY *glDeleteStatesNVPROC) (GLsizei, const GLuint *);
+typedef void (APIENTRY *glCreateStatesNVPROC) (GLsizei, GLuint *);
+typedef void (APIENTRY *glDeleteStatesNVPROC) (GLsizei, const GLuint *);
 typedef GLboolean (APIENTRY *glIsStateNVPROC) (GLuint);
-typedef GLvoid (APIENTRY *glStateCaptureNVPROC) (GLuint, GLenum);
+typedef void (APIENTRY *glStateCaptureNVPROC) (GLuint, GLenum);
 typedef GLuint (APIENTRY *glGetCommandHeaderNVPROC) (GLenum, GLuint);
 typedef GLushort (APIENTRY *glGetStageIndexNVPROC) (GLenum);
-typedef GLvoid (APIENTRY *glDrawCommandsNVPROC) (GLenum, GLuint, const GLintptr *, const GLsizei *, GLuint);
-typedef GLvoid (APIENTRY *glDrawCommandsAddressNVPROC) (GLenum, const GLuint64 *, const GLsizei *, GLuint);
-typedef GLvoid (APIENTRY *glDrawCommandsStatesNVPROC) (GLuint, const GLintptr *, const GLsizei *, const GLuint *, const GLuint *, GLuint);
-typedef GLvoid (APIENTRY *glDrawCommandsStatesAddressNVPROC) (const GLuint64 *, const GLsizei *, const GLuint *, const GLuint *, GLuint);
-typedef GLvoid (APIENTRY *glCreateCommandListsNVPROC) (GLsizei, GLuint *);
-typedef GLvoid (APIENTRY *glDeleteCommandListsNVPROC) (GLsizei, const GLuint *);
+typedef void (APIENTRY *glDrawCommandsNVPROC) (GLenum, GLuint, const GLintptr *, const GLsizei *, GLuint);
+typedef void (APIENTRY *glDrawCommandsAddressNVPROC) (GLenum, const GLuint64 *, const GLsizei *, GLuint);
+typedef void (APIENTRY *glDrawCommandsStatesNVPROC) (GLuint, const GLintptr *, const GLsizei *, const GLuint *, const GLuint *, GLuint);
+typedef void (APIENTRY *glDrawCommandsStatesAddressNVPROC) (const GLuint64 *, const GLsizei *, const GLuint *, const GLuint *, GLuint);
+typedef void (APIENTRY *glCreateCommandListsNVPROC) (GLsizei, GLuint *);
+typedef void (APIENTRY *glDeleteCommandListsNVPROC) (GLsizei, const GLuint *);
 typedef GLboolean (APIENTRY *glIsCommandListNVPROC) (GLuint);
-typedef GLvoid (APIENTRY *glListDrawCommandsStatesClientNVPROC) (GLuint, GLuint, const GLvoid **, const size_t *, const GLuint *, const GLuint *, GLuint);
-typedef GLvoid (APIENTRY *glCommandListSegmentsNVPROC) (GLuint, GLuint);
-typedef GLvoid (APIENTRY *glCompileCommandListNVPROC) (GLuint);
-typedef GLvoid (APIENTRY *glCallCommandListNVPROC) (GLuint);
+typedef void (APIENTRY *glListDrawCommandsStatesClientNVPROC) (GLuint, GLuint, const void **, const size_t *, const GLuint *, const GLuint *, GLuint);
+typedef void (APIENTRY *glCommandListSegmentsNVPROC) (GLuint, GLuint);
+typedef void (APIENTRY *glCompileCommandListNVPROC) (GLuint);
+typedef void (APIENTRY *glCallCommandListNVPROC) (GLuint);
 
 EXTERN_C_ENTER
 
@@ -121,7 +121,7 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_NVCommandList_nglIsCommandListN
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVCommandList_nglListDrawCommandsStatesClientNV(JNIEnv *__env, jclass clazz, jint list, jint segment, jlong indirectsAddress, jlong sizesAddress, jlong statesAddress, jlong fbosAddress, jint count, jlong __functionAddress) {
-	const GLvoid **indirects = (const GLvoid **)(intptr_t)indirectsAddress;
+	const void **indirects = (const void **)(intptr_t)indirectsAddress;
 	const size_t *sizes = (const size_t *)(intptr_t)sizesAddress;
 	const GLuint *states = (const GLuint *)(intptr_t)statesAddress;
 	const GLuint *fbos = (const GLuint *)(intptr_t)fbosAddress;

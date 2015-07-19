@@ -6,16 +6,16 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glWeightfvARBPROC) (GLint, GLfloat *);
-typedef GLvoid (APIENTRY *glWeightbvARBPROC) (GLint, GLbyte *);
-typedef GLvoid (APIENTRY *glWeightubvARBPROC) (GLint, GLubyte *);
-typedef GLvoid (APIENTRY *glWeightsvARBPROC) (GLint, GLshort *);
-typedef GLvoid (APIENTRY *glWeightusvARBPROC) (GLint, GLushort *);
-typedef GLvoid (APIENTRY *glWeightivARBPROC) (GLint, GLint *);
-typedef GLvoid (APIENTRY *glWeightuivARBPROC) (GLint, GLuint *);
-typedef GLvoid (APIENTRY *glWeightdvARBPROC) (GLint, GLdouble *);
-typedef GLvoid (APIENTRY *glWeightPointerARBPROC) (GLint, GLenum, GLsizei, GLvoid *);
-typedef GLvoid (APIENTRY *glVertexBlendARBPROC) (GLint);
+typedef void (APIENTRY *glWeightfvARBPROC) (GLint, GLfloat *);
+typedef void (APIENTRY *glWeightbvARBPROC) (GLint, GLbyte *);
+typedef void (APIENTRY *glWeightubvARBPROC) (GLint, GLubyte *);
+typedef void (APIENTRY *glWeightsvARBPROC) (GLint, GLshort *);
+typedef void (APIENTRY *glWeightusvARBPROC) (GLint, GLushort *);
+typedef void (APIENTRY *glWeightivARBPROC) (GLint, GLint *);
+typedef void (APIENTRY *glWeightuivARBPROC) (GLint, GLuint *);
+typedef void (APIENTRY *glWeightdvARBPROC) (GLint, GLdouble *);
+typedef void (APIENTRY *glWeightPointerARBPROC) (GLint, GLenum, GLsizei, void *);
+typedef void (APIENTRY *glVertexBlendARBPROC) (GLint);
 
 EXTERN_C_ENTER
 
@@ -76,7 +76,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBlend_nglWeightdvARB(JNIEn
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBlend_nglWeightPointerARB(JNIEnv *__env, jclass clazz, jint size, jint type, jint stride, jlong pointerAddress, jlong __functionAddress) {
-	GLvoid *pointer = (GLvoid *)(intptr_t)pointerAddress;
+	void *pointer = (void *)(intptr_t)pointerAddress;
 	glWeightPointerARBPROC glWeightPointerARB = (glWeightPointerARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glWeightPointerARB(size, type, stride, pointer);

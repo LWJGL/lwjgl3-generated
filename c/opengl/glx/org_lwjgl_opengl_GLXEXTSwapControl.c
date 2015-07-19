@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include <GL/glx.h>
 
-typedef GLvoid (APIENTRY *glXSwapIntervalEXTPROC) (Display *, GLXDrawable, int);
+typedef void (APIENTRY *glXSwapIntervalEXTPROC) (Display *, GLXDrawable, int);
 
 EXTERN_C_ENTER
 

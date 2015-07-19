@@ -6,17 +6,17 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glVertexAttribL1dEXTPROC) (GLuint, GLdouble);
-typedef GLvoid (APIENTRY *glVertexAttribL2dEXTPROC) (GLuint, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glVertexAttribL3dEXTPROC) (GLuint, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glVertexAttribL4dEXTPROC) (GLuint, GLdouble, GLdouble, GLdouble, GLdouble);
-typedef GLvoid (APIENTRY *glVertexAttribL1dvEXTPROC) (GLuint, const GLdouble *);
-typedef GLvoid (APIENTRY *glVertexAttribL2dvEXTPROC) (GLuint, const GLdouble *);
-typedef GLvoid (APIENTRY *glVertexAttribL3dvEXTPROC) (GLuint, const GLdouble *);
-typedef GLvoid (APIENTRY *glVertexAttribL4dvEXTPROC) (GLuint, const GLdouble *);
-typedef GLvoid (APIENTRY *glVertexAttribLPointerEXTPROC) (GLuint, GLint, GLenum, GLsizei, const GLvoid *);
-typedef GLvoid (APIENTRY *glGetVertexAttribLdvEXTPROC) (GLuint, GLenum, GLdouble *);
-typedef GLvoid (APIENTRY *glVertexArrayVertexAttribLOffsetEXTPROC) (GLuint, GLuint, GLuint, GLint, GLenum, GLsizei, GLintptr);
+typedef void (APIENTRY *glVertexAttribL1dEXTPROC) (GLuint, GLdouble);
+typedef void (APIENTRY *glVertexAttribL2dEXTPROC) (GLuint, GLdouble, GLdouble);
+typedef void (APIENTRY *glVertexAttribL3dEXTPROC) (GLuint, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glVertexAttribL4dEXTPROC) (GLuint, GLdouble, GLdouble, GLdouble, GLdouble);
+typedef void (APIENTRY *glVertexAttribL1dvEXTPROC) (GLuint, const GLdouble *);
+typedef void (APIENTRY *glVertexAttribL2dvEXTPROC) (GLuint, const GLdouble *);
+typedef void (APIENTRY *glVertexAttribL3dvEXTPROC) (GLuint, const GLdouble *);
+typedef void (APIENTRY *glVertexAttribL4dvEXTPROC) (GLuint, const GLdouble *);
+typedef void (APIENTRY *glVertexAttribLPointerEXTPROC) (GLuint, GLint, GLenum, GLsizei, const void *);
+typedef void (APIENTRY *glGetVertexAttribLdvEXTPROC) (GLuint, GLenum, GLdouble *);
+typedef void (APIENTRY *glVertexArrayVertexAttribLOffsetEXTPROC) (GLuint, GLuint, GLuint, GLint, GLenum, GLsizei, GLintptr);
 
 EXTERN_C_ENTER
 
@@ -73,7 +73,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTVertexAttrib64bit_nglVertexAttri
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTVertexAttrib64bit_nglVertexAttribLPointerEXT(JNIEnv *__env, jclass clazz, jint index, jint size, jint type, jint stride, jlong pointerAddress, jlong __functionAddress) {
-	const GLvoid *pointer = (const GLvoid *)(intptr_t)pointerAddress;
+	const void *pointer = (const void *)(intptr_t)pointerAddress;
 	glVertexAttribLPointerEXTPROC glVertexAttribLPointerEXT = (glVertexAttribLPointerEXTPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glVertexAttribLPointerEXT(index, size, type, stride, pointer);

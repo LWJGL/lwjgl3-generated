@@ -6,8 +6,8 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glDrawArraysInstancedARBPROC) (GLenum, GLint, GLsizei, GLsizei);
-typedef GLvoid (APIENTRY *glDrawElementsInstancedARBPROC) (GLenum, GLsizei, GLenum, const GLvoid *, GLsizei);
+typedef void (APIENTRY *glDrawArraysInstancedARBPROC) (GLenum, GLint, GLsizei, GLsizei);
+typedef void (APIENTRY *glDrawElementsInstancedARBPROC) (GLenum, GLsizei, GLenum, const void *, GLsizei);
 
 EXTERN_C_ENTER
 
@@ -18,7 +18,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDrawInstanced_nglDrawArraysInsta
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDrawInstanced_nglDrawElementsInstancedARB(JNIEnv *__env, jclass clazz, jint mode, jint count, jint type, jlong indicesAddress, jint primcount, jlong __functionAddress) {
-	const GLvoid *indices = (const GLvoid *)(intptr_t)indicesAddress;
+	const void *indices = (const void *)(intptr_t)indicesAddress;
 	glDrawElementsInstancedARBPROC glDrawElementsInstancedARB = (glDrawElementsInstancedARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glDrawElementsInstancedARB(mode, count, type, indices, primcount);

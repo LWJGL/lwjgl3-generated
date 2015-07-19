@@ -6,17 +6,17 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glBindBufferARBPROC) (GLenum, GLuint);
-typedef GLvoid (APIENTRY *glDeleteBuffersARBPROC) (GLsizei, const GLuint *);
-typedef GLvoid (APIENTRY *glGenBuffersARBPROC) (GLsizei, GLuint *);
+typedef void (APIENTRY *glBindBufferARBPROC) (GLenum, GLuint);
+typedef void (APIENTRY *glDeleteBuffersARBPROC) (GLsizei, const GLuint *);
+typedef void (APIENTRY *glGenBuffersARBPROC) (GLsizei, GLuint *);
 typedef GLboolean (APIENTRY *glIsBufferARBPROC) (GLuint);
-typedef GLvoid (APIENTRY *glBufferDataARBPROC) (GLenum, GLsizeiptrARB, const GLvoid *, GLenum);
-typedef GLvoid (APIENTRY *glBufferSubDataARBPROC) (GLenum, GLintptrARB, GLsizeiptrARB, const GLvoid *);
-typedef GLvoid (APIENTRY *glGetBufferSubDataARBPROC) (GLenum, GLintptrARB, GLsizeiptrARB, GLvoid *);
-typedef GLvoid * (APIENTRY *glMapBufferARBPROC) (GLenum, GLenum);
+typedef void (APIENTRY *glBufferDataARBPROC) (GLenum, GLsizeiptrARB, const void *, GLenum);
+typedef void (APIENTRY *glBufferSubDataARBPROC) (GLenum, GLintptrARB, GLsizeiptrARB, const void *);
+typedef void (APIENTRY *glGetBufferSubDataARBPROC) (GLenum, GLintptrARB, GLsizeiptrARB, void *);
+typedef void * (APIENTRY *glMapBufferARBPROC) (GLenum, GLenum);
 typedef GLboolean (APIENTRY *glUnmapBufferARBPROC) (GLenum);
-typedef GLvoid (APIENTRY *glGetBufferParameterivARBPROC) (GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetBufferPointervARBPROC) (GLenum, GLenum, GLvoid **);
+typedef void (APIENTRY *glGetBufferParameterivARBPROC) (GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGetBufferPointervARBPROC) (GLenum, GLenum, void **);
 
 EXTERN_C_ENTER
 
@@ -47,21 +47,21 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBVertexBufferObject_nglIsBuff
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBufferObject_nglBufferDataARB(JNIEnv *__env, jclass clazz, jint target, jlong size, jlong dataAddress, jint usage, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glBufferDataARBPROC glBufferDataARB = (glBufferDataARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glBufferDataARB(target, (GLsizeiptrARB)size, data, usage);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBufferObject_nglBufferSubDataARB(JNIEnv *__env, jclass clazz, jint target, jlong offset, jlong size, jlong dataAddress, jlong __functionAddress) {
-	const GLvoid *data = (const GLvoid *)(intptr_t)dataAddress;
+	const void *data = (const void *)(intptr_t)dataAddress;
 	glBufferSubDataARBPROC glBufferSubDataARB = (glBufferSubDataARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glBufferSubDataARB(target, (GLintptrARB)offset, (GLsizeiptrARB)size, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBufferObject_nglGetBufferSubDataARB(JNIEnv *__env, jclass clazz, jint target, jlong offset, jlong size, jlong dataAddress, jlong __functionAddress) {
-	GLvoid *data = (GLvoid *)(intptr_t)dataAddress;
+	void *data = (void *)(intptr_t)dataAddress;
 	glGetBufferSubDataARBPROC glGetBufferSubDataARB = (glGetBufferSubDataARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetBufferSubDataARB(target, (GLintptrARB)offset, (GLsizeiptrARB)size, data);
@@ -87,7 +87,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBufferObject_nglGetBufferP
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBufferObject_nglGetBufferPointervARB(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong paramsAddress, jlong __functionAddress) {
-	GLvoid **params = (GLvoid **)(intptr_t)paramsAddress;
+	void **params = (void **)(intptr_t)paramsAddress;
 	glGetBufferPointervARBPROC glGetBufferPointervARB = (glGetBufferPointervARBPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glGetBufferPointervARB(target, pname, params);

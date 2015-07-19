@@ -6,9 +6,9 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glDebugMessageEnableAMDPROC) (GLenum, GLenum, GLsizei, const GLuint *, GLboolean);
-typedef GLvoid (APIENTRY *glDebugMessageInsertAMDPROC) (GLenum, GLenum, GLuint, GLsizei, const GLchar *);
-typedef GLvoid (APIENTRY *glDebugMessageCallbackAMDPROC) (GLDEBUGPROCAMD, void *);
+typedef void (APIENTRY *glDebugMessageEnableAMDPROC) (GLenum, GLenum, GLsizei, const GLuint *, GLboolean);
+typedef void (APIENTRY *glDebugMessageInsertAMDPROC) (GLenum, GLenum, GLuint, GLsizei, const GLchar *);
+typedef void (APIENTRY *glDebugMessageCallbackAMDPROC) (GLDEBUGPROCAMD, void *);
 typedef GLuint (APIENTRY *glGetDebugMessageLogAMDPROC) (GLuint, GLsizei, GLenum *, GLuint *, GLuint *, GLsizei *, GLchar *);
 
 EXTERN_C_ENTER

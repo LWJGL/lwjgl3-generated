@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glClampColorARBPROC) (GLenum, GLenum);
+typedef void (APIENTRY *glClampColorARBPROC) (GLenum, GLenum);
 
 EXTERN_C_ENTER
 

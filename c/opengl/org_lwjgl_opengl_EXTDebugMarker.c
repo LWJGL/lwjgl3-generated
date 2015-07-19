@@ -6,9 +6,9 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glInsertEventMarkerEXTPROC) (GLsizei, const GLchar *);
-typedef GLvoid (APIENTRY *glPushGroupMarkerEXTPROC) (GLsizei, const GLchar *);
-typedef GLvoid (APIENTRY *glPopGroupMarkerEXTPROC) (void);
+typedef void (APIENTRY *glInsertEventMarkerEXTPROC) (GLsizei, const GLchar *);
+typedef void (APIENTRY *glPushGroupMarkerEXTPROC) (GLsizei, const GLchar *);
+typedef void (APIENTRY *glPopGroupMarkerEXTPROC) (void);
 
 EXTERN_C_ENTER
 

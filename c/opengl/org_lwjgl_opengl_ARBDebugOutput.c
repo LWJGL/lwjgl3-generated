@@ -6,9 +6,9 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glDebugMessageControlARBPROC) (GLenum, GLenum, GLenum, GLsizei, const GLuint *, GLboolean);
-typedef GLvoid (APIENTRY *glDebugMessageInsertARBPROC) (GLenum, GLenum, GLuint, GLenum, GLsizei, const GLchar *);
-typedef GLvoid (APIENTRY *glDebugMessageCallbackARBPROC) (GLDEBUGPROCARB, const void *);
+typedef void (APIENTRY *glDebugMessageControlARBPROC) (GLenum, GLenum, GLenum, GLsizei, const GLuint *, GLboolean);
+typedef void (APIENTRY *glDebugMessageInsertARBPROC) (GLenum, GLenum, GLuint, GLenum, GLsizei, const GLchar *);
+typedef void (APIENTRY *glDebugMessageCallbackARBPROC) (GLDEBUGPROCARB, const void *);
 typedef GLuint (APIENTRY *glGetDebugMessageLogARBPROC) (GLuint, GLsizei, GLenum *, GLenum *, GLuint *, GLenum *, GLsizei *, GLchar *);
 
 EXTERN_C_ENTER

@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glBlendEquationSeparateEXTPROC) (GLenum, GLenum);
+typedef void (APIENTRY *glBlendEquationSeparateEXTPROC) (GLenum, GLenum);
 
 EXTERN_C_ENTER
 

@@ -6,12 +6,12 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glNamedStringARBPROC) (GLenum, GLint, const GLchar *, GLint, const GLchar *);
-typedef GLvoid (APIENTRY *glDeleteNamedStringARBPROC) (GLint, const GLchar *);
-typedef GLvoid (APIENTRY *glCompileShaderIncludeARBPROC) (GLuint, GLsizei, const GLchar * const *, const GLint *);
+typedef void (APIENTRY *glNamedStringARBPROC) (GLenum, GLint, const GLchar *, GLint, const GLchar *);
+typedef void (APIENTRY *glDeleteNamedStringARBPROC) (GLint, const GLchar *);
+typedef void (APIENTRY *glCompileShaderIncludeARBPROC) (GLuint, GLsizei, const GLchar * const *, const GLint *);
 typedef GLboolean (APIENTRY *glIsNamedStringARBPROC) (GLint, const GLchar *);
-typedef GLvoid (APIENTRY *glGetNamedStringARBPROC) (GLint, const GLchar *, GLsizei, GLint *, GLchar *);
-typedef GLvoid (APIENTRY *glGetNamedStringivARBPROC) (GLint, const GLchar *, GLenum, GLint *);
+typedef void (APIENTRY *glGetNamedStringARBPROC) (GLint, const GLchar *, GLsizei, GLint *, GLchar *);
+typedef void (APIENTRY *glGetNamedStringivARBPROC) (GLint, const GLchar *, GLenum, GLint *);
 
 EXTERN_C_ENTER
 

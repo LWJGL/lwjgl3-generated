@@ -6,8 +6,8 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glNamedFramebufferParameteriEXTPROC) (GLuint, GLenum, GLint);
-typedef GLvoid (APIENTRY *glGetNamedFramebufferParameterivEXTPROC) (GLuint, GLenum, GLint *);
+typedef void (APIENTRY *glNamedFramebufferParameteriEXTPROC) (GLuint, GLenum, GLint);
+typedef void (APIENTRY *glGetNamedFramebufferParameterivEXTPROC) (GLuint, GLenum, GLint *);
 
 EXTERN_C_ENTER
 

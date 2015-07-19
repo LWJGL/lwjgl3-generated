@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glRenderbufferStorageMultisampleEXTPROC) (GLenum, GLsizei, GLenum, GLsizei, GLsizei);
+typedef void (APIENTRY *glRenderbufferStorageMultisampleEXTPROC) (GLenum, GLsizei, GLenum, GLsizei, GLsizei);
 
 EXTERN_C_ENTER
 

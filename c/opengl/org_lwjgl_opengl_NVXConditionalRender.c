@@ -6,8 +6,8 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glBeginConditionalRenderNVXPROC) (GLuint);
-typedef GLvoid (APIENTRY *glEndConditionalRenderNVXPROC) (void);
+typedef void (APIENTRY *glBeginConditionalRenderNVXPROC) (GLuint);
+typedef void (APIENTRY *glEndConditionalRenderNVXPROC) (void);
 
 EXTERN_C_ENTER
 

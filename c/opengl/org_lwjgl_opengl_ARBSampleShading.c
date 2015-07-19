@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glMinSampleShadingARBPROC) (GLfloat);
+typedef void (APIENTRY *glMinSampleShadingARBPROC) (GLfloat);
 
 EXTERN_C_ENTER
 

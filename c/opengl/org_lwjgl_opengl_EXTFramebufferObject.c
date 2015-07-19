@@ -7,22 +7,22 @@
 #include "OpenGL.h"
 
 typedef GLboolean (APIENTRY *glIsRenderbufferEXTPROC) (GLuint);
-typedef GLvoid (APIENTRY *glBindRenderbufferEXTPROC) (GLenum, GLuint);
-typedef GLvoid (APIENTRY *glDeleteRenderbuffersEXTPROC) (GLsizei, const GLuint *);
-typedef GLvoid (APIENTRY *glGenRenderbuffersEXTPROC) (GLsizei, GLuint *);
-typedef GLvoid (APIENTRY *glRenderbufferStorageEXTPROC) (GLenum, GLenum, GLsizei, GLsizei);
-typedef GLvoid (APIENTRY *glGetRenderbufferParameterivEXTPROC) (GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glBindRenderbufferEXTPROC) (GLenum, GLuint);
+typedef void (APIENTRY *glDeleteRenderbuffersEXTPROC) (GLsizei, const GLuint *);
+typedef void (APIENTRY *glGenRenderbuffersEXTPROC) (GLsizei, GLuint *);
+typedef void (APIENTRY *glRenderbufferStorageEXTPROC) (GLenum, GLenum, GLsizei, GLsizei);
+typedef void (APIENTRY *glGetRenderbufferParameterivEXTPROC) (GLenum, GLenum, GLint *);
 typedef GLboolean (APIENTRY *glIsFramebufferEXTPROC) (GLuint);
-typedef GLvoid (APIENTRY *glBindFramebufferEXTPROC) (GLenum, GLuint);
-typedef GLvoid (APIENTRY *glDeleteFramebuffersEXTPROC) (GLsizei, const GLuint *);
-typedef GLvoid (APIENTRY *glGenFramebuffersEXTPROC) (GLsizei, GLuint *);
+typedef void (APIENTRY *glBindFramebufferEXTPROC) (GLenum, GLuint);
+typedef void (APIENTRY *glDeleteFramebuffersEXTPROC) (GLsizei, const GLuint *);
+typedef void (APIENTRY *glGenFramebuffersEXTPROC) (GLsizei, GLuint *);
 typedef GLenum (APIENTRY *glCheckFramebufferStatusEXTPROC) (GLenum);
-typedef GLvoid (APIENTRY *glFramebufferTexture1DEXTPROC) (GLenum, GLenum, GLenum, GLuint, GLint);
-typedef GLvoid (APIENTRY *glFramebufferTexture2DEXTPROC) (GLenum, GLenum, GLenum, GLuint, GLint);
-typedef GLvoid (APIENTRY *glFramebufferTexture3DEXTPROC) (GLenum, GLenum, GLenum, GLuint, GLint, GLint);
-typedef GLvoid (APIENTRY *glFramebufferRenderbufferEXTPROC) (GLenum, GLenum, GLenum, GLuint);
-typedef GLvoid (APIENTRY *glGetFramebufferAttachmentParameterivEXTPROC) (GLenum, GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGenerateMipmapEXTPROC) (GLenum);
+typedef void (APIENTRY *glFramebufferTexture1DEXTPROC) (GLenum, GLenum, GLenum, GLuint, GLint);
+typedef void (APIENTRY *glFramebufferTexture2DEXTPROC) (GLenum, GLenum, GLenum, GLuint, GLint);
+typedef void (APIENTRY *glFramebufferTexture3DEXTPROC) (GLenum, GLenum, GLenum, GLuint, GLint, GLint);
+typedef void (APIENTRY *glFramebufferRenderbufferEXTPROC) (GLenum, GLenum, GLenum, GLuint);
+typedef void (APIENTRY *glGetFramebufferAttachmentParameterivEXTPROC) (GLenum, GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGenerateMipmapEXTPROC) (GLenum);
 
 EXTERN_C_ENTER
 

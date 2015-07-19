@@ -6,12 +6,12 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef GLvoid (APIENTRY *glClearColorIiEXTPROC) (GLint, GLint, GLint, GLint);
-typedef GLvoid (APIENTRY *glClearColorIuiEXTPROC) (GLuint, GLuint, GLuint, GLuint);
-typedef GLvoid (APIENTRY *glTexParameterIivEXTPROC) (GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glTexParameterIuivEXTPROC) (GLenum, GLenum, GLuint *);
-typedef GLvoid (APIENTRY *glGetTexParameterIivEXTPROC) (GLenum, GLenum, GLint *);
-typedef GLvoid (APIENTRY *glGetTexParameterIuivEXTPROC) (GLenum, GLenum, GLuint *);
+typedef void (APIENTRY *glClearColorIiEXTPROC) (GLint, GLint, GLint, GLint);
+typedef void (APIENTRY *glClearColorIuiEXTPROC) (GLuint, GLuint, GLuint, GLuint);
+typedef void (APIENTRY *glTexParameterIivEXTPROC) (GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glTexParameterIuivEXTPROC) (GLenum, GLenum, GLuint *);
+typedef void (APIENTRY *glGetTexParameterIivEXTPROC) (GLenum, GLenum, GLint *);
+typedef void (APIENTRY *glGetTexParameterIuivEXTPROC) (GLenum, GLenum, GLuint *);
 
 EXTERN_C_ENTER
 

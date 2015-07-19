@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include <GL/glx.h>
 
-typedef GLvoid (APIENTRY *glXCopyImageSubDataNVPROC) (Display *, GLXContext, GLuint, GLenum, GLint, GLint, GLint, GLint, GLXContext, GLuint, GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei);
+typedef void (APIENTRY *glXCopyImageSubDataNVPROC) (Display *, GLXContext, GLuint, GLenum, GLint, GLint, GLint, GLint, GLXContext, GLuint, GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei);
 
 EXTERN_C_ENTER
 
