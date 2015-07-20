@@ -32,10 +32,6 @@ public final class GL31 {
 
 	/** Accepted by the {@code internalFormat} parameter of TexImage1D, TexImage2D, and TexImage3D. */
 	public static final int
-		GL_RED_SNORM    = 0x8F90,
-		GL_RG_SNORM     = 0x8F91,
-		GL_RGB_SNORM    = 0x8F92,
-		GL_RGBA_SNORM   = 0x8F93,
 		GL_R8_SNORM     = 0x8F94,
 		GL_RG8_SNORM    = 0x8F95,
 		GL_RGB8_SNORM   = 0x8F96,
@@ -47,6 +43,14 @@ public final class GL31 {
 
 	/** Returned by GetTexLevelParameter and GetFramebufferAttachmentParameter. */
 	public static final int GL_SIGNED_NORMALIZED = 0x8F9C;
+
+	/** Returned by the {@code type} parameter of GetActiveUniform. */
+	public static final int
+		GL_SAMPLER_BUFFER               = 0x8DC2,
+		GL_INT_SAMPLER_2D_RECT          = 0x8DCD,
+		GL_INT_SAMPLER_BUFFER           = 0x8DD0,
+		GL_UNSIGNED_INT_SAMPLER_2D_RECT = 0x8DD5,
+		GL_UNSIGNED_INT_SAMPLER_BUFFER  = 0x8DD8;
 
 	/**
 	 * Accepted by the target parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, GetBufferPointerv, MapBufferRange,
@@ -73,8 +77,7 @@ public final class GL31 {
 	public static final int
 		GL_MAX_TEXTURE_BUFFER_SIZE           = 0x8C2B,
 		GL_TEXTURE_BINDING_BUFFER            = 0x8C2C,
-		GL_TEXTURE_BUFFER_DATA_STORE_BINDING = 0x8C2D,
-		GL_TEXTURE_BUFFER_FORMAT             = 0x8C2E;
+		GL_TEXTURE_BUFFER_DATA_STORE_BINDING = 0x8C2D;
 
 	/**
 	 * Accepted by the {@code cap} parameter of Enable, Disable and IsEnabled; by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv and

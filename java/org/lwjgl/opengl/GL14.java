@@ -42,17 +42,18 @@ public final class GL14 {
 	/** Accepted by the {@code target} parameter of Hint, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_GENERATE_MIPMAP_HINT = 0x8192;
 
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int GL_BLEND_COLOR = 0x8005;
+	/** Accepted by the {@code sfactor} and {@code dfactor} parameters of BlendFunc. */
+	public static final int
+		GL_CONSTANT_COLOR           = 0x8001,
+		GL_ONE_MINUS_CONSTANT_COLOR = 0x8002,
+		GL_CONSTANT_ALPHA           = 0x8003,
+		GL_ONE_MINUS_CONSTANT_ALPHA = 0x8004;
 
 	/** Accepted by the {@code mode} parameter of BlendEquation. */
 	public static final int
 		GL_FUNC_ADD = 0x8006,
 		GL_MIN      = 0x8007,
 		GL_MAX      = 0x8008;
-
-	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int GL_BLEND_EQUATION = 0x8009;
 
 	/** Accepted by the {@code mode} parameter of BlendEquation. */
 	public static final int

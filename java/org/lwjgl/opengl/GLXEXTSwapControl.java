@@ -20,6 +20,11 @@ import org.lwjgl.system.linux.*;
  */
 public final class GLXEXTSwapControl {
 
+	/** The current swap interval and implementation-dependent max swap interval for a particular drawable. */
+	public static final int
+		GLX_SWAP_INTERVAL_EXT     = 0x20F1,
+		GLX_MAX_SWAP_INTERVAL_EXT = 0x20F2;
+
 	/** Function address. */
 	@JavadocExclude
 	public final long SwapIntervalEXT;

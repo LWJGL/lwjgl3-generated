@@ -74,7 +74,6 @@ public final class ARBRobustness {
 
 	/** Returned by GetGraphicsResetStatusARB. */
 	public static final int
-		GL_NO_ERROR                   = 0x0,
 		GL_GUILTY_CONTEXT_RESET_ARB   = 0x8253,
 		GL_INNOCENT_CONTEXT_RESET_ARB = 0x8254,
 		GL_UNKNOWN_CONTEXT_RESET_ARB  = 0x8255;
@@ -157,8 +156,7 @@ public final class ARBRobustness {
 			provider.getFunctionAddress("glGetPixelMapfv") != NULL ? funcs.GetnPixelMapfvARB : -1L, 
 			provider.getFunctionAddress("glGetPixelMapuiv") != NULL ? funcs.GetnPixelMapuivARB : -1L, 
 			provider.getFunctionAddress("glGetPixelMapusv") != NULL ? funcs.GetnPixelMapusvARB : -1L, 
-			provider.getFunctionAddress("glGetPolygonStipple") != NULL ? funcs.GetnPolygonStippleARB : -1L, 
-			provider.getFunctionAddress("glGetTexImage") != NULL ? funcs.GetnTexImageARB : -1L, funcs.ReadnPixelsARB, 
+			provider.getFunctionAddress("glGetPolygonStipple") != NULL ? funcs.GetnPolygonStippleARB : -1L, funcs.GetnTexImageARB, funcs.ReadnPixelsARB, 
 			ext.contains("GL_ARB_imaging") && provider.getFunctionAddress("glGetColorTable") != NULL ? funcs.GetnColorTableARB : -1L, 
 			ext.contains("GL_ARB_imaging") && provider.getFunctionAddress("glGetConvolutionFilter") != NULL ? funcs.GetnConvolutionFilterARB : -1L, 
 			ext.contains("GL_ARB_imaging") && provider.getFunctionAddress("glGetSeparableFilter") != NULL ? funcs.GetnSeparableFilterARB : -1L, 
@@ -481,8 +479,6 @@ public final class ARBRobustness {
 	@JavadocExclude
 	public static void nglGetnTexImageARB(int tex, int level, int format, int type, int bufSize, long img) {
 		long __functionAddress = getInstance().GetnTexImageARB;
-		if ( LWJGLUtil.CHECKS )
-			checkFunctionAddress(__functionAddress);
 		nglGetnTexImageARB(tex, level, format, type, bufSize, img, __functionAddress);
 	}
 

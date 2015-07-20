@@ -54,8 +54,7 @@ public final class ARBSparseBuffer {
 		ARBSparseBuffer funcs = new ARBSparseBuffer(provider);
 
 		boolean supported = checkFunctions(
-			funcs.BufferPageCommitmentARB, ext.contains("GL_EXT_direct_state_access") ? funcs.NamedBufferPageCommitmentEXT : -1L, 
-			ext.contains("GL_ARB_direct_state_access") ? funcs.NamedBufferPageCommitmentARB : -1L
+			funcs.BufferPageCommitmentARB
 		);
 
 		return GL.checkExtension("GL_ARB_sparse_buffer", funcs, supported);

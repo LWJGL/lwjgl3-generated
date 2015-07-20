@@ -506,7 +506,7 @@ public final class GL15 {
 	 */
 	public static ByteBuffer glMapBuffer(int target, int access) {
 		long __result = nglMapBuffer(target, access);
-		return memByteBuffer(__result, (int)glGetBufferParameteri(target, GL_BUFFER_SIZE));
+		return memByteBuffer(__result, glGetBufferParameteri(target, GL_BUFFER_SIZE));
 	}
 
 	/** Alternative version of: {@link #glMapBuffer MapBuffer} */

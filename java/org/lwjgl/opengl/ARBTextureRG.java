@@ -47,7 +47,6 @@ public final class ARBTextureRG {
 		GL_RG16UI         = 0x823A,
 		GL_RG32I          = 0x823B,
 		GL_RG32UI         = 0x823C,
-		GL_RED            = 0x1903,
 		GL_RG             = 0x8227,
 		GL_COMPRESSED_RED = 0x8225,
 		GL_COMPRESSED_RG  = 0x8226;

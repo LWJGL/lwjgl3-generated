@@ -34,6 +34,16 @@ public final class GL44 {
 	/** Implementation-dependent state which constrains the maximum value of stride parameters to vertex array pointer-setting commands. */
 	public static final int GL_MAX_VERTEX_ATTRIB_STRIDE = 0x82E5;
 
+	/**
+	 * Implementations are not required to support primitive restart for separate patch primitives (primitive type PATCHES). Support can be queried by calling
+	 * GetBooleanv with the symbolic constant PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED. A value of FALSE indicates that primitive restart is treated as
+	 * disabled when drawing patches, no matter the value of the enables. A value of TRUE indicates that primitive restart behaves normally for patches.
+	 */
+	public static final int GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED = 0x8221;
+
+	/** Equivalent to {@link ARBTextureBufferObject#GL_TEXTURE_BUFFER_ARB TEXTURE_BUFFER_ARB} query, but named more consistently. */
+	public static final int GL_TEXTURE_BUFFER_BINDING = 0x8C2A;
+
 	/** Accepted in the {@code flags} parameter of {@link #glBufferStorage BufferStorage} and {@link ARBBufferStorage#glNamedBufferStorageEXT NamedBufferStorageEXT}. */
 	public static final int
 		GL_MAP_PERSISTENT_BIT  = 0x40,

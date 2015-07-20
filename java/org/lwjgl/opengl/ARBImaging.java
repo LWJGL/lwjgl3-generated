@@ -175,6 +175,13 @@ public final class ARBImaging {
 		GL_MINMAX_FORMAT = 0x802F,
 		GL_MINMAX_SINK   = 0x8030;
 
+	/** Accepted by the {@code sfactor} and {@code dfactor} parameters of BlendFunc. */
+	public static final int
+		GL_CONSTANT_COLOR           = 0x8001,
+		GL_ONE_MINUS_CONSTANT_COLOR = 0x8002,
+		GL_CONSTANT_ALPHA           = 0x8003,
+		GL_ONE_MINUS_CONSTANT_ALPHA = 0x8004;
+
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_BLEND_COLOR = 0x8005;
 

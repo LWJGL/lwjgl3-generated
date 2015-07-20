@@ -336,6 +336,15 @@ public final class NVPathRendering {
 		GL_PATH_MAX_PROJECTION_STACK_DEPTH_NV  = 0xD38,
 		GL_PATH_TRANSPOSE_PROJECTION_MATRIX_NV = 0x84E4;
 
+	/** The following types are defined as alias to the GL tokens. */
+	public static final int
+		GL_2_BYTES_NV       = 0x1407,
+		GL_3_BYTES_NV       = 0x1408,
+		GL_4_BYTES_NV       = 0x1409,
+		GL_EYE_LINEAR_NV    = 0x2400,
+		GL_OBJECT_LINEAR_NV = 0x2401,
+		GL_CONSTANT_NV      = 0x8576;
+
 	/** Function address. */
 	@JavadocExclude
 	public final long
@@ -349,6 +358,7 @@ public final class NVPathRendering {
 		PathGlyphIndexArrayNV,
 		PathMemoryGlyphIndexArrayNV,
 		CopyPathNV,
+		WeightPathsNV,
 		InterpolatePathsNV,
 		TransformPathNV,
 		PathParameterivNV,
@@ -415,6 +425,7 @@ public final class NVPathRendering {
 		PathGlyphIndexArrayNV = provider.getFunctionAddress("glPathGlyphIndexArrayNV");
 		PathMemoryGlyphIndexArrayNV = provider.getFunctionAddress("glPathMemoryGlyphIndexArrayNV");
 		CopyPathNV = provider.getFunctionAddress("glCopyPathNV");
+		WeightPathsNV = provider.getFunctionAddress("glWeightPathsNV");
 		InterpolatePathsNV = provider.getFunctionAddress("glInterpolatePathsNV");
 		TransformPathNV = provider.getFunctionAddress("glTransformPathNV");
 		PathParameterivNV = provider.getFunctionAddress("glPathParameterivNV");
@@ -748,7 +759,7 @@ public final class NVPathRendering {
 	 * @param fontName              
 	 * @param fontStyle             one or more of:<br>{@link #GL_BOLD_BIT_NV BOLD_BIT_NV}, {@link #GL_ITALIC_BIT_NV ITALIC_BIT_NV}
 	 * @param numGlyphs             
-	 * @param type                  one of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link GL11#GL_2_BYTES 2_BYTES}, {@link GL11#GL_3_BYTES 3_BYTES}, {@link GL11#GL_4_BYTES 4_BYTES}
+	 * @param type                  one of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link #GL_2_BYTES_NV 2_BYTES_NV}, {@link #GL_3_BYTES_NV 3_BYTES_NV}, {@link #GL_4_BYTES_NV 4_BYTES_NV}
 	 * @param charcodes             
 	 * @param handleMissingGlyphs   one of:<br>{@link #GL_SKIP_MISSING_GLYPH_NV SKIP_MISSING_GLYPH_NV}, {@link #GL_USE_MISSING_GLYPH_NV USE_MISSING_GLYPH_NV}
 	 * @param pathParameterTemplate 
@@ -881,6 +892,44 @@ public final class NVPathRendering {
 	public static void glCopyPathNV(int resultPath, int srcPath) {
 		long __functionAddress = getInstance().CopyPathNV;
 		nglCopyPathNV(resultPath, srcPath, __functionAddress);
+	}
+
+	// --- [ glWeightPathsNV ] ---
+
+	/** JNI method for {@link #glWeightPathsNV WeightPathsNV} */
+	@JavadocExclude
+	public static native void nglWeightPathsNV(int resultPath, int numPaths, long paths, long weights, long __functionAddress);
+
+	/** Unsafe version of {@link #glWeightPathsNV WeightPathsNV} */
+	@JavadocExclude
+	public static void nglWeightPathsNV(int resultPath, int numPaths, long paths, long weights) {
+		long __functionAddress = getInstance().WeightPathsNV;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglWeightPathsNV(resultPath, numPaths, paths, weights, __functionAddress);
+	}
+
+	/**
+	 * 
+	 *
+	 * @param resultPath 
+	 * @param numPaths   
+	 * @param paths      
+	 * @param weights    
+	 */
+	public static void glWeightPathsNV(int resultPath, int numPaths, ByteBuffer paths, ByteBuffer weights) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkBuffer(paths, numPaths << 2);
+			checkBuffer(weights, numPaths << 2);
+		}
+		nglWeightPathsNV(resultPath, numPaths, memAddress(paths), memAddress(weights));
+	}
+
+	/** Alternative version of: {@link #glWeightPathsNV WeightPathsNV} */
+	public static void glWeightPathsNV(int resultPath, IntBuffer paths, FloatBuffer weights) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(weights, paths.remaining());
+		nglWeightPathsNV(resultPath, paths.remaining(), memAddress(paths), memAddress(weights));
 	}
 
 	// --- [ glInterpolatePathsNV ] ---
@@ -1202,7 +1251,7 @@ public final class NVPathRendering {
 	 * 
 	 *
 	 * @param numPaths        
-	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link GL11#GL_2_BYTES 2_BYTES}, {@link GL11#GL_3_BYTES 3_BYTES}, {@link GL11#GL_4_BYTES 4_BYTES}
+	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link #GL_2_BYTES_NV 2_BYTES_NV}, {@link #GL_3_BYTES_NV 3_BYTES_NV}, {@link #GL_4_BYTES_NV 4_BYTES_NV}
 	 * @param paths           
 	 * @param pathBase        
 	 * @param fillMode        one of:<br>{@link GL11#GL_INVERT INVERT}, {@link #GL_COUNT_UP_NV COUNT_UP_NV}, {@link #GL_COUNT_DOWN_NV COUNT_DOWN_NV}, {@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}
@@ -1244,7 +1293,7 @@ public final class NVPathRendering {
 	 * 
 	 *
 	 * @param numPaths        
-	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link GL11#GL_2_BYTES 2_BYTES}, {@link GL11#GL_3_BYTES 3_BYTES}, {@link GL11#GL_4_BYTES 4_BYTES}
+	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link #GL_2_BYTES_NV 2_BYTES_NV}, {@link #GL_3_BYTES_NV 3_BYTES_NV}, {@link #GL_4_BYTES_NV 4_BYTES_NV}
 	 * @param paths           
 	 * @param pathBase        
 	 * @param reference       
@@ -1304,7 +1353,7 @@ public final class NVPathRendering {
 	 * 
 	 *
 	 * @param color       one of:<br>{@link GL13#GL_PRIMARY_COLOR PRIMARY_COLOR}, {@link #GL_PRIMARY_COLOR_NV PRIMARY_COLOR_NV}, {@link #GL_SECONDARY_COLOR_NV SECONDARY_COLOR_NV}
-	 * @param genMode     one of:<br>{@link GL11#GL_NONE NONE}, {@link GL11#GL_OBJECT_LINEAR OBJECT_LINEAR}, {@link #GL_PATH_OBJECT_BOUNDING_BOX_NV PATH_OBJECT_BOUNDING_BOX_NV}, {@link GL11#GL_EYE_LINEAR EYE_LINEAR}, {@link GL13#GL_CONSTANT CONSTANT}
+	 * @param genMode     one of:<br>{@link GL11#GL_NONE NONE}, {@link #GL_OBJECT_LINEAR_NV OBJECT_LINEAR_NV}, {@link #GL_PATH_OBJECT_BOUNDING_BOX_NV PATH_OBJECT_BOUNDING_BOX_NV}, {@link #GL_EYE_LINEAR_NV EYE_LINEAR_NV}, {@link #GL_CONSTANT_NV CONSTANT_NV}
 	 * @param colorFormat 
 	 * @param coeffs      
 	 */
@@ -1418,7 +1467,7 @@ public final class NVPathRendering {
 	 * 
 	 *
 	 * @param numPaths        
-	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link GL11#GL_2_BYTES 2_BYTES}, {@link GL11#GL_3_BYTES 3_BYTES}, {@link GL11#GL_4_BYTES 4_BYTES}
+	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link #GL_2_BYTES_NV 2_BYTES_NV}, {@link #GL_3_BYTES_NV 3_BYTES_NV}, {@link #GL_4_BYTES_NV 4_BYTES_NV}
 	 * @param paths           
 	 * @param pathBase        
 	 * @param coverMode       one of:<br>{@link #GL_CONVEX_HULL_NV CONVEX_HULL_NV}, {@link #GL_BOUNDING_BOX_NV BOUNDING_BOX_NV}, {@link #GL_BOUNDING_BOX_OF_BOUNDING_BOXES_NV BOUNDING_BOX_OF_BOUNDING_BOXES_NV}
@@ -1459,7 +1508,7 @@ public final class NVPathRendering {
 	 * 
 	 *
 	 * @param numPaths        
-	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link GL11#GL_2_BYTES 2_BYTES}, {@link GL11#GL_3_BYTES 3_BYTES}, {@link GL11#GL_4_BYTES 4_BYTES}
+	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link #GL_2_BYTES_NV 2_BYTES_NV}, {@link #GL_3_BYTES_NV 3_BYTES_NV}, {@link #GL_4_BYTES_NV 4_BYTES_NV}
 	 * @param paths           
 	 * @param pathBase        
 	 * @param coverMode       one of:<br>{@link #GL_CONVEX_HULL_NV CONVEX_HULL_NV}, {@link #GL_BOUNDING_BOX_NV BOUNDING_BOX_NV}, {@link #GL_BOUNDING_BOX_OF_BOUNDING_BOXES_NV BOUNDING_BOX_OF_BOUNDING_BOXES_NV}
@@ -1544,7 +1593,7 @@ public final class NVPathRendering {
 	 * 
 	 *
 	 * @param numPaths        
-	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link GL11#GL_2_BYTES 2_BYTES}, {@link GL11#GL_3_BYTES 3_BYTES}, {@link GL11#GL_4_BYTES 4_BYTES}
+	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link #GL_2_BYTES_NV 2_BYTES_NV}, {@link #GL_3_BYTES_NV 3_BYTES_NV}, {@link #GL_4_BYTES_NV 4_BYTES_NV}
 	 * @param paths           
 	 * @param pathBase        
 	 * @param fillMode        one of:<br>{@link GL11#GL_INVERT INVERT}, {@link #GL_COUNT_UP_NV COUNT_UP_NV}, {@link #GL_COUNT_DOWN_NV COUNT_DOWN_NV}, {@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}
@@ -1589,7 +1638,7 @@ public final class NVPathRendering {
 	 * 
 	 *
 	 * @param numPaths        
-	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link GL11#GL_2_BYTES 2_BYTES}, {@link GL11#GL_3_BYTES 3_BYTES}, {@link GL11#GL_4_BYTES 4_BYTES}
+	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link #GL_2_BYTES_NV 2_BYTES_NV}, {@link #GL_3_BYTES_NV 3_BYTES_NV}, {@link #GL_4_BYTES_NV 4_BYTES_NV}
 	 * @param paths           
 	 * @param pathBase        
 	 * @param reference       
@@ -1856,7 +1905,7 @@ public final class NVPathRendering {
 	 *
 	 * @param metricQueryMask one or more of:<br>{@link #GL_GLYPH_WIDTH_BIT_NV GLYPH_WIDTH_BIT_NV}, {@link #GL_GLYPH_HEIGHT_BIT_NV GLYPH_HEIGHT_BIT_NV}, {@link #GL_GLYPH_HORIZONTAL_BEARING_X_BIT_NV GLYPH_HORIZONTAL_BEARING_X_BIT_NV}, {@link #GL_GLYPH_HORIZONTAL_BEARING_Y_BIT_NV GLYPH_HORIZONTAL_BEARING_Y_BIT_NV}, {@link #GL_GLYPH_HORIZONTAL_BEARING_ADVANCE_BIT_NV GLYPH_HORIZONTAL_BEARING_ADVANCE_BIT_NV}, {@link #GL_GLYPH_VERTICAL_BEARING_X_BIT_NV GLYPH_VERTICAL_BEARING_X_BIT_NV}, {@link #GL_GLYPH_VERTICAL_BEARING_Y_BIT_NV GLYPH_VERTICAL_BEARING_Y_BIT_NV}, {@link #GL_GLYPH_VERTICAL_BEARING_ADVANCE_BIT_NV GLYPH_VERTICAL_BEARING_ADVANCE_BIT_NV}, {@link #GL_GLYPH_HAS_KERNING_BIT_NV GLYPH_HAS_KERNING_BIT_NV}, {@link #GL_FONT_X_MIN_BOUNDS_BIT_NV FONT_X_MIN_BOUNDS_BIT_NV}, {@link #GL_FONT_Y_MIN_BOUNDS_BIT_NV FONT_Y_MIN_BOUNDS_BIT_NV}, {@link #GL_FONT_X_MAX_BOUNDS_BIT_NV FONT_X_MAX_BOUNDS_BIT_NV}, {@link #GL_FONT_Y_MAX_BOUNDS_BIT_NV FONT_Y_MAX_BOUNDS_BIT_NV}, {@link #GL_FONT_UNITS_PER_EM_BIT_NV FONT_UNITS_PER_EM_BIT_NV}, {@link #GL_FONT_ASCENDER_BIT_NV FONT_ASCENDER_BIT_NV}, {@link #GL_FONT_DESCENDER_BIT_NV FONT_DESCENDER_BIT_NV}, {@link #GL_FONT_HEIGHT_BIT_NV FONT_HEIGHT_BIT_NV}, {@link #GL_FONT_MAX_ADVANCE_WIDTH_BIT_NV FONT_MAX_ADVANCE_WIDTH_BIT_NV}, {@link #GL_FONT_MAX_ADVANCE_HEIGHT_BIT_NV FONT_MAX_ADVANCE_HEIGHT_BIT_NV}, {@link #GL_FONT_UNDERLINE_POSITION_BIT_NV FONT_UNDERLINE_POSITION_BIT_NV}, {@link #GL_FONT_UNDERLINE_THICKNESS_BIT_NV FONT_UNDERLINE_THICKNESS_BIT_NV}, {@link #GL_FONT_HAS_KERNING_BIT_NV FONT_HAS_KERNING_BIT_NV}, {@link #GL_FONT_NUM_GLYPH_INDICES_BIT_NV FONT_NUM_GLYPH_INDICES_BIT_NV}
 	 * @param numPaths        
-	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link GL11#GL_2_BYTES 2_BYTES}, {@link GL11#GL_3_BYTES 3_BYTES}, {@link GL11#GL_4_BYTES 4_BYTES}
+	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link #GL_2_BYTES_NV 2_BYTES_NV}, {@link #GL_3_BYTES_NV 3_BYTES_NV}, {@link #GL_4_BYTES_NV 4_BYTES_NV}
 	 * @param paths           
 	 * @param pathBase        
 	 * @param stride          
@@ -1924,7 +1973,7 @@ public final class NVPathRendering {
 	 *
 	 * @param pathListMode    one of:<br>{@link #GL_ACCUM_ADJACENT_PAIRS_NV ACCUM_ADJACENT_PAIRS_NV}, {@link #GL_ADJACENT_PAIRS_NV ADJACENT_PAIRS_NV}, {@link #GL_FIRST_TO_REST_NV FIRST_TO_REST_NV}
 	 * @param numPaths        
-	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link GL11#GL_2_BYTES 2_BYTES}, {@link GL11#GL_3_BYTES 3_BYTES}, {@link GL11#GL_4_BYTES 4_BYTES}
+	 * @param pathNameType    one of:<br>{@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_INT INT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_FLOAT FLOAT}, {@link #GL_UTF8_NV UTF8_NV}, {@link #GL_UTF16_NV UTF16_NV}, {@link #GL_2_BYTES_NV 2_BYTES_NV}, {@link #GL_3_BYTES_NV 3_BYTES_NV}, {@link #GL_4_BYTES_NV 4_BYTES_NV}
 	 * @param paths           
 	 * @param pathBase        
 	 * @param advanceScale    

@@ -171,9 +171,8 @@ public final class GL40 {
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int
-		GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET     = 0x8E5E,
-		GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET     = 0x8E5F,
-		GL_MAX_PROGRAM_TEXTURE_GATHER_COMPONENTS = 0x8F9F;
+		GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET = 0x8E5E,
+		GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET = 0x8E5F;
 
 	/** Accepted by the {@code target} parameter of BindTransformFeedback. */
 	public static final int GL_TRANSFORM_FEEDBACK = 0x8E22;

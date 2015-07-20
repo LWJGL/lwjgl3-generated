@@ -100,13 +100,9 @@ public final class GL11 {
 
 	/** BlendingFactorSrc */
 	public static final int
-		GL_DST_COLOR                = 0x306,
-		GL_ONE_MINUS_DST_COLOR      = 0x307,
-		GL_SRC_ALPHA_SATURATE       = 0x308,
-		GL_CONSTANT_COLOR           = 0x8001,
-		GL_ONE_MINUS_CONSTANT_COLOR = 0x8002,
-		GL_CONSTANT_ALPHA           = 0x8003,
-		GL_ONE_MINUS_CONSTANT_ALPHA = 0x8004;
+		GL_DST_COLOR           = 0x306,
+		GL_ONE_MINUS_DST_COLOR = 0x307,
+		GL_SRC_ALPHA_SATURATE  = 0x308;
 
 	/** Boolean */
 	public static final int
@@ -282,6 +278,7 @@ public final class GL11 {
 		GL_BLEND                         = 0xBE2,
 		GL_LOGIC_OP_MODE                 = 0xBF0,
 		GL_INDEX_LOGIC_OP                = 0xBF1,
+		GL_LOGIC_OP                      = 0xBF1,
 		GL_COLOR_LOGIC_OP                = 0xBF2,
 		GL_AUX_BUFFERS                   = 0xC00,
 		GL_DRAW_BUFFER                   = 0xC01,
@@ -415,6 +412,7 @@ public final class GL11 {
 		GL_TEXTURE_WIDTH           = 0x1000,
 		GL_TEXTURE_HEIGHT          = 0x1001,
 		GL_TEXTURE_INTERNAL_FORMAT = 0x1003,
+		GL_TEXTURE_COMPONENTS      = 0x1003,
 		GL_TEXTURE_BORDER_COLOR    = 0x1004,
 		GL_TEXTURE_BORDER          = 0x1005;
 
@@ -4212,7 +4210,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetLight.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Returns integer information about light parameter {@code value} for {@code light} in {@code data}.
+	 * Returns integer information about light parameter {@code pname} for {@code light} in {@code data}.
 	 *
 	 * @param light the light for which to return information. One of:<br>{@link #GL_LIGHT0 LIGHT0}, GL_LIGHT[1-7]
 	 * @param pname the light parameter to query. One of:<br>{@link #GL_AMBIENT AMBIENT}, {@link #GL_DIFFUSE DIFFUSE}, {@link #GL_SPECULAR SPECULAR}, {@link #GL_POSITION POSITION}, {@link #GL_CONSTANT_ATTENUATION CONSTANT_ATTENUATION}, {@link #GL_LINEAR_ATTENUATION LINEAR_ATTENUATION}, {@link #GL_QUADRATIC_ATTENUATION QUADRATIC_ATTENUATION}, {@link #GL_SPOT_DIRECTION SPOT_DIRECTION}, {@link #GL_SPOT_EXPONENT SPOT_EXPONENT}, {@link #GL_SPOT_CUTOFF SPOT_CUTOFF}
@@ -4437,7 +4435,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetMaterial.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Returns integer information about material property {@code value} for {@code face} in {@code data}.
+	 * Returns integer information about material property {@code pname} for {@code face} in {@code data}.
 	 *
 	 * @param face  the material face for which to return information. One of:<br>{@link #GL_FRONT FRONT}, {@link #GL_BACK BACK}
 	 * @param pname the information to query. One of:<br>{@link #GL_AMBIENT AMBIENT}, {@link #GL_DIFFUSE DIFFUSE}, {@link #GL_SPECULAR SPECULAR}, {@link #GL_EMISSION EMISSION}, {@link #GL_SHININESS SHININESS}
@@ -4744,7 +4742,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexEnv.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Returns integer information about {@code value} for {@code env} in {@code data}.
+	 * Returns integer information about {@code pname} for {@code env} in {@code data}.
 	 *
 	 * @param env   the texture environment to query. One of:<br>{@link GL20#GL_POINT_SPRITE POINT_SPRITE}, {@link #GL_TEXTURE_ENV TEXTURE_ENV}, {@link GL14#GL_TEXTURE_FILTER_CONTROL TEXTURE_FILTER_CONTROL}
 	 * @param pname the parameter to query. One of:<br>{@link GL20#GL_COORD_REPLACE COORD_REPLACE}, {@link #GL_TEXTURE_ENV_MODE TEXTURE_ENV_MODE}, {@link #GL_TEXTURE_ENV_COLOR TEXTURE_ENV_COLOR}, {@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}, {@link GL13#GL_COMBINE_RGB COMBINE_RGB}, {@link GL13#GL_COMBINE_ALPHA COMBINE_ALPHA}, {@link GL15#GL_SRC0_RGB SRC0_RGB}, {@link GL15#GL_SRC1_RGB SRC1_RGB}, {@link GL15#GL_SRC2_RGB SRC2_RGB}, {@link GL15#GL_SRC0_ALPHA SRC0_ALPHA}, {@link GL15#GL_SRC1_ALPHA SRC1_ALPHA}, {@link GL15#GL_SRC2_ALPHA SRC2_ALPHA}, {@link GL13#GL_OPERAND0_RGB OPERAND0_RGB}, {@link GL13#GL_OPERAND1_RGB OPERAND1_RGB}, {@link GL13#GL_OPERAND2_RGB OPERAND2_RGB}, {@link GL13#GL_OPERAND0_ALPHA OPERAND0_ALPHA}, {@link GL13#GL_OPERAND1_ALPHA OPERAND1_ALPHA}, {@link GL13#GL_OPERAND2_ALPHA OPERAND2_ALPHA}, {@link GL13#GL_RGB_SCALE RGB_SCALE}, {@link #GL_ALPHA_SCALE ALPHA_SCALE}
@@ -4832,7 +4830,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * Returns integer information about {@code value} for {@code coord} in {@code data}.
+	 * Returns integer information about {@code pname} for {@code coord} in {@code data}.
 	 *
 	 * @param coord the coord to query. One of:<br>{@link #GL_S S}, {@link #GL_T T}, {@link #GL_R R}, {@link #GL_Q Q}
 	 * @param pname the parameter to query. One of:<br>{@link #GL_EYE_PLANE EYE_PLANE}, {@link #GL_OBJECT_PLANE OBJECT_PLANE}, {@link #GL_TEXTURE_GEN_MODE TEXTURE_GEN_MODE}
@@ -5030,7 +5028,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexLevelParameter.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Places integer information about texture image parameter {@code value} for level-of-detail {@code lod} of the specified {@code target} into {@code data}.
+	 * Places integer information about texture image parameter {@code pname} for level-of-detail {@code level} of the specified {@code target} into {@code params}.
 	 *
 	 * @param target the texture image target. One of:<br>{@link #GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link #GL_PROXY_TEXTURE_2D PROXY_TEXTURE_2D}, {@link GL30#GL_PROXY_TEXTURE_1D_ARRAY PROXY_TEXTURE_1D_ARRAY}, {@link GL31#GL_PROXY_TEXTURE_RECTANGLE PROXY_TEXTURE_RECTANGLE}, {@link GL13#GL_PROXY_TEXTURE_CUBE_MAP PROXY_TEXTURE_CUBE_MAP}, {@link #GL_TEXTURE_1D TEXTURE_1D}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}, {@link #GL_PROXY_TEXTURE_1D PROXY_TEXTURE_1D}, {@link GL12#GL_PROXY_TEXTURE_3D PROXY_TEXTURE_3D}, {@link GL30#GL_PROXY_TEXTURE_2D_ARRAY PROXY_TEXTURE_2D_ARRAY}, {@link GL40#GL_PROXY_TEXTURE_CUBE_MAP_ARRAY PROXY_TEXTURE_CUBE_MAP_ARRAY}, {@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}, {@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY}
 	 * @param level  the level-of-detail number
@@ -5118,7 +5116,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexParameter.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Place integer information about texture parameter {@code value} for the specified {@code target} into {@code data}.
+	 * Place integer information about texture parameter {@code pname} for the specified {@code target} into {@code params}.
 	 *
 	 * @param target the texture target. One of:<br>{@link #GL_TEXTURE_1D TEXTURE_1D}, {@link #GL_TEXTURE_2D TEXTURE_2D}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}, {@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}
 	 * @param pname  the parameter to query. One of:<br>{@link GL12#GL_TEXTURE_BASE_LEVEL TEXTURE_BASE_LEVEL}, {@link #GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}, {@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}, {@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}, {@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}, {@link #GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}, {@link GL12#GL_TEXTURE_MAX_LEVEL TEXTURE_MAX_LEVEL}, {@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}, {@link #GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}, {@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}, {@link #GL_TEXTURE_PRIORITY TEXTURE_PRIORITY}, {@link GL33#GL_TEXTURE_SWIZZLE_R TEXTURE_SWIZZLE_R}, {@link GL33#GL_TEXTURE_SWIZZLE_G TEXTURE_SWIZZLE_G}, {@link GL33#GL_TEXTURE_SWIZZLE_B TEXTURE_SWIZZLE_B}, {@link GL33#GL_TEXTURE_SWIZZLE_A TEXTURE_SWIZZLE_A}, {@link GL33#GL_TEXTURE_SWIZZLE_RGBA TEXTURE_SWIZZLE_RGBA}, {@link #GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}, {@link #GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}, {@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}, {@link GL14#GL_DEPTH_TEXTURE_MODE DEPTH_TEXTURE_MODE}, {@link GL14#GL_GENERATE_MIPMAP GENERATE_MIPMAP}, {@link GL42#GL_IMAGE_FORMAT_COMPATIBILITY_TYPE IMAGE_FORMAT_COMPATIBILITY_TYPE}, {@link GL42#GL_TEXTURE_IMMUTABLE_FORMAT TEXTURE_IMMUTABLE_FORMAT}, {@link GL43#GL_TEXTURE_IMMUTABLE_LEVELS TEXTURE_IMMUTABLE_LEVELS}, {@link GL43#GL_TEXTURE_VIEW_MIN_LEVEL TEXTURE_VIEW_MIN_LEVEL}, {@link GL43#GL_TEXTURE_VIEW_NUM_LEVELS TEXTURE_VIEW_NUM_LEVELS}, {@link GL43#GL_TEXTURE_VIEW_MIN_LAYER TEXTURE_VIEW_MIN_LAYER}, {@link GL43#GL_TEXTURE_VIEW_NUM_LAYERS TEXTURE_VIEW_NUM_LAYERS}, {@link #GL_TEXTURE_RESIDENT TEXTURE_RESIDENT}

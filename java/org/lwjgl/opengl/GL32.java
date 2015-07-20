@@ -129,8 +129,6 @@ public final class GL32 {
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int
 		GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS     = 0x8C29,
-		GL_MAX_GEOMETRY_VARYING_COMPONENTS      = 0x8DDD,
-		GL_MAX_VERTEX_VARYING_COMPONENTS        = 0x8DDE,
 		GL_MAX_GEOMETRY_UNIFORM_COMPONENTS      = 0x8DDF,
 		GL_MAX_GEOMETRY_OUTPUT_VERTICES         = 0x8DE0,
 		GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS = 0x8DE1;
@@ -143,9 +141,7 @@ public final class GL32 {
 		GL_TRIANGLE_STRIP_ADJACENCY = 0xD;
 
 	/** Returned by CheckFramebufferStatus. */
-	public static final int
-		GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS = 0x8DA8,
-		GL_FRAMEBUFFER_INCOMPLETE_LAYER_COUNT   = 0x8DA9;
+	public static final int GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS = 0x8DA8;
 
 	/** Accepted by the {@code pname} parameter of GetFramebufferAttachment- Parameteriv. */
 	public static final int GL_FRAMEBUFFER_ATTACHMENT_LAYERED = 0x8DA7;

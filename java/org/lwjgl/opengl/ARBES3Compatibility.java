@@ -38,9 +38,6 @@ public final class ARBES3Compatibility {
 	/** Accepted by the {@code value} parameter of the GetInteger functions. */
 	public static final int GL_MAX_ELEMENT_INDEX = 0x8D6B;
 
-	/** Accepted by the {@code pname} parameters of GetTexParameterfv and GetTexParameteriv. */
-	public static final int GL_TEXTURE_IMMUTABLE_LEVELS = 0x82DF;
-
 	private ARBES3Compatibility() {}
 
 }

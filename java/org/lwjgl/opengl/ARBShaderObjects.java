@@ -61,11 +61,9 @@ public final class ARBShaderObjects {
 
 	/** Returned by the {@code type} parameter of GetActiveUniformARB. */
 	public static final int
-		GL_FLOAT                      = 0x1406,
 		GL_FLOAT_VEC2_ARB             = 0x8B50,
 		GL_FLOAT_VEC3_ARB             = 0x8B51,
 		GL_FLOAT_VEC4_ARB             = 0x8B52,
-		GL_INT                        = 0x1404,
 		GL_INT_VEC2_ARB               = 0x8B53,
 		GL_INT_VEC3_ARB               = 0x8B54,
 		GL_INT_VEC4_ARB               = 0x8B55,

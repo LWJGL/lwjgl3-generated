@@ -16,6 +16,7 @@ typedef void (APIENTRY *glPathGlyphRangeNVPROC) (GLuint, GLenum, const void *, G
 typedef GLenum (APIENTRY *glPathGlyphIndexArrayNVPROC) (GLuint, GLenum, const void *, GLbitfield, GLuint, GLsizei, GLuint, GLfloat);
 typedef GLenum (APIENTRY *glPathMemoryGlyphIndexArrayNVPROC) (GLuint, GLenum, GLsizeiptr, const void *, GLsizei, GLuint, GLsizei, GLuint, GLfloat);
 typedef void (APIENTRY *glCopyPathNVPROC) (GLuint, GLuint);
+typedef void (APIENTRY *glWeightPathsNVPROC) (GLuint, GLsizei, const GLuint *, const GLfloat *);
 typedef void (APIENTRY *glInterpolatePathsNVPROC) (GLuint, GLuint, GLuint, GLfloat);
 typedef void (APIENTRY *glTransformPathNVPROC) (GLuint, GLuint, GLenum, const GLfloat *);
 typedef void (APIENTRY *glPathParameterivNVPROC) (GLuint, GLenum, const GLint *);
@@ -142,6 +143,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglCopyPathNV(JNIEn
 	glCopyPathNVPROC glCopyPathNV = (glCopyPathNVPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	glCopyPathNV(resultPath, srcPath);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglWeightPathsNV(JNIEnv *__env, jclass clazz, jint resultPath, jint numPaths, jlong pathsAddress, jlong weightsAddress, jlong __functionAddress) {
+	const GLuint *paths = (const GLuint *)(intptr_t)pathsAddress;
+	const GLfloat *weights = (const GLfloat *)(intptr_t)weightsAddress;
+	glWeightPathsNVPROC glWeightPathsNV = (glWeightPathsNVPROC)(intptr_t)__functionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	glWeightPathsNV(resultPath, numPaths, paths, weights);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglInterpolatePathsNV(JNIEnv *__env, jclass clazz, jint resultPath, jint pathA, jint pathB, jfloat weight, jlong __functionAddress) {

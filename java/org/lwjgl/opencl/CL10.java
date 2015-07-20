@@ -2643,7 +2643,7 @@ public final class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
 		long __result = nclEnqueueMapImage(command_queue, image, blocking_map, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret));
-		return memByteBuffer(__result, (int)(int)clGetMemObjectInfoPointer(image, CL_MEM_SIZE));
+		return memByteBuffer(__result, (int)clGetMemObjectInfoPointer(image, CL_MEM_SIZE));
 	}
 
 	/** Alternative version of: {@link #clEnqueueMapImage EnqueueMapImage} */

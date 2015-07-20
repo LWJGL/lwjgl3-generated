@@ -9,8 +9,14 @@ package org.lwjgl.opengl;
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/glx_robustness_isolation.txt">GLX_ARB_robustness_application_isolation</a> extension.
  * 
  * <p>GL_ARB_robustness and GLX_ARB_create_context_robustness allow creating an OpenGL context supporting graphics reset notification behavior.
- * GLX_ARB_robustness_application_isolation and GLX_ARB_robustness_share_group_isolation provide stronger guarantees about the possible side-effects of a
- * graphics reset.</p>
+ * GLX_ARB_robustness_application_isolation provides stronger guarantees about the possible side-effects of a graphics reset.</p>
+ * 
+ * <p>If the graphics driver advertises the GLX_ARB_robustness_application_isolation extension string, then the driver guarantees that if a particular
+ * application causes a graphics reset to occur:
+ * <ol>
+ * <li>No other application on the system is affected by the graphics reset.</li>
+ * <li>No other application on the system receives any notification that the graphics reset occurred.</li>
+ * </ol></p>
  * 
  * <p>Requires {@link GLX14 GLX 1.4} and {@link GLXARBCreateContextRobustness GLX_ARB_create_context_robustness}.</p>
  */

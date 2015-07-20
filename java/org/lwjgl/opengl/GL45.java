@@ -35,11 +35,6 @@ import static org.lwjgl.system.APIUtil.*;
  */
 public final class GL45 {
 
-	/** Accepted by the {@code origin} parameter of {@link #glClipControl ClipControl}. */
-	public static final int
-		GL_LOWER_LEFT = 0x8CA1,
-		GL_UPPER_LEFT = 0x8CA2;
-
 	/** Accepted by the {@code depth} parameter of {@link #glClipControl ClipControl}. */
 	public static final int
 		GL_NEGATIVE_ONE_TO_ONE = 0x935E,
@@ -68,9 +63,6 @@ public final class GL45 {
 	/** Accepted by the {@code pname} parameter of GetQueryObjectiv. */
 	public static final int GL_QUERY_TARGET = 0x82EA;
 
-	/** Accepted by the {@code pname} parameter of GetIntegeri_v. */
-	public static final int GL_TEXTURE_BINDING = 0x82EB;
-
 	/** Accepted by the {@code pname} parameter of GetIntegerv, GetFloatv, GetBooleanv GetDoublev and GetInteger64v. */
 	public static final int GL_CONTEXT_RELEASE_BEHAVIOR = 0x82FB;
 
@@ -79,20 +71,20 @@ public final class GL45 {
 
 	/** Returned by {@link #glGetGraphicsResetStatus GetGraphicsResetStatus}. */
 	public static final int
-		GL_NO_ERROR               = 0x0,
 		GL_GUILTY_CONTEXT_RESET   = 0x8253,
 		GL_INNOCENT_CONTEXT_RESET = 0x8254,
 		GL_UNKNOWN_CONTEXT_RESET  = 0x8255;
 
 	/** Accepted by the {@code value} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
-	public static final int
-		GL_CONTEXT_ROBUST_ACCESS       = 0x90F3,
-		GL_RESET_NOTIFICATION_STRATEGY = 0x8256;
+	public static final int GL_RESET_NOTIFICATION_STRATEGY = 0x8256;
 
 	/** Returned by GetIntegerv and related simple queries when {@code value} is {@link #GL_RESET_NOTIFICATION_STRATEGY RESET_NOTIFICATION_STRATEGY}. */
 	public static final int
 		GL_LOSE_CONTEXT_ON_RESET = 0x8252,
 		GL_NO_RESET_NOTIFICATION = 0x8261;
+
+	/** Returned by GetIntegerv when {@code pname} is CONTEXT_FLAGS. */
+	public static final int GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT = 0x4;
 
 	/** Returned by {@link GL11#glGetError GetError}. */
 	public static final int GL_CONTEXT_LOST = 0x507;
@@ -194,13 +186,32 @@ public final class GL45 {
 		CreateSamplers,
 		CreateProgramPipelines,
 		CreateQueries,
+		GetQueryBufferObjectiv,
+		GetQueryBufferObjectuiv,
+		GetQueryBufferObjecti64v,
+		GetQueryBufferObjectui64v,
 		MemoryBarrierByRegion,
 		GetTextureSubImage,
 		GetCompressedTextureSubImage,
 		TextureBarrier,
 		GetGraphicsResetStatus,
+		GetnMapdv,
+		GetnMapfv,
+		GetnMapiv,
+		GetnPixelMapfv,
+		GetnPixelMapuiv,
+		GetnPixelMapusv,
+		GetnPolygonStipple,
+		GetnTexImage,
 		ReadnPixels,
+		GetnColorTable,
+		GetnConvolutionFilter,
+		GetnSeparableFilter,
+		GetnHistogram,
+		GetnMinmax,
+		GetnCompressedTexImage,
 		GetnUniformfv,
+		GetnUniformdv,
 		GetnUniformiv,
 		GetnUniformuiv;
 
@@ -300,13 +311,32 @@ public final class GL45 {
 		CreateSamplers = provider.getFunctionAddress("glCreateSamplers");
 		CreateProgramPipelines = provider.getFunctionAddress("glCreateProgramPipelines");
 		CreateQueries = provider.getFunctionAddress("glCreateQueries");
+		GetQueryBufferObjectiv = provider.getFunctionAddress("glGetQueryBufferObjectiv");
+		GetQueryBufferObjectuiv = provider.getFunctionAddress("glGetQueryBufferObjectuiv");
+		GetQueryBufferObjecti64v = provider.getFunctionAddress("glGetQueryBufferObjecti64v");
+		GetQueryBufferObjectui64v = provider.getFunctionAddress("glGetQueryBufferObjectui64v");
 		MemoryBarrierByRegion = provider.getFunctionAddress("glMemoryBarrierByRegion");
 		GetTextureSubImage = provider.getFunctionAddress("glGetTextureSubImage");
 		GetCompressedTextureSubImage = provider.getFunctionAddress("glGetCompressedTextureSubImage");
 		TextureBarrier = provider.getFunctionAddress("glTextureBarrier");
 		GetGraphicsResetStatus = provider.getFunctionAddress("glGetGraphicsResetStatus");
+		GetnMapdv = provider.getFunctionAddress("glGetnMapdv");
+		GetnMapfv = provider.getFunctionAddress("glGetnMapfv");
+		GetnMapiv = provider.getFunctionAddress("glGetnMapiv");
+		GetnPixelMapfv = provider.getFunctionAddress("glGetnPixelMapfv");
+		GetnPixelMapuiv = provider.getFunctionAddress("glGetnPixelMapuiv");
+		GetnPixelMapusv = provider.getFunctionAddress("glGetnPixelMapusv");
+		GetnPolygonStipple = provider.getFunctionAddress("glGetnPolygonStipple");
+		GetnTexImage = provider.getFunctionAddress("glGetnTexImage");
 		ReadnPixels = provider.getFunctionAddress("glReadnPixels");
+		GetnColorTable = provider.getFunctionAddress("glGetnColorTable");
+		GetnConvolutionFilter = provider.getFunctionAddress("glGetnConvolutionFilter");
+		GetnSeparableFilter = provider.getFunctionAddress("glGetnSeparableFilter");
+		GetnHistogram = provider.getFunctionAddress("glGetnHistogram");
+		GetnMinmax = provider.getFunctionAddress("glGetnMinmax");
+		GetnCompressedTexImage = provider.getFunctionAddress("glGetnCompressedTexImage");
 		GetnUniformfv = provider.getFunctionAddress("glGetnUniformfv");
+		GetnUniformdv = provider.getFunctionAddress("glGetnUniformdv");
 		GetnUniformiv = provider.getFunctionAddress("glGetnUniformiv");
 		GetnUniformuiv = provider.getFunctionAddress("glGetnUniformuiv");
 	}
@@ -345,8 +375,9 @@ public final class GL45 {
 			funcs.EnableVertexArrayAttrib, funcs.VertexArrayElementBuffer, funcs.VertexArrayVertexBuffer, funcs.VertexArrayVertexBuffers, 
 			funcs.VertexArrayAttribFormat, funcs.VertexArrayAttribIFormat, funcs.VertexArrayAttribLFormat, funcs.VertexArrayAttribBinding, 
 			funcs.VertexArrayBindingDivisor, funcs.GetVertexArrayiv, funcs.GetVertexArrayIndexediv, funcs.GetVertexArrayIndexed64iv, funcs.CreateSamplers, 
-			funcs.CreateProgramPipelines, funcs.CreateQueries, funcs.MemoryBarrierByRegion, funcs.GetTextureSubImage, funcs.GetCompressedTextureSubImage, 
-			funcs.TextureBarrier, funcs.GetGraphicsResetStatus, funcs.ReadnPixels, funcs.GetnUniformfv, funcs.GetnUniformiv, funcs.GetnUniformuiv
+			funcs.CreateProgramPipelines, funcs.CreateQueries, funcs.GetQueryBufferObjectiv, funcs.GetQueryBufferObjectuiv, funcs.GetQueryBufferObjecti64v, 
+			funcs.GetQueryBufferObjectui64v, funcs.MemoryBarrierByRegion, funcs.GetTextureSubImage, funcs.GetCompressedTextureSubImage, funcs.TextureBarrier, 
+			funcs.GetGraphicsResetStatus, funcs.ReadnPixels, funcs.GetnUniformfv, funcs.GetnUniformiv, funcs.GetnUniformuiv
 		);
 
 		return GL.checkExtension("OpenGL45", funcs, supported);
@@ -369,7 +400,7 @@ public final class GL45 {
 	 * <p>The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated if ClipControl is executed between the execution of {@link GL11#glBegin Begin} and the corresponding
 	 * execution of {@link GL11#glEnd End}.</p>
 	 *
-	 * @param origin the clip origin. One of:<br>{@link #GL_LOWER_LEFT LOWER_LEFT}, {@link #GL_UPPER_LEFT UPPER_LEFT}
+	 * @param origin the clip origin. One of:<br>{@link GL20#GL_LOWER_LEFT LOWER_LEFT}, {@link GL20#GL_UPPER_LEFT UPPER_LEFT}
 	 * @param depth  the clip depth mode. One of:<br>{@link #GL_NEGATIVE_ONE_TO_ONE NEGATIVE_ONE_TO_ONE}, {@link #GL_ZERO_TO_ONE ZERO_TO_ONE}
 	 */
 	public static void glClipControl(int origin, int depth) {
@@ -975,7 +1006,7 @@ public final class GL45 {
 	 */
 	public static ByteBuffer glMapNamedBuffer(int buffer, int access) {
 		long __result = nglMapNamedBuffer(buffer, access);
-		return memByteBuffer(__result, (int)glGetNamedBufferParameteri(buffer, GL15.GL_BUFFER_SIZE));
+		return memByteBuffer(__result, glGetNamedBufferParameteri(buffer, GL15.GL_BUFFER_SIZE));
 	}
 
 	/** Alternative version of: {@link #glMapNamedBuffer MapNamedBuffer} */
@@ -1298,7 +1329,7 @@ public final class GL45 {
 	 * DSA version of {@link GL30#glFramebufferRenderbuffer FramebufferRenderbuffer}.
 	 *
 	 * @param framebuffer        the framebuffer name
-	 * @param attachment         the attachment point of the framebuffer. One of:<br>{@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, {@link GL30#GL_COLOR_ATTACHMENT1 COLOR_ATTACHMENT1}, {@link GL30#GL_COLOR_ATTACHMENT2 COLOR_ATTACHMENT2}, {@link GL30#GL_COLOR_ATTACHMENT3 COLOR_ATTACHMENT3}, {@link GL30#GL_COLOR_ATTACHMENT4 COLOR_ATTACHMENT4}, {@link GL30#GL_COLOR_ATTACHMENT5 COLOR_ATTACHMENT5}, {@link GL30#GL_COLOR_ATTACHMENT6 COLOR_ATTACHMENT6}, {@link GL30#GL_COLOR_ATTACHMENT7 COLOR_ATTACHMENT7}, {@link GL30#GL_COLOR_ATTACHMENT8 COLOR_ATTACHMENT8}, {@link GL30#GL_COLOR_ATTACHMENT9 COLOR_ATTACHMENT9}, {@link GL30#GL_COLOR_ATTACHMENT10 COLOR_ATTACHMENT10}, {@link GL30#GL_COLOR_ATTACHMENT11 COLOR_ATTACHMENT11}, {@link GL30#GL_COLOR_ATTACHMENT12 COLOR_ATTACHMENT12}, {@link GL30#GL_COLOR_ATTACHMENT13 COLOR_ATTACHMENT13}, {@link GL30#GL_COLOR_ATTACHMENT14 COLOR_ATTACHMENT14}, {@link GL30#GL_COLOR_ATTACHMENT15 COLOR_ATTACHMENT15}, {@link GL30#GL_DEPTH_ATTACHMENT DEPTH_ATTACHMENT}, {@link GL30#GL_STENCIL_ATTACHMENT STENCIL_ATTACHMENT}, {@link GL30#GL_DEPTH_STENCIL_ATTACHMENT DEPTH_STENCIL_ATTACHMENT}
+	 * @param attachment         the attachment point of the framebuffer. One of:<br>{@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, {@link GL30#GL_COLOR_ATTACHMENT1 COLOR_ATTACHMENT1}, {@link GL30#GL_COLOR_ATTACHMENT2 COLOR_ATTACHMENT2}, {@link GL30#GL_COLOR_ATTACHMENT3 COLOR_ATTACHMENT3}, {@link GL30#GL_COLOR_ATTACHMENT4 COLOR_ATTACHMENT4}, {@link GL30#GL_COLOR_ATTACHMENT5 COLOR_ATTACHMENT5}, {@link GL30#GL_COLOR_ATTACHMENT6 COLOR_ATTACHMENT6}, {@link GL30#GL_COLOR_ATTACHMENT7 COLOR_ATTACHMENT7}, {@link GL30#GL_COLOR_ATTACHMENT8 COLOR_ATTACHMENT8}, {@link GL30#GL_COLOR_ATTACHMENT9 COLOR_ATTACHMENT9}, {@link GL30#GL_COLOR_ATTACHMENT10 COLOR_ATTACHMENT10}, {@link GL30#GL_COLOR_ATTACHMENT11 COLOR_ATTACHMENT11}, {@link GL30#GL_COLOR_ATTACHMENT12 COLOR_ATTACHMENT12}, {@link GL30#GL_COLOR_ATTACHMENT13 COLOR_ATTACHMENT13}, {@link GL30#GL_COLOR_ATTACHMENT14 COLOR_ATTACHMENT14}, {@link GL30#GL_COLOR_ATTACHMENT15 COLOR_ATTACHMENT15}, {@link GL30#GL_COLOR_ATTACHMENT16 COLOR_ATTACHMENT16}, {@link GL30#GL_COLOR_ATTACHMENT17 COLOR_ATTACHMENT17}, {@link GL30#GL_COLOR_ATTACHMENT18 COLOR_ATTACHMENT18}, {@link GL30#GL_COLOR_ATTACHMENT19 COLOR_ATTACHMENT19}, {@link GL30#GL_COLOR_ATTACHMENT20 COLOR_ATTACHMENT20}, {@link GL30#GL_COLOR_ATTACHMENT21 COLOR_ATTACHMENT21}, {@link GL30#GL_COLOR_ATTACHMENT22 COLOR_ATTACHMENT22}, {@link GL30#GL_COLOR_ATTACHMENT23 COLOR_ATTACHMENT23}, {@link GL30#GL_COLOR_ATTACHMENT24 COLOR_ATTACHMENT24}, {@link GL30#GL_COLOR_ATTACHMENT25 COLOR_ATTACHMENT25}, {@link GL30#GL_COLOR_ATTACHMENT26 COLOR_ATTACHMENT26}, {@link GL30#GL_COLOR_ATTACHMENT27 COLOR_ATTACHMENT27}, {@link GL30#GL_COLOR_ATTACHMENT28 COLOR_ATTACHMENT28}, {@link GL30#GL_COLOR_ATTACHMENT29 COLOR_ATTACHMENT29}, {@link GL30#GL_COLOR_ATTACHMENT30 COLOR_ATTACHMENT30}, {@link GL30#GL_COLOR_ATTACHMENT31 COLOR_ATTACHMENT31}, {@link GL30#GL_DEPTH_ATTACHMENT DEPTH_ATTACHMENT}, {@link GL30#GL_STENCIL_ATTACHMENT STENCIL_ATTACHMENT}, {@link GL30#GL_DEPTH_STENCIL_ATTACHMENT DEPTH_STENCIL_ATTACHMENT}
 	 * @param renderbuffertarget the renderbuffer target. Must be:<br>{@link GL30#GL_RENDERBUFFER RENDERBUFFER}
 	 * @param renderbuffer       the name of an existing renderbuffer object of type {@code renderbuffertarget} to attach
 	 */
@@ -1360,7 +1391,7 @@ public final class GL45 {
 	 * DSA version of {@link GL30#glFramebufferTextureLayer FramebufferTextureLayer}.
 	 *
 	 * @param framebuffer the framebuffer name
-	 * @param attachment  the attachment point of the framebuffer. One of:<br>{@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, {@link GL30#GL_COLOR_ATTACHMENT1 COLOR_ATTACHMENT1}, {@link GL30#GL_COLOR_ATTACHMENT2 COLOR_ATTACHMENT2}, {@link GL30#GL_COLOR_ATTACHMENT3 COLOR_ATTACHMENT3}, {@link GL30#GL_COLOR_ATTACHMENT4 COLOR_ATTACHMENT4}, {@link GL30#GL_COLOR_ATTACHMENT5 COLOR_ATTACHMENT5}, {@link GL30#GL_COLOR_ATTACHMENT6 COLOR_ATTACHMENT6}, {@link GL30#GL_COLOR_ATTACHMENT7 COLOR_ATTACHMENT7}, {@link GL30#GL_COLOR_ATTACHMENT8 COLOR_ATTACHMENT8}, {@link GL30#GL_COLOR_ATTACHMENT9 COLOR_ATTACHMENT9}, {@link GL30#GL_COLOR_ATTACHMENT10 COLOR_ATTACHMENT10}, {@link GL30#GL_COLOR_ATTACHMENT11 COLOR_ATTACHMENT11}, {@link GL30#GL_COLOR_ATTACHMENT12 COLOR_ATTACHMENT12}, {@link GL30#GL_COLOR_ATTACHMENT13 COLOR_ATTACHMENT13}, {@link GL30#GL_COLOR_ATTACHMENT14 COLOR_ATTACHMENT14}, {@link GL30#GL_COLOR_ATTACHMENT15 COLOR_ATTACHMENT15}, {@link GL30#GL_DEPTH_ATTACHMENT DEPTH_ATTACHMENT}, {@link GL30#GL_STENCIL_ATTACHMENT STENCIL_ATTACHMENT}, {@link GL30#GL_DEPTH_STENCIL_ATTACHMENT DEPTH_STENCIL_ATTACHMENT}
+	 * @param attachment  the attachment point of the framebuffer. One of:<br>{@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, {@link GL30#GL_COLOR_ATTACHMENT1 COLOR_ATTACHMENT1}, {@link GL30#GL_COLOR_ATTACHMENT2 COLOR_ATTACHMENT2}, {@link GL30#GL_COLOR_ATTACHMENT3 COLOR_ATTACHMENT3}, {@link GL30#GL_COLOR_ATTACHMENT4 COLOR_ATTACHMENT4}, {@link GL30#GL_COLOR_ATTACHMENT5 COLOR_ATTACHMENT5}, {@link GL30#GL_COLOR_ATTACHMENT6 COLOR_ATTACHMENT6}, {@link GL30#GL_COLOR_ATTACHMENT7 COLOR_ATTACHMENT7}, {@link GL30#GL_COLOR_ATTACHMENT8 COLOR_ATTACHMENT8}, {@link GL30#GL_COLOR_ATTACHMENT9 COLOR_ATTACHMENT9}, {@link GL30#GL_COLOR_ATTACHMENT10 COLOR_ATTACHMENT10}, {@link GL30#GL_COLOR_ATTACHMENT11 COLOR_ATTACHMENT11}, {@link GL30#GL_COLOR_ATTACHMENT12 COLOR_ATTACHMENT12}, {@link GL30#GL_COLOR_ATTACHMENT13 COLOR_ATTACHMENT13}, {@link GL30#GL_COLOR_ATTACHMENT14 COLOR_ATTACHMENT14}, {@link GL30#GL_COLOR_ATTACHMENT15 COLOR_ATTACHMENT15}, {@link GL30#GL_COLOR_ATTACHMENT16 COLOR_ATTACHMENT16}, {@link GL30#GL_COLOR_ATTACHMENT17 COLOR_ATTACHMENT17}, {@link GL30#GL_COLOR_ATTACHMENT18 COLOR_ATTACHMENT18}, {@link GL30#GL_COLOR_ATTACHMENT19 COLOR_ATTACHMENT19}, {@link GL30#GL_COLOR_ATTACHMENT20 COLOR_ATTACHMENT20}, {@link GL30#GL_COLOR_ATTACHMENT21 COLOR_ATTACHMENT21}, {@link GL30#GL_COLOR_ATTACHMENT22 COLOR_ATTACHMENT22}, {@link GL30#GL_COLOR_ATTACHMENT23 COLOR_ATTACHMENT23}, {@link GL30#GL_COLOR_ATTACHMENT24 COLOR_ATTACHMENT24}, {@link GL30#GL_COLOR_ATTACHMENT25 COLOR_ATTACHMENT25}, {@link GL30#GL_COLOR_ATTACHMENT26 COLOR_ATTACHMENT26}, {@link GL30#GL_COLOR_ATTACHMENT27 COLOR_ATTACHMENT27}, {@link GL30#GL_COLOR_ATTACHMENT28 COLOR_ATTACHMENT28}, {@link GL30#GL_COLOR_ATTACHMENT29 COLOR_ATTACHMENT29}, {@link GL30#GL_COLOR_ATTACHMENT30 COLOR_ATTACHMENT30}, {@link GL30#GL_COLOR_ATTACHMENT31 COLOR_ATTACHMENT31}, {@link GL30#GL_DEPTH_ATTACHMENT DEPTH_ATTACHMENT}, {@link GL30#GL_STENCIL_ATTACHMENT STENCIL_ATTACHMENT}, {@link GL30#GL_DEPTH_STENCIL_ATTACHMENT DEPTH_STENCIL_ATTACHMENT}
 	 * @param texture     the texture object to attach to the framebuffer attachment point named by {@code attachment}
 	 * @param level       the mipmap level of {@code texture} to attach
 	 * @param layer       the layer of {@code texture} to attach.
@@ -1773,7 +1804,7 @@ public final class GL45 {
 	 * DSA version of {@link GL30#glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv}.
 	 *
 	 * @param framebuffer the framebuffer name
-	 * @param attachment  the attachment within {@code target}. One of:<br>{@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, {@link GL30#GL_COLOR_ATTACHMENT1 COLOR_ATTACHMENT1}, {@link GL30#GL_COLOR_ATTACHMENT2 COLOR_ATTACHMENT2}, {@link GL30#GL_COLOR_ATTACHMENT3 COLOR_ATTACHMENT3}, {@link GL30#GL_COLOR_ATTACHMENT4 COLOR_ATTACHMENT4}, {@link GL30#GL_COLOR_ATTACHMENT5 COLOR_ATTACHMENT5}, {@link GL30#GL_COLOR_ATTACHMENT6 COLOR_ATTACHMENT6}, {@link GL30#GL_COLOR_ATTACHMENT7 COLOR_ATTACHMENT7}, {@link GL30#GL_COLOR_ATTACHMENT8 COLOR_ATTACHMENT8}, {@link GL30#GL_COLOR_ATTACHMENT9 COLOR_ATTACHMENT9}, {@link GL30#GL_COLOR_ATTACHMENT10 COLOR_ATTACHMENT10}, {@link GL30#GL_COLOR_ATTACHMENT11 COLOR_ATTACHMENT11}, {@link GL30#GL_COLOR_ATTACHMENT12 COLOR_ATTACHMENT12}, {@link GL30#GL_COLOR_ATTACHMENT13 COLOR_ATTACHMENT13}, {@link GL30#GL_COLOR_ATTACHMENT14 COLOR_ATTACHMENT14}, {@link GL30#GL_COLOR_ATTACHMENT15 COLOR_ATTACHMENT15}, {@link GL30#GL_DEPTH_ATTACHMENT DEPTH_ATTACHMENT}, {@link GL30#GL_STENCIL_ATTACHMENT STENCIL_ATTACHMENT}, {@link GL30#GL_DEPTH_STENCIL_ATTACHMENT DEPTH_STENCIL_ATTACHMENT}
+	 * @param attachment  the attachment within {@code target}. One of:<br>{@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, {@link GL30#GL_COLOR_ATTACHMENT1 COLOR_ATTACHMENT1}, {@link GL30#GL_COLOR_ATTACHMENT2 COLOR_ATTACHMENT2}, {@link GL30#GL_COLOR_ATTACHMENT3 COLOR_ATTACHMENT3}, {@link GL30#GL_COLOR_ATTACHMENT4 COLOR_ATTACHMENT4}, {@link GL30#GL_COLOR_ATTACHMENT5 COLOR_ATTACHMENT5}, {@link GL30#GL_COLOR_ATTACHMENT6 COLOR_ATTACHMENT6}, {@link GL30#GL_COLOR_ATTACHMENT7 COLOR_ATTACHMENT7}, {@link GL30#GL_COLOR_ATTACHMENT8 COLOR_ATTACHMENT8}, {@link GL30#GL_COLOR_ATTACHMENT9 COLOR_ATTACHMENT9}, {@link GL30#GL_COLOR_ATTACHMENT10 COLOR_ATTACHMENT10}, {@link GL30#GL_COLOR_ATTACHMENT11 COLOR_ATTACHMENT11}, {@link GL30#GL_COLOR_ATTACHMENT12 COLOR_ATTACHMENT12}, {@link GL30#GL_COLOR_ATTACHMENT13 COLOR_ATTACHMENT13}, {@link GL30#GL_COLOR_ATTACHMENT14 COLOR_ATTACHMENT14}, {@link GL30#GL_COLOR_ATTACHMENT15 COLOR_ATTACHMENT15}, {@link GL30#GL_COLOR_ATTACHMENT16 COLOR_ATTACHMENT16}, {@link GL30#GL_COLOR_ATTACHMENT17 COLOR_ATTACHMENT17}, {@link GL30#GL_COLOR_ATTACHMENT18 COLOR_ATTACHMENT18}, {@link GL30#GL_COLOR_ATTACHMENT19 COLOR_ATTACHMENT19}, {@link GL30#GL_COLOR_ATTACHMENT20 COLOR_ATTACHMENT20}, {@link GL30#GL_COLOR_ATTACHMENT21 COLOR_ATTACHMENT21}, {@link GL30#GL_COLOR_ATTACHMENT22 COLOR_ATTACHMENT22}, {@link GL30#GL_COLOR_ATTACHMENT23 COLOR_ATTACHMENT23}, {@link GL30#GL_COLOR_ATTACHMENT24 COLOR_ATTACHMENT24}, {@link GL30#GL_COLOR_ATTACHMENT25 COLOR_ATTACHMENT25}, {@link GL30#GL_COLOR_ATTACHMENT26 COLOR_ATTACHMENT26}, {@link GL30#GL_COLOR_ATTACHMENT27 COLOR_ATTACHMENT27}, {@link GL30#GL_COLOR_ATTACHMENT28 COLOR_ATTACHMENT28}, {@link GL30#GL_COLOR_ATTACHMENT29 COLOR_ATTACHMENT29}, {@link GL30#GL_COLOR_ATTACHMENT30 COLOR_ATTACHMENT30}, {@link GL30#GL_COLOR_ATTACHMENT31 COLOR_ATTACHMENT31}, {@link GL30#GL_DEPTH_ATTACHMENT DEPTH_ATTACHMENT}, {@link GL30#GL_STENCIL_ATTACHMENT STENCIL_ATTACHMENT}, {@link GL30#GL_DEPTH_STENCIL_ATTACHMENT DEPTH_STENCIL_ATTACHMENT}
 	 * @param pname       the parameter of {@code attachment} to query. One of:<br>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME FRAMEBUFFER_ATTACHMENT_OBJECT_NAME}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE FRAMEBUFFER_ATTACHMENT_RED_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE FRAMEBUFFER_ATTACHMENT_GREEN_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE FRAMEBUFFER_ATTACHMENT_BLUE_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE}, {@link GL30#GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE}
 	 * @param params      an array to receive the value of the queried parameter
 	 */
@@ -3688,6 +3719,90 @@ public final class GL45 {
 		return __buffer.intValue(ids);
 	}
 
+	// --- [ glGetQueryBufferObjectiv ] ---
+
+	/** JNI method for {@link #glGetQueryBufferObjectiv GetQueryBufferObjectiv} */
+	@JavadocExclude
+	public static native void nglGetQueryBufferObjectiv(int id, int buffer, int pname, long offset, long __functionAddress);
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryBufferObjectiv.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Queries the state of a query object.
+	 *
+	 * @param id     the name of a query object
+	 * @param buffer the name of a buffer object
+	 * @param pname  the state to query
+	 * @param offset the offset into {@code buffer} at which the queried value is written
+	 */
+	public static void glGetQueryBufferObjectiv(int id, int buffer, int pname, long offset) {
+		long __functionAddress = getInstance().GetQueryBufferObjectiv;
+		nglGetQueryBufferObjectiv(id, buffer, pname, offset, __functionAddress);
+	}
+
+	// --- [ glGetQueryBufferObjectuiv ] ---
+
+	/** JNI method for {@link #glGetQueryBufferObjectuiv GetQueryBufferObjectuiv} */
+	@JavadocExclude
+	public static native void nglGetQueryBufferObjectuiv(int id, int buffer, int pname, long offset, long __functionAddress);
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryBufferObjectuiv.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Unsigned version of {@link #glGetQueryBufferObjectiv GetQueryBufferObjectiv}.
+	 *
+	 * @param id     the name of a query object
+	 * @param buffer the name of a buffer object
+	 * @param pname  the state to query
+	 * @param offset the offset into {@code buffer} at which the queried value is written
+	 */
+	public static void glGetQueryBufferObjectuiv(int id, int buffer, int pname, long offset) {
+		long __functionAddress = getInstance().GetQueryBufferObjectuiv;
+		nglGetQueryBufferObjectuiv(id, buffer, pname, offset, __functionAddress);
+	}
+
+	// --- [ glGetQueryBufferObjecti64v ] ---
+
+	/** JNI method for {@link #glGetQueryBufferObjecti64v GetQueryBufferObjecti64v} */
+	@JavadocExclude
+	public static native void nglGetQueryBufferObjecti64v(int id, int buffer, int pname, long offset, long __functionAddress);
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryBufferObjecti64v.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * 64bit version of {@link #glGetQueryBufferObjectiv GetQueryBufferObjectiv}.
+	 *
+	 * @param id     the name of a query object
+	 * @param buffer the name of a buffer object
+	 * @param pname  the state to query
+	 * @param offset the offset into {@code buffer} at which the queried value is written
+	 */
+	public static void glGetQueryBufferObjecti64v(int id, int buffer, int pname, long offset) {
+		long __functionAddress = getInstance().GetQueryBufferObjecti64v;
+		nglGetQueryBufferObjecti64v(id, buffer, pname, offset, __functionAddress);
+	}
+
+	// --- [ glGetQueryBufferObjectui64v ] ---
+
+	/** JNI method for {@link #glGetQueryBufferObjectui64v GetQueryBufferObjectui64v} */
+	@JavadocExclude
+	public static native void nglGetQueryBufferObjectui64v(int id, int buffer, int pname, long offset, long __functionAddress);
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryBufferObjectui64v.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * 64bit version of {@link #glGetQueryBufferObjectuiv GetQueryBufferObjectuiv}.
+	 *
+	 * @param id     the name of a query object
+	 * @param buffer the name of a buffer object
+	 * @param pname  the state to query
+	 * @param offset the offset into {@code buffer} at which the queried value is written
+	 */
+	public static void glGetQueryBufferObjectui64v(int id, int buffer, int pname, long offset) {
+		long __functionAddress = getInstance().GetQueryBufferObjectui64v;
+		nglGetQueryBufferObjectui64v(id, buffer, pname, offset, __functionAddress);
+	}
+
 	// --- [ glMemoryBarrierByRegion ] ---
 
 	/** JNI method for {@link #glMemoryBarrierByRegion MemoryBarrierByRegion} */
@@ -3925,6 +4040,358 @@ Guarantees that writes have completed and caches have been invalidated before su
 		return nglGetGraphicsResetStatus(__functionAddress);
 	}
 
+	// --- [ glGetnMapdv ] ---
+
+	/** JNI method for {@link #glGetnMapdv GetnMapdv} */
+	@JavadocExclude
+	public static native void nglGetnMapdv(int target, int query, int bufSize, long data, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetnMapdv GetnMapdv} */
+	@JavadocExclude
+	public static void nglGetnMapdv(int target, int query, int bufSize, long data) {
+		long __functionAddress = getInstance().GetnMapdv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetnMapdv(target, query, bufSize, data, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnMap.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Robust version of {@link GL11#glGetMapdv GetMapdv}
+	 *
+	 * @param target  the evaluator map
+	 * @param query   the information to query
+	 * @param bufSize the maximum number of bytes to write into {@code data}
+	 * @param data    a buffer in which to place the returned data
+	 */
+	public static void glGetnMapdv(int target, int query, int bufSize, ByteBuffer data) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(data, bufSize << 3);
+		nglGetnMapdv(target, query, bufSize, memAddress(data));
+	}
+
+	/** Alternative version of: {@link #glGetnMapdv GetnMapdv} */
+	public static void glGetnMapdv(int target, int query, DoubleBuffer data) {
+		nglGetnMapdv(target, query, data.remaining(), memAddress(data));
+	}
+
+	/** Single return value version of: {@link #glGetnMapdv GetnMapdv} */
+	public static double glGetnMapd(int target, int query) {
+		APIBuffer __buffer = apiBuffer();
+		int data = __buffer.doubleParam();
+		nglGetnMapdv(target, query, 1, __buffer.address(data));
+		return __buffer.doubleValue(data);
+	}
+
+	// --- [ glGetnMapfv ] ---
+
+	/** JNI method for {@link #glGetnMapfv GetnMapfv} */
+	@JavadocExclude
+	public static native void nglGetnMapfv(int target, int query, int bufSize, long data, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetnMapfv GetnMapfv} */
+	@JavadocExclude
+	public static void nglGetnMapfv(int target, int query, int bufSize, long data) {
+		long __functionAddress = getInstance().GetnMapfv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetnMapfv(target, query, bufSize, data, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnMap.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Robust version of {@link GL11#glGetMapfv GetMapfv}
+	 *
+	 * @param target  the evaluator map
+	 * @param query   the information to query
+	 * @param bufSize the maximum number of bytes to write into {@code data}
+	 * @param data    a buffer in which to place the returned data
+	 */
+	public static void glGetnMapfv(int target, int query, int bufSize, ByteBuffer data) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(data, bufSize << 2);
+		nglGetnMapfv(target, query, bufSize, memAddress(data));
+	}
+
+	/** Alternative version of: {@link #glGetnMapfv GetnMapfv} */
+	public static void glGetnMapfv(int target, int query, FloatBuffer data) {
+		nglGetnMapfv(target, query, data.remaining(), memAddress(data));
+	}
+
+	/** Single return value version of: {@link #glGetnMapfv GetnMapfv} */
+	public static float glGetnMapf(int target, int query) {
+		APIBuffer __buffer = apiBuffer();
+		int data = __buffer.floatParam();
+		nglGetnMapfv(target, query, 1, __buffer.address(data));
+		return __buffer.floatValue(data);
+	}
+
+	// --- [ glGetnMapiv ] ---
+
+	/** JNI method for {@link #glGetnMapiv GetnMapiv} */
+	@JavadocExclude
+	public static native void nglGetnMapiv(int target, int query, int bufSize, long data, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetnMapiv GetnMapiv} */
+	@JavadocExclude
+	public static void nglGetnMapiv(int target, int query, int bufSize, long data) {
+		long __functionAddress = getInstance().GetnMapiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetnMapiv(target, query, bufSize, data, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnMap.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Robust version of {@link GL11#glGetMapiv GetMapiv}
+	 *
+	 * @param target  the evaluator target. One of:<br>{@link GL11#GL_MAP1_VERTEX_3 MAP1_VERTEX_3}, {@link GL11#GL_MAP1_VERTEX_4 MAP1_VERTEX_4}, {@link GL11#GL_MAP1_COLOR_4 MAP1_COLOR_4}, {@link GL11#GL_MAP1_NORMAL MAP1_NORMAL}, {@link GL11#GL_MAP1_TEXTURE_COORD_1 MAP1_TEXTURE_COORD_1}, {@link GL11#GL_MAP1_TEXTURE_COORD_2 MAP1_TEXTURE_COORD_2}, {@link GL11#GL_MAP1_TEXTURE_COORD_3 MAP1_TEXTURE_COORD_3}, {@link GL11#GL_MAP1_TEXTURE_COORD_4 MAP1_TEXTURE_COORD_4}, {@link GL11#GL_MAP2_VERTEX_3 MAP2_VERTEX_3}, {@link GL11#GL_MAP2_VERTEX_4 MAP2_VERTEX_4}, {@link GL11#GL_MAP2_COLOR_4 MAP2_COLOR_4}, {@link GL11#GL_MAP2_NORMAL MAP2_NORMAL}, {@link GL11#GL_MAP2_TEXTURE_COORD_1 MAP2_TEXTURE_COORD_1}, {@link GL11#GL_MAP2_TEXTURE_COORD_2 MAP2_TEXTURE_COORD_2}, {@link GL11#GL_MAP2_TEXTURE_COORD_3 MAP2_TEXTURE_COORD_3}, {@link GL11#GL_MAP2_TEXTURE_COORD_4 MAP2_TEXTURE_COORD_4}
+	 * @param query   the information to query. One of:<br>{@link GL11#GL_ORDER ORDER}, {@link GL11#GL_COEFF COEFF}, {@link GL11#GL_DOMAIN DOMAIN}
+	 * @param bufSize the maximum number of bytes to write into {@code data}
+	 * @param data    a buffer in which to place the returned data
+	 */
+	public static void glGetnMapiv(int target, int query, int bufSize, ByteBuffer data) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(data, bufSize << 2);
+		nglGetnMapiv(target, query, bufSize, memAddress(data));
+	}
+
+	/** Alternative version of: {@link #glGetnMapiv GetnMapiv} */
+	public static void glGetnMapiv(int target, int query, IntBuffer data) {
+		nglGetnMapiv(target, query, data.remaining(), memAddress(data));
+	}
+
+	/** Single return value version of: {@link #glGetnMapiv GetnMapiv} */
+	public static int glGetnMapi(int target, int query) {
+		APIBuffer __buffer = apiBuffer();
+		int data = __buffer.intParam();
+		nglGetnMapiv(target, query, 1, __buffer.address(data));
+		return __buffer.intValue(data);
+	}
+
+	// --- [ glGetnPixelMapfv ] ---
+
+	/** JNI method for {@link #glGetnPixelMapfv GetnPixelMapfv} */
+	@JavadocExclude
+	public static native void nglGetnPixelMapfv(int map, int bufSize, long data, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetnPixelMapfv GetnPixelMapfv} */
+	@JavadocExclude
+	public static void nglGetnPixelMapfv(int map, int bufSize, long data) {
+		long __functionAddress = getInstance().GetnPixelMapfv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetnPixelMapfv(map, bufSize, data, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnPixelMap.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Robust version of {@link GL11#glGetPixelMapfv GetPixelMapfv}
+	 *
+	 * @param map     the pixel map parameter to query. One of:<br>{@link GL11#GL_PIXEL_MAP_I_TO_I PIXEL_MAP_I_TO_I}, {@link GL11#GL_PIXEL_MAP_S_TO_S PIXEL_MAP_S_TO_S}, {@link GL11#GL_PIXEL_MAP_I_TO_R PIXEL_MAP_I_TO_R}, {@link GL11#GL_PIXEL_MAP_I_TO_G PIXEL_MAP_I_TO_G}, {@link GL11#GL_PIXEL_MAP_I_TO_B PIXEL_MAP_I_TO_B}, {@link GL11#GL_PIXEL_MAP_I_TO_A PIXEL_MAP_I_TO_A}, {@link GL11#GL_PIXEL_MAP_R_TO_R PIXEL_MAP_R_TO_R}, {@link GL11#GL_PIXEL_MAP_G_TO_G PIXEL_MAP_G_TO_G}, {@link GL11#GL_PIXEL_MAP_B_TO_B PIXEL_MAP_B_TO_B}, {@link GL11#GL_PIXEL_MAP_A_TO_A PIXEL_MAP_A_TO_A}
+	 * @param bufSize the maximum number of bytes to write into {@code data}
+	 * @param data    a buffer in which to place the returned data
+	 */
+	public static void glGetnPixelMapfv(int map, int bufSize, ByteBuffer data) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(data, bufSize << 2);
+		nglGetnPixelMapfv(map, bufSize, memAddress(data));
+	}
+
+	/** Alternative version of: {@link #glGetnPixelMapfv GetnPixelMapfv} */
+	public static void glGetnPixelMapfv(int map, FloatBuffer data) {
+		nglGetnPixelMapfv(map, data.remaining(), memAddress(data));
+	}
+
+	// --- [ glGetnPixelMapuiv ] ---
+
+	/** JNI method for {@link #glGetnPixelMapuiv GetnPixelMapuiv} */
+	@JavadocExclude
+	public static native void nglGetnPixelMapuiv(int map, int bufSize, long data, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetnPixelMapuiv GetnPixelMapuiv} */
+	@JavadocExclude
+	public static void nglGetnPixelMapuiv(int map, int bufSize, long data) {
+		long __functionAddress = getInstance().GetnPixelMapuiv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetnPixelMapuiv(map, bufSize, data, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnPixelMap.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Robust version of {@link GL11#glGetPixelMapuiv GetPixelMapuiv}
+	 *
+	 * @param map     the pixel map parameter to query
+	 * @param bufSize the maximum number of bytes to write into {@code data}
+	 * @param data    a buffer in which to place the returned data
+	 */
+	public static void glGetnPixelMapuiv(int map, int bufSize, ByteBuffer data) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(data, bufSize << 2);
+		nglGetnPixelMapuiv(map, bufSize, memAddress(data));
+	}
+
+	/** Alternative version of: {@link #glGetnPixelMapuiv GetnPixelMapuiv} */
+	public static void glGetnPixelMapuiv(int map, IntBuffer data) {
+		nglGetnPixelMapuiv(map, data.remaining(), memAddress(data));
+	}
+
+	// --- [ glGetnPixelMapusv ] ---
+
+	/** JNI method for {@link #glGetnPixelMapusv GetnPixelMapusv} */
+	@JavadocExclude
+	public static native void nglGetnPixelMapusv(int map, int bufSize, long data, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetnPixelMapusv GetnPixelMapusv} */
+	@JavadocExclude
+	public static void nglGetnPixelMapusv(int map, int bufSize, long data) {
+		long __functionAddress = getInstance().GetnPixelMapusv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetnPixelMapusv(map, bufSize, data, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnPixelMap.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Robust version of {@link GL11#glGetPixelMapusv GetPixelMapusv}
+	 *
+	 * @param map     the pixel map parameter to query
+	 * @param bufSize the maximum number of bytes to write into {@code data}
+	 * @param data    a buffer in which to place the returned data
+	 */
+	public static void glGetnPixelMapusv(int map, int bufSize, ByteBuffer data) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(data, bufSize << 1);
+		nglGetnPixelMapusv(map, bufSize, memAddress(data));
+	}
+
+	/** Alternative version of: {@link #glGetnPixelMapusv GetnPixelMapusv} */
+	public static void glGetnPixelMapusv(int map, ShortBuffer data) {
+		nglGetnPixelMapusv(map, data.remaining(), memAddress(data));
+	}
+
+	// --- [ glGetnPolygonStipple ] ---
+
+	/** JNI method for {@link #glGetnPolygonStipple GetnPolygonStipple} */
+	@JavadocExclude
+	public static native void nglGetnPolygonStipple(int bufSize, long pattern, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetnPolygonStipple GetnPolygonStipple} */
+	@JavadocExclude
+	public static void nglGetnPolygonStipple(int bufSize, long pattern) {
+		long __functionAddress = getInstance().GetnPolygonStipple;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetnPolygonStipple(bufSize, pattern, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnPolygonStipple.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Robust version of {@link GL11#glGetPolygonStipple GetPolygonStipple}
+	 *
+	 * @param bufSize the maximum number of bytes to write into {@code pattern}
+	 * @param pattern a buffer in which to place the returned pattern
+	 */
+	public static void glGetnPolygonStipple(int bufSize, ByteBuffer pattern) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkBuffer(pattern, bufSize);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		nglGetnPolygonStipple(bufSize, memAddress(pattern));
+	}
+
+	/** Buffer object offset version of: {@link #glGetnPolygonStipple GetnPolygonStipple} */
+	public static void glGetnPolygonStipple(int bufSize, long patternOffset) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
+		nglGetnPolygonStipple(bufSize, patternOffset);
+	}
+
+	/** Alternative version of: {@link #glGetnPolygonStipple GetnPolygonStipple} */
+	public static void glGetnPolygonStipple(ByteBuffer pattern) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglGetnPolygonStipple(pattern.remaining(), memAddress(pattern));
+	}
+
+	// --- [ glGetnTexImage ] ---
+
+	/** JNI method for {@link #glGetnTexImage GetnTexImage} */
+	@JavadocExclude
+	public static native void nglGetnTexImage(int tex, int level, int format, int type, int bufSize, long img, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetnTexImage GetnTexImage} */
+	@JavadocExclude
+	public static void nglGetnTexImage(int tex, int level, int format, int type, int bufSize, long img) {
+		long __functionAddress = getInstance().GetnTexImage;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetnTexImage(tex, level, format, type, bufSize, img, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Robust version of {@link GL11#glGetTexImage GetTexImage}
+	 *
+	 * @param tex     the texture (or texture face) to be obtained. One of:<br>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_X TEXTURE_CUBE_MAP_POSITIVE_X}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_X TEXTURE_CUBE_MAP_NEGATIVE_X}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Y TEXTURE_CUBE_MAP_POSITIVE_Y}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Y TEXTURE_CUBE_MAP_NEGATIVE_Y}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Z TEXTURE_CUBE_MAP_POSITIVE_Z}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Z TEXTURE_CUBE_MAP_NEGATIVE_Z}
+	 * @param level   the level-of-detail number
+	 * @param format  the pixel format. One of:<br>{@link GL11#GL_STENCIL_INDEX STENCIL_INDEX}, {@link GL11#GL_DEPTH_COMPONENT DEPTH_COMPONENT}, {@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}, {@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL30#GL_RG RG}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}, {@link GL30#GL_RED_INTEGER RED_INTEGER}, {@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}, {@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}, {@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}, {@link GL30#GL_RG_INTEGER RG_INTEGER}, {@link GL30#GL_RGB_INTEGER RGB_INTEGER}, {@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}, {@link GL30#GL_BGR_INTEGER BGR_INTEGER}, {@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}
+	 * @param type    the pixel type. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL30#GL_HALF_FLOAT HALF_FLOAT}, {@link GL11#GL_FLOAT FLOAT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}, {@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}, {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}, {@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}, {@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}, {@link GL11#GL_BITMAP BITMAP}
+	 * @param bufSize the maximum number of bytes to write into {@code img}
+	 * @param img     a buffer in which to place the returned data
+	 */
+	public static void glGetnTexImage(int tex, int level, int format, int type, int bufSize, ByteBuffer img) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkBuffer(img, bufSize);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		nglGetnTexImage(tex, level, format, type, bufSize, memAddress(img));
+	}
+
+	/** Buffer object offset version of: {@link #glGetnTexImage GetnTexImage} */
+	public static void glGetnTexImage(int tex, int level, int format, int type, int bufSize, long imgOffset) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
+		nglGetnTexImage(tex, level, format, type, bufSize, imgOffset);
+	}
+
+	/** ShortBuffer version of: {@link #glGetnTexImage GetnTexImage} */
+	public static void glGetnTexImage(int tex, int level, int format, int type, ShortBuffer img) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglGetnTexImage(tex, level, format, type, img.remaining() << 1, memAddress(img));
+	}
+
+	/** IntBuffer version of: {@link #glGetnTexImage GetnTexImage} */
+	public static void glGetnTexImage(int tex, int level, int format, int type, IntBuffer img) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglGetnTexImage(tex, level, format, type, img.remaining() << 2, memAddress(img));
+	}
+
+	/** FloatBuffer version of: {@link #glGetnTexImage GetnTexImage} */
+	public static void glGetnTexImage(int tex, int level, int format, int type, FloatBuffer img) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglGetnTexImage(tex, level, format, type, img.remaining() << 2, memAddress(img));
+	}
+
+	/** DoubleBuffer version of: {@link #glGetnTexImage GetnTexImage} */
+	public static void glGetnTexImage(int tex, int level, int format, int type, DoubleBuffer img) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglGetnTexImage(tex, level, format, type, img.remaining() << 3, memAddress(img));
+	}
+
 	// --- [ glReadnPixels ] ---
 
 	/** JNI method for {@link #glReadnPixels ReadnPixels} */
@@ -3988,6 +4455,327 @@ Guarantees that writes have completed and caches have been invalidated before su
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
+	// --- [ glGetnColorTable ] ---
+
+	/** JNI method for {@link #glGetnColorTable GetnColorTable} */
+	@JavadocExclude
+	public static native void nglGetnColorTable(int target, int format, int type, int bufSize, long table, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetnColorTable GetnColorTable} */
+	@JavadocExclude
+	public static void nglGetnColorTable(int target, int format, int type, int bufSize, long table) {
+		long __functionAddress = getInstance().GetnColorTable;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetnColorTable(target, format, type, bufSize, table, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnColorTable.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Robust version of {@link ARBImaging#glGetColorTable GetColorTable}
+	 *
+	 * @param target  the color table target. One of:<br>{@link ARBImaging#GL_COLOR_TABLE COLOR_TABLE}, {@link ARBImaging#GL_POST_CONVOLUTION_COLOR_TABLE POST_CONVOLUTION_COLOR_TABLE}, {@link ARBImaging#GL_POST_COLOR_MATRIX_COLOR_TABLE POST_COLOR_MATRIX_COLOR_TABLE}
+	 * @param format  the color data format. One of:<br>{@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}
+	 * @param type    the color data type. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}
+	 * @param bufSize the maximum number of bytes to write into {@code table}
+	 * @param table   a buffer in which to place the returned data
+	 */
+	public static void glGetnColorTable(int target, int format, int type, int bufSize, ByteBuffer table) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkBuffer(table, bufSize);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		nglGetnColorTable(target, format, type, bufSize, memAddress(table));
+	}
+
+	/** Buffer object offset version of: {@link #glGetnColorTable GetnColorTable} */
+	public static void glGetnColorTable(int target, int format, int type, int bufSize, long tableOffset) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
+		nglGetnColorTable(target, format, type, bufSize, tableOffset);
+	}
+
+	/** ShortBuffer version of: {@link #glGetnColorTable GetnColorTable} */
+	public static void glGetnColorTable(int target, int format, int type, ShortBuffer table) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglGetnColorTable(target, format, type, table.remaining() << 1, memAddress(table));
+	}
+
+	/** IntBuffer version of: {@link #glGetnColorTable GetnColorTable} */
+	public static void glGetnColorTable(int target, int format, int type, IntBuffer table) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglGetnColorTable(target, format, type, table.remaining() << 2, memAddress(table));
+	}
+
+	/** FloatBuffer version of: {@link #glGetnColorTable GetnColorTable} */
+	public static void glGetnColorTable(int target, int format, int type, FloatBuffer table) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglGetnColorTable(target, format, type, table.remaining() << 2, memAddress(table));
+	}
+
+	// --- [ glGetnConvolutionFilter ] ---
+
+	/** JNI method for {@link #glGetnConvolutionFilter GetnConvolutionFilter} */
+	@JavadocExclude
+	public static native void nglGetnConvolutionFilter(int target, int format, int type, int bufSize, long image, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetnConvolutionFilter GetnConvolutionFilter} */
+	@JavadocExclude
+	public static void nglGetnConvolutionFilter(int target, int format, int type, int bufSize, long image) {
+		long __functionAddress = getInstance().GetnConvolutionFilter;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetnConvolutionFilter(target, format, type, bufSize, image, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnConvolutionFilter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Robust version of {@link ARBImaging#glGetConvolutionFilter GetConvolutionFilter}
+	 *
+	 * @param target  the convolution target. One of:<br>{@link ARBImaging#GL_CONVOLUTION_1D CONVOLUTION_1D}, {@link ARBImaging#GL_CONVOLUTION_2D CONVOLUTION_2D}
+	 * @param format  the filter data format. One of:<br>{@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}
+	 * @param type    the filter data type. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}
+	 * @param bufSize the maximum number of bytes to write into {@code image}
+	 * @param image   a buffer in which to place the returned data
+	 */
+	public static void glGetnConvolutionFilter(int target, int format, int type, int bufSize, ByteBuffer image) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkBuffer(image, bufSize);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		nglGetnConvolutionFilter(target, format, type, bufSize, memAddress(image));
+	}
+
+	/** Buffer object offset version of: {@link #glGetnConvolutionFilter GetnConvolutionFilter} */
+	public static void glGetnConvolutionFilter(int target, int format, int type, int bufSize, long imageOffset) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
+		nglGetnConvolutionFilter(target, format, type, bufSize, imageOffset);
+	}
+
+	/** Alternative version of: {@link #glGetnConvolutionFilter GetnConvolutionFilter} */
+	public static void glGetnConvolutionFilter(int target, int format, int type, ByteBuffer image) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglGetnConvolutionFilter(target, format, type, image.remaining(), memAddress(image));
+	}
+
+	// --- [ glGetnSeparableFilter ] ---
+
+	/** JNI method for {@link #glGetnSeparableFilter GetnSeparableFilter} */
+	@JavadocExclude
+	public static native void nglGetnSeparableFilter(int target, int format, int type, int rowBufSize, long row, int columnBufSize, long column, long span, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetnSeparableFilter GetnSeparableFilter} */
+	@JavadocExclude
+	public static void nglGetnSeparableFilter(int target, int format, int type, int rowBufSize, long row, int columnBufSize, long column, long span) {
+		long __functionAddress = getInstance().GetnSeparableFilter;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetnSeparableFilter(target, format, type, rowBufSize, row, columnBufSize, column, span, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnSeparableFilter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Robust version of {@link ARBImaging#glGetSeparableFilter GetSeparableFilter}
+	 *
+	 * @param target        the filter target. Must be:<br>{@link ARBImaging#GL_SEPARABLE_2D SEPARABLE_2D}
+	 * @param format        the filter data format. One of:<br>{@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}
+	 * @param type          the filter data type. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}
+	 * @param rowBufSize    the maximum number of bytes to write into {@code row}
+	 * @param row           a buffer in which to return the filter row
+	 * @param columnBufSize the maximum number of bytes to write into {@code column}
+	 * @param column        a buffer in which to return the filter column
+	 * @param span          
+	 */
+	public static void glGetnSeparableFilter(int target, int format, int type, int rowBufSize, ByteBuffer row, int columnBufSize, ByteBuffer column, ByteBuffer span) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkBuffer(row, rowBufSize);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+			checkBuffer(column, columnBufSize);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		nglGetnSeparableFilter(target, format, type, rowBufSize, memAddress(row), columnBufSize, memAddress(column), memAddressSafe(span));
+	}
+
+	/** Buffer object offset version of: {@link #glGetnSeparableFilter GetnSeparableFilter} */
+	public static void glGetnSeparableFilter(int target, int format, int type, int rowBufSize, long rowOffset, int columnBufSize, ByteBuffer column, ByteBuffer span) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
+		nglGetnSeparableFilter(target, format, type, rowBufSize, rowOffset, columnBufSize, memAddress(column), memAddressSafe(span));
+	}
+
+	/** Buffer object offset version of: {@link #glGetnSeparableFilter GetnSeparableFilter} */
+	public static void glGetnSeparableFilter(int target, int format, int type, int rowBufSize, ByteBuffer row, int columnBufSize, long columnOffset, ByteBuffer span) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
+		nglGetnSeparableFilter(target, format, type, rowBufSize, memAddress(row), columnBufSize, columnOffset, memAddressSafe(span));
+	}
+
+	/** Alternative version of: {@link #glGetnSeparableFilter GetnSeparableFilter} */
+	public static void glGetnSeparableFilter(int target, int format, int type, ByteBuffer row, ByteBuffer column, ByteBuffer span) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglGetnSeparableFilter(target, format, type, row.remaining(), memAddress(row), column.remaining(), memAddress(column), memAddressSafe(span));
+	}
+
+	// --- [ glGetnHistogram ] ---
+
+	/** JNI method for {@link #glGetnHistogram GetnHistogram} */
+	@JavadocExclude
+	public static native void nglGetnHistogram(int target, boolean reset, int format, int type, int bufSize, long values, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetnHistogram GetnHistogram} */
+	@JavadocExclude
+	public static void nglGetnHistogram(int target, boolean reset, int format, int type, int bufSize, long values) {
+		long __functionAddress = getInstance().GetnHistogram;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetnHistogram(target, reset, format, type, bufSize, values, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnHistogram.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Robust version of {@link ARBImaging#glGetHistogram GetHistogram}
+	 *
+	 * @param target  the histogram target. Must be:<br>{@link ARBImaging#GL_HISTOGRAM HISTOGRAM}
+	 * @param reset   if {@link GL11#GL_TRUE TRUE}, then all counters of all elements of the histogram are reset to zero. Counters are reset whether returned or not.
+	 * @param format  the pixel data format. One of:<br>{@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}
+	 * @param type    the pixel data types. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}
+	 * @param bufSize the maximum number of bytes to write into {@code values}
+	 * @param values  a buffer in which to place the returned data
+	 */
+	public static void glGetnHistogram(int target, boolean reset, int format, int type, int bufSize, ByteBuffer values) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkBuffer(values, bufSize);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		nglGetnHistogram(target, reset, format, type, bufSize, memAddress(values));
+	}
+
+	/** Buffer object offset version of: {@link #glGetnHistogram GetnHistogram} */
+	public static void glGetnHistogram(int target, boolean reset, int format, int type, int bufSize, long valuesOffset) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
+		nglGetnHistogram(target, reset, format, type, bufSize, valuesOffset);
+	}
+
+	/** Alternative version of: {@link #glGetnHistogram GetnHistogram} */
+	public static void glGetnHistogram(int target, boolean reset, int format, int type, ByteBuffer values) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglGetnHistogram(target, reset, format, type, values.remaining(), memAddress(values));
+	}
+
+	// --- [ glGetnMinmax ] ---
+
+	/** JNI method for {@link #glGetnMinmax GetnMinmax} */
+	@JavadocExclude
+	public static native void nglGetnMinmax(int target, boolean reset, int format, int type, int bufSize, long values, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetnMinmax GetnMinmax} */
+	@JavadocExclude
+	public static void nglGetnMinmax(int target, boolean reset, int format, int type, int bufSize, long values) {
+		long __functionAddress = getInstance().GetnMinmax;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetnMinmax(target, reset, format, type, bufSize, values, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnMinmax.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Robust version of {@link ARBImaging#glGetMinmax GetMinmax}
+	 *
+	 * @param target  the minmax target. Must be:<br>{@link ARBImaging#GL_MINMAX MINMAX}
+	 * @param reset   If {@link GL11#GL_TRUE TRUE}, then each minimum value is reset to the maximum representable value, and each maximum value is reset to the minimum
+	 *                representable value. All values are reset, whether returned or not.
+	 * @param format  the pixel data format. One of:<br>{@link GL11#GL_RED RED}, {@link GL11#GL_GREEN GREEN}, {@link GL11#GL_BLUE BLUE}, {@link GL11#GL_ALPHA ALPHA}, {@link GL11#GL_RGB RGB}, {@link GL11#GL_RGBA RGBA}, {@link GL12#GL_BGR BGR}, {@link GL12#GL_BGRA BGRA}, {@link GL11#GL_LUMINANCE LUMINANCE}, {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}
+	 * @param type    the pixel data type. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_BYTE BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_SHORT SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}, {@link GL11#GL_INT INT}, {@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}, {@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}, {@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}, {@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}, {@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}, {@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}, {@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}, {@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}, {@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}
+	 * @param bufSize the maximum number of bytes to write into {@code values}
+	 * @param values  a buffer in which to place the returned data
+	 */
+	public static void glGetnMinmax(int target, boolean reset, int format, int type, int bufSize, ByteBuffer values) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkBuffer(values, bufSize);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		nglGetnMinmax(target, reset, format, type, bufSize, memAddress(values));
+	}
+
+	/** Buffer object offset version of: {@link #glGetnMinmax GetnMinmax} */
+	public static void glGetnMinmax(int target, boolean reset, int format, int type, int bufSize, long valuesOffset) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
+		nglGetnMinmax(target, reset, format, type, bufSize, valuesOffset);
+	}
+
+	/** Alternative version of: {@link #glGetnMinmax GetnMinmax} */
+	public static void glGetnMinmax(int target, boolean reset, int format, int type, ByteBuffer values) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglGetnMinmax(target, reset, format, type, values.remaining(), memAddress(values));
+	}
+
+	// --- [ glGetnCompressedTexImage ] ---
+
+	/** JNI method for {@link #glGetnCompressedTexImage GetnCompressedTexImage} */
+	@JavadocExclude
+	public static native void nglGetnCompressedTexImage(int target, int level, int bufSize, long img, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetnCompressedTexImage GetnCompressedTexImage} */
+	@JavadocExclude
+	public static void nglGetnCompressedTexImage(int target, int level, int bufSize, long img) {
+		long __functionAddress = getInstance().GetnCompressedTexImage;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetnCompressedTexImage(target, level, bufSize, img, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnCompressedTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Robust version of {@link GL13#glGetCompressedTexImage GetCompressedTexImage}
+	 *
+	 * @param target  the target texture. One of:<br>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_X TEXTURE_CUBE_MAP_POSITIVE_X}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_X TEXTURE_CUBE_MAP_NEGATIVE_X}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Y TEXTURE_CUBE_MAP_POSITIVE_Y}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Y TEXTURE_CUBE_MAP_NEGATIVE_Y}, {@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Z TEXTURE_CUBE_MAP_POSITIVE_Z}, {@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Z TEXTURE_CUBE_MAP_NEGATIVE_Z}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}
+	 * @param level   the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
+	 * @param bufSize the maximum number of bytes to write into {@code img}
+	 * @param img     a buffer in which to place the returned data
+	 */
+	public static void glGetnCompressedTexImage(int target, int level, int bufSize, ByteBuffer img) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkBuffer(img, bufSize);
+			if ( LWJGLUtil.DEBUG )
+				checkBuffer(img, GL11.glGetTexLevelParameteri(target, level, GL13.GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		nglGetnCompressedTexImage(target, level, bufSize, memAddress(img));
+	}
+
+	/** Buffer object offset version of: {@link #glGetnCompressedTexImage GetnCompressedTexImage} */
+	public static void glGetnCompressedTexImage(int target, int level, int bufSize, long imgOffset) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
+		nglGetnCompressedTexImage(target, level, bufSize, imgOffset);
+	}
+
+	/** Alternative version of: {@link #glGetnCompressedTexImage GetnCompressedTexImage} */
+	public static void glGetnCompressedTexImage(int target, int level, ByteBuffer img) {
+		if ( LWJGLUtil.CHECKS ) {
+			if ( LWJGLUtil.DEBUG )
+				checkBuffer(img, GL11.glGetTexLevelParameteri(target, level, GL13.GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		nglGetnCompressedTexImage(target, level, img.remaining(), memAddress(img));
+	}
+
 	// --- [ glGetnUniformfv ] ---
 
 	/** JNI method for {@link #glGetnUniformfv GetnUniformfv} */
@@ -4020,6 +4808,58 @@ Guarantees that writes have completed and caches have been invalidated before su
 	/** Alternative version of: {@link #glGetnUniformfv GetnUniformfv} */
 	public static void glGetnUniformfv(int program, int location, FloatBuffer params) {
 		nglGetnUniformfv(program, location, params.remaining(), memAddress(params));
+	}
+
+	/** Single return value version of: {@link #glGetnUniformfv GetnUniformfv} */
+	public static float glGetnUniformf(int program, int location) {
+		APIBuffer __buffer = apiBuffer();
+		int params = __buffer.floatParam();
+		nglGetnUniformfv(program, location, 1, __buffer.address(params));
+		return __buffer.floatValue(params);
+	}
+
+	// --- [ glGetnUniformdv ] ---
+
+	/** JNI method for {@link #glGetnUniformdv GetnUniformdv} */
+	@JavadocExclude
+	public static native void nglGetnUniformdv(int program, int location, int bufSize, long params, long __functionAddress);
+
+	/** Unsafe version of {@link #glGetnUniformdv GetnUniformdv} */
+	@JavadocExclude
+	public static void nglGetnUniformdv(int program, int location, int bufSize, long params) {
+		long __functionAddress = getInstance().GetnUniformdv;
+		if ( LWJGLUtil.CHECKS )
+			checkFunctionAddress(__functionAddress);
+		nglGetnUniformdv(program, location, bufSize, params, __functionAddress);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Double version of {@link #glGetnUniformfv GetnUniformfv}.
+	 *
+	 * @param program  the program object
+	 * @param location the uniform location
+	 * @param bufSize  the maximum number of bytes to write to {@code params}
+	 * @param params   the buffer in which to place the returned data
+	 */
+	public static void glGetnUniformdv(int program, int location, int bufSize, ByteBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, bufSize << 3);
+		nglGetnUniformdv(program, location, bufSize, memAddress(params));
+	}
+
+	/** Alternative version of: {@link #glGetnUniformdv GetnUniformdv} */
+	public static void glGetnUniformdv(int program, int location, DoubleBuffer params) {
+		nglGetnUniformdv(program, location, params.remaining(), memAddress(params));
+	}
+
+	/** Single return value version of: {@link #glGetnUniformdv GetnUniformdv} */
+	public static double glGetnUniformd(int program, int location) {
+		APIBuffer __buffer = apiBuffer();
+		int params = __buffer.doubleParam();
+		nglGetnUniformdv(program, location, 1, __buffer.address(params));
+		return __buffer.doubleValue(params);
 	}
 
 	// --- [ glGetnUniformiv ] ---
@@ -4056,6 +4896,14 @@ Guarantees that writes have completed and caches have been invalidated before su
 		nglGetnUniformiv(program, location, params.remaining(), memAddress(params));
 	}
 
+	/** Single return value version of: {@link #glGetnUniformiv GetnUniformiv} */
+	public static float glGetnUniformi(int program, int location) {
+		APIBuffer __buffer = apiBuffer();
+		int params = __buffer.floatParam();
+		nglGetnUniformiv(program, location, 1, __buffer.address(params));
+		return __buffer.floatValue(params);
+	}
+
 	// --- [ glGetnUniformuiv ] ---
 
 	/** JNI method for {@link #glGetnUniformuiv GetnUniformuiv} */
@@ -4088,6 +4936,14 @@ Guarantees that writes have completed and caches have been invalidated before su
 	/** Alternative version of: {@link #glGetnUniformuiv GetnUniformuiv} */
 	public static void glGetnUniformuiv(int program, int location, FloatBuffer params) {
 		nglGetnUniformuiv(program, location, params.remaining(), memAddress(params));
+	}
+
+	/** Single return value version of: {@link #glGetnUniformuiv GetnUniformuiv} */
+	public static float glGetnUniformui(int program, int location) {
+		APIBuffer __buffer = apiBuffer();
+		int params = __buffer.floatParam();
+		nglGetnUniformuiv(program, location, 1, __buffer.address(params));
+		return __buffer.floatValue(params);
 	}
 
 }

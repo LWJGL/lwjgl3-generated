@@ -13,19 +13,15 @@ import static org.lwjgl.system.Checks.*;
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/blend_equation_advanced.txt">NV_blend_equation_advanced</a> extension.
  * 
- * <p>This extension adds a number of "advanced" blending equations that can be
- * used to perform new color blending operations, many of which are more
- * complex than the standard blend modes provided by unextended OpenGL.</p>
+ * <p>This extension adds a number of "advanced" blending equations that can be used to perform new color blending operations, many of which are more complex
+ * than the standard blend modes provided by unextended OpenGL.</p>
+ * 
+ * <p>Provides the new blending equations, but guarantees defined results only if each sample is touched no more than once in any single rendering pass. The
+ * command {@link #glBlendBarrierNV BlendBarrierNV} is provided to indicate a boundary between passes.</p>
  * 
  * <p>Requires {@link GL20 OpenGL 2.0}.</p>
  */
 public final class NVBlendEquationAdvanced {
-
-	/**
-	 * Accepted by the {@code cap} parameter of Disable, Enable, and IsEnabled, and by the {@code pname} parameter of GetIntegerv, GetBooleanv, GetFloatv, GetDoublev
-	 * and GetInteger64v.
-	 */
-	public static final int GL_BLEND_ADVANCED_COHERENT_NV = 0x9285;
 
 	/** Accepted by the {@code pname} parameter of BlendParameteriNV, GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
 	public static final int

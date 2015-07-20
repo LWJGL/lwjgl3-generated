@@ -12,6 +12,7 @@ import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/KHR/robustness.txt">KHR_robustness</a> extension.
@@ -212,6 +213,14 @@ public final class KHRRobustness {
 		nglGetnUniformfv(program, location, params.remaining(), memAddress(params));
 	}
 
+	/** Single return value version of: {@link #glGetnUniformfv GetnUniformfv} */
+	public static float glGetnUniformf(int program, int location) {
+		APIBuffer __buffer = apiBuffer();
+		int params = __buffer.floatParam();
+		nglGetnUniformfv(program, location, 1, __buffer.address(params));
+		return __buffer.floatValue(params);
+	}
+
 	// --- [ glGetnUniformiv ] ---
 
 	/** Unsafe version of {@link #glGetnUniformiv GetnUniformiv} */
@@ -240,6 +249,14 @@ public final class KHRRobustness {
 		nglGetnUniformiv(program, location, params.remaining(), memAddress(params));
 	}
 
+	/** Single return value version of: {@link #glGetnUniformiv GetnUniformiv} */
+	public static float glGetnUniformi(int program, int location) {
+		APIBuffer __buffer = apiBuffer();
+		int params = __buffer.floatParam();
+		nglGetnUniformiv(program, location, 1, __buffer.address(params));
+		return __buffer.floatValue(params);
+	}
+
 	// --- [ glGetnUniformuiv ] ---
 
 	/** Unsafe version of {@link #glGetnUniformuiv GetnUniformuiv} */
@@ -266,6 +283,14 @@ public final class KHRRobustness {
 	/** Alternative version of: {@link #glGetnUniformuiv GetnUniformuiv} */
 	public static void glGetnUniformuiv(int program, int location, FloatBuffer params) {
 		nglGetnUniformuiv(program, location, params.remaining(), memAddress(params));
+	}
+
+	/** Single return value version of: {@link #glGetnUniformuiv GetnUniformuiv} */
+	public static float glGetnUniformui(int program, int location) {
+		APIBuffer __buffer = apiBuffer();
+		int params = __buffer.floatParam();
+		nglGetnUniformuiv(program, location, 1, __buffer.address(params));
+		return __buffer.floatValue(params);
 	}
 
 }

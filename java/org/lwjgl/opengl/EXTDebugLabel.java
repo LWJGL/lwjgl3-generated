@@ -28,6 +28,15 @@ import static org.lwjgl.system.APIUtil.*;
  */
 public final class EXTDebugLabel {
 
+	/** Accepted by the {@code type} parameter of LabelObjectEXT and GetObjectLabelEXT. */
+	public static final int
+		GL_BUFFER_OBJECT_EXT           = 0x9151,
+		GL_SHADER_OBJECT_EXT           = 0x8B48,
+		GL_PROGRAM_OBJECT_EXT          = 0x8B40,
+		GL_VERTEX_ARRAY_OBJECT_EXT     = 0x9154,
+		GL_QUERY_OBJECT_EXT            = 0x9153,
+		GL_PROGRAM_PIPELINE_OBJECT_EXT = 0x8A4F;
+
 	/** Function address. */
 	@JavadocExclude
 	public final long

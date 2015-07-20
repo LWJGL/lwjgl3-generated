@@ -22,10 +22,7 @@ public final class ARBFragmentShader {
 	public static final int GL_FRAGMENT_SHADER_ARB = 0x8B30;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
-	public static final int
-		GL_MAX_FRAGMENT_UNIFORM_COMPONENTS_ARB = 0x8B49,
-		GL_MAX_TEXTURE_COORDS_ARB              = 0x8871,
-		GL_MAX_TEXTURE_IMAGE_UNITS_ARB         = 0x8872;
+	public static final int GL_MAX_FRAGMENT_UNIFORM_COMPONENTS_ARB = 0x8B49;
 
 	/** Accepted by the {@code target} parameter of Hint and the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_FRAGMENT_SHADER_DERIVATIVE_HINT_ARB = 0x8B8B;

@@ -13,7 +13,7 @@ package org.lwjgl.opengl;
  * 
  * <p>Requires {@link GL20 OpenGL 2.0}</p>
  */
-public final class NVXGpuMemoryInfo {
+public final class NVXGPUMemoryInfo {
 
 	/** Accepted by the {@code param} parameter of GetIntegerv. */
 	public static final int
@@ -23,6 +23,6 @@ public final class NVXGpuMemoryInfo {
 		GL_GPU_MEMORY_INFO_EVICTION_COUNT_NVX           = 0x904A,
 		GL_GPU_MEMORY_INFO_EVICTED_MEMORY_NVX           = 0x904B;
 
-	private NVXGpuMemoryInfo() {}
+	private NVXGPUMemoryInfo() {}
 
 }

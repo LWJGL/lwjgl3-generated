@@ -255,7 +255,6 @@ public final class GL43 {
 		GL_COLOR_ENCODING                         = 0x8296,
 		GL_SRGB_READ                              = 0x8297,
 		GL_SRGB_WRITE                             = 0x8298,
-		GL_SRGB_DECODE_ARB                        = 0x8299,
 		GL_FILTER                                 = 0x829A,
 		GL_VERTEX_TEXTURE                         = 0x829B,
 		GL_TESS_CONTROL_TEXTURE                   = 0x829C,

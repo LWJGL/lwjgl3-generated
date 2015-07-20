@@ -163,13 +163,13 @@ public final class GL20 {
 
 	/** Accepted by the {@code pname} parameter of GetIntegerv. */
 	public static final int
-		GL_STENCIL_BACK_FUNC_ATI            = 0x8800,
-		GL_STENCIL_BACK_FAIL_ATI            = 0x8801,
-		GL_STENCIL_BACK_PASS_DEPTH_FAIL_ATI = 0x8802,
-		GL_STENCIL_BACK_PASS_DEPTH_PASS_ATI = 0x8803,
-		GL_STENCIL_BACK_REF                 = 0x8CA3,
-		GL_STENCIL_BACK_VALUE_MASK          = 0x8CA4,
-		GL_STENCIL_BACK_WRITEMASK           = 0x8CA5;
+		GL_STENCIL_BACK_FUNC            = 0x8800,
+		GL_STENCIL_BACK_FAIL            = 0x8801,
+		GL_STENCIL_BACK_PASS_DEPTH_FAIL = 0x8802,
+		GL_STENCIL_BACK_PASS_DEPTH_PASS = 0x8803,
+		GL_STENCIL_BACK_REF             = 0x8CA3,
+		GL_STENCIL_BACK_VALUE_MASK      = 0x8CA4,
+		GL_STENCIL_BACK_WRITEMASK       = 0x8CA5;
 
 	/** Function address. */
 	@JavadocExclude
