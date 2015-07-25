@@ -107,12 +107,6 @@ public final class NVVertexAttribInteger64bit {
 	@JavadocExclude
 	public static native void nglVertexAttribL1i64NV(int index, long x, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param x     
-	 */
 	public static void glVertexAttribL1i64NV(int index, long x) {
 		long __functionAddress = getInstance().VertexAttribL1i64NV;
 		nglVertexAttribL1i64NV(index, x, __functionAddress);
@@ -124,13 +118,6 @@ public final class NVVertexAttribInteger64bit {
 	@JavadocExclude
 	public static native void nglVertexAttribL2i64NV(int index, long x, long y, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param x     
-	 * @param y     
-	 */
 	public static void glVertexAttribL2i64NV(int index, long x, long y) {
 		long __functionAddress = getInstance().VertexAttribL2i64NV;
 		nglVertexAttribL2i64NV(index, x, y, __functionAddress);
@@ -142,14 +129,6 @@ public final class NVVertexAttribInteger64bit {
 	@JavadocExclude
 	public static native void nglVertexAttribL3i64NV(int index, long x, long y, long z, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param x     
-	 * @param y     
-	 * @param z     
-	 */
 	public static void glVertexAttribL3i64NV(int index, long x, long y, long z) {
 		long __functionAddress = getInstance().VertexAttribL3i64NV;
 		nglVertexAttribL3i64NV(index, x, y, z, __functionAddress);
@@ -161,15 +140,6 @@ public final class NVVertexAttribInteger64bit {
 	@JavadocExclude
 	public static native void nglVertexAttribL4i64NV(int index, long x, long y, long z, long w, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param x     
-	 * @param y     
-	 * @param z     
-	 * @param w     
-	 */
 	public static void glVertexAttribL4i64NV(int index, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().VertexAttribL4i64NV;
 		nglVertexAttribL4i64NV(index, x, y, z, w, __functionAddress);
@@ -188,12 +158,6 @@ public final class NVVertexAttribInteger64bit {
 		nglVertexAttribL1i64vNV(index, v, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param v     
-	 */
 	public static void glVertexAttribL1i64vNV(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 3);
@@ -220,12 +184,6 @@ public final class NVVertexAttribInteger64bit {
 		nglVertexAttribL2i64vNV(index, v, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param v     
-	 */
 	public static void glVertexAttribL2i64vNV(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 3);
@@ -252,12 +210,6 @@ public final class NVVertexAttribInteger64bit {
 		nglVertexAttribL3i64vNV(index, v, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param v     
-	 */
 	public static void glVertexAttribL3i64vNV(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 3);
@@ -284,12 +236,6 @@ public final class NVVertexAttribInteger64bit {
 		nglVertexAttribL4i64vNV(index, v, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param v     
-	 */
 	public static void glVertexAttribL4i64vNV(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 3);
@@ -309,12 +255,6 @@ public final class NVVertexAttribInteger64bit {
 	@JavadocExclude
 	public static native void nglVertexAttribL1ui64NV(int index, long x, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param x     
-	 */
 	public static void glVertexAttribL1ui64NV(int index, long x) {
 		long __functionAddress = getInstance().VertexAttribL1ui64NV;
 		nglVertexAttribL1ui64NV(index, x, __functionAddress);
@@ -326,13 +266,6 @@ public final class NVVertexAttribInteger64bit {
 	@JavadocExclude
 	public static native void nglVertexAttribL2ui64NV(int index, long x, long y, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param x     
-	 * @param y     
-	 */
 	public static void glVertexAttribL2ui64NV(int index, long x, long y) {
 		long __functionAddress = getInstance().VertexAttribL2ui64NV;
 		nglVertexAttribL2ui64NV(index, x, y, __functionAddress);
@@ -344,14 +277,6 @@ public final class NVVertexAttribInteger64bit {
 	@JavadocExclude
 	public static native void nglVertexAttribL3ui64NV(int index, long x, long y, long z, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param x     
-	 * @param y     
-	 * @param z     
-	 */
 	public static void glVertexAttribL3ui64NV(int index, long x, long y, long z) {
 		long __functionAddress = getInstance().VertexAttribL3ui64NV;
 		nglVertexAttribL3ui64NV(index, x, y, z, __functionAddress);
@@ -363,15 +288,6 @@ public final class NVVertexAttribInteger64bit {
 	@JavadocExclude
 	public static native void nglVertexAttribL4ui64NV(int index, long x, long y, long z, long w, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param x     
-	 * @param y     
-	 * @param z     
-	 * @param w     
-	 */
 	public static void glVertexAttribL4ui64NV(int index, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().VertexAttribL4ui64NV;
 		nglVertexAttribL4ui64NV(index, x, y, z, w, __functionAddress);
@@ -390,12 +306,6 @@ public final class NVVertexAttribInteger64bit {
 		nglVertexAttribL1ui64vNV(index, v, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param v     
-	 */
 	public static void glVertexAttribL1ui64vNV(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 3);
@@ -422,12 +332,6 @@ public final class NVVertexAttribInteger64bit {
 		nglVertexAttribL2ui64vNV(index, v, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param v     
-	 */
 	public static void glVertexAttribL2ui64vNV(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 3);
@@ -454,12 +358,6 @@ public final class NVVertexAttribInteger64bit {
 		nglVertexAttribL3ui64vNV(index, v, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param v     
-	 */
 	public static void glVertexAttribL3ui64vNV(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 3);
@@ -486,12 +384,6 @@ public final class NVVertexAttribInteger64bit {
 		nglVertexAttribL4ui64vNV(index, v, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param v     
-	 */
 	public static void glVertexAttribL4ui64vNV(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 3);
@@ -518,13 +410,6 @@ public final class NVVertexAttribInteger64bit {
 		nglGetVertexAttribLi64vNV(index, pname, params, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param index  
-	 * @param pname  
-	 * @param params 
-	 */
 	public static void glGetVertexAttribLi64vNV(int index, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
@@ -559,13 +444,6 @@ public final class NVVertexAttribInteger64bit {
 		nglGetVertexAttribLui64vNV(index, pname, params, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param index  
-	 * @param pname  
-	 * @param params 
-	 */
 	public static void glGetVertexAttribLui64vNV(int index, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
@@ -593,14 +471,6 @@ public final class NVVertexAttribInteger64bit {
 	@JavadocExclude
 	public static native void nglVertexAttribLFormatNV(int index, int size, int type, int stride, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param index  
-	 * @param size   
-	 * @param type   
-	 * @param stride 
-	 */
 	public static void glVertexAttribLFormatNV(int index, int size, int type, int stride) {
 		long __functionAddress = getInstance().VertexAttribLFormatNV;
 		if ( LWJGLUtil.CHECKS )

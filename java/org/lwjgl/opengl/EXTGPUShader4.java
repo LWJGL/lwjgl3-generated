@@ -828,7 +828,7 @@ public final class EXTGPUShader4 {
 	}
 
 	/**
-	 * Unsigned version of {@link #glGetVertexAttribIiv GetVertexAttribIiv}.
+	 * Unsigned version of {@link #glGetVertexAttribIivEXT GetVertexAttribIivEXT}.
 	 *
 	 * @param index  the index of the pure integer generic vertex attribute to be modified
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
@@ -868,13 +868,6 @@ public final class EXTGPUShader4 {
 		nglGetUniformuivEXT(program, location, params, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param params   
-	 */
 	public static void glGetUniformuivEXT(int program, int location, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
@@ -909,13 +902,6 @@ public final class EXTGPUShader4 {
 		nglBindFragDataLocationEXT(program, color, name, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program 
-	 * @param color   
-	 * @param name    
-	 */
 	public static void glBindFragDataLocationEXT(int program, int color, ByteBuffer name) {
 		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
@@ -942,12 +928,6 @@ public final class EXTGPUShader4 {
 		return nglGetFragDataLocationEXT(program, name, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program 
-	 * @param name    
-	 */
 	public static int glGetFragDataLocationEXT(int program, ByteBuffer name) {
 		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
@@ -967,12 +947,6 @@ public final class EXTGPUShader4 {
 	@JavadocExclude
 	public static native void nglUniform1uiEXT(int location, int v0, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param v0       
-	 */
 	public static void glUniform1uiEXT(int location, int v0) {
 		long __functionAddress = getInstance().Uniform1uiEXT;
 		nglUniform1uiEXT(location, v0, __functionAddress);
@@ -984,13 +958,6 @@ public final class EXTGPUShader4 {
 	@JavadocExclude
 	public static native void nglUniform2uiEXT(int location, int v0, int v1, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param v0       
-	 * @param v1       
-	 */
 	public static void glUniform2uiEXT(int location, int v0, int v1) {
 		long __functionAddress = getInstance().Uniform2uiEXT;
 		nglUniform2uiEXT(location, v0, v1, __functionAddress);
@@ -1002,14 +969,6 @@ public final class EXTGPUShader4 {
 	@JavadocExclude
 	public static native void nglUniform3uiEXT(int location, int v0, int v1, int v2, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param v0       
-	 * @param v1       
-	 * @param v2       
-	 */
 	public static void glUniform3uiEXT(int location, int v0, int v1, int v2) {
 		long __functionAddress = getInstance().Uniform3uiEXT;
 		nglUniform3uiEXT(location, v0, v1, v2, __functionAddress);
@@ -1021,15 +980,6 @@ public final class EXTGPUShader4 {
 	@JavadocExclude
 	public static native void nglUniform4uiEXT(int location, int v0, int v1, int v2, int v3, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param v0       
-	 * @param v1       
-	 * @param v2       
-	 * @param v3       
-	 */
 	public static void glUniform4uiEXT(int location, int v0, int v1, int v2, int v3) {
 		long __functionAddress = getInstance().Uniform4uiEXT;
 		nglUniform4uiEXT(location, v0, v1, v2, v3, __functionAddress);
@@ -1048,13 +998,6 @@ public final class EXTGPUShader4 {
 		nglUniform1uivEXT(location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glUniform1uivEXT(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 2);
@@ -1079,13 +1022,6 @@ public final class EXTGPUShader4 {
 		nglUniform2uivEXT(location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glUniform2uivEXT(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 2);
@@ -1110,13 +1046,6 @@ public final class EXTGPUShader4 {
 		nglUniform3uivEXT(location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glUniform3uivEXT(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 3) << 2);
@@ -1141,13 +1070,6 @@ public final class EXTGPUShader4 {
 		nglUniform4uivEXT(location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glUniform4uivEXT(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 2);

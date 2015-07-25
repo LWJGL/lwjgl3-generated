@@ -87,12 +87,6 @@ public final class EXTStencilClearTag {
 	@JavadocExclude
 	public static native void nglStencilClearTagEXT(int stencilTagBits, int stencilClearTag, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param stencilTagBits  
-	 * @param stencilClearTag 
-	 */
 	public static void glStencilClearTagEXT(int stencilTagBits, int stencilClearTag) {
 		long __functionAddress = getInstance().StencilClearTagEXT;
 		nglStencilClearTagEXT(stencilTagBits, stencilClearTag, __functionAddress);

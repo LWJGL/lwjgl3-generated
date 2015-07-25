@@ -71,17 +71,6 @@ public final class NVTextureMultisample {
 	@JavadocExclude
 	public static native void nglTexImage2DMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, boolean fixedSampleLocations, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param target               
-	 * @param coverageSamples      
-	 * @param colorSamples         
-	 * @param internalFormat       
-	 * @param width                
-	 * @param height               
-	 * @param fixedSampleLocations 
-	 */
 	public static void glTexImage2DMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, boolean fixedSampleLocations) {
 		long __functionAddress = getInstance().TexImage2DMultisampleCoverageNV;
 		nglTexImage2DMultisampleCoverageNV(target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations, __functionAddress);
@@ -93,18 +82,6 @@ public final class NVTextureMultisample {
 	@JavadocExclude
 	public static native void nglTexImage3DMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, int depth, boolean fixedSampleLocations, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param target               
-	 * @param coverageSamples      
-	 * @param colorSamples         
-	 * @param internalFormat       
-	 * @param width                
-	 * @param height               
-	 * @param depth                
-	 * @param fixedSampleLocations 
-	 */
 	public static void glTexImage3DMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, int depth, boolean fixedSampleLocations) {
 		long __functionAddress = getInstance().TexImage3DMultisampleCoverageNV;
 		nglTexImage3DMultisampleCoverageNV(target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations, __functionAddress);
@@ -116,17 +93,6 @@ public final class NVTextureMultisample {
 	@JavadocExclude
 	public static native void nglTextureImage2DMultisampleNV(int texture, int target, int samples, int internalFormat, int width, int height, boolean fixedSampleLocations, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param texture              
-	 * @param target               
-	 * @param samples              
-	 * @param internalFormat       
-	 * @param width                
-	 * @param height               
-	 * @param fixedSampleLocations 
-	 */
 	public static void glTextureImage2DMultisampleNV(int texture, int target, int samples, int internalFormat, int width, int height, boolean fixedSampleLocations) {
 		long __functionAddress = getInstance().TextureImage2DMultisampleNV;
 		nglTextureImage2DMultisampleNV(texture, target, samples, internalFormat, width, height, fixedSampleLocations, __functionAddress);
@@ -138,18 +104,6 @@ public final class NVTextureMultisample {
 	@JavadocExclude
 	public static native void nglTextureImage3DMultisampleNV(int texture, int target, int samples, int internalFormat, int width, int height, int depth, boolean fixedSampleLocations, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param texture              
-	 * @param target               
-	 * @param samples              
-	 * @param internalFormat       
-	 * @param width                
-	 * @param height               
-	 * @param depth                
-	 * @param fixedSampleLocations 
-	 */
 	public static void glTextureImage3DMultisampleNV(int texture, int target, int samples, int internalFormat, int width, int height, int depth, boolean fixedSampleLocations) {
 		long __functionAddress = getInstance().TextureImage3DMultisampleNV;
 		nglTextureImage3DMultisampleNV(texture, target, samples, internalFormat, width, height, depth, fixedSampleLocations, __functionAddress);
@@ -161,18 +115,6 @@ public final class NVTextureMultisample {
 	@JavadocExclude
 	public static native void nglTextureImage2DMultisampleCoverageNV(int texture, int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, boolean fixedSampleLocations, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param texture              
-	 * @param target               
-	 * @param coverageSamples      
-	 * @param colorSamples         
-	 * @param internalFormat       
-	 * @param width                
-	 * @param height               
-	 * @param fixedSampleLocations 
-	 */
 	public static void glTextureImage2DMultisampleCoverageNV(int texture, int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, boolean fixedSampleLocations) {
 		long __functionAddress = getInstance().TextureImage2DMultisampleCoverageNV;
 		nglTextureImage2DMultisampleCoverageNV(texture, target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations, __functionAddress);
@@ -184,19 +126,6 @@ public final class NVTextureMultisample {
 	@JavadocExclude
 	public static native void nglTextureImage3DMultisampleCoverageNV(int texture, int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, int depth, boolean fixedSampleLocations, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param texture              
-	 * @param target               
-	 * @param coverageSamples      
-	 * @param colorSamples         
-	 * @param internalFormat       
-	 * @param width                
-	 * @param height               
-	 * @param depth                
-	 * @param fixedSampleLocations 
-	 */
 	public static void glTextureImage3DMultisampleCoverageNV(int texture, int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, int depth, boolean fixedSampleLocations) {
 		long __functionAddress = getInstance().TextureImage3DMultisampleCoverageNV;
 		nglTextureImage3DMultisampleCoverageNV(texture, target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations, __functionAddress);

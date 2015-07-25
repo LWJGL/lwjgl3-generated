@@ -151,14 +151,6 @@ public final class EXTTextureInteger {
 	@JavadocExclude
 	public static native void nglClearColorIiEXT(int r, int g, int b, int a, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param r 
-	 * @param g 
-	 * @param b 
-	 * @param a 
-	 */
 	public static void glClearColorIiEXT(int r, int g, int b, int a) {
 		long __functionAddress = getInstance().ClearColorIiEXT;
 		nglClearColorIiEXT(r, g, b, a, __functionAddress);
@@ -170,14 +162,6 @@ public final class EXTTextureInteger {
 	@JavadocExclude
 	public static native void nglClearColorIuiEXT(int r, int g, int b, int a, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param r 
-	 * @param g 
-	 * @param b 
-	 * @param a 
-	 */
 	public static void glClearColorIuiEXT(int r, int g, int b, int a) {
 		long __functionAddress = getInstance().ClearColorIuiEXT;
 		nglClearColorIuiEXT(r, g, b, a, __functionAddress);
@@ -196,13 +180,6 @@ public final class EXTTextureInteger {
 		nglTexParameterIivEXT(target, pname, params, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param target 
-	 * @param pname  
-	 * @param params 
-	 */
 	public static void glTexParameterIivEXT(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
@@ -236,13 +213,6 @@ public final class EXTTextureInteger {
 		nglTexParameterIuivEXT(target, pname, params, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param target 
-	 * @param pname  
-	 * @param params 
-	 */
 	public static void glTexParameterIuivEXT(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
@@ -276,13 +246,6 @@ public final class EXTTextureInteger {
 		nglGetTexParameterIivEXT(target, pname, params, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param target 
-	 * @param pname  
-	 * @param params 
-	 */
 	public static void glGetTexParameterIivEXT(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
@@ -317,13 +280,6 @@ public final class EXTTextureInteger {
 		nglGetTexParameterIuivEXT(target, pname, params, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param target 
-	 * @param pname  
-	 * @param params 
-	 */
 	public static void glGetTexParameterIuivEXT(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);

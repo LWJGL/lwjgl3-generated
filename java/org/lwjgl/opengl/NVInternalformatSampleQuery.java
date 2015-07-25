@@ -91,16 +91,6 @@ public final class NVInternalformatSampleQuery {
 		nglGetInternalformatSampleivNV(target, internalformat, samples, pname, bufSize, params, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param target         
-	 * @param internalformat 
-	 * @param samples        
-	 * @param pname          
-	 * @param bufSize        
-	 * @param params         
-	 */
 	public static void glGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int bufSize, ByteBuffer params) {
 		nglGetInternalformatSampleivNV(target, internalformat, samples, pname, bufSize, memAddress(params));
 	}

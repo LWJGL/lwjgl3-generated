@@ -68,12 +68,6 @@ public final class AMDStencilOperationExtended {
 	@JavadocExclude
 	public static native void nglStencilOpValueAMD(int face, int value, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param face  
-	 * @param value 
-	 */
 	public static void glStencilOpValueAMD(int face, int value) {
 		long __functionAddress = getInstance().StencilOpValueAMD;
 		nglStencilOpValueAMD(face, value, __functionAddress);

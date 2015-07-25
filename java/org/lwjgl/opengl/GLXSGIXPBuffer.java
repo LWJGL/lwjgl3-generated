@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>This extension defines pixel buffers (GLXPbuffers, or pbuffer for short). GLXPbuffers are additional non-visible rendering buffers for an OpenGL
  * renderer.</p>
  */
-public final class GLXSGIXPBuffer {
+public final class GLXSGIXPbuffer {
 
 	/** Accepted by the {@code attribute} parameter of {@link GLXSGIXFBConfig#glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX}. */
 	public static final int
@@ -83,7 +83,7 @@ public final class GLXSGIXPBuffer {
 		GetSelectedEventSGIX;
 
 	@JavadocExclude
-	public GLXSGIXPBuffer(FunctionProvider provider) {
+	public GLXSGIXPbuffer(FunctionProvider provider) {
 		CreateGLXPbufferSGIX = provider.getFunctionAddress("glXCreateGLXPbufferSGIX");
 		DestroyGLXPbufferSGIX = provider.getFunctionAddress("glXDestroyGLXPbufferSGIX");
 		QueryGLXPbufferSGIX = provider.getFunctionAddress("glXQueryGLXPbufferSGIX");
@@ -93,15 +93,15 @@ public final class GLXSGIXPBuffer {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GLXSGIXPBuffer} instance for the current context. */
-	public static GLXSGIXPBuffer getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GLXSGIXPBuffer);
+	/** Returns the {@link GLXSGIXPbuffer} instance for the current context. */
+	public static GLXSGIXPbuffer getInstance() {
+		return checkFunctionality(GL.getCapabilities().__GLXSGIXPbuffer);
 	}
 
-	static GLXSGIXPBuffer create(java.util.Set<String> ext, FunctionProvider provider) {
+	static GLXSGIXPbuffer create(java.util.Set<String> ext, FunctionProvider provider) {
 		if ( !ext.contains("GLX_SGIX_pbuffer") ) return null;
 
-		GLXSGIXPBuffer funcs = new GLXSGIXPBuffer(provider);
+		GLXSGIXPbuffer funcs = new GLXSGIXPbuffer(provider);
 
 		boolean supported = checkFunctions(
 			funcs.CreateGLXPbufferSGIX, funcs.DestroyGLXPbufferSGIX, funcs.QueryGLXPbufferSGIX, funcs.SelectEventSGIX, funcs.GetSelectedEventSGIX

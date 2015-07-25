@@ -99,12 +99,6 @@ public final class EXTPointParameters {
 	@JavadocExclude
 	public static native void nglPointParameterfEXT(int pname, float param, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param pname 
-	 * @param param 
-	 */
 	public static void glPointParameterfEXT(int pname, float param) {
 		long __functionAddress = getInstance().PointParameterfEXT;
 		nglPointParameterfEXT(pname, param, __functionAddress);
@@ -123,12 +117,6 @@ public final class EXTPointParameters {
 		nglPointParameterfvEXT(pname, params, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param pname  
-	 * @param params 
-	 */
 	public static void glPointParameterfvEXT(int pname, ByteBuffer params) {
 		nglPointParameterfvEXT(pname, memAddress(params));
 	}

@@ -121,11 +121,6 @@ public final class AMDVertexShaderTessellator {
 	@JavadocExclude
 	public static native void nglTessellationFactorAMD(float factor, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param factor 
-	 */
 	public static void glTessellationFactorAMD(float factor) {
 		long __functionAddress = getInstance().TessellationFactorAMD;
 		nglTessellationFactorAMD(factor, __functionAddress);
@@ -137,11 +132,6 @@ public final class AMDVertexShaderTessellator {
 	@JavadocExclude
 	public static native void nglTessellationModeAMD(int mode, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param mode 
-	 */
 	public static void glTessellationModeAMD(int mode) {
 		long __functionAddress = getInstance().TessellationModeAMD;
 		nglTessellationModeAMD(mode, __functionAddress);

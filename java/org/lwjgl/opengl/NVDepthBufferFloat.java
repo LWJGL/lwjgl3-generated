@@ -86,12 +86,6 @@ public final class NVDepthBufferFloat {
 	@JavadocExclude
 	public static native void nglDepthRangedNV(double zNear, double zFar, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param zNear 
-	 * @param zFar  
-	 */
 	public static void glDepthRangedNV(double zNear, double zFar) {
 		long __functionAddress = getInstance().DepthRangedNV;
 		nglDepthRangedNV(zNear, zFar, __functionAddress);
@@ -103,11 +97,6 @@ public final class NVDepthBufferFloat {
 	@JavadocExclude
 	public static native void nglClearDepthdNV(double depth, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param depth 
-	 */
 	public static void glClearDepthdNV(double depth) {
 		long __functionAddress = getInstance().ClearDepthdNV;
 		nglClearDepthdNV(depth, __functionAddress);
@@ -119,12 +108,6 @@ public final class NVDepthBufferFloat {
 	@JavadocExclude
 	public static native void nglDepthBoundsdNV(double zmin, double zmax, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param zmin 
-	 * @param zmax 
-	 */
 	public static void glDepthBoundsdNV(double zmin, double zmax) {
 		long __functionAddress = getInstance().DepthBoundsdNV;
 		nglDepthBoundsdNV(zmin, zmax, __functionAddress);

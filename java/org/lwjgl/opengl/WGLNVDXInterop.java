@@ -119,11 +119,6 @@ public final class WGLNVDXInterop {
 	@JavadocExclude
 	public static native int nwglDXCloseDeviceNV(long device, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param device 
-	 */
 	public static int wglDXCloseDeviceNV(long device) {
 		long __functionAddress = getInstance().DXCloseDeviceNV;
 		if ( LWJGLUtil.CHECKS )
@@ -161,12 +156,6 @@ public final class WGLNVDXInterop {
 	@JavadocExclude
 	public static native int nwglDXUnregisterObjectNV(long device, long object, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param device 
-	 * @param object 
-	 */
 	public static int wglDXUnregisterObjectNV(long device, long object) {
 		long __functionAddress = getInstance().DXUnregisterObjectNV;
 		if ( LWJGLUtil.CHECKS ) {

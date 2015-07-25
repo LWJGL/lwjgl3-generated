@@ -69,13 +69,6 @@ public final class AMDSamplePositions {
 		nglSetMultisamplefvAMD(pname, index, val, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param pname 
-	 * @param index 
-	 * @param val   
-	 */
 	public static void glSetMultisamplefvAMD(int pname, int index, ByteBuffer val) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(val, 2 << 2);

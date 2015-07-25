@@ -73,12 +73,6 @@ public final class EXTDebugMarker {
 		nglInsertEventMarkerEXT(length, marker, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param length 
-	 * @param marker 
-	 */
 	public static void glInsertEventMarkerEXT(int length, ByteBuffer marker) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(marker, length);
@@ -111,12 +105,6 @@ public final class EXTDebugMarker {
 		nglPushGroupMarkerEXT(length, marker, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param length 
-	 * @param marker 
-	 */
 	public static void glPushGroupMarkerEXT(int length, ByteBuffer marker) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(marker, length);
@@ -142,7 +130,6 @@ public final class EXTDebugMarker {
 	@JavadocExclude
 	public static native void nglPopGroupMarkerEXT(long __functionAddress);
 
-	/**  */
 	public static void glPopGroupMarkerEXT() {
 		long __functionAddress = getInstance().PopGroupMarkerEXT;
 		nglPopGroupMarkerEXT(__functionAddress);

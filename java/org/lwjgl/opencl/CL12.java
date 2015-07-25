@@ -255,34 +255,43 @@ public final class CL12 {
 
 	/** JNI method for {@link #clGetExtensionFunctionAddressForPlatform GetExtensionFunctionAddressForPlatform} */
 	@JavadocExclude
-	public static native long nclGetExtensionFunctionAddressForPlatform(long platform, long func_name, long __functionAddress);
+	public static native long nclGetExtensionFunctionAddressForPlatform(long platform, long funcname, long __functionAddress);
 
 	/** Unsafe version of {@link #clGetExtensionFunctionAddressForPlatform GetExtensionFunctionAddressForPlatform} */
 	@JavadocExclude
-	public static long nclGetExtensionFunctionAddressForPlatform(long platform, long func_name) {
+	public static long nclGetExtensionFunctionAddressForPlatform(long platform, long funcname) {
 		long __functionAddress = getInstance().GetExtensionFunctionAddressForPlatform;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(platform);
-		return nclGetExtensionFunctionAddressForPlatform(platform, func_name, __functionAddress);
+		return nclGetExtensionFunctionAddressForPlatform(platform, funcname, __functionAddress);
 	}
 
 	/**
+	 * Returns the address of the extension function named by {@code funcname} for a given {@code platform}. The pointer returned should be cast to a function
+	 * pointer type matching the extension function's definition defined in the appropriate extension specification and header file. A return value of {@code NULL}
+	 * indicates that the specified function does not exist for the implementation or platform is not a valid platform. A non-{@code NULL} return value for
+	 * {@code clGetExtensionFunctionAddressForPlatform} does not guarantee that an extension function is actually supported by the platform. The application
+	 * must also make a corresponding query using <code style="font-family: monospace">clGetPlatformInfo(platform, CL_PLATFORM_EXTENSIONS, &hellip; )</code> or
+	 * <code style="font-family: monospace">clGetDeviceInfo(device, CL_DEVICE_EXTENSIONS, &hellip; )</code> to determine if an extension is supported by the OpenCL implementation.
 	 * 
+	 * <p>{@code clGetExtensionFunctionAddressForPlatform} may not be queried for core (non-extension) functions in OpenCL. For functions that are queryable with
+	 * {@code clGetExtensionFunctionAddressForPlatform}, implementations may choose to also export those functions statically from the object libraries
+	 * implementing those functions. However, portable applications cannot rely on this behavior.</p>
 	 *
-	 * @param platform  
-	 * @param func_name 
+	 * @param platform the platform to query
+	 * @param funcname the extension function name
 	 */
-	public static long clGetExtensionFunctionAddressForPlatform(long platform, ByteBuffer func_name) {
+	public static long clGetExtensionFunctionAddressForPlatform(long platform, ByteBuffer funcname) {
 		if ( LWJGLUtil.CHECKS )
-			checkNT1(func_name);
-		return nclGetExtensionFunctionAddressForPlatform(platform, memAddress(func_name));
+			checkNT1(funcname);
+		return nclGetExtensionFunctionAddressForPlatform(platform, memAddress(funcname));
 	}
 
 	/** CharSequence version of: {@link #clGetExtensionFunctionAddressForPlatform GetExtensionFunctionAddressForPlatform} */
-	public static long clGetExtensionFunctionAddressForPlatform(long platform, CharSequence func_name) {
+	public static long clGetExtensionFunctionAddressForPlatform(long platform, CharSequence funcname) {
 		APIBuffer __buffer = apiBuffer();
-		int func_nameEncoded = __buffer.stringParamASCII(func_name, true);
-		return nclGetExtensionFunctionAddressForPlatform(platform, __buffer.address(func_nameEncoded));
+		int funcnameEncoded = __buffer.stringParamASCII(funcname, true);
+		return nclGetExtensionFunctionAddressForPlatform(platform, __buffer.address(funcnameEncoded));
 	}
 
 	// --- [ clRetainDevice ] ---
@@ -400,7 +409,7 @@ public final class CL12 {
 	 */
 	public static int clCreateSubDevices(long in_device, ByteBuffer properties, int num_devices, ByteBuffer out_devices, ByteBuffer num_devices_ret) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkNT1(properties);
+			checkNTP(properties);
 			if ( out_devices != null ) checkBuffer(out_devices, num_devices << POINTER_SHIFT);
 			if ( num_devices_ret != null ) checkBuffer(num_devices_ret, 1 << 2);
 		}
@@ -470,6 +479,33 @@ public final class CL12 {
 	 *                     <tr><td>{@link #CL_MEM_OBJECT_IMAGE2D_ARRAY MEM_OBJECT_IMAGE2D_ARRAY}</td><td>&#x2265; {@code image_slice_pitch * image_array_size}</td></tr>
 	 *                     </table>
 	 * @param errcode_ret  will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
+	 *
+	 * @return a valid non-zero image object and the {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the image object is created successfully. Otherwise, it returns a {@code NULL}
+	 *         value with one of the following error values returned in {@code errcode_ret}:
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if values specified in {@code flags} are not valid.</li>
+	 *         <li>{@link CL10#CL_INVALID_IMAGE_FORMAT_DESCRIPTOR INVALID_IMAGE_FORMAT_DESCRIPTOR} if values specified in {@code image_format} are not valid or if {@code image_format} is {@code NULL}.</li>
+	 *         <li>{@link CL10#CL_INVALID_IMAGE_FORMAT_DESCRIPTOR INVALID_IMAGE_FORMAT_DESCRIPTOR} if a 2D image is created from a buffer and the row pitch and base address alignment does not follow the rules
+	 *         described for creating a 2D image from a buffer.</li>
+	 *         <li>{@link CL10#CL_INVALID_IMAGE_FORMAT_DESCRIPTOR INVALID_IMAGE_FORMAT_DESCRIPTOR} if a 2D image is created from a 2D image object and the rules described above are not followed.</li>
+	 *         <li>{@link #CL_INVALID_IMAGE_DESCRIPTOR INVALID_IMAGE_DESCRIPTOR} if values specified in {@code image_desc} are not valid or if {@code image_desc} is {@code NULL}.</li>
+	 *         <li>{@link CL10#CL_INVALID_IMAGE_SIZE INVALID_IMAGE_SIZE} if image dimensions specified in {@code image_desc} exceed the maximum image dimensions for all devices in context.</li>
+	 *         <li>{@link CL10#CL_INVALID_HOST_PTR INVALID_HOST_PTR} if {@code host_ptr} is {@code NULL} and {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR} or {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR} are set in flags or if {@code host_ptr} is not
+	 *         {@code NULL} but {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR} or {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR} are not set in flags.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if an image buffer is being created and the buffer object was created with {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} and flags specifies
+	 *         {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE} or {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, or if the buffer object was created with {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY} and flags specifies {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE} or
+	 *         {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, or if flags specifies {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR} or {@link CL10#CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR} or {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if an image buffer is being created or an image is being created from another memory object (image or buffer) and the
+	 *         {@code mem_object} object was created with {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY} and flags specifies {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}, or if {@code mem_object} was created with
+	 *         {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY} and flags specifies {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, or if {@code mem_object} was created with {@link #CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS} and flags specifies
+	 *         {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY} or {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}.</li>
+	 *         <li>{@link CL10#CL_IMAGE_FORMAT_NOT_SUPPORTED IMAGE_FORMAT_NOT_SUPPORTED} if the {@code image_format} is not supported.</li>
+	 *         <li>{@link CL10#CL_MEM_OBJECT_ALLOCATION_FAILURE MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for image object.</li>
+	 *         <li>{@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} if there are no devices in context that support images.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
 	 */
 	public static long clCreateImage(long context, long flags, ByteBuffer image_format, ByteBuffer image_desc, ByteBuffer host_ptr, ByteBuffer errcode_ret) {
 		if ( LWJGLUtil.CHECKS ) {

@@ -64,14 +64,6 @@ public final class EXTBlendColor {
 	@JavadocExclude
 	public static native void nglBlendColorEXT(float red, float green, float blue, float alpha, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param red   
-	 * @param green 
-	 * @param blue  
-	 * @param alpha 
-	 */
 	public static void glBlendColorEXT(float red, float green, float blue, float alpha) {
 		long __functionAddress = getInstance().BlendColorEXT;
 		nglBlendColorEXT(red, green, blue, alpha, __functionAddress);

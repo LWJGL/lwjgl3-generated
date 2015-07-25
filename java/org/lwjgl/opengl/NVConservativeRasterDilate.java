@@ -64,12 +64,6 @@ public final class NVConservativeRasterDilate {
 	@JavadocExclude
 	public static native void nglConservativeRasterParameterfNV(int pname, float value, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param pname 
-	 * @param value 
-	 */
 	public static void glConservativeRasterParameterfNV(int pname, float value) {
 		long __functionAddress = getInstance().ConservativeRasterParameterfNV;
 		nglConservativeRasterParameterfNV(pname, value, __functionAddress);

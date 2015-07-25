@@ -79,12 +79,6 @@ public final class NVVertexArrayRange {
 		nglVertexArrayRangeNV(length, pointer, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param length  
-	 * @param pointer 
-	 */
 	public static void glVertexArrayRangeNV(int length, ByteBuffer pointer) {
 		nglVertexArrayRangeNV(length, memAddress(pointer));
 	}
@@ -95,7 +89,6 @@ public final class NVVertexArrayRange {
 	@JavadocExclude
 	public static native void nglFlushVertexArrayRangeNV(long __functionAddress);
 
-	/**  */
 	public static void glFlushVertexArrayRangeNV() {
 		long __functionAddress = getInstance().FlushVertexArrayRangeNV;
 		nglFlushVertexArrayRangeNV(__functionAddress);

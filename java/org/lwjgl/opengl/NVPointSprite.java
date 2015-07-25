@@ -88,12 +88,6 @@ public final class NVPointSprite {
 	@JavadocExclude
 	public static native void nglPointParameteriNV(int pname, int param, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param pname 
-	 * @param param 
-	 */
 	public static void glPointParameteriNV(int pname, int param) {
 		long __functionAddress = getInstance().PointParameteriNV;
 		nglPointParameteriNV(pname, param, __functionAddress);
@@ -112,12 +106,6 @@ public final class NVPointSprite {
 		nglPointParameterivNV(pname, params, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param pname  
-	 * @param params 
-	 */
 	public static void glPointParameterivNV(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);

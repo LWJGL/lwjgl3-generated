@@ -11,7 +11,7 @@ import org.lwjgl.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Used to pass GL eye texture data to {@link OVR#ovrHmd_EndFrame}. */
+/** OpenGL texture data. */
 public final class OVRGLTextureData implements Pointer {
 
 	/** The struct size in bytes. */

@@ -14,7 +14,7 @@ typedef void (APIENTRY *glXGetSelectedEventSGIXPROC) (Display *, GLXDrawable, un
 
 EXTERN_C_ENTER
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLXSGIXPBuffer_nglXCreateGLXPbufferSGIX(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong configAddress, jint width, jint height, jlong attrib_listAddress, jlong __functionAddress) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLXSGIXPbuffer_nglXCreateGLXPbufferSGIX(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong configAddress, jint width, jint height, jlong attrib_listAddress, jlong __functionAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXFBConfig config = (GLXFBConfig)(intptr_t)configAddress;
 	int *attrib_list = (int *)(intptr_t)attrib_listAddress;
@@ -23,7 +23,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GLXSGIXPBuffer_nglXCreateGLXPbuffe
 	return (jlong)(intptr_t)glXCreateGLXPbufferSGIX(display, config, width, height, attrib_list);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXSGIXPBuffer_nglXDestroyGLXPbufferSGIX(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong pbufAddress, jlong __functionAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXSGIXPbuffer_nglXDestroyGLXPbufferSGIX(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong pbufAddress, jlong __functionAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXPbuffer pbuf = (GLXPbuffer)(intptr_t)pbufAddress;
 	glXDestroyGLXPbufferSGIXPROC glXDestroyGLXPbufferSGIX = (glXDestroyGLXPbufferSGIXPROC)(intptr_t)__functionAddress;
@@ -31,7 +31,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXSGIXPBuffer_nglXDestroyGLXPbuffe
 	glXDestroyGLXPbufferSGIX(display, pbuf);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXSGIXPBuffer_nglXQueryGLXPbufferSGIX(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong pbufAddress, jint attribute, jlong valueAddress, jlong __functionAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXSGIXPbuffer_nglXQueryGLXPbufferSGIX(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong pbufAddress, jint attribute, jlong valueAddress, jlong __functionAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXPbuffer pbuf = (GLXPbuffer)(intptr_t)pbufAddress;
 	unsigned int *value = (unsigned int *)(intptr_t)valueAddress;
@@ -40,7 +40,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXSGIXPBuffer_nglXQueryGLXPbufferS
 	glXQueryGLXPbufferSGIX(display, pbuf, attribute, value);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXSGIXPBuffer_nglXSelectEventSGIX(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong drawableAddress, jlong mask, jlong __functionAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXSGIXPbuffer_nglXSelectEventSGIX(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong drawableAddress, jlong mask, jlong __functionAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXDrawable drawable = (GLXDrawable)(intptr_t)drawableAddress;
 	glXSelectEventSGIXPROC glXSelectEventSGIX = (glXSelectEventSGIXPROC)(intptr_t)__functionAddress;
@@ -48,7 +48,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXSGIXPBuffer_nglXSelectEventSGIX(
 	glXSelectEventSGIX(display, drawable, (unsigned long)mask);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXSGIXPBuffer_nglXGetSelectedEventSGIX(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong drawableAddress, jlong maskAddress, jlong __functionAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GLXSGIXPbuffer_nglXGetSelectedEventSGIX(JNIEnv *__env, jclass clazz, jlong displayAddress, jlong drawableAddress, jlong maskAddress, jlong __functionAddress) {
 	Display *display = (Display *)(intptr_t)displayAddress;
 	GLXDrawable drawable = (GLXDrawable)(intptr_t)drawableAddress;
 	unsigned long *mask = (unsigned long *)(intptr_t)maskAddress;

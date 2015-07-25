@@ -66,12 +66,6 @@ public final class EXTCompiledVertexArray {
 	@JavadocExclude
 	public static native void nglLockArraysEXT(int first, int count, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param first 
-	 * @param count 
-	 */
 	public static void glLockArraysEXT(int first, int count) {
 		long __functionAddress = getInstance().LockArraysEXT;
 		nglLockArraysEXT(first, count, __functionAddress);
@@ -83,7 +77,6 @@ public final class EXTCompiledVertexArray {
 	@JavadocExclude
 	public static native void nglUnlockArraysEXT(long __functionAddress);
 
-	/**  */
 	public static void glUnlockArraysEXT() {
 		long __functionAddress = getInstance().UnlockArraysEXT;
 		nglUnlockArraysEXT(__functionAddress);

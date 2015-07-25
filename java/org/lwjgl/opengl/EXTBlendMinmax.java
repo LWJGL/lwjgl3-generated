@@ -66,11 +66,6 @@ public final class EXTBlendMinmax {
 	@JavadocExclude
 	public static native void nglBlendEquationEXT(int mode, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param mode 
-	 */
 	public static void glBlendEquationEXT(int mode) {
 		long __functionAddress = getInstance().BlendEquationEXT;
 		nglBlendEquationEXT(mode, __functionAddress);

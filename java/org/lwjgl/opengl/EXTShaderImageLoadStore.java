@@ -145,17 +145,6 @@ public final class EXTShaderImageLoadStore {
 	@JavadocExclude
 	public static native void nglBindImageTextureEXT(int index, int texture, int level, boolean layered, int layer, int access, int format, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param index   
-	 * @param texture 
-	 * @param level   
-	 * @param layered 
-	 * @param layer   
-	 * @param access  
-	 * @param format  
-	 */
 	public static void glBindImageTextureEXT(int index, int texture, int level, boolean layered, int layer, int access, int format) {
 		long __functionAddress = getInstance().BindImageTextureEXT;
 		nglBindImageTextureEXT(index, texture, level, layered, layer, access, format, __functionAddress);
@@ -167,11 +156,6 @@ public final class EXTShaderImageLoadStore {
 	@JavadocExclude
 	public static native void nglMemoryBarrierEXT(int barriers, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param barriers 
-	 */
 	public static void glMemoryBarrierEXT(int barriers) {
 		long __functionAddress = getInstance().MemoryBarrierEXT;
 		nglMemoryBarrierEXT(barriers, __functionAddress);

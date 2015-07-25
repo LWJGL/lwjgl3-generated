@@ -72,13 +72,6 @@ public final class AMDInterleavedElements {
 	@JavadocExclude
 	public static native void nglVertexAttribParameteriAMD(int index, int pname, int param, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param pname 
-	 * @param param 
-	 */
 	public static void glVertexAttribParameteriAMD(int index, int pname, int param) {
 		long __functionAddress = getInstance().VertexAttribParameteriAMD;
 		nglVertexAttribParameteriAMD(index, pname, param, __functionAddress);

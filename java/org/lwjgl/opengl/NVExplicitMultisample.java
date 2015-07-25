@@ -103,13 +103,6 @@ public final class NVExplicitMultisample {
 		nglGetMultisamplefvNV(pname, index, val, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param pname 
-	 * @param index 
-	 * @param val   
-	 */
 	public static void glGetMultisamplefvNV(int pname, int index, ByteBuffer val) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(val, 2 << 2);
@@ -129,12 +122,6 @@ public final class NVExplicitMultisample {
 	@JavadocExclude
 	public static native void nglSampleMaskIndexedNV(int index, int mask, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param mask  
-	 */
 	public static void glSampleMaskIndexedNV(int index, int mask) {
 		long __functionAddress = getInstance().SampleMaskIndexedNV;
 		nglSampleMaskIndexedNV(index, mask, __functionAddress);
@@ -146,12 +133,6 @@ public final class NVExplicitMultisample {
 	@JavadocExclude
 	public static native void nglTexRenderbufferNV(int target, int renderbuffer, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param target       
-	 * @param renderbuffer 
-	 */
 	public static void glTexRenderbufferNV(int target, int renderbuffer) {
 		long __functionAddress = getInstance().TexRenderbufferNV;
 		nglTexRenderbufferNV(target, renderbuffer, __functionAddress);

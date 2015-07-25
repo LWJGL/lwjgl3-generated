@@ -52,7 +52,6 @@ public final class NVTextureBarrier {
 	@JavadocExclude
 	public static native void nglTextureBarrierNV(long __functionAddress);
 
-	/**  */
 	public static void glTextureBarrierNV() {
 		long __functionAddress = getInstance().TextureBarrierNV;
 		nglTextureBarrierNV(__functionAddress);

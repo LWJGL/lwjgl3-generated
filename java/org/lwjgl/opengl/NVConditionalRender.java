@@ -74,12 +74,6 @@ public final class NVConditionalRender {
 	@JavadocExclude
 	public static native void nglBeginConditionalRenderNV(int id, int mode, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param id   
-	 * @param mode 
-	 */
 	public static void glBeginConditionalRenderNV(int id, int mode) {
 		long __functionAddress = getInstance().BeginConditionalRenderNV;
 		nglBeginConditionalRenderNV(id, mode, __functionAddress);
@@ -91,7 +85,6 @@ public final class NVConditionalRender {
 	@JavadocExclude
 	public static native void nglEndConditionalRenderNV(long __functionAddress);
 
-	/**  */
 	public static void glEndConditionalRenderNV() {
 		long __functionAddress = getInstance().EndConditionalRenderNV;
 		nglEndConditionalRenderNV(__functionAddress);

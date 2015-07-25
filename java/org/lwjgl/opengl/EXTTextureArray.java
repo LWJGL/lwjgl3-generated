@@ -112,15 +112,6 @@ public final class EXTTextureArray {
 	@JavadocExclude
 	public static native void nglFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param target     
-	 * @param attachment 
-	 * @param texture    
-	 * @param level      
-	 * @param layer      
-	 */
 	public static void glFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer) {
 		long __functionAddress = getInstance().FramebufferTextureLayerEXT;
 		nglFramebufferTextureLayerEXT(target, attachment, texture, level, layer, __functionAddress);

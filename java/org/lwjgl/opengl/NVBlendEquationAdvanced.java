@@ -118,12 +118,6 @@ public final class NVBlendEquationAdvanced {
 	@JavadocExclude
 	public static native void nglBlendParameteriNV(int pname, int value, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param pname 
-	 * @param value 
-	 */
 	public static void glBlendParameteriNV(int pname, int value) {
 		long __functionAddress = getInstance().BlendParameteriNV;
 		nglBlendParameteriNV(pname, value, __functionAddress);
@@ -135,7 +129,6 @@ public final class NVBlendEquationAdvanced {
 	@JavadocExclude
 	public static native void nglBlendBarrierNV(long __functionAddress);
 
-	/**  */
 	public static void glBlendBarrierNV() {
 		long __functionAddress = getInstance().BlendBarrierNV;
 		nglBlendBarrierNV(__functionAddress);

@@ -81,14 +81,6 @@ public final class EXTDebugLabel {
 		nglLabelObjectEXT(type, object, length, label, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param type   
-	 * @param object 
-	 * @param length 
-	 * @param label  
-	 */
 	public static void glLabelObjectEXT(int type, int object, int length, ByteBuffer label) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(label, length);
@@ -121,15 +113,6 @@ public final class EXTDebugLabel {
 		nglGetObjectLabelEXT(type, object, bufSize, length, label, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param type    
-	 * @param object  
-	 * @param bufSize 
-	 * @param length  
-	 * @param label   
-	 */
 	public static void glGetObjectLabelEXT(int type, int object, int bufSize, ByteBuffer length, ByteBuffer label) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(label, bufSize);

@@ -20,10 +20,10 @@ import static org.lwjgl.system.APIUtil.*;
  * <p>This extension provides a set of new features to the OpenGL Shading Language and related APIs to support capabilities of new GPUs. Shaders using the
  * new functionality provided by this extension should enable this functionality via the construct
  * <pre><code style="font-family: monospace">
- * {@link #GL_extension extension} GL_NV_gpu_shader5 : require (or enable)</code></pre>
+ * \#extension GL_NV_gpu_shader5 : require (or enable)</code></pre>
  * This extension was developed concurrently with the ARB_gpu_shader5 extension, and provides a superset of the features provided there. The features
  * common to both extensions are documented in the ARB_gpu_shader5 specification; this document describes only the addition language features not
- * available via ARB_gpu_shader5. A shader that enables this extension via an {@link #GL_extension extension} directive also implicitly enables the common capabilities
+ * available via ARB_gpu_shader5. A shader that enables this extension via an \#extension directive also implicitly enables the common capabilities
  * provided by ARB_gpu_shader5.</p>
  * 
  * <p>In addition to the capabilities of ARB_gpu_shader5, this extension provides a variety of new features for all shader types, including:
@@ -193,12 +193,6 @@ public final class NVGPUShader5 {
 	@JavadocExclude
 	public static native void nglUniform1i64NV(int location, long x, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param x        
-	 */
 	public static void glUniform1i64NV(int location, long x) {
 		long __functionAddress = getInstance().Uniform1i64NV;
 		nglUniform1i64NV(location, x, __functionAddress);
@@ -210,13 +204,6 @@ public final class NVGPUShader5 {
 	@JavadocExclude
 	public static native void nglUniform2i64NV(int location, long x, long y, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 */
 	public static void glUniform2i64NV(int location, long x, long y) {
 		long __functionAddress = getInstance().Uniform2i64NV;
 		nglUniform2i64NV(location, x, y, __functionAddress);
@@ -228,14 +215,6 @@ public final class NVGPUShader5 {
 	@JavadocExclude
 	public static native void nglUniform3i64NV(int location, long x, long y, long z, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 * @param z        
-	 */
 	public static void glUniform3i64NV(int location, long x, long y, long z) {
 		long __functionAddress = getInstance().Uniform3i64NV;
 		nglUniform3i64NV(location, x, y, z, __functionAddress);
@@ -247,15 +226,6 @@ public final class NVGPUShader5 {
 	@JavadocExclude
 	public static native void nglUniform4i64NV(int location, long x, long y, long z, long w, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 * @param z        
-	 * @param w        
-	 */
 	public static void glUniform4i64NV(int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().Uniform4i64NV;
 		nglUniform4i64NV(location, x, y, z, w, __functionAddress);
@@ -274,13 +244,6 @@ public final class NVGPUShader5 {
 		nglUniform1i64vNV(location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glUniform1i64vNV(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 3);
@@ -305,13 +268,6 @@ public final class NVGPUShader5 {
 		nglUniform2i64vNV(location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glUniform2i64vNV(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 3);
@@ -336,13 +292,6 @@ public final class NVGPUShader5 {
 		nglUniform3i64vNV(location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glUniform3i64vNV(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 3) << 3);
@@ -367,13 +316,6 @@ public final class NVGPUShader5 {
 		nglUniform4i64vNV(location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glUniform4i64vNV(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 3);
@@ -391,12 +333,6 @@ public final class NVGPUShader5 {
 	@JavadocExclude
 	public static native void nglUniform1ui64NV(int location, long x, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param x        
-	 */
 	public static void glUniform1ui64NV(int location, long x) {
 		long __functionAddress = getInstance().Uniform1ui64NV;
 		nglUniform1ui64NV(location, x, __functionAddress);
@@ -408,13 +344,6 @@ public final class NVGPUShader5 {
 	@JavadocExclude
 	public static native void nglUniform2ui64NV(int location, long x, long y, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 */
 	public static void glUniform2ui64NV(int location, long x, long y) {
 		long __functionAddress = getInstance().Uniform2ui64NV;
 		nglUniform2ui64NV(location, x, y, __functionAddress);
@@ -426,14 +355,6 @@ public final class NVGPUShader5 {
 	@JavadocExclude
 	public static native void nglUniform3ui64NV(int location, long x, long y, long z, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 * @param z        
-	 */
 	public static void glUniform3ui64NV(int location, long x, long y, long z) {
 		long __functionAddress = getInstance().Uniform3ui64NV;
 		nglUniform3ui64NV(location, x, y, z, __functionAddress);
@@ -445,15 +366,6 @@ public final class NVGPUShader5 {
 	@JavadocExclude
 	public static native void nglUniform4ui64NV(int location, long x, long y, long z, long w, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 * @param z        
-	 * @param w        
-	 */
 	public static void glUniform4ui64NV(int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().Uniform4ui64NV;
 		nglUniform4ui64NV(location, x, y, z, w, __functionAddress);
@@ -472,13 +384,6 @@ public final class NVGPUShader5 {
 		nglUniform1ui64vNV(location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glUniform1ui64vNV(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 3);
@@ -503,13 +408,6 @@ public final class NVGPUShader5 {
 		nglUniform2ui64vNV(location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glUniform2ui64vNV(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 3);
@@ -534,13 +432,6 @@ public final class NVGPUShader5 {
 		nglUniform3ui64vNV(location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glUniform3ui64vNV(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 3) << 3);
@@ -565,13 +456,6 @@ public final class NVGPUShader5 {
 		nglUniform4ui64vNV(location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glUniform4ui64vNV(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 3);
@@ -596,13 +480,6 @@ public final class NVGPUShader5 {
 		nglGetUniformi64vNV(program, location, params, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param params   
-	 */
 	public static void glGetUniformi64vNV(int program, int location, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
@@ -637,13 +514,6 @@ public final class NVGPUShader5 {
 		nglGetUniformui64vNV(program, location, params, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param params   
-	 */
 	public static void glGetUniformui64vNV(int program, int location, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
@@ -671,13 +541,6 @@ public final class NVGPUShader5 {
 	@JavadocExclude
 	public static native void nglProgramUniform1i64NV(int program, int location, long x, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param x        
-	 */
 	public static void glProgramUniform1i64NV(int program, int location, long x) {
 		long __functionAddress = getInstance().ProgramUniform1i64NV;
 		nglProgramUniform1i64NV(program, location, x, __functionAddress);
@@ -689,14 +552,6 @@ public final class NVGPUShader5 {
 	@JavadocExclude
 	public static native void nglProgramUniform2i64NV(int program, int location, long x, long y, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 */
 	public static void glProgramUniform2i64NV(int program, int location, long x, long y) {
 		long __functionAddress = getInstance().ProgramUniform2i64NV;
 		nglProgramUniform2i64NV(program, location, x, y, __functionAddress);
@@ -708,15 +563,6 @@ public final class NVGPUShader5 {
 	@JavadocExclude
 	public static native void nglProgramUniform3i64NV(int program, int location, long x, long y, long z, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 * @param z        
-	 */
 	public static void glProgramUniform3i64NV(int program, int location, long x, long y, long z) {
 		long __functionAddress = getInstance().ProgramUniform3i64NV;
 		nglProgramUniform3i64NV(program, location, x, y, z, __functionAddress);
@@ -728,16 +574,6 @@ public final class NVGPUShader5 {
 	@JavadocExclude
 	public static native void nglProgramUniform4i64NV(int program, int location, long x, long y, long z, long w, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 * @param z        
-	 * @param w        
-	 */
 	public static void glProgramUniform4i64NV(int program, int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().ProgramUniform4i64NV;
 		nglProgramUniform4i64NV(program, location, x, y, z, w, __functionAddress);
@@ -756,14 +592,6 @@ public final class NVGPUShader5 {
 		nglProgramUniform1i64vNV(program, location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glProgramUniform1i64vNV(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 3);
@@ -788,14 +616,6 @@ public final class NVGPUShader5 {
 		nglProgramUniform2i64vNV(program, location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glProgramUniform2i64vNV(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 3);
@@ -820,14 +640,6 @@ public final class NVGPUShader5 {
 		nglProgramUniform3i64vNV(program, location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glProgramUniform3i64vNV(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 3) << 3);
@@ -852,14 +664,6 @@ public final class NVGPUShader5 {
 		nglProgramUniform4i64vNV(program, location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glProgramUniform4i64vNV(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 3);
@@ -877,13 +681,6 @@ public final class NVGPUShader5 {
 	@JavadocExclude
 	public static native void nglProgramUniform1ui64NV(int program, int location, long x, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param x        
-	 */
 	public static void glProgramUniform1ui64NV(int program, int location, long x) {
 		long __functionAddress = getInstance().ProgramUniform1ui64NV;
 		nglProgramUniform1ui64NV(program, location, x, __functionAddress);
@@ -895,14 +692,6 @@ public final class NVGPUShader5 {
 	@JavadocExclude
 	public static native void nglProgramUniform2ui64NV(int program, int location, long x, long y, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 */
 	public static void glProgramUniform2ui64NV(int program, int location, long x, long y) {
 		long __functionAddress = getInstance().ProgramUniform2ui64NV;
 		nglProgramUniform2ui64NV(program, location, x, y, __functionAddress);
@@ -914,15 +703,6 @@ public final class NVGPUShader5 {
 	@JavadocExclude
 	public static native void nglProgramUniform3ui64NV(int program, int location, long x, long y, long z, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 * @param z        
-	 */
 	public static void glProgramUniform3ui64NV(int program, int location, long x, long y, long z) {
 		long __functionAddress = getInstance().ProgramUniform3ui64NV;
 		nglProgramUniform3ui64NV(program, location, x, y, z, __functionAddress);
@@ -934,16 +714,6 @@ public final class NVGPUShader5 {
 	@JavadocExclude
 	public static native void nglProgramUniform4ui64NV(int program, int location, long x, long y, long z, long w, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 * @param z        
-	 * @param w        
-	 */
 	public static void glProgramUniform4ui64NV(int program, int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().ProgramUniform4ui64NV;
 		nglProgramUniform4ui64NV(program, location, x, y, z, w, __functionAddress);
@@ -962,14 +732,6 @@ public final class NVGPUShader5 {
 		nglProgramUniform1ui64vNV(program, location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glProgramUniform1ui64vNV(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 3);
@@ -994,14 +756,6 @@ public final class NVGPUShader5 {
 		nglProgramUniform2ui64vNV(program, location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glProgramUniform2ui64vNV(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 3);
@@ -1026,14 +780,6 @@ public final class NVGPUShader5 {
 		nglProgramUniform3ui64vNV(program, location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glProgramUniform3ui64vNV(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 3) << 3);
@@ -1058,14 +804,6 @@ public final class NVGPUShader5 {
 		nglProgramUniform4ui64vNV(program, location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glProgramUniform4ui64vNV(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 3);

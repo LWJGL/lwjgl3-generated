@@ -156,7 +156,7 @@ public final class WGLNVGPUAffinity {
 	 */
 	public static long wglCreateAffinityDCNV(ByteBuffer gpuList) {
 		if ( LWJGLUtil.CHECKS )
-			checkNT1(gpuList);
+			checkNTP(gpuList);
 		return nwglCreateAffinityDCNV(memAddress(gpuList));
 	}
 

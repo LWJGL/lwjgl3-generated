@@ -59,14 +59,6 @@ public final class WGLNVVertexArrayRange {
 		return nwglAllocateMemoryNV(size, readfreq, writefreq, priority, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param size      
-	 * @param readfreq  
-	 * @param writefreq 
-	 * @param priority  
-	 */
 	public static ByteBuffer wglAllocateMemoryNV(int size, float readfreq, float writefreq, float priority) {
 		long __result = nwglAllocateMemoryNV(size, readfreq, writefreq, priority);
 		return memByteBuffer(__result, (int)size);
@@ -85,11 +77,6 @@ public final class WGLNVVertexArrayRange {
 		nwglFreeMemoryNV(pointer, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param pointer 
-	 */
 	public static void wglFreeMemoryNV(ByteBuffer pointer) {
 		nwglFreeMemoryNV(memAddress(pointer));
 	}

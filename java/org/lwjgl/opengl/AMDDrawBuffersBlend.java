@@ -64,13 +64,6 @@ public final class AMDDrawBuffersBlend {
 	@JavadocExclude
 	public static native void nglBlendFuncIndexedAMD(int buf, int src, int dst, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param buf 
-	 * @param src 
-	 * @param dst 
-	 */
 	public static void glBlendFuncIndexedAMD(int buf, int src, int dst) {
 		long __functionAddress = getInstance().BlendFuncIndexedAMD;
 		nglBlendFuncIndexedAMD(buf, src, dst, __functionAddress);
@@ -82,15 +75,6 @@ public final class AMDDrawBuffersBlend {
 	@JavadocExclude
 	public static native void nglBlendFuncSeparateIndexedAMD(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param buf      
-	 * @param srcRGB   
-	 * @param dstRGB   
-	 * @param srcAlpha 
-	 * @param dstAlpha 
-	 */
 	public static void glBlendFuncSeparateIndexedAMD(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
 		long __functionAddress = getInstance().BlendFuncSeparateIndexedAMD;
 		nglBlendFuncSeparateIndexedAMD(buf, srcRGB, dstRGB, srcAlpha, dstAlpha, __functionAddress);
@@ -102,12 +86,6 @@ public final class AMDDrawBuffersBlend {
 	@JavadocExclude
 	public static native void nglBlendEquationIndexedAMD(int buf, int mode, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param buf  
-	 * @param mode 
-	 */
 	public static void glBlendEquationIndexedAMD(int buf, int mode) {
 		long __functionAddress = getInstance().BlendEquationIndexedAMD;
 		nglBlendEquationIndexedAMD(buf, mode, __functionAddress);
@@ -119,13 +97,6 @@ public final class AMDDrawBuffersBlend {
 	@JavadocExclude
 	public static native void nglBlendEquationSeparateIndexedAMD(int buf, int modeRGB, int modeAlpha, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param buf       
-	 * @param modeRGB   
-	 * @param modeAlpha 
-	 */
 	public static void glBlendEquationSeparateIndexedAMD(int buf, int modeRGB, int modeAlpha) {
 		long __functionAddress = getInstance().BlendEquationSeparateIndexedAMD;
 		nglBlendEquationSeparateIndexedAMD(buf, modeRGB, modeAlpha, __functionAddress);

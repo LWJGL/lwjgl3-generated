@@ -66,12 +66,6 @@ public final class EXTBlendEquationSeparate {
 	@JavadocExclude
 	public static native void nglBlendEquationSeparateEXT(int modeRGB, int modeAlpha, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param modeRGB   
-	 * @param modeAlpha 
-	 */
 	public static void glBlendEquationSeparateEXT(int modeRGB, int modeAlpha) {
 		long __functionAddress = getInstance().BlendEquationSeparateEXT;
 		nglBlendEquationSeparateEXT(modeRGB, modeAlpha, __functionAddress);

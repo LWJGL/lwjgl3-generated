@@ -178,18 +178,18 @@ public final class ARBRobustness {
 
 	/**
 	 * The symbolic constant returned indicates if the GL context has been in a reset state at any point since the last call to {@code GetGraphicsResetStatusARB}.
-	 * {@link #GL_NO_ERROR NO_ERROR} indicates that the GL context has not been in a reset state since the last call. {@link #GL_GUILTY_CONTEXT_RESET_ARB GUILTY_CONTEXT_RESET_ARB} indicates that a reset has been
-	 * detected that is attributable to the current GL context. {@link #GL_INNOCENT_CONTEXT_RESET_ARB INNOCENT_CONTEXT_RESET_ARB} indicates a reset has been detected that is not attributable to the
-	 * current GL context. {@link #GL_UNKNOWN_CONTEXT_RESET_ARB UNKNOWN_CONTEXT_RESET_ARB} indicates a detected graphics reset whose cause is unknown.
+	 * {@link GL11#GL_NO_ERROR NO_ERROR} indicates that the GL context has not been in a reset state since the last call. {@link #GL_GUILTY_CONTEXT_RESET_ARB GUILTY_CONTEXT_RESET_ARB} indicates that a reset has
+	 * been detected that is attributable to the current GL context. {@link #GL_INNOCENT_CONTEXT_RESET_ARB INNOCENT_CONTEXT_RESET_ARB} indicates a reset has been detected that is not attributable
+	 * to the current GL context. {@link #GL_UNKNOWN_CONTEXT_RESET_ARB UNKNOWN_CONTEXT_RESET_ARB} indicates a detected graphics reset whose cause is unknown.
 	 * 
-	 * <p>If a reset status other than {@link #GL_NO_ERROR NO_ERROR} is returned and subsequent calls return {@link #GL_NO_ERROR NO_ERROR}, the context reset was encountered and completed. If a reset
+	 * <p>If a reset status other than NO_ERROR is returned and subsequent calls return NO_ERROR, the context reset was encountered and completed. If a reset
 	 * status is repeatedly returned, the context may be in the process of resetting.</p>
 	 * 
 	 * <p>Reset notification behavior is determined at context creation time, and may be queried by calling {@link GL11#glGetIntegerv GetIntegerv} with the symbolic constant
 	 * {@link #GL_RESET_NOTIFICATION_STRATEGY_ARB RESET_NOTIFICATION_STRATEGY_ARB}.</p>
 	 * 
 	 * <p>If the reset notification behavior is {@link #GL_NO_RESET_NOTIFICATION_ARB NO_RESET_NOTIFICATION_ARB}, then the implementation will never deliver notification of reset events, and
-	 * {@code GetGraphicsResetStatusARB} will always return {@link #GL_NO_ERROR NO_ERROR}.</p>
+	 * {@code GetGraphicsResetStatusARB} will always return NO_ERROR.</p>
 	 * 
 	 * <p>If the behavior is {@link #GL_LOSE_CONTEXT_ON_RESET_ARB LOSE_CONTEXT_ON_RESET_ARB}, a graphics reset will result in the loss of all context state, requiring the recreation of all associated
 	 * objects. In this case {@code GetGraphicsResetStatusARB}. may return any of the values described above.</p>

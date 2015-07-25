@@ -72,16 +72,6 @@ public final class NVFramebufferMultisampleCoverage {
 	@JavadocExclude
 	public static native void nglRenderbufferStorageMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalformat, int width, int height, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param target          
-	 * @param coverageSamples 
-	 * @param colorSamples    
-	 * @param internalformat  
-	 * @param width           
-	 * @param height          
-	 */
 	public static void glRenderbufferStorageMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageMultisampleCoverageNV;
 		nglRenderbufferStorageMultisampleCoverageNV(target, coverageSamples, colorSamples, internalformat, width, height, __functionAddress);

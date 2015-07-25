@@ -98,15 +98,6 @@ public final class EXTFramebufferMultisample {
 	@JavadocExclude
 	public static native void nglRenderbufferStorageMultisampleEXT(int target, int samples, int internalformat, int width, int height, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param target         
-	 * @param samples        
-	 * @param internalformat 
-	 * @param width          
-	 * @param height         
-	 */
 	public static void glRenderbufferStorageMultisampleEXT(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageMultisampleEXT;
 		nglRenderbufferStorageMultisampleEXT(target, samples, internalformat, width, height, __functionAddress);

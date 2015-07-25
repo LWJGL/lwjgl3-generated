@@ -83,13 +83,6 @@ public final class EXTTextureBufferObject {
 	@JavadocExclude
 	public static native void nglTexBufferEXT(int target, int internalformat, int buffer, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param target         
-	 * @param internalformat 
-	 * @param buffer         
-	 */
 	public static void glTexBufferEXT(int target, int internalformat, int buffer) {
 		long __functionAddress = getInstance().TexBufferEXT;
 		nglTexBufferEXT(target, internalformat, buffer, __functionAddress);

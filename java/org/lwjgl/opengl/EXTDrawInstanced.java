@@ -60,14 +60,6 @@ public final class EXTDrawInstanced {
 	@JavadocExclude
 	public static native void nglDrawArraysInstancedEXT(int mode, int start, int count, int primcount, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param mode      
-	 * @param start     
-	 * @param count     
-	 * @param primcount 
-	 */
 	public static void glDrawArraysInstancedEXT(int mode, int start, int count, int primcount) {
 		long __functionAddress = getInstance().DrawArraysInstancedEXT;
 		nglDrawArraysInstancedEXT(mode, start, count, primcount, __functionAddress);
@@ -86,15 +78,6 @@ public final class EXTDrawInstanced {
 		nglDrawElementsInstancedEXT(mode, count, type, indices, primcount, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param mode      
-	 * @param count     
-	 * @param type      
-	 * @param indices   
-	 * @param primcount 
-	 */
 	public static void glDrawElementsInstancedEXT(int mode, int count, int type, ByteBuffer indices, int primcount) {
 		nglDrawElementsInstancedEXT(mode, count, type, memAddress(indices), primcount);
 	}

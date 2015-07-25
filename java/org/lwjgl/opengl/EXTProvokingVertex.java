@@ -77,11 +77,6 @@ public final class EXTProvokingVertex {
 	@JavadocExclude
 	public static native void nglProvokingVertexEXT(int mode, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param mode 
-	 */
 	public static void glProvokingVertexEXT(int mode) {
 		long __functionAddress = getInstance().ProvokingVertexEXT;
 		nglProvokingVertexEXT(mode, __functionAddress);

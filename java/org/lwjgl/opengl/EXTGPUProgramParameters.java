@@ -69,14 +69,6 @@ public final class EXTGPUProgramParameters {
 		nglProgramEnvParameters4fvEXT(target, index, count, params, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param target 
-	 * @param index  
-	 * @param count  
-	 * @param params 
-	 */
 	public static void glProgramEnvParameters4fvEXT(int target, int index, int count, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, (count << 2) << 2);
@@ -101,14 +93,6 @@ public final class EXTGPUProgramParameters {
 		nglProgramLocalParameters4fvEXT(target, index, count, params, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param target 
-	 * @param index  
-	 * @param count  
-	 * @param params 
-	 */
 	public static void glProgramLocalParameters4fvEXT(int target, int index, int count, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, (count << 2) << 2);

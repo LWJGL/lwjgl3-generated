@@ -75,7 +75,6 @@ public final class NVPrimitiveRestart {
 	@JavadocExclude
 	public static native void nglPrimitiveRestartNV(long __functionAddress);
 
-	/**  */
 	public static void glPrimitiveRestartNV() {
 		long __functionAddress = getInstance().PrimitiveRestartNV;
 		nglPrimitiveRestartNV(__functionAddress);
@@ -87,11 +86,6 @@ public final class NVPrimitiveRestart {
 	@JavadocExclude
 	public static native void nglPrimitiveRestartIndexNV(int index, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 */
 	public static void glPrimitiveRestartIndexNV(int index) {
 		long __functionAddress = getInstance().PrimitiveRestartIndexNV;
 		nglPrimitiveRestartIndexNV(index, __functionAddress);

@@ -135,11 +135,6 @@ public final class INTELPerformanceQuery {
 	@JavadocExclude
 	public static native void nglBeginPerfQueryINTEL(int queryHandle, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param queryHandle 
-	 */
 	public static void glBeginPerfQueryINTEL(int queryHandle) {
 		long __functionAddress = getInstance().BeginPerfQueryINTEL;
 		nglBeginPerfQueryINTEL(queryHandle, __functionAddress);
@@ -158,12 +153,6 @@ public final class INTELPerformanceQuery {
 		nglCreatePerfQueryINTEL(queryId, queryHandle, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param queryId     
-	 * @param queryHandle 
-	 */
 	public static void glCreatePerfQueryINTEL(int queryId, ByteBuffer queryHandle) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(queryHandle, 1 << 2);
@@ -191,11 +180,6 @@ public final class INTELPerformanceQuery {
 	@JavadocExclude
 	public static native void nglDeletePerfQueryINTEL(int queryHandle, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param queryHandle 
-	 */
 	public static void glDeletePerfQueryINTEL(int queryHandle) {
 		long __functionAddress = getInstance().DeletePerfQueryINTEL;
 		nglDeletePerfQueryINTEL(queryHandle, __functionAddress);
@@ -207,11 +191,6 @@ public final class INTELPerformanceQuery {
 	@JavadocExclude
 	public static native void nglEndPerfQueryINTEL(int queryHandle, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param queryHandle 
-	 */
 	public static void glEndPerfQueryINTEL(int queryHandle) {
 		long __functionAddress = getInstance().EndPerfQueryINTEL;
 		nglEndPerfQueryINTEL(queryHandle, __functionAddress);
@@ -230,11 +209,6 @@ public final class INTELPerformanceQuery {
 		nglGetFirstPerfQueryIdINTEL(queryId, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param queryId 
-	 */
 	public static void glGetFirstPerfQueryIdINTEL(ByteBuffer queryId) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(queryId, 1 << 2);
@@ -269,12 +243,6 @@ public final class INTELPerformanceQuery {
 		nglGetNextPerfQueryIdINTEL(queryId, nextQueryId, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param queryId     
-	 * @param nextQueryId 
-	 */
 	public static void glGetNextPerfQueryIdINTEL(int queryId, ByteBuffer nextQueryId) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(nextQueryId, 1 << 2);
@@ -309,21 +277,6 @@ public final class INTELPerformanceQuery {
 		nglGetPerfCounterInfoINTEL(queryId, counterId, counterNameLength, counterName, counterDescLength, counterDesc, counterOffset, counterDataSize, counterTypeEnum, counterDataTypeEnum, rawCounterMaxValue, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param queryId             
-	 * @param counterId           
-	 * @param counterNameLength   
-	 * @param counterName         
-	 * @param counterDescLength   
-	 * @param counterDesc         
-	 * @param counterOffset       
-	 * @param counterDataSize     
-	 * @param counterTypeEnum     
-	 * @param counterDataTypeEnum 
-	 * @param rawCounterMaxValue  
-	 */
 	public static void glGetPerfCounterInfoINTEL(int queryId, int counterId, int counterNameLength, ByteBuffer counterName, int counterDescLength, ByteBuffer counterDesc, ByteBuffer counterOffset, ByteBuffer counterDataSize, ByteBuffer counterTypeEnum, ByteBuffer counterDataTypeEnum, ByteBuffer rawCounterMaxValue) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(counterName, counterNameLength);
@@ -362,15 +315,6 @@ public final class INTELPerformanceQuery {
 		nglGetPerfQueryDataINTEL(queryHandle, flags, dataSize, data, bytesWritten, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param queryHandle  
-	 * @param flags        
-	 * @param dataSize     
-	 * @param data         
-	 * @param bytesWritten 
-	 */
 	public static void glGetPerfQueryDataINTEL(int queryHandle, int flags, int dataSize, ByteBuffer data, ByteBuffer bytesWritten) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(data, dataSize);
@@ -399,12 +343,6 @@ public final class INTELPerformanceQuery {
 		nglGetPerfQueryIdByNameINTEL(queryName, queryId, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param queryName 
-	 * @param queryId   
-	 */
 	public static void glGetPerfQueryIdByNameINTEL(ByteBuffer queryName, ByteBuffer queryId) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkNT1(queryName);
@@ -451,17 +389,6 @@ public final class INTELPerformanceQuery {
 		nglGetPerfQueryInfoINTEL(queryId, queryNameLength, queryName, dataSize, noCounters, noInstances, capsMask, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param queryId         
-	 * @param queryNameLength 
-	 * @param queryName       
-	 * @param dataSize        
-	 * @param noCounters      
-	 * @param noInstances     
-	 * @param capsMask        
-	 */
 	public static void glGetPerfQueryInfoINTEL(int queryId, int queryNameLength, ByteBuffer queryName, ByteBuffer dataSize, ByteBuffer noCounters, ByteBuffer noInstances, ByteBuffer capsMask) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(queryName, queryNameLength);

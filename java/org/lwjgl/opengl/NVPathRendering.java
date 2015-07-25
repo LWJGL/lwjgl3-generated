@@ -883,12 +883,6 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static native void nglCopyPathNV(int resultPath, int srcPath, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param resultPath 
-	 * @param srcPath    
-	 */
 	public static void glCopyPathNV(int resultPath, int srcPath) {
 		long __functionAddress = getInstance().CopyPathNV;
 		nglCopyPathNV(resultPath, srcPath, __functionAddress);
@@ -909,14 +903,6 @@ public final class NVPathRendering {
 		nglWeightPathsNV(resultPath, numPaths, paths, weights, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param resultPath 
-	 * @param numPaths   
-	 * @param paths      
-	 * @param weights    
-	 */
 	public static void glWeightPathsNV(int resultPath, int numPaths, ByteBuffer paths, ByteBuffer weights) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(paths, numPaths << 2);
@@ -938,14 +924,6 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static native void nglInterpolatePathsNV(int resultPath, int pathA, int pathB, float weight, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param resultPath 
-	 * @param pathA      
-	 * @param pathB      
-	 * @param weight     
-	 */
 	public static void glInterpolatePathsNV(int resultPath, int pathA, int pathB, float weight) {
 		long __functionAddress = getInstance().InterpolatePathsNV;
 		nglInterpolatePathsNV(resultPath, pathA, pathB, weight, __functionAddress);
@@ -1096,13 +1074,6 @@ public final class NVPathRendering {
 		nglPathDashArrayNV(path, dashCount, dashArray, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param path      
-	 * @param dashCount 
-	 * @param dashArray 
-	 */
 	public static void glPathDashArrayNV(int path, int dashCount, ByteBuffer dashArray) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(dashArray, dashCount << 2);
@@ -1120,11 +1091,6 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static native int nglGenPathsNV(int range, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param range 
-	 */
 	public static int glGenPathsNV(int range) {
 		long __functionAddress = getInstance().GenPathsNV;
 		return nglGenPathsNV(range, __functionAddress);
@@ -1136,12 +1102,6 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static native void nglDeletePathsNV(int path, int range, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param path  
-	 * @param range 
-	 */
 	public static void glDeletePathsNV(int path, int range) {
 		long __functionAddress = getInstance().DeletePathsNV;
 		nglDeletePathsNV(path, range, __functionAddress);
@@ -1153,11 +1113,6 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static native boolean nglIsPathNV(int path, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param path 
-	 */
 	public static boolean glIsPathNV(int path) {
 		long __functionAddress = getInstance().IsPathNV;
 		return nglIsPathNV(path, __functionAddress);
@@ -1169,13 +1124,6 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static native void nglPathStencilFuncNV(int func, int ref, int mask, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param func 
-	 * @param ref  
-	 * @param mask 
-	 */
 	public static void glPathStencilFuncNV(int func, int ref, int mask) {
 		long __functionAddress = getInstance().PathStencilFuncNV;
 		nglPathStencilFuncNV(func, ref, mask, __functionAddress);
@@ -1187,12 +1135,6 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static native void nglPathStencilDepthOffsetNV(float factor, float units, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param factor 
-	 * @param units  
-	 */
 	public static void glPathStencilDepthOffsetNV(float factor, float units) {
 		long __functionAddress = getInstance().PathStencilDepthOffsetNV;
 		nglPathStencilDepthOffsetNV(factor, units, __functionAddress);
@@ -1222,13 +1164,6 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static native void nglStencilStrokePathNV(int path, int reference, int mask, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param path      
-	 * @param reference 
-	 * @param mask      
-	 */
 	public static void glStencilStrokePathNV(int path, int reference, int mask) {
 		long __functionAddress = getInstance().StencilStrokePathNV;
 		nglStencilStrokePathNV(path, reference, mask, __functionAddress);
@@ -1324,11 +1259,6 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static native void nglPathCoverDepthFuncNV(int zfunc, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param zfunc 
-	 */
 	public static void glPathCoverDepthFuncNV(int zfunc) {
 		long __functionAddress = getInstance().PathCoverDepthFuncNV;
 		nglPathCoverDepthFuncNV(zfunc, __functionAddress);
@@ -1381,14 +1311,6 @@ public final class NVPathRendering {
 		nglPathTexGenNV(texCoordSet, genMode, components, coeffs, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param texCoordSet 
-	 * @param genMode     
-	 * @param components  
-	 * @param coeffs      
-	 */
 	public static void glPathTexGenNV(int texCoordSet, int genMode, int components, ByteBuffer coeffs) {
 		nglPathTexGenNV(texCoordSet, genMode, components, memAddress(coeffs));
 	}
@@ -1404,11 +1326,6 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static native void nglPathFogGenNV(int genMode, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param genMode 
-	 */
 	public static void glPathFogGenNV(int genMode) {
 		long __functionAddress = getInstance().PathFogGenNV;
 		if ( LWJGLUtil.CHECKS )
@@ -1679,16 +1596,6 @@ public final class NVPathRendering {
 		return nglPathGlyphIndexRangeNV(fontTarget, fontName, fontStyle, pathParameterTemplate, emScale, baseAndCount, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param fontTarget            
-	 * @param fontName              
-	 * @param fontStyle             
-	 * @param pathParameterTemplate 
-	 * @param emScale               
-	 * @param baseAndCount          
-	 */
 	public static int glPathGlyphIndexRangeNV(int fontTarget, ByteBuffer fontName, int fontStyle, int pathParameterTemplate, float emScale, int baseAndCount) {
 		return nglPathGlyphIndexRangeNV(fontTarget, memAddress(fontName), fontStyle, pathParameterTemplate, emScale, baseAndCount);
 	}
@@ -1708,15 +1615,6 @@ public final class NVPathRendering {
 		nglProgramPathFragmentInputGenNV(program, location, genMode, components, coeffs, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program    
-	 * @param location   
-	 * @param genMode    
-	 * @param components 
-	 * @param coeffs     
-	 */
 	public static void glProgramPathFragmentInputGenNV(int program, int location, int genMode, int components, ByteBuffer coeffs) {
 		nglProgramPathFragmentInputGenNV(program, location, genMode, components, memAddress(coeffs));
 	}
@@ -1821,12 +1719,6 @@ public final class NVPathRendering {
 		nglGetPathCommandsNV(path, commands, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param path     
-	 * @param commands 
-	 */
 	public static void glGetPathCommandsNV(int path, ByteBuffer commands) {
 		nglGetPathCommandsNV(path, memAddress(commands));
 	}
@@ -1844,12 +1736,6 @@ public final class NVPathRendering {
 		nglGetPathCoordsNV(path, coords, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param path   
-	 * @param coords 
-	 */
 	public static void glGetPathCoordsNV(int path, ByteBuffer coords) {
 		nglGetPathCoordsNV(path, memAddress(coords));
 	}
@@ -1872,12 +1758,6 @@ public final class NVPathRendering {
 		nglGetPathDashArrayNV(path, dashArray, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param path      
-	 * @param dashArray 
-	 */
 	public static void glGetPathDashArrayNV(int path, ByteBuffer dashArray) {
 		nglGetPathDashArrayNV(path, memAddress(dashArray));
 	}
@@ -2087,13 +1967,6 @@ public final class NVPathRendering {
 		nglGetPathTexGenivNV(texCoordSet, pname, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param texCoordSet 
-	 * @param pname       
-	 * @param value       
-	 */
 	public static void glGetPathTexGenivNV(int texCoordSet, int pname, ByteBuffer value) {
 		nglGetPathTexGenivNV(texCoordSet, pname, memAddress(value));
 	}
@@ -2126,13 +1999,6 @@ public final class NVPathRendering {
 		nglGetPathTexGenfvNV(texCoordSet, pname, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param texCoordSet 
-	 * @param pname       
-	 * @param value       
-	 */
 	public static void glGetPathTexGenfvNV(int texCoordSet, int pname, ByteBuffer value) {
 		nglGetPathTexGenfvNV(texCoordSet, pname, memAddress(value));
 	}
@@ -2156,14 +2022,6 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static native boolean nglIsPointInFillPathNV(int path, int mask, float x, float y, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param path 
-	 * @param mask 
-	 * @param x    
-	 * @param y    
-	 */
 	public static boolean glIsPointInFillPathNV(int path, int mask, float x, float y) {
 		long __functionAddress = getInstance().IsPointInFillPathNV;
 		return nglIsPointInFillPathNV(path, mask, x, y, __functionAddress);
@@ -2175,13 +2033,6 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static native boolean nglIsPointInStrokePathNV(int path, float x, float y, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param path 
-	 * @param x    
-	 * @param y    
-	 */
 	public static boolean glIsPointInStrokePathNV(int path, float x, float y) {
 		long __functionAddress = getInstance().IsPointInStrokePathNV;
 		return nglIsPointInStrokePathNV(path, x, y, __functionAddress);
@@ -2193,13 +2044,6 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static native float nglGetPathLengthNV(int path, int startSegment, int numSegments, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param path         
-	 * @param startSegment 
-	 * @param numSegments  
-	 */
 	public static float glGetPathLengthNV(int path, int startSegment, int numSegments) {
 		long __functionAddress = getInstance().GetPathLengthNV;
 		return nglGetPathLengthNV(path, startSegment, numSegments, __functionAddress);
@@ -2218,18 +2062,6 @@ public final class NVPathRendering {
 		return nglPointAlongPathNV(path, startSegment, numSegments, distance, x, y, tangentX, tangentY, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param path         
-	 * @param startSegment 
-	 * @param numSegments  
-	 * @param distance     
-	 * @param x            
-	 * @param y            
-	 * @param tangentX     
-	 * @param tangentY     
-	 */
 	public static boolean glPointAlongPathNV(int path, int startSegment, int numSegments, float distance, ByteBuffer x, ByteBuffer y, ByteBuffer tangentX, ByteBuffer tangentY) {
 		if ( LWJGLUtil.CHECKS ) {
 			if ( x != null ) checkBuffer(x, 1 << 2);
@@ -2470,18 +2302,6 @@ public final class NVPathRendering {
 		nglGetProgramResourcefvNV(program, programInterface, index, propCount, props, bufSize, length, params, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program          
-	 * @param programInterface 
-	 * @param index            
-	 * @param propCount        
-	 * @param props            
-	 * @param bufSize          
-	 * @param length           
-	 * @param params           
-	 */
 	public static void glGetProgramResourcefvNV(int program, int programInterface, int index, int propCount, ByteBuffer props, int bufSize, ByteBuffer length, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(props, propCount << 2);

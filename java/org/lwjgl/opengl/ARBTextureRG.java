@@ -17,9 +17,9 @@ package org.lwjgl.opengl;
  * <p>It is also desirable to be able to render to one- and two- component format textures using capabilities such as framebuffer objects (FBO), but rendering
  * to I/L/LA formats is under-specified (specifically how to map R/G/B/A values to I/L/A texture channels).</p>
  * 
- * <p>This extension adds new base internal formats for the one-component {@link #GL_RED RED} and two-component {@link #GL_RG RG} (red green) texture formats as well as sized internal
- * formats for fixed-point, floating-point and pure integer texture formats. The new texure formats can be used for texturing as well as for rendering into
- * with framebuffer objects.</p>
+ * <p>This extension adds new base internal formats for the one-component {@link GL11#GL_RED RED} and two-component {@link #GL_RG RG} (red green) texture formats as well as sized
+ * internal formats for fixed-point, floating-point and pure integer texture formats. The new texure formats can be used for texturing as well as for
+ * rendering into with framebuffer objects.</p>
  * 
  * <p>Promoted to core in {@link GL30 OpenGL 3.0}.</p>
  */

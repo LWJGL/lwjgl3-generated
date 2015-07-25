@@ -93,12 +93,6 @@ public final class EXTSeparateShaderObjects {
 	@JavadocExclude
 	public static native void nglUseShaderProgramEXT(int type, int program, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param type    
-	 * @param program 
-	 */
 	public static void glUseShaderProgramEXT(int type, int program) {
 		long __functionAddress = getInstance().UseShaderProgramEXT;
 		nglUseShaderProgramEXT(type, program, __functionAddress);
@@ -110,11 +104,6 @@ public final class EXTSeparateShaderObjects {
 	@JavadocExclude
 	public static native void nglActiveProgramEXT(int program, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param program 
-	 */
 	public static void glActiveProgramEXT(int program) {
 		long __functionAddress = getInstance().ActiveProgramEXT;
 		nglActiveProgramEXT(program, __functionAddress);
@@ -133,12 +122,6 @@ public final class EXTSeparateShaderObjects {
 		return nglCreateShaderProgramEXT(type, string, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param type   
-	 * @param string 
-	 */
 	public static int glCreateShaderProgramEXT(int type, ByteBuffer string) {
 		if ( LWJGLUtil.CHECKS )
 			checkNT1(string);

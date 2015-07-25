@@ -68,8 +68,8 @@ public final class ARBClipControl {
 	/**
 	 * Controls the clipping volume behavior.
 	 * 
-	 * <p>These parameters update the clip control origin and depth mode respectively. The initial value of the clip control origin is {@link #GL_LOWER_LEFT LOWER_LEFT} and
-	 * the initial value of the depth mode is {@link #GL_NEGATIVE_ONE_TO_ONE NEGATIVE_ONE_TO_ONE}.</p>
+	 * <p>These parameters update the clip control origin and depth mode respectively. The initial value of the clip control origin is {@link GL20#GL_LOWER_LEFT LOWER_LEFT} and the
+	 * initial value of the depth mode is {@link #GL_NEGATIVE_ONE_TO_ONE NEGATIVE_ONE_TO_ONE}.</p>
 	 * 
 	 * <p>The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated if ClipControl is executed between the execution of {@link GL11#glBegin Begin} and the corresponding
 	 * execution of {@link GL11#glEnd End}.</p>

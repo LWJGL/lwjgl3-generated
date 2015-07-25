@@ -80,13 +80,6 @@ public final class EXTTimerQuery {
 		nglGetQueryObjecti64vEXT(id, pname, params, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param id     
-	 * @param pname  
-	 * @param params 
-	 */
 	public static void glGetQueryObjecti64vEXT(int id, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
@@ -121,13 +114,6 @@ public final class EXTTimerQuery {
 		nglGetQueryObjectui64vEXT(id, pname, params, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param id     
-	 * @param pname  
-	 * @param params 
-	 */
 	public static void glGetQueryObjectui64vEXT(int id, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);

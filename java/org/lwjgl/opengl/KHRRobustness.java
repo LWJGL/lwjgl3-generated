@@ -94,7 +94,7 @@ public final class KHRRobustness {
 	/**
 	 * Indicates if the GL context has been in a reset state at any point since the last call to GetGraphicsResetStatus:
 	 * <ul>
-	 * <li>{@link #GL_NO_ERROR NO_ERROR} indicates that the GL context has not been in a reset state since the last call.</li>
+	 * <li>{@link GL11#GL_NO_ERROR NO_ERROR} indicates that the GL context has not been in a reset state since the last call.</li>
 	 * <li>{@link #GL_GUILTY_CONTEXT_RESET GUILTY_CONTEXT_RESET} indicates that a reset has been detected that is attributable to the current GL context.</li>
 	 * <li>{@link #GL_INNOCENT_CONTEXT_RESET INNOCENT_CONTEXT_RESET} indicates a reset has been detected that is not attributable to the current GL context.</li>
 	 * <li>{@link #GL_UNKNOWN_CONTEXT_RESET UNKNOWN_CONTEXT_RESET} indicates a detected graphics reset whose cause is unknown.</li>

@@ -61,11 +61,6 @@ public final class NVXConditionalRender {
 	@JavadocExclude
 	public static native void nglBeginConditionalRenderNVX(int id, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param id 
-	 */
 	public static void glBeginConditionalRenderNVX(int id) {
 		long __functionAddress = getInstance().BeginConditionalRenderNVX;
 		nglBeginConditionalRenderNVX(id, __functionAddress);
@@ -77,7 +72,6 @@ public final class NVXConditionalRender {
 	@JavadocExclude
 	public static native void nglEndConditionalRenderNVX(long __functionAddress);
 
-	/**  */
 	public static void glEndConditionalRenderNVX() {
 		long __functionAddress = getInstance().EndConditionalRenderNVX;
 		nglEndConditionalRenderNVX(__functionAddress);

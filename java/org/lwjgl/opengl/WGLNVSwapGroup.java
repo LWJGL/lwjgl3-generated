@@ -72,12 +72,6 @@ public final class WGLNVSwapGroup {
 	@JavadocExclude
 	public static native int nwglJoinSwapGroupNV(long hDC, int group, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param hDC   
-	 * @param group 
-	 */
 	public static int wglJoinSwapGroupNV(long hDC, int group) {
 		long __functionAddress = getInstance().JoinSwapGroupNV;
 		if ( LWJGLUtil.CHECKS )
@@ -91,12 +85,6 @@ public final class WGLNVSwapGroup {
 	@JavadocExclude
 	public static native int nwglBindSwapBarrierNV(int group, int barrier, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param group   
-	 * @param barrier 
-	 */
 	public static int wglBindSwapBarrierNV(int group, int barrier) {
 		long __functionAddress = getInstance().BindSwapBarrierNV;
 		return nwglBindSwapBarrierNV(group, barrier, __functionAddress);
@@ -117,13 +105,6 @@ public final class WGLNVSwapGroup {
 		return nwglQuerySwapGroupNV(hDC, group, barrier, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param hDC     
-	 * @param group   
-	 * @param barrier 
-	 */
 	public static int wglQuerySwapGroupNV(long hDC, ByteBuffer group, ByteBuffer barrier) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(group, 1 << 2);
@@ -156,13 +137,6 @@ public final class WGLNVSwapGroup {
 		return nwglQueryMaxSwapGroupsNV(hDC, maxGroups, maxBarriers, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param hDC         
-	 * @param maxGroups   
-	 * @param maxBarriers 
-	 */
 	public static int wglQueryMaxSwapGroupsNV(long hDC, ByteBuffer maxGroups, ByteBuffer maxBarriers) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(maxGroups, 1 << 2);
@@ -195,12 +169,6 @@ public final class WGLNVSwapGroup {
 		return nwglQueryFrameCountNV(hDC, count, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param hDC   
-	 * @param count 
-	 */
 	public static int wglQueryFrameCountNV(long hDC, ByteBuffer count) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(count, 1 << 2);
@@ -220,11 +188,6 @@ public final class WGLNVSwapGroup {
 	@JavadocExclude
 	public static native int nwglResetFrameCountNV(long hDC, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param hDC 
-	 */
 	public static int wglResetFrameCountNV(long hDC) {
 		long __functionAddress = getInstance().ResetFrameCountNV;
 		if ( LWJGLUtil.CHECKS )

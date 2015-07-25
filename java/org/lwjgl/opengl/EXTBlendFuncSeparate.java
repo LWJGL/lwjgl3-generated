@@ -61,14 +61,6 @@ public final class EXTBlendFuncSeparate {
 	@JavadocExclude
 	public static native void nglBlendFuncSeparateEXT(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param sfactorRGB   
-	 * @param dfactorRGB   
-	 * @param sfactorAlpha 
-	 * @param dfactorAlpha 
-	 */
 	public static void glBlendFuncSeparateEXT(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha) {
 		long __functionAddress = getInstance().BlendFuncSeparateEXT;
 		nglBlendFuncSeparateEXT(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha, __functionAddress);

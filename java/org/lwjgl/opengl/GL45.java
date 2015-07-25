@@ -394,8 +394,8 @@ public final class GL45 {
 	 * 
 	 * Controls the clipping volume behavior.
 	 * 
-	 * <p>These parameters update the clip control origin and depth mode respectively. The initial value of the clip control origin is {@link #GL_LOWER_LEFT LOWER_LEFT} and
-	 * the initial value of the depth mode is {@link #GL_NEGATIVE_ONE_TO_ONE NEGATIVE_ONE_TO_ONE}.</p>
+	 * <p>These parameters update the clip control origin and depth mode respectively. The initial value of the clip control origin is {@link GL20#GL_LOWER_LEFT LOWER_LEFT} and the
+	 * initial value of the depth mode is {@link #GL_NEGATIVE_ONE_TO_ONE NEGATIVE_ONE_TO_ONE}.</p>
 	 * 
 	 * <p>The error {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated if ClipControl is executed between the execution of {@link GL11#glBegin Begin} and the corresponding
 	 * execution of {@link GL11#glEnd End}.</p>
@@ -4006,7 +4006,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * 
 	 * Indicates if the GL context has been in a reset state at any point since the last call to GetGraphicsResetStatus:
 	 * <ul>
-	 * <li>{@link #GL_NO_ERROR NO_ERROR} indicates that the GL context has not been in a reset state since the last call.</li>
+	 * <li>{@link GL11#GL_NO_ERROR NO_ERROR} indicates that the GL context has not been in a reset state since the last call.</li>
 	 * <li>{@link #GL_GUILTY_CONTEXT_RESET GUILTY_CONTEXT_RESET} indicates that a reset has been detected that is attributable to the current GL context.</li>
 	 * <li>{@link #GL_INNOCENT_CONTEXT_RESET INNOCENT_CONTEXT_RESET} indicates a reset has been detected that is not attributable to the current GL context.</li>
 	 * <li>{@link #GL_UNKNOWN_CONTEXT_RESET UNKNOWN_CONTEXT_RESET} indicates a detected graphics reset whose cause is unknown.</li>

@@ -62,11 +62,6 @@ public final class EXTStencilTwoSide {
 	@JavadocExclude
 	public static native void nglActiveStencilFaceEXT(int face, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param face 
-	 */
 	public static void glActiveStencilFaceEXT(int face) {
 		long __functionAddress = getInstance().ActiveStencilFaceEXT;
 		nglActiveStencilFaceEXT(face, __functionAddress);

@@ -94,21 +94,6 @@ public final class GLXAMDGPUAssociation {
 	@JavadocExclude
 	public static native void nglXBlitContextFramebufferAMD(long dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param dstCtx 
-	 * @param srcX0  
-	 * @param srcY0  
-	 * @param srcX1  
-	 * @param srcY1  
-	 * @param dstX0  
-	 * @param dstY0  
-	 * @param dstX1  
-	 * @param dstY1  
-	 * @param mask   
-	 * @param filter 
-	 */
 	public static void glXBlitContextFramebufferAMD(long dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
 		long __functionAddress = getInstance().BlitContextFramebufferAMD;
 		if ( LWJGLUtil.CHECKS )

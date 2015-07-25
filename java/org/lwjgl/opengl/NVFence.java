@@ -97,12 +97,6 @@ public final class NVFence {
 		nglDeleteFencesNV(n, fences, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param n      
-	 * @param fences 
-	 */
 	public static void glDeleteFencesNV(int n, ByteBuffer fences) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(fences, n << 2);
@@ -134,12 +128,6 @@ public final class NVFence {
 		nglGenFencesNV(n, fences, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param n      
-	 * @param fences 
-	 */
 	public static void glGenFencesNV(int n, ByteBuffer fences) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(fences, n << 2);
@@ -165,11 +153,6 @@ public final class NVFence {
 	@JavadocExclude
 	public static native boolean nglIsFenceNV(int fence, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param fence 
-	 */
 	public static boolean glIsFenceNV(int fence) {
 		long __functionAddress = getInstance().IsFenceNV;
 		return nglIsFenceNV(fence, __functionAddress);
@@ -181,11 +164,6 @@ public final class NVFence {
 	@JavadocExclude
 	public static native boolean nglTestFenceNV(int fence, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param fence 
-	 */
 	public static boolean glTestFenceNV(int fence) {
 		long __functionAddress = getInstance().TestFenceNV;
 		return nglTestFenceNV(fence, __functionAddress);
@@ -204,13 +182,6 @@ public final class NVFence {
 		nglGetFenceivNV(fence, pname, params, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param fence  
-	 * @param pname  
-	 * @param params 
-	 */
 	public static void glGetFenceivNV(int fence, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
@@ -238,11 +209,6 @@ public final class NVFence {
 	@JavadocExclude
 	public static native void nglFinishFenceNV(int fence, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param fence 
-	 */
 	public static void glFinishFenceNV(int fence) {
 		long __functionAddress = getInstance().FinishFenceNV;
 		nglFinishFenceNV(fence, __functionAddress);
@@ -254,12 +220,6 @@ public final class NVFence {
 	@JavadocExclude
 	public static native void nglSetFenceNV(int fence, int condition, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param fence     
-	 * @param condition 
-	 */
 	public static void glSetFenceNV(int fence, int condition) {
 		long __functionAddress = getInstance().SetFenceNV;
 		nglSetFenceNV(fence, condition, __functionAddress);

@@ -11,7 +11,7 @@ package org.lwjgl.opengl;
  * <p>Unextended OpenGL mandates a certain set of configurable per- fragment computations defining texture application, texture environment, color sum, and
  * fog operations. Several extensions have added further per-fragment computations to OpenGL. For example, extensions have defined new texture environment
  * capabilities (ARB_texture_env_add, {@link ARBTextureEnvCombine ARB_texture_env_combine}, {@link ARBTextureEnvDot3 ARB_texture_env_dot3}, ARB_texture_env_crossbar), per-fragment depth
- * comparisons ({@link ARBDepthTexture ARB_depth_texture}, {@link ARBShadow ARB_shadow}, {@link ARBShadowAmbient ARB_shadow_ambient}, {@link  EXT_shadow_funcs}), per-fragment lighting
+ * comparisons ({@link ARBDepthTexture ARB_depth_texture}, {@link ARBShadow ARB_shadow}, {@link ARBShadowAmbient ARB_shadow_ambient}, <a href="http://www.opengl.org/registry/specs/EXT/shadow_funcs.txt">EXT_shadow_funcs</a>), per-fragment lighting
  * (<a href="http://www.opengl.org/registry/specs/EXT/fragment_lighting.txt">EXT_fragment_lighting</a>, <a href="http://www.opengl.org/registry/specs/EXT/light_texture.txt">EXT_light_texture</a>), and environment mapped bump mapping
  * (<a href="http://www.opengl.org/registry/specs/ATI/envmap_bumpmap.txt">ATI_envmap_bumpmap</a>).</p>
  * 

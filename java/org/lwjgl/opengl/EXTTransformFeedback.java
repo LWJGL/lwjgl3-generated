@@ -136,15 +136,6 @@ public final class EXTTransformFeedback {
 	@JavadocExclude
 	public static native void nglBindBufferRangeEXT(int target, int index, int buffer, long offset, long size, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param target 
-	 * @param index  
-	 * @param buffer 
-	 * @param offset 
-	 * @param size   
-	 */
 	public static void glBindBufferRangeEXT(int target, int index, int buffer, long offset, long size) {
 		long __functionAddress = getInstance().BindBufferRangeEXT;
 		nglBindBufferRangeEXT(target, index, buffer, offset, size, __functionAddress);
@@ -156,14 +147,6 @@ public final class EXTTransformFeedback {
 	@JavadocExclude
 	public static native void nglBindBufferOffsetEXT(int target, int index, int buffer, long offset, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param target 
-	 * @param index  
-	 * @param buffer 
-	 * @param offset 
-	 */
 	public static void glBindBufferOffsetEXT(int target, int index, int buffer, long offset) {
 		long __functionAddress = getInstance().BindBufferOffsetEXT;
 		nglBindBufferOffsetEXT(target, index, buffer, offset, __functionAddress);
@@ -175,13 +158,6 @@ public final class EXTTransformFeedback {
 	@JavadocExclude
 	public static native void nglBindBufferBaseEXT(int target, int index, int buffer, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param target 
-	 * @param index  
-	 * @param buffer 
-	 */
 	public static void glBindBufferBaseEXT(int target, int index, int buffer) {
 		long __functionAddress = getInstance().BindBufferBaseEXT;
 		nglBindBufferBaseEXT(target, index, buffer, __functionAddress);
@@ -193,11 +169,6 @@ public final class EXTTransformFeedback {
 	@JavadocExclude
 	public static native void nglBeginTransformFeedbackEXT(int primitiveMode, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param primitiveMode 
-	 */
 	public static void glBeginTransformFeedbackEXT(int primitiveMode) {
 		long __functionAddress = getInstance().BeginTransformFeedbackEXT;
 		nglBeginTransformFeedbackEXT(primitiveMode, __functionAddress);
@@ -209,7 +180,6 @@ public final class EXTTransformFeedback {
 	@JavadocExclude
 	public static native void nglEndTransformFeedbackEXT(long __functionAddress);
 
-	/**  */
 	public static void glEndTransformFeedbackEXT() {
 		long __functionAddress = getInstance().EndTransformFeedbackEXT;
 		nglEndTransformFeedbackEXT(__functionAddress);
@@ -228,14 +198,6 @@ public final class EXTTransformFeedback {
 		nglTransformFeedbackVaryingsEXT(program, count, varyings, bufferMode, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program    
-	 * @param count      
-	 * @param varyings   
-	 * @param bufferMode 
-	 */
 	public static void glTransformFeedbackVaryingsEXT(int program, int count, ByteBuffer varyings, int bufferMode) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(varyings, count << POINTER_SHIFT);
@@ -278,17 +240,6 @@ public final class EXTTransformFeedback {
 		nglGetTransformFeedbackVaryingEXT(program, index, bufSize, length, size, type, name, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program 
-	 * @param index   
-	 * @param bufSize 
-	 * @param length  
-	 * @param size    
-	 * @param type    
-	 * @param name    
-	 */
 	public static void glGetTransformFeedbackVaryingEXT(int program, int index, int bufSize, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(name, bufSize);
@@ -351,13 +302,6 @@ public final class EXTTransformFeedback {
 		nglGetIntegerIndexedvEXT(param, index, values, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param param  
-	 * @param index  
-	 * @param values 
-	 */
 	public static void glGetIntegerIndexedvEXT(int param, int index, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1 << 2);
@@ -392,13 +336,6 @@ public final class EXTTransformFeedback {
 		nglGetBooleanIndexedvEXT(param, index, values, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param param  
-	 * @param index  
-	 * @param values 
-	 */
 	public static void glGetBooleanIndexedvEXT(int param, int index, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1);

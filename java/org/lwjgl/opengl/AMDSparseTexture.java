@@ -85,17 +85,6 @@ public final class AMDSparseTexture {
 	@JavadocExclude
 	public static native void nglTexStorageSparseAMD(int target, int internalFormat, int width, int height, int depth, int layers, int flags, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param target         
-	 * @param internalFormat 
-	 * @param width          
-	 * @param height         
-	 * @param depth          
-	 * @param layers         
-	 * @param flags          
-	 */
 	public static void glTexStorageSparseAMD(int target, int internalFormat, int width, int height, int depth, int layers, int flags) {
 		long __functionAddress = getInstance().TexStorageSparseAMD;
 		nglTexStorageSparseAMD(target, internalFormat, width, height, depth, layers, flags, __functionAddress);
@@ -107,18 +96,6 @@ public final class AMDSparseTexture {
 	@JavadocExclude
 	public static native void nglTextureStorageSparseAMD(int texture, int target, int internalFormat, int width, int height, int depth, int layers, int flags, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param texture        
-	 * @param target         
-	 * @param internalFormat 
-	 * @param width          
-	 * @param height         
-	 * @param depth          
-	 * @param layers         
-	 * @param flags          
-	 */
 	public static void glTextureStorageSparseAMD(int texture, int target, int internalFormat, int width, int height, int depth, int layers, int flags) {
 		long __functionAddress = getInstance().TextureStorageSparseAMD;
 		nglTextureStorageSparseAMD(texture, target, internalFormat, width, height, depth, layers, flags, __functionAddress);

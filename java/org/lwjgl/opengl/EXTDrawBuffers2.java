@@ -73,15 +73,6 @@ public final class EXTDrawBuffers2 {
 	@JavadocExclude
 	public static native void nglColorMaskIndexedEXT(int index, boolean r, boolean g, boolean b, boolean a, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param r     
-	 * @param g     
-	 * @param b     
-	 * @param a     
-	 */
 	public static void glColorMaskIndexedEXT(int index, boolean r, boolean g, boolean b, boolean a) {
 		long __functionAddress = getInstance().ColorMaskIndexedEXT;
 		nglColorMaskIndexedEXT(index, r, g, b, a, __functionAddress);
@@ -100,13 +91,6 @@ public final class EXTDrawBuffers2 {
 		nglGetBooleanIndexedvEXT(target, index, data, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param target 
-	 * @param index  
-	 * @param data   
-	 */
 	public static void glGetBooleanIndexedvEXT(int target, int index, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1);
@@ -134,13 +118,6 @@ public final class EXTDrawBuffers2 {
 		nglGetIntegerIndexedvEXT(target, index, data, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param target 
-	 * @param index  
-	 * @param data   
-	 */
 	public static void glGetIntegerIndexedvEXT(int target, int index, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1 << 2);
@@ -168,12 +145,6 @@ public final class EXTDrawBuffers2 {
 	@JavadocExclude
 	public static native void nglEnableIndexedEXT(int target, int index, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param target 
-	 * @param index  
-	 */
 	public static void glEnableIndexedEXT(int target, int index) {
 		long __functionAddress = getInstance().EnableIndexedEXT;
 		nglEnableIndexedEXT(target, index, __functionAddress);
@@ -185,12 +156,6 @@ public final class EXTDrawBuffers2 {
 	@JavadocExclude
 	public static native void nglDisableIndexedEXT(int target, int index, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param target 
-	 * @param index  
-	 */
 	public static void glDisableIndexedEXT(int target, int index) {
 		long __functionAddress = getInstance().DisableIndexedEXT;
 		nglDisableIndexedEXT(target, index, __functionAddress);
@@ -202,12 +167,6 @@ public final class EXTDrawBuffers2 {
 	@JavadocExclude
 	public static native boolean nglIsEnabledIndexedEXT(int target, int index, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param target 
-	 * @param index  
-	 */
 	public static boolean glIsEnabledIndexedEXT(int target, int index) {
 		long __functionAddress = getInstance().IsEnabledIndexedEXT;
 		return nglIsEnabledIndexedEXT(target, index, __functionAddress);

@@ -24,12 +24,12 @@ typedef cl_int (APIENTRY *clEnqueueBarrierWithWaitListPROC) (cl_command_queue, c
 
 EXTERN_C_ENTER
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL12_nclGetExtensionFunctionAddressForPlatform(JNIEnv *__env, jclass clazz, jlong platformAddress, jlong func_nameAddress, jlong __functionAddress) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_opencl_CL12_nclGetExtensionFunctionAddressForPlatform(JNIEnv *__env, jclass clazz, jlong platformAddress, jlong funcnameAddress, jlong __functionAddress) {
 	cl_platform_id platform = (cl_platform_id)(intptr_t)platformAddress;
-	const cl_char *func_name = (const cl_char *)(intptr_t)func_nameAddress;
+	const cl_char *funcname = (const cl_char *)(intptr_t)funcnameAddress;
 	clGetExtensionFunctionAddressForPlatformPROC clGetExtensionFunctionAddressForPlatform = (clGetExtensionFunctionAddressForPlatformPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
-	return (jlong)(intptr_t)clGetExtensionFunctionAddressForPlatform(platform, func_name);
+	return (jlong)(intptr_t)clGetExtensionFunctionAddressForPlatform(platform, funcname);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opencl_CL12_nclRetainDevice(JNIEnv *__env, jclass clazz, jlong deviceAddress, jlong __functionAddress) {

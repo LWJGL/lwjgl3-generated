@@ -91,12 +91,6 @@ public final class NVTransformFeedback2 {
 	@JavadocExclude
 	public static native void nglBindTransformFeedbackNV(int target, int id, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param target 
-	 * @param id     
-	 */
 	public static void glBindTransformFeedbackNV(int target, int id) {
 		long __functionAddress = getInstance().BindTransformFeedbackNV;
 		nglBindTransformFeedbackNV(target, id, __functionAddress);
@@ -115,12 +109,6 @@ public final class NVTransformFeedback2 {
 		nglDeleteTransformFeedbacksNV(n, ids, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param n   
-	 * @param ids 
-	 */
 	public static void glDeleteTransformFeedbacksNV(int n, ByteBuffer ids) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(ids, n << 2);
@@ -152,12 +140,6 @@ public final class NVTransformFeedback2 {
 		nglGenTransformFeedbacksNV(n, ids, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param n   
-	 * @param ids 
-	 */
 	public static void glGenTransformFeedbacksNV(int n, ByteBuffer ids) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(ids, n << 2);
@@ -187,11 +169,6 @@ public final class NVTransformFeedback2 {
 	@JavadocExclude
 	public static native boolean nglIsTransformFeedbackNV(int id, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param id 
-	 */
 	public static boolean glIsTransformFeedbackNV(int id) {
 		long __functionAddress = getInstance().IsTransformFeedbackNV;
 		return nglIsTransformFeedbackNV(id, __functionAddress);
@@ -203,7 +180,6 @@ public final class NVTransformFeedback2 {
 	@JavadocExclude
 	public static native void nglPauseTransformFeedbackNV(long __functionAddress);
 
-	/**  */
 	public static void glPauseTransformFeedbackNV() {
 		long __functionAddress = getInstance().PauseTransformFeedbackNV;
 		nglPauseTransformFeedbackNV(__functionAddress);
@@ -215,7 +191,6 @@ public final class NVTransformFeedback2 {
 	@JavadocExclude
 	public static native void nglResumeTransformFeedbackNV(long __functionAddress);
 
-	/**  */
 	public static void glResumeTransformFeedbackNV() {
 		long __functionAddress = getInstance().ResumeTransformFeedbackNV;
 		nglResumeTransformFeedbackNV(__functionAddress);
@@ -227,12 +202,6 @@ public final class NVTransformFeedback2 {
 	@JavadocExclude
 	public static native void nglDrawTransformFeedbackNV(int mode, int id, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param mode 
-	 * @param id   
-	 */
 	public static void glDrawTransformFeedbackNV(int mode, int id) {
 		long __functionAddress = getInstance().DrawTransformFeedbackNV;
 		nglDrawTransformFeedbackNV(mode, id, __functionAddress);

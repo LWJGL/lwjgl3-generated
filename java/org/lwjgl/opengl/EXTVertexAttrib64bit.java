@@ -115,12 +115,6 @@ public final class EXTVertexAttrib64bit {
 	@JavadocExclude
 	public static native void nglVertexAttribL1dEXT(int index, double x, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param x     
-	 */
 	public static void glVertexAttribL1dEXT(int index, double x) {
 		long __functionAddress = getInstance().VertexAttribL1dEXT;
 		nglVertexAttribL1dEXT(index, x, __functionAddress);
@@ -132,13 +126,6 @@ public final class EXTVertexAttrib64bit {
 	@JavadocExclude
 	public static native void nglVertexAttribL2dEXT(int index, double x, double y, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param x     
-	 * @param y     
-	 */
 	public static void glVertexAttribL2dEXT(int index, double x, double y) {
 		long __functionAddress = getInstance().VertexAttribL2dEXT;
 		nglVertexAttribL2dEXT(index, x, y, __functionAddress);
@@ -150,14 +137,6 @@ public final class EXTVertexAttrib64bit {
 	@JavadocExclude
 	public static native void nglVertexAttribL3dEXT(int index, double x, double y, double z, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param x     
-	 * @param y     
-	 * @param z     
-	 */
 	public static void glVertexAttribL3dEXT(int index, double x, double y, double z) {
 		long __functionAddress = getInstance().VertexAttribL3dEXT;
 		nglVertexAttribL3dEXT(index, x, y, z, __functionAddress);
@@ -169,15 +148,6 @@ public final class EXTVertexAttrib64bit {
 	@JavadocExclude
 	public static native void nglVertexAttribL4dEXT(int index, double x, double y, double z, double w, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param x     
-	 * @param y     
-	 * @param z     
-	 * @param w     
-	 */
 	public static void glVertexAttribL4dEXT(int index, double x, double y, double z, double w) {
 		long __functionAddress = getInstance().VertexAttribL4dEXT;
 		nglVertexAttribL4dEXT(index, x, y, z, w, __functionAddress);
@@ -196,12 +166,6 @@ public final class EXTVertexAttrib64bit {
 		nglVertexAttribL1dvEXT(index, v, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param v     
-	 */
 	public static void glVertexAttribL1dvEXT(int index, ByteBuffer v) {
 		nglVertexAttribL1dvEXT(index, memAddress(v));
 	}
@@ -224,12 +188,6 @@ public final class EXTVertexAttrib64bit {
 		nglVertexAttribL2dvEXT(index, v, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param v     
-	 */
 	public static void glVertexAttribL2dvEXT(int index, ByteBuffer v) {
 		nglVertexAttribL2dvEXT(index, memAddress(v));
 	}
@@ -252,12 +210,6 @@ public final class EXTVertexAttrib64bit {
 		nglVertexAttribL3dvEXT(index, v, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param v     
-	 */
 	public static void glVertexAttribL3dvEXT(int index, ByteBuffer v) {
 		nglVertexAttribL3dvEXT(index, memAddress(v));
 	}
@@ -280,12 +232,6 @@ public final class EXTVertexAttrib64bit {
 		nglVertexAttribL4dvEXT(index, v, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param index 
-	 * @param v     
-	 */
 	public static void glVertexAttribL4dvEXT(int index, ByteBuffer v) {
 		nglVertexAttribL4dvEXT(index, memAddress(v));
 	}
@@ -308,15 +254,6 @@ public final class EXTVertexAttrib64bit {
 		nglVertexAttribLPointerEXT(index, size, type, stride, pointer, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param index   
-	 * @param size    
-	 * @param type    
-	 * @param stride  
-	 * @param pointer 
-	 */
 	public static void glVertexAttribLPointerEXT(int index, int size, int type, int stride, ByteBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -350,13 +287,6 @@ public final class EXTVertexAttrib64bit {
 		nglGetVertexAttribLdvEXT(index, pname, params, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param index  
-	 * @param pname  
-	 * @param params 
-	 */
 	public static void glGetVertexAttribLdvEXT(int index, int pname, ByteBuffer params) {
 		nglGetVertexAttribLdvEXT(index, pname, memAddress(params));
 	}
@@ -372,17 +302,6 @@ public final class EXTVertexAttrib64bit {
 	@JavadocExclude
 	public static native void nglVertexArrayVertexAttribLOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param vaobj  
-	 * @param buffer 
-	 * @param index  
-	 * @param size   
-	 * @param type   
-	 * @param stride 
-	 * @param offset 
-	 */
 	public static void glVertexArrayVertexAttribLOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset) {
 		long __functionAddress = getInstance().VertexArrayVertexAttribLOffsetEXT;
 		if ( LWJGLUtil.CHECKS )

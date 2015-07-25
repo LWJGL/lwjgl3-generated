@@ -81,12 +81,6 @@ public final class EXTDepthBoundsTest {
 	@JavadocExclude
 	public static native void nglDepthBoundsEXT(double zmin, double zmax, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param zmin 
-	 * @param zmax 
-	 */
 	public static void glDepthBoundsEXT(double zmin, double zmax) {
 		long __functionAddress = getInstance().DepthBoundsEXT;
 		nglDepthBoundsEXT(zmin, zmax, __functionAddress);

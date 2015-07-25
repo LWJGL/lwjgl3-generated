@@ -46,7 +46,7 @@ public final class ContextCapabilities {
 	final GLXSGISwapControl                __GLXSGISwapControl;
 	final GLXSGIVideoSync                  __GLXSGIVideoSync;
 	final GLXSGIXFBConfig                  __GLXSGIXFBConfig;
-	final GLXSGIXPBuffer                   __GLXSGIXPBuffer;
+	final GLXSGIXPbuffer                   __GLXSGIXPbuffer;
 	final GLXSGIXSwapBarrier               __GLXSGIXSwapBarrier;
 	final GLXSGIXSwapGroup                 __GLXSGIXSwapGroup;
 	final AMDDebugOutput                   __AMDDebugOutput;
@@ -156,6 +156,7 @@ public final class ContextCapabilities {
 	final EXTFramebufferBlit               __EXTFramebufferBlit;
 	final EXTFramebufferMultisample        __EXTFramebufferMultisample;
 	final EXTFramebufferObject             __EXTFramebufferObject;
+	final EXTGeometryShader4               __EXTGeometryShader4;
 	final EXTGPUProgramParameters          __EXTGPUProgramParameters;
 	final EXTGPUShader4                    __EXTGPUShader4;
 	final EXTPointParameters               __EXTPointParameters;
@@ -355,7 +356,7 @@ public final class ContextCapabilities {
 	public final boolean GLX_SGI_video_sync;
 	/** When true, {@link GLXSGIXFBConfig} is supported. */
 	public final boolean GLX_SGIX_fbconfig;
-	/** When true, {@link GLXSGIXPBuffer} is supported. */
+	/** When true, {@link GLXSGIXPbuffer} is supported. */
 	public final boolean GLX_SGIX_pbuffer;
 	/** When true, {@link GLXSGIXSwapBarrier} is supported. */
 	public final boolean GLX_SGIX_swap_barrier;
@@ -1280,6 +1281,8 @@ public final class ContextCapabilities {
 	public final boolean GL_EXT_framebuffer_object;
 	/** When true, {@link EXTFramebufferSRGB} is supported. */
 	public final boolean GL_EXT_framebuffer_sRGB;
+	/** When true, {@link EXTGeometryShader4} is supported. */
+	public final boolean GL_EXT_geometry_shader4;
 	/** When true, {@link EXTGPUProgramParameters} is supported. */
 	public final boolean GL_EXT_gpu_program_parameters;
 	/** When true, {@link EXTGPUShader4} is supported. */
@@ -1605,15 +1608,6 @@ public final class ContextCapabilities {
 	 * vertices to output vertices.</p>
 	 */
 	public final boolean GL_NV_geometry_shader_passthrough;
-	/**
-	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/gpu_program5_mem_extended.txt">NV_gpu_program5_mem_extended</a> extension is supported.
-	 * 
-	 * <p>This extension provides a new set of storage modifiers that can be used by NV_gpu_program5 assembly program instructions loading from or storing to various
-	 * forms of GPU memory.</p>
-	 * 
-	 * <p>Requires {@link #GL_NV_gpu_program5 NV_gpu_program5}.</p>
-	 */
-	public final boolean GL_NV_gpu_program5_mem_extended;
 	/** When true, {@link NVGPUShader5} is supported. */
 	public final boolean GL_NV_gpu_shader5;
 	/** When true, {@link NVHalfFloat} is supported. */
@@ -1628,14 +1622,6 @@ public final class ContextCapabilities {
 	public final boolean GL_NV_multisample_filter_hint;
 	/** When true, {@link NVPackedDepthStencil} is supported. */
 	public final boolean GL_NV_packed_depth_stencil;
-	/**
-	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/parameter_buffer_object2.txt">NV_parameter_buffer_object2</a> extension is supported.
-	 * 
-	 * <p>This extension builds on the {@link #GL_NV_parameter_buffer_object NV_parameter_buffer_object} extension to provide additional flexibility in sourcing data from buffer objects.</p>
-	 * 
-	 * <p>Requires {@link GL20 OpenGL 2.0}, {@link #GL_NV_gpu_program4 NV_gpu_program4} and {@link #GL_NV_parameter_buffer_object NV_parameter_buffer_object}.</p>
-	 */
-	public final boolean GL_NV_parameter_buffer_object2;
 	/** When true, {@link NVPathRendering} is supported. */
 	public final boolean GL_NV_path_rendering;
 	/** When true, {@link NVPathRenderingSharedEdge} is supported. */
@@ -1656,15 +1642,6 @@ public final class ContextCapabilities {
 	 */
 	public final boolean GL_NV_sample_mask_override_coverage;
 	/**
-	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/shader_atomic_counters.txt">NV_shader_atomic_counters</a> extension is supported.
-	 * 
-	 * <p>This extension builds upon the {@link #GL_ARB_shader_atomic_counters ARB_shader_atomic_counters} and {@link #GL_NV_gpu_program5 NV_gpu_program5} extensions to provide assembly language support for
-	 * incrementing, decrementing, and querying the values of atomic counters stored in buffer object memory.</p>
-	 * 
-	 * <p>Requires {@link #GL_ARB_shader_atomic_counters ARB_shader_atomic_counters} and {@link #GL_NV_gpu_program5 NV_gpu_program5}.</p>
-	 */
-	public final boolean GL_NV_shader_atomic_counters;
-	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/shader_atomic_float.txt">NV_shader_atomic_float</a> extension is supported.
 	 * 
 	 * <p>This extension provides GLSL built-in functions and assembly opcodes allowing shaders to perform atomic read-modify-write operations to buffer or
@@ -1674,7 +1651,7 @@ public final class ContextCapabilities {
 	 * 
 	 * <p>This extension provides GLSL support for atomics targeting image uniforms (if GLSL 4.20, {@link #GL_ARB_shader_image_load_store ARB_shader_image_load_store}, or
 	 * {@link #GL_EXT_shader_image_load_store EXT_shader_image_load_store} is supported) or floating-point pointers (if {@link #GL_NV_gpu_shader5 NV_gpu_shader5} is supported). Additionally, assembly opcodes
-	 * for these operations is also provided if {@link #GL_NV_gpu_program5 NV_gpu_program5} is supported.</p>
+	 * for these operations is also provided if <a href="http://www.opengl.org/registry/specs/NV/gpu_program5.txt">NV_shader_atomic_float</a> is supported.</p>
 	 */
 	public final boolean GL_NV_shader_atomic_float;
 	/**
@@ -1697,18 +1674,6 @@ public final class ContextCapabilities {
 	public final boolean GL_NV_shader_buffer_load;
 	/** When true, {@link NVShaderBufferStore} is supported. */
 	public final boolean GL_NV_shader_buffer_store;
-	/**
-	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/shader_storage_buffer_object.txt">NV_shader_storage_buffer_object</a> extension is supported.
-	 * 
-	 * <p>This extension provides assembly language support for shader storage buffers (from the {@link #GL_ARB_shader_storage_buffer_object ARB_shader_storage_buffer_object} extension) for all
-	 * program types supported by {@link #GL_NV_gpu_program5 NV_gpu_program5}, including compute programs added by the {@link #GL_NV_compute_program5 NV_compute_program5} extension.</p>
-	 * 
-	 * <p>Assembly programs using this extension can read and write to the memory of buffer objects bound to the binding points provided by
-	 * {@link #GL_ARB_shader_storage_buffer_object ARB_shader_storage_buffer_object}.</p>
-	 * 
-	 * <p>Requires {@link GL40 OpenGL 4.0}, {@link #GL_NV_gpu_program4 NV_gpu_program4}, {@link #GL_NV_gpu_program5 NV_gpu_program5}, {@link ARBShaderStorageBufferObject ARB_shader_storage_buffer_object}.</p>
-	 */
-	public final boolean GL_NV_shader_storage_buffer_object;
 	/** When true, {@link NVShaderThreadGroup} is supported. */
 	public final boolean GL_NV_shader_thread_group;
 	/**
@@ -1935,7 +1900,7 @@ public final class ContextCapabilities {
 		GLX_SGI_swap_control = (__GLXSGISwapControl = GLXSGISwapControl.create(ext, provider)) != null;
 		GLX_SGI_video_sync = (__GLXSGIVideoSync = GLXSGIVideoSync.create(ext, provider)) != null;
 		GLX_SGIX_fbconfig = (__GLXSGIXFBConfig = GLXSGIXFBConfig.create(ext, provider)) != null;
-		GLX_SGIX_pbuffer = (__GLXSGIXPBuffer = GLXSGIXPBuffer.create(ext, provider)) != null;
+		GLX_SGIX_pbuffer = (__GLXSGIXPbuffer = GLXSGIXPbuffer.create(ext, provider)) != null;
 		GLX_SGIX_swap_barrier = (__GLXSGIXSwapBarrier = GLXSGIXSwapBarrier.create(ext, provider)) != null;
 		GLX_SGIX_swap_group = (__GLXSGIXSwapGroup = GLXSGIXSwapGroup.create(ext, provider)) != null;
 		GL_AMD_blend_minmax_factor = ext.contains("GL_AMD_blend_minmax_factor");
@@ -2142,6 +2107,7 @@ public final class ContextCapabilities {
 		GL_EXT_framebuffer_multisample_blit_scaled = ext.contains("GL_EXT_framebuffer_multisample_blit_scaled");
 		GL_EXT_framebuffer_object = (__EXTFramebufferObject = EXTFramebufferObject.create(ext, provider)) != null;
 		GL_EXT_framebuffer_sRGB = ext.contains("GL_EXT_framebuffer_sRGB");
+		GL_EXT_geometry_shader4 = (__EXTGeometryShader4 = EXTGeometryShader4.create(ext, provider)) != null;
 		GL_EXT_gpu_program_parameters = (__EXTGPUProgramParameters = EXTGPUProgramParameters.create(ext, provider)) != null;
 		GL_EXT_gpu_shader4 = (__EXTGPUShader4 = EXTGPUShader4.create(ext, provider)) != null;
 		GL_EXT_packed_depth_stencil = ext.contains("GL_EXT_packed_depth_stencil");
@@ -2223,7 +2189,6 @@ public final class ContextCapabilities {
 		GL_NV_framebuffer_multisample_coverage = (__NVFramebufferMultisampleCoverage = NVFramebufferMultisampleCoverage.create(ext, provider)) != null;
 		GL_NV_geometry_shader4 = ext.contains("GL_NV_geometry_shader4");
 		GL_NV_geometry_shader_passthrough = ext.contains("GL_NV_geometry_shader_passthrough");
-		GL_NV_gpu_program5_mem_extended = ext.contains("GL_NV_gpu_program5_mem_extended");
 		GL_NV_gpu_shader5 = (__NVGPUShader5 = NVGPUShader5.create(ext, provider)) != null;
 		GL_NV_half_float = (__NVHalfFloat = NVHalfFloat.create(ext, provider)) != null;
 		GL_NV_internalformat_sample_query = (__NVInternalformatSampleQuery = NVInternalformatSampleQuery.create(ext, provider)) != null;
@@ -2231,7 +2196,6 @@ public final class ContextCapabilities {
 		GL_NV_multisample_coverage = ext.contains("GL_NV_multisample_coverage");
 		GL_NV_multisample_filter_hint = ext.contains("GL_NV_multisample_filter_hint");
 		GL_NV_packed_depth_stencil = ext.contains("GL_NV_packed_depth_stencil");
-		GL_NV_parameter_buffer_object2 = ext.contains("GL_NV_parameter_buffer_object2");
 		GL_NV_path_rendering = (__NVPathRendering = NVPathRendering.create(ext, provider)) != null;
 		GL_NV_path_rendering_shared_edge = ext.contains("GL_NV_path_rendering_shared_edge");
 		GL_NV_pixel_data_range = (__NVPixelDataRange = NVPixelDataRange.create(ext, provider)) != null;
@@ -2239,13 +2203,11 @@ public final class ContextCapabilities {
 		GL_NV_primitive_restart = (__NVPrimitiveRestart = NVPrimitiveRestart.create(ext, provider)) != null;
 		GL_NV_sample_locations = (__NVSampleLocations = NVSampleLocations.create(ext, provider)) != null;
 		GL_NV_sample_mask_override_coverage = ext.contains("GL_NV_sample_mask_override_coverage");
-		GL_NV_shader_atomic_counters = ext.contains("GL_NV_shader_atomic_counters");
 		GL_NV_shader_atomic_float = ext.contains("GL_NV_shader_atomic_float");
 		GL_NV_shader_atomic_fp16_vector = ext.contains("GL_NV_shader_atomic_fp16_vector");
 		GL_NV_shader_atomic_int64 = ext.contains("GL_NV_shader_atomic_int64");
 		GL_NV_shader_buffer_load = (__NVShaderBufferLoad = NVShaderBufferLoad.create(ext, provider)) != null;
 		GL_NV_shader_buffer_store = ext.contains("GL_NV_shader_buffer_store");
-		GL_NV_shader_storage_buffer_object = ext.contains("GL_NV_shader_storage_buffer_object");
 		GL_NV_shader_thread_group = ext.contains("GL_NV_shader_thread_group");
 		GL_NV_shader_thread_shuffle = ext.contains("GL_NV_shader_thread_shuffle");
 		GL_NV_texgen_reflection = ext.contains("GL_NV_texgen_reflection");

@@ -160,11 +160,6 @@ public final class NVTransformFeedback {
 	@JavadocExclude
 	public static native void nglBeginTransformFeedbackNV(int primitiveMode, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param primitiveMode 
-	 */
 	public static void glBeginTransformFeedbackNV(int primitiveMode) {
 		long __functionAddress = getInstance().BeginTransformFeedbackNV;
 		nglBeginTransformFeedbackNV(primitiveMode, __functionAddress);
@@ -176,7 +171,6 @@ public final class NVTransformFeedback {
 	@JavadocExclude
 	public static native void nglEndTransformFeedbackNV(long __functionAddress);
 
-	/**  */
 	public static void glEndTransformFeedbackNV() {
 		long __functionAddress = getInstance().EndTransformFeedbackNV;
 		nglEndTransformFeedbackNV(__functionAddress);
@@ -195,13 +189,6 @@ public final class NVTransformFeedback {
 		nglTransformFeedbackAttribsNV(count, attribs, bufferMode, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param count      
-	 * @param attribs    
-	 * @param bufferMode 
-	 */
 	public static void glTransformFeedbackAttribsNV(int count, ByteBuffer attribs, int bufferMode) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(attribs, count << 2);
@@ -219,15 +206,6 @@ public final class NVTransformFeedback {
 	@JavadocExclude
 	public static native void nglBindBufferRangeNV(int target, int index, int buffer, long offset, long size, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param target 
-	 * @param index  
-	 * @param buffer 
-	 * @param offset 
-	 * @param size   
-	 */
 	public static void glBindBufferRangeNV(int target, int index, int buffer, long offset, long size) {
 		long __functionAddress = getInstance().BindBufferRangeNV;
 		nglBindBufferRangeNV(target, index, buffer, offset, size, __functionAddress);
@@ -239,14 +217,6 @@ public final class NVTransformFeedback {
 	@JavadocExclude
 	public static native void nglBindBufferOffsetNV(int target, int index, int buffer, long offset, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param target 
-	 * @param index  
-	 * @param buffer 
-	 * @param offset 
-	 */
 	public static void glBindBufferOffsetNV(int target, int index, int buffer, long offset) {
 		long __functionAddress = getInstance().BindBufferOffsetNV;
 		nglBindBufferOffsetNV(target, index, buffer, offset, __functionAddress);
@@ -258,13 +228,6 @@ public final class NVTransformFeedback {
 	@JavadocExclude
 	public static native void nglBindBufferBaseNV(int target, int index, int buffer, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param target 
-	 * @param index  
-	 * @param buffer 
-	 */
 	public static void glBindBufferBaseNV(int target, int index, int buffer) {
 		long __functionAddress = getInstance().BindBufferBaseNV;
 		nglBindBufferBaseNV(target, index, buffer, __functionAddress);
@@ -283,14 +246,6 @@ public final class NVTransformFeedback {
 		nglTransformFeedbackVaryingsNV(program, count, locations, bufferMode, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program    
-	 * @param count      
-	 * @param locations  
-	 * @param bufferMode 
-	 */
 	public static void glTransformFeedbackVaryingsNV(int program, int count, ByteBuffer locations, int bufferMode) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(locations, count << 2);
@@ -315,12 +270,6 @@ public final class NVTransformFeedback {
 		nglActiveVaryingNV(program, name, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program 
-	 * @param name    
-	 */
 	public static void glActiveVaryingNV(int program, ByteBuffer name) {
 		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
@@ -347,12 +296,6 @@ public final class NVTransformFeedback {
 		return nglGetVaryingLocationNV(program, name, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program 
-	 * @param name    
-	 */
 	public static int glGetVaryingLocationNV(int program, ByteBuffer name) {
 		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
@@ -379,17 +322,6 @@ public final class NVTransformFeedback {
 		nglGetActiveVaryingNV(program, index, bufSize, length, size, type, name, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program 
-	 * @param index   
-	 * @param bufSize 
-	 * @param length  
-	 * @param size    
-	 * @param type    
-	 * @param name    
-	 */
 	public static void glGetActiveVaryingNV(int program, int index, int bufSize, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(name, bufSize);
@@ -423,13 +355,6 @@ public final class NVTransformFeedback {
 		nglGetTransformFeedbackVaryingNV(program, index, location, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param index    
-	 * @param location 
-	 */
 	public static void glGetTransformFeedbackVaryingNV(int program, int index, ByteBuffer location) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(location, 1 << 2);
@@ -464,15 +389,6 @@ public final class NVTransformFeedback {
 		nglTransformFeedbackStreamAttribsNV(count, attribs, nbuffers, bufstreams, bufferMode, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param count      
-	 * @param attribs    
-	 * @param nbuffers   
-	 * @param bufstreams 
-	 * @param bufferMode 
-	 */
 	public static void glTransformFeedbackStreamAttribsNV(int count, ByteBuffer attribs, int nbuffers, ByteBuffer bufstreams, int bufferMode) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(attribs, count << 2);

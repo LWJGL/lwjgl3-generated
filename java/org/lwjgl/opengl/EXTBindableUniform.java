@@ -76,13 +76,6 @@ public final class EXTBindableUniform {
 	@JavadocExclude
 	public static native void nglUniformBufferEXT(int program, int location, int buffer, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param buffer   
-	 */
 	public static void glUniformBufferEXT(int program, int location, int buffer) {
 		long __functionAddress = getInstance().UniformBufferEXT;
 		nglUniformBufferEXT(program, location, buffer, __functionAddress);
@@ -94,12 +87,6 @@ public final class EXTBindableUniform {
 	@JavadocExclude
 	public static native int nglGetUniformBufferSizeEXT(int program, int location, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 */
 	public static int glGetUniformBufferSizeEXT(int program, int location) {
 		long __functionAddress = getInstance().GetUniformBufferSizeEXT;
 		return nglGetUniformBufferSizeEXT(program, location, __functionAddress);
@@ -111,12 +98,6 @@ public final class EXTBindableUniform {
 	@JavadocExclude
 	public static native long nglGetUniformOffsetEXT(int program, int location, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 */
 	public static long glGetUniformOffsetEXT(int program, int location) {
 		long __functionAddress = getInstance().GetUniformOffsetEXT;
 		return nglGetUniformOffsetEXT(program, location, __functionAddress);

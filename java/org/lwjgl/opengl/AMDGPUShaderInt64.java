@@ -170,12 +170,6 @@ public final class AMDGPUShaderInt64 {
 
 	// --- [ glUniform1i64NV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param x        
-	 */
 	public static void glUniform1i64NV(int location, long x) {
 		long __functionAddress = getInstance().Uniform1i64NV;
 		NVGPUShader5.nglUniform1i64NV(location, x, __functionAddress);
@@ -183,13 +177,6 @@ public final class AMDGPUShaderInt64 {
 
 	// --- [ glUniform2i64NV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 */
 	public static void glUniform2i64NV(int location, long x, long y) {
 		long __functionAddress = getInstance().Uniform2i64NV;
 		NVGPUShader5.nglUniform2i64NV(location, x, y, __functionAddress);
@@ -197,14 +184,6 @@ public final class AMDGPUShaderInt64 {
 
 	// --- [ glUniform3i64NV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 * @param z        
-	 */
 	public static void glUniform3i64NV(int location, long x, long y, long z) {
 		long __functionAddress = getInstance().Uniform3i64NV;
 		NVGPUShader5.nglUniform3i64NV(location, x, y, z, __functionAddress);
@@ -212,15 +191,6 @@ public final class AMDGPUShaderInt64 {
 
 	// --- [ glUniform4i64NV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 * @param z        
-	 * @param w        
-	 */
 	public static void glUniform4i64NV(int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().Uniform4i64NV;
 		NVGPUShader5.nglUniform4i64NV(location, x, y, z, w, __functionAddress);
@@ -235,13 +205,6 @@ public final class AMDGPUShaderInt64 {
 		NVGPUShader5.nglUniform1i64vNV(location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glUniform1i64vNV(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 3);
@@ -262,13 +225,6 @@ public final class AMDGPUShaderInt64 {
 		NVGPUShader5.nglUniform2i64vNV(location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glUniform2i64vNV(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 3);
@@ -289,13 +245,6 @@ public final class AMDGPUShaderInt64 {
 		NVGPUShader5.nglUniform3i64vNV(location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glUniform3i64vNV(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 3) << 3);
@@ -316,13 +265,6 @@ public final class AMDGPUShaderInt64 {
 		NVGPUShader5.nglUniform4i64vNV(location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glUniform4i64vNV(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 3);
@@ -336,12 +278,6 @@ public final class AMDGPUShaderInt64 {
 
 	// --- [ glUniform1ui64NV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param x        
-	 */
 	public static void glUniform1ui64NV(int location, long x) {
 		long __functionAddress = getInstance().Uniform1ui64NV;
 		NVGPUShader5.nglUniform1ui64NV(location, x, __functionAddress);
@@ -349,13 +285,6 @@ public final class AMDGPUShaderInt64 {
 
 	// --- [ glUniform2ui64NV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 */
 	public static void glUniform2ui64NV(int location, long x, long y) {
 		long __functionAddress = getInstance().Uniform2ui64NV;
 		NVGPUShader5.nglUniform2ui64NV(location, x, y, __functionAddress);
@@ -363,14 +292,6 @@ public final class AMDGPUShaderInt64 {
 
 	// --- [ glUniform3ui64NV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 * @param z        
-	 */
 	public static void glUniform3ui64NV(int location, long x, long y, long z) {
 		long __functionAddress = getInstance().Uniform3ui64NV;
 		NVGPUShader5.nglUniform3ui64NV(location, x, y, z, __functionAddress);
@@ -378,15 +299,6 @@ public final class AMDGPUShaderInt64 {
 
 	// --- [ glUniform4ui64NV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 * @param z        
-	 * @param w        
-	 */
 	public static void glUniform4ui64NV(int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().Uniform4ui64NV;
 		NVGPUShader5.nglUniform4ui64NV(location, x, y, z, w, __functionAddress);
@@ -401,13 +313,6 @@ public final class AMDGPUShaderInt64 {
 		NVGPUShader5.nglUniform1ui64vNV(location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glUniform1ui64vNV(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 3);
@@ -428,13 +333,6 @@ public final class AMDGPUShaderInt64 {
 		NVGPUShader5.nglUniform2ui64vNV(location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glUniform2ui64vNV(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 3);
@@ -455,13 +353,6 @@ public final class AMDGPUShaderInt64 {
 		NVGPUShader5.nglUniform3ui64vNV(location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glUniform3ui64vNV(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 3) << 3);
@@ -482,13 +373,6 @@ public final class AMDGPUShaderInt64 {
 		NVGPUShader5.nglUniform4ui64vNV(location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glUniform4ui64vNV(int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 3);
@@ -509,13 +393,6 @@ public final class AMDGPUShaderInt64 {
 		NVGPUShader5.nglGetUniformi64vNV(program, location, params, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param params   
-	 */
 	public static void glGetUniformi64vNV(int program, int location, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
@@ -546,13 +423,6 @@ public final class AMDGPUShaderInt64 {
 		NVGPUShader5.nglGetUniformui64vNV(program, location, params, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param params   
-	 */
 	public static void glGetUniformui64vNV(int program, int location, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
@@ -576,13 +446,6 @@ public final class AMDGPUShaderInt64 {
 
 	// --- [ glProgramUniform1i64NV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param x        
-	 */
 	public static void glProgramUniform1i64NV(int program, int location, long x) {
 		long __functionAddress = getInstance().ProgramUniform1i64NV;
 		NVGPUShader5.nglProgramUniform1i64NV(program, location, x, __functionAddress);
@@ -590,14 +453,6 @@ public final class AMDGPUShaderInt64 {
 
 	// --- [ glProgramUniform2i64NV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 */
 	public static void glProgramUniform2i64NV(int program, int location, long x, long y) {
 		long __functionAddress = getInstance().ProgramUniform2i64NV;
 		NVGPUShader5.nglProgramUniform2i64NV(program, location, x, y, __functionAddress);
@@ -605,15 +460,6 @@ public final class AMDGPUShaderInt64 {
 
 	// --- [ glProgramUniform3i64NV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 * @param z        
-	 */
 	public static void glProgramUniform3i64NV(int program, int location, long x, long y, long z) {
 		long __functionAddress = getInstance().ProgramUniform3i64NV;
 		NVGPUShader5.nglProgramUniform3i64NV(program, location, x, y, z, __functionAddress);
@@ -621,16 +467,6 @@ public final class AMDGPUShaderInt64 {
 
 	// --- [ glProgramUniform4i64NV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 * @param z        
-	 * @param w        
-	 */
 	public static void glProgramUniform4i64NV(int program, int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().ProgramUniform4i64NV;
 		NVGPUShader5.nglProgramUniform4i64NV(program, location, x, y, z, w, __functionAddress);
@@ -645,14 +481,6 @@ public final class AMDGPUShaderInt64 {
 		NVGPUShader5.nglProgramUniform1i64vNV(program, location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glProgramUniform1i64vNV(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 3);
@@ -673,14 +501,6 @@ public final class AMDGPUShaderInt64 {
 		NVGPUShader5.nglProgramUniform2i64vNV(program, location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glProgramUniform2i64vNV(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 3);
@@ -701,14 +521,6 @@ public final class AMDGPUShaderInt64 {
 		NVGPUShader5.nglProgramUniform3i64vNV(program, location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glProgramUniform3i64vNV(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 3) << 3);
@@ -729,14 +541,6 @@ public final class AMDGPUShaderInt64 {
 		NVGPUShader5.nglProgramUniform4i64vNV(program, location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glProgramUniform4i64vNV(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 3);
@@ -750,13 +554,6 @@ public final class AMDGPUShaderInt64 {
 
 	// --- [ glProgramUniform1ui64NV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param x        
-	 */
 	public static void glProgramUniform1ui64NV(int program, int location, long x) {
 		long __functionAddress = getInstance().ProgramUniform1ui64NV;
 		NVGPUShader5.nglProgramUniform1ui64NV(program, location, x, __functionAddress);
@@ -764,14 +561,6 @@ public final class AMDGPUShaderInt64 {
 
 	// --- [ glProgramUniform2ui64NV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 */
 	public static void glProgramUniform2ui64NV(int program, int location, long x, long y) {
 		long __functionAddress = getInstance().ProgramUniform2ui64NV;
 		NVGPUShader5.nglProgramUniform2ui64NV(program, location, x, y, __functionAddress);
@@ -779,15 +568,6 @@ public final class AMDGPUShaderInt64 {
 
 	// --- [ glProgramUniform3ui64NV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 * @param z        
-	 */
 	public static void glProgramUniform3ui64NV(int program, int location, long x, long y, long z) {
 		long __functionAddress = getInstance().ProgramUniform3ui64NV;
 		NVGPUShader5.nglProgramUniform3ui64NV(program, location, x, y, z, __functionAddress);
@@ -795,16 +575,6 @@ public final class AMDGPUShaderInt64 {
 
 	// --- [ glProgramUniform4ui64NV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param x        
-	 * @param y        
-	 * @param z        
-	 * @param w        
-	 */
 	public static void glProgramUniform4ui64NV(int program, int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().ProgramUniform4ui64NV;
 		NVGPUShader5.nglProgramUniform4ui64NV(program, location, x, y, z, w, __functionAddress);
@@ -819,14 +589,6 @@ public final class AMDGPUShaderInt64 {
 		NVGPUShader5.nglProgramUniform1ui64vNV(program, location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glProgramUniform1ui64vNV(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, count << 3);
@@ -847,14 +609,6 @@ public final class AMDGPUShaderInt64 {
 		NVGPUShader5.nglProgramUniform2ui64vNV(program, location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glProgramUniform2ui64vNV(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 1) << 3);
@@ -875,14 +629,6 @@ public final class AMDGPUShaderInt64 {
 		NVGPUShader5.nglProgramUniform3ui64vNV(program, location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glProgramUniform3ui64vNV(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count * 3) << 3);
@@ -903,14 +649,6 @@ public final class AMDGPUShaderInt64 {
 		NVGPUShader5.nglProgramUniform4ui64vNV(program, location, count, value, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param program  
-	 * @param location 
-	 * @param count    
-	 * @param value    
-	 */
 	public static void glProgramUniform4ui64vNV(int program, int location, int count, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, (count << 2) << 3);

@@ -112,13 +112,6 @@ public final class NVPixelDataRange {
 		nglPixelDataRangeNV(target, length, pointer, __functionAddress);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param target  
-	 * @param length  
-	 * @param pointer 
-	 */
 	public static void glPixelDataRangeNV(int target, int length, ByteBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(pointer, length);
@@ -136,11 +129,6 @@ public final class NVPixelDataRange {
 	@JavadocExclude
 	public static native void nglFlushPixelDataRangeNV(int target, long __functionAddress);
 
-	/**
-	 * 
-	 *
-	 * @param target 
-	 */
 	public static void glFlushPixelDataRangeNV(int target) {
 		long __functionAddress = getInstance().FlushPixelDataRangeNV;
 		nglFlushPixelDataRangeNV(target, __functionAddress);
