@@ -215,9 +215,9 @@ public final class STBTruetype {
 
 	/** Vertex type. */
 	public static final byte
-		STBTT_vmove  = 0x1,
-		STBTT_vline  = 0x2,
-		STBTT_vcurve = 0x3;
+		STBTT_vmove  = 1,
+		STBTT_vline  = 2,
+		STBTT_vcurve = 3;
 
 	/** Style flags, use in {@link #stbtt_FindMatchingFont FindMatchingFont}. */
 	public static final int

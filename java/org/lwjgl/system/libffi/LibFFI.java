@@ -35,21 +35,21 @@ public final class LibFFI {
 
 	/** Types used to create custom {@link FFICIF}. */
 	public static final short
-		FFI_TYPE_VOID       = 0x0,
-		FFI_TYPE_INT        = 0x1,
-		FFI_TYPE_FLOAT      = 0x2,
-		FFI_TYPE_DOUBLE     = 0x3,
+		FFI_TYPE_VOID       = 0,
+		FFI_TYPE_INT        = 1,
+		FFI_TYPE_FLOAT      = 2,
+		FFI_TYPE_DOUBLE     = 3,
 		FFI_TYPE_LONGDOUBLE = FFI_TYPE_DOUBLE(),
-		FFI_TYPE_UINT8      = 0x5,
-		FFI_TYPE_SINT8      = 0x6,
-		FFI_TYPE_UINT16     = 0x7,
-		FFI_TYPE_SINT16     = 0x8,
-		FFI_TYPE_UINT32     = 0x9,
-		FFI_TYPE_SINT32     = 0xA,
-		FFI_TYPE_UINT64     = 0xB,
-		FFI_TYPE_SINT64     = 0xC,
-		FFI_TYPE_STRUCT     = 0xD,
-		FFI_TYPE_POINTER    = 0xE;
+		FFI_TYPE_UINT8      = 5,
+		FFI_TYPE_SINT8      = 6,
+		FFI_TYPE_UINT16     = 7,
+		FFI_TYPE_SINT16     = 8,
+		FFI_TYPE_UINT32     = 9,
+		FFI_TYPE_SINT32     = 10,
+		FFI_TYPE_UINT64     = 11,
+		FFI_TYPE_SINT64     = 12,
+		FFI_TYPE_STRUCT     = 13,
+		FFI_TYPE_POINTER    = 14;
 
 	/** ABI enumeration. */
 	public static final int

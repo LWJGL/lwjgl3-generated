@@ -23,8 +23,8 @@ public final class ObjCRuntime {
 
 	/** Boolean values. */
 	public static final byte
-		YES = 0x1,
-		NO  = 0x0;
+		YES = 1,
+		NO  = 0;
 
 	/** Types. */
 	public static final char

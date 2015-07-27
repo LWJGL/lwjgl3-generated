@@ -37,15 +37,15 @@ public final class Xrandr {
 
 	/** used in the rotation field; rotation and reflection in 0.1 proto. */
 	public static final short
-		RR_Rotate_0   = 0x1,
-		RR_Rotate_90  = 0x2,
-		RR_Rotate_180 = 0x4,
-		RR_Rotate_270 = 0x8;
+		RR_Rotate_0   = 1,
+		RR_Rotate_90  = 2,
+		RR_Rotate_180 = 4,
+		RR_Rotate_270 = 8;
 
 	/** new in 1.0 protocol, to allow reflection of screen */
 	public static final short
-		RR_Reflect_X = 0x10,
-		RR_Reflect_Y = 0x20;
+		RR_Reflect_X = 16,
+		RR_Reflect_Y = 32;
 
 	/** Config status */
 	public static final int

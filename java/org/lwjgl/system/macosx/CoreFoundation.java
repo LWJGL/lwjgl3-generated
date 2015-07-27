@@ -18,8 +18,8 @@ public final class CoreFoundation {
 
 	/** Boolean values. */
 	public static final byte
-		TRUE  = 0x1,
-		FALSE = 0x0;
+		TRUE  = 1,
+		FALSE = 0;
 
 	/** Platform-independent built-in encodings; always available on all platforms. */
 	public static final int

@@ -82,7 +82,7 @@ import static org.lwjgl.opengl.GL11.*;
 public final class NVPathRendering {
 
 	/** Accepted in elements of the {@code commands} array parameter of PathCommandsNV and PathSubCommandsNV. */
-	public static final int
+	public static final byte
 		GL_CLOSE_PATH_NV                         = 0x0,
 		GL_MOVE_TO_NV                            = 0x2,
 		GL_RELATIVE_MOVE_TO_NV                   = 0x3,
@@ -110,24 +110,24 @@ public final class NVPathRendering {
 		GL_RELATIVE_LARGE_CW_ARC_TO_NV           = 0x19,
 		GL_CONIC_CURVE_TO_NV                     = 0x1A,
 		GL_RELATIVE_CONIC_CURVE_TO_NV            = 0x1B,
-		GL_ROUNDED_RECT_NV                       = 0xE8,
-		GL_RELATIVE_ROUNDED_RECT_NV              = 0xE9,
-		GL_ROUNDED_RECT2_NV                      = 0xEA,
-		GL_RELATIVE_ROUNDED_RECT2_NV             = 0xEB,
-		GL_ROUNDED_RECT4_NV                      = 0xEC,
-		GL_RELATIVE_ROUNDED_RECT4_NV             = 0xED,
-		GL_ROUNDED_RECT8_NV                      = 0xEE,
-		GL_RELATIVE_ROUNDED_RECT8_NV             = 0xEF,
-		GL_RESTART_PATH_NV                       = 0xF0,
-		GL_DUP_FIRST_CUBIC_CURVE_TO_NV           = 0xF2,
-		GL_DUP_LAST_CUBIC_CURVE_TO_NV            = 0xF4,
-		GL_RECT_NV                               = 0xF6,
-		GL_RELATIVE_RECT_NV                      = 0xF7,
-		GL_CIRCULAR_CCW_ARC_TO_NV                = 0xF8,
-		GL_CIRCULAR_CW_ARC_TO_NV                 = 0xFA,
-		GL_CIRCULAR_TANGENT_ARC_TO_NV            = 0xFC,
-		GL_ARC_TO_NV                             = 0xFE,
-		GL_RELATIVE_ARC_TO_NV                    = 0xFF;
+		GL_ROUNDED_RECT_NV                       = (byte)0xE8,
+		GL_RELATIVE_ROUNDED_RECT_NV              = (byte)0xE9,
+		GL_ROUNDED_RECT2_NV                      = (byte)0xEA,
+		GL_RELATIVE_ROUNDED_RECT2_NV             = (byte)0xEB,
+		GL_ROUNDED_RECT4_NV                      = (byte)0xEC,
+		GL_RELATIVE_ROUNDED_RECT4_NV             = (byte)0xED,
+		GL_ROUNDED_RECT8_NV                      = (byte)0xEE,
+		GL_RELATIVE_ROUNDED_RECT8_NV             = (byte)0xEF,
+		GL_RESTART_PATH_NV                       = (byte)0xF0,
+		GL_DUP_FIRST_CUBIC_CURVE_TO_NV           = (byte)0xF2,
+		GL_DUP_LAST_CUBIC_CURVE_TO_NV            = (byte)0xF4,
+		GL_RECT_NV                               = (byte)0xF6,
+		GL_RELATIVE_RECT_NV                      = (byte)0xF7,
+		GL_CIRCULAR_CCW_ARC_TO_NV                = (byte)0xF8,
+		GL_CIRCULAR_CW_ARC_TO_NV                 = (byte)0xFA,
+		GL_CIRCULAR_TANGENT_ARC_TO_NV            = (byte)0xFC,
+		GL_ARC_TO_NV                             = (byte)0xFE,
+		GL_RELATIVE_ARC_TO_NV                    = (byte)0xFF;
 
 	/** Accepted by the {@code format} parameter of PathStringNV. */
 	public static final int
