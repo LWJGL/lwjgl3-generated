@@ -77,7 +77,6 @@ public final class EXTGPUShader4 {
 		GL_SAMPLER_1D_ARRAY_SHADOW_EXT       = 0x8DC3,
 		GL_SAMPLER_2D_ARRAY_SHADOW_EXT       = 0x8DC4,
 		GL_SAMPLER_CUBE_SHADOW_EXT           = 0x8DC5,
-		GL_UNSIGNED_INT                      = 0x1405,
 		GL_UNSIGNED_INT_VEC2_EXT             = 0x8DC6,
 		GL_UNSIGNED_INT_VEC3_EXT             = 0x8DC7,
 		GL_UNSIGNED_INT_VEC4_EXT             = 0x8DC8,

@@ -151,13 +151,13 @@ public final class WGLAMDGPUAssociation {
 	 */
 	public static int wglGetGPUInfoAMD(int id, int property, int dataType, int size, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(data, size / GLChecks.typeToBytes(dataType));
+			checkBuffer(data, size << GLChecks.typeToByteShift(dataType));
 		return nwglGetGPUInfoAMD(id, property, dataType, size, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #wglGetGPUInfoAMD GetGPUInfoAMD} */
 	public static int wglGetGPUInfoAMD(int id, int property, int dataType, ByteBuffer data) {
-		return nwglGetGPUInfoAMD(id, property, dataType, data.remaining() * GLChecks.typeToBytes(dataType), memAddress(data));
+		return nwglGetGPUInfoAMD(id, property, dataType, data.remaining() >> GLChecks.typeToByteShift(dataType), memAddress(data));
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #wglGetGPUInfoAMD GetGPUInfoAMD} */

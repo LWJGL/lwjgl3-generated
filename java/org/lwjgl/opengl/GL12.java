@@ -392,7 +392,7 @@ public final class GL12 {
 	 */
 	public static void glDrawRangeElements(int mode, int start, int end, int count, int type, ByteBuffer indices) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(indices, count / GLChecks.typeToBytes(type));
+			checkBuffer(indices, count << GLChecks.typeToByteShift(type));
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawRangeElements(mode, start, end, count, type, memAddress(indices));
@@ -409,7 +409,7 @@ public final class GL12 {
 	public static void glDrawRangeElements(int mode, int start, int end, int type, ByteBuffer indices) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
-		nglDrawRangeElements(mode, start, end, indices.remaining() * GLChecks.typeToBytes(type), type, memAddress(indices));
+		nglDrawRangeElements(mode, start, end, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices));
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawRangeElements DrawRangeElements} */

@@ -14,6 +14,8 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
+import static org.lwjgl.opengl.GL11.*;
+
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/path_rendering.txt">NV_path_rendering</a> extension.
  * 
@@ -533,14 +535,14 @@ public final class NVPathRendering {
 	public static void glPathCommandsNV(int path, int numCommands, ByteBuffer commands, int numCoords, int coordType, ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(commands, numCommands);
-			checkBuffer(coords, numCoords);
+			checkBuffer(coords, numCoords << GLChecks.typeToByteShift(coordType));
 		}
 		nglPathCommandsNV(path, numCommands, memAddress(commands), numCoords, coordType, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glPathCommandsNV PathCommandsNV} */
 	public static void glPathCommandsNV(int path, ByteBuffer commands, int coordType, ByteBuffer coords) {
-		nglPathCommandsNV(path, commands.remaining(), memAddress(commands), coords.remaining(), coordType, memAddress(coords));
+		nglPathCommandsNV(path, commands.remaining(), memAddress(commands), coords.remaining() >> GLChecks.typeToByteShift(coordType), coordType, memAddress(coords));
 	}
 
 	/** GL_BYTE version of: {@link #glPathCommandsNV PathCommandsNV} */
@@ -581,13 +583,13 @@ public final class NVPathRendering {
 	 */
 	public static void glPathCoordsNV(int path, int numCoords, int coordType, ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(coords, numCoords);
+			checkBuffer(coords, numCoords << GLChecks.typeToByteShift(coordType));
 		nglPathCoordsNV(path, numCoords, coordType, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glPathCoordsNV PathCoordsNV} */
 	public static void glPathCoordsNV(int path, int coordType, ByteBuffer coords) {
-		nglPathCoordsNV(path, coords.remaining(), coordType, memAddress(coords));
+		nglPathCoordsNV(path, coords.remaining() >> GLChecks.typeToByteShift(coordType), coordType, memAddress(coords));
 	}
 
 	/** GL_BYTE version of: {@link #glPathCoordsNV PathCoordsNV} */
@@ -633,14 +635,14 @@ public final class NVPathRendering {
 	public static void glPathSubCommandsNV(int path, int commandStart, int commandsToDelete, int numCommands, ByteBuffer commands, int numCoords, int coordType, ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(commands, numCommands);
-			checkBuffer(coords, numCoords);
+			checkBuffer(coords, numCoords << GLChecks.typeToByteShift(coordType));
 		}
 		nglPathSubCommandsNV(path, commandStart, commandsToDelete, numCommands, memAddress(commands), numCoords, coordType, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glPathSubCommandsNV PathSubCommandsNV} */
 	public static void glPathSubCommandsNV(int path, int commandStart, int commandsToDelete, ByteBuffer commands, int coordType, ByteBuffer coords) {
-		nglPathSubCommandsNV(path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), coords.remaining(), coordType, memAddress(coords));
+		nglPathSubCommandsNV(path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), coords.remaining() >> GLChecks.typeToByteShift(coordType), coordType, memAddress(coords));
 	}
 
 	/** GL_BYTE version of: {@link #glPathSubCommandsNV PathSubCommandsNV} */
@@ -682,13 +684,13 @@ public final class NVPathRendering {
 	 */
 	public static void glPathSubCoordsNV(int path, int coordStart, int numCoords, int coordType, ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(coords, numCoords);
+			checkBuffer(coords, numCoords << GLChecks.typeToByteShift(coordType));
 		nglPathSubCoordsNV(path, coordStart, numCoords, coordType, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glPathSubCoordsNV PathSubCoordsNV} */
 	public static void glPathSubCoordsNV(int path, int coordStart, int coordType, ByteBuffer coords) {
-		nglPathSubCoordsNV(path, coordStart, coords.remaining(), coordType, memAddress(coords));
+		nglPathSubCoordsNV(path, coordStart, coords.remaining() >> GLChecks.typeToByteShift(coordType), coordType, memAddress(coords));
 	}
 
 	/** GL_BYTE version of: {@link #glPathSubCoordsNV PathSubCoordsNV} */
@@ -768,9 +770,16 @@ public final class NVPathRendering {
 	public static void glPathGlyphsNV(int firstPathName, int fontTarget, ByteBuffer fontName, int fontStyle, int numGlyphs, int type, ByteBuffer charcodes, int handleMissingGlyphs, int pathParameterTemplate, float emScale) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkNT1(fontName);
-			checkBuffer(charcodes, numGlyphs);
+			checkBuffer(charcodes, numGlyphs * charcodeTypeToBytes(type));
 		}
 		nglPathGlyphsNV(firstPathName, fontTarget, memAddress(fontName), fontStyle, numGlyphs, type, memAddress(charcodes), handleMissingGlyphs, pathParameterTemplate, emScale);
+	}
+
+	/** Alternative version of: {@link #glPathGlyphsNV PathGlyphsNV} */
+	public static void glPathGlyphsNV(int firstPathName, int fontTarget, ByteBuffer fontName, int fontStyle, int type, ByteBuffer charcodes, int handleMissingGlyphs, int pathParameterTemplate, float emScale) {
+		if ( LWJGLUtil.CHECKS )
+			checkNT1(fontName);
+		nglPathGlyphsNV(firstPathName, fontTarget, memAddress(fontName), fontStyle, charcodes.remaining() / charcodeTypeToBytes(type), type, memAddress(charcodes), handleMissingGlyphs, pathParameterTemplate, emScale);
 	}
 
 	// --- [ glPathGlyphRangeNV ] ---
@@ -952,14 +961,14 @@ public final class NVPathRendering {
 	 */
 	public static void glTransformPathNV(int resultPath, int srcPath, int transformType, ByteBuffer transformValues) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(transformValues, 16 << 2);
+			checkBuffer(transformValues, transformTypeToElements(transformType) << 2);
 		nglTransformPathNV(resultPath, srcPath, transformType, memAddress(transformValues));
 	}
 
 	/** Alternative version of: {@link #glTransformPathNV TransformPathNV} */
 	public static void glTransformPathNV(int resultPath, int srcPath, int transformType, FloatBuffer transformValues) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(transformValues, 16);
+			checkBuffer(transformValues, transformTypeToElements(transformType));
 		nglTransformPathNV(resultPath, srcPath, transformType, memAddress(transformValues));
 	}
 
@@ -1035,11 +1044,15 @@ public final class NVPathRendering {
 	 * @param value 
 	 */
 	public static void glPathParameterfvNV(int path, int pname, ByteBuffer value) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(value, 1 << 2);
 		nglPathParameterfvNV(path, pname, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glPathParameterfvNV PathParameterfvNV} */
 	public static void glPathParameterfvNV(int path, int pname, FloatBuffer value) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(value, 1);
 		nglPathParameterfvNV(path, pname, memAddress(value));
 	}
 
@@ -1196,19 +1209,17 @@ public final class NVPathRendering {
 	 */
 	public static void glStencilFillPathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int fillMode, int mask, int transformType, ByteBuffer transformValues) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(paths, numPaths);
-			checkBuffer(transformValues, 16 << 2);
+			checkBuffer(paths, numPaths * pathNameTypeToBytes(pathNameType));
+			checkBuffer(transformValues, transformTypeToElements(transformType) << 2);
 		}
 		nglStencilFillPathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, fillMode, mask, transformType, memAddress(transformValues));
 	}
 
 	/** Alternative version of: {@link #glStencilFillPathInstancedNV StencilFillPathInstancedNV} */
-	public static void glStencilFillPathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int fillMode, int mask, int transformType, FloatBuffer transformValues) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(paths, numPaths);
-			checkBuffer(transformValues, 16);
-		}
-		nglStencilFillPathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, fillMode, mask, transformType, memAddress(transformValues));
+	public static void glStencilFillPathInstancedNV(int pathNameType, ByteBuffer paths, int pathBase, int fillMode, int mask, int transformType, FloatBuffer transformValues) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(transformValues, transformTypeToElements(transformType));
+		nglStencilFillPathInstancedNV(paths.remaining() / pathNameTypeToBytes(pathNameType), pathNameType, memAddress(paths), pathBase, fillMode, mask, transformType, memAddress(transformValues));
 	}
 
 	// --- [ glStencilStrokePathInstancedNV ] ---
@@ -1238,19 +1249,17 @@ public final class NVPathRendering {
 	 */
 	public static void glStencilStrokePathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int reference, int mask, int transformType, ByteBuffer transformValues) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(paths, numPaths);
-			checkBuffer(transformValues, 16 << 2);
+			checkBuffer(paths, numPaths * pathNameTypeToBytes(pathNameType));
+			checkBuffer(transformValues, transformTypeToElements(transformType) << 2);
 		}
 		nglStencilStrokePathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, reference, mask, transformType, memAddress(transformValues));
 	}
 
 	/** Alternative version of: {@link #glStencilStrokePathInstancedNV StencilStrokePathInstancedNV} */
-	public static void glStencilStrokePathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int reference, int mask, int transformType, FloatBuffer transformValues) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(paths, numPaths);
-			checkBuffer(transformValues, 16);
-		}
-		nglStencilStrokePathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, reference, mask, transformType, memAddress(transformValues));
+	public static void glStencilStrokePathInstancedNV(int pathNameType, ByteBuffer paths, int pathBase, int reference, int mask, int transformType, FloatBuffer transformValues) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(transformValues, transformTypeToElements(transformType));
+		nglStencilStrokePathInstancedNV(paths.remaining() / pathNameTypeToBytes(pathNameType), pathNameType, memAddress(paths), pathBase, reference, mask, transformType, memAddress(transformValues));
 	}
 
 	// --- [ glPathCoverDepthFuncNV ] ---
@@ -1284,15 +1293,19 @@ public final class NVPathRendering {
 	 *
 	 * @param color       one of:<br>{@link GL13#GL_PRIMARY_COLOR PRIMARY_COLOR}, {@link #GL_PRIMARY_COLOR_NV PRIMARY_COLOR_NV}, {@link #GL_SECONDARY_COLOR_NV SECONDARY_COLOR_NV}
 	 * @param genMode     one of:<br>{@link GL11#GL_NONE NONE}, {@link #GL_OBJECT_LINEAR_NV OBJECT_LINEAR_NV}, {@link #GL_PATH_OBJECT_BOUNDING_BOX_NV PATH_OBJECT_BOUNDING_BOX_NV}, {@link #GL_EYE_LINEAR_NV EYE_LINEAR_NV}, {@link #GL_CONSTANT_NV CONSTANT_NV}
-	 * @param colorFormat 
+	 * @param colorFormat {@link GL11#GL_LUMINANCE LUMINANCE} {@link GL11#GL_ALPHA ALPHA} {@link GL11#GL_INTENSITY INTENSITY} {@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA} {@link GL11#GL_RGB RGB} {@link GL11#GL_RGBA RGBA}
 	 * @param coeffs      
 	 */
 	public static void glPathColorGenNV(int color, int genMode, int colorFormat, ByteBuffer coeffs) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(coeffs, (genModeToElements(genMode) * colorFormatToComponents(colorFormat)) << 2);
 		nglPathColorGenNV(color, genMode, colorFormat, memAddress(coeffs));
 	}
 
 	/** Alternative version of: {@link #glPathColorGenNV PathColorGenNV} */
 	public static void glPathColorGenNV(int color, int genMode, int colorFormat, FloatBuffer coeffs) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(coeffs, genModeToElements(genMode) * colorFormatToComponents(colorFormat));
 		nglPathColorGenNV(color, genMode, colorFormat, memAddress(coeffs));
 	}
 
@@ -1312,11 +1325,15 @@ public final class NVPathRendering {
 	}
 
 	public static void glPathTexGenNV(int texCoordSet, int genMode, int components, ByteBuffer coeffs) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(coeffs, (genModeToElements(genMode) * components) << 2);
 		nglPathTexGenNV(texCoordSet, genMode, components, memAddress(coeffs));
 	}
 
 	/** Alternative version of: {@link #glPathTexGenNV PathTexGenNV} */
 	public static void glPathTexGenNV(int texCoordSet, int genMode, int components, FloatBuffer coeffs) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(coeffs, genModeToElements(genMode) * components);
 		nglPathTexGenNV(texCoordSet, genMode, components, memAddress(coeffs));
 	}
 
@@ -1393,19 +1410,17 @@ public final class NVPathRendering {
 	 */
 	public static void glCoverFillPathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int coverMode, int transformType, ByteBuffer transformValues) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(paths, numPaths);
-			checkBuffer(transformValues, 16 << 2);
+			checkBuffer(paths, numPaths * pathNameTypeToBytes(pathNameType));
+			checkBuffer(transformValues, transformTypeToElements(transformType) << 2);
 		}
 		nglCoverFillPathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, coverMode, transformType, memAddress(transformValues));
 	}
 
 	/** Alternative version of: {@link #glCoverFillPathInstancedNV CoverFillPathInstancedNV} */
-	public static void glCoverFillPathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int coverMode, int transformType, FloatBuffer transformValues) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(paths, numPaths);
-			checkBuffer(transformValues, 16);
-		}
-		nglCoverFillPathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, coverMode, transformType, memAddress(transformValues));
+	public static void glCoverFillPathInstancedNV(int pathNameType, ByteBuffer paths, int pathBase, int coverMode, int transformType, FloatBuffer transformValues) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(transformValues, transformTypeToElements(transformType));
+		nglCoverFillPathInstancedNV(paths.remaining() / pathNameTypeToBytes(pathNameType), pathNameType, memAddress(paths), pathBase, coverMode, transformType, memAddress(transformValues));
 	}
 
 	// --- [ glCoverStrokePathInstancedNV ] ---
@@ -1434,19 +1449,17 @@ public final class NVPathRendering {
 	 */
 	public static void glCoverStrokePathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int coverMode, int transformType, ByteBuffer transformValues) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(paths, numPaths);
-			checkBuffer(transformValues, 16 << 2);
+			checkBuffer(paths, numPaths * pathNameTypeToBytes(pathNameType));
+			checkBuffer(transformValues, transformTypeToElements(transformType) << 2);
 		}
 		nglCoverStrokePathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, coverMode, transformType, memAddress(transformValues));
 	}
 
 	/** Alternative version of: {@link #glCoverStrokePathInstancedNV CoverStrokePathInstancedNV} */
-	public static void glCoverStrokePathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int coverMode, int transformType, FloatBuffer transformValues) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(paths, numPaths);
-			checkBuffer(transformValues, 16);
-		}
-		nglCoverStrokePathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, coverMode, transformType, memAddress(transformValues));
+	public static void glCoverStrokePathInstancedNV(int pathNameType, ByteBuffer paths, int pathBase, int coverMode, int transformType, FloatBuffer transformValues) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(transformValues, transformTypeToElements(transformType));
+		nglCoverStrokePathInstancedNV(paths.remaining() / pathNameTypeToBytes(pathNameType), pathNameType, memAddress(paths), pathBase, coverMode, transformType, memAddress(transformValues));
 	}
 
 	// --- [ glStencilThenCoverFillPathNV ] ---
@@ -1521,19 +1534,17 @@ public final class NVPathRendering {
 	 */
 	public static void glStencilThenCoverFillPathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int fillMode, int mask, int coverMode, int transformType, ByteBuffer transformValues) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(paths, numPaths);
-			checkBuffer(transformValues, 16 << 2);
+			checkBuffer(paths, numPaths * pathNameTypeToBytes(pathNameType));
+			checkBuffer(transformValues, transformTypeToElements(transformType) << 2);
 		}
 		nglStencilThenCoverFillPathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, fillMode, mask, coverMode, transformType, memAddress(transformValues));
 	}
 
 	/** Alternative version of: {@link #glStencilThenCoverFillPathInstancedNV StencilThenCoverFillPathInstancedNV} */
-	public static void glStencilThenCoverFillPathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int fillMode, int mask, int coverMode, int transformType, FloatBuffer transformValues) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(paths, numPaths);
-			checkBuffer(transformValues, 16);
-		}
-		nglStencilThenCoverFillPathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, fillMode, mask, coverMode, transformType, memAddress(transformValues));
+	public static void glStencilThenCoverFillPathInstancedNV(int pathNameType, ByteBuffer paths, int pathBase, int fillMode, int mask, int coverMode, int transformType, FloatBuffer transformValues) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(transformValues, transformTypeToElements(transformType));
+		nglStencilThenCoverFillPathInstancedNV(paths.remaining() / pathNameTypeToBytes(pathNameType), pathNameType, memAddress(paths), pathBase, fillMode, mask, coverMode, transformType, memAddress(transformValues));
 	}
 
 	// --- [ glStencilThenCoverStrokePathInstancedNV ] ---
@@ -1566,19 +1577,17 @@ public final class NVPathRendering {
 	 */
 	public static void glStencilThenCoverStrokePathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int reference, int mask, int coverMode, int transformType, ByteBuffer transformValues) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(paths, numPaths);
-			checkBuffer(transformValues, 16 << 2);
+			checkBuffer(paths, numPaths * pathNameTypeToBytes(pathNameType));
+			checkBuffer(transformValues, transformTypeToElements(transformType) << 2);
 		}
 		nglStencilThenCoverStrokePathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, reference, mask, coverMode, transformType, memAddress(transformValues));
 	}
 
 	/** Alternative version of: {@link #glStencilThenCoverStrokePathInstancedNV StencilThenCoverStrokePathInstancedNV} */
-	public static void glStencilThenCoverStrokePathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int reference, int mask, int coverMode, int transformType, FloatBuffer transformValues) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(paths, numPaths);
-			checkBuffer(transformValues, 16);
-		}
-		nglStencilThenCoverStrokePathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, reference, mask, coverMode, transformType, memAddress(transformValues));
+	public static void glStencilThenCoverStrokePathInstancedNV(int pathNameType, ByteBuffer paths, int pathBase, int reference, int mask, int coverMode, int transformType, FloatBuffer transformValues) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(transformValues, transformTypeToElements(transformType));
+		nglStencilThenCoverStrokePathInstancedNV(paths.remaining() / pathNameTypeToBytes(pathNameType), pathNameType, memAddress(paths), pathBase, reference, mask, coverMode, transformType, memAddress(transformValues));
 	}
 
 	// --- [ glPathGlyphIndexRangeNV ] ---
@@ -1596,7 +1605,19 @@ public final class NVPathRendering {
 		return nglPathGlyphIndexRangeNV(fontTarget, fontName, fontStyle, pathParameterTemplate, emScale, baseAndCount, __functionAddress);
 	}
 
+	/**
+	 * 
+	 *
+	 * @param fontTarget            one of:<br>{@link #GL_STANDARD_FONT_NAME_NV STANDARD_FONT_NAME_NV}, {@link #GL_SYSTEM_FONT_NAME_NV SYSTEM_FONT_NAME_NV}, {@link #GL_FILE_NAME_NV FILE_NAME_NV}
+	 * @param fontName              
+	 * @param fontStyle             one or more of:<br>{@link #GL_BOLD_BIT_NV BOLD_BIT_NV}, {@link #GL_ITALIC_BIT_NV ITALIC_BIT_NV}
+	 * @param pathParameterTemplate 
+	 * @param emScale               
+	 * @param baseAndCount          
+	 */
 	public static int glPathGlyphIndexRangeNV(int fontTarget, ByteBuffer fontName, int fontStyle, int pathParameterTemplate, float emScale, int baseAndCount) {
+		if ( LWJGLUtil.CHECKS )
+			checkNT1(fontName);
 		return nglPathGlyphIndexRangeNV(fontTarget, memAddress(fontName), fontStyle, pathParameterTemplate, emScale, baseAndCount);
 	}
 
@@ -1616,11 +1637,15 @@ public final class NVPathRendering {
 	}
 
 	public static void glProgramPathFragmentInputGenNV(int program, int location, int genMode, int components, ByteBuffer coeffs) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(coeffs, (genModeToElements(genMode) * components) << 2);
 		nglProgramPathFragmentInputGenNV(program, location, genMode, components, memAddress(coeffs));
 	}
 
 	/** Alternative version of: {@link #glProgramPathFragmentInputGenNV ProgramPathFragmentInputGenNV} */
 	public static void glProgramPathFragmentInputGenNV(int program, int location, int genMode, int components, FloatBuffer coeffs) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(coeffs, genModeToElements(genMode) * components);
 		nglProgramPathFragmentInputGenNV(program, location, genMode, components, memAddress(coeffs));
 	}
 
@@ -1720,6 +1745,9 @@ public final class NVPathRendering {
 	}
 
 	public static void glGetPathCommandsNV(int path, ByteBuffer commands) {
+		if ( LWJGLUtil.CHECKS )
+			if ( LWJGLUtil.DEBUG )
+				checkBuffer(commands, glGetPathParameteriNV(path, GL_PATH_COMMAND_COUNT_NV));
 		nglGetPathCommandsNV(path, memAddress(commands));
 	}
 
@@ -1737,11 +1765,17 @@ public final class NVPathRendering {
 	}
 
 	public static void glGetPathCoordsNV(int path, ByteBuffer coords) {
+		if ( LWJGLUtil.CHECKS )
+			if ( LWJGLUtil.DEBUG )
+				checkBuffer(coords, (glGetPathParameteriNV(path, GL_PATH_COORD_COUNT_NV)) << 2);
 		nglGetPathCoordsNV(path, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glGetPathCoordsNV GetPathCoordsNV} */
 	public static void glGetPathCoordsNV(int path, FloatBuffer coords) {
+		if ( LWJGLUtil.CHECKS )
+			if ( LWJGLUtil.DEBUG )
+				checkBuffer(coords, glGetPathParameteriNV(path, GL_PATH_COORD_COUNT_NV));
 		nglGetPathCoordsNV(path, memAddress(coords));
 	}
 
@@ -1759,11 +1793,17 @@ public final class NVPathRendering {
 	}
 
 	public static void glGetPathDashArrayNV(int path, ByteBuffer dashArray) {
+		if ( LWJGLUtil.CHECKS )
+			if ( LWJGLUtil.DEBUG )
+				checkBuffer(dashArray, (glGetPathParameteriNV(path, GL_PATH_DASH_ARRAY_COUNT_NV)) << 2);
 		nglGetPathDashArrayNV(path, memAddress(dashArray));
 	}
 
 	/** Alternative version of: {@link #glGetPathDashArrayNV GetPathDashArrayNV} */
 	public static void glGetPathDashArrayNV(int path, FloatBuffer dashArray) {
+		if ( LWJGLUtil.CHECKS )
+			if ( LWJGLUtil.DEBUG )
+				checkBuffer(dashArray, glGetPathParameteriNV(path, GL_PATH_DASH_ARRAY_COUNT_NV));
 		nglGetPathDashArrayNV(path, memAddress(dashArray));
 	}
 
@@ -1792,15 +1832,18 @@ public final class NVPathRendering {
 	 * @param metrics         
 	 */
 	public static void glGetPathMetricsNV(int metricQueryMask, int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int stride, ByteBuffer metrics) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(paths, numPaths);
+		if ( LWJGLUtil.CHECKS ) {
+			checkBuffer(paths, numPaths * pathNameTypeToBytes(pathNameType));
+			checkBuffer(metrics, (numPaths * (stride == 0 ? Integer.bitCount(metricQueryMask) : (stride >> 2))) << 2);
+		}
 		nglGetPathMetricsNV(metricQueryMask, numPaths, pathNameType, memAddress(paths), pathBase, stride, memAddress(metrics));
 	}
 
 	/** Alternative version of: {@link #glGetPathMetricsNV GetPathMetricsNV} */
-	public static void glGetPathMetricsNV(int metricQueryMask, int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int stride, FloatBuffer metrics) {
+	public static void glGetPathMetricsNV(int metricQueryMask, int pathNameType, ByteBuffer paths, int pathBase, int stride, FloatBuffer metrics) {
+		int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(paths, numPaths);
+			checkBuffer(metrics, numPaths * (stride == 0 ? Integer.bitCount(metricQueryMask) : (stride >> 2)));
 		nglGetPathMetricsNV(metricQueryMask, numPaths, pathNameType, memAddress(paths), pathBase, stride, memAddress(metrics));
 	}
 
@@ -1827,11 +1870,15 @@ public final class NVPathRendering {
 	 * @param metrics         
 	 */
 	public static void glGetPathMetricRangeNV(int metricQueryMask, int firstPathName, int numPaths, int stride, ByteBuffer metrics) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(metrics, (numPaths * (stride == 0 ? Integer.bitCount(metricQueryMask) : (stride >> 2))) << 2);
 		nglGetPathMetricRangeNV(metricQueryMask, firstPathName, numPaths, stride, memAddress(metrics));
 	}
 
 	/** Alternative version of: {@link #glGetPathMetricRangeNV GetPathMetricRangeNV} */
 	public static void glGetPathMetricRangeNV(int metricQueryMask, int firstPathName, int numPaths, int stride, FloatBuffer metrics) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(metrics, numPaths * (stride == 0 ? Integer.bitCount(metricQueryMask) : (stride >> 2)));
 		nglGetPathMetricRangeNV(metricQueryMask, firstPathName, numPaths, stride, memAddress(metrics));
 	}
 
@@ -1858,19 +1905,22 @@ public final class NVPathRendering {
 	 * @param pathBase        
 	 * @param advanceScale    
 	 * @param kerningScale    
-	 * @param transformType   one of:<br>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}, {@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}, {@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}, {@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}, {@link #GL_AFFINE_2D_NV AFFINE_2D_NV}, {@link #GL_AFFINE_3D_NV AFFINE_3D_NV}, {@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}, {@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}
+	 * @param transformType   one of:<br>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}, {@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}
 	 * @param returnedSpacing 
 	 */
 	public static void glGetPathSpacingNV(int pathListMode, int numPaths, int pathNameType, ByteBuffer paths, int pathBase, float advanceScale, float kerningScale, int transformType, ByteBuffer returnedSpacing) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(paths, numPaths);
+		if ( LWJGLUtil.CHECKS ) {
+			checkBuffer(paths, numPaths * pathNameTypeToBytes(pathNameType));
+			checkBuffer(returnedSpacing, ((numPaths - 1) * (transformType == GL_TRANSLATE_X_NV ? 1 : 2)) << 2);
+		}
 		nglGetPathSpacingNV(pathListMode, numPaths, pathNameType, memAddress(paths), pathBase, advanceScale, kerningScale, transformType, memAddress(returnedSpacing));
 	}
 
 	/** Alternative version of: {@link #glGetPathSpacingNV GetPathSpacingNV} */
-	public static void glGetPathSpacingNV(int pathListMode, int numPaths, int pathNameType, ByteBuffer paths, int pathBase, float advanceScale, float kerningScale, int transformType, FloatBuffer returnedSpacing) {
+	public static void glGetPathSpacingNV(int pathListMode, int pathNameType, ByteBuffer paths, int pathBase, float advanceScale, float kerningScale, int transformType, FloatBuffer returnedSpacing) {
+		int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(paths, numPaths);
+			checkBuffer(returnedSpacing, (numPaths - 1) * (transformType == GL_TRANSLATE_X_NV ? 1 : 2));
 		nglGetPathSpacingNV(pathListMode, numPaths, pathNameType, memAddress(paths), pathBase, advanceScale, kerningScale, transformType, memAddress(returnedSpacing));
 	}
 
@@ -1893,15 +1943,19 @@ public final class NVPathRendering {
 	 * 
 	 *
 	 * @param color one of:<br>{@link GL13#GL_PRIMARY_COLOR PRIMARY_COLOR}, {@link #GL_PRIMARY_COLOR_NV PRIMARY_COLOR_NV}, {@link #GL_SECONDARY_COLOR_NV SECONDARY_COLOR_NV}
-	 * @param pname one of:<br>{@link #GL_PATH_GEN_MODE_NV PATH_GEN_MODE_NV}, {@link #GL_PATH_GEN_COLOR_FORMAT_NV PATH_GEN_COLOR_FORMAT_NV}, {@link #GL_PATH_GEN_COEFF_NV PATH_GEN_COEFF_NV}
+	 * @param pname one of:<br>{@link #GL_PATH_GEN_MODE_NV PATH_GEN_MODE_NV}, {@link #GL_PATH_GEN_COEFF_NV PATH_GEN_COEFF_NV}, {@link #GL_PATH_GEN_COLOR_FORMAT_NV PATH_GEN_COLOR_FORMAT_NV}
 	 * @param value 
 	 */
 	public static void glGetPathColorGenivNV(int color, int pname, ByteBuffer value) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(value, 1 << 2);
 		nglGetPathColorGenivNV(color, pname, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glGetPathColorGenivNV GetPathColorGenivNV} */
 	public static void glGetPathColorGenivNV(int color, int pname, IntBuffer value) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(value, 1);
 		nglGetPathColorGenivNV(color, pname, memAddress(value));
 	}
 
@@ -1932,15 +1986,19 @@ public final class NVPathRendering {
 	 * 
 	 *
 	 * @param color one of:<br>{@link GL13#GL_PRIMARY_COLOR PRIMARY_COLOR}, {@link #GL_PRIMARY_COLOR_NV PRIMARY_COLOR_NV}, {@link #GL_SECONDARY_COLOR_NV SECONDARY_COLOR_NV}
-	 * @param pname one of:<br>{@link #GL_PATH_GEN_MODE_NV PATH_GEN_MODE_NV}, {@link #GL_PATH_GEN_COLOR_FORMAT_NV PATH_GEN_COLOR_FORMAT_NV}, {@link #GL_PATH_GEN_COEFF_NV PATH_GEN_COEFF_NV}
+	 * @param pname one of:<br>{@link #GL_PATH_GEN_MODE_NV PATH_GEN_MODE_NV}, {@link #GL_PATH_GEN_COEFF_NV PATH_GEN_COEFF_NV}, {@link #GL_PATH_GEN_COLOR_FORMAT_NV PATH_GEN_COLOR_FORMAT_NV}
 	 * @param value 
 	 */
 	public static void glGetPathColorGenfvNV(int color, int pname, ByteBuffer value) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(value, 1 << 2);
 		nglGetPathColorGenfvNV(color, pname, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glGetPathColorGenfvNV GetPathColorGenfvNV} */
 	public static void glGetPathColorGenfvNV(int color, int pname, FloatBuffer value) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(value, 1);
 		nglGetPathColorGenfvNV(color, pname, memAddress(value));
 	}
 
@@ -1967,12 +2025,23 @@ public final class NVPathRendering {
 		nglGetPathTexGenivNV(texCoordSet, pname, value, __functionAddress);
 	}
 
+	/**
+	 * 
+	 *
+	 * @param texCoordSet 
+	 * @param pname       {@link #GL_PATH_GEN_MODE_NV PATH_GEN_MODE_NV} {@link #GL_PATH_GEN_COEFF_NV PATH_GEN_COEFF_NV} {@link #GL_PATH_GEN_COMPONENTS_NV PATH_GEN_COMPONENTS_NV}
+	 * @param value       
+	 */
 	public static void glGetPathTexGenivNV(int texCoordSet, int pname, ByteBuffer value) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(value, 1 << 2);
 		nglGetPathTexGenivNV(texCoordSet, pname, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glGetPathTexGenivNV GetPathTexGenivNV} */
 	public static void glGetPathTexGenivNV(int texCoordSet, int pname, IntBuffer value) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(value, 1);
 		nglGetPathTexGenivNV(texCoordSet, pname, memAddress(value));
 	}
 
@@ -1999,6 +2068,13 @@ public final class NVPathRendering {
 		nglGetPathTexGenfvNV(texCoordSet, pname, value, __functionAddress);
 	}
 
+	/**
+	 * 
+	 *
+	 * @param texCoordSet 
+	 * @param pname       {@link #GL_PATH_GEN_MODE_NV PATH_GEN_MODE_NV} {@link #GL_PATH_GEN_COEFF_NV PATH_GEN_COEFF_NV} {@link #GL_PATH_GEN_COMPONENTS_NV PATH_GEN_COMPONENTS_NV}
+	 * @param value       
+	 */
 	public static void glGetPathTexGenfvNV(int texCoordSet, int pname, ByteBuffer value) {
 		nglGetPathTexGenfvNV(texCoordSet, pname, memAddress(value));
 	}
@@ -2325,6 +2401,102 @@ public final class NVPathRendering {
 		int params = __buffer.bufferParam(bufSize << 2);
 		nglGetProgramResourcefvNV(program, programInterface, index, props.remaining(), memAddress(props), bufSize, __buffer.address(length), __buffer.address(params));
 		return memFloatBuffer(__buffer.address(params), __buffer.intValue(length));
+	}
+
+	private static int charcodeTypeToBytes(int type) {
+		switch ( type ) {
+			case GL_UNSIGNED_BYTE:
+			case GL_UTF8_NV:
+				return 1;
+			case GL_UNSIGNED_SHORT:
+			case GL_2_BYTES_NV:
+			case GL_UTF16_NV:
+				return 2;
+			case GL_3_BYTES_NV:
+				return 3;
+			case GL_UNSIGNED_INT:
+			case GL_4_BYTES_NV:
+				return 4;
+			default:
+				throw new IllegalArgumentException(String.format("Unsupported charcode type: 0x%X", type));
+		}
+	}
+
+	private static int pathNameTypeToBytes(int type) {
+		switch ( type ) {
+			case GL_BYTE:
+			case GL_UNSIGNED_BYTE:
+			case GL_UTF8_NV:
+				return 1;
+			case GL_SHORT:
+			case GL_UNSIGNED_SHORT:
+			case GL_2_BYTES_NV:
+			case GL_UTF16_NV:
+				return 2;
+			case GL_3_BYTES_NV:
+				return 3;
+			case GL_INT:
+			case GL_UNSIGNED_INT:
+			case GL_4_BYTES_NV:
+				return 4;
+			default:
+				throw new IllegalArgumentException(String.format("Unsupported path name type: 0x%X", type));
+		}
+	}
+
+	private static int transformTypeToElements(int type) {
+		switch ( type ) {
+			case GL_NONE:
+				return 0;
+			case GL_TRANSLATE_X_NV:
+			case GL_TRANSLATE_Y_NV:
+				return 1;
+			case GL_TRANSLATE_2D_NV:
+				return 2;
+			case GL_TRANSLATE_3D_NV:
+				return 3;
+			case GL_AFFINE_2D_NV:
+			case GL_TRANSPOSE_AFFINE_2D_NV:
+				return 6;
+			case GL_AFFINE_3D_NV:
+			case GL_TRANSPOSE_AFFINE_3D_NV:
+				return 12;
+			default:
+				throw new IllegalArgumentException(String.format("Unsupported transform type: 0x%X", type));
+		}
+	}
+
+	private static int colorFormatToComponents(int colorFormat) {
+		switch ( colorFormat ) {
+			case GL_LUMINANCE:
+			case GL_INTENSITY:
+			case GL_ALPHA:
+				return 1;
+			case GL_LUMINANCE_ALPHA:
+				return 2;
+			case GL_RGB:
+				return 3;
+			case GL_RGBA:
+				return 4;
+			default:
+				throw new IllegalArgumentException(String.format("Unsupported colorFormat specified: 0x%X", colorFormat));
+		}
+	}
+
+	private static int genModeToElements(int genMode) {
+		switch ( genMode ) {
+			case GL_NONE:
+				return 0;
+			case GL_CONSTANT_NV:
+				return 1;
+			case GL_OBJECT_LINEAR_NV:
+			case GL_PATH_OBJECT_BOUNDING_BOX_NV:
+				return 3;
+			case GL_EYE_LINEAR_NV:
+				return 4;
+			default:
+				throw new IllegalArgumentException(String.format("Unsupported genMode specified: 0x%X", genMode));
+		}
 	}
 
 }

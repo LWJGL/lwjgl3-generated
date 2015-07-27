@@ -107,7 +107,7 @@ public final class ARBDrawInstanced {
 	 */
 	public static void glDrawElementsInstancedARB(int mode, int count, int type, ByteBuffer indices, int primcount) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(indices, count / GLChecks.typeToBytes(type));
+			checkBuffer(indices, count << GLChecks.typeToByteShift(type));
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElementsInstancedARB(mode, count, type, memAddress(indices), primcount);
@@ -124,7 +124,7 @@ public final class ARBDrawInstanced {
 	public static void glDrawElementsInstancedARB(int mode, int type, ByteBuffer indices, int primcount) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
-		nglDrawElementsInstancedARB(mode, indices.remaining() * GLChecks.typeToBytes(type), type, memAddress(indices), primcount);
+		nglDrawElementsInstancedARB(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), primcount);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedARB DrawElementsInstancedARB} */

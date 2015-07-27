@@ -1302,7 +1302,7 @@ public final class Xlib {
 	public static int XChangeProperty(long display, long w, long property, long type, int format, int mode, ByteBuffer data, int nelements) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
-			checkBuffer(data, nelements);
+			checkBuffer(data, nelements << (format >> 4));
 		}
 		return nXChangeProperty(display, w, property, type, format, mode, memAddress(data), nelements);
 	}
@@ -1311,21 +1311,21 @@ public final class Xlib {
 	public static int XChangeProperty(long display, long w, long property, long type, int format, int mode, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return nXChangeProperty(display, w, property, type, format, mode, memAddress(data), data.remaining());
+		return nXChangeProperty(display, w, property, type, format, mode, memAddress(data), data.remaining() >> (format >> 4));
 	}
 
 	/** ShortBuffer version of: {@link #XChangeProperty} */
 	public static int XChangeProperty(long display, long w, long property, long type, int format, int mode, ShortBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return nXChangeProperty(display, w, property, type, format, mode, memAddress(data), data.remaining());
+		return nXChangeProperty(display, w, property, type, format, mode, memAddress(data), (data.remaining() >> (format >> 4)) << 1);
 	}
 
 	/** IntBuffer version of: {@link #XChangeProperty} */
 	public static int XChangeProperty(long display, long w, long property, long type, int format, int mode, IntBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return nXChangeProperty(display, w, property, type, format, mode, memAddress(data), data.remaining());
+		return nXChangeProperty(display, w, property, type, format, mode, memAddress(data), (data.remaining() >> (format >> 4)) << 2);
 	}
 
 	// --- [ XTranslateCoordinates ] ---

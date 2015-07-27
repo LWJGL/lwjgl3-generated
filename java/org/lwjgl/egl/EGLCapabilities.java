@@ -93,7 +93,7 @@ public class EGLCapabilities {
 	/** When true, {@link EXTBufferAge} is supported. */
 	public final boolean EGL_EXT_buffer_age;
 	/**
-	 * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/EXT/EGL_EXT_client_extensions.txt">EXT_client_extensions</a> extension.
+	 * When true, the <a href="https://www.khronos.org/registry/egl/extensions/EXT/EGL_EXT_client_extensions.txt">EXT_client_extensions</a> extension is supported.
 	 * 
 	 * <p>This extension introduces the concept of *extension type*, requires that each EGL extension belong to exactly one type, and defines two types: display
 	 * and client. It also provides a method to query, without initializing a display, the set of supported client extensions.</p>
@@ -165,7 +165,7 @@ public class EGLCapabilities {
 	/** When true, {@link KHRCLEvent2} is supported. */
 	public final boolean EGL_KHR_cl_event2;
 	/**
-	 * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/EXT/EGL_KHR_get_all_proc_addresses.txt">KHR_client_get_all_proc_addresses</a> extension.
+	 * When true, the <a href="https://www.khronos.org/registry/egl/extensions/EXT/EGL_KHR_get_all_proc_addresses.txt">KHR_client_get_all_proc_addresses</a> extension is supported.
 	 * 
 	 * <p>eglGetProcAddress is currently defined to not support the querying of non-extension EGL or client API functions. Non-extension functions are expected
 	 * to be exposed as library symbols that can be resolved statically at link time, or dynamically at run time using OS-specific runtime linking mechanisms.</p>
@@ -197,7 +197,7 @@ public class EGLCapabilities {
 	/** When true, {@link KHRFenceSync} is supported. */
 	public final boolean EGL_KHR_fence_sync;
 	/**
-	 * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/KHR/EGL_KHR_get_all_proc_addresses.txt">KHR_get_all_proc_addresses</a> extension.
+	 * When true, the <a href="https://www.khronos.org/registry/egl/extensions/KHR/EGL_KHR_get_all_proc_addresses.txt">KHR_get_all_proc_addresses</a> extension is supported.
 	 * 
 	 * <p>eglGetProcAddress is currently defined to not support the querying of non-extension EGL or client API functions. Non-extension functions are expected
 	 * to be exposed as library symbols that can be resolved statically at link time, or dynamically at run time using OS-specific runtime linking mechanisms.</p>
@@ -259,15 +259,15 @@ public class EGLCapabilities {
 	/** When true, {@link KHRStreamFIFO} is supported. */
 	public final boolean EGL_KHR_stream_fifo;
 	/**
-	 * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/KHR/EGL_KHR_stream_producer_aldatalocator.txt">KHR_stream_producer_aldatalocator</a> extension.
+	 * When true, the <a href="https://www.khronos.org/registry/egl/extensions/KHR/EGL_KHR_stream_producer_aldatalocator.txt">KHR_stream_producer_aldatalocator</a> extension is supported.
 	 * 
 	 * <p>This extension (in conjunction with the OpenMAX_AL_EGLStream_DataLocator extension to OpenMAX AL) allows an OpenMAX AL MediaPlayer object to be
 	 * connected as the producer of an EGLStream.</p>
 	 * 
-	 * <p>After the EGLStream is created and connected to a consumer, the OpenMAX AL MediaPlayer object is created by calling <pEngine>'s CreateMediaPlayer()
-	 * method. The <pImageVideoSnk> argument points to an XADataLocator_EGLStream containing the EGLStreamKHR handle of the stream. The CreateMediaPlayer()
-	 * method creates a MediaPlayer object and connects it as the producer of the EGLStream. (Note that the pFormat member of the XADataSink structure is
-	 * ignored in this case and may be NULL.)</p>
+	 * <p>After the EGLStream is created and connected to a consumer, the OpenMAX AL MediaPlayer object is created by calling &lt;pEngine&gt;'s
+	 * CreateMediaPlayer() method. The &lt;pImageVideoSnk&gt; argument points to an XADataLocator_EGLStream containing the EGLStreamKHR handle of the stream.
+	 * The CreateMediaPlayer() method creates a MediaPlayer object and connects it as the producer of the EGLStream. (Note that the pFormat member of the
+	 * XADataSink structure is ignored in this case and may be {@code NULL}.)</p>
 	 * 
 	 * <p>Once connected the MediaPlayer inserts image frames into the EGLStream.</p>
 	 * 
@@ -277,7 +277,7 @@ public class EGLCapabilities {
 	/** When true, {@link KHRStreamProducerEglsurface} is supported. */
 	public final boolean EGL_KHR_stream_producer_eglsurface;
 	/**
-	 * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/KHR/EGL_KHR_surfaceless_context.txt">KHR_surfaceless_context</a> extension.
+	 * When true, the <a href="https://www.khronos.org/registry/egl/extensions/KHR/EGL_KHR_surfaceless_context.txt">KHR_surfaceless_context</a> extension is supported.
 	 * 
 	 * <p>These extensions allows an application to make a context current by passing EGL_NO_SURFACE for the write and read surface in the call to
 	 * eglMakeCurrent. The motivation is that applications that only want to render to client API targets (such as OpenGL framebuffer objects) should not need
@@ -317,7 +317,7 @@ public class EGLCapabilities {
 	/** When true, {@link NVNativeQuery} is supported. */
 	public final boolean EGL_NV_native_query;
 	/**
-	 * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/NV/EGL_NV_post_convert_rounding.txt">NV_post_convert_rounding</a> extension.
+	 * When true, the <a href="https://www.khronos.org/registry/egl/extensions/NV/EGL_NV_post_convert_rounding.txt">NV_post_convert_rounding</a> extension is supported.
 	 * 
 	 * <p>This extension defines the conversions for posting operations when the destination's number of components or component sizes do not match the color
 	 * buffer. This extension supports posting a 24 bit (888) color buffer to a 16 bit (565) destination buffer, posting a 16 bit (565) color buffer to a 24
@@ -343,7 +343,7 @@ public class EGLCapabilities {
 	 * <p>The function instances created here will be reused by EGLCapabilities instances for EGLDisplays.</p>
 	 *
 	 * <p>The capability flags in this instance are only set for the core EGL versions and client extensions. This may only happen if EGL 1.5 or the
-	 * {@link #EGL_EXT_client_extensions} extensions are supported. If not, all flags will be false and the version fields zero.</p>
+	 * {@link #EGL_EXT_client_extensions} extension are supported. If not, all flags will be false and the version fields zero.</p>
 	 *
 	 * @param majorVersion the EGL client major version
 	 * @param minorVersion the EGL client minor version
