@@ -76,8 +76,6 @@ import static org.lwjgl.opengl.GL11.*;
  * information written to the stencil buffer in the first step so that only fragments covered by the path are written during this second step. Also during
  * this second step written pixels typically have their stencil value reset (so there's no need for clearing the stencil buffer between rendering each
  * path).</p>
- * 
- * <p>Requires <a href="http://www.opengl.org/registry/specs/NV/path_rendering.txt">NV_path_rendering</a>.</p>
  */
 public final class NVPathRendering {
 
@@ -1210,16 +1208,17 @@ public final class NVPathRendering {
 	public static void glStencilFillPathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int fillMode, int mask, int transformType, ByteBuffer transformValues) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(paths, numPaths * pathNameTypeToBytes(pathNameType));
-			checkBuffer(transformValues, transformTypeToElements(transformType) << 2);
+			checkBuffer(transformValues, (numPaths * transformTypeToElements(transformType)) << 2);
 		}
 		nglStencilFillPathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, fillMode, mask, transformType, memAddress(transformValues));
 	}
 
 	/** Alternative version of: {@link #glStencilFillPathInstancedNV StencilFillPathInstancedNV} */
 	public static void glStencilFillPathInstancedNV(int pathNameType, ByteBuffer paths, int pathBase, int fillMode, int mask, int transformType, FloatBuffer transformValues) {
+		int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(transformValues, transformTypeToElements(transformType));
-		nglStencilFillPathInstancedNV(paths.remaining() / pathNameTypeToBytes(pathNameType), pathNameType, memAddress(paths), pathBase, fillMode, mask, transformType, memAddress(transformValues));
+			checkBuffer(transformValues, numPaths * transformTypeToElements(transformType));
+		nglStencilFillPathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, fillMode, mask, transformType, memAddress(transformValues));
 	}
 
 	// --- [ glStencilStrokePathInstancedNV ] ---
@@ -1250,16 +1249,17 @@ public final class NVPathRendering {
 	public static void glStencilStrokePathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int reference, int mask, int transformType, ByteBuffer transformValues) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(paths, numPaths * pathNameTypeToBytes(pathNameType));
-			checkBuffer(transformValues, transformTypeToElements(transformType) << 2);
+			checkBuffer(transformValues, (numPaths * transformTypeToElements(transformType)) << 2);
 		}
 		nglStencilStrokePathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, reference, mask, transformType, memAddress(transformValues));
 	}
 
 	/** Alternative version of: {@link #glStencilStrokePathInstancedNV StencilStrokePathInstancedNV} */
 	public static void glStencilStrokePathInstancedNV(int pathNameType, ByteBuffer paths, int pathBase, int reference, int mask, int transformType, FloatBuffer transformValues) {
+		int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(transformValues, transformTypeToElements(transformType));
-		nglStencilStrokePathInstancedNV(paths.remaining() / pathNameTypeToBytes(pathNameType), pathNameType, memAddress(paths), pathBase, reference, mask, transformType, memAddress(transformValues));
+			checkBuffer(transformValues, numPaths * transformTypeToElements(transformType));
+		nglStencilStrokePathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, reference, mask, transformType, memAddress(transformValues));
 	}
 
 	// --- [ glPathCoverDepthFuncNV ] ---
@@ -1411,16 +1411,17 @@ public final class NVPathRendering {
 	public static void glCoverFillPathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int coverMode, int transformType, ByteBuffer transformValues) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(paths, numPaths * pathNameTypeToBytes(pathNameType));
-			checkBuffer(transformValues, transformTypeToElements(transformType) << 2);
+			checkBuffer(transformValues, (numPaths * transformTypeToElements(transformType)) << 2);
 		}
 		nglCoverFillPathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, coverMode, transformType, memAddress(transformValues));
 	}
 
 	/** Alternative version of: {@link #glCoverFillPathInstancedNV CoverFillPathInstancedNV} */
 	public static void glCoverFillPathInstancedNV(int pathNameType, ByteBuffer paths, int pathBase, int coverMode, int transformType, FloatBuffer transformValues) {
+		int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(transformValues, transformTypeToElements(transformType));
-		nglCoverFillPathInstancedNV(paths.remaining() / pathNameTypeToBytes(pathNameType), pathNameType, memAddress(paths), pathBase, coverMode, transformType, memAddress(transformValues));
+			checkBuffer(transformValues, numPaths * transformTypeToElements(transformType));
+		nglCoverFillPathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, coverMode, transformType, memAddress(transformValues));
 	}
 
 	// --- [ glCoverStrokePathInstancedNV ] ---
@@ -1450,16 +1451,17 @@ public final class NVPathRendering {
 	public static void glCoverStrokePathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int coverMode, int transformType, ByteBuffer transformValues) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(paths, numPaths * pathNameTypeToBytes(pathNameType));
-			checkBuffer(transformValues, transformTypeToElements(transformType) << 2);
+			checkBuffer(transformValues, (numPaths * transformTypeToElements(transformType)) << 2);
 		}
 		nglCoverStrokePathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, coverMode, transformType, memAddress(transformValues));
 	}
 
 	/** Alternative version of: {@link #glCoverStrokePathInstancedNV CoverStrokePathInstancedNV} */
 	public static void glCoverStrokePathInstancedNV(int pathNameType, ByteBuffer paths, int pathBase, int coverMode, int transformType, FloatBuffer transformValues) {
+		int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(transformValues, transformTypeToElements(transformType));
-		nglCoverStrokePathInstancedNV(paths.remaining() / pathNameTypeToBytes(pathNameType), pathNameType, memAddress(paths), pathBase, coverMode, transformType, memAddress(transformValues));
+			checkBuffer(transformValues, numPaths * transformTypeToElements(transformType));
+		nglCoverStrokePathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, coverMode, transformType, memAddress(transformValues));
 	}
 
 	// --- [ glStencilThenCoverFillPathNV ] ---
@@ -1535,16 +1537,17 @@ public final class NVPathRendering {
 	public static void glStencilThenCoverFillPathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int fillMode, int mask, int coverMode, int transformType, ByteBuffer transformValues) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(paths, numPaths * pathNameTypeToBytes(pathNameType));
-			checkBuffer(transformValues, transformTypeToElements(transformType) << 2);
+			checkBuffer(transformValues, (numPaths * transformTypeToElements(transformType)) << 2);
 		}
 		nglStencilThenCoverFillPathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, fillMode, mask, coverMode, transformType, memAddress(transformValues));
 	}
 
 	/** Alternative version of: {@link #glStencilThenCoverFillPathInstancedNV StencilThenCoverFillPathInstancedNV} */
 	public static void glStencilThenCoverFillPathInstancedNV(int pathNameType, ByteBuffer paths, int pathBase, int fillMode, int mask, int coverMode, int transformType, FloatBuffer transformValues) {
+		int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(transformValues, transformTypeToElements(transformType));
-		nglStencilThenCoverFillPathInstancedNV(paths.remaining() / pathNameTypeToBytes(pathNameType), pathNameType, memAddress(paths), pathBase, fillMode, mask, coverMode, transformType, memAddress(transformValues));
+			checkBuffer(transformValues, numPaths * transformTypeToElements(transformType));
+		nglStencilThenCoverFillPathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, fillMode, mask, coverMode, transformType, memAddress(transformValues));
 	}
 
 	// --- [ glStencilThenCoverStrokePathInstancedNV ] ---
@@ -1578,16 +1581,17 @@ public final class NVPathRendering {
 	public static void glStencilThenCoverStrokePathInstancedNV(int numPaths, int pathNameType, ByteBuffer paths, int pathBase, int reference, int mask, int coverMode, int transformType, ByteBuffer transformValues) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(paths, numPaths * pathNameTypeToBytes(pathNameType));
-			checkBuffer(transformValues, transformTypeToElements(transformType) << 2);
+			checkBuffer(transformValues, (numPaths * transformTypeToElements(transformType)) << 2);
 		}
 		nglStencilThenCoverStrokePathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, reference, mask, coverMode, transformType, memAddress(transformValues));
 	}
 
 	/** Alternative version of: {@link #glStencilThenCoverStrokePathInstancedNV StencilThenCoverStrokePathInstancedNV} */
 	public static void glStencilThenCoverStrokePathInstancedNV(int pathNameType, ByteBuffer paths, int pathBase, int reference, int mask, int coverMode, int transformType, FloatBuffer transformValues) {
+		int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(transformValues, transformTypeToElements(transformType));
-		nglStencilThenCoverStrokePathInstancedNV(paths.remaining() / pathNameTypeToBytes(pathNameType), pathNameType, memAddress(paths), pathBase, reference, mask, coverMode, transformType, memAddress(transformValues));
+			checkBuffer(transformValues, numPaths * transformTypeToElements(transformType));
+		nglStencilThenCoverStrokePathInstancedNV(numPaths, pathNameType, memAddress(paths), pathBase, reference, mask, coverMode, transformType, memAddress(transformValues));
 	}
 
 	// --- [ glPathGlyphIndexRangeNV ] ---

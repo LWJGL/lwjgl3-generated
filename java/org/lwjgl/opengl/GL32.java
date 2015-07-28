@@ -392,7 +392,7 @@ public final class GL32 {
 	 */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, ByteBuffer indices, int basevertex) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(indices, count << GLChecks.typeToBytes(type));
+			checkBuffer(indices, count << GLChecks.typeToByteShift(type));
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawRangeElementsBaseVertex(mode, start, end, count, type, memAddress(indices), basevertex);
@@ -409,7 +409,7 @@ public final class GL32 {
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int type, ByteBuffer indices, int basevertex) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
-		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining() >> GLChecks.typeToBytes(type), type, memAddress(indices), basevertex);
+		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
@@ -460,7 +460,7 @@ public final class GL32 {
 	 */
 	public static void glDrawElementsInstancedBaseVertex(int mode, int count, int type, ByteBuffer indices, int primcount, int basevertex) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(indices, count << GLChecks.typeToBytes(type));
+			checkBuffer(indices, count << GLChecks.typeToByteShift(type));
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
 		nglDrawElementsInstancedBaseVertex(mode, count, type, memAddress(indices), primcount, basevertex);
@@ -477,7 +477,7 @@ public final class GL32 {
 	public static void glDrawElementsInstancedBaseVertex(int mode, int type, ByteBuffer indices, int primcount, int basevertex) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
-		nglDrawElementsInstancedBaseVertex(mode, indices.remaining() >> GLChecks.typeToBytes(type), type, memAddress(indices), primcount, basevertex);
+		nglDrawElementsInstancedBaseVertex(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), primcount, basevertex);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
