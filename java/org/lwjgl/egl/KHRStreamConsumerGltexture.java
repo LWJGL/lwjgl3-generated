@@ -19,7 +19,7 @@ import static org.lwjgl.system.Checks.*;
  * 
  * <p>Requires {@link EGL12 EGL L.1}.</p>
  */
-public final class KHRStreamConsumerGltexture {
+public final class KHRStreamConsumerGLTexture {
 
 	/**  */
 	public static final int EGL_CONSUMER_ACQUIRE_TIMEOUT_USEC_KHR = 0x321E;
@@ -32,7 +32,7 @@ public final class KHRStreamConsumerGltexture {
 		StreamConsumerReleaseKHR;
 
 	@JavadocExclude
-	public KHRStreamConsumerGltexture(FunctionProvider provider) {
+	public KHRStreamConsumerGLTexture(FunctionProvider provider) {
 		StreamConsumerGLTextureExternalKHR = provider.getFunctionAddress("eglStreamConsumerGLTextureExternalKHR");
 		StreamConsumerAcquireKHR = provider.getFunctionAddress("eglStreamConsumerAcquireKHR");
 		StreamConsumerReleaseKHR = provider.getFunctionAddress("eglStreamConsumerReleaseKHR");
@@ -40,13 +40,13 @@ public final class KHRStreamConsumerGltexture {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link KHRStreamConsumerGltexture} instance. */
-	public static KHRStreamConsumerGltexture getInstance() {
+	/** Returns the {@link KHRStreamConsumerGLTexture} instance. */
+	public static KHRStreamConsumerGLTexture getInstance() {
 		return checkFunctionality(EGL.getCapabilities().__KHRStreamConsumerGltexture);
 	}
 
-	static KHRStreamConsumerGltexture create(FunctionProvider provider) {
-		KHRStreamConsumerGltexture funcs = new KHRStreamConsumerGltexture(provider);
+	static KHRStreamConsumerGLTexture create(FunctionProvider provider) {
+		KHRStreamConsumerGLTexture funcs = new KHRStreamConsumerGLTexture(provider);
 
 		boolean supported = checkFunctions(
 			funcs.StreamConsumerGLTextureExternalKHR, funcs.StreamConsumerAcquireKHR, funcs.StreamConsumerReleaseKHR

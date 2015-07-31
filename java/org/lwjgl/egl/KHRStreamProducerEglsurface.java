@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link EGL12 EGL L.1}.</p>
  */
-public final class KHRStreamProducerEglsurface {
+public final class KHRStreamProducerEGLSurface {
 
 	/**  */
 	public static final int EGL_STREAM_BIT_KHR = 0x800;
@@ -31,19 +31,19 @@ public final class KHRStreamProducerEglsurface {
 	public final long CreateStreamProducerSurfaceKHR;
 
 	@JavadocExclude
-	public KHRStreamProducerEglsurface(FunctionProvider provider) {
+	public KHRStreamProducerEGLSurface(FunctionProvider provider) {
 		CreateStreamProducerSurfaceKHR = provider.getFunctionAddress("eglCreateStreamProducerSurfaceKHR");
 	}
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link KHRStreamProducerEglsurface} instance. */
-	public static KHRStreamProducerEglsurface getInstance() {
+	/** Returns the {@link KHRStreamProducerEGLSurface} instance. */
+	public static KHRStreamProducerEGLSurface getInstance() {
 		return checkFunctionality(EGL.getCapabilities().__KHRStreamProducerEglsurface);
 	}
 
-	static KHRStreamProducerEglsurface create(FunctionProvider provider) {
-		KHRStreamProducerEglsurface funcs = new KHRStreamProducerEglsurface(provider);
+	static KHRStreamProducerEGLSurface create(FunctionProvider provider) {
+		KHRStreamProducerEGLSurface funcs = new KHRStreamProducerEGLSurface(provider);
 
 		boolean supported = checkFunctions(
 			funcs.CreateStreamProducerSurfaceKHR

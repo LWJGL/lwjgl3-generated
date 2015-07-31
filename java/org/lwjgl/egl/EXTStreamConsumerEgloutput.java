@@ -24,26 +24,26 @@ import static org.lwjgl.system.Checks.*;
  * 
  * <p>Requires {@link KHRStream KHR_stream} and {@link EXTOutputBase EXT_output_base}.</p>
  */
-public final class EXTStreamConsumerEgloutput {
+public final class EXTStreamConsumerEGLOutput {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long StreamConsumerOutputEXT;
 
 	@JavadocExclude
-	public EXTStreamConsumerEgloutput(FunctionProvider provider) {
+	public EXTStreamConsumerEGLOutput(FunctionProvider provider) {
 		StreamConsumerOutputEXT = provider.getFunctionAddress("eglStreamConsumerOutputEXT");
 	}
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTStreamConsumerEgloutput} instance. */
-	public static EXTStreamConsumerEgloutput getInstance() {
+	/** Returns the {@link EXTStreamConsumerEGLOutput} instance. */
+	public static EXTStreamConsumerEGLOutput getInstance() {
 		return checkFunctionality(EGL.getCapabilities().__EXTStreamConsumerEgloutput);
 	}
 
-	static EXTStreamConsumerEgloutput create(FunctionProvider provider) {
-		EXTStreamConsumerEgloutput funcs = new EXTStreamConsumerEgloutput(provider);
+	static EXTStreamConsumerEGLOutput create(FunctionProvider provider) {
+		EXTStreamConsumerEGLOutput funcs = new EXTStreamConsumerEGLOutput(provider);
 
 		boolean supported = checkFunctions(
 			funcs.StreamConsumerOutputEXT
