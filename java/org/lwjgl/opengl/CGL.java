@@ -659,6 +659,458 @@ public final class CGL {
 		return nCGLGetPixelFormat(ctx);
 	}
 
+	// --- [ CGLCreatePBuffer ] ---
+
+	/** JNI method for {@link #CGLCreatePBuffer CreatePBuffer} */
+	@JavadocExclude
+	public static native int nCGLCreatePBuffer(int width, int height, int target, int internalFormat, int max_level, long pbuffer);
+
+	/**
+	 * Creates a pixel buffer of the specified size, compatible with the specified texture target.
+	 * 
+	 * <p>This function does not have any knowledge of OpenGL contexts or pixel format objects and does not specifically allocate the storage needed for the
+	 * actual pixel buffer. These operations occur when you call the function {@link #CGLSetPBuffer SetPBuffer}.</p>
+	 * 
+	 * <p>You can determine the dimensional limits of a pixel buffer by calling the OpenGL function glGetInteger. You can find the maximum size supported by
+	 * querying GL_MAX_VIEWPORT_DIMS and the minimum size by querying GL_MIN_PBUFFER_VIEWPORT_DIMS_APPLE, which returns two integer values (similar to
+	 * GL_MAX_VIEWPORT_DIMS). All pixel buffer dimensions that you request with the function aglCreatePBuffer should fall within these limits (inclusively)
+	 * and should comply with any limitations imposed by the texture target you select.</p>
+	 * 
+	 * <p>The maximum viewport size supported in OS X is quite large. You should take into consideration the amount of video or system memory required to support
+	 * the requested pixel buffer size, including additional memory needed for multiple buffers and options such as multisampling.</p>
+	 * 
+	 * <p>Starting in OS X v10.5, pixel buffer objects are reference counted. Pixel buffer objects are created with a reference count of 1 and are destroyed when
+	 * the last reference to the object is released.</p>
+	 * 
+	 * <p>Deprecated in OS X v10.7.</p>
+	 *
+	 * @param width          the width, in pixels, of the pixel buffer
+	 * @param height         the height, in pixels, of the pixel buffer
+	 * @param target         a constant that specifies the type of the pixel buffer target texture. One of:<br>{@link GL11#kCGLTEXTURE_2D TEXTURE_2D}, {@link GL13#kCGLTEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL31#kCGLTEXTURE_RECTANGLE TEXTURE_RECTANGLE}
+	 * @param internalFormat a constant that specifies the internal color format of the pixel buffer. The format controls whether the alpha channel of the pixel buffer is used
+	 *                       for texturing operations. One of:<br>{@link GL11#kCGLRGB RGB}, {@link GL11#kCGLRGBA RGBA}
+	 * @param max_level      the maximum level of mipmap detail allowable. Pass 0 for a pixel buffer that is not using mipmaps. The value passed should never exceed the actual
+	 *                       maximum number of mipmap levels that can be represented with the given width and height.
+	 * @param pbuffer        on return, points to a new pixel buffer object
+	 */
+	public static int CGLCreatePBuffer(int width, int height, int target, int internalFormat, int max_level, ByteBuffer pbuffer) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(pbuffer, 1 << POINTER_SHIFT);
+		return nCGLCreatePBuffer(width, height, target, internalFormat, max_level, memAddress(pbuffer));
+	}
+
+	/** Alternative version of: {@link #CGLCreatePBuffer CreatePBuffer} */
+	public static int CGLCreatePBuffer(int width, int height, int target, int internalFormat, int max_level, PointerBuffer pbuffer) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(pbuffer, 1);
+		return nCGLCreatePBuffer(width, height, target, internalFormat, max_level, memAddress(pbuffer));
+	}
+
+	// --- [ CGLDestroyPBuffer ] ---
+
+	/** JNI method for {@link #CGLDestroyPBuffer DestroyPBuffer} */
+	@JavadocExclude
+	public static native int nCGLDestroyPBuffer(long pbuffer);
+
+	/**
+	 * Releases the resources associated with a pixel buffer object.
+	 * 
+	 * <p>Starting in OS X v10.5, pixel buffer objects are reference counted. Calling this function is equivalent to calling {@link #CGLReleasePBuffer ReleasePBuffer}.</p>
+	 * 
+	 * <p>Deprecated in OS X v10.7.</p>
+	 *
+	 * @param pbuffer the pixel buffer object whose resources you want to release
+	 */
+	public static int CGLDestroyPBuffer(long pbuffer) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(pbuffer);
+		return nCGLDestroyPBuffer(pbuffer);
+	}
+
+	// --- [ CGLDescribePBuffer ] ---
+
+	/** JNI method for {@link #CGLDescribePBuffer DescribePBuffer} */
+	@JavadocExclude
+	public static native int nCGLDescribePBuffer(long obj, long width, long height, long target, long internalFormat, long mipmap);
+
+	/**
+	 * Retrieves information that describes the specified pixel buffer object.
+	 * 
+	 * <p>The width, height, texture target, and internal texture color format of a pixel buffer object are set at its creation and cannot be changed without
+	 * destroying and recreating the object. The level is set when the pixel buffer object is attached to a rendering context by calling the function
+	 * {@link #CGLSetPBuffer SetPBuffer}.</p>
+	 * 
+	 * <p>Deprecated in OS X v10.7.</p>
+	 *
+	 * @param obj            a pointer to the pixel buffer object
+	 * @param width          on return, points to the width, in pixels, of the pixel buffer
+	 * @param height         on return, points to the height, in pixels, of the pixel buffer
+	 * @param target         on return, points to a constant that specifies the pixel buffer texture target
+	 * @param internalFormat on return, points to a constant that specifies the internal color format of the pixel buffer
+	 * @param mipmap         on return, points to the mipmap level of the pixel buffer or 0 if it doesn't use mipmaps
+	 */
+	public static int CGLDescribePBuffer(long obj, ByteBuffer width, ByteBuffer height, ByteBuffer target, ByteBuffer internalFormat, ByteBuffer mipmap) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(obj);
+			checkBuffer(width, 1 << 2);
+			checkBuffer(height, 1 << 2);
+			checkBuffer(target, 1 << 2);
+			checkBuffer(internalFormat, 1 << 2);
+			checkBuffer(mipmap, 1 << 2);
+		}
+		return nCGLDescribePBuffer(obj, memAddress(width), memAddress(height), memAddress(target), memAddress(internalFormat), memAddress(mipmap));
+	}
+
+	/** Alternative version of: {@link #CGLDescribePBuffer DescribePBuffer} */
+	public static int CGLDescribePBuffer(long obj, IntBuffer width, IntBuffer height, IntBuffer target, IntBuffer internalFormat, IntBuffer mipmap) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(obj);
+			checkBuffer(width, 1);
+			checkBuffer(height, 1);
+			checkBuffer(target, 1);
+			checkBuffer(internalFormat, 1);
+			checkBuffer(mipmap, 1);
+		}
+		return nCGLDescribePBuffer(obj, memAddress(width), memAddress(height), memAddress(target), memAddress(internalFormat), memAddress(mipmap));
+	}
+
+	// --- [ CGLTexImagePBuffer ] ---
+
+	/** JNI method for {@link #CGLTexImagePBuffer TexImagePBuffer} */
+	@JavadocExclude
+	public static native int nCGLTexImagePBuffer(long ctx, long pbuffer, int source);
+
+	/**
+	 * Binds the contents of a pixel buffer to a data source for a texture object.
+	 * 
+	 * <p>You must generate and bind a texture name (using standard OpenGL texturing calls) that is compatible with the pixel buffer texture target. Don't supply
+	 * a texture object that was used previously for nonpixel buffer texturing operations unless you first call glDeleteTextures to regenerate the texture
+	 * name.</p>
+	 * 
+	 * <p>If you modify the content of a pixel buffer that uses mipmap levels, you must call this function again before drawing with the pixel buffer, to ensure
+	 * that the content is synchronized with OpenGL. For pixel buffers without mipmaps, simply rebind to the texture object to synchronize content.</p>
+	 * 
+	 * <p>No OpenGL texturing calls that modify a pixel buffer texture content are permitted (such as glTexSubImage2D or glCopyTexImage2D) with the pixel buffer
+	 * texture as the destination. It is permitted to use texturing commands to read data from a pixel buffer texture, such as glCopyTexImage2D, with the
+	 * pixel buffer texture as the source. It is also legal to use OpenGL functions such as glReadPixels to read the contents of a pixel buffer directly
+	 * through the pixel buffer context.</p>
+	 * 
+	 * <p>Note that texturing with the CGLTexImagePBuffer function can fail to produce the intended results without error in the same way other OpenGL texturing
+	 * commands can normally fail. The function fails if you set an incompatible filter mode, do not enable the proper texture target, or other conditions
+	 * described in the OpenGL specification.</p>
+	 * 
+	 * <p>You don't need to share a context to use a pixel buffer object as a texture source. You can use independent pixel format objects and OpenGL contexts
+	 * for both the pixel buffer and the target drawable object without sharing resources, and still texture using a pixel buffer in the target context.</p>
+	 * 
+	 * <p>Deprecated in OS X v10.7.</p>
+	 *
+	 * @param ctx     a rendering context, which is the target context for the texture operation. This is the context that you plan to render content to. This is not the
+	 *                context attached to the pixel buffer.
+	 * @param pbuffer a pixel buffer object
+	 * @param source  the source buffer to get the texture from, which should be a valid OpenGL buffer such as GL_FRONT or GL_BACK and should be compatible with the
+	 *                buffer and renderer attributes that you used to create the rendering context attached to the pixel buffer. This means that the pixel buffer must
+	 *                possess the buffer in question for the texturing operation to succeed.
+	 */
+	public static int CGLTexImagePBuffer(long ctx, long pbuffer, int source) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(ctx);
+			checkPointer(pbuffer);
+		}
+		return nCGLTexImagePBuffer(ctx, pbuffer, source);
+	}
+
+	// --- [ CGLRetainPBuffer ] ---
+
+	/** JNI method for {@link #CGLRetainPBuffer RetainPBuffer} */
+	@JavadocExclude
+	public static native long nCGLRetainPBuffer(long pbuffer);
+
+	/**
+	 * Increments the retain count on a pixel buffer object.
+	 * 
+	 * <p>Each call to CGLRetainPBuffer increases the retain count by 1. To prevent the pixel buffer object from being leaked, each retain call must be matched
+	 * with a call to {@link #CGLReleasePBuffer ReleasePBuffer}.</p>
+	 * 
+	 * <p>Deprecated in OS X v10.7.</p>
+	 *
+	 * @param pbuffer the pixel buffer object whose retain count you wish to increment
+	 */
+	public static long CGLRetainPBuffer(long pbuffer) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(pbuffer);
+		return nCGLRetainPBuffer(pbuffer);
+	}
+
+	// --- [ CGLReleasePBuffer ] ---
+
+	/** JNI method for {@link #CGLReleasePBuffer ReleasePBuffer} */
+	@JavadocExclude
+	public static native void nCGLReleasePBuffer(long pbuffer);
+
+	/**
+	 * Releases the resources associated with a pixel buffer object.
+	 * 
+	 * <p>Starting in OS X v10.5, pixel buffer objects are reference counted. Calling this function is equivalent to calling CGLReleasePBuffer.</p>
+	 * 
+	 * <p>Deprecated in OS X v10.7.</p>
+	 *
+	 * @param pbuffer the pixel buffer object whose resources you want to release
+	 */
+	public static void CGLReleasePBuffer(long pbuffer) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(pbuffer);
+		nCGLReleasePBuffer(pbuffer);
+	}
+
+	// --- [ CGLGetPBufferRetainCount ] ---
+
+	/** JNI method for {@link #CGLGetPBufferRetainCount GetPBufferRetainCount} */
+	@JavadocExclude
+	public static native int nCGLGetPBufferRetainCount(long pbuffer);
+
+	/**
+	 * Returns the retain count of a pixel buffer object.
+	 * 
+	 * <p>Deprecated in OS X v10.7.</p>
+	 *
+	 * @param pbuffer the pixel buffer object whose retain count you wish to retrieve
+	 */
+	public static int CGLGetPBufferRetainCount(long pbuffer) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(pbuffer);
+		return nCGLGetPBufferRetainCount(pbuffer);
+	}
+
+	// --- [ CGLSetOffScreen ] ---
+
+	/** JNI method for {@link #CGLSetOffScreen SetOffScreen} */
+	@JavadocExclude
+	public static native int nCGLSetOffScreen(long ctx, int width, int height, int rowbytes, long baseaddr);
+
+	/**
+	 * Attaches a rendering context to an offscreen buffer.
+	 * 
+	 * <p>Before calling this function, you must set up the rendering context using a pixel format object created with the kCGLPFAOffScreen attribute. For more
+	 * information about kCGLPFAOffScreen, see Buffer and Renderer Attributes.</p>
+	 * 
+	 * <p>After calling this function, subsequent OpenGL drawing is rendered into the offscreen buffer and the viewport of the rendering context is set to the
+	 * full size of the offscreen area.</p>
+	 * 
+	 * <p>To exit offscreen mode, call {@link #CGLClearDrawable ClearDrawable}.</p>
+	 * 
+	 * <p>To obtain functionality similar to offscreen mode on renderers that do not support it, attach the context to a hidden window and use the OpenGL
+	 * function glReadPixels.</p>
+	 * 
+	 * <p>Deprecated in OS X v10.7.</p>
+	 *
+	 * @param ctx      a rendering context
+	 * @param width    the width, in pixels, of the offscreen buffer
+	 * @param height   the height, in pixels, of the offscreen buffer
+	 * @param rowbytes the number of bytes per row of the offscreen buffer, which must be greater than or equal to width times bytes per pixel
+	 * @param baseaddr a pointer to a block of memory to use as the offscreen buffer. The size of the memory must be at least {@code rowbytes*height} bytes.
+	 */
+	public static int CGLSetOffScreen(long ctx, int width, int height, int rowbytes, ByteBuffer baseaddr) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(ctx);
+			checkBuffer(baseaddr, rowbytes * height);
+		}
+		return nCGLSetOffScreen(ctx, width, height, rowbytes, memAddress(baseaddr));
+	}
+
+	// --- [ CGLGetOffScreen ] ---
+
+	/** JNI method for {@link #CGLGetOffScreen GetOffScreen} */
+	@JavadocExclude
+	public static native int nCGLGetOffScreen(long ctx, long width, long height, long rowbytes, long baseaddr);
+
+	/**
+	 * Retrieves an offscreen buffer and its parameters for a specified rendering context.
+	 * 
+	 * <p>Deprecated in OS X v10.7.</p>
+	 *
+	 * @param ctx      a rendering context
+	 * @param width    on return, points to the width, in pixels, of the offscreen buffer. If the rendering context is not attached to an offscreen drawable object, the
+	 *                 value of width is set to 0.
+	 * @param height   on return, points to the height, in pixels, of the offscreen buffer. If the rendering context is not attached to an offscreen drawable object, the
+	 *                 value of height is set to 0.
+	 * @param rowbytes on return, points to the number of bytes per row of the offscreen buffer. If the context is not attached to an offscreen drawable object, the value
+	 *                 of rowbytes is set to 0.
+	 * @param baseaddr on return, points to the base address of the offscreen buffer. If the context is not attached to an offscreen drawable object, the value of
+	 *                 {@code baseaddr} is set to {@code NULL}.
+	 */
+	public static int CGLGetOffScreen(long ctx, ByteBuffer width, ByteBuffer height, ByteBuffer rowbytes, ByteBuffer baseaddr) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(ctx);
+			checkBuffer(width, 1 << 2);
+			checkBuffer(height, 1 << 2);
+			checkBuffer(rowbytes, 1 << 2);
+			checkBuffer(baseaddr, 1 << POINTER_SHIFT);
+		}
+		return nCGLGetOffScreen(ctx, memAddress(width), memAddress(height), memAddress(rowbytes), memAddress(baseaddr));
+	}
+
+	/** Alternative version of: {@link #CGLGetOffScreen GetOffScreen} */
+	public static int CGLGetOffScreen(long ctx, IntBuffer width, IntBuffer height, IntBuffer rowbytes, PointerBuffer baseaddr) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(ctx);
+			checkBuffer(width, 1);
+			checkBuffer(height, 1);
+			checkBuffer(rowbytes, 1);
+			checkBuffer(baseaddr, 1);
+		}
+		return nCGLGetOffScreen(ctx, memAddress(width), memAddress(height), memAddress(rowbytes), memAddress(baseaddr));
+	}
+
+	// --- [ CGLSetFullScreen ] ---
+
+	/** JNI method for {@link #CGLSetFullScreen SetFullScreen} */
+	@JavadocExclude
+	public static native int nCGLSetFullScreen(long ctx);
+
+	/**
+	 * Attaches a rendering context to its full-screen drawable object.
+	 * 
+	 * <p>Before calling this function, you must set up the rendering context using a pixel format object created with the kCGLPFAFullScreen attribute (see
+	 * Buffer and Renderer Attributes). Some OpenGL renderers, such as the software renderer, do not support full-screen mode. After you call the function
+	 * {@link #CGLChoosePixelFormat ChoosePixelFormat} with the full-screen attribute, you need to check whether the pixel format object is created successfully.</p>
+	 * 
+	 * <p>You must capture the display prior to entering full-screen mode and release it after exiting. After calling this function, subsequent OpenGL drawing is
+	 * rendered into the entire screen. For more information, see
+	 * <a href="https://developer.apple.com/library/mac/documentation/GraphicsImaging/Conceptual/OpenGL-MacProgGuide/opengl_intro/opengl_intro.html\#//apple_ref/doc/uid/TP40001987">OpenGL Programming Guide for Mac</a>.</p>
+	 * 
+	 * <p>To exit full-screen mode, call {@link #CGLClearDrawable ClearDrawable}.</p>
+	 * 
+	 * <p>Deprecated in OS X v10.7. Use {@link #CGLSetFullScreenOnDisplay SetFullScreenOnDisplay} instead.</p>
+	 *
+	 * @param ctx a rendering context
+	 */
+	public static int CGLSetFullScreen(long ctx) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(ctx);
+		return nCGLSetFullScreen(ctx);
+	}
+
+	// --- [ CGLSetFullScreenOnDisplay ] ---
+
+	/** JNI method for {@link #CGLSetFullScreenOnDisplay SetFullScreenOnDisplay} */
+	@JavadocExclude
+	public static native int nCGLSetFullScreenOnDisplay(long ctx, int display_mask);
+
+	/**
+	 * Attaches a rendering context to a full-screen drawable object." +
+	 * 
+	 * <p>This function obtains a drawable object that covers an entire screen and attaches it to the rendering context. A full-screen rendering context may
+	 * allow the underlying renderer to provide better performance compared to a context associated with a window that partially covers the screen.</p>
+	 * 
+	 * <p>Prior to calling this function, your application should ensure that the context is capable of rendering to this display by querying the appropriate
+	 * renderer properties. For more information, see {@link #CGLQueryRendererInfo QueryRendererInfo}. Note that some renderers, including the software renderer, do not support
+	 * full-screen mode.</p>
+	 * 
+	 * <p>You must capture the screen prior to entering full-screen mode and release it after exiting. After calling this function, subsequent OpenGL drawing is
+	 * rendered into the entire screen. For more information, see OpenGL Programming Guide for Mac.</p>
+	 * 
+	 * <p>To exit full-screen mode, call {@link #CGLClearDrawable ClearDrawable}.</p>
+	 * 
+	 * <p>In OS X v10.6 or later, this function is not deprecated, but is usually not necessary. If your application creates a window that completely covers the
+	 * screen, the system implicitly creates a full-screen instance, for the same potential performance benefit.</p>
+	 * 
+	 * <p>Deprecated in OS X v10.7.</p>
+	 *
+	 * @param ctx          a rendering context
+	 * @param display_mask a bit field that contains the OpenGL display mask for the screen you wish the context to cover
+	 */
+	public static int CGLSetFullScreenOnDisplay(long ctx, int display_mask) {
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(ctx);
+		return nCGLSetFullScreenOnDisplay(ctx, display_mask);
+	}
+
+	// --- [ CGLSetPBuffer ] ---
+
+	/** JNI method for {@link #CGLSetPBuffer SetPBuffer} */
+	@JavadocExclude
+	public static native int nCGLSetPBuffer(long ctx, long pbuffer, int face, int level, int screen);
+
+	/**
+	 * Attaches a pixel buffer object to a rendering context.
+	 * 
+	 * <p>The first time you call this function for a specific pixel buffer object, the system creates the necessary buffers. The buffers are created to support
+	 * the attributes dictated by the pixel format object used to create the rendering context and by the parameters used to create the pixel buffer object.
+	 * The storage requirements for pixel buffer objects, which can be quite large, are very similar to the requirements for windows or views with OpenGL
+	 * contexts attached. All drawable objects compete for the same scarce resources. This function can fail is there is not enough contiguous VRAM for each
+	 * buffer. It's best to code defensively with a scheme that reduces resource consumption without causing the application to resort to failure. Unless, of
+	 * course, failure is the only viable alternative.</p>
+	 * 
+	 * <p>The ability to attach a pixel buffer to a context is supported only on renderers that export GL_APPLE_pixel_buffer in the GL_EXTENSIONS string. Before
+	 * calling this function, you should programmatically determine if it’s possible to attach a pixel buffer to a context by querying GL_EXTENSIONS in the
+	 * context and looking for GL_APPLE_pixel_buffer. If that extension is not present, the renderer won’t allow setting the pixel buffer.</p>
+	 * 
+	 * <p>In order of performance, these are the renderers you should consider using when setting up a rendering context to attach to a pixel buffer:
+	 * <ul>
+	 * <li>A hardware renderer.</li>
+	 * <li>The generic render, but only with an offscreen pixel format and glTexSubImage.</li>
+	 * <li>The Apple software renderer, which supports pixel buffers in OS X v10.4.8 and later.</li>
+	 * </ul>
+	 * Deprecated in OS X v10.7.</p>
+	 *
+	 * @param ctx     the rendering context to attach the pixel buffer to
+	 * @param pbuffer a pixel buffer object
+	 * @param face    the cube map face to draw if the pixel buffer texture target type is {@link GL13#kCGLTEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}; otherwise pass 0.
+	 * @param level   the mipmap level to draw. This must not exceed the maximum mipmap level set when the pixel buffer object was created. Pass 0 for a texture target
+	 *                that does not support mipmaps.
+	 * @param screen  a virtual screen value. The virtual screen determines the renderer OpenGL uses to draw to the pixel buffer object. For best performance, for a
+	 *                pixel buffer used as a texture source, you should supply the virtual screen value that results in using the same renderer used by the context
+	 *                that's the texturing target.
+	 */
+	public static int CGLSetPBuffer(long ctx, long pbuffer, int face, int level, int screen) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(ctx);
+			checkPointer(pbuffer);
+		}
+		return nCGLSetPBuffer(ctx, pbuffer, face, level, screen);
+	}
+
+	// --- [ CGLGetPBuffer ] ---
+
+	/** JNI method for {@link #CGLGetPBuffer GetPBuffer} */
+	@JavadocExclude
+	public static native int nCGLGetPBuffer(long ctx, long pbuffer, long face, long level, long screen);
+
+	/**
+	 * Retrieves a pixel buffer and its parameters for a specified rendering context.
+	 * 
+	 * <p>Deprecated in OS X v10.7.</p>
+	 *
+	 * @param ctx     a rendering context
+	 * @param pbuffer on return, points to the pixel buffer object attached to the rendering context
+	 * @param face    on return, points to the cube map face that is set if the pixel buffer texture target type is {@link GL13#kCGLTEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}; otherwise 0 for all other
+	 *                texture target types.
+	 * @param level   on return, points to the current mipmap level for drawing
+	 * @param screen  on return, points to the current virtual screen number, as set by the last valid call to {@link #CGLSetPBuffer SetPBuffer}
+	 */
+	public static int CGLGetPBuffer(long ctx, ByteBuffer pbuffer, ByteBuffer face, ByteBuffer level, ByteBuffer screen) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(ctx);
+			checkBuffer(pbuffer, 1 << POINTER_SHIFT);
+			checkBuffer(face, 1 << 2);
+			checkBuffer(level, 1 << 2);
+			checkBuffer(screen, 1 << 2);
+		}
+		return nCGLGetPBuffer(ctx, memAddress(pbuffer), memAddress(face), memAddress(level), memAddress(screen));
+	}
+
+	/** Alternative version of: {@link #CGLGetPBuffer GetPBuffer} */
+	public static int CGLGetPBuffer(long ctx, PointerBuffer pbuffer, IntBuffer face, IntBuffer level, IntBuffer screen) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(ctx);
+			checkBuffer(pbuffer, 1);
+			checkBuffer(face, 1);
+			checkBuffer(level, 1);
+			checkBuffer(screen, 1);
+		}
+		return nCGLGetPBuffer(ctx, memAddress(pbuffer), memAddress(face), memAddress(level), memAddress(screen));
+	}
+
 	// --- [ CGLClearDrawable ] ---
 
 	/** JNI method for {@link #CGLClearDrawable ClearDrawable} */
@@ -902,7 +1354,7 @@ public final class CGL {
 	public static native int nCGLUpdateContext(long ctx);
 
 	/**
-	 * 
+	 * Synchronizes new renderer state to that of the application context
 	 *
 	 * @param ctx a rendering context
 	 */

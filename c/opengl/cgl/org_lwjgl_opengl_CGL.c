@@ -130,6 +130,100 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_CGL_nCGLGetPixelFormat(JNIEnv *__e
 	return (jlong)(intptr_t)CGLGetPixelFormat(ctx);
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_CGL_nCGLCreatePBuffer(JNIEnv *__env, jclass clazz, jint width, jint height, jint target, jint internalFormat, jint max_level, jlong pbufferAddress) {
+	CGLPBufferObj *pbuffer = (CGLPBufferObj *)(intptr_t)pbufferAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)CGLCreatePBuffer(width, height, target, internalFormat, max_level, pbuffer);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_CGL_nCGLDestroyPBuffer(JNIEnv *__env, jclass clazz, jlong pbufferAddress) {
+	CGLPBufferObj pbuffer = (CGLPBufferObj)(intptr_t)pbufferAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)CGLDestroyPBuffer(pbuffer);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_CGL_nCGLDescribePBuffer(JNIEnv *__env, jclass clazz, jlong objAddress, jlong widthAddress, jlong heightAddress, jlong targetAddress, jlong internalFormatAddress, jlong mipmapAddress) {
+	CGLPBufferObj obj = (CGLPBufferObj)(intptr_t)objAddress;
+	GLsizei *width = (GLsizei *)(intptr_t)widthAddress;
+	GLsizei *height = (GLsizei *)(intptr_t)heightAddress;
+	GLenum *target = (GLenum *)(intptr_t)targetAddress;
+	GLenum *internalFormat = (GLenum *)(intptr_t)internalFormatAddress;
+	GLint *mipmap = (GLint *)(intptr_t)mipmapAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)CGLDescribePBuffer(obj, width, height, target, internalFormat, mipmap);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_CGL_nCGLTexImagePBuffer(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong pbufferAddress, jint source) {
+	CGLContextObj ctx = (CGLContextObj)(intptr_t)ctxAddress;
+	CGLPBufferObj pbuffer = (CGLPBufferObj)(intptr_t)pbufferAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)CGLTexImagePBuffer(ctx, pbuffer, source);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_CGL_nCGLRetainPBuffer(JNIEnv *__env, jclass clazz, jlong pbufferAddress) {
+	CGLPBufferObj pbuffer = (CGLPBufferObj)(intptr_t)pbufferAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)CGLRetainPBuffer(pbuffer);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_opengl_CGL_nCGLReleasePBuffer(JNIEnv *__env, jclass clazz, jlong pbufferAddress) {
+	CGLPBufferObj pbuffer = (CGLPBufferObj)(intptr_t)pbufferAddress;
+	UNUSED_PARAMS(__env, clazz)
+	CGLReleasePBuffer(pbuffer);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_CGL_nCGLGetPBufferRetainCount(JNIEnv *__env, jclass clazz, jlong pbufferAddress) {
+	CGLPBufferObj pbuffer = (CGLPBufferObj)(intptr_t)pbufferAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)CGLGetPBufferRetainCount(pbuffer);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_CGL_nCGLSetOffScreen(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint width, jint height, jint rowbytes, jlong baseaddrAddress) {
+	CGLContextObj ctx = (CGLContextObj)(intptr_t)ctxAddress;
+	void *baseaddr = (void *)(intptr_t)baseaddrAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)CGLSetOffScreen(ctx, width, height, rowbytes, baseaddr);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_CGL_nCGLGetOffScreen(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong widthAddress, jlong heightAddress, jlong rowbytesAddress, jlong baseaddrAddress) {
+	CGLContextObj ctx = (CGLContextObj)(intptr_t)ctxAddress;
+	GLsizei *width = (GLsizei *)(intptr_t)widthAddress;
+	GLsizei *height = (GLsizei *)(intptr_t)heightAddress;
+	GLint *rowbytes = (GLint *)(intptr_t)rowbytesAddress;
+	void **baseaddr = (void **)(intptr_t)baseaddrAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)CGLGetOffScreen(ctx, width, height, rowbytes, baseaddr);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_CGL_nCGLSetFullScreen(JNIEnv *__env, jclass clazz, jlong ctxAddress) {
+	CGLContextObj ctx = (CGLContextObj)(intptr_t)ctxAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)CGLSetFullScreen(ctx);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_CGL_nCGLSetFullScreenOnDisplay(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint display_mask) {
+	CGLContextObj ctx = (CGLContextObj)(intptr_t)ctxAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)CGLSetFullScreenOnDisplay(ctx, display_mask);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_CGL_nCGLSetPBuffer(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong pbufferAddress, jint face, jint level, jint screen) {
+	CGLContextObj ctx = (CGLContextObj)(intptr_t)ctxAddress;
+	CGLPBufferObj pbuffer = (CGLPBufferObj)(intptr_t)pbufferAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)CGLSetPBuffer(ctx, pbuffer, face, level, screen);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_CGL_nCGLGetPBuffer(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong pbufferAddress, jlong faceAddress, jlong levelAddress, jlong screenAddress) {
+	CGLContextObj ctx = (CGLContextObj)(intptr_t)ctxAddress;
+	CGLPBufferObj *pbuffer = (CGLPBufferObj *)(intptr_t)pbufferAddress;
+	GLenum *face = (GLenum *)(intptr_t)faceAddress;
+	GLint *level = (GLint *)(intptr_t)levelAddress;
+	GLint *screen = (GLint *)(intptr_t)screenAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)CGLGetPBuffer(ctx, pbuffer, face, level, screen);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_CGL_nCGLClearDrawable(JNIEnv *__env, jclass clazz, jlong ctxAddress) {
 	CGLContextObj ctx = (CGLContextObj)(intptr_t)ctxAddress;
 	UNUSED_PARAMS(__env, clazz)
