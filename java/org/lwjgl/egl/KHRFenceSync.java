@@ -66,16 +66,6 @@ public final class KHRFenceSync {
 		return checkFunctionality(EGL.getCapabilities().__KHRFenceSync);
 	}
 
-	static KHRFenceSync create(FunctionProvider provider) {
-		KHRFenceSync funcs = new KHRFenceSync(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateSyncKHR, funcs.DestroySyncKHR, funcs.ClientWaitSyncKHR, funcs.GetSyncAttribKHR
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglCreateSyncKHR ] ---
 
 	/** JNI method for {@link #eglCreateSyncKHR CreateSyncKHR} */

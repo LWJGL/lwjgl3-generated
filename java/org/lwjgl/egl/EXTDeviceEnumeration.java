@@ -47,16 +47,6 @@ public final class EXTDeviceEnumeration {
 		return checkFunctionality(EGL.getCapabilities().__EXTDeviceEnumeration);
 	}
 
-	static EXTDeviceEnumeration create(FunctionProvider provider) {
-		EXTDeviceEnumeration funcs = new EXTDeviceEnumeration(provider);
-
-		boolean supported = checkFunctions(
-			funcs.QueryDevicesEXT
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglQueryDevicesEXT ] ---
 
 	/** JNI method for {@link #eglQueryDevicesEXT QueryDevicesEXT} */

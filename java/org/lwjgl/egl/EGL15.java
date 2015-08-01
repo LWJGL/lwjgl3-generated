@@ -101,17 +101,6 @@ public final class EGL15 {
 		return checkFunctionality(EGL.getCapabilities().__EGL15);
 	}
 
-	static EGL15 create(FunctionProvider provider) {
-		EGL15 funcs = new EGL15(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateSync, funcs.DestroySync, funcs.ClientWaitSync, funcs.GetSyncAttrib, funcs.CreateImage, funcs.DestroyImage, funcs.GetPlatformDisplay, 
-			funcs.CreatePlatformWindowSurface, funcs.CreatePlatformPixmapSurface, funcs.WaitSync
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglCreateSync ] ---
 
 	/** JNI method for {@link #eglCreateSync CreateSync} */

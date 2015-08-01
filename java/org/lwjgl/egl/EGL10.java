@@ -146,19 +146,6 @@ public final class EGL10 {
 		return checkFunctionality(EGL.getCapabilities().__EGL10);
 	}
 
-	static EGL10 create(FunctionProvider provider) {
-		EGL10 funcs = new EGL10(provider);
-
-		boolean supported = checkFunctions(
-			funcs.ChooseConfig, funcs.CopyBuffers, funcs.CreateContext, funcs.CreatePbufferSurface, funcs.CreatePixmapSurface, funcs.CreateWindowSurface, 
-			funcs.DestroyContext, funcs.DestroySurface, funcs.GetConfigAttrib, funcs.GetConfigs, funcs.GetCurrentDisplay, funcs.GetCurrentSurface, 
-			funcs.GetDisplay, funcs.GetError, funcs.GetProcAddress, funcs.Initialize, funcs.MakeCurrent, funcs.QueryContext, funcs.QueryString, 
-			funcs.QuerySurface, funcs.SwapBuffers, funcs.Terminate, funcs.WaitGL, funcs.WaitNative
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglChooseConfig ] ---
 
 	/** JNI method for {@link #eglChooseConfig ChooseConfig} */

@@ -45,16 +45,6 @@ public final class MESAImageDMABufExport {
 		return checkFunctionality(EGL.getCapabilities().__MESAImageDMABufExport);
 	}
 
-	static MESAImageDMABufExport create(FunctionProvider provider) {
-		MESAImageDMABufExport funcs = new MESAImageDMABufExport(provider);
-
-		boolean supported = checkFunctions(
-			funcs.ExportDMABUFImageQueryMESA, funcs.ExportDMABUFImageMESA
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglExportDMABUFImageQueryMESA ] ---
 
 	/** JNI method for {@link #eglExportDMABUFImageQueryMESA ExportDMABUFImageQueryMESA} */

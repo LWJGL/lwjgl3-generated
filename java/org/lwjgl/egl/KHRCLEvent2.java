@@ -52,16 +52,6 @@ public final class KHRCLEvent2 {
 		return checkFunctionality(EGL.getCapabilities().__KHRCLEvent2);
 	}
 
-	static KHRCLEvent2 create(FunctionProvider provider) {
-		KHRCLEvent2 funcs = new KHRCLEvent2(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateSync64KHR
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglCreateSync64KHR ] ---
 
 	/** JNI method for {@link #eglCreateSync64KHR CreateSync64KHR} */

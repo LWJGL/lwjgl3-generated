@@ -49,16 +49,6 @@ public final class KHRImageBase {
 		return checkFunctionality(EGL.getCapabilities().__KHRImageBase);
 	}
 
-	static KHRImageBase create(FunctionProvider provider) {
-		KHRImageBase funcs = new KHRImageBase(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateImageKHR, funcs.DestroyImageKHR
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglCreateImageKHR ] ---
 
 	/** JNI method for {@link #eglCreateImageKHR CreateImageKHR} */

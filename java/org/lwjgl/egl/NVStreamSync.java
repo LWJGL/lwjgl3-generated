@@ -44,16 +44,6 @@ public final class NVStreamSync {
 		return checkFunctionality(EGL.getCapabilities().__NVStreamSync);
 	}
 
-	static NVStreamSync create(FunctionProvider provider) {
-		NVStreamSync funcs = new NVStreamSync(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateStreamSyncNV
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglCreateStreamSyncNV ] ---
 
 	/** JNI method for {@link #eglCreateStreamSyncNV CreateStreamSyncNV} */

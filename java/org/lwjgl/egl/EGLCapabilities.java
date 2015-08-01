@@ -24,7 +24,7 @@ public class EGLCapabilities {
 	final EXTDeviceQuery              __EXTDeviceQuery;
 	final EXTOutputBase               __EXTOutputBase;
 	final EXTPlatformBase             __EXTPlatformBase;
-	final EXTStreamConsumerEgloutput  __EXTStreamConsumerEgloutput;
+	final EXTStreamConsumerEGLOutput  __EXTStreamConsumerEGLOutput;
 	final EXTSwapBuffersWithDamage    __EXTSwapBuffersWithDamage;
 	final HIClientpixmap              __HIClientpixmap;
 	final KHRCLEvent2                 __KHRCLEvent2;
@@ -35,10 +35,10 @@ public class EGLCapabilities {
 	final KHRPartialUpdate            __KHRPartialUpdate;
 	final KHRReusableSync             __KHRReusableSync;
 	final KHRStream                   __KHRStream;
-	final KHRStreamConsumerGltexture  __KHRStreamConsumerGltexture;
+	final KHRStreamConsumerGLTexture  __KHRStreamConsumerGLTexture;
 	final KHRStreamCrossProcessFD     __KHRStreamCrossProcessFD;
 	final KHRStreamFIFO               __KHRStreamFIFO;
-	final KHRStreamProducerEglsurface __KHRStreamProducerEglsurface;
+	final KHRStreamProducerEGLSurface __KHRStreamProducerEGLSurface;
 	final KHRSwapBuffersWithDamage    __KHRSwapBuffersWithDamage;
 	final KHRWaitSync                 __KHRWaitSync;
 	final MESADRMImage                __MESADRMImage;
@@ -150,7 +150,7 @@ public class EGLCapabilities {
 	public final boolean EGL_EXT_platform_x11;
 	/** When true, {@link EXTProtectedSurface} is supported. */
 	public final boolean EGL_EXT_protected_surface;
-	/** When true, {@link EXTStreamConsumerEgloutput} is supported. */
+	/** When true, {@link EXTStreamConsumerEGLOutput} is supported. */
 	public final boolean EGL_EXT_stream_consumer_egloutput;
 	/** When true, {@link EXTSwapBuffersWithDamage} is supported. */
 	public final boolean EGL_EXT_swap_buffers_with_damage;
@@ -252,7 +252,7 @@ public class EGLCapabilities {
 	public final boolean EGL_KHR_reusable_sync;
 	/** When true, {@link KHRStream} is supported. */
 	public final boolean EGL_KHR_stream;
-	/** When true, {@link KHRStreamConsumerGltexture} is supported. */
+	/** When true, {@link KHRStreamConsumerGLTexture} is supported. */
 	public final boolean EGL_KHR_stream_consumer_gltexture;
 	/** When true, {@link KHRStreamCrossProcessFD} is supported. */
 	public final boolean EGL_KHR_stream_cross_process_fd;
@@ -274,7 +274,7 @@ public class EGLCapabilities {
 	 * <p>Requires {@link EGL12 EGL L.1} and {@link KHRStream KHR_stream}. Requires OpenMAX AL 1.1 and OpenMAX_AL_EGLStream_DataLocator.</p>
 	 */
 	public final boolean EGL_KHR_stream_producer_aldatalocator;
-	/** When true, {@link KHRStreamProducerEglsurface} is supported. */
+	/** When true, {@link KHRStreamProducerEGLSurface} is supported. */
 	public final boolean EGL_KHR_stream_producer_eglsurface;
 	/**
 	 * When true, the <a href="https://www.khronos.org/registry/egl/extensions/KHR/EGL_KHR_surfaceless_context.txt">KHR_surfaceless_context</a> extension is supported.
@@ -342,149 +342,149 @@ public class EGLCapabilities {
 	 *
 	 * <p>The function instances created here will be reused by EGLCapabilities instances for EGLDisplays.</p>
 	 *
-	 * <p>The capability flags in this instance are only set for the core EGL versions and client extensions. This may only happen if EGL 1.5 or the
-	 * {@link #EGL_EXT_client_extensions} extension are supported. If not, all flags will be false and the version fields zero.</p>
+	 * <p>Querying EGL client library extensions depends on EGL 1.5 or the {@link #EGL_EXT_client_extensions} extension. If neither is supported, all flags
+	 * will be false and the version fields zero.</p>
 	 *
 	 * @param majorVersion the EGL client major version
 	 * @param minorVersion the EGL client minor version
-	 * @param ext          the EGL client extensions string
+	 * @param ext          the available EGL client extensions
 	 * @param provider     the EGL client function provider
 	 */
 	EGLCapabilities(int majorVersion, int minorVersion, Set<String> ext, FunctionProvider provider) {
 		this.majorVersion = majorVersion;
 		this.minorVersion = minorVersion;
 
-		__EGL10 = org.lwjgl.egl.EGL10.create(provider);
-		__EGL11 = org.lwjgl.egl.EGL11.create(provider);
-		__EGL12 = org.lwjgl.egl.EGL12.create(provider);
-		__EGL14 = org.lwjgl.egl.EGL14.create(provider);
-		__EGL15 = org.lwjgl.egl.EGL15.create(provider);
-		__ANDROIDBlobCache = ANDROIDBlobCache.create(provider);
-		__ANDROIDNativeFenceSync = ANDROIDNativeFenceSync.create(provider);
-		__ANGLEQuerySurfacePointer = ANGLEQuerySurfacePointer.create(provider);
-		__EXTDeviceBase = EXTDeviceBase.create(provider);
-		__EXTDeviceEnumeration = EXTDeviceEnumeration.create(provider);
-		__EXTDeviceQuery = EXTDeviceQuery.create(provider);
-		__EXTOutputBase = EXTOutputBase.create(provider);
-		__EXTPlatformBase = EXTPlatformBase.create(provider);
-		__EXTStreamConsumerEgloutput = EXTStreamConsumerEgloutput.create(provider);
-		__EXTSwapBuffersWithDamage = EXTSwapBuffersWithDamage.create(provider);
-		__HIClientpixmap = HIClientpixmap.create(provider);
-		__KHRCLEvent2 = KHRCLEvent2.create(provider);
-		__KHRFenceSync = KHRFenceSync.create(provider);
-		__KHRImage = KHRImage.create(provider);
-		__KHRImageBase = KHRImageBase.create(provider);
-		__KHRLockSurface3 = KHRLockSurface3.create(provider);
-		__KHRPartialUpdate = KHRPartialUpdate.create(provider);
-		__KHRReusableSync = KHRReusableSync.create(provider);
-		__KHRStream = KHRStream.create(provider);
-		__KHRStreamConsumerGltexture = KHRStreamConsumerGltexture.create(provider);
-		__KHRStreamCrossProcessFD = KHRStreamCrossProcessFD.create(provider);
-		__KHRStreamFIFO = KHRStreamFIFO.create(provider);
-		__KHRStreamProducerEglsurface = KHRStreamProducerEglsurface.create(provider);
-		__KHRSwapBuffersWithDamage = KHRSwapBuffersWithDamage.create(provider);
-		__KHRWaitSync = KHRWaitSync.create(provider);
-		__MESADRMImage = MESADRMImage.create(provider);
-		__MESAImageDMABufExport = MESAImageDMABufExport.create(provider);
-		__NOKSwapRegion2 = NOKSwapRegion2.create(provider);
-		__NVNativeQuery = NVNativeQuery.create(provider);
-		__NVPostSubBuffer = NVPostSubBuffer.create(provider);
-		__NVStreamSync = NVStreamSync.create(provider);
-		__NVSync = NVSync.create(provider);
-		__NVSystemTime = NVSystemTime.create(provider);
+		__EGL10 = new org.lwjgl.egl.EGL10(provider);
+		__EGL11 = new org.lwjgl.egl.EGL11(provider);
+		__EGL12 = new org.lwjgl.egl.EGL12(provider);
+		__EGL14 = new org.lwjgl.egl.EGL14(provider);
+		__EGL15 = new org.lwjgl.egl.EGL15(provider);
+		__ANDROIDBlobCache = new ANDROIDBlobCache(provider);
+		__ANDROIDNativeFenceSync = new ANDROIDNativeFenceSync(provider);
+		__ANGLEQuerySurfacePointer = new ANGLEQuerySurfacePointer(provider);
+		__EXTDeviceBase = new EXTDeviceBase(provider);
+		__EXTDeviceEnumeration = new EXTDeviceEnumeration(provider);
+		__EXTDeviceQuery = new EXTDeviceQuery(provider);
+		__EXTOutputBase = new EXTOutputBase(provider);
+		__EXTPlatformBase = new EXTPlatformBase(provider);
+		__EXTStreamConsumerEGLOutput = new EXTStreamConsumerEGLOutput(provider);
+		__EXTSwapBuffersWithDamage = new EXTSwapBuffersWithDamage(provider);
+		__HIClientpixmap = new HIClientpixmap(provider);
+		__KHRCLEvent2 = new KHRCLEvent2(provider);
+		__KHRFenceSync = new KHRFenceSync(provider);
+		__KHRImage = new KHRImage(provider);
+		__KHRImageBase = new KHRImageBase(provider);
+		__KHRLockSurface3 = new KHRLockSurface3(provider);
+		__KHRPartialUpdate = new KHRPartialUpdate(provider);
+		__KHRReusableSync = new KHRReusableSync(provider);
+		__KHRStream = new KHRStream(provider);
+		__KHRStreamConsumerGLTexture = new KHRStreamConsumerGLTexture(provider);
+		__KHRStreamCrossProcessFD = new KHRStreamCrossProcessFD(provider);
+		__KHRStreamFIFO = new KHRStreamFIFO(provider);
+		__KHRStreamProducerEGLSurface = new KHRStreamProducerEGLSurface(provider);
+		__KHRSwapBuffersWithDamage = new KHRSwapBuffersWithDamage(provider);
+		__KHRWaitSync = new KHRWaitSync(provider);
+		__MESADRMImage = new MESADRMImage(provider);
+		__MESAImageDMABufExport = new MESAImageDMABufExport(provider);
+		__NOKSwapRegion2 = new NOKSwapRegion2(provider);
+		__NVNativeQuery = new NVNativeQuery(provider);
+		__NVPostSubBuffer = new NVPostSubBuffer(provider);
+		__NVStreamSync = new NVStreamSync(provider);
+		__NVSync = new NVSync(provider);
+		__NVSystemTime = new NVSystemTime(provider);
 
-		EGL10 = EGL.checkCapability(ext, "EGL10");
-		EGL11 = EGL.checkCapability(ext, "EGL11");
-		EGL12 = EGL.checkCapability(ext, "EGL12");
-		EGL13 = EGL.checkCapability(ext, "EGL13");
-		EGL14 = EGL.checkCapability(ext, "EGL14");
-		EGL15 = EGL.checkCapability(ext, "EGL15");
-		EGL_ANDROID_blob_cache = EGL.checkCapability(ext, "EGL_ANDROID_blob_cache");
-		EGL_ANDROID_framebuffer_target = EGL.checkCapability(ext, "EGL_ANDROID_framebuffer_target");
-		EGL_ANDROID_image_native_buffer = EGL.checkCapability(ext, "EGL_ANDROID_image_native_buffer");
-		EGL_ANDROID_native_fence_sync = EGL.checkCapability(ext, "EGL_ANDROID_native_fence_sync");
-		EGL_ANDROID_recordable = EGL.checkCapability(ext, "EGL_ANDROID_recordable");
-		EGL_ANGLE_d3d_share_handle_client_buffer = EGL.checkCapability(ext, "EGL_ANGLE_d3d_share_handle_client_buffer");
-		EGL_ANGLE_device_d3d = EGL.checkCapability(ext, "EGL_ANGLE_device_d3d");
-		EGL_ANGLE_query_surface_pointer = EGL.checkCapability(ext, "EGL_ANGLE_query_surface_pointer");
-		EGL_ANGLE_surface_d3d_texture_2d_share_handle = EGL.checkCapability(ext, "EGL_ANGLE_surface_d3d_texture_2d_share_handle");
-		EGL_ANGLE_window_fixed_size = EGL.checkCapability(ext, "EGL_ANGLE_window_fixed_size");
-		EGL_ARM_pixmap_multisample_discard = EGL.checkCapability(ext, "EGL_ARM_pixmap_multisample_discard");
-		EGL_EXT_buffer_age = EGL.checkCapability(ext, "EGL_EXT_buffer_age");
-		EGL_EXT_client_extensions = EGL.checkCapability(ext, "EGL_EXT_client_extensions");
-		EGL_EXT_create_context_robustness = EGL.checkCapability(ext, "EGL_EXT_create_context_robustness");
-		EGL_EXT_device_base = EGL.checkCapability(ext, "EGL_EXT_device_base");
-		EGL_EXT_device_drm = EGL.checkCapability(ext, "EGL_EXT_device_drm");
-		EGL_EXT_device_enumeration = EGL.checkCapability(ext, "EGL_EXT_device_enumeration");
-		EGL_EXT_device_openwf = EGL.checkCapability(ext, "EGL_EXT_device_openwf");
-		EGL_EXT_device_query = EGL.checkCapability(ext, "EGL_EXT_device_query");
-		EGL_EXT_image_dma_buf_import = EGL.checkCapability(ext, "EGL_EXT_image_dma_buf_import");
-		EGL_EXT_multiview_window = EGL.checkCapability(ext, "EGL_EXT_multiview_window");
-		EGL_EXT_output_base = EGL.checkCapability(ext, "EGL_EXT_output_base");
-		EGL_EXT_output_drm = EGL.checkCapability(ext, "EGL_EXT_output_drm");
-		EGL_EXT_output_openwf = EGL.checkCapability(ext, "EGL_EXT_output_openwf");
-		EGL_EXT_platform_base = EGL.checkCapability(ext, "EGL_EXT_platform_base");
-		EGL_EXT_platform_device = EGL.checkCapability(ext, "EGL_EXT_platform_device");
-		EGL_EXT_platform_wayland = EGL.checkCapability(ext, "EGL_EXT_platform_wayland");
-		EGL_EXT_platform_x11 = EGL.checkCapability(ext, "EGL_EXT_platform_x11");
-		EGL_EXT_protected_surface = EGL.checkCapability(ext, "EGL_EXT_protected_surface");
-		EGL_EXT_stream_consumer_egloutput = EGL.checkCapability(ext, "EGL_EXT_stream_consumer_egloutput");
-		EGL_EXT_swap_buffers_with_damage = EGL.checkCapability(ext, "EGL_EXT_swap_buffers_with_damage");
-		EGL_EXT_yuv_surface = EGL.checkCapability(ext, "EGL_EXT_yuv_surface");
-		EGL_HI_clientpixmap = EGL.checkCapability(ext, "EGL_HI_clientpixmap");
-		EGL_HI_colorformats = EGL.checkCapability(ext, "EGL_HI_colorformats");
-		EGL_IMG_context_priority = EGL.checkCapability(ext, "EGL_IMG_context_priority");
-		EGL_KHR_cl_event2 = EGL.checkCapability(ext, "EGL_KHR_cl_event2");
-		EGL_KHR_client_get_all_proc_addresses = EGL.checkCapability(ext, "EGL_KHR_client_get_all_proc_addresses");
-		EGL_KHR_config_attribs = EGL.checkCapability(ext, "EGL_KHR_config_attribs");
-		EGL_KHR_create_context = EGL.checkCapability(ext, "EGL_KHR_create_context");
-		EGL_KHR_create_context_no_error = EGL.checkCapability(ext, "EGL_KHR_create_context_no_error");
-		EGL_KHR_fence_sync = EGL.checkCapability(ext, "EGL_KHR_fence_sync");
-		EGL_KHR_get_all_proc_addresses = EGL.checkCapability(ext, "EGL_KHR_get_all_proc_addresses");
-		EGL_KHR_gl_colorspace = EGL.checkCapability(ext, "EGL_KHR_gl_colorspace");
-		EGL_KHR_gl_renderbuffer_image = EGL.checkCapability(ext, "EGL_KHR_gl_renderbuffer_image");
-		EGL_KHR_gl_texture_2D_image = EGL.checkCapability(ext, "EGL_KHR_gl_texture_2D_image");
-		EGL_KHR_gl_texture_3D_image = EGL.checkCapability(ext, "EGL_KHR_gl_texture_3D_image");
-		EGL_KHR_gl_texture_cubemap_image = EGL.checkCapability(ext, "EGL_KHR_gl_texture_cubemap_image");
-		EGL_KHR_image = EGL.checkCapability(ext, "EGL_KHR_image");
-		EGL_KHR_image_base = EGL.checkCapability(ext, "EGL_KHR_image_base");
-		EGL_KHR_image_pixmap = EGL.checkCapability(ext, "EGL_KHR_image_pixmap");
-		EGL_KHR_lock_surface3 = EGL.checkCapability(ext, "EGL_KHR_lock_surface3");
-		EGL_KHR_partial_update = EGL.checkCapability(ext, "EGL_KHR_partial_update");
-		EGL_KHR_platform_android = EGL.checkCapability(ext, "EGL_KHR_platform_android");
-		EGL_KHR_platform_gbm = EGL.checkCapability(ext, "EGL_KHR_platform_gbm");
-		EGL_KHR_platform_wayland = EGL.checkCapability(ext, "EGL_KHR_platform_wayland");
-		EGL_KHR_platform_x11 = EGL.checkCapability(ext, "EGL_KHR_platform_x11");
-		EGL_KHR_reusable_sync = EGL.checkCapability(ext, "EGL_KHR_reusable_sync");
-		EGL_KHR_stream = EGL.checkCapability(ext, "EGL_KHR_stream");
-		EGL_KHR_stream_consumer_gltexture = EGL.checkCapability(ext, "EGL_KHR_stream_consumer_gltexture");
-		EGL_KHR_stream_cross_process_fd = EGL.checkCapability(ext, "EGL_KHR_stream_cross_process_fd");
-		EGL_KHR_stream_fifo = EGL.checkCapability(ext, "EGL_KHR_stream_fifo");
-		EGL_KHR_stream_producer_aldatalocator = EGL.checkCapability(ext, "EGL_KHR_stream_producer_aldatalocator");
-		EGL_KHR_stream_producer_eglsurface = EGL.checkCapability(ext, "EGL_KHR_stream_producer_eglsurface");
-		EGL_KHR_surfaceless_context = EGL.checkCapability(ext, "EGL_KHR_surfaceless_context");
-		EGL_KHR_swap_buffers_with_damage = EGL.checkCapability(ext, "EGL_KHR_swap_buffers_with_damage");
-		EGL_KHR_vg_parent_image = EGL.checkCapability(ext, "EGL_KHR_vg_parent_image");
-		EGL_KHR_wait_sync = EGL.checkCapability(ext, "EGL_KHR_wait_sync");
-		EGL_MESA_drm_image = EGL.checkCapability(ext, "EGL_MESA_drm_image");
-		EGL_MESA_image_dma_buf_export = EGL.checkCapability(ext, "EGL_MESA_image_dma_buf_export");
-		EGL_MESA_platform_gbm = EGL.checkCapability(ext, "EGL_MESA_platform_gbm");
-		EGL_NOK_swap_region2 = EGL.checkCapability(ext, "EGL_NOK_swap_region2");
-		EGL_NOK_texture_from_pixmap = EGL.checkCapability(ext, "EGL_NOK_texture_from_pixmap");
-		EGL_NV_3dvision_surface = EGL.checkCapability(ext, "EGL_NV_3dvision_surface");
-		EGL_NV_coverage_sample = EGL.checkCapability(ext, "EGL_NV_coverage_sample");
-		EGL_NV_coverage_sample_resolve = EGL.checkCapability(ext, "EGL_NV_coverage_sample_resolve");
-		EGL_NV_cuda_event = EGL.checkCapability(ext, "EGL_NV_cuda_event");
-		EGL_NV_depth_nonlinear = EGL.checkCapability(ext, "EGL_NV_depth_nonlinear");
-		EGL_NV_device_cuda = EGL.checkCapability(ext, "EGL_NV_device_cuda");
-		EGL_NV_native_query = EGL.checkCapability(ext, "EGL_NV_native_query");
-		EGL_NV_post_convert_rounding = EGL.checkCapability(ext, "EGL_NV_post_convert_rounding");
-		EGL_NV_post_sub_buffer = EGL.checkCapability(ext, "EGL_NV_post_sub_buffer");
-		EGL_NV_stream_sync = EGL.checkCapability(ext, "EGL_NV_stream_sync");
-		EGL_NV_sync = EGL.checkCapability(ext, "EGL_NV_sync");
-		EGL_NV_system_time = EGL.checkCapability(ext, "EGL_NV_system_time");
-		EGL_TIZEN_image_native_buffer = EGL.checkCapability(ext, "EGL_TIZEN_image_native_buffer");
-		EGL_TIZEN_image_native_surface = EGL.checkCapability(ext, "EGL_TIZEN_image_native_surface");
+		EGL10 = EGL.checkCapability(ext, "EGL10", __EGL10) != null;
+		EGL11 = EGL.checkCapability(ext, "EGL11", __EGL11) != null;
+		EGL12 = EGL.checkCapability(ext, "EGL12", __EGL12) != null;
+		EGL13 = ext.contains("EGL13");
+		EGL14 = EGL.checkCapability(ext, "EGL14", __EGL14) != null;
+		EGL15 = EGL.checkCapability(ext, "EGL15", __EGL15) != null;
+		EGL_ANDROID_blob_cache = EGL.checkCapability(ext, "EGL_ANDROID_blob_cache", __ANDROIDBlobCache) != null;
+		EGL_ANDROID_framebuffer_target = ext.contains("EGL_ANDROID_framebuffer_target");
+		EGL_ANDROID_image_native_buffer = ext.contains("EGL_ANDROID_image_native_buffer");
+		EGL_ANDROID_native_fence_sync = EGL.checkCapability(ext, "EGL_ANDROID_native_fence_sync", __ANDROIDNativeFenceSync) != null;
+		EGL_ANDROID_recordable = ext.contains("EGL_ANDROID_recordable");
+		EGL_ANGLE_d3d_share_handle_client_buffer = ext.contains("EGL_ANGLE_d3d_share_handle_client_buffer");
+		EGL_ANGLE_device_d3d = ext.contains("EGL_ANGLE_device_d3d");
+		EGL_ANGLE_query_surface_pointer = EGL.checkCapability(ext, "EGL_ANGLE_query_surface_pointer", __ANGLEQuerySurfacePointer) != null;
+		EGL_ANGLE_surface_d3d_texture_2d_share_handle = ext.contains("EGL_ANGLE_surface_d3d_texture_2d_share_handle");
+		EGL_ANGLE_window_fixed_size = ext.contains("EGL_ANGLE_window_fixed_size");
+		EGL_ARM_pixmap_multisample_discard = ext.contains("EGL_ARM_pixmap_multisample_discard");
+		EGL_EXT_buffer_age = ext.contains("EGL_EXT_buffer_age");
+		EGL_EXT_client_extensions = ext.contains("EGL_EXT_client_extensions");
+		EGL_EXT_create_context_robustness = ext.contains("EGL_EXT_create_context_robustness");
+		EGL_EXT_device_base = EGL.checkCapability(ext, "EGL_EXT_device_base", __EXTDeviceBase) != null;
+		EGL_EXT_device_drm = ext.contains("EGL_EXT_device_drm");
+		EGL_EXT_device_enumeration = EGL.checkCapability(ext, "EGL_EXT_device_enumeration", __EXTDeviceEnumeration) != null;
+		EGL_EXT_device_openwf = ext.contains("EGL_EXT_device_openwf");
+		EGL_EXT_device_query = EGL.checkCapability(ext, "EGL_EXT_device_query", __EXTDeviceQuery) != null;
+		EGL_EXT_image_dma_buf_import = ext.contains("EGL_EXT_image_dma_buf_import");
+		EGL_EXT_multiview_window = ext.contains("EGL_EXT_multiview_window");
+		EGL_EXT_output_base = EGL.checkCapability(ext, "EGL_EXT_output_base", __EXTOutputBase) != null;
+		EGL_EXT_output_drm = ext.contains("EGL_EXT_output_drm");
+		EGL_EXT_output_openwf = ext.contains("EGL_EXT_output_openwf");
+		EGL_EXT_platform_base = EGL.checkCapability(ext, "EGL_EXT_platform_base", __EXTPlatformBase) != null;
+		EGL_EXT_platform_device = ext.contains("EGL_EXT_platform_device");
+		EGL_EXT_platform_wayland = ext.contains("EGL_EXT_platform_wayland");
+		EGL_EXT_platform_x11 = ext.contains("EGL_EXT_platform_x11");
+		EGL_EXT_protected_surface = ext.contains("EGL_EXT_protected_surface");
+		EGL_EXT_stream_consumer_egloutput = EGL.checkCapability(ext, "EGL_EXT_stream_consumer_egloutput", __EXTStreamConsumerEGLOutput) != null;
+		EGL_EXT_swap_buffers_with_damage = EGL.checkCapability(ext, "EGL_EXT_swap_buffers_with_damage", __EXTSwapBuffersWithDamage) != null;
+		EGL_EXT_yuv_surface = ext.contains("EGL_EXT_yuv_surface");
+		EGL_HI_clientpixmap = EGL.checkCapability(ext, "EGL_HI_clientpixmap", __HIClientpixmap) != null;
+		EGL_HI_colorformats = ext.contains("EGL_HI_colorformats");
+		EGL_IMG_context_priority = ext.contains("EGL_IMG_context_priority");
+		EGL_KHR_cl_event2 = EGL.checkCapability(ext, "EGL_KHR_cl_event2", __KHRCLEvent2) != null;
+		EGL_KHR_client_get_all_proc_addresses = ext.contains("EGL_KHR_client_get_all_proc_addresses");
+		EGL_KHR_config_attribs = ext.contains("EGL_KHR_config_attribs");
+		EGL_KHR_create_context = ext.contains("EGL_KHR_create_context");
+		EGL_KHR_create_context_no_error = ext.contains("EGL_KHR_create_context_no_error");
+		EGL_KHR_fence_sync = EGL.checkCapability(ext, "EGL_KHR_fence_sync", __KHRFenceSync) != null;
+		EGL_KHR_get_all_proc_addresses = ext.contains("EGL_KHR_get_all_proc_addresses");
+		EGL_KHR_gl_colorspace = ext.contains("EGL_KHR_gl_colorspace");
+		EGL_KHR_gl_renderbuffer_image = ext.contains("EGL_KHR_gl_renderbuffer_image");
+		EGL_KHR_gl_texture_2D_image = ext.contains("EGL_KHR_gl_texture_2D_image");
+		EGL_KHR_gl_texture_3D_image = ext.contains("EGL_KHR_gl_texture_3D_image");
+		EGL_KHR_gl_texture_cubemap_image = ext.contains("EGL_KHR_gl_texture_cubemap_image");
+		EGL_KHR_image = EGL.checkCapability(ext, "EGL_KHR_image", __KHRImage) != null;
+		EGL_KHR_image_base = EGL.checkCapability(ext, "EGL_KHR_image_base", __KHRImageBase) != null;
+		EGL_KHR_image_pixmap = ext.contains("EGL_KHR_image_pixmap");
+		EGL_KHR_lock_surface3 = EGL.checkCapability(ext, "EGL_KHR_lock_surface3", __KHRLockSurface3) != null;
+		EGL_KHR_partial_update = EGL.checkCapability(ext, "EGL_KHR_partial_update", __KHRPartialUpdate) != null;
+		EGL_KHR_platform_android = ext.contains("EGL_KHR_platform_android");
+		EGL_KHR_platform_gbm = ext.contains("EGL_KHR_platform_gbm");
+		EGL_KHR_platform_wayland = ext.contains("EGL_KHR_platform_wayland");
+		EGL_KHR_platform_x11 = ext.contains("EGL_KHR_platform_x11");
+		EGL_KHR_reusable_sync = EGL.checkCapability(ext, "EGL_KHR_reusable_sync", __KHRReusableSync) != null;
+		EGL_KHR_stream = EGL.checkCapability(ext, "EGL_KHR_stream", __KHRStream) != null;
+		EGL_KHR_stream_consumer_gltexture = EGL.checkCapability(ext, "EGL_KHR_stream_consumer_gltexture", __KHRStreamConsumerGLTexture) != null;
+		EGL_KHR_stream_cross_process_fd = EGL.checkCapability(ext, "EGL_KHR_stream_cross_process_fd", __KHRStreamCrossProcessFD) != null;
+		EGL_KHR_stream_fifo = EGL.checkCapability(ext, "EGL_KHR_stream_fifo", __KHRStreamFIFO) != null;
+		EGL_KHR_stream_producer_aldatalocator = ext.contains("EGL_KHR_stream_producer_aldatalocator");
+		EGL_KHR_stream_producer_eglsurface = EGL.checkCapability(ext, "EGL_KHR_stream_producer_eglsurface", __KHRStreamProducerEGLSurface) != null;
+		EGL_KHR_surfaceless_context = ext.contains("EGL_KHR_surfaceless_context");
+		EGL_KHR_swap_buffers_with_damage = EGL.checkCapability(ext, "EGL_KHR_swap_buffers_with_damage", __KHRSwapBuffersWithDamage) != null;
+		EGL_KHR_vg_parent_image = ext.contains("EGL_KHR_vg_parent_image");
+		EGL_KHR_wait_sync = EGL.checkCapability(ext, "EGL_KHR_wait_sync", __KHRWaitSync) != null;
+		EGL_MESA_drm_image = EGL.checkCapability(ext, "EGL_MESA_drm_image", __MESADRMImage) != null;
+		EGL_MESA_image_dma_buf_export = EGL.checkCapability(ext, "EGL_MESA_image_dma_buf_export", __MESAImageDMABufExport) != null;
+		EGL_MESA_platform_gbm = ext.contains("EGL_MESA_platform_gbm");
+		EGL_NOK_swap_region2 = EGL.checkCapability(ext, "EGL_NOK_swap_region2", __NOKSwapRegion2) != null;
+		EGL_NOK_texture_from_pixmap = ext.contains("EGL_NOK_texture_from_pixmap");
+		EGL_NV_3dvision_surface = ext.contains("EGL_NV_3dvision_surface");
+		EGL_NV_coverage_sample = ext.contains("EGL_NV_coverage_sample");
+		EGL_NV_coverage_sample_resolve = ext.contains("EGL_NV_coverage_sample_resolve");
+		EGL_NV_cuda_event = ext.contains("EGL_NV_cuda_event");
+		EGL_NV_depth_nonlinear = ext.contains("EGL_NV_depth_nonlinear");
+		EGL_NV_device_cuda = ext.contains("EGL_NV_device_cuda");
+		EGL_NV_native_query = EGL.checkCapability(ext, "EGL_NV_native_query", __NVNativeQuery) != null;
+		EGL_NV_post_convert_rounding = ext.contains("EGL_NV_post_convert_rounding");
+		EGL_NV_post_sub_buffer = EGL.checkCapability(ext, "EGL_NV_post_sub_buffer", __NVPostSubBuffer) != null;
+		EGL_NV_stream_sync = EGL.checkCapability(ext, "EGL_NV_stream_sync", __NVStreamSync) != null;
+		EGL_NV_sync = EGL.checkCapability(ext, "EGL_NV_sync", __NVSync) != null;
+		EGL_NV_system_time = EGL.checkCapability(ext, "EGL_NV_system_time", __NVSystemTime) != null;
+		EGL_TIZEN_image_native_buffer = ext.contains("EGL_TIZEN_image_native_buffer");
+		EGL_TIZEN_image_native_surface = ext.contains("EGL_TIZEN_image_native_surface");
 	}
 
 	/**
@@ -534,7 +534,7 @@ public class EGLCapabilities {
 		EGL_EXT_platform_wayland = ext.contains("EGL_EXT_platform_wayland");
 		EGL_EXT_platform_x11 = ext.contains("EGL_EXT_platform_x11");
 		EGL_EXT_protected_surface = ext.contains("EGL_EXT_protected_surface");
-		EGL_EXT_stream_consumer_egloutput = (__EXTStreamConsumerEgloutput = EGL.checkCapability(ext, "EGL_EXT_stream_consumer_egloutput", caps.__EXTStreamConsumerEgloutput)) != null;
+		EGL_EXT_stream_consumer_egloutput = (__EXTStreamConsumerEGLOutput = EGL.checkCapability(ext, "EGL_EXT_stream_consumer_egloutput", caps.__EXTStreamConsumerEGLOutput)) != null;
 		EGL_EXT_swap_buffers_with_damage = (__EXTSwapBuffersWithDamage = EGL.checkCapability(ext, "EGL_EXT_swap_buffers_with_damage", caps.__EXTSwapBuffersWithDamage)) != null;
 		EGL_EXT_yuv_surface = ext.contains("EGL_EXT_yuv_surface");
 		EGL_HI_clientpixmap = (__HIClientpixmap = EGL.checkCapability(ext, "EGL_HI_clientpixmap", caps.__HIClientpixmap)) != null;
@@ -563,11 +563,11 @@ public class EGLCapabilities {
 		EGL_KHR_platform_x11 = ext.contains("EGL_KHR_platform_x11");
 		EGL_KHR_reusable_sync = (__KHRReusableSync = EGL.checkCapability(ext, "EGL_KHR_reusable_sync", caps.__KHRReusableSync)) != null;
 		EGL_KHR_stream = (__KHRStream = EGL.checkCapability(ext, "EGL_KHR_stream", caps.__KHRStream)) != null;
-		EGL_KHR_stream_consumer_gltexture = (__KHRStreamConsumerGltexture = EGL.checkCapability(ext, "EGL_KHR_stream_consumer_gltexture", caps.__KHRStreamConsumerGltexture)) != null;
+		EGL_KHR_stream_consumer_gltexture = (__KHRStreamConsumerGLTexture = EGL.checkCapability(ext, "EGL_KHR_stream_consumer_gltexture", caps.__KHRStreamConsumerGLTexture)) != null;
 		EGL_KHR_stream_cross_process_fd = (__KHRStreamCrossProcessFD = EGL.checkCapability(ext, "EGL_KHR_stream_cross_process_fd", caps.__KHRStreamCrossProcessFD)) != null;
 		EGL_KHR_stream_fifo = (__KHRStreamFIFO = EGL.checkCapability(ext, "EGL_KHR_stream_fifo", caps.__KHRStreamFIFO)) != null;
 		EGL_KHR_stream_producer_aldatalocator = ext.contains("EGL_KHR_stream_producer_aldatalocator");
-		EGL_KHR_stream_producer_eglsurface = (__KHRStreamProducerEglsurface = EGL.checkCapability(ext, "EGL_KHR_stream_producer_eglsurface", caps.__KHRStreamProducerEglsurface)) != null;
+		EGL_KHR_stream_producer_eglsurface = (__KHRStreamProducerEGLSurface = EGL.checkCapability(ext, "EGL_KHR_stream_producer_eglsurface", caps.__KHRStreamProducerEGLSurface)) != null;
 		EGL_KHR_surfaceless_context = ext.contains("EGL_KHR_surfaceless_context");
 		EGL_KHR_swap_buffers_with_damage = (__KHRSwapBuffersWithDamage = EGL.checkCapability(ext, "EGL_KHR_swap_buffers_with_damage", caps.__KHRSwapBuffersWithDamage)) != null;
 		EGL_KHR_vg_parent_image = ext.contains("EGL_KHR_vg_parent_image");

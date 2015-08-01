@@ -73,16 +73,6 @@ public final class EGL12 {
 		return checkFunctionality(EGL.getCapabilities().__EGL12);
 	}
 
-	static EGL12 create(FunctionProvider provider) {
-		EGL12 funcs = new EGL12(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BindAPI, funcs.QueryAPI, funcs.CreatePbufferFromClientBuffer, funcs.ReleaseThread, funcs.WaitClient
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglBindAPI ] ---
 
 	/** JNI method for {@link #eglBindAPI BindAPI} */

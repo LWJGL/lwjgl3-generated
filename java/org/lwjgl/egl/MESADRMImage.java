@@ -52,16 +52,6 @@ public final class MESADRMImage {
 		return checkFunctionality(EGL.getCapabilities().__MESADRMImage);
 	}
 
-	static MESADRMImage create(FunctionProvider provider) {
-		MESADRMImage funcs = new MESADRMImage(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateDRMImageMESA, funcs.ExportDRMImageMESA
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglCreateDRMImageMESA ] ---
 
 	/** JNI method for {@link #eglCreateDRMImageMESA CreateDRMImageMESA} */

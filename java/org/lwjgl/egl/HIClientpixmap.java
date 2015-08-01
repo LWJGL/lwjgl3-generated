@@ -39,16 +39,6 @@ public final class HIClientpixmap {
 		return checkFunctionality(EGL.getCapabilities().__HIClientpixmap);
 	}
 
-	static HIClientpixmap create(FunctionProvider provider) {
-		HIClientpixmap funcs = new HIClientpixmap(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreatePixmapSurfaceHI
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglCreatePixmapSurfaceHI ] ---
 
 	/** JNI method for {@link #eglCreatePixmapSurfaceHI CreatePixmapSurfaceHI} */

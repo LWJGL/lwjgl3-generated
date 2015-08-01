@@ -48,16 +48,6 @@ public final class KHRImage {
 		return checkFunctionality(EGL.getCapabilities().__KHRImage);
 	}
 
-	static KHRImage create(FunctionProvider provider) {
-		KHRImage funcs = new KHRImage(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateImageKHR, funcs.DestroyImageKHR
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglCreateImageKHR ] ---
 
 	/** Unsafe version of {@link #eglCreateImageKHR CreateImageKHR} */

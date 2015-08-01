@@ -38,16 +38,6 @@ public final class NVSystemTime {
 		return checkFunctionality(EGL.getCapabilities().__NVSystemTime);
 	}
 
-	static NVSystemTime create(FunctionProvider provider) {
-		NVSystemTime funcs = new NVSystemTime(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetSystemTimeFrequencyNV, funcs.GetSystemTimeNV
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglGetSystemTimeFrequencyNV ] ---
 
 	/** JNI method for {@link #eglGetSystemTimeFrequencyNV GetSystemTimeFrequencyNV} */

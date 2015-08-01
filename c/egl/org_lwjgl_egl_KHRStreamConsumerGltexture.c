@@ -15,7 +15,7 @@ typedef EGLBoolean (APIENTRY *eglStreamConsumerReleaseKHRPROC) (EGLDisplay, EGLS
 
 EXTERN_C_ENTER
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_egl_KHRStreamConsumerGltexture_neglStreamConsumerGLTextureExternalKHR(JNIEnv *__env, jclass clazz, jlong dpyAddress, jlong streamAddress, jlong __functionAddress) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_egl_KHRStreamConsumerGLTexture_neglStreamConsumerGLTextureExternalKHR(JNIEnv *__env, jclass clazz, jlong dpyAddress, jlong streamAddress, jlong __functionAddress) {
 	EGLDisplay dpy = (EGLDisplay)(intptr_t)dpyAddress;
 	EGLStreamKHR stream = (EGLStreamKHR)(intptr_t)streamAddress;
 	eglStreamConsumerGLTextureExternalKHRPROC eglStreamConsumerGLTextureExternalKHR = (eglStreamConsumerGLTextureExternalKHRPROC)(intptr_t)__functionAddress;
@@ -23,7 +23,7 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_egl_KHRStreamConsumerGltexture_neglStr
 	return (jboolean)eglStreamConsumerGLTextureExternalKHR(dpy, stream);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_egl_KHRStreamConsumerGltexture_neglStreamConsumerAcquireKHR(JNIEnv *__env, jclass clazz, jlong dpyAddress, jlong streamAddress, jlong __functionAddress) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_egl_KHRStreamConsumerGLTexture_neglStreamConsumerAcquireKHR(JNIEnv *__env, jclass clazz, jlong dpyAddress, jlong streamAddress, jlong __functionAddress) {
 	EGLDisplay dpy = (EGLDisplay)(intptr_t)dpyAddress;
 	EGLStreamKHR stream = (EGLStreamKHR)(intptr_t)streamAddress;
 	eglStreamConsumerAcquireKHRPROC eglStreamConsumerAcquireKHR = (eglStreamConsumerAcquireKHRPROC)(intptr_t)__functionAddress;
@@ -31,7 +31,7 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_egl_KHRStreamConsumerGltexture_neglStr
 	return (jboolean)eglStreamConsumerAcquireKHR(dpy, stream);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_egl_KHRStreamConsumerGltexture_neglStreamConsumerReleaseKHR(JNIEnv *__env, jclass clazz, jlong dpyAddress, jlong streamAddress, jlong __functionAddress) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_egl_KHRStreamConsumerGLTexture_neglStreamConsumerReleaseKHR(JNIEnv *__env, jclass clazz, jlong dpyAddress, jlong streamAddress, jlong __functionAddress) {
 	EGLDisplay dpy = (EGLDisplay)(intptr_t)dpyAddress;
 	EGLStreamKHR stream = (EGLStreamKHR)(intptr_t)streamAddress;
 	eglStreamConsumerReleaseKHRPROC eglStreamConsumerReleaseKHR = (eglStreamConsumerReleaseKHRPROC)(intptr_t)__functionAddress;

@@ -61,16 +61,6 @@ public final class KHRStreamFIFO {
 		return checkFunctionality(EGL.getCapabilities().__KHRStreamFIFO);
 	}
 
-	static KHRStreamFIFO create(FunctionProvider provider) {
-		KHRStreamFIFO funcs = new KHRStreamFIFO(provider);
-
-		boolean supported = checkFunctions(
-			funcs.QueryStreamTimeKHR
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglQueryStreamTimeKHR ] ---
 
 	/** JNI method for {@link #eglQueryStreamTimeKHR QueryStreamTimeKHR} */

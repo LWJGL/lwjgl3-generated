@@ -42,17 +42,7 @@ public final class KHRStreamConsumerGLTexture {
 
 	/** Returns the {@link KHRStreamConsumerGLTexture} instance. */
 	public static KHRStreamConsumerGLTexture getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__KHRStreamConsumerGltexture);
-	}
-
-	static KHRStreamConsumerGLTexture create(FunctionProvider provider) {
-		KHRStreamConsumerGLTexture funcs = new KHRStreamConsumerGLTexture(provider);
-
-		boolean supported = checkFunctions(
-			funcs.StreamConsumerGLTextureExternalKHR, funcs.StreamConsumerAcquireKHR, funcs.StreamConsumerReleaseKHR
-		);
-
-		return supported ? funcs : null;
+		return checkFunctionality(EGL.getCapabilities().__KHRStreamConsumerGLTexture);
 	}
 
 	// --- [ eglStreamConsumerGLTextureExternalKHR ] ---

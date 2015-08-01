@@ -53,16 +53,6 @@ public final class EGL11 {
 		return checkFunctionality(EGL.getCapabilities().__EGL11);
 	}
 
-	static EGL11 create(FunctionProvider provider) {
-		EGL11 funcs = new EGL11(provider);
-
-		boolean supported = checkFunctions(
-			funcs.BindTexImage, funcs.ReleaseTexImage, funcs.SurfaceAttrib, funcs.SwapInterval
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglBindTexImage ] ---
 
 	/** JNI method for {@link #eglBindTexImage BindTexImage} */

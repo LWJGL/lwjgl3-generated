@@ -37,16 +37,6 @@ public final class ANGLEQuerySurfacePointer {
 		return checkFunctionality(EGL.getCapabilities().__ANGLEQuerySurfacePointer);
 	}
 
-	static ANGLEQuerySurfacePointer create(FunctionProvider provider) {
-		ANGLEQuerySurfacePointer funcs = new ANGLEQuerySurfacePointer(provider);
-
-		boolean supported = checkFunctions(
-			funcs.QuerySurfacePointerANGLE
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglQuerySurfacePointerANGLE ] ---
 
 	/** JNI method for {@link #eglQuerySurfacePointerANGLE QuerySurfacePointerANGLE} */

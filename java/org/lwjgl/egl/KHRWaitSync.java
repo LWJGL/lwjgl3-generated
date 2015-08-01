@@ -38,16 +38,6 @@ public final class KHRWaitSync {
 		return checkFunctionality(EGL.getCapabilities().__KHRWaitSync);
 	}
 
-	static KHRWaitSync create(FunctionProvider provider) {
-		KHRWaitSync funcs = new KHRWaitSync(provider);
-
-		boolean supported = checkFunctions(
-			funcs.WaitSyncKHR
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglWaitSyncKHR ] ---
 
 	/** JNI method for {@link #eglWaitSyncKHR WaitSyncKHR} */

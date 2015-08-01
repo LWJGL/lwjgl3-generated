@@ -59,16 +59,6 @@ public final class KHRStreamCrossProcessFD {
 		return checkFunctionality(EGL.getCapabilities().__KHRStreamCrossProcessFD);
 	}
 
-	static KHRStreamCrossProcessFD create(FunctionProvider provider) {
-		KHRStreamCrossProcessFD funcs = new KHRStreamCrossProcessFD(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetStreamFileDescriptorKHR, funcs.CreateStreamFromFileDescriptorKHR
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglGetStreamFileDescriptorKHR ] ---
 
 	/** JNI method for {@link #eglGetStreamFileDescriptorKHR GetStreamFileDescriptorKHR} */

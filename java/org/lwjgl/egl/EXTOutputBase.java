@@ -74,17 +74,6 @@ public final class EXTOutputBase {
 		return checkFunctionality(EGL.getCapabilities().__EXTOutputBase);
 	}
 
-	static EXTOutputBase create(FunctionProvider provider) {
-		EXTOutputBase funcs = new EXTOutputBase(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetOutputLayersEXT, funcs.GetOutputPortsEXT, funcs.OutputLayerAttribEXT, funcs.QueryOutputLayerAttribEXT, funcs.QueryOutputLayerStringEXT, 
-			funcs.OutputPortAttribEXT, funcs.QueryOutputPortAttribEXT, funcs.QueryOutputPortStringEXT
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglGetOutputLayersEXT ] ---
 
 	/** JNI method for {@link #eglGetOutputLayersEXT GetOutputLayersEXT} */

@@ -70,16 +70,6 @@ public final class KHRLockSurface3 {
 		return checkFunctionality(EGL.getCapabilities().__KHRLockSurface3);
 	}
 
-	static KHRLockSurface3 create(FunctionProvider provider) {
-		KHRLockSurface3 funcs = new KHRLockSurface3(provider);
-
-		boolean supported = checkFunctions(
-			funcs.LockSurfaceKHR, funcs.UnlockSurfaceKHR, funcs.QuerySurface64KHR
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglLockSurfaceKHR ] ---
 
 	/** JNI method for {@link #eglLockSurfaceKHR LockSurfaceKHR} */

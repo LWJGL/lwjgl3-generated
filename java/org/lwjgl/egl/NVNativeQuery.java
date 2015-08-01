@@ -42,16 +42,6 @@ public final class NVNativeQuery {
 		return checkFunctionality(EGL.getCapabilities().__NVNativeQuery);
 	}
 
-	static NVNativeQuery create(FunctionProvider provider) {
-		NVNativeQuery funcs = new NVNativeQuery(provider);
-
-		boolean supported = checkFunctions(
-			funcs.QueryNativeDisplayNV, funcs.QueryNativeWindowNV, funcs.QueryNativePixmapNV
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglQueryNativeDisplayNV ] ---
 
 	/** JNI method for {@link #eglQueryNativeDisplayNV QueryNativeDisplayNV} */

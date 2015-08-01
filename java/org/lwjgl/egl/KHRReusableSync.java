@@ -69,16 +69,6 @@ public final class KHRReusableSync {
 		return checkFunctionality(EGL.getCapabilities().__KHRReusableSync);
 	}
 
-	static KHRReusableSync create(FunctionProvider provider) {
-		KHRReusableSync funcs = new KHRReusableSync(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateSyncKHR, funcs.DestroySyncKHR, funcs.ClientWaitSyncKHR, funcs.SignalSyncKHR, funcs.GetSyncAttribKHR
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglCreateSyncKHR ] ---
 
 	/** JNI method for {@link #eglCreateSyncKHR CreateSyncKHR} */

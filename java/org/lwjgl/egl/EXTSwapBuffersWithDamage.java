@@ -42,16 +42,6 @@ public final class EXTSwapBuffersWithDamage {
 		return checkFunctionality(EGL.getCapabilities().__EXTSwapBuffersWithDamage);
 	}
 
-	static EXTSwapBuffersWithDamage create(FunctionProvider provider) {
-		EXTSwapBuffersWithDamage funcs = new EXTSwapBuffersWithDamage(provider);
-
-		boolean supported = checkFunctions(
-			funcs.SwapBuffersWithDamageEXT
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglSwapBuffersWithDamageEXT ] ---
 
 	/** JNI method for {@link #eglSwapBuffersWithDamageEXT SwapBuffersWithDamageEXT} */

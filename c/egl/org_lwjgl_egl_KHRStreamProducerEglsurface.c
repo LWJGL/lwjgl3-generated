@@ -13,7 +13,7 @@ typedef EGLSurface (APIENTRY *eglCreateStreamProducerSurfaceKHRPROC) (EGLDisplay
 
 EXTERN_C_ENTER
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_egl_KHRStreamProducerEglsurface_neglCreateStreamProducerSurfaceKHR(JNIEnv *__env, jclass clazz, jlong dpyAddress, jlong configAddress, jlong streamAddress, jlong attrib_listAddress, jlong __functionAddress) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_egl_KHRStreamProducerEGLSurface_neglCreateStreamProducerSurfaceKHR(JNIEnv *__env, jclass clazz, jlong dpyAddress, jlong configAddress, jlong streamAddress, jlong attrib_listAddress, jlong __functionAddress) {
 	EGLDisplay dpy = (EGLDisplay)(intptr_t)dpyAddress;
 	EGLConfig config = (EGLConfig)(intptr_t)configAddress;
 	EGLStreamKHR stream = (EGLStreamKHR)(intptr_t)streamAddress;

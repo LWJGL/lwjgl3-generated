@@ -42,16 +42,6 @@ public final class EGL14 {
 		return checkFunctionality(EGL.getCapabilities().__EGL14);
 	}
 
-	static EGL14 create(FunctionProvider provider) {
-		EGL14 funcs = new EGL14(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetCurrentContext
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglGetCurrentContext ] ---
 
 	/** JNI method for {@link #eglGetCurrentContext GetCurrentContext} */

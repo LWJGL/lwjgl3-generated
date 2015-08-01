@@ -47,16 +47,6 @@ public final class NOKSwapRegion2 {
 		return checkFunctionality(EGL.getCapabilities().__NOKSwapRegion2);
 	}
 
-	static NOKSwapRegion2 create(FunctionProvider provider) {
-		NOKSwapRegion2 funcs = new NOKSwapRegion2(provider);
-
-		boolean supported = checkFunctions(
-			funcs.SwapBuffersRegion2NOK
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglSwapBuffersRegion2NOK ] ---
 
 	/** JNI method for {@link #eglSwapBuffersRegion2NOK SwapBuffersRegion2NOK} */

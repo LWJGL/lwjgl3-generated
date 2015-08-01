@@ -41,16 +41,6 @@ public final class NVPostSubBuffer {
 		return checkFunctionality(EGL.getCapabilities().__NVPostSubBuffer);
 	}
 
-	static NVPostSubBuffer create(FunctionProvider provider) {
-		NVPostSubBuffer funcs = new NVPostSubBuffer(provider);
-
-		boolean supported = checkFunctions(
-			funcs.PostSubBufferNV
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglPostSubBufferNV ] ---
 
 	/** JNI method for {@link #eglPostSubBufferNV PostSubBufferNV} */

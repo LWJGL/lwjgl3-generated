@@ -13,7 +13,7 @@ typedef EGLBoolean (APIENTRY *eglStreamConsumerOutputEXTPROC) (EGLDisplay, EGLSt
 
 EXTERN_C_ENTER
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_egl_EXTStreamConsumerEgloutput_neglStreamConsumerOutputEXT(JNIEnv *__env, jclass clazz, jlong dpyAddress, jlong streamAddress, jlong layerAddress, jlong __functionAddress) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_egl_EXTStreamConsumerEGLOutput_neglStreamConsumerOutputEXT(JNIEnv *__env, jclass clazz, jlong dpyAddress, jlong streamAddress, jlong layerAddress, jlong __functionAddress) {
 	EGLDisplay dpy = (EGLDisplay)(intptr_t)dpyAddress;
 	EGLStreamKHR stream = (EGLStreamKHR)(intptr_t)streamAddress;
 	EGLOutputLayerEXT layer = (EGLOutputLayerEXT)(intptr_t)layerAddress;

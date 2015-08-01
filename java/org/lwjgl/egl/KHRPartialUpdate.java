@@ -53,16 +53,6 @@ public final class KHRPartialUpdate {
 		return checkFunctionality(EGL.getCapabilities().__KHRPartialUpdate);
 	}
 
-	static KHRPartialUpdate create(FunctionProvider provider) {
-		KHRPartialUpdate funcs = new KHRPartialUpdate(provider);
-
-		boolean supported = checkFunctions(
-			funcs.SetDamageRegionKHR
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglSetDamageRegionKHR ] ---
 
 	/** JNI method for {@link #eglSetDamageRegionKHR SetDamageRegionKHR} */

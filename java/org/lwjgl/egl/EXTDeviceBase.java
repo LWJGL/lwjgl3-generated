@@ -58,16 +58,6 @@ public final class EXTDeviceBase {
 		return checkFunctionality(EGL.getCapabilities().__EXTDeviceBase);
 	}
 
-	static EXTDeviceBase create(FunctionProvider provider) {
-		EXTDeviceBase funcs = new EXTDeviceBase(provider);
-
-		boolean supported = checkFunctions(
-			funcs.QueryDeviceAttribEXT, funcs.QueryDeviceStringEXT, funcs.QueryDisplayAttribEXT, funcs.QueryDevicesEXT
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglQueryDeviceAttribEXT ] ---
 
 	/** Unsafe version of {@link #eglQueryDeviceAttribEXT QueryDeviceAttribEXT} */

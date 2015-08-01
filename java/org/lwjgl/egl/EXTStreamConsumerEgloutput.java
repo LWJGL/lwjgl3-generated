@@ -39,17 +39,7 @@ public final class EXTStreamConsumerEGLOutput {
 
 	/** Returns the {@link EXTStreamConsumerEGLOutput} instance. */
 	public static EXTStreamConsumerEGLOutput getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__EXTStreamConsumerEgloutput);
-	}
-
-	static EXTStreamConsumerEGLOutput create(FunctionProvider provider) {
-		EXTStreamConsumerEGLOutput funcs = new EXTStreamConsumerEGLOutput(provider);
-
-		boolean supported = checkFunctions(
-			funcs.StreamConsumerOutputEXT
-		);
-
-		return supported ? funcs : null;
+		return checkFunctionality(EGL.getCapabilities().__EXTStreamConsumerEGLOutput);
 	}
 
 	// --- [ eglStreamConsumerOutputEXT ] ---

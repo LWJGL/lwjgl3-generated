@@ -48,16 +48,6 @@ public final class ANDROIDNativeFenceSync {
 		return checkFunctionality(EGL.getCapabilities().__ANDROIDNativeFenceSync);
 	}
 
-	static ANDROIDNativeFenceSync create(FunctionProvider provider) {
-		ANDROIDNativeFenceSync funcs = new ANDROIDNativeFenceSync(provider);
-
-		boolean supported = checkFunctions(
-			funcs.DupNativeFenceFDANDROID
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglDupNativeFenceFDANDROID ] ---
 
 	/** JNI method for {@link #eglDupNativeFenceFDANDROID DupNativeFenceFDANDROID} */

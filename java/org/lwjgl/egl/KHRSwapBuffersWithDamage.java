@@ -42,16 +42,6 @@ public final class KHRSwapBuffersWithDamage {
 		return checkFunctionality(EGL.getCapabilities().__KHRSwapBuffersWithDamage);
 	}
 
-	static KHRSwapBuffersWithDamage create(FunctionProvider provider) {
-		KHRSwapBuffersWithDamage funcs = new KHRSwapBuffersWithDamage(provider);
-
-		boolean supported = checkFunctions(
-			funcs.SwapBuffersWithDamageKHR
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglSwapBuffersWithDamageKHR ] ---
 
 	/** JNI method for {@link #eglSwapBuffersWithDamageKHR SwapBuffersWithDamageKHR} */

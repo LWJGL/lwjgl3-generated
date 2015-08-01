@@ -39,17 +39,7 @@ public final class KHRStreamProducerEGLSurface {
 
 	/** Returns the {@link KHRStreamProducerEGLSurface} instance. */
 	public static KHRStreamProducerEGLSurface getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__KHRStreamProducerEglsurface);
-	}
-
-	static KHRStreamProducerEGLSurface create(FunctionProvider provider) {
-		KHRStreamProducerEGLSurface funcs = new KHRStreamProducerEGLSurface(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateStreamProducerSurfaceKHR
-		);
-
-		return supported ? funcs : null;
+		return checkFunctionality(EGL.getCapabilities().__KHRStreamProducerEGLSurface);
 	}
 
 	// --- [ eglCreateStreamProducerSurfaceKHR ] ---

@@ -92,16 +92,6 @@ public final class KHRStream {
 		return checkFunctionality(EGL.getCapabilities().__KHRStream);
 	}
 
-	static KHRStream create(FunctionProvider provider) {
-		KHRStream funcs = new KHRStream(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateStreamKHR, funcs.DestroyStreamKHR, funcs.StreamAttribKHR, funcs.QueryStreamKHR, funcs.QueryStreamu64KHR
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglCreateStreamKHR ] ---
 
 	/** JNI method for {@link #eglCreateStreamKHR CreateStreamKHR} */

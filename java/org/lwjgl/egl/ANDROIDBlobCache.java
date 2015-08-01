@@ -46,16 +46,6 @@ public final class ANDROIDBlobCache {
 		return checkFunctionality(EGL.getCapabilities().__ANDROIDBlobCache);
 	}
 
-	static ANDROIDBlobCache create(FunctionProvider provider) {
-		ANDROIDBlobCache funcs = new ANDROIDBlobCache(provider);
-
-		boolean supported = checkFunctions(
-			funcs.SetBlobCacheFuncsANDROID
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglSetBlobCacheFuncsANDROID ] ---
 
 	/** JNI method for {@link #eglSetBlobCacheFuncsANDROID SetBlobCacheFuncsANDROID} */

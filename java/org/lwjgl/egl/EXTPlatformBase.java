@@ -59,16 +59,6 @@ public final class EXTPlatformBase {
 		return checkFunctionality(EGL.getCapabilities().__EXTPlatformBase);
 	}
 
-	static EXTPlatformBase create(FunctionProvider provider) {
-		EXTPlatformBase funcs = new EXTPlatformBase(provider);
-
-		boolean supported = checkFunctions(
-			funcs.GetPlatformDisplayEXT, funcs.CreatePlatformWindowSurfaceEXT, funcs.CreatePlatformPixmapSurfaceEXT
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglGetPlatformDisplayEXT ] ---
 
 	/** JNI method for {@link #eglGetPlatformDisplayEXT GetPlatformDisplayEXT} */

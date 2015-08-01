@@ -74,16 +74,6 @@ public final class NVSync {
 		return checkFunctionality(EGL.getCapabilities().__NVSync);
 	}
 
-	static NVSync create(FunctionProvider provider) {
-		NVSync funcs = new NVSync(provider);
-
-		boolean supported = checkFunctions(
-			funcs.CreateFenceSyncNV, funcs.DestroySyncNV, funcs.FenceNV, funcs.ClientWaitSyncNV, funcs.SignalSyncNV, funcs.GetSyncAttribNV
-		);
-
-		return supported ? funcs : null;
-	}
-
 	// --- [ eglCreateFenceSyncNV ] ---
 
 	/** JNI method for {@link #eglCreateFenceSyncNV CreateFenceSyncNV} */
