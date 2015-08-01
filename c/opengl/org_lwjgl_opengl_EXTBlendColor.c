@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef void (APIENTRY *glBlendColorEXTPROC) (GLclampf, GLclampf, GLclampf, GLclampf);
+typedef void (APIENTRY *glBlendColorEXTPROC) (GLfloat, GLfloat, GLfloat, GLfloat);
 
 EXTERN_C_ENTER
 

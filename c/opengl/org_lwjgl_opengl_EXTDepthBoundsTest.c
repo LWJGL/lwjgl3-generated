@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "OpenGL.h"
 
-typedef void (APIENTRY *glDepthBoundsEXTPROC) (GLclampd, GLclampd);
+typedef void (APIENTRY *glDepthBoundsEXTPROC) (double, double);
 
 EXTERN_C_ENTER
 

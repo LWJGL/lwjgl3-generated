@@ -4,6 +4,12 @@
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 #include "common_tools.h"
+#ifdef LWJGL_WINDOWS
+	#define GLFW_EXPOSE_NATIVE_WIN32
+#endif
+#ifdef LWJGL_LINUX
+	#define GLFW_EXPOSE_NATIVE_X11
+#endif
 #define GLFW_EXPOSE_NATIVE_EGL
 #include "glfw3.h"
 #include "glfw3native.h"
