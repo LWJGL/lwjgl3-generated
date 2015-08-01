@@ -4599,23 +4599,15 @@ Guarantees that writes have completed and caches have been invalidated before su
 			checkBuffer(row, rowBufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 			checkBuffer(column, columnBufSize);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetnSeparableFilter(target, format, type, rowBufSize, memAddress(row), columnBufSize, memAddress(column), memAddressSafe(span));
 	}
 
 	/** Buffer object offset version of: {@link #glGetnSeparableFilter GetnSeparableFilter} */
-	public static void glGetnSeparableFilter(int target, int format, int type, int rowBufSize, long rowOffset, int columnBufSize, ByteBuffer column, ByteBuffer span) {
+	public static void glGetnSeparableFilter(int target, int format, int type, int rowBufSize, long rowOffset, int columnBufSize, long columnOffset, ByteBuffer span) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
-		nglGetnSeparableFilter(target, format, type, rowBufSize, rowOffset, columnBufSize, memAddress(column), memAddressSafe(span));
-	}
-
-	/** Buffer object offset version of: {@link #glGetnSeparableFilter GetnSeparableFilter} */
-	public static void glGetnSeparableFilter(int target, int format, int type, int rowBufSize, ByteBuffer row, int columnBufSize, long columnOffset, ByteBuffer span) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
-		nglGetnSeparableFilter(target, format, type, rowBufSize, memAddress(row), columnBufSize, columnOffset, memAddressSafe(span));
+		nglGetnSeparableFilter(target, format, type, rowBufSize, rowOffset, columnBufSize, columnOffset, memAddressSafe(span));
 	}
 
 	/** Alternative version of: {@link #glGetnSeparableFilter GetnSeparableFilter} */

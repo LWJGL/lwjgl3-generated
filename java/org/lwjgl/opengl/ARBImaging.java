@@ -844,25 +844,16 @@ public final class ARBImaging {
 	 * @param column         the vertical filter data
 	 */
 	public static void glSeparableFilter2D(int target, int internalformat, int width, int height, int format, int type, ByteBuffer row, ByteBuffer column) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		nglSeparableFilter2D(target, internalformat, width, height, format, type, memAddress(row), memAddress(column));
 	}
 
 	/** Buffer object offset version of: {@link #glSeparableFilter2D SeparableFilter2D} */
-	public static void glSeparableFilter2D(int target, int internalformat, int width, int height, int format, int type, long rowOffset, ByteBuffer column) {
+	public static void glSeparableFilter2D(int target, int internalformat, int width, int height, int format, int type, long rowOffset, long columnOffset) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglSeparableFilter2D(target, internalformat, width, height, format, type, rowOffset, memAddress(column));
-	}
-
-	/** Buffer object offset version of: {@link #glSeparableFilter2D SeparableFilter2D} */
-	public static void glSeparableFilter2D(int target, int internalformat, int width, int height, int format, int type, ByteBuffer row, long columnOffset) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
-		nglSeparableFilter2D(target, internalformat, width, height, format, type, memAddress(row), columnOffset);
+		nglSeparableFilter2D(target, internalformat, width, height, format, type, rowOffset, columnOffset);
 	}
 
 	// --- [ glGetSeparableFilter ] ---
@@ -891,25 +882,16 @@ public final class ARBImaging {
 	 * @param span   unused
 	 */
 	public static void glGetSeparableFilter(int target, int format, int type, ByteBuffer row, ByteBuffer column, ByteBuffer span) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		nglGetSeparableFilter(target, format, type, memAddress(row), memAddress(column), memAddressSafe(span));
 	}
 
 	/** Buffer object offset version of: {@link #glGetSeparableFilter GetSeparableFilter} */
-	public static void glGetSeparableFilter(int target, int format, int type, long rowOffset, ByteBuffer column, ByteBuffer span) {
+	public static void glGetSeparableFilter(int target, int format, int type, long rowOffset, long columnOffset, ByteBuffer span) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
-		nglGetSeparableFilter(target, format, type, rowOffset, memAddress(column), memAddressSafe(span));
-	}
-
-	/** Buffer object offset version of: {@link #glGetSeparableFilter GetSeparableFilter} */
-	public static void glGetSeparableFilter(int target, int format, int type, ByteBuffer row, long columnOffset, ByteBuffer span) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
-		nglGetSeparableFilter(target, format, type, memAddress(row), columnOffset, memAddressSafe(span));
+		nglGetSeparableFilter(target, format, type, rowOffset, columnOffset, memAddressSafe(span));
 	}
 
 	// --- [ glConvolutionParameteri ] ---

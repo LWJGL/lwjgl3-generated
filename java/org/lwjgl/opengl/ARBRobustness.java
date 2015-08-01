@@ -734,23 +734,15 @@ public final class ARBRobustness {
 			checkBuffer(row, rowBufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 			checkBuffer(column, columnBufSize);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		nglGetnSeparableFilterARB(target, format, type, rowBufSize, memAddress(row), columnBufSize, memAddress(column), memAddressSafe(span));
 	}
 
 	/** Buffer object offset version of: {@link #glGetnSeparableFilterARB GetnSeparableFilterARB} */
-	public static void glGetnSeparableFilterARB(int target, int format, int type, int rowBufSize, long rowOffset, int columnBufSize, ByteBuffer column, ByteBuffer span) {
+	public static void glGetnSeparableFilterARB(int target, int format, int type, int rowBufSize, long rowOffset, int columnBufSize, long columnOffset, ByteBuffer span) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
-		nglGetnSeparableFilterARB(target, format, type, rowBufSize, rowOffset, columnBufSize, memAddress(column), memAddressSafe(span));
-	}
-
-	/** Buffer object offset version of: {@link #glGetnSeparableFilterARB GetnSeparableFilterARB} */
-	public static void glGetnSeparableFilterARB(int target, int format, int type, int rowBufSize, ByteBuffer row, int columnBufSize, long columnOffset, ByteBuffer span) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
-		nglGetnSeparableFilterARB(target, format, type, rowBufSize, memAddress(row), columnBufSize, columnOffset, memAddressSafe(span));
+		nglGetnSeparableFilterARB(target, format, type, rowBufSize, rowOffset, columnBufSize, columnOffset, memAddressSafe(span));
 	}
 
 	/** Alternative version of: {@link #glGetnSeparableFilterARB GetnSeparableFilterARB} */
