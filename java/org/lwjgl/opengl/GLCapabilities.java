@@ -9,7 +9,7 @@ import org.lwjgl.system.*;
 import java.util.Set;
 
 /** Defines the capabilities of an OpenGL context. */
-public final class ContextCapabilities {
+public final class GLCapabilities {
 
 	final GL11                             __GL11;
 	final GL12                             __GL12;
@@ -1843,7 +1843,7 @@ public final class ContextCapabilities {
 	public final boolean WGL_NV_swap_group;
 	public final boolean WGL_NV_vertex_array_range;
 
-	ContextCapabilities(FunctionProvider provider, Set<String> ext, boolean fc) {
+	GLCapabilities(FunctionProvider provider, Set<String> ext, boolean fc) {
 		OpenGL11 = (__GL11 = GL11.create(ext, provider, fc)) != null;
 		OpenGL12 = (__GL12 = GL12.create(ext, provider)) != null;
 		OpenGL13 = (__GL13 = GL13.create(ext, provider, fc)) != null;

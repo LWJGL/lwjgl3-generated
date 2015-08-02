@@ -97,7 +97,7 @@ public final class ARBInstancedArrays {
 	 * <p>This function was added to the extension specification in July 2013. Implemenations are allowed to expose ARB_instanced_arrays without providing this
 	 * function. The correct way to test its availability is:
 	 * <pre><code style="font-family: monospace">
-	 * ContextCapabilities caps = GL.getCapabilities();
+	 * GLCapabilities caps = GL.getCapabilities();
 	 * if ( caps.GL_ARB_instanced_arrays && ARBInstancedArrays.getInstance().VertexArrayVertexAttribDivisorEXT != NULL )
 	 * 	glVertexArrayVertexAttribDivisorEXT(...); // the DSA function can now be used</code></pre></p>
 	 *
