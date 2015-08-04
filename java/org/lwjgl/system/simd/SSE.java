@@ -54,7 +54,7 @@ public final class SSE {
 	// --- [ _MM_SET_EXCEPTION_STATE ] ---
 
 	/**
-	 * Writes to the six least significant control register bits.
+	 * Sets the exception state bits of the MXCSR control and status register.
 	 *
 	 * @param mask the exception state. One of:<br>{@link #_MM_EXCEPT_MASK EXCEPT_MASK}, {@link #_MM_EXCEPT_INVALID EXCEPT_INVALID}, {@link #_MM_EXCEPT_DENORM EXCEPT_DENORM}, {@link #_MM_EXCEPT_DIV_ZERO EXCEPT_DIV_ZERO}, {@link #_MM_EXCEPT_OVERFLOW EXCEPT_OVERFLOW}, {@link #_MM_EXCEPT_UNDERFLOW EXCEPT_UNDERFLOW}, {@link #_MM_EXCEPT_INEXACT EXCEPT_INEXACT}
 	 */
@@ -62,13 +62,13 @@ public final class SSE {
 
 	// --- [ _MM_GET_EXCEPTION_STATE ] ---
 
-	/** Reads from the six least significant control register bits. */
+	/** Returns the exception state bits from the MXCSR control and status register. */
 	public static native int _MM_GET_EXCEPTION_STATE();
 
 	// --- [ _MM_SET_EXCEPTION_MASK ] ---
 
 	/**
-	 * Writes to bit 7 – 12 control register bits.
+	 * Sets the exception mask bits of the MXCSR control and status register.
 	 * 
 	 * <p>All six exception mask bits are always affected. Bits not set explicitly are cleared.</p>
 	 *
@@ -78,13 +78,13 @@ public final class SSE {
 
 	// --- [ _MM_GET_EXCEPTION_MASK ] ---
 
-	/** Reads from bit 7 – 12 control register bits. */
+	/** Returns the exception mask bits from the MXCSR control and status register. */
 	public static native int _MM_GET_EXCEPTION_MASK();
 
 	// --- [ _MM_SET_ROUNDING_MODE ] ---
 
 	/**
-	 * Writes to bits 13 and 14 of the control register.
+	 * Sets the rounding mode bits of the MXCSR control and status register.
 	 *
 	 * @param mode the rounding mode. One of:<br>{@link #_MM_ROUND_MASK ROUND_MASK}, {@link #_MM_ROUND_NEAREST ROUND_NEAREST}, {@link #_MM_ROUND_DOWN ROUND_DOWN}, {@link #_MM_ROUND_UP ROUND_UP}, {@link #_MM_ROUND_TOWARD_ZERO ROUND_TOWARD_ZERO}
 	 */
@@ -92,13 +92,16 @@ public final class SSE {
 
 	// --- [ _MM_GET_ROUNDING_MODE ] ---
 
-	/** Reads from bits 13 and 14 of the control register. */
+	/** Returns the rounding mode bits from the MXCSR control and status register. */
 	public static native int _MM_GET_ROUNDING_MODE();
 
 	// --- [ _MM_SET_FLUSH_ZERO_MODE ] ---
 
 	/**
-	 * Writes to bit 15 of the control register.
+	 * Sets the flush zero bits of the MXCSR control and status register. FTZ sets denormal results from floating-point calculations to zero.
+	 * 
+	 * <p>FTZ is a method of bypassing IEEE 754 methods of dealing with invalid floating-point numbers due to underflows. This mode is less precise, but much
+	 * faster.</p>
 	 *
 	 * @param mode the flush-to-zero mode. One of:<br>{@link #_MM_FLUSH_ZERO_MASK FLUSH_ZERO_MASK}, {@link #_MM_FLUSH_ZERO_ON FLUSH_ZERO_ON}, {@link #_MM_FLUSH_ZERO_OFF FLUSH_ZERO_OFF}
 	 */
@@ -106,7 +109,7 @@ public final class SSE {
 
 	// --- [ _MM_GET_FLUSH_ZERO_MODE ] ---
 
-	/** Reads from bit 15 of the control register. */
+	/** Returns the flush zero bits from the MXCSR control and status register. */
 	public static native int _MM_GET_FLUSH_ZERO_MODE();
 
 }

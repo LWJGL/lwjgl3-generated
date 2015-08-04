@@ -143,12 +143,12 @@ public final class KHRGLSharing {
 	}
 
 	/** Alternative version of: {@link #clGetGLContextInfoKHR GetGLContextInfoKHR} */
-	public static int clGetGLContextInfoKHR(PointerBuffer properties, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetGLContextInfoKHR(PointerBuffer properties, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(properties, 5);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		}
-		return nclGetGLContextInfoKHR(memAddress(properties), param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetGLContextInfoKHR(memAddress(properties), param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetGLContextInfoKHR GetGLContextInfoKHR} */
@@ -157,7 +157,7 @@ public final class KHRGLSharing {
 			checkBuffer(properties, 5);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		}
-		return nclGetGLContextInfoKHR(memAddress(properties), param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetGLContextInfoKHR(memAddress(properties), param_name, (param_value == null ? 0 : param_value.remaining() << POINTER_SHIFT), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 }

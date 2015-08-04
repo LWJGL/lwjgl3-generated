@@ -686,9 +686,9 @@ public final class CGL {
 	 *
 	 * @param width          the width, in pixels, of the pixel buffer
 	 * @param height         the height, in pixels, of the pixel buffer
-	 * @param target         a constant that specifies the type of the pixel buffer target texture. One of:<br>{@link GL11#kCGLTEXTURE_2D TEXTURE_2D}, {@link GL13#kCGLTEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL31#kCGLTEXTURE_RECTANGLE TEXTURE_RECTANGLE}
+	 * @param target         a constant that specifies the type of the pixel buffer target texture. One of:<br>{@link GL11#GL_TEXTURE_2D}, {@link GL13#GL_TEXTURE_CUBE_MAP}, {@link GL31#GL_TEXTURE_RECTANGLE}
 	 * @param internalFormat a constant that specifies the internal color format of the pixel buffer. The format controls whether the alpha channel of the pixel buffer is used
-	 *                       for texturing operations. One of:<br>{@link GL11#kCGLRGB RGB}, {@link GL11#kCGLRGBA RGBA}
+	 *                       for texturing operations. One of:<br>{@link GL11#GL_RGB}, {@link GL11#GL_RGBA}
 	 * @param max_level      the maximum level of mipmap detail allowable. Pass 0 for a pixel buffer that is not using mipmaps. The value passed should never exceed the actual
 	 *                       maximum number of mipmap levels that can be represented with the given width and height.
 	 * @param pbuffer        on return, points to a new pixel buffer object
@@ -1055,7 +1055,7 @@ public final class CGL {
 	 *
 	 * @param ctx     the rendering context to attach the pixel buffer to
 	 * @param pbuffer a pixel buffer object
-	 * @param face    the cube map face to draw if the pixel buffer texture target type is {@link GL13#kCGLTEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}; otherwise pass 0.
+	 * @param face    the cube map face to draw if the pixel buffer texture target type is {@link GL13#GL_TEXTURE_CUBE_MAP}; otherwise pass 0.
 	 * @param level   the mipmap level to draw. This must not exceed the maximum mipmap level set when the pixel buffer object was created. Pass 0 for a texture target
 	 *                that does not support mipmaps.
 	 * @param screen  a virtual screen value. The virtual screen determines the renderer OpenGL uses to draw to the pixel buffer object. For best performance, for a
@@ -1083,7 +1083,7 @@ public final class CGL {
 	 *
 	 * @param ctx     a rendering context
 	 * @param pbuffer on return, points to the pixel buffer object attached to the rendering context
-	 * @param face    on return, points to the cube map face that is set if the pixel buffer texture target type is {@link GL13#kCGLTEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}; otherwise 0 for all other
+	 * @param face    on return, points to the cube map face that is set if the pixel buffer texture target type is {@link GL13#GL_TEXTURE_CUBE_MAP}; otherwise 0 for all other
 	 *                texture target types.
 	 * @param level   on return, points to the current mipmap level for drawing
 	 * @param screen  on return, points to the current virtual screen number, as set by the last valid call to {@link #CGLSetPBuffer SetPBuffer}

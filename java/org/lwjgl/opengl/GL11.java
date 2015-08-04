@@ -2896,25 +2896,25 @@ public final class GL11 {
 		nglColorPointer(size, type, stride, pointerOffset);
 	}
 
-	/** GL_UNSIGNED_BYTE / GL_BYTE version of: {@link #glColorPointer ColorPointer} */
-	public static void glColorPointer(int size, boolean unsigned, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglColorPointer(size, unsigned ? GL11.GL_UNSIGNED_BYTE : GL11.GL_BYTE, stride, memAddress(pointer));
-	}
-
-	/** GL_UNSIGNED_SHORT / GL_SHORT version of: {@link #glColorPointer ColorPointer} */
-	public static void glColorPointer(int size, boolean unsigned, int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglColorPointer(size, unsigned ? GL11.GL_UNSIGNED_SHORT : GL11.GL_SHORT, stride, memAddress(pointer));
-	}
-
 	/** GL_FLOAT version of: {@link #glColorPointer ColorPointer} */
 	public static void glColorPointer(int size, int stride, FloatBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglColorPointer(size, GL11.GL_FLOAT, stride, memAddress(pointer));
+	}
+
+	/** ShortBuffer version of: {@link #glColorPointer ColorPointer} */
+	public static void glColorPointer(int size, int type, int stride, ShortBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglColorPointer(size, type, stride, memAddress(pointer));
+	}
+
+	/** IntBuffer version of: {@link #glColorPointer ColorPointer} */
+	public static void glColorPointer(int size, int type, int stride, IntBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglColorPointer(size, type, stride, memAddress(pointer));
 	}
 
 	// --- [ glCopyPixels ] ---
@@ -5554,20 +5554,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 		nglIndexPointer(GL11.GL_INT, stride, memAddress(pointer));
 	}
 
-	/** GL_FLOAT version of: {@link #glIndexPointer IndexPointer} */
-	public static void glIndexPointer(int stride, FloatBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglIndexPointer(GL11.GL_FLOAT, stride, memAddress(pointer));
-	}
-
-	/** GL_DOUBLE version of: {@link #glIndexPointer IndexPointer} */
-	public static void glIndexPointer(int stride, DoubleBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglIndexPointer(GL11.GL_DOUBLE, stride, memAddress(pointer));
-	}
-
 	// --- [ glInitNames ] ---
 
 	/** JNI method for {@link #glInitNames InitNames} */
@@ -7005,25 +6991,25 @@ Clears the selection name stack.
 		nglNormalPointer(type, stride, pointerOffset);
 	}
 
-	/** GL_BYTE version of: {@link #glNormalPointer NormalPointer} */
-	public static void glNormalPointer(int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglNormalPointer(GL11.GL_BYTE, stride, memAddress(pointer));
-	}
-
-	/** GL_SHORT version of: {@link #glNormalPointer NormalPointer} */
-	public static void glNormalPointer(int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglNormalPointer(GL11.GL_SHORT, stride, memAddress(pointer));
-	}
-
 	/** GL_FLOAT version of: {@link #glNormalPointer NormalPointer} */
 	public static void glNormalPointer(int stride, FloatBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglNormalPointer(GL11.GL_FLOAT, stride, memAddress(pointer));
+	}
+
+	/** ShortBuffer version of: {@link #glNormalPointer NormalPointer} */
+	public static void glNormalPointer(int type, int stride, ShortBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglNormalPointer(type, stride, memAddress(pointer));
+	}
+
+	/** IntBuffer version of: {@link #glNormalPointer NormalPointer} */
+	public static void glNormalPointer(int type, int stride, IntBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglNormalPointer(type, stride, memAddress(pointer));
 	}
 
 	// --- [ glOrtho ] ---
@@ -9916,18 +9902,25 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		nglTexCoordPointer(size, type, stride, pointerOffset);
 	}
 
-	/** GL_HALF_FLOAT version of: {@link #glTexCoordPointer TexCoordPointer} */
-	public static void glTexCoordPointer(int size, int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglTexCoordPointer(size, GL30.GL_HALF_FLOAT, stride, memAddress(pointer));
-	}
-
 	/** GL_FLOAT version of: {@link #glTexCoordPointer TexCoordPointer} */
 	public static void glTexCoordPointer(int size, int stride, FloatBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglTexCoordPointer(size, GL11.GL_FLOAT, stride, memAddress(pointer));
+	}
+
+	/** ShortBuffer version of: {@link #glTexCoordPointer TexCoordPointer} */
+	public static void glTexCoordPointer(int size, int type, int stride, ShortBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglTexCoordPointer(size, type, stride, memAddress(pointer));
+	}
+
+	/** IntBuffer version of: {@link #glTexCoordPointer TexCoordPointer} */
+	public static void glTexCoordPointer(int size, int type, int stride, IntBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglTexCoordPointer(size, type, stride, memAddress(pointer));
 	}
 
 	// --- [ glTexEnvi ] ---
@@ -11505,20 +11498,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		nglVertexPointer(size, type, stride, pointerOffset);
 	}
 
-	/** GL_SHORT version of: {@link #glVertexPointer VertexPointer} */
-	public static void glVertexPointer(int size, int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglVertexPointer(size, GL11.GL_SHORT, stride, memAddress(pointer));
-	}
-
-	/** GL_INT version of: {@link #glVertexPointer VertexPointer} */
-	public static void glVertexPointer(int size, int stride, IntBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglVertexPointer(size, GL11.GL_INT, stride, memAddress(pointer));
-	}
-
 	/** GL_FLOAT version of: {@link #glVertexPointer VertexPointer} */
 	public static void glVertexPointer(int size, int stride, FloatBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
@@ -11526,11 +11505,18 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		nglVertexPointer(size, GL11.GL_FLOAT, stride, memAddress(pointer));
 	}
 
-	/** GL_DOUBLE version of: {@link #glVertexPointer VertexPointer} */
-	public static void glVertexPointer(int size, int stride, DoubleBuffer pointer) {
+	/** ShortBuffer version of: {@link #glVertexPointer VertexPointer} */
+	public static void glVertexPointer(int size, int type, int stride, ShortBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglVertexPointer(size, GL11.GL_DOUBLE, stride, memAddress(pointer));
+		nglVertexPointer(size, type, stride, memAddress(pointer));
+	}
+
+	/** IntBuffer version of: {@link #glVertexPointer VertexPointer} */
+	public static void glVertexPointer(int size, int type, int stride, IntBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglVertexPointer(size, type, stride, memAddress(pointer));
 	}
 
 	// --- [ glViewport ] ---

@@ -516,25 +516,25 @@ public final class EXTSecondaryColor {
 		nglSecondaryColorPointerEXT(size, type, stride, pointerOffset);
 	}
 
-	/** GL_UNSIGNED_BYTE / GL_BYTE version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
-	public static void glSecondaryColorPointerEXT(int size, boolean unsigned, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglSecondaryColorPointerEXT(size, unsigned ? GL11.GL_UNSIGNED_BYTE : GL11.GL_BYTE, stride, memAddress(pointer));
-	}
-
-	/** GL_UNSIGNED_SHORT / GL_SHORT version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
-	public static void glSecondaryColorPointerEXT(int size, boolean unsigned, int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglSecondaryColorPointerEXT(size, unsigned ? GL11.GL_UNSIGNED_SHORT : GL11.GL_SHORT, stride, memAddress(pointer));
-	}
-
 	/** GL_FLOAT version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
 	public static void glSecondaryColorPointerEXT(int size, int stride, FloatBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglSecondaryColorPointerEXT(size, GL11.GL_FLOAT, stride, memAddress(pointer));
+	}
+
+	/** ShortBuffer version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
+	public static void glSecondaryColorPointerEXT(int size, int type, int stride, ShortBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglSecondaryColorPointerEXT(size, type, stride, memAddress(pointer));
+	}
+
+	/** IntBuffer version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
+	public static void glSecondaryColorPointerEXT(int size, int type, int stride, IntBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglSecondaryColorPointerEXT(size, type, stride, memAddress(pointer));
 	}
 
 }

@@ -438,17 +438,17 @@ public final class CL10GL {
 	}
 
 	/** Alternative version of: {@link #clGetGLTextureInfo GetGLTextureInfo} */
-	public static int clGetGLTextureInfo(long memobj, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetGLTextureInfo(long memobj, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetGLTextureInfo(memobj, param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetGLTextureInfo(memobj, param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetGLTextureInfo GetGLTextureInfo} */
 	public static int clGetGLTextureInfo(long memobj, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetGLTextureInfo(memobj, param_name, (param_value == null ? 0 : param_value.remaining()) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetGLTextureInfo(memobj, param_name, (param_value == null ? 0 : param_value.remaining() << 2), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	// --- [ clEnqueueAcquireGLObjects ] ---

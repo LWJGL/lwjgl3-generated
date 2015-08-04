@@ -714,31 +714,31 @@ public final class CL10 {
 	}
 
 	/** Alternative version of: {@link #clGetDeviceInfo GetDeviceInfo} */
-	public static int clGetDeviceInfo(long device, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetDeviceInfo(long device, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetDeviceInfo(device, param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetDeviceInfo(device, param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetDeviceInfo GetDeviceInfo} */
 	public static int clGetDeviceInfo(long device, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetDeviceInfo(device, param_name, (param_value == null ? 0 : param_value.remaining()) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetDeviceInfo(device, param_name, (param_value == null ? 0 : param_value.remaining() << 2), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** LongBuffer version of: {@link #clGetDeviceInfo GetDeviceInfo} */
 	public static int clGetDeviceInfo(long device, int param_name, LongBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetDeviceInfo(device, param_name, (param_value == null ? 0 : param_value.remaining()) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetDeviceInfo(device, param_name, (param_value == null ? 0 : param_value.remaining() << 3), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetDeviceInfo GetDeviceInfo} */
 	public static int clGetDeviceInfo(long device, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetDeviceInfo(device, param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetDeviceInfo(device, param_name, (param_value == null ? 0 : param_value.remaining() << POINTER_SHIFT), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	// --- [ clCreateContext ] ---
@@ -954,24 +954,24 @@ public final class CL10 {
 	}
 
 	/** Alternative version of: {@link #clGetContextInfo GetContextInfo} */
-	public static int clGetContextInfo(long context, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetContextInfo(long context, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetContextInfo(context, param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetContextInfo(context, param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetContextInfo GetContextInfo} */
 	public static int clGetContextInfo(long context, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetContextInfo(context, param_name, (param_value == null ? 0 : param_value.remaining()) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetContextInfo(context, param_name, (param_value == null ? 0 : param_value.remaining() << 2), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetContextInfo GetContextInfo} */
 	public static int clGetContextInfo(long context, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetContextInfo(context, param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetContextInfo(context, param_name, (param_value == null ? 0 : param_value.remaining() << POINTER_SHIFT), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	// --- [ clCreateCommandQueue ] ---
@@ -1130,31 +1130,31 @@ public final class CL10 {
 	}
 
 	/** Alternative version of: {@link #clGetCommandQueueInfo GetCommandQueueInfo} */
-	public static int clGetCommandQueueInfo(long command_queue, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetCommandQueueInfo(long command_queue, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetCommandQueueInfo(command_queue, param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetCommandQueueInfo(command_queue, param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetCommandQueueInfo GetCommandQueueInfo} */
 	public static int clGetCommandQueueInfo(long command_queue, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetCommandQueueInfo(command_queue, param_name, (param_value == null ? 0 : param_value.remaining()) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetCommandQueueInfo(command_queue, param_name, (param_value == null ? 0 : param_value.remaining() << 2), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** LongBuffer version of: {@link #clGetCommandQueueInfo GetCommandQueueInfo} */
 	public static int clGetCommandQueueInfo(long command_queue, int param_name, LongBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetCommandQueueInfo(command_queue, param_name, (param_value == null ? 0 : param_value.remaining()) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetCommandQueueInfo(command_queue, param_name, (param_value == null ? 0 : param_value.remaining() << 3), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetCommandQueueInfo GetCommandQueueInfo} */
 	public static int clGetCommandQueueInfo(long command_queue, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetCommandQueueInfo(command_queue, param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetCommandQueueInfo(command_queue, param_name, (param_value == null ? 0 : param_value.remaining() << POINTER_SHIFT), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	// --- [ clCreateBuffer ] ---
@@ -1331,13 +1331,6 @@ public final class CL10 {
 	}
 
 	/** Alternative version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer} */
-	public static int clEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, long size, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		if ( LWJGLUtil.CHECKS )
-			if ( event != null ) checkBuffer(event, 1);
-		return nclEnqueueReadBuffer(command_queue, buffer, blocking_read, offset, size, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
-	}
-
-	/** ByteBuffer version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer} */
 	public static int clEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( LWJGLUtil.CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
@@ -1455,13 +1448,6 @@ public final class CL10 {
 	}
 
 	/** Alternative version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer} */
-	public static int clEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, long size, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		if ( LWJGLUtil.CHECKS )
-			if ( event != null ) checkBuffer(event, 1);
-		return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write, offset, size, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
-	}
-
-	/** ByteBuffer version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer} */
 	public static int clEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( LWJGLUtil.CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
@@ -2717,24 +2703,24 @@ public final class CL10 {
 	}
 
 	/** Alternative version of: {@link #clGetImageInfo GetImageInfo} */
-	public static int clGetImageInfo(long image, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetImageInfo(long image, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetImageInfo(image, param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetImageInfo(image, param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetImageInfo GetImageInfo} */
 	public static int clGetImageInfo(long image, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetImageInfo(image, param_name, (param_value == null ? 0 : param_value.remaining()) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetImageInfo(image, param_name, (param_value == null ? 0 : param_value.remaining() << 2), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetImageInfo GetImageInfo} */
 	public static int clGetImageInfo(long image, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetImageInfo(image, param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetImageInfo(image, param_name, (param_value == null ? 0 : param_value.remaining() << POINTER_SHIFT), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	// --- [ clRetainMemObject ] ---
@@ -2901,31 +2887,31 @@ public final class CL10 {
 	}
 
 	/** Alternative version of: {@link #clGetMemObjectInfo GetMemObjectInfo} */
-	public static int clGetMemObjectInfo(long memobj, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetMemObjectInfo(long memobj, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetMemObjectInfo(memobj, param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetMemObjectInfo(memobj, param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetMemObjectInfo GetMemObjectInfo} */
 	public static int clGetMemObjectInfo(long memobj, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetMemObjectInfo(memobj, param_name, (param_value == null ? 0 : param_value.remaining()) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetMemObjectInfo(memobj, param_name, (param_value == null ? 0 : param_value.remaining() << 2), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** LongBuffer version of: {@link #clGetMemObjectInfo GetMemObjectInfo} */
 	public static int clGetMemObjectInfo(long memobj, int param_name, LongBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetMemObjectInfo(memobj, param_name, (param_value == null ? 0 : param_value.remaining()) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetMemObjectInfo(memobj, param_name, (param_value == null ? 0 : param_value.remaining() << 3), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetMemObjectInfo GetMemObjectInfo} */
 	public static int clGetMemObjectInfo(long memobj, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetMemObjectInfo(memobj, param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetMemObjectInfo(memobj, param_name, (param_value == null ? 0 : param_value.remaining() << POINTER_SHIFT), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	// --- [ clCreateSampler ] ---
@@ -3074,24 +3060,24 @@ public final class CL10 {
 	}
 
 	/** Alternative version of: {@link #clGetSamplerInfo GetSamplerInfo} */
-	public static int clGetSamplerInfo(long sampler, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetSamplerInfo(long sampler, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetSamplerInfo(sampler, param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetSamplerInfo(sampler, param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetSamplerInfo GetSamplerInfo} */
 	public static int clGetSamplerInfo(long sampler, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetSamplerInfo(sampler, param_name, (param_value == null ? 0 : param_value.remaining()) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetSamplerInfo(sampler, param_name, (param_value == null ? 0 : param_value.remaining() << 2), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetSamplerInfo GetSamplerInfo} */
 	public static int clGetSamplerInfo(long sampler, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetSamplerInfo(sampler, param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetSamplerInfo(sampler, param_name, (param_value == null ? 0 : param_value.remaining() << POINTER_SHIFT), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	// --- [ clCreateProgramWithSource ] ---
@@ -3490,24 +3476,24 @@ public final class CL10 {
 	}
 
 	/** Alternative version of: {@link #clGetProgramInfo GetProgramInfo} */
-	public static int clGetProgramInfo(long program, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetProgramInfo(long program, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetProgramInfo(program, param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetProgramInfo(program, param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetProgramInfo GetProgramInfo} */
 	public static int clGetProgramInfo(long program, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetProgramInfo(program, param_name, (param_value == null ? 0 : param_value.remaining()) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetProgramInfo(program, param_name, (param_value == null ? 0 : param_value.remaining() << 2), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetProgramInfo GetProgramInfo} */
 	public static int clGetProgramInfo(long program, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetProgramInfo(program, param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetProgramInfo(program, param_name, (param_value == null ? 0 : param_value.remaining() << POINTER_SHIFT), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	// --- [ clGetProgramBuildInfo ] ---
@@ -3556,24 +3542,24 @@ public final class CL10 {
 	}
 
 	/** Alternative version of: {@link #clGetProgramBuildInfo GetProgramBuildInfo} */
-	public static int clGetProgramBuildInfo(long program, long device, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetProgramBuildInfo(long program, long device, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetProgramBuildInfo(program, device, param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetProgramBuildInfo(program, device, param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetProgramBuildInfo GetProgramBuildInfo} */
 	public static int clGetProgramBuildInfo(long program, long device, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetProgramBuildInfo(program, device, param_name, (param_value == null ? 0 : param_value.remaining()) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetProgramBuildInfo(program, device, param_name, (param_value == null ? 0 : param_value.remaining() << 2), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetProgramBuildInfo GetProgramBuildInfo} */
 	public static int clGetProgramBuildInfo(long program, long device, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetProgramBuildInfo(program, device, param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetProgramBuildInfo(program, device, param_name, (param_value == null ? 0 : param_value.remaining() << POINTER_SHIFT), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	// --- [ clCreateKernel ] ---
@@ -4160,24 +4146,24 @@ public final class CL10 {
 	}
 
 	/** Alternative version of: {@link #clGetKernelInfo GetKernelInfo} */
-	public static int clGetKernelInfo(long kernel, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetKernelInfo(long kernel, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetKernelInfo(kernel, param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetKernelInfo(kernel, param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetKernelInfo GetKernelInfo} */
 	public static int clGetKernelInfo(long kernel, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetKernelInfo(kernel, param_name, (param_value == null ? 0 : param_value.remaining()) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetKernelInfo(kernel, param_name, (param_value == null ? 0 : param_value.remaining() << 2), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetKernelInfo GetKernelInfo} */
 	public static int clGetKernelInfo(long kernel, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetKernelInfo(kernel, param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetKernelInfo(kernel, param_name, (param_value == null ? 0 : param_value.remaining() << POINTER_SHIFT), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	// --- [ clGetKernelWorkGroupInfo ] ---
@@ -4230,31 +4216,31 @@ public final class CL10 {
 	}
 
 	/** Alternative version of: {@link #clGetKernelWorkGroupInfo GetKernelWorkGroupInfo} */
-	public static int clGetKernelWorkGroupInfo(long kernel, long device, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetKernelWorkGroupInfo(long kernel, long device, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetKernelWorkGroupInfo(kernel, device, param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetKernelWorkGroupInfo(kernel, device, param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetKernelWorkGroupInfo GetKernelWorkGroupInfo} */
 	public static int clGetKernelWorkGroupInfo(long kernel, long device, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetKernelWorkGroupInfo(kernel, device, param_name, (param_value == null ? 0 : param_value.remaining()) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetKernelWorkGroupInfo(kernel, device, param_name, (param_value == null ? 0 : param_value.remaining() << 2), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** LongBuffer version of: {@link #clGetKernelWorkGroupInfo GetKernelWorkGroupInfo} */
 	public static int clGetKernelWorkGroupInfo(long kernel, long device, int param_name, LongBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetKernelWorkGroupInfo(kernel, device, param_name, (param_value == null ? 0 : param_value.remaining()) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetKernelWorkGroupInfo(kernel, device, param_name, (param_value == null ? 0 : param_value.remaining() << 3), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetKernelWorkGroupInfo GetKernelWorkGroupInfo} */
 	public static int clGetKernelWorkGroupInfo(long kernel, long device, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetKernelWorkGroupInfo(kernel, device, param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetKernelWorkGroupInfo(kernel, device, param_name, (param_value == null ? 0 : param_value.remaining() << POINTER_SHIFT), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	// --- [ clEnqueueNDRangeKernel ] ---
@@ -4614,24 +4600,24 @@ public final class CL10 {
 	}
 
 	/** Alternative version of: {@link #clGetEventInfo GetEventInfo} */
-	public static int clGetEventInfo(long event, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetEventInfo(long event, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetEventInfo(event, param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetEventInfo(event, param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetEventInfo GetEventInfo} */
 	public static int clGetEventInfo(long event, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetEventInfo(event, param_name, (param_value == null ? 0 : param_value.remaining()) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetEventInfo(event, param_name, (param_value == null ? 0 : param_value.remaining() << 2), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetEventInfo GetEventInfo} */
 	public static int clGetEventInfo(long event, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetEventInfo(event, param_name, (param_value == null ? 0 : param_value.remaining()) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetEventInfo(event, param_name, (param_value == null ? 0 : param_value.remaining() << POINTER_SHIFT), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	// --- [ clRetainEvent ] ---
@@ -4862,17 +4848,17 @@ public final class CL10 {
 	}
 
 	/** Alternative version of: {@link #clGetEventProfilingInfo GetEventProfilingInfo} */
-	public static int clGetEventProfilingInfo(long event, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetEventProfilingInfo(long event, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetEventProfilingInfo(event, param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetEventProfilingInfo(event, param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** LongBuffer version of: {@link #clGetEventProfilingInfo GetEventProfilingInfo} */
 	public static int clGetEventProfilingInfo(long event, int param_name, LongBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetEventProfilingInfo(event, param_name, (param_value == null ? 0 : param_value.remaining()) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetEventProfilingInfo(event, param_name, (param_value == null ? 0 : param_value.remaining() << 3), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	// --- [ clFlush ] ---

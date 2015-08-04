@@ -1191,27 +1191,6 @@ public final class ARBVertexShader {
 		nglVertexAttribPointerARB(index, size, type, normalized, stride, pointerOffset);
 	}
 
-	/** GL_UNSIGNED_BYTE / GL_BYTE version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
-	public static void glVertexAttribPointerARB(int index, int size, boolean unsigned, boolean normalized, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglVertexAttribPointerARB(index, size, unsigned ? GL11.GL_UNSIGNED_BYTE : GL11.GL_BYTE, normalized, stride, memAddress(pointer));
-	}
-
-	/** GL_UNSIGNED_SHORT / GL_SHORT version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
-	public static void glVertexAttribPointerARB(int index, int size, boolean unsigned, boolean normalized, int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglVertexAttribPointerARB(index, size, unsigned ? GL11.GL_UNSIGNED_SHORT : GL11.GL_SHORT, normalized, stride, memAddress(pointer));
-	}
-
-	/** GL_INT version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
-	public static void glVertexAttribPointerARB(int index, int size, boolean normalized, int stride, IntBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglVertexAttribPointerARB(index, size, GL11.GL_INT, normalized, stride, memAddress(pointer));
-	}
-
 	/** GL_FLOAT version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
 	public static void glVertexAttribPointerARB(int index, int size, boolean normalized, int stride, FloatBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
@@ -1219,11 +1198,18 @@ public final class ARBVertexShader {
 		nglVertexAttribPointerARB(index, size, GL11.GL_FLOAT, normalized, stride, memAddress(pointer));
 	}
 
-	/** GL_DOUBLE version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
-	public static void glVertexAttribPointerARB(int index, int size, boolean normalized, int stride, DoubleBuffer pointer) {
+	/** ShortBuffer version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
+	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, ShortBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglVertexAttribPointerARB(index, size, GL11.GL_DOUBLE, normalized, stride, memAddress(pointer));
+		nglVertexAttribPointerARB(index, size, type, normalized, stride, memAddress(pointer));
+	}
+
+	/** IntBuffer version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
+	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, IntBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglVertexAttribPointerARB(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
 	// --- [ glEnableVertexAttribArrayARB ] ---
@@ -1316,18 +1302,31 @@ public final class ARBVertexShader {
 	 * @param name       a null terminated string containing the name of the attribute variable
 	 */
 	public static void glGetActiveAttribARB(int programObj, int index, int maxLength, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(name, maxLength);
-		nglGetActiveAttribARB(programObj, index, maxLength, memAddress(length), memAddress(size), memAddress(type), memAddress(name));
+			if ( length != null ) checkBuffer(length, 1 << 2);
+			checkBuffer(size, 1 << 2);
+			checkBuffer(type, 1 << 2);
+		}
+		nglGetActiveAttribARB(programObj, index, maxLength, memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
 	}
 
 	/** Alternative version of: {@link #glGetActiveAttribARB GetActiveAttribARB} */
 	public static void glGetActiveAttribARB(int programObj, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
-		nglGetActiveAttribARB(programObj, index, name.remaining(), memAddress(length), memAddress(size), memAddress(type), memAddress(name));
+		if ( LWJGLUtil.CHECKS ) {
+			if ( length != null ) checkBuffer(length, 1);
+			checkBuffer(size, 1);
+			checkBuffer(type, 1);
+		}
+		nglGetActiveAttribARB(programObj, index, name.remaining(), memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
 	}
 
 	/** String return version of: {@link #glGetActiveAttribARB GetActiveAttribARB} */
 	public static String glGetActiveAttribARB(int programObj, int index, int maxLength, IntBuffer size, IntBuffer type) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkBuffer(size, 1);
+			checkBuffer(type, 1);
+		}
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(maxLength);
@@ -1337,6 +1336,10 @@ public final class ARBVertexShader {
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveAttribARB GetActiveAttribARB} */
 	public static String glGetActiveAttribARB(int programObj, int index, IntBuffer size, IntBuffer type) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkBuffer(size, 1);
+			checkBuffer(type, 1);
+		}
 		int maxLength = ARBShaderObjects.glGetObjectParameteriARB(programObj, GL_OBJECT_ACTIVE_ATTRIBUTE_MAX_LENGTH_ARB);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();

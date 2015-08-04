@@ -316,17 +316,17 @@ public final class CL20 {
 	}
 
 	/** Alternative version of: {@link #clGetPipeInfo GetPipeInfo} */
-	public static int clGetPipeInfo(long pipe, int param_name, long param_value_size, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetPipeInfo(long pipe, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetPipeInfo(pipe, param_name, param_value_size, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetPipeInfo(pipe, param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetPipeInfo GetPipeInfo} */
 	public static int clGetPipeInfo(long pipe, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( LWJGLUtil.CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetPipeInfo(pipe, param_name, (param_value == null ? 0 : param_value.remaining()) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetPipeInfo(pipe, param_name, (param_value == null ? 0 : param_value.remaining() << 2), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	// --- [ clSVMAlloc ] ---
@@ -869,6 +869,11 @@ public final class CL20 {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(param_value, param_value_size);
 		return nclSetKernelExecInfo(kernel, param_name, param_value_size, memAddress(param_value));
+	}
+
+	/** Alternative version of: {@link #clSetKernelExecInfo SetKernelExecInfo} */
+	public static int clSetKernelExecInfo(long kernel, int param_name, ByteBuffer param_value) {
+		return nclSetKernelExecInfo(kernel, param_name, param_value.remaining(), memAddress(param_value));
 	}
 
 	/** PointerBuffer version of: {@link #clSetKernelExecInfo SetKernelExecInfo} */

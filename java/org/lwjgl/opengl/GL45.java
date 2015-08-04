@@ -842,7 +842,7 @@ public final class GL45 {
 		nglNamedBufferSubData(buffer, offset, size, memAddress(data));
 	}
 
-	/** ByteBuffer version of: {@link #glNamedBufferSubData NamedBufferSubData} */
+	/** Alternative version of: {@link #glNamedBufferSubData NamedBufferSubData} */
 	public static void glNamedBufferSubData(int buffer, long offset, ByteBuffer data) {
 		nglNamedBufferSubData(buffer, offset, data.remaining(), memAddress(data));
 	}
@@ -1252,7 +1252,7 @@ public final class GL45 {
 		nglGetNamedBufferSubData(buffer, offset, size, memAddress(data));
 	}
 
-	/** ByteBuffer version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData} */
+	/** Alternative version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData} */
 	public static void glGetNamedBufferSubData(int buffer, long offset, ByteBuffer data) {
 		nglGetNamedBufferSubData(buffer, offset, data.remaining(), memAddress(data));
 	}
@@ -2859,6 +2859,13 @@ public final class GL45 {
 		nglGetTextureImage(texture, level, format, type, bufSize, pixelsOffset);
 	}
 
+	/** Alternative version of: {@link #glGetTextureImage GetTextureImage} */
+	public static void glGetTextureImage(int texture, int level, int format, int type, ByteBuffer pixels) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglGetTextureImage(texture, level, format, type, pixels.remaining(), memAddress(pixels));
+	}
+
 	/** ShortBuffer version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, ShortBuffer pixels) {
 		if ( LWJGLUtil.CHECKS )
@@ -3879,6 +3886,13 @@ public final class GL45 {
 		nglGetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, bufSize, pixelsOffset);
 	}
 
+	/** Alternative version of: {@link #glGetTextureSubImage GetTextureSubImage} */
+	public static void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer pixels) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglGetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels.remaining(), memAddress(pixels));
+	}
+
 	/** ShortBuffer version of: {@link #glGetTextureSubImage GetTextureSubImage} */
 	public static void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer pixels) {
 		if ( LWJGLUtil.CHECKS )
@@ -3949,6 +3963,13 @@ public final class GL45 {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetCompressedTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, bufSize, pixelsOffset);
+	}
+
+	/** Alternative version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage} */
+	public static void glGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, ByteBuffer pixels) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglGetCompressedTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, pixels.remaining(), memAddress(pixels));
 	}
 
 	/** ShortBuffer version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage} */
@@ -4364,6 +4385,13 @@ Guarantees that writes have completed and caches have been invalidated before su
 		nglGetnTexImage(tex, level, format, type, bufSize, imgOffset);
 	}
 
+	/** Alternative version of: {@link #glGetnTexImage GetnTexImage} */
+	public static void glGetnTexImage(int tex, int level, int format, int type, ByteBuffer img) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglGetnTexImage(tex, level, format, type, img.remaining(), memAddress(img));
+	}
+
 	/** ShortBuffer version of: {@link #glGetnTexImage GetnTexImage} */
 	public static void glGetnTexImage(int tex, int level, int format, int type, ShortBuffer img) {
 		if ( LWJGLUtil.CHECKS )
@@ -4434,6 +4462,13 @@ Guarantees that writes have completed and caches have been invalidated before su
 		nglReadnPixels(x, y, width, height, format, type, bufSize, pixelsOffset);
 	}
 
+	/** Alternative version of: {@link #glReadnPixels ReadnPixels} */
+	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglReadnPixels(x, y, width, height, format, type, pixels.remaining(), memAddress(pixels));
+	}
+
 	/** ShortBuffer version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
 		if ( LWJGLUtil.CHECKS )
@@ -4494,6 +4529,13 @@ Guarantees that writes have completed and caches have been invalidated before su
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetnColorTable(target, format, type, bufSize, tableOffset);
+	}
+
+	/** Alternative version of: {@link #glGetnColorTable GetnColorTable} */
+	public static void glGetnColorTable(int target, int format, int type, ByteBuffer table) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglGetnColorTable(target, format, type, table.remaining(), memAddress(table));
 	}
 
 	/** ShortBuffer version of: {@link #glGetnColorTable GetnColorTable} */

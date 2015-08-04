@@ -419,6 +419,20 @@ public final class ARBVertexBlend {
 		nglWeightPointerARB(size, GL11.GL_FLOAT, stride, memAddress(pointer));
 	}
 
+	/** ShortBuffer version of: {@link #glWeightPointerARB WeightPointerARB} */
+	public static void glWeightPointerARB(int size, int type, int stride, ShortBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglWeightPointerARB(size, type, stride, memAddress(pointer));
+	}
+
+	/** IntBuffer version of: {@link #glWeightPointerARB WeightPointerARB} */
+	public static void glWeightPointerARB(int size, int type, int stride, IntBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglWeightPointerARB(size, type, stride, memAddress(pointer));
+	}
+
 	// --- [ glVertexBlendARB ] ---
 
 	/** JNI method for {@link #glVertexBlendARB VertexBlendARB} */

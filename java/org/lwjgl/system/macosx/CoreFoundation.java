@@ -85,7 +85,7 @@ public final class CoreFoundation {
 
 	// --- [ kCFAllocatorUseContext ] ---
 
-	/** Special allocator argument to {@link #CFAllocatorCreate} which means "use the functions given in the context to allocate the allocator itself as well". */
+	/** Special allocator argument to CFAllocatorCreate which means "use the functions given in the context to allocate the allocator itself as well". */
 	public static native long kCFAllocatorUseContext();
 
 	// --- [ CFRetain ] ---

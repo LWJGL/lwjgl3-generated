@@ -397,7 +397,7 @@ public final class GL15 {
 		nglBufferSubData(target, offset, size, memAddress(data));
 	}
 
-	/** ByteBuffer version of: {@link #glBufferSubData BufferSubData} */
+	/** Alternative version of: {@link #glBufferSubData BufferSubData} */
 	public static void glBufferSubData(int target, long offset, ByteBuffer data) {
 		nglBufferSubData(target, offset, data.remaining(), memAddress(data));
 	}
@@ -451,7 +451,7 @@ public final class GL15 {
 		nglGetBufferSubData(target, offset, size, memAddress(data));
 	}
 
-	/** ByteBuffer version of: {@link #glGetBufferSubData GetBufferSubData} */
+	/** Alternative version of: {@link #glGetBufferSubData GetBufferSubData} */
 	public static void glGetBufferSubData(int target, long offset, ByteBuffer data) {
 		nglGetBufferSubData(target, offset, data.remaining(), memAddress(data));
 	}

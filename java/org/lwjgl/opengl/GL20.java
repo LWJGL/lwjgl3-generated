@@ -2792,27 +2792,6 @@ Creates a program object.
 		nglVertexAttribPointer(index, size, type, normalized, stride, pointerOffset);
 	}
 
-	/** GL_UNSIGNED_BYTE / GL_BYTE version of: {@link #glVertexAttribPointer VertexAttribPointer} */
-	public static void glVertexAttribPointer(int index, int size, boolean unsigned, boolean normalized, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglVertexAttribPointer(index, size, unsigned ? GL11.GL_UNSIGNED_BYTE : GL11.GL_BYTE, normalized, stride, memAddress(pointer));
-	}
-
-	/** GL_UNSIGNED_SHORT / GL_SHORT version of: {@link #glVertexAttribPointer VertexAttribPointer} */
-	public static void glVertexAttribPointer(int index, int size, boolean unsigned, boolean normalized, int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglVertexAttribPointer(index, size, unsigned ? GL11.GL_UNSIGNED_SHORT : GL11.GL_SHORT, normalized, stride, memAddress(pointer));
-	}
-
-	/** GL_INT version of: {@link #glVertexAttribPointer VertexAttribPointer} */
-	public static void glVertexAttribPointer(int index, int size, boolean normalized, int stride, IntBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglVertexAttribPointer(index, size, GL11.GL_INT, normalized, stride, memAddress(pointer));
-	}
-
 	/** GL_FLOAT version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, boolean normalized, int stride, FloatBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
@@ -2820,11 +2799,18 @@ Creates a program object.
 		nglVertexAttribPointer(index, size, GL11.GL_FLOAT, normalized, stride, memAddress(pointer));
 	}
 
-	/** GL_DOUBLE version of: {@link #glVertexAttribPointer VertexAttribPointer} */
-	public static void glVertexAttribPointer(int index, int size, boolean normalized, int stride, DoubleBuffer pointer) {
+	/** ShortBuffer version of: {@link #glVertexAttribPointer VertexAttribPointer} */
+	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, ShortBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglVertexAttribPointer(index, size, GL11.GL_DOUBLE, normalized, stride, memAddress(pointer));
+		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
+	}
+
+	/** IntBuffer version of: {@link #glVertexAttribPointer VertexAttribPointer} */
+	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, IntBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
 	// --- [ glEnableVertexAttribArray ] ---
@@ -2925,18 +2911,31 @@ Creates a program object.
 	 * @param name      a null terminated string containing the name of the attribute variable
 	 */
 	public static void glGetActiveAttrib(int program, int index, int maxLength, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(name, maxLength);
-		nglGetActiveAttrib(program, index, maxLength, memAddress(length), memAddress(size), memAddress(type), memAddress(name));
+			if ( length != null ) checkBuffer(length, 1 << 2);
+			checkBuffer(size, 1 << 2);
+			checkBuffer(type, 1 << 2);
+		}
+		nglGetActiveAttrib(program, index, maxLength, memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
 	}
 
 	/** Alternative version of: {@link #glGetActiveAttrib GetActiveAttrib} */
 	public static void glGetActiveAttrib(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
-		nglGetActiveAttrib(program, index, name.remaining(), memAddress(length), memAddress(size), memAddress(type), memAddress(name));
+		if ( LWJGLUtil.CHECKS ) {
+			if ( length != null ) checkBuffer(length, 1);
+			checkBuffer(size, 1);
+			checkBuffer(type, 1);
+		}
+		nglGetActiveAttrib(program, index, name.remaining(), memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
 	}
 
 	/** String return version of: {@link #glGetActiveAttrib GetActiveAttrib} */
 	public static String glGetActiveAttrib(int program, int index, int maxLength, IntBuffer size, IntBuffer type) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkBuffer(size, 1);
+			checkBuffer(type, 1);
+		}
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(maxLength);
@@ -2946,6 +2945,10 @@ Creates a program object.
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveAttrib GetActiveAttrib} */
 	public static String glGetActiveAttrib(int program, int index, IntBuffer size, IntBuffer type) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkBuffer(size, 1);
+			checkBuffer(type, 1);
+		}
 		int maxLength = glGetProgrami(program, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();

@@ -220,6 +220,22 @@ public final class AMDPerformanceMonitor {
 	}
 
 	public static void glGetPerfMonitorCounterInfoAMD(int group, int counter, int pname, ByteBuffer data) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(data, 4);
+		nglGetPerfMonitorCounterInfoAMD(group, counter, pname, memAddress(data));
+	}
+
+	/** IntBuffer version of: {@link #glGetPerfMonitorCounterInfoAMD GetPerfMonitorCounterInfoAMD} */
+	public static void glGetPerfMonitorCounterInfoAMD(int group, int counter, int pname, IntBuffer data) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(data, 4 >> 2);
+		nglGetPerfMonitorCounterInfoAMD(group, counter, pname, memAddress(data));
+	}
+
+	/** FloatBuffer version of: {@link #glGetPerfMonitorCounterInfoAMD GetPerfMonitorCounterInfoAMD} */
+	public static void glGetPerfMonitorCounterInfoAMD(int group, int counter, int pname, FloatBuffer data) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(data, 4 >> 2);
 		nglGetPerfMonitorCounterInfoAMD(group, counter, pname, memAddress(data));
 	}
 
@@ -348,16 +364,16 @@ public final class AMDPerformanceMonitor {
 	public static void glGetPerfMonitorCounterDataAMD(int monitor, int pname, int dataSize, ByteBuffer data, ByteBuffer bytesWritten) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(data, dataSize << 2);
-			checkBuffer(bytesWritten, 1 << 2);
+			if ( bytesWritten != null ) checkBuffer(bytesWritten, 1 << 2);
 		}
-		nglGetPerfMonitorCounterDataAMD(monitor, pname, dataSize, memAddress(data), memAddress(bytesWritten));
+		nglGetPerfMonitorCounterDataAMD(monitor, pname, dataSize, memAddress(data), memAddressSafe(bytesWritten));
 	}
 
 	/** Alternative version of: {@link #glGetPerfMonitorCounterDataAMD GetPerfMonitorCounterDataAMD} */
 	public static void glGetPerfMonitorCounterDataAMD(int monitor, int pname, IntBuffer data, IntBuffer bytesWritten) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(bytesWritten, 1);
-		nglGetPerfMonitorCounterDataAMD(monitor, pname, data.remaining(), memAddress(data), memAddress(bytesWritten));
+			if ( bytesWritten != null ) checkBuffer(bytesWritten, 1);
+		nglGetPerfMonitorCounterDataAMD(monitor, pname, data.remaining(), memAddress(data), memAddressSafe(bytesWritten));
 	}
 
 }

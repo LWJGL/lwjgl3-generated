@@ -1146,25 +1146,25 @@ public final class GL14 {
 		nglSecondaryColorPointer(size, type, stride, pointerOffset);
 	}
 
-	/** GL_UNSIGNED_BYTE / GL_BYTE version of: {@link #glSecondaryColorPointer SecondaryColorPointer} */
-	public static void glSecondaryColorPointer(int size, boolean unsigned, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglSecondaryColorPointer(size, unsigned ? GL11.GL_UNSIGNED_BYTE : GL11.GL_BYTE, stride, memAddress(pointer));
-	}
-
-	/** GL_UNSIGNED_SHORT / GL_SHORT version of: {@link #glSecondaryColorPointer SecondaryColorPointer} */
-	public static void glSecondaryColorPointer(int size, boolean unsigned, int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglSecondaryColorPointer(size, unsigned ? GL11.GL_UNSIGNED_SHORT : GL11.GL_SHORT, stride, memAddress(pointer));
-	}
-
 	/** GL_FLOAT version of: {@link #glSecondaryColorPointer SecondaryColorPointer} */
 	public static void glSecondaryColorPointer(int size, int stride, FloatBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglSecondaryColorPointer(size, GL11.GL_FLOAT, stride, memAddress(pointer));
+	}
+
+	/** ShortBuffer version of: {@link #glSecondaryColorPointer SecondaryColorPointer} */
+	public static void glSecondaryColorPointer(int size, int type, int stride, ShortBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglSecondaryColorPointer(size, type, stride, memAddress(pointer));
+	}
+
+	/** IntBuffer version of: {@link #glSecondaryColorPointer SecondaryColorPointer} */
+	public static void glSecondaryColorPointer(int size, int type, int stride, IntBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglSecondaryColorPointer(size, type, stride, memAddress(pointer));
 	}
 
 	// --- [ glBlendFuncSeparate ] ---

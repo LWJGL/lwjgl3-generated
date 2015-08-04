@@ -507,6 +507,13 @@ public final class ARBRobustness {
 		nglGetnTexImageARB(tex, level, format, type, bufSize, imgOffset);
 	}
 
+	/** Alternative version of: {@link #glGetnTexImageARB GetnTexImageARB} */
+	public static void glGetnTexImageARB(int tex, int level, int format, int type, ByteBuffer img) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglGetnTexImageARB(tex, level, format, type, img.remaining(), memAddress(img));
+	}
+
 	/** ShortBuffer version of: {@link #glGetnTexImageARB GetnTexImageARB} */
 	public static void glGetnTexImageARB(int tex, int level, int format, int type, ShortBuffer img) {
 		if ( LWJGLUtil.CHECKS )
@@ -575,6 +582,13 @@ public final class ARBRobustness {
 		nglReadnPixelsARB(x, y, width, height, format, type, bufSize, dataOffset);
 	}
 
+	/** Alternative version of: {@link #glReadnPixelsARB ReadnPixelsARB} */
+	public static void glReadnPixelsARB(int x, int y, int width, int height, int format, int type, ByteBuffer data) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglReadnPixelsARB(x, y, width, height, format, type, data.remaining(), memAddress(data));
+	}
+
 	/** ShortBuffer version of: {@link #glReadnPixelsARB ReadnPixelsARB} */
 	public static void glReadnPixelsARB(int x, int y, int width, int height, int format, int type, ShortBuffer data) {
 		if ( LWJGLUtil.CHECKS )
@@ -633,6 +647,13 @@ public final class ARBRobustness {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetnColorTableARB(target, format, type, bufSize, tableOffset);
+	}
+
+	/** Alternative version of: {@link #glGetnColorTableARB GetnColorTableARB} */
+	public static void glGetnColorTableARB(int target, int format, int type, ByteBuffer table) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglGetnColorTableARB(target, format, type, table.remaining(), memAddress(table));
 	}
 
 	/** ShortBuffer version of: {@link #glGetnColorTableARB GetnColorTableARB} */

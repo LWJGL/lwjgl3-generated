@@ -397,7 +397,7 @@ public final class ARBVertexBufferObject {
 		nglGetBufferSubDataARB(target, offset, size, memAddress(data));
 	}
 
-	/** ByteBuffer version of: {@link #glGetBufferSubDataARB GetBufferSubDataARB} */
+	/** Alternative version of: {@link #glGetBufferSubDataARB GetBufferSubDataARB} */
 	public static void glGetBufferSubDataARB(int target, long offset, ByteBuffer data) {
 		nglGetBufferSubDataARB(target, offset, data.remaining(), memAddress(data));
 	}

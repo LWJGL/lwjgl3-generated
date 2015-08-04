@@ -1666,18 +1666,25 @@ public final class EXTDirectStateAccess {
 		nglMultiTexCoordPointerEXT(texunit, size, type, stride, pointerOffset);
 	}
 
-	/** GL_HALF_FLOAT version of: {@link #glMultiTexCoordPointerEXT MultiTexCoordPointerEXT} */
-	public static void glMultiTexCoordPointerEXT(int texunit, int size, int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglMultiTexCoordPointerEXT(texunit, size, GL30.GL_HALF_FLOAT, stride, memAddress(pointer));
-	}
-
 	/** GL_FLOAT version of: {@link #glMultiTexCoordPointerEXT MultiTexCoordPointerEXT} */
 	public static void glMultiTexCoordPointerEXT(int texunit, int size, int stride, FloatBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglMultiTexCoordPointerEXT(texunit, size, GL11.GL_FLOAT, stride, memAddress(pointer));
+	}
+
+	/** ShortBuffer version of: {@link #glMultiTexCoordPointerEXT MultiTexCoordPointerEXT} */
+	public static void glMultiTexCoordPointerEXT(int texunit, int size, int type, int stride, ShortBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglMultiTexCoordPointerEXT(texunit, size, type, stride, memAddress(pointer));
+	}
+
+	/** IntBuffer version of: {@link #glMultiTexCoordPointerEXT MultiTexCoordPointerEXT} */
+	public static void glMultiTexCoordPointerEXT(int texunit, int size, int type, int stride, IntBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglMultiTexCoordPointerEXT(texunit, size, type, stride, memAddress(pointer));
 	}
 
 	// --- [ glMultiTexEnvfEXT ] ---
@@ -4032,7 +4039,7 @@ public final class EXTDirectStateAccess {
 		nglNamedBufferSubDataEXT(buffer, offset, size, memAddress(data));
 	}
 
-	/** ByteBuffer version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
+	/** Alternative version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
 	public static void glNamedBufferSubDataEXT(int buffer, long offset, ByteBuffer data) {
 		nglNamedBufferSubDataEXT(buffer, offset, data.remaining(), memAddress(data));
 	}
@@ -4160,7 +4167,7 @@ public final class EXTDirectStateAccess {
 		nglGetNamedBufferSubDataEXT(buffer, offset, size, memAddress(data));
 	}
 
-	/** ByteBuffer version of: {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */
+	/** Alternative version of: {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */
 	public static void glGetNamedBufferSubDataEXT(int buffer, long offset, ByteBuffer data) {
 		nglGetNamedBufferSubDataEXT(buffer, offset, data.remaining(), memAddress(data));
 	}

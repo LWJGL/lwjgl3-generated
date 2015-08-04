@@ -26,7 +26,12 @@ public final class SSE3 {
 	// --- [ _MM_SET_DENORMALS_ZERO_MODE ] ---
 
 	/**
-	 * Causes the "denormals are zero" mode to be turned ON or OFF by setting the appropriate bit of the control register.
+	 * Causes the \"denormals are zero\" mode to be turned ON or OFF by setting the appropriate bit of the control register. DAZ treats denormal values used
+	 * as input to floating-point instructions as zero.
+	 * 
+	 * <p>DAZ is very similar to FTZ in many ways. DAZ mode is a method of bypassing IEEE 754 methods of dealing with denormal floating-point numbers. This mode
+	 * is less precise, but much faster and is typically used in applications like streaming media when minute differences in quality are essentially
+	 * undetectable.</p>
 	 *
 	 * @param mode the denormals are zero mode. One of:<br>{@link #_MM_DENORMALS_ZERO_MASK DENORMALS_ZERO_MASK}, {@link #_MM_DENORMALS_ZERO_ON DENORMALS_ZERO_ON}, {@link #_MM_DENORMALS_ZERO_OFF DENORMALS_ZERO_OFF}
 	 */

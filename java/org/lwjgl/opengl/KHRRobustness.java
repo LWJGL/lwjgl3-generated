@@ -184,6 +184,13 @@ public final class KHRRobustness {
 		nglReadnPixels(x, y, width, height, format, type, bufSize, pixelsOffset);
 	}
 
+	/** Alternative version of: {@link #glReadnPixels ReadnPixels} */
+	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglReadnPixels(x, y, width, height, format, type, pixels.remaining(), memAddress(pixels));
+	}
+
 	/** ShortBuffer version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
 		if ( LWJGLUtil.CHECKS )

@@ -655,7 +655,7 @@ public final class ARBDirectStateAccess {
 		nglNamedBufferSubData(buffer, offset, size, memAddress(data));
 	}
 
-	/** ByteBuffer version of: {@link #glNamedBufferSubData NamedBufferSubData} */
+	/** Alternative version of: {@link #glNamedBufferSubData NamedBufferSubData} */
 	public static void glNamedBufferSubData(int buffer, long offset, ByteBuffer data) {
 		nglNamedBufferSubData(buffer, offset, data.remaining(), memAddress(data));
 	}
@@ -999,7 +999,7 @@ public final class ARBDirectStateAccess {
 		nglGetNamedBufferSubData(buffer, offset, size, memAddress(data));
 	}
 
-	/** ByteBuffer version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData} */
+	/** Alternative version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData} */
 	public static void glGetNamedBufferSubData(int buffer, long offset, ByteBuffer data) {
 		nglGetNamedBufferSubData(buffer, offset, data.remaining(), memAddress(data));
 	}
@@ -2316,6 +2316,13 @@ public final class ARBDirectStateAccess {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetTextureImage(texture, level, format, type, bufSize, pixelsOffset);
+	}
+
+	/** Alternative version of: {@link #glGetTextureImage GetTextureImage} */
+	public static void glGetTextureImage(int texture, int level, int format, int type, ByteBuffer pixels) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		nglGetTextureImage(texture, level, format, type, pixels.remaining(), memAddress(pixels));
 	}
 
 	/** ShortBuffer version of: {@link #glGetTextureImage GetTextureImage} */

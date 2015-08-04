@@ -1717,7 +1717,7 @@ public final class AL10 {
 		nalBufferData(bufferName, format, memAddress(data), size, frequency);
 	}
 
-	/** ByteBuffer version of: {@link #alBufferData BufferData} */
+	/** Alternative version of: {@link #alBufferData BufferData} */
 	public static void alBufferData(int bufferName, int format, ByteBuffer data, int frequency) {
 		nalBufferData(bufferName, format, memAddress(data), data.remaining(), frequency);
 	}
