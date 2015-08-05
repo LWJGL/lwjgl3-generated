@@ -1150,9 +1150,10 @@ public final class ARBShaderObjects {
 	public static IntBuffer glGetAttachedObjectsARB(int containerObj, int maxCount) {
 		APIBuffer __buffer = apiBuffer();
 		int count = __buffer.intParam();
-		int obj = __buffer.bufferParam(maxCount << 2);
-		nglGetAttachedObjectsARB(containerObj, maxCount, __buffer.address(count), __buffer.address(obj));
-		return memIntBuffer(__buffer.address(obj), __buffer.intValue(count));
+		IntBuffer obj = BufferUtils.createIntBuffer(maxCount);
+		nglGetAttachedObjectsARB(containerObj, maxCount, __buffer.address(count), memAddress(obj));
+		obj.limit(__buffer.intValue(count));
+		return obj;
 	}
 
 	/** Buffer return (w/ implicit max length) version of: {@link #glGetAttachedObjectsARB GetAttachedObjectsARB} */
@@ -1160,9 +1161,10 @@ public final class ARBShaderObjects {
 		int maxCount = glGetObjectParameteriARB(containerObj, GL_OBJECT_ATTACHED_OBJECTS_ARB);
 		APIBuffer __buffer = apiBuffer();
 		int count = __buffer.intParam();
-		int obj = __buffer.bufferParam(maxCount << 2);
-		nglGetAttachedObjectsARB(containerObj, maxCount, __buffer.address(count), __buffer.address(obj));
-		return memIntBuffer(__buffer.address(obj), __buffer.intValue(count));
+		IntBuffer obj = BufferUtils.createIntBuffer(maxCount);
+		nglGetAttachedObjectsARB(containerObj, maxCount, __buffer.address(count), memAddress(obj));
+		obj.limit(__buffer.intValue(count));
+		return obj;
 	}
 
 	// --- [ glGetUniformLocationARB ] ---

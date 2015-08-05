@@ -300,9 +300,10 @@ public final class ARBProgramInterfaceQuery {
 	public static IntBuffer glGetProgramResourceiv(int program, int programInterface, int index, IntBuffer props, int bufSize) {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
-		int params = __buffer.bufferParam(bufSize << 2);
-		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), bufSize, __buffer.address(length), __buffer.address(params));
-		return memIntBuffer(__buffer.address(params), __buffer.intValue(length));
+		IntBuffer params = BufferUtils.createIntBuffer(bufSize);
+		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), bufSize, __buffer.address(length), memAddress(params));
+		params.limit(__buffer.intValue(length));
+		return params;
 	}
 
 	// --- [ glGetProgramResourceLocation ] ---

@@ -2810,9 +2810,10 @@ public final class GLES30 {
 			checkBuffer(binaryFormat, 1);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
-		int binary = __buffer.bufferParam(bufSize);
-		nglGetProgramBinary(program, bufSize, __buffer.address(length), memAddress(binaryFormat), __buffer.address(binary));
-		return memByteBuffer(__buffer.address(binary), __buffer.intValue(length));
+		ByteBuffer binary = BufferUtils.createByteBuffer(bufSize);
+		nglGetProgramBinary(program, bufSize, __buffer.address(length), memAddress(binaryFormat), memAddress(binary));
+		binary.limit(__buffer.intValue(length));
+		return binary;
 	}
 
 	/** Buffer return (w/ implicit max length) version of: {@link #glGetProgramBinary GetProgramBinary} */
@@ -2822,9 +2823,10 @@ public final class GLES30 {
 		int bufSize = GLES20.glGetProgrami(program, GL_PROGRAM_BINARY_LENGTH);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
-		int binary = __buffer.bufferParam(bufSize);
-		nglGetProgramBinary(program, bufSize, __buffer.address(length), memAddress(binaryFormat), __buffer.address(binary));
-		return memByteBuffer(__buffer.address(binary), __buffer.intValue(length));
+		ByteBuffer binary = BufferUtils.createByteBuffer(bufSize);
+		nglGetProgramBinary(program, bufSize, __buffer.address(length), memAddress(binaryFormat), memAddress(binary));
+		binary.limit(__buffer.intValue(length));
+		return binary;
 	}
 
 	// --- [ glProgramBinary ] ---

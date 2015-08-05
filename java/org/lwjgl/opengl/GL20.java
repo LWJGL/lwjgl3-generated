@@ -1465,9 +1465,10 @@ Creates a program object.
 	public static IntBuffer glGetAttachedShaders(int program, int maxCount) {
 		APIBuffer __buffer = apiBuffer();
 		int count = __buffer.intParam();
-		int shaders = __buffer.bufferParam(maxCount << 2);
-		nglGetAttachedShaders(program, maxCount, __buffer.address(count), __buffer.address(shaders));
-		return memIntBuffer(__buffer.address(shaders), __buffer.intValue(count));
+		IntBuffer shaders = BufferUtils.createIntBuffer(maxCount);
+		nglGetAttachedShaders(program, maxCount, __buffer.address(count), memAddress(shaders));
+		shaders.limit(__buffer.intValue(count));
+		return shaders;
 	}
 
 	/** Buffer return (w/ implicit max length) version of: {@link #glGetAttachedShaders GetAttachedShaders} */
@@ -1475,9 +1476,10 @@ Creates a program object.
 		int maxCount = glGetProgrami(program, GL_ATTACHED_SHADERS);
 		APIBuffer __buffer = apiBuffer();
 		int count = __buffer.intParam();
-		int shaders = __buffer.bufferParam(maxCount << 2);
-		nglGetAttachedShaders(program, maxCount, __buffer.address(count), __buffer.address(shaders));
-		return memIntBuffer(__buffer.address(shaders), __buffer.intValue(count));
+		IntBuffer shaders = BufferUtils.createIntBuffer(maxCount);
+		nglGetAttachedShaders(program, maxCount, __buffer.address(count), memAddress(shaders));
+		shaders.limit(__buffer.intValue(count));
+		return shaders;
 	}
 
 	// --- [ glGetUniformLocation ] ---

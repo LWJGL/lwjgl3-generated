@@ -2105,9 +2105,10 @@ public final class NVPathRendering {
 	public static FloatBuffer glGetProgramResourcefvNV(int program, int programInterface, int index, IntBuffer props, int bufSize) {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
-		int params = __buffer.bufferParam(bufSize << 2);
-		nglGetProgramResourcefvNV(program, programInterface, index, props.remaining(), memAddress(props), bufSize, __buffer.address(length), __buffer.address(params));
-		return memFloatBuffer(__buffer.address(params), __buffer.intValue(length));
+		FloatBuffer params = BufferUtils.createFloatBuffer(bufSize);
+		nglGetProgramResourcefvNV(program, programInterface, index, props.remaining(), memAddress(props), bufSize, __buffer.address(length), memAddress(params));
+		params.limit(__buffer.intValue(length));
+		return params;
 	}
 
 	private static int charcodeTypeToBytes(int type) {

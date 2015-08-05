@@ -109,9 +109,10 @@ public final class OESGetProgramBinary {
 			checkBuffer(binaryFormat, 1);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
-		int binary = __buffer.bufferParam(bufSize);
-		nglGetProgramBinaryOES(program, bufSize, __buffer.address(length), memAddress(binaryFormat), __buffer.address(binary));
-		return memByteBuffer(__buffer.address(binary), __buffer.intValue(length));
+		ByteBuffer binary = BufferUtils.createByteBuffer(bufSize);
+		nglGetProgramBinaryOES(program, bufSize, __buffer.address(length), memAddress(binaryFormat), memAddress(binary));
+		binary.limit(__buffer.intValue(length));
+		return binary;
 	}
 
 	/** Buffer return (w/ implicit max length) version of: {@link #glGetProgramBinaryOES GetProgramBinaryOES} */
@@ -121,9 +122,10 @@ public final class OESGetProgramBinary {
 		int bufSize = GLES20.glGetProgrami(program, GL_PROGRAM_BINARY_LENGTH_OES);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
-		int binary = __buffer.bufferParam(bufSize);
-		nglGetProgramBinaryOES(program, bufSize, __buffer.address(length), memAddress(binaryFormat), __buffer.address(binary));
-		return memByteBuffer(__buffer.address(binary), __buffer.intValue(length));
+		ByteBuffer binary = BufferUtils.createByteBuffer(bufSize);
+		nglGetProgramBinaryOES(program, bufSize, __buffer.address(length), memAddress(binaryFormat), memAddress(binary));
+		binary.limit(__buffer.intValue(length));
+		return binary;
 	}
 
 	// --- [ glProgramBinaryOES ] ---
