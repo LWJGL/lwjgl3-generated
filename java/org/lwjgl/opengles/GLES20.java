@@ -1599,7 +1599,7 @@ public final class GLES20 {
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
 		nglGetActiveAttrib(program, index, bufSize, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
-		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveAttrib GetActiveAttrib} */
@@ -1613,7 +1613,7 @@ public final class GLES20 {
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
 		nglGetActiveAttrib(program, index, bufSize, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
-		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
 	// --- [ glGetActiveUniform ] ---
@@ -1659,7 +1659,7 @@ public final class GLES20 {
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
 		nglGetActiveUniform(program, index, bufSize, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
-		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniform GetActiveUniform} */
@@ -1673,7 +1673,7 @@ public final class GLES20 {
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
 		nglGetActiveUniform(program, index, bufSize, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
-		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
 	// --- [ glGetAttachedShaders ] ---
@@ -1991,7 +1991,7 @@ public final class GLES20 {
 		int length = __buffer.intParam();
 		int infoLog = __buffer.bufferParam(bufSize);
 		nglGetProgramInfoLog(program, bufSize, __buffer.address(length), __buffer.address(infoLog));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(infoLog), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), infoLog);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetProgramInfoLog GetProgramInfoLog} */
@@ -2001,7 +2001,7 @@ public final class GLES20 {
 		int length = __buffer.intParam();
 		int infoLog = __buffer.bufferParam(bufSize);
 		nglGetProgramInfoLog(program, bufSize, __buffer.address(length), __buffer.address(infoLog));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(infoLog), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), infoLog);
 	}
 
 	// --- [ glGetRenderbufferParameteriv ] ---
@@ -2106,7 +2106,7 @@ public final class GLES20 {
 		int length = __buffer.intParam();
 		int infoLog = __buffer.bufferParam(bufSize);
 		nglGetShaderInfoLog(shader, bufSize, __buffer.address(length), __buffer.address(infoLog));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(infoLog), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), infoLog);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetShaderInfoLog GetShaderInfoLog} */
@@ -2116,7 +2116,7 @@ public final class GLES20 {
 		int length = __buffer.intParam();
 		int infoLog = __buffer.bufferParam(bufSize);
 		nglGetShaderInfoLog(shader, bufSize, __buffer.address(length), __buffer.address(infoLog));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(infoLog), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), infoLog);
 	}
 
 	// --- [ glGetShaderPrecisionFormat ] ---
@@ -2183,7 +2183,7 @@ public final class GLES20 {
 		int length = __buffer.intParam();
 		int source = __buffer.bufferParam(bufSize);
 		nglGetShaderSource(shader, bufSize, __buffer.address(length), __buffer.address(source));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(source), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), source);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetShaderSource GetShaderSource} */
@@ -2193,7 +2193,7 @@ public final class GLES20 {
 		int length = __buffer.intParam();
 		int source = __buffer.bufferParam(bufSize);
 		nglGetShaderSource(shader, bufSize, __buffer.address(length), __buffer.address(source));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(source), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), source);
 	}
 
 	// --- [ glGetString ] ---

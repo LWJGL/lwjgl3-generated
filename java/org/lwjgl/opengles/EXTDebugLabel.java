@@ -133,7 +133,7 @@ public final class EXTDebugLabel {
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
 		nglGetObjectLabelEXT(type, object, bufSize, __buffer.address(length), __buffer.address(label));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(label), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
 	}
 
 }

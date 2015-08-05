@@ -3020,7 +3020,7 @@ Ends transform feedback operation.
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
 		nglGetTransformFeedbackVarying(program, index, bufSize, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
-		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying} */
@@ -3034,7 +3034,7 @@ Ends transform feedback operation.
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
 		nglGetTransformFeedbackVarying(program, index, bufSize, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
-		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
 	// --- [ glBindVertexArray ] ---

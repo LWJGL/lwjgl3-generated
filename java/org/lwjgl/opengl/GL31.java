@@ -542,7 +542,7 @@ public final class GL31 {
 		int length = __buffer.intParam();
 		int uniformName = __buffer.bufferParam(bufSize);
 		nglGetActiveUniformName(program, uniformIndex, bufSize, __buffer.address(length), __buffer.address(uniformName));
-		return memDecodeASCII(memByteBuffer(__buffer.address(uniformName), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), uniformName);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniformName GetActiveUniformName} */
@@ -552,7 +552,7 @@ public final class GL31 {
 		int length = __buffer.intParam();
 		int uniformName = __buffer.bufferParam(bufSize);
 		nglGetActiveUniformName(program, uniformIndex, bufSize, __buffer.address(length), __buffer.address(uniformName));
-		return memDecodeASCII(memByteBuffer(__buffer.address(uniformName), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), uniformName);
 	}
 
 	// --- [ glGetUniformBlockIndex ] ---
@@ -678,7 +678,7 @@ public final class GL31 {
 		int length = __buffer.intParam();
 		int uniformBlockName = __buffer.bufferParam(bufSize);
 		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, __buffer.address(length), __buffer.address(uniformBlockName));
-		return memDecodeASCII(memByteBuffer(__buffer.address(uniformBlockName), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), uniformBlockName);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
@@ -688,7 +688,7 @@ public final class GL31 {
 		int length = __buffer.intParam();
 		int uniformBlockName = __buffer.bufferParam(bufSize);
 		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, __buffer.address(length), __buffer.address(uniformBlockName));
-		return memDecodeASCII(memByteBuffer(__buffer.address(uniformBlockName), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), uniformBlockName);
 	}
 
 	// --- [ glUniformBlockBinding ] ---

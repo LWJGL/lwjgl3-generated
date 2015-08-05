@@ -1137,7 +1137,7 @@ public final class GL43 {
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
 		nglGetObjectLabel(identifier, name, bufSize, __buffer.address(length), __buffer.address(label));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(label), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetObjectLabel GetObjectLabel} */
@@ -1147,7 +1147,7 @@ public final class GL43 {
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
 		nglGetObjectLabel(identifier, name, bufSize, __buffer.address(length), __buffer.address(label));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(label), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
 	}
 
 	// --- [ glObjectPtrLabel ] ---
@@ -1239,7 +1239,7 @@ public final class GL43 {
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
 		nglGetObjectPtrLabel(ptr, bufSize, __buffer.address(length), __buffer.address(label));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(label), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
@@ -1249,7 +1249,7 @@ public final class GL43 {
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
 		nglGetObjectPtrLabel(ptr, bufSize, __buffer.address(length), __buffer.address(label));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(label), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
 	}
 
 	// --- [ glFramebufferParameteri ] ---
@@ -1785,7 +1785,7 @@ public final class GL43 {
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
 		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address(length), __buffer.address(name));
-		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetProgramResourceName GetProgramResourceName} */
@@ -1795,7 +1795,7 @@ public final class GL43 {
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
 		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address(length), __buffer.address(name));
-		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
 	// --- [ glGetProgramResourceiv ] ---

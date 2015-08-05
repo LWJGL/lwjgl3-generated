@@ -552,7 +552,7 @@ public final class KHRDebug {
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
 		nglGetObjectLabel(identifier, name, bufSize, __buffer.address(length), __buffer.address(label));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(label), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetObjectLabel GetObjectLabel} */
@@ -562,7 +562,7 @@ public final class KHRDebug {
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
 		nglGetObjectLabel(identifier, name, bufSize, __buffer.address(length), __buffer.address(label));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(label), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
 	}
 
 	// --- [ glObjectPtrLabel ] ---
@@ -642,7 +642,7 @@ public final class KHRDebug {
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
 		nglGetObjectPtrLabel(ptr, bufSize, __buffer.address(length), __buffer.address(label));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(label), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
@@ -652,7 +652,7 @@ public final class KHRDebug {
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
 		nglGetObjectPtrLabel(ptr, bufSize, __buffer.address(length), __buffer.address(label));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(label), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
 	}
 
      /**

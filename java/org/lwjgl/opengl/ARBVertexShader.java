@@ -1331,7 +1331,7 @@ public final class ARBVertexShader {
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(maxLength);
 		nglGetActiveAttribARB(programObj, index, maxLength, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
-		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveAttribARB GetActiveAttribARB} */
@@ -1345,7 +1345,7 @@ public final class ARBVertexShader {
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(maxLength);
 		nglGetActiveAttribARB(programObj, index, maxLength, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
-		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
 	// --- [ glGetAttribLocationARB ] ---

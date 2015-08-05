@@ -1751,7 +1751,7 @@ public final class ARBSeparateShaderObjects {
 		int length = __buffer.intParam();
 		int infoLog = __buffer.bufferParam(bufSize);
 		nglGetProgramPipelineInfoLog(pipeline, bufSize, __buffer.address(length), __buffer.address(infoLog));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(infoLog), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), infoLog);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetProgramPipelineInfoLog GetProgramPipelineInfoLog} */
@@ -1761,7 +1761,7 @@ public final class ARBSeparateShaderObjects {
 		int length = __buffer.intParam();
 		int infoLog = __buffer.bufferParam(bufSize);
 		nglGetProgramPipelineInfoLog(pipeline, bufSize, __buffer.address(length), __buffer.address(infoLog));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(infoLog), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), infoLog);
 	}
 
 }

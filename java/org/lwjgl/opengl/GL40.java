@@ -1272,7 +1272,7 @@ public final class GL40 {
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufsize);
 		nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, __buffer.address(length), __buffer.address(name));
-		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveSubroutineUniformName GetActiveSubroutineUniformName} */
@@ -1282,7 +1282,7 @@ public final class GL40 {
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufsize);
 		nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, __buffer.address(length), __buffer.address(name));
-		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
 	// --- [ glGetActiveSubroutineName ] ---
@@ -1331,7 +1331,7 @@ public final class GL40 {
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufsize);
 		nglGetActiveSubroutineName(program, shadertype, index, bufsize, __buffer.address(length), __buffer.address(name));
-		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveSubroutineName GetActiveSubroutineName} */
@@ -1341,7 +1341,7 @@ public final class GL40 {
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufsize);
 		nglGetActiveSubroutineName(program, shadertype, index, bufsize, __buffer.address(length), __buffer.address(name));
-		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
 	// --- [ glUniformSubroutinesuiv ] ---

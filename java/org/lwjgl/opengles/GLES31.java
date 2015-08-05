@@ -592,7 +592,7 @@ public final class GLES31 {
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
 		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address(length), __buffer.address(name));
-		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetProgramResourceName GetProgramResourceName} */
@@ -602,7 +602,7 @@ public final class GLES31 {
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
 		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address(length), __buffer.address(name));
-		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
 	// --- [ glGetProgramResourceiv ] ---
@@ -1533,7 +1533,7 @@ public final class GLES31 {
 		int length = __buffer.intParam();
 		int infoLog = __buffer.bufferParam(bufSize);
 		nglGetProgramPipelineInfoLog(pipeline, bufSize, __buffer.address(length), __buffer.address(infoLog));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(infoLog), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), infoLog);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetProgramPipelineInfoLog GetProgramPipelineInfoLog} */
@@ -1543,7 +1543,7 @@ public final class GLES31 {
 		int length = __buffer.intParam();
 		int infoLog = __buffer.bufferParam(bufSize);
 		nglGetProgramPipelineInfoLog(pipeline, bufSize, __buffer.address(length), __buffer.address(infoLog));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(infoLog), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), infoLog);
 	}
 
 	// --- [ glBindImageTexture ] ---

@@ -91,7 +91,7 @@ public final class ANGLETranslatedShaderSource {
 		int length = __buffer.intParam();
 		int source = __buffer.bufferParam(bufsize);
 		nglGetTranslatedShaderSourceANGLE(shader, bufsize, __buffer.address(length), __buffer.address(source));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(source), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), source);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetTranslatedShaderSourceANGLE GetTranslatedShaderSourceANGLE} */
@@ -101,7 +101,7 @@ public final class ANGLETranslatedShaderSource {
 		int length = __buffer.intParam();
 		int source = __buffer.bufferParam(bufsize);
 		nglGetTranslatedShaderSourceANGLE(shader, bufsize, __buffer.address(length), __buffer.address(source));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(source), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), source);
 	}
 
 }

@@ -339,7 +339,7 @@ public final class ARBShadingLanguageInclude {
 		int stringlen = __buffer.intParam();
 		int string = __buffer.bufferParam(bufSize);
 		nglGetNamedStringARB(nameEncodedLen, __buffer.address(nameEncoded), bufSize, __buffer.address(stringlen), __buffer.address(string));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(string), __buffer.intValue(stringlen)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(stringlen), string);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetNamedStringARB GetNamedStringARB} */
@@ -351,7 +351,7 @@ public final class ARBShadingLanguageInclude {
 		int stringlen = __buffer.intParam();
 		int string = __buffer.bufferParam(bufSize);
 		nglGetNamedStringARB(nameEncodedLen, __buffer.address(nameEncoded), bufSize, __buffer.address(stringlen), __buffer.address(string));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(string), __buffer.intValue(stringlen)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(stringlen), string);
 	}
 
 	// --- [ glGetNamedStringivARB ] ---

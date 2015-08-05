@@ -1493,7 +1493,7 @@ public final class GLES30 {
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
 		nglGetTransformFeedbackVarying(program, index, bufSize, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
-		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying} */
@@ -1507,7 +1507,7 @@ public final class GLES30 {
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
 		nglGetTransformFeedbackVarying(program, index, bufSize, __buffer.address(length), memAddress(size), memAddress(type), __buffer.address(name));
-		return memDecodeASCII(memByteBuffer(__buffer.address(name), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
 	// --- [ glVertexAttribIPointer ] ---
@@ -2152,7 +2152,7 @@ public final class GLES30 {
 		int length = __buffer.intParam();
 		int uniformBlockName = __buffer.bufferParam(bufSize);
 		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, __buffer.address(length), __buffer.address(uniformBlockName));
-		return memDecodeASCII(memByteBuffer(__buffer.address(uniformBlockName), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), uniformBlockName);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
@@ -2162,7 +2162,7 @@ public final class GLES30 {
 		int length = __buffer.intParam();
 		int uniformBlockName = __buffer.bufferParam(bufSize);
 		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, __buffer.address(length), __buffer.address(uniformBlockName));
-		return memDecodeASCII(memByteBuffer(__buffer.address(uniformBlockName), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), uniformBlockName);
 	}
 
 	// --- [ glUniformBlockBinding ] ---
@@ -2228,7 +2228,7 @@ public final class GLES30 {
 
 	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstanced DrawElementsInstanced} */
 	public static void glDrawElementsInstanced(int mode, IntBuffer indices, int instancecount) {
-		nglDrawElementsInstanced(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), instancecount);
+		nglDrawElementsInstanced(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), instancecount);
 	}
 
 	// --- [ glFenceSync ] ---

@@ -354,7 +354,7 @@ public final class EXTSeparateShaderObjects {
 		int length = __buffer.intParam();
 		int infoLog = __buffer.bufferParam(bufSize);
 		nglGetProgramPipelineInfoLogEXT(pipeline, bufSize, __buffer.address(length), __buffer.address(infoLog));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(infoLog), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), infoLog);
 	}
 
 	/** String return (w/ implicit max length) version of: {@link #glGetProgramPipelineInfoLogEXT GetProgramPipelineInfoLogEXT} */
@@ -364,7 +364,7 @@ public final class EXTSeparateShaderObjects {
 		int length = __buffer.intParam();
 		int infoLog = __buffer.bufferParam(bufSize);
 		nglGetProgramPipelineInfoLogEXT(pipeline, bufSize, __buffer.address(length), __buffer.address(infoLog));
-		return memDecodeUTF8(memByteBuffer(__buffer.address(infoLog), __buffer.intValue(length)));
+		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), infoLog);
 	}
 
 	// --- [ glGetProgramPipelineivEXT ] ---

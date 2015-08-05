@@ -124,7 +124,7 @@ public final class QCOMDriverControl {
 		int length = __buffer.intParam();
 		int driverControlString = __buffer.bufferParam(bufSize);
 		nglGetDriverControlStringQCOM(driverControl, bufSize, __buffer.address(length), __buffer.address(driverControlString));
-		return memDecodeASCII(memByteBuffer(__buffer.address(driverControlString), __buffer.intValue(length)));
+		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), driverControlString);
 	}
 
 	// --- [ glEnableDriverControlQCOM ] ---
