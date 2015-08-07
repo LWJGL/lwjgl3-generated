@@ -10,8 +10,6 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 
-import org.lwjgl.system.linux.X;
-
 /** Native bindings to the GLFW library's Linux native access functions. */
 public final class GLFWLinux {
 
@@ -45,7 +43,7 @@ public final class GLFWLinux {
 	 *
 	 * @param monitor the GLFW monitor
 	 *
-	 * @return The <code style="font-family: monospace">RRCrtc</code> of the specified monitor, or {@link X#None} if an error occurred.
+	 * @return The <code style="font-family: monospace">RRCrtc</code> of the specified monitor, or {@code None} if an error occurred.
 	 *
 	 * @since GLFW 3.1
 	 */
@@ -68,7 +66,7 @@ public final class GLFWLinux {
 	 *
 	 * @param monitor the GLFW monitor
 	 *
-	 * @return The <code style="font-family: monospace">RROutput</code> of the specified monitor, or {@link X#None} if an error occurred.
+	 * @return The <code style="font-family: monospace">RROutput</code> of the specified monitor, or {@code None} if an error occurred.
 	 *
 	 * @since GLFW 3.1
 	 */
@@ -91,7 +89,7 @@ public final class GLFWLinux {
 	 *
 	 * @param window a GLFW window
 	 *
-	 * @return The <code style="font-family: monospace">Window</code> of the specified window, or {@link X#None} if an error occurred.
+	 * @return The <code style="font-family: monospace">Window</code> of the specified window, or {@code None} if an error occurred.
 	 *
 	 * @since GLFW 3.0
 	 */

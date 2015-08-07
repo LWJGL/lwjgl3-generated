@@ -13,8 +13,11 @@ EXTERN_C_ENTER
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_Kernel32_nSetThreadAffinityMask(JNIEnv *__env, jclass clazz, jlong threadAddress, jlong threadAffinityMask, jlong __functionAddress) {
 	HANDLE thread = (HANDLE)(intptr_t)threadAddress;
 	SetThreadAffinityMaskPROC SetThreadAffinityMask = (SetThreadAffinityMaskPROC)(intptr_t)__functionAddress;
+	jlong __result;
 	UNUSED_PARAMS(__env, clazz)
-	return (jlong)SetThreadAffinityMask(thread, (DWORD_PTR)threadAffinityMask);
+	__result = (jlong)SetThreadAffinityMask(thread, (DWORD_PTR)threadAffinityMask);
+	setLastError((jint)GetLastError());
+	return __result;
 }
 
 EXTERN_C_EXIT

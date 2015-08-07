@@ -10,8 +10,6 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 
-import org.lwjgl.system.linux.X;
-
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/SGIX/swap_group.txt">GLX_SGIX_swap_group</a> extension.
  * 
@@ -58,12 +56,12 @@ public final class GLXSGIXSwapGroup {
 
 	/**
 	 * Adds {@code drawable} to the swap group containing {@code member} as a member. If {@code drawable} is already a member of a different group, it is
-	 * implicitly removed from that group first. If {@code member} is {@link X#None}, {@code drawable} is removed from the swap group that it belongs to, if
+	 * implicitly removed from that group first. If {@code member} is {@code None}, {@code drawable} is removed from the swap group that it belongs to, if
 	 * any.
 	 *
 	 * @param display  the connection to the X server
 	 * @param drawable the GLXDrawable to add to the swap group
-	 * @param member   a member of the swap group or {@link X#None}
+	 * @param member   a member of the swap group or {@code None}
 	 */
 	public static void glXJoinSwapGroupSGIX(long display, long drawable, long member) {
 		long __functionAddress = getInstance().JoinSwapGroupSGIX;

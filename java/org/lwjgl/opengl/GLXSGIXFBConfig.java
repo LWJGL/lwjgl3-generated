@@ -160,7 +160,7 @@ public final class GLXSGIXFBConfig {
 	 *
 	 * @param display     the connection to the X server
 	 * @param screen      the screen number
-	 * @param attrib_list an optional list of attributes, terminated with {@link org.lwjgl.system.linux.X#None}
+	 * @param attrib_list an optional list of attributes, terminated with org.lwjgl.system.linux.{@code None}
 	 */
 	public static PointerBuffer glXChooseFBConfigSGIX(long display, int screen, ByteBuffer attrib_list) {
 		APIBuffer __buffer = apiBuffer();

@@ -176,7 +176,7 @@ public final class GLX {
 	 *
 	 * @param display     the connection to the X server
 	 * @param screen      the screen number
-	 * @param attrib_list a list of attributes terminated with {@link X#None}
+	 * @param attrib_list a list of attributes terminated with {@code None}
 	 *
 	 * @return a pointer to an {@code XVisualInfo} structure describing the visual that best matches the specified attributes. If no matching visual exists, {@code NULL} is
 	 *         returned.

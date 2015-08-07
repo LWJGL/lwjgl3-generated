@@ -107,7 +107,7 @@ public final class GLXARBCreateContext {
 	 *                      <li>Implementation-dependent limits on the number of direct rendering contexts that can be supported simultaneously are exceeded.</li>
 	 *                      </ul>
 	 *                      Use {@link GLX#glXIsDirect IsDirect} to determine whether or not a request for a direct rendering context succeeded.
-	 * @param attrib_list   an optional list of attributes for the context, terminated with {@link X#None}
+	 * @param attrib_list   an optional list of attributes for the context, terminated with {@code None}
 	 */
 	public static long glXCreateContextAttribsARB(long display, long config, long share_context, int direct, ByteBuffer attrib_list) {
 		if ( LWJGLUtil.CHECKS )

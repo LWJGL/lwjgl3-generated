@@ -22,25 +22,6 @@ public final class WinBase {
 		FALSE = 0x0,
 		TRUE  = 0x1;
 
-	/** Global Memory flags. */
-	public static final int
-		GMEM_FIXED          = 0x0,
-		GMEM_MOVEABLE       = 0x2,
-		GMEM_NOCOMPACT      = 0x10,
-		GMEM_NODISCARD      = 0x20,
-		GMEM_ZEROINIT       = 0x40,
-		GMEM_MODIFY         = 0x80,
-		GMEM_DISCARDABLE    = 0x100,
-		GMEM_NOT_BANKED     = 0x1000,
-		GMEM_SHARE          = 0x2000,
-		GMEM_DDESHARE       = 0x2000,
-		GMEM_NOTIFY         = 0x4000,
-		GMEM_LOWER          = GMEM_NOT_BANKED,
-		GMEM_VALID_FLAGS    = 0x7F72,
-		GMEM_INVALID_HANDLE = 0x8000,
-		GHND                = GMEM_MOVEABLE | GMEM_ZEROINIT,
-		GPTR                = GMEM_FIXED | GMEM_ZEROINIT;
-
 	static { LWJGLUtil.initialize(); }
 
 	private WinBase() {}
@@ -50,8 +31,22 @@ public final class WinBase {
 	/**
 	 * Retrieves the calling thread's last-error code value. The last-error code is maintained on a per-thread basis. Multiple threads do not overwrite each
 	 * other's last-error code.
+	 * 
+	 * <p><b>LWJGL note</b>: This function cannot be used after another JNI call to a Windows function, because the last error resets before that call returns.
+	 * For this reason, LWJGL stores the last error in thread-local storage, you can use {@link #getLastError} to access it.</p>
 	 */
 	public static native int GetLastError();
+
+	// --- [ getLastError ] ---
+
+	/**
+	 * Retrieves the calling thread's last-error code value. The last-error code is maintained on a per-thread basis. Multiple threads do not overwrite each
+	 * other's last-error code.
+	 * 
+	 * <p><b>LWJGL note</b>: This method has a meaningful value only after another LWJGL JNI call. It does not call {@code GetLastError()} from WinBase.h, it
+	 * returns the thread-local error code stored by a previous JNI call.</p>
+	 */
+	public static native int getLastError();
 
 	// --- [ GetModuleHandle ] ---
 
@@ -202,71 +197,6 @@ public final class WinBase {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(frequency, LARGE_INTEGER.SIZEOF);
 		return nQueryPerformanceCounter(memAddress(frequency));
-	}
-
-	// --- [ GlobalAlloc ] ---
-
-	/**
-	 * Allocates the specified number of bytes from the heap.
-	 *
-	 * @param flags the memory allocation attributes. If zero is specified, the default is {@link #GMEM_FIXED}. One of:<br>{@link #GMEM_FIXED}, {@link #GMEM_MOVEABLE}, {@link #GMEM_NOCOMPACT}, {@link #GMEM_NODISCARD}, {@link #GMEM_ZEROINIT}, {@link #GMEM_MODIFY}, {@link #GMEM_DISCARDABLE}, {@link #GMEM_NOT_BANKED}, {@link #GMEM_SHARE}, {@link #GMEM_DDESHARE}, {@link #GMEM_NOTIFY}, {@link #GMEM_LOWER}, {@link #GMEM_VALID_FLAGS}, {@link #GMEM_INVALID_HANDLE}, {@link #GHND}, {@link #GPTR}
-	 * @param bytes the number of bytes to allocate. If this parameter is zero and the {@code flags} parameter specifies {@link #GMEM_MOVEABLE}, the function returns a
-	 *              handle to a memory object that is marked as discarded.
-	 */
-	public static native long GlobalAlloc(int flags, long bytes);
-
-	// --- [ GlobalLock ] ---
-
-	/** JNI method for {@link #GlobalLock} */
-	@JavadocExclude
-	public static native long nGlobalLock(long hMem);
-
-	/**
-	 * Locks a global memory object and returns a pointer to the first byte of the object's memory block.
-	 *
-	 * @param hMem a handle to the global memory object
-	 */
-	public static long GlobalLock(long hMem) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(hMem);
-		return nGlobalLock(hMem);
-	}
-
-	// --- [ GlobalUnlock ] ---
-
-	/** JNI method for {@link #GlobalUnlock} */
-	@JavadocExclude
-	public static native int nGlobalUnlock(long hMem);
-
-	/**
-	 * Decrements the lock count associated with a memory object that was allocated with {@link #GMEM_MOVEABLE}. This function has no effect on memory objects
-	 * allocated with {@link #GMEM_FIXED}.
-	 *
-	 * @param hMem a handle to the global memory object
-	 */
-	public static int GlobalUnlock(long hMem) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(hMem);
-		return nGlobalUnlock(hMem);
-	}
-
-	// --- [ GlobalFree ] ---
-
-	/** JNI method for {@link #GlobalFree} */
-	@JavadocExclude
-	public static native long nGlobalFree(long hMem);
-
-	/**
-	 * Frees the specified global memory object and invalidates its handle.
-	 *
-	 * @param hMem a handle to the global memory object.
-	 *
-	 * @return {@code NULL} if the function succeeds. If the function fails, the return value is equal to a handle to the global memory object.
-	 */
-	public static long GlobalFree(long hMem) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(hMem);
-		return nGlobalFree(hMem);
 	}
 
 }

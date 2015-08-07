@@ -188,7 +188,7 @@ public final class GLX13 {
 	 *
 	 * @param display     the connection to the X server
 	 * @param screen      the screen number
-	 * @param attrib_list a list of attributes terminated with {@link X#None}
+	 * @param attrib_list a list of attributes terminated with {@code None}
 	 */
 	public static PointerBuffer glXChooseFBConfig(long display, int screen, ByteBuffer attrib_list) {
 		if ( LWJGLUtil.CHECKS )
@@ -298,7 +298,7 @@ public final class GLX13 {
 	 * @param display     the connection to the X server
 	 * @param config      the GLXFBConfig
 	 * @param win         the X Window
-	 * @param attrib_list a list of attributes terminated with {@link X#None}
+	 * @param attrib_list a list of attributes terminated with {@code None}
 	 */
 	public static long glXCreateWindow(long display, long config, long win, ByteBuffer attrib_list) {
 		if ( LWJGLUtil.CHECKS )
@@ -336,7 +336,7 @@ public final class GLX13 {
 	 * @param display     the connection to the X server
 	 * @param config      the GLXFBConfig
 	 * @param pixmap      the X Pixmap
-	 * @param attrib_list a list of attributes terminated with {@link X#None}
+	 * @param attrib_list a list of attributes terminated with {@code None}
 	 */
 	public static long glXCreatePixmap(long display, long config, long pixmap, ByteBuffer attrib_list) {
 		if ( LWJGLUtil.CHECKS )
@@ -394,7 +394,7 @@ public final class GLX13 {
 	 *
 	 * @param display     the connection to the X server
 	 * @param config      the GLXFBConfig
-	 * @param attrib_list a list of attributes terminated with {@link X#None}
+	 * @param attrib_list a list of attributes terminated with {@code None}
 	 */
 	public static long glXCreatePbuffer(long display, long config, ByteBuffer attrib_list) {
 		if ( LWJGLUtil.CHECKS )

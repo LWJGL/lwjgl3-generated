@@ -13,29 +13,46 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinBase_GetLastError(JNIEnv
 	return (jint)GetLastError();
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinBase_getLastError(JNIEnv *__env, jclass clazz) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)getLastError();
+}
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinBase_nGetModuleHandle(JNIEnv *__env, jclass clazz, jlong moduleNameAddress) {
 	LPCTSTR moduleName = (LPCTSTR)(intptr_t)moduleNameAddress;
+	jlong __result;
 	UNUSED_PARAMS(__env, clazz)
-	return (jlong)(intptr_t)GetModuleHandle(moduleName);
+	__result = (jlong)(intptr_t)GetModuleHandle(moduleName);
+	setLastError((jint)GetLastError());
+	return __result;
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinBase_nLoadLibrary(JNIEnv *__env, jclass clazz, jlong nameAddress) {
 	LPCTSTR name = (LPCTSTR)(intptr_t)nameAddress;
+	jlong __result;
 	UNUSED_PARAMS(__env, clazz)
-	return (jlong)(intptr_t)LoadLibrary(name);
+	__result = (jlong)(intptr_t)LoadLibrary(name);
+	setLastError((jint)GetLastError());
+	return __result;
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinBase_nGetProcAddress(JNIEnv *__env, jclass clazz, jlong handleAddress, jlong nameAddress) {
 	HMODULE handle = (HMODULE)(intptr_t)handleAddress;
 	LPCSTR name = (LPCSTR)(intptr_t)nameAddress;
+	jlong __result;
 	UNUSED_PARAMS(__env, clazz)
-	return (jlong)(intptr_t)GetProcAddress(handle, name);
+	__result = (jlong)(intptr_t)GetProcAddress(handle, name);
+	setLastError((jint)GetLastError());
+	return __result;
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinBase_nFreeLibrary(JNIEnv *__env, jclass clazz, jlong handleAddress) {
 	HMODULE handle = (HMODULE)(intptr_t)handleAddress;
+	jint __result;
 	UNUSED_PARAMS(__env, clazz)
-	return (jint)FreeLibrary(handle);
+	__result = (jint)FreeLibrary(handle);
+	setLastError((jint)GetLastError());
+	return __result;
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinBase_nQueryPerformanceFrequency(JNIEnv *__env, jclass clazz, jlong frequencyAddress) {
@@ -48,29 +65,6 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinBase_nQueryPerformanceCo
 	LARGE_INTEGER *frequency = (LARGE_INTEGER *)(intptr_t)frequencyAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)QueryPerformanceCounter(frequency);
-}
-
-JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinBase_GlobalAlloc(JNIEnv *__env, jclass clazz, jint flags, jlong bytes) {
-	UNUSED_PARAMS(__env, clazz)
-	return (jlong)(intptr_t)GlobalAlloc(flags, (SIZE_T)bytes);
-}
-
-JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinBase_nGlobalLock(JNIEnv *__env, jclass clazz, jlong hMemAddress) {
-	HGLOBAL hMem = (HGLOBAL)(intptr_t)hMemAddress;
-	UNUSED_PARAMS(__env, clazz)
-	return (jlong)(intptr_t)GlobalLock(hMem);
-}
-
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinBase_nGlobalUnlock(JNIEnv *__env, jclass clazz, jlong hMemAddress) {
-	HGLOBAL hMem = (HGLOBAL)(intptr_t)hMemAddress;
-	UNUSED_PARAMS(__env, clazz)
-	return (jint)GlobalUnlock(hMem);
-}
-
-JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinBase_nGlobalFree(JNIEnv *__env, jclass clazz, jlong hMemAddress) {
-	HGLOBAL hMem = (HGLOBAL)(intptr_t)hMemAddress;
-	UNUSED_PARAMS(__env, clazz)
-	return (jlong)(intptr_t)GlobalFree(hMem);
 }
 
 EXTERN_C_EXIT
