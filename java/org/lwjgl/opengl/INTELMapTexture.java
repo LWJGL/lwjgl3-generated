@@ -154,7 +154,7 @@ public final class INTELMapTexture {
 		}
 		long __result = nglMapTexture2DINTEL(texture, level, access, memAddress(stride), memAddress(layout));
 		int length = memGetInt(memAddress(stride)) * GLChecks.getTexLevelParameteri(texture, GL11.GL_TEXTURE_2D, level, GL11.GL_TEXTURE_HEIGHT);
-		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
+		return old_buffer == null ? memByteBuffer(__result, length) : memSetupBuffer(old_buffer, __result, length);
 	}
 
 	/** Explicit size alternative version of: {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
@@ -164,7 +164,7 @@ public final class INTELMapTexture {
 			checkBuffer(layout, 1);
 		}
 		long __result = nglMapTexture2DINTEL(texture, level, access, memAddress(stride), memAddress(layout));
-		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, (int)length);
+		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
 	}
 
 }

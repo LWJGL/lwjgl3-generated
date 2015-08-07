@@ -4088,13 +4088,13 @@ public final class EXTDirectStateAccess {
 	public static ByteBuffer glMapNamedBufferEXT(int buffer, int access, ByteBuffer old_buffer) {
 		long __result = nglMapNamedBufferEXT(buffer, access);
 		int length = glGetNamedBufferParameteriEXT(buffer, GL15.GL_BUFFER_SIZE);
-		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
+		return old_buffer == null ? memByteBuffer(__result, length) : memSetupBuffer(old_buffer, __result, length);
 	}
 
 	/** Explicit size alternative version of: {@link #glMapNamedBufferEXT MapNamedBufferEXT} */
 	public static ByteBuffer glMapNamedBufferEXT(int buffer, int access, long length, ByteBuffer old_buffer) {
 		long __result = nglMapNamedBufferEXT(buffer, access);
-		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, (int)length);
+		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
 	}
 
 	// --- [ glUnmapNamedBufferEXT ] ---
@@ -6122,7 +6122,7 @@ public final class EXTDirectStateAccess {
 	/** Alternative version of: {@link #glMapNamedBufferRangeEXT MapNamedBufferRangeEXT} */
 	public static ByteBuffer glMapNamedBufferRangeEXT(int buffer, long offset, long length, int access, ByteBuffer old_buffer) {
 		long __result = nglMapNamedBufferRangeEXT(buffer, offset, length, access);
-		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, (int)length);
+		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
 	}
 
 	// --- [ glFlushMappedNamedBufferRangeEXT ] ---

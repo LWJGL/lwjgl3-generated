@@ -441,8 +441,8 @@ public final class ARBVertexBufferObject {
 	 * <p><b>LWJGL note</b>: This method comes in 3 flavors:
 	 * <ol>
 	 * <li>{@link #glMapBufferARB(int, int)} - Calls {@link #glGetBufferParameteriARB GetBufferParameteriARB} to retrieve the buffer size and a new ByteBuffer instance is always returned.</li>
-	 * <li>{@link #glMapBufferARB(int, int, ByteBuffer)} - Calls {@link #glGetBufferParameteriARB GetBufferParameteriARB} to retrieve the buffer size and the {@code old_buffer} parameter is reused if the returned size and pointer match the buffer capacity and address, respectively.</li>
-	 * <li>{@link #glMapBufferARB(int, int, long, ByteBuffer)} - The buffer size is explicitly specified and the {@code old_buffer} parameter is reused if {@code size} and the returned pointer match the buffer capacity and address, respectively. This is the most efficient method.</li>
+	 * <li>{@link #glMapBufferARB(int, int, ByteBuffer)} - Calls {@link #glGetBufferParameteriARB GetBufferParameteriARB} to retrieve the buffer size and the {@code old_buffer} parameter is reused if not null.</li>
+	 * <li>{@link #glMapBufferARB(int, int, long, ByteBuffer)} - The buffer size is explicitly specified and the {@code old_buffer} parameter is reused if not null. This is the most efficient method.</li>
 	 * </ol></p>
 	 *
 	 * @param target the target buffer object being mapped. One of:<br>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}, {@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}
@@ -457,13 +457,13 @@ public final class ARBVertexBufferObject {
 	public static ByteBuffer glMapBufferARB(int target, int access, ByteBuffer old_buffer) {
 		long __result = nglMapBufferARB(target, access);
 		int length = glGetBufferParameteriARB(target, GL_BUFFER_SIZE_ARB);
-		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
+		return old_buffer == null ? memByteBuffer(__result, length) : memSetupBuffer(old_buffer, __result, length);
 	}
 
 	/** Explicit size alternative version of: {@link #glMapBufferARB MapBufferARB} */
 	public static ByteBuffer glMapBufferARB(int target, int access, long length, ByteBuffer old_buffer) {
 		long __result = nglMapBufferARB(target, access);
-		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, (int)length);
+		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
 	}
 
 	// --- [ glUnmapBufferARB ] ---

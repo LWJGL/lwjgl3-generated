@@ -1013,13 +1013,13 @@ public final class GL45 {
 	public static ByteBuffer glMapNamedBuffer(int buffer, int access, ByteBuffer old_buffer) {
 		long __result = nglMapNamedBuffer(buffer, access);
 		int length = glGetNamedBufferParameteri(buffer, GL15.GL_BUFFER_SIZE);
-		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, length);
+		return old_buffer == null ? memByteBuffer(__result, length) : memSetupBuffer(old_buffer, __result, length);
 	}
 
 	/** Explicit size alternative version of: {@link #glMapNamedBuffer MapNamedBuffer} */
 	public static ByteBuffer glMapNamedBuffer(int buffer, int access, long length, ByteBuffer old_buffer) {
 		long __result = nglMapNamedBuffer(buffer, access);
-		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, (int)length);
+		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
 	}
 
 	// --- [ glMapNamedBufferRange ] ---
@@ -1053,7 +1053,7 @@ public final class GL45 {
 	/** Alternative version of: {@link #glMapNamedBufferRange MapNamedBufferRange} */
 	public static ByteBuffer glMapNamedBufferRange(int buffer, long offset, long length, int access, ByteBuffer old_buffer) {
 		long __result = nglMapNamedBufferRange(buffer, offset, length, access);
-		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, (int)length);
+		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
 	}
 
 	// --- [ glUnmapNamedBuffer ] ---
