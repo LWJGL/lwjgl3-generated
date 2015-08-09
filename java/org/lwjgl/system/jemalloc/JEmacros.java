@@ -92,6 +92,24 @@ public final class JEmacros {
 	 */
 	public static native int MALLOCX_ZERO();
 
+	// --- [ MALLOCX_TCACHE ] ---
+
+	/**
+	 * Use the thread-specific cache (tcache) specified by the identifier {@code tc}, which must have been acquired via the {@code tcache.create} mallctl.
+	 * This macro does not validate that {@code tc} specifies a valid identifier.
+	 *
+	 * @param tc the thread-specific cache
+	 */
+	public static native int MALLOCX_TCACHE(int tc);
+
+	// --- [ MALLOCX_TCACHE_NONE ] ---
+
+	/**
+	 * Do not use a thread-specific cache (tcache).  Unless {@link #MALLOCX_TCACHE} or {@code MALLOCX_TCACHE_NONE} is specified, an automatically managed tcache
+	 * will be used under many circumstances. This macro cannot be used in the same {@code flags} argument as {@code MALLOCX_TCACHE(tc)}.
+	 */
+	public static native int MALLOCX_TCACHE_NONE();
+
 	// --- [ MALLOCX_ARENA ] ---
 
 	/**

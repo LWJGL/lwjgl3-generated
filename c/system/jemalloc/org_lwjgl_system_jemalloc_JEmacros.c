@@ -55,6 +55,16 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_jemalloc_JEmacros_MALLOCX_1ZERO(JNI
 	return (jint)MALLOCX_ZERO;
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_jemalloc_JEmacros_MALLOCX_1TCACHE(JNIEnv *__env, jclass clazz, jint tc) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)MALLOCX_TCACHE(tc);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_jemalloc_JEmacros_MALLOCX_1TCACHE_1NONE(JNIEnv *__env, jclass clazz) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)MALLOCX_TCACHE_NONE;
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_jemalloc_JEmacros_MALLOCX_1ARENA(JNIEnv *__env, jclass clazz, jint a) {
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)MALLOCX_ARENA(a);
