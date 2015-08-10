@@ -803,7 +803,7 @@ Creates a program object.
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2i.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Specifies the value of a ivec2 uniform variable for the current program object.
+	 * Specifies the value of an ivec2 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
 	 * @param v0       the uniform x value
@@ -823,7 +823,7 @@ Creates a program object.
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3i.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Specifies the value of a ivec3 uniform variable for the current program object.
+	 * Specifies the value of an ivec3 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
 	 * @param v0       the uniform x value
@@ -844,7 +844,7 @@ Creates a program object.
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4i.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Specifies the value of a ivec4 uniform variable for the current program object.
+	 * Specifies the value of an ivec4 uniform variable for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
 	 * @param v0       the uniform x value
@@ -1038,7 +1038,7 @@ Creates a program object.
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Specifies the value of a single ivec2 uniform variable or a ivec2 uniform variable array for the current program object.
+	 * Specifies the value of a single ivec2 uniform variable or an ivec2 uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
@@ -1071,7 +1071,7 @@ Creates a program object.
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Specifies the value of a single ivec3 uniform variable or a ivec3 uniform variable array for the current program object.
+	 * Specifies the value of a single ivec3 uniform variable or an ivec3 uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
@@ -1104,7 +1104,7 @@ Creates a program object.
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Specifies the value of a single ivec4 uniform variable or a ivec4 uniform variable array for the current program object.
+	 * Specifies the value of a single ivec4 uniform variable or an ivec4 uniform variable array for the current program object.
 	 *
 	 * @param location the location of the uniform variable to be modified
 	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.

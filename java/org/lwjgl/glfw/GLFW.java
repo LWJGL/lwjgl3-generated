@@ -398,10 +398,6 @@ public final class GLFW {
 
 	// --- [ glfwInit ] ---
 
-	/** JNI method for {@link #glfwInit Init} */
-	@JavadocExclude
-	public static native int nglfwInit();
-
 	/**
 	 * Initializes the GLFW library. Before most GLFW functions can be used, GLFW must be initialized, and before an application terminates GLFW should be
 	 * terminated in order to free any resources allocated during or after initialization.
@@ -424,10 +420,7 @@ public final class GLFW {
 	 *
 	 * @since GLFW 1.0
 	 */
-	public static int glfwInit() {
-		if ( LWJGLUtil.getPlatform() == LWJGLUtil.Platform.MACOSX ) org.lwjgl.system.macosx.EventLoop.checkFirstThread();
-		return nglfwInit();
-	}
+	public static native int glfwInit();
 
 	// --- [ glfwTerminate ] ---
 
@@ -1413,6 +1406,7 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static void glfwShowWindow(long window) {
+		org.lwjgl.system.macosx.EventLoop.checkFirstThread();
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
 		nglfwShowWindow(window);
@@ -1724,6 +1718,10 @@ public final class GLFW {
 
 	// --- [ glfwPollEvents ] ---
 
+	/** JNI method for {@link #glfwPollEvents PollEvents} */
+	@JavadocExclude
+	public static native void nglfwPollEvents();
+
 	/**
 	 * Processes all pending events.
 	 * 
@@ -1745,9 +1743,16 @@ public final class GLFW {
 	 * <li>This function may not be called from a callback.</li>
 	 * </ul></p>
 	 */
-	public static native void glfwPollEvents();
+	public static void glfwPollEvents() {
+		org.lwjgl.system.macosx.EventLoop.checkFirstThread();
+		nglfwPollEvents();
+	}
 
 	// --- [ glfwWaitEvents ] ---
+
+	/** JNI method for {@link #glfwWaitEvents WaitEvents} */
+	@JavadocExclude
+	public static native void nglfwWaitEvents();
 
 	/**
 	 * Waits until events are queued and processes them.
@@ -1777,7 +1782,10 @@ public final class GLFW {
 	 * <li>On some platforms, certain callbacks may be called outside of a call to one of the event processing functions.</li>
 	 * </ul></p>
 	 */
-	public static native void glfwWaitEvents();
+	public static void glfwWaitEvents() {
+		org.lwjgl.system.macosx.EventLoop.checkFirstThread();
+		nglfwWaitEvents();
+	}
 
 	// --- [ glfwPostEmptyEvent ] ---
 

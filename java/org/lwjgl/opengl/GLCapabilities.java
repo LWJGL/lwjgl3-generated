@@ -81,12 +81,14 @@ public final class GLCapabilities {
 	final ARBDrawInstanced                 __ARBDrawInstanced;
 	final ARBES2Compatibility              __ARBES2Compatibility;
 	final ARBES31Compatibility             __ARBES31Compatibility;
+	final ARBES32Compatibility             __ARBES32Compatibility;
 	final ARBFramebufferNoAttachments      __ARBFramebufferNoAttachments;
 	final ARBFramebufferObject             __ARBFramebufferObject;
 	final ARBGeometryShader4               __ARBGeometryShader4;
 	final ARBGetProgramBinary              __ARBGetProgramBinary;
 	final ARBGetTextureSubImage            __ARBGetTextureSubImage;
 	final ARBGPUShaderFP64                 __ARBGPUShaderFP64;
+	final ARBGPUShaderInt64                __ARBGPUShaderInt64;
 	final ARBImaging                       __ARBImaging;
 	final ARBIndirectParameters            __ARBIndirectParameters;
 	final ARBInstancedArrays               __ARBInstancedArrays;
@@ -100,10 +102,12 @@ public final class GLCapabilities {
 	final ARBMultisample                   __ARBMultisample;
 	final ARBMultitexture                  __ARBMultitexture;
 	final ARBOcclusionQuery                __ARBOcclusionQuery;
+	final ARBParallelShaderCompile         __ARBParallelShaderCompile;
 	final ARBPointParameters               __ARBPointParameters;
 	final ARBProgramInterfaceQuery         __ARBProgramInterfaceQuery;
 	final ARBProvokingVertex               __ARBProvokingVertex;
 	final ARBRobustness                    __ARBRobustness;
+	final ARBSampleLocations               __ARBSampleLocations;
 	final ARBSampleShading                 __ARBSampleShading;
 	final ARBSamplerObjects                __ARBSamplerObjects;
 	final ARBSeparateShaderObjects         __ARBSeparateShaderObjects;
@@ -175,6 +179,7 @@ public final class GLCapabilities {
 	final EXTTransformFeedback             __EXTTransformFeedback;
 	final EXTVertexAttrib64bit             __EXTVertexAttrib64bit;
 	final EXTX11SyncObject                 __EXTX11SyncObject;
+	final INTELFramebufferCMAA             __INTELFramebufferCMAA;
 	final INTELMapTexture                  __INTELMapTexture;
 	final INTELPerformanceQuery            __INTELPerformanceQuery;
 	final KHRBlendEquationAdvanced         __KHRBlendEquationAdvanced;
@@ -620,6 +625,8 @@ public final class GLCapabilities {
 	public final boolean GL_ARB_ES2_compatibility;
 	/** When true, {@link ARBES31Compatibility} is supported. */
 	public final boolean GL_ARB_ES3_1_compatibility;
+	/** When true, {@link ARBES32Compatibility} is supported. */
+	public final boolean GL_ARB_ES3_2_compatibility;
 	/** When true, {@link ARBES3Compatibility} is supported. */
 	public final boolean GL_ARB_ES3_compatibility;
 	/**
@@ -697,6 +704,42 @@ public final class GLCapabilities {
 	public final boolean GL_ARB_fragment_program_shadow;
 	/** When true, {@link ARBFragmentShader} is supported. */
 	public final boolean GL_ARB_fragment_shader;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/fragment_shader_interlock.txt">ARB_fragment_shader_interlock</a> extension is supported.
+	 * 
+	 * <p>In unextended OpenGL 4.5, applications may produce a large number of fragment shader invocations that perform loads and stores to memory using image
+	 * uniforms, atomic counter uniforms, buffer variables, or pointers. The order in which loads and stores to common addresses are performed by different
+	 * fragment shader invocations is largely undefined. For algorithms that use shader writes and touch the same pixels more than once, one or more of the
+	 * following techniques may be required to ensure proper execution ordering:
+	 * <ul>
+	 * <li>inserting Finish or WaitSync commands to drain the pipeline between different "passes" or "layers";</li>
+	 * <li>using only atomic memory operations to write to shader memory (which may be relatively slow and limits how memory may be updated); or</li>
+	 * <li>injecting spin loops into shaders to prevent multiple shader invocations from touching the same memory concurrently.</li>
+	 * </ul>
+	 * This extension provides new GLSL built-in functions beginInvocationInterlockARB() and endInvocationInterlockARB() that delimit a critical section of
+	 * fragment shader code. For pairs of shader invocations with "overlapping" coverage in a given pixel, the OpenGL implementation will guarantee that the
+	 * critical section of the fragment shader will be executed for only one fragment at a time.</p>
+	 * 
+	 * <p>There are four different interlock modes supported by this extension, which are identified by layout qualifiers. The qualifiers
+	 * "pixel_interlock_ordered" and "pixel_interlock_unordered" provides mutual exclusion in the critical section for any pair of fragments corresponding to
+	 * the same pixel. When using multisampling, the qualifiers "sample_interlock_ordered" and "sample_interlock_unordered" only provide mutual exclusion for
+	 * pairs of fragments that both cover at least one common sample in the same pixel; these are recommended for performance if shaders use per-sample data
+	 * structures.</p>
+	 * 
+	 * <p>Additionally, when the "pixel_interlock_ordered" or "sample_interlock_ordered" layout qualifier is used, the interlock also guarantees that the
+	 * critical section for multiple shader invocations with "overlapping" coverage will be executed in the order in which the primitives were processed by
+	 * the GL. Such a guarantee is useful for applications like blending in the fragment shader, where an application requires that fragment values to be
+	 * composited in the framebuffer in primitive order.</p>
+	 * 
+	 * <p>This extension can be useful for algorithms that need to access per-pixel data structures via shader loads and stores. Such algorithms using this
+	 * extension can access such data structures in the critical section without worrying about other invocations for the same pixel accessing the data
+	 * structures concurrently. Additionally, the ordering guarantees are useful for cases where the API ordering of fragments is meaningful. For example,
+	 * applications may be able to execute programmable blending operations in the fragment shader, where the destination buffer is read via image loads and
+	 * the final value is written via image stores.</p>
+	 * 
+	 * <p>Requires {@link GL42 OpenGL 4.2} or {@link ARBShaderImageLoadStore ARB_shader_image_load_store}.</p>
+	 */
+	public final boolean GL_ARB_fragment_shader_interlock;
 	/** When true, {@link ARBFramebufferNoAttachments} is supported. */
 	public final boolean GL_ARB_framebuffer_no_attachments;
 	/** When true, {@link ARBFramebufferObject} is supported. */
@@ -713,6 +756,8 @@ public final class GLCapabilities {
 	public final boolean GL_ARB_gpu_shader5;
 	/** When true, {@link ARBGPUShaderFP64} is supported. */
 	public final boolean GL_ARB_gpu_shader_fp64;
+	/** When true, {@link ARBGPUShaderInt64} is supported. */
+	public final boolean GL_ARB_gpu_shader_int64;
 	/** When true, {@link ARBHalfFloatPixel} is supported. */
 	public final boolean GL_ARB_half_float_pixel;
 	/** When true, {@link ARBHalfFloatVertex} is supported. */
@@ -747,6 +792,8 @@ public final class GLCapabilities {
 	public final boolean GL_ARB_occlusion_query;
 	/** When true, {@link ARBOcclusionQuery2} is supported. */
 	public final boolean GL_ARB_occlusion_query2;
+	/** When true, {@link ARBParallelShaderCompile} is supported. */
+	public final boolean GL_ARB_parallel_shader_compile;
 	/** When true, {@link ARBPipelineStatisticsQuery} is supported. */
 	public final boolean GL_ARB_pipeline_statistics_query;
 	/** When true, {@link ARBPixelBufferObject} is supported. */
@@ -755,6 +802,16 @@ public final class GLCapabilities {
 	public final boolean GL_ARB_point_parameters;
 	/** When true, {@link ARBPointSprite} is supported. */
 	public final boolean GL_ARB_point_sprite;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/post_depth_coverage.txt">ARB_post_depth_coverage</a> extension is supported.
+	 * 
+	 * <p>This extension allows the fragment shader to control whether values in {@code gl_SampleMaskIn[]} reflect the coverage after application of the early
+	 * depth and stencil tests. This feature can be enabled with the following layout qualifier in the fragment shader:
+	 * <pre><code style="font-family: monospace">
+	 * 		layout(post_depth_coverage) in;</code></pre>
+	 * Use of this feature implicitly enables early fragment tests.</p>
+	 */
+	public final boolean GL_ARB_post_depth_coverage;
 	/** When true, {@link ARBProgramInterfaceQuery} is supported. */
 	public final boolean GL_ARB_program_interface_query;
 	/** When true, {@link ARBProvokingVertex} is supported. */
@@ -789,6 +846,8 @@ public final class GLCapabilities {
 	 * <p>Requires {@link ARBRobustness ARB_robustness}. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
 	 */
 	public final boolean GL_ARB_robustness_isolation;
+	/** When true, {@link ARBSampleLocations} is supported. */
+	public final boolean GL_ARB_sample_locations;
 	/** When true, {@link ARBSampleShading} is supported. */
 	public final boolean GL_ARB_sample_shading;
 	/** When true, {@link ARBSamplerObjects} is supported. */
@@ -799,8 +858,32 @@ public final class GLCapabilities {
 	public final boolean GL_ARB_seamless_cubemap_per_texture;
 	/** When true, {@link ARBSeparateShaderObjects} is supported. */
 	public final boolean GL_ARB_separate_shader_objects;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/shader_atomic_counter_ops.txt">ARB_shader_atomic_counter_ops</a> extension is supported.
+	 * 
+	 * <p>The {@link ARBShaderAtomicCounters ARB_shader_atomic_counters} extension introduced atomic counters, but it limits list of potential operations that can be performed on them
+	 * to increment, decrement, and query. This extension extends the list of GLSL built-in functions that can operate on atomic counters. The list of new
+	 * operations include:
+	 * <ul>
+	 * <li>Addition and subtraction</li>
+	 * <li>Minimum and maximum</li>
+	 * <li>Bitwise operators (AND, OR, XOR, etc.)</li>
+	 * <li>Exchange, and compare and exchange operators</li>
+	 * </ul>
+	 * Requires {@link GL42 OpenGL 4.2} or {@link ARBShaderAtomicCounters ARB_shader_atomic_counters}.</p>
+	 */
+	public final boolean GL_ARB_shader_atomic_counter_ops;
 	/** When true, {@link ARBShaderAtomicCounters} is supported. */
 	public final boolean GL_ARB_shader_atomic_counters;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/shader_ballot.txt">ARB_shader_ballot</a> extension is supported.
+	 * 
+	 * <p>This extension provides the ability for a group of invocations which execute in lockstep to do limited forms of cross-invocation communication via a
+	 * group broadcast of a invocation value, or broadcast of a bitarray representing a predicate value from each invocation in the group.</p>
+	 * 
+	 * <p>Requires {@link ARBGPUShaderInt64 ARB_gpu_shader_int64}.</p>
+	 */
+	public final boolean GL_ARB_shader_ballot;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/shader_bit_encoding.txt">ARB_shader_bit_encoding</a> extension is supported.
 	 * 
@@ -809,6 +892,13 @@ public final class GLCapabilities {
 	 * <p>Promoted to core in {@link GL33 OpenGL 3.3}.</p>
 	 */
 	public final boolean GL_ARB_shader_bit_encoding;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/shader_clock.txt">ARB_shader_clock</a> extension is supported.
+	 * 
+	 * <p>This extension exposes a 64-bit monotonically incrementing shader counter which may be used to derive local timing information within a single shader
+	 * invocation.</p>
+	 */
+	public final boolean GL_ARB_shader_clock;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/shader_draw_parameters.txt">ARB_shader_draw_parameters</a> extension is supported.
 	 * 
@@ -1007,6 +1097,23 @@ public final class GLCapabilities {
 	 * <p>Requires {@link #GL_ARB_shader_objects ARB_shader_objects}. Promoted to core in {@link GL30 OpenGL 3.0}.</p>
 	 */
 	public final boolean GL_ARB_shader_texture_lod;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/shader_viewport_layer_array.txt">ARB_shader_viewport_layer_array</a> extension is supported.
+	 * 
+	 * <p>The gl_ViewportIndex and gl_Layer built-in variables were introduced by the in OpenGL 4.1. These variables are available in un-extended OpenGL only to
+	 * the geometry shader. When written in the geometry shader, they cause geometry to be directed to one of an array of several independent viewport
+	 * rectangles or framebuffer attachment layers, respectively.</p>
+	 * 
+	 * <p>In order to use any viewport or attachment layer other than zero, a geometry shader must be present. Geometry shaders introduce processing overhead and
+	 * potential performance issues. The AMD_vertex_shader_layer and AMD_vertex_shader_viewport_index extensions allowed the gl_Layer and gl_ViewportIndex
+	 * outputs to be written directly from the vertex shader with no geometry shader present.</p>
+	 * 
+	 * <p>This extension effectively merges the AMD_vertex_shader_layer and AMD_vertex_shader_viewport_index extensions together and extends them further to
+	 * allow both outputs to be written from tessellation evaluation shaders.</p>
+	 * 
+	 * <p>Requires {@link GL41 OpenGL 4.1}.</p>
+	 */
+	public final boolean GL_ARB_shader_viewport_layer_array;
 	/** When true, {@link ARBShadingLanguage100} is supported. */
 	public final boolean GL_ARB_shading_language_100;
 	/**
@@ -1060,6 +1167,40 @@ public final class GLCapabilities {
 	public final boolean GL_ARB_sparse_buffer;
 	/** When true, {@link ARBSparseTexture} is supported. */
 	public final boolean GL_ARB_sparse_texture;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/sparse_texture2.txt">ARB_sparse_texture2</a> extension is supported.
+	 * 
+	 * <p>This extension builds on the {@link ARBSparseTexture ARB_sparse_texture} extension, providing the following new functionality:
+	 * <ul>
+	 * <li>New built-in GLSL texture lookup and image load functions are provided that return information on whether the texels accessed for the texture
+	 * lookup accessed uncommitted texture memory.</li>
+	 * <li>New built-in GLSL texture lookup functions are provided that specify a minimum level of detail to use for lookups where the level of detail is
+	 * computed automatically. This allows shaders to avoid accessing unpopulated portions of high-resolution levels of detail when it knows that the
+	 * memory accessed is unpopulated, either from a priori knowledge or from feedback provided by the return value of previously executed "sparse"
+	 * texture lookup functions.</li>
+	 * <li>Reads of uncommitted texture memory will act as though such memory were filled with zeroes; previously, the values returned by reads were
+	 * undefined.</li>
+	 * <li>Standard implementation-independent virtual page sizes for internal formats required to be supported with sparse textures. These standard sizes can
+	 * be requested by leaving ARBSparseTexture#VIRTUAL_PAGE_SIZE_INDEX_ARB at its initial value (0).</li>
+	 * <li>Support for creating sparse multisample and multisample array textures is added. However, the virtual page sizes for such textures remain fully
+	 * implementation-dependent.</li>
+	 * </ul>
+	 * Requires {@link ARBSparseTexture ARB_sparse_texture}</p>
+	 */
+	public final boolean GL_ARB_sparse_texture2;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/sparse_texture_clamp.txt">ARB_sparse_texture_clamp</a> extension is supported.
+	 * 
+	 * <p>This extension builds on the {@link #GL_ARB_sparse_texture2 ARB_sparse_texture2} extension, providing the following new functionality:</p>
+	 * 
+	 * <p>New built-in GLSL texture lookup functions are provided that specify a minimum level of detail to use for lookups where the level of detail is
+	 * computed automatically. This allows shaders to avoid accessing unpopulated portions of high-resolution levels of detail when it knows that the memory
+	 * accessed is unpopulated, either from a priori knowledge or from feedback provided by the return value of previously executed "sparse" texture lookup
+	 * functions.</p>
+	 * 
+	 * <p>Requires {@link  ARB_sparse_texture2}</p>
+	 */
+	public final boolean GL_ARB_sparse_texture_clamp;
 	/** When true, {@link ARBStencilTexturing} is supported. */
 	public final boolean GL_ARB_stencil_texturing;
 	/** When true, {@link ARBSync} is supported. */
@@ -1115,6 +1256,8 @@ public final class GLCapabilities {
 	public final boolean GL_ARB_texture_env_crossbar;
 	/** When true, {@link ARBTextureEnvDot3} is supported. */
 	public final boolean GL_ARB_texture_env_dot3;
+	/** When true, {@link ARBTextureFilterMinmax} is supported. */
+	public final boolean GL_ARB_texture_filter_minmax;
 	/** When true, {@link ARBTextureFloat} is supported. */
 	public final boolean GL_ARB_texture_float;
 	/** When true, {@link ARBTextureGather} is supported. */
@@ -1464,6 +1607,8 @@ public final class GLCapabilities {
 	 * beginFragmentShaderOrderingINTEL() when the function returns.</p>
 	 */
 	public final boolean GL_INTEL_fragment_shader_ordering;
+	/** When true, {@link INTELFramebufferCMAA} is supported. */
+	public final boolean GL_INTEL_framebuffer_CMAA;
 	/** When true, {@link INTELMapTexture} is supported. */
 	public final boolean GL_INTEL_map_texture;
 	/** When true, {@link INTELPerformanceQuery} is supported. */
@@ -1961,6 +2106,7 @@ public final class GLCapabilities {
 		GL_ARB_enhanced_layouts = ext.contains("GL_ARB_enhanced_layouts");
 		GL_ARB_ES2_compatibility = (__ARBES2Compatibility = ARBES2Compatibility.create(ext, provider)) != null;
 		GL_ARB_ES3_1_compatibility = (__ARBES31Compatibility = ARBES31Compatibility.create(ext, provider)) != null;
+		GL_ARB_ES3_2_compatibility = (__ARBES32Compatibility = ARBES32Compatibility.create(ext, provider)) != null;
 		GL_ARB_ES3_compatibility = ext.contains("GL_ARB_ES3_compatibility");
 		GL_ARB_explicit_attrib_location = ext.contains("GL_ARB_explicit_attrib_location");
 		GL_ARB_explicit_uniform_location = ext.contains("GL_ARB_explicit_uniform_location");
@@ -1969,6 +2115,7 @@ public final class GLCapabilities {
 		GL_ARB_fragment_program = ext.contains("GL_ARB_fragment_program");
 		GL_ARB_fragment_program_shadow = ext.contains("GL_ARB_fragment_program_shadow");
 		GL_ARB_fragment_shader = ext.contains("GL_ARB_fragment_shader");
+		GL_ARB_fragment_shader_interlock = ext.contains("GL_ARB_fragment_shader_interlock");
 		GL_ARB_framebuffer_no_attachments = (__ARBFramebufferNoAttachments = ARBFramebufferNoAttachments.create(ext, provider)) != null;
 		GL_ARB_framebuffer_object = (__ARBFramebufferObject = ARBFramebufferObject.create(ext, provider)) != null;
 		GL_ARB_framebuffer_sRGB = ext.contains("GL_ARB_framebuffer_sRGB");
@@ -1977,6 +2124,7 @@ public final class GLCapabilities {
 		GL_ARB_get_texture_sub_image = (__ARBGetTextureSubImage = ARBGetTextureSubImage.create(ext, provider)) != null;
 		GL_ARB_gpu_shader5 = ext.contains("GL_ARB_gpu_shader5");
 		GL_ARB_gpu_shader_fp64 = (__ARBGPUShaderFP64 = ARBGPUShaderFP64.create(ext, provider)) != null;
+		GL_ARB_gpu_shader_int64 = (__ARBGPUShaderInt64 = ARBGPUShaderInt64.create(ext, provider)) != null;
 		GL_ARB_half_float_pixel = ext.contains("GL_ARB_half_float_pixel");
 		GL_ARB_half_float_vertex = ext.contains("GL_ARB_half_float_vertex");
 		GL_ARB_imaging = (__ARBImaging = ARBImaging.create(ext, provider, fc)) != null;
@@ -1994,23 +2142,29 @@ public final class GLCapabilities {
 		GL_ARB_multitexture = (__ARBMultitexture = ARBMultitexture.create(ext, provider)) != null;
 		GL_ARB_occlusion_query = (__ARBOcclusionQuery = ARBOcclusionQuery.create(ext, provider)) != null;
 		GL_ARB_occlusion_query2 = ext.contains("GL_ARB_occlusion_query2");
+		GL_ARB_parallel_shader_compile = (__ARBParallelShaderCompile = ARBParallelShaderCompile.create(ext, provider)) != null;
 		GL_ARB_pipeline_statistics_query = ext.contains("GL_ARB_pipeline_statistics_query");
 		GL_ARB_pixel_buffer_object = ext.contains("GL_ARB_pixel_buffer_object");
 		GL_ARB_point_parameters = (__ARBPointParameters = ARBPointParameters.create(ext, provider)) != null;
 		GL_ARB_point_sprite = ext.contains("GL_ARB_point_sprite");
+		GL_ARB_post_depth_coverage = ext.contains("GL_ARB_post_depth_coverage");
 		GL_ARB_program_interface_query = (__ARBProgramInterfaceQuery = ARBProgramInterfaceQuery.create(ext, provider)) != null;
 		GL_ARB_provoking_vertex = (__ARBProvokingVertex = ARBProvokingVertex.create(ext, provider)) != null;
 		GL_ARB_query_buffer_object = ext.contains("GL_ARB_query_buffer_object");
 		GL_ARB_robust_buffer_access_behavior = ext.contains("GL_ARB_robust_buffer_access_behavior");
 		GL_ARB_robustness = (__ARBRobustness = ARBRobustness.create(ext, provider)) != null;
 		GL_ARB_robustness_isolation = ext.contains("GL_ARB_robustness_isolation");
+		GL_ARB_sample_locations = (__ARBSampleLocations = ARBSampleLocations.create(ext, provider)) != null;
 		GL_ARB_sample_shading = (__ARBSampleShading = ARBSampleShading.create(ext, provider)) != null;
 		GL_ARB_sampler_objects = (__ARBSamplerObjects = ARBSamplerObjects.create(ext, provider)) != null;
 		GL_ARB_seamless_cube_map = ext.contains("GL_ARB_seamless_cube_map");
 		GL_ARB_seamless_cubemap_per_texture = ext.contains("GL_ARB_seamless_cubemap_per_texture");
 		GL_ARB_separate_shader_objects = (__ARBSeparateShaderObjects = ARBSeparateShaderObjects.create(ext, provider)) != null;
+		GL_ARB_shader_atomic_counter_ops = ext.contains("GL_ARB_shader_atomic_counter_ops");
 		GL_ARB_shader_atomic_counters = (__ARBShaderAtomicCounters = ARBShaderAtomicCounters.create(ext, provider)) != null;
+		GL_ARB_shader_ballot = ext.contains("GL_ARB_shader_ballot");
 		GL_ARB_shader_bit_encoding = ext.contains("GL_ARB_shader_bit_encoding");
+		GL_ARB_shader_clock = ext.contains("GL_ARB_shader_clock");
 		GL_ARB_shader_draw_parameters = ext.contains("GL_ARB_shader_draw_parameters");
 		GL_ARB_shader_group_vote = ext.contains("GL_ARB_shader_group_vote");
 		GL_ARB_shader_image_load_store = (__ARBShaderImageLoadStore = ARBShaderImageLoadStore.create(ext, provider)) != null;
@@ -2022,6 +2176,7 @@ public final class GLCapabilities {
 		GL_ARB_shader_subroutine = (__ARBShaderSubroutine = ARBShaderSubroutine.create(ext, provider)) != null;
 		GL_ARB_shader_texture_image_samples = ext.contains("GL_ARB_shader_texture_image_samples");
 		GL_ARB_shader_texture_lod = ext.contains("GL_ARB_shader_texture_lod");
+		GL_ARB_shader_viewport_layer_array = ext.contains("GL_ARB_shader_viewport_layer_array");
 		GL_ARB_shading_language_100 = ext.contains("GL_ARB_shading_language_100");
 		GL_ARB_shading_language_420pack = ext.contains("GL_ARB_shading_language_420pack");
 		GL_ARB_shading_language_include = (__ARBShadingLanguageInclude = ARBShadingLanguageInclude.create(ext, provider)) != null;
@@ -2030,6 +2185,8 @@ public final class GLCapabilities {
 		GL_ARB_shadow_ambient = ext.contains("GL_ARB_shadow_ambient");
 		GL_ARB_sparse_buffer = (__ARBSparseBuffer = ARBSparseBuffer.create(ext, provider)) != null;
 		GL_ARB_sparse_texture = (__ARBSparseTexture = ARBSparseTexture.create(ext, provider)) != null;
+		GL_ARB_sparse_texture2 = ext.contains("GL_ARB_sparse_texture2");
+		GL_ARB_sparse_texture_clamp = ext.contains("GL_ARB_sparse_texture_clamp");
 		GL_ARB_stencil_texturing = ext.contains("GL_ARB_stencil_texturing");
 		GL_ARB_sync = (__ARBSync = ARBSync.create(ext, provider)) != null;
 		GL_ARB_tessellation_shader = (__ARBTessellationShader = ARBTessellationShader.create(ext, provider)) != null;
@@ -2047,6 +2204,7 @@ public final class GLCapabilities {
 		GL_ARB_texture_env_combine = ext.contains("GL_ARB_texture_env_combine");
 		GL_ARB_texture_env_crossbar = ext.contains("GL_ARB_texture_env_crossbar");
 		GL_ARB_texture_env_dot3 = ext.contains("GL_ARB_texture_env_dot3");
+		GL_ARB_texture_filter_minmax = ext.contains("GL_ARB_texture_filter_minmax");
 		GL_ARB_texture_float = ext.contains("GL_ARB_texture_float");
 		GL_ARB_texture_gather = ext.contains("GL_ARB_texture_gather");
 		GL_ARB_texture_mirror_clamp_to_edge = ext.contains("GL_ARB_texture_mirror_clamp_to_edge");
@@ -2149,6 +2307,7 @@ public final class GLCapabilities {
 		GL_EXT_vertex_attrib_64bit = (__EXTVertexAttrib64bit = EXTVertexAttrib64bit.create(ext, provider)) != null;
 		GL_EXT_x11_sync_object = (__EXTX11SyncObject = EXTX11SyncObject.create(ext, provider)) != null;
 		GL_INTEL_fragment_shader_ordering = ext.contains("GL_INTEL_fragment_shader_ordering");
+		GL_INTEL_framebuffer_CMAA = (__INTELFramebufferCMAA = INTELFramebufferCMAA.create(ext, provider)) != null;
 		GL_INTEL_map_texture = (__INTELMapTexture = INTELMapTexture.create(ext, provider)) != null;
 		GL_INTEL_performance_query = (__INTELPerformanceQuery = INTELPerformanceQuery.create(ext, provider)) != null;
 		GL_KHR_blend_equation_advanced = (__KHRBlendEquationAdvanced = KHRBlendEquationAdvanced.create(ext, provider)) != null;
