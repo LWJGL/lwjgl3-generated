@@ -4,6 +4,7 @@
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 #include "common_tools.h"
+#include "OpenGL.h"
 
 typedef void (APIENTRY *glFramebufferSampleLocationsfvARBPROC) (GLenum, GLuint, GLsizei, const GLfloat *);
 typedef void (APIENTRY *glNamedFramebufferSampleLocationsfvARBPROC) (GLuint, GLuint, GLsizei, const GLfloat *);

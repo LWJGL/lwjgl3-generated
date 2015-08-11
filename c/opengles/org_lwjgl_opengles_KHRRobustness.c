@@ -7,7 +7,7 @@
 #include "OpenGLES.h"
 
 typedef GLenum (APIENTRY *glGetGraphicsResetStatusKHRPROC) (void);
-typedef void (APIENTRY *glReadnPixelsPROC) (GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, GLsizei, void *);
+typedef void (APIENTRY *glReadnPixelsKHRPROC) (GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, GLsizei, void *);
 typedef void (APIENTRY *glGetnUniformfvKHRPROC) (GLuint, GLint, GLsizei, GLfloat *);
 typedef void (APIENTRY *glGetnUniformivKHRPROC) (GLuint, GLint, GLsizei, GLfloat *);
 typedef void (APIENTRY *glGetnUniformuivKHRPROC) (GLuint, GLint, GLsizei, GLfloat *);
@@ -20,11 +20,11 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengles_KHRRobustness_nglGetGraphicsReset
 	return (jint)glGetGraphicsResetStatusKHR();
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_opengles_KHRRobustness_nglReadnPixels(JNIEnv *__env, jclass clazz, jint x, jint y, jint width, jint height, jint format, jint type, jint bufSize, jlong pixelsAddress, jlong __functionAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_opengles_KHRRobustness_nglReadnPixelsKHR(JNIEnv *__env, jclass clazz, jint x, jint y, jint width, jint height, jint format, jint type, jint bufSize, jlong pixelsAddress, jlong __functionAddress) {
 	void *pixels = (void *)(intptr_t)pixelsAddress;
-	glReadnPixelsPROC glReadnPixels = (glReadnPixelsPROC)(intptr_t)__functionAddress;
+	glReadnPixelsKHRPROC glReadnPixelsKHR = (glReadnPixelsKHRPROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
-	glReadnPixels(x, y, width, height, format, type, bufSize, pixels);
+	glReadnPixelsKHR(x, y, width, height, format, type, bufSize, pixels);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_KHRRobustness_nglGetnUniformfvKHR(JNIEnv *__env, jclass clazz, jint program, jint location, jint bufSize, jlong paramsAddress, jlong __functionAddress) {

@@ -52,31 +52,30 @@ import static org.lwjgl.system.APIUtil.*;
  */
 public final class KHRRobustness {
 
-	/** Returned by {@link #glGetGraphicsResetStatus GetGraphicsResetStatus}. */
+	/** Returned by {@link #glGetGraphicsResetStatusKHR GetGraphicsResetStatusKHR}. */
 	public static final int
-		GL_NO_ERROR               = 0x0,
-		GL_GUILTY_CONTEXT_RESET   = 0x8253,
-		GL_INNOCENT_CONTEXT_RESET = 0x8254,
-		GL_UNKNOWN_CONTEXT_RESET  = 0x8255;
+		GL_GUILTY_CONTEXT_RESET_KHR   = 0x8253,
+		GL_INNOCENT_CONTEXT_RESET_KHR = 0x8254,
+		GL_UNKNOWN_CONTEXT_RESET_KHR  = 0x8255;
 
 	/** Accepted by the {@code value} parameter of GetBooleanv, GetIntegerv, and GetFloatv. */
 	public static final int
-		GL_CONTEXT_ROBUST_ACCESS       = 0x90F3,
-		GL_RESET_NOTIFICATION_STRATEGY = 0x8256;
+		GL_CONTEXT_ROBUST_ACCESS_KHR       = 0x90F3,
+		GL_RESET_NOTIFICATION_STRATEGY_KHR = 0x8256;
 
-	/** Returned by GetIntegerv and related simple queries when {@code value} is {@link #GL_RESET_NOTIFICATION_STRATEGY RESET_NOTIFICATION_STRATEGY}. */
+	/** Returned by GetIntegerv and related simple queries when {@code value} is {@link #GL_RESET_NOTIFICATION_STRATEGY_KHR RESET_NOTIFICATION_STRATEGY_KHR}. */
 	public static final int
-		GL_LOSE_CONTEXT_ON_RESET = 0x8252,
-		GL_NO_RESET_NOTIFICATION = 0x8261;
+		GL_LOSE_CONTEXT_ON_RESET_KHR = 0x8252,
+		GL_NO_RESET_NOTIFICATION_KHR = 0x8261;
 
 	/** Returned by {@link GLES20#glGetError GetError}. */
-	public static final int GL_CONTEXT_LOST = 0x507;
+	public static final int GL_CONTEXT_LOST_KHR = 0x507;
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		GetGraphicsResetStatusKHR,
-		ReadnPixels,
+		ReadnPixelsKHR,
 		GetnUniformfvKHR,
 		GetnUniformivKHR,
 		GetnUniformuivKHR;
@@ -84,7 +83,7 @@ public final class KHRRobustness {
 	@JavadocExclude
 	public KHRRobustness(FunctionProvider provider) {
 		GetGraphicsResetStatusKHR = provider.getFunctionAddress("glGetGraphicsResetStatusKHR");
-		ReadnPixels = provider.getFunctionAddress("glReadnPixels");
+		ReadnPixelsKHR = provider.getFunctionAddress("glReadnPixelsKHR");
 		GetnUniformfvKHR = provider.getFunctionAddress("glGetnUniformfvKHR");
 		GetnUniformivKHR = provider.getFunctionAddress("glGetnUniformivKHR");
 		GetnUniformuivKHR = provider.getFunctionAddress("glGetnUniformuivKHR");
@@ -102,7 +101,7 @@ public final class KHRRobustness {
 
 		KHRRobustness funcs = new KHRRobustness(provider);
 		boolean supported = checkFunctions(
-			funcs.GetGraphicsResetStatusKHR, funcs.ReadnPixels, funcs.GetnUniformfvKHR, funcs.GetnUniformivKHR, funcs.GetnUniformuivKHR
+			funcs.GetGraphicsResetStatusKHR, funcs.ReadnPixelsKHR, funcs.GetnUniformfvKHR, funcs.GetnUniformivKHR, funcs.GetnUniformuivKHR
 		);
 
 		return GLES.checkExtension("GL_KHR_robustness", funcs, supported);
@@ -118,31 +117,31 @@ public final class KHRRobustness {
 	 * Indicates if the GL context has been in a reset state at any point since the last call to GetGraphicsResetStatus:
 	 * <ul>
 	 * <li>{@link GLES20#GL_NO_ERROR NO_ERROR} indicates that the GL context has not been in a reset state since the last call.</li>
-	 * <li>{@link #GL_GUILTY_CONTEXT_RESET GUILTY_CONTEXT_RESET} indicates that a reset has been detected that is attributable to the current GL context.</li>
-	 * <li>{@link #GL_INNOCENT_CONTEXT_RESET INNOCENT_CONTEXT_RESET} indicates a reset has been detected that is not attributable to the current GL context.</li>
-	 * <li>{@link #GL_UNKNOWN_CONTEXT_RESET UNKNOWN_CONTEXT_RESET} indicates a detected graphics reset whose cause is unknown.</li>
+	 * <li>{@link #GL_GUILTY_CONTEXT_RESET_KHR GUILTY_CONTEXT_RESET_KHR} indicates that a reset has been detected that is attributable to the current GL context.</li>
+	 * <li>{@link #GL_INNOCENT_CONTEXT_RESET_KHR INNOCENT_CONTEXT_RESET_KHR} indicates a reset has been detected that is not attributable to the current GL context.</li>
+	 * <li>{@link #GL_UNKNOWN_CONTEXT_RESET_KHR UNKNOWN_CONTEXT_RESET_KHR} indicates a detected graphics reset whose cause is unknown.</li>
 	 * </ul>
 	 * If a reset status other than NO_ERROR is returned and subsequent calls return NO_ERROR, the context reset was encountered and completed. If a reset
 	 * status is repeatedly returned, the context may be in the process of resetting.
 	 * 
 	 * <p>Reset notification behavior is determined at context creation time, and may be queried by calling GetIntegerv with the symbolic constant
-	 * {@link #GL_RESET_NOTIFICATION_STRATEGY RESET_NOTIFICATION_STRATEGY}.</p>
+	 * {@link #GL_RESET_NOTIFICATION_STRATEGY_KHR RESET_NOTIFICATION_STRATEGY_KHR}.</p>
 	 * 
-	 * <p>If the reset notification behavior is {@link #GL_NO_RESET_NOTIFICATION NO_RESET_NOTIFICATION}, then the implementation will never deliver notification of reset events, and
+	 * <p>If the reset notification behavior is {@link #GL_NO_RESET_NOTIFICATION_KHR NO_RESET_NOTIFICATION_KHR}, then the implementation will never deliver notification of reset events, and
 	 * GetGraphicsResetStatus will always return NO_ERROR.</p>
 	 * 
-	 * <p>If the behavior is {@link #GL_LOSE_CONTEXT_ON_RESET LOSE_CONTEXT_ON_RESET}, a graphics reset will result in a lost context and require creating a new context as described
+	 * <p>If the behavior is {@link #GL_LOSE_CONTEXT_ON_RESET_KHR LOSE_CONTEXT_ON_RESET_KHR}, a graphics reset will result in a lost context and require creating a new context as described
 	 * above. In this case GetGraphicsResetStatus will return an appropriate value from those described above.</p>
 	 * 
 	 * <p>If a graphics reset notification occurs in a context, a notification must also occur in all other contexts which share objects with that context.</p>
 	 * 
 	 * <p>After a graphics reset has occurred on a context, subsequent GL commands on that context (or any context which shares with that context) will generate a
-	 * {@link #GL_CONTEXT_LOST CONTEXT_LOST} error. Such commands will not have side effects (in particular, they will not modify memory passed by pointer for query results,
+	 * {@link #GL_CONTEXT_LOST_KHR CONTEXT_LOST_KHR} error. Such commands will not have side effects (in particular, they will not modify memory passed by pointer for query results,
 	 * and may not block indefinitely or cause termination of the application. Exceptions to this behavior include:
 	 * <ul>
-	 * <li>{@link GLES20#glGetError GetError} and GetGraphicsResetStatus behave normally following a graphics reset, so that the application can determine a reset has
+	 * <li>{@link GLES20#glGetError GetError} and {@link #glGetGraphicsResetStatusKHR GetGraphicsResetStatusKHR} behave normally following a graphics reset, so that the application can determine a reset has
 	 * occurred, and when it is safe to destroy and recreate the context.</li>
-	 * <li>Any commands which might cause a polling application to block indefinitely will generate a CONTEXT_LOST error, but will also return a value
+	 * <li>Any commands which might cause a polling application to block indefinitely will generate a {@link #GL_CONTEXT_LOST_KHR CONTEXT_LOST_KHR} error, but will also return a value
 	 * indicating completion to the application.</li>
 	 * </ul></p>
 	 */
@@ -151,17 +150,17 @@ public final class KHRRobustness {
 		return nglGetGraphicsResetStatusKHR(__functionAddress);
 	}
 
-	// --- [ glReadnPixels ] ---
+	// --- [ glReadnPixelsKHR ] ---
 
-	/** JNI method for {@link #glReadnPixels ReadnPixels} */
+	/** JNI method for {@link #glReadnPixelsKHR ReadnPixelsKHR} */
 	@JavadocExclude
-	public static native void nglReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels, long __functionAddress);
+	public static native void nglReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, long pixels, long __functionAddress);
 
-	/** Unsafe version of {@link #glReadnPixels ReadnPixels} */
+	/** Unsafe version of {@link #glReadnPixelsKHR ReadnPixelsKHR} */
 	@JavadocExclude
-	public static void nglReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
-		long __functionAddress = getInstance().ReadnPixels;
-		nglReadnPixels(x, y, width, height, format, type, bufSize, pixels, __functionAddress);
+	public static void nglReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
+		long __functionAddress = getInstance().ReadnPixelsKHR;
+		nglReadnPixelsKHR(x, y, width, height, format, type, bufSize, pixels, __functionAddress);
 	}
 
 	/**
@@ -176,35 +175,35 @@ public final class KHRRobustness {
 	 * @param bufSize the maximum number of bytes to write into {@code data}
 	 * @param pixels  a buffer in which to place the returned pixel data
 	 */
-	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, ByteBuffer pixels) {
+	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, ByteBuffer pixels) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(pixels, bufSize);
-		nglReadnPixels(x, y, width, height, format, type, bufSize, memAddress(pixels));
+		nglReadnPixelsKHR(x, y, width, height, format, type, bufSize, memAddress(pixels));
 	}
 
-	/** Buffer object offset version of: {@link #glReadnPixels ReadnPixels} */
-	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixelsOffset) {
-		nglReadnPixels(x, y, width, height, format, type, bufSize, pixelsOffset);
+	/** Buffer object offset version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
+	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, long pixelsOffset) {
+		nglReadnPixelsKHR(x, y, width, height, format, type, bufSize, pixelsOffset);
 	}
 
-	/** Alternative version of: {@link #glReadnPixels ReadnPixels} */
-	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
-		nglReadnPixels(x, y, width, height, format, type, pixels.remaining(), memAddress(pixels));
+	/** Alternative version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
+	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
+		nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining(), memAddress(pixels));
 	}
 
-	/** ShortBuffer version of: {@link #glReadnPixels ReadnPixels} */
-	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
-		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 1, memAddress(pixels));
+	/** ShortBuffer version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
+	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
+		nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining() << 1, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glReadnPixels ReadnPixels} */
-	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
-		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
+	/** IntBuffer version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
+	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
+		nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glReadnPixels ReadnPixels} */
-	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
-		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
+	/** FloatBuffer version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
+	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
+		nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
 	// --- [ glGetnUniformfvKHR ] ---

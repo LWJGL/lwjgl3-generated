@@ -14,6 +14,7 @@ public final class GLESCapabilities {
 	final GLES20                              __GLES20;
 	final GLES30                              __GLES30;
 	final GLES31                              __GLES31;
+	final GLES32                              __GLES32;
 	final AMDPerformanceMonitor               __AMDPerformanceMonitor;
 	final ANGLEFramebufferBlit                __ANGLEFramebufferBlit;
 	final ANGLEFramebufferMultisample         __ANGLEFramebufferMultisample;
@@ -53,6 +54,7 @@ public final class GLESCapabilities {
 	final EXTTextureStorage                   __EXTTextureStorage;
 	final EXTTextureView                      __EXTTextureView;
 	final IMGMultisampledRenderToTexture      __IMGMultisampledRenderToTexture;
+	final INTELFramebufferCMAA                __INTELFramebufferCMAA;
 	final INTELPerformanceQuery               __INTELPerformanceQuery;
 	final KHRBlendEquationAdvanced            __KHRBlendEquationAdvanced;
 	final KHRDebug                            __KHRDebug;
@@ -108,6 +110,8 @@ public final class GLESCapabilities {
 	public final boolean GLES30;
 	/** When true, {@link GLES31} is supported. */
 	public final boolean GLES31;
+	/** When true, {@link GLES32} is supported. */
+	public final boolean GLES32;
 	/** When true, {@link AMDCompressed3DCTexture} is supported. */
 	public final boolean GL_AMD_compressed_3DC_texture;
 	/** When true, {@link AMDCompressedATCTexture} is supported. */
@@ -484,6 +488,8 @@ public final class GLESCapabilities {
 	public final boolean GL_IMG_texture_compression_pvrtc;
 	/** When true, {@link IMGTextureCompressionPVRTC2} is supported. */
 	public final boolean GL_IMG_texture_compression_pvrtc2;
+	/** When true, {@link INTELFramebufferCMAA} is supported. */
+	public final boolean GL_INTEL_framebuffer_CMAA;
 	/** When true, {@link INTELPerformanceQuery} is supported. */
 	public final boolean GL_INTEL_performance_query;
 	/** When true, {@link KHRBlendEquationAdvanced} is supported. */
@@ -1100,6 +1106,7 @@ public final class GLESCapabilities {
 		GLES20 = (__GLES20 = org.lwjgl.opengles.GLES20.create(ext, provider)) != null;
 		GLES30 = (__GLES30 = org.lwjgl.opengles.GLES30.create(ext, provider)) != null;
 		GLES31 = (__GLES31 = org.lwjgl.opengles.GLES31.create(ext, provider)) != null;
+		GLES32 = (__GLES32 = org.lwjgl.opengles.GLES32.create(ext, provider)) != null;
 		GL_AMD_compressed_3DC_texture = ext.contains("GL_AMD_compressed_3DC_texture");
 		GL_AMD_compressed_ATC_texture = ext.contains("GL_AMD_compressed_ATC_texture");
 		GL_AMD_performance_monitor = (__AMDPerformanceMonitor = AMDPerformanceMonitor.create(ext, provider)) != null;
@@ -1202,6 +1209,7 @@ public final class GLESCapabilities {
 		GL_IMG_shader_binary = ext.contains("GL_IMG_shader_binary");
 		GL_IMG_texture_compression_pvrtc = ext.contains("GL_IMG_texture_compression_pvrtc");
 		GL_IMG_texture_compression_pvrtc2 = ext.contains("GL_IMG_texture_compression_pvrtc2");
+		GL_INTEL_framebuffer_CMAA = (__INTELFramebufferCMAA = INTELFramebufferCMAA.create(ext, provider)) != null;
 		GL_INTEL_performance_query = (__INTELPerformanceQuery = INTELPerformanceQuery.create(ext, provider)) != null;
 		GL_KHR_blend_equation_advanced = (__KHRBlendEquationAdvanced = KHRBlendEquationAdvanced.create(ext, provider)) != null;
 		GL_KHR_blend_equation_advanced_coherent = ext.contains("GL_KHR_blend_equation_advanced_coherent");

@@ -1231,7 +1231,7 @@ public final class GLES30 {
 	/** Alternative version of: {@link #glMapBufferRange MapBufferRange} */
 	public static ByteBuffer glMapBufferRange(int target, long offset, long length, int access, ByteBuffer old_buffer) {
 		long __result = nglMapBufferRange(target, offset, length, access);
-		return old_buffer != null && __result == memAddress0(old_buffer) && old_buffer.capacity() == length ? old_buffer : memByteBuffer(__result, (int)length);
+		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
 	}
 
 	// --- [ glFlushMappedBufferRange ] ---
