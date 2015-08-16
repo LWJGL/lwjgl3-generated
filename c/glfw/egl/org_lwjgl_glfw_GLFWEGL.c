@@ -3,7 +3,6 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include "common_tools.h"
 #ifdef LWJGL_WINDOWS
 	#define GLFW_EXPOSE_NATIVE_WIN32
 #endif
@@ -11,6 +10,7 @@
 	#define GLFW_EXPOSE_NATIVE_X11
 #endif
 #define GLFW_EXPOSE_NATIVE_EGL
+#include "common_tools.h"
 #include "glfw3.h"
 #include "glfw3native.h"
 

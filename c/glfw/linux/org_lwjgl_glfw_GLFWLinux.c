@@ -3,9 +3,9 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include "common_tools.h"
 #define GLFW_EXPOSE_NATIVE_X11
 #define GLFW_EXPOSE_NATIVE_GLX
+#include "common_tools.h"
 #include "glfw3.h"
 #include "glfw3native.h"
 

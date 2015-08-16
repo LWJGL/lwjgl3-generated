@@ -769,7 +769,7 @@ public final class ARBSeparateShaderObjects {
 	}
 
 	/**
-	 * Specifies the value of a single ivec2 uniform variable or a ivec2 uniform variable array for a specified program object.
+	 * Specifies the value of a single ivec2 uniform variable or an ivec2 uniform variable array for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
 	 * @param location the location of the uniform variable to be modified
@@ -797,7 +797,7 @@ public final class ARBSeparateShaderObjects {
 	}
 
 	/**
-	 * Specifies the value of a single ivec3 uniform variable or a ivec3 uniform variable array for a specified program object.
+	 * Specifies the value of a single ivec3 uniform variable or an ivec3 uniform variable array for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
 	 * @param location the location of the uniform variable to be modified
@@ -825,7 +825,7 @@ public final class ARBSeparateShaderObjects {
 	}
 
 	/**
-	 * Specifies the value of a single ivec4 uniform variable or a ivec4 uniform variable array for a specified program object.
+	 * Specifies the value of a single ivec4 uniform variable or an ivec4 uniform variable array for a specified program object.
 	 *
 	 * @param program  the handle of the program containing the uniform variable to be modified
 	 * @param location the location of the uniform variable to be modified

@@ -3,8 +3,8 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-#include "common_tools.h"
 #include <stddef.h>
+#include "common_tools.h"
 #include "LinuxLWJGL.h"
 #include <X11/Xutil.h>
 
