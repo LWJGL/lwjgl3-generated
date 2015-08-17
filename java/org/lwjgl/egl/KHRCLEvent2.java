@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -54,17 +55,13 @@ public final class KHRCLEvent2 {
 
 	// --- [ eglCreateSync64KHR ] ---
 
-	/** JNI method for {@link #eglCreateSync64KHR CreateSync64KHR} */
-	@JavadocExclude
-	public static native long neglCreateSync64KHR(long dpy, int type, long attrib_list, long __functionAddress);
-
 	/** Unsafe version of {@link #eglCreateSync64KHR CreateSync64KHR} */
 	@JavadocExclude
 	public static long neglCreateSync64KHR(long dpy, int type, long attrib_list) {
 		long __functionAddress = getInstance().CreateSync64KHR;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return neglCreateSync64KHR(dpy, type, attrib_list, __functionAddress);
+		return invokePIPP(__functionAddress, dpy, type, attrib_list);
 	}
 
 	public static long eglCreateSync64KHR(long dpy, int type, ByteBuffer attrib_list) {

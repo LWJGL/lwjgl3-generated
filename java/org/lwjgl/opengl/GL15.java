@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
@@ -179,10 +180,6 @@ public final class GL15 {
 
 	// --- [ glBindBuffer ] ---
 
-	/** JNI method for {@link #glBindBuffer BindBuffer} */
-	@JavadocExclude
-	public static native void nglBindBuffer(int target, int buffer, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindBuffer.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -193,20 +190,16 @@ public final class GL15 {
 	 */
 	public static void glBindBuffer(int target, int buffer) {
 		long __functionAddress = getInstance().BindBuffer;
-		nglBindBuffer(target, buffer, __functionAddress);
+		invokeIIV(__functionAddress, target, buffer);
 	}
 
 	// --- [ glDeleteBuffers ] ---
-
-	/** JNI method for {@link #glDeleteBuffers DeleteBuffers} */
-	@JavadocExclude
-	public static native void nglDeleteBuffers(int n, long buffers, long __functionAddress);
 
 	/** Unsafe version of {@link #glDeleteBuffers DeleteBuffers} */
 	@JavadocExclude
 	public static void nglDeleteBuffers(int n, long buffers) {
 		long __functionAddress = getInstance().DeleteBuffers;
-		nglDeleteBuffers(n, buffers, __functionAddress);
+		invokeIPV(__functionAddress, n, buffers);
 	}
 
 	/**
@@ -237,15 +230,11 @@ public final class GL15 {
 
 	// --- [ glGenBuffers ] ---
 
-	/** JNI method for {@link #glGenBuffers GenBuffers} */
-	@JavadocExclude
-	public static native void nglGenBuffers(int n, long buffers, long __functionAddress);
-
 	/** Unsafe version of {@link #glGenBuffers GenBuffers} */
 	@JavadocExclude
 	public static void nglGenBuffers(int n, long buffers) {
 		long __functionAddress = getInstance().GenBuffers;
-		nglGenBuffers(n, buffers, __functionAddress);
+		invokeIPV(__functionAddress, n, buffers);
 	}
 
 	/**
@@ -277,10 +266,6 @@ public final class GL15 {
 
 	// --- [ glIsBuffer ] ---
 
-	/** JNI method for {@link #glIsBuffer IsBuffer} */
-	@JavadocExclude
-	public static native boolean nglIsBuffer(int buffer, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsBuffer.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -290,20 +275,16 @@ public final class GL15 {
 	 */
 	public static boolean glIsBuffer(int buffer) {
 		long __functionAddress = getInstance().IsBuffer;
-		return nglIsBuffer(buffer, __functionAddress);
+		return invokeIZ(__functionAddress, buffer);
 	}
 
 	// --- [ glBufferData ] ---
-
-	/** JNI method for {@link #glBufferData BufferData} */
-	@JavadocExclude
-	public static native void nglBufferData(int target, long size, long data, int usage, long __functionAddress);
 
 	/** Unsafe version of {@link #glBufferData BufferData} */
 	@JavadocExclude
 	public static void nglBufferData(int target, long size, long data, int usage) {
 		long __functionAddress = getInstance().BufferData;
-		nglBufferData(target, size, data, usage, __functionAddress);
+		invokeIPPIV(__functionAddress, target, size, data, usage);
 	}
 
 	/**
@@ -370,15 +351,11 @@ public final class GL15 {
 
 	// --- [ glBufferSubData ] ---
 
-	/** JNI method for {@link #glBufferSubData BufferSubData} */
-	@JavadocExclude
-	public static native void nglBufferSubData(int target, long offset, long size, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glBufferSubData BufferSubData} */
 	@JavadocExclude
 	public static void nglBufferSubData(int target, long offset, long size, long data) {
 		long __functionAddress = getInstance().BufferSubData;
-		nglBufferSubData(target, offset, size, data, __functionAddress);
+		invokeIPPPV(__functionAddress, target, offset, size, data);
 	}
 
 	/**
@@ -424,15 +401,11 @@ public final class GL15 {
 
 	// --- [ glGetBufferSubData ] ---
 
-	/** JNI method for {@link #glGetBufferSubData GetBufferSubData} */
-	@JavadocExclude
-	public static native void nglGetBufferSubData(int target, long offset, long size, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetBufferSubData GetBufferSubData} */
 	@JavadocExclude
 	public static void nglGetBufferSubData(int target, long offset, long size, long data) {
 		long __functionAddress = getInstance().GetBufferSubData;
-		nglGetBufferSubData(target, offset, size, data, __functionAddress);
+		invokeIPPPV(__functionAddress, target, offset, size, data);
 	}
 
 	/**
@@ -478,15 +451,11 @@ public final class GL15 {
 
 	// --- [ glMapBuffer ] ---
 
-	/** JNI method for {@link #glMapBuffer MapBuffer} */
-	@JavadocExclude
-	public static native long nglMapBuffer(int target, int access, long __functionAddress);
-
 	/** Unsafe version of {@link #glMapBuffer MapBuffer} */
 	@JavadocExclude
 	public static long nglMapBuffer(int target, int access) {
 		long __functionAddress = getInstance().MapBuffer;
-		return nglMapBuffer(target, access, __functionAddress);
+		return invokeIIP(__functionAddress, target, access);
 	}
 
 	/**
@@ -524,10 +493,6 @@ public final class GL15 {
 
 	// --- [ glUnmapBuffer ] ---
 
-	/** JNI method for {@link #glUnmapBuffer UnmapBuffer} */
-	@JavadocExclude
-	public static native boolean nglUnmapBuffer(int target, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUnmapBuffer.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -542,20 +507,16 @@ public final class GL15 {
 	 */
 	public static boolean glUnmapBuffer(int target) {
 		long __functionAddress = getInstance().UnmapBuffer;
-		return nglUnmapBuffer(target, __functionAddress);
+		return invokeIZ(__functionAddress, target);
 	}
 
 	// --- [ glGetBufferParameteriv ] ---
-
-	/** JNI method for {@link #glGetBufferParameteriv GetBufferParameteriv} */
-	@JavadocExclude
-	public static native void nglGetBufferParameteriv(int target, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetBufferParameteriv GetBufferParameteriv} */
 	@JavadocExclude
 	public static void nglGetBufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferParameteriv;
-		nglGetBufferParameteriv(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -590,15 +551,11 @@ public final class GL15 {
 
 	// --- [ glGetBufferPointerv ] ---
 
-	/** JNI method for {@link #glGetBufferPointerv GetBufferPointerv} */
-	@JavadocExclude
-	public static native void nglGetBufferPointerv(int target, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetBufferPointerv GetBufferPointerv} */
 	@JavadocExclude
 	public static void nglGetBufferPointerv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferPointerv;
-		nglGetBufferPointerv(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -633,15 +590,11 @@ public final class GL15 {
 
 	// --- [ glGenQueries ] ---
 
-	/** JNI method for {@link #glGenQueries GenQueries} */
-	@JavadocExclude
-	public static native void nglGenQueries(int n, long ids, long __functionAddress);
-
 	/** Unsafe version of {@link #glGenQueries GenQueries} */
 	@JavadocExclude
 	public static void nglGenQueries(int n, long ids) {
 		long __functionAddress = getInstance().GenQueries;
-		nglGenQueries(n, ids, __functionAddress);
+		invokeIPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -673,15 +626,11 @@ public final class GL15 {
 
 	// --- [ glDeleteQueries ] ---
 
-	/** JNI method for {@link #glDeleteQueries DeleteQueries} */
-	@JavadocExclude
-	public static native void nglDeleteQueries(int n, long ids, long __functionAddress);
-
 	/** Unsafe version of {@link #glDeleteQueries DeleteQueries} */
 	@JavadocExclude
 	public static void nglDeleteQueries(int n, long ids) {
 		long __functionAddress = getInstance().DeleteQueries;
-		nglDeleteQueries(n, ids, __functionAddress);
+		invokeIPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -712,10 +661,6 @@ public final class GL15 {
 
 	// --- [ glIsQuery ] ---
 
-	/** JNI method for {@link #glIsQuery IsQuery} */
-	@JavadocExclude
-	public static native boolean nglIsQuery(int id, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsQuery.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -725,14 +670,10 @@ public final class GL15 {
 	 */
 	public static boolean glIsQuery(int id) {
 		long __functionAddress = getInstance().IsQuery;
-		return nglIsQuery(id, __functionAddress);
+		return invokeIZ(__functionAddress, id);
 	}
 
 	// --- [ glBeginQuery ] ---
-
-	/** JNI method for {@link #glBeginQuery BeginQuery} */
-	@JavadocExclude
-	public static native void nglBeginQuery(int target, int id, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginQuery.xhtml">OpenGL SDK Reference</a></p>
@@ -744,14 +685,10 @@ public final class GL15 {
 	 */
 	public static void glBeginQuery(int target, int id) {
 		long __functionAddress = getInstance().BeginQuery;
-		nglBeginQuery(target, id, __functionAddress);
+		invokeIIV(__functionAddress, target, id);
 	}
 
 	// --- [ glEndQuery ] ---
-
-	/** JNI method for {@link #glEndQuery EndQuery} */
-	@JavadocExclude
-	public static native void nglEndQuery(int target, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginQuery.xhtml">OpenGL SDK Reference</a></p>
@@ -762,20 +699,16 @@ public final class GL15 {
 	 */
 	public static void glEndQuery(int target) {
 		long __functionAddress = getInstance().EndQuery;
-		nglEndQuery(target, __functionAddress);
+		invokeIV(__functionAddress, target);
 	}
 
 	// --- [ glGetQueryiv ] ---
-
-	/** JNI method for {@link #glGetQueryiv GetQueryiv} */
-	@JavadocExclude
-	public static native void nglGetQueryiv(int target, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetQueryiv GetQueryiv} */
 	@JavadocExclude
 	public static void nglGetQueryiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryiv;
-		nglGetQueryiv(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -810,15 +743,11 @@ public final class GL15 {
 
 	// --- [ glGetQueryObjectiv ] ---
 
-	/** JNI method for {@link #glGetQueryObjectiv GetQueryObjectiv} */
-	@JavadocExclude
-	public static native void nglGetQueryObjectiv(int id, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetQueryObjectiv GetQueryObjectiv} */
 	@JavadocExclude
 	public static void nglGetQueryObjectiv(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectiv;
-		nglGetQueryObjectiv(id, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, id, pname, params);
 	}
 
 	/**
@@ -853,15 +782,11 @@ public final class GL15 {
 
 	// --- [ glGetQueryObjectuiv ] ---
 
-	/** JNI method for {@link #glGetQueryObjectuiv GetQueryObjectuiv} */
-	@JavadocExclude
-	public static native void nglGetQueryObjectuiv(int id, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetQueryObjectuiv GetQueryObjectuiv} */
 	@JavadocExclude
 	public static void nglGetQueryObjectuiv(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectuiv;
-		nglGetQueryObjectuiv(id, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, id, pname, params);
 	}
 
 	/**

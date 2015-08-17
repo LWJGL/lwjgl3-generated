@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -97,7 +98,7 @@ public final class ARBTransformFeedback2 {
 	 */
 	public static void glBindTransformFeedback(int target, int id) {
 		long __functionAddress = getInstance().BindTransformFeedback;
-		GL40.nglBindTransformFeedback(target, id, __functionAddress);
+		invokeIIV(__functionAddress, target, id);
 	}
 
 	// --- [ glDeleteTransformFeedbacks ] ---
@@ -106,7 +107,7 @@ public final class ARBTransformFeedback2 {
 	@JavadocExclude
 	public static void nglDeleteTransformFeedbacks(int n, long ids) {
 		long __functionAddress = getInstance().DeleteTransformFeedbacks;
-		GL40.nglDeleteTransformFeedbacks(n, ids, __functionAddress);
+		invokeIPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -118,19 +119,19 @@ public final class ARBTransformFeedback2 {
 	public static void glDeleteTransformFeedbacks(int n, ByteBuffer ids) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(ids, n << 2);
-		nglDeleteTransformFeedbacks(n, memAddress(ids));
+		GL40.nglDeleteTransformFeedbacks(n, memAddress(ids));
 	}
 
 	/** Alternative version of: {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
 	public static void glDeleteTransformFeedbacks(IntBuffer ids) {
-		nglDeleteTransformFeedbacks(ids.remaining(), memAddress(ids));
+		GL40.nglDeleteTransformFeedbacks(ids.remaining(), memAddress(ids));
 	}
 
 	/** Single value version of: {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
 	public static void glDeleteTransformFeedbacks(int id) {
 		APIBuffer __buffer = apiBuffer();
 		int ids = __buffer.intParam(id);
-		nglDeleteTransformFeedbacks(1, __buffer.address(ids));
+		GL40.nglDeleteTransformFeedbacks(1, __buffer.address(ids));
 	}
 
 	// --- [ glGenTransformFeedbacks ] ---
@@ -139,7 +140,7 @@ public final class ARBTransformFeedback2 {
 	@JavadocExclude
 	public static void nglGenTransformFeedbacks(int n, long ids) {
 		long __functionAddress = getInstance().GenTransformFeedbacks;
-		GL40.nglGenTransformFeedbacks(n, ids, __functionAddress);
+		invokeIPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -151,19 +152,19 @@ public final class ARBTransformFeedback2 {
 	public static void glGenTransformFeedbacks(int n, ByteBuffer ids) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(ids, n << 2);
-		nglGenTransformFeedbacks(n, memAddress(ids));
+		GL40.nglGenTransformFeedbacks(n, memAddress(ids));
 	}
 
 	/** Alternative version of: {@link #glGenTransformFeedbacks GenTransformFeedbacks} */
 	public static void glGenTransformFeedbacks(IntBuffer ids) {
-		nglGenTransformFeedbacks(ids.remaining(), memAddress(ids));
+		GL40.nglGenTransformFeedbacks(ids.remaining(), memAddress(ids));
 	}
 
 	/** Single return value version of: {@link #glGenTransformFeedbacks GenTransformFeedbacks} */
 	public static int glGenTransformFeedbacks() {
 		APIBuffer __buffer = apiBuffer();
 		int ids = __buffer.intParam();
-		nglGenTransformFeedbacks(1, __buffer.address(ids));
+		GL40.nglGenTransformFeedbacks(1, __buffer.address(ids));
 		return __buffer.intValue(ids);
 	}
 
@@ -176,7 +177,7 @@ public final class ARBTransformFeedback2 {
 	 */
 	public static boolean glIsTransformFeedback(int id) {
 		long __functionAddress = getInstance().IsTransformFeedback;
-		return GL40.nglIsTransformFeedback(id, __functionAddress);
+		return invokeIZ(__functionAddress, id);
 	}
 
 	// --- [ glPauseTransformFeedback ] ---
@@ -196,7 +197,7 @@ public final class ARBTransformFeedback2 {
 	 */
 	public static void glPauseTransformFeedback() {
 		long __functionAddress = getInstance().PauseTransformFeedback;
-		GL40.nglPauseTransformFeedback(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glResumeTransformFeedback ] ---
@@ -208,7 +209,7 @@ public final class ARBTransformFeedback2 {
 	 */
 	public static void glResumeTransformFeedback() {
 		long __functionAddress = getInstance().ResumeTransformFeedback;
-		GL40.nglResumeTransformFeedback(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glDrawTransformFeedback ] ---
@@ -221,7 +222,7 @@ public final class ARBTransformFeedback2 {
 	 */
 	public static void glDrawTransformFeedback(int mode, int id) {
 		long __functionAddress = getInstance().DrawTransformFeedback;
-		GL40.nglDrawTransformFeedback(mode, id, __functionAddress);
+		invokeIIV(__functionAddress, mode, id);
 	}
 
 }

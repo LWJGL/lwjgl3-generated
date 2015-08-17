@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -94,17 +95,13 @@ public final class KHRStream {
 
 	// --- [ eglCreateStreamKHR ] ---
 
-	/** JNI method for {@link #eglCreateStreamKHR CreateStreamKHR} */
-	@JavadocExclude
-	public static native long neglCreateStreamKHR(long dpy, long attrib_list, long __functionAddress);
-
 	/** Unsafe version of {@link #eglCreateStreamKHR CreateStreamKHR} */
 	@JavadocExclude
 	public static long neglCreateStreamKHR(long dpy, long attrib_list) {
 		long __functionAddress = getInstance().CreateStreamKHR;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return neglCreateStreamKHR(dpy, attrib_list, __functionAddress);
+		return invokePPP(__functionAddress, dpy, attrib_list);
 	}
 
 	public static long eglCreateStreamKHR(long dpy, ByteBuffer attrib_list) {
@@ -122,24 +119,16 @@ public final class KHRStream {
 
 	// --- [ eglDestroyStreamKHR ] ---
 
-	/** JNI method for {@link #eglDestroyStreamKHR DestroyStreamKHR} */
-	@JavadocExclude
-	public static native boolean neglDestroyStreamKHR(long dpy, long stream, long __functionAddress);
-
 	public static boolean eglDestroyStreamKHR(long dpy, long stream) {
 		long __functionAddress = getInstance().DestroyStreamKHR;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return neglDestroyStreamKHR(dpy, stream, __functionAddress);
+		return invokePPZ(__functionAddress, dpy, stream);
 	}
 
 	// --- [ eglStreamAttribKHR ] ---
-
-	/** JNI method for {@link #eglStreamAttribKHR StreamAttribKHR} */
-	@JavadocExclude
-	public static native boolean neglStreamAttribKHR(long dpy, long stream, int attribute, int value, long __functionAddress);
 
 	public static boolean eglStreamAttribKHR(long dpy, long stream, int attribute, int value) {
 		long __functionAddress = getInstance().StreamAttribKHR;
@@ -147,14 +136,10 @@ public final class KHRStream {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return neglStreamAttribKHR(dpy, stream, attribute, value, __functionAddress);
+		return invokePPIIZ(__functionAddress, dpy, stream, attribute, value);
 	}
 
 	// --- [ eglQueryStreamKHR ] ---
-
-	/** JNI method for {@link #eglQueryStreamKHR QueryStreamKHR} */
-	@JavadocExclude
-	public static native boolean neglQueryStreamKHR(long dpy, long stream, int attribute, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #eglQueryStreamKHR QueryStreamKHR} */
 	@JavadocExclude
@@ -164,7 +149,7 @@ public final class KHRStream {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return neglQueryStreamKHR(dpy, stream, attribute, value, __functionAddress);
+		return invokePPIPZ(__functionAddress, dpy, stream, attribute, value);
 	}
 
 	public static boolean eglQueryStreamKHR(long dpy, long stream, int attribute, ByteBuffer value) {
@@ -182,10 +167,6 @@ public final class KHRStream {
 
 	// --- [ eglQueryStreamu64KHR ] ---
 
-	/** JNI method for {@link #eglQueryStreamu64KHR QueryStreamu64KHR} */
-	@JavadocExclude
-	public static native boolean neglQueryStreamu64KHR(long dpy, long stream, int attribute, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #eglQueryStreamu64KHR QueryStreamu64KHR} */
 	@JavadocExclude
 	public static boolean neglQueryStreamu64KHR(long dpy, long stream, int attribute, long value) {
@@ -194,7 +175,7 @@ public final class KHRStream {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return neglQueryStreamu64KHR(dpy, stream, attribute, value, __functionAddress);
+		return invokePPIPZ(__functionAddress, dpy, stream, attribute, value);
 	}
 
 	public static boolean eglQueryStreamu64KHR(long dpy, long stream, int attribute, ByteBuffer value) {

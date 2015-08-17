@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -73,15 +74,11 @@ public final class ARBIndirectParameters {
 
 	// --- [ glMultiDrawArraysIndirectCountARB ] ---
 
-	/** JNI method for {@link #glMultiDrawArraysIndirectCountARB MultiDrawArraysIndirectCountARB} */
-	@JavadocExclude
-	public static native void nglMultiDrawArraysIndirectCountARB(int mode, long indirect, long drawcount, int maxdrawcount, int stride, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiDrawArraysIndirectCountARB MultiDrawArraysIndirectCountARB} */
 	@JavadocExclude
 	public static void nglMultiDrawArraysIndirectCountARB(int mode, long indirect, long drawcount, int maxdrawcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawArraysIndirectCountARB;
-		nglMultiDrawArraysIndirectCountARB(mode, indirect, drawcount, maxdrawcount, stride, __functionAddress);
+		invokeIPPIIV(__functionAddress, mode, indirect, drawcount, maxdrawcount, stride);
 	}
 
 	/**
@@ -122,15 +119,11 @@ public final class ARBIndirectParameters {
 
 	// --- [ glMultiDrawElementsIndirectCountARB ] ---
 
-	/** JNI method for {@link #glMultiDrawElementsIndirectCountARB MultiDrawElementsIndirectCountARB} */
-	@JavadocExclude
-	public static native void nglMultiDrawElementsIndirectCountARB(int mode, int type, long indirect, long drawcount, int maxdrawcount, int stride, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiDrawElementsIndirectCountARB MultiDrawElementsIndirectCountARB} */
 	@JavadocExclude
 	public static void nglMultiDrawElementsIndirectCountARB(int mode, int type, long indirect, long drawcount, int maxdrawcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawElementsIndirectCountARB;
-		nglMultiDrawElementsIndirectCountARB(mode, type, indirect, drawcount, maxdrawcount, stride, __functionAddress);
+		invokeIIPPIIV(__functionAddress, mode, type, indirect, drawcount, maxdrawcount, stride);
 	}
 
 	/**

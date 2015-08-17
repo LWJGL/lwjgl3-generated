@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/provoking_vertex.txt">ARB_provoking_vertex</a> extension.
@@ -80,7 +81,7 @@ public final class ARBProvokingVertex {
 	 */
 	public static void glProvokingVertex(int mode) {
 		long __functionAddress = getInstance().ProvokingVertex;
-		GL32.nglProvokingVertex(mode, __functionAddress);
+		invokeIV(__functionAddress, mode);
 	}
 
 }

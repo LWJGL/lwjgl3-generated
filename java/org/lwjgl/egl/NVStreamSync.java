@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -46,10 +47,6 @@ public final class NVStreamSync {
 
 	// --- [ eglCreateStreamSyncNV ] ---
 
-	/** JNI method for {@link #eglCreateStreamSyncNV CreateStreamSyncNV} */
-	@JavadocExclude
-	public static native long neglCreateStreamSyncNV(long dpy, long stream, int type, long attrib_list, long __functionAddress);
-
 	/** Unsafe version of {@link #eglCreateStreamSyncNV CreateStreamSyncNV} */
 	@JavadocExclude
 	public static long neglCreateStreamSyncNV(long dpy, long stream, int type, long attrib_list) {
@@ -58,7 +55,7 @@ public final class NVStreamSync {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return neglCreateStreamSyncNV(dpy, stream, type, attrib_list, __functionAddress);
+		return invokePPIPP(__functionAddress, dpy, stream, type, attrib_list);
 	}
 
 	public static long eglCreateStreamSyncNV(long dpy, long stream, int type, ByteBuffer attrib_list) {

@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/glx_copy_buffer.txt">GLX_NV_copy_buffer</a> extension.
@@ -50,10 +51,6 @@ public final class GLXNVCopyBuffer {
 
 	// --- [ glXCopyBufferSubDataNV ] ---
 
-	/** JNI method for {@link #glXCopyBufferSubDataNV CopyBufferSubDataNV} */
-	@JavadocExclude
-	public static native void nglXCopyBufferSubDataNV(long display, long readCtx, long writeCtx, int readTarget, int writeTarget, long readOffset, long writeOffset, long size, long __functionAddress);
-
 	/**
 	 * 
 	 *
@@ -73,14 +70,10 @@ public final class GLXNVCopyBuffer {
 			checkPointer(readCtx);
 			checkPointer(writeCtx);
 		}
-		nglXCopyBufferSubDataNV(display, readCtx, writeCtx, readTarget, writeTarget, readOffset, writeOffset, size, __functionAddress);
+		invokePPPIIPPPV(__functionAddress, display, readCtx, writeCtx, readTarget, writeTarget, readOffset, writeOffset, size);
 	}
 
 	// --- [ glXNamedCopyBufferSubDataNV ] ---
-
-	/** JNI method for {@link #glXNamedCopyBufferSubDataNV NamedCopyBufferSubDataNV} */
-	@JavadocExclude
-	public static native void nglXNamedCopyBufferSubDataNV(long display, long readCtx, long writeCtx, int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size, long __functionAddress);
 
 	/**
 	 * 
@@ -101,7 +94,7 @@ public final class GLXNVCopyBuffer {
 			checkPointer(readCtx);
 			checkPointer(writeCtx);
 		}
-		nglXNamedCopyBufferSubDataNV(display, readCtx, writeCtx, readBuffer, writeBuffer, readOffset, writeOffset, size, __functionAddress);
+		invokePPPIIPPPV(__functionAddress, display, readCtx, writeCtx, readBuffer, writeBuffer, readOffset, writeOffset, size);
 	}
 
 }

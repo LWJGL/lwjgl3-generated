@@ -18,20 +18,15 @@ import static org.lwjgl.system.Checks.*;
  */
 public final class Kernel32 {
 
-	/** Function address. */
-	@JavadocExclude
-	public final long SetThreadAffinityMaskAddress;
+	static { LWJGLUtil.initialize(); }
 
-	@JavadocExclude
-	public Kernel32(FunctionProvider provider) {
-		SetThreadAffinityMaskAddress = provider.getFunctionAddress("SetThreadAffinityMask");
-	}
+	private Kernel32() {}
 
 	// --- [ SetThreadAffinityMask ] ---
 
 	/** JNI method for {@link #SetThreadAffinityMask} */
 	@JavadocExclude
-	public static native long nSetThreadAffinityMask(long thread, long threadAffinityMask, long __functionAddress);
+	public static native long nSetThreadAffinityMask(long thread, long threadAffinityMask);
 
 	/**
 	 * Sets a processor affinity mask for the specified thread.
@@ -51,11 +46,9 @@ public final class Kernel32 {
 	 * @param __functionAddress  the DLL function address
 	 */
 	public static long SetThreadAffinityMask(long thread, long threadAffinityMask, long __functionAddress) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(thread);
-		}
-		return nSetThreadAffinityMask(thread, threadAffinityMask, __functionAddress);
+		return nSetThreadAffinityMask(thread, threadAffinityMask);
 	}
 
 }

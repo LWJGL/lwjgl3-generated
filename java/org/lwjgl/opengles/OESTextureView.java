@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/OES/OES_texture_view.txt">OES_texture_view</a> extension.
@@ -72,13 +73,9 @@ public final class OESTextureView {
 
 	// --- [ glTextureViewOES ] ---
 
-	/** JNI method for {@link #glTextureViewOES TextureViewOES} */
-	@JavadocExclude
-	public static native void nglTextureViewOES(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers, long __functionAddress);
-
 	public static void glTextureViewOES(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers) {
 		long __functionAddress = getInstance().TextureViewOES;
-		nglTextureViewOES(texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers, __functionAddress);
+		invokeIIIIIIIIV(__functionAddress, texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
 	}
 
 }

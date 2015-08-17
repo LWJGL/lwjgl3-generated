@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/NV_copy_buffer.txt">NV_copy_buffer</a> extension.
@@ -55,13 +56,9 @@ public final class NVCopyBuffer {
 
 	// --- [ glCopyBufferSubDataNV ] ---
 
-	/** JNI method for {@link #glCopyBufferSubDataNV CopyBufferSubDataNV} */
-	@JavadocExclude
-	public static native void nglCopyBufferSubDataNV(int readTarget, int writeTarget, long readOffset, long writeOffset, long size, long __functionAddress);
-
 	public static void glCopyBufferSubDataNV(int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
 		long __functionAddress = getInstance().CopyBufferSubDataNV;
-		nglCopyBufferSubDataNV(readTarget, writeTarget, readOffset, writeOffset, size, __functionAddress);
+		invokeIIPPPV(__functionAddress, readTarget, writeTarget, readOffset, writeOffset, size);
 	}
 
 }

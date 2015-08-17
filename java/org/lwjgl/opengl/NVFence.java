@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -86,15 +87,11 @@ public final class NVFence {
 
 	// --- [ glDeleteFencesNV ] ---
 
-	/** JNI method for {@link #glDeleteFencesNV DeleteFencesNV} */
-	@JavadocExclude
-	public static native void nglDeleteFencesNV(int n, long fences, long __functionAddress);
-
 	/** Unsafe version of {@link #glDeleteFencesNV DeleteFencesNV} */
 	@JavadocExclude
 	public static void nglDeleteFencesNV(int n, long fences) {
 		long __functionAddress = getInstance().DeleteFencesNV;
-		nglDeleteFencesNV(n, fences, __functionAddress);
+		invokeIPV(__functionAddress, n, fences);
 	}
 
 	public static void glDeleteFencesNV(int n, ByteBuffer fences) {
@@ -117,15 +114,11 @@ public final class NVFence {
 
 	// --- [ glGenFencesNV ] ---
 
-	/** JNI method for {@link #glGenFencesNV GenFencesNV} */
-	@JavadocExclude
-	public static native void nglGenFencesNV(int n, long fences, long __functionAddress);
-
 	/** Unsafe version of {@link #glGenFencesNV GenFencesNV} */
 	@JavadocExclude
 	public static void nglGenFencesNV(int n, long fences) {
 		long __functionAddress = getInstance().GenFencesNV;
-		nglGenFencesNV(n, fences, __functionAddress);
+		invokeIPV(__functionAddress, n, fences);
 	}
 
 	public static void glGenFencesNV(int n, ByteBuffer fences) {
@@ -149,37 +142,25 @@ public final class NVFence {
 
 	// --- [ glIsFenceNV ] ---
 
-	/** JNI method for {@link #glIsFenceNV IsFenceNV} */
-	@JavadocExclude
-	public static native boolean nglIsFenceNV(int fence, long __functionAddress);
-
 	public static boolean glIsFenceNV(int fence) {
 		long __functionAddress = getInstance().IsFenceNV;
-		return nglIsFenceNV(fence, __functionAddress);
+		return invokeIZ(__functionAddress, fence);
 	}
 
 	// --- [ glTestFenceNV ] ---
 
-	/** JNI method for {@link #glTestFenceNV TestFenceNV} */
-	@JavadocExclude
-	public static native boolean nglTestFenceNV(int fence, long __functionAddress);
-
 	public static boolean glTestFenceNV(int fence) {
 		long __functionAddress = getInstance().TestFenceNV;
-		return nglTestFenceNV(fence, __functionAddress);
+		return invokeIZ(__functionAddress, fence);
 	}
 
 	// --- [ glGetFenceivNV ] ---
-
-	/** JNI method for {@link #glGetFenceivNV GetFenceivNV} */
-	@JavadocExclude
-	public static native void nglGetFenceivNV(int fence, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetFenceivNV GetFenceivNV} */
 	@JavadocExclude
 	public static void nglGetFenceivNV(int fence, int pname, long params) {
 		long __functionAddress = getInstance().GetFenceivNV;
-		nglGetFenceivNV(fence, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, fence, pname, params);
 	}
 
 	public static void glGetFenceivNV(int fence, int pname, ByteBuffer params) {
@@ -205,24 +186,16 @@ public final class NVFence {
 
 	// --- [ glFinishFenceNV ] ---
 
-	/** JNI method for {@link #glFinishFenceNV FinishFenceNV} */
-	@JavadocExclude
-	public static native void nglFinishFenceNV(int fence, long __functionAddress);
-
 	public static void glFinishFenceNV(int fence) {
 		long __functionAddress = getInstance().FinishFenceNV;
-		nglFinishFenceNV(fence, __functionAddress);
+		invokeIV(__functionAddress, fence);
 	}
 
 	// --- [ glSetFenceNV ] ---
 
-	/** JNI method for {@link #glSetFenceNV SetFenceNV} */
-	@JavadocExclude
-	public static native void nglSetFenceNV(int fence, int condition, long __functionAddress);
-
 	public static void glSetFenceNV(int fence, int condition) {
 		long __functionAddress = getInstance().SetFenceNV;
-		nglSetFenceNV(fence, condition, __functionAddress);
+		invokeIIV(__functionAddress, fence, condition);
 	}
 
 }

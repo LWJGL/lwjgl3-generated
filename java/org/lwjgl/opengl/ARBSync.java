@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -119,7 +120,7 @@ public final class ARBSync {
 	 */
 	public static long glFenceSync(int condition, int flags) {
 		long __functionAddress = getInstance().FenceSync;
-		return GL32.nglFenceSync(condition, flags, __functionAddress);
+		return invokeIIP(__functionAddress, condition, flags);
 	}
 
 	// --- [ glIsSync ] ---
@@ -133,7 +134,7 @@ public final class ARBSync {
 		long __functionAddress = getInstance().IsSync;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		return GL32.nglIsSync(sync, __functionAddress);
+		return invokePZ(__functionAddress, sync);
 	}
 
 	// --- [ glDeleteSync ] ---
@@ -147,7 +148,7 @@ public final class ARBSync {
 		long __functionAddress = getInstance().DeleteSync;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		GL32.nglDeleteSync(sync, __functionAddress);
+		invokePV(__functionAddress, sync);
 	}
 
 	// --- [ glClientWaitSync ] ---
@@ -172,7 +173,7 @@ public final class ARBSync {
 		long __functionAddress = getInstance().ClientWaitSync;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		return GL32.nglClientWaitSync(sync, flags, timeout, __functionAddress);
+		return invokePIJI(__functionAddress, sync, flags, timeout);
 	}
 
 	// --- [ glWaitSync ] ---
@@ -194,7 +195,7 @@ public final class ARBSync {
 		long __functionAddress = getInstance().WaitSync;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		GL32.nglWaitSync(sync, flags, timeout, __functionAddress);
+		invokePIJV(__functionAddress, sync, flags, timeout);
 	}
 
 	// --- [ glGetInteger64v ] ---
@@ -203,7 +204,7 @@ public final class ARBSync {
 	@JavadocExclude
 	public static void nglGetInteger64v(int pname, long params) {
 		long __functionAddress = getInstance().GetInteger64v;
-		GL32.nglGetInteger64v(pname, params, __functionAddress);
+		invokeIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -215,21 +216,21 @@ public final class ARBSync {
 	public static void glGetInteger64v(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
-		nglGetInteger64v(pname, memAddress(params));
+		GL32.nglGetInteger64v(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetInteger64v GetInteger64v} */
 	public static void glGetInteger64v(int pname, LongBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		nglGetInteger64v(pname, memAddress(params));
+		GL32.nglGetInteger64v(pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetInteger64v GetInteger64v} */
 	public static long glGetInteger64(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		nglGetInteger64v(pname, __buffer.address(params));
+		GL32.nglGetInteger64v(pname, __buffer.address(params));
 		return __buffer.longValue(params);
 	}
 
@@ -241,7 +242,7 @@ public final class ARBSync {
 		long __functionAddress = getInstance().GetSynciv;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		GL32.nglGetSynciv(sync, pname, bufSize, length, values, __functionAddress);
+		invokePIIPPV(__functionAddress, sync, pname, bufSize, length, values);
 	}
 
 	/**
@@ -258,14 +259,14 @@ public final class ARBSync {
 			checkBuffer(values, bufSize << 2);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
-		nglGetSynciv(sync, pname, bufSize, memAddressSafe(length), memAddress(values));
+		GL32.nglGetSynciv(sync, pname, bufSize, memAddressSafe(length), memAddress(values));
 	}
 
 	/** Alternative version of: {@link #glGetSynciv GetSynciv} */
 	public static void glGetSynciv(long sync, int pname, IntBuffer length, IntBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
-		nglGetSynciv(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
+		GL32.nglGetSynciv(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
 	}
 
 	/** Single return value version of: {@link #glGetSynciv GetSynciv} */
@@ -274,7 +275,7 @@ public final class ARBSync {
 			if ( length != null ) checkBuffer(length, 1);
 		APIBuffer __buffer = apiBuffer();
 		int values = __buffer.intParam();
-		nglGetSynciv(sync, pname, 1, memAddressSafe(length), __buffer.address(values));
+		GL32.nglGetSynciv(sync, pname, 1, memAddressSafe(length), __buffer.address(values));
 		return __buffer.intValue(values);
 	}
 

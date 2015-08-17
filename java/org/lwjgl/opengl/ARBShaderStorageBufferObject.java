@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/shader_storage_buffer_object.txt">ARB_shader_storage_buffer_object</a> extension.
@@ -109,7 +110,7 @@ public final class ARBShaderStorageBufferObject {
 	 */
 	public static void glShaderStorageBlockBinding(int program, int storageBlockIndex, int storageBlockBinding) {
 		long __functionAddress = getInstance().ShaderStorageBlockBinding;
-		GL43.nglShaderStorageBlockBinding(program, storageBlockIndex, storageBlockBinding, __functionAddress);
+		invokeIIIV(__functionAddress, program, storageBlockIndex, storageBlockBinding);
 	}
 
 }

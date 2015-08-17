@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_tessellation_shader.txt">EXT_tessellation_shader</a> extension.
@@ -159,13 +160,9 @@ public final class EXTTessellationShader {
 
 	// --- [ glPatchParameteriEXT ] ---
 
-	/** JNI method for {@link #glPatchParameteriEXT PatchParameteriEXT} */
-	@JavadocExclude
-	public static native void nglPatchParameteriEXT(int pname, int value, long __functionAddress);
-
 	public static void glPatchParameteriEXT(int pname, int value) {
 		long __functionAddress = getInstance().PatchParameteriEXT;
-		nglPatchParameteriEXT(pname, value, __functionAddress);
+		invokeIIV(__functionAddress, pname, value);
 	}
 
 }

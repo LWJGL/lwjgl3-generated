@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -128,7 +129,7 @@ public final class ARBTextureMultisample {
 	 */
 	public static void glTexImage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TexImage2DMultisample;
-		GL32.nglTexImage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations, __functionAddress);
+		invokeIIIIIZV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
 	// --- [ glTexImage3DMultisample ] ---
@@ -148,7 +149,7 @@ public final class ARBTextureMultisample {
 	 */
 	public static void glTexImage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TexImage3DMultisample;
-		GL32.nglTexImage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations, __functionAddress);
+		invokeIIIIIIZV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
 	// --- [ glGetMultisamplefv ] ---
@@ -157,7 +158,7 @@ public final class ARBTextureMultisample {
 	@JavadocExclude
 	public static void nglGetMultisamplefv(int pname, int index, long val) {
 		long __functionAddress = getInstance().GetMultisamplefv;
-		GL32.nglGetMultisamplefv(pname, index, val, __functionAddress);
+		invokeIIPV(__functionAddress, pname, index, val);
 	}
 
 	/**
@@ -170,21 +171,21 @@ public final class ARBTextureMultisample {
 	public static void glGetMultisamplefv(int pname, int index, ByteBuffer val) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(val, 1 << 2);
-		nglGetMultisamplefv(pname, index, memAddress(val));
+		GL32.nglGetMultisamplefv(pname, index, memAddress(val));
 	}
 
 	/** Alternative version of: {@link #glGetMultisamplefv GetMultisamplefv} */
 	public static void glGetMultisamplefv(int pname, int index, FloatBuffer val) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(val, 1);
-		nglGetMultisamplefv(pname, index, memAddress(val));
+		GL32.nglGetMultisamplefv(pname, index, memAddress(val));
 	}
 
 	/** Single return value version of: {@link #glGetMultisamplefv GetMultisamplefv} */
 	public static float glGetMultisamplef(int pname, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int val = __buffer.floatParam();
-		nglGetMultisamplefv(pname, index, __buffer.address(val));
+		GL32.nglGetMultisamplefv(pname, index, __buffer.address(val));
 		return __buffer.floatValue(val);
 	}
 
@@ -198,7 +199,7 @@ public final class ARBTextureMultisample {
 	 */
 	public static void glSampleMaski(int index, int mask) {
 		long __functionAddress = getInstance().SampleMaski;
-		GL32.nglSampleMaski(index, mask, __functionAddress);
+		invokeIIV(__functionAddress, index, mask);
 	}
 
 }

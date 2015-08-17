@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/framebuffer_multisample.txt">EXT_framebuffer_multisample</a> extension.
@@ -94,13 +95,9 @@ public final class EXTFramebufferMultisample {
 
 	// --- [ glRenderbufferStorageMultisampleEXT ] ---
 
-	/** JNI method for {@link #glRenderbufferStorageMultisampleEXT RenderbufferStorageMultisampleEXT} */
-	@JavadocExclude
-	public static native void nglRenderbufferStorageMultisampleEXT(int target, int samples, int internalformat, int width, int height, long __functionAddress);
-
 	public static void glRenderbufferStorageMultisampleEXT(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageMultisampleEXT;
-		nglRenderbufferStorageMultisampleEXT(target, samples, internalformat, width, height, __functionAddress);
+		invokeIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -55,10 +56,6 @@ public final class KHRPartialUpdate {
 
 	// --- [ eglSetDamageRegionKHR ] ---
 
-	/** JNI method for {@link #eglSetDamageRegionKHR SetDamageRegionKHR} */
-	@JavadocExclude
-	public static native boolean neglSetDamageRegionKHR(long dpy, long surface, long rects, int n_rects, long __functionAddress);
-
 	/** Unsafe version of {@link #eglSetDamageRegionKHR SetDamageRegionKHR} */
 	@JavadocExclude
 	public static boolean neglSetDamageRegionKHR(long dpy, long surface, long rects, int n_rects) {
@@ -67,7 +64,7 @@ public final class KHRPartialUpdate {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return neglSetDamageRegionKHR(dpy, surface, rects, n_rects, __functionAddress);
+		return invokePPPIZ(__functionAddress, dpy, surface, rects, n_rects);
 	}
 
 	public static boolean eglSetDamageRegionKHR(long dpy, long surface, ByteBuffer rects, int n_rects) {

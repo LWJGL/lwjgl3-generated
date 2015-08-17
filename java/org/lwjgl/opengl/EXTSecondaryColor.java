@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -106,10 +107,6 @@ public final class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3bEXT ] ---
 
-	/** JNI method for {@link #glSecondaryColor3bEXT SecondaryColor3bEXT} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3bEXT(byte red, byte green, byte blue, long __functionAddress);
-
 	/**
 	 * Sets the R, G, and B components of the current secondary color.
 	 *
@@ -119,14 +116,10 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3bEXT(byte red, byte green, byte blue) {
 		long __functionAddress = getInstance().SecondaryColor3bEXT;
-		nglSecondaryColor3bEXT(red, green, blue, __functionAddress);
+		invokeBBBV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3sEXT ] ---
-
-	/** JNI method for {@link #glSecondaryColor3sEXT SecondaryColor3sEXT} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3sEXT(short red, short green, short blue, long __functionAddress);
 
 	/**
 	 * Short version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}
@@ -137,14 +130,10 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3sEXT(short red, short green, short blue) {
 		long __functionAddress = getInstance().SecondaryColor3sEXT;
-		nglSecondaryColor3sEXT(red, green, blue, __functionAddress);
+		invokeSSSV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3iEXT ] ---
-
-	/** JNI method for {@link #glSecondaryColor3iEXT SecondaryColor3iEXT} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3iEXT(int red, int green, int blue, long __functionAddress);
 
 	/**
 	 * Integer version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}
@@ -155,14 +144,10 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3iEXT(int red, int green, int blue) {
 		long __functionAddress = getInstance().SecondaryColor3iEXT;
-		nglSecondaryColor3iEXT(red, green, blue, __functionAddress);
+		invokeIIIV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3fEXT ] ---
-
-	/** JNI method for {@link #glSecondaryColor3fEXT SecondaryColor3fEXT} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3fEXT(float red, float green, float blue, long __functionAddress);
 
 	/**
 	 * Float version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}
@@ -173,14 +158,10 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3fEXT(float red, float green, float blue) {
 		long __functionAddress = getInstance().SecondaryColor3fEXT;
-		nglSecondaryColor3fEXT(red, green, blue, __functionAddress);
+		invokeFFFV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3dEXT ] ---
-
-	/** JNI method for {@link #glSecondaryColor3dEXT SecondaryColor3dEXT} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3dEXT(double red, double green, double blue, long __functionAddress);
 
 	/**
 	 * Double version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}
@@ -191,14 +172,10 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3dEXT(double red, double green, double blue) {
 		long __functionAddress = getInstance().SecondaryColor3dEXT;
-		nglSecondaryColor3dEXT(red, green, blue, __functionAddress);
+		invokeDDDV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3ubEXT ] ---
-
-	/** JNI method for {@link #glSecondaryColor3ubEXT SecondaryColor3ubEXT} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3ubEXT(byte red, byte green, byte blue, long __functionAddress);
 
 	/**
 	 * Unsigned version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}
@@ -209,14 +186,10 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3ubEXT(byte red, byte green, byte blue) {
 		long __functionAddress = getInstance().SecondaryColor3ubEXT;
-		nglSecondaryColor3ubEXT(red, green, blue, __functionAddress);
+		invokeBBBV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3usEXT ] ---
-
-	/** JNI method for {@link #glSecondaryColor3usEXT SecondaryColor3usEXT} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3usEXT(short red, short green, short blue, long __functionAddress);
 
 	/**
 	 * Unsigned short version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}
@@ -227,14 +200,10 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3usEXT(short red, short green, short blue) {
 		long __functionAddress = getInstance().SecondaryColor3usEXT;
-		nglSecondaryColor3usEXT(red, green, blue, __functionAddress);
+		invokeSSSV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3uiEXT ] ---
-
-	/** JNI method for {@link #glSecondaryColor3uiEXT SecondaryColor3uiEXT} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3uiEXT(int red, int green, int blue, long __functionAddress);
 
 	/**
 	 * Unsigned int version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}
@@ -245,20 +214,16 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3uiEXT(int red, int green, int blue) {
 		long __functionAddress = getInstance().SecondaryColor3uiEXT;
-		nglSecondaryColor3uiEXT(red, green, blue, __functionAddress);
+		invokeIIIV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3bvEXT ] ---
-
-	/** JNI method for {@link #glSecondaryColor3bvEXT SecondaryColor3bvEXT} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3bvEXT(long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glSecondaryColor3bvEXT SecondaryColor3bvEXT} */
 	@JavadocExclude
 	public static void nglSecondaryColor3bvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3bvEXT;
-		nglSecondaryColor3bvEXT(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -274,15 +239,11 @@ public final class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3svEXT ] ---
 
-	/** JNI method for {@link #glSecondaryColor3svEXT SecondaryColor3svEXT} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3svEXT(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glSecondaryColor3svEXT SecondaryColor3svEXT} */
 	@JavadocExclude
 	public static void nglSecondaryColor3svEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3svEXT;
-		nglSecondaryColor3svEXT(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -305,15 +266,11 @@ public final class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3ivEXT ] ---
 
-	/** JNI method for {@link #glSecondaryColor3ivEXT SecondaryColor3ivEXT} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3ivEXT(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glSecondaryColor3ivEXT SecondaryColor3ivEXT} */
 	@JavadocExclude
 	public static void nglSecondaryColor3ivEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3ivEXT;
-		nglSecondaryColor3ivEXT(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -336,15 +293,11 @@ public final class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3fvEXT ] ---
 
-	/** JNI method for {@link #glSecondaryColor3fvEXT SecondaryColor3fvEXT} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3fvEXT(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glSecondaryColor3fvEXT SecondaryColor3fvEXT} */
 	@JavadocExclude
 	public static void nglSecondaryColor3fvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3fvEXT;
-		nglSecondaryColor3fvEXT(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -367,15 +320,11 @@ public final class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3dvEXT ] ---
 
-	/** JNI method for {@link #glSecondaryColor3dvEXT SecondaryColor3dvEXT} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3dvEXT(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glSecondaryColor3dvEXT SecondaryColor3dvEXT} */
 	@JavadocExclude
 	public static void nglSecondaryColor3dvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3dvEXT;
-		nglSecondaryColor3dvEXT(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -398,15 +347,11 @@ public final class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3ubvEXT ] ---
 
-	/** JNI method for {@link #glSecondaryColor3ubvEXT SecondaryColor3ubvEXT} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3ubvEXT(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glSecondaryColor3ubvEXT SecondaryColor3ubvEXT} */
 	@JavadocExclude
 	public static void nglSecondaryColor3ubvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3ubvEXT;
-		nglSecondaryColor3ubvEXT(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -422,15 +367,11 @@ public final class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3usvEXT ] ---
 
-	/** JNI method for {@link #glSecondaryColor3usvEXT SecondaryColor3usvEXT} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3usvEXT(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glSecondaryColor3usvEXT SecondaryColor3usvEXT} */
 	@JavadocExclude
 	public static void nglSecondaryColor3usvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3usvEXT;
-		nglSecondaryColor3usvEXT(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -453,15 +394,11 @@ public final class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3uivEXT ] ---
 
-	/** JNI method for {@link #glSecondaryColor3uivEXT SecondaryColor3uivEXT} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3uivEXT(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glSecondaryColor3uivEXT SecondaryColor3uivEXT} */
 	@JavadocExclude
 	public static void nglSecondaryColor3uivEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3uivEXT;
-		nglSecondaryColor3uivEXT(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -484,15 +421,11 @@ public final class EXTSecondaryColor {
 
 	// --- [ glSecondaryColorPointerEXT ] ---
 
-	/** JNI method for {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
-	@JavadocExclude
-	public static native void nglSecondaryColorPointerEXT(int size, int type, int stride, long pointer, long __functionAddress);
-
 	/** Unsafe version of {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
 	@JavadocExclude
 	public static void nglSecondaryColorPointerEXT(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().SecondaryColorPointerEXT;
-		nglSecondaryColorPointerEXT(size, type, stride, pointer, __functionAddress);
+		invokeIIIPV(__functionAddress, size, type, stride, pointer);
 	}
 
 	/**

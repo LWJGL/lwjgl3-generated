@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/geometry_shader4.txt">EXT_geometry_shader4</a> extension.
@@ -111,46 +112,30 @@ public final class EXTGeometryShader4 {
 
 	// --- [ glProgramParameteriEXT ] ---
 
-	/** JNI method for {@link #glProgramParameteriEXT ProgramParameteriEXT} */
-	@JavadocExclude
-	public static native void nglProgramParameteriEXT(int program, int pname, int value, long __functionAddress);
-
 	public static void glProgramParameteriEXT(int program, int pname, int value) {
 		long __functionAddress = getInstance().ProgramParameteriEXT;
-		nglProgramParameteriEXT(program, pname, value, __functionAddress);
+		invokeIIIV(__functionAddress, program, pname, value);
 	}
 
 	// --- [ glFramebufferTextureEXT ] ---
 
-	/** JNI method for {@link #glFramebufferTextureEXT FramebufferTextureEXT} */
-	@JavadocExclude
-	public static native void nglFramebufferTextureEXT(int target, int attachment, int texture, int level, long __functionAddress);
-
 	public static void glFramebufferTextureEXT(int target, int attachment, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTextureEXT;
-		nglFramebufferTextureEXT(target, attachment, texture, level, __functionAddress);
+		invokeIIIIV(__functionAddress, target, attachment, texture, level);
 	}
 
 	// --- [ glFramebufferTextureLayerEXT ] ---
 
-	/** JNI method for {@link #glFramebufferTextureLayerEXT FramebufferTextureLayerEXT} */
-	@JavadocExclude
-	public static native void nglFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer, long __functionAddress);
-
 	public static void glFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer) {
 		long __functionAddress = getInstance().FramebufferTextureLayerEXT;
-		nglFramebufferTextureLayerEXT(target, attachment, texture, level, layer, __functionAddress);
+		invokeIIIIIV(__functionAddress, target, attachment, texture, level, layer);
 	}
 
 	// --- [ glFramebufferTextureFaceEXT ] ---
 
-	/** JNI method for {@link #glFramebufferTextureFaceEXT FramebufferTextureFaceEXT} */
-	@JavadocExclude
-	public static native void nglFramebufferTextureFaceEXT(int target, int attachment, int texture, int level, int face, long __functionAddress);
-
 	public static void glFramebufferTextureFaceEXT(int target, int attachment, int texture, int level, int face) {
 		long __functionAddress = getInstance().FramebufferTextureFaceEXT;
-		nglFramebufferTextureFaceEXT(target, attachment, texture, level, face, __functionAddress);
+		invokeIIIIIV(__functionAddress, target, attachment, texture, level, face);
 	}
 
 }

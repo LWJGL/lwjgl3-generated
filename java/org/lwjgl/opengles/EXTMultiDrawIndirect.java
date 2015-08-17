@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -59,15 +60,11 @@ public final class EXTMultiDrawIndirect {
 
 	// --- [ glMultiDrawArraysIndirectEXT ] ---
 
-	/** JNI method for {@link #glMultiDrawArraysIndirectEXT MultiDrawArraysIndirectEXT} */
-	@JavadocExclude
-	public static native void nglMultiDrawArraysIndirectEXT(int mode, long indirect, int drawcount, int stride, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiDrawArraysIndirectEXT MultiDrawArraysIndirectEXT} */
 	@JavadocExclude
 	public static void nglMultiDrawArraysIndirectEXT(int mode, long indirect, int drawcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawArraysIndirectEXT;
-		nglMultiDrawArraysIndirectEXT(mode, indirect, drawcount, stride, __functionAddress);
+		invokeIPIIV(__functionAddress, mode, indirect, drawcount, stride);
 	}
 
 	public static void glMultiDrawArraysIndirectEXT(int mode, ByteBuffer indirect, int drawcount, int stride) {
@@ -90,15 +87,11 @@ public final class EXTMultiDrawIndirect {
 
 	// --- [ glMultiDrawElementsIndirectEXT ] ---
 
-	/** JNI method for {@link #glMultiDrawElementsIndirectEXT MultiDrawElementsIndirectEXT} */
-	@JavadocExclude
-	public static native void nglMultiDrawElementsIndirectEXT(int mode, int type, long indirect, int drawcount, int stride, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiDrawElementsIndirectEXT MultiDrawElementsIndirectEXT} */
 	@JavadocExclude
 	public static void nglMultiDrawElementsIndirectEXT(int mode, int type, long indirect, int drawcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawElementsIndirectEXT;
-		nglMultiDrawElementsIndirectEXT(mode, type, indirect, drawcount, stride, __functionAddress);
+		invokeIIPIIV(__functionAddress, mode, type, indirect, drawcount, stride);
 	}
 
 	public static void glMultiDrawElementsIndirectEXT(int mode, int type, ByteBuffer indirect, int drawcount, int stride) {

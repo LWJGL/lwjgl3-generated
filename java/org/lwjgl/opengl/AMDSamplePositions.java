@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -58,15 +59,11 @@ public final class AMDSamplePositions {
 
 	// --- [ glSetMultisamplefvAMD ] ---
 
-	/** JNI method for {@link #glSetMultisamplefvAMD SetMultisamplefvAMD} */
-	@JavadocExclude
-	public static native void nglSetMultisamplefvAMD(int pname, int index, long val, long __functionAddress);
-
 	/** Unsafe version of {@link #glSetMultisamplefvAMD SetMultisamplefvAMD} */
 	@JavadocExclude
 	public static void nglSetMultisamplefvAMD(int pname, int index, long val) {
 		long __functionAddress = getInstance().SetMultisamplefvAMD;
-		nglSetMultisamplefvAMD(pname, index, val, __functionAddress);
+		invokeIIPV(__functionAddress, pname, index, val);
 	}
 
 	public static void glSetMultisamplefvAMD(int pname, int index, ByteBuffer val) {

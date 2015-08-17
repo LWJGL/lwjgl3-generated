@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -64,26 +65,18 @@ public final class EXTBaseInstance {
 
 	// --- [ glDrawArraysInstancedBaseInstanceEXT ] ---
 
-	/** JNI method for {@link #glDrawArraysInstancedBaseInstanceEXT DrawArraysInstancedBaseInstanceEXT} */
-	@JavadocExclude
-	public static native void nglDrawArraysInstancedBaseInstanceEXT(int mode, int first, int count, int instancecount, int baseinstance, long __functionAddress);
-
 	public static void glDrawArraysInstancedBaseInstanceEXT(int mode, int first, int count, int instancecount, int baseinstance) {
 		long __functionAddress = getInstance().DrawArraysInstancedBaseInstanceEXT;
-		nglDrawArraysInstancedBaseInstanceEXT(mode, first, count, instancecount, baseinstance, __functionAddress);
+		invokeIIIIIV(__functionAddress, mode, first, count, instancecount, baseinstance);
 	}
 
 	// --- [ glDrawElementsInstancedBaseInstanceEXT ] ---
-
-	/** JNI method for {@link #glDrawElementsInstancedBaseInstanceEXT DrawElementsInstancedBaseInstanceEXT} */
-	@JavadocExclude
-	public static native void nglDrawElementsInstancedBaseInstanceEXT(int mode, int count, int type, long indices, int instancecount, int baseinstance, long __functionAddress);
 
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseInstanceEXT DrawElementsInstancedBaseInstanceEXT} */
 	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseInstanceEXT(int mode, int count, int type, long indices, int instancecount, int baseinstance) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseInstanceEXT;
-		nglDrawElementsInstancedBaseInstanceEXT(mode, count, type, indices, instancecount, baseinstance, __functionAddress);
+		invokeIIIPIIV(__functionAddress, mode, count, type, indices, instancecount, baseinstance);
 	}
 
 	public static void glDrawElementsInstancedBaseInstanceEXT(int mode, int count, int type, ByteBuffer indices, int instancecount, int baseinstance) {
@@ -119,15 +112,11 @@ public final class EXTBaseInstance {
 
 	// --- [ glDrawElementsInstancedBaseVertexBaseInstanceEXT ] ---
 
-	/** JNI method for {@link #glDrawElementsInstancedBaseVertexBaseInstanceEXT DrawElementsInstancedBaseVertexBaseInstanceEXT} */
-	@JavadocExclude
-	public static native void nglDrawElementsInstancedBaseVertexBaseInstanceEXT(int mode, int count, int type, long indices, int instancecount, int basevertex, int baseinstance, long __functionAddress);
-
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseVertexBaseInstanceEXT DrawElementsInstancedBaseVertexBaseInstanceEXT} */
 	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseVertexBaseInstanceEXT(int mode, int count, int type, long indices, int instancecount, int basevertex, int baseinstance) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseVertexBaseInstanceEXT;
-		nglDrawElementsInstancedBaseVertexBaseInstanceEXT(mode, count, type, indices, instancecount, basevertex, baseinstance, __functionAddress);
+		invokeIIIPIIIV(__functionAddress, mode, count, type, indices, instancecount, basevertex, baseinstance);
 	}
 
 	public static void glDrawElementsInstancedBaseVertexBaseInstanceEXT(int mode, int count, int type, ByteBuffer indices, int instancecount, int basevertex, int baseinstance) {

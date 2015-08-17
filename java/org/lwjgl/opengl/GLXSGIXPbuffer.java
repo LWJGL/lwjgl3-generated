@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -112,10 +113,6 @@ public final class GLXSGIXPbuffer {
 
 	// --- [ glXCreateGLXPbufferSGIX ] ---
 
-	/** JNI method for {@link #glXCreateGLXPbufferSGIX CreateGLXPbufferSGIX} */
-	@JavadocExclude
-	public static native long nglXCreateGLXPbufferSGIX(long display, long config, int width, int height, long attrib_list, long __functionAddress);
-
 	/** Unsafe version of {@link #glXCreateGLXPbufferSGIX CreateGLXPbufferSGIX} */
 	@JavadocExclude
 	public static long nglXCreateGLXPbufferSGIX(long display, long config, int width, int height, long attrib_list) {
@@ -124,7 +121,7 @@ public final class GLXSGIXPbuffer {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return nglXCreateGLXPbufferSGIX(display, config, width, height, attrib_list, __functionAddress);
+		return invokePPIIPP(__functionAddress, display, config, width, height, attrib_list);
 	}
 
 	/**
@@ -151,10 +148,6 @@ public final class GLXSGIXPbuffer {
 
 	// --- [ glXDestroyGLXPbufferSGIX ] ---
 
-	/** JNI method for {@link #glXDestroyGLXPbufferSGIX DestroyGLXPbufferSGIX} */
-	@JavadocExclude
-	public static native void nglXDestroyGLXPbufferSGIX(long display, long pbuf, long __functionAddress);
-
 	/**
 	 * Destroys a GLXPbuffer.
 	 *
@@ -167,14 +160,10 @@ public final class GLXSGIXPbuffer {
 			checkPointer(display);
 			checkPointer(pbuf);
 		}
-		nglXDestroyGLXPbufferSGIX(display, pbuf, __functionAddress);
+		invokePPV(__functionAddress, display, pbuf);
 	}
 
 	// --- [ glXQueryGLXPbufferSGIX ] ---
-
-	/** JNI method for {@link #glXQueryGLXPbufferSGIX QueryGLXPbufferSGIX} */
-	@JavadocExclude
-	public static native void nglXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glXQueryGLXPbufferSGIX QueryGLXPbufferSGIX} */
 	@JavadocExclude
@@ -184,7 +173,7 @@ public final class GLXSGIXPbuffer {
 			checkPointer(display);
 			checkPointer(pbuf);
 		}
-		nglXQueryGLXPbufferSGIX(display, pbuf, attribute, value, __functionAddress);
+		invokePPIPV(__functionAddress, display, pbuf, attribute, value);
 	}
 
 	/**
@@ -210,10 +199,6 @@ public final class GLXSGIXPbuffer {
 
 	// --- [ glXSelectEventSGIX ] ---
 
-	/** JNI method for {@link #glXSelectEventSGIX SelectEventSGIX} */
-	@JavadocExclude
-	public static native void nglXSelectEventSGIX(long display, long drawable, long mask, long __functionAddress);
-
 	/**
 	 * Selects which GLX events should be received on a GLXdrawable.
 	 *
@@ -227,14 +212,10 @@ public final class GLXSGIXPbuffer {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		nglXSelectEventSGIX(display, drawable, mask, __functionAddress);
+		invokePPPV(__functionAddress, display, drawable, mask);
 	}
 
 	// --- [ glXGetSelectedEventSGIX ] ---
-
-	/** JNI method for {@link #glXGetSelectedEventSGIX GetSelectedEventSGIX} */
-	@JavadocExclude
-	public static native void nglXGetSelectedEventSGIX(long display, long drawable, long mask, long __functionAddress);
 
 	/** Unsafe version of {@link #glXGetSelectedEventSGIX GetSelectedEventSGIX} */
 	@JavadocExclude
@@ -244,7 +225,7 @@ public final class GLXSGIXPbuffer {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		nglXGetSelectedEventSGIX(display, drawable, mask, __functionAddress);
+		invokePPPV(__functionAddress, display, drawable, mask);
 	}
 
 	/**

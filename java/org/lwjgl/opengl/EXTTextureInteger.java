@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -147,37 +148,25 @@ public final class EXTTextureInteger {
 
 	// --- [ glClearColorIiEXT ] ---
 
-	/** JNI method for {@link #glClearColorIiEXT ClearColorIiEXT} */
-	@JavadocExclude
-	public static native void nglClearColorIiEXT(int r, int g, int b, int a, long __functionAddress);
-
 	public static void glClearColorIiEXT(int r, int g, int b, int a) {
 		long __functionAddress = getInstance().ClearColorIiEXT;
-		nglClearColorIiEXT(r, g, b, a, __functionAddress);
+		invokeIIIIV(__functionAddress, r, g, b, a);
 	}
 
 	// --- [ glClearColorIuiEXT ] ---
 
-	/** JNI method for {@link #glClearColorIuiEXT ClearColorIuiEXT} */
-	@JavadocExclude
-	public static native void nglClearColorIuiEXT(int r, int g, int b, int a, long __functionAddress);
-
 	public static void glClearColorIuiEXT(int r, int g, int b, int a) {
 		long __functionAddress = getInstance().ClearColorIuiEXT;
-		nglClearColorIuiEXT(r, g, b, a, __functionAddress);
+		invokeIIIIV(__functionAddress, r, g, b, a);
 	}
 
 	// --- [ glTexParameterIivEXT ] ---
-
-	/** JNI method for {@link #glTexParameterIivEXT TexParameterIivEXT} */
-	@JavadocExclude
-	public static native void nglTexParameterIivEXT(int target, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glTexParameterIivEXT TexParameterIivEXT} */
 	@JavadocExclude
 	public static void nglTexParameterIivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIivEXT;
-		nglTexParameterIivEXT(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glTexParameterIivEXT(int target, int pname, ByteBuffer params) {
@@ -202,15 +191,11 @@ public final class EXTTextureInteger {
 
 	// --- [ glTexParameterIuivEXT ] ---
 
-	/** JNI method for {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
-	@JavadocExclude
-	public static native void nglTexParameterIuivEXT(int target, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
 	@JavadocExclude
 	public static void nglTexParameterIuivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIuivEXT;
-		nglTexParameterIuivEXT(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glTexParameterIuivEXT(int target, int pname, ByteBuffer params) {
@@ -235,15 +220,11 @@ public final class EXTTextureInteger {
 
 	// --- [ glGetTexParameterIivEXT ] ---
 
-	/** JNI method for {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
-	@JavadocExclude
-	public static native void nglGetTexParameterIivEXT(int target, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
 	@JavadocExclude
 	public static void nglGetTexParameterIivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIivEXT;
-		nglGetTexParameterIivEXT(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetTexParameterIivEXT(int target, int pname, ByteBuffer params) {
@@ -269,15 +250,11 @@ public final class EXTTextureInteger {
 
 	// --- [ glGetTexParameterIuivEXT ] ---
 
-	/** JNI method for {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
-	@JavadocExclude
-	public static native void nglGetTexParameterIuivEXT(int target, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
 	@JavadocExclude
 	public static void nglGetTexParameterIuivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIuivEXT;
-		nglGetTexParameterIuivEXT(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetTexParameterIuivEXT(int target, int pname, ByteBuffer params) {

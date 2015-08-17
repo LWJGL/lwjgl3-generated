@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 public final class WGLNVVertexArrayRange {
@@ -48,15 +49,11 @@ public final class WGLNVVertexArrayRange {
 
 	// --- [ wglAllocateMemoryNV ] ---
 
-	/** JNI method for {@link #wglAllocateMemoryNV AllocateMemoryNV} */
-	@JavadocExclude
-	public static native long nwglAllocateMemoryNV(int size, float readfreq, float writefreq, float priority, long __functionAddress);
-
 	/** Unsafe version of {@link #wglAllocateMemoryNV AllocateMemoryNV} */
 	@JavadocExclude
 	public static long nwglAllocateMemoryNV(int size, float readfreq, float writefreq, float priority) {
 		long __functionAddress = getInstance().AllocateMemoryNV;
-		return nwglAllocateMemoryNV(size, readfreq, writefreq, priority, __functionAddress);
+		return invokeIFFFP(__functionAddress, size, readfreq, writefreq, priority);
 	}
 
 	public static ByteBuffer wglAllocateMemoryNV(int size, float readfreq, float writefreq, float priority) {
@@ -66,15 +63,11 @@ public final class WGLNVVertexArrayRange {
 
 	// --- [ wglFreeMemoryNV ] ---
 
-	/** JNI method for {@link #wglFreeMemoryNV FreeMemoryNV} */
-	@JavadocExclude
-	public static native void nwglFreeMemoryNV(long pointer, long __functionAddress);
-
 	/** Unsafe version of {@link #wglFreeMemoryNV FreeMemoryNV} */
 	@JavadocExclude
 	public static void nwglFreeMemoryNV(long pointer) {
 		long __functionAddress = getInstance().FreeMemoryNV;
-		nwglFreeMemoryNV(pointer, __functionAddress);
+		invokePV(__functionAddress, pointer);
 	}
 
 	public static void wglFreeMemoryNV(ByteBuffer pointer) {

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -68,10 +69,6 @@ public final class GLXNVSwapGroup {
 
 	// --- [ glXJoinSwapGroupNV ] ---
 
-	/** JNI method for {@link #glXJoinSwapGroupNV JoinSwapGroupNV} */
-	@JavadocExclude
-	public static native int nglXJoinSwapGroupNV(long display, long drawable, int group, long __functionAddress);
-
 	/**
 	 * 
 	 *
@@ -85,14 +82,10 @@ public final class GLXNVSwapGroup {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		return nglXJoinSwapGroupNV(display, drawable, group, __functionAddress);
+		return invokePPII(__functionAddress, display, drawable, group);
 	}
 
 	// --- [ glXBindSwapBarrierNV ] ---
-
-	/** JNI method for {@link #glXBindSwapBarrierNV BindSwapBarrierNV} */
-	@JavadocExclude
-	public static native int nglXBindSwapBarrierNV(long display, int group, int barrier, long __functionAddress);
 
 	/**
 	 * 
@@ -105,14 +98,10 @@ public final class GLXNVSwapGroup {
 		long __functionAddress = getInstance().BindSwapBarrierNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return nglXBindSwapBarrierNV(display, group, barrier, __functionAddress);
+		return invokePIII(__functionAddress, display, group, barrier);
 	}
 
 	// --- [ glXQuerySwapGroupNV ] ---
-
-	/** JNI method for {@link #glXQuerySwapGroupNV QuerySwapGroupNV} */
-	@JavadocExclude
-	public static native int nglXQuerySwapGroupNV(long display, long drawable, long group, long barrier, long __functionAddress);
 
 	/** Unsafe version of {@link #glXQuerySwapGroupNV QuerySwapGroupNV} */
 	@JavadocExclude
@@ -122,7 +111,7 @@ public final class GLXNVSwapGroup {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		return nglXQuerySwapGroupNV(display, drawable, group, barrier, __functionAddress);
+		return invokePPPPI(__functionAddress, display, drawable, group, barrier);
 	}
 
 	/**
@@ -152,17 +141,13 @@ public final class GLXNVSwapGroup {
 
 	// --- [ glXQueryMaxSwapGroupsNV ] ---
 
-	/** JNI method for {@link #glXQueryMaxSwapGroupsNV QueryMaxSwapGroupsNV} */
-	@JavadocExclude
-	public static native int nglXQueryMaxSwapGroupsNV(long display, int screen, long maxGroups, long maxBarriers, long __functionAddress);
-
 	/** Unsafe version of {@link #glXQueryMaxSwapGroupsNV QueryMaxSwapGroupsNV} */
 	@JavadocExclude
 	public static int nglXQueryMaxSwapGroupsNV(long display, int screen, long maxGroups, long maxBarriers) {
 		long __functionAddress = getInstance().QueryMaxSwapGroupsNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return nglXQueryMaxSwapGroupsNV(display, screen, maxGroups, maxBarriers, __functionAddress);
+		return invokePIPPI(__functionAddress, display, screen, maxGroups, maxBarriers);
 	}
 
 	/**
@@ -192,17 +177,13 @@ public final class GLXNVSwapGroup {
 
 	// --- [ glXQueryFrameCountNV ] ---
 
-	/** JNI method for {@link #glXQueryFrameCountNV QueryFrameCountNV} */
-	@JavadocExclude
-	public static native int nglXQueryFrameCountNV(long display, int screen, long count, long __functionAddress);
-
 	/** Unsafe version of {@link #glXQueryFrameCountNV QueryFrameCountNV} */
 	@JavadocExclude
 	public static int nglXQueryFrameCountNV(long display, int screen, long count) {
 		long __functionAddress = getInstance().QueryFrameCountNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return nglXQueryFrameCountNV(display, screen, count, __functionAddress);
+		return invokePIPI(__functionAddress, display, screen, count);
 	}
 
 	/**
@@ -227,10 +208,6 @@ public final class GLXNVSwapGroup {
 
 	// --- [ glXResetFrameCountNV ] ---
 
-	/** JNI method for {@link #glXResetFrameCountNV ResetFrameCountNV} */
-	@JavadocExclude
-	public static native int nglXResetFrameCountNV(long display, int screen, long __functionAddress);
-
 	/**
 	 * 
 	 *
@@ -241,7 +218,7 @@ public final class GLXNVSwapGroup {
 		long __functionAddress = getInstance().ResetFrameCountNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return nglXResetFrameCountNV(display, screen, __functionAddress);
+		return invokePII(__functionAddress, display, screen);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -93,10 +94,6 @@ public final class ARBMatrixPalette {
 
 	// --- [ glCurrentPaletteMatrixARB ] ---
 
-	/** JNI method for {@link #glCurrentPaletteMatrixARB CurrentPaletteMatrixARB} */
-	@JavadocExclude
-	public static native void nglCurrentPaletteMatrixARB(int index, long __functionAddress);
-
 	/**
 	 * Defines which of the palette's matrices is affected by subsequent matrix operations when the current matrix mode is {@link #GL_MATRIX_PALETTE_ARB MATRIX_PALETTE_ARB},
 	 *
@@ -104,20 +101,16 @@ public final class ARBMatrixPalette {
 	 */
 	public static void glCurrentPaletteMatrixARB(int index) {
 		long __functionAddress = getInstance().CurrentPaletteMatrixARB;
-		nglCurrentPaletteMatrixARB(index, __functionAddress);
+		invokeIV(__functionAddress, index);
 	}
 
 	// --- [ glMatrixIndexuivARB ] ---
-
-	/** JNI method for {@link #glMatrixIndexuivARB MatrixIndexuivARB} */
-	@JavadocExclude
-	public static native void nglMatrixIndexuivARB(int size, long indices, long __functionAddress);
 
 	/** Unsafe version of {@link #glMatrixIndexuivARB MatrixIndexuivARB} */
 	@JavadocExclude
 	public static void nglMatrixIndexuivARB(int size, long indices) {
 		long __functionAddress = getInstance().MatrixIndexuivARB;
-		nglMatrixIndexuivARB(size, indices, __functionAddress);
+		invokeIPV(__functionAddress, size, indices);
 	}
 
 	/**
@@ -139,15 +132,11 @@ public final class ARBMatrixPalette {
 
 	// --- [ glMatrixIndexubvARB ] ---
 
-	/** JNI method for {@link #glMatrixIndexubvARB MatrixIndexubvARB} */
-	@JavadocExclude
-	public static native void nglMatrixIndexubvARB(int size, long indices, long __functionAddress);
-
 	/** Unsafe version of {@link #glMatrixIndexubvARB MatrixIndexubvARB} */
 	@JavadocExclude
 	public static void nglMatrixIndexubvARB(int size, long indices) {
 		long __functionAddress = getInstance().MatrixIndexubvARB;
-		nglMatrixIndexubvARB(size, indices, __functionAddress);
+		invokeIPV(__functionAddress, size, indices);
 	}
 
 	/**
@@ -169,15 +158,11 @@ public final class ARBMatrixPalette {
 
 	// --- [ glMatrixIndexusvARB ] ---
 
-	/** JNI method for {@link #glMatrixIndexusvARB MatrixIndexusvARB} */
-	@JavadocExclude
-	public static native void nglMatrixIndexusvARB(int size, long indices, long __functionAddress);
-
 	/** Unsafe version of {@link #glMatrixIndexusvARB MatrixIndexusvARB} */
 	@JavadocExclude
 	public static void nglMatrixIndexusvARB(int size, long indices) {
 		long __functionAddress = getInstance().MatrixIndexusvARB;
-		nglMatrixIndexusvARB(size, indices, __functionAddress);
+		invokeIPV(__functionAddress, size, indices);
 	}
 
 	/**
@@ -199,15 +184,11 @@ public final class ARBMatrixPalette {
 
 	// --- [ glMatrixIndexPointerARB ] ---
 
-	/** JNI method for {@link #glMatrixIndexPointerARB MatrixIndexPointerARB} */
-	@JavadocExclude
-	public static native void nglMatrixIndexPointerARB(int size, int type, int stride, long pointer, long __functionAddress);
-
 	/** Unsafe version of {@link #glMatrixIndexPointerARB MatrixIndexPointerARB} */
 	@JavadocExclude
 	public static void nglMatrixIndexPointerARB(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().MatrixIndexPointerARB;
-		nglMatrixIndexPointerARB(size, type, stride, pointer, __functionAddress);
+		invokeIIIPV(__functionAddress, size, type, stride, pointer);
 	}
 
 	/**

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -88,15 +89,11 @@ public final class NVSampleLocations {
 
 	// --- [ glFramebufferSampleLocationsfvNV ] ---
 
-	/** JNI method for {@link #glFramebufferSampleLocationsfvNV FramebufferSampleLocationsfvNV} */
-	@JavadocExclude
-	public static native void nglFramebufferSampleLocationsfvNV(int target, int start, int count, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glFramebufferSampleLocationsfvNV FramebufferSampleLocationsfvNV} */
 	@JavadocExclude
 	public static void nglFramebufferSampleLocationsfvNV(int target, int start, int count, long v) {
 		long __functionAddress = getInstance().FramebufferSampleLocationsfvNV;
-		nglFramebufferSampleLocationsfvNV(target, start, count, v, __functionAddress);
+		invokeIIIPV(__functionAddress, target, start, count, v);
 	}
 
 	/**
@@ -120,15 +117,11 @@ public final class NVSampleLocations {
 
 	// --- [ glNamedFramebufferSampleLocationsfvNV ] ---
 
-	/** JNI method for {@link #glNamedFramebufferSampleLocationsfvNV NamedFramebufferSampleLocationsfvNV} */
-	@JavadocExclude
-	public static native void nglNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glNamedFramebufferSampleLocationsfvNV NamedFramebufferSampleLocationsfvNV} */
 	@JavadocExclude
 	public static void nglNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, long v) {
 		long __functionAddress = getInstance().NamedFramebufferSampleLocationsfvNV;
-		nglNamedFramebufferSampleLocationsfvNV(framebuffer, start, count, v, __functionAddress);
+		invokeIIIPV(__functionAddress, framebuffer, start, count, v);
 	}
 
 	/**
@@ -152,10 +145,6 @@ public final class NVSampleLocations {
 
 	// --- [ glResolveDepthValuesNV ] ---
 
-	/** JNI method for {@link #glResolveDepthValuesNV ResolveDepthValuesNV} */
-	@JavadocExclude
-	public static native void nglResolveDepthValuesNV(long __functionAddress);
-
 	/**
 	 * Evaluates depth values for all samples in the current depth buffer (subject to the pixel ownership and scissor tests) and stores each value in the
 	 * depth buffer. This can be used to ensure that later accesses will use depth values consistent with the sample locations used when the samples were
@@ -163,7 +152,7 @@ public final class NVSampleLocations {
 	 */
 	public static void glResolveDepthValuesNV() {
 		long __functionAddress = getInstance().ResolveDepthValuesNV;
-		nglResolveDepthValuesNV(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 }

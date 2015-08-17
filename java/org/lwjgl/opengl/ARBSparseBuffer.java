@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/sparse_buffer.txt">ARB_sparse_buffer</a> extension.
@@ -62,10 +63,6 @@ public final class ARBSparseBuffer {
 
 	// --- [ glBufferPageCommitmentARB ] ---
 
-	/** JNI method for {@link #glBufferPageCommitmentARB BufferPageCommitmentARB} */
-	@JavadocExclude
-	public static native void nglBufferPageCommitmentARB(int target, long offset, long size, boolean commit, long __functionAddress);
-
 	/**
 	 * Commit and de-commits regions of sparse buffer storage.
 	 *
@@ -78,14 +75,10 @@ public final class ARBSparseBuffer {
 	 */
 	public static void glBufferPageCommitmentARB(int target, long offset, long size, boolean commit) {
 		long __functionAddress = getInstance().BufferPageCommitmentARB;
-		nglBufferPageCommitmentARB(target, offset, size, commit, __functionAddress);
+		invokeIPPZV(__functionAddress, target, offset, size, commit);
 	}
 
 	// --- [ glNamedBufferPageCommitmentEXT ] ---
-
-	/** JNI method for {@link #glNamedBufferPageCommitmentEXT NamedBufferPageCommitmentEXT} */
-	@JavadocExclude
-	public static native void nglNamedBufferPageCommitmentEXT(int buffer, long offset, long size, boolean commit, long __functionAddress);
 
 	/**
 	 * Direct-state-access version of {@link #glBufferPageCommitmentARB BufferPageCommitmentARB}.
@@ -99,14 +92,10 @@ public final class ARBSparseBuffer {
 		long __functionAddress = getInstance().NamedBufferPageCommitmentEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglNamedBufferPageCommitmentEXT(buffer, offset, size, commit, __functionAddress);
+		invokeIPPZV(__functionAddress, buffer, offset, size, commit);
 	}
 
 	// --- [ glNamedBufferPageCommitmentARB ] ---
-
-	/** JNI method for {@link #glNamedBufferPageCommitmentARB NamedBufferPageCommitmentARB} */
-	@JavadocExclude
-	public static native void nglNamedBufferPageCommitmentARB(int buffer, long offset, long size, boolean commit, long __functionAddress);
 
 	/**
 	 * Direct-state-access version of {@link #glBufferPageCommitmentARB BufferPageCommitmentARB}.
@@ -120,7 +109,7 @@ public final class ARBSparseBuffer {
 		long __functionAddress = getInstance().NamedBufferPageCommitmentARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglNamedBufferPageCommitmentARB(buffer, offset, size, commit, __functionAddress);
+		invokeIPPZV(__functionAddress, buffer, offset, size, commit);
 	}
 
 }

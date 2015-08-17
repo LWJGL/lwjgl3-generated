@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/copy_image.txt">WGL_NV_copy_image</a> extension.
@@ -49,10 +50,6 @@ public final class WGLNVCopyImage {
 
 	// --- [ wglCopyImageSubDataNV ] ---
 
-	/** JNI method for {@link #wglCopyImageSubDataNV CopyImageSubDataNV} */
-	@JavadocExclude
-	public static native int nwglCopyImageSubDataNV(long srcRC, int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, long dstRC, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth, long __functionAddress);
-
 	/**
 	 * Behaves identically to the core function {@link NVCopyImage#glCopyImageSubDataNV}, except that the {@code srcRC} and {@code dstRC} parameters specify
 	 * the contexts in which to look up the source and destination objects, respectively. A value of zero indicates that the currently bound context should be
@@ -82,7 +79,7 @@ public final class WGLNVCopyImage {
 			checkPointer(srcRC);
 			checkPointer(dstRC);
 		}
-		return nwglCopyImageSubDataNV(srcRC, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstRC, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth, __functionAddress);
+		return invokePIIIIIIPIIIIIIIIII(__functionAddress, srcRC, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstRC, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
 	}
 
 }

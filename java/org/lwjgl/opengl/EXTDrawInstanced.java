@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -56,26 +57,18 @@ public final class EXTDrawInstanced {
 
 	// --- [ glDrawArraysInstancedEXT ] ---
 
-	/** JNI method for {@link #glDrawArraysInstancedEXT DrawArraysInstancedEXT} */
-	@JavadocExclude
-	public static native void nglDrawArraysInstancedEXT(int mode, int start, int count, int primcount, long __functionAddress);
-
 	public static void glDrawArraysInstancedEXT(int mode, int start, int count, int primcount) {
 		long __functionAddress = getInstance().DrawArraysInstancedEXT;
-		nglDrawArraysInstancedEXT(mode, start, count, primcount, __functionAddress);
+		invokeIIIIV(__functionAddress, mode, start, count, primcount);
 	}
 
 	// --- [ glDrawElementsInstancedEXT ] ---
-
-	/** JNI method for {@link #glDrawElementsInstancedEXT DrawElementsInstancedEXT} */
-	@JavadocExclude
-	public static native void nglDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount, long __functionAddress);
 
 	/** Unsafe version of {@link #glDrawElementsInstancedEXT DrawElementsInstancedEXT} */
 	@JavadocExclude
 	public static void nglDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = getInstance().DrawElementsInstancedEXT;
-		nglDrawElementsInstancedEXT(mode, count, type, indices, primcount, __functionAddress);
+		invokeIIIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
 	public static void glDrawElementsInstancedEXT(int mode, int count, int type, ByteBuffer indices, int primcount) {

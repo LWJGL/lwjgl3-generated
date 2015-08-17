@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/texture_barrier.txt">NV_texture_barrier</a> extension.
@@ -48,13 +49,9 @@ public final class NVTextureBarrier {
 
 	// --- [ glTextureBarrierNV ] ---
 
-	/** JNI method for {@link #glTextureBarrierNV TextureBarrierNV} */
-	@JavadocExclude
-	public static native void nglTextureBarrierNV(long __functionAddress);
-
 	public static void glTextureBarrierNV() {
 		long __functionAddress = getInstance().TextureBarrierNV;
-		nglTextureBarrierNV(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 }

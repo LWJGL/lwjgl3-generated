@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -106,15 +107,11 @@ public final class GL21 {
 
 	// --- [ glUniformMatrix2x3fv ] ---
 
-	/** JNI method for {@link #glUniformMatrix2x3fv UniformMatrix2x3fv} */
-	@JavadocExclude
-	public static native void nglUniformMatrix2x3fv(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix2x3fv UniformMatrix2x3fv} */
 	@JavadocExclude
 	public static void nglUniformMatrix2x3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x3fv;
-		nglUniformMatrix2x3fv(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -140,15 +137,11 @@ public final class GL21 {
 
 	// --- [ glUniformMatrix3x2fv ] ---
 
-	/** JNI method for {@link #glUniformMatrix3x2fv UniformMatrix3x2fv} */
-	@JavadocExclude
-	public static native void nglUniformMatrix3x2fv(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix3x2fv UniformMatrix3x2fv} */
 	@JavadocExclude
 	public static void nglUniformMatrix3x2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x2fv;
-		nglUniformMatrix3x2fv(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -174,15 +167,11 @@ public final class GL21 {
 
 	// --- [ glUniformMatrix2x4fv ] ---
 
-	/** JNI method for {@link #glUniformMatrix2x4fv UniformMatrix2x4fv} */
-	@JavadocExclude
-	public static native void nglUniformMatrix2x4fv(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix2x4fv UniformMatrix2x4fv} */
 	@JavadocExclude
 	public static void nglUniformMatrix2x4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x4fv;
-		nglUniformMatrix2x4fv(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -208,15 +197,11 @@ public final class GL21 {
 
 	// --- [ glUniformMatrix4x2fv ] ---
 
-	/** JNI method for {@link #glUniformMatrix4x2fv UniformMatrix4x2fv} */
-	@JavadocExclude
-	public static native void nglUniformMatrix4x2fv(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix4x2fv UniformMatrix4x2fv} */
 	@JavadocExclude
 	public static void nglUniformMatrix4x2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x2fv;
-		nglUniformMatrix4x2fv(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -242,15 +227,11 @@ public final class GL21 {
 
 	// --- [ glUniformMatrix3x4fv ] ---
 
-	/** JNI method for {@link #glUniformMatrix3x4fv UniformMatrix3x4fv} */
-	@JavadocExclude
-	public static native void nglUniformMatrix3x4fv(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix3x4fv UniformMatrix3x4fv} */
 	@JavadocExclude
 	public static void nglUniformMatrix3x4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x4fv;
-		nglUniformMatrix3x4fv(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -276,15 +257,11 @@ public final class GL21 {
 
 	// --- [ glUniformMatrix4x3fv ] ---
 
-	/** JNI method for {@link #glUniformMatrix4x3fv UniformMatrix4x3fv} */
-	@JavadocExclude
-	public static native void nglUniformMatrix4x3fv(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix4x3fv UniformMatrix4x3fv} */
 	@JavadocExclude
 	public static void nglUniformMatrix4x3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x3fv;
-		nglUniformMatrix4x3fv(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**

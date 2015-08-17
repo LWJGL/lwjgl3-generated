@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to GLX 1.1. */
@@ -57,17 +58,13 @@ public final class GLX11 {
 
 	// --- [ glXQueryExtensionsString ] ---
 
-	/** JNI method for {@link #glXQueryExtensionsString QueryExtensionsString} */
-	@JavadocExclude
-	public static native long nglXQueryExtensionsString(long display, int screen, long __functionAddress);
-
 	/** Unsafe version of {@link #glXQueryExtensionsString QueryExtensionsString} */
 	@JavadocExclude
 	public static long nglXQueryExtensionsString(long display, int screen) {
 		long __functionAddress = getInstance().QueryExtensionsString;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return nglXQueryExtensionsString(display, screen, __functionAddress);
+		return invokePIP(__functionAddress, display, screen);
 	}
 
 	/**
@@ -83,17 +80,13 @@ public final class GLX11 {
 
 	// --- [ glXGetClientString ] ---
 
-	/** JNI method for {@link #glXGetClientString GetClientString} */
-	@JavadocExclude
-	public static native long nglXGetClientString(long display, int name, long __functionAddress);
-
 	/** Unsafe version of {@link #glXGetClientString GetClientString} */
 	@JavadocExclude
 	public static long nglXGetClientString(long display, int name) {
 		long __functionAddress = getInstance().GetClientString;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return nglXGetClientString(display, name, __functionAddress);
+		return invokePIP(__functionAddress, display, name);
 	}
 
 	/**
@@ -109,17 +102,13 @@ public final class GLX11 {
 
 	// --- [ glXQueryServerString ] ---
 
-	/** JNI method for {@link #glXQueryServerString QueryServerString} */
-	@JavadocExclude
-	public static native long nglXQueryServerString(long display, int screen, int name, long __functionAddress);
-
 	/** Unsafe version of {@link #glXQueryServerString QueryServerString} */
 	@JavadocExclude
 	public static long nglXQueryServerString(long display, int screen, int name) {
 		long __functionAddress = getInstance().QueryServerString;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return nglXQueryServerString(display, screen, name, __functionAddress);
+		return invokePIIP(__functionAddress, display, screen, name);
 	}
 
 	/**

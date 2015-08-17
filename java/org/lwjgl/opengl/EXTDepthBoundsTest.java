@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/depth_bounds_test.txt">EXT_depth_bounds_test</a> extension.
@@ -77,13 +78,9 @@ public final class EXTDepthBoundsTest {
 
 	// --- [ glDepthBoundsEXT ] ---
 
-	/** JNI method for {@link #glDepthBoundsEXT DepthBoundsEXT} */
-	@JavadocExclude
-	public static native void nglDepthBoundsEXT(double zmin, double zmax, long __functionAddress);
-
 	public static void glDepthBoundsEXT(double zmin, double zmax) {
 		long __functionAddress = getInstance().DepthBoundsEXT;
-		nglDepthBoundsEXT(zmin, zmax, __functionAddress);
+		invokeDDV(__functionAddress, zmin, zmax);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -92,15 +93,11 @@ public final class NVTextureArray {
 
 	// --- [ glTexImage3DNV ] ---
 
-	/** JNI method for {@link #glTexImage3DNV TexImage3DNV} */
-	@JavadocExclude
-	public static native void nglTexImage3DNV(int target, int level, int internalFormat, int width, int height, int depth, int border, int format, int type, long pixels, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexImage3DNV TexImage3DNV} */
 	@JavadocExclude
 	public static void nglTexImage3DNV(int target, int level, int internalFormat, int width, int height, int depth, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexImage3DNV;
-		nglTexImage3DNV(target, level, internalFormat, width, height, depth, border, format, type, pixels, __functionAddress);
+		invokeIIIIIIIIIPV(__functionAddress, target, level, internalFormat, width, height, depth, border, format, type, pixels);
 	}
 
 	public static void glTexImage3DNV(int target, int level, int internalFormat, int width, int height, int depth, int border, int format, int type, ByteBuffer pixels) {
@@ -129,15 +126,11 @@ public final class NVTextureArray {
 
 	// --- [ glTexSubImage3DNV ] ---
 
-	/** JNI method for {@link #glTexSubImage3DNV TexSubImage3DNV} */
-	@JavadocExclude
-	public static native void nglTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexSubImage3DNV TexSubImage3DNV} */
 	@JavadocExclude
 	public static void nglTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexSubImage3DNV;
-		nglTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels, __functionAddress);
+		invokeIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 	public static void glTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer pixels) {
@@ -166,26 +159,18 @@ public final class NVTextureArray {
 
 	// --- [ glCopyTexSubImage3DNV ] ---
 
-	/** JNI method for {@link #glCopyTexSubImage3DNV CopyTexSubImage3DNV} */
-	@JavadocExclude
-	public static native void nglCopyTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height, long __functionAddress);
-
 	public static void glCopyTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().CopyTexSubImage3DNV;
-		nglCopyTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, x, y, width, height, __functionAddress);
+		invokeIIIIIIIIIV(__functionAddress, target, level, xoffset, yoffset, zoffset, x, y, width, height);
 	}
 
 	// --- [ glCompressedTexImage3DNV ] ---
-
-	/** JNI method for {@link #glCompressedTexImage3DNV CompressedTexImage3DNV} */
-	@JavadocExclude
-	public static native void nglCompressedTexImage3DNV(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data, long __functionAddress);
 
 	/** Unsafe version of {@link #glCompressedTexImage3DNV CompressedTexImage3DNV} */
 	@JavadocExclude
 	public static void nglCompressedTexImage3DNV(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage3DNV;
-		nglCompressedTexImage3DNV(target, level, internalformat, width, height, depth, border, imageSize, data, __functionAddress);
+		invokeIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
 	}
 
 	public static void glCompressedTexImage3DNV(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, ByteBuffer data) {
@@ -199,15 +184,11 @@ public final class NVTextureArray {
 
 	// --- [ glCompressedTexSubImage3DNV ] ---
 
-	/** JNI method for {@link #glCompressedTexSubImage3DNV CompressedTexSubImage3DNV} */
-	@JavadocExclude
-	public static native void nglCompressedTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glCompressedTexSubImage3DNV CompressedTexSubImage3DNV} */
 	@JavadocExclude
 	public static void nglCompressedTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage3DNV;
-		nglCompressedTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data, __functionAddress);
+		invokeIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
 	public static void glCompressedTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, ByteBuffer data) {
@@ -221,13 +202,9 @@ public final class NVTextureArray {
 
 	// --- [ glFramebufferTextureLayerNV ] ---
 
-	/** JNI method for {@link #glFramebufferTextureLayerNV FramebufferTextureLayerNV} */
-	@JavadocExclude
-	public static native void nglFramebufferTextureLayerNV(int target, int attachment, int texture, int level, int layer, long __functionAddress);
-
 	public static void glFramebufferTextureLayerNV(int target, int attachment, int texture, int level, int layer) {
 		long __functionAddress = getInstance().FramebufferTextureLayerNV;
-		nglFramebufferTextureLayerNV(target, attachment, texture, level, layer, __functionAddress);
+		invokeIIIIIV(__functionAddress, target, attachment, texture, level, layer);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -57,15 +58,11 @@ public final class QCOMExtendedGet2 {
 
 	// --- [ glExtGetShadersQCOM ] ---
 
-	/** JNI method for {@link #glExtGetShadersQCOM ExtGetShadersQCOM} */
-	@JavadocExclude
-	public static native void nglExtGetShadersQCOM(long shaders, int maxShaders, long numShaders, long __functionAddress);
-
 	/** Unsafe version of {@link #glExtGetShadersQCOM ExtGetShadersQCOM} */
 	@JavadocExclude
 	public static void nglExtGetShadersQCOM(long shaders, int maxShaders, long numShaders) {
 		long __functionAddress = getInstance().ExtGetShadersQCOM;
-		nglExtGetShadersQCOM(shaders, maxShaders, numShaders, __functionAddress);
+		invokePIPV(__functionAddress, shaders, maxShaders, numShaders);
 	}
 
 	public static void glExtGetShadersQCOM(ByteBuffer shaders, int maxShaders, ByteBuffer numShaders) {
@@ -85,15 +82,11 @@ public final class QCOMExtendedGet2 {
 
 	// --- [ glExtGetProgramsQCOM ] ---
 
-	/** JNI method for {@link #glExtGetProgramsQCOM ExtGetProgramsQCOM} */
-	@JavadocExclude
-	public static native void nglExtGetProgramsQCOM(long programs, int maxPrograms, long numPrograms, long __functionAddress);
-
 	/** Unsafe version of {@link #glExtGetProgramsQCOM ExtGetProgramsQCOM} */
 	@JavadocExclude
 	public static void nglExtGetProgramsQCOM(long programs, int maxPrograms, long numPrograms) {
 		long __functionAddress = getInstance().ExtGetProgramsQCOM;
-		nglExtGetProgramsQCOM(programs, maxPrograms, numPrograms, __functionAddress);
+		invokePIPV(__functionAddress, programs, maxPrograms, numPrograms);
 	}
 
 	public static void glExtGetProgramsQCOM(ByteBuffer programs, int maxPrograms, ByteBuffer numPrograms) {
@@ -113,26 +106,18 @@ public final class QCOMExtendedGet2 {
 
 	// --- [ glExtIsProgramBinaryQCOM ] ---
 
-	/** JNI method for {@link #glExtIsProgramBinaryQCOM ExtIsProgramBinaryQCOM} */
-	@JavadocExclude
-	public static native boolean nglExtIsProgramBinaryQCOM(int program, long __functionAddress);
-
 	public static boolean glExtIsProgramBinaryQCOM(int program) {
 		long __functionAddress = getInstance().ExtIsProgramBinaryQCOM;
-		return nglExtIsProgramBinaryQCOM(program, __functionAddress);
+		return invokeIZ(__functionAddress, program);
 	}
 
 	// --- [ glExtGetProgramBinarySourceQCOM ] ---
-
-	/** JNI method for {@link #glExtGetProgramBinarySourceQCOM ExtGetProgramBinarySourceQCOM} */
-	@JavadocExclude
-	public static native void nglExtGetProgramBinarySourceQCOM(int program, int shadertype, long source, long length, long __functionAddress);
 
 	/** Unsafe version of {@link #glExtGetProgramBinarySourceQCOM ExtGetProgramBinarySourceQCOM} */
 	@JavadocExclude
 	public static void nglExtGetProgramBinarySourceQCOM(int program, int shadertype, long source, long length) {
 		long __functionAddress = getInstance().ExtGetProgramBinarySourceQCOM;
-		nglExtGetProgramBinarySourceQCOM(program, shadertype, source, length, __functionAddress);
+		invokeIIPPV(__functionAddress, program, shadertype, source, length);
 	}
 
 	public static void glExtGetProgramBinarySourceQCOM(int program, int shadertype, ByteBuffer source, ByteBuffer length) {

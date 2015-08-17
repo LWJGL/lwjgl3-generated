@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -85,17 +86,13 @@ public final class INTELAccelerator {
 
 	// --- [ clCreateAcceleratorINTEL ] ---
 
-	/** JNI method for {@link #clCreateAcceleratorINTEL CreateAcceleratorINTEL} */
-	@JavadocExclude
-	public static native long nclCreateAcceleratorINTEL(long context, int accelerator_type, long descriptor_size, long descriptor, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clCreateAcceleratorINTEL CreateAcceleratorINTEL} */
 	@JavadocExclude
 	public static long nclCreateAcceleratorINTEL(long context, int accelerator_type, long descriptor_size, long descriptor, long errcode_ret) {
 		long __functionAddress = getInstance().CreateAcceleratorINTEL;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nclCreateAcceleratorINTEL(context, accelerator_type, descriptor_size, descriptor, errcode_ret, __functionAddress);
+		return invokePIPPPP(__functionAddress, context, accelerator_type, descriptor_size, descriptor, errcode_ret);
 	}
 
 	/**
@@ -147,10 +144,6 @@ public final class INTELAccelerator {
 
 	// --- [ clRetainAcceleratorINTEL ] ---
 
-	/** JNI method for {@link #clRetainAcceleratorINTEL RetainAcceleratorINTEL} */
-	@JavadocExclude
-	public static native int nclRetainAcceleratorINTEL(long accelerator, long __functionAddress);
-
 	/**
 	 * Increments the accelerator reference count. {@link #clCreateAcceleratorINTEL CreateAcceleratorINTEL} does an implicit retain.
 	 *
@@ -167,14 +160,10 @@ public final class INTELAccelerator {
 		long __functionAddress = getInstance().RetainAcceleratorINTEL;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(accelerator);
-		return nclRetainAcceleratorINTEL(accelerator, __functionAddress);
+		return invokePI(__functionAddress, accelerator);
 	}
 
 	// --- [ clReleaseAcceleratorINTEL ] ---
-
-	/** JNI method for {@link #clReleaseAcceleratorINTEL ReleaseAcceleratorINTEL} */
-	@JavadocExclude
-	public static native int nclReleaseAcceleratorINTEL(long accelerator, long __functionAddress);
 
 	/**
 	 * Decrements the accelerator reference count. The accelerator object is deleted after the reference count becomes zero and commands queued for execution
@@ -193,14 +182,10 @@ public final class INTELAccelerator {
 		long __functionAddress = getInstance().ReleaseAcceleratorINTEL;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(accelerator);
-		return nclReleaseAcceleratorINTEL(accelerator, __functionAddress);
+		return invokePI(__functionAddress, accelerator);
 	}
 
 	// --- [ clGetAcceleratorInfoINTEL ] ---
-
-	/** JNI method for {@link #clGetAcceleratorInfoINTEL GetAcceleratorInfoINTEL} */
-	@JavadocExclude
-	public static native int nclGetAcceleratorInfoINTEL(long accelerator, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/** Unsafe version of {@link #clGetAcceleratorInfoINTEL GetAcceleratorInfoINTEL} */
 	@JavadocExclude
@@ -208,7 +193,7 @@ public final class INTELAccelerator {
 		long __functionAddress = getInstance().GetAcceleratorInfoINTEL;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(accelerator);
-		return nclGetAcceleratorInfoINTEL(accelerator, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
+		return invokePIPPPI(__functionAddress, accelerator, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -58,15 +59,11 @@ public final class EXTGPUProgramParameters {
 
 	// --- [ glProgramEnvParameters4fvEXT ] ---
 
-	/** JNI method for {@link #glProgramEnvParameters4fvEXT ProgramEnvParameters4fvEXT} */
-	@JavadocExclude
-	public static native void nglProgramEnvParameters4fvEXT(int target, int index, int count, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glProgramEnvParameters4fvEXT ProgramEnvParameters4fvEXT} */
 	@JavadocExclude
 	public static void nglProgramEnvParameters4fvEXT(int target, int index, int count, long params) {
 		long __functionAddress = getInstance().ProgramEnvParameters4fvEXT;
-		nglProgramEnvParameters4fvEXT(target, index, count, params, __functionAddress);
+		invokeIIIPV(__functionAddress, target, index, count, params);
 	}
 
 	public static void glProgramEnvParameters4fvEXT(int target, int index, int count, ByteBuffer params) {
@@ -82,15 +79,11 @@ public final class EXTGPUProgramParameters {
 
 	// --- [ glProgramLocalParameters4fvEXT ] ---
 
-	/** JNI method for {@link #glProgramLocalParameters4fvEXT ProgramLocalParameters4fvEXT} */
-	@JavadocExclude
-	public static native void nglProgramLocalParameters4fvEXT(int target, int index, int count, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glProgramLocalParameters4fvEXT ProgramLocalParameters4fvEXT} */
 	@JavadocExclude
 	public static void nglProgramLocalParameters4fvEXT(int target, int index, int count, long params) {
 		long __functionAddress = getInstance().ProgramLocalParameters4fvEXT;
-		nglProgramLocalParameters4fvEXT(target, index, count, params, __functionAddress);
+		invokeIIIPV(__functionAddress, target, index, count, params);
 	}
 
 	public static void glProgramLocalParameters4fvEXT(int target, int index, int count, ByteBuffer params) {

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -128,26 +129,18 @@ public final class INTELPerformanceQuery {
 
 	// --- [ glBeginPerfQueryINTEL ] ---
 
-	/** JNI method for {@link #glBeginPerfQueryINTEL BeginPerfQueryINTEL} */
-	@JavadocExclude
-	public static native void nglBeginPerfQueryINTEL(int queryHandle, long __functionAddress);
-
 	public static void glBeginPerfQueryINTEL(int queryHandle) {
 		long __functionAddress = getInstance().BeginPerfQueryINTEL;
-		nglBeginPerfQueryINTEL(queryHandle, __functionAddress);
+		invokeIV(__functionAddress, queryHandle);
 	}
 
 	// --- [ glCreatePerfQueryINTEL ] ---
-
-	/** JNI method for {@link #glCreatePerfQueryINTEL CreatePerfQueryINTEL} */
-	@JavadocExclude
-	public static native void nglCreatePerfQueryINTEL(int queryId, long queryHandle, long __functionAddress);
 
 	/** Unsafe version of {@link #glCreatePerfQueryINTEL CreatePerfQueryINTEL} */
 	@JavadocExclude
 	public static void nglCreatePerfQueryINTEL(int queryId, long queryHandle) {
 		long __functionAddress = getInstance().CreatePerfQueryINTEL;
-		nglCreatePerfQueryINTEL(queryId, queryHandle, __functionAddress);
+		invokeIPV(__functionAddress, queryId, queryHandle);
 	}
 
 	public static void glCreatePerfQueryINTEL(int queryId, ByteBuffer queryHandle) {
@@ -173,37 +166,25 @@ public final class INTELPerformanceQuery {
 
 	// --- [ glDeletePerfQueryINTEL ] ---
 
-	/** JNI method for {@link #glDeletePerfQueryINTEL DeletePerfQueryINTEL} */
-	@JavadocExclude
-	public static native void nglDeletePerfQueryINTEL(int queryHandle, long __functionAddress);
-
 	public static void glDeletePerfQueryINTEL(int queryHandle) {
 		long __functionAddress = getInstance().DeletePerfQueryINTEL;
-		nglDeletePerfQueryINTEL(queryHandle, __functionAddress);
+		invokeIV(__functionAddress, queryHandle);
 	}
 
 	// --- [ glEndPerfQueryINTEL ] ---
 
-	/** JNI method for {@link #glEndPerfQueryINTEL EndPerfQueryINTEL} */
-	@JavadocExclude
-	public static native void nglEndPerfQueryINTEL(int queryHandle, long __functionAddress);
-
 	public static void glEndPerfQueryINTEL(int queryHandle) {
 		long __functionAddress = getInstance().EndPerfQueryINTEL;
-		nglEndPerfQueryINTEL(queryHandle, __functionAddress);
+		invokeIV(__functionAddress, queryHandle);
 	}
 
 	// --- [ glGetFirstPerfQueryIdINTEL ] ---
-
-	/** JNI method for {@link #glGetFirstPerfQueryIdINTEL GetFirstPerfQueryIdINTEL} */
-	@JavadocExclude
-	public static native void nglGetFirstPerfQueryIdINTEL(long queryId, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetFirstPerfQueryIdINTEL GetFirstPerfQueryIdINTEL} */
 	@JavadocExclude
 	public static void nglGetFirstPerfQueryIdINTEL(long queryId) {
 		long __functionAddress = getInstance().GetFirstPerfQueryIdINTEL;
-		nglGetFirstPerfQueryIdINTEL(queryId, __functionAddress);
+		invokePV(__functionAddress, queryId);
 	}
 
 	public static void glGetFirstPerfQueryIdINTEL(ByteBuffer queryId) {
@@ -229,15 +210,11 @@ public final class INTELPerformanceQuery {
 
 	// --- [ glGetNextPerfQueryIdINTEL ] ---
 
-	/** JNI method for {@link #glGetNextPerfQueryIdINTEL GetNextPerfQueryIdINTEL} */
-	@JavadocExclude
-	public static native void nglGetNextPerfQueryIdINTEL(int queryId, long nextQueryId, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetNextPerfQueryIdINTEL GetNextPerfQueryIdINTEL} */
 	@JavadocExclude
 	public static void nglGetNextPerfQueryIdINTEL(int queryId, long nextQueryId) {
 		long __functionAddress = getInstance().GetNextPerfQueryIdINTEL;
-		nglGetNextPerfQueryIdINTEL(queryId, nextQueryId, __functionAddress);
+		invokeIPV(__functionAddress, queryId, nextQueryId);
 	}
 
 	public static void glGetNextPerfQueryIdINTEL(int queryId, ByteBuffer nextQueryId) {
@@ -263,15 +240,11 @@ public final class INTELPerformanceQuery {
 
 	// --- [ glGetPerfCounterInfoINTEL ] ---
 
-	/** JNI method for {@link #glGetPerfCounterInfoINTEL GetPerfCounterInfoINTEL} */
-	@JavadocExclude
-	public static native void nglGetPerfCounterInfoINTEL(int queryId, int counterId, int counterNameLength, long counterName, int counterDescLength, long counterDesc, long counterOffset, long counterDataSize, long counterTypeEnum, long counterDataTypeEnum, long rawCounterMaxValue, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetPerfCounterInfoINTEL GetPerfCounterInfoINTEL} */
 	@JavadocExclude
 	public static void nglGetPerfCounterInfoINTEL(int queryId, int counterId, int counterNameLength, long counterName, int counterDescLength, long counterDesc, long counterOffset, long counterDataSize, long counterTypeEnum, long counterDataTypeEnum, long rawCounterMaxValue) {
 		long __functionAddress = getInstance().GetPerfCounterInfoINTEL;
-		nglGetPerfCounterInfoINTEL(queryId, counterId, counterNameLength, counterName, counterDescLength, counterDesc, counterOffset, counterDataSize, counterTypeEnum, counterDataTypeEnum, rawCounterMaxValue, __functionAddress);
+		invokeIIIPIPPPPPPV(__functionAddress, queryId, counterId, counterNameLength, counterName, counterDescLength, counterDesc, counterOffset, counterDataSize, counterTypeEnum, counterDataTypeEnum, rawCounterMaxValue);
 	}
 
 	public static void glGetPerfCounterInfoINTEL(int queryId, int counterId, int counterNameLength, ByteBuffer counterName, int counterDescLength, ByteBuffer counterDesc, ByteBuffer counterOffset, ByteBuffer counterDataSize, ByteBuffer counterTypeEnum, ByteBuffer counterDataTypeEnum, ByteBuffer rawCounterMaxValue) {
@@ -301,15 +274,11 @@ public final class INTELPerformanceQuery {
 
 	// --- [ glGetPerfQueryDataINTEL ] ---
 
-	/** JNI method for {@link #glGetPerfQueryDataINTEL GetPerfQueryDataINTEL} */
-	@JavadocExclude
-	public static native void nglGetPerfQueryDataINTEL(int queryHandle, int flags, int dataSize, long data, long bytesWritten, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetPerfQueryDataINTEL GetPerfQueryDataINTEL} */
 	@JavadocExclude
 	public static void nglGetPerfQueryDataINTEL(int queryHandle, int flags, int dataSize, long data, long bytesWritten) {
 		long __functionAddress = getInstance().GetPerfQueryDataINTEL;
-		nglGetPerfQueryDataINTEL(queryHandle, flags, dataSize, data, bytesWritten, __functionAddress);
+		invokeIIIPPV(__functionAddress, queryHandle, flags, dataSize, data, bytesWritten);
 	}
 
 	public static void glGetPerfQueryDataINTEL(int queryHandle, int flags, int dataSize, ByteBuffer data, ByteBuffer bytesWritten) {
@@ -329,15 +298,11 @@ public final class INTELPerformanceQuery {
 
 	// --- [ glGetPerfQueryIdByNameINTEL ] ---
 
-	/** JNI method for {@link #glGetPerfQueryIdByNameINTEL GetPerfQueryIdByNameINTEL} */
-	@JavadocExclude
-	public static native void nglGetPerfQueryIdByNameINTEL(long queryName, long queryId, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetPerfQueryIdByNameINTEL GetPerfQueryIdByNameINTEL} */
 	@JavadocExclude
 	public static void nglGetPerfQueryIdByNameINTEL(long queryName, long queryId) {
 		long __functionAddress = getInstance().GetPerfQueryIdByNameINTEL;
-		nglGetPerfQueryIdByNameINTEL(queryName, queryId, __functionAddress);
+		invokePPV(__functionAddress, queryName, queryId);
 	}
 
 	public static void glGetPerfQueryIdByNameINTEL(ByteBuffer queryName, ByteBuffer queryId) {
@@ -375,15 +340,11 @@ public final class INTELPerformanceQuery {
 
 	// --- [ glGetPerfQueryInfoINTEL ] ---
 
-	/** JNI method for {@link #glGetPerfQueryInfoINTEL GetPerfQueryInfoINTEL} */
-	@JavadocExclude
-	public static native void nglGetPerfQueryInfoINTEL(int queryId, int queryNameLength, long queryName, long dataSize, long noCounters, long noInstances, long capsMask, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetPerfQueryInfoINTEL GetPerfQueryInfoINTEL} */
 	@JavadocExclude
 	public static void nglGetPerfQueryInfoINTEL(int queryId, int queryNameLength, long queryName, long dataSize, long noCounters, long noInstances, long capsMask) {
 		long __functionAddress = getInstance().GetPerfQueryInfoINTEL;
-		nglGetPerfQueryInfoINTEL(queryId, queryNameLength, queryName, dataSize, noCounters, noInstances, capsMask, __functionAddress);
+		invokeIIPPPPPV(__functionAddress, queryId, queryNameLength, queryName, dataSize, noCounters, noInstances, capsMask);
 	}
 
 	public static void glGetPerfQueryInfoINTEL(int queryId, int queryNameLength, ByteBuffer queryName, ByteBuffer dataSize, ByteBuffer noCounters, ByteBuffer noInstances, ByteBuffer capsMask) {

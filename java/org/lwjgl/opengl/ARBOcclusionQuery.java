@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -114,15 +115,11 @@ public final class ARBOcclusionQuery {
 
 	// --- [ glGenQueriesARB ] ---
 
-	/** JNI method for {@link #glGenQueriesARB GenQueriesARB} */
-	@JavadocExclude
-	public static native void nglGenQueriesARB(int n, long ids, long __functionAddress);
-
 	/** Unsafe version of {@link #glGenQueriesARB GenQueriesARB} */
 	@JavadocExclude
 	public static void nglGenQueriesARB(int n, long ids) {
 		long __functionAddress = getInstance().GenQueriesARB;
-		nglGenQueriesARB(n, ids, __functionAddress);
+		invokeIPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -152,15 +149,11 @@ public final class ARBOcclusionQuery {
 
 	// --- [ glDeleteQueriesARB ] ---
 
-	/** JNI method for {@link #glDeleteQueriesARB DeleteQueriesARB} */
-	@JavadocExclude
-	public static native void nglDeleteQueriesARB(int n, long ids, long __functionAddress);
-
 	/** Unsafe version of {@link #glDeleteQueriesARB DeleteQueriesARB} */
 	@JavadocExclude
 	public static void nglDeleteQueriesARB(int n, long ids) {
 		long __functionAddress = getInstance().DeleteQueriesARB;
-		nglDeleteQueriesARB(n, ids, __functionAddress);
+		invokeIPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -189,10 +182,6 @@ public final class ARBOcclusionQuery {
 
 	// --- [ glIsQueryARB ] ---
 
-	/** JNI method for {@link #glIsQueryARB IsQueryARB} */
-	@JavadocExclude
-	public static native boolean nglIsQueryARB(int id, long __functionAddress);
-
 	/**
 	 * Determine if a name corresponds to a query object.
 	 *
@@ -200,14 +189,10 @@ public final class ARBOcclusionQuery {
 	 */
 	public static boolean glIsQueryARB(int id) {
 		long __functionAddress = getInstance().IsQueryARB;
-		return nglIsQueryARB(id, __functionAddress);
+		return invokeIZ(__functionAddress, id);
 	}
 
 	// --- [ glBeginQueryARB ] ---
-
-	/** JNI method for {@link #glBeginQueryARB BeginQueryARB} */
-	@JavadocExclude
-	public static native void nglBeginQueryARB(int target, int id, long __functionAddress);
 
 	/**
 	 * Creates a query object and makes it active.
@@ -217,14 +202,10 @@ public final class ARBOcclusionQuery {
 	 */
 	public static void glBeginQueryARB(int target, int id) {
 		long __functionAddress = getInstance().BeginQueryARB;
-		nglBeginQueryARB(target, id, __functionAddress);
+		invokeIIV(__functionAddress, target, id);
 	}
 
 	// --- [ glEndQueryARB ] ---
-
-	/** JNI method for {@link #glEndQueryARB EndQueryARB} */
-	@JavadocExclude
-	public static native void nglEndQueryARB(int target, long __functionAddress);
 
 	/**
 	 * Marks the end of the sequence of commands to be tracked for the active query specified by {@code target}.
@@ -233,20 +214,16 @@ public final class ARBOcclusionQuery {
 	 */
 	public static void glEndQueryARB(int target) {
 		long __functionAddress = getInstance().EndQueryARB;
-		nglEndQueryARB(target, __functionAddress);
+		invokeIV(__functionAddress, target);
 	}
 
 	// --- [ glGetQueryivARB ] ---
-
-	/** JNI method for {@link #glGetQueryivARB GetQueryivARB} */
-	@JavadocExclude
-	public static native void nglGetQueryivARB(int target, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetQueryivARB GetQueryivARB} */
 	@JavadocExclude
 	public static void nglGetQueryivARB(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryivARB;
-		nglGetQueryivARB(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -279,15 +256,11 @@ public final class ARBOcclusionQuery {
 
 	// --- [ glGetQueryObjectivARB ] ---
 
-	/** JNI method for {@link #glGetQueryObjectivARB GetQueryObjectivARB} */
-	@JavadocExclude
-	public static native void nglGetQueryObjectivARB(int id, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetQueryObjectivARB GetQueryObjectivARB} */
 	@JavadocExclude
 	public static void nglGetQueryObjectivARB(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectivARB;
-		nglGetQueryObjectivARB(id, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, id, pname, params);
 	}
 
 	/**
@@ -320,15 +293,11 @@ public final class ARBOcclusionQuery {
 
 	// --- [ glGetQueryObjectuivARB ] ---
 
-	/** JNI method for {@link #glGetQueryObjectuivARB GetQueryObjectuivARB} */
-	@JavadocExclude
-	public static native void nglGetQueryObjectuivARB(int id, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetQueryObjectuivARB GetQueryObjectuivARB} */
 	@JavadocExclude
 	public static void nglGetQueryObjectuivARB(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectuivARB;
-		nglGetQueryObjectuivARB(id, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, id, pname, params);
 	}
 
 	/**

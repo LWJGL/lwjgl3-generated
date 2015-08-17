@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/INTEL/INTEL_framebuffer_CMAA.txt">INTEL_framebuffer_CMAA</a> extension.
@@ -56,17 +57,13 @@ public final class INTELFramebufferCMAA {
 
 	// --- [ glApplyFramebufferAttachmentCMAAINTEL ] ---
 
-	/** JNI method for {@link #glApplyFramebufferAttachmentCMAAINTEL ApplyFramebufferAttachmentCMAAINTEL} */
-	@JavadocExclude
-	public static native void nglApplyFramebufferAttachmentCMAAINTEL(long __functionAddress);
-
 	/**
 	 * Requests the post processing of current draw buffers pertaining to the framebuffer bound to the {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER} target according to the
 	 * Conservative Morphological Anti-Aliasing algorithm.
 	 */
 	public static void glApplyFramebufferAttachmentCMAAINTEL() {
 		long __functionAddress = getInstance().ApplyFramebufferAttachmentCMAAINTEL;
-		nglApplyFramebufferAttachmentCMAAINTEL(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 }

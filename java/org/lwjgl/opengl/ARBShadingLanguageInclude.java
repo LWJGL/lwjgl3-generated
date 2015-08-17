@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
@@ -119,15 +120,11 @@ public final class ARBShadingLanguageInclude {
 
 	// --- [ glNamedStringARB ] ---
 
-	/** JNI method for {@link #glNamedStringARB NamedStringARB} */
-	@JavadocExclude
-	public static native void nglNamedStringARB(int type, int namelen, long name, int stringlen, long string, long __functionAddress);
-
 	/** Unsafe version of {@link #glNamedStringARB NamedStringARB} */
 	@JavadocExclude
 	public static void nglNamedStringARB(int type, int namelen, long name, int stringlen, long string) {
 		long __functionAddress = getInstance().NamedStringARB;
-		nglNamedStringARB(type, namelen, name, stringlen, string, __functionAddress);
+		invokeIIPIPV(__functionAddress, type, namelen, name, stringlen, string);
 	}
 
 	/**
@@ -167,15 +164,11 @@ public final class ARBShadingLanguageInclude {
 
 	// --- [ glDeleteNamedStringARB ] ---
 
-	/** JNI method for {@link #glDeleteNamedStringARB DeleteNamedStringARB} */
-	@JavadocExclude
-	public static native void nglDeleteNamedStringARB(int namelen, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glDeleteNamedStringARB DeleteNamedStringARB} */
 	@JavadocExclude
 	public static void nglDeleteNamedStringARB(int namelen, long name) {
 		long __functionAddress = getInstance().DeleteNamedStringARB;
-		nglDeleteNamedStringARB(namelen, name, __functionAddress);
+		invokeIPV(__functionAddress, namelen, name);
 	}
 
 	/**
@@ -205,15 +198,11 @@ public final class ARBShadingLanguageInclude {
 
 	// --- [ glCompileShaderIncludeARB ] ---
 
-	/** JNI method for {@link #glCompileShaderIncludeARB CompileShaderIncludeARB} */
-	@JavadocExclude
-	public static native void nglCompileShaderIncludeARB(int shader, int count, long path, long length, long __functionAddress);
-
 	/** Unsafe version of {@link #glCompileShaderIncludeARB CompileShaderIncludeARB} */
 	@JavadocExclude
 	public static void nglCompileShaderIncludeARB(int shader, int count, long path, long length) {
 		long __functionAddress = getInstance().CompileShaderIncludeARB;
-		nglCompileShaderIncludeARB(shader, count, path, length, __functionAddress);
+		invokeIIPPV(__functionAddress, shader, count, path, length);
 	}
 
 	/**
@@ -245,15 +234,11 @@ public final class ARBShadingLanguageInclude {
 
 	// --- [ glIsNamedStringARB ] ---
 
-	/** JNI method for {@link #glIsNamedStringARB IsNamedStringARB} */
-	@JavadocExclude
-	public static native boolean nglIsNamedStringARB(int namelen, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glIsNamedStringARB IsNamedStringARB} */
 	@JavadocExclude
 	public static boolean nglIsNamedStringARB(int namelen, long name) {
 		long __functionAddress = getInstance().IsNamedStringARB;
-		return nglIsNamedStringARB(namelen, name, __functionAddress);
+		return invokeIPZ(__functionAddress, namelen, name);
 	}
 
 	/**
@@ -284,15 +269,11 @@ public final class ARBShadingLanguageInclude {
 
 	// --- [ glGetNamedStringARB ] ---
 
-	/** JNI method for {@link #glGetNamedStringARB GetNamedStringARB} */
-	@JavadocExclude
-	public static native void nglGetNamedStringARB(int namelen, long name, int bufSize, long stringlen, long string, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetNamedStringARB GetNamedStringARB} */
 	@JavadocExclude
 	public static void nglGetNamedStringARB(int namelen, long name, int bufSize, long stringlen, long string) {
 		long __functionAddress = getInstance().GetNamedStringARB;
-		nglGetNamedStringARB(namelen, name, bufSize, stringlen, string, __functionAddress);
+		invokeIPIPPV(__functionAddress, namelen, name, bufSize, stringlen, string);
 	}
 
 	/**
@@ -356,15 +337,11 @@ public final class ARBShadingLanguageInclude {
 
 	// --- [ glGetNamedStringivARB ] ---
 
-	/** JNI method for {@link #glGetNamedStringivARB GetNamedStringivARB} */
-	@JavadocExclude
-	public static native void nglGetNamedStringivARB(int namelen, long name, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetNamedStringivARB GetNamedStringivARB} */
 	@JavadocExclude
 	public static void nglGetNamedStringivARB(int namelen, long name, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedStringivARB;
-		nglGetNamedStringivARB(namelen, name, pname, params, __functionAddress);
+		invokeIPIPV(__functionAddress, namelen, name, pname, params);
 	}
 
 	/**

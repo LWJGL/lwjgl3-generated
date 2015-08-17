@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /** Native bindings to GLX 1.2. */
 public final class GLX12 {
@@ -43,14 +44,10 @@ public final class GLX12 {
 
 	// --- [ glXGetCurrentDisplay ] ---
 
-	/** JNI method for {@link #glXGetCurrentDisplay GetCurrentDisplay} */
-	@JavadocExclude
-	public static native long nglXGetCurrentDisplay(long __functionAddress);
-
 	/** Returns the display associated with the current context and drawable. */
 	public static long glXGetCurrentDisplay() {
 		long __functionAddress = getInstance().GetCurrentDisplay;
-		return nglXGetCurrentDisplay(__functionAddress);
+		return invokeP(__functionAddress);
 	}
 
 }

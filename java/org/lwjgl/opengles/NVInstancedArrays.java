@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/NV_instanced_arrays.txt">NV_instanced_arrays</a> extension.
@@ -64,13 +65,9 @@ public final class NVInstancedArrays {
 
 	// --- [ glVertexAttribDivisorNV ] ---
 
-	/** JNI method for {@link #glVertexAttribDivisorNV VertexAttribDivisorNV} */
-	@JavadocExclude
-	public static native void nglVertexAttribDivisorNV(int index, int divisor, long __functionAddress);
-
 	public static void glVertexAttribDivisorNV(int index, int divisor) {
 		long __functionAddress = getInstance().VertexAttribDivisorNV;
-		nglVertexAttribDivisorNV(index, divisor, __functionAddress);
+		invokeIIV(__functionAddress, index, divisor);
 	}
 
 }

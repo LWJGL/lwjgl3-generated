@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -74,10 +75,6 @@ public final class INTELMapTexture {
 
 	// --- [ glSyncTextureINTEL ] ---
 
-	/** JNI method for {@link #glSyncTextureINTEL SyncTextureINTEL} */
-	@JavadocExclude
-	public static native void nglSyncTextureINTEL(int texture, long __functionAddress);
-
 	/**
 	 * Makes sure that changes made by CPU are visible to GPU by flushing texture cache in GPU. The GL implementation tracks the cache usage and ignores the
 	 * command if such flush is not needed.
@@ -90,14 +87,10 @@ public final class INTELMapTexture {
 	 */
 	public static void glSyncTextureINTEL(int texture) {
 		long __functionAddress = getInstance().SyncTextureINTEL;
-		nglSyncTextureINTEL(texture, __functionAddress);
+		invokeIV(__functionAddress, texture);
 	}
 
 	// --- [ glUnmapTexture2DINTEL ] ---
-
-	/** JNI method for {@link #glUnmapTexture2DINTEL UnmapTexture2DINTEL} */
-	@JavadocExclude
-	public static native void nglUnmapTexture2DINTEL(int texture, int level, long __functionAddress);
 
 	/**
 	 * Releases the pointer obtained previously via {@link #glMapTexture2DINTEL MapTexture2DINTEL}. This means that virtual memory space dedicated to make the texture available via a
@@ -109,20 +102,16 @@ public final class INTELMapTexture {
 	 */
 	public static void glUnmapTexture2DINTEL(int texture, int level) {
 		long __functionAddress = getInstance().UnmapTexture2DINTEL;
-		nglUnmapTexture2DINTEL(texture, level, __functionAddress);
+		invokeIIV(__functionAddress, texture, level);
 	}
 
 	// --- [ glMapTexture2DINTEL ] ---
-
-	/** JNI method for {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
-	@JavadocExclude
-	public static native long nglMapTexture2DINTEL(int texture, int level, int access, long stride, long layout, long __functionAddress);
 
 	/** Unsafe version of {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
 	@JavadocExclude
 	public static long nglMapTexture2DINTEL(int texture, int level, int access, long stride, long layout) {
 		long __functionAddress = getInstance().MapTexture2DINTEL;
-		return nglMapTexture2DINTEL(texture, level, access, stride, layout, __functionAddress);
+		return invokeIIIPPP(__functionAddress, texture, level, access, stride, layout);
 	}
 
 	/**

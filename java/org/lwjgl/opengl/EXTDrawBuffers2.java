@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -69,26 +70,18 @@ public final class EXTDrawBuffers2 {
 
 	// --- [ glColorMaskIndexedEXT ] ---
 
-	/** JNI method for {@link #glColorMaskIndexedEXT ColorMaskIndexedEXT} */
-	@JavadocExclude
-	public static native void nglColorMaskIndexedEXT(int index, boolean r, boolean g, boolean b, boolean a, long __functionAddress);
-
 	public static void glColorMaskIndexedEXT(int index, boolean r, boolean g, boolean b, boolean a) {
 		long __functionAddress = getInstance().ColorMaskIndexedEXT;
-		nglColorMaskIndexedEXT(index, r, g, b, a, __functionAddress);
+		invokeIZZZZV(__functionAddress, index, r, g, b, a);
 	}
 
 	// --- [ glGetBooleanIndexedvEXT ] ---
-
-	/** JNI method for {@link #glGetBooleanIndexedvEXT GetBooleanIndexedvEXT} */
-	@JavadocExclude
-	public static native void nglGetBooleanIndexedvEXT(int target, int index, long data, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetBooleanIndexedvEXT GetBooleanIndexedvEXT} */
 	@JavadocExclude
 	public static void nglGetBooleanIndexedvEXT(int target, int index, long data) {
 		long __functionAddress = getInstance().GetBooleanIndexedvEXT;
-		nglGetBooleanIndexedvEXT(target, index, data, __functionAddress);
+		invokeIIPV(__functionAddress, target, index, data);
 	}
 
 	public static void glGetBooleanIndexedvEXT(int target, int index, ByteBuffer data) {
@@ -107,15 +100,11 @@ public final class EXTDrawBuffers2 {
 
 	// --- [ glGetIntegerIndexedvEXT ] ---
 
-	/** JNI method for {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
-	@JavadocExclude
-	public static native void nglGetIntegerIndexedvEXT(int target, int index, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
 	@JavadocExclude
 	public static void nglGetIntegerIndexedvEXT(int target, int index, long data) {
 		long __functionAddress = getInstance().GetIntegerIndexedvEXT;
-		nglGetIntegerIndexedvEXT(target, index, data, __functionAddress);
+		invokeIIPV(__functionAddress, target, index, data);
 	}
 
 	public static void glGetIntegerIndexedvEXT(int target, int index, ByteBuffer data) {
@@ -141,35 +130,23 @@ public final class EXTDrawBuffers2 {
 
 	// --- [ glEnableIndexedEXT ] ---
 
-	/** JNI method for {@link #glEnableIndexedEXT EnableIndexedEXT} */
-	@JavadocExclude
-	public static native void nglEnableIndexedEXT(int target, int index, long __functionAddress);
-
 	public static void glEnableIndexedEXT(int target, int index) {
 		long __functionAddress = getInstance().EnableIndexedEXT;
-		nglEnableIndexedEXT(target, index, __functionAddress);
+		invokeIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glDisableIndexedEXT ] ---
 
-	/** JNI method for {@link #glDisableIndexedEXT DisableIndexedEXT} */
-	@JavadocExclude
-	public static native void nglDisableIndexedEXT(int target, int index, long __functionAddress);
-
 	public static void glDisableIndexedEXT(int target, int index) {
 		long __functionAddress = getInstance().DisableIndexedEXT;
-		nglDisableIndexedEXT(target, index, __functionAddress);
+		invokeIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glIsEnabledIndexedEXT ] ---
 
-	/** JNI method for {@link #glIsEnabledIndexedEXT IsEnabledIndexedEXT} */
-	@JavadocExclude
-	public static native boolean nglIsEnabledIndexedEXT(int target, int index, long __functionAddress);
-
 	public static boolean glIsEnabledIndexedEXT(int target, int index) {
 		long __functionAddress = getInstance().IsEnabledIndexedEXT;
-		return nglIsEnabledIndexedEXT(target, index, __functionAddress);
+		return invokeIIZ(__functionAddress, target, index);
 	}
 
 }

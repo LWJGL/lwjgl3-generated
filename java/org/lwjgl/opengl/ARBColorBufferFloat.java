@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/color_buffer_float.txt">ARB_color_buffer_float</a> extension.
@@ -76,10 +77,6 @@ public final class ARBColorBufferFloat {
 
 	// --- [ glClampColorARB ] ---
 
-	/** JNI method for {@link #glClampColorARB ClampColorARB} */
-	@JavadocExclude
-	public static native void nglClampColorARB(int target, int clamp, long __functionAddress);
-
 	/**
 	 * Controls color clamping.
 	 *
@@ -88,7 +85,7 @@ public final class ARBColorBufferFloat {
 	 */
 	public static void glClampColorARB(int target, int clamp) {
 		long __functionAddress = getInstance().ClampColorARB;
-		nglClampColorARB(target, clamp, __functionAddress);
+		invokeIIV(__functionAddress, target, clamp);
 	}
 
 }

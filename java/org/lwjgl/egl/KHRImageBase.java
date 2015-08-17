@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -51,10 +52,6 @@ public final class KHRImageBase {
 
 	// --- [ eglCreateImageKHR ] ---
 
-	/** JNI method for {@link #eglCreateImageKHR CreateImageKHR} */
-	@JavadocExclude
-	public static native long neglCreateImageKHR(long dpy, long ctx, int target, long buffer, long attrib_list, long __functionAddress);
-
 	/** Unsafe version of {@link #eglCreateImageKHR CreateImageKHR} */
 	@JavadocExclude
 	public static long neglCreateImageKHR(long dpy, long ctx, int target, long buffer, long attrib_list) {
@@ -64,7 +61,7 @@ public final class KHRImageBase {
 			checkPointer(ctx);
 			checkPointer(buffer);
 		}
-		return neglCreateImageKHR(dpy, ctx, target, buffer, attrib_list, __functionAddress);
+		return invokePPIPPP(__functionAddress, dpy, ctx, target, buffer, attrib_list);
 	}
 
 	public static long eglCreateImageKHR(long dpy, long ctx, int target, long buffer, ByteBuffer attrib_list) {
@@ -82,17 +79,13 @@ public final class KHRImageBase {
 
 	// --- [ eglDestroyImageKHR ] ---
 
-	/** JNI method for {@link #eglDestroyImageKHR DestroyImageKHR} */
-	@JavadocExclude
-	public static native boolean neglDestroyImageKHR(long dpy, long image, long __functionAddress);
-
 	public static boolean eglDestroyImageKHR(long dpy, long image) {
 		long __functionAddress = getInstance().DestroyImageKHR;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(image);
 		}
-		return neglDestroyImageKHR(dpy, image, __functionAddress);
+		return invokePPZ(__functionAddress, dpy, image);
 	}
 
 }

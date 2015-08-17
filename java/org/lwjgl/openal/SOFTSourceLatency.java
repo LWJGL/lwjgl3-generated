@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -91,10 +92,6 @@ public final class SOFTSourceLatency {
 
 	// --- [ alSourcedSOFT ] ---
 
-	/** JNI method for {@link #alSourcedSOFT SourcedSOFT} */
-	@JavadocExclude
-	public static native void nalSourcedSOFT(int source, int param, double value, long __functionAddress);
-
 	/**
 	 * Sets the double value of a source parameter.
 	 *
@@ -104,14 +101,10 @@ public final class SOFTSourceLatency {
 	 */
 	public static void alSourcedSOFT(int source, int param, double value) {
 		long __functionAddress = getInstance().SourcedSOFT;
-		nalSourcedSOFT(source, param, value, __functionAddress);
+		invokeIIDV(__functionAddress, source, param, value);
 	}
 
 	// --- [ alSource3dSOFT ] ---
-
-	/** JNI method for {@link #alSource3dSOFT Source3dSOFT} */
-	@JavadocExclude
-	public static native void nalSource3dSOFT(int source, int param, double value1, double value2, double value3, long __functionAddress);
 
 	/**
 	 * Sets the 3 dimensional double values of a source parameter.
@@ -124,20 +117,16 @@ public final class SOFTSourceLatency {
 	 */
 	public static void alSource3dSOFT(int source, int param, double value1, double value2, double value3) {
 		long __functionAddress = getInstance().Source3dSOFT;
-		nalSource3dSOFT(source, param, value1, value2, value3, __functionAddress);
+		invokeIIDDDV(__functionAddress, source, param, value1, value2, value3);
 	}
 
 	// --- [ alSourcedvSOFT ] ---
-
-	/** JNI method for {@link #alSourcedvSOFT SourcedvSOFT} */
-	@JavadocExclude
-	public static native void nalSourcedvSOFT(int source, int param, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #alSourcedvSOFT SourcedvSOFT} */
 	@JavadocExclude
 	public static void nalSourcedvSOFT(int source, int param, long value) {
 		long __functionAddress = getInstance().SourcedvSOFT;
-		nalSourcedvSOFT(source, param, value, __functionAddress);
+		invokeIIPV(__functionAddress, source, param, value);
 	}
 
 	/**
@@ -158,15 +147,11 @@ public final class SOFTSourceLatency {
 
 	// --- [ alGetSourcedSOFT ] ---
 
-	/** JNI method for {@link #alGetSourcedSOFT GetSourcedSOFT} */
-	@JavadocExclude
-	public static native void nalGetSourcedSOFT(int source, int param, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetSourcedSOFT GetSourcedSOFT} */
 	@JavadocExclude
 	public static void nalGetSourcedSOFT(int source, int param, long value) {
 		long __functionAddress = getInstance().GetSourcedSOFT;
-		nalGetSourcedSOFT(source, param, value, __functionAddress);
+		invokeIIPV(__functionAddress, source, param, value);
 	}
 
 	/**
@@ -187,15 +172,11 @@ public final class SOFTSourceLatency {
 
 	// --- [ alGetSource3dSOFT ] ---
 
-	/** JNI method for {@link #alGetSource3dSOFT GetSource3dSOFT} */
-	@JavadocExclude
-	public static native void nalGetSource3dSOFT(int source, int param, long value1, long value2, long value3, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetSource3dSOFT GetSource3dSOFT} */
 	@JavadocExclude
 	public static void nalGetSource3dSOFT(int source, int param, long value1, long value2, long value3) {
 		long __functionAddress = getInstance().GetSource3dSOFT;
-		nalGetSource3dSOFT(source, param, value1, value2, value3, __functionAddress);
+		invokeIIPPPV(__functionAddress, source, param, value1, value2, value3);
 	}
 
 	/**
@@ -218,15 +199,11 @@ public final class SOFTSourceLatency {
 
 	// --- [ alGetSourcedvSOFT ] ---
 
-	/** JNI method for {@link #alGetSourcedvSOFT GetSourcedvSOFT} */
-	@JavadocExclude
-	public static native void nalGetSourcedvSOFT(int source, int param, long values, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetSourcedvSOFT GetSourcedvSOFT} */
 	@JavadocExclude
 	public static void nalGetSourcedvSOFT(int source, int param, long values) {
 		long __functionAddress = getInstance().GetSourcedvSOFT;
-		nalGetSourcedvSOFT(source, param, values, __functionAddress);
+		invokeIIPV(__functionAddress, source, param, values);
 	}
 
 	/**
@@ -247,10 +224,6 @@ public final class SOFTSourceLatency {
 
 	// --- [ alSourcei64SOFT ] ---
 
-	/** JNI method for {@link #alSourcei64SOFT Sourcei64SOFT} */
-	@JavadocExclude
-	public static native void nalSourcei64SOFT(int source, int param, long value, long __functionAddress);
-
 	/**
 	 * Sets the 64 bit integer value of a source parameter.
 	 *
@@ -260,14 +233,10 @@ public final class SOFTSourceLatency {
 	 */
 	public static void alSourcei64SOFT(int source, int param, long value) {
 		long __functionAddress = getInstance().Sourcei64SOFT;
-		nalSourcei64SOFT(source, param, value, __functionAddress);
+		invokeIIJV(__functionAddress, source, param, value);
 	}
 
 	// --- [ alSource3i64SOFT ] ---
-
-	/** JNI method for {@link #alSource3i64SOFT Source3i64SOFT} */
-	@JavadocExclude
-	public static native void nalSource3i64SOFT(int source, int param, long value1, long value2, long value3, long __functionAddress);
 
 	/**
 	 * Sets the 3 dimensional 64 bit integer values of a source parameter.
@@ -280,20 +249,16 @@ public final class SOFTSourceLatency {
 	 */
 	public static void alSource3i64SOFT(int source, int param, long value1, long value2, long value3) {
 		long __functionAddress = getInstance().Source3i64SOFT;
-		nalSource3i64SOFT(source, param, value1, value2, value3, __functionAddress);
+		invokeIIJJJV(__functionAddress, source, param, value1, value2, value3);
 	}
 
 	// --- [ alSourcei64vSOFT ] ---
-
-	/** JNI method for {@link #alSourcei64vSOFT Sourcei64vSOFT} */
-	@JavadocExclude
-	public static native void nalSourcei64vSOFT(int source, int param, long values, long __functionAddress);
 
 	/** Unsafe version of {@link #alSourcei64vSOFT Sourcei64vSOFT} */
 	@JavadocExclude
 	public static void nalSourcei64vSOFT(int source, int param, long values) {
 		long __functionAddress = getInstance().Sourcei64vSOFT;
-		nalSourcei64vSOFT(source, param, values, __functionAddress);
+		invokeIIPV(__functionAddress, source, param, values);
 	}
 
 	/**
@@ -314,15 +279,11 @@ public final class SOFTSourceLatency {
 
 	// --- [ alGetSourcei64SOFT ] ---
 
-	/** JNI method for {@link #alGetSourcei64SOFT GetSourcei64SOFT} */
-	@JavadocExclude
-	public static native void nalGetSourcei64SOFT(int source, int param, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetSourcei64SOFT GetSourcei64SOFT} */
 	@JavadocExclude
 	public static void nalGetSourcei64SOFT(int source, int param, long value) {
 		long __functionAddress = getInstance().GetSourcei64SOFT;
-		nalGetSourcei64SOFT(source, param, value, __functionAddress);
+		invokeIIPV(__functionAddress, source, param, value);
 	}
 
 	/**
@@ -343,15 +304,11 @@ public final class SOFTSourceLatency {
 
 	// --- [ alGetSource3i64SOFT ] ---
 
-	/** JNI method for {@link #alGetSource3i64SOFT GetSource3i64SOFT} */
-	@JavadocExclude
-	public static native void nalGetSource3i64SOFT(int source, int param, long value1, long value2, long value3, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetSource3i64SOFT GetSource3i64SOFT} */
 	@JavadocExclude
 	public static void nalGetSource3i64SOFT(int source, int param, long value1, long value2, long value3) {
 		long __functionAddress = getInstance().GetSource3i64SOFT;
-		nalGetSource3i64SOFT(source, param, value1, value2, value3, __functionAddress);
+		invokeIIPPPV(__functionAddress, source, param, value1, value2, value3);
 	}
 
 	/**
@@ -374,15 +331,11 @@ public final class SOFTSourceLatency {
 
 	// --- [ alGetSourcei64vSOFT ] ---
 
-	/** JNI method for {@link #alGetSourcei64vSOFT GetSourcei64vSOFT} */
-	@JavadocExclude
-	public static native void nalGetSourcei64vSOFT(int source, int param, long values, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetSourcei64vSOFT GetSourcei64vSOFT} */
 	@JavadocExclude
 	public static void nalGetSourcei64vSOFT(int source, int param, long values) {
 		long __functionAddress = getInstance().GetSourcei64vSOFT;
-		nalGetSourcei64vSOFT(source, param, values, __functionAddress);
+		invokeIIPV(__functionAddress, source, param, values);
 	}
 
 	/**

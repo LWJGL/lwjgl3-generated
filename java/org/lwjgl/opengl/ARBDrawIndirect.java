@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -78,7 +79,7 @@ public final class ARBDrawIndirect {
 	@JavadocExclude
 	public static void nglDrawArraysIndirect(int mode, long indirect) {
 		long __functionAddress = getInstance().DrawArraysIndirect;
-		GL40.nglDrawArraysIndirect(mode, indirect, __functionAddress);
+		invokeIPV(__functionAddress, mode, indirect);
 	}
 
 	/**
@@ -107,14 +108,14 @@ public final class ARBDrawIndirect {
 			checkBuffer(indirect, 4 * 4);
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
-		nglDrawArraysIndirect(mode, memAddress(indirect));
+		GL40.nglDrawArraysIndirect(mode, memAddress(indirect));
 	}
 
 	/** Buffer object offset version of: {@link #glDrawArraysIndirect DrawArraysIndirect} */
 	public static void glDrawArraysIndirect(int mode, long indirectOffset) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
-		nglDrawArraysIndirect(mode, indirectOffset);
+		GL40.nglDrawArraysIndirect(mode, indirectOffset);
 	}
 
 	/** IntBuffer version of: {@link #glDrawArraysIndirect DrawArraysIndirect} */
@@ -123,7 +124,7 @@ public final class ARBDrawIndirect {
 			checkBuffer(indirect, (4 * 4) >> 2);
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
-		nglDrawArraysIndirect(mode, memAddress(indirect));
+		GL40.nglDrawArraysIndirect(mode, memAddress(indirect));
 	}
 
 	// --- [ glDrawElementsIndirect ] ---
@@ -132,7 +133,7 @@ public final class ARBDrawIndirect {
 	@JavadocExclude
 	public static void nglDrawElementsIndirect(int mode, int type, long indirect) {
 		long __functionAddress = getInstance().DrawElementsIndirect;
-		GL40.nglDrawElementsIndirect(mode, type, indirect, __functionAddress);
+		invokeIIPV(__functionAddress, mode, type, indirect);
 	}
 
 	/**
@@ -175,14 +176,14 @@ public final class ARBDrawIndirect {
 			checkBuffer(indirect, 5 * 4);
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
-		nglDrawElementsIndirect(mode, type, memAddress(indirect));
+		GL40.nglDrawElementsIndirect(mode, type, memAddress(indirect));
 	}
 
 	/** Buffer object offset version of: {@link #glDrawElementsIndirect DrawElementsIndirect} */
 	public static void glDrawElementsIndirect(int mode, int type, long indirectOffset) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
-		nglDrawElementsIndirect(mode, type, indirectOffset);
+		GL40.nglDrawElementsIndirect(mode, type, indirectOffset);
 	}
 
 	/** IntBuffer version of: {@link #glDrawElementsIndirect DrawElementsIndirect} */
@@ -191,7 +192,7 @@ public final class ARBDrawIndirect {
 			checkBuffer(indirect, (5 * 4) >> 2);
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
-		nglDrawElementsIndirect(mode, type, memAddress(indirect));
+		GL40.nglDrawElementsIndirect(mode, type, memAddress(indirect));
 	}
 
 }

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -87,26 +88,18 @@ public final class NVTransformFeedback2 {
 
 	// --- [ glBindTransformFeedbackNV ] ---
 
-	/** JNI method for {@link #glBindTransformFeedbackNV BindTransformFeedbackNV} */
-	@JavadocExclude
-	public static native void nglBindTransformFeedbackNV(int target, int id, long __functionAddress);
-
 	public static void glBindTransformFeedbackNV(int target, int id) {
 		long __functionAddress = getInstance().BindTransformFeedbackNV;
-		nglBindTransformFeedbackNV(target, id, __functionAddress);
+		invokeIIV(__functionAddress, target, id);
 	}
 
 	// --- [ glDeleteTransformFeedbacksNV ] ---
-
-	/** JNI method for {@link #glDeleteTransformFeedbacksNV DeleteTransformFeedbacksNV} */
-	@JavadocExclude
-	public static native void nglDeleteTransformFeedbacksNV(int n, long ids, long __functionAddress);
 
 	/** Unsafe version of {@link #glDeleteTransformFeedbacksNV DeleteTransformFeedbacksNV} */
 	@JavadocExclude
 	public static void nglDeleteTransformFeedbacksNV(int n, long ids) {
 		long __functionAddress = getInstance().DeleteTransformFeedbacksNV;
-		nglDeleteTransformFeedbacksNV(n, ids, __functionAddress);
+		invokeIPV(__functionAddress, n, ids);
 	}
 
 	public static void glDeleteTransformFeedbacksNV(int n, ByteBuffer ids) {
@@ -129,15 +122,11 @@ public final class NVTransformFeedback2 {
 
 	// --- [ glGenTransformFeedbacksNV ] ---
 
-	/** JNI method for {@link #glGenTransformFeedbacksNV GenTransformFeedbacksNV} */
-	@JavadocExclude
-	public static native void nglGenTransformFeedbacksNV(int n, long ids, long __functionAddress);
-
 	/** Unsafe version of {@link #glGenTransformFeedbacksNV GenTransformFeedbacksNV} */
 	@JavadocExclude
 	public static void nglGenTransformFeedbacksNV(int n, long ids) {
 		long __functionAddress = getInstance().GenTransformFeedbacksNV;
-		nglGenTransformFeedbacksNV(n, ids, __functionAddress);
+		invokeIPV(__functionAddress, n, ids);
 	}
 
 	public static void glGenTransformFeedbacksNV(int n, ByteBuffer ids) {
@@ -165,46 +154,30 @@ public final class NVTransformFeedback2 {
 
 	// --- [ glIsTransformFeedbackNV ] ---
 
-	/** JNI method for {@link #glIsTransformFeedbackNV IsTransformFeedbackNV} */
-	@JavadocExclude
-	public static native boolean nglIsTransformFeedbackNV(int id, long __functionAddress);
-
 	public static boolean glIsTransformFeedbackNV(int id) {
 		long __functionAddress = getInstance().IsTransformFeedbackNV;
-		return nglIsTransformFeedbackNV(id, __functionAddress);
+		return invokeIZ(__functionAddress, id);
 	}
 
 	// --- [ glPauseTransformFeedbackNV ] ---
 
-	/** JNI method for {@link #glPauseTransformFeedbackNV PauseTransformFeedbackNV} */
-	@JavadocExclude
-	public static native void nglPauseTransformFeedbackNV(long __functionAddress);
-
 	public static void glPauseTransformFeedbackNV() {
 		long __functionAddress = getInstance().PauseTransformFeedbackNV;
-		nglPauseTransformFeedbackNV(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glResumeTransformFeedbackNV ] ---
 
-	/** JNI method for {@link #glResumeTransformFeedbackNV ResumeTransformFeedbackNV} */
-	@JavadocExclude
-	public static native void nglResumeTransformFeedbackNV(long __functionAddress);
-
 	public static void glResumeTransformFeedbackNV() {
 		long __functionAddress = getInstance().ResumeTransformFeedbackNV;
-		nglResumeTransformFeedbackNV(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glDrawTransformFeedbackNV ] ---
 
-	/** JNI method for {@link #glDrawTransformFeedbackNV DrawTransformFeedbackNV} */
-	@JavadocExclude
-	public static native void nglDrawTransformFeedbackNV(int mode, int id, long __functionAddress);
-
 	public static void glDrawTransformFeedbackNV(int mode, int id) {
 		long __functionAddress = getInstance().DrawTransformFeedbackNV;
-		nglDrawTransformFeedbackNV(mode, id, __functionAddress);
+		invokeIIV(__functionAddress, mode, id);
 	}
 
 }

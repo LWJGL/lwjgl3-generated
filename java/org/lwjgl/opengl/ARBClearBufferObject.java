@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -70,7 +71,7 @@ public final class ARBClearBufferObject {
 	@JavadocExclude
 	public static void nglClearBufferData(int target, int internalformat, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearBufferData;
-		GL43.nglClearBufferData(target, internalformat, format, type, data, __functionAddress);
+		invokeIIIIPV(__functionAddress, target, internalformat, format, type, data);
 	}
 
 	/**
@@ -86,22 +87,22 @@ public final class ARBClearBufferObject {
 	 *                       If data is {@code NULL}, then it is ignored and the sub-range of the buffer is filled with zeros.
 	 */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, ByteBuffer data) {
-		nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
+		GL43.nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
 	}
 
 	/** ShortBuffer version of: {@link #glClearBufferData ClearBufferData} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, ShortBuffer data) {
-		nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
+		GL43.nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
 	}
 
 	/** IntBuffer version of: {@link #glClearBufferData ClearBufferData} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, IntBuffer data) {
-		nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
+		GL43.nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
 	}
 
 	/** FloatBuffer version of: {@link #glClearBufferData ClearBufferData} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, FloatBuffer data) {
-		nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
+		GL43.nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
 	}
 
 	// --- [ glClearBufferSubData ] ---
@@ -110,7 +111,7 @@ public final class ARBClearBufferObject {
 	@JavadocExclude
 	public static void nglClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearBufferSubData;
-		GL43.nglClearBufferSubData(target, internalformat, offset, size, format, type, data, __functionAddress);
+		invokeIIPPIIPV(__functionAddress, target, internalformat, offset, size, format, type, data);
 	}
 
 	/**
@@ -128,29 +129,25 @@ public final class ARBClearBufferObject {
 	 *                       If data is {@code NULL}, then it is ignored and the sub-range of the buffer is filled with zeros.
 	 */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, ByteBuffer data) {
-		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
+		GL43.nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
 	}
 
 	/** ShortBuffer version of: {@link #glClearBufferSubData ClearBufferSubData} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, ShortBuffer data) {
-		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
+		GL43.nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
 	}
 
 	/** IntBuffer version of: {@link #glClearBufferSubData ClearBufferSubData} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, IntBuffer data) {
-		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
+		GL43.nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
 	}
 
 	/** FloatBuffer version of: {@link #glClearBufferSubData ClearBufferSubData} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, FloatBuffer data) {
-		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
+		GL43.nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
 	}
 
 	// --- [ glClearNamedBufferDataEXT ] ---
-
-	/** JNI method for {@link #glClearNamedBufferDataEXT ClearNamedBufferDataEXT} */
-	@JavadocExclude
-	public static native void nglClearNamedBufferDataEXT(int buffer, int internalformat, int format, int type, long data, long __functionAddress);
 
 	/** Unsafe version of {@link #glClearNamedBufferDataEXT ClearNamedBufferDataEXT} */
 	@JavadocExclude
@@ -158,7 +155,7 @@ public final class ARBClearBufferObject {
 		long __functionAddress = getInstance().ClearNamedBufferDataEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglClearNamedBufferDataEXT(buffer, internalformat, format, type, data, __functionAddress);
+		invokeIIIIPV(__functionAddress, buffer, internalformat, format, type, data);
 	}
 
 	/**
@@ -194,17 +191,13 @@ public final class ARBClearBufferObject {
 
 	// --- [ glClearNamedBufferSubDataEXT ] ---
 
-	/** JNI method for {@link #glClearNamedBufferSubDataEXT ClearNamedBufferSubDataEXT} */
-	@JavadocExclude
-	public static native void nglClearNamedBufferSubDataEXT(int buffer, int internalformat, long offset, long size, int format, int type, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glClearNamedBufferSubDataEXT ClearNamedBufferSubDataEXT} */
 	@JavadocExclude
 	public static void nglClearNamedBufferSubDataEXT(int buffer, int internalformat, long offset, long size, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearNamedBufferSubDataEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglClearNamedBufferSubDataEXT(buffer, internalformat, offset, size, format, type, data, __functionAddress);
+		invokeIIPPIIPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
 	}
 
 	/**

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -79,7 +80,7 @@ public final class ARBMapBufferRange {
 	@JavadocExclude
 	public static long nglMapBufferRange(int target, long offset, long length, int access) {
 		long __functionAddress = getInstance().MapBufferRange;
-		return GL30.nglMapBufferRange(target, offset, length, access, __functionAddress);
+		return invokeIPPIP(__functionAddress, target, offset, length, access);
 	}
 
 	/**
@@ -97,13 +98,13 @@ public final class ARBMapBufferRange {
 	 * @param access a combination of access flags indicating the desired access to the range. One or more of:<br>{@link #GL_MAP_READ_BIT MAP_READ_BIT}, {@link #GL_MAP_WRITE_BIT MAP_WRITE_BIT}, {@link #GL_MAP_INVALIDATE_RANGE_BIT MAP_INVALIDATE_RANGE_BIT}, {@link #GL_MAP_INVALIDATE_BUFFER_BIT MAP_INVALIDATE_BUFFER_BIT}, {@link #GL_MAP_FLUSH_EXPLICIT_BIT MAP_FLUSH_EXPLICIT_BIT}, {@link #GL_MAP_UNSYNCHRONIZED_BIT MAP_UNSYNCHRONIZED_BIT}
 	 */
 	public static ByteBuffer glMapBufferRange(int target, long offset, long length, int access) {
-		long __result = nglMapBufferRange(target, offset, length, access);
+		long __result = GL30.nglMapBufferRange(target, offset, length, access);
 		return memByteBuffer(__result, (int)length);
 	}
 
 	/** Alternative version of: {@link #glMapBufferRange MapBufferRange} */
 	public static ByteBuffer glMapBufferRange(int target, long offset, long length, int access, ByteBuffer old_buffer) {
-		long __result = nglMapBufferRange(target, offset, length, access);
+		long __result = GL30.nglMapBufferRange(target, offset, length, access);
 		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
 	}
 
@@ -118,7 +119,7 @@ public final class ARBMapBufferRange {
 	 */
 	public static void glFlushMappedBufferRange(int target, long offset, long length) {
 		long __functionAddress = getInstance().FlushMappedBufferRange;
-		GL30.nglFlushMappedBufferRange(target, offset, length, __functionAddress);
+		invokeIPPV(__functionAddress, target, offset, length);
 	}
 
 }

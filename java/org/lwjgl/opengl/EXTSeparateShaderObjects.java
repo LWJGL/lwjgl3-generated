@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -89,37 +90,25 @@ public final class EXTSeparateShaderObjects {
 
 	// --- [ glUseShaderProgramEXT ] ---
 
-	/** JNI method for {@link #glUseShaderProgramEXT UseShaderProgramEXT} */
-	@JavadocExclude
-	public static native void nglUseShaderProgramEXT(int type, int program, long __functionAddress);
-
 	public static void glUseShaderProgramEXT(int type, int program) {
 		long __functionAddress = getInstance().UseShaderProgramEXT;
-		nglUseShaderProgramEXT(type, program, __functionAddress);
+		invokeIIV(__functionAddress, type, program);
 	}
 
 	// --- [ glActiveProgramEXT ] ---
 
-	/** JNI method for {@link #glActiveProgramEXT ActiveProgramEXT} */
-	@JavadocExclude
-	public static native void nglActiveProgramEXT(int program, long __functionAddress);
-
 	public static void glActiveProgramEXT(int program) {
 		long __functionAddress = getInstance().ActiveProgramEXT;
-		nglActiveProgramEXT(program, __functionAddress);
+		invokeIV(__functionAddress, program);
 	}
 
 	// --- [ glCreateShaderProgramEXT ] ---
-
-	/** JNI method for {@link #glCreateShaderProgramEXT CreateShaderProgramEXT} */
-	@JavadocExclude
-	public static native int nglCreateShaderProgramEXT(int type, long string, long __functionAddress);
 
 	/** Unsafe version of {@link #glCreateShaderProgramEXT CreateShaderProgramEXT} */
 	@JavadocExclude
 	public static int nglCreateShaderProgramEXT(int type, long string) {
 		long __functionAddress = getInstance().CreateShaderProgramEXT;
-		return nglCreateShaderProgramEXT(type, string, __functionAddress);
+		return invokeIPI(__functionAddress, type, string);
 	}
 
 	public static int glCreateShaderProgramEXT(int type, ByteBuffer string) {

@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/blend_color.txt">EXT_blend_color</a> extension.
@@ -60,13 +61,9 @@ public final class EXTBlendColor {
 
 	// --- [ glBlendColorEXT ] ---
 
-	/** JNI method for {@link #glBlendColorEXT BlendColorEXT} */
-	@JavadocExclude
-	public static native void nglBlendColorEXT(float red, float green, float blue, float alpha, long __functionAddress);
-
 	public static void glBlendColorEXT(float red, float green, float blue, float alpha) {
 		long __functionAddress = getInstance().BlendColorEXT;
-		nglBlendColorEXT(red, green, blue, alpha, __functionAddress);
+		invokeFFFFV(__functionAddress, red, green, blue, alpha);
 	}
 
 }

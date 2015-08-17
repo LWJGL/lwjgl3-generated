@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/provoking_vertex.txt">EXT_provoking_vertex</a> extension.
@@ -73,13 +74,9 @@ public final class EXTProvokingVertex {
 
 	// --- [ glProvokingVertexEXT ] ---
 
-	/** JNI method for {@link #glProvokingVertexEXT ProvokingVertexEXT} */
-	@JavadocExclude
-	public static native void nglProvokingVertexEXT(int mode, long __functionAddress);
-
 	public static void glProvokingVertexEXT(int mode) {
 		long __functionAddress = getInstance().ProvokingVertexEXT;
-		nglProvokingVertexEXT(mode, __functionAddress);
+		invokeIV(__functionAddress, mode);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -94,15 +95,11 @@ public final class NVViewportArray {
 
 	// --- [ glViewportArrayvNV ] ---
 
-	/** JNI method for {@link #glViewportArrayvNV ViewportArrayvNV} */
-	@JavadocExclude
-	public static native void nglViewportArrayvNV(int first, int count, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glViewportArrayvNV ViewportArrayvNV} */
 	@JavadocExclude
 	public static void nglViewportArrayvNV(int first, int count, long v) {
 		long __functionAddress = getInstance().ViewportArrayvNV;
-		nglViewportArrayvNV(first, count, v, __functionAddress);
+		invokeIIPV(__functionAddress, first, count, v);
 	}
 
 	public static void glViewportArrayvNV(int first, int count, ByteBuffer v) {
@@ -118,26 +115,18 @@ public final class NVViewportArray {
 
 	// --- [ glViewportIndexedfNV ] ---
 
-	/** JNI method for {@link #glViewportIndexedfNV ViewportIndexedfNV} */
-	@JavadocExclude
-	public static native void nglViewportIndexedfNV(int index, float x, float y, float w, float h, long __functionAddress);
-
 	public static void glViewportIndexedfNV(int index, float x, float y, float w, float h) {
 		long __functionAddress = getInstance().ViewportIndexedfNV;
-		nglViewportIndexedfNV(index, x, y, w, h, __functionAddress);
+		invokeIFFFFV(__functionAddress, index, x, y, w, h);
 	}
 
 	// --- [ glViewportIndexedfvNV ] ---
-
-	/** JNI method for {@link #glViewportIndexedfvNV ViewportIndexedfvNV} */
-	@JavadocExclude
-	public static native void nglViewportIndexedfvNV(int index, long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glViewportIndexedfvNV ViewportIndexedfvNV} */
 	@JavadocExclude
 	public static void nglViewportIndexedfvNV(int index, long v) {
 		long __functionAddress = getInstance().ViewportIndexedfvNV;
-		nglViewportIndexedfvNV(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	public static void glViewportIndexedfvNV(int index, ByteBuffer v) {
@@ -155,15 +144,11 @@ public final class NVViewportArray {
 
 	// --- [ glScissorArrayvNV ] ---
 
-	/** JNI method for {@link #glScissorArrayvNV ScissorArrayvNV} */
-	@JavadocExclude
-	public static native void nglScissorArrayvNV(int first, int count, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glScissorArrayvNV ScissorArrayvNV} */
 	@JavadocExclude
 	public static void nglScissorArrayvNV(int first, int count, long v) {
 		long __functionAddress = getInstance().ScissorArrayvNV;
-		nglScissorArrayvNV(first, count, v, __functionAddress);
+		invokeIIPV(__functionAddress, first, count, v);
 	}
 
 	public static void glScissorArrayvNV(int first, int count, ByteBuffer v) {
@@ -179,26 +164,18 @@ public final class NVViewportArray {
 
 	// --- [ glScissorIndexedNV ] ---
 
-	/** JNI method for {@link #glScissorIndexedNV ScissorIndexedNV} */
-	@JavadocExclude
-	public static native void nglScissorIndexedNV(int index, int left, int bottom, int width, int height, long __functionAddress);
-
 	public static void glScissorIndexedNV(int index, int left, int bottom, int width, int height) {
 		long __functionAddress = getInstance().ScissorIndexedNV;
-		nglScissorIndexedNV(index, left, bottom, width, height, __functionAddress);
+		invokeIIIIIV(__functionAddress, index, left, bottom, width, height);
 	}
 
 	// --- [ glScissorIndexedvNV ] ---
-
-	/** JNI method for {@link #glScissorIndexedvNV ScissorIndexedvNV} */
-	@JavadocExclude
-	public static native void nglScissorIndexedvNV(int index, long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glScissorIndexedvNV ScissorIndexedvNV} */
 	@JavadocExclude
 	public static void nglScissorIndexedvNV(int index, long v) {
 		long __functionAddress = getInstance().ScissorIndexedvNV;
-		nglScissorIndexedvNV(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	public static void glScissorIndexedvNV(int index, ByteBuffer v) {
@@ -216,15 +193,11 @@ public final class NVViewportArray {
 
 	// --- [ glDepthRangeArrayfvNV ] ---
 
-	/** JNI method for {@link #glDepthRangeArrayfvNV DepthRangeArrayfvNV} */
-	@JavadocExclude
-	public static native void nglDepthRangeArrayfvNV(int first, int count, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glDepthRangeArrayfvNV DepthRangeArrayfvNV} */
 	@JavadocExclude
 	public static void nglDepthRangeArrayfvNV(int first, int count, long v) {
 		long __functionAddress = getInstance().DepthRangeArrayfvNV;
-		nglDepthRangeArrayfvNV(first, count, v, __functionAddress);
+		invokeIIPV(__functionAddress, first, count, v);
 	}
 
 	public static void glDepthRangeArrayfvNV(int first, int count, ByteBuffer v) {
@@ -240,26 +213,18 @@ public final class NVViewportArray {
 
 	// --- [ glDepthRangeIndexedfNV ] ---
 
-	/** JNI method for {@link #glDepthRangeIndexedfNV DepthRangeIndexedfNV} */
-	@JavadocExclude
-	public static native void nglDepthRangeIndexedfNV(int index, float n, float f, long __functionAddress);
-
 	public static void glDepthRangeIndexedfNV(int index, float n, float f) {
 		long __functionAddress = getInstance().DepthRangeIndexedfNV;
-		nglDepthRangeIndexedfNV(index, n, f, __functionAddress);
+		invokeIFFV(__functionAddress, index, n, f);
 	}
 
 	// --- [ glGetFloati_vNV ] ---
-
-	/** JNI method for {@link #glGetFloati_vNV GetFloati_vNV} */
-	@JavadocExclude
-	public static native void nglGetFloati_vNV(int target, int index, long data, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetFloati_vNV GetFloati_vNV} */
 	@JavadocExclude
 	public static void nglGetFloati_vNV(int target, int index, long data) {
 		long __functionAddress = getInstance().GetFloati_vNV;
-		nglGetFloati_vNV(target, index, data, __functionAddress);
+		invokeIIPV(__functionAddress, target, index, data);
 	}
 
 	public static void glGetFloati_vNV(int target, int index, ByteBuffer data) {
@@ -285,35 +250,23 @@ public final class NVViewportArray {
 
 	// --- [ glEnableiNV ] ---
 
-	/** JNI method for {@link #glEnableiNV EnableiNV} */
-	@JavadocExclude
-	public static native void nglEnableiNV(int target, int index, long __functionAddress);
-
 	public static void glEnableiNV(int target, int index) {
 		long __functionAddress = getInstance().EnableiNV;
-		nglEnableiNV(target, index, __functionAddress);
+		invokeIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glDisableiNV ] ---
 
-	/** JNI method for {@link #glDisableiNV DisableiNV} */
-	@JavadocExclude
-	public static native void nglDisableiNV(int target, int index, long __functionAddress);
-
 	public static void glDisableiNV(int target, int index) {
 		long __functionAddress = getInstance().DisableiNV;
-		nglDisableiNV(target, index, __functionAddress);
+		invokeIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glIsEnablediNV ] ---
 
-	/** JNI method for {@link #glIsEnablediNV IsEnablediNV} */
-	@JavadocExclude
-	public static native boolean nglIsEnablediNV(int target, int index, long __functionAddress);
-
 	public static boolean glIsEnablediNV(int target, int index) {
 		long __functionAddress = getInstance().IsEnablediNV;
-		return nglIsEnablediNV(target, index, __functionAddress);
+		return invokeIIZ(__functionAddress, target, index);
 	}
 
 }

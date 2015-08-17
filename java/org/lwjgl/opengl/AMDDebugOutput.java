@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -107,15 +108,11 @@ public final class AMDDebugOutput {
 
 	// --- [ glDebugMessageEnableAMD ] ---
 
-	/** JNI method for {@link #glDebugMessageEnableAMD DebugMessageEnableAMD} */
-	@JavadocExclude
-	public static native void nglDebugMessageEnableAMD(int category, int severity, int count, long ids, boolean enabled, long __functionAddress);
-
 	/** Unsafe version of {@link #glDebugMessageEnableAMD DebugMessageEnableAMD} */
 	@JavadocExclude
 	public static void nglDebugMessageEnableAMD(int category, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = getInstance().DebugMessageEnableAMD;
-		nglDebugMessageEnableAMD(category, severity, count, ids, enabled, __functionAddress);
+		invokeIIIPZV(__functionAddress, category, severity, count, ids, enabled);
 	}
 
 	/**
@@ -165,15 +162,11 @@ public final class AMDDebugOutput {
 
 	// --- [ glDebugMessageInsertAMD ] ---
 
-	/** JNI method for {@link #glDebugMessageInsertAMD DebugMessageInsertAMD} */
-	@JavadocExclude
-	public static native void nglDebugMessageInsertAMD(int category, int severity, int id, int length, long buf, long __functionAddress);
-
 	/** Unsafe version of {@link #glDebugMessageInsertAMD DebugMessageInsertAMD} */
 	@JavadocExclude
 	public static void nglDebugMessageInsertAMD(int category, int severity, int id, int length, long buf) {
 		long __functionAddress = getInstance().DebugMessageInsertAMD;
-		nglDebugMessageInsertAMD(category, severity, id, length, buf, __functionAddress);
+		invokeIIIIPV(__functionAddress, category, severity, id, length, buf);
 	}
 
 	/**
@@ -214,10 +207,6 @@ public final class AMDDebugOutput {
 
 	// --- [ glDebugMessageCallbackAMD ] ---
 
-	/** JNI method for {@link #glDebugMessageCallbackAMD DebugMessageCallbackAMD} */
-	@JavadocExclude
-	public static native void nglDebugMessageCallbackAMD(long callback, long userParam, long __functionAddress);
-
 	/**
 	 * Specifies a callback to receive debugging messages from the GL.
 	 * 
@@ -247,20 +236,16 @@ public final class AMDDebugOutput {
 	 */
 	public static void glDebugMessageCallbackAMD(GLDebugMessageAMDCallback callback, long userParam) {
 		long __functionAddress = getInstance().DebugMessageCallbackAMD;
-		nglDebugMessageCallbackAMD(callback == null ? NULL : callback.getPointer(), userParam, __functionAddress);
+		invokePPV(__functionAddress, callback == null ? NULL : callback.getPointer(), userParam);
 	}
 
 	// --- [ glGetDebugMessageLogAMD ] ---
-
-	/** JNI method for {@link #glGetDebugMessageLogAMD GetDebugMessageLogAMD} */
-	@JavadocExclude
-	public static native int nglGetDebugMessageLogAMD(int count, int bufsize, long categories, long severities, long ids, long lengths, long messageLog, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetDebugMessageLogAMD GetDebugMessageLogAMD} */
 	@JavadocExclude
 	public static int nglGetDebugMessageLogAMD(int count, int bufsize, long categories, long severities, long ids, long lengths, long messageLog) {
 		long __functionAddress = getInstance().GetDebugMessageLogAMD;
-		return nglGetDebugMessageLogAMD(count, bufsize, categories, severities, ids, lengths, messageLog, __functionAddress);
+		return invokeIIPPPPPI(__functionAddress, count, bufsize, categories, severities, ids, lengths, messageLog);
 	}
 
 	/**

@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_texture_buffer.txt">EXT_texture_buffer</a> extension.
@@ -100,24 +101,16 @@ public final class EXTTextureBuffer {
 
 	// --- [ glTexBufferEXT ] ---
 
-	/** JNI method for {@link #glTexBufferEXT TexBufferEXT} */
-	@JavadocExclude
-	public static native void nglTexBufferEXT(int target, int internalformat, int buffer, long __functionAddress);
-
 	public static void glTexBufferEXT(int target, int internalformat, int buffer) {
 		long __functionAddress = getInstance().TexBufferEXT;
-		nglTexBufferEXT(target, internalformat, buffer, __functionAddress);
+		invokeIIIV(__functionAddress, target, internalformat, buffer);
 	}
 
 	// --- [ glTexBufferRangeEXT ] ---
 
-	/** JNI method for {@link #glTexBufferRangeEXT TexBufferRangeEXT} */
-	@JavadocExclude
-	public static native void nglTexBufferRangeEXT(int target, int internalformat, int buffer, long offset, long size, long __functionAddress);
-
 	public static void glTexBufferRangeEXT(int target, int internalformat, int buffer, long offset, long size) {
 		long __functionAddress = getInstance().TexBufferRangeEXT;
-		nglTexBufferRangeEXT(target, internalformat, buffer, offset, size, __functionAddress);
+		invokeIIIPPV(__functionAddress, target, internalformat, buffer, offset, size);
 	}
 
 }

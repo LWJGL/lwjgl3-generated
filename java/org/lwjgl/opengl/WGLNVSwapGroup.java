@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -68,33 +69,21 @@ public final class WGLNVSwapGroup {
 
 	// --- [ wglJoinSwapGroupNV ] ---
 
-	/** JNI method for {@link #wglJoinSwapGroupNV JoinSwapGroupNV} */
-	@JavadocExclude
-	public static native int nwglJoinSwapGroupNV(long hDC, int group, long __functionAddress);
-
 	public static int wglJoinSwapGroupNV(long hDC, int group) {
 		long __functionAddress = getInstance().JoinSwapGroupNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hDC);
-		return nwglJoinSwapGroupNV(hDC, group, __functionAddress);
+		return invokePII(__functionAddress, hDC, group);
 	}
 
 	// --- [ wglBindSwapBarrierNV ] ---
 
-	/** JNI method for {@link #wglBindSwapBarrierNV BindSwapBarrierNV} */
-	@JavadocExclude
-	public static native int nwglBindSwapBarrierNV(int group, int barrier, long __functionAddress);
-
 	public static int wglBindSwapBarrierNV(int group, int barrier) {
 		long __functionAddress = getInstance().BindSwapBarrierNV;
-		return nwglBindSwapBarrierNV(group, barrier, __functionAddress);
+		return invokeIII(__functionAddress, group, barrier);
 	}
 
 	// --- [ wglQuerySwapGroupNV ] ---
-
-	/** JNI method for {@link #wglQuerySwapGroupNV QuerySwapGroupNV} */
-	@JavadocExclude
-	public static native int nwglQuerySwapGroupNV(long hDC, long group, long barrier, long __functionAddress);
 
 	/** Unsafe version of {@link #wglQuerySwapGroupNV QuerySwapGroupNV} */
 	@JavadocExclude
@@ -102,7 +91,7 @@ public final class WGLNVSwapGroup {
 		long __functionAddress = getInstance().QuerySwapGroupNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hDC);
-		return nwglQuerySwapGroupNV(hDC, group, barrier, __functionAddress);
+		return invokePPPI(__functionAddress, hDC, group, barrier);
 	}
 
 	public static int wglQuerySwapGroupNV(long hDC, ByteBuffer group, ByteBuffer barrier) {
@@ -124,17 +113,13 @@ public final class WGLNVSwapGroup {
 
 	// --- [ wglQueryMaxSwapGroupsNV ] ---
 
-	/** JNI method for {@link #wglQueryMaxSwapGroupsNV QueryMaxSwapGroupsNV} */
-	@JavadocExclude
-	public static native int nwglQueryMaxSwapGroupsNV(long hDC, long maxGroups, long maxBarriers, long __functionAddress);
-
 	/** Unsafe version of {@link #wglQueryMaxSwapGroupsNV QueryMaxSwapGroupsNV} */
 	@JavadocExclude
 	public static int nwglQueryMaxSwapGroupsNV(long hDC, long maxGroups, long maxBarriers) {
 		long __functionAddress = getInstance().QueryMaxSwapGroupsNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hDC);
-		return nwglQueryMaxSwapGroupsNV(hDC, maxGroups, maxBarriers, __functionAddress);
+		return invokePPPI(__functionAddress, hDC, maxGroups, maxBarriers);
 	}
 
 	public static int wglQueryMaxSwapGroupsNV(long hDC, ByteBuffer maxGroups, ByteBuffer maxBarriers) {
@@ -156,17 +141,13 @@ public final class WGLNVSwapGroup {
 
 	// --- [ wglQueryFrameCountNV ] ---
 
-	/** JNI method for {@link #wglQueryFrameCountNV QueryFrameCountNV} */
-	@JavadocExclude
-	public static native int nwglQueryFrameCountNV(long hDC, long count, long __functionAddress);
-
 	/** Unsafe version of {@link #wglQueryFrameCountNV QueryFrameCountNV} */
 	@JavadocExclude
 	public static int nwglQueryFrameCountNV(long hDC, long count) {
 		long __functionAddress = getInstance().QueryFrameCountNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hDC);
-		return nwglQueryFrameCountNV(hDC, count, __functionAddress);
+		return invokePPI(__functionAddress, hDC, count);
 	}
 
 	public static int wglQueryFrameCountNV(long hDC, ByteBuffer count) {
@@ -184,15 +165,11 @@ public final class WGLNVSwapGroup {
 
 	// --- [ wglResetFrameCountNV ] ---
 
-	/** JNI method for {@link #wglResetFrameCountNV ResetFrameCountNV} */
-	@JavadocExclude
-	public static native int nwglResetFrameCountNV(long hDC, long __functionAddress);
-
 	public static int wglResetFrameCountNV(long hDC) {
 		long __functionAddress = getInstance().ResetFrameCountNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hDC);
-		return nwglResetFrameCountNV(hDC, __functionAddress);
+		return invokePI(__functionAddress, hDC);
 	}
 
 }

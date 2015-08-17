@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/OES/OES_sample_shading.txt">OES_sample_shading</a> extension.
@@ -66,13 +67,9 @@ public final class OESSampleShading {
 
 	// --- [ glMinSampleShadingOES ] ---
 
-	/** JNI method for {@link #glMinSampleShadingOES MinSampleShadingOES} */
-	@JavadocExclude
-	public static native void nglMinSampleShadingOES(float value, long __functionAddress);
-
 	public static void glMinSampleShadingOES(float value) {
 		long __functionAddress = getInstance().MinSampleShadingOES;
-		nglMinSampleShadingOES(value, __functionAddress);
+		invokeFV(__functionAddress, value);
 	}
 
 }

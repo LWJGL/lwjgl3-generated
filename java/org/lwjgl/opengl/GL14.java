@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -290,10 +291,6 @@ public final class GL14 {
 
 	// --- [ glBlendColor ] ---
 
-	/** JNI method for {@link #glBlendColor BlendColor} */
-	@JavadocExclude
-	public static native void nglBlendColor(float red, float green, float blue, float alpha, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendColor.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -306,14 +303,10 @@ public final class GL14 {
 	 */
 	public static void glBlendColor(float red, float green, float blue, float alpha) {
 		long __functionAddress = getInstance().BlendColor;
-		nglBlendColor(red, green, blue, alpha, __functionAddress);
+		invokeFFFFV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glBlendEquation ] ---
-
-	/** JNI method for {@link #glBlendEquation BlendEquation} */
-	@JavadocExclude
-	public static native void nglBlendEquation(int mode, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquation.xhtml">OpenGL SDK Reference</a></p>
@@ -324,14 +317,10 @@ public final class GL14 {
 	 */
 	public static void glBlendEquation(int mode) {
 		long __functionAddress = getInstance().BlendEquation;
-		nglBlendEquation(mode, __functionAddress);
+		invokeIV(__functionAddress, mode);
 	}
 
 	// --- [ glFogCoordf ] ---
-
-	/** JNI method for {@link #glFogCoordf FogCoordf} */
-	@JavadocExclude
-	public static native void nglFogCoordf(float coord, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoordf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -344,14 +333,10 @@ public final class GL14 {
 		long __functionAddress = getInstance().FogCoordf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglFogCoordf(coord, __functionAddress);
+		invokeFV(__functionAddress, coord);
 	}
 
 	// --- [ glFogCoordd ] ---
-
-	/** JNI method for {@link #glFogCoordd FogCoordd} */
-	@JavadocExclude
-	public static native void nglFogCoordd(double coord, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoordd.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -364,14 +349,10 @@ public final class GL14 {
 		long __functionAddress = getInstance().FogCoordd;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglFogCoordd(coord, __functionAddress);
+		invokeDV(__functionAddress, coord);
 	}
 
 	// --- [ glFogCoordfv ] ---
-
-	/** JNI method for {@link #glFogCoordfv FogCoordfv} */
-	@JavadocExclude
-	public static native void nglFogCoordfv(long coord, long __functionAddress);
 
 	/** Unsafe version of {@link #glFogCoordfv FogCoordfv} */
 	@JavadocExclude
@@ -379,7 +360,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().FogCoordfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglFogCoordfv(coord, __functionAddress);
+		invokePV(__functionAddress, coord);
 	}
 
 	/**
@@ -404,17 +385,13 @@ public final class GL14 {
 
 	// --- [ glFogCoorddv ] ---
 
-	/** JNI method for {@link #glFogCoorddv FogCoorddv} */
-	@JavadocExclude
-	public static native void nglFogCoorddv(long coord, long __functionAddress);
-
 	/** Unsafe version of {@link #glFogCoorddv FogCoorddv} */
 	@JavadocExclude
 	public static void nglFogCoorddv(long coord) {
 		long __functionAddress = getInstance().FogCoorddv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglFogCoorddv(coord, __functionAddress);
+		invokePV(__functionAddress, coord);
 	}
 
 	/**
@@ -439,17 +416,13 @@ public final class GL14 {
 
 	// --- [ glFogCoordPointer ] ---
 
-	/** JNI method for {@link #glFogCoordPointer FogCoordPointer} */
-	@JavadocExclude
-	public static native void nglFogCoordPointer(int type, int stride, long pointer, long __functionAddress);
-
 	/** Unsafe version of {@link #glFogCoordPointer FogCoordPointer} */
 	@JavadocExclude
 	public static void nglFogCoordPointer(int type, int stride, long pointer) {
 		long __functionAddress = getInstance().FogCoordPointer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglFogCoordPointer(type, stride, pointer, __functionAddress);
+		invokeIIPV(__functionAddress, type, stride, pointer);
 	}
 
 	/**
@@ -483,15 +456,11 @@ public final class GL14 {
 
 	// --- [ glMultiDrawArrays ] ---
 
-	/** JNI method for {@link #glMultiDrawArrays MultiDrawArrays} */
-	@JavadocExclude
-	public static native void nglMultiDrawArrays(int mode, long first, long count, int primcount, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiDrawArrays MultiDrawArrays} */
 	@JavadocExclude
 	public static void nglMultiDrawArrays(int mode, long first, long count, int primcount) {
 		long __functionAddress = getInstance().MultiDrawArrays;
-		nglMultiDrawArrays(mode, first, count, primcount, __functionAddress);
+		invokeIPPIV(__functionAddress, mode, first, count, primcount);
 	}
 
 	/**
@@ -521,15 +490,11 @@ public final class GL14 {
 
 	// --- [ glMultiDrawElements ] ---
 
-	/** JNI method for {@link #glMultiDrawElements MultiDrawElements} */
-	@JavadocExclude
-	public static native void nglMultiDrawElements(int mode, long count, int type, long indices, int primcount, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiDrawElements MultiDrawElements} */
 	@JavadocExclude
 	public static void nglMultiDrawElements(int mode, long count, int type, long indices, int primcount) {
 		long __functionAddress = getInstance().MultiDrawElements;
-		nglMultiDrawElements(mode, count, type, indices, primcount, __functionAddress);
+		invokeIPIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
 	/**
@@ -562,10 +527,6 @@ public final class GL14 {
 
 	// --- [ glPointParameterf ] ---
 
-	/** JNI method for {@link #glPointParameterf PointParameterf} */
-	@JavadocExclude
-	public static native void nglPointParameterf(int pname, float param, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPointParameterf.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -576,14 +537,10 @@ public final class GL14 {
 	 */
 	public static void glPointParameterf(int pname, float param) {
 		long __functionAddress = getInstance().PointParameterf;
-		nglPointParameterf(pname, param, __functionAddress);
+		invokeIFV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPointParameteri ] ---
-
-	/** JNI method for {@link #glPointParameteri PointParameteri} */
-	@JavadocExclude
-	public static native void nglPointParameteri(int pname, int param, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPointParameteri.xhtml">OpenGL SDK Reference</a></p>
@@ -595,20 +552,16 @@ public final class GL14 {
 	 */
 	public static void glPointParameteri(int pname, int param) {
 		long __functionAddress = getInstance().PointParameteri;
-		nglPointParameteri(pname, param, __functionAddress);
+		invokeIIV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPointParameterfv ] ---
-
-	/** JNI method for {@link #glPointParameterfv PointParameterfv} */
-	@JavadocExclude
-	public static native void nglPointParameterfv(int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glPointParameterfv PointParameterfv} */
 	@JavadocExclude
 	public static void nglPointParameterfv(int pname, long params) {
 		long __functionAddress = getInstance().PointParameterfv;
-		nglPointParameterfv(pname, params, __functionAddress);
+		invokeIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -634,15 +587,11 @@ public final class GL14 {
 
 	// --- [ glPointParameteriv ] ---
 
-	/** JNI method for {@link #glPointParameteriv PointParameteriv} */
-	@JavadocExclude
-	public static native void nglPointParameteriv(int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glPointParameteriv PointParameteriv} */
 	@JavadocExclude
 	public static void nglPointParameteriv(int pname, long params) {
 		long __functionAddress = getInstance().PointParameteriv;
-		nglPointParameteriv(pname, params, __functionAddress);
+		invokeIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -668,10 +617,6 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3b ] ---
 
-	/** JNI method for {@link #glSecondaryColor3b SecondaryColor3b} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3b(byte red, byte green, byte blue, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -685,14 +630,10 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3b;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglSecondaryColor3b(red, green, blue, __functionAddress);
+		invokeBBBV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3s ] ---
-
-	/** JNI method for {@link #glSecondaryColor3s SecondaryColor3s} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3s(short red, short green, short blue, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -707,14 +648,10 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglSecondaryColor3s(red, green, blue, __functionAddress);
+		invokeSSSV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3i ] ---
-
-	/** JNI method for {@link #glSecondaryColor3i SecondaryColor3i} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3i(int red, int green, int blue, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -729,14 +666,10 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglSecondaryColor3i(red, green, blue, __functionAddress);
+		invokeIIIV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3f ] ---
-
-	/** JNI method for {@link #glSecondaryColor3f SecondaryColor3f} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3f(float red, float green, float blue, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -751,14 +684,10 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglSecondaryColor3f(red, green, blue, __functionAddress);
+		invokeFFFV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3d ] ---
-
-	/** JNI method for {@link #glSecondaryColor3d SecondaryColor3d} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3d(double red, double green, double blue, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -773,14 +702,10 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglSecondaryColor3d(red, green, blue, __functionAddress);
+		invokeDDDV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3ub ] ---
-
-	/** JNI method for {@link #glSecondaryColor3ub SecondaryColor3ub} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3ub(byte red, byte green, byte blue, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3ub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -795,14 +720,10 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3ub;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglSecondaryColor3ub(red, green, blue, __functionAddress);
+		invokeBBBV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3us ] ---
-
-	/** JNI method for {@link #glSecondaryColor3us SecondaryColor3us} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3us(short red, short green, short blue, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3us.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -817,14 +738,10 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3us;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglSecondaryColor3us(red, green, blue, __functionAddress);
+		invokeSSSV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3ui ] ---
-
-	/** JNI method for {@link #glSecondaryColor3ui SecondaryColor3ui} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3ui(int red, int green, int blue, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -839,14 +756,10 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglSecondaryColor3ui(red, green, blue, __functionAddress);
+		invokeIIIV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3bv ] ---
-
-	/** JNI method for {@link #glSecondaryColor3bv SecondaryColor3bv} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3bv(long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glSecondaryColor3bv SecondaryColor3bv} */
 	@JavadocExclude
@@ -854,7 +767,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3bv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglSecondaryColor3bv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -872,17 +785,13 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3sv ] ---
 
-	/** JNI method for {@link #glSecondaryColor3sv SecondaryColor3sv} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3sv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glSecondaryColor3sv SecondaryColor3sv} */
 	@JavadocExclude
 	public static void nglSecondaryColor3sv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglSecondaryColor3sv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -907,17 +816,13 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3iv ] ---
 
-	/** JNI method for {@link #glSecondaryColor3iv SecondaryColor3iv} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3iv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glSecondaryColor3iv SecondaryColor3iv} */
 	@JavadocExclude
 	public static void nglSecondaryColor3iv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglSecondaryColor3iv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -942,17 +847,13 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3fv ] ---
 
-	/** JNI method for {@link #glSecondaryColor3fv SecondaryColor3fv} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3fv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glSecondaryColor3fv SecondaryColor3fv} */
 	@JavadocExclude
 	public static void nglSecondaryColor3fv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglSecondaryColor3fv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -977,17 +878,13 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3dv ] ---
 
-	/** JNI method for {@link #glSecondaryColor3dv SecondaryColor3dv} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3dv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glSecondaryColor3dv SecondaryColor3dv} */
 	@JavadocExclude
 	public static void nglSecondaryColor3dv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglSecondaryColor3dv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -1012,17 +909,13 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3ubv ] ---
 
-	/** JNI method for {@link #glSecondaryColor3ubv SecondaryColor3ubv} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3ubv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glSecondaryColor3ubv SecondaryColor3ubv} */
 	@JavadocExclude
 	public static void nglSecondaryColor3ubv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3ubv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglSecondaryColor3ubv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -1040,17 +933,13 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3usv ] ---
 
-	/** JNI method for {@link #glSecondaryColor3usv SecondaryColor3usv} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3usv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glSecondaryColor3usv SecondaryColor3usv} */
 	@JavadocExclude
 	public static void nglSecondaryColor3usv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3usv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglSecondaryColor3usv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -1075,17 +964,13 @@ public final class GL14 {
 
 	// --- [ glSecondaryColor3uiv ] ---
 
-	/** JNI method for {@link #glSecondaryColor3uiv SecondaryColor3uiv} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3uiv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glSecondaryColor3uiv SecondaryColor3uiv} */
 	@JavadocExclude
 	public static void nglSecondaryColor3uiv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglSecondaryColor3uiv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -1110,17 +995,13 @@ public final class GL14 {
 
 	// --- [ glSecondaryColorPointer ] ---
 
-	/** JNI method for {@link #glSecondaryColorPointer SecondaryColorPointer} */
-	@JavadocExclude
-	public static native void nglSecondaryColorPointer(int size, int type, int stride, long pointer, long __functionAddress);
-
 	/** Unsafe version of {@link #glSecondaryColorPointer SecondaryColorPointer} */
 	@JavadocExclude
 	public static void nglSecondaryColorPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().SecondaryColorPointer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglSecondaryColorPointer(size, type, stride, pointer, __functionAddress);
+		invokeIIIPV(__functionAddress, size, type, stride, pointer);
 	}
 
 	/**
@@ -1169,10 +1050,6 @@ public final class GL14 {
 
 	// --- [ glBlendFuncSeparate ] ---
 
-	/** JNI method for {@link #glBlendFuncSeparate BlendFuncSeparate} */
-	@JavadocExclude
-	public static native void nglBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendFuncSeparate.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -1185,14 +1062,10 @@ public final class GL14 {
 	 */
 	public static void glBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha) {
 		long __functionAddress = getInstance().BlendFuncSeparate;
-		nglBlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha, __functionAddress);
+		invokeIIIIV(__functionAddress, sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
 	}
 
 	// --- [ glWindowPos2i ] ---
-
-	/** JNI method for {@link #glWindowPos2i WindowPos2i} */
-	@JavadocExclude
-	public static native void nglWindowPos2i(int x, int y, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1206,14 +1079,10 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos2i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglWindowPos2i(x, y, __functionAddress);
+		invokeIIV(__functionAddress, x, y);
 	}
 
 	// --- [ glWindowPos2s ] ---
-
-	/** JNI method for {@link #glWindowPos2s WindowPos2s} */
-	@JavadocExclude
-	public static native void nglWindowPos2s(short x, short y, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1227,14 +1096,10 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos2s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglWindowPos2s(x, y, __functionAddress);
+		invokeSSV(__functionAddress, x, y);
 	}
 
 	// --- [ glWindowPos2f ] ---
-
-	/** JNI method for {@link #glWindowPos2f WindowPos2f} */
-	@JavadocExclude
-	public static native void nglWindowPos2f(float x, float y, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1248,14 +1113,10 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos2f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglWindowPos2f(x, y, __functionAddress);
+		invokeFFV(__functionAddress, x, y);
 	}
 
 	// --- [ glWindowPos2d ] ---
-
-	/** JNI method for {@link #glWindowPos2d WindowPos2d} */
-	@JavadocExclude
-	public static native void nglWindowPos2d(double x, double y, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1269,14 +1130,10 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos2d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglWindowPos2d(x, y, __functionAddress);
+		invokeDDV(__functionAddress, x, y);
 	}
 
 	// --- [ glWindowPos2iv ] ---
-
-	/** JNI method for {@link #glWindowPos2iv WindowPos2iv} */
-	@JavadocExclude
-	public static native void nglWindowPos2iv(long p, long __functionAddress);
 
 	/** Unsafe version of {@link #glWindowPos2iv WindowPos2iv} */
 	@JavadocExclude
@@ -1284,7 +1141,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos2iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglWindowPos2iv(p, __functionAddress);
+		invokePV(__functionAddress, p);
 	}
 
 	/**
@@ -1309,17 +1166,13 @@ public final class GL14 {
 
 	// --- [ glWindowPos2sv ] ---
 
-	/** JNI method for {@link #glWindowPos2sv WindowPos2sv} */
-	@JavadocExclude
-	public static native void nglWindowPos2sv(long p, long __functionAddress);
-
 	/** Unsafe version of {@link #glWindowPos2sv WindowPos2sv} */
 	@JavadocExclude
 	public static void nglWindowPos2sv(long p) {
 		long __functionAddress = getInstance().WindowPos2sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglWindowPos2sv(p, __functionAddress);
+		invokePV(__functionAddress, p);
 	}
 
 	/**
@@ -1344,17 +1197,13 @@ public final class GL14 {
 
 	// --- [ glWindowPos2fv ] ---
 
-	/** JNI method for {@link #glWindowPos2fv WindowPos2fv} */
-	@JavadocExclude
-	public static native void nglWindowPos2fv(long p, long __functionAddress);
-
 	/** Unsafe version of {@link #glWindowPos2fv WindowPos2fv} */
 	@JavadocExclude
 	public static void nglWindowPos2fv(long p) {
 		long __functionAddress = getInstance().WindowPos2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglWindowPos2fv(p, __functionAddress);
+		invokePV(__functionAddress, p);
 	}
 
 	/**
@@ -1379,17 +1228,13 @@ public final class GL14 {
 
 	// --- [ glWindowPos2dv ] ---
 
-	/** JNI method for {@link #glWindowPos2dv WindowPos2dv} */
-	@JavadocExclude
-	public static native void nglWindowPos2dv(long p, long __functionAddress);
-
 	/** Unsafe version of {@link #glWindowPos2dv WindowPos2dv} */
 	@JavadocExclude
 	public static void nglWindowPos2dv(long p) {
 		long __functionAddress = getInstance().WindowPos2dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglWindowPos2dv(p, __functionAddress);
+		invokePV(__functionAddress, p);
 	}
 
 	/**
@@ -1414,10 +1259,6 @@ public final class GL14 {
 
 	// --- [ glWindowPos3i ] ---
 
-	/** JNI method for {@link #glWindowPos3i WindowPos3i} */
-	@JavadocExclude
-	public static native void nglWindowPos3i(int x, int y, int z, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -1431,14 +1272,10 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglWindowPos3i(x, y, z, __functionAddress);
+		invokeIIIV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glWindowPos3s ] ---
-
-	/** JNI method for {@link #glWindowPos3s WindowPos3s} */
-	@JavadocExclude
-	public static native void nglWindowPos3s(short x, short y, short z, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1453,14 +1290,10 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglWindowPos3s(x, y, z, __functionAddress);
+		invokeSSSV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glWindowPos3f ] ---
-
-	/** JNI method for {@link #glWindowPos3f WindowPos3f} */
-	@JavadocExclude
-	public static native void nglWindowPos3f(float x, float y, float z, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1475,14 +1308,10 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglWindowPos3f(x, y, z, __functionAddress);
+		invokeFFFV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glWindowPos3d ] ---
-
-	/** JNI method for {@link #glWindowPos3d WindowPos3d} */
-	@JavadocExclude
-	public static native void nglWindowPos3d(double x, double y, double z, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1497,14 +1326,10 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglWindowPos3d(x, y, z, __functionAddress);
+		invokeDDDV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glWindowPos3iv ] ---
-
-	/** JNI method for {@link #glWindowPos3iv WindowPos3iv} */
-	@JavadocExclude
-	public static native void nglWindowPos3iv(long p, long __functionAddress);
 
 	/** Unsafe version of {@link #glWindowPos3iv WindowPos3iv} */
 	@JavadocExclude
@@ -1512,7 +1337,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos3iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglWindowPos3iv(p, __functionAddress);
+		invokePV(__functionAddress, p);
 	}
 
 	/**
@@ -1537,17 +1362,13 @@ public final class GL14 {
 
 	// --- [ glWindowPos3sv ] ---
 
-	/** JNI method for {@link #glWindowPos3sv WindowPos3sv} */
-	@JavadocExclude
-	public static native void nglWindowPos3sv(long p, long __functionAddress);
-
 	/** Unsafe version of {@link #glWindowPos3sv WindowPos3sv} */
 	@JavadocExclude
 	public static void nglWindowPos3sv(long p) {
 		long __functionAddress = getInstance().WindowPos3sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglWindowPos3sv(p, __functionAddress);
+		invokePV(__functionAddress, p);
 	}
 
 	/**
@@ -1572,17 +1393,13 @@ public final class GL14 {
 
 	// --- [ glWindowPos3fv ] ---
 
-	/** JNI method for {@link #glWindowPos3fv WindowPos3fv} */
-	@JavadocExclude
-	public static native void nglWindowPos3fv(long p, long __functionAddress);
-
 	/** Unsafe version of {@link #glWindowPos3fv WindowPos3fv} */
 	@JavadocExclude
 	public static void nglWindowPos3fv(long p) {
 		long __functionAddress = getInstance().WindowPos3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglWindowPos3fv(p, __functionAddress);
+		invokePV(__functionAddress, p);
 	}
 
 	/**
@@ -1607,17 +1424,13 @@ public final class GL14 {
 
 	// --- [ glWindowPos3dv ] ---
 
-	/** JNI method for {@link #glWindowPos3dv WindowPos3dv} */
-	@JavadocExclude
-	public static native void nglWindowPos3dv(long p, long __functionAddress);
-
 	/** Unsafe version of {@link #glWindowPos3dv WindowPos3dv} */
 	@JavadocExclude
 	public static void nglWindowPos3dv(long p) {
 		long __functionAddress = getInstance().WindowPos3dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglWindowPos3dv(p, __functionAddress);
+		invokePV(__functionAddress, p);
 	}
 
 	/**

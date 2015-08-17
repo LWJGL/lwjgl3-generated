@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -66,10 +67,6 @@ public final class ARBDrawInstanced {
 
 	// --- [ glDrawArraysInstancedARB ] ---
 
-	/** JNI method for {@link #glDrawArraysInstancedARB DrawArraysInstancedARB} */
-	@JavadocExclude
-	public static native void nglDrawArraysInstancedARB(int mode, int first, int count, int primcount, long __functionAddress);
-
 	/**
 	 * Draw multiple instances of a range of elements.
 	 *
@@ -80,20 +77,16 @@ public final class ARBDrawInstanced {
 	 */
 	public static void glDrawArraysInstancedARB(int mode, int first, int count, int primcount) {
 		long __functionAddress = getInstance().DrawArraysInstancedARB;
-		nglDrawArraysInstancedARB(mode, first, count, primcount, __functionAddress);
+		invokeIIIIV(__functionAddress, mode, first, count, primcount);
 	}
 
 	// --- [ glDrawElementsInstancedARB ] ---
-
-	/** JNI method for {@link #glDrawElementsInstancedARB DrawElementsInstancedARB} */
-	@JavadocExclude
-	public static native void nglDrawElementsInstancedARB(int mode, int count, int type, long indices, int primcount, long __functionAddress);
 
 	/** Unsafe version of {@link #glDrawElementsInstancedARB DrawElementsInstancedARB} */
 	@JavadocExclude
 	public static void nglDrawElementsInstancedARB(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = getInstance().DrawElementsInstancedARB;
-		nglDrawElementsInstancedARB(mode, count, type, indices, primcount, __functionAddress);
+		invokeIIIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
 	/**

@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/KHR/EGL_KHR_wait_sync.txt">KHR_wait_sync</a> extension.
@@ -40,17 +41,13 @@ public final class KHRWaitSync {
 
 	// --- [ eglWaitSyncKHR ] ---
 
-	/** JNI method for {@link #eglWaitSyncKHR WaitSyncKHR} */
-	@JavadocExclude
-	public static native int neglWaitSyncKHR(long dpy, long sync, int flags, long __functionAddress);
-
 	public static int eglWaitSyncKHR(long dpy, long sync, int flags) {
 		long __functionAddress = getInstance().WaitSyncKHR;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return neglWaitSyncKHR(dpy, sync, flags, __functionAddress);
+		return invokePPII(__functionAddress, dpy, sync, flags);
 	}
 
 }

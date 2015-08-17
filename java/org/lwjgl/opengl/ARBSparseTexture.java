@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/sparse_texture.txt">ARB_sparse_texture</a> extension.
@@ -79,10 +80,6 @@ public final class ARBSparseTexture {
 	}
 
 	// --- [ glTexPageCommitmentARB ] ---
-
-	/** JNI method for {@link #glTexPageCommitmentARB TexPageCommitmentARB} */
-	@JavadocExclude
-	public static native void nglTexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit, long __functionAddress);
 
 	/**
 	 * Makes individual pages of a sparse texture resident or non resident.
@@ -156,14 +153,10 @@ public final class ARBSparseTexture {
 	 */
 	public static void glTexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit) {
 		long __functionAddress = getInstance().TexPageCommitmentARB;
-		nglTexPageCommitmentARB(target, level, xoffset, yoffset, zoffset, width, height, depth, commit, __functionAddress);
+		invokeIIIIIIIIZV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, commit);
 	}
 
 	// --- [ glTexturePageCommitmentEXT ] ---
-
-	/** JNI method for {@link #glTexturePageCommitmentEXT TexturePageCommitmentEXT} */
-	@JavadocExclude
-	public static native void nglTexturePageCommitmentEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit, long __functionAddress);
 
 	/**
 	 * DSA version of {@link #glTexPageCommitmentARB TexPageCommitmentARB}.
@@ -182,7 +175,7 @@ public final class ARBSparseTexture {
 		long __functionAddress = getInstance().TexturePageCommitmentEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexturePageCommitmentEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, commit, __functionAddress);
+		invokeIIIIIIIIZV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, commit);
 	}
 
 }

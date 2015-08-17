@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
@@ -241,15 +242,11 @@ public final class NVCommandList {
 
 	// --- [ glCreateStatesNV ] ---
 
-	/** JNI method for {@link #glCreateStatesNV CreateStatesNV} */
-	@JavadocExclude
-	public static native void nglCreateStatesNV(int n, long states, long __functionAddress);
-
 	/** Unsafe version of {@link #glCreateStatesNV CreateStatesNV} */
 	@JavadocExclude
 	public static void nglCreateStatesNV(int n, long states) {
 		long __functionAddress = getInstance().CreateStatesNV;
-		nglCreateStatesNV(n, states, __functionAddress);
+		invokeIPV(__functionAddress, n, states);
 	}
 
 	/**
@@ -279,15 +276,11 @@ public final class NVCommandList {
 
 	// --- [ glDeleteStatesNV ] ---
 
-	/** JNI method for {@link #glDeleteStatesNV DeleteStatesNV} */
-	@JavadocExclude
-	public static native void nglDeleteStatesNV(int n, long states, long __functionAddress);
-
 	/** Unsafe version of {@link #glDeleteStatesNV DeleteStatesNV} */
 	@JavadocExclude
 	public static void nglDeleteStatesNV(int n, long states) {
 		long __functionAddress = getInstance().DeleteStatesNV;
-		nglDeleteStatesNV(n, states, __functionAddress);
+		invokeIPV(__functionAddress, n, states);
 	}
 
 	/**
@@ -317,10 +310,6 @@ public final class NVCommandList {
 
 	// --- [ glIsStateNV ] ---
 
-	/** JNI method for {@link #glIsStateNV IsStateNV} */
-	@JavadocExclude
-	public static native boolean nglIsStateNV(int state, long __functionAddress);
-
 	/**
 	 * Returns true if the specified name corresponds to a state object.
 	 *
@@ -328,14 +317,10 @@ public final class NVCommandList {
 	 */
 	public static boolean glIsStateNV(int state) {
 		long __functionAddress = getInstance().IsStateNV;
-		return nglIsStateNV(state, __functionAddress);
+		return invokeIZ(__functionAddress, state);
 	}
 
 	// --- [ glStateCaptureNV ] ---
-
-	/** JNI method for {@link #glStateCaptureNV StateCaptureNV} */
-	@JavadocExclude
-	public static native void nglStateCaptureNV(int state, int mode, long __functionAddress);
 
 	/**
 	 * Captures the current state of the rendering pipeline into the object indicated by <code>state</code>.
@@ -361,14 +346,10 @@ public final class NVCommandList {
 	 */
 	public static void glStateCaptureNV(int state, int mode) {
 		long __functionAddress = getInstance().StateCaptureNV;
-		nglStateCaptureNV(state, mode, __functionAddress);
+		invokeIIV(__functionAddress, state, mode);
 	}
 
 	// --- [ glGetCommandHeaderNV ] ---
-
-	/** JNI method for {@link #glGetCommandHeaderNV GetCommandHeaderNV} */
-	@JavadocExclude
-	public static native int nglGetCommandHeaderNV(int tokenID, int size, long __functionAddress);
 
 	/**
 	 * Returns the encoded 32bit header value for a given command; the returned value is implementation specific.
@@ -379,14 +360,10 @@ public final class NVCommandList {
 	 */
 	public static int glGetCommandHeaderNV(int tokenID, int size) {
 		long __functionAddress = getInstance().GetCommandHeaderNV;
-		return nglGetCommandHeaderNV(tokenID, size, __functionAddress);
+		return invokeIII(__functionAddress, tokenID, size);
 	}
 
 	// --- [ glGetStageIndexNV ] ---
-
-	/** JNI method for {@link #glGetStageIndexNV GetStageIndexNV} */
-	@JavadocExclude
-	public static native short nglGetStageIndexNV(int shadertype, long __functionAddress);
 
 	/**
 	 * Returns the 16bit value for a specific shader stage; the returned value is implementation specific. The value is to be used with the stage field within
@@ -396,20 +373,16 @@ public final class NVCommandList {
 	 */
 	public static short glGetStageIndexNV(int shadertype) {
 		long __functionAddress = getInstance().GetStageIndexNV;
-		return nglGetStageIndexNV(shadertype, __functionAddress);
+		return invokeIS(__functionAddress, shadertype);
 	}
 
 	// --- [ glDrawCommandsNV ] ---
-
-	/** JNI method for {@link #glDrawCommandsNV DrawCommandsNV} */
-	@JavadocExclude
-	public static native void nglDrawCommandsNV(int primitiveMode, int buffer, long indirects, long sizes, int count, long __functionAddress);
 
 	/** Unsafe version of {@link #glDrawCommandsNV DrawCommandsNV} */
 	@JavadocExclude
 	public static void nglDrawCommandsNV(int primitiveMode, int buffer, long indirects, long sizes, int count) {
 		long __functionAddress = getInstance().DrawCommandsNV;
-		nglDrawCommandsNV(primitiveMode, buffer, indirects, sizes, count, __functionAddress);
+		invokeIIPPIV(__functionAddress, primitiveMode, buffer, indirects, sizes, count);
 	}
 
 	/**
@@ -439,15 +412,11 @@ public final class NVCommandList {
 
 	// --- [ glDrawCommandsAddressNV ] ---
 
-	/** JNI method for {@link #glDrawCommandsAddressNV DrawCommandsAddressNV} */
-	@JavadocExclude
-	public static native void nglDrawCommandsAddressNV(int primitiveMode, long indirects, long sizes, int count, long __functionAddress);
-
 	/** Unsafe version of {@link #glDrawCommandsAddressNV DrawCommandsAddressNV} */
 	@JavadocExclude
 	public static void nglDrawCommandsAddressNV(int primitiveMode, long indirects, long sizes, int count) {
 		long __functionAddress = getInstance().DrawCommandsAddressNV;
-		nglDrawCommandsAddressNV(primitiveMode, indirects, sizes, count, __functionAddress);
+		invokeIPPIV(__functionAddress, primitiveMode, indirects, sizes, count);
 	}
 
 	/**
@@ -476,15 +445,11 @@ public final class NVCommandList {
 
 	// --- [ glDrawCommandsStatesNV ] ---
 
-	/** JNI method for {@link #glDrawCommandsStatesNV DrawCommandsStatesNV} */
-	@JavadocExclude
-	public static native void nglDrawCommandsStatesNV(int buffer, long indirects, long sizes, long states, long fbos, int count, long __functionAddress);
-
 	/** Unsafe version of {@link #glDrawCommandsStatesNV DrawCommandsStatesNV} */
 	@JavadocExclude
 	public static void nglDrawCommandsStatesNV(int buffer, long indirects, long sizes, long states, long fbos, int count) {
 		long __functionAddress = getInstance().DrawCommandsStatesNV;
-		nglDrawCommandsStatesNV(buffer, indirects, sizes, states, fbos, count, __functionAddress);
+		invokeIPPPPIV(__functionAddress, buffer, indirects, sizes, states, fbos, count);
 	}
 
 	/**
@@ -522,15 +487,11 @@ public final class NVCommandList {
 
 	// --- [ glDrawCommandsStatesAddressNV ] ---
 
-	/** JNI method for {@link #glDrawCommandsStatesAddressNV DrawCommandsStatesAddressNV} */
-	@JavadocExclude
-	public static native void nglDrawCommandsStatesAddressNV(long indirects, long sizes, long states, long fbos, int count, long __functionAddress);
-
 	/** Unsafe version of {@link #glDrawCommandsStatesAddressNV DrawCommandsStatesAddressNV} */
 	@JavadocExclude
 	public static void nglDrawCommandsStatesAddressNV(long indirects, long sizes, long states, long fbos, int count) {
 		long __functionAddress = getInstance().DrawCommandsStatesAddressNV;
-		nglDrawCommandsStatesAddressNV(indirects, sizes, states, fbos, count, __functionAddress);
+		invokePPPPIV(__functionAddress, indirects, sizes, states, fbos, count);
 	}
 
 	/**
@@ -567,15 +528,11 @@ public final class NVCommandList {
 
 	// --- [ glCreateCommandListsNV ] ---
 
-	/** JNI method for {@link #glCreateCommandListsNV CreateCommandListsNV} */
-	@JavadocExclude
-	public static native void nglCreateCommandListsNV(int n, long lists, long __functionAddress);
-
 	/** Unsafe version of {@link #glCreateCommandListsNV CreateCommandListsNV} */
 	@JavadocExclude
 	public static void nglCreateCommandListsNV(int n, long lists) {
 		long __functionAddress = getInstance().CreateCommandListsNV;
-		nglCreateCommandListsNV(n, lists, __functionAddress);
+		invokeIPV(__functionAddress, n, lists);
 	}
 
 	/**
@@ -605,15 +562,11 @@ public final class NVCommandList {
 
 	// --- [ glDeleteCommandListsNV ] ---
 
-	/** JNI method for {@link #glDeleteCommandListsNV DeleteCommandListsNV} */
-	@JavadocExclude
-	public static native void nglDeleteCommandListsNV(int n, long lists, long __functionAddress);
-
 	/** Unsafe version of {@link #glDeleteCommandListsNV DeleteCommandListsNV} */
 	@JavadocExclude
 	public static void nglDeleteCommandListsNV(int n, long lists) {
 		long __functionAddress = getInstance().DeleteCommandListsNV;
-		nglDeleteCommandListsNV(n, lists, __functionAddress);
+		invokeIPV(__functionAddress, n, lists);
 	}
 
 	/**
@@ -643,10 +596,6 @@ public final class NVCommandList {
 
 	// --- [ glIsCommandListNV ] ---
 
-	/** JNI method for {@link #glIsCommandListNV IsCommandListNV} */
-	@JavadocExclude
-	public static native boolean nglIsCommandListNV(int list, long __functionAddress);
-
 	/**
 	 * Returns true if the specified name corresponds to a command list.
 	 *
@@ -654,20 +603,16 @@ public final class NVCommandList {
 	 */
 	public static boolean glIsCommandListNV(int list) {
 		long __functionAddress = getInstance().IsCommandListNV;
-		return nglIsCommandListNV(list, __functionAddress);
+		return invokeIZ(__functionAddress, list);
 	}
 
 	// --- [ glListDrawCommandsStatesClientNV ] ---
-
-	/** JNI method for {@link #glListDrawCommandsStatesClientNV ListDrawCommandsStatesClientNV} */
-	@JavadocExclude
-	public static native void nglListDrawCommandsStatesClientNV(int list, int segment, long indirects, long sizes, long states, long fbos, int count, long __functionAddress);
 
 	/** Unsafe version of {@link #glListDrawCommandsStatesClientNV ListDrawCommandsStatesClientNV} */
 	@JavadocExclude
 	public static void nglListDrawCommandsStatesClientNV(int list, int segment, long indirects, long sizes, long states, long fbos, int count) {
 		long __functionAddress = getInstance().ListDrawCommandsStatesClientNV;
-		nglListDrawCommandsStatesClientNV(list, segment, indirects, sizes, states, fbos, count, __functionAddress);
+		invokeIIPPPPIV(__functionAddress, list, segment, indirects, sizes, states, fbos, count);
 	}
 
 	/**
@@ -712,10 +657,6 @@ public final class NVCommandList {
 
 	// --- [ glCommandListSegmentsNV ] ---
 
-	/** JNI method for {@link #glCommandListSegmentsNV CommandListSegmentsNV} */
-	@JavadocExclude
-	public static native void nglCommandListSegmentsNV(int list, int segments, long __functionAddress);
-
 	/**
 	 * Indicates that {@code list} will have {@code segments} ordered sequences of commands that it enqueues. This must be called before any commands are
 	 * enqueued. In the initial state, a command list has a single segment.
@@ -725,14 +666,10 @@ public final class NVCommandList {
 	 */
 	public static void glCommandListSegmentsNV(int list, int segments) {
 		long __functionAddress = getInstance().CommandListSegmentsNV;
-		nglCommandListSegmentsNV(list, segments, __functionAddress);
+		invokeIIV(__functionAddress, list, segments);
 	}
 
 	// --- [ glCompileCommandListNV ] ---
-
-	/** JNI method for {@link #glCompileCommandListNV CompileCommandListNV} */
-	@JavadocExclude
-	public static native void nglCompileCommandListNV(int list, long __functionAddress);
 
 	/**
 	 * Makes the list indicated by <code>list</code> switch from allowing collection of commands to allowing its execution. At this time, the implementation
@@ -742,14 +679,10 @@ public final class NVCommandList {
 	 */
 	public static void glCompileCommandListNV(int list) {
 		long __functionAddress = getInstance().CompileCommandListNV;
-		nglCompileCommandListNV(list, __functionAddress);
+		invokeIV(__functionAddress, list);
 	}
 
 	// --- [ glCallCommandListNV ] ---
-
-	/** JNI method for {@link #glCallCommandListNV CallCommandListNV} */
-	@JavadocExclude
-	public static native void nglCallCommandListNV(int list, long __functionAddress);
 
 	/**
 	 * Executes the command list indicated by <code>list</code>, which operates as if the DrawCommandsStates* commands were replayed in the order they were
@@ -760,7 +693,7 @@ public final class NVCommandList {
 	 */
 	public static void glCallCommandListNV(int list) {
 		long __functionAddress = getInstance().CallCommandListNV;
-		nglCallCommandListNV(list, __functionAddress);
+		invokeIV(__functionAddress, list);
 	}
 
 }

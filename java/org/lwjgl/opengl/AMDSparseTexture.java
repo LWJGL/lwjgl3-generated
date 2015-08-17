@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/sparse_texture.txt">AMD_sparse_texture</a> extension.
@@ -81,24 +82,16 @@ public final class AMDSparseTexture {
 
 	// --- [ glTexStorageSparseAMD ] ---
 
-	/** JNI method for {@link #glTexStorageSparseAMD TexStorageSparseAMD} */
-	@JavadocExclude
-	public static native void nglTexStorageSparseAMD(int target, int internalFormat, int width, int height, int depth, int layers, int flags, long __functionAddress);
-
 	public static void glTexStorageSparseAMD(int target, int internalFormat, int width, int height, int depth, int layers, int flags) {
 		long __functionAddress = getInstance().TexStorageSparseAMD;
-		nglTexStorageSparseAMD(target, internalFormat, width, height, depth, layers, flags, __functionAddress);
+		invokeIIIIIIIV(__functionAddress, target, internalFormat, width, height, depth, layers, flags);
 	}
 
 	// --- [ glTextureStorageSparseAMD ] ---
 
-	/** JNI method for {@link #glTextureStorageSparseAMD TextureStorageSparseAMD} */
-	@JavadocExclude
-	public static native void nglTextureStorageSparseAMD(int texture, int target, int internalFormat, int width, int height, int depth, int layers, int flags, long __functionAddress);
-
 	public static void glTextureStorageSparseAMD(int texture, int target, int internalFormat, int width, int height, int depth, int layers, int flags) {
 		long __functionAddress = getInstance().TextureStorageSparseAMD;
-		nglTextureStorageSparseAMD(texture, target, internalFormat, width, height, depth, layers, flags, __functionAddress);
+		invokeIIIIIIIIV(__functionAddress, texture, target, internalFormat, width, height, depth, layers, flags);
 	}
 
 }

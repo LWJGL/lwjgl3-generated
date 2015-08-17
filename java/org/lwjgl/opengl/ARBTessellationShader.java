@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -153,7 +154,7 @@ public final class ARBTessellationShader {
 	 */
 	public static void glPatchParameteri(int pname, int value) {
 		long __functionAddress = getInstance().PatchParameteri;
-		GL40.nglPatchParameteri(pname, value, __functionAddress);
+		invokeIIV(__functionAddress, pname, value);
 	}
 
 	// --- [ glPatchParameterfv ] ---
@@ -162,7 +163,7 @@ public final class ARBTessellationShader {
 	@JavadocExclude
 	public static void nglPatchParameterfv(int pname, long values) {
 		long __functionAddress = getInstance().PatchParameterfv;
-		GL40.nglPatchParameterfv(pname, values, __functionAddress);
+		invokeIPV(__functionAddress, pname, values);
 	}
 
 	/**
@@ -175,7 +176,7 @@ public final class ARBTessellationShader {
 		if ( LWJGLUtil.CHECKS )
 			if ( LWJGLUtil.DEBUG )
 				checkBuffer(values, GL11.glGetInteger(GL_PATCH_VERTICES) << 2);
-		nglPatchParameterfv(pname, memAddress(values));
+		GL40.nglPatchParameterfv(pname, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #glPatchParameterfv PatchParameterfv} */
@@ -183,7 +184,7 @@ public final class ARBTessellationShader {
 		if ( LWJGLUtil.CHECKS )
 			if ( LWJGLUtil.DEBUG )
 				checkBuffer(values, GL11.glGetInteger(GL_PATCH_VERTICES));
-		nglPatchParameterfv(pname, memAddress(values));
+		GL40.nglPatchParameterfv(pname, memAddress(values));
 	}
 
 }

@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/NV_read_buffer.txt">NV_read_buffer</a> extension.
@@ -56,13 +57,9 @@ public final class NVReadBuffer {
 
 	// --- [ glReadBufferNV ] ---
 
-	/** JNI method for {@link #glReadBufferNV ReadBufferNV} */
-	@JavadocExclude
-	public static native void nglReadBufferNV(int mode, long __functionAddress);
-
 	public static void glReadBufferNV(int mode) {
 		long __functionAddress = getInstance().ReadBufferNV;
-		nglReadBufferNV(mode, __functionAddress);
+		invokeIV(__functionAddress, mode);
 	}
 
 }

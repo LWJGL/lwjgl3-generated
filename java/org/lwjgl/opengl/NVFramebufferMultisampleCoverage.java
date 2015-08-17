@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/framebuffer_multisample_coverage.txt">NV_framebuffer_multisample_coverage</a> extension.
@@ -68,13 +69,9 @@ public final class NVFramebufferMultisampleCoverage {
 
 	// --- [ glRenderbufferStorageMultisampleCoverageNV ] ---
 
-	/** JNI method for {@link #glRenderbufferStorageMultisampleCoverageNV RenderbufferStorageMultisampleCoverageNV} */
-	@JavadocExclude
-	public static native void nglRenderbufferStorageMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalformat, int width, int height, long __functionAddress);
-
 	public static void glRenderbufferStorageMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageMultisampleCoverageNV;
-		nglRenderbufferStorageMultisampleCoverageNV(target, coverageSamples, colorSamples, internalformat, width, height, __functionAddress);
+		invokeIIIIIIV(__functionAddress, target, coverageSamples, colorSamples, internalformat, width, height);
 	}
 
 }

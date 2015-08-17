@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -113,78 +114,54 @@ public final class APPLESync {
 
 	// --- [ glFenceSyncAPPLE ] ---
 
-	/** JNI method for {@link #glFenceSyncAPPLE FenceSyncAPPLE} */
-	@JavadocExclude
-	public static native long nglFenceSyncAPPLE(int condition, int flags, long __functionAddress);
-
 	public static long glFenceSyncAPPLE(int condition, int flags) {
 		long __functionAddress = getInstance().FenceSyncAPPLE;
-		return nglFenceSyncAPPLE(condition, flags, __functionAddress);
+		return invokeIIP(__functionAddress, condition, flags);
 	}
 
 	// --- [ glIsSyncAPPLE ] ---
-
-	/** JNI method for {@link #glIsSyncAPPLE IsSyncAPPLE} */
-	@JavadocExclude
-	public static native boolean nglIsSyncAPPLE(long sync, long __functionAddress);
 
 	public static boolean glIsSyncAPPLE(long sync) {
 		long __functionAddress = getInstance().IsSyncAPPLE;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		return nglIsSyncAPPLE(sync, __functionAddress);
+		return invokePZ(__functionAddress, sync);
 	}
 
 	// --- [ glDeleteSyncAPPLE ] ---
-
-	/** JNI method for {@link #glDeleteSyncAPPLE DeleteSyncAPPLE} */
-	@JavadocExclude
-	public static native void nglDeleteSyncAPPLE(long sync, long __functionAddress);
 
 	public static void glDeleteSyncAPPLE(long sync) {
 		long __functionAddress = getInstance().DeleteSyncAPPLE;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		nglDeleteSyncAPPLE(sync, __functionAddress);
+		invokePV(__functionAddress, sync);
 	}
 
 	// --- [ glClientWaitSyncAPPLE ] ---
-
-	/** JNI method for {@link #glClientWaitSyncAPPLE ClientWaitSyncAPPLE} */
-	@JavadocExclude
-	public static native int nglClientWaitSyncAPPLE(long sync, int flags, long timeout, long __functionAddress);
 
 	public static int glClientWaitSyncAPPLE(long sync, int flags, long timeout) {
 		long __functionAddress = getInstance().ClientWaitSyncAPPLE;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		return nglClientWaitSyncAPPLE(sync, flags, timeout, __functionAddress);
+		return invokePIJI(__functionAddress, sync, flags, timeout);
 	}
 
 	// --- [ glWaitSyncAPPLE ] ---
-
-	/** JNI method for {@link #glWaitSyncAPPLE WaitSyncAPPLE} */
-	@JavadocExclude
-	public static native void nglWaitSyncAPPLE(long sync, int flags, long timeout, long __functionAddress);
 
 	public static void glWaitSyncAPPLE(long sync, int flags, long timeout) {
 		long __functionAddress = getInstance().WaitSyncAPPLE;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		nglWaitSyncAPPLE(sync, flags, timeout, __functionAddress);
+		invokePIJV(__functionAddress, sync, flags, timeout);
 	}
 
 	// --- [ glGetInteger64vAPPLE ] ---
-
-	/** JNI method for {@link #glGetInteger64vAPPLE GetInteger64vAPPLE} */
-	@JavadocExclude
-	public static native void nglGetInteger64vAPPLE(int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetInteger64vAPPLE GetInteger64vAPPLE} */
 	@JavadocExclude
 	public static void nglGetInteger64vAPPLE(int pname, long params) {
 		long __functionAddress = getInstance().GetInteger64vAPPLE;
-		nglGetInteger64vAPPLE(pname, params, __functionAddress);
+		invokeIPV(__functionAddress, pname, params);
 	}
 
 	public static void glGetInteger64vAPPLE(int pname, ByteBuffer params) {
@@ -210,17 +187,13 @@ public final class APPLESync {
 
 	// --- [ glGetSyncivAPPLE ] ---
 
-	/** JNI method for {@link #glGetSyncivAPPLE GetSyncivAPPLE} */
-	@JavadocExclude
-	public static native void nglGetSyncivAPPLE(long sync, int pname, int bufSize, long length, long values, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetSyncivAPPLE GetSyncivAPPLE} */
 	@JavadocExclude
 	public static void nglGetSyncivAPPLE(long sync, int pname, int bufSize, long length, long values) {
 		long __functionAddress = getInstance().GetSyncivAPPLE;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		nglGetSyncivAPPLE(sync, pname, bufSize, length, values, __functionAddress);
+		invokePIIPPV(__functionAddress, sync, pname, bufSize, length, values);
 	}
 
 	public static void glGetSyncivAPPLE(long sync, int pname, int bufSize, ByteBuffer length, ByteBuffer values) {

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 import org.lwjgl.opengl.GL11;
@@ -57,17 +58,13 @@ public final class CL12GL {
 
 	// --- [ clCreateFromGLTexture ] ---
 
-	/** JNI method for {@link #clCreateFromGLTexture CreateFromGLTexture} */
-	@JavadocExclude
-	public static native long nclCreateFromGLTexture(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clCreateFromGLTexture CreateFromGLTexture} */
 	@JavadocExclude
 	public static long nclCreateFromGLTexture(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret) {
 		long __functionAddress = getInstance().CreateFromGLTexture;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nclCreateFromGLTexture(context, flags, texture_target, miplevel, texture, errcode_ret, __functionAddress);
+		return invokePJIIIPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
 	}
 
 	/**

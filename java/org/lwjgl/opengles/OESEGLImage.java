@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/OES/OES_EGL_image.txt">OES_EGL_image</a> extension.
@@ -56,28 +57,20 @@ public final class OESEGLImage {
 
 	// --- [ glEGLImageTargetTexture2DOES ] ---
 
-	/** JNI method for {@link #glEGLImageTargetTexture2DOES EGLImageTargetTexture2DOES} */
-	@JavadocExclude
-	public static native void nglEGLImageTargetTexture2DOES(int target, long image, long __functionAddress);
-
 	public static void glEGLImageTargetTexture2DOES(int target, long image) {
 		long __functionAddress = getInstance().EGLImageTargetTexture2DOES;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(image);
-		nglEGLImageTargetTexture2DOES(target, image, __functionAddress);
+		invokeIPV(__functionAddress, target, image);
 	}
 
 	// --- [ glEGLImageTargetRenderbufferStorageOES ] ---
-
-	/** JNI method for {@link #glEGLImageTargetRenderbufferStorageOES EGLImageTargetRenderbufferStorageOES} */
-	@JavadocExclude
-	public static native void nglEGLImageTargetRenderbufferStorageOES(int target, long image, long __functionAddress);
 
 	public static void glEGLImageTargetRenderbufferStorageOES(int target, long image) {
 		long __functionAddress = getInstance().EGLImageTargetRenderbufferStorageOES;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(image);
-		nglEGLImageTargetRenderbufferStorageOES(target, image, __functionAddress);
+		invokeIPV(__functionAddress, target, image);
 	}
 
 }

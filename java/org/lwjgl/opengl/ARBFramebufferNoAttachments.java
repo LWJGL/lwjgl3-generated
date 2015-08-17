@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -111,7 +112,7 @@ public final class ARBFramebufferNoAttachments {
 	 */
 	public static void glFramebufferParameteri(int target, int pname, int param) {
 		long __functionAddress = getInstance().FramebufferParameteri;
-		GL43.nglFramebufferParameteri(target, pname, param, __functionAddress);
+		invokeIIIV(__functionAddress, target, pname, param);
 	}
 
 	// --- [ glGetFramebufferParameteriv ] ---
@@ -120,7 +121,7 @@ public final class ARBFramebufferNoAttachments {
 	@JavadocExclude
 	public static void nglGetFramebufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferParameteriv;
-		GL43.nglGetFramebufferParameteriv(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -133,29 +134,25 @@ public final class ARBFramebufferNoAttachments {
 	public static void glGetFramebufferParameteriv(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		nglGetFramebufferParameteriv(target, pname, memAddress(params));
+		GL43.nglGetFramebufferParameteriv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
 	public static void glGetFramebufferParameteriv(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		nglGetFramebufferParameteriv(target, pname, memAddress(params));
+		GL43.nglGetFramebufferParameteriv(target, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
 	public static int glGetFramebufferParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetFramebufferParameteriv(target, pname, __buffer.address(params));
+		GL43.nglGetFramebufferParameteriv(target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
 	// --- [ glNamedFramebufferParameteriEXT ] ---
-
-	/** JNI method for {@link #glNamedFramebufferParameteriEXT NamedFramebufferParameteriEXT} */
-	@JavadocExclude
-	public static native void nglNamedFramebufferParameteriEXT(int framebuffer, int pname, int param, long __functionAddress);
 
 	/**
 	 * DSA version of {@link #glFramebufferParameteri FramebufferParameteri}.
@@ -168,14 +165,10 @@ public final class ARBFramebufferNoAttachments {
 		long __functionAddress = getInstance().NamedFramebufferParameteriEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglNamedFramebufferParameteriEXT(framebuffer, pname, param, __functionAddress);
+		invokeIIIV(__functionAddress, framebuffer, pname, param);
 	}
 
 	// --- [ glGetNamedFramebufferParameterivEXT ] ---
-
-	/** JNI method for {@link #glGetNamedFramebufferParameterivEXT GetNamedFramebufferParameterivEXT} */
-	@JavadocExclude
-	public static native void nglGetNamedFramebufferParameterivEXT(int framebuffer, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetNamedFramebufferParameterivEXT GetNamedFramebufferParameterivEXT} */
 	@JavadocExclude
@@ -183,7 +176,7 @@ public final class ARBFramebufferNoAttachments {
 		long __functionAddress = getInstance().GetNamedFramebufferParameterivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetNamedFramebufferParameterivEXT(framebuffer, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, framebuffer, pname, params);
 	}
 
 	/**

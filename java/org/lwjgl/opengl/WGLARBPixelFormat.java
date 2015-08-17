@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -122,17 +123,13 @@ public final class WGLARBPixelFormat {
 
 	// --- [ wglGetPixelFormatAttribivARB ] ---
 
-	/** JNI method for {@link #wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB} */
-	@JavadocExclude
-	public static native int nwglGetPixelFormatAttribivARB(long hdc, int pixelFormat, int layerPlane, int n, long attributes, long values, long __functionAddress);
-
 	/** Unsafe version of {@link #wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB} */
 	@JavadocExclude
 	public static int nwglGetPixelFormatAttribivARB(long hdc, int pixelFormat, int layerPlane, int n, long attributes, long values) {
 		long __functionAddress = getInstance().GetPixelFormatAttribivARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		return nwglGetPixelFormatAttribivARB(hdc, pixelFormat, layerPlane, n, attributes, values, __functionAddress);
+		return invokePIIIPPI(__functionAddress, hdc, pixelFormat, layerPlane, n, attributes, values);
 	}
 
 	/**
@@ -171,17 +168,13 @@ public final class WGLARBPixelFormat {
 
 	// --- [ wglGetPixelFormatAttribfvARB ] ---
 
-	/** JNI method for {@link #wglGetPixelFormatAttribfvARB GetPixelFormatAttribfvARB} */
-	@JavadocExclude
-	public static native int nwglGetPixelFormatAttribfvARB(long hdc, int pixelFormat, int layerPlane, int n, long attributes, long values, long __functionAddress);
-
 	/** Unsafe version of {@link #wglGetPixelFormatAttribfvARB GetPixelFormatAttribfvARB} */
 	@JavadocExclude
 	public static int nwglGetPixelFormatAttribfvARB(long hdc, int pixelFormat, int layerPlane, int n, long attributes, long values) {
 		long __functionAddress = getInstance().GetPixelFormatAttribfvARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		return nwglGetPixelFormatAttribfvARB(hdc, pixelFormat, layerPlane, n, attributes, values, __functionAddress);
+		return invokePIIIPPI(__functionAddress, hdc, pixelFormat, layerPlane, n, attributes, values);
 	}
 
 	/**
@@ -220,17 +213,13 @@ public final class WGLARBPixelFormat {
 
 	// --- [ wglChoosePixelFormatARB ] ---
 
-	/** JNI method for {@link #wglChoosePixelFormatARB ChoosePixelFormatARB} */
-	@JavadocExclude
-	public static native int nwglChoosePixelFormatARB(long hdc, long attribIList, long attribFList, int maxFormats, long formats, long numFormats, long __functionAddress);
-
 	/** Unsafe version of {@link #wglChoosePixelFormatARB ChoosePixelFormatARB} */
 	@JavadocExclude
 	public static int nwglChoosePixelFormatARB(long hdc, long attribIList, long attribFList, int maxFormats, long formats, long numFormats) {
 		long __functionAddress = getInstance().ChoosePixelFormatARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		return nwglChoosePixelFormatARB(hdc, attribIList, attribFList, maxFormats, formats, numFormats, __functionAddress);
+		return invokePPPIPPI(__functionAddress, hdc, attribIList, attribFList, maxFormats, formats, numFormats);
 	}
 
 	/**

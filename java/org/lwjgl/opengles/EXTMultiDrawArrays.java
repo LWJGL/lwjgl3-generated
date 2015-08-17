@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -54,15 +55,11 @@ public final class EXTMultiDrawArrays {
 
 	// --- [ glMultiDrawArraysEXT ] ---
 
-	/** JNI method for {@link #glMultiDrawArraysEXT MultiDrawArraysEXT} */
-	@JavadocExclude
-	public static native void nglMultiDrawArraysEXT(int mode, long first, long count, int primcount, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiDrawArraysEXT MultiDrawArraysEXT} */
 	@JavadocExclude
 	public static void nglMultiDrawArraysEXT(int mode, long first, long count, int primcount) {
 		long __functionAddress = getInstance().MultiDrawArraysEXT;
-		nglMultiDrawArraysEXT(mode, first, count, primcount, __functionAddress);
+		invokeIPPIV(__functionAddress, mode, first, count, primcount);
 	}
 
 	public static void glMultiDrawArraysEXT(int mode, ByteBuffer first, ByteBuffer count, int primcount) {
@@ -82,15 +79,11 @@ public final class EXTMultiDrawArrays {
 
 	// --- [ glMultiDrawElementsEXT ] ---
 
-	/** JNI method for {@link #glMultiDrawElementsEXT MultiDrawElementsEXT} */
-	@JavadocExclude
-	public static native void nglMultiDrawElementsEXT(int mode, long count, int type, long indices, int primcount, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiDrawElementsEXT MultiDrawElementsEXT} */
 	@JavadocExclude
 	public static void nglMultiDrawElementsEXT(int mode, long count, int type, long indices, int primcount) {
 		long __functionAddress = getInstance().MultiDrawElementsEXT;
-		nglMultiDrawElementsEXT(mode, count, type, indices, primcount, __functionAddress);
+		invokeIPIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
 	public static void glMultiDrawElementsEXT(int mode, ByteBuffer count, int type, ByteBuffer indices, int primcount) {

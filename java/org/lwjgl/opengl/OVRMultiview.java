@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/OVR/multiview.txt">OVR_multiview</a> extension.
@@ -75,10 +76,6 @@ public final class OVRMultiview {
 
 	// --- [ glFramebufferTextureMultiviewOVR ] ---
 
-	/** JNI method for {@link #glFramebufferTextureMultiviewOVR FramebufferTextureMultiviewOVR} */
-	@JavadocExclude
-	public static native void nglFramebufferTextureMultiviewOVR(int target, int attachment, int texture, int level, int baseViewIndex, int numViews, long __functionAddress);
-
 	/**
 	 * Operates similarly to {@link GL30#glFramebufferTextureLayer FramebufferTextureLayer}, except that {@code baseViewIndex} and {@code numViews} selects a range of texture array elements
 	 * that will be targeted when rendering.
@@ -129,7 +126,7 @@ public final class OVRMultiview {
 	 */
 	public static void glFramebufferTextureMultiviewOVR(int target, int attachment, int texture, int level, int baseViewIndex, int numViews) {
 		long __functionAddress = getInstance().FramebufferTextureMultiviewOVR;
-		nglFramebufferTextureMultiviewOVR(target, attachment, texture, level, baseViewIndex, numViews, __functionAddress);
+		invokeIIIIIIV(__functionAddress, target, attachment, texture, level, baseViewIndex, numViews);
 	}
 
 }

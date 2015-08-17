@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/clip_control.txt">ARB_clip_control</a> extension.
@@ -79,7 +80,7 @@ public final class ARBClipControl {
 	 */
 	public static void glClipControl(int origin, int depth) {
 		long __functionAddress = getInstance().ClipControl;
-		GL45.nglClipControl(origin, depth, __functionAddress);
+		invokeIIV(__functionAddress, origin, depth);
 	}
 
 }

@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/conservative_raster_dilate.txt">NV_conservative_raster_dilate</a> extension.
@@ -60,13 +61,9 @@ public final class NVConservativeRasterDilate {
 
 	// --- [ glConservativeRasterParameterfNV ] ---
 
-	/** JNI method for {@link #glConservativeRasterParameterfNV ConservativeRasterParameterfNV} */
-	@JavadocExclude
-	public static native void nglConservativeRasterParameterfNV(int pname, float value, long __functionAddress);
-
 	public static void glConservativeRasterParameterfNV(int pname, float value) {
 		long __functionAddress = getInstance().ConservativeRasterParameterfNV;
-		nglConservativeRasterParameterfNV(pname, value, __functionAddress);
+		invokeIFV(__functionAddress, pname, value);
 	}
 
 }

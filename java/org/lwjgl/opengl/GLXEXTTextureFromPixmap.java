@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -112,10 +113,6 @@ public final class GLXEXTTextureFromPixmap {
 
 	// --- [ glXBindTexImageEXT ] ---
 
-	/** JNI method for {@link #glXBindTexImageEXT BindTexImageEXT} */
-	@JavadocExclude
-	public static native void nglXBindTexImageEXT(long display, long drawable, int buffer, long attrib_list, long __functionAddress);
-
 	/** Unsafe version of {@link #glXBindTexImageEXT BindTexImageEXT} */
 	@JavadocExclude
 	public static void nglXBindTexImageEXT(long display, long drawable, int buffer, long attrib_list) {
@@ -124,7 +121,7 @@ public final class GLXEXTTextureFromPixmap {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		nglXBindTexImageEXT(display, drawable, buffer, attrib_list, __functionAddress);
+		invokePPIPV(__functionAddress, display, drawable, buffer, attrib_list);
 	}
 
 	/**
@@ -151,10 +148,6 @@ public final class GLXEXTTextureFromPixmap {
 
 	// --- [ glXReleaseTexImageEXT ] ---
 
-	/** JNI method for {@link #glXReleaseTexImageEXT ReleaseTexImageEXT} */
-	@JavadocExclude
-	public static native void nglXReleaseTexImageEXT(long display, long drawable, int buffer, long __functionAddress);
-
 	/**
 	 * Releases a color buffer that is being used as a texture.
 	 *
@@ -168,7 +161,7 @@ public final class GLXEXTTextureFromPixmap {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		nglXReleaseTexImageEXT(display, drawable, buffer, __functionAddress);
+		invokePPIV(__functionAddress, display, drawable, buffer);
 	}
 
 }

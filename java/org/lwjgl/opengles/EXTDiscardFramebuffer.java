@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -70,15 +71,11 @@ public final class EXTDiscardFramebuffer {
 
 	// --- [ glDiscardFramebufferEXT ] ---
 
-	/** JNI method for {@link #glDiscardFramebufferEXT DiscardFramebufferEXT} */
-	@JavadocExclude
-	public static native void nglDiscardFramebufferEXT(int target, int numAttachments, long attachments, long __functionAddress);
-
 	/** Unsafe version of {@link #glDiscardFramebufferEXT DiscardFramebufferEXT} */
 	@JavadocExclude
 	public static void nglDiscardFramebufferEXT(int target, int numAttachments, long attachments) {
 		long __functionAddress = getInstance().DiscardFramebufferEXT;
-		nglDiscardFramebufferEXT(target, numAttachments, attachments, __functionAddress);
+		invokeIIPV(__functionAddress, target, numAttachments, attachments);
 	}
 
 	public static void glDiscardFramebufferEXT(int target, int numAttachments, ByteBuffer attachments) {

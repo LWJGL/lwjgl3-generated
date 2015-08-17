@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/interleaved_elements.txt">AMD_interleaved_elements</a> extension.
@@ -68,13 +69,9 @@ public final class AMDInterleavedElements {
 
 	// --- [ glVertexAttribParameteriAMD ] ---
 
-	/** JNI method for {@link #glVertexAttribParameteriAMD VertexAttribParameteriAMD} */
-	@JavadocExclude
-	public static native void nglVertexAttribParameteriAMD(int index, int pname, int param, long __functionAddress);
-
 	public static void glVertexAttribParameteriAMD(int index, int pname, int param) {
 		long __functionAddress = getInstance().VertexAttribParameteriAMD;
-		nglVertexAttribParameteriAMD(index, pname, param, __functionAddress);
+		invokeIIIV(__functionAddress, index, pname, param);
 	}
 
 }

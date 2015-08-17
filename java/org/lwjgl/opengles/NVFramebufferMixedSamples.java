@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -102,26 +103,18 @@ public final class NVFramebufferMixedSamples {
 
 	// --- [ glRasterSamplesEXT ] ---
 
-	/** JNI method for {@link #glRasterSamplesEXT RasterSamplesEXT} */
-	@JavadocExclude
-	public static native void nglRasterSamplesEXT(int samples, boolean fixedsamplelocations, long __functionAddress);
-
 	public static void glRasterSamplesEXT(int samples, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().RasterSamplesEXT;
-		nglRasterSamplesEXT(samples, fixedsamplelocations, __functionAddress);
+		invokeIZV(__functionAddress, samples, fixedsamplelocations);
 	}
 
 	// --- [ glCoverageModulationTableNV ] ---
-
-	/** JNI method for {@link #glCoverageModulationTableNV CoverageModulationTableNV} */
-	@JavadocExclude
-	public static native void nglCoverageModulationTableNV(int n, long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glCoverageModulationTableNV CoverageModulationTableNV} */
 	@JavadocExclude
 	public static void nglCoverageModulationTableNV(int n, long v) {
 		long __functionAddress = getInstance().CoverageModulationTableNV;
-		nglCoverageModulationTableNV(n, v, __functionAddress);
+		invokeIPV(__functionAddress, n, v);
 	}
 
 	public static void glCoverageModulationTableNV(int n, ByteBuffer v) {
@@ -137,15 +130,11 @@ public final class NVFramebufferMixedSamples {
 
 	// --- [ glGetCoverageModulationTableNV ] ---
 
-	/** JNI method for {@link #glGetCoverageModulationTableNV GetCoverageModulationTableNV} */
-	@JavadocExclude
-	public static native void nglGetCoverageModulationTableNV(int bufsize, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetCoverageModulationTableNV GetCoverageModulationTableNV} */
 	@JavadocExclude
 	public static void nglGetCoverageModulationTableNV(int bufsize, long v) {
 		long __functionAddress = getInstance().GetCoverageModulationTableNV;
-		nglGetCoverageModulationTableNV(bufsize, v, __functionAddress);
+		invokeIPV(__functionAddress, bufsize, v);
 	}
 
 	public static void glGetCoverageModulationTableNV(int bufsize, ByteBuffer v) {
@@ -161,13 +150,9 @@ public final class NVFramebufferMixedSamples {
 
 	// --- [ glCoverageModulationNV ] ---
 
-	/** JNI method for {@link #glCoverageModulationNV CoverageModulationNV} */
-	@JavadocExclude
-	public static native void nglCoverageModulationNV(int components, long __functionAddress);
-
 	public static void glCoverageModulationNV(int components) {
 		long __functionAddress = getInstance().CoverageModulationNV;
-		nglCoverageModulationNV(components, __functionAddress);
+		invokeIV(__functionAddress, components);
 	}
 
 }

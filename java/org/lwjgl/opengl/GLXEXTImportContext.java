@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -67,21 +68,13 @@ public final class GLXEXTImportContext {
 
 	// --- [ glXGetCurrentDisplayEXT ] ---
 
-	/** JNI method for {@link #glXGetCurrentDisplayEXT GetCurrentDisplayEXT} */
-	@JavadocExclude
-	public static native long nglXGetCurrentDisplayEXT(long __functionAddress);
-
 	/** Returns the display associated with the current context. */
 	public static long glXGetCurrentDisplayEXT() {
 		long __functionAddress = getInstance().GetCurrentDisplayEXT;
-		return nglXGetCurrentDisplayEXT(__functionAddress);
+		return invokeP(__functionAddress);
 	}
 
 	// --- [ glXQueryContextInfoEXT ] ---
-
-	/** JNI method for {@link #glXQueryContextInfoEXT QueryContextInfoEXT} */
-	@JavadocExclude
-	public static native int nglXQueryContextInfoEXT(long display, long context, int attribute, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glXQueryContextInfoEXT QueryContextInfoEXT} */
 	@JavadocExclude
@@ -91,7 +84,7 @@ public final class GLXEXTImportContext {
 			checkPointer(display);
 			checkPointer(context);
 		}
-		return nglXQueryContextInfoEXT(display, context, attribute, value, __functionAddress);
+		return invokePPIPI(__functionAddress, display, context, attribute, value);
 	}
 
 	/**
@@ -117,10 +110,6 @@ public final class GLXEXTImportContext {
 
 	// --- [ glXGetContextIDEXT ] ---
 
-	/** JNI method for {@link #glXGetContextIDEXT GetContextIDEXT} */
-	@JavadocExclude
-	public static native long nglXGetContextIDEXT(long context, long __functionAddress);
-
 	/**
 	 * Returns the XID of a GLXContext.
 	 *
@@ -130,14 +119,10 @@ public final class GLXEXTImportContext {
 		long __functionAddress = getInstance().GetContextIDEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nglXGetContextIDEXT(context, __functionAddress);
+		return invokePP(__functionAddress, context);
 	}
 
 	// --- [ glXImportContextEXT ] ---
-
-	/** JNI method for {@link #glXImportContextEXT ImportContextEXT} */
-	@JavadocExclude
-	public static native long nglXImportContextEXT(long display, long contextID, long __functionAddress);
 
 	/**
 	 * May be used in place of glXCreateContext to share another process's indirect rendering context.
@@ -149,14 +134,10 @@ public final class GLXEXTImportContext {
 		long __functionAddress = getInstance().ImportContextEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return nglXImportContextEXT(display, contextID, __functionAddress);
+		return invokePPP(__functionAddress, display, contextID);
 	}
 
 	// --- [ glXFreeContextEXT ] ---
-
-	/** JNI method for {@link #glXFreeContextEXT FreeContextEXT} */
-	@JavadocExclude
-	public static native void nglXFreeContextEXT(long display, long context, long __functionAddress);
 
 	/**
 	 * Frees the client-side part of a GLXContext that was created  with {@link #glXImportContextEXT ImportContextEXT}.
@@ -170,7 +151,7 @@ public final class GLXEXTImportContext {
 			checkPointer(display);
 			checkPointer(context);
 		}
-		nglXFreeContextEXT(display, context, __functionAddress);
+		invokePPV(__functionAddress, display, context);
 	}
 
 }

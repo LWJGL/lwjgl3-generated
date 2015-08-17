@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -100,7 +101,7 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglGenSamplers(int count, long samplers) {
 		long __functionAddress = getInstance().GenSamplers;
-		GL33.nglGenSamplers(count, samplers, __functionAddress);
+		invokeIPV(__functionAddress, count, samplers);
 	}
 
 	/**
@@ -112,19 +113,19 @@ public final class ARBSamplerObjects {
 	public static void glGenSamplers(int count, ByteBuffer samplers) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(samplers, count << 2);
-		nglGenSamplers(count, memAddress(samplers));
+		GL33.nglGenSamplers(count, memAddress(samplers));
 	}
 
 	/** Alternative version of: {@link #glGenSamplers GenSamplers} */
 	public static void glGenSamplers(IntBuffer samplers) {
-		nglGenSamplers(samplers.remaining(), memAddress(samplers));
+		GL33.nglGenSamplers(samplers.remaining(), memAddress(samplers));
 	}
 
 	/** Single return value version of: {@link #glGenSamplers GenSamplers} */
 	public static int glGenSamplers() {
 		APIBuffer __buffer = apiBuffer();
 		int samplers = __buffer.intParam();
-		nglGenSamplers(1, __buffer.address(samplers));
+		GL33.nglGenSamplers(1, __buffer.address(samplers));
 		return __buffer.intValue(samplers);
 	}
 
@@ -134,7 +135,7 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglDeleteSamplers(int count, long samplers) {
 		long __functionAddress = getInstance().DeleteSamplers;
-		GL33.nglDeleteSamplers(count, samplers, __functionAddress);
+		invokeIPV(__functionAddress, count, samplers);
 	}
 
 	/**
@@ -146,19 +147,19 @@ public final class ARBSamplerObjects {
 	public static void glDeleteSamplers(int count, ByteBuffer samplers) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(samplers, count << 2);
-		nglDeleteSamplers(count, memAddress(samplers));
+		GL33.nglDeleteSamplers(count, memAddress(samplers));
 	}
 
 	/** Alternative version of: {@link #glDeleteSamplers DeleteSamplers} */
 	public static void glDeleteSamplers(IntBuffer samplers) {
-		nglDeleteSamplers(samplers.remaining(), memAddress(samplers));
+		GL33.nglDeleteSamplers(samplers.remaining(), memAddress(samplers));
 	}
 
 	/** Single value version of: {@link #glDeleteSamplers DeleteSamplers} */
 	public static void glDeleteSamplers(int sampler) {
 		APIBuffer __buffer = apiBuffer();
 		int samplers = __buffer.intParam(sampler);
-		nglDeleteSamplers(1, __buffer.address(samplers));
+		GL33.nglDeleteSamplers(1, __buffer.address(samplers));
 	}
 
 	// --- [ glIsSampler ] ---
@@ -170,7 +171,7 @@ public final class ARBSamplerObjects {
 	 */
 	public static boolean glIsSampler(int sampler) {
 		long __functionAddress = getInstance().IsSampler;
-		return GL33.nglIsSampler(sampler, __functionAddress);
+		return invokeIZ(__functionAddress, sampler);
 	}
 
 	// --- [ glBindSampler ] ---
@@ -183,7 +184,7 @@ public final class ARBSamplerObjects {
 	 */
 	public static void glBindSampler(int unit, int sampler) {
 		long __functionAddress = getInstance().BindSampler;
-		GL33.nglBindSampler(unit, sampler, __functionAddress);
+		invokeIIV(__functionAddress, unit, sampler);
 	}
 
 	// --- [ glSamplerParameteri ] ---
@@ -197,7 +198,7 @@ public final class ARBSamplerObjects {
 	 */
 	public static void glSamplerParameteri(int sampler, int pname, int param) {
 		long __functionAddress = getInstance().SamplerParameteri;
-		GL33.nglSamplerParameteri(sampler, pname, param, __functionAddress);
+		invokeIIIV(__functionAddress, sampler, pname, param);
 	}
 
 	// --- [ glSamplerParameterf ] ---
@@ -211,7 +212,7 @@ public final class ARBSamplerObjects {
 	 */
 	public static void glSamplerParameterf(int sampler, int pname, float param) {
 		long __functionAddress = getInstance().SamplerParameterf;
-		GL33.nglSamplerParameterf(sampler, pname, param, __functionAddress);
+		invokeIIFV(__functionAddress, sampler, pname, param);
 	}
 
 	// --- [ glSamplerParameteriv ] ---
@@ -220,7 +221,7 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameteriv;
-		GL33.nglSamplerParameteriv(sampler, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -231,12 +232,12 @@ public final class ARBSamplerObjects {
 	 * @param params  an array where the value or values of {@code pname} are stored
 	 */
 	public static void glSamplerParameteriv(int sampler, int pname, ByteBuffer params) {
-		nglSamplerParameteriv(sampler, pname, memAddress(params));
+		GL33.nglSamplerParameteriv(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glSamplerParameteriv SamplerParameteriv} */
 	public static void glSamplerParameteriv(int sampler, int pname, IntBuffer params) {
-		nglSamplerParameteriv(sampler, pname, memAddress(params));
+		GL33.nglSamplerParameteriv(sampler, pname, memAddress(params));
 	}
 
 	// --- [ glSamplerParameterfv ] ---
@@ -245,7 +246,7 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterfv;
-		GL33.nglSamplerParameterfv(sampler, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -256,12 +257,12 @@ public final class ARBSamplerObjects {
 	 * @param params  an array where the value or values of {@code pname} are stored
 	 */
 	public static void glSamplerParameterfv(int sampler, int pname, ByteBuffer params) {
-		nglSamplerParameterfv(sampler, pname, memAddress(params));
+		GL33.nglSamplerParameterfv(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glSamplerParameterfv SamplerParameterfv} */
 	public static void glSamplerParameterfv(int sampler, int pname, FloatBuffer params) {
-		nglSamplerParameterfv(sampler, pname, memAddress(params));
+		GL33.nglSamplerParameterfv(sampler, pname, memAddress(params));
 	}
 
 	// --- [ glSamplerParameterIiv ] ---
@@ -270,7 +271,7 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterIiv;
-		GL33.nglSamplerParameterIiv(sampler, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -281,12 +282,12 @@ public final class ARBSamplerObjects {
 	 * @param params  an array where the value or values of {@code pname} are stored
 	 */
 	public static void glSamplerParameterIiv(int sampler, int pname, ByteBuffer params) {
-		nglSamplerParameterIiv(sampler, pname, memAddress(params));
+		GL33.nglSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glSamplerParameterIiv SamplerParameterIiv} */
 	public static void glSamplerParameterIiv(int sampler, int pname, IntBuffer params) {
-		nglSamplerParameterIiv(sampler, pname, memAddress(params));
+		GL33.nglSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
 	// --- [ glSamplerParameterIuiv ] ---
@@ -295,7 +296,7 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterIuiv;
-		GL33.nglSamplerParameterIuiv(sampler, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -306,12 +307,12 @@ public final class ARBSamplerObjects {
 	 * @param params  an array where the value or values of {@code pname} are stored
 	 */
 	public static void glSamplerParameterIuiv(int sampler, int pname, ByteBuffer params) {
-		nglSamplerParameterIuiv(sampler, pname, memAddress(params));
+		GL33.nglSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glSamplerParameterIuiv SamplerParameterIuiv} */
 	public static void glSamplerParameterIuiv(int sampler, int pname, IntBuffer params) {
-		nglSamplerParameterIuiv(sampler, pname, memAddress(params));
+		GL33.nglSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
 	// --- [ glGetSamplerParameteriv ] ---
@@ -320,7 +321,7 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglGetSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameteriv;
-		GL33.nglGetSamplerParameteriv(sampler, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -333,21 +334,21 @@ public final class ARBSamplerObjects {
 	public static void glGetSamplerParameteriv(int sampler, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		nglGetSamplerParameteriv(sampler, pname, memAddress(params));
+		GL33.nglGetSamplerParameteriv(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetSamplerParameteriv GetSamplerParameteriv} */
 	public static void glGetSamplerParameteriv(int sampler, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		nglGetSamplerParameteriv(sampler, pname, memAddress(params));
+		GL33.nglGetSamplerParameteriv(sampler, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetSamplerParameteriv GetSamplerParameteriv} */
 	public static int glGetSamplerParameteri(int sampler, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetSamplerParameteriv(sampler, pname, __buffer.address(params));
+		GL33.nglGetSamplerParameteriv(sampler, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -357,7 +358,7 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglGetSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterfv;
-		GL33.nglGetSamplerParameterfv(sampler, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -370,21 +371,21 @@ public final class ARBSamplerObjects {
 	public static void glGetSamplerParameterfv(int sampler, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		nglGetSamplerParameterfv(sampler, pname, memAddress(params));
+		GL33.nglGetSamplerParameterfv(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetSamplerParameterfv GetSamplerParameterfv} */
 	public static void glGetSamplerParameterfv(int sampler, int pname, FloatBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		nglGetSamplerParameterfv(sampler, pname, memAddress(params));
+		GL33.nglGetSamplerParameterfv(sampler, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetSamplerParameterfv GetSamplerParameterfv} */
 	public static float glGetSamplerParameterf(int sampler, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.floatParam();
-		nglGetSamplerParameterfv(sampler, pname, __buffer.address(params));
+		GL33.nglGetSamplerParameterfv(sampler, pname, __buffer.address(params));
 		return __buffer.floatValue(params);
 	}
 
@@ -394,7 +395,7 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglGetSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIiv;
-		GL33.nglGetSamplerParameterIiv(sampler, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -407,21 +408,21 @@ public final class ARBSamplerObjects {
 	public static void glGetSamplerParameterIiv(int sampler, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		nglGetSamplerParameterIiv(sampler, pname, memAddress(params));
+		GL33.nglGetSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
 	public static void glGetSamplerParameterIiv(int sampler, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		nglGetSamplerParameterIiv(sampler, pname, memAddress(params));
+		GL33.nglGetSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
 	public static int glGetSamplerParameterIi(int sampler, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetSamplerParameterIiv(sampler, pname, __buffer.address(params));
+		GL33.nglGetSamplerParameterIiv(sampler, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -431,7 +432,7 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglGetSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIuiv;
-		GL33.nglGetSamplerParameterIuiv(sampler, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -444,21 +445,21 @@ public final class ARBSamplerObjects {
 	public static void glGetSamplerParameterIuiv(int sampler, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		nglGetSamplerParameterIuiv(sampler, pname, memAddress(params));
+		GL33.nglGetSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
 	public static void glGetSamplerParameterIuiv(int sampler, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		nglGetSamplerParameterIuiv(sampler, pname, memAddress(params));
+		GL33.nglGetSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
 	public static int glGetSamplerParameterIui(int sampler, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetSamplerParameterIuiv(sampler, pname, __buffer.address(params));
+		GL33.nglGetSamplerParameterIuiv(sampler, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 

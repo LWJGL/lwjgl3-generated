@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/raster_multisample.txt">EXT_raster_multisample</a> extension.
@@ -67,10 +68,6 @@ public final class EXTRasterMultisample {
 
 	// --- [ glRasterSamplesEXT ] ---
 
-	/** JNI method for {@link #glRasterSamplesEXT RasterSamplesEXT} */
-	@JavadocExclude
-	public static native void nglRasterSamplesEXT(int samples, boolean fixedsamplelocations, long __functionAddress);
-
 	/**
 	 * Selects the number of samples to be used for rasterization. {@code samples} represents a request for a desired minimum number of samples. Since
 	 * different implementations may support different sample counts, the actual sample pattern used is implementation-dependent. However, the resulting value
@@ -102,7 +99,7 @@ public final class EXTRasterMultisample {
 	 */
 	public static void glRasterSamplesEXT(int samples, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().RasterSamplesEXT;
-		nglRasterSamplesEXT(samples, fixedsamplelocations, __functionAddress);
+		invokeIZV(__functionAddress, samples, fixedsamplelocations);
 	}
 
 }

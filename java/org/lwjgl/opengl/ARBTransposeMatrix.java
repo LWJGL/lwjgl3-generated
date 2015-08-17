@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -72,15 +73,11 @@ public final class ARBTransposeMatrix {
 
 	// --- [ glLoadTransposeMatrixfARB ] ---
 
-	/** JNI method for {@link #glLoadTransposeMatrixfARB LoadTransposeMatrixfARB} */
-	@JavadocExclude
-	public static native void nglLoadTransposeMatrixfARB(long m, long __functionAddress);
-
 	/** Unsafe version of {@link #glLoadTransposeMatrixfARB LoadTransposeMatrixfARB} */
 	@JavadocExclude
 	public static void nglLoadTransposeMatrixfARB(long m) {
 		long __functionAddress = getInstance().LoadTransposeMatrixfARB;
-		nglLoadTransposeMatrixfARB(m, __functionAddress);
+		invokePV(__functionAddress, m);
 	}
 
 	/**
@@ -111,15 +108,11 @@ public final class ARBTransposeMatrix {
 
 	// --- [ glLoadTransposeMatrixdARB ] ---
 
-	/** JNI method for {@link #glLoadTransposeMatrixdARB LoadTransposeMatrixdARB} */
-	@JavadocExclude
-	public static native void nglLoadTransposeMatrixdARB(long m, long __functionAddress);
-
 	/** Unsafe version of {@link #glLoadTransposeMatrixdARB LoadTransposeMatrixdARB} */
 	@JavadocExclude
 	public static void nglLoadTransposeMatrixdARB(long m) {
 		long __functionAddress = getInstance().LoadTransposeMatrixdARB;
-		nglLoadTransposeMatrixdARB(m, __functionAddress);
+		invokePV(__functionAddress, m);
 	}
 
 	/**
@@ -142,15 +135,11 @@ public final class ARBTransposeMatrix {
 
 	// --- [ glMultTransposeMatrixfARB ] ---
 
-	/** JNI method for {@link #glMultTransposeMatrixfARB MultTransposeMatrixfARB} */
-	@JavadocExclude
-	public static native void nglMultTransposeMatrixfARB(long m, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultTransposeMatrixfARB MultTransposeMatrixfARB} */
 	@JavadocExclude
 	public static void nglMultTransposeMatrixfARB(long m) {
 		long __functionAddress = getInstance().MultTransposeMatrixfARB;
-		nglMultTransposeMatrixfARB(m, __functionAddress);
+		invokePV(__functionAddress, m);
 	}
 
 	/**
@@ -173,15 +162,11 @@ public final class ARBTransposeMatrix {
 
 	// --- [ glMultTransposeMatrixdARB ] ---
 
-	/** JNI method for {@link #glMultTransposeMatrixdARB MultTransposeMatrixdARB} */
-	@JavadocExclude
-	public static native void nglMultTransposeMatrixdARB(long m, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultTransposeMatrixdARB MultTransposeMatrixdARB} */
 	@JavadocExclude
 	public static void nglMultTransposeMatrixdARB(long m) {
 		long __functionAddress = getInstance().MultTransposeMatrixdARB;
-		nglMultTransposeMatrixdARB(m, __functionAddress);
+		invokePV(__functionAddress, m);
 	}
 
 	/**

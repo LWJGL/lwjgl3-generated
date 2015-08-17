@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /** The core EGL 1.4 functionality. */
 public final class EGL14 {
@@ -44,13 +45,9 @@ public final class EGL14 {
 
 	// --- [ eglGetCurrentContext ] ---
 
-	/** JNI method for {@link #eglGetCurrentContext GetCurrentContext} */
-	@JavadocExclude
-	public static native long neglGetCurrentContext(long __functionAddress);
-
 	public static long eglGetCurrentContext() {
 		long __functionAddress = getInstance().GetCurrentContext;
-		return neglGetCurrentContext(__functionAddress);
+		return invokeP(__functionAddress);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -263,10 +264,6 @@ public final class AL10 {
 
 	// --- [ alGetError ] ---
 
-	/** JNI method for {@link #alGetError GetError} */
-	@JavadocExclude
-	public static native int nalGetError(long __functionAddress);
-
 	/**
 	 * Obtains error information.
 	 * 
@@ -280,14 +277,10 @@ public final class AL10 {
 	 */
 	public static int alGetError() {
 		long __functionAddress = getInstance().GetError;
-		return nalGetError(__functionAddress);
+		return invokeI(__functionAddress);
 	}
 
 	// --- [ alEnable ] ---
-
-	/** JNI method for {@link #alEnable Enable} */
-	@JavadocExclude
-	public static native void nalEnable(int target, long __functionAddress);
 
 	/**
 	 * Enables AL capabilities.
@@ -296,14 +289,10 @@ public final class AL10 {
 	 */
 	public static void alEnable(int target) {
 		long __functionAddress = getInstance().Enable;
-		nalEnable(target, __functionAddress);
+		invokeIV(__functionAddress, target);
 	}
 
 	// --- [ alDisable ] ---
-
-	/** JNI method for {@link #alDisable Disable} */
-	@JavadocExclude
-	public static native void nalDisable(int target, long __functionAddress);
 
 	/**
 	 * Disables AL capabilities.
@@ -312,14 +301,10 @@ public final class AL10 {
 	 */
 	public static void alDisable(int target) {
 		long __functionAddress = getInstance().Disable;
-		nalDisable(target, __functionAddress);
+		invokeIV(__functionAddress, target);
 	}
 
 	// --- [ alIsEnabled ] ---
-
-	/** JNI method for {@link #alIsEnabled IsEnabled} */
-	@JavadocExclude
-	public static native boolean nalIsEnabled(int target, long __functionAddress);
 
 	/**
 	 * Queries whether a given capability is currently enabled or not.
@@ -328,14 +313,10 @@ public final class AL10 {
 	 */
 	public static boolean alIsEnabled(int target) {
 		long __functionAddress = getInstance().IsEnabled;
-		return nalIsEnabled(target, __functionAddress);
+		return invokeIZ(__functionAddress, target);
 	}
 
 	// --- [ alGetBoolean ] ---
-
-	/** JNI method for {@link #alGetBoolean GetBoolean} */
-	@JavadocExclude
-	public static native boolean nalGetBoolean(int paramName, long __functionAddress);
 
 	/**
 	 * Returns the boolean value of the specified parameter.
@@ -344,14 +325,10 @@ public final class AL10 {
 	 */
 	public static boolean alGetBoolean(int paramName) {
 		long __functionAddress = getInstance().GetBoolean;
-		return nalGetBoolean(paramName, __functionAddress);
+		return invokeIZ(__functionAddress, paramName);
 	}
 
 	// --- [ alGetInteger ] ---
-
-	/** JNI method for {@link #alGetInteger GetInteger} */
-	@JavadocExclude
-	public static native int nalGetInteger(int paramName, long __functionAddress);
 
 	/**
 	 * Returns the integer value of the specified parameter.
@@ -360,14 +337,10 @@ public final class AL10 {
 	 */
 	public static int alGetInteger(int paramName) {
 		long __functionAddress = getInstance().GetInteger;
-		return nalGetInteger(paramName, __functionAddress);
+		return invokeII(__functionAddress, paramName);
 	}
 
 	// --- [ alGetFloat ] ---
-
-	/** JNI method for {@link #alGetFloat GetFloat} */
-	@JavadocExclude
-	public static native float nalGetFloat(int paramName, long __functionAddress);
 
 	/**
 	 * Returns the float value of the specified parameter.
@@ -376,14 +349,10 @@ public final class AL10 {
 	 */
 	public static float alGetFloat(int paramName) {
 		long __functionAddress = getInstance().GetFloat;
-		return nalGetFloat(paramName, __functionAddress);
+		return invokeIF(__functionAddress, paramName);
 	}
 
 	// --- [ alGetDouble ] ---
-
-	/** JNI method for {@link #alGetDouble GetDouble} */
-	@JavadocExclude
-	public static native double nalGetDouble(int paramName, long __functionAddress);
 
 	/**
 	 * Returns the double value of the specified parameter.
@@ -392,20 +361,16 @@ public final class AL10 {
 	 */
 	public static double alGetDouble(int paramName) {
 		long __functionAddress = getInstance().GetDouble;
-		return nalGetDouble(paramName, __functionAddress);
+		return invokeID(__functionAddress, paramName);
 	}
 
 	// --- [ alGetBooleanv ] ---
-
-	/** JNI method for {@link #alGetBooleanv GetBooleanv} */
-	@JavadocExclude
-	public static native void nalGetBooleanv(int paramName, long dest, long __functionAddress);
 
 	/** Unsafe version of {@link #alGetBooleanv GetBooleanv} */
 	@JavadocExclude
 	public static void nalGetBooleanv(int paramName, long dest) {
 		long __functionAddress = getInstance().GetBooleanv;
-		nalGetBooleanv(paramName, dest, __functionAddress);
+		invokeIPV(__functionAddress, paramName, dest);
 	}
 
 	/**
@@ -422,15 +387,11 @@ public final class AL10 {
 
 	// --- [ alGetIntegerv ] ---
 
-	/** JNI method for {@link #alGetIntegerv GetIntegerv} */
-	@JavadocExclude
-	public static native void nalGetIntegerv(int paramName, long dest, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetIntegerv GetIntegerv} */
 	@JavadocExclude
 	public static void nalGetIntegerv(int paramName, long dest) {
 		long __functionAddress = getInstance().GetIntegerv;
-		nalGetIntegerv(paramName, dest, __functionAddress);
+		invokeIPV(__functionAddress, paramName, dest);
 	}
 
 	/**
@@ -454,15 +415,11 @@ public final class AL10 {
 
 	// --- [ alGetFloatv ] ---
 
-	/** JNI method for {@link #alGetFloatv GetFloatv} */
-	@JavadocExclude
-	public static native void nalGetFloatv(int paramName, long dest, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetFloatv GetFloatv} */
 	@JavadocExclude
 	public static void nalGetFloatv(int paramName, long dest) {
 		long __functionAddress = getInstance().GetFloatv;
-		nalGetFloatv(paramName, dest, __functionAddress);
+		invokeIPV(__functionAddress, paramName, dest);
 	}
 
 	/**
@@ -486,15 +443,11 @@ public final class AL10 {
 
 	// --- [ alGetDoublev ] ---
 
-	/** JNI method for {@link #alGetDoublev GetDoublev} */
-	@JavadocExclude
-	public static native void nalGetDoublev(int paramName, long dest, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetDoublev GetDoublev} */
 	@JavadocExclude
 	public static void nalGetDoublev(int paramName, long dest) {
 		long __functionAddress = getInstance().GetDoublev;
-		nalGetDoublev(paramName, dest, __functionAddress);
+		invokeIPV(__functionAddress, paramName, dest);
 	}
 
 	/**
@@ -518,15 +471,11 @@ public final class AL10 {
 
 	// --- [ alGetString ] ---
 
-	/** JNI method for {@link #alGetString GetString} */
-	@JavadocExclude
-	public static native long nalGetString(int paramName, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetString GetString} */
 	@JavadocExclude
 	public static long nalGetString(int paramName) {
 		long __functionAddress = getInstance().GetString;
-		return nalGetString(paramName, __functionAddress);
+		return invokeIP(__functionAddress, paramName);
 	}
 
 	/**
@@ -540,10 +489,6 @@ public final class AL10 {
 	}
 
 	// --- [ alDistanceModel ] ---
-
-	/** JNI method for {@link #alDistanceModel DistanceModel} */
-	@JavadocExclude
-	public static native void nalDistanceModel(int modelName, long __functionAddress);
 
 	/**
 	 * Sets the distance attenuation model.
@@ -562,14 +507,10 @@ public final class AL10 {
 	 */
 	public static void alDistanceModel(int modelName) {
 		long __functionAddress = getInstance().DistanceModel;
-		nalDistanceModel(modelName, __functionAddress);
+		invokeIV(__functionAddress, modelName);
 	}
 
 	// --- [ alDopplerFactor ] ---
-
-	/** JNI method for {@link #alDopplerFactor DopplerFactor} */
-	@JavadocExclude
-	public static native void nalDopplerFactor(float dopplerFactor, long __functionAddress);
 
 	/**
 	 * Sets the doppler effect factor.
@@ -611,14 +552,10 @@ public final class AL10 {
 	 */
 	public static void alDopplerFactor(float dopplerFactor) {
 		long __functionAddress = getInstance().DopplerFactor;
-		nalDopplerFactor(dopplerFactor, __functionAddress);
+		invokeFV(__functionAddress, dopplerFactor);
 	}
 
 	// --- [ alDopplerVelocity ] ---
-
-	/** JNI method for {@link #alDopplerVelocity DopplerVelocity} */
-	@JavadocExclude
-	public static native void nalDopplerVelocity(float dopplerVelocity, long __functionAddress);
 
 	/**
 	 * Sets the doppler effect propagation velocity.
@@ -638,14 +575,10 @@ public final class AL10 {
 	 */
 	public static void alDopplerVelocity(float dopplerVelocity) {
 		long __functionAddress = getInstance().DopplerVelocity;
-		nalDopplerVelocity(dopplerVelocity, __functionAddress);
+		invokeFV(__functionAddress, dopplerVelocity);
 	}
 
 	// --- [ alListenerf ] ---
-
-	/** JNI method for {@link #alListenerf Listenerf} */
-	@JavadocExclude
-	public static native void nalListenerf(int paramName, float value, long __functionAddress);
 
 	/**
 	 * Sets the float value of a listener parameter.
@@ -655,14 +588,10 @@ public final class AL10 {
 	 */
 	public static void alListenerf(int paramName, float value) {
 		long __functionAddress = getInstance().Listenerf;
-		nalListenerf(paramName, value, __functionAddress);
+		invokeIFV(__functionAddress, paramName, value);
 	}
 
 	// --- [ alListeneri ] ---
-
-	/** JNI method for {@link #alListeneri Listeneri} */
-	@JavadocExclude
-	public static native void nalListeneri(int paramName, int values, long __functionAddress);
 
 	/**
 	 * Integer version of {@link #alListenerf Listenerf}.
@@ -672,14 +601,10 @@ public final class AL10 {
 	 */
 	public static void alListeneri(int paramName, int values) {
 		long __functionAddress = getInstance().Listeneri;
-		nalListeneri(paramName, values, __functionAddress);
+		invokeIIV(__functionAddress, paramName, values);
 	}
 
 	// --- [ alListener3f ] ---
-
-	/** JNI method for {@link #alListener3f Listener3f} */
-	@JavadocExclude
-	public static native void nalListener3f(int paramName, float value1, float value2, float value3, long __functionAddress);
 
 	/**
 	 * Sets the 3 dimensional float values of a listener parameter.
@@ -691,20 +616,16 @@ public final class AL10 {
 	 */
 	public static void alListener3f(int paramName, float value1, float value2, float value3) {
 		long __functionAddress = getInstance().Listener3f;
-		nalListener3f(paramName, value1, value2, value3, __functionAddress);
+		invokeIFFFV(__functionAddress, paramName, value1, value2, value3);
 	}
 
 	// --- [ alListenerfv ] ---
-
-	/** JNI method for {@link #alListenerfv Listenerfv} */
-	@JavadocExclude
-	public static native void nalListenerfv(int paramName, long values, long __functionAddress);
 
 	/** Unsafe version of {@link #alListenerfv Listenerfv} */
 	@JavadocExclude
 	public static void nalListenerfv(int paramName, long values) {
 		long __functionAddress = getInstance().Listenerfv;
-		nalListenerfv(paramName, values, __functionAddress);
+		invokeIPV(__functionAddress, paramName, values);
 	}
 
 	/**
@@ -728,15 +649,11 @@ public final class AL10 {
 
 	// --- [ alGetListenerf ] ---
 
-	/** JNI method for {@link #alGetListenerf GetListenerf} */
-	@JavadocExclude
-	public static native void nalGetListenerf(int paramName, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetListenerf GetListenerf} */
 	@JavadocExclude
 	public static void nalGetListenerf(int paramName, long value) {
 		long __functionAddress = getInstance().GetListenerf;
-		nalGetListenerf(paramName, value, __functionAddress);
+		invokeIPV(__functionAddress, paramName, value);
 	}
 
 	/**
@@ -768,15 +685,11 @@ public final class AL10 {
 
 	// --- [ alGetListeneri ] ---
 
-	/** JNI method for {@link #alGetListeneri GetListeneri} */
-	@JavadocExclude
-	public static native void nalGetListeneri(int paramName, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetListeneri GetListeneri} */
 	@JavadocExclude
 	public static void nalGetListeneri(int paramName, long value) {
 		long __functionAddress = getInstance().GetListeneri;
-		nalGetListeneri(paramName, value, __functionAddress);
+		invokeIPV(__functionAddress, paramName, value);
 	}
 
 	/**
@@ -808,15 +721,11 @@ public final class AL10 {
 
 	// --- [ alGetListener3f ] ---
 
-	/** JNI method for {@link #alGetListener3f GetListener3f} */
-	@JavadocExclude
-	public static native void nalGetListener3f(int paramName, long value1, long value2, long value3, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetListener3f GetListener3f} */
 	@JavadocExclude
 	public static void nalGetListener3f(int paramName, long value1, long value2, long value3) {
 		long __functionAddress = getInstance().GetListener3f;
-		nalGetListener3f(paramName, value1, value2, value3, __functionAddress);
+		invokeIPPPV(__functionAddress, paramName, value1, value2, value3);
 	}
 
 	/**
@@ -848,15 +757,11 @@ public final class AL10 {
 
 	// --- [ alGetListenerfv ] ---
 
-	/** JNI method for {@link #alGetListenerfv GetListenerfv} */
-	@JavadocExclude
-	public static native void nalGetListenerfv(int paramName, long values, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetListenerfv GetListenerfv} */
 	@JavadocExclude
 	public static void nalGetListenerfv(int paramName, long values) {
 		long __functionAddress = getInstance().GetListenerfv;
-		nalGetListenerfv(paramName, values, __functionAddress);
+		invokeIPV(__functionAddress, paramName, values);
 	}
 
 	/**
@@ -880,15 +785,11 @@ public final class AL10 {
 
 	// --- [ alGenSources ] ---
 
-	/** JNI method for {@link #alGenSources GenSources} */
-	@JavadocExclude
-	public static native void nalGenSources(int n, long srcNames, long __functionAddress);
-
 	/** Unsafe version of {@link #alGenSources GenSources} */
 	@JavadocExclude
 	public static void nalGenSources(int n, long srcNames) {
 		long __functionAddress = getInstance().GenSources;
-		nalGenSources(n, srcNames, __functionAddress);
+		invokeIPV(__functionAddress, n, srcNames);
 	}
 
 	/**
@@ -918,15 +819,11 @@ public final class AL10 {
 
 	// --- [ alDeleteSources ] ---
 
-	/** JNI method for {@link #alDeleteSources DeleteSources} */
-	@JavadocExclude
-	public static native void nalDeleteSources(int n, long sources, long __functionAddress);
-
 	/** Unsafe version of {@link #alDeleteSources DeleteSources} */
 	@JavadocExclude
 	public static void nalDeleteSources(int n, long sources) {
 		long __functionAddress = getInstance().DeleteSources;
-		nalDeleteSources(n, sources, __functionAddress);
+		invokeIPV(__functionAddress, n, sources);
 	}
 
 	/**
@@ -955,10 +852,6 @@ public final class AL10 {
 
 	// --- [ alIsSource ] ---
 
-	/** JNI method for {@link #alIsSource IsSource} */
-	@JavadocExclude
-	public static native boolean nalIsSource(int sourceName, long __functionAddress);
-
 	/**
 	 * Verifies whether the specified object name is a source name.
 	 *
@@ -966,14 +859,10 @@ public final class AL10 {
 	 */
 	public static boolean alIsSource(int sourceName) {
 		long __functionAddress = getInstance().IsSource;
-		return nalIsSource(sourceName, __functionAddress);
+		return invokeIZ(__functionAddress, sourceName);
 	}
 
 	// --- [ alSourcef ] ---
-
-	/** JNI method for {@link #alSourcef Sourcef} */
-	@JavadocExclude
-	public static native void nalSourcef(int source, int param, float value, long __functionAddress);
 
 	/**
 	 * Sets the float value of a source parameter.
@@ -984,14 +873,10 @@ public final class AL10 {
 	 */
 	public static void alSourcef(int source, int param, float value) {
 		long __functionAddress = getInstance().Sourcef;
-		nalSourcef(source, param, value, __functionAddress);
+		invokeIIFV(__functionAddress, source, param, value);
 	}
 
 	// --- [ alSource3f ] ---
-
-	/** JNI method for {@link #alSource3f Source3f} */
-	@JavadocExclude
-	public static native void nalSource3f(int source, int param, float v1, float v2, float v3, long __functionAddress);
 
 	/**
 	 * Sets the 3 dimensional values of a source parameter.
@@ -1004,20 +889,16 @@ public final class AL10 {
 	 */
 	public static void alSource3f(int source, int param, float v1, float v2, float v3) {
 		long __functionAddress = getInstance().Source3f;
-		nalSource3f(source, param, v1, v2, v3, __functionAddress);
+		invokeIIFFFV(__functionAddress, source, param, v1, v2, v3);
 	}
 
 	// --- [ alSourcefv ] ---
-
-	/** JNI method for {@link #alSourcefv Sourcefv} */
-	@JavadocExclude
-	public static native void nalSourcefv(int source, int param, long values, long __functionAddress);
 
 	/** Unsafe version of {@link #alSourcefv Sourcefv} */
 	@JavadocExclude
 	public static void nalSourcefv(int source, int param, long values) {
 		long __functionAddress = getInstance().Sourcefv;
-		nalSourcefv(source, param, values, __functionAddress);
+		invokeIIPV(__functionAddress, source, param, values);
 	}
 
 	/**
@@ -1042,10 +923,6 @@ public final class AL10 {
 
 	// --- [ alSourcei ] ---
 
-	/** JNI method for {@link #alSourcei Sourcei} */
-	@JavadocExclude
-	public static native void nalSourcei(int source, int param, int value, long __functionAddress);
-
 	/**
 	 * Integer version of {@link #alSourcef Sourcef}.
 	 *
@@ -1055,20 +932,16 @@ public final class AL10 {
 	 */
 	public static void alSourcei(int source, int param, int value) {
 		long __functionAddress = getInstance().Sourcei;
-		nalSourcei(source, param, value, __functionAddress);
+		invokeIIIV(__functionAddress, source, param, value);
 	}
 
 	// --- [ alGetSourcef ] ---
-
-	/** JNI method for {@link #alGetSourcef GetSourcef} */
-	@JavadocExclude
-	public static native void nalGetSourcef(int source, int param, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #alGetSourcef GetSourcef} */
 	@JavadocExclude
 	public static void nalGetSourcef(int source, int param, long value) {
 		long __functionAddress = getInstance().GetSourcef;
-		nalGetSourcef(source, param, value, __functionAddress);
+		invokeIIPV(__functionAddress, source, param, value);
 	}
 
 	/**
@@ -1101,15 +974,11 @@ public final class AL10 {
 
 	// --- [ alGetSource3f ] ---
 
-	/** JNI method for {@link #alGetSource3f GetSource3f} */
-	@JavadocExclude
-	public static native void nalGetSource3f(int source, int param, long v1, long v2, long v3, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetSource3f GetSource3f} */
 	@JavadocExclude
 	public static void nalGetSource3f(int source, int param, long v1, long v2, long v3) {
 		long __functionAddress = getInstance().GetSource3f;
-		nalGetSource3f(source, param, v1, v2, v3, __functionAddress);
+		invokeIIPPPV(__functionAddress, source, param, v1, v2, v3);
 	}
 
 	/**
@@ -1142,15 +1011,11 @@ public final class AL10 {
 
 	// --- [ alGetSourcefv ] ---
 
-	/** JNI method for {@link #alGetSourcefv GetSourcefv} */
-	@JavadocExclude
-	public static native void nalGetSourcefv(int source, int param, long values, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetSourcefv GetSourcefv} */
 	@JavadocExclude
 	public static void nalGetSourcefv(int source, int param, long values) {
 		long __functionAddress = getInstance().GetSourcefv;
-		nalGetSourcefv(source, param, values, __functionAddress);
+		invokeIIPV(__functionAddress, source, param, values);
 	}
 
 	/**
@@ -1175,15 +1040,11 @@ public final class AL10 {
 
 	// --- [ alGetSourcei ] ---
 
-	/** JNI method for {@link #alGetSourcei GetSourcei} */
-	@JavadocExclude
-	public static native void nalGetSourcei(int source, int param, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetSourcei GetSourcei} */
 	@JavadocExclude
 	public static void nalGetSourcei(int source, int param, long value) {
 		long __functionAddress = getInstance().GetSourcei;
-		nalGetSourcei(source, param, value, __functionAddress);
+		invokeIIPV(__functionAddress, source, param, value);
 	}
 
 	/**
@@ -1216,15 +1077,11 @@ public final class AL10 {
 
 	// --- [ alSourceQueueBuffers ] ---
 
-	/** JNI method for {@link #alSourceQueueBuffers SourceQueueBuffers} */
-	@JavadocExclude
-	public static native void nalSourceQueueBuffers(int sourceName, int numBuffers, long bufferNames, long __functionAddress);
-
 	/** Unsafe version of {@link #alSourceQueueBuffers SourceQueueBuffers} */
 	@JavadocExclude
 	public static void nalSourceQueueBuffers(int sourceName, int numBuffers, long bufferNames) {
 		long __functionAddress = getInstance().SourceQueueBuffers;
-		nalSourceQueueBuffers(sourceName, numBuffers, bufferNames, __functionAddress);
+		invokeIIPV(__functionAddress, sourceName, numBuffers, bufferNames);
 	}
 
 	/**
@@ -1258,15 +1115,11 @@ public final class AL10 {
 
 	// --- [ alSourceUnqueueBuffers ] ---
 
-	/** JNI method for {@link #alSourceUnqueueBuffers SourceUnqueueBuffers} */
-	@JavadocExclude
-	public static native void nalSourceUnqueueBuffers(int sourceName, int numEntries, long bufferNames, long __functionAddress);
-
 	/** Unsafe version of {@link #alSourceUnqueueBuffers SourceUnqueueBuffers} */
 	@JavadocExclude
 	public static void nalSourceUnqueueBuffers(int sourceName, int numEntries, long bufferNames) {
 		long __functionAddress = getInstance().SourceUnqueueBuffers;
-		nalSourceUnqueueBuffers(sourceName, numEntries, bufferNames, __functionAddress);
+		invokeIIPV(__functionAddress, sourceName, numEntries, bufferNames);
 	}
 
 	/**
@@ -1302,10 +1155,6 @@ public final class AL10 {
 
 	// --- [ alSourcePlay ] ---
 
-	/** JNI method for {@link #alSourcePlay SourcePlay} */
-	@JavadocExclude
-	public static native void nalSourcePlay(int source, long __functionAddress);
-
 	/**
 	 * Sets the source state to AL_PLAYING.
 	 * 
@@ -1319,14 +1168,10 @@ public final class AL10 {
 	 */
 	public static void alSourcePlay(int source) {
 		long __functionAddress = getInstance().SourcePlay;
-		nalSourcePlay(source, __functionAddress);
+		invokeIV(__functionAddress, source);
 	}
 
 	// --- [ alSourcePause ] ---
-
-	/** JNI method for {@link #alSourcePause SourcePause} */
-	@JavadocExclude
-	public static native void nalSourcePause(int source, long __functionAddress);
 
 	/**
 	 * Sets the source state to AL_PAUSED.
@@ -1339,14 +1184,10 @@ public final class AL10 {
 	 */
 	public static void alSourcePause(int source) {
 		long __functionAddress = getInstance().SourcePause;
-		nalSourcePause(source, __functionAddress);
+		invokeIV(__functionAddress, source);
 	}
 
 	// --- [ alSourceStop ] ---
-
-	/** JNI method for {@link #alSourceStop SourceStop} */
-	@JavadocExclude
-	public static native void nalSourceStop(int source, long __functionAddress);
 
 	/**
 	 * Sets the source state to AL_STOPPED.
@@ -1359,14 +1200,10 @@ public final class AL10 {
 	 */
 	public static void alSourceStop(int source) {
 		long __functionAddress = getInstance().SourceStop;
-		nalSourceStop(source, __functionAddress);
+		invokeIV(__functionAddress, source);
 	}
 
 	// --- [ alSourceRewind ] ---
-
-	/** JNI method for {@link #alSourceRewind SourceRewind} */
-	@JavadocExclude
-	public static native void nalSourceRewind(int source, long __functionAddress);
 
 	/**
 	 * Sets the source state to AL_INITIAL.
@@ -1380,20 +1217,16 @@ public final class AL10 {
 	 */
 	public static void alSourceRewind(int source) {
 		long __functionAddress = getInstance().SourceRewind;
-		nalSourceRewind(source, __functionAddress);
+		invokeIV(__functionAddress, source);
 	}
 
 	// --- [ alSourcePlayv ] ---
-
-	/** JNI method for {@link #alSourcePlayv SourcePlayv} */
-	@JavadocExclude
-	public static native void nalSourcePlayv(int n, long sources, long __functionAddress);
 
 	/** Unsafe version of {@link #alSourcePlayv SourcePlayv} */
 	@JavadocExclude
 	public static void nalSourcePlayv(int n, long sources) {
 		long __functionAddress = getInstance().SourcePlayv;
-		nalSourcePlayv(n, sources, __functionAddress);
+		invokeIPV(__functionAddress, n, sources);
 	}
 
 	/**
@@ -1415,15 +1248,11 @@ public final class AL10 {
 
 	// --- [ alSourcePausev ] ---
 
-	/** JNI method for {@link #alSourcePausev SourcePausev} */
-	@JavadocExclude
-	public static native void nalSourcePausev(int n, long sources, long __functionAddress);
-
 	/** Unsafe version of {@link #alSourcePausev SourcePausev} */
 	@JavadocExclude
 	public static void nalSourcePausev(int n, long sources) {
 		long __functionAddress = getInstance().SourcePausev;
-		nalSourcePausev(n, sources, __functionAddress);
+		invokeIPV(__functionAddress, n, sources);
 	}
 
 	/**
@@ -1445,15 +1274,11 @@ public final class AL10 {
 
 	// --- [ alSourceStopv ] ---
 
-	/** JNI method for {@link #alSourceStopv SourceStopv} */
-	@JavadocExclude
-	public static native void nalSourceStopv(int n, long sources, long __functionAddress);
-
 	/** Unsafe version of {@link #alSourceStopv SourceStopv} */
 	@JavadocExclude
 	public static void nalSourceStopv(int n, long sources) {
 		long __functionAddress = getInstance().SourceStopv;
-		nalSourceStopv(n, sources, __functionAddress);
+		invokeIPV(__functionAddress, n, sources);
 	}
 
 	/**
@@ -1475,15 +1300,11 @@ public final class AL10 {
 
 	// --- [ alSourceRewindv ] ---
 
-	/** JNI method for {@link #alSourceRewindv SourceRewindv} */
-	@JavadocExclude
-	public static native void nalSourceRewindv(int n, long sources, long __functionAddress);
-
 	/** Unsafe version of {@link #alSourceRewindv SourceRewindv} */
 	@JavadocExclude
 	public static void nalSourceRewindv(int n, long sources) {
 		long __functionAddress = getInstance().SourceRewindv;
-		nalSourceRewindv(n, sources, __functionAddress);
+		invokeIPV(__functionAddress, n, sources);
 	}
 
 	/**
@@ -1505,15 +1326,11 @@ public final class AL10 {
 
 	// --- [ alGenBuffers ] ---
 
-	/** JNI method for {@link #alGenBuffers GenBuffers} */
-	@JavadocExclude
-	public static native void nalGenBuffers(int n, long bufferNames, long __functionAddress);
-
 	/** Unsafe version of {@link #alGenBuffers GenBuffers} */
 	@JavadocExclude
 	public static void nalGenBuffers(int n, long bufferNames) {
 		long __functionAddress = getInstance().GenBuffers;
-		nalGenBuffers(n, bufferNames, __functionAddress);
+		invokeIPV(__functionAddress, n, bufferNames);
 	}
 
 	/**
@@ -1543,15 +1360,11 @@ public final class AL10 {
 
 	// --- [ alDeleteBuffers ] ---
 
-	/** JNI method for {@link #alDeleteBuffers DeleteBuffers} */
-	@JavadocExclude
-	public static native void nalDeleteBuffers(int n, long bufferNames, long __functionAddress);
-
 	/** Unsafe version of {@link #alDeleteBuffers DeleteBuffers} */
 	@JavadocExclude
 	public static void nalDeleteBuffers(int n, long bufferNames) {
 		long __functionAddress = getInstance().DeleteBuffers;
-		nalDeleteBuffers(n, bufferNames, __functionAddress);
+		invokeIPV(__functionAddress, n, bufferNames);
 	}
 
 	/**
@@ -1580,10 +1393,6 @@ public final class AL10 {
 
 	// --- [ alIsBuffer ] ---
 
-	/** JNI method for {@link #alIsBuffer IsBuffer} */
-	@JavadocExclude
-	public static native boolean nalIsBuffer(int bufferName, long __functionAddress);
-
 	/**
 	 * Verifies whether the specified object name is a buffer name.
 	 *
@@ -1591,20 +1400,16 @@ public final class AL10 {
 	 */
 	public static boolean alIsBuffer(int bufferName) {
 		long __functionAddress = getInstance().IsBuffer;
-		return nalIsBuffer(bufferName, __functionAddress);
+		return invokeIZ(__functionAddress, bufferName);
 	}
 
 	// --- [ alGetBufferf ] ---
-
-	/** JNI method for {@link #alGetBufferf GetBufferf} */
-	@JavadocExclude
-	public static native void nalGetBufferf(int bufferName, int paramName, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #alGetBufferf GetBufferf} */
 	@JavadocExclude
 	public static void nalGetBufferf(int bufferName, int paramName, long value) {
 		long __functionAddress = getInstance().GetBufferf;
-		nalGetBufferf(bufferName, paramName, value, __functionAddress);
+		invokeIIPV(__functionAddress, bufferName, paramName, value);
 	}
 
 	/**
@@ -1637,15 +1442,11 @@ public final class AL10 {
 
 	// --- [ alGetBufferi ] ---
 
-	/** JNI method for {@link #alGetBufferi GetBufferi} */
-	@JavadocExclude
-	public static native void nalGetBufferi(int bufferName, int paramName, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetBufferi GetBufferi} */
 	@JavadocExclude
 	public static void nalGetBufferi(int bufferName, int paramName, long value) {
 		long __functionAddress = getInstance().GetBufferi;
-		nalGetBufferi(bufferName, paramName, value, __functionAddress);
+		invokeIIPV(__functionAddress, bufferName, paramName, value);
 	}
 
 	/**
@@ -1678,15 +1479,11 @@ public final class AL10 {
 
 	// --- [ alBufferData ] ---
 
-	/** JNI method for {@link #alBufferData BufferData} */
-	@JavadocExclude
-	public static native void nalBufferData(int bufferName, int format, long data, int size, int frequency, long __functionAddress);
-
 	/** Unsafe version of {@link #alBufferData BufferData} */
 	@JavadocExclude
 	public static void nalBufferData(int bufferName, int format, long data, int size, int frequency) {
 		long __functionAddress = getInstance().BufferData;
-		nalBufferData(bufferName, format, data, size, frequency, __functionAddress);
+		invokeIIPIIV(__functionAddress, bufferName, format, data, size, frequency);
 	}
 
 	/**
@@ -1734,15 +1531,11 @@ public final class AL10 {
 
 	// --- [ alGetEnumValue ] ---
 
-	/** JNI method for {@link #alGetEnumValue GetEnumValue} */
-	@JavadocExclude
-	public static native int nalGetEnumValue(long enumName, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetEnumValue GetEnumValue} */
 	@JavadocExclude
 	public static int nalGetEnumValue(long enumName) {
 		long __functionAddress = getInstance().GetEnumValue;
-		return nalGetEnumValue(enumName, __functionAddress);
+		return invokePI(__functionAddress, enumName);
 	}
 
 	/**
@@ -1765,15 +1558,11 @@ public final class AL10 {
 
 	// --- [ alGetProcAddress ] ---
 
-	/** JNI method for {@link #alGetProcAddress GetProcAddress} */
-	@JavadocExclude
-	public static native long nalGetProcAddress(long funcName, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetProcAddress GetProcAddress} */
 	@JavadocExclude
 	public static long nalGetProcAddress(long funcName) {
 		long __functionAddress = getInstance().GetProcAddress;
-		return nalGetProcAddress(funcName, __functionAddress);
+		return invokePP(__functionAddress, funcName);
 	}
 
 	/**
@@ -1802,15 +1591,11 @@ public final class AL10 {
 
 	// --- [ alIsExtensionPresent ] ---
 
-	/** JNI method for {@link #alIsExtensionPresent IsExtensionPresent} */
-	@JavadocExclude
-	public static native boolean nalIsExtensionPresent(long extName, long __functionAddress);
-
 	/** Unsafe version of {@link #alIsExtensionPresent IsExtensionPresent} */
 	@JavadocExclude
 	public static boolean nalIsExtensionPresent(long extName) {
 		long __functionAddress = getInstance().IsExtensionPresent;
-		return nalIsExtensionPresent(extName, __functionAddress);
+		return invokePZ(__functionAddress, extName);
 	}
 
 	/**

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -56,15 +57,11 @@ public final class NVBindlessMultiDrawIndirectCount {
 
 	// --- [ glMultiDrawArraysIndirectBindlessCountNV ] ---
 
-	/** JNI method for {@link #glMultiDrawArraysIndirectBindlessCountNV MultiDrawArraysIndirectBindlessCountNV} */
-	@JavadocExclude
-	public static native void nglMultiDrawArraysIndirectBindlessCountNV(int mode, long indirect, long drawCount, int maxDrawCount, int stride, int vertexBufferCount, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiDrawArraysIndirectBindlessCountNV MultiDrawArraysIndirectBindlessCountNV} */
 	@JavadocExclude
 	public static void nglMultiDrawArraysIndirectBindlessCountNV(int mode, long indirect, long drawCount, int maxDrawCount, int stride, int vertexBufferCount) {
 		long __functionAddress = getInstance().MultiDrawArraysIndirectBindlessCountNV;
-		nglMultiDrawArraysIndirectBindlessCountNV(mode, indirect, drawCount, maxDrawCount, stride, vertexBufferCount, __functionAddress);
+		invokeIPPIIIV(__functionAddress, mode, indirect, drawCount, maxDrawCount, stride, vertexBufferCount);
 	}
 
 	/**
@@ -86,15 +83,11 @@ public final class NVBindlessMultiDrawIndirectCount {
 
 	// --- [ glMultiDrawElementsIndirectBindlessCountNV ] ---
 
-	/** JNI method for {@link #glMultiDrawElementsIndirectBindlessCountNV MultiDrawElementsIndirectBindlessCountNV} */
-	@JavadocExclude
-	public static native void nglMultiDrawElementsIndirectBindlessCountNV(int mode, int type, long indirect, long drawCount, int maxDrawCount, int stride, int vertexBufferCount, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiDrawElementsIndirectBindlessCountNV MultiDrawElementsIndirectBindlessCountNV} */
 	@JavadocExclude
 	public static void nglMultiDrawElementsIndirectBindlessCountNV(int mode, int type, long indirect, long drawCount, int maxDrawCount, int stride, int vertexBufferCount) {
 		long __functionAddress = getInstance().MultiDrawElementsIndirectBindlessCountNV;
-		nglMultiDrawElementsIndirectBindlessCountNV(mode, type, indirect, drawCount, maxDrawCount, stride, vertexBufferCount, __functionAddress);
+		invokeIIPPIIIV(__functionAddress, mode, type, indirect, drawCount, maxDrawCount, stride, vertexBufferCount);
 	}
 
 	/**

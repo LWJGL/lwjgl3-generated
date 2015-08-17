@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -57,15 +58,11 @@ public final class APPLEContextLoggingFunctions {
 
 	// --- [ clLogMessagesToSystemLogAPPLE ] ---
 
-	/** JNI method for {@link #clLogMessagesToSystemLogAPPLE LogMessagesToSystemLogAPPLE} */
-	@JavadocExclude
-	public static native void nclLogMessagesToSystemLogAPPLE(long errstr, long private_info, long cb, long user_data, long __functionAddress);
-
 	/** Unsafe version of {@link #clLogMessagesToSystemLogAPPLE LogMessagesToSystemLogAPPLE} */
 	@JavadocExclude
 	public static void nclLogMessagesToSystemLogAPPLE(long errstr, long private_info, long cb, long user_data) {
 		long __functionAddress = getInstance().LogMessagesToSystemLogAPPLE;
-		nclLogMessagesToSystemLogAPPLE(errstr, private_info, cb, user_data, __functionAddress);
+		invokePPPPV(__functionAddress, errstr, private_info, cb, user_data);
 	}
 
 	/**
@@ -82,15 +79,11 @@ public final class APPLEContextLoggingFunctions {
 
 	// --- [ clLogMessagesToStdoutAPPLE ] ---
 
-	/** JNI method for {@link #clLogMessagesToStdoutAPPLE LogMessagesToStdoutAPPLE} */
-	@JavadocExclude
-	public static native void nclLogMessagesToStdoutAPPLE(long errstr, long private_info, long cb, long user_data, long __functionAddress);
-
 	/** Unsafe version of {@link #clLogMessagesToStdoutAPPLE LogMessagesToStdoutAPPLE} */
 	@JavadocExclude
 	public static void nclLogMessagesToStdoutAPPLE(long errstr, long private_info, long cb, long user_data) {
 		long __functionAddress = getInstance().LogMessagesToStdoutAPPLE;
-		nclLogMessagesToStdoutAPPLE(errstr, private_info, cb, user_data, __functionAddress);
+		invokePPPPV(__functionAddress, errstr, private_info, cb, user_data);
 	}
 
 	/**
@@ -107,15 +100,11 @@ public final class APPLEContextLoggingFunctions {
 
 	// --- [ clLogMessagesToStderrAPPLE ] ---
 
-	/** JNI method for {@link #clLogMessagesToStderrAPPLE LogMessagesToStderrAPPLE} */
-	@JavadocExclude
-	public static native void nclLogMessagesToStderrAPPLE(long errstr, long private_info, long cb, long user_data, long __functionAddress);
-
 	/** Unsafe version of {@link #clLogMessagesToStderrAPPLE LogMessagesToStderrAPPLE} */
 	@JavadocExclude
 	public static void nclLogMessagesToStderrAPPLE(long errstr, long private_info, long cb, long user_data) {
 		long __functionAddress = getInstance().LogMessagesToStderrAPPLE;
-		nclLogMessagesToStderrAPPLE(errstr, private_info, cb, user_data, __functionAddress);
+		invokePPPPV(__functionAddress, errstr, private_info, cb, user_data);
 	}
 
 	/**

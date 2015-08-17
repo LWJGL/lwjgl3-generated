@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -121,17 +122,13 @@ public final class CL11 {
 
 	// --- [ clCreateSubBuffer ] ---
 
-	/** JNI method for {@link #clCreateSubBuffer CreateSubBuffer} */
-	@JavadocExclude
-	public static native long nclCreateSubBuffer(long buffer, long flags, int buffer_create_type, long buffer_create_info, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clCreateSubBuffer CreateSubBuffer} */
 	@JavadocExclude
 	public static long nclCreateSubBuffer(long buffer, long flags, int buffer_create_type, long buffer_create_info, long errcode_ret) {
 		long __functionAddress = getInstance().CreateSubBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(buffer);
-		return nclCreateSubBuffer(buffer, flags, buffer_create_type, buffer_create_info, errcode_ret, __functionAddress);
+		return invokePJIPPP(__functionAddress, buffer, flags, buffer_create_type, buffer_create_info, errcode_ret);
 	}
 
 	/**
@@ -192,10 +189,6 @@ public final class CL11 {
 
 	// --- [ clSetMemObjectDestructorCallback ] ---
 
-	/** JNI method for {@link #clSetMemObjectDestructorCallback SetMemObjectDestructorCallback} */
-	@JavadocExclude
-	public static native int nclSetMemObjectDestructorCallback(long memobj, long pfn_notify, long user_data, long __functionAddress);
-
 	/**
 	 * Registers a user callback function with a memory object. Each call to {@code clSetMemObjectDestructorCallback} registers the specified user callback
 	 * function on a callback stack associated with {@code memobj}. The registered user callback functions are called in the reverse order in which they were
@@ -220,14 +213,10 @@ public final class CL11 {
 		long __functionAddress = getInstance().SetMemObjectDestructorCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(memobj);
-		return nclSetMemObjectDestructorCallback(memobj, pfn_notify.getPointer(), user_data, __functionAddress);
+		return invokePPPI(__functionAddress, memobj, pfn_notify.getPointer(), user_data);
 	}
 
 	// --- [ clEnqueueReadBufferRect ] ---
-
-	/** JNI method for {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
-	@JavadocExclude
-	public static native int nclEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, long buffer_offset, long host_offset, long region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/** Unsafe version of {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
 	@JavadocExclude
@@ -237,7 +226,7 @@ public final class CL11 {
 			checkPointer(command_queue);
 			checkPointer(buffer);
 		}
-		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, buffer_offset, host_offset, region, buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePPIPPPPPPPPIPPI(__functionAddress, command_queue, buffer, blocking_read, buffer_offset, host_offset, region, buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -381,10 +370,6 @@ public final class CL11 {
 
 	// --- [ clEnqueueWriteBufferRect ] ---
 
-	/** JNI method for {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
-	@JavadocExclude
-	public static native int nclEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, long buffer_offset, long host_offset, long region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
 	@JavadocExclude
 	public static int nclEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, long buffer_offset, long host_offset, long region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event) {
@@ -393,7 +378,7 @@ public final class CL11 {
 			checkPointer(command_queue);
 			checkPointer(buffer);
 		}
-		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, buffer_offset, host_offset, region, buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePPIPPPPPPPPIPPI(__functionAddress, command_queue, buffer, blocking_write, buffer_offset, host_offset, region, buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -537,10 +522,6 @@ public final class CL11 {
 
 	// --- [ clEnqueueCopyBufferRect ] ---
 
-	/** JNI method for {@link #clEnqueueCopyBufferRect EnqueueCopyBufferRect} */
-	@JavadocExclude
-	public static native int nclEnqueueCopyBufferRect(long command_queue, long src_buffer, long dst_buffer, long src_origin, long dst_origin, long region, long src_row_pitch, long src_slice_pitch, long dst_row_pitch, long dst_slice_pitch, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueCopyBufferRect EnqueueCopyBufferRect} */
 	@JavadocExclude
 	public static int nclEnqueueCopyBufferRect(long command_queue, long src_buffer, long dst_buffer, long src_origin, long dst_origin, long region, long src_row_pitch, long src_slice_pitch, long dst_row_pitch, long dst_slice_pitch, int num_events_in_wait_list, long event_wait_list, long event) {
@@ -550,7 +531,7 @@ public final class CL11 {
 			checkPointer(src_buffer);
 			checkPointer(dst_buffer);
 		}
-		return nclEnqueueCopyBufferRect(command_queue, src_buffer, dst_buffer, src_origin, dst_origin, region, src_row_pitch, src_slice_pitch, dst_row_pitch, dst_slice_pitch, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePPPPPPPPPPIPPI(__functionAddress, command_queue, src_buffer, dst_buffer, src_origin, dst_origin, region, src_row_pitch, src_slice_pitch, dst_row_pitch, dst_slice_pitch, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -644,17 +625,13 @@ public final class CL11 {
 
 	// --- [ clCreateUserEvent ] ---
 
-	/** JNI method for {@link #clCreateUserEvent CreateUserEvent} */
-	@JavadocExclude
-	public static native long nclCreateUserEvent(long context, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clCreateUserEvent CreateUserEvent} */
 	@JavadocExclude
 	public static long nclCreateUserEvent(long context, long errcode_ret) {
 		long __functionAddress = getInstance().CreateUserEvent;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nclCreateUserEvent(context, errcode_ret, __functionAddress);
+		return invokePPP(__functionAddress, context, errcode_ret);
 	}
 
 	/**
@@ -688,10 +665,6 @@ public final class CL11 {
 	}
 
 	// --- [ clSetUserEventStatus ] ---
-
-	/** JNI method for {@link #clSetUserEventStatus SetUserEventStatus} */
-	@JavadocExclude
-	public static native int nclSetUserEventStatus(long event, int execution_status, long __functionAddress);
 
 	/**
 	 * Sets the execution status of a user event object.
@@ -733,14 +706,10 @@ public final class CL11 {
 		long __functionAddress = getInstance().SetUserEventStatus;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(event);
-		return nclSetUserEventStatus(event, execution_status, __functionAddress);
+		return invokePII(__functionAddress, event, execution_status);
 	}
 
 	// --- [ clSetEventCallback ] ---
-
-	/** JNI method for {@link #clSetEventCallback SetEventCallback} */
-	@JavadocExclude
-	public static native int nclSetEventCallback(long event, int command_exec_callback_type, long pfn_notify, long user_data, long __functionAddress);
 
 	/**
 	 * Registers a user callback function for a specific command execution status. The registered callback function will be called when the execution status of
@@ -790,7 +759,7 @@ public final class CL11 {
 		long __functionAddress = getInstance().SetEventCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(event);
-		return nclSetEventCallback(event, command_exec_callback_type, pfn_notify.getPointer(), user_data, __functionAddress);
+		return invokePIPPI(__functionAddress, event, command_exec_callback_type, pfn_notify.getPointer(), user_data);
 	}
 
      /**

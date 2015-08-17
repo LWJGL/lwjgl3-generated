@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_texture_storage.txt">EXT_texture_storage</a> extension.
@@ -100,68 +101,44 @@ public final class EXTTextureStorage {
 
 	// --- [ glTexStorage1DEXT ] ---
 
-	/** JNI method for {@link #glTexStorage1DEXT TexStorage1DEXT} */
-	@JavadocExclude
-	public static native void nglTexStorage1DEXT(int target, int levels, int internalformat, int width, long __functionAddress);
-
 	public static void glTexStorage1DEXT(int target, int levels, int internalformat, int width) {
 		long __functionAddress = getInstance().TexStorage1DEXT;
-		nglTexStorage1DEXT(target, levels, internalformat, width, __functionAddress);
+		invokeIIIIV(__functionAddress, target, levels, internalformat, width);
 	}
 
 	// --- [ glTexStorage2DEXT ] ---
 
-	/** JNI method for {@link #glTexStorage2DEXT TexStorage2DEXT} */
-	@JavadocExclude
-	public static native void nglTexStorage2DEXT(int target, int levels, int internalformat, int width, int height, long __functionAddress);
-
 	public static void glTexStorage2DEXT(int target, int levels, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().TexStorage2DEXT;
-		nglTexStorage2DEXT(target, levels, internalformat, width, height, __functionAddress);
+		invokeIIIIIV(__functionAddress, target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTexStorage3DEXT ] ---
 
-	/** JNI method for {@link #glTexStorage3DEXT TexStorage3DEXT} */
-	@JavadocExclude
-	public static native void nglTexStorage3DEXT(int target, int levels, int internalformat, int width, int height, int depth, long __functionAddress);
-
 	public static void glTexStorage3DEXT(int target, int levels, int internalformat, int width, int height, int depth) {
 		long __functionAddress = getInstance().TexStorage3DEXT;
-		nglTexStorage3DEXT(target, levels, internalformat, width, height, depth, __functionAddress);
+		invokeIIIIIIV(__functionAddress, target, levels, internalformat, width, height, depth);
 	}
 
 	// --- [ glTextureStorage1DEXT ] ---
 
-	/** JNI method for {@link #glTextureStorage1DEXT TextureStorage1DEXT} */
-	@JavadocExclude
-	public static native void nglTextureStorage1DEXT(int texture, int target, int levels, int internalformat, int width, long __functionAddress);
-
 	public static void glTextureStorage1DEXT(int texture, int target, int levels, int internalformat, int width) {
 		long __functionAddress = getInstance().TextureStorage1DEXT;
-		nglTextureStorage1DEXT(texture, target, levels, internalformat, width, __functionAddress);
+		invokeIIIIIV(__functionAddress, texture, target, levels, internalformat, width);
 	}
 
 	// --- [ glTextureStorage2DEXT ] ---
 
-	/** JNI method for {@link #glTextureStorage2DEXT TextureStorage2DEXT} */
-	@JavadocExclude
-	public static native void nglTextureStorage2DEXT(int texture, int target, int levels, int internalformat, int width, int height, long __functionAddress);
-
 	public static void glTextureStorage2DEXT(int texture, int target, int levels, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().TextureStorage2DEXT;
-		nglTextureStorage2DEXT(texture, target, levels, internalformat, width, height, __functionAddress);
+		invokeIIIIIIV(__functionAddress, texture, target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTextureStorage3DEXT ] ---
 
-	/** JNI method for {@link #glTextureStorage3DEXT TextureStorage3DEXT} */
-	@JavadocExclude
-	public static native void nglTextureStorage3DEXT(int texture, int target, int levels, int internalformat, int width, int height, int depth, long __functionAddress);
-
 	public static void glTextureStorage3DEXT(int texture, int target, int levels, int internalformat, int width, int height, int depth) {
 		long __functionAddress = getInstance().TextureStorage3DEXT;
-		nglTextureStorage3DEXT(texture, target, levels, internalformat, width, height, depth, __functionAddress);
+		invokeIIIIIIIV(__functionAddress, texture, target, levels, internalformat, width, height, depth);
 	}
 
 }

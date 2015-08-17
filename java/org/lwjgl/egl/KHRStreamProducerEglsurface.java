@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -44,10 +45,6 @@ public final class KHRStreamProducerEGLSurface {
 
 	// --- [ eglCreateStreamProducerSurfaceKHR ] ---
 
-	/** JNI method for {@link #eglCreateStreamProducerSurfaceKHR CreateStreamProducerSurfaceKHR} */
-	@JavadocExclude
-	public static native long neglCreateStreamProducerSurfaceKHR(long dpy, long config, long stream, long attrib_list, long __functionAddress);
-
 	/** Unsafe version of {@link #eglCreateStreamProducerSurfaceKHR CreateStreamProducerSurfaceKHR} */
 	@JavadocExclude
 	public static long neglCreateStreamProducerSurfaceKHR(long dpy, long config, long stream, long attrib_list) {
@@ -57,7 +54,7 @@ public final class KHRStreamProducerEGLSurface {
 			checkPointer(config);
 			checkPointer(stream);
 		}
-		return neglCreateStreamProducerSurfaceKHR(dpy, config, stream, attrib_list, __functionAddress);
+		return invokePPPPP(__functionAddress, dpy, config, stream, attrib_list);
 	}
 
 	public static long eglCreateStreamProducerSurfaceKHR(long dpy, long config, long stream, ByteBuffer attrib_list) {

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -100,7 +101,7 @@ public final class ARBTransformFeedback3 {
 	 */
 	public static void glDrawTransformFeedbackStream(int mode, int id, int stream) {
 		long __functionAddress = getInstance().DrawTransformFeedbackStream;
-		GL40.nglDrawTransformFeedbackStream(mode, id, stream, __functionAddress);
+		invokeIIIV(__functionAddress, mode, id, stream);
 	}
 
 	// --- [ glBeginQueryIndexed ] ---
@@ -114,7 +115,7 @@ public final class ARBTransformFeedback3 {
 	 */
 	public static void glBeginQueryIndexed(int target, int index, int id) {
 		long __functionAddress = getInstance().BeginQueryIndexed;
-		GL40.nglBeginQueryIndexed(target, index, id, __functionAddress);
+		invokeIIIV(__functionAddress, target, index, id);
 	}
 
 	// --- [ glEndQueryIndexed ] ---
@@ -127,7 +128,7 @@ public final class ARBTransformFeedback3 {
 	 */
 	public static void glEndQueryIndexed(int target, int index) {
 		long __functionAddress = getInstance().EndQueryIndexed;
-		GL40.nglEndQueryIndexed(target, index, __functionAddress);
+		invokeIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glGetQueryIndexediv ] ---
@@ -136,7 +137,7 @@ public final class ARBTransformFeedback3 {
 	@JavadocExclude
 	public static void nglGetQueryIndexediv(int target, int index, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryIndexediv;
-		GL40.nglGetQueryIndexediv(target, index, pname, params, __functionAddress);
+		invokeIIIPV(__functionAddress, target, index, pname, params);
 	}
 
 	/**
@@ -150,21 +151,21 @@ public final class ARBTransformFeedback3 {
 	public static void glGetQueryIndexediv(int target, int index, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		nglGetQueryIndexediv(target, index, pname, memAddress(params));
+		GL40.nglGetQueryIndexediv(target, index, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryIndexediv GetQueryIndexediv} */
 	public static void glGetQueryIndexediv(int target, int index, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		nglGetQueryIndexediv(target, index, pname, memAddress(params));
+		GL40.nglGetQueryIndexediv(target, index, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetQueryIndexediv GetQueryIndexediv} */
 	public static int glGetQueryIndexedi(int target, int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetQueryIndexediv(target, index, pname, __buffer.address(params));
+		GL40.nglGetQueryIndexediv(target, index, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 

@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/compiled_vertex_array.txt">EXT_compiled_vertex_array</a> extension.
@@ -62,24 +63,16 @@ public final class EXTCompiledVertexArray {
 
 	// --- [ glLockArraysEXT ] ---
 
-	/** JNI method for {@link #glLockArraysEXT LockArraysEXT} */
-	@JavadocExclude
-	public static native void nglLockArraysEXT(int first, int count, long __functionAddress);
-
 	public static void glLockArraysEXT(int first, int count) {
 		long __functionAddress = getInstance().LockArraysEXT;
-		nglLockArraysEXT(first, count, __functionAddress);
+		invokeIIV(__functionAddress, first, count);
 	}
 
 	// --- [ glUnlockArraysEXT ] ---
 
-	/** JNI method for {@link #glUnlockArraysEXT UnlockArraysEXT} */
-	@JavadocExclude
-	public static native void nglUnlockArraysEXT(long __functionAddress);
-
 	public static void glUnlockArraysEXT() {
 		long __functionAddress = getInstance().UnlockArraysEXT;
-		nglUnlockArraysEXT(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 }

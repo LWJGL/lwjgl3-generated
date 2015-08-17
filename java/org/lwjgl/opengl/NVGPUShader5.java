@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -189,59 +190,39 @@ public final class NVGPUShader5 {
 
 	// --- [ glUniform1i64NV ] ---
 
-	/** JNI method for {@link #glUniform1i64NV Uniform1i64NV} */
-	@JavadocExclude
-	public static native void nglUniform1i64NV(int location, long x, long __functionAddress);
-
 	public static void glUniform1i64NV(int location, long x) {
 		long __functionAddress = getInstance().Uniform1i64NV;
-		nglUniform1i64NV(location, x, __functionAddress);
+		invokeIJV(__functionAddress, location, x);
 	}
 
 	// --- [ glUniform2i64NV ] ---
 
-	/** JNI method for {@link #glUniform2i64NV Uniform2i64NV} */
-	@JavadocExclude
-	public static native void nglUniform2i64NV(int location, long x, long y, long __functionAddress);
-
 	public static void glUniform2i64NV(int location, long x, long y) {
 		long __functionAddress = getInstance().Uniform2i64NV;
-		nglUniform2i64NV(location, x, y, __functionAddress);
+		invokeIJJV(__functionAddress, location, x, y);
 	}
 
 	// --- [ glUniform3i64NV ] ---
 
-	/** JNI method for {@link #glUniform3i64NV Uniform3i64NV} */
-	@JavadocExclude
-	public static native void nglUniform3i64NV(int location, long x, long y, long z, long __functionAddress);
-
 	public static void glUniform3i64NV(int location, long x, long y, long z) {
 		long __functionAddress = getInstance().Uniform3i64NV;
-		nglUniform3i64NV(location, x, y, z, __functionAddress);
+		invokeIJJJV(__functionAddress, location, x, y, z);
 	}
 
 	// --- [ glUniform4i64NV ] ---
 
-	/** JNI method for {@link #glUniform4i64NV Uniform4i64NV} */
-	@JavadocExclude
-	public static native void nglUniform4i64NV(int location, long x, long y, long z, long w, long __functionAddress);
-
 	public static void glUniform4i64NV(int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().Uniform4i64NV;
-		nglUniform4i64NV(location, x, y, z, w, __functionAddress);
+		invokeIJJJJV(__functionAddress, location, x, y, z, w);
 	}
 
 	// --- [ glUniform1i64vNV ] ---
-
-	/** JNI method for {@link #glUniform1i64vNV Uniform1i64vNV} */
-	@JavadocExclude
-	public static native void nglUniform1i64vNV(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniform1i64vNV Uniform1i64vNV} */
 	@JavadocExclude
 	public static void nglUniform1i64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1i64vNV;
-		nglUniform1i64vNV(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform1i64vNV(int location, int count, ByteBuffer value) {
@@ -257,15 +238,11 @@ public final class NVGPUShader5 {
 
 	// --- [ glUniform2i64vNV ] ---
 
-	/** JNI method for {@link #glUniform2i64vNV Uniform2i64vNV} */
-	@JavadocExclude
-	public static native void nglUniform2i64vNV(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform2i64vNV Uniform2i64vNV} */
 	@JavadocExclude
 	public static void nglUniform2i64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2i64vNV;
-		nglUniform2i64vNV(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform2i64vNV(int location, int count, ByteBuffer value) {
@@ -281,15 +258,11 @@ public final class NVGPUShader5 {
 
 	// --- [ glUniform3i64vNV ] ---
 
-	/** JNI method for {@link #glUniform3i64vNV Uniform3i64vNV} */
-	@JavadocExclude
-	public static native void nglUniform3i64vNV(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform3i64vNV Uniform3i64vNV} */
 	@JavadocExclude
 	public static void nglUniform3i64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3i64vNV;
-		nglUniform3i64vNV(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform3i64vNV(int location, int count, ByteBuffer value) {
@@ -305,15 +278,11 @@ public final class NVGPUShader5 {
 
 	// --- [ glUniform4i64vNV ] ---
 
-	/** JNI method for {@link #glUniform4i64vNV Uniform4i64vNV} */
-	@JavadocExclude
-	public static native void nglUniform4i64vNV(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform4i64vNV Uniform4i64vNV} */
 	@JavadocExclude
 	public static void nglUniform4i64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4i64vNV;
-		nglUniform4i64vNV(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform4i64vNV(int location, int count, ByteBuffer value) {
@@ -329,59 +298,39 @@ public final class NVGPUShader5 {
 
 	// --- [ glUniform1ui64NV ] ---
 
-	/** JNI method for {@link #glUniform1ui64NV Uniform1ui64NV} */
-	@JavadocExclude
-	public static native void nglUniform1ui64NV(int location, long x, long __functionAddress);
-
 	public static void glUniform1ui64NV(int location, long x) {
 		long __functionAddress = getInstance().Uniform1ui64NV;
-		nglUniform1ui64NV(location, x, __functionAddress);
+		invokeIJV(__functionAddress, location, x);
 	}
 
 	// --- [ glUniform2ui64NV ] ---
 
-	/** JNI method for {@link #glUniform2ui64NV Uniform2ui64NV} */
-	@JavadocExclude
-	public static native void nglUniform2ui64NV(int location, long x, long y, long __functionAddress);
-
 	public static void glUniform2ui64NV(int location, long x, long y) {
 		long __functionAddress = getInstance().Uniform2ui64NV;
-		nglUniform2ui64NV(location, x, y, __functionAddress);
+		invokeIJJV(__functionAddress, location, x, y);
 	}
 
 	// --- [ glUniform3ui64NV ] ---
 
-	/** JNI method for {@link #glUniform3ui64NV Uniform3ui64NV} */
-	@JavadocExclude
-	public static native void nglUniform3ui64NV(int location, long x, long y, long z, long __functionAddress);
-
 	public static void glUniform3ui64NV(int location, long x, long y, long z) {
 		long __functionAddress = getInstance().Uniform3ui64NV;
-		nglUniform3ui64NV(location, x, y, z, __functionAddress);
+		invokeIJJJV(__functionAddress, location, x, y, z);
 	}
 
 	// --- [ glUniform4ui64NV ] ---
 
-	/** JNI method for {@link #glUniform4ui64NV Uniform4ui64NV} */
-	@JavadocExclude
-	public static native void nglUniform4ui64NV(int location, long x, long y, long z, long w, long __functionAddress);
-
 	public static void glUniform4ui64NV(int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().Uniform4ui64NV;
-		nglUniform4ui64NV(location, x, y, z, w, __functionAddress);
+		invokeIJJJJV(__functionAddress, location, x, y, z, w);
 	}
 
 	// --- [ glUniform1ui64vNV ] ---
-
-	/** JNI method for {@link #glUniform1ui64vNV Uniform1ui64vNV} */
-	@JavadocExclude
-	public static native void nglUniform1ui64vNV(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniform1ui64vNV Uniform1ui64vNV} */
 	@JavadocExclude
 	public static void nglUniform1ui64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1ui64vNV;
-		nglUniform1ui64vNV(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform1ui64vNV(int location, int count, ByteBuffer value) {
@@ -397,15 +346,11 @@ public final class NVGPUShader5 {
 
 	// --- [ glUniform2ui64vNV ] ---
 
-	/** JNI method for {@link #glUniform2ui64vNV Uniform2ui64vNV} */
-	@JavadocExclude
-	public static native void nglUniform2ui64vNV(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform2ui64vNV Uniform2ui64vNV} */
 	@JavadocExclude
 	public static void nglUniform2ui64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2ui64vNV;
-		nglUniform2ui64vNV(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform2ui64vNV(int location, int count, ByteBuffer value) {
@@ -421,15 +366,11 @@ public final class NVGPUShader5 {
 
 	// --- [ glUniform3ui64vNV ] ---
 
-	/** JNI method for {@link #glUniform3ui64vNV Uniform3ui64vNV} */
-	@JavadocExclude
-	public static native void nglUniform3ui64vNV(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform3ui64vNV Uniform3ui64vNV} */
 	@JavadocExclude
 	public static void nglUniform3ui64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3ui64vNV;
-		nglUniform3ui64vNV(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform3ui64vNV(int location, int count, ByteBuffer value) {
@@ -445,15 +386,11 @@ public final class NVGPUShader5 {
 
 	// --- [ glUniform4ui64vNV ] ---
 
-	/** JNI method for {@link #glUniform4ui64vNV Uniform4ui64vNV} */
-	@JavadocExclude
-	public static native void nglUniform4ui64vNV(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform4ui64vNV Uniform4ui64vNV} */
 	@JavadocExclude
 	public static void nglUniform4ui64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4ui64vNV;
-		nglUniform4ui64vNV(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform4ui64vNV(int location, int count, ByteBuffer value) {
@@ -469,15 +406,11 @@ public final class NVGPUShader5 {
 
 	// --- [ glGetUniformi64vNV ] ---
 
-	/** JNI method for {@link #glGetUniformi64vNV GetUniformi64vNV} */
-	@JavadocExclude
-	public static native void nglGetUniformi64vNV(int program, int location, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetUniformi64vNV GetUniformi64vNV} */
 	@JavadocExclude
 	public static void nglGetUniformi64vNV(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformi64vNV;
-		nglGetUniformi64vNV(program, location, params, __functionAddress);
+		invokeIIPV(__functionAddress, program, location, params);
 	}
 
 	public static void glGetUniformi64vNV(int program, int location, ByteBuffer params) {
@@ -503,15 +436,11 @@ public final class NVGPUShader5 {
 
 	// --- [ glGetUniformui64vNV ] ---
 
-	/** JNI method for {@link #glGetUniformui64vNV GetUniformui64vNV} */
-	@JavadocExclude
-	public static native void nglGetUniformui64vNV(int program, int location, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetUniformui64vNV GetUniformui64vNV} */
 	@JavadocExclude
 	public static void nglGetUniformui64vNV(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformui64vNV;
-		nglGetUniformui64vNV(program, location, params, __functionAddress);
+		invokeIIPV(__functionAddress, program, location, params);
 	}
 
 	public static void glGetUniformui64vNV(int program, int location, ByteBuffer params) {
@@ -537,59 +466,39 @@ public final class NVGPUShader5 {
 
 	// --- [ glProgramUniform1i64NV ] ---
 
-	/** JNI method for {@link #glProgramUniform1i64NV ProgramUniform1i64NV} */
-	@JavadocExclude
-	public static native void nglProgramUniform1i64NV(int program, int location, long x, long __functionAddress);
-
 	public static void glProgramUniform1i64NV(int program, int location, long x) {
 		long __functionAddress = getInstance().ProgramUniform1i64NV;
-		nglProgramUniform1i64NV(program, location, x, __functionAddress);
+		invokeIIJV(__functionAddress, program, location, x);
 	}
 
 	// --- [ glProgramUniform2i64NV ] ---
 
-	/** JNI method for {@link #glProgramUniform2i64NV ProgramUniform2i64NV} */
-	@JavadocExclude
-	public static native void nglProgramUniform2i64NV(int program, int location, long x, long y, long __functionAddress);
-
 	public static void glProgramUniform2i64NV(int program, int location, long x, long y) {
 		long __functionAddress = getInstance().ProgramUniform2i64NV;
-		nglProgramUniform2i64NV(program, location, x, y, __functionAddress);
+		invokeIIJJV(__functionAddress, program, location, x, y);
 	}
 
 	// --- [ glProgramUniform3i64NV ] ---
 
-	/** JNI method for {@link #glProgramUniform3i64NV ProgramUniform3i64NV} */
-	@JavadocExclude
-	public static native void nglProgramUniform3i64NV(int program, int location, long x, long y, long z, long __functionAddress);
-
 	public static void glProgramUniform3i64NV(int program, int location, long x, long y, long z) {
 		long __functionAddress = getInstance().ProgramUniform3i64NV;
-		nglProgramUniform3i64NV(program, location, x, y, z, __functionAddress);
+		invokeIIJJJV(__functionAddress, program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform4i64NV ] ---
 
-	/** JNI method for {@link #glProgramUniform4i64NV ProgramUniform4i64NV} */
-	@JavadocExclude
-	public static native void nglProgramUniform4i64NV(int program, int location, long x, long y, long z, long w, long __functionAddress);
-
 	public static void glProgramUniform4i64NV(int program, int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().ProgramUniform4i64NV;
-		nglProgramUniform4i64NV(program, location, x, y, z, w, __functionAddress);
+		invokeIIJJJJV(__functionAddress, program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform1i64vNV ] ---
-
-	/** JNI method for {@link #glProgramUniform1i64vNV ProgramUniform1i64vNV} */
-	@JavadocExclude
-	public static native void nglProgramUniform1i64vNV(int program, int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glProgramUniform1i64vNV ProgramUniform1i64vNV} */
 	@JavadocExclude
 	public static void nglProgramUniform1i64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1i64vNV;
-		nglProgramUniform1i64vNV(program, location, count, value, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform1i64vNV(int program, int location, int count, ByteBuffer value) {
@@ -605,15 +514,11 @@ public final class NVGPUShader5 {
 
 	// --- [ glProgramUniform2i64vNV ] ---
 
-	/** JNI method for {@link #glProgramUniform2i64vNV ProgramUniform2i64vNV} */
-	@JavadocExclude
-	public static native void nglProgramUniform2i64vNV(int program, int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glProgramUniform2i64vNV ProgramUniform2i64vNV} */
 	@JavadocExclude
 	public static void nglProgramUniform2i64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2i64vNV;
-		nglProgramUniform2i64vNV(program, location, count, value, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform2i64vNV(int program, int location, int count, ByteBuffer value) {
@@ -629,15 +534,11 @@ public final class NVGPUShader5 {
 
 	// --- [ glProgramUniform3i64vNV ] ---
 
-	/** JNI method for {@link #glProgramUniform3i64vNV ProgramUniform3i64vNV} */
-	@JavadocExclude
-	public static native void nglProgramUniform3i64vNV(int program, int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glProgramUniform3i64vNV ProgramUniform3i64vNV} */
 	@JavadocExclude
 	public static void nglProgramUniform3i64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3i64vNV;
-		nglProgramUniform3i64vNV(program, location, count, value, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform3i64vNV(int program, int location, int count, ByteBuffer value) {
@@ -653,15 +554,11 @@ public final class NVGPUShader5 {
 
 	// --- [ glProgramUniform4i64vNV ] ---
 
-	/** JNI method for {@link #glProgramUniform4i64vNV ProgramUniform4i64vNV} */
-	@JavadocExclude
-	public static native void nglProgramUniform4i64vNV(int program, int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glProgramUniform4i64vNV ProgramUniform4i64vNV} */
 	@JavadocExclude
 	public static void nglProgramUniform4i64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4i64vNV;
-		nglProgramUniform4i64vNV(program, location, count, value, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform4i64vNV(int program, int location, int count, ByteBuffer value) {
@@ -677,59 +574,39 @@ public final class NVGPUShader5 {
 
 	// --- [ glProgramUniform1ui64NV ] ---
 
-	/** JNI method for {@link #glProgramUniform1ui64NV ProgramUniform1ui64NV} */
-	@JavadocExclude
-	public static native void nglProgramUniform1ui64NV(int program, int location, long x, long __functionAddress);
-
 	public static void glProgramUniform1ui64NV(int program, int location, long x) {
 		long __functionAddress = getInstance().ProgramUniform1ui64NV;
-		nglProgramUniform1ui64NV(program, location, x, __functionAddress);
+		invokeIIJV(__functionAddress, program, location, x);
 	}
 
 	// --- [ glProgramUniform2ui64NV ] ---
 
-	/** JNI method for {@link #glProgramUniform2ui64NV ProgramUniform2ui64NV} */
-	@JavadocExclude
-	public static native void nglProgramUniform2ui64NV(int program, int location, long x, long y, long __functionAddress);
-
 	public static void glProgramUniform2ui64NV(int program, int location, long x, long y) {
 		long __functionAddress = getInstance().ProgramUniform2ui64NV;
-		nglProgramUniform2ui64NV(program, location, x, y, __functionAddress);
+		invokeIIJJV(__functionAddress, program, location, x, y);
 	}
 
 	// --- [ glProgramUniform3ui64NV ] ---
 
-	/** JNI method for {@link #glProgramUniform3ui64NV ProgramUniform3ui64NV} */
-	@JavadocExclude
-	public static native void nglProgramUniform3ui64NV(int program, int location, long x, long y, long z, long __functionAddress);
-
 	public static void glProgramUniform3ui64NV(int program, int location, long x, long y, long z) {
 		long __functionAddress = getInstance().ProgramUniform3ui64NV;
-		nglProgramUniform3ui64NV(program, location, x, y, z, __functionAddress);
+		invokeIIJJJV(__functionAddress, program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform4ui64NV ] ---
 
-	/** JNI method for {@link #glProgramUniform4ui64NV ProgramUniform4ui64NV} */
-	@JavadocExclude
-	public static native void nglProgramUniform4ui64NV(int program, int location, long x, long y, long z, long w, long __functionAddress);
-
 	public static void glProgramUniform4ui64NV(int program, int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().ProgramUniform4ui64NV;
-		nglProgramUniform4ui64NV(program, location, x, y, z, w, __functionAddress);
+		invokeIIJJJJV(__functionAddress, program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform1ui64vNV ] ---
-
-	/** JNI method for {@link #glProgramUniform1ui64vNV ProgramUniform1ui64vNV} */
-	@JavadocExclude
-	public static native void nglProgramUniform1ui64vNV(int program, int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glProgramUniform1ui64vNV ProgramUniform1ui64vNV} */
 	@JavadocExclude
 	public static void nglProgramUniform1ui64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1ui64vNV;
-		nglProgramUniform1ui64vNV(program, location, count, value, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform1ui64vNV(int program, int location, int count, ByteBuffer value) {
@@ -745,15 +622,11 @@ public final class NVGPUShader5 {
 
 	// --- [ glProgramUniform2ui64vNV ] ---
 
-	/** JNI method for {@link #glProgramUniform2ui64vNV ProgramUniform2ui64vNV} */
-	@JavadocExclude
-	public static native void nglProgramUniform2ui64vNV(int program, int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glProgramUniform2ui64vNV ProgramUniform2ui64vNV} */
 	@JavadocExclude
 	public static void nglProgramUniform2ui64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2ui64vNV;
-		nglProgramUniform2ui64vNV(program, location, count, value, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform2ui64vNV(int program, int location, int count, ByteBuffer value) {
@@ -769,15 +642,11 @@ public final class NVGPUShader5 {
 
 	// --- [ glProgramUniform3ui64vNV ] ---
 
-	/** JNI method for {@link #glProgramUniform3ui64vNV ProgramUniform3ui64vNV} */
-	@JavadocExclude
-	public static native void nglProgramUniform3ui64vNV(int program, int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glProgramUniform3ui64vNV ProgramUniform3ui64vNV} */
 	@JavadocExclude
 	public static void nglProgramUniform3ui64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3ui64vNV;
-		nglProgramUniform3ui64vNV(program, location, count, value, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform3ui64vNV(int program, int location, int count, ByteBuffer value) {
@@ -793,15 +662,11 @@ public final class NVGPUShader5 {
 
 	// --- [ glProgramUniform4ui64vNV ] ---
 
-	/** JNI method for {@link #glProgramUniform4ui64vNV ProgramUniform4ui64vNV} */
-	@JavadocExclude
-	public static native void nglProgramUniform4ui64vNV(int program, int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glProgramUniform4ui64vNV ProgramUniform4ui64vNV} */
 	@JavadocExclude
 	public static void nglProgramUniform4ui64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4ui64vNV;
-		nglProgramUniform4ui64vNV(program, location, count, value, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform4ui64vNV(int program, int location, int count, ByteBuffer value) {

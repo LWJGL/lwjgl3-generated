@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/compute_shader.txt">ARB_compute_shader</a> extension.
@@ -117,7 +118,7 @@ public final class ARBComputeShader {
 	 */
 	public static void glDispatchCompute(int num_groups_x, int num_groups_y, int num_groups_z) {
 		long __functionAddress = getInstance().DispatchCompute;
-		GL43.nglDispatchCompute(num_groups_x, num_groups_y, num_groups_z, __functionAddress);
+		invokeIIIV(__functionAddress, num_groups_x, num_groups_y, num_groups_z);
 	}
 
 	// --- [ glDispatchComputeIndirect ] ---
@@ -145,7 +146,7 @@ public final class ARBComputeShader {
 		long __functionAddress = getInstance().DispatchComputeIndirect;
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL43.GL_DISPATCH_INDIRECT_BUFFER_BINDING, true);
-		GL43.nglDispatchComputeIndirect(indirect, __functionAddress);
+		invokePV(__functionAddress, indirect);
 	}
 
 }

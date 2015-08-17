@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -80,15 +81,11 @@ public final class NVInternalformatSampleQuery {
 
 	// --- [ glGetInternalformatSampleivNV ] ---
 
-	/** JNI method for {@link #glGetInternalformatSampleivNV GetInternalformatSampleivNV} */
-	@JavadocExclude
-	public static native void nglGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int bufSize, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetInternalformatSampleivNV GetInternalformatSampleivNV} */
 	@JavadocExclude
 	public static void nglGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int bufSize, long params) {
 		long __functionAddress = getInstance().GetInternalformatSampleivNV;
-		nglGetInternalformatSampleivNV(target, internalformat, samples, pname, bufSize, params, __functionAddress);
+		invokeIIIIIPV(__functionAddress, target, internalformat, samples, pname, bufSize, params);
 	}
 
 	public static void glGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int bufSize, ByteBuffer params) {

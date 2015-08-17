@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/bindable_uniform.txt">EXT_bindable_uniform</a> extension.
@@ -72,35 +73,23 @@ public final class EXTBindableUniform {
 
 	// --- [ glUniformBufferEXT ] ---
 
-	/** JNI method for {@link #glUniformBufferEXT UniformBufferEXT} */
-	@JavadocExclude
-	public static native void nglUniformBufferEXT(int program, int location, int buffer, long __functionAddress);
-
 	public static void glUniformBufferEXT(int program, int location, int buffer) {
 		long __functionAddress = getInstance().UniformBufferEXT;
-		nglUniformBufferEXT(program, location, buffer, __functionAddress);
+		invokeIIIV(__functionAddress, program, location, buffer);
 	}
 
 	// --- [ glGetUniformBufferSizeEXT ] ---
 
-	/** JNI method for {@link #glGetUniformBufferSizeEXT GetUniformBufferSizeEXT} */
-	@JavadocExclude
-	public static native int nglGetUniformBufferSizeEXT(int program, int location, long __functionAddress);
-
 	public static int glGetUniformBufferSizeEXT(int program, int location) {
 		long __functionAddress = getInstance().GetUniformBufferSizeEXT;
-		return nglGetUniformBufferSizeEXT(program, location, __functionAddress);
+		return invokeIII(__functionAddress, program, location);
 	}
 
 	// --- [ glGetUniformOffsetEXT ] ---
 
-	/** JNI method for {@link #glGetUniformOffsetEXT GetUniformOffsetEXT} */
-	@JavadocExclude
-	public static native long nglGetUniformOffsetEXT(int program, int location, long __functionAddress);
-
 	public static long glGetUniformOffsetEXT(int program, int location) {
 		long __functionAddress = getInstance().GetUniformOffsetEXT;
-		return nglGetUniformOffsetEXT(program, location, __functionAddress);
+		return invokeIIP(__functionAddress, program, location);
 	}
 
 }

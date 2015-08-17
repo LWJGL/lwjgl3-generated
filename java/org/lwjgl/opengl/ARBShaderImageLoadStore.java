@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/shader_image_load_store.txt">ARB_shader_image_load_store</a> extension.
@@ -170,7 +171,7 @@ public final class ARBShaderImageLoadStore {
 	 */
 	public static void glBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format) {
 		long __functionAddress = getInstance().BindImageTexture;
-		GL42.nglBindImageTexture(unit, texture, level, layered, layer, access, format, __functionAddress);
+		invokeIIIZIIIV(__functionAddress, unit, texture, level, layered, layer, access, format);
 	}
 
 	// --- [ glMemoryBarrier ] ---
@@ -182,7 +183,7 @@ public final class ARBShaderImageLoadStore {
 	 */
 	public static void glMemoryBarrier(int barriers) {
 		long __functionAddress = getInstance().MemoryBarrier;
-		GL42.nglMemoryBarrier(barriers, __functionAddress);
+		invokeIV(__functionAddress, barriers);
 	}
 
 }

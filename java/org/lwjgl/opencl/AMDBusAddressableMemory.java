@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -85,10 +86,6 @@ public final class AMDBusAddressableMemory {
 
 	// --- [ clEnqueueWaitSignalAMD ] ---
 
-	/** JNI method for {@link #clEnqueueWaitSignalAMD EnqueueWaitSignalAMD} */
-	@JavadocExclude
-	public static native int nclEnqueueWaitSignalAMD(long command_queue, long mem_object, int value, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueWaitSignalAMD EnqueueWaitSignalAMD} */
 	@JavadocExclude
 	public static int nclEnqueueWaitSignalAMD(long command_queue, long mem_object, int value, int num_events_in_wait_list, long event_wait_list, long event) {
@@ -97,7 +94,7 @@ public final class AMDBusAddressableMemory {
 			checkPointer(command_queue);
 			checkPointer(mem_object);
 		}
-		return nclEnqueueWaitSignalAMD(command_queue, mem_object, value, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePPIIPPI(__functionAddress, command_queue, mem_object, value, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -141,10 +138,6 @@ public final class AMDBusAddressableMemory {
 
 	// --- [ clEnqueueWriteSignalAMD ] ---
 
-	/** JNI method for {@link #clEnqueueWriteSignalAMD EnqueueWriteSignalAMD} */
-	@JavadocExclude
-	public static native int nclEnqueueWriteSignalAMD(long command_queue, long mem_object, int value, long offset, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueWriteSignalAMD EnqueueWriteSignalAMD} */
 	@JavadocExclude
 	public static int nclEnqueueWriteSignalAMD(long command_queue, long mem_object, int value, long offset, int num_events_in_wait_list, long event_wait_list, long event) {
@@ -153,7 +146,7 @@ public final class AMDBusAddressableMemory {
 			checkPointer(command_queue);
 			checkPointer(mem_object);
 		}
-		return nclEnqueueWriteSignalAMD(command_queue, mem_object, value, offset, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePPIJIPPI(__functionAddress, command_queue, mem_object, value, offset, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -202,17 +195,13 @@ public final class AMDBusAddressableMemory {
 
 	// --- [ clEnqueueMakeBuffersResidentAMD ] ---
 
-	/** JNI method for {@link #clEnqueueMakeBuffersResidentAMD EnqueueMakeBuffersResidentAMD} */
-	@JavadocExclude
-	public static native int nclEnqueueMakeBuffersResidentAMD(long command_queue, int num_mem_objs, long mem_objects, int blocking_make_resident, long bus_addresses, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueMakeBuffersResidentAMD EnqueueMakeBuffersResidentAMD} */
 	@JavadocExclude
 	public static int nclEnqueueMakeBuffersResidentAMD(long command_queue, int num_mem_objs, long mem_objects, int blocking_make_resident, long bus_addresses, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueMakeBuffersResidentAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return nclEnqueueMakeBuffersResidentAMD(command_queue, num_mem_objs, mem_objects, blocking_make_resident, bus_addresses, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePIPIPIPPI(__functionAddress, command_queue, num_mem_objs, mem_objects, blocking_make_resident, bus_addresses, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**

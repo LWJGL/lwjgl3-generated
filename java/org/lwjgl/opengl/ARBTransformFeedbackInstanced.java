@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/transform_feedback_instanced.txt">ARB_transform_feedback_instanced</a> extension.
@@ -66,7 +67,7 @@ public final class ARBTransformFeedbackInstanced {
 	 */
 	public static void glDrawTransformFeedbackInstanced(int mode, int id, int primcount) {
 		long __functionAddress = getInstance().DrawTransformFeedbackInstanced;
-		GL42.nglDrawTransformFeedbackInstanced(mode, id, primcount, __functionAddress);
+		invokeIIIV(__functionAddress, mode, id, primcount);
 	}
 
 	// --- [ glDrawTransformFeedbackStreamInstanced ] ---
@@ -81,7 +82,7 @@ public final class ARBTransformFeedbackInstanced {
 	 */
 	public static void glDrawTransformFeedbackStreamInstanced(int mode, int id, int stream, int primcount) {
 		long __functionAddress = getInstance().DrawTransformFeedbackStreamInstanced;
-		GL42.nglDrawTransformFeedbackStreamInstanced(mode, id, stream, primcount, __functionAddress);
+		invokeIIIIV(__functionAddress, mode, id, stream, primcount);
 	}
 
 }

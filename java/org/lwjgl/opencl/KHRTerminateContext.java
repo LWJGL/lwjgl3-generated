@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <strong>khr_terminate_context</strong> extension.
@@ -63,10 +64,6 @@ public final class KHRTerminateContext {
 
 	// --- [ clTerminateContextKHR ] ---
 
-	/** JNI method for {@link #clTerminateContextKHR TerminateContextKHR} */
-	@JavadocExclude
-	public static native int nclTerminateContextKHR(long context, long __functionAddress);
-
 	/**
 	 * Terminates all pending work associated with the context and renders all data owned by the context invalid. It is the responsibility of the application
 	 * to release all objects associated with the context being terminated.
@@ -100,7 +97,7 @@ public final class KHRTerminateContext {
 		long __functionAddress = getInstance().TerminateContextKHR;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nclTerminateContextKHR(context, __functionAddress);
+		return invokePI(__functionAddress, context);
 	}
 
 }

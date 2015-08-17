@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/conditional_render.txt">NV_conditional_render</a> extension.
@@ -71,24 +72,16 @@ public final class NVConditionalRender {
 
 	// --- [ glBeginConditionalRenderNV ] ---
 
-	/** JNI method for {@link #glBeginConditionalRenderNV BeginConditionalRenderNV} */
-	@JavadocExclude
-	public static native void nglBeginConditionalRenderNV(int id, int mode, long __functionAddress);
-
 	public static void glBeginConditionalRenderNV(int id, int mode) {
 		long __functionAddress = getInstance().BeginConditionalRenderNV;
-		nglBeginConditionalRenderNV(id, mode, __functionAddress);
+		invokeIIV(__functionAddress, id, mode);
 	}
 
 	// --- [ glEndConditionalRenderNV ] ---
 
-	/** JNI method for {@link #glEndConditionalRenderNV EndConditionalRenderNV} */
-	@JavadocExclude
-	public static native void nglEndConditionalRenderNV(long __functionAddress);
-
 	public static void glEndConditionalRenderNV() {
 		long __functionAddress = getInstance().EndConditionalRenderNV;
-		nglEndConditionalRenderNV(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 }

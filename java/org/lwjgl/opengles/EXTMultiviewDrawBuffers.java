@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -83,26 +84,18 @@ public final class EXTMultiviewDrawBuffers {
 
 	// --- [ glReadBufferIndexedEXT ] ---
 
-	/** JNI method for {@link #glReadBufferIndexedEXT ReadBufferIndexedEXT} */
-	@JavadocExclude
-	public static native void nglReadBufferIndexedEXT(int src, int index, long __functionAddress);
-
 	public static void glReadBufferIndexedEXT(int src, int index) {
 		long __functionAddress = getInstance().ReadBufferIndexedEXT;
-		nglReadBufferIndexedEXT(src, index, __functionAddress);
+		invokeIIV(__functionAddress, src, index);
 	}
 
 	// --- [ glDrawBuffersIndexedEXT ] ---
-
-	/** JNI method for {@link #glDrawBuffersIndexedEXT DrawBuffersIndexedEXT} */
-	@JavadocExclude
-	public static native void nglDrawBuffersIndexedEXT(int n, long location, long indices, long __functionAddress);
 
 	/** Unsafe version of {@link #glDrawBuffersIndexedEXT DrawBuffersIndexedEXT} */
 	@JavadocExclude
 	public static void nglDrawBuffersIndexedEXT(int n, long location, long indices) {
 		long __functionAddress = getInstance().DrawBuffersIndexedEXT;
-		nglDrawBuffersIndexedEXT(n, location, indices, __functionAddress);
+		invokeIPPV(__functionAddress, n, location, indices);
 	}
 
 	public static void glDrawBuffersIndexedEXT(int n, ByteBuffer location, ByteBuffer indices) {
@@ -122,15 +115,11 @@ public final class EXTMultiviewDrawBuffers {
 
 	// --- [ glGetIntegeri_vEXT ] ---
 
-	/** JNI method for {@link #glGetIntegeri_vEXT GetIntegeri_vEXT} */
-	@JavadocExclude
-	public static native void nglGetIntegeri_vEXT(int target, int index, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetIntegeri_vEXT GetIntegeri_vEXT} */
 	@JavadocExclude
 	public static void nglGetIntegeri_vEXT(int target, int index, long data) {
 		long __functionAddress = getInstance().GetIntegeri_vEXT;
-		nglGetIntegeri_vEXT(target, index, data, __functionAddress);
+		invokeIIPV(__functionAddress, target, index, data);
 	}
 
 	public static void glGetIntegeri_vEXT(int target, int index, ByteBuffer data) {

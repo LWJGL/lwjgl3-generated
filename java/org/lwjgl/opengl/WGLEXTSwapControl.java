@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/wgl_swap_control.txt">WGL_EXT_swap_control</a> extension.
@@ -52,10 +53,6 @@ public final class WGLEXTSwapControl {
 
 	// --- [ wglSwapIntervalEXT ] ---
 
-	/** JNI method for {@link #wglSwapIntervalEXT SwapIntervalEXT} */
-	@JavadocExclude
-	public static native int nwglSwapIntervalEXT(int interval, long __functionAddress);
-
 	/**
 	 * Specifies the minimum number of video frame periods per buffer swap for the window associated with the current context. The interval takes effect when
 	 * {@link org.lwjgl.system.windows.WinGDI#SwapBuffers} or wglSwapLayerBuffer is first called subsequent to the {@code wglSwapIntervalEXT} call.
@@ -73,19 +70,15 @@ public final class WGLEXTSwapControl {
 	 */
 	public static int wglSwapIntervalEXT(int interval) {
 		long __functionAddress = getInstance().SwapIntervalEXT;
-		return nwglSwapIntervalEXT(interval, __functionAddress);
+		return invokeII(__functionAddress, interval);
 	}
 
 	// --- [ wglGetSwapIntervalEXT ] ---
 
-	/** JNI method for {@link #wglGetSwapIntervalEXT GetSwapIntervalEXT} */
-	@JavadocExclude
-	public static native int nwglGetSwapIntervalEXT(long __functionAddress);
-
 	/** Returns the current swap interval for the window associated with the current context. */
 	public static int wglGetSwapIntervalEXT() {
 		long __functionAddress = getInstance().GetSwapIntervalEXT;
-		return nwglGetSwapIntervalEXT(__functionAddress);
+		return invokeI(__functionAddress);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -143,15 +144,11 @@ public final class GL44 {
 
 	// --- [ glBufferStorage ] ---
 
-	/** JNI method for {@link #glBufferStorage BufferStorage} */
-	@JavadocExclude
-	public static native void nglBufferStorage(int target, long size, long data, int flags, long __functionAddress);
-
 	/** Unsafe version of {@link #glBufferStorage BufferStorage} */
 	@JavadocExclude
 	public static void nglBufferStorage(int target, long size, long data, int flags) {
 		long __functionAddress = getInstance().BufferStorage;
-		nglBufferStorage(target, size, data, flags, __functionAddress);
+		invokeIPPIV(__functionAddress, target, size, data, flags);
 	}
 
 	/**
@@ -242,15 +239,11 @@ public final class GL44 {
 
 	// --- [ glClearTexSubImage ] ---
 
-	/** JNI method for {@link #glClearTexSubImage ClearTexSubImage} */
-	@JavadocExclude
-	public static native void nglClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glClearTexSubImage ClearTexSubImage} */
 	@JavadocExclude
 	public static void nglClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearTexSubImage;
-		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data, __functionAddress);
+		invokeIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
 	}
 
 	/**
@@ -309,15 +302,11 @@ public final class GL44 {
 
 	// --- [ glClearTexImage ] ---
 
-	/** JNI method for {@link #glClearTexImage ClearTexImage} */
-	@JavadocExclude
-	public static native void nglClearTexImage(int texture, int level, int format, int type, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glClearTexImage ClearTexImage} */
 	@JavadocExclude
 	public static void nglClearTexImage(int texture, int level, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearTexImage;
-		nglClearTexImage(texture, level, format, type, data, __functionAddress);
+		invokeIIIIPV(__functionAddress, texture, level, format, type, data);
 	}
 
 	/**
@@ -361,15 +350,11 @@ public final class GL44 {
 
 	// --- [ glBindBuffersBase ] ---
 
-	/** JNI method for {@link #glBindBuffersBase BindBuffersBase} */
-	@JavadocExclude
-	public static native void nglBindBuffersBase(int target, int first, int count, long buffers, long __functionAddress);
-
 	/** Unsafe version of {@link #glBindBuffersBase BindBuffersBase} */
 	@JavadocExclude
 	public static void nglBindBuffersBase(int target, int first, int count, long buffers) {
 		long __functionAddress = getInstance().BindBuffersBase;
-		nglBindBuffersBase(target, first, count, buffers, __functionAddress);
+		invokeIIIPV(__functionAddress, target, first, count, buffers);
 	}
 
 	/**
@@ -406,15 +391,11 @@ public final class GL44 {
 
 	// --- [ glBindBuffersRange ] ---
 
-	/** JNI method for {@link #glBindBuffersRange BindBuffersRange} */
-	@JavadocExclude
-	public static native void nglBindBuffersRange(int target, int first, int count, long buffers, long offsets, long sizes, long __functionAddress);
-
 	/** Unsafe version of {@link #glBindBuffersRange BindBuffersRange} */
 	@JavadocExclude
 	public static void nglBindBuffersRange(int target, int first, int count, long buffers, long offsets, long sizes) {
 		long __functionAddress = getInstance().BindBuffersRange;
-		nglBindBuffersRange(target, first, count, buffers, offsets, sizes, __functionAddress);
+		invokeIIIPPPV(__functionAddress, target, first, count, buffers, offsets, sizes);
 	}
 
 	/**
@@ -466,15 +447,11 @@ public final class GL44 {
 
 	// --- [ glBindTextures ] ---
 
-	/** JNI method for {@link #glBindTextures BindTextures} */
-	@JavadocExclude
-	public static native void nglBindTextures(int first, int count, long textures, long __functionAddress);
-
 	/** Unsafe version of {@link #glBindTextures BindTextures} */
 	@JavadocExclude
 	public static void nglBindTextures(int first, int count, long textures) {
 		long __functionAddress = getInstance().BindTextures;
-		nglBindTextures(first, count, textures, __functionAddress);
+		invokeIIPV(__functionAddress, first, count, textures);
 	}
 
 	/**
@@ -530,15 +507,11 @@ public final class GL44 {
 
 	// --- [ glBindSamplers ] ---
 
-	/** JNI method for {@link #glBindSamplers BindSamplers} */
-	@JavadocExclude
-	public static native void nglBindSamplers(int first, int count, long samplers, long __functionAddress);
-
 	/** Unsafe version of {@link #glBindSamplers BindSamplers} */
 	@JavadocExclude
 	public static void nglBindSamplers(int first, int count, long samplers) {
 		long __functionAddress = getInstance().BindSamplers;
-		nglBindSamplers(first, count, samplers, __functionAddress);
+		invokeIIPV(__functionAddress, first, count, samplers);
 	}
 
 	/**
@@ -578,15 +551,11 @@ public final class GL44 {
 
 	// --- [ glBindImageTextures ] ---
 
-	/** JNI method for {@link #glBindImageTextures BindImageTextures} */
-	@JavadocExclude
-	public static native void nglBindImageTextures(int first, int count, long textures, long __functionAddress);
-
 	/** Unsafe version of {@link #glBindImageTextures BindImageTextures} */
 	@JavadocExclude
 	public static void nglBindImageTextures(int first, int count, long textures) {
 		long __functionAddress = getInstance().BindImageTextures;
-		nglBindImageTextures(first, count, textures, __functionAddress);
+		invokeIIPV(__functionAddress, first, count, textures);
 	}
 
 	/**
@@ -637,15 +606,11 @@ public final class GL44 {
 
 	// --- [ glBindVertexBuffers ] ---
 
-	/** JNI method for {@link #glBindVertexBuffers BindVertexBuffers} */
-	@JavadocExclude
-	public static native void nglBindVertexBuffers(int first, int count, long buffers, long offsets, long strides, long __functionAddress);
-
 	/** Unsafe version of {@link #glBindVertexBuffers BindVertexBuffers} */
 	@JavadocExclude
 	public static void nglBindVertexBuffers(int first, int count, long buffers, long offsets, long strides) {
 		long __functionAddress = getInstance().BindVertexBuffers;
-		nglBindVertexBuffers(first, count, buffers, offsets, strides, __functionAddress);
+		invokeIIPPPV(__functionAddress, first, count, buffers, offsets, strides);
 	}
 
 	/**

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -51,17 +52,13 @@ public final class WGLARBExtensionsString {
 
 	// --- [ wglGetExtensionsStringARB ] ---
 
-	/** JNI method for {@link #wglGetExtensionsStringARB GetExtensionsStringARB} */
-	@JavadocExclude
-	public static native long nwglGetExtensionsStringARB(long hdc, long __functionAddress);
-
 	/** Unsafe version of {@link #wglGetExtensionsStringARB GetExtensionsStringARB} */
 	@JavadocExclude
 	public static long nwglGetExtensionsStringARB(long hdc) {
 		long __functionAddress = getInstance().GetExtensionsStringARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		return nwglGetExtensionsStringARB(hdc, __functionAddress);
+		return invokePP(__functionAddress, hdc);
 	}
 
 	/**

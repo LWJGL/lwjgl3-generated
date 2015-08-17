@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/NV_polygon_mode.txt">NV_polygon_mode</a> extension.
@@ -64,13 +65,9 @@ public final class NVPolygonMode {
 
 	// --- [ glPolygonModeNV ] ---
 
-	/** JNI method for {@link #glPolygonModeNV PolygonModeNV} */
-	@JavadocExclude
-	public static native void nglPolygonModeNV(int face, int mode, long __functionAddress);
-
 	public static void glPolygonModeNV(int face, int mode) {
 		long __functionAddress = getInstance().PolygonModeNV;
-		nglPolygonModeNV(face, mode, __functionAddress);
+		invokeIIV(__functionAddress, face, mode);
 	}
 
 }

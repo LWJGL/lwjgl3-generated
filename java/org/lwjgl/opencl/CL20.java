@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -166,10 +167,6 @@ public final class CL20 {
 
 	// --- [ clCreateCommandQueueWithProperties ] ---
 
-	/** JNI method for {@link #clCreateCommandQueueWithProperties CreateCommandQueueWithProperties} */
-	@JavadocExclude
-	public static native long nclCreateCommandQueueWithProperties(long context, long device, long properties, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clCreateCommandQueueWithProperties CreateCommandQueueWithProperties} */
 	@JavadocExclude
 	public static long nclCreateCommandQueueWithProperties(long context, long device, long properties, long errcode_ret) {
@@ -178,7 +175,7 @@ public final class CL20 {
 			checkPointer(context);
 			checkPointer(device);
 		}
-		return nclCreateCommandQueueWithProperties(context, device, properties, errcode_ret, __functionAddress);
+		return invokePPPPP(__functionAddress, context, device, properties, errcode_ret);
 	}
 
 	/**
@@ -223,17 +220,13 @@ public final class CL20 {
 
 	// --- [ clCreatePipe ] ---
 
-	/** JNI method for {@link #clCreatePipe CreatePipe} */
-	@JavadocExclude
-	public static native long nclCreatePipe(long context, long flags, int pipe_packet_size, int pipe_max_packets, long properties, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clCreatePipe CreatePipe} */
 	@JavadocExclude
 	public static long nclCreatePipe(long context, long flags, int pipe_packet_size, int pipe_max_packets, long properties, long errcode_ret) {
 		long __functionAddress = getInstance().CreatePipe;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nclCreatePipe(context, flags, pipe_packet_size, pipe_max_packets, properties, errcode_ret, __functionAddress);
+		return invokePJIIPPP(__functionAddress, context, flags, pipe_packet_size, pipe_max_packets, properties, errcode_ret);
 	}
 
 	/**
@@ -276,17 +269,13 @@ public final class CL20 {
 
 	// --- [ clGetPipeInfo ] ---
 
-	/** JNI method for {@link #clGetPipeInfo GetPipeInfo} */
-	@JavadocExclude
-	public static native int nclGetPipeInfo(long pipe, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clGetPipeInfo GetPipeInfo} */
 	@JavadocExclude
 	public static int nclGetPipeInfo(long pipe, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetPipeInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(pipe);
-		return nclGetPipeInfo(pipe, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
+		return invokePIPPPI(__functionAddress, pipe, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -331,17 +320,13 @@ public final class CL20 {
 
 	// --- [ clSVMAlloc ] ---
 
-	/** JNI method for {@link #clSVMAlloc SVMAlloc} */
-	@JavadocExclude
-	public static native long nclSVMAlloc(long context, long flags, long size, int alignment, long __functionAddress);
-
 	/** Unsafe version of {@link #clSVMAlloc SVMAlloc} */
 	@JavadocExclude
 	public static long nclSVMAlloc(long context, long flags, long size, int alignment) {
 		long __functionAddress = getInstance().SVMAlloc;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nclSVMAlloc(context, flags, size, alignment, __functionAddress);
+		return invokePJPIP(__functionAddress, context, flags, size, alignment);
 	}
 
 	/**
@@ -397,17 +382,13 @@ public final class CL20 {
 
 	// --- [ clSVMFree ] ---
 
-	/** JNI method for {@link #clSVMFree SVMFree} */
-	@JavadocExclude
-	public static native void nclSVMFree(long context, long svm_pointer, long __functionAddress);
-
 	/** Unsafe version of {@link #clSVMFree SVMFree} */
 	@JavadocExclude
 	public static void nclSVMFree(long context, long svm_pointer) {
 		long __functionAddress = getInstance().SVMFree;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		nclSVMFree(context, svm_pointer, __functionAddress);
+		invokePPV(__functionAddress, context, svm_pointer);
 	}
 
 	/**
@@ -431,17 +412,13 @@ public final class CL20 {
 
 	// --- [ clEnqueueSVMFree ] ---
 
-	/** JNI method for {@link #clEnqueueSVMFree EnqueueSVMFree} */
-	@JavadocExclude
-	public static native int nclEnqueueSVMFree(long command_queue, int num_svm_pointers, long svm_pointers, long pfn_free_func, long user_data, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueSVMFree EnqueueSVMFree} */
 	@JavadocExclude
 	public static int nclEnqueueSVMFree(long command_queue, int num_svm_pointers, long svm_pointers, long pfn_free_func, long user_data, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueSVMFree;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return nclEnqueueSVMFree(command_queue, num_svm_pointers, svm_pointers, pfn_free_func, user_data, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePIPPPIPPI(__functionAddress, command_queue, num_svm_pointers, svm_pointers, pfn_free_func, user_data, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -495,17 +472,13 @@ public final class CL20 {
 
 	// --- [ clEnqueueSVMMemcpy ] ---
 
-	/** JNI method for {@link #clEnqueueSVMMemcpy EnqueueSVMMemcpy} */
-	@JavadocExclude
-	public static native int nclEnqueueSVMMemcpy(long command_queue, int blocking_copy, long dst_ptr, long src_ptr, long size, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueSVMMemcpy EnqueueSVMMemcpy} */
 	@JavadocExclude
 	public static int nclEnqueueSVMMemcpy(long command_queue, int blocking_copy, long dst_ptr, long src_ptr, long size, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueSVMMemcpy;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return nclEnqueueSVMMemcpy(command_queue, blocking_copy, dst_ptr, src_ptr, size, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePIPPPIPPI(__functionAddress, command_queue, blocking_copy, dst_ptr, src_ptr, size, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -568,17 +541,13 @@ public final class CL20 {
 
 	// --- [ clEnqueueSVMMemFill ] ---
 
-	/** JNI method for {@link #clEnqueueSVMMemFill EnqueueSVMMemFill} */
-	@JavadocExclude
-	public static native int nclEnqueueSVMMemFill(long command_queue, long svm_ptr, long pattern, long pattern_size, long size, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueSVMMemFill EnqueueSVMMemFill} */
 	@JavadocExclude
 	public static int nclEnqueueSVMMemFill(long command_queue, long svm_ptr, long pattern, long pattern_size, long size, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueSVMMemFill;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return nclEnqueueSVMMemFill(command_queue, svm_ptr, pattern, pattern_size, size, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePPPPPIPPI(__functionAddress, command_queue, svm_ptr, pattern, pattern_size, size, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -637,17 +606,13 @@ public final class CL20 {
 
 	// --- [ clEnqueueSVMMap ] ---
 
-	/** JNI method for {@link #clEnqueueSVMMap EnqueueSVMMap} */
-	@JavadocExclude
-	public static native int nclEnqueueSVMMap(long command_queue, int blocking_map, long map_flags, long svm_ptr, long size, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueSVMMap EnqueueSVMMap} */
 	@JavadocExclude
 	public static int nclEnqueueSVMMap(long command_queue, int blocking_map, long map_flags, long svm_ptr, long size, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueSVMMap;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return nclEnqueueSVMMap(command_queue, blocking_map, map_flags, svm_ptr, size, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePIJPPIPPI(__functionAddress, command_queue, blocking_map, map_flags, svm_ptr, size, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -708,17 +673,13 @@ public final class CL20 {
 
 	// --- [ clEnqueueSVMUnmap ] ---
 
-	/** JNI method for {@link #clEnqueueSVMUnmap EnqueueSVMUnmap} */
-	@JavadocExclude
-	public static native int nclEnqueueSVMUnmap(long command_queue, long svm_ptr, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueSVMUnmap EnqueueSVMUnmap} */
 	@JavadocExclude
 	public static int nclEnqueueSVMUnmap(long command_queue, long svm_ptr, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueSVMUnmap;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return nclEnqueueSVMUnmap(command_queue, svm_ptr, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePPIPPI(__functionAddress, command_queue, svm_ptr, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -765,17 +726,13 @@ public final class CL20 {
 
 	// --- [ clSetKernelArgSVMPointer ] ---
 
-	/** JNI method for {@link #clSetKernelArgSVMPointer SetKernelArgSVMPointer} */
-	@JavadocExclude
-	public static native int nclSetKernelArgSVMPointer(long kernel, int arg_index, long arg_value, long __functionAddress);
-
 	/** Unsafe version of {@link #clSetKernelArgSVMPointer SetKernelArgSVMPointer} */
 	@JavadocExclude
 	public static int nclSetKernelArgSVMPointer(long kernel, int arg_index, long arg_value) {
 		long __functionAddress = getInstance().SetKernelArgSVMPointer;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(kernel);
-		return nclSetKernelArgSVMPointer(kernel, arg_index, arg_value, __functionAddress);
+		return invokePIPI(__functionAddress, kernel, arg_index, arg_value);
 	}
 
 	/**
@@ -806,17 +763,13 @@ public final class CL20 {
 
 	// --- [ clSetKernelExecInfo ] ---
 
-	/** JNI method for {@link #clSetKernelExecInfo SetKernelExecInfo} */
-	@JavadocExclude
-	public static native int nclSetKernelExecInfo(long kernel, int param_name, long param_value_size, long param_value, long __functionAddress);
-
 	/** Unsafe version of {@link #clSetKernelExecInfo SetKernelExecInfo} */
 	@JavadocExclude
 	public static int nclSetKernelExecInfo(long kernel, int param_name, long param_value_size, long param_value) {
 		long __functionAddress = getInstance().SetKernelExecInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(kernel);
-		return nclSetKernelExecInfo(kernel, param_name, param_value_size, param_value, __functionAddress);
+		return invokePIPPI(__functionAddress, kernel, param_name, param_value_size, param_value);
 	}
 
 	/**
@@ -888,17 +841,13 @@ public final class CL20 {
 
 	// --- [ clCreateSamplerWithProperties ] ---
 
-	/** JNI method for {@link #clCreateSamplerWithProperties CreateSamplerWithProperties} */
-	@JavadocExclude
-	public static native long nclCreateSamplerWithProperties(long context, long sampler_properties, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clCreateSamplerWithProperties CreateSamplerWithProperties} */
 	@JavadocExclude
 	public static long nclCreateSamplerWithProperties(long context, long sampler_properties, long errcode_ret) {
 		long __functionAddress = getInstance().CreateSamplerWithProperties;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nclCreateSamplerWithProperties(context, sampler_properties, errcode_ret, __functionAddress);
+		return invokePPPP(__functionAddress, context, sampler_properties, errcode_ret);
 	}
 
 	/**

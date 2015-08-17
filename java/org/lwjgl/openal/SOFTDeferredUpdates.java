@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://kcat.strangesoft.net/openal-extensions/SOFT_deferred_updates.txt">SOFT_deferred_updates</a> extension.
@@ -56,10 +57,6 @@ public final class SOFTDeferredUpdates {
 
 	// --- [ alDeferUpdatesSOFT ] ---
 
-	/** JNI method for {@link #alDeferUpdatesSOFT DeferUpdatesSOFT} */
-	@JavadocExclude
-	public static native void nalDeferUpdatesSOFT(long __functionAddress);
-
 	/**
 	 * Sometimes it is desirable to ensure multiple state changes take effect at the same time. Normally this isn't possible due to the AL processing updates
 	 * asychronously, so the playback state can be updated with only part of the changes having been specified. An application can prevent these updates by
@@ -71,14 +68,10 @@ public final class SOFTDeferredUpdates {
 	 */
 	public static void alDeferUpdatesSOFT() {
 		long __functionAddress = getInstance().DeferUpdatesSOFT;
-		nalDeferUpdatesSOFT(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ alProcessUpdatesSOFT ] ---
-
-	/** JNI method for {@link #alProcessUpdatesSOFT ProcessUpdatesSOFT} */
-	@JavadocExclude
-	public static native void nalProcessUpdatesSOFT(long __functionAddress);
 
 	/**
 	 * Resumes updates.
@@ -87,7 +80,7 @@ public final class SOFTDeferredUpdates {
 	 */
 	public static void alProcessUpdatesSOFT() {
 		long __functionAddress = getInstance().ProcessUpdatesSOFT;
-		nalProcessUpdatesSOFT(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 }

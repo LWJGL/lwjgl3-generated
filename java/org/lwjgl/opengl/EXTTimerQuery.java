@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -69,15 +70,11 @@ public final class EXTTimerQuery {
 
 	// --- [ glGetQueryObjecti64vEXT ] ---
 
-	/** JNI method for {@link #glGetQueryObjecti64vEXT GetQueryObjecti64vEXT} */
-	@JavadocExclude
-	public static native void nglGetQueryObjecti64vEXT(int id, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetQueryObjecti64vEXT GetQueryObjecti64vEXT} */
 	@JavadocExclude
 	public static void nglGetQueryObjecti64vEXT(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjecti64vEXT;
-		nglGetQueryObjecti64vEXT(id, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, id, pname, params);
 	}
 
 	public static void glGetQueryObjecti64vEXT(int id, int pname, ByteBuffer params) {
@@ -103,15 +100,11 @@ public final class EXTTimerQuery {
 
 	// --- [ glGetQueryObjectui64vEXT ] ---
 
-	/** JNI method for {@link #glGetQueryObjectui64vEXT GetQueryObjectui64vEXT} */
-	@JavadocExclude
-	public static native void nglGetQueryObjectui64vEXT(int id, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetQueryObjectui64vEXT GetQueryObjectui64vEXT} */
 	@JavadocExclude
 	public static void nglGetQueryObjectui64vEXT(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectui64vEXT;
-		nglGetQueryObjectui64vEXT(id, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, id, pname, params);
 	}
 
 	public static void glGetQueryObjectui64vEXT(int id, int pname, ByteBuffer params) {

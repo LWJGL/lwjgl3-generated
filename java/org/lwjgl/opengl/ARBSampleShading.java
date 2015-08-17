@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/sample_shading.txt">ARB_sample_shading</a> extension.
@@ -70,10 +71,6 @@ public final class ARBSampleShading {
 
 	// --- [ glMinSampleShadingARB ] ---
 
-	/** JNI method for {@link #glMinSampleShadingARB MinSampleShadingARB} */
-	@JavadocExclude
-	public static native void nglMinSampleShadingARB(float value, long __functionAddress);
-
 	/**
 	 * Sets the minimum sample shading fraction. {@code value} is clamped to [0,1] when specified.
 	 *
@@ -81,7 +78,7 @@ public final class ARBSampleShading {
 	 */
 	public static void glMinSampleShadingARB(float value) {
 		long __functionAddress = getInstance().MinSampleShadingARB;
-		nglMinSampleShadingARB(value, __functionAddress);
+		invokeFV(__functionAddress, value);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -403,7 +404,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static boolean glIsRenderbuffer(int renderbuffer) {
 		long __functionAddress = getInstance().IsRenderbuffer;
-		return GL30.nglIsRenderbuffer(renderbuffer, __functionAddress);
+		return invokeIZ(__functionAddress, renderbuffer);
 	}
 
 	// --- [ glBindRenderbuffer ] ---
@@ -416,7 +417,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glBindRenderbuffer(int target, int renderbuffer) {
 		long __functionAddress = getInstance().BindRenderbuffer;
-		GL30.nglBindRenderbuffer(target, renderbuffer, __functionAddress);
+		invokeIIV(__functionAddress, target, renderbuffer);
 	}
 
 	// --- [ glDeleteRenderbuffers ] ---
@@ -425,7 +426,7 @@ public final class ARBFramebufferObject {
 	@JavadocExclude
 	public static void nglDeleteRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = getInstance().DeleteRenderbuffers;
-		GL30.nglDeleteRenderbuffers(n, renderbuffers, __functionAddress);
+		invokeIPV(__functionAddress, n, renderbuffers);
 	}
 
 	/**
@@ -437,19 +438,19 @@ public final class ARBFramebufferObject {
 	public static void glDeleteRenderbuffers(int n, ByteBuffer renderbuffers) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(renderbuffers, n << 2);
-		nglDeleteRenderbuffers(n, memAddress(renderbuffers));
+		GL30.nglDeleteRenderbuffers(n, memAddress(renderbuffers));
 	}
 
 	/** Alternative version of: {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
 	public static void glDeleteRenderbuffers(IntBuffer renderbuffers) {
-		nglDeleteRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers));
+		GL30.nglDeleteRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers));
 	}
 
 	/** Single value version of: {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
 	public static void glDeleteRenderbuffers(int renderbuffer) {
 		APIBuffer __buffer = apiBuffer();
 		int renderbuffers = __buffer.intParam(renderbuffer);
-		nglDeleteRenderbuffers(1, __buffer.address(renderbuffers));
+		GL30.nglDeleteRenderbuffers(1, __buffer.address(renderbuffers));
 	}
 
 	// --- [ glGenRenderbuffers ] ---
@@ -458,7 +459,7 @@ public final class ARBFramebufferObject {
 	@JavadocExclude
 	public static void nglGenRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = getInstance().GenRenderbuffers;
-		GL30.nglGenRenderbuffers(n, renderbuffers, __functionAddress);
+		invokeIPV(__functionAddress, n, renderbuffers);
 	}
 
 	/**
@@ -470,19 +471,19 @@ public final class ARBFramebufferObject {
 	public static void glGenRenderbuffers(int n, ByteBuffer renderbuffers) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(renderbuffers, n << 2);
-		nglGenRenderbuffers(n, memAddress(renderbuffers));
+		GL30.nglGenRenderbuffers(n, memAddress(renderbuffers));
 	}
 
 	/** Alternative version of: {@link #glGenRenderbuffers GenRenderbuffers} */
 	public static void glGenRenderbuffers(IntBuffer renderbuffers) {
-		nglGenRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers));
+		GL30.nglGenRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers));
 	}
 
 	/** Single return value version of: {@link #glGenRenderbuffers GenRenderbuffers} */
 	public static int glGenRenderbuffers() {
 		APIBuffer __buffer = apiBuffer();
 		int renderbuffers = __buffer.intParam();
-		nglGenRenderbuffers(1, __buffer.address(renderbuffers));
+		GL30.nglGenRenderbuffers(1, __buffer.address(renderbuffers));
 		return __buffer.intValue(renderbuffers);
 	}
 
@@ -498,7 +499,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glRenderbufferStorage(int target, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorage;
-		GL30.nglRenderbufferStorage(target, internalformat, width, height, __functionAddress);
+		invokeIIIIV(__functionAddress, target, internalformat, width, height);
 	}
 
 	// --- [ glRenderbufferStorageMultisample ] ---
@@ -516,7 +517,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageMultisample;
-		GL30.nglRenderbufferStorageMultisample(target, samples, internalformat, width, height, __functionAddress);
+		invokeIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
 	// --- [ glGetRenderbufferParameteriv ] ---
@@ -525,7 +526,7 @@ public final class ARBFramebufferObject {
 	@JavadocExclude
 	public static void nglGetRenderbufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetRenderbufferParameteriv;
-		GL30.nglGetRenderbufferParameteriv(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -538,21 +539,21 @@ public final class ARBFramebufferObject {
 	public static void glGetRenderbufferParameteriv(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		nglGetRenderbufferParameteriv(target, pname, memAddress(params));
+		GL30.nglGetRenderbufferParameteriv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
 	public static void glGetRenderbufferParameteriv(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		nglGetRenderbufferParameteriv(target, pname, memAddress(params));
+		GL30.nglGetRenderbufferParameteriv(target, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
 	public static int glGetRenderbufferParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetRenderbufferParameteriv(target, pname, __buffer.address(params));
+		GL30.nglGetRenderbufferParameteriv(target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -565,7 +566,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static boolean glIsFramebuffer(int framebuffer) {
 		long __functionAddress = getInstance().IsFramebuffer;
-		return GL30.nglIsFramebuffer(framebuffer, __functionAddress);
+		return invokeIZ(__functionAddress, framebuffer);
 	}
 
 	// --- [ glBindFramebuffer ] ---
@@ -578,7 +579,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glBindFramebuffer(int target, int framebuffer) {
 		long __functionAddress = getInstance().BindFramebuffer;
-		GL30.nglBindFramebuffer(target, framebuffer, __functionAddress);
+		invokeIIV(__functionAddress, target, framebuffer);
 	}
 
 	// --- [ glDeleteFramebuffers ] ---
@@ -587,7 +588,7 @@ public final class ARBFramebufferObject {
 	@JavadocExclude
 	public static void nglDeleteFramebuffers(int n, long framebuffers) {
 		long __functionAddress = getInstance().DeleteFramebuffers;
-		GL30.nglDeleteFramebuffers(n, framebuffers, __functionAddress);
+		invokeIPV(__functionAddress, n, framebuffers);
 	}
 
 	/**
@@ -599,19 +600,19 @@ public final class ARBFramebufferObject {
 	public static void glDeleteFramebuffers(int n, ByteBuffer framebuffers) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(framebuffers, n << 2);
-		nglDeleteFramebuffers(n, memAddress(framebuffers));
+		GL30.nglDeleteFramebuffers(n, memAddress(framebuffers));
 	}
 
 	/** Alternative version of: {@link #glDeleteFramebuffers DeleteFramebuffers} */
 	public static void glDeleteFramebuffers(IntBuffer framebuffers) {
-		nglDeleteFramebuffers(framebuffers.remaining(), memAddress(framebuffers));
+		GL30.nglDeleteFramebuffers(framebuffers.remaining(), memAddress(framebuffers));
 	}
 
 	/** Single value version of: {@link #glDeleteFramebuffers DeleteFramebuffers} */
 	public static void glDeleteFramebuffers(int framebuffer) {
 		APIBuffer __buffer = apiBuffer();
 		int framebuffers = __buffer.intParam(framebuffer);
-		nglDeleteFramebuffers(1, __buffer.address(framebuffers));
+		GL30.nglDeleteFramebuffers(1, __buffer.address(framebuffers));
 	}
 
 	// --- [ glGenFramebuffers ] ---
@@ -620,7 +621,7 @@ public final class ARBFramebufferObject {
 	@JavadocExclude
 	public static void nglGenFramebuffers(int n, long framebuffers) {
 		long __functionAddress = getInstance().GenFramebuffers;
-		GL30.nglGenFramebuffers(n, framebuffers, __functionAddress);
+		invokeIPV(__functionAddress, n, framebuffers);
 	}
 
 	/**
@@ -632,19 +633,19 @@ public final class ARBFramebufferObject {
 	public static void glGenFramebuffers(int n, ByteBuffer framebuffers) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(framebuffers, n << 2);
-		nglGenFramebuffers(n, memAddress(framebuffers));
+		GL30.nglGenFramebuffers(n, memAddress(framebuffers));
 	}
 
 	/** Alternative version of: {@link #glGenFramebuffers GenFramebuffers} */
 	public static void glGenFramebuffers(IntBuffer framebuffers) {
-		nglGenFramebuffers(framebuffers.remaining(), memAddress(framebuffers));
+		GL30.nglGenFramebuffers(framebuffers.remaining(), memAddress(framebuffers));
 	}
 
 	/** Single return value version of: {@link #glGenFramebuffers GenFramebuffers} */
 	public static int glGenFramebuffers() {
 		APIBuffer __buffer = apiBuffer();
 		int framebuffers = __buffer.intParam();
-		nglGenFramebuffers(1, __buffer.address(framebuffers));
+		GL30.nglGenFramebuffers(1, __buffer.address(framebuffers));
 		return __buffer.intValue(framebuffers);
 	}
 
@@ -657,7 +658,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static int glCheckFramebufferStatus(int target) {
 		long __functionAddress = getInstance().CheckFramebufferStatus;
-		return GL30.nglCheckFramebufferStatus(target, __functionAddress);
+		return invokeII(__functionAddress, target);
 	}
 
 	// --- [ glFramebufferTexture1D ] ---
@@ -673,7 +674,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glFramebufferTexture1D(int target, int attachment, int textarget, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTexture1D;
-		GL30.nglFramebufferTexture1D(target, attachment, textarget, texture, level, __functionAddress);
+		invokeIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
 	}
 
 	// --- [ glFramebufferTexture2D ] ---
@@ -689,7 +690,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTexture2D;
-		GL30.nglFramebufferTexture2D(target, attachment, textarget, texture, level, __functionAddress);
+		invokeIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
 	}
 
 	// --- [ glFramebufferTexture3D ] ---
@@ -706,7 +707,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glFramebufferTexture3D(int target, int attachment, int textarget, int texture, int level, int layer) {
 		long __functionAddress = getInstance().FramebufferTexture3D;
-		GL30.nglFramebufferTexture3D(target, attachment, textarget, texture, level, layer, __functionAddress);
+		invokeIIIIIIV(__functionAddress, target, attachment, textarget, texture, level, layer);
 	}
 
 	// --- [ glFramebufferTextureLayer ] ---
@@ -722,7 +723,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer) {
 		long __functionAddress = getInstance().FramebufferTextureLayer;
-		GL30.nglFramebufferTextureLayer(target, attachment, texture, level, layer, __functionAddress);
+		invokeIIIIIV(__functionAddress, target, attachment, texture, level, layer);
 	}
 
 	// --- [ glFramebufferRenderbuffer ] ---
@@ -737,7 +738,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer) {
 		long __functionAddress = getInstance().FramebufferRenderbuffer;
-		GL30.nglFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer, __functionAddress);
+		invokeIIIIV(__functionAddress, target, attachment, renderbuffertarget, renderbuffer);
 	}
 
 	// --- [ glGetFramebufferAttachmentParameteriv ] ---
@@ -746,7 +747,7 @@ public final class ARBFramebufferObject {
 	@JavadocExclude
 	public static void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferAttachmentParameteriv;
-		GL30.nglGetFramebufferAttachmentParameteriv(target, attachment, pname, params, __functionAddress);
+		invokeIIIPV(__functionAddress, target, attachment, pname, params);
 	}
 
 	/**
@@ -760,21 +761,21 @@ public final class ARBFramebufferObject {
 	public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
+		GL30.nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
 	public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
+		GL30.nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
 	public static int glGetFramebufferAttachmentParameteri(int target, int attachment, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, __buffer.address(params));
+		GL30.nglGetFramebufferAttachmentParameteriv(target, attachment, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -796,7 +797,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
 		long __functionAddress = getInstance().BlitFramebuffer;
-		GL30.nglBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter, __functionAddress);
+		invokeIIIIIIIIIIV(__functionAddress, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 
 	// --- [ glGenerateMipmap ] ---
@@ -808,7 +809,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glGenerateMipmap(int target) {
 		long __functionAddress = getInstance().GenerateMipmap;
-		GL30.nglGenerateMipmap(target, __functionAddress);
+		invokeIV(__functionAddress, target);
 	}
 
 }

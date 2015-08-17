@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -76,10 +77,6 @@ public final class WGLNVDXInterop {
 
 	// --- [ wglDXSetResourceShareHandleNV ] ---
 
-	/** JNI method for {@link #wglDXSetResourceShareHandleNV DXSetResourceShareHandleNV} */
-	@JavadocExclude
-	public static native int nwglDXSetResourceShareHandleNV(long dxObject, long shareHandle, long __functionAddress);
-
 	/**
 	 * 
 	 *
@@ -92,14 +89,10 @@ public final class WGLNVDXInterop {
 			checkPointer(dxObject);
 			checkPointer(shareHandle);
 		}
-		return nwglDXSetResourceShareHandleNV(dxObject, shareHandle, __functionAddress);
+		return invokePPI(__functionAddress, dxObject, shareHandle);
 	}
 
 	// --- [ wglDXOpenDeviceNV ] ---
-
-	/** JNI method for {@link #wglDXOpenDeviceNV DXOpenDeviceNV} */
-	@JavadocExclude
-	public static native long nwglDXOpenDeviceNV(long dxDevice, long __functionAddress);
 
 	/**
 	 * Prepares a DirectX device for interoperability and returns a handle to a GL/DirectX interop device.
@@ -110,27 +103,19 @@ public final class WGLNVDXInterop {
 		long __functionAddress = getInstance().DXOpenDeviceNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dxDevice);
-		return nwglDXOpenDeviceNV(dxDevice, __functionAddress);
+		return invokePP(__functionAddress, dxDevice);
 	}
 
 	// --- [ wglDXCloseDeviceNV ] ---
-
-	/** JNI method for {@link #wglDXCloseDeviceNV DXCloseDeviceNV} */
-	@JavadocExclude
-	public static native int nwglDXCloseDeviceNV(long device, long __functionAddress);
 
 	public static int wglDXCloseDeviceNV(long device) {
 		long __functionAddress = getInstance().DXCloseDeviceNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		return nwglDXCloseDeviceNV(device, __functionAddress);
+		return invokePI(__functionAddress, device);
 	}
 
 	// --- [ wglDXRegisterObjectNV ] ---
-
-	/** JNI method for {@link #wglDXRegisterObjectNV DXRegisterObjectNV} */
-	@JavadocExclude
-	public static native long nwglDXRegisterObjectNV(long device, long dxResource, int name, int type, int access, long __functionAddress);
 
 	/**
 	 * Prepares a DirectX object for use by the GL and returns a handle to a GL/DirectX interop object.
@@ -147,14 +132,10 @@ public final class WGLNVDXInterop {
 			checkPointer(device);
 			checkPointer(dxResource);
 		}
-		return nwglDXRegisterObjectNV(device, dxResource, name, type, access, __functionAddress);
+		return invokePPIIIP(__functionAddress, device, dxResource, name, type, access);
 	}
 
 	// --- [ wglDXUnregisterObjectNV ] ---
-
-	/** JNI method for {@link #wglDXUnregisterObjectNV DXUnregisterObjectNV} */
-	@JavadocExclude
-	public static native int nwglDXUnregisterObjectNV(long device, long object, long __functionAddress);
 
 	public static int wglDXUnregisterObjectNV(long device, long object) {
 		long __functionAddress = getInstance().DXUnregisterObjectNV;
@@ -162,14 +143,10 @@ public final class WGLNVDXInterop {
 			checkPointer(device);
 			checkPointer(object);
 		}
-		return nwglDXUnregisterObjectNV(device, object, __functionAddress);
+		return invokePPI(__functionAddress, device, object);
 	}
 
 	// --- [ wglDXObjectAccessNV ] ---
-
-	/** JNI method for {@link #wglDXObjectAccessNV DXObjectAccessNV} */
-	@JavadocExclude
-	public static native int nwglDXObjectAccessNV(long object, int access, long __functionAddress);
 
 	/**
 	 * Modifies the access mode of an interop object, if a different access mode is required after the object has been registered.
@@ -181,14 +158,10 @@ public final class WGLNVDXInterop {
 		long __functionAddress = getInstance().DXObjectAccessNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(object);
-		return nwglDXObjectAccessNV(object, access, __functionAddress);
+		return invokePII(__functionAddress, object, access);
 	}
 
 	// --- [ wglDXLockObjectsNV ] ---
-
-	/** JNI method for {@link #wglDXLockObjectsNV DXLockObjectsNV} */
-	@JavadocExclude
-	public static native int nwglDXLockObjectsNV(long device, int count, long objects, long __functionAddress);
 
 	/** Unsafe version of {@link #wglDXLockObjectsNV DXLockObjectsNV} */
 	@JavadocExclude
@@ -196,7 +169,7 @@ public final class WGLNVDXInterop {
 		long __functionAddress = getInstance().DXLockObjectsNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		return nwglDXLockObjectsNV(device, count, objects, __functionAddress);
+		return invokePIPI(__functionAddress, device, count, objects);
 	}
 
 	/**
@@ -226,17 +199,13 @@ public final class WGLNVDXInterop {
 
 	// --- [ wglDXUnlockObjectsNV ] ---
 
-	/** JNI method for {@link #wglDXUnlockObjectsNV DXUnlockObjectsNV} */
-	@JavadocExclude
-	public static native int nwglDXUnlockObjectsNV(long device, int count, long objects, long __functionAddress);
-
 	/** Unsafe version of {@link #wglDXUnlockObjectsNV DXUnlockObjectsNV} */
 	@JavadocExclude
 	public static int nwglDXUnlockObjectsNV(long device, int count, long objects) {
 		long __functionAddress = getInstance().DXUnlockObjectsNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		return nwglDXUnlockObjectsNV(device, count, objects, __functionAddress);
+		return invokePIPI(__functionAddress, device, count, objects);
 	}
 
 	/**

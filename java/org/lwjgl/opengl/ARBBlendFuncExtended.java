@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -79,7 +80,7 @@ public final class ARBBlendFuncExtended {
 	@JavadocExclude
 	public static void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name) {
 		long __functionAddress = getInstance().BindFragDataLocationIndexed;
-		GL33.nglBindFragDataLocationIndexed(program, colorNumber, index, name, __functionAddress);
+		invokeIIIPV(__functionAddress, program, colorNumber, index, name);
 	}
 
 	/**
@@ -93,14 +94,14 @@ public final class ARBBlendFuncExtended {
 	public static void glBindFragDataLocationIndexed(int program, int colorNumber, int index, ByteBuffer name) {
 		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
-		nglBindFragDataLocationIndexed(program, colorNumber, index, memAddress(name));
+		GL33.nglBindFragDataLocationIndexed(program, colorNumber, index, memAddress(name));
 	}
 
 	/** CharSequence version of: {@link #glBindFragDataLocationIndexed BindFragDataLocationIndexed} */
 	public static void glBindFragDataLocationIndexed(int program, int colorNumber, int index, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		nglBindFragDataLocationIndexed(program, colorNumber, index, __buffer.address(nameEncoded));
+		GL33.nglBindFragDataLocationIndexed(program, colorNumber, index, __buffer.address(nameEncoded));
 	}
 
 	// --- [ glGetFragDataIndex ] ---
@@ -109,7 +110,7 @@ public final class ARBBlendFuncExtended {
 	@JavadocExclude
 	public static int nglGetFragDataIndex(int program, long name) {
 		long __functionAddress = getInstance().GetFragDataIndex;
-		return GL33.nglGetFragDataIndex(program, name, __functionAddress);
+		return invokeIPI(__functionAddress, program, name);
 	}
 
 	/**
@@ -121,14 +122,14 @@ public final class ARBBlendFuncExtended {
 	public static int glGetFragDataIndex(int program, ByteBuffer name) {
 		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
-		return nglGetFragDataIndex(program, memAddress(name));
+		return GL33.nglGetFragDataIndex(program, memAddress(name));
 	}
 
 	/** CharSequence version of: {@link #glGetFragDataIndex GetFragDataIndex} */
 	public static int glGetFragDataIndex(int program, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetFragDataIndex(program, __buffer.address(nameEncoded));
+		return GL33.nglGetFragDataIndex(program, __buffer.address(nameEncoded));
 	}
 
 }

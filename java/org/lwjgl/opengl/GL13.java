@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -335,15 +336,11 @@ public final class GL13 {
 
 	// --- [ glCompressedTexImage3D ] ---
 
-	/** JNI method for {@link #glCompressedTexImage3D CompressedTexImage3D} */
-	@JavadocExclude
-	public static native void nglCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glCompressedTexImage3D CompressedTexImage3D} */
 	@JavadocExclude
 	public static void nglCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage3D;
-		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, data, __functionAddress);
+		invokeIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
 	}
 
 	/**
@@ -385,15 +382,11 @@ public final class GL13 {
 
 	// --- [ glCompressedTexImage2D ] ---
 
-	/** JNI method for {@link #glCompressedTexImage2D CompressedTexImage2D} */
-	@JavadocExclude
-	public static native void nglCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glCompressedTexImage2D CompressedTexImage2D} */
 	@JavadocExclude
 	public static void nglCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage2D;
-		nglCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data, __functionAddress);
+		invokeIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, border, imageSize, data);
 	}
 
 	/**
@@ -434,15 +427,11 @@ public final class GL13 {
 
 	// --- [ glCompressedTexImage1D ] ---
 
-	/** JNI method for {@link #glCompressedTexImage1D CompressedTexImage1D} */
-	@JavadocExclude
-	public static native void nglCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glCompressedTexImage1D CompressedTexImage1D} */
 	@JavadocExclude
 	public static void nglCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage1D;
-		nglCompressedTexImage1D(target, level, internalformat, width, border, imageSize, data, __functionAddress);
+		invokeIIIIIIPV(__functionAddress, target, level, internalformat, width, border, imageSize, data);
 	}
 
 	/**
@@ -482,15 +471,11 @@ public final class GL13 {
 
 	// --- [ glCompressedTexSubImage3D ] ---
 
-	/** JNI method for {@link #glCompressedTexSubImage3D CompressedTexSubImage3D} */
-	@JavadocExclude
-	public static native void nglCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glCompressedTexSubImage3D CompressedTexSubImage3D} */
 	@JavadocExclude
 	public static void nglCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage3D;
-		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data, __functionAddress);
+		invokeIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
 	/**
@@ -534,15 +519,11 @@ public final class GL13 {
 
 	// --- [ glCompressedTexSubImage2D ] ---
 
-	/** JNI method for {@link #glCompressedTexSubImage2D CompressedTexSubImage2D} */
-	@JavadocExclude
-	public static native void nglCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glCompressedTexSubImage2D CompressedTexSubImage2D} */
 	@JavadocExclude
 	public static void nglCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage2D;
-		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data, __functionAddress);
+		invokeIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, imageSize, data);
 	}
 
 	/**
@@ -584,15 +565,11 @@ public final class GL13 {
 
 	// --- [ glCompressedTexSubImage1D ] ---
 
-	/** JNI method for {@link #glCompressedTexSubImage1D CompressedTexSubImage1D} */
-	@JavadocExclude
-	public static native void nglCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glCompressedTexSubImage1D CompressedTexSubImage1D} */
 	@JavadocExclude
 	public static void nglCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage1D;
-		nglCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, data, __functionAddress);
+		invokeIIIIIIPV(__functionAddress, target, level, xoffset, width, format, imageSize, data);
 	}
 
 	/**
@@ -632,15 +609,11 @@ public final class GL13 {
 
 	// --- [ glGetCompressedTexImage ] ---
 
-	/** JNI method for {@link #glGetCompressedTexImage GetCompressedTexImage} */
-	@JavadocExclude
-	public static native void nglGetCompressedTexImage(int target, int level, long pixels, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetCompressedTexImage GetCompressedTexImage} */
 	@JavadocExclude
 	public static void nglGetCompressedTexImage(int target, int level, long pixels) {
 		long __functionAddress = getInstance().GetCompressedTexImage;
-		nglGetCompressedTexImage(target, level, pixels, __functionAddress);
+		invokeIIPV(__functionAddress, target, level, pixels);
 	}
 
 	/**
@@ -670,10 +643,6 @@ public final class GL13 {
 
 	// --- [ glSampleCoverage ] ---
 
-	/** JNI method for {@link #glSampleCoverage SampleCoverage} */
-	@JavadocExclude
-	public static native void nglSampleCoverage(float value, boolean invert, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glSampleCoverage.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -697,14 +666,10 @@ public final class GL13 {
 	 */
 	public static void glSampleCoverage(float value, boolean invert) {
 		long __functionAddress = getInstance().SampleCoverage;
-		nglSampleCoverage(value, invert, __functionAddress);
+		invokeFZV(__functionAddress, value, invert);
 	}
 
 	// --- [ glActiveTexture ] ---
-
-	/** JNI method for {@link #glActiveTexture ActiveTexture} */
-	@JavadocExclude
-	public static native void nglActiveTexture(int texture, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glActiveTexture.xhtml">OpenGL SDK Reference</a></p>
@@ -716,14 +681,10 @@ public final class GL13 {
 	 */
 	public static void glActiveTexture(int texture) {
 		long __functionAddress = getInstance().ActiveTexture;
-		nglActiveTexture(texture, __functionAddress);
+		invokeIV(__functionAddress, texture);
 	}
 
 	// --- [ glClientActiveTexture ] ---
-
-	/** JNI method for {@link #glClientActiveTexture ClientActiveTexture} */
-	@JavadocExclude
-	public static native void nglClientActiveTexture(int texture, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glClientActiveTexture.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -737,14 +698,10 @@ public final class GL13 {
 		long __functionAddress = getInstance().ClientActiveTexture;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglClientActiveTexture(texture, __functionAddress);
+		invokeIV(__functionAddress, texture);
 	}
 
 	// --- [ glMultiTexCoord1f ] ---
-
-	/** JNI method for {@link #glMultiTexCoord1f MultiTexCoord1f} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord1f(int texture, float s, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -758,14 +715,10 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord1f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord1f(texture, s, __functionAddress);
+		invokeIFV(__functionAddress, texture, s);
 	}
 
 	// --- [ glMultiTexCoord1s ] ---
-
-	/** JNI method for {@link #glMultiTexCoord1s MultiTexCoord1s} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord1s(int texture, short s, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -779,14 +732,10 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord1s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord1s(texture, s, __functionAddress);
+		invokeISV(__functionAddress, texture, s);
 	}
 
 	// --- [ glMultiTexCoord1i ] ---
-
-	/** JNI method for {@link #glMultiTexCoord1i MultiTexCoord1i} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord1i(int texture, int s, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -800,14 +749,10 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord1i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord1i(texture, s, __functionAddress);
+		invokeIIV(__functionAddress, texture, s);
 	}
 
 	// --- [ glMultiTexCoord1d ] ---
-
-	/** JNI method for {@link #glMultiTexCoord1d MultiTexCoord1d} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord1d(int texture, double s, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord1d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -821,14 +766,10 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord1d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord1d(texture, s, __functionAddress);
+		invokeIDV(__functionAddress, texture, s);
 	}
 
 	// --- [ glMultiTexCoord1fv ] ---
-
-	/** JNI method for {@link #glMultiTexCoord1fv MultiTexCoord1fv} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord1fv(int texture, long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glMultiTexCoord1fv MultiTexCoord1fv} */
 	@JavadocExclude
@@ -836,7 +777,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord1fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord1fv(texture, v, __functionAddress);
+		invokeIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -862,17 +803,13 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord1sv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord1sv MultiTexCoord1sv} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord1sv(int texture, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiTexCoord1sv MultiTexCoord1sv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord1sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord1sv(texture, v, __functionAddress);
+		invokeIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -898,17 +835,13 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord1iv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord1iv MultiTexCoord1iv} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord1iv(int texture, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiTexCoord1iv MultiTexCoord1iv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord1iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord1iv(texture, v, __functionAddress);
+		invokeIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -934,17 +867,13 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord1dv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord1dv MultiTexCoord1dv} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord1dv(int texture, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiTexCoord1dv MultiTexCoord1dv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord1dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord1dv(texture, v, __functionAddress);
+		invokeIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -970,10 +899,6 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord2f ] ---
 
-	/** JNI method for {@link #glMultiTexCoord2f MultiTexCoord2f} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord2f(int texture, float s, float t, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -987,14 +912,10 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord2f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord2f(texture, s, t, __functionAddress);
+		invokeIFFV(__functionAddress, texture, s, t);
 	}
 
 	// --- [ glMultiTexCoord2s ] ---
-
-	/** JNI method for {@link #glMultiTexCoord2s MultiTexCoord2s} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord2s(int texture, short s, short t, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1009,14 +930,10 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord2s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord2s(texture, s, t, __functionAddress);
+		invokeISSV(__functionAddress, texture, s, t);
 	}
 
 	// --- [ glMultiTexCoord2i ] ---
-
-	/** JNI method for {@link #glMultiTexCoord2i MultiTexCoord2i} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord2i(int texture, int s, int t, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1031,14 +948,10 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord2i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord2i(texture, s, t, __functionAddress);
+		invokeIIIV(__functionAddress, texture, s, t);
 	}
 
 	// --- [ glMultiTexCoord2d ] ---
-
-	/** JNI method for {@link #glMultiTexCoord2d MultiTexCoord2d} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord2d(int texture, double s, double t, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1053,14 +966,10 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord2d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord2d(texture, s, t, __functionAddress);
+		invokeIDDV(__functionAddress, texture, s, t);
 	}
 
 	// --- [ glMultiTexCoord2fv ] ---
-
-	/** JNI method for {@link #glMultiTexCoord2fv MultiTexCoord2fv} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord2fv(int texture, long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glMultiTexCoord2fv MultiTexCoord2fv} */
 	@JavadocExclude
@@ -1068,7 +977,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord2fv(texture, v, __functionAddress);
+		invokeIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1094,17 +1003,13 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord2sv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord2sv MultiTexCoord2sv} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord2sv(int texture, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiTexCoord2sv MultiTexCoord2sv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord2sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord2sv(texture, v, __functionAddress);
+		invokeIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1130,17 +1035,13 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord2iv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord2iv MultiTexCoord2iv} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord2iv(int texture, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiTexCoord2iv MultiTexCoord2iv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord2iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord2iv(texture, v, __functionAddress);
+		invokeIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1166,17 +1067,13 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord2dv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord2dv MultiTexCoord2dv} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord2dv(int texture, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiTexCoord2dv MultiTexCoord2dv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord2dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord2dv(texture, v, __functionAddress);
+		invokeIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1202,10 +1099,6 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord3f ] ---
 
-	/** JNI method for {@link #glMultiTexCoord3f MultiTexCoord3f} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord3f(int texture, float s, float t, float r, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -1220,14 +1113,10 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord3f(texture, s, t, r, __functionAddress);
+		invokeIFFFV(__functionAddress, texture, s, t, r);
 	}
 
 	// --- [ glMultiTexCoord3s ] ---
-
-	/** JNI method for {@link #glMultiTexCoord3s MultiTexCoord3s} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord3s(int texture, short s, short t, short r, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1243,14 +1132,10 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord3s(texture, s, t, r, __functionAddress);
+		invokeISSSV(__functionAddress, texture, s, t, r);
 	}
 
 	// --- [ glMultiTexCoord3i ] ---
-
-	/** JNI method for {@link #glMultiTexCoord3i MultiTexCoord3i} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord3i(int texture, int s, int t, int r, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1266,14 +1151,10 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord3i(texture, s, t, r, __functionAddress);
+		invokeIIIIV(__functionAddress, texture, s, t, r);
 	}
 
 	// --- [ glMultiTexCoord3d ] ---
-
-	/** JNI method for {@link #glMultiTexCoord3d MultiTexCoord3d} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord3d(int texture, double s, double t, double r, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1289,14 +1170,10 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord3d(texture, s, t, r, __functionAddress);
+		invokeIDDDV(__functionAddress, texture, s, t, r);
 	}
 
 	// --- [ glMultiTexCoord3fv ] ---
-
-	/** JNI method for {@link #glMultiTexCoord3fv MultiTexCoord3fv} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord3fv(int texture, long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glMultiTexCoord3fv MultiTexCoord3fv} */
 	@JavadocExclude
@@ -1304,7 +1181,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord3fv(texture, v, __functionAddress);
+		invokeIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1330,17 +1207,13 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord3sv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord3sv MultiTexCoord3sv} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord3sv(int texture, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiTexCoord3sv MultiTexCoord3sv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord3sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord3sv(texture, v, __functionAddress);
+		invokeIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1366,17 +1239,13 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord3iv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord3iv MultiTexCoord3iv} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord3iv(int texture, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiTexCoord3iv MultiTexCoord3iv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord3iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord3iv(texture, v, __functionAddress);
+		invokeIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1402,17 +1271,13 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord3dv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord3dv MultiTexCoord3dv} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord3dv(int texture, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiTexCoord3dv MultiTexCoord3dv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord3dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord3dv(texture, v, __functionAddress);
+		invokeIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1438,10 +1303,6 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord4f ] ---
 
-	/** JNI method for {@link #glMultiTexCoord4f MultiTexCoord4f} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord4f(int texture, float s, float t, float r, float q, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -1457,14 +1318,10 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord4f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord4f(texture, s, t, r, q, __functionAddress);
+		invokeIFFFFV(__functionAddress, texture, s, t, r, q);
 	}
 
 	// --- [ glMultiTexCoord4s ] ---
-
-	/** JNI method for {@link #glMultiTexCoord4s MultiTexCoord4s} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord4s(int texture, short s, short t, short r, short q, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1481,14 +1338,10 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord4s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord4s(texture, s, t, r, q, __functionAddress);
+		invokeISSSSV(__functionAddress, texture, s, t, r, q);
 	}
 
 	// --- [ glMultiTexCoord4i ] ---
-
-	/** JNI method for {@link #glMultiTexCoord4i MultiTexCoord4i} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord4i(int texture, int s, int t, int r, int q, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1505,14 +1358,10 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord4i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord4i(texture, s, t, r, q, __functionAddress);
+		invokeIIIIIV(__functionAddress, texture, s, t, r, q);
 	}
 
 	// --- [ glMultiTexCoord4d ] ---
-
-	/** JNI method for {@link #glMultiTexCoord4d MultiTexCoord4d} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord4d(int texture, double s, double t, double r, double q, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoord4d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1529,14 +1378,10 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord4d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord4d(texture, s, t, r, q, __functionAddress);
+		invokeIDDDDV(__functionAddress, texture, s, t, r, q);
 	}
 
 	// --- [ glMultiTexCoord4fv ] ---
-
-	/** JNI method for {@link #glMultiTexCoord4fv MultiTexCoord4fv} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord4fv(int texture, long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glMultiTexCoord4fv MultiTexCoord4fv} */
 	@JavadocExclude
@@ -1544,7 +1389,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord4fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord4fv(texture, v, __functionAddress);
+		invokeIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1570,17 +1415,13 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord4sv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord4sv MultiTexCoord4sv} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord4sv(int texture, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiTexCoord4sv MultiTexCoord4sv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord4sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord4sv(texture, v, __functionAddress);
+		invokeIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1606,17 +1447,13 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord4iv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord4iv MultiTexCoord4iv} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord4iv(int texture, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiTexCoord4iv MultiTexCoord4iv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord4iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord4iv(texture, v, __functionAddress);
+		invokeIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1642,17 +1479,13 @@ public final class GL13 {
 
 	// --- [ glMultiTexCoord4dv ] ---
 
-	/** JNI method for {@link #glMultiTexCoord4dv MultiTexCoord4dv} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord4dv(int texture, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiTexCoord4dv MultiTexCoord4dv} */
 	@JavadocExclude
 	public static void nglMultiTexCoord4dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoord4dv(texture, v, __functionAddress);
+		invokeIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1678,17 +1511,13 @@ public final class GL13 {
 
 	// --- [ glLoadTransposeMatrixf ] ---
 
-	/** JNI method for {@link #glLoadTransposeMatrixf LoadTransposeMatrixf} */
-	@JavadocExclude
-	public static native void nglLoadTransposeMatrixf(long m, long __functionAddress);
-
 	/** Unsafe version of {@link #glLoadTransposeMatrixf LoadTransposeMatrixf} */
 	@JavadocExclude
 	public static void nglLoadTransposeMatrixf(long m) {
 		long __functionAddress = getInstance().LoadTransposeMatrixf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglLoadTransposeMatrixf(m, __functionAddress);
+		invokePV(__functionAddress, m);
 	}
 
 	/**
@@ -1721,17 +1550,13 @@ public final class GL13 {
 
 	// --- [ glLoadTransposeMatrixd ] ---
 
-	/** JNI method for {@link #glLoadTransposeMatrixd LoadTransposeMatrixd} */
-	@JavadocExclude
-	public static native void nglLoadTransposeMatrixd(long m, long __functionAddress);
-
 	/** Unsafe version of {@link #glLoadTransposeMatrixd LoadTransposeMatrixd} */
 	@JavadocExclude
 	public static void nglLoadTransposeMatrixd(long m) {
 		long __functionAddress = getInstance().LoadTransposeMatrixd;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglLoadTransposeMatrixd(m, __functionAddress);
+		invokePV(__functionAddress, m);
 	}
 
 	/**
@@ -1756,17 +1581,13 @@ public final class GL13 {
 
 	// --- [ glMultTransposeMatrixf ] ---
 
-	/** JNI method for {@link #glMultTransposeMatrixf MultTransposeMatrixf} */
-	@JavadocExclude
-	public static native void nglMultTransposeMatrixf(long m, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultTransposeMatrixf MultTransposeMatrixf} */
 	@JavadocExclude
 	public static void nglMultTransposeMatrixf(long m) {
 		long __functionAddress = getInstance().MultTransposeMatrixf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultTransposeMatrixf(m, __functionAddress);
+		invokePV(__functionAddress, m);
 	}
 
 	/**
@@ -1791,17 +1612,13 @@ public final class GL13 {
 
 	// --- [ glMultTransposeMatrixd ] ---
 
-	/** JNI method for {@link #glMultTransposeMatrixd MultTransposeMatrixd} */
-	@JavadocExclude
-	public static native void nglMultTransposeMatrixd(long m, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultTransposeMatrixd MultTransposeMatrixd} */
 	@JavadocExclude
 	public static void nglMultTransposeMatrixd(long m) {
 		long __functionAddress = getInstance().MultTransposeMatrixd;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultTransposeMatrixd(m, __functionAddress);
+		invokePV(__functionAddress, m);
 	}
 
 	/**

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -741,15 +742,11 @@ public final class EXTEfx {
 
 	// --- [ alGenEffects ] ---
 
-	/** JNI method for {@link #alGenEffects GenEffects} */
-	@JavadocExclude
-	public static native void nalGenEffects(int n, long effects, long __functionAddress);
-
 	/** Unsafe version of {@link #alGenEffects GenEffects} */
 	@JavadocExclude
 	public static void nalGenEffects(int n, long effects) {
 		long __functionAddress = getInstance().GenEffects;
-		nalGenEffects(n, effects, __functionAddress);
+		invokeIPV(__functionAddress, n, effects);
 	}
 
 	/**
@@ -779,15 +776,11 @@ public final class EXTEfx {
 
 	// --- [ alDeleteEffects ] ---
 
-	/** JNI method for {@link #alDeleteEffects DeleteEffects} */
-	@JavadocExclude
-	public static native void nalDeleteEffects(int n, long effects, long __functionAddress);
-
 	/** Unsafe version of {@link #alDeleteEffects DeleteEffects} */
 	@JavadocExclude
 	public static void nalDeleteEffects(int n, long effects) {
 		long __functionAddress = getInstance().DeleteEffects;
-		nalDeleteEffects(n, effects, __functionAddress);
+		invokeIPV(__functionAddress, n, effects);
 	}
 
 	/**
@@ -816,10 +809,6 @@ public final class EXTEfx {
 
 	// --- [ alIsEffect ] ---
 
-	/** JNI method for {@link #alIsEffect IsEffect} */
-	@JavadocExclude
-	public static native boolean nalIsEffect(int effect, long __functionAddress);
-
 	/**
 	 * Verifies whether the given object name is an effect.
 	 *
@@ -827,14 +816,10 @@ public final class EXTEfx {
 	 */
 	public static boolean alIsEffect(int effect) {
 		long __functionAddress = getInstance().IsEffect;
-		return nalIsEffect(effect, __functionAddress);
+		return invokeIZ(__functionAddress, effect);
 	}
 
 	// --- [ alEffecti ] ---
-
-	/** JNI method for {@link #alEffecti Effecti} */
-	@JavadocExclude
-	public static native void nalEffecti(int effect, int param, int value, long __functionAddress);
 
 	/**
 	 * Sets the integer value of an effect parameter.
@@ -845,20 +830,16 @@ public final class EXTEfx {
 	 */
 	public static void alEffecti(int effect, int param, int value) {
 		long __functionAddress = getInstance().Effecti;
-		nalEffecti(effect, param, value, __functionAddress);
+		invokeIIIV(__functionAddress, effect, param, value);
 	}
 
 	// --- [ alEffectiv ] ---
-
-	/** JNI method for {@link #alEffectiv Effectiv} */
-	@JavadocExclude
-	public static native void nalEffectiv(int effect, int param, long values, long __functionAddress);
 
 	/** Unsafe version of {@link #alEffectiv Effectiv} */
 	@JavadocExclude
 	public static void nalEffectiv(int effect, int param, long values) {
 		long __functionAddress = getInstance().Effectiv;
-		nalEffectiv(effect, param, values, __functionAddress);
+		invokeIIPV(__functionAddress, effect, param, values);
 	}
 
 	/**
@@ -879,10 +860,6 @@ public final class EXTEfx {
 
 	// --- [ alEffectf ] ---
 
-	/** JNI method for {@link #alEffectf Effectf} */
-	@JavadocExclude
-	public static native void nalEffectf(int effect, int param, float value, long __functionAddress);
-
 	/**
 	 * Sets the float value of an effect parameter.
 	 *
@@ -892,20 +869,16 @@ public final class EXTEfx {
 	 */
 	public static void alEffectf(int effect, int param, float value) {
 		long __functionAddress = getInstance().Effectf;
-		nalEffectf(effect, param, value, __functionAddress);
+		invokeIIFV(__functionAddress, effect, param, value);
 	}
 
 	// --- [ alEffectfv ] ---
-
-	/** JNI method for {@link #alEffectfv Effectfv} */
-	@JavadocExclude
-	public static native void nalEffectfv(int effect, int param, long values, long __functionAddress);
 
 	/** Unsafe version of {@link #alEffectfv Effectfv} */
 	@JavadocExclude
 	public static void nalEffectfv(int effect, int param, long values) {
 		long __functionAddress = getInstance().Effectfv;
-		nalEffectfv(effect, param, values, __functionAddress);
+		invokeIIPV(__functionAddress, effect, param, values);
 	}
 
 	/**
@@ -926,15 +899,11 @@ public final class EXTEfx {
 
 	// --- [ alGetEffecti ] ---
 
-	/** JNI method for {@link #alGetEffecti GetEffecti} */
-	@JavadocExclude
-	public static native void nalGetEffecti(int effect, int param, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetEffecti GetEffecti} */
 	@JavadocExclude
 	public static void nalGetEffecti(int effect, int param, long value) {
 		long __functionAddress = getInstance().GetEffecti;
-		nalGetEffecti(effect, param, value, __functionAddress);
+		invokeIIPV(__functionAddress, effect, param, value);
 	}
 
 	/**
@@ -967,15 +936,11 @@ public final class EXTEfx {
 
 	// --- [ alGetEffectiv ] ---
 
-	/** JNI method for {@link #alGetEffectiv GetEffectiv} */
-	@JavadocExclude
-	public static native void nalGetEffectiv(int effect, int param, long values, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetEffectiv GetEffectiv} */
 	@JavadocExclude
 	public static void nalGetEffectiv(int effect, int param, long values) {
 		long __functionAddress = getInstance().GetEffectiv;
-		nalGetEffectiv(effect, param, values, __functionAddress);
+		invokeIIPV(__functionAddress, effect, param, values);
 	}
 
 	/**
@@ -1000,15 +965,11 @@ public final class EXTEfx {
 
 	// --- [ alGetEffectf ] ---
 
-	/** JNI method for {@link #alGetEffectf GetEffectf} */
-	@JavadocExclude
-	public static native void nalGetEffectf(int effect, int param, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetEffectf GetEffectf} */
 	@JavadocExclude
 	public static void nalGetEffectf(int effect, int param, long value) {
 		long __functionAddress = getInstance().GetEffectf;
-		nalGetEffectf(effect, param, value, __functionAddress);
+		invokeIIPV(__functionAddress, effect, param, value);
 	}
 
 	/**
@@ -1041,15 +1002,11 @@ public final class EXTEfx {
 
 	// --- [ alGetEffectfv ] ---
 
-	/** JNI method for {@link #alGetEffectfv GetEffectfv} */
-	@JavadocExclude
-	public static native void nalGetEffectfv(int effect, int param, long values, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetEffectfv GetEffectfv} */
 	@JavadocExclude
 	public static void nalGetEffectfv(int effect, int param, long values) {
 		long __functionAddress = getInstance().GetEffectfv;
-		nalGetEffectfv(effect, param, values, __functionAddress);
+		invokeIIPV(__functionAddress, effect, param, values);
 	}
 
 	/**
@@ -1074,15 +1031,11 @@ public final class EXTEfx {
 
 	// --- [ alGenFilters ] ---
 
-	/** JNI method for {@link #alGenFilters GenFilters} */
-	@JavadocExclude
-	public static native void nalGenFilters(int n, long filters, long __functionAddress);
-
 	/** Unsafe version of {@link #alGenFilters GenFilters} */
 	@JavadocExclude
 	public static void nalGenFilters(int n, long filters) {
 		long __functionAddress = getInstance().GenFilters;
-		nalGenFilters(n, filters, __functionAddress);
+		invokeIPV(__functionAddress, n, filters);
 	}
 
 	/**
@@ -1112,15 +1065,11 @@ public final class EXTEfx {
 
 	// --- [ alDeleteFilters ] ---
 
-	/** JNI method for {@link #alDeleteFilters DeleteFilters} */
-	@JavadocExclude
-	public static native void nalDeleteFilters(int n, long filters, long __functionAddress);
-
 	/** Unsafe version of {@link #alDeleteFilters DeleteFilters} */
 	@JavadocExclude
 	public static void nalDeleteFilters(int n, long filters) {
 		long __functionAddress = getInstance().DeleteFilters;
-		nalDeleteFilters(n, filters, __functionAddress);
+		invokeIPV(__functionAddress, n, filters);
 	}
 
 	/**
@@ -1149,10 +1098,6 @@ public final class EXTEfx {
 
 	// --- [ alIsFilter ] ---
 
-	/** JNI method for {@link #alIsFilter IsFilter} */
-	@JavadocExclude
-	public static native boolean nalIsFilter(int filter, long __functionAddress);
-
 	/**
 	 * Verifies whether the given object name is a filter.
 	 *
@@ -1160,14 +1105,10 @@ public final class EXTEfx {
 	 */
 	public static boolean alIsFilter(int filter) {
 		long __functionAddress = getInstance().IsFilter;
-		return nalIsFilter(filter, __functionAddress);
+		return invokeIZ(__functionAddress, filter);
 	}
 
 	// --- [ alFilteri ] ---
-
-	/** JNI method for {@link #alFilteri Filteri} */
-	@JavadocExclude
-	public static native void nalFilteri(int filter, int param, int value, long __functionAddress);
 
 	/**
 	 * Sets the integer value of a filter parameter.
@@ -1178,20 +1119,16 @@ public final class EXTEfx {
 	 */
 	public static void alFilteri(int filter, int param, int value) {
 		long __functionAddress = getInstance().Filteri;
-		nalFilteri(filter, param, value, __functionAddress);
+		invokeIIIV(__functionAddress, filter, param, value);
 	}
 
 	// --- [ alFilteriv ] ---
-
-	/** JNI method for {@link #alFilteriv Filteriv} */
-	@JavadocExclude
-	public static native void nalFilteriv(int filter, int param, long values, long __functionAddress);
 
 	/** Unsafe version of {@link #alFilteriv Filteriv} */
 	@JavadocExclude
 	public static void nalFilteriv(int filter, int param, long values) {
 		long __functionAddress = getInstance().Filteriv;
-		nalFilteriv(filter, param, values, __functionAddress);
+		invokeIIPV(__functionAddress, filter, param, values);
 	}
 
 	/**
@@ -1212,10 +1149,6 @@ public final class EXTEfx {
 
 	// --- [ alFilterf ] ---
 
-	/** JNI method for {@link #alFilterf Filterf} */
-	@JavadocExclude
-	public static native void nalFilterf(int filter, int param, float value, long __functionAddress);
-
 	/**
 	 * Sets the float value of a filter parameter.
 	 *
@@ -1225,20 +1158,16 @@ public final class EXTEfx {
 	 */
 	public static void alFilterf(int filter, int param, float value) {
 		long __functionAddress = getInstance().Filterf;
-		nalFilterf(filter, param, value, __functionAddress);
+		invokeIIFV(__functionAddress, filter, param, value);
 	}
 
 	// --- [ alFilterfv ] ---
-
-	/** JNI method for {@link #alFilterfv Filterfv} */
-	@JavadocExclude
-	public static native void nalFilterfv(int filter, int param, long values, long __functionAddress);
 
 	/** Unsafe version of {@link #alFilterfv Filterfv} */
 	@JavadocExclude
 	public static void nalFilterfv(int filter, int param, long values) {
 		long __functionAddress = getInstance().Filterfv;
-		nalFilterfv(filter, param, values, __functionAddress);
+		invokeIIPV(__functionAddress, filter, param, values);
 	}
 
 	/**
@@ -1259,15 +1188,11 @@ public final class EXTEfx {
 
 	// --- [ alGetFilteri ] ---
 
-	/** JNI method for {@link #alGetFilteri GetFilteri} */
-	@JavadocExclude
-	public static native void nalGetFilteri(int filter, int param, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetFilteri GetFilteri} */
 	@JavadocExclude
 	public static void nalGetFilteri(int filter, int param, long value) {
 		long __functionAddress = getInstance().GetFilteri;
-		nalGetFilteri(filter, param, value, __functionAddress);
+		invokeIIPV(__functionAddress, filter, param, value);
 	}
 
 	/**
@@ -1300,15 +1225,11 @@ public final class EXTEfx {
 
 	// --- [ alGetFilteriv ] ---
 
-	/** JNI method for {@link #alGetFilteriv GetFilteriv} */
-	@JavadocExclude
-	public static native void nalGetFilteriv(int filter, int param, long values, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetFilteriv GetFilteriv} */
 	@JavadocExclude
 	public static void nalGetFilteriv(int filter, int param, long values) {
 		long __functionAddress = getInstance().GetFilteriv;
-		nalGetFilteriv(filter, param, values, __functionAddress);
+		invokeIIPV(__functionAddress, filter, param, values);
 	}
 
 	/**
@@ -1333,15 +1254,11 @@ public final class EXTEfx {
 
 	// --- [ alGetFilterf ] ---
 
-	/** JNI method for {@link #alGetFilterf GetFilterf} */
-	@JavadocExclude
-	public static native void nalGetFilterf(int filter, int param, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetFilterf GetFilterf} */
 	@JavadocExclude
 	public static void nalGetFilterf(int filter, int param, long value) {
 		long __functionAddress = getInstance().GetFilterf;
-		nalGetFilterf(filter, param, value, __functionAddress);
+		invokeIIPV(__functionAddress, filter, param, value);
 	}
 
 	/**
@@ -1374,15 +1291,11 @@ public final class EXTEfx {
 
 	// --- [ alGetFilterfv ] ---
 
-	/** JNI method for {@link #alGetFilterfv GetFilterfv} */
-	@JavadocExclude
-	public static native void nalGetFilterfv(int filter, int param, long values, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetFilterfv GetFilterfv} */
 	@JavadocExclude
 	public static void nalGetFilterfv(int filter, int param, long values) {
 		long __functionAddress = getInstance().GetFilterfv;
-		nalGetFilterfv(filter, param, values, __functionAddress);
+		invokeIIPV(__functionAddress, filter, param, values);
 	}
 
 	/**
@@ -1407,15 +1320,11 @@ public final class EXTEfx {
 
 	// --- [ alGenAuxiliaryEffectSlots ] ---
 
-	/** JNI method for {@link #alGenAuxiliaryEffectSlots GenAuxiliaryEffectSlots} */
-	@JavadocExclude
-	public static native void nalGenAuxiliaryEffectSlots(int n, long effectSlots, long __functionAddress);
-
 	/** Unsafe version of {@link #alGenAuxiliaryEffectSlots GenAuxiliaryEffectSlots} */
 	@JavadocExclude
 	public static void nalGenAuxiliaryEffectSlots(int n, long effectSlots) {
 		long __functionAddress = getInstance().GenAuxiliaryEffectSlots;
-		nalGenAuxiliaryEffectSlots(n, effectSlots, __functionAddress);
+		invokeIPV(__functionAddress, n, effectSlots);
 	}
 
 	/**
@@ -1445,15 +1354,11 @@ public final class EXTEfx {
 
 	// --- [ alDeleteAuxiliaryEffectSlots ] ---
 
-	/** JNI method for {@link #alDeleteAuxiliaryEffectSlots DeleteAuxiliaryEffectSlots} */
-	@JavadocExclude
-	public static native void nalDeleteAuxiliaryEffectSlots(int n, long effectSlots, long __functionAddress);
-
 	/** Unsafe version of {@link #alDeleteAuxiliaryEffectSlots DeleteAuxiliaryEffectSlots} */
 	@JavadocExclude
 	public static void nalDeleteAuxiliaryEffectSlots(int n, long effectSlots) {
 		long __functionAddress = getInstance().DeleteAuxiliaryEffectSlots;
-		nalDeleteAuxiliaryEffectSlots(n, effectSlots, __functionAddress);
+		invokeIPV(__functionAddress, n, effectSlots);
 	}
 
 	/**
@@ -1482,10 +1387,6 @@ public final class EXTEfx {
 
 	// --- [ alIsAuxiliaryEffectSlot ] ---
 
-	/** JNI method for {@link #alIsAuxiliaryEffectSlot IsAuxiliaryEffectSlot} */
-	@JavadocExclude
-	public static native boolean nalIsAuxiliaryEffectSlot(int effectSlot, long __functionAddress);
-
 	/**
 	 * Verifies whether the given object name is an effect slot.
 	 *
@@ -1493,14 +1394,10 @@ public final class EXTEfx {
 	 */
 	public static boolean alIsAuxiliaryEffectSlot(int effectSlot) {
 		long __functionAddress = getInstance().IsAuxiliaryEffectSlot;
-		return nalIsAuxiliaryEffectSlot(effectSlot, __functionAddress);
+		return invokeIZ(__functionAddress, effectSlot);
 	}
 
 	// --- [ alAuxiliaryEffectSloti ] ---
-
-	/** JNI method for {@link #alAuxiliaryEffectSloti AuxiliaryEffectSloti} */
-	@JavadocExclude
-	public static native void nalAuxiliaryEffectSloti(int effectSlot, int param, int value, long __functionAddress);
 
 	/**
 	 * Sets the integer value of an effect slot parameter.
@@ -1511,20 +1408,16 @@ public final class EXTEfx {
 	 */
 	public static void alAuxiliaryEffectSloti(int effectSlot, int param, int value) {
 		long __functionAddress = getInstance().AuxiliaryEffectSloti;
-		nalAuxiliaryEffectSloti(effectSlot, param, value, __functionAddress);
+		invokeIIIV(__functionAddress, effectSlot, param, value);
 	}
 
 	// --- [ alAuxiliaryEffectSlotiv ] ---
-
-	/** JNI method for {@link #alAuxiliaryEffectSlotiv AuxiliaryEffectSlotiv} */
-	@JavadocExclude
-	public static native void nalAuxiliaryEffectSlotiv(int effectSlot, int param, long values, long __functionAddress);
 
 	/** Unsafe version of {@link #alAuxiliaryEffectSlotiv AuxiliaryEffectSlotiv} */
 	@JavadocExclude
 	public static void nalAuxiliaryEffectSlotiv(int effectSlot, int param, long values) {
 		long __functionAddress = getInstance().AuxiliaryEffectSlotiv;
-		nalAuxiliaryEffectSlotiv(effectSlot, param, values, __functionAddress);
+		invokeIIPV(__functionAddress, effectSlot, param, values);
 	}
 
 	/**
@@ -1545,10 +1438,6 @@ public final class EXTEfx {
 
 	// --- [ alAuxiliaryEffectSlotf ] ---
 
-	/** JNI method for {@link #alAuxiliaryEffectSlotf AuxiliaryEffectSlotf} */
-	@JavadocExclude
-	public static native void nalAuxiliaryEffectSlotf(int effectSlot, int param, float value, long __functionAddress);
-
 	/**
 	 * Sets the float value of an effect slot parameter.
 	 *
@@ -1558,20 +1447,16 @@ public final class EXTEfx {
 	 */
 	public static void alAuxiliaryEffectSlotf(int effectSlot, int param, float value) {
 		long __functionAddress = getInstance().AuxiliaryEffectSlotf;
-		nalAuxiliaryEffectSlotf(effectSlot, param, value, __functionAddress);
+		invokeIIFV(__functionAddress, effectSlot, param, value);
 	}
 
 	// --- [ alAuxiliaryEffectSlotfv ] ---
-
-	/** JNI method for {@link #alAuxiliaryEffectSlotfv AuxiliaryEffectSlotfv} */
-	@JavadocExclude
-	public static native void nalAuxiliaryEffectSlotfv(int effectSlot, int param, long values, long __functionAddress);
 
 	/** Unsafe version of {@link #alAuxiliaryEffectSlotfv AuxiliaryEffectSlotfv} */
 	@JavadocExclude
 	public static void nalAuxiliaryEffectSlotfv(int effectSlot, int param, long values) {
 		long __functionAddress = getInstance().AuxiliaryEffectSlotfv;
-		nalAuxiliaryEffectSlotfv(effectSlot, param, values, __functionAddress);
+		invokeIIPV(__functionAddress, effectSlot, param, values);
 	}
 
 	/**
@@ -1592,15 +1477,11 @@ public final class EXTEfx {
 
 	// --- [ alGetAuxiliaryEffectSloti ] ---
 
-	/** JNI method for {@link #alGetAuxiliaryEffectSloti GetAuxiliaryEffectSloti} */
-	@JavadocExclude
-	public static native void nalGetAuxiliaryEffectSloti(int effectSlot, int param, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetAuxiliaryEffectSloti GetAuxiliaryEffectSloti} */
 	@JavadocExclude
 	public static void nalGetAuxiliaryEffectSloti(int effectSlot, int param, long value) {
 		long __functionAddress = getInstance().GetAuxiliaryEffectSloti;
-		nalGetAuxiliaryEffectSloti(effectSlot, param, value, __functionAddress);
+		invokeIIPV(__functionAddress, effectSlot, param, value);
 	}
 
 	/**
@@ -1633,15 +1514,11 @@ public final class EXTEfx {
 
 	// --- [ alGetAuxiliaryEffectSlotiv ] ---
 
-	/** JNI method for {@link #alGetAuxiliaryEffectSlotiv GetAuxiliaryEffectSlotiv} */
-	@JavadocExclude
-	public static native void nalGetAuxiliaryEffectSlotiv(int effectSlot, int param, long values, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetAuxiliaryEffectSlotiv GetAuxiliaryEffectSlotiv} */
 	@JavadocExclude
 	public static void nalGetAuxiliaryEffectSlotiv(int effectSlot, int param, long values) {
 		long __functionAddress = getInstance().GetAuxiliaryEffectSlotiv;
-		nalGetAuxiliaryEffectSlotiv(effectSlot, param, values, __functionAddress);
+		invokeIIPV(__functionAddress, effectSlot, param, values);
 	}
 
 	/**
@@ -1666,15 +1543,11 @@ public final class EXTEfx {
 
 	// --- [ alGetAuxiliaryEffectSlotf ] ---
 
-	/** JNI method for {@link #alGetAuxiliaryEffectSlotf GetAuxiliaryEffectSlotf} */
-	@JavadocExclude
-	public static native void nalGetAuxiliaryEffectSlotf(int effectSlot, int param, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetAuxiliaryEffectSlotf GetAuxiliaryEffectSlotf} */
 	@JavadocExclude
 	public static void nalGetAuxiliaryEffectSlotf(int effectSlot, int param, long value) {
 		long __functionAddress = getInstance().GetAuxiliaryEffectSlotf;
-		nalGetAuxiliaryEffectSlotf(effectSlot, param, value, __functionAddress);
+		invokeIIPV(__functionAddress, effectSlot, param, value);
 	}
 
 	/**
@@ -1707,15 +1580,11 @@ public final class EXTEfx {
 
 	// --- [ alGetAuxiliaryEffectSlotfv ] ---
 
-	/** JNI method for {@link #alGetAuxiliaryEffectSlotfv GetAuxiliaryEffectSlotfv} */
-	@JavadocExclude
-	public static native void nalGetAuxiliaryEffectSlotfv(int effectSlot, int param, long values, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetAuxiliaryEffectSlotfv GetAuxiliaryEffectSlotfv} */
 	@JavadocExclude
 	public static void nalGetAuxiliaryEffectSlotfv(int effectSlot, int param, long values) {
 		long __functionAddress = getInstance().GetAuxiliaryEffectSlotfv;
-		nalGetAuxiliaryEffectSlotfv(effectSlot, param, values, __functionAddress);
+		invokeIIPV(__functionAddress, effectSlot, param, values);
 	}
 
 	/**

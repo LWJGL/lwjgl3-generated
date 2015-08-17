@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -120,10 +121,6 @@ public final class NVBindlessTexture {
 
 	// --- [ glGetTextureHandleNV ] ---
 
-	/** JNI method for {@link #glGetTextureHandleNV GetTextureHandleNV} */
-	@JavadocExclude
-	public static native long nglGetTextureHandleNV(int texture, long __functionAddress);
-
 	/**
 	 * Creates a texture handle using the current state of the texture named {@code texture}, including any embedded sampler state. See
 	 * {@link #glGetTextureSamplerHandleNV GetTextureSamplerHandleNV} for details.
@@ -132,14 +129,10 @@ public final class NVBindlessTexture {
 	 */
 	public static long glGetTextureHandleNV(int texture) {
 		long __functionAddress = getInstance().GetTextureHandleNV;
-		return nglGetTextureHandleNV(texture, __functionAddress);
+		return invokeIJ(__functionAddress, texture);
 	}
 
 	// --- [ glGetTextureSamplerHandleNV ] ---
-
-	/** JNI method for {@link #glGetTextureSamplerHandleNV GetTextureSamplerHandleNV} */
-	@JavadocExclude
-	public static native long nglGetTextureSamplerHandleNV(int texture, int sampler, long __functionAddress);
 
 	/**
 	 * Creates a texture handle using the current non-sampler state from the texture named {@code texture} and the sampler state from the sampler object
@@ -174,14 +167,10 @@ public final class NVBindlessTexture {
 	 */
 	public static long glGetTextureSamplerHandleNV(int texture, int sampler) {
 		long __functionAddress = getInstance().GetTextureSamplerHandleNV;
-		return nglGetTextureSamplerHandleNV(texture, sampler, __functionAddress);
+		return invokeIIJ(__functionAddress, texture, sampler);
 	}
 
 	// --- [ glMakeTextureHandleResidentNV ] ---
-
-	/** JNI method for {@link #glMakeTextureHandleResidentNV MakeTextureHandleResidentNV} */
-	@JavadocExclude
-	public static native void nglMakeTextureHandleResidentNV(long handle, long __functionAddress);
 
 	/**
 	 * Make a texture handle resident, so that it is accessible to shaders for texture mapping operations.
@@ -195,14 +184,10 @@ public final class NVBindlessTexture {
 	 */
 	public static void glMakeTextureHandleResidentNV(long handle) {
 		long __functionAddress = getInstance().MakeTextureHandleResidentNV;
-		nglMakeTextureHandleResidentNV(handle, __functionAddress);
+		invokeJV(__functionAddress, handle);
 	}
 
 	// --- [ glMakeTextureHandleNonResidentNV ] ---
-
-	/** JNI method for {@link #glMakeTextureHandleNonResidentNV MakeTextureHandleNonResidentNV} */
-	@JavadocExclude
-	public static native void nglMakeTextureHandleNonResidentNV(long handle, long __functionAddress);
 
 	/**
 	 * Makes a texture handle inaccessible to shaders.
@@ -214,14 +199,10 @@ public final class NVBindlessTexture {
 	 */
 	public static void glMakeTextureHandleNonResidentNV(long handle) {
 		long __functionAddress = getInstance().MakeTextureHandleNonResidentNV;
-		nglMakeTextureHandleNonResidentNV(handle, __functionAddress);
+		invokeJV(__functionAddress, handle);
 	}
 
 	// --- [ glGetImageHandleNV ] ---
-
-	/** JNI method for {@link #glGetImageHandleNV GetImageHandleNV} */
-	@JavadocExclude
-	public static native long nglGetImageHandleNV(int texture, int level, boolean layered, int layer, int format, long __functionAddress);
 
 	/**
 	 * Creates and returns an image handle for level {@code level} of the texture named {@code texture}. If {@code layered} is {@link GL11#GL_TRUE TRUE}, a handle is created
@@ -263,14 +244,10 @@ public final class NVBindlessTexture {
 	 */
 	public static long glGetImageHandleNV(int texture, int level, boolean layered, int layer, int format) {
 		long __functionAddress = getInstance().GetImageHandleNV;
-		return nglGetImageHandleNV(texture, level, layered, layer, format, __functionAddress);
+		return invokeIIZIIJ(__functionAddress, texture, level, layered, layer, format);
 	}
 
 	// --- [ glMakeImageHandleResidentNV ] ---
-
-	/** JNI method for {@link #glMakeImageHandleResidentNV MakeImageHandleResidentNV} */
-	@JavadocExclude
-	public static native void nglMakeImageHandleResidentNV(long handle, int access, long __functionAddress);
 
 	/**
 	 * Makes an image handle resident, so that it is accessible to shaders for image loads, stores, and atomic operations.
@@ -289,14 +266,10 @@ public final class NVBindlessTexture {
 	 */
 	public static void glMakeImageHandleResidentNV(long handle, int access) {
 		long __functionAddress = getInstance().MakeImageHandleResidentNV;
-		nglMakeImageHandleResidentNV(handle, access, __functionAddress);
+		invokeJIV(__functionAddress, handle, access);
 	}
 
 	// --- [ glMakeImageHandleNonResidentNV ] ---
-
-	/** JNI method for {@link #glMakeImageHandleNonResidentNV MakeImageHandleNonResidentNV} */
-	@JavadocExclude
-	public static native void nglMakeImageHandleNonResidentNV(long handle, long __functionAddress);
 
 	/**
 	 * Makes an image handle inaccessible to shaders.
@@ -305,14 +278,10 @@ public final class NVBindlessTexture {
 	 */
 	public static void glMakeImageHandleNonResidentNV(long handle) {
 		long __functionAddress = getInstance().MakeImageHandleNonResidentNV;
-		nglMakeImageHandleNonResidentNV(handle, __functionAddress);
+		invokeJV(__functionAddress, handle);
 	}
 
 	// --- [ glUniformHandleui64NV ] ---
-
-	/** JNI method for {@link #glUniformHandleui64NV UniformHandleui64NV} */
-	@JavadocExclude
-	public static native void nglUniformHandleui64NV(int location, long value, long __functionAddress);
 
 	/**
 	 * Loads a 64-bit unsigned integer handle into a uniform location corresponding to sampler or image variable types.
@@ -322,20 +291,16 @@ public final class NVBindlessTexture {
 	 */
 	public static void glUniformHandleui64NV(int location, long value) {
 		long __functionAddress = getInstance().UniformHandleui64NV;
-		nglUniformHandleui64NV(location, value, __functionAddress);
+		invokeIJV(__functionAddress, location, value);
 	}
 
 	// --- [ glUniformHandleui64vNV ] ---
-
-	/** JNI method for {@link #glUniformHandleui64vNV UniformHandleui64vNV} */
-	@JavadocExclude
-	public static native void nglUniformHandleui64vNV(int location, int count, long values, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniformHandleui64vNV UniformHandleui64vNV} */
 	@JavadocExclude
 	public static void nglUniformHandleui64vNV(int location, int count, long values) {
 		long __functionAddress = getInstance().UniformHandleui64vNV;
-		nglUniformHandleui64vNV(location, count, values, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, values);
 	}
 
 	/**
@@ -358,10 +323,6 @@ public final class NVBindlessTexture {
 
 	// --- [ glProgramUniformHandleui64NV ] ---
 
-	/** JNI method for {@link #glProgramUniformHandleui64NV ProgramUniformHandleui64NV} */
-	@JavadocExclude
-	public static native void nglProgramUniformHandleui64NV(int program, int location, long value, long __functionAddress);
-
 	/**
 	 * DSA version of {@link #glUniformHandleui64NV UniformHandleui64NV}.
 	 *
@@ -371,20 +332,16 @@ public final class NVBindlessTexture {
 	 */
 	public static void glProgramUniformHandleui64NV(int program, int location, long value) {
 		long __functionAddress = getInstance().ProgramUniformHandleui64NV;
-		nglProgramUniformHandleui64NV(program, location, value, __functionAddress);
+		invokeIIJV(__functionAddress, program, location, value);
 	}
 
 	// --- [ glProgramUniformHandleui64vNV ] ---
-
-	/** JNI method for {@link #glProgramUniformHandleui64vNV ProgramUniformHandleui64vNV} */
-	@JavadocExclude
-	public static native void nglProgramUniformHandleui64vNV(int program, int location, int count, long values, long __functionAddress);
 
 	/** Unsafe version of {@link #glProgramUniformHandleui64vNV ProgramUniformHandleui64vNV} */
 	@JavadocExclude
 	public static void nglProgramUniformHandleui64vNV(int program, int location, int count, long values) {
 		long __functionAddress = getInstance().ProgramUniformHandleui64vNV;
-		nglProgramUniformHandleui64vNV(program, location, count, values, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, count, values);
 	}
 
 	/**
@@ -408,10 +365,6 @@ public final class NVBindlessTexture {
 
 	// --- [ glIsTextureHandleResidentNV ] ---
 
-	/** JNI method for {@link #glIsTextureHandleResidentNV IsTextureHandleResidentNV} */
-	@JavadocExclude
-	public static native boolean nglIsTextureHandleResidentNV(long handle, long __functionAddress);
-
 	/**
 	 * Returns {@link GL11#GL_TRUE TRUE} if the specified texture handle is resident in the current context.
 	 *
@@ -419,14 +372,10 @@ public final class NVBindlessTexture {
 	 */
 	public static boolean glIsTextureHandleResidentNV(long handle) {
 		long __functionAddress = getInstance().IsTextureHandleResidentNV;
-		return nglIsTextureHandleResidentNV(handle, __functionAddress);
+		return invokeJZ(__functionAddress, handle);
 	}
 
 	// --- [ glIsImageHandleResidentNV ] ---
-
-	/** JNI method for {@link #glIsImageHandleResidentNV IsImageHandleResidentNV} */
-	@JavadocExclude
-	public static native boolean nglIsImageHandleResidentNV(long handle, long __functionAddress);
 
 	/**
 	 * Returns {@link GL11#GL_TRUE TRUE} if the specified image handle is resident in the current context.
@@ -435,7 +384,7 @@ public final class NVBindlessTexture {
 	 */
 	public static boolean glIsImageHandleResidentNV(long handle) {
 		long __functionAddress = getInstance().IsImageHandleResidentNV;
-		return nglIsImageHandleResidentNV(handle, __functionAddress);
+		return invokeJZ(__functionAddress, handle);
 	}
 
 }

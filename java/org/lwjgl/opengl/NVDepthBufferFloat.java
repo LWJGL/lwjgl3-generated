@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/depth_buffer_float.txt">NV_depth_buffer_float</a> extension.
@@ -82,35 +83,23 @@ public final class NVDepthBufferFloat {
 
 	// --- [ glDepthRangedNV ] ---
 
-	/** JNI method for {@link #glDepthRangedNV DepthRangedNV} */
-	@JavadocExclude
-	public static native void nglDepthRangedNV(double zNear, double zFar, long __functionAddress);
-
 	public static void glDepthRangedNV(double zNear, double zFar) {
 		long __functionAddress = getInstance().DepthRangedNV;
-		nglDepthRangedNV(zNear, zFar, __functionAddress);
+		invokeDDV(__functionAddress, zNear, zFar);
 	}
 
 	// --- [ glClearDepthdNV ] ---
 
-	/** JNI method for {@link #glClearDepthdNV ClearDepthdNV} */
-	@JavadocExclude
-	public static native void nglClearDepthdNV(double depth, long __functionAddress);
-
 	public static void glClearDepthdNV(double depth) {
 		long __functionAddress = getInstance().ClearDepthdNV;
-		nglClearDepthdNV(depth, __functionAddress);
+		invokeDV(__functionAddress, depth);
 	}
 
 	// --- [ glDepthBoundsdNV ] ---
 
-	/** JNI method for {@link #glDepthBoundsdNV DepthBoundsdNV} */
-	@JavadocExclude
-	public static native void nglDepthBoundsdNV(double zmin, double zmax, long __functionAddress);
-
 	public static void glDepthBoundsdNV(double zmin, double zmax) {
 		long __functionAddress = getInstance().DepthBoundsdNV;
-		nglDepthBoundsdNV(zmin, zmax, __functionAddress);
+		invokeDDV(__functionAddress, zmin, zmax);
 	}
 
 }

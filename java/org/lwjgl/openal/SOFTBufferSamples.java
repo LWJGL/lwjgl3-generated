@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -131,15 +132,11 @@ public final class SOFTBufferSamples {
 
 	// --- [ alBufferSamplesSOFT ] ---
 
-	/** JNI method for {@link #alBufferSamplesSOFT BufferSamplesSOFT} */
-	@JavadocExclude
-	public static native void nalBufferSamplesSOFT(int buffer, int samplerate, int internalformat, int samples, int channels, int type, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #alBufferSamplesSOFT BufferSamplesSOFT} */
 	@JavadocExclude
 	public static void nalBufferSamplesSOFT(int buffer, int samplerate, int internalformat, int samples, int channels, int type, long data) {
 		long __functionAddress = getInstance().BufferSamplesSOFT;
-		nalBufferSamplesSOFT(buffer, samplerate, internalformat, samples, channels, type, data, __functionAddress);
+		invokeIIIIIIPV(__functionAddress, buffer, samplerate, internalformat, samples, channels, type, data);
 	}
 
 	/**
@@ -171,10 +168,6 @@ public final class SOFTBufferSamples {
 
 	// --- [ alIsBufferFormatSupportedSOFT ] ---
 
-	/** JNI method for {@link #alIsBufferFormatSupportedSOFT IsBufferFormatSupportedSOFT} */
-	@JavadocExclude
-	public static native boolean nalIsBufferFormatSupportedSOFT(int format, long __functionAddress);
-
 	/**
 	 * Queries if a storage format is supported by the implementation
 	 *
@@ -185,20 +178,16 @@ public final class SOFTBufferSamples {
 	 */
 	public static boolean alIsBufferFormatSupportedSOFT(int format) {
 		long __functionAddress = getInstance().IsBufferFormatSupportedSOFT;
-		return nalIsBufferFormatSupportedSOFT(format, __functionAddress);
+		return invokeIZ(__functionAddress, format);
 	}
 
 	// --- [ alBufferSubSamplesSOFT ] ---
-
-	/** JNI method for {@link #alBufferSubSamplesSOFT BufferSubSamplesSOFT} */
-	@JavadocExclude
-	public static native void nalBufferSubSamplesSOFT(int buffer, int offset, int samples, int channels, int type, long data, long __functionAddress);
 
 	/** Unsafe version of {@link #alBufferSubSamplesSOFT BufferSubSamplesSOFT} */
 	@JavadocExclude
 	public static void nalBufferSubSamplesSOFT(int buffer, int offset, int samples, int channels, int type, long data) {
 		long __functionAddress = getInstance().BufferSubSamplesSOFT;
-		nalBufferSubSamplesSOFT(buffer, offset, samples, channels, type, data, __functionAddress);
+		invokeIIIIIPV(__functionAddress, buffer, offset, samples, channels, type, data);
 	}
 
 	/**
@@ -225,15 +214,11 @@ public final class SOFTBufferSamples {
 
 	// --- [ alGetBufferSamplesSOFT ] ---
 
-	/** JNI method for {@link #alGetBufferSamplesSOFT GetBufferSamplesSOFT} */
-	@JavadocExclude
-	public static native void nalGetBufferSamplesSOFT(int buffer, int offset, int samples, int channels, int type, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetBufferSamplesSOFT GetBufferSamplesSOFT} */
 	@JavadocExclude
 	public static void nalGetBufferSamplesSOFT(int buffer, int offset, int samples, int channels, int type, long data) {
 		long __functionAddress = getInstance().GetBufferSamplesSOFT;
-		nalGetBufferSamplesSOFT(buffer, offset, samples, channels, type, data, __functionAddress);
+		invokeIIIIIPV(__functionAddress, buffer, offset, samples, channels, type, data);
 	}
 
 	/**

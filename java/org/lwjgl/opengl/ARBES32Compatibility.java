@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/ES3_2_compatibility.txt">ARB_ES3_2_compatibility</a> extension.
@@ -65,10 +66,6 @@ public final class ARBES32Compatibility {
 
 	// --- [ glPrimitiveBoundingBoxARB ] ---
 
-	/** JNI method for {@link #glPrimitiveBoundingBoxARB PrimitiveBoundingBoxARB} */
-	@JavadocExclude
-	public static native void nglPrimitiveBoundingBoxARB(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW, long __functionAddress);
-
 	/**
 	 * Specifies the primitive bounding box.
 	 * 
@@ -87,7 +84,7 @@ public final class ARBES32Compatibility {
 	 */
 	public static void glPrimitiveBoundingBoxARB(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW) {
 		long __functionAddress = getInstance().PrimitiveBoundingBoxARB;
-		nglPrimitiveBoundingBoxARB(minX, minY, minZ, minW, maxX, maxY, maxZ, maxW, __functionAddress);
+		invokeFFFFFFFFV(__functionAddress, minX, minY, minZ, minW, maxX, maxY, maxZ, maxW);
 	}
 
 }

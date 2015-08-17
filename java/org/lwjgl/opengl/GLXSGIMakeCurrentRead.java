@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/SGI/make_current_read.txt">GLX_SGI_make_current_read</a> extension.
@@ -52,10 +53,6 @@ public final class GLXSGIMakeCurrentRead {
 
 	// --- [ glXMakeCurrentReadSGI ] ---
 
-	/** JNI method for {@link #glXMakeCurrentReadSGI MakeCurrentReadSGI} */
-	@JavadocExclude
-	public static native int nglXMakeCurrentReadSGI(long display, long draw, long read, long ctx, long __functionAddress);
-
 	/**
 	 * Associates two {@code GLXDrawables} with the current rendering context.
 	 *
@@ -68,19 +65,15 @@ public final class GLXSGIMakeCurrentRead {
 		long __functionAddress = getInstance().MakeCurrentReadSGI;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return nglXMakeCurrentReadSGI(display, draw, read, ctx, __functionAddress);
+		return invokePPPPI(__functionAddress, display, draw, read, ctx);
 	}
 
 	// --- [ glXGetCurrentReadDrawableSGI ] ---
 
-	/** JNI method for {@link #glXGetCurrentReadDrawableSGI GetCurrentReadDrawableSGI} */
-	@JavadocExclude
-	public static native long nglXGetCurrentReadDrawableSGI(long __functionAddress);
-
 	/** Returns the name of the {@code GLXDrawable} currently being used as a pixel query source. */
 	public static long glXGetCurrentReadDrawableSGI() {
 		long __functionAddress = getInstance().GetCurrentReadDrawableSGI;
-		return nglXGetCurrentReadDrawableSGI(__functionAddress);
+		return invokeP(__functionAddress);
 	}
 
 }

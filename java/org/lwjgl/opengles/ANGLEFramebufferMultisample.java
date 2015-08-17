@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/ANGLE/ANGLE_framebuffer_multisample.txt">ANGLE_framebuffer_multisample</a> extension.
@@ -69,13 +70,9 @@ public final class ANGLEFramebufferMultisample {
 
 	// --- [ glRenderbufferStorageMultisampleANGLE ] ---
 
-	/** JNI method for {@link #glRenderbufferStorageMultisampleANGLE RenderbufferStorageMultisampleANGLE} */
-	@JavadocExclude
-	public static native void nglRenderbufferStorageMultisampleANGLE(int target, int samples, int internalformat, int width, int height, long __functionAddress);
-
 	public static void glRenderbufferStorageMultisampleANGLE(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageMultisampleANGLE;
-		nglRenderbufferStorageMultisampleANGLE(target, samples, internalformat, width, height, __functionAddress);
+		invokeIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
 }

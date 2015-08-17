@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/OES/OES_texture_storage_multisample_2d_array.txt">OES_texture_storage_multisample_2d_array</a> extension.
@@ -63,13 +64,9 @@ public final class OESTextureStorageMultisample2dArray {
 
 	// --- [ glTexStorage3DMultisampleOES ] ---
 
-	/** JNI method for {@link #glTexStorage3DMultisampleOES TexStorage3DMultisampleOES} */
-	@JavadocExclude
-	public static native void nglTexStorage3DMultisampleOES(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations, long __functionAddress);
-
 	public static void glTexStorage3DMultisampleOES(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TexStorage3DMultisampleOES;
-		nglTexStorage3DMultisampleOES(target, samples, internalformat, width, height, depth, fixedsamplelocations, __functionAddress);
+		invokeIIIIIIZV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
 }

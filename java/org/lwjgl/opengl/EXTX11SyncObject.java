@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/x11_sync_object.txt">EXT_x11_sync_object</a> extension.
@@ -63,10 +64,6 @@ public final class EXTX11SyncObject {
 
 	// --- [ glImportSyncEXT ] ---
 
-	/** JNI method for {@link #glImportSyncEXT ImportSyncEXT} */
-	@JavadocExclude
-	public static native long nglImportSyncEXT(int external_sync_type, long external_sync, int flags, long __functionAddress);
-
 	/**
 	 * Creates a GL sync object of the type {@code external_sync_type} based on the object referred to by {@code external_sync}.
 	 *
@@ -76,7 +73,7 @@ public final class EXTX11SyncObject {
 	 */
 	public static long glImportSyncEXT(int external_sync_type, long external_sync, int flags) {
 		long __functionAddress = getInstance().ImportSyncEXT;
-		return nglImportSyncEXT(external_sync_type, external_sync, flags, __functionAddress);
+		return invokeIPIP(__functionAddress, external_sync_type, external_sync, flags);
 	}
 
 }

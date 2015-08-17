@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/wgl_buffer_region.txt">WGL_ARB_buffer_region</a> extension.
@@ -65,10 +66,6 @@ public final class WGLARBBufferRegion {
 
 	// --- [ wglCreateBufferRegionARB ] ---
 
-	/** JNI method for {@link #wglCreateBufferRegionARB CreateBufferRegionARB} */
-	@JavadocExclude
-	public static native long nwglCreateBufferRegionARB(long hdc, int layerPlane, int type, long __functionAddress);
-
 	/**
 	 * Creates a buffer region and returns a handle associated with it.
 	 *
@@ -81,14 +78,10 @@ public final class WGLARBBufferRegion {
 		long __functionAddress = getInstance().CreateBufferRegionARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		return nwglCreateBufferRegionARB(hdc, layerPlane, type, __functionAddress);
+		return invokePIIP(__functionAddress, hdc, layerPlane, type);
 	}
 
 	// --- [ wglDeleteBufferRegionARB ] ---
-
-	/** JNI method for {@link #wglDeleteBufferRegionARB DeleteBufferRegionARB} */
-	@JavadocExclude
-	public static native void nwglDeleteBufferRegionARB(long region, long __functionAddress);
 
 	/**
 	 * Deletes a buffer region.
@@ -99,14 +92,10 @@ public final class WGLARBBufferRegion {
 		long __functionAddress = getInstance().DeleteBufferRegionARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(region);
-		nwglDeleteBufferRegionARB(region, __functionAddress);
+		invokePV(__functionAddress, region);
 	}
 
 	// --- [ wglSaveBufferRegionARB ] ---
-
-	/** JNI method for {@link #wglSaveBufferRegionARB SaveBufferRegionARB} */
-	@JavadocExclude
-	public static native int nwglSaveBufferRegionARB(long region, int x, int y, int width, int height, long __functionAddress);
 
 	/**
 	 * Saves image, depth, and stencil data into the buffer region.
@@ -128,14 +117,10 @@ public final class WGLARBBufferRegion {
 		long __functionAddress = getInstance().SaveBufferRegionARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(region);
-		return nwglSaveBufferRegionARB(region, x, y, width, height, __functionAddress);
+		return invokePIIIII(__functionAddress, region, x, y, width, height);
 	}
 
 	// --- [ wglRestoreBufferRegionARB ] ---
-
-	/** JNI method for {@link #wglRestoreBufferRegionARB RestoreBufferRegionARB} */
-	@JavadocExclude
-	public static native int nwglRestoreBufferRegionARB(long region, int x, int y, int width, int height, int xSrc, int ySrc, long __functionAddress);
 
 	/**
 	 * Restores a previously saved buffer region.
@@ -152,7 +137,7 @@ public final class WGLARBBufferRegion {
 		long __functionAddress = getInstance().RestoreBufferRegionARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(region);
-		return nwglRestoreBufferRegionARB(region, x, y, width, height, xSrc, ySrc, __functionAddress);
+		return invokePIIIIIII(__functionAddress, region, x, y, width, height, xSrc, ySrc);
 	}
 
 }

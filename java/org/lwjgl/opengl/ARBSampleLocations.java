@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -86,15 +87,11 @@ public final class ARBSampleLocations {
 
 	// --- [ glFramebufferSampleLocationsfvARB ] ---
 
-	/** JNI method for {@link #glFramebufferSampleLocationsfvARB FramebufferSampleLocationsfvARB} */
-	@JavadocExclude
-	public static native void nglFramebufferSampleLocationsfvARB(int target, int start, int count, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glFramebufferSampleLocationsfvARB FramebufferSampleLocationsfvARB} */
 	@JavadocExclude
 	public static void nglFramebufferSampleLocationsfvARB(int target, int start, int count, long v) {
 		long __functionAddress = getInstance().FramebufferSampleLocationsfvARB;
-		nglFramebufferSampleLocationsfvARB(target, start, count, v, __functionAddress);
+		invokeIIIPV(__functionAddress, target, start, count, v);
 	}
 
 	/**
@@ -123,15 +120,11 @@ public final class ARBSampleLocations {
 
 	// --- [ glNamedFramebufferSampleLocationsfvARB ] ---
 
-	/** JNI method for {@link #glNamedFramebufferSampleLocationsfvARB NamedFramebufferSampleLocationsfvARB} */
-	@JavadocExclude
-	public static native void nglNamedFramebufferSampleLocationsfvARB(int framebuffer, int start, int count, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glNamedFramebufferSampleLocationsfvARB NamedFramebufferSampleLocationsfvARB} */
 	@JavadocExclude
 	public static void nglNamedFramebufferSampleLocationsfvARB(int framebuffer, int start, int count, long v) {
 		long __functionAddress = getInstance().NamedFramebufferSampleLocationsfvARB;
-		nglNamedFramebufferSampleLocationsfvARB(framebuffer, start, count, v, __functionAddress);
+		invokeIIIPV(__functionAddress, framebuffer, start, count, v);
 	}
 
 	/**
@@ -155,10 +148,6 @@ public final class ARBSampleLocations {
 
 	// --- [ glEvaluateDepthValuesARB ] ---
 
-	/** JNI method for {@link #glEvaluateDepthValuesARB EvaluateDepthValuesARB} */
-	@JavadocExclude
-	public static native void nglEvaluateDepthValuesARB(long __functionAddress);
-
 	/**
 	 * Evaluates depth values for all samples in the current depth buffer (subject to the pixel ownership and scissor tests) and stores each value in the
 	 * depth buffer. This can be used to ensure that later accesses will use depth values consistent with the sample locations used when the samples were
@@ -166,7 +155,7 @@ public final class ARBSampleLocations {
 	 */
 	public static void glEvaluateDepthValuesARB() {
 		long __functionAddress = getInstance().EvaluateDepthValuesARB;
-		nglEvaluateDepthValuesARB(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 }

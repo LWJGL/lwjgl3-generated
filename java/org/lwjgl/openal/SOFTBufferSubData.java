@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** bindings to AL_SOFT_buffer_sub_data extension. */
@@ -51,15 +52,11 @@ public final class SOFTBufferSubData {
 
 	// --- [ alBufferSubDataSOFT ] ---
 
-	/** JNI method for {@link #alBufferSubDataSOFT BufferSubDataSOFT} */
-	@JavadocExclude
-	public static native void nalBufferSubDataSOFT(int buffer, int format, long data, int offset, int length, long __functionAddress);
-
 	/** Unsafe version of {@link #alBufferSubDataSOFT BufferSubDataSOFT} */
 	@JavadocExclude
 	public static void nalBufferSubDataSOFT(int buffer, int format, long data, int offset, int length) {
 		long __functionAddress = getInstance().BufferSubDataSOFT;
-		nalBufferSubDataSOFT(buffer, format, data, offset, length, __functionAddress);
+		invokeIIPIIV(__functionAddress, buffer, format, data, offset, length);
 	}
 
 	/**

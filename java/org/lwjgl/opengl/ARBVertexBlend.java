@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -140,15 +141,11 @@ public final class ARBVertexBlend {
 
 	// --- [ glWeightfvARB ] ---
 
-	/** JNI method for {@link #glWeightfvARB WeightfvARB} */
-	@JavadocExclude
-	public static native void nglWeightfvARB(int size, long weights, long __functionAddress);
-
 	/** Unsafe version of {@link #glWeightfvARB WeightfvARB} */
 	@JavadocExclude
 	public static void nglWeightfvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightfvARB;
-		nglWeightfvARB(size, weights, __functionAddress);
+		invokeIPV(__functionAddress, size, weights);
 	}
 
 	/**
@@ -170,15 +167,11 @@ public final class ARBVertexBlend {
 
 	// --- [ glWeightbvARB ] ---
 
-	/** JNI method for {@link #glWeightbvARB WeightbvARB} */
-	@JavadocExclude
-	public static native void nglWeightbvARB(int size, long weights, long __functionAddress);
-
 	/** Unsafe version of {@link #glWeightbvARB WeightbvARB} */
 	@JavadocExclude
 	public static void nglWeightbvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightbvARB;
-		nglWeightbvARB(size, weights, __functionAddress);
+		invokeIPV(__functionAddress, size, weights);
 	}
 
 	/**
@@ -200,15 +193,11 @@ public final class ARBVertexBlend {
 
 	// --- [ glWeightubvARB ] ---
 
-	/** JNI method for {@link #glWeightubvARB WeightubvARB} */
-	@JavadocExclude
-	public static native void nglWeightubvARB(int size, long weights, long __functionAddress);
-
 	/** Unsafe version of {@link #glWeightubvARB WeightubvARB} */
 	@JavadocExclude
 	public static void nglWeightubvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightubvARB;
-		nglWeightubvARB(size, weights, __functionAddress);
+		invokeIPV(__functionAddress, size, weights);
 	}
 
 	/**
@@ -230,15 +219,11 @@ public final class ARBVertexBlend {
 
 	// --- [ glWeightsvARB ] ---
 
-	/** JNI method for {@link #glWeightsvARB WeightsvARB} */
-	@JavadocExclude
-	public static native void nglWeightsvARB(int size, long weights, long __functionAddress);
-
 	/** Unsafe version of {@link #glWeightsvARB WeightsvARB} */
 	@JavadocExclude
 	public static void nglWeightsvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightsvARB;
-		nglWeightsvARB(size, weights, __functionAddress);
+		invokeIPV(__functionAddress, size, weights);
 	}
 
 	/**
@@ -260,15 +245,11 @@ public final class ARBVertexBlend {
 
 	// --- [ glWeightusvARB ] ---
 
-	/** JNI method for {@link #glWeightusvARB WeightusvARB} */
-	@JavadocExclude
-	public static native void nglWeightusvARB(int size, long weights, long __functionAddress);
-
 	/** Unsafe version of {@link #glWeightusvARB WeightusvARB} */
 	@JavadocExclude
 	public static void nglWeightusvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightusvARB;
-		nglWeightusvARB(size, weights, __functionAddress);
+		invokeIPV(__functionAddress, size, weights);
 	}
 
 	/**
@@ -290,15 +271,11 @@ public final class ARBVertexBlend {
 
 	// --- [ glWeightivARB ] ---
 
-	/** JNI method for {@link #glWeightivARB WeightivARB} */
-	@JavadocExclude
-	public static native void nglWeightivARB(int size, long weights, long __functionAddress);
-
 	/** Unsafe version of {@link #glWeightivARB WeightivARB} */
 	@JavadocExclude
 	public static void nglWeightivARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightivARB;
-		nglWeightivARB(size, weights, __functionAddress);
+		invokeIPV(__functionAddress, size, weights);
 	}
 
 	/**
@@ -320,15 +297,11 @@ public final class ARBVertexBlend {
 
 	// --- [ glWeightuivARB ] ---
 
-	/** JNI method for {@link #glWeightuivARB WeightuivARB} */
-	@JavadocExclude
-	public static native void nglWeightuivARB(int size, long weights, long __functionAddress);
-
 	/** Unsafe version of {@link #glWeightuivARB WeightuivARB} */
 	@JavadocExclude
 	public static void nglWeightuivARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightuivARB;
-		nglWeightuivARB(size, weights, __functionAddress);
+		invokeIPV(__functionAddress, size, weights);
 	}
 
 	/**
@@ -350,15 +323,11 @@ public final class ARBVertexBlend {
 
 	// --- [ glWeightdvARB ] ---
 
-	/** JNI method for {@link #glWeightdvARB WeightdvARB} */
-	@JavadocExclude
-	public static native void nglWeightdvARB(int size, long weights, long __functionAddress);
-
 	/** Unsafe version of {@link #glWeightdvARB WeightdvARB} */
 	@JavadocExclude
 	public static void nglWeightdvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightdvARB;
-		nglWeightdvARB(size, weights, __functionAddress);
+		invokeIPV(__functionAddress, size, weights);
 	}
 
 	/**
@@ -380,15 +349,11 @@ public final class ARBVertexBlend {
 
 	// --- [ glWeightPointerARB ] ---
 
-	/** JNI method for {@link #glWeightPointerARB WeightPointerARB} */
-	@JavadocExclude
-	public static native void nglWeightPointerARB(int size, int type, int stride, long pointer, long __functionAddress);
-
 	/** Unsafe version of {@link #glWeightPointerARB WeightPointerARB} */
 	@JavadocExclude
 	public static void nglWeightPointerARB(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().WeightPointerARB;
-		nglWeightPointerARB(size, type, stride, pointer, __functionAddress);
+		invokeIIIPV(__functionAddress, size, type, stride, pointer);
 	}
 
 	/**
@@ -435,10 +400,6 @@ public final class ARBVertexBlend {
 
 	// --- [ glVertexBlendARB ] ---
 
-	/** JNI method for {@link #glVertexBlendARB VertexBlendARB} */
-	@JavadocExclude
-	public static native void nglVertexBlendARB(int count, long __functionAddress);
-
 	/**
 	 * Sets the number of active transformations applied.
 	 *
@@ -446,7 +407,7 @@ public final class ARBVertexBlend {
 	 */
 	public static void glVertexBlendARB(int count) {
 		long __functionAddress = getInstance().VertexBlendARB;
-		nglVertexBlendARB(count, __functionAddress);
+		invokeIV(__functionAddress, count);
 	}
 
 }

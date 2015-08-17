@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 import org.lwjgl.system.linux.*;
@@ -54,15 +55,11 @@ public final class GLXARBGetProcAddress {
 
 	// --- [ glXGetProcAddressARB ] ---
 
-	/** JNI method for {@link #glXGetProcAddressARB GetProcAddressARB} */
-	@JavadocExclude
-	public static native long nglXGetProcAddressARB(long procName, long __functionAddress);
-
 	/** Unsafe version of {@link #glXGetProcAddressARB GetProcAddressARB} */
 	@JavadocExclude
 	public static long nglXGetProcAddressARB(long procName) {
 		long __functionAddress = getInstance().GetProcAddressARB;
-		return nglXGetProcAddressARB(procName, __functionAddress);
+		return invokePP(__functionAddress, procName);
 	}
 
 	/**

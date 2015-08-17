@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -103,17 +104,13 @@ public final class EGL15 {
 
 	// --- [ eglCreateSync ] ---
 
-	/** JNI method for {@link #eglCreateSync CreateSync} */
-	@JavadocExclude
-	public static native long neglCreateSync(long dpy, int type, long attrib_list, long __functionAddress);
-
 	/** Unsafe version of {@link #eglCreateSync CreateSync} */
 	@JavadocExclude
 	public static long neglCreateSync(long dpy, int type, long attrib_list) {
 		long __functionAddress = getInstance().CreateSync;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return neglCreateSync(dpy, type, attrib_list, __functionAddress);
+		return invokePIPP(__functionAddress, dpy, type, attrib_list);
 	}
 
 	public static long eglCreateSync(long dpy, int type, ByteBuffer attrib_list) {
@@ -131,24 +128,16 @@ public final class EGL15 {
 
 	// --- [ eglDestroySync ] ---
 
-	/** JNI method for {@link #eglDestroySync DestroySync} */
-	@JavadocExclude
-	public static native boolean neglDestroySync(long dpy, long sync, long __functionAddress);
-
 	public static boolean eglDestroySync(long dpy, long sync) {
 		long __functionAddress = getInstance().DestroySync;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return neglDestroySync(dpy, sync, __functionAddress);
+		return invokePPZ(__functionAddress, dpy, sync);
 	}
 
 	// --- [ eglClientWaitSync ] ---
-
-	/** JNI method for {@link #eglClientWaitSync ClientWaitSync} */
-	@JavadocExclude
-	public static native int neglClientWaitSync(long dpy, long sync, int flags, long timeout, long __functionAddress);
 
 	public static int eglClientWaitSync(long dpy, long sync, int flags, long timeout) {
 		long __functionAddress = getInstance().ClientWaitSync;
@@ -156,14 +145,10 @@ public final class EGL15 {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return neglClientWaitSync(dpy, sync, flags, timeout, __functionAddress);
+		return invokePPIJI(__functionAddress, dpy, sync, flags, timeout);
 	}
 
 	// --- [ eglGetSyncAttrib ] ---
-
-	/** JNI method for {@link #eglGetSyncAttrib GetSyncAttrib} */
-	@JavadocExclude
-	public static native boolean neglGetSyncAttrib(long dpy, long sync, int attribute, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #eglGetSyncAttrib GetSyncAttrib} */
 	@JavadocExclude
@@ -173,7 +158,7 @@ public final class EGL15 {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return neglGetSyncAttrib(dpy, sync, attribute, value, __functionAddress);
+		return invokePPIPZ(__functionAddress, dpy, sync, attribute, value);
 	}
 
 	public static boolean eglGetSyncAttrib(long dpy, long sync, int attribute, ByteBuffer value) {
@@ -191,10 +176,6 @@ public final class EGL15 {
 
 	// --- [ eglCreateImage ] ---
 
-	/** JNI method for {@link #eglCreateImage CreateImage} */
-	@JavadocExclude
-	public static native long neglCreateImage(long dpy, long ctx, int target, long buffer, long attrib_list, long __functionAddress);
-
 	/** Unsafe version of {@link #eglCreateImage CreateImage} */
 	@JavadocExclude
 	public static long neglCreateImage(long dpy, long ctx, int target, long buffer, long attrib_list) {
@@ -204,7 +185,7 @@ public final class EGL15 {
 			checkPointer(ctx);
 			checkPointer(buffer);
 		}
-		return neglCreateImage(dpy, ctx, target, buffer, attrib_list, __functionAddress);
+		return invokePPIPPP(__functionAddress, dpy, ctx, target, buffer, attrib_list);
 	}
 
 	public static long eglCreateImage(long dpy, long ctx, int target, long buffer, ByteBuffer attrib_list) {
@@ -222,24 +203,16 @@ public final class EGL15 {
 
 	// --- [ eglDestroyImage ] ---
 
-	/** JNI method for {@link #eglDestroyImage DestroyImage} */
-	@JavadocExclude
-	public static native boolean neglDestroyImage(long dpy, long image, long __functionAddress);
-
 	public static boolean eglDestroyImage(long dpy, long image) {
 		long __functionAddress = getInstance().DestroyImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(image);
 		}
-		return neglDestroyImage(dpy, image, __functionAddress);
+		return invokePPZ(__functionAddress, dpy, image);
 	}
 
 	// --- [ eglGetPlatformDisplay ] ---
-
-	/** JNI method for {@link #eglGetPlatformDisplay GetPlatformDisplay} */
-	@JavadocExclude
-	public static native long neglGetPlatformDisplay(int platform, long native_display, long attrib_list, long __functionAddress);
 
 	/** Unsafe version of {@link #eglGetPlatformDisplay GetPlatformDisplay} */
 	@JavadocExclude
@@ -247,7 +220,7 @@ public final class EGL15 {
 		long __functionAddress = getInstance().GetPlatformDisplay;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(native_display);
-		return neglGetPlatformDisplay(platform, native_display, attrib_list, __functionAddress);
+		return invokeIPPP(__functionAddress, platform, native_display, attrib_list);
 	}
 
 	public static long eglGetPlatformDisplay(int platform, long native_display, ByteBuffer attrib_list) {
@@ -265,10 +238,6 @@ public final class EGL15 {
 
 	// --- [ eglCreatePlatformWindowSurface ] ---
 
-	/** JNI method for {@link #eglCreatePlatformWindowSurface CreatePlatformWindowSurface} */
-	@JavadocExclude
-	public static native long neglCreatePlatformWindowSurface(long dpy, long config, long native_window, long attrib_list, long __functionAddress);
-
 	/** Unsafe version of {@link #eglCreatePlatformWindowSurface CreatePlatformWindowSurface} */
 	@JavadocExclude
 	public static long neglCreatePlatformWindowSurface(long dpy, long config, long native_window, long attrib_list) {
@@ -278,7 +247,7 @@ public final class EGL15 {
 			checkPointer(config);
 			checkPointer(native_window);
 		}
-		return neglCreatePlatformWindowSurface(dpy, config, native_window, attrib_list, __functionAddress);
+		return invokePPPPP(__functionAddress, dpy, config, native_window, attrib_list);
 	}
 
 	public static long eglCreatePlatformWindowSurface(long dpy, long config, long native_window, ByteBuffer attrib_list) {
@@ -296,10 +265,6 @@ public final class EGL15 {
 
 	// --- [ eglCreatePlatformPixmapSurface ] ---
 
-	/** JNI method for {@link #eglCreatePlatformPixmapSurface CreatePlatformPixmapSurface} */
-	@JavadocExclude
-	public static native long neglCreatePlatformPixmapSurface(long dpy, long config, long native_pixmap, long attrib_list, long __functionAddress);
-
 	/** Unsafe version of {@link #eglCreatePlatformPixmapSurface CreatePlatformPixmapSurface} */
 	@JavadocExclude
 	public static long neglCreatePlatformPixmapSurface(long dpy, long config, long native_pixmap, long attrib_list) {
@@ -309,7 +274,7 @@ public final class EGL15 {
 			checkPointer(config);
 			checkPointer(native_pixmap);
 		}
-		return neglCreatePlatformPixmapSurface(dpy, config, native_pixmap, attrib_list, __functionAddress);
+		return invokePPPPP(__functionAddress, dpy, config, native_pixmap, attrib_list);
 	}
 
 	public static long eglCreatePlatformPixmapSurface(long dpy, long config, long native_pixmap, ByteBuffer attrib_list) {
@@ -327,17 +292,13 @@ public final class EGL15 {
 
 	// --- [ eglWaitSync ] ---
 
-	/** JNI method for {@link #eglWaitSync WaitSync} */
-	@JavadocExclude
-	public static native boolean neglWaitSync(long dpy, long sync, int flags, long __functionAddress);
-
 	public static boolean eglWaitSync(long dpy, long sync, int flags) {
 		long __functionAddress = getInstance().WaitSync;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return neglWaitSync(dpy, sync, flags, __functionAddress);
+		return invokePPIZ(__functionAddress, dpy, sync, flags);
 	}
 
 }

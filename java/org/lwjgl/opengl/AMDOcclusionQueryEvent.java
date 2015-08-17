@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/occlusion_query_event.txt">AMD_occlusion_query_event</a> extension.
@@ -65,10 +66,6 @@ public final class AMDOcclusionQueryEvent {
 
 	// --- [ glQueryObjectParameteruiAMD ] ---
 
-	/** JNI method for {@link #glQueryObjectParameteruiAMD QueryObjectParameteruiAMD} */
-	@JavadocExclude
-	public static native void nglQueryObjectParameteruiAMD(int target, int id, int pname, int param, long __functionAddress);
-
 	/**
 	 * Changes the value of a query object parameter.
 	 *
@@ -79,7 +76,7 @@ public final class AMDOcclusionQueryEvent {
 	 */
 	public static void glQueryObjectParameteruiAMD(int target, int id, int pname, int param) {
 		long __functionAddress = getInstance().QueryObjectParameteruiAMD;
-		nglQueryObjectParameteruiAMD(target, id, pname, param, __functionAddress);
+		invokeIIIIV(__functionAddress, target, id, pname, param);
 	}
 
 }

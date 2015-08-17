@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -94,10 +95,6 @@ public final class AL11 {
 
 	// --- [ alListener3i ] ---
 
-	/** JNI method for {@link #alListener3i Listener3i} */
-	@JavadocExclude
-	public static native void nalListener3i(int paramName, float value1, float value2, float value3, long __functionAddress);
-
 	/**
 	 * Sets the 3 dimensional integer values of a listener parameter.
 	 *
@@ -108,20 +105,16 @@ public final class AL11 {
 	 */
 	public static void alListener3i(int paramName, float value1, float value2, float value3) {
 		long __functionAddress = getInstance().Listener3i;
-		nalListener3i(paramName, value1, value2, value3, __functionAddress);
+		invokeIFFFV(__functionAddress, paramName, value1, value2, value3);
 	}
 
 	// --- [ alGetListeneriv ] ---
-
-	/** JNI method for {@link #alGetListeneriv GetListeneriv} */
-	@JavadocExclude
-	public static native void nalGetListeneriv(int param, long values, long __functionAddress);
 
 	/** Unsafe version of {@link #alGetListeneriv GetListeneriv} */
 	@JavadocExclude
 	public static void nalGetListeneriv(int param, long values) {
 		long __functionAddress = getInstance().GetListeneriv;
-		nalGetListeneriv(param, values, __functionAddress);
+		invokeIPV(__functionAddress, param, values);
 	}
 
 	/**
@@ -145,10 +138,6 @@ public final class AL11 {
 
 	// --- [ alSource3i ] ---
 
-	/** JNI method for {@link #alSource3i Source3i} */
-	@JavadocExclude
-	public static native void nalSource3i(int source, int paramName, int value1, int value2, int value3, long __functionAddress);
-
 	/**
 	 * Sets the 3 dimensional integer values of a source parameter.
 	 *
@@ -160,20 +149,16 @@ public final class AL11 {
 	 */
 	public static void alSource3i(int source, int paramName, int value1, int value2, int value3) {
 		long __functionAddress = getInstance().Source3i;
-		nalSource3i(source, paramName, value1, value2, value3, __functionAddress);
+		invokeIIIIIV(__functionAddress, source, paramName, value1, value2, value3);
 	}
 
 	// --- [ alListeneriv ] ---
-
-	/** JNI method for {@link #alListeneriv Listeneriv} */
-	@JavadocExclude
-	public static native void nalListeneriv(int listener, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #alListeneriv Listeneriv} */
 	@JavadocExclude
 	public static void nalListeneriv(int listener, long value) {
 		long __functionAddress = getInstance().Listeneriv;
-		nalListeneriv(listener, value, __functionAddress);
+		invokeIPV(__functionAddress, listener, value);
 	}
 
 	/**
@@ -197,15 +182,11 @@ public final class AL11 {
 
 	// --- [ alSourceiv ] ---
 
-	/** JNI method for {@link #alSourceiv Sourceiv} */
-	@JavadocExclude
-	public static native void nalSourceiv(int source, int paramName, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #alSourceiv Sourceiv} */
 	@JavadocExclude
 	public static void nalSourceiv(int source, int paramName, long value) {
 		long __functionAddress = getInstance().Sourceiv;
-		nalSourceiv(source, paramName, value, __functionAddress);
+		invokeIIPV(__functionAddress, source, paramName, value);
 	}
 
 	/**
@@ -230,10 +211,6 @@ public final class AL11 {
 
 	// --- [ alBufferf ] ---
 
-	/** JNI method for {@link #alBufferf Bufferf} */
-	@JavadocExclude
-	public static native void nalBufferf(int buffer, int paramName, float value, long __functionAddress);
-
 	/**
 	 * Sets the float value of a buffer parameter.
 	 *
@@ -243,14 +220,10 @@ public final class AL11 {
 	 */
 	public static void alBufferf(int buffer, int paramName, float value) {
 		long __functionAddress = getInstance().Bufferf;
-		nalBufferf(buffer, paramName, value, __functionAddress);
+		invokeIIFV(__functionAddress, buffer, paramName, value);
 	}
 
 	// --- [ alBuffer3f ] ---
-
-	/** JNI method for {@link #alBuffer3f Buffer3f} */
-	@JavadocExclude
-	public static native void nalBuffer3f(int buffer, int paramName, float value1, float value2, float value3, long __functionAddress);
 
 	/**
 	 * Sets the the dimensional value of a buffer parameter.
@@ -263,20 +236,16 @@ public final class AL11 {
 	 */
 	public static void alBuffer3f(int buffer, int paramName, float value1, float value2, float value3) {
 		long __functionAddress = getInstance().Buffer3f;
-		nalBuffer3f(buffer, paramName, value1, value2, value3, __functionAddress);
+		invokeIIFFFV(__functionAddress, buffer, paramName, value1, value2, value3);
 	}
 
 	// --- [ alBufferfv ] ---
-
-	/** JNI method for {@link #alBufferfv Bufferfv} */
-	@JavadocExclude
-	public static native void nalBufferfv(int buffer, int paramName, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #alBufferfv Bufferfv} */
 	@JavadocExclude
 	public static void nalBufferfv(int buffer, int paramName, long value) {
 		long __functionAddress = getInstance().Bufferfv;
-		nalBufferfv(buffer, paramName, value, __functionAddress);
+		invokeIIPV(__functionAddress, buffer, paramName, value);
 	}
 
 	/**
@@ -301,10 +270,6 @@ public final class AL11 {
 
 	// --- [ alBufferi ] ---
 
-	/** JNI method for {@link #alBufferi Bufferi} */
-	@JavadocExclude
-	public static native void nalBufferi(int buffer, int paramName, int value, long __functionAddress);
-
 	/**
 	 * Sets the integer value of a buffer parameter.
 	 *
@@ -314,14 +279,10 @@ public final class AL11 {
 	 */
 	public static void alBufferi(int buffer, int paramName, int value) {
 		long __functionAddress = getInstance().Bufferi;
-		nalBufferi(buffer, paramName, value, __functionAddress);
+		invokeIIIV(__functionAddress, buffer, paramName, value);
 	}
 
 	// --- [ alBuffer3i ] ---
-
-	/** JNI method for {@link #alBuffer3i Buffer3i} */
-	@JavadocExclude
-	public static native void nalBuffer3i(int buffer, int paramName, int value1, int value2, int value3, long __functionAddress);
 
 	/**
 	 * Sets the integer 3 dimensional value of a buffer parameter.
@@ -334,20 +295,16 @@ public final class AL11 {
 	 */
 	public static void alBuffer3i(int buffer, int paramName, int value1, int value2, int value3) {
 		long __functionAddress = getInstance().Buffer3i;
-		nalBuffer3i(buffer, paramName, value1, value2, value3, __functionAddress);
+		invokeIIIIIV(__functionAddress, buffer, paramName, value1, value2, value3);
 	}
 
 	// --- [ alBufferiv ] ---
-
-	/** JNI method for {@link #alBufferiv Bufferiv} */
-	@JavadocExclude
-	public static native void nalBufferiv(int buffer, int paramName, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #alBufferiv Bufferiv} */
 	@JavadocExclude
 	public static void nalBufferiv(int buffer, int paramName, long value) {
 		long __functionAddress = getInstance().Bufferiv;
-		nalBufferiv(buffer, paramName, value, __functionAddress);
+		invokeIIPV(__functionAddress, buffer, paramName, value);
 	}
 
 	/**
@@ -372,15 +329,11 @@ public final class AL11 {
 
 	// --- [ alGetBufferi ] ---
 
-	/** JNI method for {@link #alGetBufferi GetBufferi} */
-	@JavadocExclude
-	public static native void nalGetBufferi(int buffer, int param, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetBufferi GetBufferi} */
 	@JavadocExclude
 	public static void nalGetBufferi(int buffer, int param, long value) {
 		long __functionAddress = getInstance().GetBufferi;
-		nalGetBufferi(buffer, param, value, __functionAddress);
+		invokeIIPV(__functionAddress, buffer, param, value);
 	}
 
 	/**
@@ -413,15 +366,11 @@ public final class AL11 {
 
 	// --- [ alGetBufferiv ] ---
 
-	/** JNI method for {@link #alGetBufferiv GetBufferiv} */
-	@JavadocExclude
-	public static native void nalGetBufferiv(int buffer, int param, long values, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetBufferiv GetBufferiv} */
 	@JavadocExclude
 	public static void nalGetBufferiv(int buffer, int param, long values) {
 		long __functionAddress = getInstance().GetBufferiv;
-		nalGetBufferiv(buffer, param, values, __functionAddress);
+		invokeIIPV(__functionAddress, buffer, param, values);
 	}
 
 	/**
@@ -446,15 +395,11 @@ public final class AL11 {
 
 	// --- [ alGetBufferf ] ---
 
-	/** JNI method for {@link #alGetBufferf GetBufferf} */
-	@JavadocExclude
-	public static native void nalGetBufferf(int buffer, int param, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetBufferf GetBufferf} */
 	@JavadocExclude
 	public static void nalGetBufferf(int buffer, int param, long value) {
 		long __functionAddress = getInstance().GetBufferf;
-		nalGetBufferf(buffer, param, value, __functionAddress);
+		invokeIIPV(__functionAddress, buffer, param, value);
 	}
 
 	/**
@@ -487,15 +432,11 @@ public final class AL11 {
 
 	// --- [ alGetBufferfv ] ---
 
-	/** JNI method for {@link #alGetBufferfv GetBufferfv} */
-	@JavadocExclude
-	public static native void nalGetBufferfv(int buffer, int param, long values, long __functionAddress);
-
 	/** Unsafe version of {@link #alGetBufferfv GetBufferfv} */
 	@JavadocExclude
 	public static void nalGetBufferfv(int buffer, int param, long values) {
 		long __functionAddress = getInstance().GetBufferfv;
-		nalGetBufferfv(buffer, param, values, __functionAddress);
+		invokeIIPV(__functionAddress, buffer, param, values);
 	}
 
 	/**
@@ -520,10 +461,6 @@ public final class AL11 {
 
 	// --- [ alSpeedOfSound ] ---
 
-	/** JNI method for {@link #alSpeedOfSound SpeedOfSound} */
-	@JavadocExclude
-	public static native void nalSpeedOfSound(float value, long __functionAddress);
-
 	/**
 	 * Sets the speed of sound.
 	 *
@@ -531,7 +468,7 @@ public final class AL11 {
 	 */
 	public static void alSpeedOfSound(float value) {
 		long __functionAddress = getInstance().SpeedOfSound;
-		nalSpeedOfSound(value, __functionAddress);
+		invokeFV(__functionAddress, value);
 	}
 
 }

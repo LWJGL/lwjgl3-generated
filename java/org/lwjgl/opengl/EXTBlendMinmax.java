@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/blend_minmax.txt">EXT_blend_minmax</a> extension.
@@ -62,13 +63,9 @@ public final class EXTBlendMinmax {
 
 	// --- [ glBlendEquationEXT ] ---
 
-	/** JNI method for {@link #glBlendEquationEXT BlendEquationEXT} */
-	@JavadocExclude
-	public static native void nglBlendEquationEXT(int mode, long __functionAddress);
-
 	public static void glBlendEquationEXT(int mode) {
 		long __functionAddress = getInstance().BlendEquationEXT;
-		nglBlendEquationEXT(mode, __functionAddress);
+		invokeIV(__functionAddress, mode);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -64,15 +65,11 @@ public final class NVBindlessMultiDrawIndirect {
 
 	// --- [ glMultiDrawArraysIndirectBindlessNV ] ---
 
-	/** JNI method for {@link #glMultiDrawArraysIndirectBindlessNV MultiDrawArraysIndirectBindlessNV} */
-	@JavadocExclude
-	public static native void nglMultiDrawArraysIndirectBindlessNV(int mode, long indirect, int drawCount, int stride, int vertexBufferCount, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiDrawArraysIndirectBindlessNV MultiDrawArraysIndirectBindlessNV} */
 	@JavadocExclude
 	public static void nglMultiDrawArraysIndirectBindlessNV(int mode, long indirect, int drawCount, int stride, int vertexBufferCount) {
 		long __functionAddress = getInstance().MultiDrawArraysIndirectBindlessNV;
-		nglMultiDrawArraysIndirectBindlessNV(mode, indirect, drawCount, stride, vertexBufferCount, __functionAddress);
+		invokeIPIIIV(__functionAddress, mode, indirect, drawCount, stride, vertexBufferCount);
 	}
 
 	/**
@@ -103,15 +100,11 @@ public final class NVBindlessMultiDrawIndirect {
 
 	// --- [ glMultiDrawElementsIndirectBindlessNV ] ---
 
-	/** JNI method for {@link #glMultiDrawElementsIndirectBindlessNV MultiDrawElementsIndirectBindlessNV} */
-	@JavadocExclude
-	public static native void nglMultiDrawElementsIndirectBindlessNV(int mode, int type, long indirect, int drawCount, int stride, int vertexBufferCount, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiDrawElementsIndirectBindlessNV MultiDrawElementsIndirectBindlessNV} */
 	@JavadocExclude
 	public static void nglMultiDrawElementsIndirectBindlessNV(int mode, int type, long indirect, int drawCount, int stride, int vertexBufferCount) {
 		long __functionAddress = getInstance().MultiDrawElementsIndirectBindlessNV;
-		nglMultiDrawElementsIndirectBindlessNV(mode, type, indirect, drawCount, stride, vertexBufferCount, __functionAddress);
+		invokeIIPIIIV(__functionAddress, mode, type, indirect, drawCount, stride, vertexBufferCount);
 	}
 
 	/**

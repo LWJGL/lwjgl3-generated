@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -44,17 +45,13 @@ public final class NVNativeQuery {
 
 	// --- [ eglQueryNativeDisplayNV ] ---
 
-	/** JNI method for {@link #eglQueryNativeDisplayNV QueryNativeDisplayNV} */
-	@JavadocExclude
-	public static native boolean neglQueryNativeDisplayNV(long dpy, long display_id, long __functionAddress);
-
 	/** Unsafe version of {@link #eglQueryNativeDisplayNV QueryNativeDisplayNV} */
 	@JavadocExclude
 	public static boolean neglQueryNativeDisplayNV(long dpy, long display_id) {
 		long __functionAddress = getInstance().QueryNativeDisplayNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return neglQueryNativeDisplayNV(dpy, display_id, __functionAddress);
+		return invokePPZ(__functionAddress, dpy, display_id);
 	}
 
 	public static boolean eglQueryNativeDisplayNV(long dpy, ByteBuffer display_id) {
@@ -72,10 +69,6 @@ public final class NVNativeQuery {
 
 	// --- [ eglQueryNativeWindowNV ] ---
 
-	/** JNI method for {@link #eglQueryNativeWindowNV QueryNativeWindowNV} */
-	@JavadocExclude
-	public static native boolean neglQueryNativeWindowNV(long dpy, long surf, long window, long __functionAddress);
-
 	/** Unsafe version of {@link #eglQueryNativeWindowNV QueryNativeWindowNV} */
 	@JavadocExclude
 	public static boolean neglQueryNativeWindowNV(long dpy, long surf, long window) {
@@ -84,7 +77,7 @@ public final class NVNativeQuery {
 			checkPointer(dpy);
 			checkPointer(surf);
 		}
-		return neglQueryNativeWindowNV(dpy, surf, window, __functionAddress);
+		return invokePPPZ(__functionAddress, dpy, surf, window);
 	}
 
 	public static boolean eglQueryNativeWindowNV(long dpy, long surf, ByteBuffer window) {
@@ -102,10 +95,6 @@ public final class NVNativeQuery {
 
 	// --- [ eglQueryNativePixmapNV ] ---
 
-	/** JNI method for {@link #eglQueryNativePixmapNV QueryNativePixmapNV} */
-	@JavadocExclude
-	public static native boolean neglQueryNativePixmapNV(long dpy, long surf, long pixmap, long __functionAddress);
-
 	/** Unsafe version of {@link #eglQueryNativePixmapNV QueryNativePixmapNV} */
 	@JavadocExclude
 	public static boolean neglQueryNativePixmapNV(long dpy, long surf, long pixmap) {
@@ -114,7 +103,7 @@ public final class NVNativeQuery {
 			checkPointer(dpy);
 			checkPointer(surf);
 		}
-		return neglQueryNativePixmapNV(dpy, surf, pixmap, __functionAddress);
+		return invokePPPZ(__functionAddress, dpy, surf, pixmap);
 	}
 
 	public static boolean eglQueryNativePixmapNV(long dpy, long surf, ByteBuffer pixmap) {

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -93,10 +94,6 @@ public final class ARBWindowPos {
 
 	// --- [ glWindowPos2iARB ] ---
 
-	/** JNI method for {@link #glWindowPos2iARB WindowPos2iARB} */
-	@JavadocExclude
-	public static native void nglWindowPos2iARB(int x, int y, long __functionAddress);
-
 	/**
 	 * Alternate way to set the current raster position. {@code z} is implictly set to 0.
 	 *
@@ -105,14 +102,10 @@ public final class ARBWindowPos {
 	 */
 	public static void glWindowPos2iARB(int x, int y) {
 		long __functionAddress = getInstance().WindowPos2iARB;
-		nglWindowPos2iARB(x, y, __functionAddress);
+		invokeIIV(__functionAddress, x, y);
 	}
 
 	// --- [ glWindowPos2sARB ] ---
-
-	/** JNI method for {@link #glWindowPos2sARB WindowPos2sARB} */
-	@JavadocExclude
-	public static native void nglWindowPos2sARB(short x, short y, long __functionAddress);
 
 	/**
 	 * Short version of {@link #glWindowPos2iARB WindowPos2iARB}.
@@ -122,14 +115,10 @@ public final class ARBWindowPos {
 	 */
 	public static void glWindowPos2sARB(short x, short y) {
 		long __functionAddress = getInstance().WindowPos2sARB;
-		nglWindowPos2sARB(x, y, __functionAddress);
+		invokeSSV(__functionAddress, x, y);
 	}
 
 	// --- [ glWindowPos2fARB ] ---
-
-	/** JNI method for {@link #glWindowPos2fARB WindowPos2fARB} */
-	@JavadocExclude
-	public static native void nglWindowPos2fARB(float x, float y, long __functionAddress);
 
 	/**
 	 * Float version of {@link #glWindowPos2iARB WindowPos2iARB}.
@@ -139,14 +128,10 @@ public final class ARBWindowPos {
 	 */
 	public static void glWindowPos2fARB(float x, float y) {
 		long __functionAddress = getInstance().WindowPos2fARB;
-		nglWindowPos2fARB(x, y, __functionAddress);
+		invokeFFV(__functionAddress, x, y);
 	}
 
 	// --- [ glWindowPos2dARB ] ---
-
-	/** JNI method for {@link #glWindowPos2dARB WindowPos2dARB} */
-	@JavadocExclude
-	public static native void nglWindowPos2dARB(double x, double y, long __functionAddress);
 
 	/**
 	 * Double version of {@link #glWindowPos2iARB WindowPos2iARB}.
@@ -156,20 +141,16 @@ public final class ARBWindowPos {
 	 */
 	public static void glWindowPos2dARB(double x, double y) {
 		long __functionAddress = getInstance().WindowPos2dARB;
-		nglWindowPos2dARB(x, y, __functionAddress);
+		invokeDDV(__functionAddress, x, y);
 	}
 
 	// --- [ glWindowPos2ivARB ] ---
-
-	/** JNI method for {@link #glWindowPos2ivARB WindowPos2ivARB} */
-	@JavadocExclude
-	public static native void nglWindowPos2ivARB(long p, long __functionAddress);
 
 	/** Unsafe version of {@link #glWindowPos2ivARB WindowPos2ivARB} */
 	@JavadocExclude
 	public static void nglWindowPos2ivARB(long p) {
 		long __functionAddress = getInstance().WindowPos2ivARB;
-		nglWindowPos2ivARB(p, __functionAddress);
+		invokePV(__functionAddress, p);
 	}
 
 	/**
@@ -192,15 +173,11 @@ public final class ARBWindowPos {
 
 	// --- [ glWindowPos2svARB ] ---
 
-	/** JNI method for {@link #glWindowPos2svARB WindowPos2svARB} */
-	@JavadocExclude
-	public static native void nglWindowPos2svARB(long p, long __functionAddress);
-
 	/** Unsafe version of {@link #glWindowPos2svARB WindowPos2svARB} */
 	@JavadocExclude
 	public static void nglWindowPos2svARB(long p) {
 		long __functionAddress = getInstance().WindowPos2svARB;
-		nglWindowPos2svARB(p, __functionAddress);
+		invokePV(__functionAddress, p);
 	}
 
 	/**
@@ -223,15 +200,11 @@ public final class ARBWindowPos {
 
 	// --- [ glWindowPos2fvARB ] ---
 
-	/** JNI method for {@link #glWindowPos2fvARB WindowPos2fvARB} */
-	@JavadocExclude
-	public static native void nglWindowPos2fvARB(long p, long __functionAddress);
-
 	/** Unsafe version of {@link #glWindowPos2fvARB WindowPos2fvARB} */
 	@JavadocExclude
 	public static void nglWindowPos2fvARB(long p) {
 		long __functionAddress = getInstance().WindowPos2fvARB;
-		nglWindowPos2fvARB(p, __functionAddress);
+		invokePV(__functionAddress, p);
 	}
 
 	/**
@@ -254,15 +227,11 @@ public final class ARBWindowPos {
 
 	// --- [ glWindowPos2dvARB ] ---
 
-	/** JNI method for {@link #glWindowPos2dvARB WindowPos2dvARB} */
-	@JavadocExclude
-	public static native void nglWindowPos2dvARB(long p, long __functionAddress);
-
 	/** Unsafe version of {@link #glWindowPos2dvARB WindowPos2dvARB} */
 	@JavadocExclude
 	public static void nglWindowPos2dvARB(long p) {
 		long __functionAddress = getInstance().WindowPos2dvARB;
-		nglWindowPos2dvARB(p, __functionAddress);
+		invokePV(__functionAddress, p);
 	}
 
 	/**
@@ -285,10 +254,6 @@ public final class ARBWindowPos {
 
 	// --- [ glWindowPos3iARB ] ---
 
-	/** JNI method for {@link #glWindowPos3iARB WindowPos3iARB} */
-	@JavadocExclude
-	public static native void nglWindowPos3iARB(int x, int y, int z, long __functionAddress);
-
 	/**
 	 * Alternate way to set the current raster position.
 	 *
@@ -298,14 +263,10 @@ public final class ARBWindowPos {
 	 */
 	public static void glWindowPos3iARB(int x, int y, int z) {
 		long __functionAddress = getInstance().WindowPos3iARB;
-		nglWindowPos3iARB(x, y, z, __functionAddress);
+		invokeIIIV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glWindowPos3sARB ] ---
-
-	/** JNI method for {@link #glWindowPos3sARB WindowPos3sARB} */
-	@JavadocExclude
-	public static native void nglWindowPos3sARB(short x, short y, short z, long __functionAddress);
 
 	/**
 	 * Short version of {@link #glWindowPos3iARB WindowPos3iARB}.
@@ -316,14 +277,10 @@ public final class ARBWindowPos {
 	 */
 	public static void glWindowPos3sARB(short x, short y, short z) {
 		long __functionAddress = getInstance().WindowPos3sARB;
-		nglWindowPos3sARB(x, y, z, __functionAddress);
+		invokeSSSV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glWindowPos3fARB ] ---
-
-	/** JNI method for {@link #glWindowPos3fARB WindowPos3fARB} */
-	@JavadocExclude
-	public static native void nglWindowPos3fARB(float x, float y, float z, long __functionAddress);
 
 	/**
 	 * Float version of {@link #glWindowPos3iARB WindowPos3iARB}.
@@ -334,14 +291,10 @@ public final class ARBWindowPos {
 	 */
 	public static void glWindowPos3fARB(float x, float y, float z) {
 		long __functionAddress = getInstance().WindowPos3fARB;
-		nglWindowPos3fARB(x, y, z, __functionAddress);
+		invokeFFFV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glWindowPos3dARB ] ---
-
-	/** JNI method for {@link #glWindowPos3dARB WindowPos3dARB} */
-	@JavadocExclude
-	public static native void nglWindowPos3dARB(double x, double y, double z, long __functionAddress);
 
 	/**
 	 * Double version of {@link #glWindowPos3iARB WindowPos3iARB}.
@@ -352,20 +305,16 @@ public final class ARBWindowPos {
 	 */
 	public static void glWindowPos3dARB(double x, double y, double z) {
 		long __functionAddress = getInstance().WindowPos3dARB;
-		nglWindowPos3dARB(x, y, z, __functionAddress);
+		invokeDDDV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glWindowPos3ivARB ] ---
-
-	/** JNI method for {@link #glWindowPos3ivARB WindowPos3ivARB} */
-	@JavadocExclude
-	public static native void nglWindowPos3ivARB(long p, long __functionAddress);
 
 	/** Unsafe version of {@link #glWindowPos3ivARB WindowPos3ivARB} */
 	@JavadocExclude
 	public static void nglWindowPos3ivARB(long p) {
 		long __functionAddress = getInstance().WindowPos3ivARB;
-		nglWindowPos3ivARB(p, __functionAddress);
+		invokePV(__functionAddress, p);
 	}
 
 	/**
@@ -388,15 +337,11 @@ public final class ARBWindowPos {
 
 	// --- [ glWindowPos3svARB ] ---
 
-	/** JNI method for {@link #glWindowPos3svARB WindowPos3svARB} */
-	@JavadocExclude
-	public static native void nglWindowPos3svARB(long p, long __functionAddress);
-
 	/** Unsafe version of {@link #glWindowPos3svARB WindowPos3svARB} */
 	@JavadocExclude
 	public static void nglWindowPos3svARB(long p) {
 		long __functionAddress = getInstance().WindowPos3svARB;
-		nglWindowPos3svARB(p, __functionAddress);
+		invokePV(__functionAddress, p);
 	}
 
 	/**
@@ -419,15 +364,11 @@ public final class ARBWindowPos {
 
 	// --- [ glWindowPos3fvARB ] ---
 
-	/** JNI method for {@link #glWindowPos3fvARB WindowPos3fvARB} */
-	@JavadocExclude
-	public static native void nglWindowPos3fvARB(long p, long __functionAddress);
-
 	/** Unsafe version of {@link #glWindowPos3fvARB WindowPos3fvARB} */
 	@JavadocExclude
 	public static void nglWindowPos3fvARB(long p) {
 		long __functionAddress = getInstance().WindowPos3fvARB;
-		nglWindowPos3fvARB(p, __functionAddress);
+		invokePV(__functionAddress, p);
 	}
 
 	/**
@@ -450,15 +391,11 @@ public final class ARBWindowPos {
 
 	// --- [ glWindowPos3dvARB ] ---
 
-	/** JNI method for {@link #glWindowPos3dvARB WindowPos3dvARB} */
-	@JavadocExclude
-	public static native void nglWindowPos3dvARB(long p, long __functionAddress);
-
 	/** Unsafe version of {@link #glWindowPos3dvARB WindowPos3dvARB} */
 	@JavadocExclude
 	public static void nglWindowPos3dvARB(long p) {
 		long __functionAddress = getInstance().WindowPos3dvARB;
-		nglWindowPos3dvARB(p, __functionAddress);
+		invokePV(__functionAddress, p);
 	}
 
 	/**

@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/texture_storage_multisample.txt">ARB_texture_storage_multisample</a> extension.
@@ -76,7 +77,7 @@ public final class ARBTextureStorageMultisample {
 	 */
 	public static void glTexStorage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TexStorage2DMultisample;
-		GL43.nglTexStorage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations, __functionAddress);
+		invokeIIIIIZV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
 	// --- [ glTexStorage3DMultisample ] ---
@@ -95,14 +96,10 @@ public final class ARBTextureStorageMultisample {
 	 */
 	public static void glTexStorage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TexStorage3DMultisample;
-		GL43.nglTexStorage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations, __functionAddress);
+		invokeIIIIIIZV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
 	// --- [ glTextureStorage2DMultisampleEXT ] ---
-
-	/** JNI method for {@link #glTextureStorage2DMultisampleEXT TextureStorage2DMultisampleEXT} */
-	@JavadocExclude
-	public static native void nglTextureStorage2DMultisampleEXT(int texture, int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations, long __functionAddress);
 
 	/**
 	 * DSA version of {@link #glTexStorage2DMultisample TexStorage2DMultisample}.
@@ -120,14 +117,10 @@ public final class ARBTextureStorageMultisample {
 		long __functionAddress = getInstance().TextureStorage2DMultisampleEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTextureStorage2DMultisampleEXT(texture, target, samples, internalformat, width, height, fixedsamplelocations, __functionAddress);
+		invokeIIIIIIZV(__functionAddress, texture, target, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
 	// --- [ glTextureStorage3DMultisampleEXT ] ---
-
-	/** JNI method for {@link #glTextureStorage3DMultisampleEXT TextureStorage3DMultisampleEXT} */
-	@JavadocExclude
-	public static native void nglTextureStorage3DMultisampleEXT(int texture, int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations, long __functionAddress);
 
 	/**
 	 * DSA version of {@link #glTexStorage3DMultisample TexStorage3DMultisample}.
@@ -146,7 +139,7 @@ public final class ARBTextureStorageMultisample {
 		long __functionAddress = getInstance().TextureStorage3DMultisampleEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTextureStorage3DMultisampleEXT(texture, target, samples, internalformat, width, height, depth, fixedsamplelocations, __functionAddress);
+		invokeIIIIIIIZV(__functionAddress, texture, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
 }

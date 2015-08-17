@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/wgl_make_current_read.txt">WGL_ARB_make_current_read</a> extension.
@@ -58,10 +59,6 @@ public final class WGLARBMakeCurrentRead {
 
 	// --- [ wglMakeContextCurrentARB ] ---
 
-	/** JNI method for {@link #wglMakeContextCurrentARB MakeContextCurrentARB} */
-	@JavadocExclude
-	public static native int nwglMakeContextCurrentARB(long drawDC, long readDC, long hglrc, long __functionAddress);
-
 	/**
 	 * Associates the context {@code hglrc} with the device {@code drawDC} for draws and the device {@code readDC} for reads. All subsequent OpenGL calls made
 	 * by the calling thread are drawn on the device identified by {@code drawDC} and read on the device identified by {@code readDC}.
@@ -95,19 +92,15 @@ public final class WGLARBMakeCurrentRead {
 			checkPointer(readDC);
 			checkPointer(hglrc);
 		}
-		return nwglMakeContextCurrentARB(drawDC, readDC, hglrc, __functionAddress);
+		return invokePPPI(__functionAddress, drawDC, readDC, hglrc);
 	}
 
 	// --- [ wglGetCurrentReadDCARB ] ---
 
-	/** JNI method for {@link #wglGetCurrentReadDCARB GetCurrentReadDCARB} */
-	@JavadocExclude
-	public static native long nwglGetCurrentReadDCARB(long __functionAddress);
-
 	/** Returns the "read" device context for the current OpenGL context. */
 	public static long wglGetCurrentReadDCARB() {
 		long __functionAddress = getInstance().GetCurrentReadDCARB;
-		return nwglGetCurrentReadDCARB(__functionAddress);
+		return invokeP(__functionAddress);
 	}
 
 }

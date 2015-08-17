@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/QCOM/QCOM_tiled_rendering.txt">QCOM_tiled_rendering</a> extension.
@@ -123,24 +124,16 @@ public final class QCOMTiledRendering {
 
 	// --- [ glStartTilingQCOM ] ---
 
-	/** JNI method for {@link #glStartTilingQCOM StartTilingQCOM} */
-	@JavadocExclude
-	public static native void nglStartTilingQCOM(int x, int y, int width, int height, int preserveMask, long __functionAddress);
-
 	public static void glStartTilingQCOM(int x, int y, int width, int height, int preserveMask) {
 		long __functionAddress = getInstance().StartTilingQCOM;
-		nglStartTilingQCOM(x, y, width, height, preserveMask, __functionAddress);
+		invokeIIIIIV(__functionAddress, x, y, width, height, preserveMask);
 	}
 
 	// --- [ glEndTilingQCOM ] ---
 
-	/** JNI method for {@link #glEndTilingQCOM EndTilingQCOM} */
-	@JavadocExclude
-	public static native void nglEndTilingQCOM(int preserveMask, long __functionAddress);
-
 	public static void glEndTilingQCOM(int preserveMask) {
 		long __functionAddress = getInstance().EndTilingQCOM;
-		nglEndTilingQCOM(preserveMask, __functionAddress);
+		invokeIV(__functionAddress, preserveMask);
 	}
 
 }

@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://kcat.strangesoft.net/openal-extensions/EXT_thread_local_context.txt">EXT_thread_local_context</a> extension.
@@ -51,10 +52,6 @@ public final class EXTThreadLocalContext {
 
 	// --- [ alcSetThreadContext ] ---
 
-	/** JNI method for {@link #alcSetThreadContext SetThreadContext} */
-	@JavadocExclude
-	public static native boolean nalcSetThreadContext(long context, long __functionAddress);
-
 	/**
 	 * Makes a context current with respect to OpenAL operation on the current thread. The context parameter can be {@code NULL} or a valid context pointer. Using
 	 * {@code NULL} results in no thread-specific context being current in the calling thread, which is useful when shutting OpenAL down.
@@ -65,19 +62,15 @@ public final class EXTThreadLocalContext {
 		long __functionAddress = getInstance().SetThreadContext;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nalcSetThreadContext(context, __functionAddress);
+		return invokePZ(__functionAddress, context);
 	}
 
 	// --- [ alcGetThreadContext ] ---
 
-	/** JNI method for {@link #alcGetThreadContext GetThreadContext} */
-	@JavadocExclude
-	public static native long nalcGetThreadContext(long __functionAddress);
-
 	/** Retrieve a handle to the thread-specific context of the calling thread. This function will return {@code NULL} if no thread- specific context is set. */
 	public static long alcGetThreadContext() {
 		long __functionAddress = getInstance().GetThreadContext;
-		return nalcGetThreadContext(__functionAddress);
+		return invokeP(__functionAddress);
 	}
 
 }

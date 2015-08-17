@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/texture_buffer_object.txt">ARB_texture_buffer_object</a> extension.
@@ -79,10 +80,6 @@ public final class ARBTextureBufferObject {
 
 	// --- [ glTexBufferARB ] ---
 
-	/** JNI method for {@link #glTexBufferARB TexBufferARB} */
-	@JavadocExclude
-	public static native void nglTexBufferARB(int target, int internalformat, int buffer, long __functionAddress);
-
 	/**
 	 * Attaches the storage for the buffer object named {@code buffer} to the active buffer texture, and specifies an internal format for the texel array found
 	 * in the attached buffer object. If {@code buffer} is zero, any buffer object attached to the buffer texture is detached, and no new buffer object is
@@ -112,7 +109,7 @@ public final class ARBTextureBufferObject {
 	 */
 	public static void glTexBufferARB(int target, int internalformat, int buffer) {
 		long __functionAddress = getInstance().TexBufferARB;
-		nglTexBufferARB(target, internalformat, buffer, __functionAddress);
+		invokeIIIV(__functionAddress, target, internalformat, buffer);
 	}
 
 }

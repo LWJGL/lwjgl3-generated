@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -79,7 +80,7 @@ public final class ARBMultiBind {
 	@JavadocExclude
 	public static void nglBindBuffersBase(int target, int first, int count, long buffers) {
 		long __functionAddress = getInstance().BindBuffersBase;
-		GL44.nglBindBuffersBase(target, first, count, buffers, __functionAddress);
+		invokeIIIPV(__functionAddress, target, first, count, buffers);
 	}
 
 	/**
@@ -104,12 +105,12 @@ public final class ARBMultiBind {
 	public static void glBindBuffersBase(int target, int first, int count, ByteBuffer buffers) {
 		if ( LWJGLUtil.CHECKS )
 			if ( buffers != null ) checkBuffer(buffers, count << 2);
-		nglBindBuffersBase(target, first, count, memAddressSafe(buffers));
+		GL44.nglBindBuffersBase(target, first, count, memAddressSafe(buffers));
 	}
 
 	/** Alternative version of: {@link #glBindBuffersBase BindBuffersBase} */
 	public static void glBindBuffersBase(int target, int first, IntBuffer buffers) {
-		nglBindBuffersBase(target, first, buffers == null ? 0 : buffers.remaining(), memAddressSafe(buffers));
+		GL44.nglBindBuffersBase(target, first, buffers == null ? 0 : buffers.remaining(), memAddressSafe(buffers));
 	}
 
 	// --- [ glBindBuffersRange ] ---
@@ -118,7 +119,7 @@ public final class ARBMultiBind {
 	@JavadocExclude
 	public static void nglBindBuffersRange(int target, int first, int count, long buffers, long offsets, long sizes) {
 		long __functionAddress = getInstance().BindBuffersRange;
-		GL44.nglBindBuffersRange(target, first, count, buffers, offsets, sizes, __functionAddress);
+		invokeIIIPPPV(__functionAddress, target, first, count, buffers, offsets, sizes);
 	}
 
 	/**
@@ -154,7 +155,7 @@ public final class ARBMultiBind {
 			if ( offsets != null ) checkBuffer(offsets, count << POINTER_SHIFT);
 			if ( sizes != null ) checkBuffer(sizes, count << POINTER_SHIFT);
 		}
-		nglBindBuffersRange(target, first, count, memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(sizes));
+		GL44.nglBindBuffersRange(target, first, count, memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(sizes));
 	}
 
 	/** Alternative version of: {@link #glBindBuffersRange BindBuffersRange} */
@@ -163,7 +164,7 @@ public final class ARBMultiBind {
 			if ( offsets != null ) checkBuffer(offsets, buffers.remaining());
 			if ( sizes != null ) checkBuffer(sizes, buffers.remaining());
 		}
-		nglBindBuffersRange(target, first, buffers == null ? 0 : buffers.remaining(), memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(sizes));
+		GL44.nglBindBuffersRange(target, first, buffers == null ? 0 : buffers.remaining(), memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(sizes));
 	}
 
 	// --- [ glBindTextures ] ---
@@ -172,7 +173,7 @@ public final class ARBMultiBind {
 	@JavadocExclude
 	public static void nglBindTextures(int first, int count, long textures) {
 		long __functionAddress = getInstance().BindTextures;
-		GL44.nglBindTextures(first, count, textures, __functionAddress);
+		invokeIIPV(__functionAddress, first, count, textures);
 	}
 
 	/**
@@ -216,12 +217,12 @@ public final class ARBMultiBind {
 	public static void glBindTextures(int first, int count, ByteBuffer textures) {
 		if ( LWJGLUtil.CHECKS )
 			if ( textures != null ) checkBuffer(textures, count << 2);
-		nglBindTextures(first, count, memAddressSafe(textures));
+		GL44.nglBindTextures(first, count, memAddressSafe(textures));
 	}
 
 	/** Alternative version of: {@link #glBindTextures BindTextures} */
 	public static void glBindTextures(int first, IntBuffer textures) {
-		nglBindTextures(first, textures == null ? 0 : textures.remaining(), memAddressSafe(textures));
+		GL44.nglBindTextures(first, textures == null ? 0 : textures.remaining(), memAddressSafe(textures));
 	}
 
 	// --- [ glBindSamplers ] ---
@@ -230,7 +231,7 @@ public final class ARBMultiBind {
 	@JavadocExclude
 	public static void nglBindSamplers(int first, int count, long samplers) {
 		long __functionAddress = getInstance().BindSamplers;
-		GL44.nglBindSamplers(first, count, samplers, __functionAddress);
+		invokeIIPV(__functionAddress, first, count, samplers);
 	}
 
 	/**
@@ -258,12 +259,12 @@ public final class ARBMultiBind {
 	public static void glBindSamplers(int first, int count, ByteBuffer samplers) {
 		if ( LWJGLUtil.CHECKS )
 			if ( samplers != null ) checkBuffer(samplers, count << 2);
-		nglBindSamplers(first, count, memAddressSafe(samplers));
+		GL44.nglBindSamplers(first, count, memAddressSafe(samplers));
 	}
 
 	/** Alternative version of: {@link #glBindSamplers BindSamplers} */
 	public static void glBindSamplers(int first, IntBuffer samplers) {
-		nglBindSamplers(first, samplers == null ? 0 : samplers.remaining(), memAddressSafe(samplers));
+		GL44.nglBindSamplers(first, samplers == null ? 0 : samplers.remaining(), memAddressSafe(samplers));
 	}
 
 	// --- [ glBindImageTextures ] ---
@@ -272,7 +273,7 @@ public final class ARBMultiBind {
 	@JavadocExclude
 	public static void nglBindImageTextures(int first, int count, long textures) {
 		long __functionAddress = getInstance().BindImageTextures;
-		GL44.nglBindImageTextures(first, count, textures, __functionAddress);
+		invokeIIPV(__functionAddress, first, count, textures);
 	}
 
 	/**
@@ -311,12 +312,12 @@ public final class ARBMultiBind {
 	public static void glBindImageTextures(int first, int count, ByteBuffer textures) {
 		if ( LWJGLUtil.CHECKS )
 			if ( textures != null ) checkBuffer(textures, count << 2);
-		nglBindImageTextures(first, count, memAddressSafe(textures));
+		GL44.nglBindImageTextures(first, count, memAddressSafe(textures));
 	}
 
 	/** Alternative version of: {@link #glBindImageTextures BindImageTextures} */
 	public static void glBindImageTextures(int first, IntBuffer textures) {
-		nglBindImageTextures(first, textures == null ? 0 : textures.remaining(), memAddressSafe(textures));
+		GL44.nglBindImageTextures(first, textures == null ? 0 : textures.remaining(), memAddressSafe(textures));
 	}
 
 	// --- [ glBindVertexBuffers ] ---
@@ -325,7 +326,7 @@ public final class ARBMultiBind {
 	@JavadocExclude
 	public static void nglBindVertexBuffers(int first, int count, long buffers, long offsets, long strides) {
 		long __functionAddress = getInstance().BindVertexBuffers;
-		GL44.nglBindVertexBuffers(first, count, buffers, offsets, strides, __functionAddress);
+		invokeIIPPPV(__functionAddress, first, count, buffers, offsets, strides);
 	}
 
 	/**
@@ -363,7 +364,7 @@ public final class ARBMultiBind {
 			if ( offsets != null ) checkBuffer(offsets, count << POINTER_SHIFT);
 			if ( strides != null ) checkBuffer(strides, count << 2);
 		}
-		nglBindVertexBuffers(first, count, memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(strides));
+		GL44.nglBindVertexBuffers(first, count, memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(strides));
 	}
 
 	/** Alternative version of: {@link #glBindVertexBuffers BindVertexBuffers} */
@@ -372,7 +373,7 @@ public final class ARBMultiBind {
 			if ( offsets != null ) checkBuffer(offsets, buffers.remaining());
 			if ( strides != null ) checkBuffer(strides, buffers.remaining());
 		}
-		nglBindVertexBuffers(first, buffers == null ? 0 : buffers.remaining(), memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(strides));
+		GL44.nglBindVertexBuffers(first, buffers == null ? 0 : buffers.remaining(), memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(strides));
 	}
 
 }

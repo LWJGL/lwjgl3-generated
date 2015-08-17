@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -92,7 +93,7 @@ public final class ARBES2Compatibility {
 	/** Releases resources allocated by the shader compiler. This is a hint from the application, and does not prevent later use of the shader compiler. */
 	public static void glReleaseShaderCompiler() {
 		long __functionAddress = getInstance().ReleaseShaderCompiler;
-		GL41.nglReleaseShaderCompiler(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glShaderBinary ] ---
@@ -101,7 +102,7 @@ public final class ARBES2Compatibility {
 	@JavadocExclude
 	public static void nglShaderBinary(int count, long shaders, int binaryformat, long binary, int length) {
 		long __functionAddress = getInstance().ShaderBinary;
-		GL41.nglShaderBinary(count, shaders, binaryformat, binary, length, __functionAddress);
+		invokeIPIPIV(__functionAddress, count, shaders, binaryformat, binary, length);
 	}
 
 	/**
@@ -118,12 +119,12 @@ public final class ARBES2Compatibility {
 			checkBuffer(shaders, count << 2);
 			checkBuffer(binary, length);
 		}
-		nglShaderBinary(count, memAddress(shaders), binaryformat, memAddress(binary), length);
+		GL41.nglShaderBinary(count, memAddress(shaders), binaryformat, memAddress(binary), length);
 	}
 
 	/** Alternative version of: {@link #glShaderBinary ShaderBinary} */
 	public static void glShaderBinary(IntBuffer shaders, int binaryformat, ByteBuffer binary) {
-		nglShaderBinary(shaders.remaining(), memAddress(shaders), binaryformat, memAddress(binary), binary.remaining());
+		GL41.nglShaderBinary(shaders.remaining(), memAddress(shaders), binaryformat, memAddress(binary), binary.remaining());
 	}
 
 	// --- [ glGetShaderPrecisionFormat ] ---
@@ -132,7 +133,7 @@ public final class ARBES2Compatibility {
 	@JavadocExclude
 	public static void nglGetShaderPrecisionFormat(int shadertype, int precisiontype, long range, long precision) {
 		long __functionAddress = getInstance().GetShaderPrecisionFormat;
-		GL41.nglGetShaderPrecisionFormat(shadertype, precisiontype, range, precision, __functionAddress);
+		invokeIIPPV(__functionAddress, shadertype, precisiontype, range, precision);
 	}
 
 	/**
@@ -148,7 +149,7 @@ public final class ARBES2Compatibility {
 			checkBuffer(range, 2 << 2);
 			checkBuffer(precision, 1 << 2);
 		}
-		nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), memAddress(precision));
+		GL41.nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), memAddress(precision));
 	}
 
 	/** Alternative version of: {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat} */
@@ -157,7 +158,7 @@ public final class ARBES2Compatibility {
 			checkBuffer(range, 2);
 			checkBuffer(precision, 1);
 		}
-		nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), memAddress(precision));
+		GL41.nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), memAddress(precision));
 	}
 
 	/** Single return value version of: {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat} */
@@ -166,7 +167,7 @@ public final class ARBES2Compatibility {
 			checkBuffer(range, 2);
 		APIBuffer __buffer = apiBuffer();
 		int precision = __buffer.intParam();
-		nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), __buffer.address(precision));
+		GL41.nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), __buffer.address(precision));
 		return __buffer.intValue(precision);
 	}
 
@@ -180,7 +181,7 @@ public final class ARBES2Compatibility {
 	 */
 	public static void glDepthRangef(float zNear, float zFar) {
 		long __functionAddress = getInstance().DepthRangef;
-		GL41.nglDepthRangef(zNear, zFar, __functionAddress);
+		invokeFFV(__functionAddress, zNear, zFar);
 	}
 
 	// --- [ glClearDepthf ] ---
@@ -192,7 +193,7 @@ public final class ARBES2Compatibility {
 	 */
 	public static void glClearDepthf(float depth) {
 		long __functionAddress = getInstance().ClearDepthf;
-		GL41.nglClearDepthf(depth, __functionAddress);
+		invokeFV(__functionAddress, depth);
 	}
 
 }

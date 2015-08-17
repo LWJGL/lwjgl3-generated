@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -69,26 +70,18 @@ public final class ANGLEInstancedArrays {
 
 	// --- [ glDrawArraysInstancedANGLE ] ---
 
-	/** JNI method for {@link #glDrawArraysInstancedANGLE DrawArraysInstancedANGLE} */
-	@JavadocExclude
-	public static native void nglDrawArraysInstancedANGLE(int mode, int first, int count, int primcount, long __functionAddress);
-
 	public static void glDrawArraysInstancedANGLE(int mode, int first, int count, int primcount) {
 		long __functionAddress = getInstance().DrawArraysInstancedANGLE;
-		nglDrawArraysInstancedANGLE(mode, first, count, primcount, __functionAddress);
+		invokeIIIIV(__functionAddress, mode, first, count, primcount);
 	}
 
 	// --- [ glDrawElementsInstancedANGLE ] ---
-
-	/** JNI method for {@link #glDrawElementsInstancedANGLE DrawElementsInstancedANGLE} */
-	@JavadocExclude
-	public static native void nglDrawElementsInstancedANGLE(int mode, int count, int type, long indices, int primcount, long __functionAddress);
 
 	/** Unsafe version of {@link #glDrawElementsInstancedANGLE DrawElementsInstancedANGLE} */
 	@JavadocExclude
 	public static void nglDrawElementsInstancedANGLE(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = getInstance().DrawElementsInstancedANGLE;
-		nglDrawElementsInstancedANGLE(mode, count, type, indices, primcount, __functionAddress);
+		invokeIIIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
 	public static void glDrawElementsInstancedANGLE(int mode, int count, int type, ByteBuffer indices, int primcount) {
@@ -124,13 +117,9 @@ public final class ANGLEInstancedArrays {
 
 	// --- [ glVertexAttribDivisorANGLE ] ---
 
-	/** JNI method for {@link #glVertexAttribDivisorANGLE VertexAttribDivisorANGLE} */
-	@JavadocExclude
-	public static native void nglVertexAttribDivisorANGLE(int index, int divisor, long __functionAddress);
-
 	public static void glVertexAttribDivisorANGLE(int index, int divisor) {
 		long __functionAddress = getInstance().VertexAttribDivisorANGLE;
-		nglVertexAttribDivisorANGLE(index, divisor, __functionAddress);
+		invokeIIV(__functionAddress, index, divisor);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -149,10 +150,6 @@ public final class ARBGPUShaderInt64 {
 
 	// --- [ glUniform1i64ARB ] ---
 
-	/** JNI method for {@link #glUniform1i64ARB Uniform1i64ARB} */
-	@JavadocExclude
-	public static native void nglUniform1i64ARB(int location, long x, long __functionAddress);
-
 	/**
 	 * Specifies the value of an int64_t uniform variable for the current program object.
 	 *
@@ -161,20 +158,16 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glUniform1i64ARB(int location, long x) {
 		long __functionAddress = getInstance().Uniform1i64ARB;
-		nglUniform1i64ARB(location, x, __functionAddress);
+		invokeIJV(__functionAddress, location, x);
 	}
 
 	// --- [ glUniform1i64vARB ] ---
-
-	/** JNI method for {@link #glUniform1i64vARB Uniform1i64vARB} */
-	@JavadocExclude
-	public static native void nglUniform1i64vARB(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniform1i64vARB Uniform1i64vARB} */
 	@JavadocExclude
 	public static void nglUniform1i64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1i64vARB;
-		nglUniform1i64vARB(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -197,10 +190,6 @@ public final class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform1i64ARB ] ---
 
-	/** JNI method for {@link #glProgramUniform1i64ARB ProgramUniform1i64ARB} */
-	@JavadocExclude
-	public static native void nglProgramUniform1i64ARB(int program, int location, long x, long __functionAddress);
-
 	/**
 	 * Specifies the value of an int64_t uniform variable for the specified program object.
 	 *
@@ -210,20 +199,16 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glProgramUniform1i64ARB(int program, int location, long x) {
 		long __functionAddress = getInstance().ProgramUniform1i64ARB;
-		nglProgramUniform1i64ARB(program, location, x, __functionAddress);
+		invokeIIJV(__functionAddress, program, location, x);
 	}
 
 	// --- [ glProgramUniform1i64vARB ] ---
-
-	/** JNI method for {@link #glProgramUniform1i64vARB ProgramUniform1i64vARB} */
-	@JavadocExclude
-	public static native void nglProgramUniform1i64vARB(int program, int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glProgramUniform1i64vARB ProgramUniform1i64vARB} */
 	@JavadocExclude
 	public static void nglProgramUniform1i64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1i64vARB;
-		nglProgramUniform1i64vARB(program, location, count, value, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -247,10 +232,6 @@ public final class ARBGPUShaderInt64 {
 
 	// --- [ glUniform2i64ARB ] ---
 
-	/** JNI method for {@link #glUniform2i64ARB Uniform2i64ARB} */
-	@JavadocExclude
-	public static native void nglUniform2i64ARB(int location, long x, long y, long __functionAddress);
-
 	/**
 	 * Specifies the value of an i64vec2 uniform variable for the current program object.
 	 *
@@ -260,20 +241,16 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glUniform2i64ARB(int location, long x, long y) {
 		long __functionAddress = getInstance().Uniform2i64ARB;
-		nglUniform2i64ARB(location, x, y, __functionAddress);
+		invokeIJJV(__functionAddress, location, x, y);
 	}
 
 	// --- [ glUniform2i64vARB ] ---
-
-	/** JNI method for {@link #glUniform2i64vARB Uniform2i64vARB} */
-	@JavadocExclude
-	public static native void nglUniform2i64vARB(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniform2i64vARB Uniform2i64vARB} */
 	@JavadocExclude
 	public static void nglUniform2i64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2i64vARB;
-		nglUniform2i64vARB(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -296,10 +273,6 @@ public final class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform2i64ARB ] ---
 
-	/** JNI method for {@link #glProgramUniform2i64ARB ProgramUniform2i64ARB} */
-	@JavadocExclude
-	public static native void nglProgramUniform2i64ARB(int program, int location, long x, long y, long __functionAddress);
-
 	/**
 	 * Specifies the value of an i64vec2 uniform variable for the specified program object.
 	 *
@@ -310,20 +283,16 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glProgramUniform2i64ARB(int program, int location, long x, long y) {
 		long __functionAddress = getInstance().ProgramUniform2i64ARB;
-		nglProgramUniform2i64ARB(program, location, x, y, __functionAddress);
+		invokeIIJJV(__functionAddress, program, location, x, y);
 	}
 
 	// --- [ glProgramUniform2i64vARB ] ---
-
-	/** JNI method for {@link #glProgramUniform2i64vARB ProgramUniform2i64vARB} */
-	@JavadocExclude
-	public static native void nglProgramUniform2i64vARB(int program, int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glProgramUniform2i64vARB ProgramUniform2i64vARB} */
 	@JavadocExclude
 	public static void nglProgramUniform2i64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2i64vARB;
-		nglProgramUniform2i64vARB(program, location, count, value, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -347,10 +316,6 @@ public final class ARBGPUShaderInt64 {
 
 	// --- [ glUniform3i64ARB ] ---
 
-	/** JNI method for {@link #glUniform3i64ARB Uniform3i64ARB} */
-	@JavadocExclude
-	public static native void nglUniform3i64ARB(int location, long x, long y, long z, long __functionAddress);
-
 	/**
 	 * Specifies the value of an i64vec3 uniform variable for the current program object.
 	 *
@@ -361,20 +326,16 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glUniform3i64ARB(int location, long x, long y, long z) {
 		long __functionAddress = getInstance().Uniform3i64ARB;
-		nglUniform3i64ARB(location, x, y, z, __functionAddress);
+		invokeIJJJV(__functionAddress, location, x, y, z);
 	}
 
 	// --- [ glUniform3i64vARB ] ---
-
-	/** JNI method for {@link #glUniform3i64vARB Uniform3i64vARB} */
-	@JavadocExclude
-	public static native void nglUniform3i64vARB(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniform3i64vARB Uniform3i64vARB} */
 	@JavadocExclude
 	public static void nglUniform3i64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3i64vARB;
-		nglUniform3i64vARB(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -397,10 +358,6 @@ public final class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform3i64ARB ] ---
 
-	/** JNI method for {@link #glProgramUniform3i64ARB ProgramUniform3i64ARB} */
-	@JavadocExclude
-	public static native void nglProgramUniform3i64ARB(int program, int location, long x, long y, long z, long __functionAddress);
-
 	/**
 	 * Specifies the value of an i64vec3 uniform variable for the specified program object.
 	 *
@@ -412,20 +369,16 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glProgramUniform3i64ARB(int program, int location, long x, long y, long z) {
 		long __functionAddress = getInstance().ProgramUniform3i64ARB;
-		nglProgramUniform3i64ARB(program, location, x, y, z, __functionAddress);
+		invokeIIJJJV(__functionAddress, program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform3i64vARB ] ---
-
-	/** JNI method for {@link #glProgramUniform3i64vARB ProgramUniform3i64vARB} */
-	@JavadocExclude
-	public static native void nglProgramUniform3i64vARB(int program, int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glProgramUniform3i64vARB ProgramUniform3i64vARB} */
 	@JavadocExclude
 	public static void nglProgramUniform3i64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3i64vARB;
-		nglProgramUniform3i64vARB(program, location, count, value, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -449,10 +402,6 @@ public final class ARBGPUShaderInt64 {
 
 	// --- [ glUniform4i64ARB ] ---
 
-	/** JNI method for {@link #glUniform4i64ARB Uniform4i64ARB} */
-	@JavadocExclude
-	public static native void nglUniform4i64ARB(int location, long x, long y, long z, long w, long __functionAddress);
-
 	/**
 	 * Specifies the value of an i64vec4 uniform variable for the current program object.
 	 *
@@ -464,20 +413,16 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glUniform4i64ARB(int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().Uniform4i64ARB;
-		nglUniform4i64ARB(location, x, y, z, w, __functionAddress);
+		invokeIJJJJV(__functionAddress, location, x, y, z, w);
 	}
 
 	// --- [ glUniform4i64vARB ] ---
-
-	/** JNI method for {@link #glUniform4i64vARB Uniform4i64vARB} */
-	@JavadocExclude
-	public static native void nglUniform4i64vARB(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniform4i64vARB Uniform4i64vARB} */
 	@JavadocExclude
 	public static void nglUniform4i64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4i64vARB;
-		nglUniform4i64vARB(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -500,10 +445,6 @@ public final class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform4i64ARB ] ---
 
-	/** JNI method for {@link #glProgramUniform4i64ARB ProgramUniform4i64ARB} */
-	@JavadocExclude
-	public static native void nglProgramUniform4i64ARB(int program, int location, long x, long y, long z, long w, long __functionAddress);
-
 	/**
 	 * Specifies the value of an i64vec4 uniform variable for the specified program object.
 	 *
@@ -516,20 +457,16 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glProgramUniform4i64ARB(int program, int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().ProgramUniform4i64ARB;
-		nglProgramUniform4i64ARB(program, location, x, y, z, w, __functionAddress);
+		invokeIIJJJJV(__functionAddress, program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform4i64vARB ] ---
-
-	/** JNI method for {@link #glProgramUniform4i64vARB ProgramUniform4i64vARB} */
-	@JavadocExclude
-	public static native void nglProgramUniform4i64vARB(int program, int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glProgramUniform4i64vARB ProgramUniform4i64vARB} */
 	@JavadocExclude
 	public static void nglProgramUniform4i64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4i64vARB;
-		nglProgramUniform4i64vARB(program, location, count, value, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -553,10 +490,6 @@ public final class ARBGPUShaderInt64 {
 
 	// --- [ glUniform1ui64ARB ] ---
 
-	/** JNI method for {@link #glUniform1ui64ARB Uniform1ui64ARB} */
-	@JavadocExclude
-	public static native void nglUniform1ui64ARB(int location, long x, long __functionAddress);
-
 	/**
 	 * Specifies the value of an uint64_t uniform variable for the current program object.
 	 *
@@ -565,20 +498,16 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glUniform1ui64ARB(int location, long x) {
 		long __functionAddress = getInstance().Uniform1ui64ARB;
-		nglUniform1ui64ARB(location, x, __functionAddress);
+		invokeIJV(__functionAddress, location, x);
 	}
 
 	// --- [ glUniform1ui64vARB ] ---
-
-	/** JNI method for {@link #glUniform1ui64vARB Uniform1ui64vARB} */
-	@JavadocExclude
-	public static native void nglUniform1ui64vARB(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniform1ui64vARB Uniform1ui64vARB} */
 	@JavadocExclude
 	public static void nglUniform1ui64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1ui64vARB;
-		nglUniform1ui64vARB(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -601,10 +530,6 @@ public final class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform1ui64ARB ] ---
 
-	/** JNI method for {@link #glProgramUniform1ui64ARB ProgramUniform1ui64ARB} */
-	@JavadocExclude
-	public static native void nglProgramUniform1ui64ARB(int program, int location, long x, long __functionAddress);
-
 	/**
 	 * Specifies the value of an uint64_t uniform variable for the current program object.
 	 *
@@ -614,20 +539,16 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glProgramUniform1ui64ARB(int program, int location, long x) {
 		long __functionAddress = getInstance().ProgramUniform1ui64ARB;
-		nglProgramUniform1ui64ARB(program, location, x, __functionAddress);
+		invokeIIJV(__functionAddress, program, location, x);
 	}
 
 	// --- [ glProgramUniform1ui64vARB ] ---
-
-	/** JNI method for {@link #glProgramUniform1ui64vARB ProgramUniform1ui64vARB} */
-	@JavadocExclude
-	public static native void nglProgramUniform1ui64vARB(int program, int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glProgramUniform1ui64vARB ProgramUniform1ui64vARB} */
 	@JavadocExclude
 	public static void nglProgramUniform1ui64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1ui64vARB;
-		nglProgramUniform1ui64vARB(program, location, count, value, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -651,10 +572,6 @@ public final class ARBGPUShaderInt64 {
 
 	// --- [ glUniform2ui64ARB ] ---
 
-	/** JNI method for {@link #glUniform2ui64ARB Uniform2ui64ARB} */
-	@JavadocExclude
-	public static native void nglUniform2ui64ARB(int location, long x, long y, long __functionAddress);
-
 	/**
 	 * Specifies the value of an u64vec2 uniform variable for the current program object.
 	 *
@@ -664,20 +581,16 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glUniform2ui64ARB(int location, long x, long y) {
 		long __functionAddress = getInstance().Uniform2ui64ARB;
-		nglUniform2ui64ARB(location, x, y, __functionAddress);
+		invokeIJJV(__functionAddress, location, x, y);
 	}
 
 	// --- [ glUniform2ui64vARB ] ---
-
-	/** JNI method for {@link #glUniform2ui64vARB Uniform2ui64vARB} */
-	@JavadocExclude
-	public static native void nglUniform2ui64vARB(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniform2ui64vARB Uniform2ui64vARB} */
 	@JavadocExclude
 	public static void nglUniform2ui64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2ui64vARB;
-		nglUniform2ui64vARB(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -700,10 +613,6 @@ public final class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform2ui64ARB ] ---
 
-	/** JNI method for {@link #glProgramUniform2ui64ARB ProgramUniform2ui64ARB} */
-	@JavadocExclude
-	public static native void nglProgramUniform2ui64ARB(int program, int location, long x, long y, long __functionAddress);
-
 	/**
 	 * Specifies the value of an u64vec2 uniform variable for the current program object.
 	 *
@@ -714,20 +623,16 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glProgramUniform2ui64ARB(int program, int location, long x, long y) {
 		long __functionAddress = getInstance().ProgramUniform2ui64ARB;
-		nglProgramUniform2ui64ARB(program, location, x, y, __functionAddress);
+		invokeIIJJV(__functionAddress, program, location, x, y);
 	}
 
 	// --- [ glProgramUniform2ui64vARB ] ---
-
-	/** JNI method for {@link #glProgramUniform2ui64vARB ProgramUniform2ui64vARB} */
-	@JavadocExclude
-	public static native void nglProgramUniform2ui64vARB(int program, int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glProgramUniform2ui64vARB ProgramUniform2ui64vARB} */
 	@JavadocExclude
 	public static void nglProgramUniform2ui64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2ui64vARB;
-		nglProgramUniform2ui64vARB(program, location, count, value, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -751,10 +656,6 @@ public final class ARBGPUShaderInt64 {
 
 	// --- [ glUniform3ui64ARB ] ---
 
-	/** JNI method for {@link #glUniform3ui64ARB Uniform3ui64ARB} */
-	@JavadocExclude
-	public static native void nglUniform3ui64ARB(int location, long x, long y, long z, long __functionAddress);
-
 	/**
 	 * Specifies the value of an u64vec3 uniform variable for the current program object.
 	 *
@@ -765,20 +666,16 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glUniform3ui64ARB(int location, long x, long y, long z) {
 		long __functionAddress = getInstance().Uniform3ui64ARB;
-		nglUniform3ui64ARB(location, x, y, z, __functionAddress);
+		invokeIJJJV(__functionAddress, location, x, y, z);
 	}
 
 	// --- [ glUniform3ui64vARB ] ---
-
-	/** JNI method for {@link #glUniform3ui64vARB Uniform3ui64vARB} */
-	@JavadocExclude
-	public static native void nglUniform3ui64vARB(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniform3ui64vARB Uniform3ui64vARB} */
 	@JavadocExclude
 	public static void nglUniform3ui64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3ui64vARB;
-		nglUniform3ui64vARB(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -801,10 +698,6 @@ public final class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform3ui64ARB ] ---
 
-	/** JNI method for {@link #glProgramUniform3ui64ARB ProgramUniform3ui64ARB} */
-	@JavadocExclude
-	public static native void nglProgramUniform3ui64ARB(int program, int location, long x, long y, long z, long __functionAddress);
-
 	/**
 	 * Specifies the value of an u64vec3 uniform variable for the current program object.
 	 *
@@ -816,20 +709,16 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glProgramUniform3ui64ARB(int program, int location, long x, long y, long z) {
 		long __functionAddress = getInstance().ProgramUniform3ui64ARB;
-		nglProgramUniform3ui64ARB(program, location, x, y, z, __functionAddress);
+		invokeIIJJJV(__functionAddress, program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform3ui64vARB ] ---
-
-	/** JNI method for {@link #glProgramUniform3ui64vARB ProgramUniform3ui64vARB} */
-	@JavadocExclude
-	public static native void nglProgramUniform3ui64vARB(int program, int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glProgramUniform3ui64vARB ProgramUniform3ui64vARB} */
 	@JavadocExclude
 	public static void nglProgramUniform3ui64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3ui64vARB;
-		nglProgramUniform3ui64vARB(program, location, count, value, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -853,10 +742,6 @@ public final class ARBGPUShaderInt64 {
 
 	// --- [ glUniform4ui64ARB ] ---
 
-	/** JNI method for {@link #glUniform4ui64ARB Uniform4ui64ARB} */
-	@JavadocExclude
-	public static native void nglUniform4ui64ARB(int location, long x, long y, long z, long w, long __functionAddress);
-
 	/**
 	 * Specifies the value of an u64vec4 uniform variable for the current program object.
 	 *
@@ -868,20 +753,16 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glUniform4ui64ARB(int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().Uniform4ui64ARB;
-		nglUniform4ui64ARB(location, x, y, z, w, __functionAddress);
+		invokeIJJJJV(__functionAddress, location, x, y, z, w);
 	}
 
 	// --- [ glUniform4ui64vARB ] ---
-
-	/** JNI method for {@link #glUniform4ui64vARB Uniform4ui64vARB} */
-	@JavadocExclude
-	public static native void nglUniform4ui64vARB(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniform4ui64vARB Uniform4ui64vARB} */
 	@JavadocExclude
 	public static void nglUniform4ui64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4ui64vARB;
-		nglUniform4ui64vARB(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -904,10 +785,6 @@ public final class ARBGPUShaderInt64 {
 
 	// --- [ glProgramUniform4ui64ARB ] ---
 
-	/** JNI method for {@link #glProgramUniform4ui64ARB ProgramUniform4ui64ARB} */
-	@JavadocExclude
-	public static native void nglProgramUniform4ui64ARB(int program, int location, long x, long y, long z, long w, long __functionAddress);
-
 	/**
 	 * Specifies the value of an u64vec4 uniform variable for the current program object.
 	 *
@@ -920,20 +797,16 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glProgramUniform4ui64ARB(int program, int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().ProgramUniform4ui64ARB;
-		nglProgramUniform4ui64ARB(program, location, x, y, z, w, __functionAddress);
+		invokeIIJJJJV(__functionAddress, program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform4ui64vARB ] ---
-
-	/** JNI method for {@link #glProgramUniform4ui64vARB ProgramUniform4ui64vARB} */
-	@JavadocExclude
-	public static native void nglProgramUniform4ui64vARB(int program, int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glProgramUniform4ui64vARB ProgramUniform4ui64vARB} */
 	@JavadocExclude
 	public static void nglProgramUniform4ui64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4ui64vARB;
-		nglProgramUniform4ui64vARB(program, location, count, value, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -957,15 +830,11 @@ public final class ARBGPUShaderInt64 {
 
 	// --- [ glGetUniformi64vARB ] ---
 
-	/** JNI method for {@link #glGetUniformi64vARB GetUniformi64vARB} */
-	@JavadocExclude
-	public static native void nglGetUniformi64vARB(int program, int location, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetUniformi64vARB GetUniformi64vARB} */
 	@JavadocExclude
 	public static void nglGetUniformi64vARB(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformi64vARB;
-		nglGetUniformi64vARB(program, location, params, __functionAddress);
+		invokeIIPV(__functionAddress, program, location, params);
 	}
 
 	/**
@@ -998,15 +867,11 @@ public final class ARBGPUShaderInt64 {
 
 	// --- [ glGetUniformui64vARB ] ---
 
-	/** JNI method for {@link #glGetUniformui64vARB GetUniformui64vARB} */
-	@JavadocExclude
-	public static native void nglGetUniformui64vARB(int program, int location, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetUniformui64vARB GetUniformui64vARB} */
 	@JavadocExclude
 	public static void nglGetUniformui64vARB(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformui64vARB;
-		nglGetUniformui64vARB(program, location, params, __functionAddress);
+		invokeIIPV(__functionAddress, program, location, params);
 	}
 
 	/**
@@ -1039,15 +904,11 @@ public final class ARBGPUShaderInt64 {
 
 	// --- [ glGetnUniformi64vARB ] ---
 
-	/** JNI method for {@link #glGetnUniformi64vARB GetnUniformi64vARB} */
-	@JavadocExclude
-	public static native void nglGetnUniformi64vARB(int program, int location, int bufSize, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetnUniformi64vARB GetnUniformi64vARB} */
 	@JavadocExclude
 	public static void nglGetnUniformi64vARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformi64vARB;
-		nglGetnUniformi64vARB(program, location, bufSize, params, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**
@@ -1079,15 +940,11 @@ public final class ARBGPUShaderInt64 {
 
 	// --- [ glGetnUniformui64vARB ] ---
 
-	/** JNI method for {@link #glGetnUniformui64vARB GetnUniformui64vARB} */
-	@JavadocExclude
-	public static native void nglGetnUniformui64vARB(int program, int location, int bufSize, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetnUniformui64vARB GetnUniformui64vARB} */
 	@JavadocExclude
 	public static void nglGetnUniformui64vARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformui64vARB;
-		nglGetnUniformui64vARB(program, location, bufSize, params, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -65,7 +66,7 @@ public final class ARBMultiDrawIndirect {
 	@JavadocExclude
 	public static void nglMultiDrawArraysIndirect(int mode, long indirect, int primcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawArraysIndirect;
-		GL43.nglMultiDrawArraysIndirect(mode, indirect, primcount, stride, __functionAddress);
+		invokeIPIIV(__functionAddress, mode, indirect, primcount, stride);
 	}
 
 	/**
@@ -101,14 +102,14 @@ public final class ARBMultiDrawIndirect {
 			checkBuffer(indirect, primcount * (stride == 0 ? (4 * 4) : stride));
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
-		nglMultiDrawArraysIndirect(mode, memAddress(indirect), primcount, stride);
+		GL43.nglMultiDrawArraysIndirect(mode, memAddress(indirect), primcount, stride);
 	}
 
 	/** Buffer object offset version of: {@link #glMultiDrawArraysIndirect MultiDrawArraysIndirect} */
 	public static void glMultiDrawArraysIndirect(int mode, long indirectOffset, int primcount, int stride) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
-		nglMultiDrawArraysIndirect(mode, indirectOffset, primcount, stride);
+		GL43.nglMultiDrawArraysIndirect(mode, indirectOffset, primcount, stride);
 	}
 
 	/** IntBuffer version of: {@link #glMultiDrawArraysIndirect MultiDrawArraysIndirect} */
@@ -117,7 +118,7 @@ public final class ARBMultiDrawIndirect {
 			checkBuffer(indirect, (primcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
-		nglMultiDrawArraysIndirect(mode, memAddress(indirect), primcount, stride);
+		GL43.nglMultiDrawArraysIndirect(mode, memAddress(indirect), primcount, stride);
 	}
 
 	// --- [ glMultiDrawElementsIndirect ] ---
@@ -126,7 +127,7 @@ public final class ARBMultiDrawIndirect {
 	@JavadocExclude
 	public static void nglMultiDrawElementsIndirect(int mode, int type, long indirect, int primcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawElementsIndirect;
-		GL43.nglMultiDrawElementsIndirect(mode, type, indirect, primcount, stride, __functionAddress);
+		invokeIIPIIV(__functionAddress, mode, type, indirect, primcount, stride);
 	}
 
 	/**
@@ -164,14 +165,14 @@ public final class ARBMultiDrawIndirect {
 			checkBuffer(indirect, primcount * (stride == 0 ? (5 * 4) : stride));
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
-		nglMultiDrawElementsIndirect(mode, type, memAddress(indirect), primcount, stride);
+		GL43.nglMultiDrawElementsIndirect(mode, type, memAddress(indirect), primcount, stride);
 	}
 
 	/** Buffer object offset version of: {@link #glMultiDrawElementsIndirect MultiDrawElementsIndirect} */
 	public static void glMultiDrawElementsIndirect(int mode, int type, long indirectOffset, int primcount, int stride) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
-		nglMultiDrawElementsIndirect(mode, type, indirectOffset, primcount, stride);
+		GL43.nglMultiDrawElementsIndirect(mode, type, indirectOffset, primcount, stride);
 	}
 
 	/** IntBuffer version of: {@link #glMultiDrawElementsIndirect MultiDrawElementsIndirect} */
@@ -180,7 +181,7 @@ public final class ARBMultiDrawIndirect {
 			checkBuffer(indirect, (primcount * (stride == 0 ? (5 * 4) : stride)) >> 2);
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
-		nglMultiDrawElementsIndirect(mode, type, memAddress(indirect), primcount, stride);
+		GL43.nglMultiDrawElementsIndirect(mode, type, memAddress(indirect), primcount, stride);
 	}
 
 }

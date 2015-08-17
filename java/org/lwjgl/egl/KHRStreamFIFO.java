@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -63,10 +64,6 @@ public final class KHRStreamFIFO {
 
 	// --- [ eglQueryStreamTimeKHR ] ---
 
-	/** JNI method for {@link #eglQueryStreamTimeKHR QueryStreamTimeKHR} */
-	@JavadocExclude
-	public static native boolean neglQueryStreamTimeKHR(long dpy, long stream, int attribute, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #eglQueryStreamTimeKHR QueryStreamTimeKHR} */
 	@JavadocExclude
 	public static boolean neglQueryStreamTimeKHR(long dpy, long stream, int attribute, long value) {
@@ -75,7 +72,7 @@ public final class KHRStreamFIFO {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return neglQueryStreamTimeKHR(dpy, stream, attribute, value, __functionAddress);
+		return invokePPIPZ(__functionAddress, dpy, stream, attribute, value);
 	}
 
 	public static boolean eglQueryStreamTimeKHR(long dpy, long stream, int attribute, ByteBuffer value) {

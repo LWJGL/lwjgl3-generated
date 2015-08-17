@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/texture_view.txt">ARB_texture_view</a> extension.
@@ -88,7 +89,7 @@ public final class ARBTextureView {
 	 */
 	public static void glTextureView(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers) {
 		long __functionAddress = getInstance().TextureView;
-		GL43.nglTextureView(texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers, __functionAddress);
+		invokeIIIIIIIIV(__functionAddress, texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
 	}
 
 }

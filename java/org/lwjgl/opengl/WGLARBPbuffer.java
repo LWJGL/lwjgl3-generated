@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -96,17 +97,13 @@ public final class WGLARBPbuffer {
 
 	// --- [ wglCreatePbufferARB ] ---
 
-	/** JNI method for {@link #wglCreatePbufferARB CreatePbufferARB} */
-	@JavadocExclude
-	public static native long nwglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, long attribList, long __functionAddress);
-
 	/** Unsafe version of {@link #wglCreatePbufferARB CreatePbufferARB} */
 	@JavadocExclude
 	public static long nwglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, long attribList) {
 		long __functionAddress = getInstance().CreatePbufferARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		return nwglCreatePbufferARB(hdc, pixelFormat, width, height, attribList, __functionAddress);
+		return invokePIIIPP(__functionAddress, hdc, pixelFormat, width, height, attribList);
 	}
 
 	/**
@@ -136,10 +133,6 @@ public final class WGLARBPbuffer {
 
 	// --- [ wglGetPbufferDCARB ] ---
 
-	/** JNI method for {@link #wglGetPbufferDCARB GetPbufferDCARB} */
-	@JavadocExclude
-	public static native long nwglGetPbufferDCARB(long pbuffer, long __functionAddress);
-
 	/**
 	 * Creates a device context for the pbuffer.
 	 *
@@ -149,14 +142,10 @@ public final class WGLARBPbuffer {
 		long __functionAddress = getInstance().GetPbufferDCARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(pbuffer);
-		return nwglGetPbufferDCARB(pbuffer, __functionAddress);
+		return invokePP(__functionAddress, pbuffer);
 	}
 
 	// --- [ wglReleasePbufferDCARB ] ---
-
-	/** JNI method for {@link #wglReleasePbufferDCARB ReleasePbufferDCARB} */
-	@JavadocExclude
-	public static native int nwglReleasePbufferDCARB(long pbuffer, long hdc, long __functionAddress);
 
 	/**
 	 * Releases a device context obtained from a previous call to {@link #wglGetPbufferDCARB GetPbufferDCARB}.
@@ -170,14 +159,10 @@ public final class WGLARBPbuffer {
 			checkPointer(pbuffer);
 			checkPointer(hdc);
 		}
-		return nwglReleasePbufferDCARB(pbuffer, hdc, __functionAddress);
+		return invokePPI(__functionAddress, pbuffer, hdc);
 	}
 
 	// --- [ wglDestroyPbufferARB ] ---
-
-	/** JNI method for {@link #wglDestroyPbufferARB DestroyPbufferARB} */
-	@JavadocExclude
-	public static native int nwglDestroyPbufferARB(long pbuffer, long __functionAddress);
 
 	/**
 	 * Destroys a pbuffer.
@@ -191,14 +176,10 @@ public final class WGLARBPbuffer {
 		long __functionAddress = getInstance().DestroyPbufferARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(pbuffer);
-		return nwglDestroyPbufferARB(pbuffer, __functionAddress);
+		return invokePI(__functionAddress, pbuffer);
 	}
 
 	// --- [ wglQueryPbufferARB ] ---
-
-	/** JNI method for {@link #wglQueryPbufferARB QueryPbufferARB} */
-	@JavadocExclude
-	public static native int nwglQueryPbufferARB(long pbuffer, int attribute, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #wglQueryPbufferARB QueryPbufferARB} */
 	@JavadocExclude
@@ -206,7 +187,7 @@ public final class WGLARBPbuffer {
 		long __functionAddress = getInstance().QueryPbufferARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(pbuffer);
-		return nwglQueryPbufferARB(pbuffer, attribute, value, __functionAddress);
+		return invokePIPI(__functionAddress, pbuffer, attribute, value);
 	}
 
 	/**

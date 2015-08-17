@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -76,15 +77,11 @@ public final class EXTBufferStorage {
 
 	// --- [ glBufferStorageEXT ] ---
 
-	/** JNI method for {@link #glBufferStorageEXT BufferStorageEXT} */
-	@JavadocExclude
-	public static native void nglBufferStorageEXT(int target, long size, long data, int flags, long __functionAddress);
-
 	/** Unsafe version of {@link #glBufferStorageEXT BufferStorageEXT} */
 	@JavadocExclude
 	public static void nglBufferStorageEXT(int target, long size, long data, int flags) {
 		long __functionAddress = getInstance().BufferStorageEXT;
-		nglBufferStorageEXT(target, size, data, flags, __functionAddress);
+		invokeIPPIV(__functionAddress, target, size, data, flags);
 	}
 
 	public static void glBufferStorageEXT(int target, long size, ByteBuffer data, int flags) {

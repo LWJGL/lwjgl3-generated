@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -80,15 +81,11 @@ public final class OESTexture3D {
 
 	// --- [ glTexImage3DOES ] ---
 
-	/** JNI method for {@link #glTexImage3DOES TexImage3DOES} */
-	@JavadocExclude
-	public static native void nglTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexImage3DOES TexImage3DOES} */
 	@JavadocExclude
 	public static void nglTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexImage3DOES;
-		nglTexImage3DOES(target, level, internalformat, width, height, depth, border, format, type, pixels, __functionAddress);
+		invokeIIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
 	public static void glTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ByteBuffer pixels) {
@@ -122,15 +119,11 @@ public final class OESTexture3D {
 
 	// --- [ glTexSubImage3DOES ] ---
 
-	/** JNI method for {@link #glTexSubImage3DOES TexSubImage3DOES} */
-	@JavadocExclude
-	public static native void nglTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexSubImage3DOES TexSubImage3DOES} */
 	@JavadocExclude
 	public static void nglTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexSubImage3DOES;
-		nglTexSubImage3DOES(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels, __functionAddress);
+		invokeIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 	public static void glTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer pixels) {
@@ -164,26 +157,18 @@ public final class OESTexture3D {
 
 	// --- [ glCopyTexSubImage3DOES ] ---
 
-	/** JNI method for {@link #glCopyTexSubImage3DOES CopyTexSubImage3DOES} */
-	@JavadocExclude
-	public static native void nglCopyTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height, long __functionAddress);
-
 	public static void glCopyTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().CopyTexSubImage3DOES;
-		nglCopyTexSubImage3DOES(target, level, xoffset, yoffset, zoffset, x, y, width, height, __functionAddress);
+		invokeIIIIIIIIIV(__functionAddress, target, level, xoffset, yoffset, zoffset, x, y, width, height);
 	}
 
 	// --- [ glCompressedTexImage3DOES ] ---
-
-	/** JNI method for {@link #glCompressedTexImage3DOES CompressedTexImage3DOES} */
-	@JavadocExclude
-	public static native void nglCompressedTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data, long __functionAddress);
 
 	/** Unsafe version of {@link #glCompressedTexImage3DOES CompressedTexImage3DOES} */
 	@JavadocExclude
 	public static void nglCompressedTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage3DOES;
-		nglCompressedTexImage3DOES(target, level, internalformat, width, height, depth, border, imageSize, data, __functionAddress);
+		invokeIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
 	}
 
 	public static void glCompressedTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, ByteBuffer data) {
@@ -204,15 +189,11 @@ public final class OESTexture3D {
 
 	// --- [ glCompressedTexSubImage3DOES ] ---
 
-	/** JNI method for {@link #glCompressedTexSubImage3DOES CompressedTexSubImage3DOES} */
-	@JavadocExclude
-	public static native void nglCompressedTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glCompressedTexSubImage3DOES CompressedTexSubImage3DOES} */
 	@JavadocExclude
 	public static void nglCompressedTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage3DOES;
-		nglCompressedTexSubImage3DOES(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data, __functionAddress);
+		invokeIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
 	public static void glCompressedTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, ByteBuffer data) {
@@ -233,13 +214,9 @@ public final class OESTexture3D {
 
 	// --- [ glFramebufferTexture3DOES ] ---
 
-	/** JNI method for {@link #glFramebufferTexture3DOES FramebufferTexture3DOES} */
-	@JavadocExclude
-	public static native void nglFramebufferTexture3DOES(int target, int attachment, int textarget, int texture, int level, int zoffset, long __functionAddress);
-
 	public static void glFramebufferTexture3DOES(int target, int attachment, int textarget, int texture, int level, int zoffset) {
 		long __functionAddress = getInstance().FramebufferTexture3DOES;
-		nglFramebufferTexture3DOES(target, attachment, textarget, texture, level, zoffset, __functionAddress);
+		invokeIIIIIIV(__functionAddress, target, attachment, textarget, texture, level, zoffset);
 	}
 
 }

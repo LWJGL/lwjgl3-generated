@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -64,15 +65,11 @@ public final class QCOMDriverControl {
 
 	// --- [ glGetDriverControlsQCOM ] ---
 
-	/** JNI method for {@link #glGetDriverControlsQCOM GetDriverControlsQCOM} */
-	@JavadocExclude
-	public static native void nglGetDriverControlsQCOM(long num, int size, long driverControls, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetDriverControlsQCOM GetDriverControlsQCOM} */
 	@JavadocExclude
 	public static void nglGetDriverControlsQCOM(long num, int size, long driverControls) {
 		long __functionAddress = getInstance().GetDriverControlsQCOM;
-		nglGetDriverControlsQCOM(num, size, driverControls, __functionAddress);
+		invokePIPV(__functionAddress, num, size, driverControls);
 	}
 
 	public static void glGetDriverControlsQCOM(ByteBuffer num, int size, ByteBuffer driverControls) {
@@ -92,15 +89,11 @@ public final class QCOMDriverControl {
 
 	// --- [ glGetDriverControlStringQCOM ] ---
 
-	/** JNI method for {@link #glGetDriverControlStringQCOM GetDriverControlStringQCOM} */
-	@JavadocExclude
-	public static native void nglGetDriverControlStringQCOM(int driverControl, int bufSize, long length, long driverControlString, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetDriverControlStringQCOM GetDriverControlStringQCOM} */
 	@JavadocExclude
 	public static void nglGetDriverControlStringQCOM(int driverControl, int bufSize, long length, long driverControlString) {
 		long __functionAddress = getInstance().GetDriverControlStringQCOM;
-		nglGetDriverControlStringQCOM(driverControl, bufSize, length, driverControlString, __functionAddress);
+		invokeIIPPV(__functionAddress, driverControl, bufSize, length, driverControlString);
 	}
 
 	public static void glGetDriverControlStringQCOM(int driverControl, int bufSize, ByteBuffer length, ByteBuffer driverControlString) {
@@ -129,24 +122,16 @@ public final class QCOMDriverControl {
 
 	// --- [ glEnableDriverControlQCOM ] ---
 
-	/** JNI method for {@link #glEnableDriverControlQCOM EnableDriverControlQCOM} */
-	@JavadocExclude
-	public static native void nglEnableDriverControlQCOM(int driverControl, long __functionAddress);
-
 	public static void glEnableDriverControlQCOM(int driverControl) {
 		long __functionAddress = getInstance().EnableDriverControlQCOM;
-		nglEnableDriverControlQCOM(driverControl, __functionAddress);
+		invokeIV(__functionAddress, driverControl);
 	}
 
 	// --- [ glDisableDriverControlQCOM ] ---
 
-	/** JNI method for {@link #glDisableDriverControlQCOM DisableDriverControlQCOM} */
-	@JavadocExclude
-	public static native void nglDisableDriverControlQCOM(int driverControl, long __functionAddress);
-
 	public static void glDisableDriverControlQCOM(int driverControl) {
 		long __functionAddress = getInstance().DisableDriverControlQCOM;
-		nglDisableDriverControlQCOM(driverControl, __functionAddress);
+		invokeIV(__functionAddress, driverControl);
 	}
 
 }

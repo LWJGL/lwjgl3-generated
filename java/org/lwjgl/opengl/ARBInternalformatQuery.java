@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -64,7 +65,7 @@ public final class ARBInternalformatQuery {
 	@JavadocExclude
 	public static void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params) {
 		long __functionAddress = getInstance().GetInternalformativ;
-		GL42.nglGetInternalformativ(target, internalformat, pname, bufSize, params, __functionAddress);
+		invokeIIIIPV(__functionAddress, target, internalformat, pname, bufSize, params);
 	}
 
 	/**
@@ -79,19 +80,19 @@ public final class ARBInternalformatQuery {
 	public static void glGetInternalformativ(int target, int internalformat, int pname, int bufSize, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, bufSize << 2);
-		nglGetInternalformativ(target, internalformat, pname, bufSize, memAddress(params));
+		GL42.nglGetInternalformativ(target, internalformat, pname, bufSize, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetInternalformativ GetInternalformativ} */
 	public static void glGetInternalformativ(int target, int internalformat, int pname, IntBuffer params) {
-		nglGetInternalformativ(target, internalformat, pname, params.remaining(), memAddress(params));
+		GL42.nglGetInternalformativ(target, internalformat, pname, params.remaining(), memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetInternalformativ GetInternalformativ} */
 	public static int glGetInternalformati(int target, int internalformat, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetInternalformativ(target, internalformat, pname, 1, __buffer.address(params));
+		GL42.nglGetInternalformativ(target, internalformat, pname, 1, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 

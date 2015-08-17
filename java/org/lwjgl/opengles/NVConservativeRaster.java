@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/conservative_raster.txt">NV_conservative_raster</a> extension.
@@ -65,13 +66,9 @@ public final class NVConservativeRaster {
 
 	// --- [ glSubpixelPrecisionBiasNV ] ---
 
-	/** JNI method for {@link #glSubpixelPrecisionBiasNV SubpixelPrecisionBiasNV} */
-	@JavadocExclude
-	public static native void nglSubpixelPrecisionBiasNV(int xbits, int ybits, long __functionAddress);
-
 	public static void glSubpixelPrecisionBiasNV(int xbits, int ybits) {
 		long __functionAddress = getInstance().SubpixelPrecisionBiasNV;
-		nglSubpixelPrecisionBiasNV(xbits, ybits, __functionAddress);
+		invokeIIV(__functionAddress, xbits, ybits);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -76,17 +77,13 @@ public final class EXTOutputBase {
 
 	// --- [ eglGetOutputLayersEXT ] ---
 
-	/** JNI method for {@link #eglGetOutputLayersEXT GetOutputLayersEXT} */
-	@JavadocExclude
-	public static native boolean neglGetOutputLayersEXT(long dpy, long attrib_list, long layers, int max_layers, long num_layers, long __functionAddress);
-
 	/** Unsafe version of {@link #eglGetOutputLayersEXT GetOutputLayersEXT} */
 	@JavadocExclude
 	public static boolean neglGetOutputLayersEXT(long dpy, long attrib_list, long layers, int max_layers, long num_layers) {
 		long __functionAddress = getInstance().GetOutputLayersEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return neglGetOutputLayersEXT(dpy, attrib_list, layers, max_layers, num_layers, __functionAddress);
+		return invokePPPIPZ(__functionAddress, dpy, attrib_list, layers, max_layers, num_layers);
 	}
 
 	public static boolean eglGetOutputLayersEXT(long dpy, ByteBuffer attrib_list, ByteBuffer layers, int max_layers, ByteBuffer num_layers) {
@@ -109,17 +106,13 @@ public final class EXTOutputBase {
 
 	// --- [ eglGetOutputPortsEXT ] ---
 
-	/** JNI method for {@link #eglGetOutputPortsEXT GetOutputPortsEXT} */
-	@JavadocExclude
-	public static native boolean neglGetOutputPortsEXT(long dpy, long attrib_list, long ports, int max_ports, long num_ports, long __functionAddress);
-
 	/** Unsafe version of {@link #eglGetOutputPortsEXT GetOutputPortsEXT} */
 	@JavadocExclude
 	public static boolean neglGetOutputPortsEXT(long dpy, long attrib_list, long ports, int max_ports, long num_ports) {
 		long __functionAddress = getInstance().GetOutputPortsEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return neglGetOutputPortsEXT(dpy, attrib_list, ports, max_ports, num_ports, __functionAddress);
+		return invokePPPIPZ(__functionAddress, dpy, attrib_list, ports, max_ports, num_ports);
 	}
 
 	public static boolean eglGetOutputPortsEXT(long dpy, ByteBuffer attrib_list, ByteBuffer ports, int max_ports, ByteBuffer num_ports) {
@@ -142,24 +135,16 @@ public final class EXTOutputBase {
 
 	// --- [ eglOutputLayerAttribEXT ] ---
 
-	/** JNI method for {@link #eglOutputLayerAttribEXT OutputLayerAttribEXT} */
-	@JavadocExclude
-	public static native boolean neglOutputLayerAttribEXT(long dpy, long layer, int attribute, long value, long __functionAddress);
-
 	public static boolean eglOutputLayerAttribEXT(long dpy, long layer, int attribute, long value) {
 		long __functionAddress = getInstance().OutputLayerAttribEXT;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(layer);
 		}
-		return neglOutputLayerAttribEXT(dpy, layer, attribute, value, __functionAddress);
+		return invokePPIPZ(__functionAddress, dpy, layer, attribute, value);
 	}
 
 	// --- [ eglQueryOutputLayerAttribEXT ] ---
-
-	/** JNI method for {@link #eglQueryOutputLayerAttribEXT QueryOutputLayerAttribEXT} */
-	@JavadocExclude
-	public static native boolean neglQueryOutputLayerAttribEXT(long dpy, long layer, int attribute, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #eglQueryOutputLayerAttribEXT QueryOutputLayerAttribEXT} */
 	@JavadocExclude
@@ -169,7 +154,7 @@ public final class EXTOutputBase {
 			checkPointer(dpy);
 			checkPointer(layer);
 		}
-		return neglQueryOutputLayerAttribEXT(dpy, layer, attribute, value, __functionAddress);
+		return invokePPIPZ(__functionAddress, dpy, layer, attribute, value);
 	}
 
 	public static boolean eglQueryOutputLayerAttribEXT(long dpy, long layer, int attribute, ByteBuffer value) {
@@ -187,10 +172,6 @@ public final class EXTOutputBase {
 
 	// --- [ eglQueryOutputLayerStringEXT ] ---
 
-	/** JNI method for {@link #eglQueryOutputLayerStringEXT QueryOutputLayerStringEXT} */
-	@JavadocExclude
-	public static native long neglQueryOutputLayerStringEXT(long dpy, long layer, int name, long __functionAddress);
-
 	/** Unsafe version of {@link #eglQueryOutputLayerStringEXT QueryOutputLayerStringEXT} */
 	@JavadocExclude
 	public static long neglQueryOutputLayerStringEXT(long dpy, long layer, int name) {
@@ -199,7 +180,7 @@ public final class EXTOutputBase {
 			checkPointer(dpy);
 			checkPointer(layer);
 		}
-		return neglQueryOutputLayerStringEXT(dpy, layer, name, __functionAddress);
+		return invokePPIP(__functionAddress, dpy, layer, name);
 	}
 
 	public static String eglQueryOutputLayerStringEXT(long dpy, long layer, int name) {
@@ -209,24 +190,16 @@ public final class EXTOutputBase {
 
 	// --- [ eglOutputPortAttribEXT ] ---
 
-	/** JNI method for {@link #eglOutputPortAttribEXT OutputPortAttribEXT} */
-	@JavadocExclude
-	public static native boolean neglOutputPortAttribEXT(long dpy, long port, int attribute, long value, long __functionAddress);
-
 	public static boolean eglOutputPortAttribEXT(long dpy, long port, int attribute, long value) {
 		long __functionAddress = getInstance().OutputPortAttribEXT;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(port);
 		}
-		return neglOutputPortAttribEXT(dpy, port, attribute, value, __functionAddress);
+		return invokePPIPZ(__functionAddress, dpy, port, attribute, value);
 	}
 
 	// --- [ eglQueryOutputPortAttribEXT ] ---
-
-	/** JNI method for {@link #eglQueryOutputPortAttribEXT QueryOutputPortAttribEXT} */
-	@JavadocExclude
-	public static native boolean neglQueryOutputPortAttribEXT(long dpy, long port, int attribute, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #eglQueryOutputPortAttribEXT QueryOutputPortAttribEXT} */
 	@JavadocExclude
@@ -236,7 +209,7 @@ public final class EXTOutputBase {
 			checkPointer(dpy);
 			checkPointer(port);
 		}
-		return neglQueryOutputPortAttribEXT(dpy, port, attribute, value, __functionAddress);
+		return invokePPIPZ(__functionAddress, dpy, port, attribute, value);
 	}
 
 	public static boolean eglQueryOutputPortAttribEXT(long dpy, long port, int attribute, ByteBuffer value) {
@@ -254,10 +227,6 @@ public final class EXTOutputBase {
 
 	// --- [ eglQueryOutputPortStringEXT ] ---
 
-	/** JNI method for {@link #eglQueryOutputPortStringEXT QueryOutputPortStringEXT} */
-	@JavadocExclude
-	public static native long neglQueryOutputPortStringEXT(long dpy, long port, int name, long __functionAddress);
-
 	/** Unsafe version of {@link #eglQueryOutputPortStringEXT QueryOutputPortStringEXT} */
 	@JavadocExclude
 	public static long neglQueryOutputPortStringEXT(long dpy, long port, int name) {
@@ -266,7 +235,7 @@ public final class EXTOutputBase {
 			checkPointer(dpy);
 			checkPointer(port);
 		}
-		return neglQueryOutputPortStringEXT(dpy, port, name, __functionAddress);
+		return invokePPIP(__functionAddress, dpy, port, name);
 	}
 
 	public static String eglQueryOutputPortStringEXT(long dpy, long port, int name) {

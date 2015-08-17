@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -93,15 +94,11 @@ public final class NVDrawBuffers {
 
 	// --- [ glDrawBuffersNV ] ---
 
-	/** JNI method for {@link #glDrawBuffersNV DrawBuffersNV} */
-	@JavadocExclude
-	public static native void nglDrawBuffersNV(int n, long bufs, long __functionAddress);
-
 	/** Unsafe version of {@link #glDrawBuffersNV DrawBuffersNV} */
 	@JavadocExclude
 	public static void nglDrawBuffersNV(int n, long bufs) {
 		long __functionAddress = getInstance().DrawBuffersNV;
-		nglDrawBuffersNV(n, bufs, __functionAddress);
+		invokeIPV(__functionAddress, n, bufs);
 	}
 
 	public static void glDrawBuffersNV(int n, ByteBuffer bufs) {

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -71,17 +72,13 @@ public final class KHRReusableSync {
 
 	// --- [ eglCreateSyncKHR ] ---
 
-	/** JNI method for {@link #eglCreateSyncKHR CreateSyncKHR} */
-	@JavadocExclude
-	public static native long neglCreateSyncKHR(long dpy, int type, long attrib_list, long __functionAddress);
-
 	/** Unsafe version of {@link #eglCreateSyncKHR CreateSyncKHR} */
 	@JavadocExclude
 	public static long neglCreateSyncKHR(long dpy, int type, long attrib_list) {
 		long __functionAddress = getInstance().CreateSyncKHR;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return neglCreateSyncKHR(dpy, type, attrib_list, __functionAddress);
+		return invokePIPP(__functionAddress, dpy, type, attrib_list);
 	}
 
 	public static long eglCreateSyncKHR(long dpy, int type, ByteBuffer attrib_list) {
@@ -99,24 +96,16 @@ public final class KHRReusableSync {
 
 	// --- [ eglDestroySyncKHR ] ---
 
-	/** JNI method for {@link #eglDestroySyncKHR DestroySyncKHR} */
-	@JavadocExclude
-	public static native boolean neglDestroySyncKHR(long dpy, long sync, long __functionAddress);
-
 	public static boolean eglDestroySyncKHR(long dpy, long sync) {
 		long __functionAddress = getInstance().DestroySyncKHR;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return neglDestroySyncKHR(dpy, sync, __functionAddress);
+		return invokePPZ(__functionAddress, dpy, sync);
 	}
 
 	// --- [ eglClientWaitSyncKHR ] ---
-
-	/** JNI method for {@link #eglClientWaitSyncKHR ClientWaitSyncKHR} */
-	@JavadocExclude
-	public static native int neglClientWaitSyncKHR(long dpy, long sync, int flags, long timeout, long __functionAddress);
 
 	public static int eglClientWaitSyncKHR(long dpy, long sync, int flags, long timeout) {
 		long __functionAddress = getInstance().ClientWaitSyncKHR;
@@ -124,14 +113,10 @@ public final class KHRReusableSync {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return neglClientWaitSyncKHR(dpy, sync, flags, timeout, __functionAddress);
+		return invokePPIJI(__functionAddress, dpy, sync, flags, timeout);
 	}
 
 	// --- [ eglSignalSyncKHR ] ---
-
-	/** JNI method for {@link #eglSignalSyncKHR SignalSyncKHR} */
-	@JavadocExclude
-	public static native boolean neglSignalSyncKHR(long dpy, long sync, int mode, long __functionAddress);
 
 	public static boolean eglSignalSyncKHR(long dpy, long sync, int mode) {
 		long __functionAddress = getInstance().SignalSyncKHR;
@@ -139,14 +124,10 @@ public final class KHRReusableSync {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return neglSignalSyncKHR(dpy, sync, mode, __functionAddress);
+		return invokePPIZ(__functionAddress, dpy, sync, mode);
 	}
 
 	// --- [ eglGetSyncAttribKHR ] ---
-
-	/** JNI method for {@link #eglGetSyncAttribKHR GetSyncAttribKHR} */
-	@JavadocExclude
-	public static native boolean neglGetSyncAttribKHR(long dpy, long sync, int attribute, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #eglGetSyncAttribKHR GetSyncAttribKHR} */
 	@JavadocExclude
@@ -156,7 +137,7 @@ public final class KHRReusableSync {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return neglGetSyncAttribKHR(dpy, sync, attribute, value, __functionAddress);
+		return invokePPIPZ(__functionAddress, dpy, sync, attribute, value);
 	}
 
 	public static boolean eglGetSyncAttribKHR(long dpy, long sync, int attribute, ByteBuffer value) {

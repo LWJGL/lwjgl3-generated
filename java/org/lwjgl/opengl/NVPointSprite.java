@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -84,26 +85,18 @@ public final class NVPointSprite {
 
 	// --- [ glPointParameteriNV ] ---
 
-	/** JNI method for {@link #glPointParameteriNV PointParameteriNV} */
-	@JavadocExclude
-	public static native void nglPointParameteriNV(int pname, int param, long __functionAddress);
-
 	public static void glPointParameteriNV(int pname, int param) {
 		long __functionAddress = getInstance().PointParameteriNV;
-		nglPointParameteriNV(pname, param, __functionAddress);
+		invokeIIV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPointParameterivNV ] ---
-
-	/** JNI method for {@link #glPointParameterivNV PointParameterivNV} */
-	@JavadocExclude
-	public static native void nglPointParameterivNV(int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glPointParameterivNV PointParameterivNV} */
 	@JavadocExclude
 	public static void nglPointParameterivNV(int pname, long params) {
 		long __functionAddress = getInstance().PointParameterivNV;
-		nglPointParameterivNV(pname, params, __functionAddress);
+		invokeIPV(__functionAddress, pname, params);
 	}
 
 	public static void glPointParameterivNV(int pname, ByteBuffer params) {

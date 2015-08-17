@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/ES3_1_compatibility.txt">ARB_ES3_1_compatibility</a> extension.
@@ -86,7 +87,7 @@ public final class ARBES31Compatibility {
 	 */
 	public static void glMemoryBarrierByRegion(int barriers) {
 		long __functionAddress = getInstance().MemoryBarrierByRegion;
-		GL45.nglMemoryBarrierByRegion(barriers, __functionAddress);
+		invokeIV(__functionAddress, barriers);
 	}
 
 }

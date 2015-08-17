@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -75,7 +76,7 @@ public final class ARBVertexArrayObject {
 	 */
 	public static void glBindVertexArray(int array) {
 		long __functionAddress = getInstance().BindVertexArray;
-		GL30.nglBindVertexArray(array, __functionAddress);
+		invokeIV(__functionAddress, array);
 	}
 
 	// --- [ glDeleteVertexArrays ] ---
@@ -84,7 +85,7 @@ public final class ARBVertexArrayObject {
 	@JavadocExclude
 	public static void nglDeleteVertexArrays(int n, long arrays) {
 		long __functionAddress = getInstance().DeleteVertexArrays;
-		GL30.nglDeleteVertexArrays(n, arrays, __functionAddress);
+		invokeIPV(__functionAddress, n, arrays);
 	}
 
 	/**
@@ -96,19 +97,19 @@ public final class ARBVertexArrayObject {
 	public static void glDeleteVertexArrays(int n, ByteBuffer arrays) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(arrays, n << 2);
-		nglDeleteVertexArrays(n, memAddress(arrays));
+		GL30.nglDeleteVertexArrays(n, memAddress(arrays));
 	}
 
 	/** Alternative version of: {@link #glDeleteVertexArrays DeleteVertexArrays} */
 	public static void glDeleteVertexArrays(IntBuffer arrays) {
-		nglDeleteVertexArrays(arrays.remaining(), memAddress(arrays));
+		GL30.nglDeleteVertexArrays(arrays.remaining(), memAddress(arrays));
 	}
 
 	/** Single value version of: {@link #glDeleteVertexArrays DeleteVertexArrays} */
 	public static void glDeleteVertexArrays(int array) {
 		APIBuffer __buffer = apiBuffer();
 		int arrays = __buffer.intParam(array);
-		nglDeleteVertexArrays(1, __buffer.address(arrays));
+		GL30.nglDeleteVertexArrays(1, __buffer.address(arrays));
 	}
 
 	// --- [ glGenVertexArrays ] ---
@@ -117,7 +118,7 @@ public final class ARBVertexArrayObject {
 	@JavadocExclude
 	public static void nglGenVertexArrays(int n, long arrays) {
 		long __functionAddress = getInstance().GenVertexArrays;
-		GL30.nglGenVertexArrays(n, arrays, __functionAddress);
+		invokeIPV(__functionAddress, n, arrays);
 	}
 
 	/**
@@ -129,19 +130,19 @@ public final class ARBVertexArrayObject {
 	public static void glGenVertexArrays(int n, ByteBuffer arrays) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(arrays, n << 2);
-		nglGenVertexArrays(n, memAddress(arrays));
+		GL30.nglGenVertexArrays(n, memAddress(arrays));
 	}
 
 	/** Alternative version of: {@link #glGenVertexArrays GenVertexArrays} */
 	public static void glGenVertexArrays(IntBuffer arrays) {
-		nglGenVertexArrays(arrays.remaining(), memAddress(arrays));
+		GL30.nglGenVertexArrays(arrays.remaining(), memAddress(arrays));
 	}
 
 	/** Single return value version of: {@link #glGenVertexArrays GenVertexArrays} */
 	public static int glGenVertexArrays() {
 		APIBuffer __buffer = apiBuffer();
 		int arrays = __buffer.intParam();
-		nglGenVertexArrays(1, __buffer.address(arrays));
+		GL30.nglGenVertexArrays(1, __buffer.address(arrays));
 		return __buffer.intValue(arrays);
 	}
 
@@ -154,7 +155,7 @@ public final class ARBVertexArrayObject {
 	 */
 	public static boolean glIsVertexArray(int array) {
 		long __functionAddress = getInstance().IsVertexArray;
-		return GL30.nglIsVertexArray(array, __functionAddress);
+		return invokeIZ(__functionAddress, array);
 	}
 
 }

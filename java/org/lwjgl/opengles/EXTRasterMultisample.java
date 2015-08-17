@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/raster_multisample.txt">EXT_raster_multisample</a> extension.
@@ -68,13 +69,9 @@ public final class EXTRasterMultisample {
 
 	// --- [ glRasterSamplesEXT ] ---
 
-	/** JNI method for {@link #glRasterSamplesEXT RasterSamplesEXT} */
-	@JavadocExclude
-	public static native void nglRasterSamplesEXT(int samples, boolean fixedsamplelocations, long __functionAddress);
-
 	public static void glRasterSamplesEXT(int samples, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().RasterSamplesEXT;
-		nglRasterSamplesEXT(samples, fixedsamplelocations, __functionAddress);
+		invokeIZV(__functionAddress, samples, fixedsamplelocations);
 	}
 
 }

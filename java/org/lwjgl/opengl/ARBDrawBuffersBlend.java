@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/draw_buffers_blend.txt">ARB_draw_buffers_blend</a> extension.
@@ -60,10 +61,6 @@ public final class ARBDrawBuffersBlend {
 
 	// --- [ glBlendEquationiARB ] ---
 
-	/** JNI method for {@link #glBlendEquationiARB BlendEquationiARB} */
-	@JavadocExclude
-	public static native void nglBlendEquationiARB(int buf, int mode, long __functionAddress);
-
 	/**
 	 * Provides a way to enable blending and set color write masks independently per color output.
 	 * 
@@ -82,14 +79,10 @@ public final class ARBDrawBuffersBlend {
 	 */
 	public static void glBlendEquationiARB(int buf, int mode) {
 		long __functionAddress = getInstance().BlendEquationiARB;
-		nglBlendEquationiARB(buf, mode, __functionAddress);
+		invokeIIV(__functionAddress, buf, mode);
 	}
 
 	// --- [ glBlendEquationSeparateiARB ] ---
-
-	/** JNI method for {@link #glBlendEquationSeparateiARB BlendEquationSeparateiARB} */
-	@JavadocExclude
-	public static native void nglBlendEquationSeparateiARB(int buf, int modeRGB, int modeAlpha, long __functionAddress);
 
 	/**
 	 * Provides a way to enable blending and set color write masks independently per color output.
@@ -110,14 +103,10 @@ public final class ARBDrawBuffersBlend {
 	 */
 	public static void glBlendEquationSeparateiARB(int buf, int modeRGB, int modeAlpha) {
 		long __functionAddress = getInstance().BlendEquationSeparateiARB;
-		nglBlendEquationSeparateiARB(buf, modeRGB, modeAlpha, __functionAddress);
+		invokeIIIV(__functionAddress, buf, modeRGB, modeAlpha);
 	}
 
 	// --- [ glBlendFunciARB ] ---
-
-	/** JNI method for {@link #glBlendFunciARB BlendFunciARB} */
-	@JavadocExclude
-	public static native void nglBlendFunciARB(int buf, int src, int dst, long __functionAddress);
 
 	/**
 	 * Provides a way to enable blending and set color write masks independently per color output.
@@ -137,14 +126,10 @@ public final class ARBDrawBuffersBlend {
 	 */
 	public static void glBlendFunciARB(int buf, int src, int dst) {
 		long __functionAddress = getInstance().BlendFunciARB;
-		nglBlendFunciARB(buf, src, dst, __functionAddress);
+		invokeIIIV(__functionAddress, buf, src, dst);
 	}
 
 	// --- [ glBlendFuncSeparateiARB ] ---
-
-	/** JNI method for {@link #glBlendFuncSeparateiARB BlendFuncSeparateiARB} */
-	@JavadocExclude
-	public static native void nglBlendFuncSeparateiARB(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha, long __functionAddress);
 
 	/**
 	 * Provides a way to enable blending and set color write masks independently per color output.
@@ -166,7 +151,7 @@ public final class ARBDrawBuffersBlend {
 	 */
 	public static void glBlendFuncSeparateiARB(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
 		long __functionAddress = getInstance().BlendFuncSeparateiARB;
-		nglBlendFuncSeparateiARB(buf, srcRGB, dstRGB, srcAlpha, dstAlpha, __functionAddress);
+		invokeIIIIIV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 
 }

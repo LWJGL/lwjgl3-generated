@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -317,10 +318,6 @@ public final class GL40 {
 
 	// --- [ glBlendEquationi ] ---
 
-	/** JNI method for {@link #glBlendEquationi BlendEquationi} */
-	@JavadocExclude
-	public static native void nglBlendEquationi(int buf, int mode, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquation.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -331,14 +328,10 @@ public final class GL40 {
 	 */
 	public static void glBlendEquationi(int buf, int mode) {
 		long __functionAddress = getInstance().BlendEquationi;
-		nglBlendEquationi(buf, mode, __functionAddress);
+		invokeIIV(__functionAddress, buf, mode);
 	}
 
 	// --- [ glBlendEquationSeparatei ] ---
-
-	/** JNI method for {@link #glBlendEquationSeparatei BlendEquationSeparatei} */
-	@JavadocExclude
-	public static native void nglBlendEquationSeparatei(int buf, int modeRGB, int modeAlpha, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquationSeparate.xhtml">OpenGL SDK Reference</a></p>
@@ -351,14 +344,10 @@ public final class GL40 {
 	 */
 	public static void glBlendEquationSeparatei(int buf, int modeRGB, int modeAlpha) {
 		long __functionAddress = getInstance().BlendEquationSeparatei;
-		nglBlendEquationSeparatei(buf, modeRGB, modeAlpha, __functionAddress);
+		invokeIIIV(__functionAddress, buf, modeRGB, modeAlpha);
 	}
 
 	// --- [ glBlendFunci ] ---
-
-	/** JNI method for {@link #glBlendFunci BlendFunci} */
-	@JavadocExclude
-	public static native void nglBlendFunci(int buf, int sfactor, int dfactor, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendFunci.xhtml">OpenGL SDK Reference</a></p>
@@ -371,14 +360,10 @@ public final class GL40 {
 	 */
 	public static void glBlendFunci(int buf, int sfactor, int dfactor) {
 		long __functionAddress = getInstance().BlendFunci;
-		nglBlendFunci(buf, sfactor, dfactor, __functionAddress);
+		invokeIIIV(__functionAddress, buf, sfactor, dfactor);
 	}
 
 	// --- [ glBlendFuncSeparatei ] ---
-
-	/** JNI method for {@link #glBlendFuncSeparatei BlendFuncSeparatei} */
-	@JavadocExclude
-	public static native void nglBlendFuncSeparatei(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendFuncSeparatei.xhtml">OpenGL SDK Reference</a></p>
@@ -393,20 +378,16 @@ public final class GL40 {
 	 */
 	public static void glBlendFuncSeparatei(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
 		long __functionAddress = getInstance().BlendFuncSeparatei;
-		nglBlendFuncSeparatei(buf, srcRGB, dstRGB, srcAlpha, dstAlpha, __functionAddress);
+		invokeIIIIIV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 
 	// --- [ glDrawArraysIndirect ] ---
-
-	/** JNI method for {@link #glDrawArraysIndirect DrawArraysIndirect} */
-	@JavadocExclude
-	public static native void nglDrawArraysIndirect(int mode, long indirect, long __functionAddress);
 
 	/** Unsafe version of {@link #glDrawArraysIndirect DrawArraysIndirect} */
 	@JavadocExclude
 	public static void nglDrawArraysIndirect(int mode, long indirect) {
 		long __functionAddress = getInstance().DrawArraysIndirect;
-		nglDrawArraysIndirect(mode, indirect, __functionAddress);
+		invokeIPV(__functionAddress, mode, indirect);
 	}
 
 	/**
@@ -458,15 +439,11 @@ public final class GL40 {
 
 	// --- [ glDrawElementsIndirect ] ---
 
-	/** JNI method for {@link #glDrawElementsIndirect DrawElementsIndirect} */
-	@JavadocExclude
-	public static native void nglDrawElementsIndirect(int mode, int type, long indirect, long __functionAddress);
-
 	/** Unsafe version of {@link #glDrawElementsIndirect DrawElementsIndirect} */
 	@JavadocExclude
 	public static void nglDrawElementsIndirect(int mode, int type, long indirect) {
 		long __functionAddress = getInstance().DrawElementsIndirect;
-		nglDrawElementsIndirect(mode, type, indirect, __functionAddress);
+		invokeIIPV(__functionAddress, mode, type, indirect);
 	}
 
 	/**
@@ -532,10 +509,6 @@ public final class GL40 {
 
 	// --- [ glUniform1d ] ---
 
-	/** JNI method for {@link #glUniform1d Uniform1d} */
-	@JavadocExclude
-	public static native void nglUniform1d(int location, double x, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1d.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -546,14 +519,10 @@ public final class GL40 {
 	 */
 	public static void glUniform1d(int location, double x) {
 		long __functionAddress = getInstance().Uniform1d;
-		nglUniform1d(location, x, __functionAddress);
+		invokeIDV(__functionAddress, location, x);
 	}
 
 	// --- [ glUniform2d ] ---
-
-	/** JNI method for {@link #glUniform2d Uniform2d} */
-	@JavadocExclude
-	public static native void nglUniform2d(int location, double x, double y, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2d.xhtml">OpenGL SDK Reference</a></p>
@@ -566,14 +535,10 @@ public final class GL40 {
 	 */
 	public static void glUniform2d(int location, double x, double y) {
 		long __functionAddress = getInstance().Uniform2d;
-		nglUniform2d(location, x, y, __functionAddress);
+		invokeIDDV(__functionAddress, location, x, y);
 	}
 
 	// --- [ glUniform3d ] ---
-
-	/** JNI method for {@link #glUniform3d Uniform3d} */
-	@JavadocExclude
-	public static native void nglUniform3d(int location, double x, double y, double z, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3d.xhtml">OpenGL SDK Reference</a></p>
@@ -587,14 +552,10 @@ public final class GL40 {
 	 */
 	public static void glUniform3d(int location, double x, double y, double z) {
 		long __functionAddress = getInstance().Uniform3d;
-		nglUniform3d(location, x, y, z, __functionAddress);
+		invokeIDDDV(__functionAddress, location, x, y, z);
 	}
 
 	// --- [ glUniform4d ] ---
-
-	/** JNI method for {@link #glUniform4d Uniform4d} */
-	@JavadocExclude
-	public static native void nglUniform4d(int location, double x, double y, double z, double w, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4d.xhtml">OpenGL SDK Reference</a></p>
@@ -609,20 +570,16 @@ public final class GL40 {
 	 */
 	public static void glUniform4d(int location, double x, double y, double z, double w) {
 		long __functionAddress = getInstance().Uniform4d;
-		nglUniform4d(location, x, y, z, w, __functionAddress);
+		invokeIDDDDV(__functionAddress, location, x, y, z, w);
 	}
 
 	// --- [ glUniform1dv ] ---
-
-	/** JNI method for {@link #glUniform1dv Uniform1dv} */
-	@JavadocExclude
-	public static native void nglUniform1dv(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniform1dv Uniform1dv} */
 	@JavadocExclude
 	public static void nglUniform1dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1dv;
-		nglUniform1dv(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -647,15 +604,11 @@ public final class GL40 {
 
 	// --- [ glUniform2dv ] ---
 
-	/** JNI method for {@link #glUniform2dv Uniform2dv} */
-	@JavadocExclude
-	public static native void nglUniform2dv(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform2dv Uniform2dv} */
 	@JavadocExclude
 	public static void nglUniform2dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2dv;
-		nglUniform2dv(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -680,15 +633,11 @@ public final class GL40 {
 
 	// --- [ glUniform3dv ] ---
 
-	/** JNI method for {@link #glUniform3dv Uniform3dv} */
-	@JavadocExclude
-	public static native void nglUniform3dv(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform3dv Uniform3dv} */
 	@JavadocExclude
 	public static void nglUniform3dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3dv;
-		nglUniform3dv(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -713,15 +662,11 @@ public final class GL40 {
 
 	// --- [ glUniform4dv ] ---
 
-	/** JNI method for {@link #glUniform4dv Uniform4dv} */
-	@JavadocExclude
-	public static native void nglUniform4dv(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform4dv Uniform4dv} */
 	@JavadocExclude
 	public static void nglUniform4dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4dv;
-		nglUniform4dv(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -746,15 +691,11 @@ public final class GL40 {
 
 	// --- [ glUniformMatrix2dv ] ---
 
-	/** JNI method for {@link #glUniformMatrix2dv UniformMatrix2dv} */
-	@JavadocExclude
-	public static native void nglUniformMatrix2dv(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix2dv UniformMatrix2dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2dv;
-		nglUniformMatrix2dv(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -780,15 +721,11 @@ public final class GL40 {
 
 	// --- [ glUniformMatrix3dv ] ---
 
-	/** JNI method for {@link #glUniformMatrix3dv UniformMatrix3dv} */
-	@JavadocExclude
-	public static native void nglUniformMatrix3dv(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix3dv UniformMatrix3dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3dv;
-		nglUniformMatrix3dv(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -814,15 +751,11 @@ public final class GL40 {
 
 	// --- [ glUniformMatrix4dv ] ---
 
-	/** JNI method for {@link #glUniformMatrix4dv UniformMatrix4dv} */
-	@JavadocExclude
-	public static native void nglUniformMatrix4dv(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix4dv UniformMatrix4dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4dv;
-		nglUniformMatrix4dv(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -848,15 +781,11 @@ public final class GL40 {
 
 	// --- [ glUniformMatrix2x3dv ] ---
 
-	/** JNI method for {@link #glUniformMatrix2x3dv UniformMatrix2x3dv} */
-	@JavadocExclude
-	public static native void nglUniformMatrix2x3dv(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix2x3dv UniformMatrix2x3dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix2x3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x3dv;
-		nglUniformMatrix2x3dv(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -882,15 +811,11 @@ public final class GL40 {
 
 	// --- [ glUniformMatrix2x4dv ] ---
 
-	/** JNI method for {@link #glUniformMatrix2x4dv UniformMatrix2x4dv} */
-	@JavadocExclude
-	public static native void nglUniformMatrix2x4dv(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix2x4dv UniformMatrix2x4dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix2x4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x4dv;
-		nglUniformMatrix2x4dv(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -916,15 +841,11 @@ public final class GL40 {
 
 	// --- [ glUniformMatrix3x2dv ] ---
 
-	/** JNI method for {@link #glUniformMatrix3x2dv UniformMatrix3x2dv} */
-	@JavadocExclude
-	public static native void nglUniformMatrix3x2dv(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix3x2dv UniformMatrix3x2dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix3x2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x2dv;
-		nglUniformMatrix3x2dv(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -950,15 +871,11 @@ public final class GL40 {
 
 	// --- [ glUniformMatrix3x4dv ] ---
 
-	/** JNI method for {@link #glUniformMatrix3x4dv UniformMatrix3x4dv} */
-	@JavadocExclude
-	public static native void nglUniformMatrix3x4dv(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix3x4dv UniformMatrix3x4dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix3x4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x4dv;
-		nglUniformMatrix3x4dv(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -984,15 +901,11 @@ public final class GL40 {
 
 	// --- [ glUniformMatrix4x2dv ] ---
 
-	/** JNI method for {@link #glUniformMatrix4x2dv UniformMatrix4x2dv} */
-	@JavadocExclude
-	public static native void nglUniformMatrix4x2dv(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix4x2dv UniformMatrix4x2dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix4x2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x2dv;
-		nglUniformMatrix4x2dv(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -1018,15 +931,11 @@ public final class GL40 {
 
 	// --- [ glUniformMatrix4x3dv ] ---
 
-	/** JNI method for {@link #glUniformMatrix4x3dv UniformMatrix4x3dv} */
-	@JavadocExclude
-	public static native void nglUniformMatrix4x3dv(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix4x3dv UniformMatrix4x3dv} */
 	@JavadocExclude
 	public static void nglUniformMatrix4x3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x3dv;
-		nglUniformMatrix4x3dv(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -1052,15 +961,11 @@ public final class GL40 {
 
 	// --- [ glGetUniformdv ] ---
 
-	/** JNI method for {@link #glGetUniformdv GetUniformdv} */
-	@JavadocExclude
-	public static native void nglGetUniformdv(int program, int location, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetUniformdv GetUniformdv} */
 	@JavadocExclude
 	public static void nglGetUniformdv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformdv;
-		nglGetUniformdv(program, location, params, __functionAddress);
+		invokeIIPV(__functionAddress, program, location, params);
 	}
 
 	/**
@@ -1095,10 +1000,6 @@ public final class GL40 {
 
 	// --- [ glMinSampleShading ] ---
 
-	/** JNI method for {@link #glMinSampleShading MinSampleShading} */
-	@JavadocExclude
-	public static native void nglMinSampleShading(float value, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMinSampleShading.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -1108,20 +1009,16 @@ public final class GL40 {
 	 */
 	public static void glMinSampleShading(float value) {
 		long __functionAddress = getInstance().MinSampleShading;
-		nglMinSampleShading(value, __functionAddress);
+		invokeFV(__functionAddress, value);
 	}
 
 	// --- [ glGetSubroutineUniformLocation ] ---
-
-	/** JNI method for {@link #glGetSubroutineUniformLocation GetSubroutineUniformLocation} */
-	@JavadocExclude
-	public static native int nglGetSubroutineUniformLocation(int program, int shadertype, long name, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetSubroutineUniformLocation GetSubroutineUniformLocation} */
 	@JavadocExclude
 	public static int nglGetSubroutineUniformLocation(int program, int shadertype, long name) {
 		long __functionAddress = getInstance().GetSubroutineUniformLocation;
-		return nglGetSubroutineUniformLocation(program, shadertype, name, __functionAddress);
+		return invokeIIPI(__functionAddress, program, shadertype, name);
 	}
 
 	/**
@@ -1148,15 +1045,11 @@ public final class GL40 {
 
 	// --- [ glGetSubroutineIndex ] ---
 
-	/** JNI method for {@link #glGetSubroutineIndex GetSubroutineIndex} */
-	@JavadocExclude
-	public static native int nglGetSubroutineIndex(int program, int shadertype, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetSubroutineIndex GetSubroutineIndex} */
 	@JavadocExclude
 	public static int nglGetSubroutineIndex(int program, int shadertype, long name) {
 		long __functionAddress = getInstance().GetSubroutineIndex;
-		return nglGetSubroutineIndex(program, shadertype, name, __functionAddress);
+		return invokeIIPI(__functionAddress, program, shadertype, name);
 	}
 
 	/**
@@ -1183,15 +1076,11 @@ public final class GL40 {
 
 	// --- [ glGetActiveSubroutineUniformiv ] ---
 
-	/** JNI method for {@link #glGetActiveSubroutineUniformiv GetActiveSubroutineUniformiv} */
-	@JavadocExclude
-	public static native void nglGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, long values, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetActiveSubroutineUniformiv GetActiveSubroutineUniformiv} */
 	@JavadocExclude
 	public static void nglGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, long values) {
 		long __functionAddress = getInstance().GetActiveSubroutineUniformiv;
-		nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, values, __functionAddress);
+		invokeIIIIPV(__functionAddress, program, shadertype, index, pname, values);
 	}
 
 	/**
@@ -1228,15 +1117,11 @@ public final class GL40 {
 
 	// --- [ glGetActiveSubroutineUniformName ] ---
 
-	/** JNI method for {@link #glGetActiveSubroutineUniformName GetActiveSubroutineUniformName} */
-	@JavadocExclude
-	public static native void nglGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize, long length, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetActiveSubroutineUniformName GetActiveSubroutineUniformName} */
 	@JavadocExclude
 	public static void nglGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize, long length, long name) {
 		long __functionAddress = getInstance().GetActiveSubroutineUniformName;
-		nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, length, name, __functionAddress);
+		invokeIIIIPPV(__functionAddress, program, shadertype, index, bufsize, length, name);
 	}
 
 	/**
@@ -1287,15 +1172,11 @@ public final class GL40 {
 
 	// --- [ glGetActiveSubroutineName ] ---
 
-	/** JNI method for {@link #glGetActiveSubroutineName GetActiveSubroutineName} */
-	@JavadocExclude
-	public static native void nglGetActiveSubroutineName(int program, int shadertype, int index, int bufsize, long length, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetActiveSubroutineName GetActiveSubroutineName} */
 	@JavadocExclude
 	public static void nglGetActiveSubroutineName(int program, int shadertype, int index, int bufsize, long length, long name) {
 		long __functionAddress = getInstance().GetActiveSubroutineName;
-		nglGetActiveSubroutineName(program, shadertype, index, bufsize, length, name, __functionAddress);
+		invokeIIIIPPV(__functionAddress, program, shadertype, index, bufsize, length, name);
 	}
 
 	/**
@@ -1346,15 +1227,11 @@ public final class GL40 {
 
 	// --- [ glUniformSubroutinesuiv ] ---
 
-	/** JNI method for {@link #glUniformSubroutinesuiv UniformSubroutinesuiv} */
-	@JavadocExclude
-	public static native void nglUniformSubroutinesuiv(int shadertype, int count, long indices, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformSubroutinesuiv UniformSubroutinesuiv} */
 	@JavadocExclude
 	public static void nglUniformSubroutinesuiv(int shadertype, int count, long indices) {
 		long __functionAddress = getInstance().UniformSubroutinesuiv;
-		nglUniformSubroutinesuiv(shadertype, count, indices, __functionAddress);
+		invokeIIPV(__functionAddress, shadertype, count, indices);
 	}
 
 	/**
@@ -1386,15 +1263,11 @@ public final class GL40 {
 
 	// --- [ glGetUniformSubroutineuiv ] ---
 
-	/** JNI method for {@link #glGetUniformSubroutineuiv GetUniformSubroutineuiv} */
-	@JavadocExclude
-	public static native void nglGetUniformSubroutineuiv(int shadertype, int location, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetUniformSubroutineuiv GetUniformSubroutineuiv} */
 	@JavadocExclude
 	public static void nglGetUniformSubroutineuiv(int shadertype, int location, long params) {
 		long __functionAddress = getInstance().GetUniformSubroutineuiv;
-		nglGetUniformSubroutineuiv(shadertype, location, params, __functionAddress);
+		invokeIIPV(__functionAddress, shadertype, location, params);
 	}
 
 	/**
@@ -1429,15 +1302,11 @@ public final class GL40 {
 
 	// --- [ glGetProgramStageiv ] ---
 
-	/** JNI method for {@link #glGetProgramStageiv GetProgramStageiv} */
-	@JavadocExclude
-	public static native void nglGetProgramStageiv(int program, int shadertype, int pname, long values, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetProgramStageiv GetProgramStageiv} */
 	@JavadocExclude
 	public static void nglGetProgramStageiv(int program, int shadertype, int pname, long values) {
 		long __functionAddress = getInstance().GetProgramStageiv;
-		nglGetProgramStageiv(program, shadertype, pname, values, __functionAddress);
+		invokeIIIPV(__functionAddress, program, shadertype, pname, values);
 	}
 
 	/**
@@ -1473,10 +1342,6 @@ public final class GL40 {
 
 	// --- [ glPatchParameteri ] ---
 
-	/** JNI method for {@link #glPatchParameteri PatchParameteri} */
-	@JavadocExclude
-	public static native void nglPatchParameteri(int pname, int value, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPatchParameteri.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -1487,20 +1352,16 @@ public final class GL40 {
 	 */
 	public static void glPatchParameteri(int pname, int value) {
 		long __functionAddress = getInstance().PatchParameteri;
-		nglPatchParameteri(pname, value, __functionAddress);
+		invokeIIV(__functionAddress, pname, value);
 	}
 
 	// --- [ glPatchParameterfv ] ---
-
-	/** JNI method for {@link #glPatchParameterfv PatchParameterfv} */
-	@JavadocExclude
-	public static native void nglPatchParameterfv(int pname, long values, long __functionAddress);
 
 	/** Unsafe version of {@link #glPatchParameterfv PatchParameterfv} */
 	@JavadocExclude
 	public static void nglPatchParameterfv(int pname, long values) {
 		long __functionAddress = getInstance().PatchParameterfv;
-		nglPatchParameterfv(pname, values, __functionAddress);
+		invokeIPV(__functionAddress, pname, values);
 	}
 
 	/**
@@ -1528,10 +1389,6 @@ public final class GL40 {
 
 	// --- [ glBindTransformFeedback ] ---
 
-	/** JNI method for {@link #glBindTransformFeedback BindTransformFeedback} */
-	@JavadocExclude
-	public static native void nglBindTransformFeedback(int target, int id, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -1542,20 +1399,16 @@ public final class GL40 {
 	 */
 	public static void glBindTransformFeedback(int target, int id) {
 		long __functionAddress = getInstance().BindTransformFeedback;
-		nglBindTransformFeedback(target, id, __functionAddress);
+		invokeIIV(__functionAddress, target, id);
 	}
 
 	// --- [ glDeleteTransformFeedbacks ] ---
-
-	/** JNI method for {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
-	@JavadocExclude
-	public static native void nglDeleteTransformFeedbacks(int n, long ids, long __functionAddress);
 
 	/** Unsafe version of {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
 	@JavadocExclude
 	public static void nglDeleteTransformFeedbacks(int n, long ids) {
 		long __functionAddress = getInstance().DeleteTransformFeedbacks;
-		nglDeleteTransformFeedbacks(n, ids, __functionAddress);
+		invokeIPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -1586,15 +1439,11 @@ public final class GL40 {
 
 	// --- [ glGenTransformFeedbacks ] ---
 
-	/** JNI method for {@link #glGenTransformFeedbacks GenTransformFeedbacks} */
-	@JavadocExclude
-	public static native void nglGenTransformFeedbacks(int n, long ids, long __functionAddress);
-
 	/** Unsafe version of {@link #glGenTransformFeedbacks GenTransformFeedbacks} */
 	@JavadocExclude
 	public static void nglGenTransformFeedbacks(int n, long ids) {
 		long __functionAddress = getInstance().GenTransformFeedbacks;
-		nglGenTransformFeedbacks(n, ids, __functionAddress);
+		invokeIPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -1626,10 +1475,6 @@ public final class GL40 {
 
 	// --- [ glIsTransformFeedback ] ---
 
-	/** JNI method for {@link #glIsTransformFeedback IsTransformFeedback} */
-	@JavadocExclude
-	public static native boolean nglIsTransformFeedback(int id, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -1639,14 +1484,10 @@ public final class GL40 {
 	 */
 	public static boolean glIsTransformFeedback(int id) {
 		long __functionAddress = getInstance().IsTransformFeedback;
-		return nglIsTransformFeedback(id, __functionAddress);
+		return invokeIZ(__functionAddress, id);
 	}
 
 	// --- [ glPauseTransformFeedback ] ---
-
-	/** JNI method for {@link #glPauseTransformFeedback PauseTransformFeedback} */
-	@JavadocExclude
-	public static native void nglPauseTransformFeedback(long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPauseTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
@@ -1665,14 +1506,10 @@ public final class GL40 {
 	 */
 	public static void glPauseTransformFeedback() {
 		long __functionAddress = getInstance().PauseTransformFeedback;
-		nglPauseTransformFeedback(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glResumeTransformFeedback ] ---
-
-	/** JNI method for {@link #glResumeTransformFeedback ResumeTransformFeedback} */
-	@JavadocExclude
-	public static native void nglResumeTransformFeedback(long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glResumeTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
@@ -1683,14 +1520,10 @@ public final class GL40 {
 	 */
 	public static void glResumeTransformFeedback() {
 		long __functionAddress = getInstance().ResumeTransformFeedback;
-		nglResumeTransformFeedback(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glDrawTransformFeedback ] ---
-
-	/** JNI method for {@link #glDrawTransformFeedback DrawTransformFeedback} */
-	@JavadocExclude
-	public static native void nglDrawTransformFeedback(int mode, int id, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
@@ -1702,14 +1535,10 @@ public final class GL40 {
 	 */
 	public static void glDrawTransformFeedback(int mode, int id) {
 		long __functionAddress = getInstance().DrawTransformFeedback;
-		nglDrawTransformFeedback(mode, id, __functionAddress);
+		invokeIIV(__functionAddress, mode, id);
 	}
 
 	// --- [ glDrawTransformFeedbackStream ] ---
-
-	/** JNI method for {@link #glDrawTransformFeedbackStream DrawTransformFeedbackStream} */
-	@JavadocExclude
-	public static native void nglDrawTransformFeedbackStream(int mode, int id, int stream, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedbackStream.xhtml">OpenGL SDK Reference</a></p>
@@ -1722,14 +1551,10 @@ public final class GL40 {
 	 */
 	public static void glDrawTransformFeedbackStream(int mode, int id, int stream) {
 		long __functionAddress = getInstance().DrawTransformFeedbackStream;
-		nglDrawTransformFeedbackStream(mode, id, stream, __functionAddress);
+		invokeIIIV(__functionAddress, mode, id, stream);
 	}
 
 	// --- [ glBeginQueryIndexed ] ---
-
-	/** JNI method for {@link #glBeginQueryIndexed BeginQueryIndexed} */
-	@JavadocExclude
-	public static native void nglBeginQueryIndexed(int target, int index, int id, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginQueryIndexed.xhtml">OpenGL SDK Reference</a></p>
@@ -1742,14 +1567,10 @@ public final class GL40 {
 	 */
 	public static void glBeginQueryIndexed(int target, int index, int id) {
 		long __functionAddress = getInstance().BeginQueryIndexed;
-		nglBeginQueryIndexed(target, index, id, __functionAddress);
+		invokeIIIV(__functionAddress, target, index, id);
 	}
 
 	// --- [ glEndQueryIndexed ] ---
-
-	/** JNI method for {@link #glEndQueryIndexed EndQueryIndexed} */
-	@JavadocExclude
-	public static native void nglEndQueryIndexed(int target, int index, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBeginQueryIndexed.xhtml">OpenGL SDK Reference</a></p>
@@ -1761,20 +1582,16 @@ public final class GL40 {
 	 */
 	public static void glEndQueryIndexed(int target, int index) {
 		long __functionAddress = getInstance().EndQueryIndexed;
-		nglEndQueryIndexed(target, index, __functionAddress);
+		invokeIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glGetQueryIndexediv ] ---
-
-	/** JNI method for {@link #glGetQueryIndexediv GetQueryIndexediv} */
-	@JavadocExclude
-	public static native void nglGetQueryIndexediv(int target, int index, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetQueryIndexediv GetQueryIndexediv} */
 	@JavadocExclude
 	public static void nglGetQueryIndexediv(int target, int index, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryIndexediv;
-		nglGetQueryIndexediv(target, index, pname, params, __functionAddress);
+		invokeIIIPV(__functionAddress, target, index, pname, params);
 	}
 
 	/**

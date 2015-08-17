@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/APPLE/APPLE_framebuffer_multisample.txt">APPLE_framebuffer_multisample</a> extension.
@@ -87,24 +88,16 @@ public final class APPLEFramebufferMultisample {
 
 	// --- [ glRenderbufferStorageMultisampleAPPLE ] ---
 
-	/** JNI method for {@link #glRenderbufferStorageMultisampleAPPLE RenderbufferStorageMultisampleAPPLE} */
-	@JavadocExclude
-	public static native void nglRenderbufferStorageMultisampleAPPLE(int target, int samples, int internalformat, int width, int height, long __functionAddress);
-
 	public static void glRenderbufferStorageMultisampleAPPLE(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageMultisampleAPPLE;
-		nglRenderbufferStorageMultisampleAPPLE(target, samples, internalformat, width, height, __functionAddress);
+		invokeIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
 	// --- [ glResolveMultisampleFramebufferAPPLE ] ---
 
-	/** JNI method for {@link #glResolveMultisampleFramebufferAPPLE ResolveMultisampleFramebufferAPPLE} */
-	@JavadocExclude
-	public static native void nglResolveMultisampleFramebufferAPPLE(long __functionAddress);
-
 	public static void glResolveMultisampleFramebufferAPPLE() {
 		long __functionAddress = getInstance().ResolveMultisampleFramebufferAPPLE;
-		nglResolveMultisampleFramebufferAPPLE(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 }

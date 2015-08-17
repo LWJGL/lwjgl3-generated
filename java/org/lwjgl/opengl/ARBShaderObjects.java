@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
@@ -196,10 +197,6 @@ public final class ARBShaderObjects {
 
 	// --- [ glDeleteObjectARB ] ---
 
-	/** JNI method for {@link #glDeleteObjectARB DeleteObjectARB} */
-	@JavadocExclude
-	public static native void nglDeleteObjectARB(int obj, long __functionAddress);
-
 	/**
 	 * Either deletes the object, or flags it for deletion. An object that is attached to a container object is not deleted until it is no longer attached to
 	 * any container object, for any context. If it is still attached to at least one container object, the object is flagged for deletion. If the object is
@@ -217,14 +214,10 @@ public final class ARBShaderObjects {
 	 */
 	public static void glDeleteObjectARB(int obj) {
 		long __functionAddress = getInstance().DeleteObjectARB;
-		nglDeleteObjectARB(obj, __functionAddress);
+		invokeIV(__functionAddress, obj);
 	}
 
 	// --- [ glGetHandleARB ] ---
-
-	/** JNI method for {@link #glGetHandleARB GetHandleARB} */
-	@JavadocExclude
-	public static native int nglGetHandleARB(int pname, long __functionAddress);
 
 	/**
 	 * Returns the handle to an object that is in use as part of current state.
@@ -233,14 +226,10 @@ public final class ARBShaderObjects {
 	 */
 	public static int glGetHandleARB(int pname) {
 		long __functionAddress = getInstance().GetHandleARB;
-		return nglGetHandleARB(pname, __functionAddress);
+		return invokeII(__functionAddress, pname);
 	}
 
 	// --- [ glDetachObjectARB ] ---
-
-	/** JNI method for {@link #glDetachObjectARB DetachObjectARB} */
-	@JavadocExclude
-	public static native void nglDetachObjectARB(int containerObj, int attachedObj, long __functionAddress);
 
 	/**
 	 * Detaches an object from the container object it is attached to.
@@ -250,14 +239,10 @@ public final class ARBShaderObjects {
 	 */
 	public static void glDetachObjectARB(int containerObj, int attachedObj) {
 		long __functionAddress = getInstance().DetachObjectARB;
-		nglDetachObjectARB(containerObj, attachedObj, __functionAddress);
+		invokeIIV(__functionAddress, containerObj, attachedObj);
 	}
 
 	// --- [ glCreateShaderObjectARB ] ---
-
-	/** JNI method for {@link #glCreateShaderObjectARB CreateShaderObjectARB} */
-	@JavadocExclude
-	public static native int nglCreateShaderObjectARB(int shaderType, long __functionAddress);
 
 	/**
 	 * Creates a shader object.
@@ -266,20 +251,16 @@ public final class ARBShaderObjects {
 	 */
 	public static int glCreateShaderObjectARB(int shaderType) {
 		long __functionAddress = getInstance().CreateShaderObjectARB;
-		return nglCreateShaderObjectARB(shaderType, __functionAddress);
+		return invokeII(__functionAddress, shaderType);
 	}
 
 	// --- [ glShaderSourceARB ] ---
-
-	/** JNI method for {@link #glShaderSourceARB ShaderSourceARB} */
-	@JavadocExclude
-	public static native void nglShaderSourceARB(int shaderObj, int count, long string, long length, long __functionAddress);
 
 	/** Unsafe version of {@link #glShaderSourceARB ShaderSourceARB} */
 	@JavadocExclude
 	public static void nglShaderSourceARB(int shaderObj, int count, long string, long length) {
 		long __functionAddress = getInstance().ShaderSourceARB;
-		nglShaderSourceARB(shaderObj, count, string, length, __functionAddress);
+		invokeIIPPV(__functionAddress, shaderObj, count, string, length);
 	}
 
 	/**
@@ -335,10 +316,6 @@ public final class ARBShaderObjects {
 
 	// --- [ glCompileShaderARB ] ---
 
-	/** JNI method for {@link #glCompileShaderARB CompileShaderARB} */
-	@JavadocExclude
-	public static native void nglCompileShaderARB(int shaderObj, long __functionAddress);
-
 	/**
 	 * Compiles a shader object. Each shader object has a Boolean status, {@link #GL_OBJECT_COMPILE_STATUS_ARB OBJECT_COMPILE_STATUS_ARB}, that is modified as a result of compilation. This status
 	 * can be queried with {@link #glGetObjectParameteriARB GetObjectParameteriARB}. This status will be set to {@link GL11#GL_TRUE TRUE} if the shader {@code shaderObj} was compiled without errors and is
@@ -355,14 +332,10 @@ public final class ARBShaderObjects {
 	 */
 	public static void glCompileShaderARB(int shaderObj) {
 		long __functionAddress = getInstance().CompileShaderARB;
-		nglCompileShaderARB(shaderObj, __functionAddress);
+		invokeIV(__functionAddress, shaderObj);
 	}
 
 	// --- [ glCreateProgramObjectARB ] ---
-
-	/** JNI method for {@link #glCreateProgramObjectARB CreateProgramObjectARB} */
-	@JavadocExclude
-	public static native int nglCreateProgramObjectARB(long __functionAddress);
 
 	/**
 	 * Creates a program object.
@@ -374,14 +347,10 @@ public final class ARBShaderObjects {
 	 */
 	public static int glCreateProgramObjectARB() {
 		long __functionAddress = getInstance().CreateProgramObjectARB;
-		return nglCreateProgramObjectARB(__functionAddress);
+		return invokeI(__functionAddress);
 	}
 
 	// --- [ glAttachObjectARB ] ---
-
-	/** JNI method for {@link #glAttachObjectARB AttachObjectARB} */
-	@JavadocExclude
-	public static native void nglAttachObjectARB(int containerObj, int obj, long __functionAddress);
 
 	/**
 	 * Attaches an object to a container object.
@@ -391,14 +360,10 @@ public final class ARBShaderObjects {
 	 */
 	public static void glAttachObjectARB(int containerObj, int obj) {
 		long __functionAddress = getInstance().AttachObjectARB;
-		nglAttachObjectARB(containerObj, obj, __functionAddress);
+		invokeIIV(__functionAddress, containerObj, obj);
 	}
 
 	// --- [ glLinkProgramARB ] ---
-
-	/** JNI method for {@link #glLinkProgramARB LinkProgramARB} */
-	@JavadocExclude
-	public static native void nglLinkProgramARB(int programObj, long __functionAddress);
 
 	/**
 	 * Links a program object.
@@ -417,14 +382,10 @@ public final class ARBShaderObjects {
 	 */
 	public static void glLinkProgramARB(int programObj) {
 		long __functionAddress = getInstance().LinkProgramARB;
-		nglLinkProgramARB(programObj, __functionAddress);
+		invokeIV(__functionAddress, programObj);
 	}
 
 	// --- [ glUseProgramObjectARB ] ---
-
-	/** JNI method for {@link #glUseProgramObjectARB UseProgramObjectARB} */
-	@JavadocExclude
-	public static native void nglUseProgramObjectARB(int programObj, long __functionAddress);
 
 	/**
 	 * Installs the executable code as part of current rendering state if the program object {@code programObj} contains valid executable code, i.e. has been
@@ -444,14 +405,10 @@ public final class ARBShaderObjects {
 	 */
 	public static void glUseProgramObjectARB(int programObj) {
 		long __functionAddress = getInstance().UseProgramObjectARB;
-		nglUseProgramObjectARB(programObj, __functionAddress);
+		invokeIV(__functionAddress, programObj);
 	}
 
 	// --- [ glValidateProgramARB ] ---
-
-	/** JNI method for {@link #glValidateProgramARB ValidateProgramARB} */
-	@JavadocExclude
-	public static native void nglValidateProgramARB(int programObj, long __functionAddress);
 
 	/**
 	 * Validates the program object {@code programObj} against the GL state at that moment. Each program object has a Boolean status,
@@ -472,14 +429,10 @@ public final class ARBShaderObjects {
 	 */
 	public static void glValidateProgramARB(int programObj) {
 		long __functionAddress = getInstance().ValidateProgramARB;
-		nglValidateProgramARB(programObj, __functionAddress);
+		invokeIV(__functionAddress, programObj);
 	}
 
 	// --- [ glUniform1fARB ] ---
-
-	/** JNI method for {@link #glUniform1fARB Uniform1fARB} */
-	@JavadocExclude
-	public static native void nglUniform1fARB(int location, float v0, long __functionAddress);
 
 	/**
 	 * float version of {@link #glUniform4fARB Uniform4fARB}.
@@ -489,14 +442,10 @@ public final class ARBShaderObjects {
 	 */
 	public static void glUniform1fARB(int location, float v0) {
 		long __functionAddress = getInstance().Uniform1fARB;
-		nglUniform1fARB(location, v0, __functionAddress);
+		invokeIFV(__functionAddress, location, v0);
 	}
 
 	// --- [ glUniform2fARB ] ---
-
-	/** JNI method for {@link #glUniform2fARB Uniform2fARB} */
-	@JavadocExclude
-	public static native void nglUniform2fARB(int location, float v0, float v1, long __functionAddress);
 
 	/**
 	 * vec2 version of {@link #glUniform4fARB Uniform4fARB}.
@@ -507,14 +456,10 @@ public final class ARBShaderObjects {
 	 */
 	public static void glUniform2fARB(int location, float v0, float v1) {
 		long __functionAddress = getInstance().Uniform2fARB;
-		nglUniform2fARB(location, v0, v1, __functionAddress);
+		invokeIFFV(__functionAddress, location, v0, v1);
 	}
 
 	// --- [ glUniform3fARB ] ---
-
-	/** JNI method for {@link #glUniform3fARB Uniform3fARB} */
-	@JavadocExclude
-	public static native void nglUniform3fARB(int location, float v0, float v1, float v2, long __functionAddress);
 
 	/**
 	 * vec3 version of {@link #glUniform4fARB Uniform4fARB}.
@@ -526,14 +471,10 @@ public final class ARBShaderObjects {
 	 */
 	public static void glUniform3fARB(int location, float v0, float v1, float v2) {
 		long __functionAddress = getInstance().Uniform3fARB;
-		nglUniform3fARB(location, v0, v1, v2, __functionAddress);
+		invokeIFFFV(__functionAddress, location, v0, v1, v2);
 	}
 
 	// --- [ glUniform4fARB ] ---
-
-	/** JNI method for {@link #glUniform4fARB Uniform4fARB} */
-	@JavadocExclude
-	public static native void nglUniform4fARB(int location, float v0, float v1, float v2, float v3, long __functionAddress);
 
 	/**
 	 * Loads a vec4 value into a uniform variable of the program object that is currently in use.
@@ -546,14 +487,10 @@ public final class ARBShaderObjects {
 	 */
 	public static void glUniform4fARB(int location, float v0, float v1, float v2, float v3) {
 		long __functionAddress = getInstance().Uniform4fARB;
-		nglUniform4fARB(location, v0, v1, v2, v3, __functionAddress);
+		invokeIFFFFV(__functionAddress, location, v0, v1, v2, v3);
 	}
 
 	// --- [ glUniform1iARB ] ---
-
-	/** JNI method for {@link #glUniform1iARB Uniform1iARB} */
-	@JavadocExclude
-	public static native void nglUniform1iARB(int location, int v0, long __functionAddress);
 
 	/**
 	 * int version of {@link #glUniform1fARB Uniform1fARB}.
@@ -563,14 +500,10 @@ public final class ARBShaderObjects {
 	 */
 	public static void glUniform1iARB(int location, int v0) {
 		long __functionAddress = getInstance().Uniform1iARB;
-		nglUniform1iARB(location, v0, __functionAddress);
+		invokeIIV(__functionAddress, location, v0);
 	}
 
 	// --- [ glUniform2iARB ] ---
-
-	/** JNI method for {@link #glUniform2iARB Uniform2iARB} */
-	@JavadocExclude
-	public static native void nglUniform2iARB(int location, int v0, int v1, long __functionAddress);
 
 	/**
 	 * ivec2 version of {@link #glUniform2fARB Uniform2fARB}.
@@ -581,14 +514,10 @@ public final class ARBShaderObjects {
 	 */
 	public static void glUniform2iARB(int location, int v0, int v1) {
 		long __functionAddress = getInstance().Uniform2iARB;
-		nglUniform2iARB(location, v0, v1, __functionAddress);
+		invokeIIIV(__functionAddress, location, v0, v1);
 	}
 
 	// --- [ glUniform3iARB ] ---
-
-	/** JNI method for {@link #glUniform3iARB Uniform3iARB} */
-	@JavadocExclude
-	public static native void nglUniform3iARB(int location, int v0, int v1, int v2, long __functionAddress);
 
 	/**
 	 * ivec3 version of {@link #glUniform3fARB Uniform3fARB}.
@@ -600,14 +529,10 @@ public final class ARBShaderObjects {
 	 */
 	public static void glUniform3iARB(int location, int v0, int v1, int v2) {
 		long __functionAddress = getInstance().Uniform3iARB;
-		nglUniform3iARB(location, v0, v1, v2, __functionAddress);
+		invokeIIIIV(__functionAddress, location, v0, v1, v2);
 	}
 
 	// --- [ glUniform4iARB ] ---
-
-	/** JNI method for {@link #glUniform4iARB Uniform4iARB} */
-	@JavadocExclude
-	public static native void nglUniform4iARB(int location, int v0, int v1, int v2, int v3, long __functionAddress);
 
 	/**
 	 * ivec4 version of {@link #glUniform4fARB Uniform4fARB}.
@@ -620,20 +545,16 @@ public final class ARBShaderObjects {
 	 */
 	public static void glUniform4iARB(int location, int v0, int v1, int v2, int v3) {
 		long __functionAddress = getInstance().Uniform4iARB;
-		nglUniform4iARB(location, v0, v1, v2, v3, __functionAddress);
+		invokeIIIIIV(__functionAddress, location, v0, v1, v2, v3);
 	}
 
 	// --- [ glUniform1fvARB ] ---
-
-	/** JNI method for {@link #glUniform1fvARB Uniform1fvARB} */
-	@JavadocExclude
-	public static native void nglUniform1fvARB(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniform1fvARB Uniform1fvARB} */
 	@JavadocExclude
 	public static void nglUniform1fvARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1fvARB;
-		nglUniform1fvARB(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -656,15 +577,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glUniform2fvARB ] ---
 
-	/** JNI method for {@link #glUniform2fvARB Uniform2fvARB} */
-	@JavadocExclude
-	public static native void nglUniform2fvARB(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform2fvARB Uniform2fvARB} */
 	@JavadocExclude
 	public static void nglUniform2fvARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2fvARB;
-		nglUniform2fvARB(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -687,15 +604,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glUniform3fvARB ] ---
 
-	/** JNI method for {@link #glUniform3fvARB Uniform3fvARB} */
-	@JavadocExclude
-	public static native void nglUniform3fvARB(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform3fvARB Uniform3fvARB} */
 	@JavadocExclude
 	public static void nglUniform3fvARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3fvARB;
-		nglUniform3fvARB(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -718,15 +631,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glUniform4fvARB ] ---
 
-	/** JNI method for {@link #glUniform4fvARB Uniform4fvARB} */
-	@JavadocExclude
-	public static native void nglUniform4fvARB(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform4fvARB Uniform4fvARB} */
 	@JavadocExclude
 	public static void nglUniform4fvARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4fvARB;
-		nglUniform4fvARB(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -749,15 +658,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glUniform1ivARB ] ---
 
-	/** JNI method for {@link #glUniform1ivARB Uniform1ivARB} */
-	@JavadocExclude
-	public static native void nglUniform1ivARB(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform1ivARB Uniform1ivARB} */
 	@JavadocExclude
 	public static void nglUniform1ivARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1ivARB;
-		nglUniform1ivARB(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -780,15 +685,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glUniform2ivARB ] ---
 
-	/** JNI method for {@link #glUniform2ivARB Uniform2ivARB} */
-	@JavadocExclude
-	public static native void nglUniform2ivARB(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform2ivARB Uniform2ivARB} */
 	@JavadocExclude
 	public static void nglUniform2ivARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2ivARB;
-		nglUniform2ivARB(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -811,15 +712,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glUniform3ivARB ] ---
 
-	/** JNI method for {@link #glUniform3ivARB Uniform3ivARB} */
-	@JavadocExclude
-	public static native void nglUniform3ivARB(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform3ivARB Uniform3ivARB} */
 	@JavadocExclude
 	public static void nglUniform3ivARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3ivARB;
-		nglUniform3ivARB(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -842,15 +739,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glUniform4ivARB ] ---
 
-	/** JNI method for {@link #glUniform4ivARB Uniform4ivARB} */
-	@JavadocExclude
-	public static native void nglUniform4ivARB(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform4ivARB Uniform4ivARB} */
 	@JavadocExclude
 	public static void nglUniform4ivARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4ivARB;
-		nglUniform4ivARB(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -873,15 +766,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glUniformMatrix2fvARB ] ---
 
-	/** JNI method for {@link #glUniformMatrix2fvARB UniformMatrix2fvARB} */
-	@JavadocExclude
-	public static native void nglUniformMatrix2fvARB(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix2fvARB UniformMatrix2fvARB} */
 	@JavadocExclude
 	public static void nglUniformMatrix2fvARB(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2fvARB;
-		nglUniformMatrix2fvARB(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -905,15 +794,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glUniformMatrix3fvARB ] ---
 
-	/** JNI method for {@link #glUniformMatrix3fvARB UniformMatrix3fvARB} */
-	@JavadocExclude
-	public static native void nglUniformMatrix3fvARB(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix3fvARB UniformMatrix3fvARB} */
 	@JavadocExclude
 	public static void nglUniformMatrix3fvARB(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3fvARB;
-		nglUniformMatrix3fvARB(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -937,15 +822,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glUniformMatrix4fvARB ] ---
 
-	/** JNI method for {@link #glUniformMatrix4fvARB UniformMatrix4fvARB} */
-	@JavadocExclude
-	public static native void nglUniformMatrix4fvARB(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix4fvARB UniformMatrix4fvARB} */
 	@JavadocExclude
 	public static void nglUniformMatrix4fvARB(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4fvARB;
-		nglUniformMatrix4fvARB(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -969,15 +850,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glGetObjectParameterfvARB ] ---
 
-	/** JNI method for {@link #glGetObjectParameterfvARB GetObjectParameterfvARB} */
-	@JavadocExclude
-	public static native void nglGetObjectParameterfvARB(int obj, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetObjectParameterfvARB GetObjectParameterfvARB} */
 	@JavadocExclude
 	public static void nglGetObjectParameterfvARB(int obj, int pname, long params) {
 		long __functionAddress = getInstance().GetObjectParameterfvARB;
-		nglGetObjectParameterfvARB(obj, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, obj, pname, params);
 	}
 
 	/**
@@ -1002,15 +879,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glGetObjectParameterivARB ] ---
 
-	/** JNI method for {@link #glGetObjectParameterivARB GetObjectParameterivARB} */
-	@JavadocExclude
-	public static native void nglGetObjectParameterivARB(int obj, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetObjectParameterivARB GetObjectParameterivARB} */
 	@JavadocExclude
 	public static void nglGetObjectParameterivARB(int obj, int pname, long params) {
 		long __functionAddress = getInstance().GetObjectParameterivARB;
-		nglGetObjectParameterivARB(obj, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, obj, pname, params);
 	}
 
 	/**
@@ -1043,15 +916,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glGetInfoLogARB ] ---
 
-	/** JNI method for {@link #glGetInfoLogARB GetInfoLogARB} */
-	@JavadocExclude
-	public static native void nglGetInfoLogARB(int obj, int maxLength, long length, long infoLog, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetInfoLogARB GetInfoLogARB} */
 	@JavadocExclude
 	public static void nglGetInfoLogARB(int obj, int maxLength, long length, long infoLog) {
 		long __functionAddress = getInstance().GetInfoLogARB;
-		nglGetInfoLogARB(obj, maxLength, length, infoLog, __functionAddress);
+		invokeIIPPV(__functionAddress, obj, maxLength, length, infoLog);
 	}
 
 	/**
@@ -1110,15 +979,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glGetAttachedObjectsARB ] ---
 
-	/** JNI method for {@link #glGetAttachedObjectsARB GetAttachedObjectsARB} */
-	@JavadocExclude
-	public static native void nglGetAttachedObjectsARB(int containerObj, int maxCount, long count, long obj, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetAttachedObjectsARB GetAttachedObjectsARB} */
 	@JavadocExclude
 	public static void nglGetAttachedObjectsARB(int containerObj, int maxCount, long count, long obj) {
 		long __functionAddress = getInstance().GetAttachedObjectsARB;
-		nglGetAttachedObjectsARB(containerObj, maxCount, count, obj, __functionAddress);
+		invokeIIPPV(__functionAddress, containerObj, maxCount, count, obj);
 	}
 
 	/**
@@ -1169,15 +1034,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glGetUniformLocationARB ] ---
 
-	/** JNI method for {@link #glGetUniformLocationARB GetUniformLocationARB} */
-	@JavadocExclude
-	public static native int nglGetUniformLocationARB(int programObj, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetUniformLocationARB GetUniformLocationARB} */
 	@JavadocExclude
 	public static int nglGetUniformLocationARB(int programObj, long name) {
 		long __functionAddress = getInstance().GetUniformLocationARB;
-		return nglGetUniformLocationARB(programObj, name, __functionAddress);
+		return invokeIPI(__functionAddress, programObj, name);
 	}
 
 	/**
@@ -1211,15 +1072,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glGetActiveUniformARB ] ---
 
-	/** JNI method for {@link #glGetActiveUniformARB GetActiveUniformARB} */
-	@JavadocExclude
-	public static native void nglGetActiveUniformARB(int programObj, int index, int maxLength, long length, long size, long type, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetActiveUniformARB GetActiveUniformARB} */
 	@JavadocExclude
 	public static void nglGetActiveUniformARB(int programObj, int index, int maxLength, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetActiveUniformARB;
-		nglGetActiveUniformARB(programObj, index, maxLength, length, size, type, name, __functionAddress);
+		invokeIIIPPPPV(__functionAddress, programObj, index, maxLength, length, size, type, name);
 	}
 
 	/**
@@ -1304,15 +1161,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glGetUniformfvARB ] ---
 
-	/** JNI method for {@link #glGetUniformfvARB GetUniformfvARB} */
-	@JavadocExclude
-	public static native void nglGetUniformfvARB(int programObj, int location, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetUniformfvARB GetUniformfvARB} */
 	@JavadocExclude
 	public static void nglGetUniformfvARB(int programObj, int location, long params) {
 		long __functionAddress = getInstance().GetUniformfvARB;
-		nglGetUniformfvARB(programObj, location, params, __functionAddress);
+		invokeIIPV(__functionAddress, programObj, location, params);
 	}
 
 	/**
@@ -1345,15 +1198,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glGetUniformivARB ] ---
 
-	/** JNI method for {@link #glGetUniformivARB GetUniformivARB} */
-	@JavadocExclude
-	public static native void nglGetUniformivARB(int programObj, int location, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetUniformivARB GetUniformivARB} */
 	@JavadocExclude
 	public static void nglGetUniformivARB(int programObj, int location, long params) {
 		long __functionAddress = getInstance().GetUniformivARB;
-		nglGetUniformivARB(programObj, location, params, __functionAddress);
+		invokeIIPV(__functionAddress, programObj, location, params);
 	}
 
 	/**
@@ -1386,15 +1235,11 @@ public final class ARBShaderObjects {
 
 	// --- [ glGetShaderSourceARB ] ---
 
-	/** JNI method for {@link #glGetShaderSourceARB GetShaderSourceARB} */
-	@JavadocExclude
-	public static native void nglGetShaderSourceARB(int obj, int maxLength, long length, long source, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetShaderSourceARB GetShaderSourceARB} */
 	@JavadocExclude
 	public static void nglGetShaderSourceARB(int obj, int maxLength, long length, long source) {
 		long __functionAddress = getInstance().GetShaderSourceARB;
-		nglGetShaderSourceARB(obj, maxLength, length, source, __functionAddress);
+		invokeIIPPV(__functionAddress, obj, maxLength, length, source);
 	}
 
 	/**

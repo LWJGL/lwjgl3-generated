@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -260,15 +261,11 @@ public final class GL42 {
 
 	// --- [ glGetActiveAtomicCounterBufferiv ] ---
 
-	/** JNI method for {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv} */
-	@JavadocExclude
-	public static native void nglGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv} */
 	@JavadocExclude
 	public static void nglGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveAtomicCounterBufferiv;
-		nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, params, __functionAddress);
+		invokeIIIPV(__functionAddress, program, bufferIndex, pname, params);
 	}
 
 	/**
@@ -304,10 +301,6 @@ public final class GL42 {
 
 	// --- [ glTexStorage1D ] ---
 
-	/** JNI method for {@link #glTexStorage1D TexStorage1D} */
-	@JavadocExclude
-	public static native void nglTexStorage1D(int target, int levels, int internalformat, int width, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexStorage1D.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -320,14 +313,10 @@ public final class GL42 {
 	 */
 	public static void glTexStorage1D(int target, int levels, int internalformat, int width) {
 		long __functionAddress = getInstance().TexStorage1D;
-		nglTexStorage1D(target, levels, internalformat, width, __functionAddress);
+		invokeIIIIV(__functionAddress, target, levels, internalformat, width);
 	}
 
 	// --- [ glTexStorage2D ] ---
-
-	/** JNI method for {@link #glTexStorage2D TexStorage2D} */
-	@JavadocExclude
-	public static native void nglTexStorage2D(int target, int levels, int internalformat, int width, int height, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexStorage2D.xhtml">OpenGL SDK Reference</a></p>
@@ -342,14 +331,10 @@ public final class GL42 {
 	 */
 	public static void glTexStorage2D(int target, int levels, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().TexStorage2D;
-		nglTexStorage2D(target, levels, internalformat, width, height, __functionAddress);
+		invokeIIIIIV(__functionAddress, target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTexStorage3D ] ---
-
-	/** JNI method for {@link #glTexStorage3D TexStorage3D} */
-	@JavadocExclude
-	public static native void nglTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexStorage3D.xhtml">OpenGL SDK Reference</a></p>
@@ -365,14 +350,10 @@ public final class GL42 {
 	 */
 	public static void glTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth) {
 		long __functionAddress = getInstance().TexStorage3D;
-		nglTexStorage3D(target, levels, internalformat, width, height, depth, __functionAddress);
+		invokeIIIIIIV(__functionAddress, target, levels, internalformat, width, height, depth);
 	}
 
 	// --- [ glDrawTransformFeedbackInstanced ] ---
-
-	/** JNI method for {@link #glDrawTransformFeedbackInstanced DrawTransformFeedbackInstanced} */
-	@JavadocExclude
-	public static native void nglDrawTransformFeedbackInstanced(int mode, int id, int primcount, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedbackInstanced.xhtml">OpenGL SDK Reference</a></p>
@@ -385,14 +366,10 @@ public final class GL42 {
 	 */
 	public static void glDrawTransformFeedbackInstanced(int mode, int id, int primcount) {
 		long __functionAddress = getInstance().DrawTransformFeedbackInstanced;
-		nglDrawTransformFeedbackInstanced(mode, id, primcount, __functionAddress);
+		invokeIIIV(__functionAddress, mode, id, primcount);
 	}
 
 	// --- [ glDrawTransformFeedbackStreamInstanced ] ---
-
-	/** JNI method for {@link #glDrawTransformFeedbackStreamInstanced DrawTransformFeedbackStreamInstanced} */
-	@JavadocExclude
-	public static native void nglDrawTransformFeedbackStreamInstanced(int mode, int id, int stream, int primcount, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawTransformFeedbackStreamInstanced.xhtml">OpenGL SDK Reference</a></p>
@@ -406,14 +383,10 @@ public final class GL42 {
 	 */
 	public static void glDrawTransformFeedbackStreamInstanced(int mode, int id, int stream, int primcount) {
 		long __functionAddress = getInstance().DrawTransformFeedbackStreamInstanced;
-		nglDrawTransformFeedbackStreamInstanced(mode, id, stream, primcount, __functionAddress);
+		invokeIIIIV(__functionAddress, mode, id, stream, primcount);
 	}
 
 	// --- [ glDrawArraysInstancedBaseInstance ] ---
-
-	/** JNI method for {@link #glDrawArraysInstancedBaseInstance DrawArraysInstancedBaseInstance} */
-	@JavadocExclude
-	public static native void nglDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawArraysInstancedBaseInstance.xhtml">OpenGL SDK Reference</a></p>
@@ -428,20 +401,16 @@ public final class GL42 {
 	 */
 	public static void glDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance) {
 		long __functionAddress = getInstance().DrawArraysInstancedBaseInstance;
-		nglDrawArraysInstancedBaseInstance(mode, first, count, primcount, baseinstance, __functionAddress);
+		invokeIIIIIV(__functionAddress, mode, first, count, primcount, baseinstance);
 	}
 
 	// --- [ glDrawElementsInstancedBaseInstance ] ---
-
-	/** JNI method for {@link #glDrawElementsInstancedBaseInstance DrawElementsInstancedBaseInstance} */
-	@JavadocExclude
-	public static native void nglDrawElementsInstancedBaseInstance(int mode, int count, int type, long indices, int primcount, int baseinstance, long __functionAddress);
 
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseInstance DrawElementsInstancedBaseInstance} */
 	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseInstance(int mode, int count, int type, long indices, int primcount, int baseinstance) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseInstance;
-		nglDrawElementsInstancedBaseInstance(mode, count, type, indices, primcount, baseinstance, __functionAddress);
+		invokeIIIPIIV(__functionAddress, mode, count, type, indices, primcount, baseinstance);
 	}
 
 	/**
@@ -501,15 +470,11 @@ public final class GL42 {
 
 	// --- [ glDrawElementsInstancedBaseVertexBaseInstance ] ---
 
-	/** JNI method for {@link #glDrawElementsInstancedBaseVertexBaseInstance DrawElementsInstancedBaseVertexBaseInstance} */
-	@JavadocExclude
-	public static native void nglDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indices, int primcount, int basevertex, int baseinstance, long __functionAddress);
-
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseVertexBaseInstance DrawElementsInstancedBaseVertexBaseInstance} */
 	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indices, int primcount, int basevertex, int baseinstance) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseVertexBaseInstance;
-		nglDrawElementsInstancedBaseVertexBaseInstance(mode, count, type, indices, primcount, basevertex, baseinstance, __functionAddress);
+		invokeIIIPIIIV(__functionAddress, mode, count, type, indices, primcount, basevertex, baseinstance);
 	}
 
 	/**
@@ -570,10 +535,6 @@ public final class GL42 {
 
 	// --- [ glBindImageTexture ] ---
 
-	/** JNI method for {@link #glBindImageTexture BindImageTexture} */
-	@JavadocExclude
-	public static native void nglBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindImageTexture.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -589,14 +550,10 @@ public final class GL42 {
 	 */
 	public static void glBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format) {
 		long __functionAddress = getInstance().BindImageTexture;
-		nglBindImageTexture(unit, texture, level, layered, layer, access, format, __functionAddress);
+		invokeIIIZIIIV(__functionAddress, unit, texture, level, layered, layer, access, format);
 	}
 
 	// --- [ glMemoryBarrier ] ---
-
-	/** JNI method for {@link #glMemoryBarrier MemoryBarrier} */
-	@JavadocExclude
-	public static native void nglMemoryBarrier(int barriers, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMemoryBarrier.xhtml">OpenGL SDK Reference</a></p>
@@ -607,20 +564,16 @@ public final class GL42 {
 	 */
 	public static void glMemoryBarrier(int barriers) {
 		long __functionAddress = getInstance().MemoryBarrier;
-		nglMemoryBarrier(barriers, __functionAddress);
+		invokeIV(__functionAddress, barriers);
 	}
 
 	// --- [ glGetInternalformativ ] ---
-
-	/** JNI method for {@link #glGetInternalformativ GetInternalformativ} */
-	@JavadocExclude
-	public static native void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetInternalformativ GetInternalformativ} */
 	@JavadocExclude
 	public static void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params) {
 		long __functionAddress = getInstance().GetInternalformativ;
-		nglGetInternalformativ(target, internalformat, pname, bufSize, params, __functionAddress);
+		invokeIIIIPV(__functionAddress, target, internalformat, pname, bufSize, params);
 	}
 
 	/**

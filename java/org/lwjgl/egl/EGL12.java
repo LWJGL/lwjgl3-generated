@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** The core EGL 1.2 functionality. */
@@ -75,31 +76,19 @@ public final class EGL12 {
 
 	// --- [ eglBindAPI ] ---
 
-	/** JNI method for {@link #eglBindAPI BindAPI} */
-	@JavadocExclude
-	public static native boolean neglBindAPI(int api, long __functionAddress);
-
 	public static boolean eglBindAPI(int api) {
 		long __functionAddress = getInstance().BindAPI;
-		return neglBindAPI(api, __functionAddress);
+		return invokeIZ(__functionAddress, api);
 	}
 
 	// --- [ eglQueryAPI ] ---
 
-	/** JNI method for {@link #eglQueryAPI QueryAPI} */
-	@JavadocExclude
-	public static native int neglQueryAPI(long __functionAddress);
-
 	public static int eglQueryAPI() {
 		long __functionAddress = getInstance().QueryAPI;
-		return neglQueryAPI(__functionAddress);
+		return invokeI(__functionAddress);
 	}
 
 	// --- [ eglCreatePbufferFromClientBuffer ] ---
-
-	/** JNI method for {@link #eglCreatePbufferFromClientBuffer CreatePbufferFromClientBuffer} */
-	@JavadocExclude
-	public static native long neglCreatePbufferFromClientBuffer(long dpy, int buftype, long buffer, long config, long attrib_list, long __functionAddress);
 
 	/** Unsafe version of {@link #eglCreatePbufferFromClientBuffer CreatePbufferFromClientBuffer} */
 	@JavadocExclude
@@ -110,7 +99,7 @@ public final class EGL12 {
 			checkPointer(buffer);
 			checkPointer(config);
 		}
-		return neglCreatePbufferFromClientBuffer(dpy, buftype, buffer, config, attrib_list, __functionAddress);
+		return invokePIPPPP(__functionAddress, dpy, buftype, buffer, config, attrib_list);
 	}
 
 	public static long eglCreatePbufferFromClientBuffer(long dpy, int buftype, long buffer, long config, ByteBuffer attrib_list) {
@@ -128,24 +117,16 @@ public final class EGL12 {
 
 	// --- [ eglReleaseThread ] ---
 
-	/** JNI method for {@link #eglReleaseThread ReleaseThread} */
-	@JavadocExclude
-	public static native boolean neglReleaseThread(long __functionAddress);
-
 	public static boolean eglReleaseThread() {
 		long __functionAddress = getInstance().ReleaseThread;
-		return neglReleaseThread(__functionAddress);
+		return invokeZ(__functionAddress);
 	}
 
 	// --- [ eglWaitClient ] ---
 
-	/** JNI method for {@link #eglWaitClient WaitClient} */
-	@JavadocExclude
-	public static native boolean neglWaitClient(long __functionAddress);
-
 	public static boolean eglWaitClient() {
 		long __functionAddress = getInstance().WaitClient;
-		return neglWaitClient(__functionAddress);
+		return invokeZ(__functionAddress);
 	}
 
 }

@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_geometry_shader.txt">EXT_geometry_shader</a> extension.
@@ -137,13 +138,9 @@ public final class EXTGeometryShader {
 
 	// --- [ glFramebufferTextureEXT ] ---
 
-	/** JNI method for {@link #glFramebufferTextureEXT FramebufferTextureEXT} */
-	@JavadocExclude
-	public static native void nglFramebufferTextureEXT(int target, int attachment, int texture, int level, long __functionAddress);
-
 	public static void glFramebufferTextureEXT(int target, int attachment, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTextureEXT;
-		nglFramebufferTextureEXT(target, attachment, texture, level, __functionAddress);
+		invokeIIIIV(__functionAddress, target, attachment, texture, level);
 	}
 
 }

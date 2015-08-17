@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -56,10 +57,6 @@ public final class KHRGLEvent {
 
 	// --- [ clCreateEventFromGLsyncKHR ] ---
 
-	/** JNI method for {@link #clCreateEventFromGLsyncKHR CreateEventFromGLsyncKHR} */
-	@JavadocExclude
-	public static native long nclCreateEventFromGLsyncKHR(long context, long sync, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clCreateEventFromGLsyncKHR CreateEventFromGLsyncKHR} */
 	@JavadocExclude
 	public static long nclCreateEventFromGLsyncKHR(long context, long sync, long errcode_ret) {
@@ -68,7 +65,7 @@ public final class KHRGLEvent {
 			checkPointer(context);
 			checkPointer(sync);
 		}
-		return nclCreateEventFromGLsyncKHR(context, sync, errcode_ret, __functionAddress);
+		return invokePPPP(__functionAddress, context, sync, errcode_ret);
 	}
 
 	/**

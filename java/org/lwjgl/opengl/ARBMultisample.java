@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/multisample.txt">ARB_multisample</a> extension.
@@ -80,10 +81,6 @@ public final class ARBMultisample {
 
 	// --- [ glSampleCoverageARB ] ---
 
-	/** JNI method for {@link #glSampleCoverageARB SampleCoverageARB} */
-	@JavadocExclude
-	public static native void nglSampleCoverageARB(float value, boolean invert, long __functionAddress);
-
 	/**
 	 * Specifies simultaneously the values of {@link #GL_SAMPLE_COVERAGE_VALUE_ARB SAMPLE_COVERAGE_VALUE_ARB} and {@link #GL_SAMPLE_COVERAGE_INVERT_ARB SAMPLE_COVERAGE_INVERT_ARB}.
 	 * 
@@ -96,7 +93,7 @@ public final class ARBMultisample {
 	 */
 	public static void glSampleCoverageARB(float value, boolean invert) {
 		long __functionAddress = getInstance().SampleCoverageARB;
-		nglSampleCoverageARB(value, invert, __functionAddress);
+		invokeFZV(__functionAddress, value, invert);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -84,7 +85,7 @@ public final class ARBBufferStorage {
 	@JavadocExclude
 	public static void nglBufferStorage(int target, long size, long data, int flags) {
 		long __functionAddress = getInstance().BufferStorage;
-		GL44.nglBufferStorage(target, size, data, flags, __functionAddress);
+		invokeIPPIV(__functionAddress, target, size, data, flags);
 	}
 
 	/**
@@ -138,44 +139,40 @@ public final class ARBBufferStorage {
 	public static void glBufferStorage(int target, long size, ByteBuffer data, int flags) {
 		if ( LWJGLUtil.CHECKS )
 			if ( data != null ) checkBuffer(data, size);
-		nglBufferStorage(target, size, memAddressSafe(data), flags);
+		GL44.nglBufferStorage(target, size, memAddressSafe(data), flags);
 	}
 
 	/** Alternative version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, long size, int flags) {
-		nglBufferStorage(target, size, 0L, flags);
+		GL44.nglBufferStorage(target, size, 0L, flags);
 	}
 
 	/** ByteBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, ByteBuffer data, int flags) {
-		nglBufferStorage(target, data.remaining(), memAddress(data), flags);
+		GL44.nglBufferStorage(target, data.remaining(), memAddress(data), flags);
 	}
 
 	/** ShortBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, ShortBuffer data, int flags) {
-		nglBufferStorage(target, data.remaining() << 1, memAddress(data), flags);
+		GL44.nglBufferStorage(target, data.remaining() << 1, memAddress(data), flags);
 	}
 
 	/** IntBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, IntBuffer data, int flags) {
-		nglBufferStorage(target, data.remaining() << 2, memAddress(data), flags);
+		GL44.nglBufferStorage(target, data.remaining() << 2, memAddress(data), flags);
 	}
 
 	/** FloatBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, FloatBuffer data, int flags) {
-		nglBufferStorage(target, data.remaining() << 2, memAddress(data), flags);
+		GL44.nglBufferStorage(target, data.remaining() << 2, memAddress(data), flags);
 	}
 
 	/** DoubleBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, DoubleBuffer data, int flags) {
-		nglBufferStorage(target, data.remaining() << 3, memAddress(data), flags);
+		GL44.nglBufferStorage(target, data.remaining() << 3, memAddress(data), flags);
 	}
 
 	// --- [ glNamedBufferStorageEXT ] ---
-
-	/** JNI method for {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */
-	@JavadocExclude
-	public static native void nglNamedBufferStorageEXT(int buffer, long size, long data, int flags, long __functionAddress);
 
 	/** Unsafe version of {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */
 	@JavadocExclude
@@ -183,7 +180,7 @@ public final class ARBBufferStorage {
 		long __functionAddress = getInstance().NamedBufferStorageEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglNamedBufferStorageEXT(buffer, size, data, flags, __functionAddress);
+		invokeIPPIV(__functionAddress, buffer, size, data, flags);
 	}
 
 	/**

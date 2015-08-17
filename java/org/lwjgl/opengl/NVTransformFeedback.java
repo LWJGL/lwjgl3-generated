@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -156,37 +157,25 @@ public final class NVTransformFeedback {
 
 	// --- [ glBeginTransformFeedbackNV ] ---
 
-	/** JNI method for {@link #glBeginTransformFeedbackNV BeginTransformFeedbackNV} */
-	@JavadocExclude
-	public static native void nglBeginTransformFeedbackNV(int primitiveMode, long __functionAddress);
-
 	public static void glBeginTransformFeedbackNV(int primitiveMode) {
 		long __functionAddress = getInstance().BeginTransformFeedbackNV;
-		nglBeginTransformFeedbackNV(primitiveMode, __functionAddress);
+		invokeIV(__functionAddress, primitiveMode);
 	}
 
 	// --- [ glEndTransformFeedbackNV ] ---
 
-	/** JNI method for {@link #glEndTransformFeedbackNV EndTransformFeedbackNV} */
-	@JavadocExclude
-	public static native void nglEndTransformFeedbackNV(long __functionAddress);
-
 	public static void glEndTransformFeedbackNV() {
 		long __functionAddress = getInstance().EndTransformFeedbackNV;
-		nglEndTransformFeedbackNV(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glTransformFeedbackAttribsNV ] ---
-
-	/** JNI method for {@link #glTransformFeedbackAttribsNV TransformFeedbackAttribsNV} */
-	@JavadocExclude
-	public static native void nglTransformFeedbackAttribsNV(int count, long attribs, int bufferMode, long __functionAddress);
 
 	/** Unsafe version of {@link #glTransformFeedbackAttribsNV TransformFeedbackAttribsNV} */
 	@JavadocExclude
 	public static void nglTransformFeedbackAttribsNV(int count, long attribs, int bufferMode) {
 		long __functionAddress = getInstance().TransformFeedbackAttribsNV;
-		nglTransformFeedbackAttribsNV(count, attribs, bufferMode, __functionAddress);
+		invokeIPIV(__functionAddress, count, attribs, bufferMode);
 	}
 
 	public static void glTransformFeedbackAttribsNV(int count, ByteBuffer attribs, int bufferMode) {
@@ -202,48 +191,32 @@ public final class NVTransformFeedback {
 
 	// --- [ glBindBufferRangeNV ] ---
 
-	/** JNI method for {@link #glBindBufferRangeNV BindBufferRangeNV} */
-	@JavadocExclude
-	public static native void nglBindBufferRangeNV(int target, int index, int buffer, long offset, long size, long __functionAddress);
-
 	public static void glBindBufferRangeNV(int target, int index, int buffer, long offset, long size) {
 		long __functionAddress = getInstance().BindBufferRangeNV;
-		nglBindBufferRangeNV(target, index, buffer, offset, size, __functionAddress);
+		invokeIIIPPV(__functionAddress, target, index, buffer, offset, size);
 	}
 
 	// --- [ glBindBufferOffsetNV ] ---
 
-	/** JNI method for {@link #glBindBufferOffsetNV BindBufferOffsetNV} */
-	@JavadocExclude
-	public static native void nglBindBufferOffsetNV(int target, int index, int buffer, long offset, long __functionAddress);
-
 	public static void glBindBufferOffsetNV(int target, int index, int buffer, long offset) {
 		long __functionAddress = getInstance().BindBufferOffsetNV;
-		nglBindBufferOffsetNV(target, index, buffer, offset, __functionAddress);
+		invokeIIIPV(__functionAddress, target, index, buffer, offset);
 	}
 
 	// --- [ glBindBufferBaseNV ] ---
 
-	/** JNI method for {@link #glBindBufferBaseNV BindBufferBaseNV} */
-	@JavadocExclude
-	public static native void nglBindBufferBaseNV(int target, int index, int buffer, long __functionAddress);
-
 	public static void glBindBufferBaseNV(int target, int index, int buffer) {
 		long __functionAddress = getInstance().BindBufferBaseNV;
-		nglBindBufferBaseNV(target, index, buffer, __functionAddress);
+		invokeIIIV(__functionAddress, target, index, buffer);
 	}
 
 	// --- [ glTransformFeedbackVaryingsNV ] ---
-
-	/** JNI method for {@link #glTransformFeedbackVaryingsNV TransformFeedbackVaryingsNV} */
-	@JavadocExclude
-	public static native void nglTransformFeedbackVaryingsNV(int program, int count, long locations, int bufferMode, long __functionAddress);
 
 	/** Unsafe version of {@link #glTransformFeedbackVaryingsNV TransformFeedbackVaryingsNV} */
 	@JavadocExclude
 	public static void nglTransformFeedbackVaryingsNV(int program, int count, long locations, int bufferMode) {
 		long __functionAddress = getInstance().TransformFeedbackVaryingsNV;
-		nglTransformFeedbackVaryingsNV(program, count, locations, bufferMode, __functionAddress);
+		invokeIIPIV(__functionAddress, program, count, locations, bufferMode);
 	}
 
 	public static void glTransformFeedbackVaryingsNV(int program, int count, ByteBuffer locations, int bufferMode) {
@@ -259,15 +232,11 @@ public final class NVTransformFeedback {
 
 	// --- [ glActiveVaryingNV ] ---
 
-	/** JNI method for {@link #glActiveVaryingNV ActiveVaryingNV} */
-	@JavadocExclude
-	public static native void nglActiveVaryingNV(int program, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glActiveVaryingNV ActiveVaryingNV} */
 	@JavadocExclude
 	public static void nglActiveVaryingNV(int program, long name) {
 		long __functionAddress = getInstance().ActiveVaryingNV;
-		nglActiveVaryingNV(program, name, __functionAddress);
+		invokeIPV(__functionAddress, program, name);
 	}
 
 	public static void glActiveVaryingNV(int program, ByteBuffer name) {
@@ -285,15 +254,11 @@ public final class NVTransformFeedback {
 
 	// --- [ glGetVaryingLocationNV ] ---
 
-	/** JNI method for {@link #glGetVaryingLocationNV GetVaryingLocationNV} */
-	@JavadocExclude
-	public static native int nglGetVaryingLocationNV(int program, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetVaryingLocationNV GetVaryingLocationNV} */
 	@JavadocExclude
 	public static int nglGetVaryingLocationNV(int program, long name) {
 		long __functionAddress = getInstance().GetVaryingLocationNV;
-		return nglGetVaryingLocationNV(program, name, __functionAddress);
+		return invokeIPI(__functionAddress, program, name);
 	}
 
 	public static int glGetVaryingLocationNV(int program, ByteBuffer name) {
@@ -311,15 +276,11 @@ public final class NVTransformFeedback {
 
 	// --- [ glGetActiveVaryingNV ] ---
 
-	/** JNI method for {@link #glGetActiveVaryingNV GetActiveVaryingNV} */
-	@JavadocExclude
-	public static native void nglGetActiveVaryingNV(int program, int index, int bufSize, long length, long size, long type, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetActiveVaryingNV GetActiveVaryingNV} */
 	@JavadocExclude
 	public static void nglGetActiveVaryingNV(int program, int index, int bufSize, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetActiveVaryingNV;
-		nglGetActiveVaryingNV(program, index, bufSize, length, size, type, name, __functionAddress);
+		invokeIIIPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
 	}
 
 	public static void glGetActiveVaryingNV(int program, int index, int bufSize, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
@@ -344,15 +305,11 @@ public final class NVTransformFeedback {
 
 	// --- [ glGetTransformFeedbackVaryingNV ] ---
 
-	/** JNI method for {@link #glGetTransformFeedbackVaryingNV GetTransformFeedbackVaryingNV} */
-	@JavadocExclude
-	public static native void nglGetTransformFeedbackVaryingNV(int program, int index, long location, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetTransformFeedbackVaryingNV GetTransformFeedbackVaryingNV} */
 	@JavadocExclude
 	public static void nglGetTransformFeedbackVaryingNV(int program, int index, long location) {
 		long __functionAddress = getInstance().GetTransformFeedbackVaryingNV;
-		nglGetTransformFeedbackVaryingNV(program, index, location, __functionAddress);
+		invokeIIPV(__functionAddress, program, index, location);
 	}
 
 	public static void glGetTransformFeedbackVaryingNV(int program, int index, ByteBuffer location) {
@@ -378,15 +335,11 @@ public final class NVTransformFeedback {
 
 	// --- [ glTransformFeedbackStreamAttribsNV ] ---
 
-	/** JNI method for {@link #glTransformFeedbackStreamAttribsNV TransformFeedbackStreamAttribsNV} */
-	@JavadocExclude
-	public static native void nglTransformFeedbackStreamAttribsNV(int count, long attribs, int nbuffers, long bufstreams, int bufferMode, long __functionAddress);
-
 	/** Unsafe version of {@link #glTransformFeedbackStreamAttribsNV TransformFeedbackStreamAttribsNV} */
 	@JavadocExclude
 	public static void nglTransformFeedbackStreamAttribsNV(int count, long attribs, int nbuffers, long bufstreams, int bufferMode) {
 		long __functionAddress = getInstance().TransformFeedbackStreamAttribsNV;
-		nglTransformFeedbackStreamAttribsNV(count, attribs, nbuffers, bufstreams, bufferMode, __functionAddress);
+		invokeIPIPIV(__functionAddress, count, attribs, nbuffers, bufstreams, bufferMode);
 	}
 
 	public static void glTransformFeedbackStreamAttribsNV(int count, ByteBuffer attribs, int nbuffers, ByteBuffer bufstreams, int bufferMode) {

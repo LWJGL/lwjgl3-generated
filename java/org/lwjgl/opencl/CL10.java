@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
@@ -527,15 +528,11 @@ public final class CL10 {
 
 	// --- [ clGetPlatformIDs ] ---
 
-	/** JNI method for {@link #clGetPlatformIDs GetPlatformIDs} */
-	@JavadocExclude
-	public static native int nclGetPlatformIDs(int num_entries, long platforms, long num_platforms, long __functionAddress);
-
 	/** Unsafe version of {@link #clGetPlatformIDs GetPlatformIDs} */
 	@JavadocExclude
 	public static int nclGetPlatformIDs(int num_entries, long platforms, long num_platforms) {
 		long __functionAddress = getInstance().GetPlatformIDs;
-		return nclGetPlatformIDs(num_entries, platforms, num_platforms, __functionAddress);
+		return invokeIPPI(__functionAddress, num_entries, platforms, num_platforms);
 	}
 
 	/**
@@ -572,17 +569,13 @@ public final class CL10 {
 
 	// --- [ clGetPlatformInfo ] ---
 
-	/** JNI method for {@link #clGetPlatformInfo GetPlatformInfo} */
-	@JavadocExclude
-	public static native int nclGetPlatformInfo(long platform, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clGetPlatformInfo GetPlatformInfo} */
 	@JavadocExclude
 	public static int nclGetPlatformInfo(long platform, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetPlatformInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(platform);
-		return nclGetPlatformInfo(platform, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
+		return invokePIPPPI(__functionAddress, platform, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -619,17 +612,13 @@ public final class CL10 {
 
 	// --- [ clGetDeviceIDs ] ---
 
-	/** JNI method for {@link #clGetDeviceIDs GetDeviceIDs} */
-	@JavadocExclude
-	public static native int nclGetDeviceIDs(long platform, long device_type, int num_entries, long devices, long num_devices, long __functionAddress);
-
 	/** Unsafe version of {@link #clGetDeviceIDs GetDeviceIDs} */
 	@JavadocExclude
 	public static int nclGetDeviceIDs(long platform, long device_type, int num_entries, long devices, long num_devices) {
 		long __functionAddress = getInstance().GetDeviceIDs;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(platform);
-		return nclGetDeviceIDs(platform, device_type, num_entries, devices, num_devices, __functionAddress);
+		return invokePJIPPI(__functionAddress, platform, device_type, num_entries, devices, num_devices);
 	}
 
 	/**
@@ -672,17 +661,13 @@ public final class CL10 {
 
 	// --- [ clGetDeviceInfo ] ---
 
-	/** JNI method for {@link #clGetDeviceInfo GetDeviceInfo} */
-	@JavadocExclude
-	public static native int nclGetDeviceInfo(long device, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clGetDeviceInfo GetDeviceInfo} */
 	@JavadocExclude
 	public static int nclGetDeviceInfo(long device, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetDeviceInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		return nclGetDeviceInfo(device, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
+		return invokePIPPPI(__functionAddress, device, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -743,15 +728,11 @@ public final class CL10 {
 
 	// --- [ clCreateContext ] ---
 
-	/** JNI method for {@link #clCreateContext CreateContext} */
-	@JavadocExclude
-	public static native long nclCreateContext(long properties, int num_devices, long devices, long pfn_notify, long user_data, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clCreateContext CreateContext} */
 	@JavadocExclude
 	public static long nclCreateContext(long properties, int num_devices, long devices, long pfn_notify, long user_data, long errcode_ret) {
 		long __functionAddress = getInstance().CreateContext;
-		return nclCreateContext(properties, num_devices, devices, pfn_notify, user_data, errcode_ret, __functionAddress);
+		return invokePIPPPPP(__functionAddress, properties, num_devices, devices, pfn_notify, user_data, errcode_ret);
 	}
 
 	/**
@@ -817,15 +798,11 @@ public final class CL10 {
 
 	// --- [ clCreateContextFromType ] ---
 
-	/** JNI method for {@link #clCreateContextFromType CreateContextFromType} */
-	@JavadocExclude
-	public static native long nclCreateContextFromType(long properties, long device_type, long pfn_notify, long user_data, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clCreateContextFromType CreateContextFromType} */
 	@JavadocExclude
 	public static long nclCreateContextFromType(long properties, long device_type, long pfn_notify, long user_data, long errcode_ret) {
 		long __functionAddress = getInstance().CreateContextFromType;
-		return nclCreateContextFromType(properties, device_type, pfn_notify, user_data, errcode_ret, __functionAddress);
+		return invokePJPPPP(__functionAddress, properties, device_type, pfn_notify, user_data, errcode_ret);
 	}
 
 	/**
@@ -857,10 +834,6 @@ public final class CL10 {
 
 	// --- [ clRetainContext ] ---
 
-	/** JNI method for {@link #clRetainContext RetainContext} */
-	@JavadocExclude
-	public static native int nclRetainContext(long context, long __functionAddress);
-
 	/**
 	 * Increments the context reference count.
 	 * 
@@ -881,14 +854,10 @@ public final class CL10 {
 		long __functionAddress = getInstance().RetainContext;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nclRetainContext(context, __functionAddress);
+		return invokePI(__functionAddress, context);
 	}
 
 	// --- [ clReleaseContext ] ---
-
-	/** JNI method for {@link #clReleaseContext ReleaseContext} */
-	@JavadocExclude
-	public static native int nclReleaseContext(long context, long __functionAddress);
 
 	/**
 	 * Decrements the context reference count.
@@ -909,14 +878,10 @@ public final class CL10 {
 		long __functionAddress = getInstance().ReleaseContext;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nclReleaseContext(context, __functionAddress);
+		return invokePI(__functionAddress, context);
 	}
 
 	// --- [ clGetContextInfo ] ---
-
-	/** JNI method for {@link #clGetContextInfo GetContextInfo} */
-	@JavadocExclude
-	public static native int nclGetContextInfo(long context, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/** Unsafe version of {@link #clGetContextInfo GetContextInfo} */
 	@JavadocExclude
@@ -924,7 +889,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().GetContextInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nclGetContextInfo(context, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
+		return invokePIPPPI(__functionAddress, context, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -976,10 +941,6 @@ public final class CL10 {
 
 	// --- [ clCreateCommandQueue ] ---
 
-	/** JNI method for {@link #clCreateCommandQueue CreateCommandQueue} */
-	@JavadocExclude
-	public static native long nclCreateCommandQueue(long context, long device, long properties, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clCreateCommandQueue CreateCommandQueue} */
 	@JavadocExclude
 	public static long nclCreateCommandQueue(long context, long device, long properties, long errcode_ret) {
@@ -988,7 +949,7 @@ public final class CL10 {
 			checkPointer(context);
 			checkPointer(device);
 		}
-		return nclCreateCommandQueue(context, device, properties, errcode_ret, __functionAddress);
+		return invokePPJPP(__functionAddress, context, device, properties, errcode_ret);
 	}
 
 	/**
@@ -1031,10 +992,6 @@ public final class CL10 {
 
 	// --- [ clRetainCommandQueue ] ---
 
-	/** JNI method for {@link #clRetainCommandQueue RetainCommandQueue} */
-	@JavadocExclude
-	public static native int nclRetainCommandQueue(long command_queue, long __functionAddress);
-
 	/**
 	 * Increments the {@code command_queue} reference count.
 	 * 
@@ -1055,14 +1012,10 @@ public final class CL10 {
 		long __functionAddress = getInstance().RetainCommandQueue;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return nclRetainCommandQueue(command_queue, __functionAddress);
+		return invokePI(__functionAddress, command_queue);
 	}
 
 	// --- [ clReleaseCommandQueue ] ---
-
-	/** JNI method for {@link #clReleaseCommandQueue ReleaseCommandQueue} */
-	@JavadocExclude
-	public static native int nclReleaseCommandQueue(long command_queue, long __functionAddress);
 
 	/**
 	 * Decrements the {@code command_queue} reference count.
@@ -1085,14 +1038,10 @@ public final class CL10 {
 		long __functionAddress = getInstance().ReleaseCommandQueue;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return nclReleaseCommandQueue(command_queue, __functionAddress);
+		return invokePI(__functionAddress, command_queue);
 	}
 
 	// --- [ clGetCommandQueueInfo ] ---
-
-	/** JNI method for {@link #clGetCommandQueueInfo GetCommandQueueInfo} */
-	@JavadocExclude
-	public static native int nclGetCommandQueueInfo(long command_queue, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/** Unsafe version of {@link #clGetCommandQueueInfo GetCommandQueueInfo} */
 	@JavadocExclude
@@ -1100,7 +1049,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().GetCommandQueueInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return nclGetCommandQueueInfo(command_queue, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
+		return invokePIPPPI(__functionAddress, command_queue, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -1159,17 +1108,13 @@ public final class CL10 {
 
 	// --- [ clCreateBuffer ] ---
 
-	/** JNI method for {@link #clCreateBuffer CreateBuffer} */
-	@JavadocExclude
-	public static native long nclCreateBuffer(long context, long flags, long size, long host_ptr, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clCreateBuffer CreateBuffer} */
 	@JavadocExclude
 	public static long nclCreateBuffer(long context, long flags, long size, long host_ptr, long errcode_ret) {
 		long __functionAddress = getInstance().CreateBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nclCreateBuffer(context, flags, size, host_ptr, errcode_ret, __functionAddress);
+		return invokePJPPPP(__functionAddress, context, flags, size, host_ptr, errcode_ret);
 	}
 
 	/**
@@ -1249,10 +1194,6 @@ public final class CL10 {
 
 	// --- [ clEnqueueReadBuffer ] ---
 
-	/** JNI method for {@link #clEnqueueReadBuffer EnqueueReadBuffer} */
-	@JavadocExclude
-	public static native int nclEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, long size, long ptr, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueReadBuffer EnqueueReadBuffer} */
 	@JavadocExclude
 	public static int nclEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, long size, long ptr, int num_events_in_wait_list, long event_wait_list, long event) {
@@ -1261,7 +1202,7 @@ public final class CL10 {
 			checkPointer(command_queue);
 			checkPointer(buffer);
 		}
-		return nclEnqueueReadBuffer(command_queue, buffer, blocking_read, offset, size, ptr, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePPIPPPIPPI(__functionAddress, command_queue, buffer, blocking_read, offset, size, ptr, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -1367,10 +1308,6 @@ public final class CL10 {
 
 	// --- [ clEnqueueWriteBuffer ] ---
 
-	/** JNI method for {@link #clEnqueueWriteBuffer EnqueueWriteBuffer} */
-	@JavadocExclude
-	public static native int nclEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, long size, long ptr, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueWriteBuffer EnqueueWriteBuffer} */
 	@JavadocExclude
 	public static int nclEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, long size, long ptr, int num_events_in_wait_list, long event_wait_list, long event) {
@@ -1379,7 +1316,7 @@ public final class CL10 {
 			checkPointer(command_queue);
 			checkPointer(buffer);
 		}
-		return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write, offset, size, ptr, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePPIPPPIPPI(__functionAddress, command_queue, buffer, blocking_write, offset, size, ptr, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -1484,10 +1421,6 @@ public final class CL10 {
 
 	// --- [ clEnqueueCopyBuffer ] ---
 
-	/** JNI method for {@link #clEnqueueCopyBuffer EnqueueCopyBuffer} */
-	@JavadocExclude
-	public static native int nclEnqueueCopyBuffer(long command_queue, long src_buffer, long dst_buffer, long src_offset, long dst_offset, long size, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueCopyBuffer EnqueueCopyBuffer} */
 	@JavadocExclude
 	public static int nclEnqueueCopyBuffer(long command_queue, long src_buffer, long dst_buffer, long src_offset, long dst_offset, long size, int num_events_in_wait_list, long event_wait_list, long event) {
@@ -1497,7 +1430,7 @@ public final class CL10 {
 			checkPointer(src_buffer);
 			checkPointer(dst_buffer);
 		}
-		return nclEnqueueCopyBuffer(command_queue, src_buffer, dst_buffer, src_offset, dst_offset, size, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePPPPPPIPPI(__functionAddress, command_queue, src_buffer, dst_buffer, src_offset, dst_offset, size, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -1560,10 +1493,6 @@ public final class CL10 {
 
 	// --- [ clEnqueueMapBuffer ] ---
 
-	/** JNI method for {@link #clEnqueueMapBuffer EnqueueMapBuffer} */
-	@JavadocExclude
-	public static native long nclEnqueueMapBuffer(long command_queue, long buffer, int blocking_map, long map_flags, long offset, long size, int num_events_in_wait_list, long event_wait_list, long event, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueMapBuffer EnqueueMapBuffer} */
 	@JavadocExclude
 	public static long nclEnqueueMapBuffer(long command_queue, long buffer, int blocking_map, long map_flags, long offset, long size, int num_events_in_wait_list, long event_wait_list, long event, long errcode_ret) {
@@ -1572,7 +1501,7 @@ public final class CL10 {
 			checkPointer(command_queue);
 			checkPointer(buffer);
 		}
-		return nclEnqueueMapBuffer(command_queue, buffer, blocking_map, map_flags, offset, size, num_events_in_wait_list, event_wait_list, event, errcode_ret, __functionAddress);
+		return invokePPIJPPIPPPP(__functionAddress, command_queue, buffer, blocking_map, map_flags, offset, size, num_events_in_wait_list, event_wait_list, event, errcode_ret);
 	}
 
 	/**
@@ -1661,17 +1590,13 @@ public final class CL10 {
 
 	// --- [ clCreateImage2D ] ---
 
-	/** JNI method for {@link #clCreateImage2D CreateImage2D} */
-	@JavadocExclude
-	public static native long nclCreateImage2D(long context, long flags, long image_format, long image_width, long image_height, long image_row_pitch, long host_ptr, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clCreateImage2D CreateImage2D} */
 	@JavadocExclude
 	public static long nclCreateImage2D(long context, long flags, long image_format, long image_width, long image_height, long image_row_pitch, long host_ptr, long errcode_ret) {
 		long __functionAddress = getInstance().CreateImage2D;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nclCreateImage2D(context, flags, image_format, image_width, image_height, image_row_pitch, host_ptr, errcode_ret, __functionAddress);
+		return invokePJPPPPPPP(__functionAddress, context, flags, image_format, image_width, image_height, image_row_pitch, host_ptr, errcode_ret);
 	}
 
 	/**
@@ -1755,17 +1680,13 @@ public final class CL10 {
 
 	// --- [ clCreateImage3D ] ---
 
-	/** JNI method for {@link #clCreateImage3D CreateImage3D} */
-	@JavadocExclude
-	public static native long nclCreateImage3D(long context, long flags, long image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, long host_ptr, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clCreateImage3D CreateImage3D} */
 	@JavadocExclude
 	public static long nclCreateImage3D(long context, long flags, long image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, long host_ptr, long errcode_ret) {
 		long __functionAddress = getInstance().CreateImage3D;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nclCreateImage3D(context, flags, image_format, image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, host_ptr, errcode_ret, __functionAddress);
+		return invokePJPPPPPPPPP(__functionAddress, context, flags, image_format, image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, host_ptr, errcode_ret);
 	}
 
 	/**
@@ -1856,17 +1777,13 @@ public final class CL10 {
 
 	// --- [ clGetSupportedImageFormats ] ---
 
-	/** JNI method for {@link #clGetSupportedImageFormats GetSupportedImageFormats} */
-	@JavadocExclude
-	public static native int nclGetSupportedImageFormats(long context, long flags, int image_type, int num_entries, long image_formats, long num_image_formats, long __functionAddress);
-
 	/** Unsafe version of {@link #clGetSupportedImageFormats GetSupportedImageFormats} */
 	@JavadocExclude
 	public static int nclGetSupportedImageFormats(long context, long flags, int image_type, int num_entries, long image_formats, long num_image_formats) {
 		long __functionAddress = getInstance().GetSupportedImageFormats;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nclGetSupportedImageFormats(context, flags, image_type, num_entries, image_formats, num_image_formats, __functionAddress);
+		return invokePJIIPPI(__functionAddress, context, flags, image_type, num_entries, image_formats, num_image_formats);
 	}
 
 	/**
@@ -1914,10 +1831,6 @@ public final class CL10 {
 
 	// --- [ clEnqueueReadImage ] ---
 
-	/** JNI method for {@link #clEnqueueReadImage EnqueueReadImage} */
-	@JavadocExclude
-	public static native int nclEnqueueReadImage(long command_queue, long image, int blocking_read, long origin, long region, long row_pitch, long slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueReadImage EnqueueReadImage} */
 	@JavadocExclude
 	public static int nclEnqueueReadImage(long command_queue, long image, int blocking_read, long origin, long region, long row_pitch, long slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event) {
@@ -1926,7 +1839,7 @@ public final class CL10 {
 			checkPointer(command_queue);
 			checkPointer(image);
 		}
-		return nclEnqueueReadImage(command_queue, image, blocking_read, origin, region, row_pitch, slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePPIPPPPPIPPI(__functionAddress, command_queue, image, blocking_read, origin, region, row_pitch, slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -2069,10 +1982,6 @@ public final class CL10 {
 
 	// --- [ clEnqueueWriteImage ] ---
 
-	/** JNI method for {@link #clEnqueueWriteImage EnqueueWriteImage} */
-	@JavadocExclude
-	public static native int nclEnqueueWriteImage(long command_queue, long image, int blocking_write, long origin, long region, long input_row_pitch, long input_slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueWriteImage EnqueueWriteImage} */
 	@JavadocExclude
 	public static int nclEnqueueWriteImage(long command_queue, long image, int blocking_write, long origin, long region, long input_row_pitch, long input_slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event) {
@@ -2081,7 +1990,7 @@ public final class CL10 {
 			checkPointer(command_queue);
 			checkPointer(image);
 		}
-		return nclEnqueueWriteImage(command_queue, image, blocking_write, origin, region, input_row_pitch, input_slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePPIPPPPPIPPI(__functionAddress, command_queue, image, blocking_write, origin, region, input_row_pitch, input_slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -2224,10 +2133,6 @@ public final class CL10 {
 
 	// --- [ clEnqueueCopyImage ] ---
 
-	/** JNI method for {@link #clEnqueueCopyImage EnqueueCopyImage} */
-	@JavadocExclude
-	public static native int nclEnqueueCopyImage(long command_queue, long src_image, long dst_image, long src_origin, long dst_origin, long region, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueCopyImage EnqueueCopyImage} */
 	@JavadocExclude
 	public static int nclEnqueueCopyImage(long command_queue, long src_image, long dst_image, long src_origin, long dst_origin, long region, int num_events_in_wait_list, long event_wait_list, long event) {
@@ -2237,7 +2142,7 @@ public final class CL10 {
 			checkPointer(src_image);
 			checkPointer(dst_image);
 		}
-		return nclEnqueueCopyImage(command_queue, src_image, dst_image, src_origin, dst_origin, region, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePPPPPPIPPI(__functionAddress, command_queue, src_image, dst_image, src_origin, dst_origin, region, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -2334,10 +2239,6 @@ public final class CL10 {
 
 	// --- [ clEnqueueCopyImageToBuffer ] ---
 
-	/** JNI method for {@link #clEnqueueCopyImageToBuffer EnqueueCopyImageToBuffer} */
-	@JavadocExclude
-	public static native int nclEnqueueCopyImageToBuffer(long command_queue, long src_image, long dst_buffer, long src_origin, long region, long dst_offset, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueCopyImageToBuffer EnqueueCopyImageToBuffer} */
 	@JavadocExclude
 	public static int nclEnqueueCopyImageToBuffer(long command_queue, long src_image, long dst_buffer, long src_origin, long region, long dst_offset, int num_events_in_wait_list, long event_wait_list, long event) {
@@ -2347,7 +2248,7 @@ public final class CL10 {
 			checkPointer(src_image);
 			checkPointer(dst_buffer);
 		}
-		return nclEnqueueCopyImageToBuffer(command_queue, src_image, dst_buffer, src_origin, region, dst_offset, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePPPPPPIPPI(__functionAddress, command_queue, src_image, dst_buffer, src_origin, region, dst_offset, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -2429,10 +2330,6 @@ public final class CL10 {
 
 	// --- [ clEnqueueCopyBufferToImage ] ---
 
-	/** JNI method for {@link #clEnqueueCopyBufferToImage EnqueueCopyBufferToImage} */
-	@JavadocExclude
-	public static native int nclEnqueueCopyBufferToImage(long command_queue, long src_buffer, long dst_image, long src_offset, long dst_origin, long region, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueCopyBufferToImage EnqueueCopyBufferToImage} */
 	@JavadocExclude
 	public static int nclEnqueueCopyBufferToImage(long command_queue, long src_buffer, long dst_image, long src_offset, long dst_origin, long region, int num_events_in_wait_list, long event_wait_list, long event) {
@@ -2442,7 +2339,7 @@ public final class CL10 {
 			checkPointer(src_buffer);
 			checkPointer(dst_image);
 		}
-		return nclEnqueueCopyBufferToImage(command_queue, src_buffer, dst_image, src_offset, dst_origin, region, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePPPPPPIPPI(__functionAddress, command_queue, src_buffer, dst_image, src_offset, dst_origin, region, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -2520,10 +2417,6 @@ public final class CL10 {
 
 	// --- [ clEnqueueMapImage ] ---
 
-	/** JNI method for {@link #clEnqueueMapImage EnqueueMapImage} */
-	@JavadocExclude
-	public static native long nclEnqueueMapImage(long command_queue, long image, int blocking_map, long map_flags, long origin, long region, long image_row_pitch, long image_slice_pitch, int num_events_in_wait_list, long event_wait_list, long event, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueMapImage EnqueueMapImage} */
 	@JavadocExclude
 	public static long nclEnqueueMapImage(long command_queue, long image, int blocking_map, long map_flags, long origin, long region, long image_row_pitch, long image_slice_pitch, int num_events_in_wait_list, long event_wait_list, long event, long errcode_ret) {
@@ -2532,7 +2425,7 @@ public final class CL10 {
 			checkPointer(command_queue);
 			checkPointer(image);
 		}
-		return nclEnqueueMapImage(command_queue, image, blocking_map, map_flags, origin, region, image_row_pitch, image_slice_pitch, num_events_in_wait_list, event_wait_list, event, errcode_ret, __functionAddress);
+		return invokePPIJPPPPIPPPP(__functionAddress, command_queue, image, blocking_map, map_flags, origin, region, image_row_pitch, image_slice_pitch, num_events_in_wait_list, event_wait_list, event, errcode_ret);
 	}
 
 	/**
@@ -2663,17 +2556,13 @@ public final class CL10 {
 
 	// --- [ clGetImageInfo ] ---
 
-	/** JNI method for {@link #clGetImageInfo GetImageInfo} */
-	@JavadocExclude
-	public static native int nclGetImageInfo(long image, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clGetImageInfo GetImageInfo} */
 	@JavadocExclude
 	public static int nclGetImageInfo(long image, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetImageInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(image);
-		return nclGetImageInfo(image, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
+		return invokePIPPPI(__functionAddress, image, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -2725,10 +2614,6 @@ public final class CL10 {
 
 	// --- [ clRetainMemObject ] ---
 
-	/** JNI method for {@link #clRetainMemObject RetainMemObject} */
-	@JavadocExclude
-	public static native int nclRetainMemObject(long memobj, long __functionAddress);
-
 	/**
 	 * Increments the {@code memobj} reference count.
 	 * 
@@ -2747,14 +2632,10 @@ public final class CL10 {
 		long __functionAddress = getInstance().RetainMemObject;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(memobj);
-		return nclRetainMemObject(memobj, __functionAddress);
+		return invokePI(__functionAddress, memobj);
 	}
 
 	// --- [ clReleaseMemObject ] ---
-
-	/** JNI method for {@link #clReleaseMemObject ReleaseMemObject} */
-	@JavadocExclude
-	public static native int nclReleaseMemObject(long memobj, long __functionAddress);
 
 	/**
 	 * Decrements the {@code memobj} reference count.
@@ -2776,14 +2657,10 @@ public final class CL10 {
 		long __functionAddress = getInstance().ReleaseMemObject;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(memobj);
-		return nclReleaseMemObject(memobj, __functionAddress);
+		return invokePI(__functionAddress, memobj);
 	}
 
 	// --- [ clEnqueueUnmapMemObject ] ---
-
-	/** JNI method for {@link #clEnqueueUnmapMemObject EnqueueUnmapMemObject} */
-	@JavadocExclude
-	public static native int nclEnqueueUnmapMemObject(long command_queue, long memobj, long mapped_ptr, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
 
 	/** Unsafe version of {@link #clEnqueueUnmapMemObject EnqueueUnmapMemObject} */
 	@JavadocExclude
@@ -2793,7 +2670,7 @@ public final class CL10 {
 			checkPointer(command_queue);
 			checkPointer(memobj);
 		}
-		return nclEnqueueUnmapMemObject(command_queue, memobj, mapped_ptr, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePPPIPPI(__functionAddress, command_queue, memobj, mapped_ptr, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -2847,17 +2724,13 @@ public final class CL10 {
 
 	// --- [ clGetMemObjectInfo ] ---
 
-	/** JNI method for {@link #clGetMemObjectInfo GetMemObjectInfo} */
-	@JavadocExclude
-	public static native int nclGetMemObjectInfo(long memobj, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clGetMemObjectInfo GetMemObjectInfo} */
 	@JavadocExclude
 	public static int nclGetMemObjectInfo(long memobj, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetMemObjectInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(memobj);
-		return nclGetMemObjectInfo(memobj, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
+		return invokePIPPPI(__functionAddress, memobj, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -2916,17 +2789,13 @@ public final class CL10 {
 
 	// --- [ clCreateSampler ] ---
 
-	/** JNI method for {@link #clCreateSampler CreateSampler} */
-	@JavadocExclude
-	public static native long nclCreateSampler(long context, int normalized_coords, int addressing_mode, int filter_mode, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clCreateSampler CreateSampler} */
 	@JavadocExclude
 	public static long nclCreateSampler(long context, int normalized_coords, int addressing_mode, int filter_mode, long errcode_ret) {
 		long __functionAddress = getInstance().CreateSampler;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nclCreateSampler(context, normalized_coords, addressing_mode, filter_mode, errcode_ret, __functionAddress);
+		return invokePIIIPP(__functionAddress, context, normalized_coords, addressing_mode, filter_mode, errcode_ret);
 	}
 
 	/**
@@ -2969,10 +2838,6 @@ public final class CL10 {
 
 	// --- [ clRetainSampler ] ---
 
-	/** JNI method for {@link #clRetainSampler RetainSampler} */
-	@JavadocExclude
-	public static native int nclRetainSampler(long sampler, long __functionAddress);
-
 	/**
 	 * Increments the sampler reference count. {@link #clCreateSampler CreateSampler} performs an implicit retain.
 	 *
@@ -2989,14 +2854,10 @@ public final class CL10 {
 		long __functionAddress = getInstance().RetainSampler;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sampler);
-		return nclRetainSampler(sampler, __functionAddress);
+		return invokePI(__functionAddress, sampler);
 	}
 
 	// --- [ clReleaseSampler ] ---
-
-	/** JNI method for {@link #clReleaseSampler ReleaseSampler} */
-	@JavadocExclude
-	public static native int nclReleaseSampler(long sampler, long __functionAddress);
 
 	/**
 	 * Decrements the sampler reference count. The sampler object is deleted after the reference count becomes zero and commands queued for execution on a
@@ -3015,14 +2876,10 @@ public final class CL10 {
 		long __functionAddress = getInstance().ReleaseSampler;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sampler);
-		return nclReleaseSampler(sampler, __functionAddress);
+		return invokePI(__functionAddress, sampler);
 	}
 
 	// --- [ clGetSamplerInfo ] ---
-
-	/** JNI method for {@link #clGetSamplerInfo GetSamplerInfo} */
-	@JavadocExclude
-	public static native int nclGetSamplerInfo(long sampler, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/** Unsafe version of {@link #clGetSamplerInfo GetSamplerInfo} */
 	@JavadocExclude
@@ -3030,7 +2887,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().GetSamplerInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sampler);
-		return nclGetSamplerInfo(sampler, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
+		return invokePIPPPI(__functionAddress, sampler, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -3082,17 +2939,13 @@ public final class CL10 {
 
 	// --- [ clCreateProgramWithSource ] ---
 
-	/** JNI method for {@link #clCreateProgramWithSource CreateProgramWithSource} */
-	@JavadocExclude
-	public static native long nclCreateProgramWithSource(long context, int count, long strings, long lengths, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clCreateProgramWithSource CreateProgramWithSource} */
 	@JavadocExclude
 	public static long nclCreateProgramWithSource(long context, int count, long strings, long lengths, long errcode_ret) {
 		long __functionAddress = getInstance().CreateProgramWithSource;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nclCreateProgramWithSource(context, count, strings, lengths, errcode_ret, __functionAddress);
+		return invokePIPPPP(__functionAddress, context, count, strings, lengths, errcode_ret);
 	}
 
 	/**
@@ -3163,17 +3016,13 @@ public final class CL10 {
 
 	// --- [ clCreateProgramWithBinary ] ---
 
-	/** JNI method for {@link #clCreateProgramWithBinary CreateProgramWithBinary} */
-	@JavadocExclude
-	public static native long nclCreateProgramWithBinary(long context, int num_devices, long device_list, long lengths, long binaries, long binary_status, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clCreateProgramWithBinary CreateProgramWithBinary} */
 	@JavadocExclude
 	public static long nclCreateProgramWithBinary(long context, int num_devices, long device_list, long lengths, long binaries, long binary_status, long errcode_ret) {
 		long __functionAddress = getInstance().CreateProgramWithBinary;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nclCreateProgramWithBinary(context, num_devices, device_list, lengths, binaries, binary_status, errcode_ret, __functionAddress);
+		return invokePIPPPPPP(__functionAddress, context, num_devices, device_list, lengths, binaries, binary_status, errcode_ret);
 	}
 
 	/**
@@ -3276,10 +3125,6 @@ public final class CL10 {
 
 	// --- [ clRetainProgram ] ---
 
-	/** JNI method for {@link #clRetainProgram RetainProgram} */
-	@JavadocExclude
-	public static native int nclRetainProgram(long program, long __functionAddress);
-
 	/**
 	 * Increments the {@code program} reference count. {@code clCreateProgram} does an implicit retain.
 	 *
@@ -3296,14 +3141,10 @@ public final class CL10 {
 		long __functionAddress = getInstance().RetainProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(program);
-		return nclRetainProgram(program, __functionAddress);
+		return invokePI(__functionAddress, program);
 	}
 
 	// --- [ clReleaseProgram ] ---
-
-	/** JNI method for {@link #clReleaseProgram ReleaseProgram} */
-	@JavadocExclude
-	public static native int nclReleaseProgram(long program, long __functionAddress);
 
 	/**
 	 * Decrements the {@code program} reference count. The program object is deleted after all kernel objects associated with program have been deleted and the
@@ -3322,14 +3163,10 @@ public final class CL10 {
 		long __functionAddress = getInstance().ReleaseProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(program);
-		return nclReleaseProgram(program, __functionAddress);
+		return invokePI(__functionAddress, program);
 	}
 
 	// --- [ clBuildProgram ] ---
-
-	/** JNI method for {@link #clBuildProgram BuildProgram} */
-	@JavadocExclude
-	public static native int nclBuildProgram(long program, int num_devices, long device_list, long options, long pfn_notify, long user_data, long __functionAddress);
 
 	/** Unsafe version of {@link #clBuildProgram BuildProgram} */
 	@JavadocExclude
@@ -3337,7 +3174,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().BuildProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(program);
-		return nclBuildProgram(program, num_devices, device_list, options, pfn_notify, user_data, __functionAddress);
+		return invokePIPPPPI(__functionAddress, program, num_devices, device_list, options, pfn_notify, user_data);
 	}
 
 	/**
@@ -3415,10 +3252,6 @@ public final class CL10 {
 
 	// --- [ clUnloadCompiler ] ---
 
-	/** JNI method for {@link #clUnloadCompiler UnloadCompiler} */
-	@JavadocExclude
-	public static native int nclUnloadCompiler(long __functionAddress);
-
 	/**
 	 * Allows the implementation to release the resources allocated by the OpenCL compiler. This is a hint from the application and does not guarantee that the
 	 * compiler will not be used in the future or that the compiler will actually be unloaded by the implementation.
@@ -3429,14 +3262,10 @@ public final class CL10 {
 	 */
 	public static int clUnloadCompiler() {
 		long __functionAddress = getInstance().UnloadCompiler;
-		return nclUnloadCompiler(__functionAddress);
+		return invokeI(__functionAddress);
 	}
 
 	// --- [ clGetProgramInfo ] ---
-
-	/** JNI method for {@link #clGetProgramInfo GetProgramInfo} */
-	@JavadocExclude
-	public static native int nclGetProgramInfo(long program, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/** Unsafe version of {@link #clGetProgramInfo GetProgramInfo} */
 	@JavadocExclude
@@ -3444,7 +3273,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().GetProgramInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(program);
-		return nclGetProgramInfo(program, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
+		return invokePIPPPI(__functionAddress, program, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -3498,10 +3327,6 @@ public final class CL10 {
 
 	// --- [ clGetProgramBuildInfo ] ---
 
-	/** JNI method for {@link #clGetProgramBuildInfo GetProgramBuildInfo} */
-	@JavadocExclude
-	public static native int nclGetProgramBuildInfo(long program, long device, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clGetProgramBuildInfo GetProgramBuildInfo} */
 	@JavadocExclude
 	public static int nclGetProgramBuildInfo(long program, long device, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
@@ -3510,7 +3335,7 @@ public final class CL10 {
 			checkPointer(program);
 			checkPointer(device);
 		}
-		return nclGetProgramBuildInfo(program, device, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
+		return invokePPIPPPI(__functionAddress, program, device, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -3564,17 +3389,13 @@ public final class CL10 {
 
 	// --- [ clCreateKernel ] ---
 
-	/** JNI method for {@link #clCreateKernel CreateKernel} */
-	@JavadocExclude
-	public static native long nclCreateKernel(long program, long kernel_name, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clCreateKernel CreateKernel} */
 	@JavadocExclude
 	public static long nclCreateKernel(long program, long kernel_name, long errcode_ret) {
 		long __functionAddress = getInstance().CreateKernel;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(program);
-		return nclCreateKernel(program, kernel_name, errcode_ret, __functionAddress);
+		return invokePPPP(__functionAddress, program, kernel_name, errcode_ret);
 	}
 
 	/**
@@ -3634,17 +3455,13 @@ public final class CL10 {
 
 	// --- [ clCreateKernelsInProgram ] ---
 
-	/** JNI method for {@link #clCreateKernelsInProgram CreateKernelsInProgram} */
-	@JavadocExclude
-	public static native int nclCreateKernelsInProgram(long program, int num_kernels, long kernels, long num_kernels_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clCreateKernelsInProgram CreateKernelsInProgram} */
 	@JavadocExclude
 	public static int nclCreateKernelsInProgram(long program, int num_kernels, long kernels, long num_kernels_ret) {
 		long __functionAddress = getInstance().CreateKernelsInProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(program);
-		return nclCreateKernelsInProgram(program, num_kernels, kernels, num_kernels_ret, __functionAddress);
+		return invokePIPPI(__functionAddress, program, num_kernels, kernels, num_kernels_ret);
 	}
 
 	/**
@@ -3685,10 +3502,6 @@ public final class CL10 {
 
 	// --- [ clRetainKernel ] ---
 
-	/** JNI method for {@link #clRetainKernel RetainKernel} */
-	@JavadocExclude
-	public static native int nclRetainKernel(long kernel, long __functionAddress);
-
 	/**
 	 * Increments the {@code kernel} reference count. {@link #clCreateKernel CreateKernel} or {@link #clCreateKernelsInProgram CreateKernelsInProgram} do an implicit retain.
 	 *
@@ -3705,14 +3518,10 @@ public final class CL10 {
 		long __functionAddress = getInstance().RetainKernel;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(kernel);
-		return nclRetainKernel(kernel, __functionAddress);
+		return invokePI(__functionAddress, kernel);
 	}
 
 	// --- [ clReleaseKernel ] ---
-
-	/** JNI method for {@link #clReleaseKernel ReleaseKernel} */
-	@JavadocExclude
-	public static native int nclReleaseKernel(long kernel, long __functionAddress);
 
 	/**
 	 * Decrements the {@code kernel} reference count.
@@ -3733,14 +3542,10 @@ public final class CL10 {
 		long __functionAddress = getInstance().ReleaseKernel;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(kernel);
-		return nclReleaseKernel(kernel, __functionAddress);
+		return invokePI(__functionAddress, kernel);
 	}
 
 	// --- [ clSetKernelArg ] ---
-
-	/** JNI method for {@link #clSetKernelArg SetKernelArg} */
-	@JavadocExclude
-	public static native int nclSetKernelArg(long kernel, int arg_index, long arg_size, long arg_value, long __functionAddress);
 
 	/** Unsafe version of {@link #clSetKernelArg SetKernelArg} */
 	@JavadocExclude
@@ -3748,7 +3553,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().SetKernelArg;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(kernel);
-		return nclSetKernelArg(kernel, arg_index, arg_size, arg_value, __functionAddress);
+		return invokePIPPI(__functionAddress, kernel, arg_index, arg_size, arg_value);
 	}
 
 	/**
@@ -4106,17 +3911,13 @@ public final class CL10 {
 
 	// --- [ clGetKernelInfo ] ---
 
-	/** JNI method for {@link #clGetKernelInfo GetKernelInfo} */
-	@JavadocExclude
-	public static native int nclGetKernelInfo(long kernel, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clGetKernelInfo GetKernelInfo} */
 	@JavadocExclude
 	public static int nclGetKernelInfo(long kernel, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetKernelInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(kernel);
-		return nclGetKernelInfo(kernel, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
+		return invokePIPPPI(__functionAddress, kernel, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -4168,10 +3969,6 @@ public final class CL10 {
 
 	// --- [ clGetKernelWorkGroupInfo ] ---
 
-	/** JNI method for {@link #clGetKernelWorkGroupInfo GetKernelWorkGroupInfo} */
-	@JavadocExclude
-	public static native int nclGetKernelWorkGroupInfo(long kernel, long device, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clGetKernelWorkGroupInfo GetKernelWorkGroupInfo} */
 	@JavadocExclude
 	public static int nclGetKernelWorkGroupInfo(long kernel, long device, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
@@ -4180,7 +3977,7 @@ public final class CL10 {
 			checkPointer(kernel);
 			checkPointer(device);
 		}
-		return nclGetKernelWorkGroupInfo(kernel, device, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
+		return invokePPIPPPI(__functionAddress, kernel, device, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -4245,10 +4042,6 @@ public final class CL10 {
 
 	// --- [ clEnqueueNDRangeKernel ] ---
 
-	/** JNI method for {@link #clEnqueueNDRangeKernel EnqueueNDRangeKernel} */
-	@JavadocExclude
-	public static native int nclEnqueueNDRangeKernel(long command_queue, long kernel, int work_dim, long global_work_offset, long global_work_size, long local_work_size, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueNDRangeKernel EnqueueNDRangeKernel} */
 	@JavadocExclude
 	public static int nclEnqueueNDRangeKernel(long command_queue, long kernel, int work_dim, long global_work_offset, long global_work_size, long local_work_size, int num_events_in_wait_list, long event_wait_list, long event) {
@@ -4257,7 +4050,7 @@ public final class CL10 {
 			checkPointer(command_queue);
 			checkPointer(kernel);
 		}
-		return nclEnqueueNDRangeKernel(command_queue, kernel, work_dim, global_work_offset, global_work_size, local_work_size, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePPIPPPIPPI(__functionAddress, command_queue, kernel, work_dim, global_work_offset, global_work_size, local_work_size, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -4362,10 +4155,6 @@ public final class CL10 {
 
 	// --- [ clEnqueueTask ] ---
 
-	/** JNI method for {@link #clEnqueueTask EnqueueTask} */
-	@JavadocExclude
-	public static native int nclEnqueueTask(long command_queue, long kernel, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueTask EnqueueTask} */
 	@JavadocExclude
 	public static int nclEnqueueTask(long command_queue, long kernel, int num_events_in_wait_list, long event_wait_list, long event) {
@@ -4374,7 +4163,7 @@ public final class CL10 {
 			checkPointer(command_queue);
 			checkPointer(kernel);
 		}
-		return nclEnqueueTask(command_queue, kernel, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePPIPPI(__functionAddress, command_queue, kernel, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -4413,17 +4202,13 @@ public final class CL10 {
 
 	// --- [ clEnqueueNativeKernel ] ---
 
-	/** JNI method for {@link #clEnqueueNativeKernel EnqueueNativeKernel} */
-	@JavadocExclude
-	public static native int nclEnqueueNativeKernel(long command_queue, long user_func, long args, long cb_args, int num_mem_objects, long mem_list, long args_mem_loc, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueNativeKernel EnqueueNativeKernel} */
 	@JavadocExclude
 	public static int nclEnqueueNativeKernel(long command_queue, long user_func, long args, long cb_args, int num_mem_objects, long mem_list, long args_mem_loc, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueNativeKernel;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return nclEnqueueNativeKernel(command_queue, user_func, args, cb_args, num_mem_objects, mem_list, args_mem_loc, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePPPPIPPIPPI(__functionAddress, command_queue, user_func, args, cb_args, num_mem_objects, mem_list, args_mem_loc, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -4507,15 +4292,11 @@ public final class CL10 {
 
 	// --- [ clWaitForEvents ] ---
 
-	/** JNI method for {@link #clWaitForEvents WaitForEvents} */
-	@JavadocExclude
-	public static native int nclWaitForEvents(int num_events, long event_list, long __functionAddress);
-
 	/** Unsafe version of {@link #clWaitForEvents WaitForEvents} */
 	@JavadocExclude
 	public static int nclWaitForEvents(int num_events, long event_list) {
 		long __functionAddress = getInstance().WaitForEvents;
-		return nclWaitForEvents(num_events, event_list, __functionAddress);
+		return invokeIPI(__functionAddress, num_events, event_list);
 	}
 
 	/**
@@ -4555,17 +4336,13 @@ public final class CL10 {
 
 	// --- [ clGetEventInfo ] ---
 
-	/** JNI method for {@link #clGetEventInfo GetEventInfo} */
-	@JavadocExclude
-	public static native int nclGetEventInfo(long event, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clGetEventInfo GetEventInfo} */
 	@JavadocExclude
 	public static int nclGetEventInfo(long event, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetEventInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(event);
-		return nclGetEventInfo(event, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
+		return invokePIPPPI(__functionAddress, event, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -4622,10 +4399,6 @@ public final class CL10 {
 
 	// --- [ clRetainEvent ] ---
 
-	/** JNI method for {@link #clRetainEvent RetainEvent} */
-	@JavadocExclude
-	public static native int nclRetainEvent(long event, long __functionAddress);
-
 	/**
 	 * Increments the event reference count. The OpenCL commands that return an event perform an implicit retain.
 	 *
@@ -4642,14 +4415,10 @@ public final class CL10 {
 		long __functionAddress = getInstance().RetainEvent;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(event);
-		return nclRetainEvent(event, __functionAddress);
+		return invokePI(__functionAddress, event);
 	}
 
 	// --- [ clReleaseEvent ] ---
-
-	/** JNI method for {@link #clReleaseEvent ReleaseEvent} */
-	@JavadocExclude
-	public static native int nclReleaseEvent(long event, long __functionAddress);
 
 	/**
 	 * Decrements the event reference count.
@@ -4678,14 +4447,10 @@ public final class CL10 {
 		long __functionAddress = getInstance().ReleaseEvent;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(event);
-		return nclReleaseEvent(event, __functionAddress);
+		return invokePI(__functionAddress, event);
 	}
 
 	// --- [ clEnqueueMarker ] ---
-
-	/** JNI method for {@link #clEnqueueMarker EnqueueMarker} */
-	@JavadocExclude
-	public static native int nclEnqueueMarker(long command_queue, long event, long __functionAddress);
 
 	/** Unsafe version of {@link #clEnqueueMarker EnqueueMarker} */
 	@JavadocExclude
@@ -4693,7 +4458,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().EnqueueMarker;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return nclEnqueueMarker(command_queue, event, __functionAddress);
+		return invokePPI(__functionAddress, command_queue, event);
 	}
 
 	/**
@@ -4730,10 +4495,6 @@ public final class CL10 {
 
 	// --- [ clEnqueueBarrier ] ---
 
-	/** JNI method for {@link #clEnqueueBarrier EnqueueBarrier} */
-	@JavadocExclude
-	public static native int nclEnqueueBarrier(long command_queue, long __functionAddress);
-
 	/**
 	 * Enqueues a barrier operation. The {@code clEnqueueBarrier} command ensures that all queued commands in {@code command_queue} have finished execution
 	 * before the next batch of commands can begin execution. The {@code clEnqueueBarrier} command is a synchronization point.
@@ -4751,14 +4512,10 @@ public final class CL10 {
 		long __functionAddress = getInstance().EnqueueBarrier;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return nclEnqueueBarrier(command_queue, __functionAddress);
+		return invokePI(__functionAddress, command_queue);
 	}
 
 	// --- [ clEnqueueWaitForEvents ] ---
-
-	/** JNI method for {@link #clEnqueueWaitForEvents EnqueueWaitForEvents} */
-	@JavadocExclude
-	public static native int nclEnqueueWaitForEvents(long command_queue, int num_events, long event_list, long __functionAddress);
 
 	/** Unsafe version of {@link #clEnqueueWaitForEvents EnqueueWaitForEvents} */
 	@JavadocExclude
@@ -4766,7 +4523,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().EnqueueWaitForEvents;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return nclEnqueueWaitForEvents(command_queue, num_events, event_list, __functionAddress);
+		return invokePIPI(__functionAddress, command_queue, num_events, event_list);
 	}
 
 	/**
@@ -4806,17 +4563,13 @@ public final class CL10 {
 
 	// --- [ clGetEventProfilingInfo ] ---
 
-	/** JNI method for {@link #clGetEventProfilingInfo GetEventProfilingInfo} */
-	@JavadocExclude
-	public static native int nclGetEventProfilingInfo(long event, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clGetEventProfilingInfo GetEventProfilingInfo} */
 	@JavadocExclude
 	public static int nclGetEventProfilingInfo(long event, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetEventProfilingInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(event);
-		return nclGetEventProfilingInfo(event, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
+		return invokePIPPPI(__functionAddress, event, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -4863,10 +4616,6 @@ public final class CL10 {
 
 	// --- [ clFlush ] ---
 
-	/** JNI method for {@link #clFlush Flush} */
-	@JavadocExclude
-	public static native int nclFlush(long command_queue, long __functionAddress);
-
 	/**
 	 * Issues all previously queued OpenCL commands in {@code command_queue} to the device associated with {@code command_queue}. {@code clFlush} only
 	 * guarantees that all queued commands to {@code command_queue} will eventually be submitted to the appropriate device. There is no guarantee that they
@@ -4894,14 +4643,10 @@ public final class CL10 {
 		long __functionAddress = getInstance().Flush;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return nclFlush(command_queue, __functionAddress);
+		return invokePI(__functionAddress, command_queue);
 	}
 
 	// --- [ clFinish ] ---
-
-	/** JNI method for {@link #clFinish Finish} */
-	@JavadocExclude
-	public static native int nclFinish(long command_queue, long __functionAddress);
 
 	/**
 	 * Blocks until all previously queued OpenCL commands in {@code command_queue} are issued to the associated device and have completed. {@code clFinish}
@@ -4914,20 +4659,16 @@ public final class CL10 {
 		long __functionAddress = getInstance().Finish;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return nclFinish(command_queue, __functionAddress);
+		return invokePI(__functionAddress, command_queue);
 	}
 
 	// --- [ clGetExtensionFunctionAddress ] ---
-
-	/** JNI method for {@link #clGetExtensionFunctionAddress GetExtensionFunctionAddress} */
-	@JavadocExclude
-	public static native long nclGetExtensionFunctionAddress(long funcname, long __functionAddress);
 
 	/** Unsafe version of {@link #clGetExtensionFunctionAddress GetExtensionFunctionAddress} */
 	@JavadocExclude
 	public static long nclGetExtensionFunctionAddress(long funcname) {
 		long __functionAddress = getInstance().GetExtensionFunctionAddress;
-		return nclGetExtensionFunctionAddress(funcname, __functionAddress);
+		return invokePP(__functionAddress, funcname);
 	}
 
 	/**

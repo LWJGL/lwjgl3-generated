@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -104,15 +105,11 @@ public final class ARBTextureCompression {
 
 	// --- [ glCompressedTexImage3DARB ] ---
 
-	/** JNI method for {@link #glCompressedTexImage3DARB CompressedTexImage3DARB} */
-	@JavadocExclude
-	public static native void nglCompressedTexImage3DARB(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glCompressedTexImage3DARB CompressedTexImage3DARB} */
 	@JavadocExclude
 	public static void nglCompressedTexImage3DARB(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage3DARB;
-		nglCompressedTexImage3DARB(target, level, internalformat, width, height, depth, border, imageSize, data, __functionAddress);
+		invokeIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
 	}
 
 	/**
@@ -152,15 +149,11 @@ public final class ARBTextureCompression {
 
 	// --- [ glCompressedTexImage2DARB ] ---
 
-	/** JNI method for {@link #glCompressedTexImage2DARB CompressedTexImage2DARB} */
-	@JavadocExclude
-	public static native void nglCompressedTexImage2DARB(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glCompressedTexImage2DARB CompressedTexImage2DARB} */
 	@JavadocExclude
 	public static void nglCompressedTexImage2DARB(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage2DARB;
-		nglCompressedTexImage2DARB(target, level, internalformat, width, height, border, imageSize, data, __functionAddress);
+		invokeIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, border, imageSize, data);
 	}
 
 	/**
@@ -199,15 +192,11 @@ public final class ARBTextureCompression {
 
 	// --- [ glCompressedTexImage1DARB ] ---
 
-	/** JNI method for {@link #glCompressedTexImage1DARB CompressedTexImage1DARB} */
-	@JavadocExclude
-	public static native void nglCompressedTexImage1DARB(int target, int level, int internalformat, int width, int border, int imageSize, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glCompressedTexImage1DARB CompressedTexImage1DARB} */
 	@JavadocExclude
 	public static void nglCompressedTexImage1DARB(int target, int level, int internalformat, int width, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage1DARB;
-		nglCompressedTexImage1DARB(target, level, internalformat, width, border, imageSize, data, __functionAddress);
+		invokeIIIIIIPV(__functionAddress, target, level, internalformat, width, border, imageSize, data);
 	}
 
 	/**
@@ -245,15 +234,11 @@ public final class ARBTextureCompression {
 
 	// --- [ glCompressedTexSubImage3DARB ] ---
 
-	/** JNI method for {@link #glCompressedTexSubImage3DARB CompressedTexSubImage3DARB} */
-	@JavadocExclude
-	public static native void nglCompressedTexSubImage3DARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glCompressedTexSubImage3DARB CompressedTexSubImage3DARB} */
 	@JavadocExclude
 	public static void nglCompressedTexSubImage3DARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage3DARB;
-		nglCompressedTexSubImage3DARB(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data, __functionAddress);
+		invokeIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
 	/**
@@ -295,15 +280,11 @@ public final class ARBTextureCompression {
 
 	// --- [ glCompressedTexSubImage2DARB ] ---
 
-	/** JNI method for {@link #glCompressedTexSubImage2DARB CompressedTexSubImage2DARB} */
-	@JavadocExclude
-	public static native void nglCompressedTexSubImage2DARB(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glCompressedTexSubImage2DARB CompressedTexSubImage2DARB} */
 	@JavadocExclude
 	public static void nglCompressedTexSubImage2DARB(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage2DARB;
-		nglCompressedTexSubImage2DARB(target, level, xoffset, yoffset, width, height, format, imageSize, data, __functionAddress);
+		invokeIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, imageSize, data);
 	}
 
 	/**
@@ -343,15 +324,11 @@ public final class ARBTextureCompression {
 
 	// --- [ glCompressedTexSubImage1DARB ] ---
 
-	/** JNI method for {@link #glCompressedTexSubImage1DARB CompressedTexSubImage1DARB} */
-	@JavadocExclude
-	public static native void nglCompressedTexSubImage1DARB(int target, int level, int xoffset, int width, int format, int imageSize, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glCompressedTexSubImage1DARB CompressedTexSubImage1DARB} */
 	@JavadocExclude
 	public static void nglCompressedTexSubImage1DARB(int target, int level, int xoffset, int width, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage1DARB;
-		nglCompressedTexSubImage1DARB(target, level, xoffset, width, format, imageSize, data, __functionAddress);
+		invokeIIIIIIPV(__functionAddress, target, level, xoffset, width, format, imageSize, data);
 	}
 
 	/**
@@ -389,15 +366,11 @@ public final class ARBTextureCompression {
 
 	// --- [ glGetCompressedTexImageARB ] ---
 
-	/** JNI method for {@link #glGetCompressedTexImageARB GetCompressedTexImageARB} */
-	@JavadocExclude
-	public static native void nglGetCompressedTexImageARB(int target, int level, long pixels, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetCompressedTexImageARB GetCompressedTexImageARB} */
 	@JavadocExclude
 	public static void nglGetCompressedTexImageARB(int target, int level, long pixels) {
 		long __functionAddress = getInstance().GetCompressedTexImageARB;
-		nglGetCompressedTexImageARB(target, level, pixels, __functionAddress);
+		invokeIIPV(__functionAddress, target, level, pixels);
 	}
 
 	/**

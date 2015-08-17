@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 import org.lwjgl.system.linux.*;
@@ -68,10 +69,6 @@ public final class GLXARBCreateContext {
 
 	// --- [ glXCreateContextAttribsARB ] ---
 
-	/** JNI method for {@link #glXCreateContextAttribsARB CreateContextAttribsARB} */
-	@JavadocExclude
-	public static native long nglXCreateContextAttribsARB(long display, long config, long share_context, int direct, long attrib_list, long __functionAddress);
-
 	/** Unsafe version of {@link #glXCreateContextAttribsARB CreateContextAttribsARB} */
 	@JavadocExclude
 	public static long nglXCreateContextAttribsARB(long display, long config, long share_context, int direct, long attrib_list) {
@@ -80,7 +77,7 @@ public final class GLXARBCreateContext {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return nglXCreateContextAttribsARB(display, config, share_context, direct, attrib_list, __functionAddress);
+		return invokePPPIPP(__functionAddress, display, config, share_context, direct, attrib_list);
 	}
 
 	/**

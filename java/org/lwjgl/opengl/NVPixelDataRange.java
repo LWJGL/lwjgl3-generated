@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -101,15 +102,11 @@ public final class NVPixelDataRange {
 
 	// --- [ glPixelDataRangeNV ] ---
 
-	/** JNI method for {@link #glPixelDataRangeNV PixelDataRangeNV} */
-	@JavadocExclude
-	public static native void nglPixelDataRangeNV(int target, int length, long pointer, long __functionAddress);
-
 	/** Unsafe version of {@link #glPixelDataRangeNV PixelDataRangeNV} */
 	@JavadocExclude
 	public static void nglPixelDataRangeNV(int target, int length, long pointer) {
 		long __functionAddress = getInstance().PixelDataRangeNV;
-		nglPixelDataRangeNV(target, length, pointer, __functionAddress);
+		invokeIIPV(__functionAddress, target, length, pointer);
 	}
 
 	public static void glPixelDataRangeNV(int target, int length, ByteBuffer pointer) {
@@ -125,13 +122,9 @@ public final class NVPixelDataRange {
 
 	// --- [ glFlushPixelDataRangeNV ] ---
 
-	/** JNI method for {@link #glFlushPixelDataRangeNV FlushPixelDataRangeNV} */
-	@JavadocExclude
-	public static native void nglFlushPixelDataRangeNV(int target, long __functionAddress);
-
 	public static void glFlushPixelDataRangeNV(int target) {
 		long __functionAddress = getInstance().FlushPixelDataRangeNV;
-		nglFlushPixelDataRangeNV(target, __functionAddress);
+		invokeIV(__functionAddress, target);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
@@ -132,70 +133,46 @@ public final class EXTTransformFeedback {
 
 	// --- [ glBindBufferRangeEXT ] ---
 
-	/** JNI method for {@link #glBindBufferRangeEXT BindBufferRangeEXT} */
-	@JavadocExclude
-	public static native void nglBindBufferRangeEXT(int target, int index, int buffer, long offset, long size, long __functionAddress);
-
 	public static void glBindBufferRangeEXT(int target, int index, int buffer, long offset, long size) {
 		long __functionAddress = getInstance().BindBufferRangeEXT;
-		nglBindBufferRangeEXT(target, index, buffer, offset, size, __functionAddress);
+		invokeIIIPPV(__functionAddress, target, index, buffer, offset, size);
 	}
 
 	// --- [ glBindBufferOffsetEXT ] ---
 
-	/** JNI method for {@link #glBindBufferOffsetEXT BindBufferOffsetEXT} */
-	@JavadocExclude
-	public static native void nglBindBufferOffsetEXT(int target, int index, int buffer, long offset, long __functionAddress);
-
 	public static void glBindBufferOffsetEXT(int target, int index, int buffer, long offset) {
 		long __functionAddress = getInstance().BindBufferOffsetEXT;
-		nglBindBufferOffsetEXT(target, index, buffer, offset, __functionAddress);
+		invokeIIIPV(__functionAddress, target, index, buffer, offset);
 	}
 
 	// --- [ glBindBufferBaseEXT ] ---
 
-	/** JNI method for {@link #glBindBufferBaseEXT BindBufferBaseEXT} */
-	@JavadocExclude
-	public static native void nglBindBufferBaseEXT(int target, int index, int buffer, long __functionAddress);
-
 	public static void glBindBufferBaseEXT(int target, int index, int buffer) {
 		long __functionAddress = getInstance().BindBufferBaseEXT;
-		nglBindBufferBaseEXT(target, index, buffer, __functionAddress);
+		invokeIIIV(__functionAddress, target, index, buffer);
 	}
 
 	// --- [ glBeginTransformFeedbackEXT ] ---
 
-	/** JNI method for {@link #glBeginTransformFeedbackEXT BeginTransformFeedbackEXT} */
-	@JavadocExclude
-	public static native void nglBeginTransformFeedbackEXT(int primitiveMode, long __functionAddress);
-
 	public static void glBeginTransformFeedbackEXT(int primitiveMode) {
 		long __functionAddress = getInstance().BeginTransformFeedbackEXT;
-		nglBeginTransformFeedbackEXT(primitiveMode, __functionAddress);
+		invokeIV(__functionAddress, primitiveMode);
 	}
 
 	// --- [ glEndTransformFeedbackEXT ] ---
 
-	/** JNI method for {@link #glEndTransformFeedbackEXT EndTransformFeedbackEXT} */
-	@JavadocExclude
-	public static native void nglEndTransformFeedbackEXT(long __functionAddress);
-
 	public static void glEndTransformFeedbackEXT() {
 		long __functionAddress = getInstance().EndTransformFeedbackEXT;
-		nglEndTransformFeedbackEXT(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glTransformFeedbackVaryingsEXT ] ---
-
-	/** JNI method for {@link #glTransformFeedbackVaryingsEXT TransformFeedbackVaryingsEXT} */
-	@JavadocExclude
-	public static native void nglTransformFeedbackVaryingsEXT(int program, int count, long varyings, int bufferMode, long __functionAddress);
 
 	/** Unsafe version of {@link #glTransformFeedbackVaryingsEXT TransformFeedbackVaryingsEXT} */
 	@JavadocExclude
 	public static void nglTransformFeedbackVaryingsEXT(int program, int count, long varyings, int bufferMode) {
 		long __functionAddress = getInstance().TransformFeedbackVaryingsEXT;
-		nglTransformFeedbackVaryingsEXT(program, count, varyings, bufferMode, __functionAddress);
+		invokeIIPIV(__functionAddress, program, count, varyings, bufferMode);
 	}
 
 	public static void glTransformFeedbackVaryingsEXT(int program, int count, ByteBuffer varyings, int bufferMode) {
@@ -229,15 +206,11 @@ public final class EXTTransformFeedback {
 
 	// --- [ glGetTransformFeedbackVaryingEXT ] ---
 
-	/** JNI method for {@link #glGetTransformFeedbackVaryingEXT GetTransformFeedbackVaryingEXT} */
-	@JavadocExclude
-	public static native void nglGetTransformFeedbackVaryingEXT(int program, int index, int bufSize, long length, long size, long type, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetTransformFeedbackVaryingEXT GetTransformFeedbackVaryingEXT} */
 	@JavadocExclude
 	public static void nglGetTransformFeedbackVaryingEXT(int program, int index, int bufSize, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetTransformFeedbackVaryingEXT;
-		nglGetTransformFeedbackVaryingEXT(program, index, bufSize, length, size, type, name, __functionAddress);
+		invokeIIIPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
 	}
 
 	public static void glGetTransformFeedbackVaryingEXT(int program, int index, int bufSize, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
@@ -291,15 +264,11 @@ public final class EXTTransformFeedback {
 
 	// --- [ glGetIntegerIndexedvEXT ] ---
 
-	/** JNI method for {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
-	@JavadocExclude
-	public static native void nglGetIntegerIndexedvEXT(int param, int index, long values, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
 	@JavadocExclude
 	public static void nglGetIntegerIndexedvEXT(int param, int index, long values) {
 		long __functionAddress = getInstance().GetIntegerIndexedvEXT;
-		nglGetIntegerIndexedvEXT(param, index, values, __functionAddress);
+		invokeIIPV(__functionAddress, param, index, values);
 	}
 
 	public static void glGetIntegerIndexedvEXT(int param, int index, ByteBuffer values) {
@@ -325,15 +294,11 @@ public final class EXTTransformFeedback {
 
 	// --- [ glGetBooleanIndexedvEXT ] ---
 
-	/** JNI method for {@link #glGetBooleanIndexedvEXT GetBooleanIndexedvEXT} */
-	@JavadocExclude
-	public static native void nglGetBooleanIndexedvEXT(int param, int index, long values, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetBooleanIndexedvEXT GetBooleanIndexedvEXT} */
 	@JavadocExclude
 	public static void nglGetBooleanIndexedvEXT(int param, int index, long values) {
 		long __functionAddress = getInstance().GetBooleanIndexedvEXT;
-		nglGetBooleanIndexedvEXT(param, index, values, __functionAddress);
+		invokeIIPV(__functionAddress, param, index, values);
 	}
 
 	public static void glGetBooleanIndexedvEXT(int param, int index, ByteBuffer values) {

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -61,17 +62,13 @@ public final class EXTPlatformBase {
 
 	// --- [ eglGetPlatformDisplayEXT ] ---
 
-	/** JNI method for {@link #eglGetPlatformDisplayEXT GetPlatformDisplayEXT} */
-	@JavadocExclude
-	public static native long neglGetPlatformDisplayEXT(int platform, long native_display, long attrib_list, long __functionAddress);
-
 	/** Unsafe version of {@link #eglGetPlatformDisplayEXT GetPlatformDisplayEXT} */
 	@JavadocExclude
 	public static long neglGetPlatformDisplayEXT(int platform, long native_display, long attrib_list) {
 		long __functionAddress = getInstance().GetPlatformDisplayEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(native_display);
-		return neglGetPlatformDisplayEXT(platform, native_display, attrib_list, __functionAddress);
+		return invokeIPPP(__functionAddress, platform, native_display, attrib_list);
 	}
 
 	public static long eglGetPlatformDisplayEXT(int platform, long native_display, ByteBuffer attrib_list) {
@@ -89,10 +86,6 @@ public final class EXTPlatformBase {
 
 	// --- [ eglCreatePlatformWindowSurfaceEXT ] ---
 
-	/** JNI method for {@link #eglCreatePlatformWindowSurfaceEXT CreatePlatformWindowSurfaceEXT} */
-	@JavadocExclude
-	public static native long neglCreatePlatformWindowSurfaceEXT(long dpy, long config, long native_window, long attrib_list, long __functionAddress);
-
 	/** Unsafe version of {@link #eglCreatePlatformWindowSurfaceEXT CreatePlatformWindowSurfaceEXT} */
 	@JavadocExclude
 	public static long neglCreatePlatformWindowSurfaceEXT(long dpy, long config, long native_window, long attrib_list) {
@@ -102,7 +95,7 @@ public final class EXTPlatformBase {
 			checkPointer(config);
 			checkPointer(native_window);
 		}
-		return neglCreatePlatformWindowSurfaceEXT(dpy, config, native_window, attrib_list, __functionAddress);
+		return invokePPPPP(__functionAddress, dpy, config, native_window, attrib_list);
 	}
 
 	public static long eglCreatePlatformWindowSurfaceEXT(long dpy, long config, long native_window, ByteBuffer attrib_list) {
@@ -120,10 +113,6 @@ public final class EXTPlatformBase {
 
 	// --- [ eglCreatePlatformPixmapSurfaceEXT ] ---
 
-	/** JNI method for {@link #eglCreatePlatformPixmapSurfaceEXT CreatePlatformPixmapSurfaceEXT} */
-	@JavadocExclude
-	public static native long neglCreatePlatformPixmapSurfaceEXT(long dpy, long config, long native_pixmap, long attrib_list, long __functionAddress);
-
 	/** Unsafe version of {@link #eglCreatePlatformPixmapSurfaceEXT CreatePlatformPixmapSurfaceEXT} */
 	@JavadocExclude
 	public static long neglCreatePlatformPixmapSurfaceEXT(long dpy, long config, long native_pixmap, long attrib_list) {
@@ -133,7 +122,7 @@ public final class EXTPlatformBase {
 			checkPointer(config);
 			checkPointer(native_pixmap);
 		}
-		return neglCreatePlatformPixmapSurfaceEXT(dpy, config, native_pixmap, attrib_list, __functionAddress);
+		return invokePPPPP(__functionAddress, dpy, config, native_pixmap, attrib_list);
 	}
 
 	public static long eglCreatePlatformPixmapSurfaceEXT(long dpy, long config, long native_pixmap, ByteBuffer attrib_list) {

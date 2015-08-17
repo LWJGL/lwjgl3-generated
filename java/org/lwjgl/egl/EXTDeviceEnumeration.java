@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -49,15 +50,11 @@ public final class EXTDeviceEnumeration {
 
 	// --- [ eglQueryDevicesEXT ] ---
 
-	/** JNI method for {@link #eglQueryDevicesEXT QueryDevicesEXT} */
-	@JavadocExclude
-	public static native boolean neglQueryDevicesEXT(int max_devices, long devices, long num_devices, long __functionAddress);
-
 	/** Unsafe version of {@link #eglQueryDevicesEXT QueryDevicesEXT} */
 	@JavadocExclude
 	public static boolean neglQueryDevicesEXT(int max_devices, long devices, long num_devices) {
 		long __functionAddress = getInstance().QueryDevicesEXT;
-		return neglQueryDevicesEXT(max_devices, devices, num_devices, __functionAddress);
+		return invokeIPPZ(__functionAddress, max_devices, devices, num_devices);
 	}
 
 	public static boolean eglQueryDevicesEXT(int max_devices, ByteBuffer devices, ByteBuffer num_devices) {

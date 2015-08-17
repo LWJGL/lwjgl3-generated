@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -54,17 +55,13 @@ public final class MESADRMImage {
 
 	// --- [ eglCreateDRMImageMESA ] ---
 
-	/** JNI method for {@link #eglCreateDRMImageMESA CreateDRMImageMESA} */
-	@JavadocExclude
-	public static native long neglCreateDRMImageMESA(long dpy, long attrib_list, long __functionAddress);
-
 	/** Unsafe version of {@link #eglCreateDRMImageMESA CreateDRMImageMESA} */
 	@JavadocExclude
 	public static long neglCreateDRMImageMESA(long dpy, long attrib_list) {
 		long __functionAddress = getInstance().CreateDRMImageMESA;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return neglCreateDRMImageMESA(dpy, attrib_list, __functionAddress);
+		return invokePPP(__functionAddress, dpy, attrib_list);
 	}
 
 	public static long eglCreateDRMImageMESA(long dpy, ByteBuffer attrib_list) {
@@ -82,10 +79,6 @@ public final class MESADRMImage {
 
 	// --- [ eglExportDRMImageMESA ] ---
 
-	/** JNI method for {@link #eglExportDRMImageMESA ExportDRMImageMESA} */
-	@JavadocExclude
-	public static native boolean neglExportDRMImageMESA(long dpy, long image, long name, long handle, long stride, long __functionAddress);
-
 	/** Unsafe version of {@link #eglExportDRMImageMESA ExportDRMImageMESA} */
 	@JavadocExclude
 	public static boolean neglExportDRMImageMESA(long dpy, long image, long name, long handle, long stride) {
@@ -94,7 +87,7 @@ public final class MESADRMImage {
 			checkPointer(dpy);
 			checkPointer(image);
 		}
-		return neglExportDRMImageMESA(dpy, image, name, handle, stride, __functionAddress);
+		return invokePPPPPZ(__functionAddress, dpy, image, name, handle, stride);
 	}
 
 	public static boolean eglExportDRMImageMESA(long dpy, long image, ByteBuffer name, ByteBuffer handle, ByteBuffer stride) {

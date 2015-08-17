@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -171,15 +172,11 @@ public final class GL12 {
 
 	// --- [ glTexImage3D ] ---
 
-	/** JNI method for {@link #glTexImage3D TexImage3D} */
-	@JavadocExclude
-	public static native void nglTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexImage3D TexImage3D} */
 	@JavadocExclude
 	public static void nglTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexImage3D;
-		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, pixels, __functionAddress);
+		invokeIIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
 	/**
@@ -241,15 +238,11 @@ public final class GL12 {
 
 	// --- [ glTexSubImage3D ] ---
 
-	/** JNI method for {@link #glTexSubImage3D TexSubImage3D} */
-	@JavadocExclude
-	public static native void nglTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexSubImage3D TexSubImage3D} */
 	@JavadocExclude
 	public static void nglTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexSubImage3D;
-		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels, __functionAddress);
+		invokeIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 	/**
@@ -313,10 +306,6 @@ public final class GL12 {
 
 	// --- [ glCopyTexSubImage3D ] ---
 
-	/** JNI method for {@link #glCopyTexSubImage3D CopyTexSubImage3D} */
-	@JavadocExclude
-	public static native void nglCopyTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -336,20 +325,16 @@ public final class GL12 {
 	 */
 	public static void glCopyTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().CopyTexSubImage3D;
-		nglCopyTexSubImage3D(target, level, xoffset, yoffset, zoffset, x, y, width, height, __functionAddress);
+		invokeIIIIIIIIIV(__functionAddress, target, level, xoffset, yoffset, zoffset, x, y, width, height);
 	}
 
 	// --- [ glDrawRangeElements ] ---
-
-	/** JNI method for {@link #glDrawRangeElements DrawRangeElements} */
-	@JavadocExclude
-	public static native void nglDrawRangeElements(int mode, int start, int end, int count, int type, long indices, long __functionAddress);
 
 	/** Unsafe version of {@link #glDrawRangeElements DrawRangeElements} */
 	@JavadocExclude
 	public static void nglDrawRangeElements(int mode, int start, int end, int count, int type, long indices) {
 		long __functionAddress = getInstance().DrawRangeElements;
-		nglDrawRangeElements(mode, start, end, count, type, indices, __functionAddress);
+		invokeIIIIIPV(__functionAddress, mode, start, end, count, type, indices);
 	}
 
 	/**

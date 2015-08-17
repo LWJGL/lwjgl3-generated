@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/stencil_two_side.txt">EXT_stencil_two_side</a> extension.
@@ -58,13 +59,9 @@ public final class EXTStencilTwoSide {
 
 	// --- [ glActiveStencilFaceEXT ] ---
 
-	/** JNI method for {@link #glActiveStencilFaceEXT ActiveStencilFaceEXT} */
-	@JavadocExclude
-	public static native void nglActiveStencilFaceEXT(int face, long __functionAddress);
-
 	public static void glActiveStencilFaceEXT(int face) {
 		long __functionAddress = getInstance().ActiveStencilFaceEXT;
-		nglActiveStencilFaceEXT(face, __functionAddress);
+		invokeIV(__functionAddress, face);
 	}
 
 }

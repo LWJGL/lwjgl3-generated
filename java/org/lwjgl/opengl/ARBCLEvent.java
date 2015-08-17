@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 import org.lwjgl.opencl.*;
 
@@ -59,10 +60,6 @@ public final class ARBCLEvent {
 
 	// --- [ glCreateSyncFromCLeventARB ] ---
 
-	/** JNI method for {@link #glCreateSyncFromCLeventARB CreateSyncFromCLeventARB} */
-	@JavadocExclude
-	public static native long nglCreateSyncFromCLeventARB(long context, long event, int flags, long __functionAddress);
-
 	/**
 	 * Creates a linked sync object. {@code context} and {@code event} must be handles to a valid OpenCL context and a valid event in that context,
 	 * respectively. {@code context} must support sharing with GL, and must have been created with respect to the current GL context, or to a share group
@@ -85,7 +82,7 @@ public final class ARBCLEvent {
 			checkPointer(context);
 			checkPointer(event);
 		}
-		return nglCreateSyncFromCLeventARB(context, event, flags, __functionAddress);
+		return invokePPIP(__functionAddress, context, event, flags);
 	}
 
 }

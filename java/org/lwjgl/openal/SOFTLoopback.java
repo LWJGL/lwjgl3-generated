@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -81,15 +82,11 @@ public final class SOFTLoopback {
 
 	// --- [ alcLoopbackOpenDeviceSOFT ] ---
 
-	/** JNI method for {@link #alcLoopbackOpenDeviceSOFT LoopbackOpenDeviceSOFT} */
-	@JavadocExclude
-	public static native long nalcLoopbackOpenDeviceSOFT(long deviceName, long __functionAddress);
-
 	/** Unsafe version of {@link #alcLoopbackOpenDeviceSOFT LoopbackOpenDeviceSOFT} */
 	@JavadocExclude
 	public static long nalcLoopbackOpenDeviceSOFT(long deviceName) {
 		long __functionAddress = getInstance().LoopbackOpenDeviceSOFT;
-		return nalcLoopbackOpenDeviceSOFT(deviceName, __functionAddress);
+		return invokePP(__functionAddress, deviceName);
 	}
 
 	/**
@@ -123,10 +120,6 @@ public final class SOFTLoopback {
 
 	// --- [ alcIsRenderFormatSupportedSOFT ] ---
 
-	/** JNI method for {@link #alcIsRenderFormatSupportedSOFT IsRenderFormatSupportedSOFT} */
-	@JavadocExclude
-	public static native boolean nalcIsRenderFormatSupportedSOFT(long device, int frequency, int channels, int type, long __functionAddress);
-
 	/**
 	 * When creating contexts, the attribute list must specify the format used for rendering. This is done with the {@link #ALC_FORMAT_CHANNELS_SOFT FORMAT_CHANNELS_SOFT}, {@link #ALC_FORMAT_TYPE_SOFT FORMAT_TYPE_SOFT},
 	 * and {@link ALC10#ALC_FREQUENCY FREQUENCY} attributes. This controls the format of the audio subsequently rendered by the device.
@@ -142,14 +135,10 @@ public final class SOFTLoopback {
 		long __functionAddress = getInstance().IsRenderFormatSupportedSOFT;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		return nalcIsRenderFormatSupportedSOFT(device, frequency, channels, type, __functionAddress);
+		return invokePIIIZ(__functionAddress, device, frequency, channels, type);
 	}
 
 	// --- [ alcRenderSamplesSOFT ] ---
-
-	/** JNI method for {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
-	@JavadocExclude
-	public static native void nalcRenderSamplesSOFT(long device, long buffer, int samples, long __functionAddress);
 
 	/** Unsafe version of {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
 	@JavadocExclude
@@ -157,7 +146,7 @@ public final class SOFTLoopback {
 		long __functionAddress = getInstance().RenderSamplesSOFT;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		nalcRenderSamplesSOFT(device, buffer, samples, __functionAddress);
+		invokePPIV(__functionAddress, device, buffer, samples);
 	}
 
 	/**

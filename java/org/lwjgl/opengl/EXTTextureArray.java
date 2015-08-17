@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/texture_array.txt">EXT_texture_array</a> extension.
@@ -108,13 +109,9 @@ public final class EXTTextureArray {
 
 	// --- [ glFramebufferTextureLayerEXT ] ---
 
-	/** JNI method for {@link #glFramebufferTextureLayerEXT FramebufferTextureLayerEXT} */
-	@JavadocExclude
-	public static native void nglFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer, long __functionAddress);
-
 	public static void glFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer) {
 		long __functionAddress = getInstance().FramebufferTextureLayerEXT;
-		nglFramebufferTextureLayerEXT(target, attachment, texture, level, layer, __functionAddress);
+		invokeIIIIIV(__functionAddress, target, attachment, texture, level, layer);
 	}
 
 }

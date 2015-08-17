@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -71,15 +72,11 @@ public final class ALC11 {
 
 	// --- [ alcCaptureOpenDevice ] ---
 
-	/** JNI method for {@link #alcCaptureOpenDevice CaptureOpenDevice} */
-	@JavadocExclude
-	public static native long nalcCaptureOpenDevice(long devicename, int frequency, int format, int buffersize, long __functionAddress);
-
 	/** Unsafe version of {@link #alcCaptureOpenDevice CaptureOpenDevice} */
 	@JavadocExclude
 	public static long nalcCaptureOpenDevice(long devicename, int frequency, int format, int buffersize) {
 		long __functionAddress = getInstance().CaptureOpenDevice;
-		return nalcCaptureOpenDevice(devicename, frequency, format, buffersize, __functionAddress);
+		return invokePIIIP(__functionAddress, devicename, frequency, format, buffersize);
 	}
 
 	/**
@@ -108,10 +105,6 @@ public final class ALC11 {
 
 	// --- [ alcCaptureCloseDevice ] ---
 
-	/** JNI method for {@link #alcCaptureCloseDevice CaptureCloseDevice} */
-	@JavadocExclude
-	public static native boolean nalcCaptureCloseDevice(long device, long __functionAddress);
-
 	/**
 	 * Allows the application to disconnect from a capture device.
 	 *
@@ -121,14 +114,10 @@ public final class ALC11 {
 		long __functionAddress = getInstance().CaptureCloseDevice;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		return nalcCaptureCloseDevice(device, __functionAddress);
+		return invokePZ(__functionAddress, device);
 	}
 
 	// --- [ alcCaptureStart ] ---
-
-	/** JNI method for {@link #alcCaptureStart CaptureStart} */
-	@JavadocExclude
-	public static native void nalcCaptureStart(long device, long __functionAddress);
 
 	/**
 	 * Starts recording audio on the specific capture device.
@@ -143,14 +132,10 @@ public final class ALC11 {
 		long __functionAddress = getInstance().CaptureStart;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		nalcCaptureStart(device, __functionAddress);
+		invokePV(__functionAddress, device);
 	}
 
 	// --- [ alcCaptureStop ] ---
-
-	/** JNI method for {@link #alcCaptureStop CaptureStop} */
-	@JavadocExclude
-	public static native void nalcCaptureStop(long device, long __functionAddress);
 
 	/**
 	 * Halts audio capturing without closing the capture device.
@@ -164,14 +149,10 @@ public final class ALC11 {
 		long __functionAddress = getInstance().CaptureStop;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		nalcCaptureStop(device, __functionAddress);
+		invokePV(__functionAddress, device);
 	}
 
 	// --- [ alcCaptureSamples ] ---
-
-	/** JNI method for {@link #alcCaptureSamples CaptureSamples} */
-	@JavadocExclude
-	public static native void nalcCaptureSamples(long device, long buffer, int samples, long __functionAddress);
 
 	/** Unsafe version of {@link #alcCaptureSamples CaptureSamples} */
 	@JavadocExclude
@@ -179,7 +160,7 @@ public final class ALC11 {
 		long __functionAddress = getInstance().CaptureSamples;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		nalcCaptureSamples(device, buffer, samples, __functionAddress);
+		invokePPIV(__functionAddress, device, buffer, samples);
 	}
 
 	/**

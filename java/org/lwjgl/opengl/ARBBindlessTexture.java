@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -112,10 +113,6 @@ public final class ARBBindlessTexture {
 
 	// --- [ glGetTextureHandleARB ] ---
 
-	/** JNI method for {@link #glGetTextureHandleARB GetTextureHandleARB} */
-	@JavadocExclude
-	public static native long nglGetTextureHandleARB(int texture, long __functionAddress);
-
 	/**
 	 * Creates a texture handle using the current state of the texture named {@code texture}, including any embedded sampler state. See
 	 * {@link #glGetTextureSamplerHandleARB GetTextureSamplerHandleARB} for details.
@@ -124,14 +121,10 @@ public final class ARBBindlessTexture {
 	 */
 	public static long glGetTextureHandleARB(int texture) {
 		long __functionAddress = getInstance().GetTextureHandleARB;
-		return nglGetTextureHandleARB(texture, __functionAddress);
+		return invokeIJ(__functionAddress, texture);
 	}
 
 	// --- [ glGetTextureSamplerHandleARB ] ---
-
-	/** JNI method for {@link #glGetTextureSamplerHandleARB GetTextureSamplerHandleARB} */
-	@JavadocExclude
-	public static native long nglGetTextureSamplerHandleARB(int texture, int sampler, long __functionAddress);
 
 	/**
 	 * Creates a texture handle using the current non-sampler state from the texture named {@code texture} and the sampler state from the sampler object
@@ -166,14 +159,10 @@ public final class ARBBindlessTexture {
 	 */
 	public static long glGetTextureSamplerHandleARB(int texture, int sampler) {
 		long __functionAddress = getInstance().GetTextureSamplerHandleARB;
-		return nglGetTextureSamplerHandleARB(texture, sampler, __functionAddress);
+		return invokeIIJ(__functionAddress, texture, sampler);
 	}
 
 	// --- [ glMakeTextureHandleResidentARB ] ---
-
-	/** JNI method for {@link #glMakeTextureHandleResidentARB MakeTextureHandleResidentARB} */
-	@JavadocExclude
-	public static native void nglMakeTextureHandleResidentARB(long handle, long __functionAddress);
 
 	/**
 	 * Make a texture handle resident, so that it is accessible to shaders for texture mapping operations.
@@ -187,14 +176,10 @@ public final class ARBBindlessTexture {
 	 */
 	public static void glMakeTextureHandleResidentARB(long handle) {
 		long __functionAddress = getInstance().MakeTextureHandleResidentARB;
-		nglMakeTextureHandleResidentARB(handle, __functionAddress);
+		invokeJV(__functionAddress, handle);
 	}
 
 	// --- [ glMakeTextureHandleNonResidentARB ] ---
-
-	/** JNI method for {@link #glMakeTextureHandleNonResidentARB MakeTextureHandleNonResidentARB} */
-	@JavadocExclude
-	public static native void nglMakeTextureHandleNonResidentARB(long handle, long __functionAddress);
 
 	/**
 	 * Makes a texture handle inaccessible to shaders.
@@ -206,14 +191,10 @@ public final class ARBBindlessTexture {
 	 */
 	public static void glMakeTextureHandleNonResidentARB(long handle) {
 		long __functionAddress = getInstance().MakeTextureHandleNonResidentARB;
-		nglMakeTextureHandleNonResidentARB(handle, __functionAddress);
+		invokeJV(__functionAddress, handle);
 	}
 
 	// --- [ glGetImageHandleARB ] ---
-
-	/** JNI method for {@link #glGetImageHandleARB GetImageHandleARB} */
-	@JavadocExclude
-	public static native long nglGetImageHandleARB(int texture, int level, boolean layered, int layer, int format, long __functionAddress);
 
 	/**
 	 * Creates and returns an image handle for level {@code level} of the texture named {@code texture}. If {@code layered} is {@link GL11#GL_TRUE TRUE}, a handle is created
@@ -255,14 +236,10 @@ public final class ARBBindlessTexture {
 	 */
 	public static long glGetImageHandleARB(int texture, int level, boolean layered, int layer, int format) {
 		long __functionAddress = getInstance().GetImageHandleARB;
-		return nglGetImageHandleARB(texture, level, layered, layer, format, __functionAddress);
+		return invokeIIZIIJ(__functionAddress, texture, level, layered, layer, format);
 	}
 
 	// --- [ glMakeImageHandleResidentARB ] ---
-
-	/** JNI method for {@link #glMakeImageHandleResidentARB MakeImageHandleResidentARB} */
-	@JavadocExclude
-	public static native void nglMakeImageHandleResidentARB(long handle, int access, long __functionAddress);
 
 	/**
 	 * Makes an image handle resident, so that it is accessible to shaders for image loads, stores, and atomic operations.
@@ -281,14 +258,10 @@ public final class ARBBindlessTexture {
 	 */
 	public static void glMakeImageHandleResidentARB(long handle, int access) {
 		long __functionAddress = getInstance().MakeImageHandleResidentARB;
-		nglMakeImageHandleResidentARB(handle, access, __functionAddress);
+		invokeJIV(__functionAddress, handle, access);
 	}
 
 	// --- [ glMakeImageHandleNonResidentARB ] ---
-
-	/** JNI method for {@link #glMakeImageHandleNonResidentARB MakeImageHandleNonResidentARB} */
-	@JavadocExclude
-	public static native void nglMakeImageHandleNonResidentARB(long handle, long __functionAddress);
 
 	/**
 	 * Makes an image handle inaccessible to shaders.
@@ -297,14 +270,10 @@ public final class ARBBindlessTexture {
 	 */
 	public static void glMakeImageHandleNonResidentARB(long handle) {
 		long __functionAddress = getInstance().MakeImageHandleNonResidentARB;
-		nglMakeImageHandleNonResidentARB(handle, __functionAddress);
+		invokeJV(__functionAddress, handle);
 	}
 
 	// --- [ glUniformHandleui64ARB ] ---
-
-	/** JNI method for {@link #glUniformHandleui64ARB UniformHandleui64ARB} */
-	@JavadocExclude
-	public static native void nglUniformHandleui64ARB(int location, long value, long __functionAddress);
 
 	/**
 	 * Loads a 64-bit unsigned integer handle into a uniform location corresponding to sampler or image variable types.
@@ -314,20 +283,16 @@ public final class ARBBindlessTexture {
 	 */
 	public static void glUniformHandleui64ARB(int location, long value) {
 		long __functionAddress = getInstance().UniformHandleui64ARB;
-		nglUniformHandleui64ARB(location, value, __functionAddress);
+		invokeIJV(__functionAddress, location, value);
 	}
 
 	// --- [ glUniformHandleui64vARB ] ---
-
-	/** JNI method for {@link #glUniformHandleui64vARB UniformHandleui64vARB} */
-	@JavadocExclude
-	public static native void nglUniformHandleui64vARB(int location, int count, long values, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniformHandleui64vARB UniformHandleui64vARB} */
 	@JavadocExclude
 	public static void nglUniformHandleui64vARB(int location, int count, long values) {
 		long __functionAddress = getInstance().UniformHandleui64vARB;
-		nglUniformHandleui64vARB(location, count, values, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, values);
 	}
 
 	/**
@@ -350,10 +315,6 @@ public final class ARBBindlessTexture {
 
 	// --- [ glProgramUniformHandleui64ARB ] ---
 
-	/** JNI method for {@link #glProgramUniformHandleui64ARB ProgramUniformHandleui64ARB} */
-	@JavadocExclude
-	public static native void nglProgramUniformHandleui64ARB(int program, int location, long value, long __functionAddress);
-
 	/**
 	 * DSA version of {@link #glUniformHandleui64ARB UniformHandleui64ARB}.
 	 *
@@ -363,20 +324,16 @@ public final class ARBBindlessTexture {
 	 */
 	public static void glProgramUniformHandleui64ARB(int program, int location, long value) {
 		long __functionAddress = getInstance().ProgramUniformHandleui64ARB;
-		nglProgramUniformHandleui64ARB(program, location, value, __functionAddress);
+		invokeIIJV(__functionAddress, program, location, value);
 	}
 
 	// --- [ glProgramUniformHandleui64vARB ] ---
-
-	/** JNI method for {@link #glProgramUniformHandleui64vARB ProgramUniformHandleui64vARB} */
-	@JavadocExclude
-	public static native void nglProgramUniformHandleui64vARB(int program, int location, int count, long values, long __functionAddress);
 
 	/** Unsafe version of {@link #glProgramUniformHandleui64vARB ProgramUniformHandleui64vARB} */
 	@JavadocExclude
 	public static void nglProgramUniformHandleui64vARB(int program, int location, int count, long values) {
 		long __functionAddress = getInstance().ProgramUniformHandleui64vARB;
-		nglProgramUniformHandleui64vARB(program, location, count, values, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, count, values);
 	}
 
 	/**
@@ -400,10 +357,6 @@ public final class ARBBindlessTexture {
 
 	// --- [ glIsTextureHandleResidentARB ] ---
 
-	/** JNI method for {@link #glIsTextureHandleResidentARB IsTextureHandleResidentARB} */
-	@JavadocExclude
-	public static native boolean nglIsTextureHandleResidentARB(long handle, long __functionAddress);
-
 	/**
 	 * Returns {@link GL11#GL_TRUE TRUE} if the specified texture handle is resident in the current context.
 	 *
@@ -411,14 +364,10 @@ public final class ARBBindlessTexture {
 	 */
 	public static boolean glIsTextureHandleResidentARB(long handle) {
 		long __functionAddress = getInstance().IsTextureHandleResidentARB;
-		return nglIsTextureHandleResidentARB(handle, __functionAddress);
+		return invokeJZ(__functionAddress, handle);
 	}
 
 	// --- [ glIsImageHandleResidentARB ] ---
-
-	/** JNI method for {@link #glIsImageHandleResidentARB IsImageHandleResidentARB} */
-	@JavadocExclude
-	public static native boolean nglIsImageHandleResidentARB(long handle, long __functionAddress);
 
 	/**
 	 * Returns {@link GL11#GL_TRUE TRUE} if the specified image handle is resident in the current context.
@@ -427,14 +376,10 @@ public final class ARBBindlessTexture {
 	 */
 	public static boolean glIsImageHandleResidentARB(long handle) {
 		long __functionAddress = getInstance().IsImageHandleResidentARB;
-		return nglIsImageHandleResidentARB(handle, __functionAddress);
+		return invokeJZ(__functionAddress, handle);
 	}
 
 	// --- [ glVertexAttribL1ui64ARB ] ---
-
-	/** JNI method for {@link #glVertexAttribL1ui64ARB VertexAttribL1ui64ARB} */
-	@JavadocExclude
-	public static native void nglVertexAttribL1ui64ARB(int index, long x, long __functionAddress);
 
 	/**
 	 * Specifies the 64-bit unsigned integer handle value of a generic vertex attribute.
@@ -444,20 +389,16 @@ public final class ARBBindlessTexture {
 	 */
 	public static void glVertexAttribL1ui64ARB(int index, long x) {
 		long __functionAddress = getInstance().VertexAttribL1ui64ARB;
-		nglVertexAttribL1ui64ARB(index, x, __functionAddress);
+		invokeIJV(__functionAddress, index, x);
 	}
 
 	// --- [ glVertexAttribL1ui64vARB ] ---
-
-	/** JNI method for {@link #glVertexAttribL1ui64vARB VertexAttribL1ui64vARB} */
-	@JavadocExclude
-	public static native void nglVertexAttribL1ui64vARB(int index, long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glVertexAttribL1ui64vARB VertexAttribL1ui64vARB} */
 	@JavadocExclude
 	public static void nglVertexAttribL1ui64vARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL1ui64vARB;
-		nglVertexAttribL1ui64vARB(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -477,15 +418,11 @@ public final class ARBBindlessTexture {
 
 	// --- [ glGetVertexAttribLui64vARB ] ---
 
-	/** JNI method for {@link #glGetVertexAttribLui64vARB GetVertexAttribLui64vARB} */
-	@JavadocExclude
-	public static native void nglGetVertexAttribLui64vARB(int index, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetVertexAttribLui64vARB GetVertexAttribLui64vARB} */
 	@JavadocExclude
 	public static void nglGetVertexAttribLui64vARB(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribLui64vARB;
-		nglGetVertexAttribLui64vARB(index, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, index, pname, params);
 	}
 
 	/**

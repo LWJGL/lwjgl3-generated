@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -62,26 +63,18 @@ public final class OESVertexArrayObject {
 
 	// --- [ glBindVertexArrayOES ] ---
 
-	/** JNI method for {@link #glBindVertexArrayOES BindVertexArrayOES} */
-	@JavadocExclude
-	public static native void nglBindVertexArrayOES(int array, long __functionAddress);
-
 	public static void glBindVertexArrayOES(int array) {
 		long __functionAddress = getInstance().BindVertexArrayOES;
-		nglBindVertexArrayOES(array, __functionAddress);
+		invokeIV(__functionAddress, array);
 	}
 
 	// --- [ glDeleteVertexArraysOES ] ---
-
-	/** JNI method for {@link #glDeleteVertexArraysOES DeleteVertexArraysOES} */
-	@JavadocExclude
-	public static native void nglDeleteVertexArraysOES(int n, long arrays, long __functionAddress);
 
 	/** Unsafe version of {@link #glDeleteVertexArraysOES DeleteVertexArraysOES} */
 	@JavadocExclude
 	public static void nglDeleteVertexArraysOES(int n, long arrays) {
 		long __functionAddress = getInstance().DeleteVertexArraysOES;
-		nglDeleteVertexArraysOES(n, arrays, __functionAddress);
+		invokeIPV(__functionAddress, n, arrays);
 	}
 
 	public static void glDeleteVertexArraysOES(int n, ByteBuffer arrays) {
@@ -104,15 +97,11 @@ public final class OESVertexArrayObject {
 
 	// --- [ glGenVertexArraysOES ] ---
 
-	/** JNI method for {@link #glGenVertexArraysOES GenVertexArraysOES} */
-	@JavadocExclude
-	public static native void nglGenVertexArraysOES(int n, long arrays, long __functionAddress);
-
 	/** Unsafe version of {@link #glGenVertexArraysOES GenVertexArraysOES} */
 	@JavadocExclude
 	public static void nglGenVertexArraysOES(int n, long arrays) {
 		long __functionAddress = getInstance().GenVertexArraysOES;
-		nglGenVertexArraysOES(n, arrays, __functionAddress);
+		invokeIPV(__functionAddress, n, arrays);
 	}
 
 	public static void glGenVertexArraysOES(int n, ByteBuffer arrays) {
@@ -140,13 +129,9 @@ public final class OESVertexArrayObject {
 
 	// --- [ glIsVertexArrayOES ] ---
 
-	/** JNI method for {@link #glIsVertexArrayOES IsVertexArrayOES} */
-	@JavadocExclude
-	public static native boolean nglIsVertexArrayOES(int array, long __functionAddress);
-
 	public static boolean glIsVertexArrayOES(int array) {
 		long __functionAddress = getInstance().IsVertexArrayOES;
-		return nglIsVertexArrayOES(array, __functionAddress);
+		return invokeIZ(__functionAddress, array);
 	}
 
 }

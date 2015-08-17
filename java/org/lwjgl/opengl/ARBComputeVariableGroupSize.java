@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/compute_variable_group_size.txt">ARB_compute_variable_group_size</a> extension.
@@ -66,10 +67,6 @@ public final class ARBComputeVariableGroupSize {
 
 	// --- [ glDispatchComputeGroupSizeARB ] ---
 
-	/** JNI method for {@link #glDispatchComputeGroupSizeARB DispatchComputeGroupSizeARB} */
-	@JavadocExclude
-	public static native void nglDispatchComputeGroupSizeARB(int num_groups_x, int num_groups_y, int num_groups_z, int group_size_x, int group_size_y, int group_size_z, long __functionAddress);
-
 	/**
 	 * Launches one or more compute work groups, with arbitrary dimensions.
 	 * 
@@ -93,7 +90,7 @@ public final class ARBComputeVariableGroupSize {
 	 */
 	public static void glDispatchComputeGroupSizeARB(int num_groups_x, int num_groups_y, int num_groups_z, int group_size_x, int group_size_y, int group_size_z) {
 		long __functionAddress = getInstance().DispatchComputeGroupSizeARB;
-		nglDispatchComputeGroupSizeARB(num_groups_x, num_groups_y, num_groups_z, group_size_x, group_size_y, group_size_z, __functionAddress);
+		invokeIIIIIIV(__functionAddress, num_groups_x, num_groups_y, num_groups_z, group_size_x, group_size_y, group_size_z);
 	}
 
 }

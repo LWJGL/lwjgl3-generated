@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -39,10 +40,6 @@ public final class ANGLEQuerySurfacePointer {
 
 	// --- [ eglQuerySurfacePointerANGLE ] ---
 
-	/** JNI method for {@link #eglQuerySurfacePointerANGLE QuerySurfacePointerANGLE} */
-	@JavadocExclude
-	public static native boolean neglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #eglQuerySurfacePointerANGLE QuerySurfacePointerANGLE} */
 	@JavadocExclude
 	public static boolean neglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, long value) {
@@ -51,7 +48,7 @@ public final class ANGLEQuerySurfacePointer {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return neglQuerySurfacePointerANGLE(dpy, surface, attribute, value, __functionAddress);
+		return invokePPIPZ(__functionAddress, dpy, surface, attribute, value);
 	}
 
 	public static boolean eglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, ByteBuffer value) {

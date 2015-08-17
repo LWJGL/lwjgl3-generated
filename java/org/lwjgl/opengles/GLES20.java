@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
@@ -655,37 +656,25 @@ public final class GLES20 {
 
 	// --- [ glActiveTexture ] ---
 
-	/** JNI method for {@link #glActiveTexture ActiveTexture} */
-	@JavadocExclude
-	public static native void nglActiveTexture(int texture, long __functionAddress);
-
 	public static void glActiveTexture(int texture) {
 		long __functionAddress = getInstance().ActiveTexture;
-		nglActiveTexture(texture, __functionAddress);
+		invokeIV(__functionAddress, texture);
 	}
 
 	// --- [ glAttachShader ] ---
 
-	/** JNI method for {@link #glAttachShader AttachShader} */
-	@JavadocExclude
-	public static native void nglAttachShader(int program, int shader, long __functionAddress);
-
 	public static void glAttachShader(int program, int shader) {
 		long __functionAddress = getInstance().AttachShader;
-		nglAttachShader(program, shader, __functionAddress);
+		invokeIIV(__functionAddress, program, shader);
 	}
 
 	// --- [ glBindAttribLocation ] ---
-
-	/** JNI method for {@link #glBindAttribLocation BindAttribLocation} */
-	@JavadocExclude
-	public static native void nglBindAttribLocation(int program, int index, long name, long __functionAddress);
 
 	/** Unsafe version of {@link #glBindAttribLocation BindAttribLocation} */
 	@JavadocExclude
 	public static void nglBindAttribLocation(int program, int index, long name) {
 		long __functionAddress = getInstance().BindAttribLocation;
-		nglBindAttribLocation(program, index, name, __functionAddress);
+		invokeIIPV(__functionAddress, program, index, name);
 	}
 
 	public static void glBindAttribLocation(int program, int index, ByteBuffer name) {
@@ -703,114 +692,74 @@ public final class GLES20 {
 
 	// --- [ glBindBuffer ] ---
 
-	/** JNI method for {@link #glBindBuffer BindBuffer} */
-	@JavadocExclude
-	public static native void nglBindBuffer(int target, int buffer, long __functionAddress);
-
 	public static void glBindBuffer(int target, int buffer) {
 		long __functionAddress = getInstance().BindBuffer;
-		nglBindBuffer(target, buffer, __functionAddress);
+		invokeIIV(__functionAddress, target, buffer);
 	}
 
 	// --- [ glBindFramebuffer ] ---
 
-	/** JNI method for {@link #glBindFramebuffer BindFramebuffer} */
-	@JavadocExclude
-	public static native void nglBindFramebuffer(int target, int framebuffer, long __functionAddress);
-
 	public static void glBindFramebuffer(int target, int framebuffer) {
 		long __functionAddress = getInstance().BindFramebuffer;
-		nglBindFramebuffer(target, framebuffer, __functionAddress);
+		invokeIIV(__functionAddress, target, framebuffer);
 	}
 
 	// --- [ glBindRenderbuffer ] ---
 
-	/** JNI method for {@link #glBindRenderbuffer BindRenderbuffer} */
-	@JavadocExclude
-	public static native void nglBindRenderbuffer(int target, int renderbuffer, long __functionAddress);
-
 	public static void glBindRenderbuffer(int target, int renderbuffer) {
 		long __functionAddress = getInstance().BindRenderbuffer;
-		nglBindRenderbuffer(target, renderbuffer, __functionAddress);
+		invokeIIV(__functionAddress, target, renderbuffer);
 	}
 
 	// --- [ glBindTexture ] ---
 
-	/** JNI method for {@link #glBindTexture BindTexture} */
-	@JavadocExclude
-	public static native void nglBindTexture(int target, int texture, long __functionAddress);
-
 	public static void glBindTexture(int target, int texture) {
 		long __functionAddress = getInstance().BindTexture;
-		nglBindTexture(target, texture, __functionAddress);
+		invokeIIV(__functionAddress, target, texture);
 	}
 
 	// --- [ glBlendColor ] ---
 
-	/** JNI method for {@link #glBlendColor BlendColor} */
-	@JavadocExclude
-	public static native void nglBlendColor(float red, float green, float blue, float alpha, long __functionAddress);
-
 	public static void glBlendColor(float red, float green, float blue, float alpha) {
 		long __functionAddress = getInstance().BlendColor;
-		nglBlendColor(red, green, blue, alpha, __functionAddress);
+		invokeFFFFV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glBlendEquation ] ---
 
-	/** JNI method for {@link #glBlendEquation BlendEquation} */
-	@JavadocExclude
-	public static native void nglBlendEquation(int mode, long __functionAddress);
-
 	public static void glBlendEquation(int mode) {
 		long __functionAddress = getInstance().BlendEquation;
-		nglBlendEquation(mode, __functionAddress);
+		invokeIV(__functionAddress, mode);
 	}
 
 	// --- [ glBlendEquationSeparate ] ---
 
-	/** JNI method for {@link #glBlendEquationSeparate BlendEquationSeparate} */
-	@JavadocExclude
-	public static native void nglBlendEquationSeparate(int modeRGB, int modeAlpha, long __functionAddress);
-
 	public static void glBlendEquationSeparate(int modeRGB, int modeAlpha) {
 		long __functionAddress = getInstance().BlendEquationSeparate;
-		nglBlendEquationSeparate(modeRGB, modeAlpha, __functionAddress);
+		invokeIIV(__functionAddress, modeRGB, modeAlpha);
 	}
 
 	// --- [ glBlendFunc ] ---
 
-	/** JNI method for {@link #glBlendFunc BlendFunc} */
-	@JavadocExclude
-	public static native void nglBlendFunc(int sfactor, int dfactor, long __functionAddress);
-
 	public static void glBlendFunc(int sfactor, int dfactor) {
 		long __functionAddress = getInstance().BlendFunc;
-		nglBlendFunc(sfactor, dfactor, __functionAddress);
+		invokeIIV(__functionAddress, sfactor, dfactor);
 	}
 
 	// --- [ glBlendFuncSeparate ] ---
 
-	/** JNI method for {@link #glBlendFuncSeparate BlendFuncSeparate} */
-	@JavadocExclude
-	public static native void nglBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha, long __functionAddress);
-
 	public static void glBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha) {
 		long __functionAddress = getInstance().BlendFuncSeparate;
-		nglBlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha, __functionAddress);
+		invokeIIIIV(__functionAddress, sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
 	}
 
 	// --- [ glBufferData ] ---
-
-	/** JNI method for {@link #glBufferData BufferData} */
-	@JavadocExclude
-	public static native void nglBufferData(int target, long size, long data, int usage, long __functionAddress);
 
 	/** Unsafe version of {@link #glBufferData BufferData} */
 	@JavadocExclude
 	public static void nglBufferData(int target, long size, long data, int usage) {
 		long __functionAddress = getInstance().BufferData;
-		nglBufferData(target, size, data, usage, __functionAddress);
+		invokeIPPIV(__functionAddress, target, size, data, usage);
 	}
 
 	public static void glBufferData(int target, long size, ByteBuffer data, int usage) {
@@ -846,15 +795,11 @@ public final class GLES20 {
 
 	// --- [ glBufferSubData ] ---
 
-	/** JNI method for {@link #glBufferSubData BufferSubData} */
-	@JavadocExclude
-	public static native void nglBufferSubData(int target, long offset, long size, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glBufferSubData BufferSubData} */
 	@JavadocExclude
 	public static void nglBufferSubData(int target, long offset, long size, long data) {
 		long __functionAddress = getInstance().BufferSubData;
-		nglBufferSubData(target, offset, size, data, __functionAddress);
+		invokeIPPPV(__functionAddress, target, offset, size, data);
 	}
 
 	public static void glBufferSubData(int target, long offset, long size, ByteBuffer data) {
@@ -885,92 +830,60 @@ public final class GLES20 {
 
 	// --- [ glCheckFramebufferStatus ] ---
 
-	/** JNI method for {@link #glCheckFramebufferStatus CheckFramebufferStatus} */
-	@JavadocExclude
-	public static native int nglCheckFramebufferStatus(int target, long __functionAddress);
-
 	public static int glCheckFramebufferStatus(int target) {
 		long __functionAddress = getInstance().CheckFramebufferStatus;
-		return nglCheckFramebufferStatus(target, __functionAddress);
+		return invokeII(__functionAddress, target);
 	}
 
 	// --- [ glClear ] ---
 
-	/** JNI method for {@link #glClear Clear} */
-	@JavadocExclude
-	public static native void nglClear(int mask, long __functionAddress);
-
 	public static void glClear(int mask) {
 		long __functionAddress = getInstance().Clear;
-		nglClear(mask, __functionAddress);
+		invokeIV(__functionAddress, mask);
 	}
 
 	// --- [ glClearColor ] ---
 
-	/** JNI method for {@link #glClearColor ClearColor} */
-	@JavadocExclude
-	public static native void nglClearColor(float red, float green, float blue, float alpha, long __functionAddress);
-
 	public static void glClearColor(float red, float green, float blue, float alpha) {
 		long __functionAddress = getInstance().ClearColor;
-		nglClearColor(red, green, blue, alpha, __functionAddress);
+		invokeFFFFV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glClearDepthf ] ---
 
-	/** JNI method for {@link #glClearDepthf ClearDepthf} */
-	@JavadocExclude
-	public static native void nglClearDepthf(float d, long __functionAddress);
-
 	public static void glClearDepthf(float d) {
 		long __functionAddress = getInstance().ClearDepthf;
-		nglClearDepthf(d, __functionAddress);
+		invokeFV(__functionAddress, d);
 	}
 
 	// --- [ glClearStencil ] ---
 
-	/** JNI method for {@link #glClearStencil ClearStencil} */
-	@JavadocExclude
-	public static native void nglClearStencil(int s, long __functionAddress);
-
 	public static void glClearStencil(int s) {
 		long __functionAddress = getInstance().ClearStencil;
-		nglClearStencil(s, __functionAddress);
+		invokeIV(__functionAddress, s);
 	}
 
 	// --- [ glColorMask ] ---
 
-	/** JNI method for {@link #glColorMask ColorMask} */
-	@JavadocExclude
-	public static native void nglColorMask(boolean red, boolean green, boolean blue, boolean alpha, long __functionAddress);
-
 	public static void glColorMask(boolean red, boolean green, boolean blue, boolean alpha) {
 		long __functionAddress = getInstance().ColorMask;
-		nglColorMask(red, green, blue, alpha, __functionAddress);
+		invokeZZZZV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glCompileShader ] ---
 
-	/** JNI method for {@link #glCompileShader CompileShader} */
-	@JavadocExclude
-	public static native void nglCompileShader(int shader, long __functionAddress);
-
 	public static void glCompileShader(int shader) {
 		long __functionAddress = getInstance().CompileShader;
-		nglCompileShader(shader, __functionAddress);
+		invokeIV(__functionAddress, shader);
 	}
 
 	// --- [ glCompressedTexImage2D ] ---
-
-	/** JNI method for {@link #glCompressedTexImage2D CompressedTexImage2D} */
-	@JavadocExclude
-	public static native void nglCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data, long __functionAddress);
 
 	/** Unsafe version of {@link #glCompressedTexImage2D CompressedTexImage2D} */
 	@JavadocExclude
 	public static void nglCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage2D;
-		nglCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data, __functionAddress);
+		invokeIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, border, imageSize, data);
 	}
 
 	public static void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, ByteBuffer data) {
@@ -991,15 +904,11 @@ public final class GLES20 {
 
 	// --- [ glCompressedTexSubImage2D ] ---
 
-	/** JNI method for {@link #glCompressedTexSubImage2D CompressedTexSubImage2D} */
-	@JavadocExclude
-	public static native void nglCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glCompressedTexSubImage2D CompressedTexSubImage2D} */
 	@JavadocExclude
 	public static void nglCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage2D;
-		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data, __functionAddress);
+		invokeIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, imageSize, data);
 	}
 
 	public static void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, ByteBuffer data) {
@@ -1020,70 +929,46 @@ public final class GLES20 {
 
 	// --- [ glCopyTexImage2D ] ---
 
-	/** JNI method for {@link #glCopyTexImage2D CopyTexImage2D} */
-	@JavadocExclude
-	public static native void nglCopyTexImage2D(int target, int level, int internalformat, int x, int y, int width, int height, int border, long __functionAddress);
-
 	public static void glCopyTexImage2D(int target, int level, int internalformat, int x, int y, int width, int height, int border) {
 		long __functionAddress = getInstance().CopyTexImage2D;
-		nglCopyTexImage2D(target, level, internalformat, x, y, width, height, border, __functionAddress);
+		invokeIIIIIIIIV(__functionAddress, target, level, internalformat, x, y, width, height, border);
 	}
 
 	// --- [ glCopyTexSubImage2D ] ---
 
-	/** JNI method for {@link #glCopyTexSubImage2D CopyTexSubImage2D} */
-	@JavadocExclude
-	public static native void nglCopyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height, long __functionAddress);
-
 	public static void glCopyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().CopyTexSubImage2D;
-		nglCopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height, __functionAddress);
+		invokeIIIIIIIIV(__functionAddress, target, level, xoffset, yoffset, x, y, width, height);
 	}
 
 	// --- [ glCreateProgram ] ---
 
-	/** JNI method for {@link #glCreateProgram CreateProgram} */
-	@JavadocExclude
-	public static native int nglCreateProgram(long __functionAddress);
-
 	public static int glCreateProgram() {
 		long __functionAddress = getInstance().CreateProgram;
-		return nglCreateProgram(__functionAddress);
+		return invokeI(__functionAddress);
 	}
 
 	// --- [ glCreateShader ] ---
 
-	/** JNI method for {@link #glCreateShader CreateShader} */
-	@JavadocExclude
-	public static native int nglCreateShader(int type, long __functionAddress);
-
 	public static int glCreateShader(int type) {
 		long __functionAddress = getInstance().CreateShader;
-		return nglCreateShader(type, __functionAddress);
+		return invokeII(__functionAddress, type);
 	}
 
 	// --- [ glCullFace ] ---
 
-	/** JNI method for {@link #glCullFace CullFace} */
-	@JavadocExclude
-	public static native void nglCullFace(int mode, long __functionAddress);
-
 	public static void glCullFace(int mode) {
 		long __functionAddress = getInstance().CullFace;
-		nglCullFace(mode, __functionAddress);
+		invokeIV(__functionAddress, mode);
 	}
 
 	// --- [ glDeleteBuffers ] ---
-
-	/** JNI method for {@link #glDeleteBuffers DeleteBuffers} */
-	@JavadocExclude
-	public static native void nglDeleteBuffers(int n, long buffers, long __functionAddress);
 
 	/** Unsafe version of {@link #glDeleteBuffers DeleteBuffers} */
 	@JavadocExclude
 	public static void nglDeleteBuffers(int n, long buffers) {
 		long __functionAddress = getInstance().DeleteBuffers;
-		nglDeleteBuffers(n, buffers, __functionAddress);
+		invokeIPV(__functionAddress, n, buffers);
 	}
 
 	public static void glDeleteBuffers(int n, ByteBuffer buffers) {
@@ -1106,15 +991,11 @@ public final class GLES20 {
 
 	// --- [ glDeleteFramebuffers ] ---
 
-	/** JNI method for {@link #glDeleteFramebuffers DeleteFramebuffers} */
-	@JavadocExclude
-	public static native void nglDeleteFramebuffers(int n, long framebuffers, long __functionAddress);
-
 	/** Unsafe version of {@link #glDeleteFramebuffers DeleteFramebuffers} */
 	@JavadocExclude
 	public static void nglDeleteFramebuffers(int n, long framebuffers) {
 		long __functionAddress = getInstance().DeleteFramebuffers;
-		nglDeleteFramebuffers(n, framebuffers, __functionAddress);
+		invokeIPV(__functionAddress, n, framebuffers);
 	}
 
 	public static void glDeleteFramebuffers(int n, ByteBuffer framebuffers) {
@@ -1137,26 +1018,18 @@ public final class GLES20 {
 
 	// --- [ glDeleteProgram ] ---
 
-	/** JNI method for {@link #glDeleteProgram DeleteProgram} */
-	@JavadocExclude
-	public static native void nglDeleteProgram(int program, long __functionAddress);
-
 	public static void glDeleteProgram(int program) {
 		long __functionAddress = getInstance().DeleteProgram;
-		nglDeleteProgram(program, __functionAddress);
+		invokeIV(__functionAddress, program);
 	}
 
 	// --- [ glDeleteRenderbuffers ] ---
-
-	/** JNI method for {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
-	@JavadocExclude
-	public static native void nglDeleteRenderbuffers(int n, long renderbuffers, long __functionAddress);
 
 	/** Unsafe version of {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
 	@JavadocExclude
 	public static void nglDeleteRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = getInstance().DeleteRenderbuffers;
-		nglDeleteRenderbuffers(n, renderbuffers, __functionAddress);
+		invokeIPV(__functionAddress, n, renderbuffers);
 	}
 
 	public static void glDeleteRenderbuffers(int n, ByteBuffer renderbuffers) {
@@ -1179,26 +1052,18 @@ public final class GLES20 {
 
 	// --- [ glDeleteShader ] ---
 
-	/** JNI method for {@link #glDeleteShader DeleteShader} */
-	@JavadocExclude
-	public static native void nglDeleteShader(int shader, long __functionAddress);
-
 	public static void glDeleteShader(int shader) {
 		long __functionAddress = getInstance().DeleteShader;
-		nglDeleteShader(shader, __functionAddress);
+		invokeIV(__functionAddress, shader);
 	}
 
 	// --- [ glDeleteTextures ] ---
-
-	/** JNI method for {@link #glDeleteTextures DeleteTextures} */
-	@JavadocExclude
-	public static native void nglDeleteTextures(int n, long textures, long __functionAddress);
 
 	/** Unsafe version of {@link #glDeleteTextures DeleteTextures} */
 	@JavadocExclude
 	public static void nglDeleteTextures(int n, long textures) {
 		long __functionAddress = getInstance().DeleteTextures;
-		nglDeleteTextures(n, textures, __functionAddress);
+		invokeIPV(__functionAddress, n, textures);
 	}
 
 	public static void glDeleteTextures(int n, ByteBuffer textures) {
@@ -1221,92 +1086,60 @@ public final class GLES20 {
 
 	// --- [ glDepthFunc ] ---
 
-	/** JNI method for {@link #glDepthFunc DepthFunc} */
-	@JavadocExclude
-	public static native void nglDepthFunc(int func, long __functionAddress);
-
 	public static void glDepthFunc(int func) {
 		long __functionAddress = getInstance().DepthFunc;
-		nglDepthFunc(func, __functionAddress);
+		invokeIV(__functionAddress, func);
 	}
 
 	// --- [ glDepthMask ] ---
 
-	/** JNI method for {@link #glDepthMask DepthMask} */
-	@JavadocExclude
-	public static native void nglDepthMask(boolean flag, long __functionAddress);
-
 	public static void glDepthMask(boolean flag) {
 		long __functionAddress = getInstance().DepthMask;
-		nglDepthMask(flag, __functionAddress);
+		invokeZV(__functionAddress, flag);
 	}
 
 	// --- [ glDepthRangef ] ---
 
-	/** JNI method for {@link #glDepthRangef DepthRangef} */
-	@JavadocExclude
-	public static native void nglDepthRangef(float n, float f, long __functionAddress);
-
 	public static void glDepthRangef(float n, float f) {
 		long __functionAddress = getInstance().DepthRangef;
-		nglDepthRangef(n, f, __functionAddress);
+		invokeFFV(__functionAddress, n, f);
 	}
 
 	// --- [ glDetachShader ] ---
 
-	/** JNI method for {@link #glDetachShader DetachShader} */
-	@JavadocExclude
-	public static native void nglDetachShader(int program, int shader, long __functionAddress);
-
 	public static void glDetachShader(int program, int shader) {
 		long __functionAddress = getInstance().DetachShader;
-		nglDetachShader(program, shader, __functionAddress);
+		invokeIIV(__functionAddress, program, shader);
 	}
 
 	// --- [ glDisable ] ---
 
-	/** JNI method for {@link #glDisable Disable} */
-	@JavadocExclude
-	public static native void nglDisable(int cap, long __functionAddress);
-
 	public static void glDisable(int cap) {
 		long __functionAddress = getInstance().Disable;
-		nglDisable(cap, __functionAddress);
+		invokeIV(__functionAddress, cap);
 	}
 
 	// --- [ glDisableVertexAttribArray ] ---
 
-	/** JNI method for {@link #glDisableVertexAttribArray DisableVertexAttribArray} */
-	@JavadocExclude
-	public static native void nglDisableVertexAttribArray(int index, long __functionAddress);
-
 	public static void glDisableVertexAttribArray(int index) {
 		long __functionAddress = getInstance().DisableVertexAttribArray;
-		nglDisableVertexAttribArray(index, __functionAddress);
+		invokeIV(__functionAddress, index);
 	}
 
 	// --- [ glDrawArrays ] ---
 
-	/** JNI method for {@link #glDrawArrays DrawArrays} */
-	@JavadocExclude
-	public static native void nglDrawArrays(int mode, int first, int count, long __functionAddress);
-
 	public static void glDrawArrays(int mode, int first, int count) {
 		long __functionAddress = getInstance().DrawArrays;
-		nglDrawArrays(mode, first, count, __functionAddress);
+		invokeIIIV(__functionAddress, mode, first, count);
 	}
 
 	// --- [ glDrawElements ] ---
-
-	/** JNI method for {@link #glDrawElements DrawElements} */
-	@JavadocExclude
-	public static native void nglDrawElements(int mode, int count, int type, long indices, long __functionAddress);
 
 	/** Unsafe version of {@link #glDrawElements DrawElements} */
 	@JavadocExclude
 	public static void nglDrawElements(int mode, int count, int type, long indices) {
 		long __functionAddress = getInstance().DrawElements;
-		nglDrawElements(mode, count, type, indices, __functionAddress);
+		invokeIIIPV(__functionAddress, mode, count, type, indices);
 	}
 
 	public static void glDrawElements(int mode, int count, int type, ByteBuffer indices) {
@@ -1342,92 +1175,60 @@ public final class GLES20 {
 
 	// --- [ glEnable ] ---
 
-	/** JNI method for {@link #glEnable Enable} */
-	@JavadocExclude
-	public static native void nglEnable(int cap, long __functionAddress);
-
 	public static void glEnable(int cap) {
 		long __functionAddress = getInstance().Enable;
-		nglEnable(cap, __functionAddress);
+		invokeIV(__functionAddress, cap);
 	}
 
 	// --- [ glEnableVertexAttribArray ] ---
 
-	/** JNI method for {@link #glEnableVertexAttribArray EnableVertexAttribArray} */
-	@JavadocExclude
-	public static native void nglEnableVertexAttribArray(int index, long __functionAddress);
-
 	public static void glEnableVertexAttribArray(int index) {
 		long __functionAddress = getInstance().EnableVertexAttribArray;
-		nglEnableVertexAttribArray(index, __functionAddress);
+		invokeIV(__functionAddress, index);
 	}
 
 	// --- [ glFinish ] ---
 
-	/** JNI method for {@link #glFinish Finish} */
-	@JavadocExclude
-	public static native void nglFinish(long __functionAddress);
-
 	public static void glFinish() {
 		long __functionAddress = getInstance().Finish;
-		nglFinish(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glFlush ] ---
 
-	/** JNI method for {@link #glFlush Flush} */
-	@JavadocExclude
-	public static native void nglFlush(long __functionAddress);
-
 	public static void glFlush() {
 		long __functionAddress = getInstance().Flush;
-		nglFlush(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glFramebufferRenderbuffer ] ---
 
-	/** JNI method for {@link #glFramebufferRenderbuffer FramebufferRenderbuffer} */
-	@JavadocExclude
-	public static native void nglFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer, long __functionAddress);
-
 	public static void glFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer) {
 		long __functionAddress = getInstance().FramebufferRenderbuffer;
-		nglFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer, __functionAddress);
+		invokeIIIIV(__functionAddress, target, attachment, renderbuffertarget, renderbuffer);
 	}
 
 	// --- [ glFramebufferTexture2D ] ---
 
-	/** JNI method for {@link #glFramebufferTexture2D FramebufferTexture2D} */
-	@JavadocExclude
-	public static native void nglFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level, long __functionAddress);
-
 	public static void glFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTexture2D;
-		nglFramebufferTexture2D(target, attachment, textarget, texture, level, __functionAddress);
+		invokeIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
 	}
 
 	// --- [ glFrontFace ] ---
 
-	/** JNI method for {@link #glFrontFace FrontFace} */
-	@JavadocExclude
-	public static native void nglFrontFace(int mode, long __functionAddress);
-
 	public static void glFrontFace(int mode) {
 		long __functionAddress = getInstance().FrontFace;
-		nglFrontFace(mode, __functionAddress);
+		invokeIV(__functionAddress, mode);
 	}
 
 	// --- [ glGenBuffers ] ---
-
-	/** JNI method for {@link #glGenBuffers GenBuffers} */
-	@JavadocExclude
-	public static native void nglGenBuffers(int n, long buffers, long __functionAddress);
 
 	/** Unsafe version of {@link #glGenBuffers GenBuffers} */
 	@JavadocExclude
 	public static void nglGenBuffers(int n, long buffers) {
 		long __functionAddress = getInstance().GenBuffers;
-		nglGenBuffers(n, buffers, __functionAddress);
+		invokeIPV(__functionAddress, n, buffers);
 	}
 
 	public static void glGenBuffers(int n, ByteBuffer buffers) {
@@ -1451,26 +1252,18 @@ public final class GLES20 {
 
 	// --- [ glGenerateMipmap ] ---
 
-	/** JNI method for {@link #glGenerateMipmap GenerateMipmap} */
-	@JavadocExclude
-	public static native void nglGenerateMipmap(int target, long __functionAddress);
-
 	public static void glGenerateMipmap(int target) {
 		long __functionAddress = getInstance().GenerateMipmap;
-		nglGenerateMipmap(target, __functionAddress);
+		invokeIV(__functionAddress, target);
 	}
 
 	// --- [ glGenFramebuffers ] ---
-
-	/** JNI method for {@link #glGenFramebuffers GenFramebuffers} */
-	@JavadocExclude
-	public static native void nglGenFramebuffers(int n, long framebuffers, long __functionAddress);
 
 	/** Unsafe version of {@link #glGenFramebuffers GenFramebuffers} */
 	@JavadocExclude
 	public static void nglGenFramebuffers(int n, long framebuffers) {
 		long __functionAddress = getInstance().GenFramebuffers;
-		nglGenFramebuffers(n, framebuffers, __functionAddress);
+		invokeIPV(__functionAddress, n, framebuffers);
 	}
 
 	public static void glGenFramebuffers(int n, ByteBuffer framebuffers) {
@@ -1494,15 +1287,11 @@ public final class GLES20 {
 
 	// --- [ glGenRenderbuffers ] ---
 
-	/** JNI method for {@link #glGenRenderbuffers GenRenderbuffers} */
-	@JavadocExclude
-	public static native void nglGenRenderbuffers(int n, long renderbuffers, long __functionAddress);
-
 	/** Unsafe version of {@link #glGenRenderbuffers GenRenderbuffers} */
 	@JavadocExclude
 	public static void nglGenRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = getInstance().GenRenderbuffers;
-		nglGenRenderbuffers(n, renderbuffers, __functionAddress);
+		invokeIPV(__functionAddress, n, renderbuffers);
 	}
 
 	public static void glGenRenderbuffers(int n, ByteBuffer renderbuffers) {
@@ -1526,15 +1315,11 @@ public final class GLES20 {
 
 	// --- [ glGenTextures ] ---
 
-	/** JNI method for {@link #glGenTextures GenTextures} */
-	@JavadocExclude
-	public static native void nglGenTextures(int n, long textures, long __functionAddress);
-
 	/** Unsafe version of {@link #glGenTextures GenTextures} */
 	@JavadocExclude
 	public static void nglGenTextures(int n, long textures) {
 		long __functionAddress = getInstance().GenTextures;
-		nglGenTextures(n, textures, __functionAddress);
+		invokeIPV(__functionAddress, n, textures);
 	}
 
 	public static void glGenTextures(int n, ByteBuffer textures) {
@@ -1558,15 +1343,11 @@ public final class GLES20 {
 
 	// --- [ glGetActiveAttrib ] ---
 
-	/** JNI method for {@link #glGetActiveAttrib GetActiveAttrib} */
-	@JavadocExclude
-	public static native void nglGetActiveAttrib(int program, int index, int bufSize, long length, long size, long type, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetActiveAttrib GetActiveAttrib} */
 	@JavadocExclude
 	public static void nglGetActiveAttrib(int program, int index, int bufSize, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetActiveAttrib;
-		nglGetActiveAttrib(program, index, bufSize, length, size, type, name, __functionAddress);
+		invokeIIIPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
 	}
 
 	public static void glGetActiveAttrib(int program, int index, int bufSize, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
@@ -1618,15 +1399,11 @@ public final class GLES20 {
 
 	// --- [ glGetActiveUniform ] ---
 
-	/** JNI method for {@link #glGetActiveUniform GetActiveUniform} */
-	@JavadocExclude
-	public static native void nglGetActiveUniform(int program, int index, int bufSize, long length, long size, long type, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetActiveUniform GetActiveUniform} */
 	@JavadocExclude
 	public static void nglGetActiveUniform(int program, int index, int bufSize, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetActiveUniform;
-		nglGetActiveUniform(program, index, bufSize, length, size, type, name, __functionAddress);
+		invokeIIIPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
 	}
 
 	public static void glGetActiveUniform(int program, int index, int bufSize, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
@@ -1678,15 +1455,11 @@ public final class GLES20 {
 
 	// --- [ glGetAttachedShaders ] ---
 
-	/** JNI method for {@link #glGetAttachedShaders GetAttachedShaders} */
-	@JavadocExclude
-	public static native void nglGetAttachedShaders(int program, int maxCount, long count, long shaders, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetAttachedShaders GetAttachedShaders} */
 	@JavadocExclude
 	public static void nglGetAttachedShaders(int program, int maxCount, long count, long shaders) {
 		long __functionAddress = getInstance().GetAttachedShaders;
-		nglGetAttachedShaders(program, maxCount, count, shaders, __functionAddress);
+		invokeIIPPV(__functionAddress, program, maxCount, count, shaders);
 	}
 
 	public static void glGetAttachedShaders(int program, int maxCount, ByteBuffer count, ByteBuffer shaders) {
@@ -1727,15 +1500,11 @@ public final class GLES20 {
 
 	// --- [ glGetAttribLocation ] ---
 
-	/** JNI method for {@link #glGetAttribLocation GetAttribLocation} */
-	@JavadocExclude
-	public static native int nglGetAttribLocation(int program, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetAttribLocation GetAttribLocation} */
 	@JavadocExclude
 	public static int nglGetAttribLocation(int program, long name) {
 		long __functionAddress = getInstance().GetAttribLocation;
-		return nglGetAttribLocation(program, name, __functionAddress);
+		return invokeIPI(__functionAddress, program, name);
 	}
 
 	public static int glGetAttribLocation(int program, ByteBuffer name) {
@@ -1753,15 +1522,11 @@ public final class GLES20 {
 
 	// --- [ glGetBooleanv ] ---
 
-	/** JNI method for {@link #glGetBooleanv GetBooleanv} */
-	@JavadocExclude
-	public static native void nglGetBooleanv(int pname, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetBooleanv GetBooleanv} */
 	@JavadocExclude
 	public static void nglGetBooleanv(int pname, long data) {
 		long __functionAddress = getInstance().GetBooleanv;
-		nglGetBooleanv(pname, data, __functionAddress);
+		invokeIPV(__functionAddress, pname, data);
 	}
 
 	public static void glGetBooleanv(int pname, ByteBuffer data) {
@@ -1780,15 +1545,11 @@ public final class GLES20 {
 
 	// --- [ glGetBufferParameteriv ] ---
 
-	/** JNI method for {@link #glGetBufferParameteriv GetBufferParameteriv} */
-	@JavadocExclude
-	public static native void nglGetBufferParameteriv(int target, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetBufferParameteriv GetBufferParameteriv} */
 	@JavadocExclude
 	public static void nglGetBufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferParameteriv;
-		nglGetBufferParameteriv(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetBufferParameteriv(int target, int pname, ByteBuffer params) {
@@ -1814,26 +1575,18 @@ public final class GLES20 {
 
 	// --- [ glGetError ] ---
 
-	/** JNI method for {@link #glGetError GetError} */
-	@JavadocExclude
-	public static native int nglGetError(long __functionAddress);
-
 	public static int glGetError() {
 		long __functionAddress = getInstance().GetError;
-		return nglGetError(__functionAddress);
+		return invokeI(__functionAddress);
 	}
 
 	// --- [ glGetFloatv ] ---
-
-	/** JNI method for {@link #glGetFloatv GetFloatv} */
-	@JavadocExclude
-	public static native void nglGetFloatv(int pname, long data, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetFloatv GetFloatv} */
 	@JavadocExclude
 	public static void nglGetFloatv(int pname, long data) {
 		long __functionAddress = getInstance().GetFloatv;
-		nglGetFloatv(pname, data, __functionAddress);
+		invokeIPV(__functionAddress, pname, data);
 	}
 
 	public static void glGetFloatv(int pname, ByteBuffer data) {
@@ -1859,15 +1612,11 @@ public final class GLES20 {
 
 	// --- [ glGetFramebufferAttachmentParameteriv ] ---
 
-	/** JNI method for {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
-	@JavadocExclude
-	public static native void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
 	@JavadocExclude
 	public static void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferAttachmentParameteriv;
-		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, params, __functionAddress);
+		invokeIIIPV(__functionAddress, target, attachment, pname, params);
 	}
 
 	public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, ByteBuffer params) {
@@ -1893,15 +1642,11 @@ public final class GLES20 {
 
 	// --- [ glGetIntegerv ] ---
 
-	/** JNI method for {@link #glGetIntegerv GetIntegerv} */
-	@JavadocExclude
-	public static native void nglGetIntegerv(int pname, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetIntegerv GetIntegerv} */
 	@JavadocExclude
 	public static void nglGetIntegerv(int pname, long data) {
 		long __functionAddress = getInstance().GetIntegerv;
-		nglGetIntegerv(pname, data, __functionAddress);
+		invokeIPV(__functionAddress, pname, data);
 	}
 
 	public static void glGetIntegerv(int pname, ByteBuffer data) {
@@ -1927,15 +1672,11 @@ public final class GLES20 {
 
 	// --- [ glGetProgramiv ] ---
 
-	/** JNI method for {@link #glGetProgramiv GetProgramiv} */
-	@JavadocExclude
-	public static native void nglGetProgramiv(int program, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetProgramiv GetProgramiv} */
 	@JavadocExclude
 	public static void nglGetProgramiv(int program, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramiv;
-		nglGetProgramiv(program, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, program, pname, params);
 	}
 
 	public static void glGetProgramiv(int program, int pname, ByteBuffer params) {
@@ -1961,15 +1702,11 @@ public final class GLES20 {
 
 	// --- [ glGetProgramInfoLog ] ---
 
-	/** JNI method for {@link #glGetProgramInfoLog GetProgramInfoLog} */
-	@JavadocExclude
-	public static native void nglGetProgramInfoLog(int program, int bufSize, long length, long infoLog, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetProgramInfoLog GetProgramInfoLog} */
 	@JavadocExclude
 	public static void nglGetProgramInfoLog(int program, int bufSize, long length, long infoLog) {
 		long __functionAddress = getInstance().GetProgramInfoLog;
-		nglGetProgramInfoLog(program, bufSize, length, infoLog, __functionAddress);
+		invokeIIPPV(__functionAddress, program, bufSize, length, infoLog);
 	}
 
 	public static void glGetProgramInfoLog(int program, int bufSize, ByteBuffer length, ByteBuffer infoLog) {
@@ -2008,15 +1745,11 @@ public final class GLES20 {
 
 	// --- [ glGetRenderbufferParameteriv ] ---
 
-	/** JNI method for {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
-	@JavadocExclude
-	public static native void nglGetRenderbufferParameteriv(int target, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
 	@JavadocExclude
 	public static void nglGetRenderbufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetRenderbufferParameteriv;
-		nglGetRenderbufferParameteriv(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetRenderbufferParameteriv(int target, int pname, ByteBuffer params) {
@@ -2042,15 +1775,11 @@ public final class GLES20 {
 
 	// --- [ glGetShaderiv ] ---
 
-	/** JNI method for {@link #glGetShaderiv GetShaderiv} */
-	@JavadocExclude
-	public static native void nglGetShaderiv(int shader, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetShaderiv GetShaderiv} */
 	@JavadocExclude
 	public static void nglGetShaderiv(int shader, int pname, long params) {
 		long __functionAddress = getInstance().GetShaderiv;
-		nglGetShaderiv(shader, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, shader, pname, params);
 	}
 
 	public static void glGetShaderiv(int shader, int pname, ByteBuffer params) {
@@ -2076,15 +1805,11 @@ public final class GLES20 {
 
 	// --- [ glGetShaderInfoLog ] ---
 
-	/** JNI method for {@link #glGetShaderInfoLog GetShaderInfoLog} */
-	@JavadocExclude
-	public static native void nglGetShaderInfoLog(int shader, int bufSize, long length, long infoLog, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetShaderInfoLog GetShaderInfoLog} */
 	@JavadocExclude
 	public static void nglGetShaderInfoLog(int shader, int bufSize, long length, long infoLog) {
 		long __functionAddress = getInstance().GetShaderInfoLog;
-		nglGetShaderInfoLog(shader, bufSize, length, infoLog, __functionAddress);
+		invokeIIPPV(__functionAddress, shader, bufSize, length, infoLog);
 	}
 
 	public static void glGetShaderInfoLog(int shader, int bufSize, ByteBuffer length, ByteBuffer infoLog) {
@@ -2123,15 +1848,11 @@ public final class GLES20 {
 
 	// --- [ glGetShaderPrecisionFormat ] ---
 
-	/** JNI method for {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat} */
-	@JavadocExclude
-	public static native void nglGetShaderPrecisionFormat(int shadertype, int precisiontype, long range, long precision, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat} */
 	@JavadocExclude
 	public static void nglGetShaderPrecisionFormat(int shadertype, int precisiontype, long range, long precision) {
 		long __functionAddress = getInstance().GetShaderPrecisionFormat;
-		nglGetShaderPrecisionFormat(shadertype, precisiontype, range, precision, __functionAddress);
+		invokeIIPPV(__functionAddress, shadertype, precisiontype, range, precision);
 	}
 
 	public static void glGetShaderPrecisionFormat(int shadertype, int precisiontype, ByteBuffer range, ByteBuffer precision) {
@@ -2153,15 +1874,11 @@ public final class GLES20 {
 
 	// --- [ glGetShaderSource ] ---
 
-	/** JNI method for {@link #glGetShaderSource GetShaderSource} */
-	@JavadocExclude
-	public static native void nglGetShaderSource(int shader, int bufSize, long length, long source, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetShaderSource GetShaderSource} */
 	@JavadocExclude
 	public static void nglGetShaderSource(int shader, int bufSize, long length, long source) {
 		long __functionAddress = getInstance().GetShaderSource;
-		nglGetShaderSource(shader, bufSize, length, source, __functionAddress);
+		invokeIIPPV(__functionAddress, shader, bufSize, length, source);
 	}
 
 	public static void glGetShaderSource(int shader, int bufSize, ByteBuffer length, ByteBuffer source) {
@@ -2200,15 +1917,11 @@ public final class GLES20 {
 
 	// --- [ glGetString ] ---
 
-	/** JNI method for {@link #glGetString GetString} */
-	@JavadocExclude
-	public static native long nglGetString(int name, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetString GetString} */
 	@JavadocExclude
 	public static long nglGetString(int name) {
 		long __functionAddress = getInstance().GetString;
-		return nglGetString(name, __functionAddress);
+		return invokeIP(__functionAddress, name);
 	}
 
 	public static String glGetString(int name) {
@@ -2218,15 +1931,11 @@ public final class GLES20 {
 
 	// --- [ glGetTexParameterfv ] ---
 
-	/** JNI method for {@link #glGetTexParameterfv GetTexParameterfv} */
-	@JavadocExclude
-	public static native void nglGetTexParameterfv(int target, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetTexParameterfv GetTexParameterfv} */
 	@JavadocExclude
 	public static void nglGetTexParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterfv;
-		nglGetTexParameterfv(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetTexParameterfv(int target, int pname, ByteBuffer params) {
@@ -2252,15 +1961,11 @@ public final class GLES20 {
 
 	// --- [ glGetTexParameteriv ] ---
 
-	/** JNI method for {@link #glGetTexParameteriv GetTexParameteriv} */
-	@JavadocExclude
-	public static native void nglGetTexParameteriv(int target, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetTexParameteriv GetTexParameteriv} */
 	@JavadocExclude
 	public static void nglGetTexParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameteriv;
-		nglGetTexParameteriv(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetTexParameteriv(int target, int pname, ByteBuffer params) {
@@ -2286,15 +1991,11 @@ public final class GLES20 {
 
 	// --- [ glGetUniformfv ] ---
 
-	/** JNI method for {@link #glGetUniformfv GetUniformfv} */
-	@JavadocExclude
-	public static native void nglGetUniformfv(int program, int location, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetUniformfv GetUniformfv} */
 	@JavadocExclude
 	public static void nglGetUniformfv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformfv;
-		nglGetUniformfv(program, location, params, __functionAddress);
+		invokeIIPV(__functionAddress, program, location, params);
 	}
 
 	public static void glGetUniformfv(int program, int location, ByteBuffer params) {
@@ -2320,15 +2021,11 @@ public final class GLES20 {
 
 	// --- [ glGetUniformiv ] ---
 
-	/** JNI method for {@link #glGetUniformiv GetUniformiv} */
-	@JavadocExclude
-	public static native void nglGetUniformiv(int program, int location, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetUniformiv GetUniformiv} */
 	@JavadocExclude
 	public static void nglGetUniformiv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformiv;
-		nglGetUniformiv(program, location, params, __functionAddress);
+		invokeIIPV(__functionAddress, program, location, params);
 	}
 
 	public static void glGetUniformiv(int program, int location, ByteBuffer params) {
@@ -2354,15 +2051,11 @@ public final class GLES20 {
 
 	// --- [ glGetUniformLocation ] ---
 
-	/** JNI method for {@link #glGetUniformLocation GetUniformLocation} */
-	@JavadocExclude
-	public static native int nglGetUniformLocation(int program, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetUniformLocation GetUniformLocation} */
 	@JavadocExclude
 	public static int nglGetUniformLocation(int program, long name) {
 		long __functionAddress = getInstance().GetUniformLocation;
-		return nglGetUniformLocation(program, name, __functionAddress);
+		return invokeIPI(__functionAddress, program, name);
 	}
 
 	public static int glGetUniformLocation(int program, ByteBuffer name) {
@@ -2380,15 +2073,11 @@ public final class GLES20 {
 
 	// --- [ glGetVertexAttribfv ] ---
 
-	/** JNI method for {@link #glGetVertexAttribfv GetVertexAttribfv} */
-	@JavadocExclude
-	public static native void nglGetVertexAttribfv(int index, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetVertexAttribfv GetVertexAttribfv} */
 	@JavadocExclude
 	public static void nglGetVertexAttribfv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribfv;
-		nglGetVertexAttribfv(index, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, index, pname, params);
 	}
 
 	public static void glGetVertexAttribfv(int index, int pname, ByteBuffer params) {
@@ -2406,15 +2095,11 @@ public final class GLES20 {
 
 	// --- [ glGetVertexAttribiv ] ---
 
-	/** JNI method for {@link #glGetVertexAttribiv GetVertexAttribiv} */
-	@JavadocExclude
-	public static native void nglGetVertexAttribiv(int index, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetVertexAttribiv GetVertexAttribiv} */
 	@JavadocExclude
 	public static void nglGetVertexAttribiv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribiv;
-		nglGetVertexAttribiv(index, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, index, pname, params);
 	}
 
 	public static void glGetVertexAttribiv(int index, int pname, ByteBuffer params) {
@@ -2432,15 +2117,11 @@ public final class GLES20 {
 
 	// --- [ glGetVertexAttribPointerv ] ---
 
-	/** JNI method for {@link #glGetVertexAttribPointerv GetVertexAttribPointerv} */
-	@JavadocExclude
-	public static native void nglGetVertexAttribPointerv(int index, int pname, long pointer, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetVertexAttribPointerv GetVertexAttribPointerv} */
 	@JavadocExclude
 	public static void nglGetVertexAttribPointerv(int index, int pname, long pointer) {
 		long __functionAddress = getInstance().GetVertexAttribPointerv;
-		nglGetVertexAttribPointerv(index, pname, pointer, __functionAddress);
+		invokeIIPV(__functionAddress, index, pname, pointer);
 	}
 
 	public static void glGetVertexAttribPointerv(int index, int pname, ByteBuffer pointer) {
@@ -2466,147 +2147,95 @@ public final class GLES20 {
 
 	// --- [ glHint ] ---
 
-	/** JNI method for {@link #glHint Hint} */
-	@JavadocExclude
-	public static native void nglHint(int target, int mode, long __functionAddress);
-
 	public static void glHint(int target, int mode) {
 		long __functionAddress = getInstance().Hint;
-		nglHint(target, mode, __functionAddress);
+		invokeIIV(__functionAddress, target, mode);
 	}
 
 	// --- [ glIsBuffer ] ---
 
-	/** JNI method for {@link #glIsBuffer IsBuffer} */
-	@JavadocExclude
-	public static native boolean nglIsBuffer(int buffer, long __functionAddress);
-
 	public static boolean glIsBuffer(int buffer) {
 		long __functionAddress = getInstance().IsBuffer;
-		return nglIsBuffer(buffer, __functionAddress);
+		return invokeIZ(__functionAddress, buffer);
 	}
 
 	// --- [ glIsEnabled ] ---
 
-	/** JNI method for {@link #glIsEnabled IsEnabled} */
-	@JavadocExclude
-	public static native boolean nglIsEnabled(int cap, long __functionAddress);
-
 	public static boolean glIsEnabled(int cap) {
 		long __functionAddress = getInstance().IsEnabled;
-		return nglIsEnabled(cap, __functionAddress);
+		return invokeIZ(__functionAddress, cap);
 	}
 
 	// --- [ glIsFramebuffer ] ---
 
-	/** JNI method for {@link #glIsFramebuffer IsFramebuffer} */
-	@JavadocExclude
-	public static native boolean nglIsFramebuffer(int framebuffer, long __functionAddress);
-
 	public static boolean glIsFramebuffer(int framebuffer) {
 		long __functionAddress = getInstance().IsFramebuffer;
-		return nglIsFramebuffer(framebuffer, __functionAddress);
+		return invokeIZ(__functionAddress, framebuffer);
 	}
 
 	// --- [ glIsProgram ] ---
 
-	/** JNI method for {@link #glIsProgram IsProgram} */
-	@JavadocExclude
-	public static native boolean nglIsProgram(int program, long __functionAddress);
-
 	public static boolean glIsProgram(int program) {
 		long __functionAddress = getInstance().IsProgram;
-		return nglIsProgram(program, __functionAddress);
+		return invokeIZ(__functionAddress, program);
 	}
 
 	// --- [ glIsRenderbuffer ] ---
 
-	/** JNI method for {@link #glIsRenderbuffer IsRenderbuffer} */
-	@JavadocExclude
-	public static native boolean nglIsRenderbuffer(int renderbuffer, long __functionAddress);
-
 	public static boolean glIsRenderbuffer(int renderbuffer) {
 		long __functionAddress = getInstance().IsRenderbuffer;
-		return nglIsRenderbuffer(renderbuffer, __functionAddress);
+		return invokeIZ(__functionAddress, renderbuffer);
 	}
 
 	// --- [ glIsShader ] ---
 
-	/** JNI method for {@link #glIsShader IsShader} */
-	@JavadocExclude
-	public static native boolean nglIsShader(int shader, long __functionAddress);
-
 	public static boolean glIsShader(int shader) {
 		long __functionAddress = getInstance().IsShader;
-		return nglIsShader(shader, __functionAddress);
+		return invokeIZ(__functionAddress, shader);
 	}
 
 	// --- [ glIsTexture ] ---
 
-	/** JNI method for {@link #glIsTexture IsTexture} */
-	@JavadocExclude
-	public static native boolean nglIsTexture(int texture, long __functionAddress);
-
 	public static boolean glIsTexture(int texture) {
 		long __functionAddress = getInstance().IsTexture;
-		return nglIsTexture(texture, __functionAddress);
+		return invokeIZ(__functionAddress, texture);
 	}
 
 	// --- [ glLineWidth ] ---
 
-	/** JNI method for {@link #glLineWidth LineWidth} */
-	@JavadocExclude
-	public static native void nglLineWidth(float width, long __functionAddress);
-
 	public static void glLineWidth(float width) {
 		long __functionAddress = getInstance().LineWidth;
-		nglLineWidth(width, __functionAddress);
+		invokeFV(__functionAddress, width);
 	}
 
 	// --- [ glLinkProgram ] ---
 
-	/** JNI method for {@link #glLinkProgram LinkProgram} */
-	@JavadocExclude
-	public static native void nglLinkProgram(int program, long __functionAddress);
-
 	public static void glLinkProgram(int program) {
 		long __functionAddress = getInstance().LinkProgram;
-		nglLinkProgram(program, __functionAddress);
+		invokeIV(__functionAddress, program);
 	}
 
 	// --- [ glPixelStorei ] ---
 
-	/** JNI method for {@link #glPixelStorei PixelStorei} */
-	@JavadocExclude
-	public static native void nglPixelStorei(int pname, int param, long __functionAddress);
-
 	public static void glPixelStorei(int pname, int param) {
 		long __functionAddress = getInstance().PixelStorei;
-		nglPixelStorei(pname, param, __functionAddress);
+		invokeIIV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPolygonOffset ] ---
 
-	/** JNI method for {@link #glPolygonOffset PolygonOffset} */
-	@JavadocExclude
-	public static native void nglPolygonOffset(float factor, float units, long __functionAddress);
-
 	public static void glPolygonOffset(float factor, float units) {
 		long __functionAddress = getInstance().PolygonOffset;
-		nglPolygonOffset(factor, units, __functionAddress);
+		invokeFFV(__functionAddress, factor, units);
 	}
 
 	// --- [ glReadPixels ] ---
-
-	/** JNI method for {@link #glReadPixels ReadPixels} */
-	@JavadocExclude
-	public static native void nglReadPixels(int x, int y, int width, int height, int format, int type, long pixels, long __functionAddress);
 
 	/** Unsafe version of {@link #glReadPixels ReadPixels} */
 	@JavadocExclude
 	public static void nglReadPixels(int x, int y, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = getInstance().ReadPixels;
-		nglReadPixels(x, y, width, height, format, type, pixels, __functionAddress);
+		invokeIIIIIIPV(__functionAddress, x, y, width, height, format, type, pixels);
 	}
 
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
@@ -2635,59 +2264,39 @@ public final class GLES20 {
 
 	// --- [ glReleaseShaderCompiler ] ---
 
-	/** JNI method for {@link #glReleaseShaderCompiler ReleaseShaderCompiler} */
-	@JavadocExclude
-	public static native void nglReleaseShaderCompiler(long __functionAddress);
-
 	public static void glReleaseShaderCompiler() {
 		long __functionAddress = getInstance().ReleaseShaderCompiler;
-		nglReleaseShaderCompiler(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glRenderbufferStorage ] ---
 
-	/** JNI method for {@link #glRenderbufferStorage RenderbufferStorage} */
-	@JavadocExclude
-	public static native void nglRenderbufferStorage(int target, int internalformat, int width, int height, long __functionAddress);
-
 	public static void glRenderbufferStorage(int target, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorage;
-		nglRenderbufferStorage(target, internalformat, width, height, __functionAddress);
+		invokeIIIIV(__functionAddress, target, internalformat, width, height);
 	}
 
 	// --- [ glSampleCoverage ] ---
 
-	/** JNI method for {@link #glSampleCoverage SampleCoverage} */
-	@JavadocExclude
-	public static native void nglSampleCoverage(float value, boolean invert, long __functionAddress);
-
 	public static void glSampleCoverage(float value, boolean invert) {
 		long __functionAddress = getInstance().SampleCoverage;
-		nglSampleCoverage(value, invert, __functionAddress);
+		invokeFZV(__functionAddress, value, invert);
 	}
 
 	// --- [ glScissor ] ---
 
-	/** JNI method for {@link #glScissor Scissor} */
-	@JavadocExclude
-	public static native void nglScissor(int x, int y, int width, int height, long __functionAddress);
-
 	public static void glScissor(int x, int y, int width, int height) {
 		long __functionAddress = getInstance().Scissor;
-		nglScissor(x, y, width, height, __functionAddress);
+		invokeIIIIV(__functionAddress, x, y, width, height);
 	}
 
 	// --- [ glShaderBinary ] ---
-
-	/** JNI method for {@link #glShaderBinary ShaderBinary} */
-	@JavadocExclude
-	public static native void nglShaderBinary(int count, long shaders, int binaryformat, long binary, int length, long __functionAddress);
 
 	/** Unsafe version of {@link #glShaderBinary ShaderBinary} */
 	@JavadocExclude
 	public static void nglShaderBinary(int count, long shaders, int binaryformat, long binary, int length) {
 		long __functionAddress = getInstance().ShaderBinary;
-		nglShaderBinary(count, shaders, binaryformat, binary, length, __functionAddress);
+		invokeIPIPIV(__functionAddress, count, shaders, binaryformat, binary, length);
 	}
 
 	public static void glShaderBinary(int count, ByteBuffer shaders, int binaryformat, ByteBuffer binary, int length) {
@@ -2705,15 +2314,11 @@ public final class GLES20 {
 
 	// --- [ glShaderSource ] ---
 
-	/** JNI method for {@link #glShaderSource ShaderSource} */
-	@JavadocExclude
-	public static native void nglShaderSource(int shader, int count, long string, long length, long __functionAddress);
-
 	/** Unsafe version of {@link #glShaderSource ShaderSource} */
 	@JavadocExclude
 	public static void nglShaderSource(int shader, int count, long string, long length) {
 		long __functionAddress = getInstance().ShaderSource;
-		nglShaderSource(shader, count, string, length, __functionAddress);
+		invokeIIPPV(__functionAddress, shader, count, string, length);
 	}
 
 	public static void glShaderSource(int shader, int count, ByteBuffer string, ByteBuffer length) {
@@ -2755,81 +2360,53 @@ public final class GLES20 {
 
 	// --- [ glStencilFunc ] ---
 
-	/** JNI method for {@link #glStencilFunc StencilFunc} */
-	@JavadocExclude
-	public static native void nglStencilFunc(int func, int ref, int mask, long __functionAddress);
-
 	public static void glStencilFunc(int func, int ref, int mask) {
 		long __functionAddress = getInstance().StencilFunc;
-		nglStencilFunc(func, ref, mask, __functionAddress);
+		invokeIIIV(__functionAddress, func, ref, mask);
 	}
 
 	// --- [ glStencilFuncSeparate ] ---
 
-	/** JNI method for {@link #glStencilFuncSeparate StencilFuncSeparate} */
-	@JavadocExclude
-	public static native void nglStencilFuncSeparate(int face, int func, int ref, int mask, long __functionAddress);
-
 	public static void glStencilFuncSeparate(int face, int func, int ref, int mask) {
 		long __functionAddress = getInstance().StencilFuncSeparate;
-		nglStencilFuncSeparate(face, func, ref, mask, __functionAddress);
+		invokeIIIIV(__functionAddress, face, func, ref, mask);
 	}
 
 	// --- [ glStencilMask ] ---
 
-	/** JNI method for {@link #glStencilMask StencilMask} */
-	@JavadocExclude
-	public static native void nglStencilMask(int mask, long __functionAddress);
-
 	public static void glStencilMask(int mask) {
 		long __functionAddress = getInstance().StencilMask;
-		nglStencilMask(mask, __functionAddress);
+		invokeIV(__functionAddress, mask);
 	}
 
 	// --- [ glStencilMaskSeparate ] ---
 
-	/** JNI method for {@link #glStencilMaskSeparate StencilMaskSeparate} */
-	@JavadocExclude
-	public static native void nglStencilMaskSeparate(int face, int mask, long __functionAddress);
-
 	public static void glStencilMaskSeparate(int face, int mask) {
 		long __functionAddress = getInstance().StencilMaskSeparate;
-		nglStencilMaskSeparate(face, mask, __functionAddress);
+		invokeIIV(__functionAddress, face, mask);
 	}
 
 	// --- [ glStencilOp ] ---
 
-	/** JNI method for {@link #glStencilOp StencilOp} */
-	@JavadocExclude
-	public static native void nglStencilOp(int fail, int zfail, int zpass, long __functionAddress);
-
 	public static void glStencilOp(int fail, int zfail, int zpass) {
 		long __functionAddress = getInstance().StencilOp;
-		nglStencilOp(fail, zfail, zpass, __functionAddress);
+		invokeIIIV(__functionAddress, fail, zfail, zpass);
 	}
 
 	// --- [ glStencilOpSeparate ] ---
 
-	/** JNI method for {@link #glStencilOpSeparate StencilOpSeparate} */
-	@JavadocExclude
-	public static native void nglStencilOpSeparate(int face, int sfail, int dpfail, int dppass, long __functionAddress);
-
 	public static void glStencilOpSeparate(int face, int sfail, int dpfail, int dppass) {
 		long __functionAddress = getInstance().StencilOpSeparate;
-		nglStencilOpSeparate(face, sfail, dpfail, dppass, __functionAddress);
+		invokeIIIIV(__functionAddress, face, sfail, dpfail, dppass);
 	}
 
 	// --- [ glTexImage2D ] ---
-
-	/** JNI method for {@link #glTexImage2D TexImage2D} */
-	@JavadocExclude
-	public static native void nglTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels, long __functionAddress);
 
 	/** Unsafe version of {@link #glTexImage2D TexImage2D} */
 	@JavadocExclude
 	public static void nglTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexImage2D;
-		nglTexImage2D(target, level, internalformat, width, height, border, format, type, pixels, __functionAddress);
+		invokeIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, ByteBuffer pixels) {
@@ -2858,26 +2435,18 @@ public final class GLES20 {
 
 	// --- [ glTexParameterf ] ---
 
-	/** JNI method for {@link #glTexParameterf TexParameterf} */
-	@JavadocExclude
-	public static native void nglTexParameterf(int target, int pname, float param, long __functionAddress);
-
 	public static void glTexParameterf(int target, int pname, float param) {
 		long __functionAddress = getInstance().TexParameterf;
-		nglTexParameterf(target, pname, param, __functionAddress);
+		invokeIIFV(__functionAddress, target, pname, param);
 	}
 
 	// --- [ glTexParameterfv ] ---
-
-	/** JNI method for {@link #glTexParameterfv TexParameterfv} */
-	@JavadocExclude
-	public static native void nglTexParameterfv(int target, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glTexParameterfv TexParameterfv} */
 	@JavadocExclude
 	public static void nglTexParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterfv;
-		nglTexParameterfv(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glTexParameterfv(int target, int pname, ByteBuffer params) {
@@ -2895,26 +2464,18 @@ public final class GLES20 {
 
 	// --- [ glTexParameteri ] ---
 
-	/** JNI method for {@link #glTexParameteri TexParameteri} */
-	@JavadocExclude
-	public static native void nglTexParameteri(int target, int pname, int param, long __functionAddress);
-
 	public static void glTexParameteri(int target, int pname, int param) {
 		long __functionAddress = getInstance().TexParameteri;
-		nglTexParameteri(target, pname, param, __functionAddress);
+		invokeIIIV(__functionAddress, target, pname, param);
 	}
 
 	// --- [ glTexParameteriv ] ---
-
-	/** JNI method for {@link #glTexParameteriv TexParameteriv} */
-	@JavadocExclude
-	public static native void nglTexParameteriv(int target, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glTexParameteriv TexParameteriv} */
 	@JavadocExclude
 	public static void nglTexParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameteriv;
-		nglTexParameteriv(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glTexParameteriv(int target, int pname, ByteBuffer params) {
@@ -2932,15 +2493,11 @@ public final class GLES20 {
 
 	// --- [ glTexSubImage2D ] ---
 
-	/** JNI method for {@link #glTexSubImage2D TexSubImage2D} */
-	@JavadocExclude
-	public static native void nglTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexSubImage2D TexSubImage2D} */
 	@JavadocExclude
 	public static void nglTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexSubImage2D;
-		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels, __functionAddress);
+		invokeIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, ByteBuffer pixels) {
@@ -2969,26 +2526,18 @@ public final class GLES20 {
 
 	// --- [ glUniform1f ] ---
 
-	/** JNI method for {@link #glUniform1f Uniform1f} */
-	@JavadocExclude
-	public static native void nglUniform1f(int location, float v0, long __functionAddress);
-
 	public static void glUniform1f(int location, float v0) {
 		long __functionAddress = getInstance().Uniform1f;
-		nglUniform1f(location, v0, __functionAddress);
+		invokeIFV(__functionAddress, location, v0);
 	}
 
 	// --- [ glUniform1fv ] ---
-
-	/** JNI method for {@link #glUniform1fv Uniform1fv} */
-	@JavadocExclude
-	public static native void nglUniform1fv(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniform1fv Uniform1fv} */
 	@JavadocExclude
 	public static void nglUniform1fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1fv;
-		nglUniform1fv(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform1fv(int location, int count, ByteBuffer value) {
@@ -3004,26 +2553,18 @@ public final class GLES20 {
 
 	// --- [ glUniform1i ] ---
 
-	/** JNI method for {@link #glUniform1i Uniform1i} */
-	@JavadocExclude
-	public static native void nglUniform1i(int location, int v0, long __functionAddress);
-
 	public static void glUniform1i(int location, int v0) {
 		long __functionAddress = getInstance().Uniform1i;
-		nglUniform1i(location, v0, __functionAddress);
+		invokeIIV(__functionAddress, location, v0);
 	}
 
 	// --- [ glUniform1iv ] ---
-
-	/** JNI method for {@link #glUniform1iv Uniform1iv} */
-	@JavadocExclude
-	public static native void nglUniform1iv(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniform1iv Uniform1iv} */
 	@JavadocExclude
 	public static void nglUniform1iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1iv;
-		nglUniform1iv(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform1iv(int location, int count, ByteBuffer value) {
@@ -3039,26 +2580,18 @@ public final class GLES20 {
 
 	// --- [ glUniform2f ] ---
 
-	/** JNI method for {@link #glUniform2f Uniform2f} */
-	@JavadocExclude
-	public static native void nglUniform2f(int location, float v0, float v1, long __functionAddress);
-
 	public static void glUniform2f(int location, float v0, float v1) {
 		long __functionAddress = getInstance().Uniform2f;
-		nglUniform2f(location, v0, v1, __functionAddress);
+		invokeIFFV(__functionAddress, location, v0, v1);
 	}
 
 	// --- [ glUniform2fv ] ---
-
-	/** JNI method for {@link #glUniform2fv Uniform2fv} */
-	@JavadocExclude
-	public static native void nglUniform2fv(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniform2fv Uniform2fv} */
 	@JavadocExclude
 	public static void nglUniform2fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2fv;
-		nglUniform2fv(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform2fv(int location, int count, ByteBuffer value) {
@@ -3074,26 +2607,18 @@ public final class GLES20 {
 
 	// --- [ glUniform2i ] ---
 
-	/** JNI method for {@link #glUniform2i Uniform2i} */
-	@JavadocExclude
-	public static native void nglUniform2i(int location, int v0, int v1, long __functionAddress);
-
 	public static void glUniform2i(int location, int v0, int v1) {
 		long __functionAddress = getInstance().Uniform2i;
-		nglUniform2i(location, v0, v1, __functionAddress);
+		invokeIIIV(__functionAddress, location, v0, v1);
 	}
 
 	// --- [ glUniform2iv ] ---
-
-	/** JNI method for {@link #glUniform2iv Uniform2iv} */
-	@JavadocExclude
-	public static native void nglUniform2iv(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniform2iv Uniform2iv} */
 	@JavadocExclude
 	public static void nglUniform2iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2iv;
-		nglUniform2iv(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform2iv(int location, int count, ByteBuffer value) {
@@ -3109,26 +2634,18 @@ public final class GLES20 {
 
 	// --- [ glUniform3f ] ---
 
-	/** JNI method for {@link #glUniform3f Uniform3f} */
-	@JavadocExclude
-	public static native void nglUniform3f(int location, float v0, float v1, float v2, long __functionAddress);
-
 	public static void glUniform3f(int location, float v0, float v1, float v2) {
 		long __functionAddress = getInstance().Uniform3f;
-		nglUniform3f(location, v0, v1, v2, __functionAddress);
+		invokeIFFFV(__functionAddress, location, v0, v1, v2);
 	}
 
 	// --- [ glUniform3fv ] ---
-
-	/** JNI method for {@link #glUniform3fv Uniform3fv} */
-	@JavadocExclude
-	public static native void nglUniform3fv(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniform3fv Uniform3fv} */
 	@JavadocExclude
 	public static void nglUniform3fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3fv;
-		nglUniform3fv(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform3fv(int location, int count, ByteBuffer value) {
@@ -3144,26 +2661,18 @@ public final class GLES20 {
 
 	// --- [ glUniform3i ] ---
 
-	/** JNI method for {@link #glUniform3i Uniform3i} */
-	@JavadocExclude
-	public static native void nglUniform3i(int location, int v0, int v1, int v2, long __functionAddress);
-
 	public static void glUniform3i(int location, int v0, int v1, int v2) {
 		long __functionAddress = getInstance().Uniform3i;
-		nglUniform3i(location, v0, v1, v2, __functionAddress);
+		invokeIIIIV(__functionAddress, location, v0, v1, v2);
 	}
 
 	// --- [ glUniform3iv ] ---
-
-	/** JNI method for {@link #glUniform3iv Uniform3iv} */
-	@JavadocExclude
-	public static native void nglUniform3iv(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniform3iv Uniform3iv} */
 	@JavadocExclude
 	public static void nglUniform3iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3iv;
-		nglUniform3iv(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform3iv(int location, int count, ByteBuffer value) {
@@ -3179,26 +2688,18 @@ public final class GLES20 {
 
 	// --- [ glUniform4f ] ---
 
-	/** JNI method for {@link #glUniform4f Uniform4f} */
-	@JavadocExclude
-	public static native void nglUniform4f(int location, float v0, float v1, float v2, float v3, long __functionAddress);
-
 	public static void glUniform4f(int location, float v0, float v1, float v2, float v3) {
 		long __functionAddress = getInstance().Uniform4f;
-		nglUniform4f(location, v0, v1, v2, v3, __functionAddress);
+		invokeIFFFFV(__functionAddress, location, v0, v1, v2, v3);
 	}
 
 	// --- [ glUniform4fv ] ---
-
-	/** JNI method for {@link #glUniform4fv Uniform4fv} */
-	@JavadocExclude
-	public static native void nglUniform4fv(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniform4fv Uniform4fv} */
 	@JavadocExclude
 	public static void nglUniform4fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4fv;
-		nglUniform4fv(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform4fv(int location, int count, ByteBuffer value) {
@@ -3214,26 +2715,18 @@ public final class GLES20 {
 
 	// --- [ glUniform4i ] ---
 
-	/** JNI method for {@link #glUniform4i Uniform4i} */
-	@JavadocExclude
-	public static native void nglUniform4i(int location, int v0, int v1, int v2, int v3, long __functionAddress);
-
 	public static void glUniform4i(int location, int v0, int v1, int v2, int v3) {
 		long __functionAddress = getInstance().Uniform4i;
-		nglUniform4i(location, v0, v1, v2, v3, __functionAddress);
+		invokeIIIIIV(__functionAddress, location, v0, v1, v2, v3);
 	}
 
 	// --- [ glUniform4iv ] ---
-
-	/** JNI method for {@link #glUniform4iv Uniform4iv} */
-	@JavadocExclude
-	public static native void nglUniform4iv(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniform4iv Uniform4iv} */
 	@JavadocExclude
 	public static void nglUniform4iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4iv;
-		nglUniform4iv(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform4iv(int location, int count, ByteBuffer value) {
@@ -3249,15 +2742,11 @@ public final class GLES20 {
 
 	// --- [ glUniformMatrix2fv ] ---
 
-	/** JNI method for {@link #glUniformMatrix2fv UniformMatrix2fv} */
-	@JavadocExclude
-	public static native void nglUniformMatrix2fv(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix2fv UniformMatrix2fv} */
 	@JavadocExclude
 	public static void nglUniformMatrix2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2fv;
-		nglUniformMatrix2fv(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	public static void glUniformMatrix2fv(int location, int count, boolean transpose, ByteBuffer value) {
@@ -3273,15 +2762,11 @@ public final class GLES20 {
 
 	// --- [ glUniformMatrix3fv ] ---
 
-	/** JNI method for {@link #glUniformMatrix3fv UniformMatrix3fv} */
-	@JavadocExclude
-	public static native void nglUniformMatrix3fv(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix3fv UniformMatrix3fv} */
 	@JavadocExclude
 	public static void nglUniformMatrix3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3fv;
-		nglUniformMatrix3fv(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	public static void glUniformMatrix3fv(int location, int count, boolean transpose, ByteBuffer value) {
@@ -3297,15 +2782,11 @@ public final class GLES20 {
 
 	// --- [ glUniformMatrix4fv ] ---
 
-	/** JNI method for {@link #glUniformMatrix4fv UniformMatrix4fv} */
-	@JavadocExclude
-	public static native void nglUniformMatrix4fv(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix4fv UniformMatrix4fv} */
 	@JavadocExclude
 	public static void nglUniformMatrix4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4fv;
-		nglUniformMatrix4fv(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	public static void glUniformMatrix4fv(int location, int count, boolean transpose, ByteBuffer value) {
@@ -3321,48 +2802,32 @@ public final class GLES20 {
 
 	// --- [ glUseProgram ] ---
 
-	/** JNI method for {@link #glUseProgram UseProgram} */
-	@JavadocExclude
-	public static native void nglUseProgram(int program, long __functionAddress);
-
 	public static void glUseProgram(int program) {
 		long __functionAddress = getInstance().UseProgram;
-		nglUseProgram(program, __functionAddress);
+		invokeIV(__functionAddress, program);
 	}
 
 	// --- [ glValidateProgram ] ---
 
-	/** JNI method for {@link #glValidateProgram ValidateProgram} */
-	@JavadocExclude
-	public static native void nglValidateProgram(int program, long __functionAddress);
-
 	public static void glValidateProgram(int program) {
 		long __functionAddress = getInstance().ValidateProgram;
-		nglValidateProgram(program, __functionAddress);
+		invokeIV(__functionAddress, program);
 	}
 
 	// --- [ glVertexAttrib1f ] ---
 
-	/** JNI method for {@link #glVertexAttrib1f VertexAttrib1f} */
-	@JavadocExclude
-	public static native void nglVertexAttrib1f(int index, float x, long __functionAddress);
-
 	public static void glVertexAttrib1f(int index, float x) {
 		long __functionAddress = getInstance().VertexAttrib1f;
-		nglVertexAttrib1f(index, x, __functionAddress);
+		invokeIFV(__functionAddress, index, x);
 	}
 
 	// --- [ glVertexAttrib1fv ] ---
-
-	/** JNI method for {@link #glVertexAttrib1fv VertexAttrib1fv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib1fv(int index, long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glVertexAttrib1fv VertexAttrib1fv} */
 	@JavadocExclude
 	public static void nglVertexAttrib1fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1fv;
-		nglVertexAttrib1fv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttrib1fv(int index, ByteBuffer v) {
@@ -3380,26 +2845,18 @@ public final class GLES20 {
 
 	// --- [ glVertexAttrib2f ] ---
 
-	/** JNI method for {@link #glVertexAttrib2f VertexAttrib2f} */
-	@JavadocExclude
-	public static native void nglVertexAttrib2f(int index, float x, float y, long __functionAddress);
-
 	public static void glVertexAttrib2f(int index, float x, float y) {
 		long __functionAddress = getInstance().VertexAttrib2f;
-		nglVertexAttrib2f(index, x, y, __functionAddress);
+		invokeIFFV(__functionAddress, index, x, y);
 	}
 
 	// --- [ glVertexAttrib2fv ] ---
-
-	/** JNI method for {@link #glVertexAttrib2fv VertexAttrib2fv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib2fv(int index, long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glVertexAttrib2fv VertexAttrib2fv} */
 	@JavadocExclude
 	public static void nglVertexAttrib2fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2fv;
-		nglVertexAttrib2fv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttrib2fv(int index, ByteBuffer v) {
@@ -3417,26 +2874,18 @@ public final class GLES20 {
 
 	// --- [ glVertexAttrib3f ] ---
 
-	/** JNI method for {@link #glVertexAttrib3f VertexAttrib3f} */
-	@JavadocExclude
-	public static native void nglVertexAttrib3f(int index, float x, float y, float z, long __functionAddress);
-
 	public static void glVertexAttrib3f(int index, float x, float y, float z) {
 		long __functionAddress = getInstance().VertexAttrib3f;
-		nglVertexAttrib3f(index, x, y, z, __functionAddress);
+		invokeIFFFV(__functionAddress, index, x, y, z);
 	}
 
 	// --- [ glVertexAttrib3fv ] ---
-
-	/** JNI method for {@link #glVertexAttrib3fv VertexAttrib3fv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib3fv(int index, long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glVertexAttrib3fv VertexAttrib3fv} */
 	@JavadocExclude
 	public static void nglVertexAttrib3fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3fv;
-		nglVertexAttrib3fv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttrib3fv(int index, ByteBuffer v) {
@@ -3454,26 +2903,18 @@ public final class GLES20 {
 
 	// --- [ glVertexAttrib4f ] ---
 
-	/** JNI method for {@link #glVertexAttrib4f VertexAttrib4f} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4f(int index, float x, float y, float z, float w, long __functionAddress);
-
 	public static void glVertexAttrib4f(int index, float x, float y, float z, float w) {
 		long __functionAddress = getInstance().VertexAttrib4f;
-		nglVertexAttrib4f(index, x, y, z, w, __functionAddress);
+		invokeIFFFFV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttrib4fv ] ---
-
-	/** JNI method for {@link #glVertexAttrib4fv VertexAttrib4fv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4fv(int index, long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glVertexAttrib4fv VertexAttrib4fv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4fv;
-		nglVertexAttrib4fv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttrib4fv(int index, ByteBuffer v) {
@@ -3491,15 +2932,11 @@ public final class GLES20 {
 
 	// --- [ glVertexAttribPointer ] ---
 
-	/** JNI method for {@link #glVertexAttribPointer VertexAttribPointer} */
-	@JavadocExclude
-	public static native void nglVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttribPointer VertexAttribPointer} */
 	@JavadocExclude
 	public static void nglVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexAttribPointer;
-		nglVertexAttribPointer(index, size, type, normalized, stride, pointer, __functionAddress);
+		invokeIIIZIPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, ByteBuffer pointer) {
@@ -3528,13 +2965,9 @@ public final class GLES20 {
 
 	// --- [ glViewport ] ---
 
-	/** JNI method for {@link #glViewport Viewport} */
-	@JavadocExclude
-	public static native void nglViewport(int x, int y, int width, int height, long __functionAddress);
-
 	public static void glViewport(int x, int y, int width, int height) {
 		long __functionAddress = getInstance().Viewport;
-		nglViewport(x, y, width, height, __functionAddress);
+		invokeIIIIV(__functionAddress, x, y, width, height);
 	}
 
 }

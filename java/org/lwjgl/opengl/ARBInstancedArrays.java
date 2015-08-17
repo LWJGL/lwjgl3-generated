@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/instanced_arrays.txt">ARB_instanced_arrays</a> extension.
@@ -68,10 +69,6 @@ public final class ARBInstancedArrays {
 
 	// --- [ glVertexAttribDivisorARB ] ---
 
-	/** JNI method for {@link #glVertexAttribDivisorARB VertexAttribDivisorARB} */
-	@JavadocExclude
-	public static native void nglVertexAttribDivisorARB(int index, int divisor, long __functionAddress);
-
 	/**
 	 * Modifies the rate at which generic vertex attributes advance when rendering multiple instances of primitives in a single draw call. If {@code divisor}
 	 * is zero, the attribute at slot {@code index} advances once per vertex. If {@code divisor} is non-zero, the attribute advances once per {@code divisor}
@@ -82,14 +79,10 @@ public final class ARBInstancedArrays {
 	 */
 	public static void glVertexAttribDivisorARB(int index, int divisor) {
 		long __functionAddress = getInstance().VertexAttribDivisorARB;
-		nglVertexAttribDivisorARB(index, divisor, __functionAddress);
+		invokeIIV(__functionAddress, index, divisor);
 	}
 
 	// --- [ glVertexArrayVertexAttribDivisorEXT ] ---
-
-	/** JNI method for {@link #glVertexArrayVertexAttribDivisorEXT VertexArrayVertexAttribDivisorEXT} */
-	@JavadocExclude
-	public static native void nglVertexArrayVertexAttribDivisorEXT(int vaobj, int index, int divisor, long __functionAddress);
 
 	/**
 	 * <a href="http://www.opengl.org/registry/specs/EXT/direct_state_access.txt">EXT_direct_state_access</a> version of {@link #glVertexAttribDivisorARB VertexAttribDivisorARB}.
@@ -109,7 +102,7 @@ public final class ARBInstancedArrays {
 		long __functionAddress = getInstance().VertexArrayVertexAttribDivisorEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexArrayVertexAttribDivisorEXT(vaobj, index, divisor, __functionAddress);
+		invokeIIIV(__functionAddress, vaobj, index, divisor);
 	}
 
 }

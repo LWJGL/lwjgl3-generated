@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -74,10 +75,6 @@ public final class ARBPointParameters {
 
 	// --- [ glPointParameterfARB ] ---
 
-	/** JNI method for {@link #glPointParameterfARB PointParameterfARB} */
-	@JavadocExclude
-	public static native void nglPointParameterfARB(int pname, float param, long __functionAddress);
-
 	/**
 	 * Sets the float value of a pointer parameter.
 	 *
@@ -86,20 +83,16 @@ public final class ARBPointParameters {
 	 */
 	public static void glPointParameterfARB(int pname, float param) {
 		long __functionAddress = getInstance().PointParameterfARB;
-		nglPointParameterfARB(pname, param, __functionAddress);
+		invokeIFV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPointParameterfvARB ] ---
-
-	/** JNI method for {@link #glPointParameterfvARB PointParameterfvARB} */
-	@JavadocExclude
-	public static native void nglPointParameterfvARB(int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glPointParameterfvARB PointParameterfvARB} */
 	@JavadocExclude
 	public static void nglPointParameterfvARB(int pname, long params) {
 		long __functionAddress = getInstance().PointParameterfvARB;
-		nglPointParameterfvARB(pname, params, __functionAddress);
+		invokeIPV(__functionAddress, pname, params);
 	}
 
 	/**

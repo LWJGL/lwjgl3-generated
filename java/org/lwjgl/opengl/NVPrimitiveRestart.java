@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/primitive_restart.txt">NV_primitive_restart</a> extension.
@@ -71,24 +72,16 @@ public final class NVPrimitiveRestart {
 
 	// --- [ glPrimitiveRestartNV ] ---
 
-	/** JNI method for {@link #glPrimitiveRestartNV PrimitiveRestartNV} */
-	@JavadocExclude
-	public static native void nglPrimitiveRestartNV(long __functionAddress);
-
 	public static void glPrimitiveRestartNV() {
 		long __functionAddress = getInstance().PrimitiveRestartNV;
-		nglPrimitiveRestartNV(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glPrimitiveRestartIndexNV ] ---
 
-	/** JNI method for {@link #glPrimitiveRestartIndexNV PrimitiveRestartIndexNV} */
-	@JavadocExclude
-	public static native void nglPrimitiveRestartIndexNV(int index, long __functionAddress);
-
 	public static void glPrimitiveRestartIndexNV(int index) {
 		long __functionAddress = getInstance().PrimitiveRestartIndexNV;
-		nglPrimitiveRestartIndexNV(index, __functionAddress);
+		invokeIV(__functionAddress, index);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -93,7 +94,7 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static int nglGetSubroutineUniformLocation(int program, int shadertype, long name) {
 		long __functionAddress = getInstance().GetSubroutineUniformLocation;
-		return GL40.nglGetSubroutineUniformLocation(program, shadertype, name, __functionAddress);
+		return invokeIIPI(__functionAddress, program, shadertype, name);
 	}
 
 	/**
@@ -106,14 +107,14 @@ public final class ARBShaderSubroutine {
 	public static int glGetSubroutineUniformLocation(int program, int shadertype, ByteBuffer name) {
 		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
-		return nglGetSubroutineUniformLocation(program, shadertype, memAddress(name));
+		return GL40.nglGetSubroutineUniformLocation(program, shadertype, memAddress(name));
 	}
 
 	/** CharSequence version of: {@link #glGetSubroutineUniformLocation GetSubroutineUniformLocation} */
 	public static int glGetSubroutineUniformLocation(int program, int shadertype, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetSubroutineUniformLocation(program, shadertype, __buffer.address(nameEncoded));
+		return GL40.nglGetSubroutineUniformLocation(program, shadertype, __buffer.address(nameEncoded));
 	}
 
 	// --- [ glGetSubroutineIndex ] ---
@@ -122,7 +123,7 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static int nglGetSubroutineIndex(int program, int shadertype, long name) {
 		long __functionAddress = getInstance().GetSubroutineIndex;
-		return GL40.nglGetSubroutineIndex(program, shadertype, name, __functionAddress);
+		return invokeIIPI(__functionAddress, program, shadertype, name);
 	}
 
 	/**
@@ -135,14 +136,14 @@ public final class ARBShaderSubroutine {
 	public static int glGetSubroutineIndex(int program, int shadertype, ByteBuffer name) {
 		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
-		return nglGetSubroutineIndex(program, shadertype, memAddress(name));
+		return GL40.nglGetSubroutineIndex(program, shadertype, memAddress(name));
 	}
 
 	/** CharSequence version of: {@link #glGetSubroutineIndex GetSubroutineIndex} */
 	public static int glGetSubroutineIndex(int program, int shadertype, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return nglGetSubroutineIndex(program, shadertype, __buffer.address(nameEncoded));
+		return GL40.nglGetSubroutineIndex(program, shadertype, __buffer.address(nameEncoded));
 	}
 
 	// --- [ glGetActiveSubroutineUniformiv ] ---
@@ -151,7 +152,7 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static void nglGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, long values) {
 		long __functionAddress = getInstance().GetActiveSubroutineUniformiv;
-		GL40.nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, values, __functionAddress);
+		invokeIIIIPV(__functionAddress, program, shadertype, index, pname, values);
 	}
 
 	/**
@@ -166,21 +167,21 @@ public final class ARBShaderSubroutine {
 	public static void glGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1 << 2);
-		nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, memAddress(values));
+		GL40.nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #glGetActiveSubroutineUniformiv GetActiveSubroutineUniformiv} */
 	public static void glGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, IntBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1);
-		nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, memAddress(values));
+		GL40.nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, memAddress(values));
 	}
 
 	/** Single return value version of: {@link #glGetActiveSubroutineUniformiv GetActiveSubroutineUniformiv} */
 	public static int glGetActiveSubroutineUniformi(int program, int shadertype, int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int values = __buffer.intParam();
-		nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, __buffer.address(values));
+		GL40.nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, __buffer.address(values));
 		return __buffer.intValue(values);
 	}
 
@@ -190,7 +191,7 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static void nglGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize, long length, long name) {
 		long __functionAddress = getInstance().GetActiveSubroutineUniformName;
-		GL40.nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, length, name, __functionAddress);
+		invokeIIIIPPV(__functionAddress, program, shadertype, index, bufsize, length, name);
 	}
 
 	/**
@@ -208,14 +209,14 @@ public final class ARBShaderSubroutine {
 			checkBuffer(name, bufsize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
-		nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, memAddressSafe(length), memAddress(name));
+		GL40.nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, memAddressSafe(length), memAddress(name));
 	}
 
 	/** Alternative version of: {@link #glGetActiveSubroutineUniformName GetActiveSubroutineUniformName} */
 	public static void glGetActiveSubroutineUniformName(int program, int shadertype, int index, IntBuffer length, ByteBuffer name) {
 		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
-		nglGetActiveSubroutineUniformName(program, shadertype, index, name.remaining(), memAddressSafe(length), memAddress(name));
+		GL40.nglGetActiveSubroutineUniformName(program, shadertype, index, name.remaining(), memAddressSafe(length), memAddress(name));
 	}
 
 	/** String return version of: {@link #glGetActiveSubroutineUniformName GetActiveSubroutineUniformName} */
@@ -223,7 +224,7 @@ public final class ARBShaderSubroutine {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufsize);
-		nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, __buffer.address(length), __buffer.address(name));
+		GL40.nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, __buffer.address(length), __buffer.address(name));
 		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
@@ -233,7 +234,7 @@ public final class ARBShaderSubroutine {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufsize);
-		nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, __buffer.address(length), __buffer.address(name));
+		GL40.nglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, __buffer.address(length), __buffer.address(name));
 		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
@@ -243,7 +244,7 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static void nglGetActiveSubroutineName(int program, int shadertype, int index, int bufsize, long length, long name) {
 		long __functionAddress = getInstance().GetActiveSubroutineName;
-		GL40.nglGetActiveSubroutineName(program, shadertype, index, bufsize, length, name, __functionAddress);
+		invokeIIIIPPV(__functionAddress, program, shadertype, index, bufsize, length, name);
 	}
 
 	/**
@@ -261,14 +262,14 @@ public final class ARBShaderSubroutine {
 			checkBuffer(name, bufsize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
-		nglGetActiveSubroutineName(program, shadertype, index, bufsize, memAddressSafe(length), memAddress(name));
+		GL40.nglGetActiveSubroutineName(program, shadertype, index, bufsize, memAddressSafe(length), memAddress(name));
 	}
 
 	/** Alternative version of: {@link #glGetActiveSubroutineName GetActiveSubroutineName} */
 	public static void glGetActiveSubroutineName(int program, int shadertype, int index, IntBuffer length, ByteBuffer name) {
 		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
-		nglGetActiveSubroutineName(program, shadertype, index, name.remaining(), memAddressSafe(length), memAddress(name));
+		GL40.nglGetActiveSubroutineName(program, shadertype, index, name.remaining(), memAddressSafe(length), memAddress(name));
 	}
 
 	/** String return version of: {@link #glGetActiveSubroutineName GetActiveSubroutineName} */
@@ -276,7 +277,7 @@ public final class ARBShaderSubroutine {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufsize);
-		nglGetActiveSubroutineName(program, shadertype, index, bufsize, __buffer.address(length), __buffer.address(name));
+		GL40.nglGetActiveSubroutineName(program, shadertype, index, bufsize, __buffer.address(length), __buffer.address(name));
 		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
@@ -286,7 +287,7 @@ public final class ARBShaderSubroutine {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufsize);
-		nglGetActiveSubroutineName(program, shadertype, index, bufsize, __buffer.address(length), __buffer.address(name));
+		GL40.nglGetActiveSubroutineName(program, shadertype, index, bufsize, __buffer.address(length), __buffer.address(name));
 		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
@@ -296,7 +297,7 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static void nglUniformSubroutinesuiv(int shadertype, int count, long indices) {
 		long __functionAddress = getInstance().UniformSubroutinesuiv;
-		GL40.nglUniformSubroutinesuiv(shadertype, count, indices, __functionAddress);
+		invokeIIPV(__functionAddress, shadertype, count, indices);
 	}
 
 	/**
@@ -309,19 +310,19 @@ public final class ARBShaderSubroutine {
 	public static void glUniformSubroutinesuiv(int shadertype, int count, ByteBuffer indices) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(indices, count << 2);
-		nglUniformSubroutinesuiv(shadertype, count, memAddress(indices));
+		GL40.nglUniformSubroutinesuiv(shadertype, count, memAddress(indices));
 	}
 
 	/** Alternative version of: {@link #glUniformSubroutinesuiv UniformSubroutinesuiv} */
 	public static void glUniformSubroutinesuiv(int shadertype, IntBuffer indices) {
-		nglUniformSubroutinesuiv(shadertype, indices.remaining(), memAddress(indices));
+		GL40.nglUniformSubroutinesuiv(shadertype, indices.remaining(), memAddress(indices));
 	}
 
 	/** Single value version of: {@link #glUniformSubroutinesuiv UniformSubroutinesuiv} */
 	public static void glUniformSubroutinesui(int shadertype, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int indices = __buffer.intParam(index);
-		nglUniformSubroutinesuiv(shadertype, 1, __buffer.address(indices));
+		GL40.nglUniformSubroutinesuiv(shadertype, 1, __buffer.address(indices));
 	}
 
 	// --- [ glGetUniformSubroutineuiv ] ---
@@ -330,7 +331,7 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static void nglGetUniformSubroutineuiv(int shadertype, int location, long params) {
 		long __functionAddress = getInstance().GetUniformSubroutineuiv;
-		GL40.nglGetUniformSubroutineuiv(shadertype, location, params, __functionAddress);
+		invokeIIPV(__functionAddress, shadertype, location, params);
 	}
 
 	/**
@@ -343,21 +344,21 @@ public final class ARBShaderSubroutine {
 	public static void glGetUniformSubroutineuiv(int shadertype, int location, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		nglGetUniformSubroutineuiv(shadertype, location, memAddress(params));
+		GL40.nglGetUniformSubroutineuiv(shadertype, location, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetUniformSubroutineuiv GetUniformSubroutineuiv} */
 	public static void glGetUniformSubroutineuiv(int shadertype, int location, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		nglGetUniformSubroutineuiv(shadertype, location, memAddress(params));
+		GL40.nglGetUniformSubroutineuiv(shadertype, location, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetUniformSubroutineuiv GetUniformSubroutineuiv} */
 	public static int glGetUniformSubroutineui(int shadertype, int location) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetUniformSubroutineuiv(shadertype, location, __buffer.address(params));
+		GL40.nglGetUniformSubroutineuiv(shadertype, location, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -367,7 +368,7 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static void nglGetProgramStageiv(int program, int shadertype, int pname, long values) {
 		long __functionAddress = getInstance().GetProgramStageiv;
-		GL40.nglGetProgramStageiv(program, shadertype, pname, values, __functionAddress);
+		invokeIIIPV(__functionAddress, program, shadertype, pname, values);
 	}
 
 	/**
@@ -381,21 +382,21 @@ public final class ARBShaderSubroutine {
 	public static void glGetProgramStageiv(int program, int shadertype, int pname, ByteBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1 << 2);
-		nglGetProgramStageiv(program, shadertype, pname, memAddress(values));
+		GL40.nglGetProgramStageiv(program, shadertype, pname, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #glGetProgramStageiv GetProgramStageiv} */
 	public static void glGetProgramStageiv(int program, int shadertype, int pname, IntBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(values, 1);
-		nglGetProgramStageiv(program, shadertype, pname, memAddress(values));
+		GL40.nglGetProgramStageiv(program, shadertype, pname, memAddress(values));
 	}
 
 	/** Single return value version of: {@link #glGetProgramStageiv GetProgramStageiv} */
 	public static int glGetProgramStagei(int program, int shadertype, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int values = __buffer.intParam();
-		nglGetProgramStageiv(program, shadertype, pname, __buffer.address(values));
+		GL40.nglGetProgramStageiv(program, shadertype, pname, __buffer.address(values));
 		return __buffer.intValue(values);
 	}
 

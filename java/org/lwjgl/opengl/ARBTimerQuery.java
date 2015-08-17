@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -85,7 +86,7 @@ public final class ARBTimerQuery {
 	 */
 	public static void glQueryCounter(int id, int target) {
 		long __functionAddress = getInstance().QueryCounter;
-		GL33.nglQueryCounter(id, target, __functionAddress);
+		invokeIIV(__functionAddress, id, target);
 	}
 
 	// --- [ glGetQueryObjecti64v ] ---
@@ -94,7 +95,7 @@ public final class ARBTimerQuery {
 	@JavadocExclude
 	public static void nglGetQueryObjecti64v(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjecti64v;
-		GL33.nglGetQueryObjecti64v(id, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, id, pname, params);
 	}
 
 	/**
@@ -107,21 +108,21 @@ public final class ARBTimerQuery {
 	public static void glGetQueryObjecti64v(int id, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
-		nglGetQueryObjecti64v(id, pname, memAddress(params));
+		GL33.nglGetQueryObjecti64v(id, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
 	public static void glGetQueryObjecti64v(int id, int pname, LongBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		nglGetQueryObjecti64v(id, pname, memAddress(params));
+		GL33.nglGetQueryObjecti64v(id, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
 	public static long glGetQueryObjecti64(int id, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		nglGetQueryObjecti64v(id, pname, __buffer.address(params));
+		GL33.nglGetQueryObjecti64v(id, pname, __buffer.address(params));
 		return __buffer.longValue(params);
 	}
 
@@ -131,7 +132,7 @@ public final class ARBTimerQuery {
 	@JavadocExclude
 	public static void nglGetQueryObjectui64v(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectui64v;
-		GL33.nglGetQueryObjectui64v(id, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, id, pname, params);
 	}
 
 	/**
@@ -144,21 +145,21 @@ public final class ARBTimerQuery {
 	public static void glGetQueryObjectui64v(int id, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
-		nglGetQueryObjectui64v(id, pname, memAddress(params));
+		GL33.nglGetQueryObjectui64v(id, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
 	public static void glGetQueryObjectui64v(int id, int pname, LongBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		nglGetQueryObjectui64v(id, pname, memAddress(params));
+		GL33.nglGetQueryObjectui64v(id, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
 	public static long glGetQueryObjectui64(int id, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		nglGetQueryObjectui64v(id, pname, __buffer.address(params));
+		GL33.nglGetQueryObjectui64v(id, pname, __buffer.address(params));
 		return __buffer.longValue(params);
 	}
 

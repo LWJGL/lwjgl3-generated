@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -205,10 +206,6 @@ public final class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI1iEXT ] ---
 
-	/** JNI method for {@link #glVertexAttribI1iEXT VertexAttribI1iEXT} */
-	@JavadocExclude
-	public static native void nglVertexAttribI1iEXT(int index, int x, long __functionAddress);
-
 	/**
 	 * Specifies the value of a pure integer generic vertex attribute. The y and z components are implicitly set to 0 and w to 1.
 	 *
@@ -217,14 +214,10 @@ public final class EXTGPUShader4 {
 	 */
 	public static void glVertexAttribI1iEXT(int index, int x) {
 		long __functionAddress = getInstance().VertexAttribI1iEXT;
-		nglVertexAttribI1iEXT(index, x, __functionAddress);
+		invokeIIV(__functionAddress, index, x);
 	}
 
 	// --- [ glVertexAttribI2iEXT ] ---
-
-	/** JNI method for {@link #glVertexAttribI2iEXT VertexAttribI2iEXT} */
-	@JavadocExclude
-	public static native void nglVertexAttribI2iEXT(int index, int x, int y, long __functionAddress);
 
 	/**
 	 * Specifies the value of a pure integer generic vertex attribute. The z component is implicitly set to 0 and w to 1.
@@ -235,14 +228,10 @@ public final class EXTGPUShader4 {
 	 */
 	public static void glVertexAttribI2iEXT(int index, int x, int y) {
 		long __functionAddress = getInstance().VertexAttribI2iEXT;
-		nglVertexAttribI2iEXT(index, x, y, __functionAddress);
+		invokeIIIV(__functionAddress, index, x, y);
 	}
 
 	// --- [ glVertexAttribI3iEXT ] ---
-
-	/** JNI method for {@link #glVertexAttribI3iEXT VertexAttribI3iEXT} */
-	@JavadocExclude
-	public static native void nglVertexAttribI3iEXT(int index, int x, int y, int z, long __functionAddress);
 
 	/**
 	 * Specifies the value of a pure integer generic vertex attribute. The w component is implicitly set to 1.
@@ -254,14 +243,10 @@ public final class EXTGPUShader4 {
 	 */
 	public static void glVertexAttribI3iEXT(int index, int x, int y, int z) {
 		long __functionAddress = getInstance().VertexAttribI3iEXT;
-		nglVertexAttribI3iEXT(index, x, y, z, __functionAddress);
+		invokeIIIIV(__functionAddress, index, x, y, z);
 	}
 
 	// --- [ glVertexAttribI4iEXT ] ---
-
-	/** JNI method for {@link #glVertexAttribI4iEXT VertexAttribI4iEXT} */
-	@JavadocExclude
-	public static native void nglVertexAttribI4iEXT(int index, int x, int y, int z, int w, long __functionAddress);
 
 	/**
 	 * Specifies the value of a pure integer generic vertex attribute.
@@ -274,14 +259,10 @@ public final class EXTGPUShader4 {
 	 */
 	public static void glVertexAttribI4iEXT(int index, int x, int y, int z, int w) {
 		long __functionAddress = getInstance().VertexAttribI4iEXT;
-		nglVertexAttribI4iEXT(index, x, y, z, w, __functionAddress);
+		invokeIIIIIV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttribI1uiEXT ] ---
-
-	/** JNI method for {@link #glVertexAttribI1uiEXT VertexAttribI1uiEXT} */
-	@JavadocExclude
-	public static native void nglVertexAttribI1uiEXT(int index, int x, long __functionAddress);
 
 	/**
 	 * Specifies the value of an unsigned pure integer generic vertex attribute. The y and z components are implicitly set to 0 and w to 1.
@@ -291,14 +272,10 @@ public final class EXTGPUShader4 {
 	 */
 	public static void glVertexAttribI1uiEXT(int index, int x) {
 		long __functionAddress = getInstance().VertexAttribI1uiEXT;
-		nglVertexAttribI1uiEXT(index, x, __functionAddress);
+		invokeIIV(__functionAddress, index, x);
 	}
 
 	// --- [ glVertexAttribI2uiEXT ] ---
-
-	/** JNI method for {@link #glVertexAttribI2uiEXT VertexAttribI2uiEXT} */
-	@JavadocExclude
-	public static native void nglVertexAttribI2uiEXT(int index, int x, int y, long __functionAddress);
 
 	/**
 	 * Specifies the value of an unsigned pure integer generic vertex attribute. The z component is implicitly set to 0 and w to 1.
@@ -309,14 +286,10 @@ public final class EXTGPUShader4 {
 	 */
 	public static void glVertexAttribI2uiEXT(int index, int x, int y) {
 		long __functionAddress = getInstance().VertexAttribI2uiEXT;
-		nglVertexAttribI2uiEXT(index, x, y, __functionAddress);
+		invokeIIIV(__functionAddress, index, x, y);
 	}
 
 	// --- [ glVertexAttribI3uiEXT ] ---
-
-	/** JNI method for {@link #glVertexAttribI3uiEXT VertexAttribI3uiEXT} */
-	@JavadocExclude
-	public static native void nglVertexAttribI3uiEXT(int index, int x, int y, int z, long __functionAddress);
 
 	/**
 	 * Specifies the value of an unsigned pure integer generic vertex attribute. The w component is implicitly set to 1.
@@ -328,14 +301,10 @@ public final class EXTGPUShader4 {
 	 */
 	public static void glVertexAttribI3uiEXT(int index, int x, int y, int z) {
 		long __functionAddress = getInstance().VertexAttribI3uiEXT;
-		nglVertexAttribI3uiEXT(index, x, y, z, __functionAddress);
+		invokeIIIIV(__functionAddress, index, x, y, z);
 	}
 
 	// --- [ glVertexAttribI4uiEXT ] ---
-
-	/** JNI method for {@link #glVertexAttribI4uiEXT VertexAttribI4uiEXT} */
-	@JavadocExclude
-	public static native void nglVertexAttribI4uiEXT(int index, int x, int y, int z, int w, long __functionAddress);
 
 	/**
 	 * Specifies the value of an unsigned pure integer generic vertex attribute.
@@ -348,20 +317,16 @@ public final class EXTGPUShader4 {
 	 */
 	public static void glVertexAttribI4uiEXT(int index, int x, int y, int z, int w) {
 		long __functionAddress = getInstance().VertexAttribI4uiEXT;
-		nglVertexAttribI4uiEXT(index, x, y, z, w, __functionAddress);
+		invokeIIIIIV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttribI1ivEXT ] ---
-
-	/** JNI method for {@link #glVertexAttribI1ivEXT VertexAttribI1ivEXT} */
-	@JavadocExclude
-	public static native void nglVertexAttribI1ivEXT(int index, long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glVertexAttribI1ivEXT VertexAttribI1ivEXT} */
 	@JavadocExclude
 	public static void nglVertexAttribI1ivEXT(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI1ivEXT;
-		nglVertexAttribI1ivEXT(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -385,15 +350,11 @@ public final class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI2ivEXT ] ---
 
-	/** JNI method for {@link #glVertexAttribI2ivEXT VertexAttribI2ivEXT} */
-	@JavadocExclude
-	public static native void nglVertexAttribI2ivEXT(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttribI2ivEXT VertexAttribI2ivEXT} */
 	@JavadocExclude
 	public static void nglVertexAttribI2ivEXT(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI2ivEXT;
-		nglVertexAttribI2ivEXT(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -417,15 +378,11 @@ public final class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI3ivEXT ] ---
 
-	/** JNI method for {@link #glVertexAttribI3ivEXT VertexAttribI3ivEXT} */
-	@JavadocExclude
-	public static native void nglVertexAttribI3ivEXT(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttribI3ivEXT VertexAttribI3ivEXT} */
 	@JavadocExclude
 	public static void nglVertexAttribI3ivEXT(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI3ivEXT;
-		nglVertexAttribI3ivEXT(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -449,15 +406,11 @@ public final class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI4ivEXT ] ---
 
-	/** JNI method for {@link #glVertexAttribI4ivEXT VertexAttribI4ivEXT} */
-	@JavadocExclude
-	public static native void nglVertexAttribI4ivEXT(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttribI4ivEXT VertexAttribI4ivEXT} */
 	@JavadocExclude
 	public static void nglVertexAttribI4ivEXT(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4ivEXT;
-		nglVertexAttribI4ivEXT(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -481,15 +434,11 @@ public final class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI1uivEXT ] ---
 
-	/** JNI method for {@link #glVertexAttribI1uivEXT VertexAttribI1uivEXT} */
-	@JavadocExclude
-	public static native void nglVertexAttribI1uivEXT(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttribI1uivEXT VertexAttribI1uivEXT} */
 	@JavadocExclude
 	public static void nglVertexAttribI1uivEXT(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI1uivEXT;
-		nglVertexAttribI1uivEXT(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -513,15 +462,11 @@ public final class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI2uivEXT ] ---
 
-	/** JNI method for {@link #glVertexAttribI2uivEXT VertexAttribI2uivEXT} */
-	@JavadocExclude
-	public static native void nglVertexAttribI2uivEXT(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttribI2uivEXT VertexAttribI2uivEXT} */
 	@JavadocExclude
 	public static void nglVertexAttribI2uivEXT(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI2uivEXT;
-		nglVertexAttribI2uivEXT(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -545,15 +490,11 @@ public final class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI3uivEXT ] ---
 
-	/** JNI method for {@link #glVertexAttribI3uivEXT VertexAttribI3uivEXT} */
-	@JavadocExclude
-	public static native void nglVertexAttribI3uivEXT(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttribI3uivEXT VertexAttribI3uivEXT} */
 	@JavadocExclude
 	public static void nglVertexAttribI3uivEXT(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI3uivEXT;
-		nglVertexAttribI3uivEXT(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -577,15 +518,11 @@ public final class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI4uivEXT ] ---
 
-	/** JNI method for {@link #glVertexAttribI4uivEXT VertexAttribI4uivEXT} */
-	@JavadocExclude
-	public static native void nglVertexAttribI4uivEXT(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttribI4uivEXT VertexAttribI4uivEXT} */
 	@JavadocExclude
 	public static void nglVertexAttribI4uivEXT(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4uivEXT;
-		nglVertexAttribI4uivEXT(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -609,15 +546,11 @@ public final class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI4bvEXT ] ---
 
-	/** JNI method for {@link #glVertexAttribI4bvEXT VertexAttribI4bvEXT} */
-	@JavadocExclude
-	public static native void nglVertexAttribI4bvEXT(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttribI4bvEXT VertexAttribI4bvEXT} */
 	@JavadocExclude
 	public static void nglVertexAttribI4bvEXT(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4bvEXT;
-		nglVertexAttribI4bvEXT(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -634,15 +567,11 @@ public final class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI4svEXT ] ---
 
-	/** JNI method for {@link #glVertexAttribI4svEXT VertexAttribI4svEXT} */
-	@JavadocExclude
-	public static native void nglVertexAttribI4svEXT(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttribI4svEXT VertexAttribI4svEXT} */
 	@JavadocExclude
 	public static void nglVertexAttribI4svEXT(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4svEXT;
-		nglVertexAttribI4svEXT(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -666,15 +595,11 @@ public final class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI4ubvEXT ] ---
 
-	/** JNI method for {@link #glVertexAttribI4ubvEXT VertexAttribI4ubvEXT} */
-	@JavadocExclude
-	public static native void nglVertexAttribI4ubvEXT(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttribI4ubvEXT VertexAttribI4ubvEXT} */
 	@JavadocExclude
 	public static void nglVertexAttribI4ubvEXT(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4ubvEXT;
-		nglVertexAttribI4ubvEXT(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -691,15 +616,11 @@ public final class EXTGPUShader4 {
 
 	// --- [ glVertexAttribI4usvEXT ] ---
 
-	/** JNI method for {@link #glVertexAttribI4usvEXT VertexAttribI4usvEXT} */
-	@JavadocExclude
-	public static native void nglVertexAttribI4usvEXT(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttribI4usvEXT VertexAttribI4usvEXT} */
 	@JavadocExclude
 	public static void nglVertexAttribI4usvEXT(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4usvEXT;
-		nglVertexAttribI4usvEXT(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -723,15 +644,11 @@ public final class EXTGPUShader4 {
 
 	// --- [ glVertexAttribIPointerEXT ] ---
 
-	/** JNI method for {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
-	@JavadocExclude
-	public static native void nglVertexAttribIPointerEXT(int index, int size, int type, int stride, long pointer, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
 	@JavadocExclude
 	public static void nglVertexAttribIPointerEXT(int index, int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexAttribIPointerEXT;
-		nglVertexAttribIPointerEXT(index, size, type, stride, pointer, __functionAddress);
+		invokeIIIIPV(__functionAddress, index, size, type, stride, pointer);
 	}
 
 	/**
@@ -774,15 +691,11 @@ public final class EXTGPUShader4 {
 
 	// --- [ glGetVertexAttribIivEXT ] ---
 
-	/** JNI method for {@link #glGetVertexAttribIivEXT GetVertexAttribIivEXT} */
-	@JavadocExclude
-	public static native void nglGetVertexAttribIivEXT(int index, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetVertexAttribIivEXT GetVertexAttribIivEXT} */
 	@JavadocExclude
 	public static void nglGetVertexAttribIivEXT(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribIivEXT;
-		nglGetVertexAttribIivEXT(index, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -815,15 +728,11 @@ public final class EXTGPUShader4 {
 
 	// --- [ glGetVertexAttribIuivEXT ] ---
 
-	/** JNI method for {@link #glGetVertexAttribIuivEXT GetVertexAttribIuivEXT} */
-	@JavadocExclude
-	public static native void nglGetVertexAttribIuivEXT(int index, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetVertexAttribIuivEXT GetVertexAttribIuivEXT} */
 	@JavadocExclude
 	public static void nglGetVertexAttribIuivEXT(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribIuivEXT;
-		nglGetVertexAttribIuivEXT(index, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -856,15 +765,11 @@ public final class EXTGPUShader4 {
 
 	// --- [ glGetUniformuivEXT ] ---
 
-	/** JNI method for {@link #glGetUniformuivEXT GetUniformuivEXT} */
-	@JavadocExclude
-	public static native void nglGetUniformuivEXT(int program, int location, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetUniformuivEXT GetUniformuivEXT} */
 	@JavadocExclude
 	public static void nglGetUniformuivEXT(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformuivEXT;
-		nglGetUniformuivEXT(program, location, params, __functionAddress);
+		invokeIIPV(__functionAddress, program, location, params);
 	}
 
 	public static void glGetUniformuivEXT(int program, int location, ByteBuffer params) {
@@ -890,15 +795,11 @@ public final class EXTGPUShader4 {
 
 	// --- [ glBindFragDataLocationEXT ] ---
 
-	/** JNI method for {@link #glBindFragDataLocationEXT BindFragDataLocationEXT} */
-	@JavadocExclude
-	public static native void nglBindFragDataLocationEXT(int program, int color, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glBindFragDataLocationEXT BindFragDataLocationEXT} */
 	@JavadocExclude
 	public static void nglBindFragDataLocationEXT(int program, int color, long name) {
 		long __functionAddress = getInstance().BindFragDataLocationEXT;
-		nglBindFragDataLocationEXT(program, color, name, __functionAddress);
+		invokeIIPV(__functionAddress, program, color, name);
 	}
 
 	public static void glBindFragDataLocationEXT(int program, int color, ByteBuffer name) {
@@ -916,15 +817,11 @@ public final class EXTGPUShader4 {
 
 	// --- [ glGetFragDataLocationEXT ] ---
 
-	/** JNI method for {@link #glGetFragDataLocationEXT GetFragDataLocationEXT} */
-	@JavadocExclude
-	public static native int nglGetFragDataLocationEXT(int program, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetFragDataLocationEXT GetFragDataLocationEXT} */
 	@JavadocExclude
 	public static int nglGetFragDataLocationEXT(int program, long name) {
 		long __functionAddress = getInstance().GetFragDataLocationEXT;
-		return nglGetFragDataLocationEXT(program, name, __functionAddress);
+		return invokeIPI(__functionAddress, program, name);
 	}
 
 	public static int glGetFragDataLocationEXT(int program, ByteBuffer name) {
@@ -942,59 +839,39 @@ public final class EXTGPUShader4 {
 
 	// --- [ glUniform1uiEXT ] ---
 
-	/** JNI method for {@link #glUniform1uiEXT Uniform1uiEXT} */
-	@JavadocExclude
-	public static native void nglUniform1uiEXT(int location, int v0, long __functionAddress);
-
 	public static void glUniform1uiEXT(int location, int v0) {
 		long __functionAddress = getInstance().Uniform1uiEXT;
-		nglUniform1uiEXT(location, v0, __functionAddress);
+		invokeIIV(__functionAddress, location, v0);
 	}
 
 	// --- [ glUniform2uiEXT ] ---
 
-	/** JNI method for {@link #glUniform2uiEXT Uniform2uiEXT} */
-	@JavadocExclude
-	public static native void nglUniform2uiEXT(int location, int v0, int v1, long __functionAddress);
-
 	public static void glUniform2uiEXT(int location, int v0, int v1) {
 		long __functionAddress = getInstance().Uniform2uiEXT;
-		nglUniform2uiEXT(location, v0, v1, __functionAddress);
+		invokeIIIV(__functionAddress, location, v0, v1);
 	}
 
 	// --- [ glUniform3uiEXT ] ---
 
-	/** JNI method for {@link #glUniform3uiEXT Uniform3uiEXT} */
-	@JavadocExclude
-	public static native void nglUniform3uiEXT(int location, int v0, int v1, int v2, long __functionAddress);
-
 	public static void glUniform3uiEXT(int location, int v0, int v1, int v2) {
 		long __functionAddress = getInstance().Uniform3uiEXT;
-		nglUniform3uiEXT(location, v0, v1, v2, __functionAddress);
+		invokeIIIIV(__functionAddress, location, v0, v1, v2);
 	}
 
 	// --- [ glUniform4uiEXT ] ---
 
-	/** JNI method for {@link #glUniform4uiEXT Uniform4uiEXT} */
-	@JavadocExclude
-	public static native void nglUniform4uiEXT(int location, int v0, int v1, int v2, int v3, long __functionAddress);
-
 	public static void glUniform4uiEXT(int location, int v0, int v1, int v2, int v3) {
 		long __functionAddress = getInstance().Uniform4uiEXT;
-		nglUniform4uiEXT(location, v0, v1, v2, v3, __functionAddress);
+		invokeIIIIIV(__functionAddress, location, v0, v1, v2, v3);
 	}
 
 	// --- [ glUniform1uivEXT ] ---
-
-	/** JNI method for {@link #glUniform1uivEXT Uniform1uivEXT} */
-	@JavadocExclude
-	public static native void nglUniform1uivEXT(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniform1uivEXT Uniform1uivEXT} */
 	@JavadocExclude
 	public static void nglUniform1uivEXT(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1uivEXT;
-		nglUniform1uivEXT(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform1uivEXT(int location, int count, ByteBuffer value) {
@@ -1010,15 +887,11 @@ public final class EXTGPUShader4 {
 
 	// --- [ glUniform2uivEXT ] ---
 
-	/** JNI method for {@link #glUniform2uivEXT Uniform2uivEXT} */
-	@JavadocExclude
-	public static native void nglUniform2uivEXT(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform2uivEXT Uniform2uivEXT} */
 	@JavadocExclude
 	public static void nglUniform2uivEXT(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2uivEXT;
-		nglUniform2uivEXT(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform2uivEXT(int location, int count, ByteBuffer value) {
@@ -1034,15 +907,11 @@ public final class EXTGPUShader4 {
 
 	// --- [ glUniform3uivEXT ] ---
 
-	/** JNI method for {@link #glUniform3uivEXT Uniform3uivEXT} */
-	@JavadocExclude
-	public static native void nglUniform3uivEXT(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform3uivEXT Uniform3uivEXT} */
 	@JavadocExclude
 	public static void nglUniform3uivEXT(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3uivEXT;
-		nglUniform3uivEXT(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform3uivEXT(int location, int count, ByteBuffer value) {
@@ -1058,15 +927,11 @@ public final class EXTGPUShader4 {
 
 	// --- [ glUniform4uivEXT ] ---
 
-	/** JNI method for {@link #glUniform4uivEXT Uniform4uivEXT} */
-	@JavadocExclude
-	public static native void nglUniform4uivEXT(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform4uivEXT Uniform4uivEXT} */
 	@JavadocExclude
 	public static void nglUniform4uivEXT(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4uivEXT;
-		nglUniform4uivEXT(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform4uivEXT(int location, int count, ByteBuffer value) {

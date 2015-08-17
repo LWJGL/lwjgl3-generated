@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -49,10 +50,6 @@ public final class NOKSwapRegion2 {
 
 	// --- [ eglSwapBuffersRegion2NOK ] ---
 
-	/** JNI method for {@link #eglSwapBuffersRegion2NOK SwapBuffersRegion2NOK} */
-	@JavadocExclude
-	public static native boolean neglSwapBuffersRegion2NOK(long dpy, long surface, int numRects, long rects, long __functionAddress);
-
 	/** Unsafe version of {@link #eglSwapBuffersRegion2NOK SwapBuffersRegion2NOK} */
 	@JavadocExclude
 	public static boolean neglSwapBuffersRegion2NOK(long dpy, long surface, int numRects, long rects) {
@@ -61,7 +58,7 @@ public final class NOKSwapRegion2 {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return neglSwapBuffersRegion2NOK(dpy, surface, numRects, rects, __functionAddress);
+		return invokePPIPZ(__functionAddress, dpy, surface, numRects, rects);
 	}
 
 	public static boolean eglSwapBuffersRegion2NOK(long dpy, long surface, int numRects, ByteBuffer rects) {

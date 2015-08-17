@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/EGL_NV_coverage_sample.txt">NV_coverage_sample</a> extension.
@@ -93,24 +94,16 @@ public final class NVCoverageSample {
 
 	// --- [ glCoverageMaskNV ] ---
 
-	/** JNI method for {@link #glCoverageMaskNV CoverageMaskNV} */
-	@JavadocExclude
-	public static native void nglCoverageMaskNV(boolean mask, long __functionAddress);
-
 	public static void glCoverageMaskNV(boolean mask) {
 		long __functionAddress = getInstance().CoverageMaskNV;
-		nglCoverageMaskNV(mask, __functionAddress);
+		invokeZV(__functionAddress, mask);
 	}
 
 	// --- [ glCoverageOperationNV ] ---
 
-	/** JNI method for {@link #glCoverageOperationNV CoverageOperationNV} */
-	@JavadocExclude
-	public static native void nglCoverageOperationNV(int operation, long __functionAddress);
-
 	public static void glCoverageOperationNV(int operation) {
 		long __functionAddress = getInstance().CoverageOperationNV;
-		nglCoverageOperationNV(operation, __functionAddress);
+		invokeIV(__functionAddress, operation);
 	}
 
 }

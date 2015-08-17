@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -172,15 +173,11 @@ public final class ARBDebugOutput {
 
 	// --- [ glDebugMessageControlARB ] ---
 
-	/** JNI method for {@link #glDebugMessageControlARB DebugMessageControlARB} */
-	@JavadocExclude
-	public static native void nglDebugMessageControlARB(int source, int type, int severity, int count, long ids, boolean enabled, long __functionAddress);
-
 	/** Unsafe version of {@link #glDebugMessageControlARB DebugMessageControlARB} */
 	@JavadocExclude
 	public static void nglDebugMessageControlARB(int source, int type, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = getInstance().DebugMessageControlARB;
-		nglDebugMessageControlARB(source, type, severity, count, ids, enabled, __functionAddress);
+		invokeIIIIPZV(__functionAddress, source, type, severity, count, ids, enabled);
 	}
 
 	/**
@@ -220,15 +217,11 @@ public final class ARBDebugOutput {
 
 	// --- [ glDebugMessageInsertARB ] ---
 
-	/** JNI method for {@link #glDebugMessageInsertARB DebugMessageInsertARB} */
-	@JavadocExclude
-	public static native void nglDebugMessageInsertARB(int source, int type, int id, int severity, int length, long buf, long __functionAddress);
-
 	/** Unsafe version of {@link #glDebugMessageInsertARB DebugMessageInsertARB} */
 	@JavadocExclude
 	public static void nglDebugMessageInsertARB(int source, int type, int id, int severity, int length, long buf) {
 		long __functionAddress = getInstance().DebugMessageInsertARB;
-		nglDebugMessageInsertARB(source, type, id, severity, length, buf, __functionAddress);
+		invokeIIIIIPV(__functionAddress, source, type, id, severity, length, buf);
 	}
 
 	/**
@@ -265,10 +258,6 @@ public final class ARBDebugOutput {
 	}
 
 	// --- [ glDebugMessageCallbackARB ] ---
-
-	/** JNI method for {@link #glDebugMessageCallbackARB DebugMessageCallbackARB} */
-	@JavadocExclude
-	public static native void nglDebugMessageCallbackARB(long callback, long userParam, long __functionAddress);
 
 	/**
 	 * Specifies a callback function for receiving debug messages.
@@ -310,20 +299,16 @@ public final class ARBDebugOutput {
 	 */
 	public static void glDebugMessageCallbackARB(GLDebugMessageARBCallback callback, long userParam) {
 		long __functionAddress = getInstance().DebugMessageCallbackARB;
-		nglDebugMessageCallbackARB(callback == null ? NULL : callback.getPointer(), userParam, __functionAddress);
+		invokePPV(__functionAddress, callback == null ? NULL : callback.getPointer(), userParam);
 	}
 
 	// --- [ glGetDebugMessageLogARB ] ---
-
-	/** JNI method for {@link #glGetDebugMessageLogARB GetDebugMessageLogARB} */
-	@JavadocExclude
-	public static native int nglGetDebugMessageLogARB(int count, int bufSize, long sources, long types, long ids, long severities, long lengths, long messageLog, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetDebugMessageLogARB GetDebugMessageLogARB} */
 	@JavadocExclude
 	public static int nglGetDebugMessageLogARB(int count, int bufSize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
 		long __functionAddress = getInstance().GetDebugMessageLogARB;
-		return nglGetDebugMessageLogARB(count, bufSize, sources, types, ids, severities, lengths, messageLog, __functionAddress);
+		return invokeIIPPPPPPI(__functionAddress, count, bufSize, sources, types, ids, severities, lengths, messageLog);
 	}
 
 	/**

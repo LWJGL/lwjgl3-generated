@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/KHR/blend_equation_advanced.txt">KHR_blend_equation_advanced</a> extension.
@@ -99,10 +100,6 @@ public final class KHRBlendEquationAdvanced {
 
 	// --- [ glBlendBarrierKHR ] ---
 
-	/** JNI method for {@link #glBlendBarrierKHR BlendBarrierKHR} */
-	@JavadocExclude
-	public static native void nglBlendBarrierKHR(long __functionAddress);
-
 	/**
 	 * Specifies a boundary between passes when using advanced blend equations.
 	 * 
@@ -113,7 +110,7 @@ public final class KHRBlendEquationAdvanced {
 	 */
 	public static void glBlendBarrierKHR() {
 		long __functionAddress = getInstance().BlendBarrierKHR;
-		nglBlendBarrierKHR(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 }

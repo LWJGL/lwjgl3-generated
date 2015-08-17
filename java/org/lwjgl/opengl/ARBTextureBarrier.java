@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/texture_barrier.txt">ARB_texture_barrier</a> extension.
@@ -52,7 +53,7 @@ public final class ARBTextureBarrier {
 	/** Guarantees that writes have completed and caches have been invalidated before subsequent Draws are executed. */
 	public static void glTextureBarrier() {
 		long __functionAddress = getInstance().TextureBarrier;
-		GL45.nglTextureBarrier(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 }

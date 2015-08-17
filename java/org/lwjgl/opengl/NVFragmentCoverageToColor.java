@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/fragment_coverage_to_color.txt">NV_fragment_coverage_to_color</a> extension.
@@ -60,10 +61,6 @@ public final class NVFragmentCoverageToColor {
 
 	// --- [ glFragmentCoverageColorNV ] ---
 
-	/** JNI method for {@link #glFragmentCoverageColorNV FragmentCoverageColorNV} */
-	@JavadocExclude
-	public static native void nglFragmentCoverageColorNV(int color, long __functionAddress);
-
 	/**
 	 * 
 	 *
@@ -71,7 +68,7 @@ public final class NVFragmentCoverageToColor {
 	 */
 	public static void glFragmentCoverageColorNV(int color) {
 		long __functionAddress = getInstance().FragmentCoverageColorNV;
-		nglFragmentCoverageColorNV(color, __functionAddress);
+		invokeIV(__functionAddress, color);
 	}
 
 }

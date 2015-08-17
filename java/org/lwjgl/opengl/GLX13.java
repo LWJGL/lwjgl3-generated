@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
@@ -142,17 +143,13 @@ public final class GLX13 {
 
 	// --- [ glXGetFBConfigs ] ---
 
-	/** JNI method for {@link #glXGetFBConfigs GetFBConfigs} */
-	@JavadocExclude
-	public static native long nglXGetFBConfigs(long display, int screen, long nelements, long __functionAddress);
-
 	/** Unsafe version of {@link #glXGetFBConfigs GetFBConfigs} */
 	@JavadocExclude
 	public static long nglXGetFBConfigs(long display, int screen, long nelements) {
 		long __functionAddress = getInstance().GetFBConfigs;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return nglXGetFBConfigs(display, screen, nelements, __functionAddress);
+		return invokePIPP(__functionAddress, display, screen, nelements);
 	}
 
 	/**
@@ -170,17 +167,13 @@ public final class GLX13 {
 
 	// --- [ glXChooseFBConfig ] ---
 
-	/** JNI method for {@link #glXChooseFBConfig ChooseFBConfig} */
-	@JavadocExclude
-	public static native long nglXChooseFBConfig(long display, int screen, long attrib_list, long nelements, long __functionAddress);
-
 	/** Unsafe version of {@link #glXChooseFBConfig ChooseFBConfig} */
 	@JavadocExclude
 	public static long nglXChooseFBConfig(long display, int screen, long attrib_list, long nelements) {
 		long __functionAddress = getInstance().ChooseFBConfig;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return nglXChooseFBConfig(display, screen, attrib_list, nelements, __functionAddress);
+		return invokePIPPP(__functionAddress, display, screen, attrib_list, nelements);
 	}
 
 	/**
@@ -211,10 +204,6 @@ public final class GLX13 {
 
 	// --- [ glXGetFBConfigAttrib ] ---
 
-	/** JNI method for {@link #glXGetFBConfigAttrib GetFBConfigAttrib} */
-	@JavadocExclude
-	public static native int nglXGetFBConfigAttrib(long display, long config, int attribute, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glXGetFBConfigAttrib GetFBConfigAttrib} */
 	@JavadocExclude
 	public static int nglXGetFBConfigAttrib(long display, long config, int attribute, long value) {
@@ -223,7 +212,7 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return nglXGetFBConfigAttrib(display, config, attribute, value, __functionAddress);
+		return invokePPIPI(__functionAddress, display, config, attribute, value);
 	}
 
 	/**
@@ -249,10 +238,6 @@ public final class GLX13 {
 
 	// --- [ glXGetVisualFromFBConfig ] ---
 
-	/** JNI method for {@link #glXGetVisualFromFBConfig GetVisualFromFBConfig} */
-	@JavadocExclude
-	public static native long nglXGetVisualFromFBConfig(long display, long config, long __functionAddress);
-
 	/** Unsafe version of {@link #glXGetVisualFromFBConfig GetVisualFromFBConfig} */
 	@JavadocExclude
 	public static long nglXGetVisualFromFBConfig(long display, long config) {
@@ -261,7 +246,7 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return nglXGetVisualFromFBConfig(display, config, __functionAddress);
+		return invokePPP(__functionAddress, display, config);
 	}
 
 	/**
@@ -277,10 +262,6 @@ public final class GLX13 {
 
 	// --- [ glXCreateWindow ] ---
 
-	/** JNI method for {@link #glXCreateWindow CreateWindow} */
-	@JavadocExclude
-	public static native long nglXCreateWindow(long display, long config, long win, long attrib_list, long __functionAddress);
-
 	/** Unsafe version of {@link #glXCreateWindow CreateWindow} */
 	@JavadocExclude
 	public static long nglXCreateWindow(long display, long config, long win, long attrib_list) {
@@ -289,7 +270,7 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return nglXCreateWindow(display, config, win, attrib_list, __functionAddress);
+		return invokePPPPP(__functionAddress, display, config, win, attrib_list);
 	}
 
 	/**
@@ -315,10 +296,6 @@ public final class GLX13 {
 
 	// --- [ glXCreatePixmap ] ---
 
-	/** JNI method for {@link #glXCreatePixmap CreatePixmap} */
-	@JavadocExclude
-	public static native long nglXCreatePixmap(long display, long config, long pixmap, long attrib_list, long __functionAddress);
-
 	/** Unsafe version of {@link #glXCreatePixmap CreatePixmap} */
 	@JavadocExclude
 	public static long nglXCreatePixmap(long display, long config, long pixmap, long attrib_list) {
@@ -327,7 +304,7 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return nglXCreatePixmap(display, config, pixmap, attrib_list, __functionAddress);
+		return invokePPPPP(__functionAddress, display, config, pixmap, attrib_list);
 	}
 
 	/**
@@ -353,10 +330,6 @@ public final class GLX13 {
 
 	// --- [ glXDestroyPixmap ] ---
 
-	/** JNI method for {@link #glXDestroyPixmap DestroyPixmap} */
-	@JavadocExclude
-	public static native void nglXDestroyPixmap(long display, long pixmap, long __functionAddress);
-
 	/**
 	 * Destroys a GLXPixmap.
 	 *
@@ -369,14 +342,10 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(pixmap);
 		}
-		nglXDestroyPixmap(display, pixmap, __functionAddress);
+		invokePPV(__functionAddress, display, pixmap);
 	}
 
 	// --- [ glXCreatePbuffer ] ---
-
-	/** JNI method for {@link #glXCreatePbuffer CreatePbuffer} */
-	@JavadocExclude
-	public static native long nglXCreatePbuffer(long display, long config, long attrib_list, long __functionAddress);
 
 	/** Unsafe version of {@link #glXCreatePbuffer CreatePbuffer} */
 	@JavadocExclude
@@ -386,7 +355,7 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return nglXCreatePbuffer(display, config, attrib_list, __functionAddress);
+		return invokePPPP(__functionAddress, display, config, attrib_list);
 	}
 
 	/**
@@ -411,10 +380,6 @@ public final class GLX13 {
 
 	// --- [ glXDestroyPbuffer ] ---
 
-	/** JNI method for {@link #glXDestroyPbuffer DestroyPbuffer} */
-	@JavadocExclude
-	public static native void nglXDestroyPbuffer(long display, long pbuf, long __functionAddress);
-
 	/**
 	 * Destroys a GLXPbuffer.
 	 *
@@ -427,14 +392,10 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(pbuf);
 		}
-		nglXDestroyPbuffer(display, pbuf, __functionAddress);
+		invokePPV(__functionAddress, display, pbuf);
 	}
 
 	// --- [ glXQueryDrawable ] ---
-
-	/** JNI method for {@link #glXQueryDrawable QueryDrawable} */
-	@JavadocExclude
-	public static native void nglXQueryDrawable(long display, long draw, int attribute, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glXQueryDrawable QueryDrawable} */
 	@JavadocExclude
@@ -444,7 +405,7 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(draw);
 		}
-		nglXQueryDrawable(display, draw, attribute, value, __functionAddress);
+		invokePPIPV(__functionAddress, display, draw, attribute, value);
 	}
 
 	/**
@@ -470,10 +431,6 @@ public final class GLX13 {
 
 	// --- [ glXCreateNewContext ] ---
 
-	/** JNI method for {@link #glXCreateNewContext CreateNewContext} */
-	@JavadocExclude
-	public static native long nglXCreateNewContext(long display, long config, int render_type, long share_list, int direct, long __functionAddress);
-
 	/**
 	 * Creates an OpenGL rendering context.
 	 *
@@ -489,14 +446,10 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return nglXCreateNewContext(display, config, render_type, share_list, direct, __functionAddress);
+		return invokePPIPIP(__functionAddress, display, config, render_type, share_list, direct);
 	}
 
 	// --- [ glXMakeContextCurrent ] ---
-
-	/** JNI method for {@link #glXMakeContextCurrent MakeContextCurrent} */
-	@JavadocExclude
-	public static native int nglXMakeContextCurrent(long display, long draw, long read, long ctx, long __functionAddress);
 
 	/**
 	 * Makes a GLXContext current in the current thread.
@@ -510,26 +463,18 @@ public final class GLX13 {
 		long __functionAddress = getInstance().MakeContextCurrent;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return nglXMakeContextCurrent(display, draw, read, ctx, __functionAddress);
+		return invokePPPPI(__functionAddress, display, draw, read, ctx);
 	}
 
 	// --- [ glXGetCurrentReadDrawable ] ---
 
-	/** JNI method for {@link #glXGetCurrentReadDrawable GetCurrentReadDrawable} */
-	@JavadocExclude
-	public static native long nglXGetCurrentReadDrawable(long __functionAddress);
-
 	/** Returns the current GLXDrawable used for reading in the current thread. */
 	public static long glXGetCurrentReadDrawable() {
 		long __functionAddress = getInstance().GetCurrentReadDrawable;
-		return nglXGetCurrentReadDrawable(__functionAddress);
+		return invokeP(__functionAddress);
 	}
 
 	// --- [ glXQueryContext ] ---
-
-	/** JNI method for {@link #glXQueryContext QueryContext} */
-	@JavadocExclude
-	public static native int nglXQueryContext(long display, long ctx, int attribute, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glXQueryContext QueryContext} */
 	@JavadocExclude
@@ -539,7 +484,7 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(ctx);
 		}
-		return nglXQueryContext(display, ctx, attribute, value, __functionAddress);
+		return invokePPIPI(__functionAddress, display, ctx, attribute, value);
 	}
 
 	/**
@@ -565,10 +510,6 @@ public final class GLX13 {
 
 	// --- [ glXSelectEvent ] ---
 
-	/** JNI method for {@link #glXSelectEvent SelectEvent} */
-	@JavadocExclude
-	public static native void nglXSelectEvent(long display, long draw, long event_mask, long __functionAddress);
-
 	/**
 	 * Selects which GLX events should be received on a GLXDrawable.
 	 *
@@ -582,14 +523,10 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(draw);
 		}
-		nglXSelectEvent(display, draw, event_mask, __functionAddress);
+		invokePPPV(__functionAddress, display, draw, event_mask);
 	}
 
 	// --- [ glXGetSelectedEvent ] ---
-
-	/** JNI method for {@link #glXGetSelectedEvent GetSelectedEvent} */
-	@JavadocExclude
-	public static native void nglXGetSelectedEvent(long display, long draw, long event_mask, long __functionAddress);
 
 	/** Unsafe version of {@link #glXGetSelectedEvent GetSelectedEvent} */
 	@JavadocExclude
@@ -599,7 +536,7 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(draw);
 		}
-		nglXGetSelectedEvent(display, draw, event_mask, __functionAddress);
+		invokePPPV(__functionAddress, display, draw, event_mask);
 	}
 
 	/**

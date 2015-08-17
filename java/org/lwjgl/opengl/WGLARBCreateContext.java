@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -69,17 +70,13 @@ public final class WGLARBCreateContext {
 
 	// --- [ wglCreateContextAttribsARB ] ---
 
-	/** JNI method for {@link #wglCreateContextAttribsARB CreateContextAttribsARB} */
-	@JavadocExclude
-	public static native long nwglCreateContextAttribsARB(long hdc, long shareContext, long attribList, long __functionAddress);
-
 	/** Unsafe version of {@link #wglCreateContextAttribsARB CreateContextAttribsARB} */
 	@JavadocExclude
 	public static long nwglCreateContextAttribsARB(long hdc, long shareContext, long attribList) {
 		long __functionAddress = getInstance().CreateContextAttribsARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		return nwglCreateContextAttribsARB(hdc, shareContext, attribList, __functionAddress);
+		return invokePPPP(__functionAddress, hdc, shareContext, attribList);
 	}
 
 	/**

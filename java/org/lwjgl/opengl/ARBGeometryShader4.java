@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/geometry_shader4.txt">ARB_geometry_shader4</a> extension.
@@ -112,10 +113,6 @@ public final class ARBGeometryShader4 {
 
 	// --- [ glProgramParameteriARB ] ---
 
-	/** JNI method for {@link #glProgramParameteriARB ProgramParameteriARB} */
-	@JavadocExclude
-	public static native void nglProgramParameteriARB(int program, int pname, int value, long __functionAddress);
-
 	/**
 	 * Sets a program object parameter.
 	 * 
@@ -138,14 +135,10 @@ public final class ARBGeometryShader4 {
 	 */
 	public static void glProgramParameteriARB(int program, int pname, int value) {
 		long __functionAddress = getInstance().ProgramParameteriARB;
-		nglProgramParameteriARB(program, pname, value, __functionAddress);
+		invokeIIIV(__functionAddress, program, pname, value);
 	}
 
 	// --- [ glFramebufferTextureARB ] ---
-
-	/** JNI method for {@link #glFramebufferTextureARB FramebufferTextureARB} */
-	@JavadocExclude
-	public static native void nglFramebufferTextureARB(int target, int attachment, int texture, int level, long __functionAddress);
 
 	/**
 	 * Attaches a specified level of a texture object as one of the logical buffers of the currently bound framebuffer object, to render directly into the
@@ -169,14 +162,10 @@ public final class ARBGeometryShader4 {
 	 */
 	public static void glFramebufferTextureARB(int target, int attachment, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTextureARB;
-		nglFramebufferTextureARB(target, attachment, texture, level, __functionAddress);
+		invokeIIIIV(__functionAddress, target, attachment, texture, level);
 	}
 
 	// --- [ glFramebufferTextureLayerARB ] ---
-
-	/** JNI method for {@link #glFramebufferTextureLayerARB FramebufferTextureLayerARB} */
-	@JavadocExclude
-	public static native void nglFramebufferTextureLayerARB(int target, int attachment, int texture, int level, int layer, long __functionAddress);
 
 	/**
 	 * Operates like {@link #glFramebufferTextureARB FramebufferTextureARB}, except that only a single layer of the texture level, numbered {@code layer}, is attached to the attachment
@@ -194,14 +183,10 @@ public final class ARBGeometryShader4 {
 	 */
 	public static void glFramebufferTextureLayerARB(int target, int attachment, int texture, int level, int layer) {
 		long __functionAddress = getInstance().FramebufferTextureLayerARB;
-		nglFramebufferTextureLayerARB(target, attachment, texture, level, layer, __functionAddress);
+		invokeIIIIIV(__functionAddress, target, attachment, texture, level, layer);
 	}
 
 	// --- [ glFramebufferTextureFaceARB ] ---
-
-	/** JNI method for {@link #glFramebufferTextureFaceARB FramebufferTextureFaceARB} */
-	@JavadocExclude
-	public static native void nglFramebufferTextureFaceARB(int target, int attachment, int texture, int level, int face, long __functionAddress);
 
 	/**
 	 * Operates like {@link #glFramebufferTextureARB FramebufferTextureARB}, except that only a single face of a cube map texture, given by {@code face}, is attached to the attachment
@@ -218,7 +203,7 @@ public final class ARBGeometryShader4 {
 	 */
 	public static void glFramebufferTextureFaceARB(int target, int attachment, int texture, int level, int face) {
 		long __functionAddress = getInstance().FramebufferTextureFaceARB;
-		nglFramebufferTextureFaceARB(target, attachment, texture, level, face, __functionAddress);
+		invokeIIIIIV(__functionAddress, target, attachment, texture, level, face);
 	}
 
 }

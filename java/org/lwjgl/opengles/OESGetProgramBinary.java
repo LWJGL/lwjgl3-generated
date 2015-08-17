@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -74,15 +75,11 @@ public final class OESGetProgramBinary {
 
 	// --- [ glGetProgramBinaryOES ] ---
 
-	/** JNI method for {@link #glGetProgramBinaryOES GetProgramBinaryOES} */
-	@JavadocExclude
-	public static native void nglGetProgramBinaryOES(int program, int bufSize, long length, long binaryFormat, long binary, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetProgramBinaryOES GetProgramBinaryOES} */
 	@JavadocExclude
 	public static void nglGetProgramBinaryOES(int program, int bufSize, long length, long binaryFormat, long binary) {
 		long __functionAddress = getInstance().GetProgramBinaryOES;
-		nglGetProgramBinaryOES(program, bufSize, length, binaryFormat, binary, __functionAddress);
+		invokeIIPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
 	}
 
 	public static void glGetProgramBinaryOES(int program, int bufSize, ByteBuffer length, ByteBuffer binaryFormat, ByteBuffer binary) {
@@ -130,15 +127,11 @@ public final class OESGetProgramBinary {
 
 	// --- [ glProgramBinaryOES ] ---
 
-	/** JNI method for {@link #glProgramBinaryOES ProgramBinaryOES} */
-	@JavadocExclude
-	public static native void nglProgramBinaryOES(int program, int binaryFormat, long binary, int length, long __functionAddress);
-
 	/** Unsafe version of {@link #glProgramBinaryOES ProgramBinaryOES} */
 	@JavadocExclude
 	public static void nglProgramBinaryOES(int program, int binaryFormat, long binary, int length) {
 		long __functionAddress = getInstance().ProgramBinaryOES;
-		nglProgramBinaryOES(program, binaryFormat, binary, length, __functionAddress);
+		invokeIIPIV(__functionAddress, program, binaryFormat, binary, length);
 	}
 
 	public static void glProgramBinaryOES(int program, int binaryFormat, ByteBuffer binary, int length) {

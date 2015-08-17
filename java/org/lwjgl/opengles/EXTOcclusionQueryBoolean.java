@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -82,15 +83,11 @@ public final class EXTOcclusionQueryBoolean {
 
 	// --- [ glGenQueriesEXT ] ---
 
-	/** JNI method for {@link #glGenQueriesEXT GenQueriesEXT} */
-	@JavadocExclude
-	public static native void nglGenQueriesEXT(int n, long ids, long __functionAddress);
-
 	/** Unsafe version of {@link #glGenQueriesEXT GenQueriesEXT} */
 	@JavadocExclude
 	public static void nglGenQueriesEXT(int n, long ids) {
 		long __functionAddress = getInstance().GenQueriesEXT;
-		nglGenQueriesEXT(n, ids, __functionAddress);
+		invokeIPV(__functionAddress, n, ids);
 	}
 
 	public static void glGenQueriesEXT(int n, ByteBuffer ids) {
@@ -114,15 +111,11 @@ public final class EXTOcclusionQueryBoolean {
 
 	// --- [ glDeleteQueriesEXT ] ---
 
-	/** JNI method for {@link #glDeleteQueriesEXT DeleteQueriesEXT} */
-	@JavadocExclude
-	public static native void nglDeleteQueriesEXT(int n, long ids, long __functionAddress);
-
 	/** Unsafe version of {@link #glDeleteQueriesEXT DeleteQueriesEXT} */
 	@JavadocExclude
 	public static void nglDeleteQueriesEXT(int n, long ids) {
 		long __functionAddress = getInstance().DeleteQueriesEXT;
-		nglDeleteQueriesEXT(n, ids, __functionAddress);
+		invokeIPV(__functionAddress, n, ids);
 	}
 
 	public static void glDeleteQueriesEXT(int n, ByteBuffer ids) {
@@ -145,48 +138,32 @@ public final class EXTOcclusionQueryBoolean {
 
 	// --- [ glIsQueryEXT ] ---
 
-	/** JNI method for {@link #glIsQueryEXT IsQueryEXT} */
-	@JavadocExclude
-	public static native boolean nglIsQueryEXT(int id, long __functionAddress);
-
 	public static boolean glIsQueryEXT(int id) {
 		long __functionAddress = getInstance().IsQueryEXT;
-		return nglIsQueryEXT(id, __functionAddress);
+		return invokeIZ(__functionAddress, id);
 	}
 
 	// --- [ glBeginQueryEXT ] ---
 
-	/** JNI method for {@link #glBeginQueryEXT BeginQueryEXT} */
-	@JavadocExclude
-	public static native void nglBeginQueryEXT(int target, int id, long __functionAddress);
-
 	public static void glBeginQueryEXT(int target, int id) {
 		long __functionAddress = getInstance().BeginQueryEXT;
-		nglBeginQueryEXT(target, id, __functionAddress);
+		invokeIIV(__functionAddress, target, id);
 	}
 
 	// --- [ glEndQueryEXT ] ---
 
-	/** JNI method for {@link #glEndQueryEXT EndQueryEXT} */
-	@JavadocExclude
-	public static native void nglEndQueryEXT(int target, long __functionAddress);
-
 	public static void glEndQueryEXT(int target) {
 		long __functionAddress = getInstance().EndQueryEXT;
-		nglEndQueryEXT(target, __functionAddress);
+		invokeIV(__functionAddress, target);
 	}
 
 	// --- [ glGetQueryivEXT ] ---
-
-	/** JNI method for {@link #glGetQueryivEXT GetQueryivEXT} */
-	@JavadocExclude
-	public static native void nglGetQueryivEXT(int target, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetQueryivEXT GetQueryivEXT} */
 	@JavadocExclude
 	public static void nglGetQueryivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryivEXT;
-		nglGetQueryivEXT(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetQueryivEXT(int target, int pname, ByteBuffer params) {
@@ -212,15 +189,11 @@ public final class EXTOcclusionQueryBoolean {
 
 	// --- [ glGetQueryObjectuivEXT ] ---
 
-	/** JNI method for {@link #glGetQueryObjectuivEXT GetQueryObjectuivEXT} */
-	@JavadocExclude
-	public static native void nglGetQueryObjectuivEXT(int id, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetQueryObjectuivEXT GetQueryObjectuivEXT} */
 	@JavadocExclude
 	public static void nglGetQueryObjectuivEXT(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectuivEXT;
-		nglGetQueryObjectuivEXT(id, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, id, pname, params);
 	}
 
 	public static void glGetQueryObjectuivEXT(int id, int pname, ByteBuffer params) {

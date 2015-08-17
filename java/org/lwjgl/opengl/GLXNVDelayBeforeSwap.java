@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 import org.lwjgl.system.linux.*;
 
@@ -53,10 +54,6 @@ public final class GLXNVDelayBeforeSwap {
 
 	// --- [ glXDelayBeforeSwapNV ] ---
 
-	/** JNI method for {@link #glXDelayBeforeSwapNV DelayBeforeSwapNV} */
-	@JavadocExclude
-	public static native int nglXDelayBeforeSwapNV(long display, long drawable, float seconds, long __functionAddress);
-
 	/**
 	 * Blocks the CPU until {@code seconds} seconds before a synchronized swap would occur on a particular GLX window drawable. It also returns a boolean value
 	 * equal to {@link Xlib#True} when the implementation had to wait for the synchronized swap and {@link Xlib#False} otherwise.
@@ -87,7 +84,7 @@ public final class GLXNVDelayBeforeSwap {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		return nglXDelayBeforeSwapNV(display, drawable, seconds, __functionAddress);
+		return invokePPFI(__functionAddress, display, drawable, seconds);
 	}
 
 }

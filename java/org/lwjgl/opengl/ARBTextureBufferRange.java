@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/texture_buffer_range.txt">ARB_texture_buffer_range</a> extension.
@@ -74,14 +75,10 @@ public final class ARBTextureBufferRange {
 	 */
 	public static void glTexBufferRange(int target, int internalformat, int buffer, long offset, long size) {
 		long __functionAddress = getInstance().TexBufferRange;
-		GL43.nglTexBufferRange(target, internalformat, buffer, offset, size, __functionAddress);
+		invokeIIIPPV(__functionAddress, target, internalformat, buffer, offset, size);
 	}
 
 	// --- [ glTextureBufferRangeEXT ] ---
-
-	/** JNI method for {@link #glTextureBufferRangeEXT TextureBufferRangeEXT} */
-	@JavadocExclude
-	public static native void nglTextureBufferRangeEXT(int texture, int target, int internalformat, int buffer, long offset, long size, long __functionAddress);
 
 	/**
 	 * DSA version of {@link #glTexBufferRange TexBufferRange}.
@@ -97,7 +94,7 @@ public final class ARBTextureBufferRange {
 		long __functionAddress = getInstance().TextureBufferRangeEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTextureBufferRangeEXT(texture, target, internalformat, buffer, offset, size, __functionAddress);
+		invokeIIIIPPV(__functionAddress, texture, target, internalformat, buffer, offset, size);
 	}
 
 }

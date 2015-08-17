@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -55,17 +56,13 @@ public final class EXTMigrateMemobject {
 
 	// --- [ clEnqueueMigrateMemObjectEXT ] ---
 
-	/** JNI method for {@link #clEnqueueMigrateMemObjectEXT EnqueueMigrateMemObjectEXT} */
-	@JavadocExclude
-	public static native int nclEnqueueMigrateMemObjectEXT(long command_queue, int num_mem_objects, long mem_objects, long flags, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueMigrateMemObjectEXT EnqueueMigrateMemObjectEXT} */
 	@JavadocExclude
 	public static int nclEnqueueMigrateMemObjectEXT(long command_queue, int num_mem_objects, long mem_objects, long flags, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueMigrateMemObjectEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return nclEnqueueMigrateMemObjectEXT(command_queue, num_mem_objects, mem_objects, flags, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePIPJIPPI(__functionAddress, command_queue, num_mem_objects, mem_objects, flags, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**

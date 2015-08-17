@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /** The core EGL 1.1 functionality. */
 public final class EGL11 {
@@ -55,24 +56,16 @@ public final class EGL11 {
 
 	// --- [ eglBindTexImage ] ---
 
-	/** JNI method for {@link #eglBindTexImage BindTexImage} */
-	@JavadocExclude
-	public static native boolean neglBindTexImage(long dpy, long surface, int buffer, long __functionAddress);
-
 	public static boolean eglBindTexImage(long dpy, long surface, int buffer) {
 		long __functionAddress = getInstance().BindTexImage;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return neglBindTexImage(dpy, surface, buffer, __functionAddress);
+		return invokePPIZ(__functionAddress, dpy, surface, buffer);
 	}
 
 	// --- [ eglReleaseTexImage ] ---
-
-	/** JNI method for {@link #eglReleaseTexImage ReleaseTexImage} */
-	@JavadocExclude
-	public static native boolean neglReleaseTexImage(long dpy, long surface, int buffer, long __functionAddress);
 
 	public static boolean eglReleaseTexImage(long dpy, long surface, int buffer) {
 		long __functionAddress = getInstance().ReleaseTexImage;
@@ -80,14 +73,10 @@ public final class EGL11 {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return neglReleaseTexImage(dpy, surface, buffer, __functionAddress);
+		return invokePPIZ(__functionAddress, dpy, surface, buffer);
 	}
 
 	// --- [ eglSurfaceAttrib ] ---
-
-	/** JNI method for {@link #eglSurfaceAttrib SurfaceAttrib} */
-	@JavadocExclude
-	public static native boolean neglSurfaceAttrib(long dpy, long surface, int attribute, int value, long __functionAddress);
 
 	public static boolean eglSurfaceAttrib(long dpy, long surface, int attribute, int value) {
 		long __functionAddress = getInstance().SurfaceAttrib;
@@ -95,20 +84,16 @@ public final class EGL11 {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return neglSurfaceAttrib(dpy, surface, attribute, value, __functionAddress);
+		return invokePPIIZ(__functionAddress, dpy, surface, attribute, value);
 	}
 
 	// --- [ eglSwapInterval ] ---
-
-	/** JNI method for {@link #eglSwapInterval SwapInterval} */
-	@JavadocExclude
-	public static native boolean neglSwapInterval(long dpy, int interval, long __functionAddress);
 
 	public static boolean eglSwapInterval(long dpy, int interval) {
 		long __functionAddress = getInstance().SwapInterval;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return neglSwapInterval(dpy, interval, __functionAddress);
+		return invokePIZ(__functionAddress, dpy, interval);
 	}
 
 }

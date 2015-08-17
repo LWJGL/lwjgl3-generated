@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -73,15 +74,11 @@ public final class WGLNVGPUAffinity {
 
 	// --- [ wglEnumGpusNV ] ---
 
-	/** JNI method for {@link #wglEnumGpusNV EnumGpusNV} */
-	@JavadocExclude
-	public static native int nwglEnumGpusNV(int gpuIndex, long gpu, long __functionAddress);
-
 	/** Unsafe version of {@link #wglEnumGpusNV EnumGpusNV} */
 	@JavadocExclude
 	public static int nwglEnumGpusNV(int gpuIndex, long gpu) {
 		long __functionAddress = getInstance().EnumGpusNV;
-		return nwglEnumGpusNV(gpuIndex, gpu, __functionAddress);
+		return invokeIPI(__functionAddress, gpuIndex, gpu);
 	}
 
 	/**
@@ -105,17 +102,13 @@ public final class WGLNVGPUAffinity {
 
 	// --- [ wglEnumGpuDevicesNV ] ---
 
-	/** JNI method for {@link #wglEnumGpuDevicesNV EnumGpuDevicesNV} */
-	@JavadocExclude
-	public static native int nwglEnumGpuDevicesNV(long gpu, int deviceIndex, long gpuDevice, long __functionAddress);
-
 	/** Unsafe version of {@link #wglEnumGpuDevicesNV EnumGpuDevicesNV} */
 	@JavadocExclude
 	public static int nwglEnumGpuDevicesNV(long gpu, int deviceIndex, long gpuDevice) {
 		long __functionAddress = getInstance().EnumGpuDevicesNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(gpu);
-		return nwglEnumGpuDevicesNV(gpu, deviceIndex, gpuDevice, __functionAddress);
+		return invokePIPI(__functionAddress, gpu, deviceIndex, gpuDevice);
 	}
 
 	/**
@@ -133,15 +126,11 @@ public final class WGLNVGPUAffinity {
 
 	// --- [ wglCreateAffinityDCNV ] ---
 
-	/** JNI method for {@link #wglCreateAffinityDCNV CreateAffinityDCNV} */
-	@JavadocExclude
-	public static native long nwglCreateAffinityDCNV(long gpuList, long __functionAddress);
-
 	/** Unsafe version of {@link #wglCreateAffinityDCNV CreateAffinityDCNV} */
 	@JavadocExclude
 	public static long nwglCreateAffinityDCNV(long gpuList) {
 		long __functionAddress = getInstance().CreateAffinityDCNV;
-		return nwglCreateAffinityDCNV(gpuList, __functionAddress);
+		return invokePP(__functionAddress, gpuList);
 	}
 
 	/**
@@ -169,17 +158,13 @@ public final class WGLNVGPUAffinity {
 
 	// --- [ wglEnumGpusFromAffinityDCNV ] ---
 
-	/** JNI method for {@link #wglEnumGpusFromAffinityDCNV EnumGpusFromAffinityDCNV} */
-	@JavadocExclude
-	public static native int nwglEnumGpusFromAffinityDCNV(long affinityDC, int gpuIndex, long gpu, long __functionAddress);
-
 	/** Unsafe version of {@link #wglEnumGpusFromAffinityDCNV EnumGpusFromAffinityDCNV} */
 	@JavadocExclude
 	public static int nwglEnumGpusFromAffinityDCNV(long affinityDC, int gpuIndex, long gpu) {
 		long __functionAddress = getInstance().EnumGpusFromAffinityDCNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(affinityDC);
-		return nwglEnumGpusFromAffinityDCNV(affinityDC, gpuIndex, gpu, __functionAddress);
+		return invokePIPI(__functionAddress, affinityDC, gpuIndex, gpu);
 	}
 
 	/**
@@ -204,10 +189,6 @@ public final class WGLNVGPUAffinity {
 
 	// --- [ wglDeleteDCNV ] ---
 
-	/** JNI method for {@link #wglDeleteDCNV DeleteDCNV} */
-	@JavadocExclude
-	public static native int nwglDeleteDCNV(long hdc, long __functionAddress);
-
 	/**
 	 * Deletes an affinity-DC.
 	 *
@@ -217,7 +198,7 @@ public final class WGLNVGPUAffinity {
 		long __functionAddress = getInstance().DeleteDCNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		return nwglDeleteDCNV(hdc, __functionAddress);
+		return invokePI(__functionAddress, hdc);
 	}
 
 }

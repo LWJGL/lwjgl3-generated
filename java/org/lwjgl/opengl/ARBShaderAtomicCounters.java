@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -130,7 +131,7 @@ public final class ARBShaderAtomicCounters {
 	@JavadocExclude
 	public static void nglGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveAtomicCounterBufferiv;
-		GL42.nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, params, __functionAddress);
+		invokeIIIPV(__functionAddress, program, bufferIndex, pname, params);
 	}
 
 	/**
@@ -144,21 +145,21 @@ public final class ARBShaderAtomicCounters {
 	public static void glGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, memAddress(params));
+		GL42.nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv} */
 	public static void glGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, memAddress(params));
+		GL42.nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv} */
 	public static int glGetActiveAtomicCounterBufferi(int program, int bufferIndex, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, __buffer.address(params));
+		GL42.nglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 

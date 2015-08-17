@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/KHR/EGL_KHR_stream_cross_process_fd.txt">KHR_stream_cross_process_fd</a> extension.
@@ -61,30 +62,22 @@ public final class KHRStreamCrossProcessFD {
 
 	// --- [ eglGetStreamFileDescriptorKHR ] ---
 
-	/** JNI method for {@link #eglGetStreamFileDescriptorKHR GetStreamFileDescriptorKHR} */
-	@JavadocExclude
-	public static native int neglGetStreamFileDescriptorKHR(long dpy, long stream, long __functionAddress);
-
 	public static int eglGetStreamFileDescriptorKHR(long dpy, long stream) {
 		long __functionAddress = getInstance().GetStreamFileDescriptorKHR;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return neglGetStreamFileDescriptorKHR(dpy, stream, __functionAddress);
+		return invokePPI(__functionAddress, dpy, stream);
 	}
 
 	// --- [ eglCreateStreamFromFileDescriptorKHR ] ---
-
-	/** JNI method for {@link #eglCreateStreamFromFileDescriptorKHR CreateStreamFromFileDescriptorKHR} */
-	@JavadocExclude
-	public static native long neglCreateStreamFromFileDescriptorKHR(long dpy, int file_descriptor, long __functionAddress);
 
 	public static long eglCreateStreamFromFileDescriptorKHR(long dpy, int file_descriptor) {
 		long __functionAddress = getInstance().CreateStreamFromFileDescriptorKHR;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return neglCreateStreamFromFileDescriptorKHR(dpy, file_descriptor, __functionAddress);
+		return invokePIP(__functionAddress, dpy, file_descriptor);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -51,10 +52,6 @@ public final class APPLECommandQueuePriority {
 
 	// --- [ clCreateCommandQueueWithPropertiesAPPLE ] ---
 
-	/** JNI method for {@link #clCreateCommandQueueWithPropertiesAPPLE CreateCommandQueueWithPropertiesAPPLE} */
-	@JavadocExclude
-	public static native long nclCreateCommandQueueWithPropertiesAPPLE(long context, long device, long properties, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clCreateCommandQueueWithPropertiesAPPLE CreateCommandQueueWithPropertiesAPPLE} */
 	@JavadocExclude
 	public static long nclCreateCommandQueueWithPropertiesAPPLE(long context, long device, long properties, long errcode_ret) {
@@ -63,7 +60,7 @@ public final class APPLECommandQueuePriority {
 			checkPointer(context);
 			checkPointer(device);
 		}
-		return nclCreateCommandQueueWithPropertiesAPPLE(context, device, properties, errcode_ret, __functionAddress);
+		return invokePPPPP(__functionAddress, context, device, properties, errcode_ret);
 	}
 
 	/**

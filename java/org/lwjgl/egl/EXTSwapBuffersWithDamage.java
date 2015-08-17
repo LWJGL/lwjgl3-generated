@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -44,10 +45,6 @@ public final class EXTSwapBuffersWithDamage {
 
 	// --- [ eglSwapBuffersWithDamageEXT ] ---
 
-	/** JNI method for {@link #eglSwapBuffersWithDamageEXT SwapBuffersWithDamageEXT} */
-	@JavadocExclude
-	public static native boolean neglSwapBuffersWithDamageEXT(long dpy, long surface, long rects, int n_rects, long __functionAddress);
-
 	/** Unsafe version of {@link #eglSwapBuffersWithDamageEXT SwapBuffersWithDamageEXT} */
 	@JavadocExclude
 	public static boolean neglSwapBuffersWithDamageEXT(long dpy, long surface, long rects, int n_rects) {
@@ -56,7 +53,7 @@ public final class EXTSwapBuffersWithDamage {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return neglSwapBuffersWithDamageEXT(dpy, surface, rects, n_rects, __functionAddress);
+		return invokePPPIZ(__functionAddress, dpy, surface, rects, n_rects);
 	}
 
 	public static boolean eglSwapBuffersWithDamageEXT(long dpy, long surface, ByteBuffer rects, int n_rects) {

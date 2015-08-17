@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -59,15 +60,11 @@ public final class ANGLETranslatedShaderSource {
 
 	// --- [ glGetTranslatedShaderSourceANGLE ] ---
 
-	/** JNI method for {@link #glGetTranslatedShaderSourceANGLE GetTranslatedShaderSourceANGLE} */
-	@JavadocExclude
-	public static native void nglGetTranslatedShaderSourceANGLE(int shader, int bufsize, long length, long source, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetTranslatedShaderSourceANGLE GetTranslatedShaderSourceANGLE} */
 	@JavadocExclude
 	public static void nglGetTranslatedShaderSourceANGLE(int shader, int bufsize, long length, long source) {
 		long __functionAddress = getInstance().GetTranslatedShaderSourceANGLE;
-		nglGetTranslatedShaderSourceANGLE(shader, bufsize, length, source, __functionAddress);
+		invokeIIPPV(__functionAddress, shader, bufsize, length, source);
 	}
 
 	public static void glGetTranslatedShaderSourceANGLE(int shader, int bufsize, ByteBuffer length, ByteBuffer source) {

@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_sparse_texture.txt">EXT_sparse_texture</a> extension.
@@ -89,13 +90,9 @@ public final class EXTSparseTexture {
 
 	// --- [ glTexPageCommitmentARB ] ---
 
-	/** JNI method for {@link #glTexPageCommitmentARB TexPageCommitmentARB} */
-	@JavadocExclude
-	public static native void nglTexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit, long __functionAddress);
-
 	public static void glTexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit) {
 		long __functionAddress = getInstance().TexPageCommitmentARB;
-		nglTexPageCommitmentARB(target, level, xoffset, yoffset, zoffset, width, height, depth, commit, __functionAddress);
+		invokeIIIIIIIIZV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, commit);
 	}
 
 }

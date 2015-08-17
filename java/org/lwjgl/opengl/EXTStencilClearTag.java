@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/stencil_clear_tag.txt">EXT_stencil_clear_tag</a> extension.
@@ -83,13 +84,9 @@ public final class EXTStencilClearTag {
 
 	// --- [ glStencilClearTagEXT ] ---
 
-	/** JNI method for {@link #glStencilClearTagEXT StencilClearTagEXT} */
-	@JavadocExclude
-	public static native void nglStencilClearTagEXT(int stencilTagBits, int stencilClearTag, long __functionAddress);
-
 	public static void glStencilClearTagEXT(int stencilTagBits, int stencilClearTag) {
 		long __functionAddress = getInstance().StencilClearTagEXT;
-		nglStencilClearTagEXT(stencilTagBits, stencilClearTag, __functionAddress);
+		invokeIIV(__functionAddress, stencilTagBits, stencilClearTag);
 	}
 
 }

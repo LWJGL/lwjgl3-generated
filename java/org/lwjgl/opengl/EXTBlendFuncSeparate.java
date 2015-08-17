@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/blend_func_separate.txt">EXT_blend_func_separate</a> extension.
@@ -57,13 +58,9 @@ public final class EXTBlendFuncSeparate {
 
 	// --- [ glBlendFuncSeparateEXT ] ---
 
-	/** JNI method for {@link #glBlendFuncSeparateEXT BlendFuncSeparateEXT} */
-	@JavadocExclude
-	public static native void nglBlendFuncSeparateEXT(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha, long __functionAddress);
-
 	public static void glBlendFuncSeparateEXT(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha) {
 		long __functionAddress = getInstance().BlendFuncSeparateEXT;
-		nglBlendFuncSeparateEXT(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha, __functionAddress);
+		invokeIIIIV(__functionAddress, sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
 	}
 
 }

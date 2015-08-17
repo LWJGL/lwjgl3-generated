@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/APPLE/APPLE_copy_texture_levels.txt">APPLE_copy_texture_levels</a> extension.
@@ -62,13 +63,9 @@ public final class APPLECopyTextureLevels {
 
 	// --- [ glCopyTextureLevelsAPPLE ] ---
 
-	/** JNI method for {@link #glCopyTextureLevelsAPPLE CopyTextureLevelsAPPLE} */
-	@JavadocExclude
-	public static native void nglCopyTextureLevelsAPPLE(int destinationTexture, int sourceTexture, int sourceBaseLevel, int sourceLevelCount, long __functionAddress);
-
 	public static void glCopyTextureLevelsAPPLE(int destinationTexture, int sourceTexture, int sourceBaseLevel, int sourceLevelCount) {
 		long __functionAddress = getInstance().CopyTextureLevelsAPPLE;
-		nglCopyTextureLevelsAPPLE(destinationTexture, sourceTexture, sourceBaseLevel, sourceLevelCount, __functionAddress);
+		invokeIIIIV(__functionAddress, destinationTexture, sourceTexture, sourceBaseLevel, sourceLevelCount);
 	}
 
 }

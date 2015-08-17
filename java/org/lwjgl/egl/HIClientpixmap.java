@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -41,10 +42,6 @@ public final class HIClientpixmap {
 
 	// --- [ eglCreatePixmapSurfaceHI ] ---
 
-	/** JNI method for {@link #eglCreatePixmapSurfaceHI CreatePixmapSurfaceHI} */
-	@JavadocExclude
-	public static native long neglCreatePixmapSurfaceHI(long dpy, long config, long pixmap, long __functionAddress);
-
 	/** Unsafe version of {@link #eglCreatePixmapSurfaceHI CreatePixmapSurfaceHI} */
 	@JavadocExclude
 	public static long neglCreatePixmapSurfaceHI(long dpy, long config, long pixmap) {
@@ -53,7 +50,7 @@ public final class HIClientpixmap {
 			checkPointer(dpy);
 			checkPointer(config);
 		}
-		return neglCreatePixmapSurfaceHI(dpy, config, pixmap, __functionAddress);
+		return invokePPPP(__functionAddress, dpy, config, pixmap);
 	}
 
 	public static long eglCreatePixmapSurfaceHI(long dpy, long config, ByteBuffer pixmap) {

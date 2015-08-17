@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -106,15 +107,11 @@ public final class EXTDisjointTimerQuery {
 
 	// --- [ glGenQueriesEXT ] ---
 
-	/** JNI method for {@link #glGenQueriesEXT GenQueriesEXT} */
-	@JavadocExclude
-	public static native void nglGenQueriesEXT(int n, long ids, long __functionAddress);
-
 	/** Unsafe version of {@link #glGenQueriesEXT GenQueriesEXT} */
 	@JavadocExclude
 	public static void nglGenQueriesEXT(int n, long ids) {
 		long __functionAddress = getInstance().GenQueriesEXT;
-		nglGenQueriesEXT(n, ids, __functionAddress);
+		invokeIPV(__functionAddress, n, ids);
 	}
 
 	public static void glGenQueriesEXT(int n, ByteBuffer ids) {
@@ -138,15 +135,11 @@ public final class EXTDisjointTimerQuery {
 
 	// --- [ glDeleteQueriesEXT ] ---
 
-	/** JNI method for {@link #glDeleteQueriesEXT DeleteQueriesEXT} */
-	@JavadocExclude
-	public static native void nglDeleteQueriesEXT(int n, long ids, long __functionAddress);
-
 	/** Unsafe version of {@link #glDeleteQueriesEXT DeleteQueriesEXT} */
 	@JavadocExclude
 	public static void nglDeleteQueriesEXT(int n, long ids) {
 		long __functionAddress = getInstance().DeleteQueriesEXT;
-		nglDeleteQueriesEXT(n, ids, __functionAddress);
+		invokeIPV(__functionAddress, n, ids);
 	}
 
 	public static void glDeleteQueriesEXT(int n, ByteBuffer ids) {
@@ -169,59 +162,39 @@ public final class EXTDisjointTimerQuery {
 
 	// --- [ glIsQueryEXT ] ---
 
-	/** JNI method for {@link #glIsQueryEXT IsQueryEXT} */
-	@JavadocExclude
-	public static native boolean nglIsQueryEXT(int id, long __functionAddress);
-
 	public static boolean glIsQueryEXT(int id) {
 		long __functionAddress = getInstance().IsQueryEXT;
-		return nglIsQueryEXT(id, __functionAddress);
+		return invokeIZ(__functionAddress, id);
 	}
 
 	// --- [ glBeginQueryEXT ] ---
 
-	/** JNI method for {@link #glBeginQueryEXT BeginQueryEXT} */
-	@JavadocExclude
-	public static native void nglBeginQueryEXT(int target, int id, long __functionAddress);
-
 	public static void glBeginQueryEXT(int target, int id) {
 		long __functionAddress = getInstance().BeginQueryEXT;
-		nglBeginQueryEXT(target, id, __functionAddress);
+		invokeIIV(__functionAddress, target, id);
 	}
 
 	// --- [ glEndQueryEXT ] ---
 
-	/** JNI method for {@link #glEndQueryEXT EndQueryEXT} */
-	@JavadocExclude
-	public static native void nglEndQueryEXT(int target, long __functionAddress);
-
 	public static void glEndQueryEXT(int target) {
 		long __functionAddress = getInstance().EndQueryEXT;
-		nglEndQueryEXT(target, __functionAddress);
+		invokeIV(__functionAddress, target);
 	}
 
 	// --- [ glQueryCounterEXT ] ---
 
-	/** JNI method for {@link #glQueryCounterEXT QueryCounterEXT} */
-	@JavadocExclude
-	public static native void nglQueryCounterEXT(int id, int target, long __functionAddress);
-
 	public static void glQueryCounterEXT(int id, int target) {
 		long __functionAddress = getInstance().QueryCounterEXT;
-		nglQueryCounterEXT(id, target, __functionAddress);
+		invokeIIV(__functionAddress, id, target);
 	}
 
 	// --- [ glGetQueryivEXT ] ---
-
-	/** JNI method for {@link #glGetQueryivEXT GetQueryivEXT} */
-	@JavadocExclude
-	public static native void nglGetQueryivEXT(int target, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetQueryivEXT GetQueryivEXT} */
 	@JavadocExclude
 	public static void nglGetQueryivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryivEXT;
-		nglGetQueryivEXT(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetQueryivEXT(int target, int pname, ByteBuffer params) {
@@ -247,15 +220,11 @@ public final class EXTDisjointTimerQuery {
 
 	// --- [ glGetQueryObjectivEXT ] ---
 
-	/** JNI method for {@link #glGetQueryObjectivEXT GetQueryObjectivEXT} */
-	@JavadocExclude
-	public static native void nglGetQueryObjectivEXT(int id, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetQueryObjectivEXT GetQueryObjectivEXT} */
 	@JavadocExclude
 	public static void nglGetQueryObjectivEXT(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectivEXT;
-		nglGetQueryObjectivEXT(id, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, id, pname, params);
 	}
 
 	public static void glGetQueryObjectivEXT(int id, int pname, ByteBuffer params) {
@@ -281,15 +250,11 @@ public final class EXTDisjointTimerQuery {
 
 	// --- [ glGetQueryObjectuivEXT ] ---
 
-	/** JNI method for {@link #glGetQueryObjectuivEXT GetQueryObjectuivEXT} */
-	@JavadocExclude
-	public static native void nglGetQueryObjectuivEXT(int id, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetQueryObjectuivEXT GetQueryObjectuivEXT} */
 	@JavadocExclude
 	public static void nglGetQueryObjectuivEXT(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectuivEXT;
-		nglGetQueryObjectuivEXT(id, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, id, pname, params);
 	}
 
 	public static void glGetQueryObjectuivEXT(int id, int pname, ByteBuffer params) {
@@ -315,15 +280,11 @@ public final class EXTDisjointTimerQuery {
 
 	// --- [ glGetQueryObjecti64vEXT ] ---
 
-	/** JNI method for {@link #glGetQueryObjecti64vEXT GetQueryObjecti64vEXT} */
-	@JavadocExclude
-	public static native void nglGetQueryObjecti64vEXT(int id, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetQueryObjecti64vEXT GetQueryObjecti64vEXT} */
 	@JavadocExclude
 	public static void nglGetQueryObjecti64vEXT(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjecti64vEXT;
-		nglGetQueryObjecti64vEXT(id, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, id, pname, params);
 	}
 
 	public static void glGetQueryObjecti64vEXT(int id, int pname, ByteBuffer params) {
@@ -349,15 +310,11 @@ public final class EXTDisjointTimerQuery {
 
 	// --- [ glGetQueryObjectui64vEXT ] ---
 
-	/** JNI method for {@link #glGetQueryObjectui64vEXT GetQueryObjectui64vEXT} */
-	@JavadocExclude
-	public static native void nglGetQueryObjectui64vEXT(int id, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetQueryObjectui64vEXT GetQueryObjectui64vEXT} */
 	@JavadocExclude
 	public static void nglGetQueryObjectui64vEXT(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectui64vEXT;
-		nglGetQueryObjectui64vEXT(id, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, id, pname, params);
 	}
 
 	public static void glGetQueryObjectui64vEXT(int id, int pname, ByteBuffer params) {

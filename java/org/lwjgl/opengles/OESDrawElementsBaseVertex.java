@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -100,15 +101,11 @@ public final class OESDrawElementsBaseVertex {
 
 	// --- [ glDrawElementsBaseVertexOES ] ---
 
-	/** JNI method for {@link #glDrawElementsBaseVertexOES DrawElementsBaseVertexOES} */
-	@JavadocExclude
-	public static native void nglDrawElementsBaseVertexOES(int mode, int count, int type, long indices, int basevertex, long __functionAddress);
-
 	/** Unsafe version of {@link #glDrawElementsBaseVertexOES DrawElementsBaseVertexOES} */
 	@JavadocExclude
 	public static void nglDrawElementsBaseVertexOES(int mode, int count, int type, long indices, int basevertex) {
 		long __functionAddress = getInstance().DrawElementsBaseVertexOES;
-		nglDrawElementsBaseVertexOES(mode, count, type, indices, basevertex, __functionAddress);
+		invokeIIIPIV(__functionAddress, mode, count, type, indices, basevertex);
 	}
 
 	public static void glDrawElementsBaseVertexOES(int mode, int count, int type, ByteBuffer indices, int basevertex) {
@@ -144,17 +141,13 @@ public final class OESDrawElementsBaseVertex {
 
 	// --- [ glDrawRangeElementsBaseVertexOES ] ---
 
-	/** JNI method for {@link #glDrawRangeElementsBaseVertexOES DrawRangeElementsBaseVertexOES} */
-	@JavadocExclude
-	public static native void nglDrawRangeElementsBaseVertexOES(int mode, int start, int end, int count, int type, long indices, int basevertex, long __functionAddress);
-
 	/** Unsafe version of {@link #glDrawRangeElementsBaseVertexOES DrawRangeElementsBaseVertexOES} */
 	@JavadocExclude
 	public static void nglDrawRangeElementsBaseVertexOES(int mode, int start, int end, int count, int type, long indices, int basevertex) {
 		long __functionAddress = getInstance().DrawRangeElementsBaseVertexOES;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglDrawRangeElementsBaseVertexOES(mode, start, end, count, type, indices, basevertex, __functionAddress);
+		invokeIIIIIPIV(__functionAddress, mode, start, end, count, type, indices, basevertex);
 	}
 
 	public static void glDrawRangeElementsBaseVertexOES(int mode, int start, int end, int count, int type, ByteBuffer indices, int basevertex) {
@@ -190,17 +183,13 @@ public final class OESDrawElementsBaseVertex {
 
 	// --- [ glDrawElementsInstancedBaseVertexOES ] ---
 
-	/** JNI method for {@link #glDrawElementsInstancedBaseVertexOES DrawElementsInstancedBaseVertexOES} */
-	@JavadocExclude
-	public static native void nglDrawElementsInstancedBaseVertexOES(int mode, int count, int type, long indices, int instancecount, int basevertex, long __functionAddress);
-
 	/** Unsafe version of {@link #glDrawElementsInstancedBaseVertexOES DrawElementsInstancedBaseVertexOES} */
 	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseVertexOES(int mode, int count, int type, long indices, int instancecount, int basevertex) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseVertexOES;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglDrawElementsInstancedBaseVertexOES(mode, count, type, indices, instancecount, basevertex, __functionAddress);
+		invokeIIIPIIV(__functionAddress, mode, count, type, indices, instancecount, basevertex);
 	}
 
 	public static void glDrawElementsInstancedBaseVertexOES(int mode, int count, int type, ByteBuffer indices, int instancecount, int basevertex) {
@@ -236,17 +225,13 @@ public final class OESDrawElementsBaseVertex {
 
 	// --- [ glMultiDrawElementsBaseVertexOES ] ---
 
-	/** JNI method for {@link #glMultiDrawElementsBaseVertexOES MultiDrawElementsBaseVertexOES} */
-	@JavadocExclude
-	public static native void nglMultiDrawElementsBaseVertexOES(int mode, long count, int type, long indices, int primcount, long basevertex, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiDrawElementsBaseVertexOES MultiDrawElementsBaseVertexOES} */
 	@JavadocExclude
 	public static void nglMultiDrawElementsBaseVertexOES(int mode, long count, int type, long indices, int primcount, long basevertex) {
 		long __functionAddress = getInstance().MultiDrawElementsBaseVertexOES;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiDrawElementsBaseVertexOES(mode, count, type, indices, primcount, basevertex, __functionAddress);
+		invokeIPIPIPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
 	}
 
 	public static void glMultiDrawElementsBaseVertexOES(int mode, ByteBuffer count, int type, ByteBuffer indices, int primcount, ByteBuffer basevertex) {

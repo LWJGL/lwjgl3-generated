@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -117,136 +118,88 @@ public final class NVVertexBufferUnifiedMemory {
 
 	// --- [ glBufferAddressRangeNV ] ---
 
-	/** JNI method for {@link #glBufferAddressRangeNV BufferAddressRangeNV} */
-	@JavadocExclude
-	public static native void nglBufferAddressRangeNV(int pname, int index, long address, long length, long __functionAddress);
-
 	public static void glBufferAddressRangeNV(int pname, int index, long address, long length) {
 		long __functionAddress = getInstance().BufferAddressRangeNV;
-		nglBufferAddressRangeNV(pname, index, address, length, __functionAddress);
+		invokeIIJPV(__functionAddress, pname, index, address, length);
 	}
 
 	// --- [ glVertexFormatNV ] ---
 
-	/** JNI method for {@link #glVertexFormatNV VertexFormatNV} */
-	@JavadocExclude
-	public static native void nglVertexFormatNV(int size, int type, int stride, long __functionAddress);
-
 	public static void glVertexFormatNV(int size, int type, int stride) {
 		long __functionAddress = getInstance().VertexFormatNV;
-		nglVertexFormatNV(size, type, stride, __functionAddress);
+		invokeIIIV(__functionAddress, size, type, stride);
 	}
 
 	// --- [ glNormalFormatNV ] ---
 
-	/** JNI method for {@link #glNormalFormatNV NormalFormatNV} */
-	@JavadocExclude
-	public static native void nglNormalFormatNV(int type, int stride, long __functionAddress);
-
 	public static void glNormalFormatNV(int type, int stride) {
 		long __functionAddress = getInstance().NormalFormatNV;
-		nglNormalFormatNV(type, stride, __functionAddress);
+		invokeIIV(__functionAddress, type, stride);
 	}
 
 	// --- [ glColorFormatNV ] ---
 
-	/** JNI method for {@link #glColorFormatNV ColorFormatNV} */
-	@JavadocExclude
-	public static native void nglColorFormatNV(int size, int type, int stride, long __functionAddress);
-
 	public static void glColorFormatNV(int size, int type, int stride) {
 		long __functionAddress = getInstance().ColorFormatNV;
-		nglColorFormatNV(size, type, stride, __functionAddress);
+		invokeIIIV(__functionAddress, size, type, stride);
 	}
 
 	// --- [ glIndexFormatNV ] ---
 
-	/** JNI method for {@link #glIndexFormatNV IndexFormatNV} */
-	@JavadocExclude
-	public static native void nglIndexFormatNV(int type, int stride, long __functionAddress);
-
 	public static void glIndexFormatNV(int type, int stride) {
 		long __functionAddress = getInstance().IndexFormatNV;
-		nglIndexFormatNV(type, stride, __functionAddress);
+		invokeIIV(__functionAddress, type, stride);
 	}
 
 	// --- [ glTexCoordFormatNV ] ---
 
-	/** JNI method for {@link #glTexCoordFormatNV TexCoordFormatNV} */
-	@JavadocExclude
-	public static native void nglTexCoordFormatNV(int size, int type, int stride, long __functionAddress);
-
 	public static void glTexCoordFormatNV(int size, int type, int stride) {
 		long __functionAddress = getInstance().TexCoordFormatNV;
-		nglTexCoordFormatNV(size, type, stride, __functionAddress);
+		invokeIIIV(__functionAddress, size, type, stride);
 	}
 
 	// --- [ glEdgeFlagFormatNV ] ---
 
-	/** JNI method for {@link #glEdgeFlagFormatNV EdgeFlagFormatNV} */
-	@JavadocExclude
-	public static native void nglEdgeFlagFormatNV(int stride, long __functionAddress);
-
 	public static void glEdgeFlagFormatNV(int stride) {
 		long __functionAddress = getInstance().EdgeFlagFormatNV;
-		nglEdgeFlagFormatNV(stride, __functionAddress);
+		invokeIV(__functionAddress, stride);
 	}
 
 	// --- [ glSecondaryColorFormatNV ] ---
 
-	/** JNI method for {@link #glSecondaryColorFormatNV SecondaryColorFormatNV} */
-	@JavadocExclude
-	public static native void nglSecondaryColorFormatNV(int size, int type, int stride, long __functionAddress);
-
 	public static void glSecondaryColorFormatNV(int size, int type, int stride) {
 		long __functionAddress = getInstance().SecondaryColorFormatNV;
-		nglSecondaryColorFormatNV(size, type, stride, __functionAddress);
+		invokeIIIV(__functionAddress, size, type, stride);
 	}
 
 	// --- [ glFogCoordFormatNV ] ---
 
-	/** JNI method for {@link #glFogCoordFormatNV FogCoordFormatNV} */
-	@JavadocExclude
-	public static native void nglFogCoordFormatNV(int type, int stride, long __functionAddress);
-
 	public static void glFogCoordFormatNV(int type, int stride) {
 		long __functionAddress = getInstance().FogCoordFormatNV;
-		nglFogCoordFormatNV(type, stride, __functionAddress);
+		invokeIIV(__functionAddress, type, stride);
 	}
 
 	// --- [ glVertexAttribFormatNV ] ---
 
-	/** JNI method for {@link #glVertexAttribFormatNV VertexAttribFormatNV} */
-	@JavadocExclude
-	public static native void nglVertexAttribFormatNV(int index, int size, int type, boolean normalized, int stride, long __functionAddress);
-
 	public static void glVertexAttribFormatNV(int index, int size, int type, boolean normalized, int stride) {
 		long __functionAddress = getInstance().VertexAttribFormatNV;
-		nglVertexAttribFormatNV(index, size, type, normalized, stride, __functionAddress);
+		invokeIIIZIV(__functionAddress, index, size, type, normalized, stride);
 	}
 
 	// --- [ glVertexAttribIFormatNV ] ---
 
-	/** JNI method for {@link #glVertexAttribIFormatNV VertexAttribIFormatNV} */
-	@JavadocExclude
-	public static native void nglVertexAttribIFormatNV(int index, int size, int type, int stride, long __functionAddress);
-
 	public static void glVertexAttribIFormatNV(int index, int size, int type, int stride) {
 		long __functionAddress = getInstance().VertexAttribIFormatNV;
-		nglVertexAttribIFormatNV(index, size, type, stride, __functionAddress);
+		invokeIIIIV(__functionAddress, index, size, type, stride);
 	}
 
 	// --- [ glGetIntegerui64i_vNV ] ---
-
-	/** JNI method for {@link #glGetIntegerui64i_vNV GetIntegerui64i_vNV} */
-	@JavadocExclude
-	public static native void nglGetIntegerui64i_vNV(int value, int index, long result, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetIntegerui64i_vNV GetIntegerui64i_vNV} */
 	@JavadocExclude
 	public static void nglGetIntegerui64i_vNV(int value, int index, long result) {
 		long __functionAddress = getInstance().GetIntegerui64i_vNV;
-		nglGetIntegerui64i_vNV(value, index, result, __functionAddress);
+		invokeIIPV(__functionAddress, value, index, result);
 	}
 
 	public static void glGetIntegerui64i_vNV(int value, int index, ByteBuffer result) {

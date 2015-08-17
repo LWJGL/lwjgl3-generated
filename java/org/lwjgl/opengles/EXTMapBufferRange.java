@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -74,15 +75,11 @@ public final class EXTMapBufferRange {
 
 	// --- [ glMapBufferRangeEXT ] ---
 
-	/** JNI method for {@link #glMapBufferRangeEXT MapBufferRangeEXT} */
-	@JavadocExclude
-	public static native long nglMapBufferRangeEXT(int target, long offset, long length, int access, long __functionAddress);
-
 	/** Unsafe version of {@link #glMapBufferRangeEXT MapBufferRangeEXT} */
 	@JavadocExclude
 	public static long nglMapBufferRangeEXT(int target, long offset, long length, int access) {
 		long __functionAddress = getInstance().MapBufferRangeEXT;
-		return nglMapBufferRangeEXT(target, offset, length, access, __functionAddress);
+		return invokeIPPIP(__functionAddress, target, offset, length, access);
 	}
 
 	public static ByteBuffer glMapBufferRangeEXT(int target, long offset, long length, int access) {
@@ -98,13 +95,9 @@ public final class EXTMapBufferRange {
 
 	// --- [ glFlushMappedBufferRangeEXT ] ---
 
-	/** JNI method for {@link #glFlushMappedBufferRangeEXT FlushMappedBufferRangeEXT} */
-	@JavadocExclude
-	public static native void nglFlushMappedBufferRangeEXT(int target, long offset, long length, long __functionAddress);
-
 	public static void glFlushMappedBufferRangeEXT(int target, long offset, long length) {
 		long __functionAddress = getInstance().FlushMappedBufferRangeEXT;
-		nglFlushMappedBufferRangeEXT(target, offset, length, __functionAddress);
+		invokeIPPV(__functionAddress, target, offset, length);
 	}
 
 }

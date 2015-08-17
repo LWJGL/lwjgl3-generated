@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -55,10 +56,6 @@ public final class GLXSGIXSwapBarrier {
 
 	// --- [ glXBindSwapBarrierSGIX ] ---
 
-	/** JNI method for {@link #glXBindSwapBarrierSGIX BindSwapBarrierSGIX} */
-	@JavadocExclude
-	public static native void nglXBindSwapBarrierSGIX(long display, long drawable, int barrier, long __functionAddress);
-
 	/**
 	 * Binds the swap group that contains {@code drawable} to {@code barrier}. Subsequent buffer swaps for that group will be subject to this binding, until
 	 * the group is unbound from {@code barrier}. If {@code barrier} is zero, the group is unbound from its current barrier, if any.
@@ -73,14 +70,10 @@ public final class GLXSGIXSwapBarrier {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		nglXBindSwapBarrierSGIX(display, drawable, barrier, __functionAddress);
+		invokePPIV(__functionAddress, display, drawable, barrier);
 	}
 
 	// --- [ glXQueryMaxSwapBarriersSGIX ] ---
-
-	/** JNI method for {@link #glXQueryMaxSwapBarriersSGIX QueryMaxSwapBarriersSGIX} */
-	@JavadocExclude
-	public static native int nglXQueryMaxSwapBarriersSGIX(long display, int screen, long max, long __functionAddress);
 
 	/** Unsafe version of {@link #glXQueryMaxSwapBarriersSGIX QueryMaxSwapBarriersSGIX} */
 	@JavadocExclude
@@ -88,7 +81,7 @@ public final class GLXSGIXSwapBarrier {
 		long __functionAddress = getInstance().QueryMaxSwapBarriersSGIX;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return nglXQueryMaxSwapBarriersSGIX(display, screen, max, __functionAddress);
+		return invokePIPI(__functionAddress, display, screen, max);
 	}
 
 	/**

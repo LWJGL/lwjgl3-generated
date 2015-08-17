@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 import org.lwjgl.system.linux.*;
@@ -90,22 +91,14 @@ public final class GLXAMDGPUAssociation {
 
 	// --- [ glXBlitContextFramebufferAMD ] ---
 
-	/** JNI method for {@link #glXBlitContextFramebufferAMD BlitContextFramebufferAMD} */
-	@JavadocExclude
-	public static native void nglXBlitContextFramebufferAMD(long dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter, long __functionAddress);
-
 	public static void glXBlitContextFramebufferAMD(long dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
 		long __functionAddress = getInstance().BlitContextFramebufferAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dstCtx);
-		nglXBlitContextFramebufferAMD(dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter, __functionAddress);
+		invokePIIIIIIIIIIV(__functionAddress, dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 
 	// --- [ glXCreateAssociatedContextAMD ] ---
-
-	/** JNI method for {@link #glXCreateAssociatedContextAMD CreateAssociatedContextAMD} */
-	@JavadocExclude
-	public static native long nglXCreateAssociatedContextAMD(int id, long share_list, long __functionAddress);
 
 	/**
 	 * Creates an associated context.
@@ -117,14 +110,10 @@ public final class GLXAMDGPUAssociation {
 		long __functionAddress = getInstance().CreateAssociatedContextAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(share_list);
-		return nglXCreateAssociatedContextAMD(id, share_list, __functionAddress);
+		return invokeIPP(__functionAddress, id, share_list);
 	}
 
 	// --- [ glXCreateAssociatedContextAttribsAMD ] ---
-
-	/** JNI method for {@link #glXCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */
-	@JavadocExclude
-	public static native long nglXCreateAssociatedContextAttribsAMD(int id, long share_context, long attribList, long __functionAddress);
 
 	/** Unsafe version of {@link #glXCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */
 	@JavadocExclude
@@ -132,7 +121,7 @@ public final class GLXAMDGPUAssociation {
 		long __functionAddress = getInstance().CreateAssociatedContextAttribsAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(share_context);
-		return nglXCreateAssociatedContextAttribsAMD(id, share_context, attribList, __functionAddress);
+		return invokeIPPP(__functionAddress, id, share_context, attribList);
 	}
 
 	/**
@@ -153,10 +142,6 @@ public final class GLXAMDGPUAssociation {
 
 	// --- [ glXDeleteAssociatedContextAMD ] ---
 
-	/** JNI method for {@link #glXDeleteAssociatedContextAMD DeleteAssociatedContextAMD} */
-	@JavadocExclude
-	public static native int nglXDeleteAssociatedContextAMD(long ctx, long __functionAddress);
-
 	/**
 	 * Deletes an associated context.
 	 *
@@ -166,14 +151,10 @@ public final class GLXAMDGPUAssociation {
 		long __functionAddress = getInstance().DeleteAssociatedContextAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		return nglXDeleteAssociatedContextAMD(ctx, __functionAddress);
+		return invokePI(__functionAddress, ctx);
 	}
 
 	// --- [ glXGetContextGPUIDAMD ] ---
-
-	/** JNI method for {@link #glXGetContextGPUIDAMD GetContextGPUIDAMD} */
-	@JavadocExclude
-	public static native int nglXGetContextGPUIDAMD(long ctx, long __functionAddress);
 
 	/**
 	 * Determines which GPU a context is attached to.
@@ -184,26 +165,18 @@ public final class GLXAMDGPUAssociation {
 		long __functionAddress = getInstance().GetContextGPUIDAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		return nglXGetContextGPUIDAMD(ctx, __functionAddress);
+		return invokePI(__functionAddress, ctx);
 	}
 
 	// --- [ glXGetCurrentAssociatedContextAMD ] ---
 
-	/** JNI method for {@link #glXGetCurrentAssociatedContextAMD GetCurrentAssociatedContextAMD} */
-	@JavadocExclude
-	public static native long nglXGetCurrentAssociatedContextAMD(long __functionAddress);
-
 	/** Queries the crrent associated context. */
 	public static long glXGetCurrentAssociatedContextAMD() {
 		long __functionAddress = getInstance().GetCurrentAssociatedContextAMD;
-		return nglXGetCurrentAssociatedContextAMD(__functionAddress);
+		return invokeP(__functionAddress);
 	}
 
 	// --- [ glXGetGPUIDsAMD ] ---
-
-	/** JNI method for {@link #glXGetGPUIDsAMD GetGPUIDsAMD} */
-	@JavadocExclude
-	public static native int nglXGetGPUIDsAMD(int maxCount, int ids, long __functionAddress);
 
 	/**
 	 * Queries the IDs for available GPUs.
@@ -213,20 +186,16 @@ public final class GLXAMDGPUAssociation {
 	 */
 	public static int glXGetGPUIDsAMD(int maxCount, int ids) {
 		long __functionAddress = getInstance().GetGPUIDsAMD;
-		return nglXGetGPUIDsAMD(maxCount, ids, __functionAddress);
+		return invokeIII(__functionAddress, maxCount, ids);
 	}
 
 	// --- [ glXGetGPUInfoAMD ] ---
-
-	/** JNI method for {@link #glXGetGPUInfoAMD GetGPUInfoAMD} */
-	@JavadocExclude
-	public static native int nglXGetGPUInfoAMD(int id, int property, int dataType, int size, long data, long __functionAddress);
 
 	/** Unsafe version of {@link #glXGetGPUInfoAMD GetGPUInfoAMD} */
 	@JavadocExclude
 	public static int nglXGetGPUInfoAMD(int id, int property, int dataType, int size, long data) {
 		long __functionAddress = getInstance().GetGPUInfoAMD;
-		return nglXGetGPUInfoAMD(id, property, dataType, size, data, __functionAddress);
+		return invokeIIIIPI(__functionAddress, id, property, dataType, size, data);
 	}
 
 	/**
@@ -244,10 +213,6 @@ public final class GLXAMDGPUAssociation {
 
 	// --- [ glXMakeAssociatedContextCurrentAMD ] ---
 
-	/** JNI method for {@link #glXMakeAssociatedContextCurrentAMD MakeAssociatedContextCurrentAMD} */
-	@JavadocExclude
-	public static native int nglXMakeAssociatedContextCurrentAMD(long ctx, long __functionAddress);
-
 	/**
 	 * Makes an associated context current in the current thread.
 	 *
@@ -257,7 +222,7 @@ public final class GLXAMDGPUAssociation {
 		long __functionAddress = getInstance().MakeAssociatedContextCurrentAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		return nglXMakeAssociatedContextCurrentAMD(ctx, __functionAddress);
+		return invokePI(__functionAddress, ctx);
 	}
 
 }

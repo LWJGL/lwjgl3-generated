@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -53,15 +54,11 @@ public final class GLXSGIVideoSync {
 
 	// --- [ glXGetVideoSyncSGI ] ---
 
-	/** JNI method for {@link #glXGetVideoSyncSGI GetVideoSyncSGI} */
-	@JavadocExclude
-	public static native int nglXGetVideoSyncSGI(long count, long __functionAddress);
-
 	/** Unsafe version of {@link #glXGetVideoSyncSGI GetVideoSyncSGI} */
 	@JavadocExclude
 	public static int nglXGetVideoSyncSGI(long count) {
 		long __functionAddress = getInstance().GetVideoSyncSGI;
-		return nglXGetVideoSyncSGI(count, __functionAddress);
+		return invokePI(__functionAddress, count);
 	}
 
 	/**
@@ -84,15 +81,11 @@ public final class GLXSGIVideoSync {
 
 	// --- [ glXWaitVideoSyncSGI ] ---
 
-	/** JNI method for {@link #glXWaitVideoSyncSGI WaitVideoSyncSGI} */
-	@JavadocExclude
-	public static native int nglXWaitVideoSyncSGI(int divisor, int remainder, long count, long __functionAddress);
-
 	/** Unsafe version of {@link #glXWaitVideoSyncSGI WaitVideoSyncSGI} */
 	@JavadocExclude
 	public static int nglXWaitVideoSyncSGI(int divisor, int remainder, long count) {
 		long __functionAddress = getInstance().WaitVideoSyncSGI;
-		return nglXWaitVideoSyncSGI(divisor, remainder, count, __functionAddress);
+		return invokeIIPI(__functionAddress, divisor, remainder, count);
 	}
 
 	/**

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
@@ -1445,10 +1446,6 @@ public final class GL11 {
 
 	// --- [ glEnable ] ---
 
-	/** JNI method for {@link #glEnable Enable} */
-	@JavadocExclude
-	public static native void nglEnable(int target, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glEnable.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -1458,14 +1455,10 @@ public final class GL11 {
 	 */
 	public static void glEnable(int target) {
 		long __functionAddress = getInstance().Enable;
-		nglEnable(target, __functionAddress);
+		invokeIV(__functionAddress, target);
 	}
 
 	// --- [ glDisable ] ---
-
-	/** JNI method for {@link #glDisable Disable} */
-	@JavadocExclude
-	public static native void nglDisable(int target, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glEnable.xhtml">OpenGL SDK Reference</a></p>
@@ -1476,14 +1469,10 @@ public final class GL11 {
 	 */
 	public static void glDisable(int target) {
 		long __functionAddress = getInstance().Disable;
-		nglDisable(target, __functionAddress);
+		invokeIV(__functionAddress, target);
 	}
 
 	// --- [ glAccum ] ---
-
-	/** JNI method for {@link #glAccum Accum} */
-	@JavadocExclude
-	public static native void nglAccum(int op, float value, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glAccum.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1498,14 +1487,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().Accum;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglAccum(op, value, __functionAddress);
+		invokeIFV(__functionAddress, op, value);
 	}
 
 	// --- [ glAlphaFunc ] ---
-
-	/** JNI method for {@link #glAlphaFunc AlphaFunc} */
-	@JavadocExclude
-	public static native void nglAlphaFunc(int func, float ref, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glAlphaFunc.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1521,14 +1506,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().AlphaFunc;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglAlphaFunc(func, ref, __functionAddress);
+		invokeIFV(__functionAddress, func, ref);
 	}
 
 	// --- [ glAreTexturesResident ] ---
-
-	/** JNI method for {@link #glAreTexturesResident AreTexturesResident} */
-	@JavadocExclude
-	public static native boolean nglAreTexturesResident(int n, long textures, long residences, long __functionAddress);
 
 	/** Unsafe version of {@link #glAreTexturesResident AreTexturesResident} */
 	@JavadocExclude
@@ -1536,7 +1517,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().AreTexturesResident;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return nglAreTexturesResident(n, textures, residences, __functionAddress);
+		return invokeIPPZ(__functionAddress, n, textures, residences);
 	}
 
 	/**
@@ -1576,10 +1557,6 @@ public final class GL11 {
 
 	// --- [ glArrayElement ] ---
 
-	/** JNI method for {@link #glArrayElement ArrayElement} */
-	@JavadocExclude
-	public static native void nglArrayElement(int i, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glArrayElement.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -1589,14 +1566,10 @@ public final class GL11 {
 	 */
 	public static void glArrayElement(int i) {
 		long __functionAddress = getInstance().ArrayElement;
-		nglArrayElement(i, __functionAddress);
+		invokeIV(__functionAddress, i);
 	}
 
 	// --- [ glBegin ] ---
-
-	/** JNI method for {@link #glBegin Begin} */
-	@JavadocExclude
-	public static native void nglBegin(int mode, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glBegin.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1609,14 +1582,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().Begin;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglBegin(mode, __functionAddress);
+		invokeIV(__functionAddress, mode);
 	}
 
 	// --- [ glBindTexture ] ---
-
-	/** JNI method for {@link #glBindTexture BindTexture} */
-	@JavadocExclude
-	public static native void nglBindTexture(int target, int texture, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindTexture.xhtml">OpenGL SDK Reference</a></p>
@@ -1632,14 +1601,10 @@ public final class GL11 {
 	 */
 	public static void glBindTexture(int target, int texture) {
 		long __functionAddress = getInstance().BindTexture;
-		nglBindTexture(target, texture, __functionAddress);
+		invokeIIV(__functionAddress, target, texture);
 	}
 
 	// --- [ glBitmap ] ---
-
-	/** JNI method for {@link #glBitmap Bitmap} */
-	@JavadocExclude
-	public static native void nglBitmap(int w, int h, float xOrig, float yOrig, float xInc, float yInc, long data, long __functionAddress);
 
 	/** Unsafe version of {@link #glBitmap Bitmap} */
 	@JavadocExclude
@@ -1647,7 +1612,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Bitmap;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglBitmap(w, h, xOrig, yOrig, xInc, yInc, data, __functionAddress);
+		invokeIIFFFFPV(__functionAddress, w, h, xOrig, yOrig, xInc, yInc, data);
 	}
 
 	/**
@@ -1679,10 +1644,6 @@ public final class GL11 {
 
 	// --- [ glBlendFunc ] ---
 
-	/** JNI method for {@link #glBlendFunc BlendFunc} */
-	@JavadocExclude
-	public static native void nglBlendFunc(int sfactor, int dfactor, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendFunc.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -1693,14 +1654,10 @@ public final class GL11 {
 	 */
 	public static void glBlendFunc(int sfactor, int dfactor) {
 		long __functionAddress = getInstance().BlendFunc;
-		nglBlendFunc(sfactor, dfactor, __functionAddress);
+		invokeIIV(__functionAddress, sfactor, dfactor);
 	}
 
 	// --- [ glCallList ] ---
-
-	/** JNI method for {@link #glCallList CallList} */
-	@JavadocExclude
-	public static native void nglCallList(int list, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glCallList.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1713,14 +1670,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().CallList;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglCallList(list, __functionAddress);
+		invokeIV(__functionAddress, list);
 	}
 
 	// --- [ glCallLists ] ---
-
-	/** JNI method for {@link #glCallLists CallLists} */
-	@JavadocExclude
-	public static native void nglCallLists(int n, int type, long lists, long __functionAddress);
 
 	/** Unsafe version of {@link #glCallLists CallLists} */
 	@JavadocExclude
@@ -1728,7 +1681,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().CallLists;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglCallLists(n, type, lists, __functionAddress);
+		invokeIIPV(__functionAddress, n, type, lists);
 	}
 
 	/**
@@ -1768,10 +1721,6 @@ public final class GL11 {
 
 	// --- [ glClear ] ---
 
-	/** JNI method for {@link #glClear Clear} */
-	@JavadocExclude
-	public static native void nglClear(int mask, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClear.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -1782,14 +1731,10 @@ public final class GL11 {
 	 */
 	public static void glClear(int mask) {
 		long __functionAddress = getInstance().Clear;
-		nglClear(mask, __functionAddress);
+		invokeIV(__functionAddress, mask);
 	}
 
 	// --- [ glClearAccum ] ---
-
-	/** JNI method for {@link #glClearAccum ClearAccum} */
-	@JavadocExclude
-	public static native void nglClearAccum(float red, float green, float blue, float alpha, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glClearAccum.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1805,14 +1750,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().ClearAccum;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglClearAccum(red, green, blue, alpha, __functionAddress);
+		invokeFFFFV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glClearColor ] ---
-
-	/** JNI method for {@link #glClearColor ClearColor} */
-	@JavadocExclude
-	public static native void nglClearColor(float red, float green, float blue, float alpha, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearColor.xhtml">OpenGL SDK Reference</a></p>
@@ -1826,14 +1767,10 @@ public final class GL11 {
 	 */
 	public static void glClearColor(float red, float green, float blue, float alpha) {
 		long __functionAddress = getInstance().ClearColor;
-		nglClearColor(red, green, blue, alpha, __functionAddress);
+		invokeFFFFV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glClearDepth ] ---
-
-	/** JNI method for {@link #glClearDepth ClearDepth} */
-	@JavadocExclude
-	public static native void nglClearDepth(double depth, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearDepth.xhtml">OpenGL SDK Reference</a></p>
@@ -1845,14 +1782,10 @@ public final class GL11 {
 	 */
 	public static void glClearDepth(double depth) {
 		long __functionAddress = getInstance().ClearDepth;
-		nglClearDepth(depth, __functionAddress);
+		invokeDV(__functionAddress, depth);
 	}
 
 	// --- [ glClearIndex ] ---
-
-	/** JNI method for {@link #glClearIndex ClearIndex} */
-	@JavadocExclude
-	public static native void nglClearIndex(float index, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glClearIndex.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1867,14 +1800,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().ClearIndex;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglClearIndex(index, __functionAddress);
+		invokeFV(__functionAddress, index);
 	}
 
 	// --- [ glClearStencil ] ---
-
-	/** JNI method for {@link #glClearStencil ClearStencil} */
-	@JavadocExclude
-	public static native void nglClearStencil(int s, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearStencil.xhtml">OpenGL SDK Reference</a></p>
@@ -1885,20 +1814,16 @@ public final class GL11 {
 	 */
 	public static void glClearStencil(int s) {
 		long __functionAddress = getInstance().ClearStencil;
-		nglClearStencil(s, __functionAddress);
+		invokeIV(__functionAddress, s);
 	}
 
 	// --- [ glClipPlane ] ---
-
-	/** JNI method for {@link #glClipPlane ClipPlane} */
-	@JavadocExclude
-	public static native void nglClipPlane(int plane, long equation, long __functionAddress);
 
 	/** Unsafe version of {@link #glClipPlane ClipPlane} */
 	@JavadocExclude
 	public static void nglClipPlane(int plane, long equation) {
 		long __functionAddress = getInstance().ClipPlane;
-		nglClipPlane(plane, equation, __functionAddress);
+		invokeIPV(__functionAddress, plane, equation);
 	}
 
 	/**
@@ -1924,10 +1849,6 @@ public final class GL11 {
 
 	// --- [ glColor3b ] ---
 
-	/** JNI method for {@link #glColor3b Color3b} */
-	@JavadocExclude
-	public static native void nglColor3b(byte red, byte green, byte blue, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -1941,14 +1862,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3b;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor3b(red, green, blue, __functionAddress);
+		invokeBBBV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3s ] ---
-
-	/** JNI method for {@link #glColor3s Color3s} */
-	@JavadocExclude
-	public static native void nglColor3s(short red, short green, short blue, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1963,14 +1880,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor3s(red, green, blue, __functionAddress);
+		invokeSSSV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3i ] ---
-
-	/** JNI method for {@link #glColor3i Color3i} */
-	@JavadocExclude
-	public static native void nglColor3i(int red, int green, int blue, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1985,14 +1898,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor3i(red, green, blue, __functionAddress);
+		invokeIIIV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3f ] ---
-
-	/** JNI method for {@link #glColor3f Color3f} */
-	@JavadocExclude
-	public static native void nglColor3f(float red, float green, float blue, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -2007,14 +1916,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor3f(red, green, blue, __functionAddress);
+		invokeFFFV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3d ] ---
-
-	/** JNI method for {@link #glColor3d Color3d} */
-	@JavadocExclude
-	public static native void nglColor3d(double red, double green, double blue, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -2029,14 +1934,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor3d(red, green, blue, __functionAddress);
+		invokeDDDV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3ub ] ---
-
-	/** JNI method for {@link #glColor3ub Color3ub} */
-	@JavadocExclude
-	public static native void nglColor3ub(byte red, byte green, byte blue, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3ub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -2051,14 +1952,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3ub;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor3ub(red, green, blue, __functionAddress);
+		invokeBBBV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3us ] ---
-
-	/** JNI method for {@link #glColor3us Color3us} */
-	@JavadocExclude
-	public static native void nglColor3us(short red, short green, short blue, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3us.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -2073,14 +1970,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3us;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor3us(red, green, blue, __functionAddress);
+		invokeSSSV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3ui ] ---
-
-	/** JNI method for {@link #glColor3ui Color3ui} */
-	@JavadocExclude
-	public static native void nglColor3ui(int red, int green, int blue, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -2095,14 +1988,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor3ui(red, green, blue, __functionAddress);
+		invokeIIIV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3bv ] ---
-
-	/** JNI method for {@link #glColor3bv Color3bv} */
-	@JavadocExclude
-	public static native void nglColor3bv(long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glColor3bv Color3bv} */
 	@JavadocExclude
@@ -2110,7 +1999,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3bv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor3bv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -2128,17 +2017,13 @@ public final class GL11 {
 
 	// --- [ glColor3sv ] ---
 
-	/** JNI method for {@link #glColor3sv Color3sv} */
-	@JavadocExclude
-	public static native void nglColor3sv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glColor3sv Color3sv} */
 	@JavadocExclude
 	public static void nglColor3sv(long v) {
 		long __functionAddress = getInstance().Color3sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor3sv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -2163,17 +2048,13 @@ public final class GL11 {
 
 	// --- [ glColor3iv ] ---
 
-	/** JNI method for {@link #glColor3iv Color3iv} */
-	@JavadocExclude
-	public static native void nglColor3iv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glColor3iv Color3iv} */
 	@JavadocExclude
 	public static void nglColor3iv(long v) {
 		long __functionAddress = getInstance().Color3iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor3iv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -2198,17 +2079,13 @@ public final class GL11 {
 
 	// --- [ glColor3fv ] ---
 
-	/** JNI method for {@link #glColor3fv Color3fv} */
-	@JavadocExclude
-	public static native void nglColor3fv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glColor3fv Color3fv} */
 	@JavadocExclude
 	public static void nglColor3fv(long v) {
 		long __functionAddress = getInstance().Color3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor3fv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -2233,17 +2110,13 @@ public final class GL11 {
 
 	// --- [ glColor3dv ] ---
 
-	/** JNI method for {@link #glColor3dv Color3dv} */
-	@JavadocExclude
-	public static native void nglColor3dv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glColor3dv Color3dv} */
 	@JavadocExclude
 	public static void nglColor3dv(long v) {
 		long __functionAddress = getInstance().Color3dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor3dv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -2268,17 +2141,13 @@ public final class GL11 {
 
 	// --- [ glColor3ubv ] ---
 
-	/** JNI method for {@link #glColor3ubv Color3ubv} */
-	@JavadocExclude
-	public static native void nglColor3ubv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glColor3ubv Color3ubv} */
 	@JavadocExclude
 	public static void nglColor3ubv(long v) {
 		long __functionAddress = getInstance().Color3ubv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor3ubv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -2296,17 +2165,13 @@ public final class GL11 {
 
 	// --- [ glColor3usv ] ---
 
-	/** JNI method for {@link #glColor3usv Color3usv} */
-	@JavadocExclude
-	public static native void nglColor3usv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glColor3usv Color3usv} */
 	@JavadocExclude
 	public static void nglColor3usv(long v) {
 		long __functionAddress = getInstance().Color3usv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor3usv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -2331,17 +2196,13 @@ public final class GL11 {
 
 	// --- [ glColor3uiv ] ---
 
-	/** JNI method for {@link #glColor3uiv Color3uiv} */
-	@JavadocExclude
-	public static native void nglColor3uiv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glColor3uiv Color3uiv} */
 	@JavadocExclude
 	public static void nglColor3uiv(long v) {
 		long __functionAddress = getInstance().Color3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor3uiv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -2366,10 +2227,6 @@ public final class GL11 {
 
 	// --- [ glColor4b ] ---
 
-	/** JNI method for {@link #glColor4b Color4b} */
-	@JavadocExclude
-	public static native void nglColor4b(byte red, byte green, byte blue, byte alpha, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -2384,14 +2241,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4b;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor4b(red, green, blue, alpha, __functionAddress);
+		invokeBBBBV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4s ] ---
-
-	/** JNI method for {@link #glColor4s Color4s} */
-	@JavadocExclude
-	public static native void nglColor4s(short red, short green, short blue, short alpha, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -2407,14 +2260,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor4s(red, green, blue, alpha, __functionAddress);
+		invokeSSSSV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4i ] ---
-
-	/** JNI method for {@link #glColor4i Color4i} */
-	@JavadocExclude
-	public static native void nglColor4i(int red, int green, int blue, int alpha, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -2430,14 +2279,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor4i(red, green, blue, alpha, __functionAddress);
+		invokeIIIIV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4f ] ---
-
-	/** JNI method for {@link #glColor4f Color4f} */
-	@JavadocExclude
-	public static native void nglColor4f(float red, float green, float blue, float alpha, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -2453,14 +2298,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor4f(red, green, blue, alpha, __functionAddress);
+		invokeFFFFV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4d ] ---
-
-	/** JNI method for {@link #glColor4d Color4d} */
-	@JavadocExclude
-	public static native void nglColor4d(double red, double green, double blue, double alpha, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -2476,14 +2317,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor4d(red, green, blue, alpha, __functionAddress);
+		invokeDDDDV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4ub ] ---
-
-	/** JNI method for {@link #glColor4ub Color4ub} */
-	@JavadocExclude
-	public static native void nglColor4ub(byte red, byte green, byte blue, byte alpha, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4ub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -2499,14 +2336,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4ub;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor4ub(red, green, blue, alpha, __functionAddress);
+		invokeBBBBV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4us ] ---
-
-	/** JNI method for {@link #glColor4us Color4us} */
-	@JavadocExclude
-	public static native void nglColor4us(short red, short green, short blue, short alpha, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4us.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -2522,14 +2355,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4us;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor4us(red, green, blue, alpha, __functionAddress);
+		invokeSSSSV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4ui ] ---
-
-	/** JNI method for {@link #glColor4ui Color4ui} */
-	@JavadocExclude
-	public static native void nglColor4ui(int red, int green, int blue, int alpha, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -2545,14 +2374,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor4ui(red, green, blue, alpha, __functionAddress);
+		invokeIIIIV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4bv ] ---
-
-	/** JNI method for {@link #glColor4bv Color4bv} */
-	@JavadocExclude
-	public static native void nglColor4bv(long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glColor4bv Color4bv} */
 	@JavadocExclude
@@ -2560,7 +2385,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4bv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor4bv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -2578,17 +2403,13 @@ public final class GL11 {
 
 	// --- [ glColor4sv ] ---
 
-	/** JNI method for {@link #glColor4sv Color4sv} */
-	@JavadocExclude
-	public static native void nglColor4sv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glColor4sv Color4sv} */
 	@JavadocExclude
 	public static void nglColor4sv(long v) {
 		long __functionAddress = getInstance().Color4sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor4sv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -2613,17 +2434,13 @@ public final class GL11 {
 
 	// --- [ glColor4iv ] ---
 
-	/** JNI method for {@link #glColor4iv Color4iv} */
-	@JavadocExclude
-	public static native void nglColor4iv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glColor4iv Color4iv} */
 	@JavadocExclude
 	public static void nglColor4iv(long v) {
 		long __functionAddress = getInstance().Color4iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor4iv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -2648,17 +2465,13 @@ public final class GL11 {
 
 	// --- [ glColor4fv ] ---
 
-	/** JNI method for {@link #glColor4fv Color4fv} */
-	@JavadocExclude
-	public static native void nglColor4fv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glColor4fv Color4fv} */
 	@JavadocExclude
 	public static void nglColor4fv(long v) {
 		long __functionAddress = getInstance().Color4fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor4fv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -2683,17 +2496,13 @@ public final class GL11 {
 
 	// --- [ glColor4dv ] ---
 
-	/** JNI method for {@link #glColor4dv Color4dv} */
-	@JavadocExclude
-	public static native void nglColor4dv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glColor4dv Color4dv} */
 	@JavadocExclude
 	public static void nglColor4dv(long v) {
 		long __functionAddress = getInstance().Color4dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor4dv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -2718,17 +2527,13 @@ public final class GL11 {
 
 	// --- [ glColor4ubv ] ---
 
-	/** JNI method for {@link #glColor4ubv Color4ubv} */
-	@JavadocExclude
-	public static native void nglColor4ubv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glColor4ubv Color4ubv} */
 	@JavadocExclude
 	public static void nglColor4ubv(long v) {
 		long __functionAddress = getInstance().Color4ubv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor4ubv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -2746,17 +2551,13 @@ public final class GL11 {
 
 	// --- [ glColor4usv ] ---
 
-	/** JNI method for {@link #glColor4usv Color4usv} */
-	@JavadocExclude
-	public static native void nglColor4usv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glColor4usv Color4usv} */
 	@JavadocExclude
 	public static void nglColor4usv(long v) {
 		long __functionAddress = getInstance().Color4usv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor4usv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -2781,17 +2582,13 @@ public final class GL11 {
 
 	// --- [ glColor4uiv ] ---
 
-	/** JNI method for {@link #glColor4uiv Color4uiv} */
-	@JavadocExclude
-	public static native void nglColor4uiv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glColor4uiv Color4uiv} */
 	@JavadocExclude
 	public static void nglColor4uiv(long v) {
 		long __functionAddress = getInstance().Color4uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColor4uiv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -2816,10 +2613,6 @@ public final class GL11 {
 
 	// --- [ glColorMask ] ---
 
-	/** JNI method for {@link #glColorMask ColorMask} */
-	@JavadocExclude
-	public static native void nglColorMask(boolean red, boolean green, boolean blue, boolean alpha, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glColorMask.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -2832,14 +2625,10 @@ public final class GL11 {
 	 */
 	public static void glColorMask(boolean red, boolean green, boolean blue, boolean alpha) {
 		long __functionAddress = getInstance().ColorMask;
-		nglColorMask(red, green, blue, alpha, __functionAddress);
+		invokeZZZZV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColorMaterial ] ---
-
-	/** JNI method for {@link #glColorMaterial ColorMaterial} */
-	@JavadocExclude
-	public static native void nglColorMaterial(int face, int mode, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColorMaterial.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -2855,14 +2644,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().ColorMaterial;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColorMaterial(face, mode, __functionAddress);
+		invokeIIV(__functionAddress, face, mode);
 	}
 
 	// --- [ glColorPointer ] ---
-
-	/** JNI method for {@link #glColorPointer ColorPointer} */
-	@JavadocExclude
-	public static native void nglColorPointer(int size, int type, int stride, long pointer, long __functionAddress);
 
 	/** Unsafe version of {@link #glColorPointer ColorPointer} */
 	@JavadocExclude
@@ -2870,7 +2655,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().ColorPointer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColorPointer(size, type, stride, pointer, __functionAddress);
+		invokeIIIPV(__functionAddress, size, type, stride, pointer);
 	}
 
 	/**
@@ -2919,10 +2704,6 @@ public final class GL11 {
 
 	// --- [ glCopyPixels ] ---
 
-	/** JNI method for {@link #glCopyPixels CopyPixels} */
-	@JavadocExclude
-	public static native void nglCopyPixels(int x, int y, int width, int height, int type, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyPixels.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -2936,14 +2717,10 @@ public final class GL11 {
 	 */
 	public static void glCopyPixels(int x, int y, int width, int height, int type) {
 		long __functionAddress = getInstance().CopyPixels;
-		nglCopyPixels(x, y, width, height, type, __functionAddress);
+		invokeIIIIIV(__functionAddress, x, y, width, height, type);
 	}
 
 	// --- [ glCullFace ] ---
-
-	/** JNI method for {@link #glCullFace CullFace} */
-	@JavadocExclude
-	public static native void nglCullFace(int mode, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCullFace.xhtml">OpenGL SDK Reference</a></p>
@@ -2956,14 +2733,10 @@ public final class GL11 {
 	 */
 	public static void glCullFace(int mode) {
 		long __functionAddress = getInstance().CullFace;
-		nglCullFace(mode, __functionAddress);
+		invokeIV(__functionAddress, mode);
 	}
 
 	// --- [ glDeleteLists ] ---
-
-	/** JNI method for {@link #glDeleteLists DeleteLists} */
-	@JavadocExclude
-	public static native void nglDeleteLists(int list, int range, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glDeleteLists.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -2978,14 +2751,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().DeleteLists;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglDeleteLists(list, range, __functionAddress);
+		invokeIIV(__functionAddress, list, range);
 	}
 
 	// --- [ glDepthFunc ] ---
-
-	/** JNI method for {@link #glDepthFunc DepthFunc} */
-	@JavadocExclude
-	public static native void nglDepthFunc(int func, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDepthFunc.xhtml">OpenGL SDK Reference</a></p>
@@ -2996,14 +2765,10 @@ public final class GL11 {
 	 */
 	public static void glDepthFunc(int func) {
 		long __functionAddress = getInstance().DepthFunc;
-		nglDepthFunc(func, __functionAddress);
+		invokeIV(__functionAddress, func);
 	}
 
 	// --- [ glDepthMask ] ---
-
-	/** JNI method for {@link #glDepthMask DepthMask} */
-	@JavadocExclude
-	public static native void nglDepthMask(boolean flag, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDepthMask.xhtml">OpenGL SDK Reference</a></p>
@@ -3014,14 +2779,10 @@ public final class GL11 {
 	 */
 	public static void glDepthMask(boolean flag) {
 		long __functionAddress = getInstance().DepthMask;
-		nglDepthMask(flag, __functionAddress);
+		invokeZV(__functionAddress, flag);
 	}
 
 	// --- [ glDepthRange ] ---
-
-	/** JNI method for {@link #glDepthRange DepthRange} */
-	@JavadocExclude
-	public static native void nglDepthRange(double zNear, double zFar, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDepthRange.xhtml">OpenGL SDK Reference</a></p>
@@ -3033,14 +2794,10 @@ public final class GL11 {
 	 */
 	public static void glDepthRange(double zNear, double zFar) {
 		long __functionAddress = getInstance().DepthRange;
-		nglDepthRange(zNear, zFar, __functionAddress);
+		invokeDDV(__functionAddress, zNear, zFar);
 	}
 
 	// --- [ glDisableClientState ] ---
-
-	/** JNI method for {@link #glDisableClientState DisableClientState} */
-	@JavadocExclude
-	public static native void nglDisableClientState(int array, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glDisableClientState.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -3053,14 +2810,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().DisableClientState;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglDisableClientState(array, __functionAddress);
+		invokeIV(__functionAddress, array);
 	}
 
 	// --- [ glDrawArrays ] ---
-
-	/** JNI method for {@link #glDrawArrays DrawArrays} */
-	@JavadocExclude
-	public static native void nglDrawArrays(int mode, int first, int count, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawArrays.xhtml">OpenGL SDK Reference</a></p>
@@ -3077,14 +2830,10 @@ public final class GL11 {
 	 */
 	public static void glDrawArrays(int mode, int first, int count) {
 		long __functionAddress = getInstance().DrawArrays;
-		nglDrawArrays(mode, first, count, __functionAddress);
+		invokeIIIV(__functionAddress, mode, first, count);
 	}
 
 	// --- [ glDrawBuffer ] ---
-
-	/** JNI method for {@link #glDrawBuffer DrawBuffer} */
-	@JavadocExclude
-	public static native void nglDrawBuffer(int buf, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawBuffer.xhtml">OpenGL SDK Reference</a></p>
@@ -3098,20 +2847,16 @@ public final class GL11 {
 	 */
 	public static void glDrawBuffer(int buf) {
 		long __functionAddress = getInstance().DrawBuffer;
-		nglDrawBuffer(buf, __functionAddress);
+		invokeIV(__functionAddress, buf);
 	}
 
 	// --- [ glDrawElements ] ---
-
-	/** JNI method for {@link #glDrawElements DrawElements} */
-	@JavadocExclude
-	public static native void nglDrawElements(int mode, int count, int type, long indices, long __functionAddress);
 
 	/** Unsafe version of {@link #glDrawElements DrawElements} */
 	@JavadocExclude
 	public static void nglDrawElements(int mode, int count, int type, long indices) {
 		long __functionAddress = getInstance().DrawElements;
-		nglDrawElements(mode, count, type, indices, __functionAddress);
+		invokeIIIPV(__functionAddress, mode, count, type, indices);
 	}
 
 	/**
@@ -3171,17 +2916,13 @@ public final class GL11 {
 
 	// --- [ glDrawPixels ] ---
 
-	/** JNI method for {@link #glDrawPixels DrawPixels} */
-	@JavadocExclude
-	public static native void nglDrawPixels(int width, int height, int format, int type, long pixels, long __functionAddress);
-
 	/** Unsafe version of {@link #glDrawPixels DrawPixels} */
 	@JavadocExclude
 	public static void nglDrawPixels(int width, int height, int format, int type, long pixels) {
 		long __functionAddress = getInstance().DrawPixels;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglDrawPixels(width, height, format, type, pixels, __functionAddress);
+		invokeIIIIPV(__functionAddress, width, height, format, type, pixels);
 	}
 
 	/**
@@ -3231,10 +2972,6 @@ public final class GL11 {
 
 	// --- [ glEdgeFlag ] ---
 
-	/** JNI method for {@link #glEdgeFlag EdgeFlag} */
-	@JavadocExclude
-	public static native void nglEdgeFlag(boolean flag, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEdgeFlag.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -3252,14 +2989,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().EdgeFlag;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglEdgeFlag(flag, __functionAddress);
+		invokeZV(__functionAddress, flag);
 	}
 
 	// --- [ glEdgeFlagv ] ---
-
-	/** JNI method for {@link #glEdgeFlagv EdgeFlagv} */
-	@JavadocExclude
-	public static native void nglEdgeFlagv(long flag, long __functionAddress);
 
 	/** Unsafe version of {@link #glEdgeFlagv EdgeFlagv} */
 	@JavadocExclude
@@ -3267,7 +3000,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().EdgeFlagv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglEdgeFlagv(flag, __functionAddress);
+		invokePV(__functionAddress, flag);
 	}
 
 	/**
@@ -3285,17 +3018,13 @@ public final class GL11 {
 
 	// --- [ glEdgeFlagPointer ] ---
 
-	/** JNI method for {@link #glEdgeFlagPointer EdgeFlagPointer} */
-	@JavadocExclude
-	public static native void nglEdgeFlagPointer(int stride, long pointer, long __functionAddress);
-
 	/** Unsafe version of {@link #glEdgeFlagPointer EdgeFlagPointer} */
 	@JavadocExclude
 	public static void nglEdgeFlagPointer(int stride, long pointer) {
 		long __functionAddress = getInstance().EdgeFlagPointer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglEdgeFlagPointer(stride, pointer, __functionAddress);
+		invokeIPV(__functionAddress, stride, pointer);
 	}
 
 	/**
@@ -3321,10 +3050,6 @@ public final class GL11 {
 
 	// --- [ glEnableClientState ] ---
 
-	/** JNI method for {@link #glEnableClientState EnableClientState} */
-	@JavadocExclude
-	public static native void nglEnableClientState(int array, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEnableClientState.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -3336,14 +3061,10 @@ public final class GL11 {
 		long __functionAddress = getInstance().EnableClientState;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglEnableClientState(array, __functionAddress);
+		invokeIV(__functionAddress, array);
 	}
 
 	// --- [ glEnd ] ---
-
-	/** JNI method for {@link #glEnd End} */
-	@JavadocExclude
-	public static native void nglEnd(long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEnd.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -3354,14 +3075,10 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().End;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglEnd(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glEvalCoord1f ] ---
-
-	/** JNI method for {@link #glEvalCoord1f EvalCoord1f} */
-	@JavadocExclude
-	public static native void nglEvalCoord1f(float u, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord1f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -3374,14 +3091,10 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalCoord1f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglEvalCoord1f(u, __functionAddress);
+		invokeFV(__functionAddress, u);
 	}
 
 	// --- [ glEvalCoord1fv ] ---
-
-	/** JNI method for {@link #glEvalCoord1fv EvalCoord1fv} */
-	@JavadocExclude
-	public static native void nglEvalCoord1fv(long u, long __functionAddress);
 
 	/** Unsafe version of {@link #glEvalCoord1fv EvalCoord1fv} */
 	@JavadocExclude
@@ -3389,7 +3102,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalCoord1fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglEvalCoord1fv(u, __functionAddress);
+		invokePV(__functionAddress, u);
 	}
 
 	/**
@@ -3410,10 +3123,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 
 	// --- [ glEvalCoord1d ] ---
 
-	/** JNI method for {@link #glEvalCoord1d EvalCoord1d} */
-	@JavadocExclude
-	public static native void nglEvalCoord1d(double u, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord1d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -3425,14 +3134,10 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalCoord1d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglEvalCoord1d(u, __functionAddress);
+		invokeDV(__functionAddress, u);
 	}
 
 	// --- [ glEvalCoord1dv ] ---
-
-	/** JNI method for {@link #glEvalCoord1dv EvalCoord1dv} */
-	@JavadocExclude
-	public static native void nglEvalCoord1dv(long u, long __functionAddress);
 
 	/** Unsafe version of {@link #glEvalCoord1dv EvalCoord1dv} */
 	@JavadocExclude
@@ -3440,7 +3145,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalCoord1dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglEvalCoord1dv(u, __functionAddress);
+		invokePV(__functionAddress, u);
 	}
 
 	/**
@@ -3461,10 +3166,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 
 	// --- [ glEvalCoord2f ] ---
 
-	/** JNI method for {@link #glEvalCoord2f EvalCoord2f} */
-	@JavadocExclude
-	public static native void nglEvalCoord2f(float u, float v, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -3477,14 +3178,10 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalCoord2f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglEvalCoord2f(u, v, __functionAddress);
+		invokeFFV(__functionAddress, u, v);
 	}
 
 	// --- [ glEvalCoord2fv ] ---
-
-	/** JNI method for {@link #glEvalCoord2fv EvalCoord2fv} */
-	@JavadocExclude
-	public static native void nglEvalCoord2fv(long u, long __functionAddress);
 
 	/** Unsafe version of {@link #glEvalCoord2fv EvalCoord2fv} */
 	@JavadocExclude
@@ -3492,7 +3189,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalCoord2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglEvalCoord2fv(u, __functionAddress);
+		invokePV(__functionAddress, u);
 	}
 
 	/**
@@ -3513,10 +3210,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 
 	// --- [ glEvalCoord2d ] ---
 
-	/** JNI method for {@link #glEvalCoord2d EvalCoord2d} */
-	@JavadocExclude
-	public static native void nglEvalCoord2d(double u, double v, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -3529,14 +3222,10 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalCoord2d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglEvalCoord2d(u, v, __functionAddress);
+		invokeDDV(__functionAddress, u, v);
 	}
 
 	// --- [ glEvalCoord2dv ] ---
-
-	/** JNI method for {@link #glEvalCoord2dv EvalCoord2dv} */
-	@JavadocExclude
-	public static native void nglEvalCoord2dv(long u, long __functionAddress);
 
 	/** Unsafe version of {@link #glEvalCoord2dv EvalCoord2dv} */
 	@JavadocExclude
@@ -3544,7 +3233,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalCoord2dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglEvalCoord2dv(u, __functionAddress);
+		invokePV(__functionAddress, u);
 	}
 
 	/**
@@ -3565,10 +3254,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 
 	// --- [ glEvalMesh1 ] ---
 
-	/** JNI method for {@link #glEvalMesh1 EvalMesh1} */
-	@JavadocExclude
-	public static native void nglEvalMesh1(int mode, int i1, int i2, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalMesh1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -3582,14 +3267,10 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalMesh1;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglEvalMesh1(mode, i1, i2, __functionAddress);
+		invokeIIIV(__functionAddress, mode, i1, i2);
 	}
 
 	// --- [ glEvalMesh2 ] ---
-
-	/** JNI method for {@link #glEvalMesh2 EvalMesh2} */
-	@JavadocExclude
-	public static native void nglEvalMesh2(int mode, int i1, int i2, int j1, int j2, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalMesh2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -3606,14 +3287,10 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalMesh2;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglEvalMesh2(mode, i1, i2, j1, j2, __functionAddress);
+		invokeIIIIIV(__functionAddress, mode, i1, i2, j1, j2);
 	}
 
 	// --- [ glEvalPoint1 ] ---
-
-	/** JNI method for {@link #glEvalPoint1 EvalPoint1} */
-	@JavadocExclude
-	public static native void nglEvalPoint1(int i, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalPoint1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -3626,14 +3303,10 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalPoint1;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglEvalPoint1(i, __functionAddress);
+		invokeIV(__functionAddress, i);
 	}
 
 	// --- [ glEvalPoint2 ] ---
-
-	/** JNI method for {@link #glEvalPoint2 EvalPoint2} */
-	@JavadocExclude
-	public static native void nglEvalPoint2(int i, int j, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalPoint2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -3647,14 +3320,10 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalPoint2;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglEvalPoint2(i, j, __functionAddress);
+		invokeIIV(__functionAddress, i, j);
 	}
 
 	// --- [ glFeedbackBuffer ] ---
-
-	/** JNI method for {@link #glFeedbackBuffer FeedbackBuffer} */
-	@JavadocExclude
-	public static native void nglFeedbackBuffer(int size, int type, long buffer, long __functionAddress);
 
 	/** Unsafe version of {@link #glFeedbackBuffer FeedbackBuffer} */
 	@JavadocExclude
@@ -3662,7 +3331,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().FeedbackBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglFeedbackBuffer(size, type, buffer, __functionAddress);
+		invokeIIPV(__functionAddress, size, type, buffer);
 	}
 
 	/**
@@ -3687,10 +3356,6 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 
 	// --- [ glFinish ] ---
 
-	/** JNI method for {@link #glFinish Finish} */
-	@JavadocExclude
-	public static native void nglFinish(long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFinish.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -3699,14 +3364,10 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 */
 	public static void glFinish() {
 		long __functionAddress = getInstance().Finish;
-		nglFinish(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glFlush ] ---
-
-	/** JNI method for {@link #glFlush Flush} */
-	@JavadocExclude
-	public static native void nglFlush(long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFlush.xhtml">OpenGL SDK Reference</a></p>
@@ -3715,14 +3376,10 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glFlush() {
 		long __functionAddress = getInstance().Flush;
-		nglFlush(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glFogi ] ---
-
-	/** JNI method for {@link #glFogi Fogi} */
-	@JavadocExclude
-	public static native void nglFogi(int pname, int param, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogi.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -3736,14 +3393,10 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Fogi;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglFogi(pname, param, __functionAddress);
+		invokeIIV(__functionAddress, pname, param);
 	}
 
 	// --- [ glFogiv ] ---
-
-	/** JNI method for {@link #glFogiv Fogiv} */
-	@JavadocExclude
-	public static native void nglFogiv(int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glFogiv Fogiv} */
 	@JavadocExclude
@@ -3751,7 +3404,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Fogiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglFogiv(pname, params, __functionAddress);
+		invokeIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -3777,10 +3430,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glFogf ] ---
 
-	/** JNI method for {@link #glFogf Fogf} */
-	@JavadocExclude
-	public static native void nglFogf(int pname, float param, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -3793,14 +3442,10 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Fogf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglFogf(pname, param, __functionAddress);
+		invokeIFV(__functionAddress, pname, param);
 	}
 
 	// --- [ glFogfv ] ---
-
-	/** JNI method for {@link #glFogfv Fogfv} */
-	@JavadocExclude
-	public static native void nglFogfv(int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glFogfv Fogfv} */
 	@JavadocExclude
@@ -3808,7 +3453,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Fogfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglFogfv(pname, params, __functionAddress);
+		invokeIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -3834,10 +3479,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glFrontFace ] ---
 
-	/** JNI method for {@link #glFrontFace FrontFace} */
-	@JavadocExclude
-	public static native void nglFrontFace(int dir, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glFrontFace.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -3849,14 +3490,10 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glFrontFace(int dir) {
 		long __functionAddress = getInstance().FrontFace;
-		nglFrontFace(dir, __functionAddress);
+		invokeIV(__functionAddress, dir);
 	}
 
 	// --- [ glGenLists ] ---
-
-	/** JNI method for {@link #glGenLists GenLists} */
-	@JavadocExclude
-	public static native int nglGenLists(int s, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGenLists.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -3872,20 +3509,16 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().GenLists;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return nglGenLists(s, __functionAddress);
+		return invokeII(__functionAddress, s);
 	}
 
 	// --- [ glGenTextures ] ---
-
-	/** JNI method for {@link #glGenTextures GenTextures} */
-	@JavadocExclude
-	public static native void nglGenTextures(int n, long textures, long __functionAddress);
 
 	/** Unsafe version of {@link #glGenTextures GenTextures} */
 	@JavadocExclude
 	public static void nglGenTextures(int n, long textures) {
 		long __functionAddress = getInstance().GenTextures;
-		nglGenTextures(n, textures, __functionAddress);
+		invokeIPV(__functionAddress, n, textures);
 	}
 
 	/**
@@ -3918,15 +3551,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glDeleteTextures ] ---
 
-	/** JNI method for {@link #glDeleteTextures DeleteTextures} */
-	@JavadocExclude
-	public static native void nglDeleteTextures(int n, long textures, long __functionAddress);
-
 	/** Unsafe version of {@link #glDeleteTextures DeleteTextures} */
 	@JavadocExclude
 	public static void nglDeleteTextures(int n, long textures) {
 		long __functionAddress = getInstance().DeleteTextures;
-		nglDeleteTextures(n, textures, __functionAddress);
+		invokeIPV(__functionAddress, n, textures);
 	}
 
 	/**
@@ -3963,15 +3592,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetClipPlane ] ---
 
-	/** JNI method for {@link #glGetClipPlane GetClipPlane} */
-	@JavadocExclude
-	public static native void nglGetClipPlane(int plane, long equation, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetClipPlane GetClipPlane} */
 	@JavadocExclude
 	public static void nglGetClipPlane(int plane, long equation) {
 		long __functionAddress = getInstance().GetClipPlane;
-		nglGetClipPlane(plane, equation, __functionAddress);
+		invokeIPV(__functionAddress, plane, equation);
 	}
 
 	/**
@@ -3998,15 +3623,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetBooleanv ] ---
 
-	/** JNI method for {@link #glGetBooleanv GetBooleanv} */
-	@JavadocExclude
-	public static native void nglGetBooleanv(int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetBooleanv GetBooleanv} */
 	@JavadocExclude
 	public static void nglGetBooleanv(int pname, long params) {
 		long __functionAddress = getInstance().GetBooleanv;
-		nglGetBooleanv(pname, params, __functionAddress);
+		invokeIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -4037,15 +3658,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetFloatv ] ---
 
-	/** JNI method for {@link #glGetFloatv GetFloatv} */
-	@JavadocExclude
-	public static native void nglGetFloatv(int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetFloatv GetFloatv} */
 	@JavadocExclude
 	public static void nglGetFloatv(int pname, long params) {
 		long __functionAddress = getInstance().GetFloatv;
-		nglGetFloatv(pname, params, __functionAddress);
+		invokeIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -4083,15 +3700,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetIntegerv ] ---
 
-	/** JNI method for {@link #glGetIntegerv GetIntegerv} */
-	@JavadocExclude
-	public static native void nglGetIntegerv(int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetIntegerv GetIntegerv} */
 	@JavadocExclude
 	public static void nglGetIntegerv(int pname, long params) {
 		long __functionAddress = getInstance().GetIntegerv;
-		nglGetIntegerv(pname, params, __functionAddress);
+		invokeIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -4129,15 +3742,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetDoublev ] ---
 
-	/** JNI method for {@link #glGetDoublev GetDoublev} */
-	@JavadocExclude
-	public static native void nglGetDoublev(int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetDoublev GetDoublev} */
 	@JavadocExclude
 	public static void nglGetDoublev(int pname, long params) {
 		long __functionAddress = getInstance().GetDoublev;
-		nglGetDoublev(pname, params, __functionAddress);
+		invokeIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -4175,10 +3784,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetError ] ---
 
-	/** JNI method for {@link #glGetError GetError} */
-	@JavadocExclude
-	public static native int nglGetError(long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetError.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -4189,14 +3794,10 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static int glGetError() {
 		long __functionAddress = getInstance().GetError;
-		return nglGetError(__functionAddress);
+		return invokeI(__functionAddress);
 	}
 
 	// --- [ glGetLightiv ] ---
-
-	/** JNI method for {@link #glGetLightiv GetLightiv} */
-	@JavadocExclude
-	public static native void nglGetLightiv(int light, int pname, long data, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetLightiv GetLightiv} */
 	@JavadocExclude
@@ -4204,7 +3805,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().GetLightiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetLightiv(light, pname, data, __functionAddress);
+		invokeIIPV(__functionAddress, light, pname, data);
 	}
 
 	/**
@@ -4239,17 +3840,13 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetLightfv ] ---
 
-	/** JNI method for {@link #glGetLightfv GetLightfv} */
-	@JavadocExclude
-	public static native void nglGetLightfv(int light, int pname, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetLightfv GetLightfv} */
 	@JavadocExclude
 	public static void nglGetLightfv(int light, int pname, long data) {
 		long __functionAddress = getInstance().GetLightfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetLightfv(light, pname, data, __functionAddress);
+		invokeIIPV(__functionAddress, light, pname, data);
 	}
 
 	/**
@@ -4284,17 +3881,13 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetMapiv ] ---
 
-	/** JNI method for {@link #glGetMapiv GetMapiv} */
-	@JavadocExclude
-	public static native void nglGetMapiv(int target, int query, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetMapiv GetMapiv} */
 	@JavadocExclude
 	public static void nglGetMapiv(int target, int query, long data) {
 		long __functionAddress = getInstance().GetMapiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetMapiv(target, query, data, __functionAddress);
+		invokeIIPV(__functionAddress, target, query, data);
 	}
 
 	/**
@@ -4329,17 +3922,13 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetMapfv ] ---
 
-	/** JNI method for {@link #glGetMapfv GetMapfv} */
-	@JavadocExclude
-	public static native void nglGetMapfv(int target, int query, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetMapfv GetMapfv} */
 	@JavadocExclude
 	public static void nglGetMapfv(int target, int query, long data) {
 		long __functionAddress = getInstance().GetMapfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetMapfv(target, query, data, __functionAddress);
+		invokeIIPV(__functionAddress, target, query, data);
 	}
 
 	/**
@@ -4374,17 +3963,13 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetMapdv ] ---
 
-	/** JNI method for {@link #glGetMapdv GetMapdv} */
-	@JavadocExclude
-	public static native void nglGetMapdv(int target, int query, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetMapdv GetMapdv} */
 	@JavadocExclude
 	public static void nglGetMapdv(int target, int query, long data) {
 		long __functionAddress = getInstance().GetMapdv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetMapdv(target, query, data, __functionAddress);
+		invokeIIPV(__functionAddress, target, query, data);
 	}
 
 	/**
@@ -4419,17 +4004,13 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetMaterialiv ] ---
 
-	/** JNI method for {@link #glGetMaterialiv GetMaterialiv} */
-	@JavadocExclude
-	public static native void nglGetMaterialiv(int face, int pname, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetMaterialiv GetMaterialiv} */
 	@JavadocExclude
 	public static void nglGetMaterialiv(int face, int pname, long data) {
 		long __functionAddress = getInstance().GetMaterialiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetMaterialiv(face, pname, data, __functionAddress);
+		invokeIIPV(__functionAddress, face, pname, data);
 	}
 
 	/**
@@ -4452,17 +4033,13 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetMaterialfv ] ---
 
-	/** JNI method for {@link #glGetMaterialfv GetMaterialfv} */
-	@JavadocExclude
-	public static native void nglGetMaterialfv(int face, int pname, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetMaterialfv GetMaterialfv} */
 	@JavadocExclude
 	public static void nglGetMaterialfv(int face, int pname, long data) {
 		long __functionAddress = getInstance().GetMaterialfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetMaterialfv(face, pname, data, __functionAddress);
+		invokeIIPV(__functionAddress, face, pname, data);
 	}
 
 	/**
@@ -4485,17 +4062,13 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetPixelMapfv ] ---
 
-	/** JNI method for {@link #glGetPixelMapfv GetPixelMapfv} */
-	@JavadocExclude
-	public static native void nglGetPixelMapfv(int map, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetPixelMapfv GetPixelMapfv} */
 	@JavadocExclude
 	public static void nglGetPixelMapfv(int map, long data) {
 		long __functionAddress = getInstance().GetPixelMapfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetPixelMapfv(map, data, __functionAddress);
+		invokeIPV(__functionAddress, map, data);
 	}
 
 	/**
@@ -4532,17 +4105,13 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetPixelMapusv ] ---
 
-	/** JNI method for {@link #glGetPixelMapusv GetPixelMapusv} */
-	@JavadocExclude
-	public static native void nglGetPixelMapusv(int map, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetPixelMapusv GetPixelMapusv} */
 	@JavadocExclude
 	public static void nglGetPixelMapusv(int map, long data) {
 		long __functionAddress = getInstance().GetPixelMapusv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetPixelMapusv(map, data, __functionAddress);
+		invokeIPV(__functionAddress, map, data);
 	}
 
 	/**
@@ -4579,17 +4148,13 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetPixelMapuiv ] ---
 
-	/** JNI method for {@link #glGetPixelMapuiv GetPixelMapuiv} */
-	@JavadocExclude
-	public static native void nglGetPixelMapuiv(int map, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetPixelMapuiv GetPixelMapuiv} */
 	@JavadocExclude
 	public static void nglGetPixelMapuiv(int map, long data) {
 		long __functionAddress = getInstance().GetPixelMapuiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetPixelMapuiv(map, data, __functionAddress);
+		invokeIPV(__functionAddress, map, data);
 	}
 
 	/**
@@ -4626,15 +4191,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetPointerv ] ---
 
-	/** JNI method for {@link #glGetPointerv GetPointerv} */
-	@JavadocExclude
-	public static native void nglGetPointerv(int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetPointerv GetPointerv} */
 	@JavadocExclude
 	public static void nglGetPointerv(int pname, long params) {
 		long __functionAddress = getInstance().GetPointerv;
-		nglGetPointerv(pname, params, __functionAddress);
+		invokeIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -4668,17 +4229,13 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetPolygonStipple ] ---
 
-	/** JNI method for {@link #glGetPolygonStipple GetPolygonStipple} */
-	@JavadocExclude
-	public static native void nglGetPolygonStipple(long pattern, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetPolygonStipple GetPolygonStipple} */
 	@JavadocExclude
 	public static void nglGetPolygonStipple(long pattern) {
 		long __functionAddress = getInstance().GetPolygonStipple;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetPolygonStipple(pattern, __functionAddress);
+		invokePV(__functionAddress, pattern);
 	}
 
 	/**
@@ -4705,15 +4262,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetString ] ---
 
-	/** JNI method for {@link #glGetString GetString} */
-	@JavadocExclude
-	public static native long nglGetString(int name, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetString GetString} */
 	@JavadocExclude
 	public static long nglGetString(int name) {
 		long __functionAddress = getInstance().GetString;
-		return nglGetString(name, __functionAddress);
+		return invokeIP(__functionAddress, name);
 	}
 
 	/**
@@ -4728,15 +4281,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetTexEnviv ] ---
 
-	/** JNI method for {@link #glGetTexEnviv GetTexEnviv} */
-	@JavadocExclude
-	public static native void nglGetTexEnviv(int env, int pname, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetTexEnviv GetTexEnviv} */
 	@JavadocExclude
 	public static void nglGetTexEnviv(int env, int pname, long data) {
 		long __functionAddress = getInstance().GetTexEnviv;
-		nglGetTexEnviv(env, pname, data, __functionAddress);
+		invokeIIPV(__functionAddress, env, pname, data);
 	}
 
 	/**
@@ -4771,15 +4320,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetTexEnvfv ] ---
 
-	/** JNI method for {@link #glGetTexEnvfv GetTexEnvfv} */
-	@JavadocExclude
-	public static native void nglGetTexEnvfv(int env, int pname, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetTexEnvfv GetTexEnvfv} */
 	@JavadocExclude
 	public static void nglGetTexEnvfv(int env, int pname, long data) {
 		long __functionAddress = getInstance().GetTexEnvfv;
-		nglGetTexEnvfv(env, pname, data, __functionAddress);
+		invokeIIPV(__functionAddress, env, pname, data);
 	}
 
 	/**
@@ -4814,17 +4359,13 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetTexGeniv ] ---
 
-	/** JNI method for {@link #glGetTexGeniv GetTexGeniv} */
-	@JavadocExclude
-	public static native void nglGetTexGeniv(int coord, int pname, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetTexGeniv GetTexGeniv} */
 	@JavadocExclude
 	public static void nglGetTexGeniv(int coord, int pname, long data) {
 		long __functionAddress = getInstance().GetTexGeniv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetTexGeniv(coord, pname, data, __functionAddress);
+		invokeIIPV(__functionAddress, coord, pname, data);
 	}
 
 	/**
@@ -4859,17 +4400,13 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetTexGenfv ] ---
 
-	/** JNI method for {@link #glGetTexGenfv GetTexGenfv} */
-	@JavadocExclude
-	public static native void nglGetTexGenfv(int coord, int pname, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetTexGenfv GetTexGenfv} */
 	@JavadocExclude
 	public static void nglGetTexGenfv(int coord, int pname, long data) {
 		long __functionAddress = getInstance().GetTexGenfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetTexGenfv(coord, pname, data, __functionAddress);
+		invokeIIPV(__functionAddress, coord, pname, data);
 	}
 
 	/**
@@ -4904,17 +4441,13 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetTexGendv ] ---
 
-	/** JNI method for {@link #glGetTexGendv GetTexGendv} */
-	@JavadocExclude
-	public static native void nglGetTexGendv(int coord, int pname, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetTexGendv GetTexGendv} */
 	@JavadocExclude
 	public static void nglGetTexGendv(int coord, int pname, long data) {
 		long __functionAddress = getInstance().GetTexGendv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglGetTexGendv(coord, pname, data, __functionAddress);
+		invokeIIPV(__functionAddress, coord, pname, data);
 	}
 
 	/**
@@ -4949,15 +4482,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetTexImage ] ---
 
-	/** JNI method for {@link #glGetTexImage GetTexImage} */
-	@JavadocExclude
-	public static native void nglGetTexImage(int tex, int level, int format, int type, long pixels, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetTexImage GetTexImage} */
 	@JavadocExclude
 	public static void nglGetTexImage(int tex, int level, int format, int type, long pixels) {
 		long __functionAddress = getInstance().GetTexImage;
-		nglGetTexImage(tex, level, format, type, pixels, __functionAddress);
+		invokeIIIIPV(__functionAddress, tex, level, format, type, pixels);
 	}
 
 	/**
@@ -5014,15 +4543,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetTexLevelParameteriv ] ---
 
-	/** JNI method for {@link #glGetTexLevelParameteriv GetTexLevelParameteriv} */
-	@JavadocExclude
-	public static native void nglGetTexLevelParameteriv(int target, int level, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetTexLevelParameteriv GetTexLevelParameteriv} */
 	@JavadocExclude
 	public static void nglGetTexLevelParameteriv(int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTexLevelParameteriv;
-		nglGetTexLevelParameteriv(target, level, pname, params, __functionAddress);
+		invokeIIIPV(__functionAddress, target, level, pname, params);
 	}
 
 	/**
@@ -5058,15 +4583,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetTexLevelParameterfv ] ---
 
-	/** JNI method for {@link #glGetTexLevelParameterfv GetTexLevelParameterfv} */
-	@JavadocExclude
-	public static native void nglGetTexLevelParameterfv(int target, int level, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetTexLevelParameterfv GetTexLevelParameterfv} */
 	@JavadocExclude
 	public static void nglGetTexLevelParameterfv(int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTexLevelParameterfv;
-		nglGetTexLevelParameterfv(target, level, pname, params, __functionAddress);
+		invokeIIIPV(__functionAddress, target, level, pname, params);
 	}
 
 	/**
@@ -5102,15 +4623,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetTexParameteriv ] ---
 
-	/** JNI method for {@link #glGetTexParameteriv GetTexParameteriv} */
-	@JavadocExclude
-	public static native void nglGetTexParameteriv(int target, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetTexParameteriv GetTexParameteriv} */
 	@JavadocExclude
 	public static void nglGetTexParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameteriv;
-		nglGetTexParameteriv(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -5145,15 +4662,11 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glGetTexParameterfv ] ---
 
-	/** JNI method for {@link #glGetTexParameterfv GetTexParameterfv} */
-	@JavadocExclude
-	public static native void nglGetTexParameterfv(int target, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetTexParameterfv GetTexParameterfv} */
 	@JavadocExclude
 	public static void nglGetTexParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterfv;
-		nglGetTexParameterfv(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -5188,10 +4701,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glHint ] ---
 
-	/** JNI method for {@link #glHint Hint} */
-	@JavadocExclude
-	public static native void nglHint(int target, int hint, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glHint.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -5203,14 +4712,10 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glHint(int target, int hint) {
 		long __functionAddress = getInstance().Hint;
-		nglHint(target, hint, __functionAddress);
+		invokeIIV(__functionAddress, target, hint);
 	}
 
 	// --- [ glIndexi ] ---
-
-	/** JNI method for {@link #glIndexi Indexi} */
-	@JavadocExclude
-	public static native void nglIndexi(int index, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndexi.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -5223,14 +4728,10 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Indexi;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglIndexi(index, __functionAddress);
+		invokeIV(__functionAddress, index);
 	}
 
 	// --- [ glIndexub ] ---
-
-	/** JNI method for {@link #glIndexub Indexub} */
-	@JavadocExclude
-	public static native void nglIndexub(byte index, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndexub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -5243,14 +4744,10 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Indexub;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglIndexub(index, __functionAddress);
+		invokeBV(__functionAddress, index);
 	}
 
 	// --- [ glIndexs ] ---
-
-	/** JNI method for {@link #glIndexs Indexs} */
-	@JavadocExclude
-	public static native void nglIndexs(short index, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndexs.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -5263,14 +4760,10 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Indexs;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglIndexs(index, __functionAddress);
+		invokeSV(__functionAddress, index);
 	}
 
 	// --- [ glIndexf ] ---
-
-	/** JNI method for {@link #glIndexf Indexf} */
-	@JavadocExclude
-	public static native void nglIndexf(float index, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndexf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -5283,14 +4776,10 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Indexf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglIndexf(index, __functionAddress);
+		invokeFV(__functionAddress, index);
 	}
 
 	// --- [ glIndexd ] ---
-
-	/** JNI method for {@link #glIndexd Indexd} */
-	@JavadocExclude
-	public static native void nglIndexd(double index, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndexd.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -5303,14 +4792,10 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Indexd;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglIndexd(index, __functionAddress);
+		invokeDV(__functionAddress, index);
 	}
 
 	// --- [ glIndexiv ] ---
-
-	/** JNI method for {@link #glIndexiv Indexiv} */
-	@JavadocExclude
-	public static native void nglIndexiv(long index, long __functionAddress);
 
 	/** Unsafe version of {@link #glIndexiv Indexiv} */
 	@JavadocExclude
@@ -5318,7 +4803,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Indexiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglIndexiv(index, __functionAddress);
+		invokePV(__functionAddress, index);
 	}
 
 	/**
@@ -5343,17 +4828,13 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glIndexubv ] ---
 
-	/** JNI method for {@link #glIndexubv Indexubv} */
-	@JavadocExclude
-	public static native void nglIndexubv(long index, long __functionAddress);
-
 	/** Unsafe version of {@link #glIndexubv Indexubv} */
 	@JavadocExclude
 	public static void nglIndexubv(long index) {
 		long __functionAddress = getInstance().Indexubv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglIndexubv(index, __functionAddress);
+		invokePV(__functionAddress, index);
 	}
 
 	/**
@@ -5371,17 +4852,13 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glIndexsv ] ---
 
-	/** JNI method for {@link #glIndexsv Indexsv} */
-	@JavadocExclude
-	public static native void nglIndexsv(long index, long __functionAddress);
-
 	/** Unsafe version of {@link #glIndexsv Indexsv} */
 	@JavadocExclude
 	public static void nglIndexsv(long index) {
 		long __functionAddress = getInstance().Indexsv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglIndexsv(index, __functionAddress);
+		invokePV(__functionAddress, index);
 	}
 
 	/**
@@ -5406,17 +4883,13 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glIndexfv ] ---
 
-	/** JNI method for {@link #glIndexfv Indexfv} */
-	@JavadocExclude
-	public static native void nglIndexfv(long index, long __functionAddress);
-
 	/** Unsafe version of {@link #glIndexfv Indexfv} */
 	@JavadocExclude
 	public static void nglIndexfv(long index) {
 		long __functionAddress = getInstance().Indexfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglIndexfv(index, __functionAddress);
+		invokePV(__functionAddress, index);
 	}
 
 	/**
@@ -5441,17 +4914,13 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glIndexdv ] ---
 
-	/** JNI method for {@link #glIndexdv Indexdv} */
-	@JavadocExclude
-	public static native void nglIndexdv(long index, long __functionAddress);
-
 	/** Unsafe version of {@link #glIndexdv Indexdv} */
 	@JavadocExclude
 	public static void nglIndexdv(long index) {
 		long __functionAddress = getInstance().Indexdv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglIndexdv(index, __functionAddress);
+		invokePV(__functionAddress, index);
 	}
 
 	/**
@@ -5476,10 +4945,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glIndexMask ] ---
 
-	/** JNI method for {@link #glIndexMask IndexMask} */
-	@JavadocExclude
-	public static native void nglIndexMask(int mask, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndexMask.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -5493,14 +4958,10 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().IndexMask;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglIndexMask(mask, __functionAddress);
+		invokeIV(__functionAddress, mask);
 	}
 
 	// --- [ glIndexPointer ] ---
-
-	/** JNI method for {@link #glIndexPointer IndexPointer} */
-	@JavadocExclude
-	public static native void nglIndexPointer(int type, int stride, long pointer, long __functionAddress);
 
 	/** Unsafe version of {@link #glIndexPointer IndexPointer} */
 	@JavadocExclude
@@ -5508,7 +4969,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().IndexPointer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglIndexPointer(type, stride, pointer, __functionAddress);
+		invokeIIPV(__functionAddress, type, stride, pointer);
 	}
 
 	/**
@@ -5556,10 +5017,6 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	// --- [ glInitNames ] ---
 
-	/** JNI method for {@link #glInitNames InitNames} */
-	@JavadocExclude
-	public static native void nglInitNames(long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glInitNames.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -5569,20 +5026,16 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().InitNames;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglInitNames(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glInterleavedArrays ] ---
-
-	/** JNI method for {@link #glInterleavedArrays InterleavedArrays} */
-	@JavadocExclude
-	public static native void nglInterleavedArrays(int format, int stride, long pointer, long __functionAddress);
 
 	/** Unsafe version of {@link #glInterleavedArrays InterleavedArrays} */
 	@JavadocExclude
 	public static void nglInterleavedArrays(int format, int stride, long pointer) {
 		long __functionAddress = getInstance().InterleavedArrays;
-		nglInterleavedArrays(format, stride, pointer, __functionAddress);
+		invokeIIPV(__functionAddress, format, stride, pointer);
 	}
 
 	/**
@@ -5637,10 +5090,6 @@ Clears the selection name stack.
 
 	// --- [ glIsEnabled ] ---
 
-	/** JNI method for {@link #glIsEnabled IsEnabled} */
-	@JavadocExclude
-	public static native boolean nglIsEnabled(int cap, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsEnabled.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -5650,14 +5099,10 @@ Clears the selection name stack.
 	 */
 	public static boolean glIsEnabled(int cap) {
 		long __functionAddress = getInstance().IsEnabled;
-		return nglIsEnabled(cap, __functionAddress);
+		return invokeIZ(__functionAddress, cap);
 	}
 
 	// --- [ glIsList ] ---
-
-	/** JNI method for {@link #glIsList IsList} */
-	@JavadocExclude
-	public static native boolean nglIsList(int list, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIsList.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -5670,14 +5115,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().IsList;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return nglIsList(list, __functionAddress);
+		return invokeIZ(__functionAddress, list);
 	}
 
 	// --- [ glIsTexture ] ---
-
-	/** JNI method for {@link #glIsTexture IsTexture} */
-	@JavadocExclude
-	public static native boolean nglIsTexture(int texture, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsTexture.xhtml">OpenGL SDK Reference</a></p>
@@ -5688,14 +5129,10 @@ Clears the selection name stack.
 	 */
 	public static boolean glIsTexture(int texture) {
 		long __functionAddress = getInstance().IsTexture;
-		return nglIsTexture(texture, __functionAddress);
+		return invokeIZ(__functionAddress, texture);
 	}
 
 	// --- [ glLightModeli ] ---
-
-	/** JNI method for {@link #glLightModeli LightModeli} */
-	@JavadocExclude
-	public static native void nglLightModeli(int pname, int param, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLightModeli.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -5709,14 +5146,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().LightModeli;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglLightModeli(pname, param, __functionAddress);
+		invokeIIV(__functionAddress, pname, param);
 	}
 
 	// --- [ glLightModelf ] ---
-
-	/** JNI method for {@link #glLightModelf LightModelf} */
-	@JavadocExclude
-	public static native void nglLightModelf(int pname, float param, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLightModelf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -5730,14 +5163,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().LightModelf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglLightModelf(pname, param, __functionAddress);
+		invokeIFV(__functionAddress, pname, param);
 	}
 
 	// --- [ glLightModeliv ] ---
-
-	/** JNI method for {@link #glLightModeliv LightModeliv} */
-	@JavadocExclude
-	public static native void nglLightModeliv(int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glLightModeliv LightModeliv} */
 	@JavadocExclude
@@ -5745,7 +5174,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().LightModeliv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglLightModeliv(pname, params, __functionAddress);
+		invokeIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -5771,17 +5200,13 @@ Clears the selection name stack.
 
 	// --- [ glLightModelfv ] ---
 
-	/** JNI method for {@link #glLightModelfv LightModelfv} */
-	@JavadocExclude
-	public static native void nglLightModelfv(int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glLightModelfv LightModelfv} */
 	@JavadocExclude
 	public static void nglLightModelfv(int pname, long params) {
 		long __functionAddress = getInstance().LightModelfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglLightModelfv(pname, params, __functionAddress);
+		invokeIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -5807,10 +5232,6 @@ Clears the selection name stack.
 
 	// --- [ glLighti ] ---
 
-	/** JNI method for {@link #glLighti Lighti} */
-	@JavadocExclude
-	public static native void nglLighti(int light, int pname, int param, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLighti.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -5824,14 +5245,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Lighti;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglLighti(light, pname, param, __functionAddress);
+		invokeIIIV(__functionAddress, light, pname, param);
 	}
 
 	// --- [ glLightf ] ---
-
-	/** JNI method for {@link #glLightf Lightf} */
-	@JavadocExclude
-	public static native void nglLightf(int light, int pname, float param, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLightf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -5846,14 +5263,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Lightf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglLightf(light, pname, param, __functionAddress);
+		invokeIIFV(__functionAddress, light, pname, param);
 	}
 
 	// --- [ glLightiv ] ---
-
-	/** JNI method for {@link #glLightiv Lightiv} */
-	@JavadocExclude
-	public static native void nglLightiv(int light, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glLightiv Lightiv} */
 	@JavadocExclude
@@ -5861,7 +5274,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Lightiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglLightiv(light, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, light, pname, params);
 	}
 
 	/**
@@ -5888,17 +5301,13 @@ Clears the selection name stack.
 
 	// --- [ glLightfv ] ---
 
-	/** JNI method for {@link #glLightfv Lightfv} */
-	@JavadocExclude
-	public static native void nglLightfv(int light, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glLightfv Lightfv} */
 	@JavadocExclude
 	public static void nglLightfv(int light, int pname, long params) {
 		long __functionAddress = getInstance().Lightfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglLightfv(light, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, light, pname, params);
 	}
 
 	/**
@@ -5925,10 +5334,6 @@ Clears the selection name stack.
 
 	// --- [ glLineStipple ] ---
 
-	/** JNI method for {@link #glLineStipple LineStipple} */
-	@JavadocExclude
-	public static native void nglLineStipple(int factor, short pattern, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLineStipple.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -5943,14 +5348,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().LineStipple;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglLineStipple(factor, pattern, __functionAddress);
+		invokeISV(__functionAddress, factor, pattern);
 	}
 
 	// --- [ glLineWidth ] ---
-
-	/** JNI method for {@link #glLineWidth LineWidth} */
-	@JavadocExclude
-	public static native void nglLineWidth(float width, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glLineWidth.xhtml">OpenGL SDK Reference</a></p>
@@ -5961,14 +5362,10 @@ Clears the selection name stack.
 	 */
 	public static void glLineWidth(float width) {
 		long __functionAddress = getInstance().LineWidth;
-		nglLineWidth(width, __functionAddress);
+		invokeFV(__functionAddress, width);
 	}
 
 	// --- [ glListBase ] ---
-
-	/** JNI method for {@link #glListBase ListBase} */
-	@JavadocExclude
-	public static native void nglListBase(int base, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glListBase.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -5981,14 +5378,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().ListBase;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglListBase(base, __functionAddress);
+		invokeIV(__functionAddress, base);
 	}
 
 	// --- [ glLoadMatrixf ] ---
-
-	/** JNI method for {@link #glLoadMatrixf LoadMatrixf} */
-	@JavadocExclude
-	public static native void nglLoadMatrixf(long m, long __functionAddress);
 
 	/** Unsafe version of {@link #glLoadMatrixf LoadMatrixf} */
 	@JavadocExclude
@@ -5996,7 +5389,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().LoadMatrixf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglLoadMatrixf(m, __functionAddress);
+		invokePV(__functionAddress, m);
 	}
 
 	/**
@@ -6032,17 +5425,13 @@ Clears the selection name stack.
 
 	// --- [ glLoadMatrixd ] ---
 
-	/** JNI method for {@link #glLoadMatrixd LoadMatrixd} */
-	@JavadocExclude
-	public static native void nglLoadMatrixd(long m, long __functionAddress);
-
 	/** Unsafe version of {@link #glLoadMatrixd LoadMatrixd} */
 	@JavadocExclude
 	public static void nglLoadMatrixd(long m) {
 		long __functionAddress = getInstance().LoadMatrixd;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglLoadMatrixd(m, __functionAddress);
+		invokePV(__functionAddress, m);
 	}
 
 	/**
@@ -6067,10 +5456,6 @@ Clears the selection name stack.
 
 	// --- [ glLoadIdentity ] ---
 
-	/** JNI method for {@link #glLoadIdentity LoadIdentity} */
-	@JavadocExclude
-	public static native void nglLoadIdentity(long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLoadIdentity.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -6088,14 +5473,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().LoadIdentity;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglLoadIdentity(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glLoadName ] ---
-
-	/** JNI method for {@link #glLoadName LoadName} */
-	@JavadocExclude
-	public static native void nglLoadName(int name, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLoadName.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -6108,14 +5489,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().LoadName;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglLoadName(name, __functionAddress);
+		invokeIV(__functionAddress, name);
 	}
 
 	// --- [ glLogicOp ] ---
-
-	/** JNI method for {@link #glLogicOp LogicOp} */
-	@JavadocExclude
-	public static native void nglLogicOp(int op, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glLogicOp.xhtml">OpenGL SDK Reference</a></p>
@@ -6126,14 +5503,10 @@ Clears the selection name stack.
 	 */
 	public static void glLogicOp(int op) {
 		long __functionAddress = getInstance().LogicOp;
-		nglLogicOp(op, __functionAddress);
+		invokeIV(__functionAddress, op);
 	}
 
 	// --- [ glMap1f ] ---
-
-	/** JNI method for {@link #glMap1f Map1f} */
-	@JavadocExclude
-	public static native void nglMap1f(int target, float u1, float u2, int stride, int order, long points, long __functionAddress);
 
 	/** Unsafe version of {@link #glMap1f Map1f} */
 	@JavadocExclude
@@ -6141,7 +5514,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Map1f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMap1f(target, u1, u2, stride, order, points, __functionAddress);
+		invokeIFFIIPV(__functionAddress, target, u1, u2, stride, order, points);
 	}
 
 	/**
@@ -6172,17 +5545,13 @@ Clears the selection name stack.
 
 	// --- [ glMap1d ] ---
 
-	/** JNI method for {@link #glMap1d Map1d} */
-	@JavadocExclude
-	public static native void nglMap1d(int target, double u1, double u2, int stride, int order, long points, long __functionAddress);
-
 	/** Unsafe version of {@link #glMap1d Map1d} */
 	@JavadocExclude
 	public static void nglMap1d(int target, double u1, double u2, int stride, int order, long points) {
 		long __functionAddress = getInstance().Map1d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMap1d(target, u1, u2, stride, order, points, __functionAddress);
+		invokeIDDIIPV(__functionAddress, target, u1, u2, stride, order, points);
 	}
 
 	/**
@@ -6212,17 +5581,13 @@ Clears the selection name stack.
 
 	// --- [ glMap2f ] ---
 
-	/** JNI method for {@link #glMap2f Map2f} */
-	@JavadocExclude
-	public static native void nglMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, long points, long __functionAddress);
-
 	/** Unsafe version of {@link #glMap2f Map2f} */
 	@JavadocExclude
 	public static void nglMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, long points) {
 		long __functionAddress = getInstance().Map2f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMap2f(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points, __functionAddress);
+		invokeIFFIIFFIIPV(__functionAddress, target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
 	}
 
 	/**
@@ -6256,17 +5621,13 @@ Clears the selection name stack.
 
 	// --- [ glMap2d ] ---
 
-	/** JNI method for {@link #glMap2d Map2d} */
-	@JavadocExclude
-	public static native void nglMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, long points, long __functionAddress);
-
 	/** Unsafe version of {@link #glMap2d Map2d} */
 	@JavadocExclude
 	public static void nglMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, long points) {
 		long __functionAddress = getInstance().Map2d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMap2d(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points, __functionAddress);
+		invokeIDDIIDDIIPV(__functionAddress, target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
 	}
 
 	/**
@@ -6300,10 +5661,6 @@ Clears the selection name stack.
 
 	// --- [ glMapGrid1f ] ---
 
-	/** JNI method for {@link #glMapGrid1f MapGrid1f} */
-	@JavadocExclude
-	public static native void nglMapGrid1f(int n, float u1, float u2, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMapGrid1f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -6317,14 +5674,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().MapGrid1f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMapGrid1f(n, u1, u2, __functionAddress);
+		invokeIFFV(__functionAddress, n, u1, u2);
 	}
 
 	// --- [ glMapGrid1d ] ---
-
-	/** JNI method for {@link #glMapGrid1d MapGrid1d} */
-	@JavadocExclude
-	public static native void nglMapGrid1d(int n, double u1, double u2, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMapGrid1d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -6339,14 +5692,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().MapGrid1d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMapGrid1d(n, u1, u2, __functionAddress);
+		invokeIDDV(__functionAddress, n, u1, u2);
 	}
 
 	// --- [ glMapGrid2f ] ---
-
-	/** JNI method for {@link #glMapGrid2f MapGrid2f} */
-	@JavadocExclude
-	public static native void nglMapGrid2f(int un, float u1, float u2, int vn, float v1, float v2, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMapGrid2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -6364,14 +5713,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().MapGrid2f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMapGrid2f(un, u1, u2, vn, v1, v2, __functionAddress);
+		invokeIFFIFFV(__functionAddress, un, u1, u2, vn, v1, v2);
 	}
 
 	// --- [ glMapGrid2d ] ---
-
-	/** JNI method for {@link #glMapGrid2d MapGrid2d} */
-	@JavadocExclude
-	public static native void nglMapGrid2d(int un, double u1, double u2, int vn, double v1, double v2, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMapGrid2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -6389,14 +5734,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().MapGrid2d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMapGrid2d(un, u1, u2, vn, v1, v2, __functionAddress);
+		invokeIDDIDDV(__functionAddress, un, u1, u2, vn, v1, v2);
 	}
 
 	// --- [ glMateriali ] ---
-
-	/** JNI method for {@link #glMateriali Materiali} */
-	@JavadocExclude
-	public static native void nglMateriali(int face, int pname, int param, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMateriali.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -6411,14 +5752,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Materiali;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMateriali(face, pname, param, __functionAddress);
+		invokeIIIV(__functionAddress, face, pname, param);
 	}
 
 	// --- [ glMaterialf ] ---
-
-	/** JNI method for {@link #glMaterialf Materialf} */
-	@JavadocExclude
-	public static native void nglMaterialf(int face, int pname, float param, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMaterialf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -6433,14 +5770,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Materialf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMaterialf(face, pname, param, __functionAddress);
+		invokeIIFV(__functionAddress, face, pname, param);
 	}
 
 	// --- [ glMaterialiv ] ---
-
-	/** JNI method for {@link #glMaterialiv Materialiv} */
-	@JavadocExclude
-	public static native void nglMaterialiv(int face, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glMaterialiv Materialiv} */
 	@JavadocExclude
@@ -6448,7 +5781,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Materialiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMaterialiv(face, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, face, pname, params);
 	}
 
 	/**
@@ -6475,17 +5808,13 @@ Clears the selection name stack.
 
 	// --- [ glMaterialfv ] ---
 
-	/** JNI method for {@link #glMaterialfv Materialfv} */
-	@JavadocExclude
-	public static native void nglMaterialfv(int face, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glMaterialfv Materialfv} */
 	@JavadocExclude
 	public static void nglMaterialfv(int face, int pname, long params) {
 		long __functionAddress = getInstance().Materialfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMaterialfv(face, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, face, pname, params);
 	}
 
 	/**
@@ -6512,10 +5841,6 @@ Clears the selection name stack.
 
 	// --- [ glMatrixMode ] ---
 
-	/** JNI method for {@link #glMatrixMode MatrixMode} */
-	@JavadocExclude
-	public static native void nglMatrixMode(int mode, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMatrixMode.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -6527,14 +5852,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().MatrixMode;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMatrixMode(mode, __functionAddress);
+		invokeIV(__functionAddress, mode);
 	}
 
 	// --- [ glMultMatrixf ] ---
-
-	/** JNI method for {@link #glMultMatrixf MultMatrixf} */
-	@JavadocExclude
-	public static native void nglMultMatrixf(long m, long __functionAddress);
 
 	/** Unsafe version of {@link #glMultMatrixf MultMatrixf} */
 	@JavadocExclude
@@ -6542,7 +5863,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().MultMatrixf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultMatrixf(m, __functionAddress);
+		invokePV(__functionAddress, m);
 	}
 
 	/**
@@ -6567,17 +5888,13 @@ Clears the selection name stack.
 
 	// --- [ glMultMatrixd ] ---
 
-	/** JNI method for {@link #glMultMatrixd MultMatrixd} */
-	@JavadocExclude
-	public static native void nglMultMatrixd(long m, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultMatrixd MultMatrixd} */
 	@JavadocExclude
 	public static void nglMultMatrixd(long m) {
 		long __functionAddress = getInstance().MultMatrixd;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultMatrixd(m, __functionAddress);
+		invokePV(__functionAddress, m);
 	}
 
 	/**
@@ -6601,10 +5918,6 @@ Clears the selection name stack.
 	}
 
 	// --- [ glFrustum ] ---
-
-	/** JNI method for {@link #glFrustum Frustum} */
-	@JavadocExclude
-	public static native void nglFrustum(double l, double r, double b, double t, double n, double f, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFrustum.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -6633,14 +5946,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Frustum;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglFrustum(l, r, b, t, n, f, __functionAddress);
+		invokeDDDDDDV(__functionAddress, l, r, b, t, n, f);
 	}
 
 	// --- [ glNewList ] ---
-
-	/** JNI method for {@link #glNewList NewList} */
-	@JavadocExclude
-	public static native void nglNewList(int n, int mode, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNewList.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -6654,14 +5963,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().NewList;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglNewList(n, mode, __functionAddress);
+		invokeIIV(__functionAddress, n, mode);
 	}
 
 	// --- [ glEndList ] ---
-
-	/** JNI method for {@link #glEndList EndList} */
-	@JavadocExclude
-	public static native void nglEndList(long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEndList.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -6673,14 +5978,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().EndList;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglEndList(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glNormal3f ] ---
-
-	/** JNI method for {@link #glNormal3f Normal3f} */
-	@JavadocExclude
-	public static native void nglNormal3f(float nx, float ny, float nz, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -6695,14 +5996,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Normal3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglNormal3f(nx, ny, nz, __functionAddress);
+		invokeFFFV(__functionAddress, nx, ny, nz);
 	}
 
 	// --- [ glNormal3b ] ---
-
-	/** JNI method for {@link #glNormal3b Normal3b} */
-	@JavadocExclude
-	public static native void nglNormal3b(byte nx, byte ny, byte nz, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -6717,14 +6014,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Normal3b;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglNormal3b(nx, ny, nz, __functionAddress);
+		invokeBBBV(__functionAddress, nx, ny, nz);
 	}
 
 	// --- [ glNormal3s ] ---
-
-	/** JNI method for {@link #glNormal3s Normal3s} */
-	@JavadocExclude
-	public static native void nglNormal3s(short nx, short ny, short nz, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -6739,14 +6032,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Normal3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglNormal3s(nx, ny, nz, __functionAddress);
+		invokeSSSV(__functionAddress, nx, ny, nz);
 	}
 
 	// --- [ glNormal3i ] ---
-
-	/** JNI method for {@link #glNormal3i Normal3i} */
-	@JavadocExclude
-	public static native void nglNormal3i(int nx, int ny, int nz, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -6761,14 +6050,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Normal3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglNormal3i(nx, ny, nz, __functionAddress);
+		invokeIIIV(__functionAddress, nx, ny, nz);
 	}
 
 	// --- [ glNormal3d ] ---
-
-	/** JNI method for {@link #glNormal3d Normal3d} */
-	@JavadocExclude
-	public static native void nglNormal3d(double nx, double ny, double nz, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -6783,14 +6068,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Normal3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglNormal3d(nx, ny, nz, __functionAddress);
+		invokeDDDV(__functionAddress, nx, ny, nz);
 	}
 
 	// --- [ glNormal3fv ] ---
-
-	/** JNI method for {@link #glNormal3fv Normal3fv} */
-	@JavadocExclude
-	public static native void nglNormal3fv(long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glNormal3fv Normal3fv} */
 	@JavadocExclude
@@ -6798,7 +6079,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Normal3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglNormal3fv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -6823,17 +6104,13 @@ Clears the selection name stack.
 
 	// --- [ glNormal3bv ] ---
 
-	/** JNI method for {@link #glNormal3bv Normal3bv} */
-	@JavadocExclude
-	public static native void nglNormal3bv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glNormal3bv Normal3bv} */
 	@JavadocExclude
 	public static void nglNormal3bv(long v) {
 		long __functionAddress = getInstance().Normal3bv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglNormal3bv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -6851,17 +6128,13 @@ Clears the selection name stack.
 
 	// --- [ glNormal3sv ] ---
 
-	/** JNI method for {@link #glNormal3sv Normal3sv} */
-	@JavadocExclude
-	public static native void nglNormal3sv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glNormal3sv Normal3sv} */
 	@JavadocExclude
 	public static void nglNormal3sv(long v) {
 		long __functionAddress = getInstance().Normal3sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglNormal3sv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -6886,17 +6159,13 @@ Clears the selection name stack.
 
 	// --- [ glNormal3iv ] ---
 
-	/** JNI method for {@link #glNormal3iv Normal3iv} */
-	@JavadocExclude
-	public static native void nglNormal3iv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glNormal3iv Normal3iv} */
 	@JavadocExclude
 	public static void nglNormal3iv(long v) {
 		long __functionAddress = getInstance().Normal3iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglNormal3iv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -6921,17 +6190,13 @@ Clears the selection name stack.
 
 	// --- [ glNormal3dv ] ---
 
-	/** JNI method for {@link #glNormal3dv Normal3dv} */
-	@JavadocExclude
-	public static native void nglNormal3dv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glNormal3dv Normal3dv} */
 	@JavadocExclude
 	public static void nglNormal3dv(long v) {
 		long __functionAddress = getInstance().Normal3dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglNormal3dv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -6956,17 +6221,13 @@ Clears the selection name stack.
 
 	// --- [ glNormalPointer ] ---
 
-	/** JNI method for {@link #glNormalPointer NormalPointer} */
-	@JavadocExclude
-	public static native void nglNormalPointer(int type, int stride, long pointer, long __functionAddress);
-
 	/** Unsafe version of {@link #glNormalPointer NormalPointer} */
 	@JavadocExclude
 	public static void nglNormalPointer(int type, int stride, long pointer) {
 		long __functionAddress = getInstance().NormalPointer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglNormalPointer(type, stride, pointer, __functionAddress);
+		invokeIIPV(__functionAddress, type, stride, pointer);
 	}
 
 	/**
@@ -7014,10 +6275,6 @@ Clears the selection name stack.
 
 	// --- [ glOrtho ] ---
 
-	/** JNI method for {@link #glOrtho Ortho} */
-	@JavadocExclude
-	public static native void nglOrtho(double l, double r, double b, double t, double n, double f, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glOrtho.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -7045,14 +6302,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Ortho;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglOrtho(l, r, b, t, n, f, __functionAddress);
+		invokeDDDDDDV(__functionAddress, l, r, b, t, n, f);
 	}
 
 	// --- [ glPassThrough ] ---
-
-	/** JNI method for {@link #glPassThrough PassThrough} */
-	@JavadocExclude
-	public static native void nglPassThrough(float token, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPassThrough.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -7067,14 +6320,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().PassThrough;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglPassThrough(token, __functionAddress);
+		invokeFV(__functionAddress, token);
 	}
 
 	// --- [ glPixelMapfv ] ---
-
-	/** JNI method for {@link #glPixelMapfv PixelMapfv} */
-	@JavadocExclude
-	public static native void nglPixelMapfv(int map, int size, long values, long __functionAddress);
 
 	/** Unsafe version of {@link #glPixelMapfv PixelMapfv} */
 	@JavadocExclude
@@ -7082,7 +6331,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().PixelMapfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglPixelMapfv(map, size, values, __functionAddress);
+		invokeIIPV(__functionAddress, map, size, values);
 	}
 
 	/**
@@ -7118,17 +6367,13 @@ Clears the selection name stack.
 
 	// --- [ glPixelMapusv ] ---
 
-	/** JNI method for {@link #glPixelMapusv PixelMapusv} */
-	@JavadocExclude
-	public static native void nglPixelMapusv(int map, int size, long values, long __functionAddress);
-
 	/** Unsafe version of {@link #glPixelMapusv PixelMapusv} */
 	@JavadocExclude
 	public static void nglPixelMapusv(int map, int size, long values) {
 		long __functionAddress = getInstance().PixelMapusv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglPixelMapusv(map, size, values, __functionAddress);
+		invokeIIPV(__functionAddress, map, size, values);
 	}
 
 	/**
@@ -7164,17 +6409,13 @@ Clears the selection name stack.
 
 	// --- [ glPixelMapuiv ] ---
 
-	/** JNI method for {@link #glPixelMapuiv PixelMapuiv} */
-	@JavadocExclude
-	public static native void nglPixelMapuiv(int map, int size, long values, long __functionAddress);
-
 	/** Unsafe version of {@link #glPixelMapuiv PixelMapuiv} */
 	@JavadocExclude
 	public static void nglPixelMapuiv(int map, int size, long values) {
 		long __functionAddress = getInstance().PixelMapuiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglPixelMapuiv(map, size, values, __functionAddress);
+		invokeIIPV(__functionAddress, map, size, values);
 	}
 
 	/**
@@ -7210,10 +6451,6 @@ Clears the selection name stack.
 
 	// --- [ glPixelStorei ] ---
 
-	/** JNI method for {@link #glPixelStorei PixelStorei} */
-	@JavadocExclude
-	public static native void nglPixelStorei(int pname, int param, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPixelStorei.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -7224,14 +6461,10 @@ Clears the selection name stack.
 	 */
 	public static void glPixelStorei(int pname, int param) {
 		long __functionAddress = getInstance().PixelStorei;
-		nglPixelStorei(pname, param, __functionAddress);
+		invokeIIV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPixelStoref ] ---
-
-	/** JNI method for {@link #glPixelStoref PixelStoref} */
-	@JavadocExclude
-	public static native void nglPixelStoref(int pname, int param, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPixelStoref.xhtml">OpenGL SDK Reference</a></p>
@@ -7243,14 +6476,10 @@ Clears the selection name stack.
 	 */
 	public static void glPixelStoref(int pname, int param) {
 		long __functionAddress = getInstance().PixelStoref;
-		nglPixelStoref(pname, param, __functionAddress);
+		invokeIIV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPixelTransferi ] ---
-
-	/** JNI method for {@link #glPixelTransferi PixelTransferi} */
-	@JavadocExclude
-	public static native void nglPixelTransferi(int pname, int param, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPixelTransferi.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -7264,14 +6493,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().PixelTransferi;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglPixelTransferi(pname, param, __functionAddress);
+		invokeIIV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPixelTransferf ] ---
-
-	/** JNI method for {@link #glPixelTransferf PixelTransferf} */
-	@JavadocExclude
-	public static native void nglPixelTransferf(int pname, float param, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPixelTransferf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -7285,14 +6510,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().PixelTransferf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglPixelTransferf(pname, param, __functionAddress);
+		invokeIFV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPixelZoom ] ---
-
-	/** JNI method for {@link #glPixelZoom PixelZoom} */
-	@JavadocExclude
-	public static native void nglPixelZoom(float xfactor, float yfactor, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPixelZoom.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -7314,14 +6535,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().PixelZoom;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglPixelZoom(xfactor, yfactor, __functionAddress);
+		invokeFFV(__functionAddress, xfactor, yfactor);
 	}
 
 	// --- [ glPointSize ] ---
-
-	/** JNI method for {@link #glPointSize PointSize} */
-	@JavadocExclude
-	public static native void nglPointSize(float size, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPointSize.xhtml">OpenGL SDK Reference</a></p>
@@ -7332,14 +6549,10 @@ Clears the selection name stack.
 	 */
 	public static void glPointSize(float size) {
 		long __functionAddress = getInstance().PointSize;
-		nglPointSize(size, __functionAddress);
+		invokeFV(__functionAddress, size);
 	}
 
 	// --- [ glPolygonMode ] ---
-
-	/** JNI method for {@link #glPolygonMode PolygonMode} */
-	@JavadocExclude
-	public static native void nglPolygonMode(int face, int mode, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPolygonMode.xhtml">OpenGL SDK Reference</a></p>
@@ -7355,14 +6568,10 @@ Clears the selection name stack.
 	 */
 	public static void glPolygonMode(int face, int mode) {
 		long __functionAddress = getInstance().PolygonMode;
-		nglPolygonMode(face, mode, __functionAddress);
+		invokeIIV(__functionAddress, face, mode);
 	}
 
 	// --- [ glPolygonOffset ] ---
-
-	/** JNI method for {@link #glPolygonOffset PolygonOffset} */
-	@JavadocExclude
-	public static native void nglPolygonOffset(float factor, float units, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPolygonOffset.xhtml">OpenGL SDK Reference</a></p>
@@ -7378,14 +6587,10 @@ Clears the selection name stack.
 	 */
 	public static void glPolygonOffset(float factor, float units) {
 		long __functionAddress = getInstance().PolygonOffset;
-		nglPolygonOffset(factor, units, __functionAddress);
+		invokeFFV(__functionAddress, factor, units);
 	}
 
 	// --- [ glPolygonStipple ] ---
-
-	/** JNI method for {@link #glPolygonStipple PolygonStipple} */
-	@JavadocExclude
-	public static native void nglPolygonStipple(long pattern, long __functionAddress);
 
 	/** Unsafe version of {@link #glPolygonStipple PolygonStipple} */
 	@JavadocExclude
@@ -7393,7 +6598,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().PolygonStipple;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglPolygonStipple(pattern, __functionAddress);
+		invokePV(__functionAddress, pattern);
 	}
 
 	/**
@@ -7425,10 +6630,6 @@ Clears the selection name stack.
 
 	// --- [ glPushAttrib ] ---
 
-	/** JNI method for {@link #glPushAttrib PushAttrib} */
-	@JavadocExclude
-	public static native void nglPushAttrib(int mask, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPushAttrib.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -7447,14 +6648,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().PushAttrib;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglPushAttrib(mask, __functionAddress);
+		invokeIV(__functionAddress, mask);
 	}
 
 	// --- [ glPushClientAttrib ] ---
-
-	/** JNI method for {@link #glPushClientAttrib PushClientAttrib} */
-	@JavadocExclude
-	public static native void nglPushClientAttrib(int mask, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPushClientAttrib.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -7474,14 +6671,10 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().PushClientAttrib;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglPushClientAttrib(mask, __functionAddress);
+		invokeIV(__functionAddress, mask);
 	}
 
 	// --- [ glPopAttrib ] ---
-
-	/** JNI method for {@link #glPopAttrib PopAttrib} */
-	@JavadocExclude
-	public static native void nglPopAttrib(long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPopAttrib.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -7492,14 +6685,10 @@ Resets the values of those state variables that were saved with the last {@link 
 		long __functionAddress = getInstance().PopAttrib;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglPopAttrib(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glPopClientAttrib ] ---
-
-	/** JNI method for {@link #glPopClientAttrib PopClientAttrib} */
-	@JavadocExclude
-	public static native void nglPopClientAttrib(long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPopClientAttrib.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -7510,14 +6699,10 @@ Resets the values of those state variables that were saved with the last {@link 
 		long __functionAddress = getInstance().PopClientAttrib;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglPopClientAttrib(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glPopMatrix ] ---
-
-	/** JNI method for {@link #glPopMatrix PopMatrix} */
-	@JavadocExclude
-	public static native void nglPopMatrix(long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPopMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -7528,14 +6713,10 @@ Pops the top entry off the current matrix stack, replacing the current matrix wi
 		long __functionAddress = getInstance().PopMatrix;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglPopMatrix(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glPopName ] ---
-
-	/** JNI method for {@link #glPopName PopName} */
-	@JavadocExclude
-	public static native void nglPopName(long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPopName.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -7546,14 +6727,10 @@ Pops one name off the top of the selection name stack.
 		long __functionAddress = getInstance().PopName;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglPopName(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glPrioritizeTextures ] ---
-
-	/** JNI method for {@link #glPrioritizeTextures PrioritizeTextures} */
-	@JavadocExclude
-	public static native void nglPrioritizeTextures(int n, long textures, long priorities, long __functionAddress);
 
 	/** Unsafe version of {@link #glPrioritizeTextures PrioritizeTextures} */
 	@JavadocExclude
@@ -7561,7 +6738,7 @@ Pops one name off the top of the selection name stack.
 		long __functionAddress = getInstance().PrioritizeTextures;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglPrioritizeTextures(n, textures, priorities, __functionAddress);
+		invokeIPPV(__functionAddress, n, textures, priorities);
 	}
 
 	/**
@@ -7591,10 +6768,6 @@ Pops one name off the top of the selection name stack.
 
 	// --- [ glPushMatrix ] ---
 
-	/** JNI method for {@link #glPushMatrix PushMatrix} */
-	@JavadocExclude
-	public static native void nglPushMatrix(long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPushMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -7604,14 +6777,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().PushMatrix;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglPushMatrix(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glPushName ] ---
-
-	/** JNI method for {@link #glPushName PushName} */
-	@JavadocExclude
-	public static native void nglPushName(int name, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPushName.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -7624,14 +6793,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().PushName;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglPushName(name, __functionAddress);
+		invokeIV(__functionAddress, name);
 	}
 
 	// --- [ glRasterPos2i ] ---
-
-	/** JNI method for {@link #glRasterPos2i RasterPos2i} */
-	@JavadocExclude
-	public static native void nglRasterPos2i(int x, int y, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -7651,14 +6816,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos2i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos2i(x, y, __functionAddress);
+		invokeIIV(__functionAddress, x, y);
 	}
 
 	// --- [ glRasterPos2s ] ---
-
-	/** JNI method for {@link #glRasterPos2s RasterPos2s} */
-	@JavadocExclude
-	public static native void nglRasterPos2s(short x, short y, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -7672,14 +6833,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos2s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos2s(x, y, __functionAddress);
+		invokeSSV(__functionAddress, x, y);
 	}
 
 	// --- [ glRasterPos2f ] ---
-
-	/** JNI method for {@link #glRasterPos2f RasterPos2f} */
-	@JavadocExclude
-	public static native void nglRasterPos2f(float x, float y, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -7693,14 +6850,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos2f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos2f(x, y, __functionAddress);
+		invokeFFV(__functionAddress, x, y);
 	}
 
 	// --- [ glRasterPos2d ] ---
-
-	/** JNI method for {@link #glRasterPos2d RasterPos2d} */
-	@JavadocExclude
-	public static native void nglRasterPos2d(double x, double y, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -7714,14 +6867,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos2d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos2d(x, y, __functionAddress);
+		invokeDDV(__functionAddress, x, y);
 	}
 
 	// --- [ glRasterPos2iv ] ---
-
-	/** JNI method for {@link #glRasterPos2iv RasterPos2iv} */
-	@JavadocExclude
-	public static native void nglRasterPos2iv(long coords, long __functionAddress);
 
 	/** Unsafe version of {@link #glRasterPos2iv RasterPos2iv} */
 	@JavadocExclude
@@ -7729,7 +6878,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos2iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos2iv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -7754,17 +6903,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos2sv ] ---
 
-	/** JNI method for {@link #glRasterPos2sv RasterPos2sv} */
-	@JavadocExclude
-	public static native void nglRasterPos2sv(long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glRasterPos2sv RasterPos2sv} */
 	@JavadocExclude
 	public static void nglRasterPos2sv(long coords) {
 		long __functionAddress = getInstance().RasterPos2sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos2sv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -7789,17 +6934,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos2fv ] ---
 
-	/** JNI method for {@link #glRasterPos2fv RasterPos2fv} */
-	@JavadocExclude
-	public static native void nglRasterPos2fv(long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glRasterPos2fv RasterPos2fv} */
 	@JavadocExclude
 	public static void nglRasterPos2fv(long coords) {
 		long __functionAddress = getInstance().RasterPos2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos2fv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -7824,17 +6965,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos2dv ] ---
 
-	/** JNI method for {@link #glRasterPos2dv RasterPos2dv} */
-	@JavadocExclude
-	public static native void nglRasterPos2dv(long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glRasterPos2dv RasterPos2dv} */
 	@JavadocExclude
 	public static void nglRasterPos2dv(long coords) {
 		long __functionAddress = getInstance().RasterPos2dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos2dv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -7859,10 +6996,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos3i ] ---
 
-	/** JNI method for {@link #glRasterPos3i RasterPos3i} */
-	@JavadocExclude
-	public static native void nglRasterPos3i(int x, int y, int z, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -7876,14 +7009,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos3i(x, y, z, __functionAddress);
+		invokeIIIV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glRasterPos3s ] ---
-
-	/** JNI method for {@link #glRasterPos3s RasterPos3s} */
-	@JavadocExclude
-	public static native void nglRasterPos3s(short x, short y, short z, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -7898,14 +7027,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos3s(x, y, z, __functionAddress);
+		invokeSSSV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glRasterPos3f ] ---
-
-	/** JNI method for {@link #glRasterPos3f RasterPos3f} */
-	@JavadocExclude
-	public static native void nglRasterPos3f(float x, float y, float z, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -7920,14 +7045,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos3f(x, y, z, __functionAddress);
+		invokeFFFV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glRasterPos3d ] ---
-
-	/** JNI method for {@link #glRasterPos3d RasterPos3d} */
-	@JavadocExclude
-	public static native void nglRasterPos3d(double x, double y, double z, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -7942,14 +7063,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos3d(x, y, z, __functionAddress);
+		invokeDDDV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glRasterPos3iv ] ---
-
-	/** JNI method for {@link #glRasterPos3iv RasterPos3iv} */
-	@JavadocExclude
-	public static native void nglRasterPos3iv(long coords, long __functionAddress);
 
 	/** Unsafe version of {@link #glRasterPos3iv RasterPos3iv} */
 	@JavadocExclude
@@ -7957,7 +7074,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos3iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos3iv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -7982,17 +7099,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos3sv ] ---
 
-	/** JNI method for {@link #glRasterPos3sv RasterPos3sv} */
-	@JavadocExclude
-	public static native void nglRasterPos3sv(long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glRasterPos3sv RasterPos3sv} */
 	@JavadocExclude
 	public static void nglRasterPos3sv(long coords) {
 		long __functionAddress = getInstance().RasterPos3sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos3sv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -8017,17 +7130,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos3fv ] ---
 
-	/** JNI method for {@link #glRasterPos3fv RasterPos3fv} */
-	@JavadocExclude
-	public static native void nglRasterPos3fv(long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glRasterPos3fv RasterPos3fv} */
 	@JavadocExclude
 	public static void nglRasterPos3fv(long coords) {
 		long __functionAddress = getInstance().RasterPos3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos3fv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -8052,17 +7161,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos3dv ] ---
 
-	/** JNI method for {@link #glRasterPos3dv RasterPos3dv} */
-	@JavadocExclude
-	public static native void nglRasterPos3dv(long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glRasterPos3dv RasterPos3dv} */
 	@JavadocExclude
 	public static void nglRasterPos3dv(long coords) {
 		long __functionAddress = getInstance().RasterPos3dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos3dv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -8087,10 +7192,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos4i ] ---
 
-	/** JNI method for {@link #glRasterPos4i RasterPos4i} */
-	@JavadocExclude
-	public static native void nglRasterPos4i(int x, int y, int z, int w, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -8105,14 +7206,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos4i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos4i(x, y, z, w, __functionAddress);
+		invokeIIIIV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glRasterPos4s ] ---
-
-	/** JNI method for {@link #glRasterPos4s RasterPos4s} */
-	@JavadocExclude
-	public static native void nglRasterPos4s(short x, short y, short z, short w, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -8128,14 +7225,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos4s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos4s(x, y, z, w, __functionAddress);
+		invokeSSSSV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glRasterPos4f ] ---
-
-	/** JNI method for {@link #glRasterPos4f RasterPos4f} */
-	@JavadocExclude
-	public static native void nglRasterPos4f(float x, float y, float z, float w, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -8151,14 +7244,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos4f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos4f(x, y, z, w, __functionAddress);
+		invokeFFFFV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glRasterPos4d ] ---
-
-	/** JNI method for {@link #glRasterPos4d RasterPos4d} */
-	@JavadocExclude
-	public static native void nglRasterPos4d(double x, double y, double z, double w, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -8174,14 +7263,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos4d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos4d(x, y, z, w, __functionAddress);
+		invokeDDDDV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glRasterPos4iv ] ---
-
-	/** JNI method for {@link #glRasterPos4iv RasterPos4iv} */
-	@JavadocExclude
-	public static native void nglRasterPos4iv(long coords, long __functionAddress);
 
 	/** Unsafe version of {@link #glRasterPos4iv RasterPos4iv} */
 	@JavadocExclude
@@ -8189,7 +7274,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos4iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos4iv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -8214,17 +7299,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos4sv ] ---
 
-	/** JNI method for {@link #glRasterPos4sv RasterPos4sv} */
-	@JavadocExclude
-	public static native void nglRasterPos4sv(long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glRasterPos4sv RasterPos4sv} */
 	@JavadocExclude
 	public static void nglRasterPos4sv(long coords) {
 		long __functionAddress = getInstance().RasterPos4sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos4sv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -8249,17 +7330,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos4fv ] ---
 
-	/** JNI method for {@link #glRasterPos4fv RasterPos4fv} */
-	@JavadocExclude
-	public static native void nglRasterPos4fv(long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glRasterPos4fv RasterPos4fv} */
 	@JavadocExclude
 	public static void nglRasterPos4fv(long coords) {
 		long __functionAddress = getInstance().RasterPos4fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos4fv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -8284,17 +7361,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRasterPos4dv ] ---
 
-	/** JNI method for {@link #glRasterPos4dv RasterPos4dv} */
-	@JavadocExclude
-	public static native void nglRasterPos4dv(long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glRasterPos4dv RasterPos4dv} */
 	@JavadocExclude
 	public static void nglRasterPos4dv(long coords) {
 		long __functionAddress = getInstance().RasterPos4dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRasterPos4dv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -8319,10 +7392,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glReadBuffer ] ---
 
-	/** JNI method for {@link #glReadBuffer ReadBuffer} */
-	@JavadocExclude
-	public static native void nglReadBuffer(int src, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadBuffer.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -8335,20 +7404,16 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glReadBuffer(int src) {
 		long __functionAddress = getInstance().ReadBuffer;
-		nglReadBuffer(src, __functionAddress);
+		invokeIV(__functionAddress, src);
 	}
 
 	// --- [ glReadPixels ] ---
-
-	/** JNI method for {@link #glReadPixels ReadPixels} */
-	@JavadocExclude
-	public static native void nglReadPixels(int x, int y, int width, int height, int format, int type, long pixels, long __functionAddress);
 
 	/** Unsafe version of {@link #glReadPixels ReadPixels} */
 	@JavadocExclude
 	public static void nglReadPixels(int x, int y, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = getInstance().ReadPixels;
-		nglReadPixels(x, y, width, height, format, type, pixels, __functionAddress);
+		invokeIIIIIIPV(__functionAddress, x, y, width, height, format, type, pixels);
 	}
 
 	/**
@@ -8404,10 +7469,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRecti ] ---
 
-	/** JNI method for {@link #glRecti Recti} */
-	@JavadocExclude
-	public static native void nglRecti(int x1, int y1, int x2, int y2, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRecti.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -8435,14 +7496,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Recti;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRecti(x1, y1, x2, y2, __functionAddress);
+		invokeIIIIV(__functionAddress, x1, y1, x2, y2);
 	}
 
 	// --- [ glRects ] ---
-
-	/** JNI method for {@link #glRects Rects} */
-	@JavadocExclude
-	public static native void nglRects(short x1, short y1, short x2, short y2, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRects.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -8458,14 +7515,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Rects;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRects(x1, y1, x2, y2, __functionAddress);
+		invokeSSSSV(__functionAddress, x1, y1, x2, y2);
 	}
 
 	// --- [ glRectf ] ---
-
-	/** JNI method for {@link #glRectf Rectf} */
-	@JavadocExclude
-	public static native void nglRectf(float x1, float y1, float x2, float y2, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRectf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -8481,14 +7534,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Rectf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRectf(x1, y1, x2, y2, __functionAddress);
+		invokeFFFFV(__functionAddress, x1, y1, x2, y2);
 	}
 
 	// --- [ glRectd ] ---
-
-	/** JNI method for {@link #glRectd Rectd} */
-	@JavadocExclude
-	public static native void nglRectd(double x1, double y1, double x2, double y2, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRectd.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -8504,14 +7553,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Rectd;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRectd(x1, y1, x2, y2, __functionAddress);
+		invokeDDDDV(__functionAddress, x1, y1, x2, y2);
 	}
 
 	// --- [ glRectiv ] ---
-
-	/** JNI method for {@link #glRectiv Rectiv} */
-	@JavadocExclude
-	public static native void nglRectiv(long v1, long v2, long __functionAddress);
 
 	/** Unsafe version of {@link #glRectiv Rectiv} */
 	@JavadocExclude
@@ -8519,7 +7564,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Rectiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRectiv(v1, v2, __functionAddress);
+		invokePPV(__functionAddress, v1, v2);
 	}
 
 	/**
@@ -8549,17 +7594,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRectsv ] ---
 
-	/** JNI method for {@link #glRectsv Rectsv} */
-	@JavadocExclude
-	public static native void nglRectsv(long v1, long v2, long __functionAddress);
-
 	/** Unsafe version of {@link #glRectsv Rectsv} */
 	@JavadocExclude
 	public static void nglRectsv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectsv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRectsv(v1, v2, __functionAddress);
+		invokePPV(__functionAddress, v1, v2);
 	}
 
 	/**
@@ -8589,17 +7630,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRectfv ] ---
 
-	/** JNI method for {@link #glRectfv Rectfv} */
-	@JavadocExclude
-	public static native void nglRectfv(long v1, long v2, long __functionAddress);
-
 	/** Unsafe version of {@link #glRectfv Rectfv} */
 	@JavadocExclude
 	public static void nglRectfv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRectfv(v1, v2, __functionAddress);
+		invokePPV(__functionAddress, v1, v2);
 	}
 
 	/**
@@ -8629,17 +7666,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRectdv ] ---
 
-	/** JNI method for {@link #glRectdv Rectdv} */
-	@JavadocExclude
-	public static native void nglRectdv(long v1, long v2, long __functionAddress);
-
 	/** Unsafe version of {@link #glRectdv Rectdv} */
 	@JavadocExclude
 	public static void nglRectdv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectdv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRectdv(v1, v2, __functionAddress);
+		invokePPV(__functionAddress, v1, v2);
 	}
 
 	/**
@@ -8669,10 +7702,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glRenderMode ] ---
 
-	/** JNI method for {@link #glRenderMode RenderMode} */
-	@JavadocExclude
-	public static native int nglRenderMode(int mode, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRenderMode.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -8684,14 +7713,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RenderMode;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return nglRenderMode(mode, __functionAddress);
+		return invokeII(__functionAddress, mode);
 	}
 
 	// --- [ glRotatef ] ---
-
-	/** JNI method for {@link #glRotatef Rotatef} */
-	@JavadocExclude
-	public static native void nglRotatef(float angle, float x, float y, float z, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRotatef.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -8726,14 +7751,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Rotatef;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRotatef(angle, x, y, z, __functionAddress);
+		invokeFFFFV(__functionAddress, angle, x, y, z);
 	}
 
 	// --- [ glRotated ] ---
-
-	/** JNI method for {@link #glRotated Rotated} */
-	@JavadocExclude
-	public static native void nglRotated(double angle, double x, double y, double z, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRotated.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -8749,14 +7770,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Rotated;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglRotated(angle, x, y, z, __functionAddress);
+		invokeDDDDV(__functionAddress, angle, x, y, z);
 	}
 
 	// --- [ glScalef ] ---
-
-	/** JNI method for {@link #glScalef Scalef} */
-	@JavadocExclude
-	public static native void nglScalef(float x, float y, float z, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glScalef.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -8779,14 +7796,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Scalef;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglScalef(x, y, z, __functionAddress);
+		invokeFFFV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glScaled ] ---
-
-	/** JNI method for {@link #glScaled Scaled} */
-	@JavadocExclude
-	public static native void nglScaled(double x, double y, double z, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glScaled.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -8801,14 +7814,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Scaled;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglScaled(x, y, z, __functionAddress);
+		invokeDDDV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glScissor ] ---
-
-	/** JNI method for {@link #glScissor Scissor} */
-	@JavadocExclude
-	public static native void nglScissor(int x, int y, int width, int height, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glScissor.xhtml">OpenGL SDK Reference</a></p>
@@ -8825,14 +7834,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glScissor(int x, int y, int width, int height) {
 		long __functionAddress = getInstance().Scissor;
-		nglScissor(x, y, width, height, __functionAddress);
+		invokeIIIIV(__functionAddress, x, y, width, height);
 	}
 
 	// --- [ glSelectBuffer ] ---
-
-	/** JNI method for {@link #glSelectBuffer SelectBuffer} */
-	@JavadocExclude
-	public static native void nglSelectBuffer(int size, long buffer, long __functionAddress);
 
 	/** Unsafe version of {@link #glSelectBuffer SelectBuffer} */
 	@JavadocExclude
@@ -8840,7 +7845,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().SelectBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglSelectBuffer(size, buffer, __functionAddress);
+		invokeIPV(__functionAddress, size, buffer);
 	}
 
 	/**
@@ -8864,10 +7869,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glShadeModel ] ---
 
-	/** JNI method for {@link #glShadeModel ShadeModel} */
-	@JavadocExclude
-	public static native void nglShadeModel(int mode, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glShadeModel.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -8883,14 +7884,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().ShadeModel;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglShadeModel(mode, __functionAddress);
+		invokeIV(__functionAddress, mode);
 	}
 
 	// --- [ glStencilFunc ] ---
-
-	/** JNI method for {@link #glStencilFunc StencilFunc} */
-	@JavadocExclude
-	public static native void nglStencilFunc(int func, int ref, int mask, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glStencilFunc.xhtml">OpenGL SDK Reference</a></p>
@@ -8908,14 +7905,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glStencilFunc(int func, int ref, int mask) {
 		long __functionAddress = getInstance().StencilFunc;
-		nglStencilFunc(func, ref, mask, __functionAddress);
+		invokeIIIV(__functionAddress, func, ref, mask);
 	}
 
 	// --- [ glStencilMask ] ---
-
-	/** JNI method for {@link #glStencilMask StencilMask} */
-	@JavadocExclude
-	public static native void nglStencilMask(int mask, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glStencilMask.xhtml">OpenGL SDK Reference</a></p>
@@ -8929,14 +7922,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glStencilMask(int mask) {
 		long __functionAddress = getInstance().StencilMask;
-		nglStencilMask(mask, __functionAddress);
+		invokeIV(__functionAddress, mask);
 	}
 
 	// --- [ glStencilOp ] ---
-
-	/** JNI method for {@link #glStencilOp StencilOp} */
-	@JavadocExclude
-	public static native void nglStencilOp(int sfail, int dpfail, int dppass, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glStencilOp.xhtml">OpenGL SDK Reference</a></p>
@@ -8957,14 +7946,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glStencilOp(int sfail, int dpfail, int dppass) {
 		long __functionAddress = getInstance().StencilOp;
-		nglStencilOp(sfail, dpfail, dppass, __functionAddress);
+		invokeIIIV(__functionAddress, sfail, dpfail, dppass);
 	}
 
 	// --- [ glTexCoord1f ] ---
-
-	/** JNI method for {@link #glTexCoord1f TexCoord1f} */
-	@JavadocExclude
-	public static native void nglTexCoord1f(float s, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -8977,14 +7962,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord1f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord1f(s, __functionAddress);
+		invokeFV(__functionAddress, s);
 	}
 
 	// --- [ glTexCoord1s ] ---
-
-	/** JNI method for {@link #glTexCoord1s TexCoord1s} */
-	@JavadocExclude
-	public static native void nglTexCoord1s(short s, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -8997,14 +7978,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord1s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord1s(s, __functionAddress);
+		invokeSV(__functionAddress, s);
 	}
 
 	// --- [ glTexCoord1i ] ---
-
-	/** JNI method for {@link #glTexCoord1i TexCoord1i} */
-	@JavadocExclude
-	public static native void nglTexCoord1i(int s, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -9017,14 +7994,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord1i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord1i(s, __functionAddress);
+		invokeIV(__functionAddress, s);
 	}
 
 	// --- [ glTexCoord1d ] ---
-
-	/** JNI method for {@link #glTexCoord1d TexCoord1d} */
-	@JavadocExclude
-	public static native void nglTexCoord1d(double s, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -9037,14 +8010,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord1d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord1d(s, __functionAddress);
+		invokeDV(__functionAddress, s);
 	}
 
 	// --- [ glTexCoord1fv ] ---
-
-	/** JNI method for {@link #glTexCoord1fv TexCoord1fv} */
-	@JavadocExclude
-	public static native void nglTexCoord1fv(long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glTexCoord1fv TexCoord1fv} */
 	@JavadocExclude
@@ -9052,7 +8021,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord1fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord1fv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -9077,17 +8046,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord1sv ] ---
 
-	/** JNI method for {@link #glTexCoord1sv TexCoord1sv} */
-	@JavadocExclude
-	public static native void nglTexCoord1sv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexCoord1sv TexCoord1sv} */
 	@JavadocExclude
 	public static void nglTexCoord1sv(long v) {
 		long __functionAddress = getInstance().TexCoord1sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord1sv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -9112,17 +8077,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord1iv ] ---
 
-	/** JNI method for {@link #glTexCoord1iv TexCoord1iv} */
-	@JavadocExclude
-	public static native void nglTexCoord1iv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexCoord1iv TexCoord1iv} */
 	@JavadocExclude
 	public static void nglTexCoord1iv(long v) {
 		long __functionAddress = getInstance().TexCoord1iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord1iv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -9147,17 +8108,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord1dv ] ---
 
-	/** JNI method for {@link #glTexCoord1dv TexCoord1dv} */
-	@JavadocExclude
-	public static native void nglTexCoord1dv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexCoord1dv TexCoord1dv} */
 	@JavadocExclude
 	public static void nglTexCoord1dv(long v) {
 		long __functionAddress = getInstance().TexCoord1dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord1dv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -9182,10 +8139,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord2f ] ---
 
-	/** JNI method for {@link #glTexCoord2f TexCoord2f} */
-	@JavadocExclude
-	public static native void nglTexCoord2f(float s, float t, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -9198,14 +8151,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord2f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord2f(s, t, __functionAddress);
+		invokeFFV(__functionAddress, s, t);
 	}
 
 	// --- [ glTexCoord2s ] ---
-
-	/** JNI method for {@link #glTexCoord2s TexCoord2s} */
-	@JavadocExclude
-	public static native void nglTexCoord2s(short s, short t, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -9219,14 +8168,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord2s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord2s(s, t, __functionAddress);
+		invokeSSV(__functionAddress, s, t);
 	}
 
 	// --- [ glTexCoord2i ] ---
-
-	/** JNI method for {@link #glTexCoord2i TexCoord2i} */
-	@JavadocExclude
-	public static native void nglTexCoord2i(int s, int t, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -9240,14 +8185,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord2i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord2i(s, t, __functionAddress);
+		invokeIIV(__functionAddress, s, t);
 	}
 
 	// --- [ glTexCoord2d ] ---
-
-	/** JNI method for {@link #glTexCoord2d TexCoord2d} */
-	@JavadocExclude
-	public static native void nglTexCoord2d(double s, double t, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -9261,14 +8202,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord2d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord2d(s, t, __functionAddress);
+		invokeDDV(__functionAddress, s, t);
 	}
 
 	// --- [ glTexCoord2fv ] ---
-
-	/** JNI method for {@link #glTexCoord2fv TexCoord2fv} */
-	@JavadocExclude
-	public static native void nglTexCoord2fv(long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glTexCoord2fv TexCoord2fv} */
 	@JavadocExclude
@@ -9276,7 +8213,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord2fv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -9301,17 +8238,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord2sv ] ---
 
-	/** JNI method for {@link #glTexCoord2sv TexCoord2sv} */
-	@JavadocExclude
-	public static native void nglTexCoord2sv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexCoord2sv TexCoord2sv} */
 	@JavadocExclude
 	public static void nglTexCoord2sv(long v) {
 		long __functionAddress = getInstance().TexCoord2sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord2sv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -9336,17 +8269,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord2iv ] ---
 
-	/** JNI method for {@link #glTexCoord2iv TexCoord2iv} */
-	@JavadocExclude
-	public static native void nglTexCoord2iv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexCoord2iv TexCoord2iv} */
 	@JavadocExclude
 	public static void nglTexCoord2iv(long v) {
 		long __functionAddress = getInstance().TexCoord2iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord2iv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -9371,17 +8300,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord2dv ] ---
 
-	/** JNI method for {@link #glTexCoord2dv TexCoord2dv} */
-	@JavadocExclude
-	public static native void nglTexCoord2dv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexCoord2dv TexCoord2dv} */
 	@JavadocExclude
 	public static void nglTexCoord2dv(long v) {
 		long __functionAddress = getInstance().TexCoord2dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord2dv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -9406,10 +8331,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord3f ] ---
 
-	/** JNI method for {@link #glTexCoord3f TexCoord3f} */
-	@JavadocExclude
-	public static native void nglTexCoord3f(float s, float t, float r, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -9423,14 +8344,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord3f(s, t, r, __functionAddress);
+		invokeFFFV(__functionAddress, s, t, r);
 	}
 
 	// --- [ glTexCoord3s ] ---
-
-	/** JNI method for {@link #glTexCoord3s TexCoord3s} */
-	@JavadocExclude
-	public static native void nglTexCoord3s(short s, short t, short r, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -9445,14 +8362,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord3s(s, t, r, __functionAddress);
+		invokeSSSV(__functionAddress, s, t, r);
 	}
 
 	// --- [ glTexCoord3i ] ---
-
-	/** JNI method for {@link #glTexCoord3i TexCoord3i} */
-	@JavadocExclude
-	public static native void nglTexCoord3i(int s, int t, int r, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -9467,14 +8380,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord3i(s, t, r, __functionAddress);
+		invokeIIIV(__functionAddress, s, t, r);
 	}
 
 	// --- [ glTexCoord3d ] ---
-
-	/** JNI method for {@link #glTexCoord3d TexCoord3d} */
-	@JavadocExclude
-	public static native void nglTexCoord3d(double s, double t, double r, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -9489,14 +8398,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord3d(s, t, r, __functionAddress);
+		invokeDDDV(__functionAddress, s, t, r);
 	}
 
 	// --- [ glTexCoord3fv ] ---
-
-	/** JNI method for {@link #glTexCoord3fv TexCoord3fv} */
-	@JavadocExclude
-	public static native void nglTexCoord3fv(long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glTexCoord3fv TexCoord3fv} */
 	@JavadocExclude
@@ -9504,7 +8409,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord3fv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -9529,17 +8434,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord3sv ] ---
 
-	/** JNI method for {@link #glTexCoord3sv TexCoord3sv} */
-	@JavadocExclude
-	public static native void nglTexCoord3sv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexCoord3sv TexCoord3sv} */
 	@JavadocExclude
 	public static void nglTexCoord3sv(long v) {
 		long __functionAddress = getInstance().TexCoord3sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord3sv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -9564,17 +8465,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord3iv ] ---
 
-	/** JNI method for {@link #glTexCoord3iv TexCoord3iv} */
-	@JavadocExclude
-	public static native void nglTexCoord3iv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexCoord3iv TexCoord3iv} */
 	@JavadocExclude
 	public static void nglTexCoord3iv(long v) {
 		long __functionAddress = getInstance().TexCoord3iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord3iv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -9599,17 +8496,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord3dv ] ---
 
-	/** JNI method for {@link #glTexCoord3dv TexCoord3dv} */
-	@JavadocExclude
-	public static native void nglTexCoord3dv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexCoord3dv TexCoord3dv} */
 	@JavadocExclude
 	public static void nglTexCoord3dv(long v) {
 		long __functionAddress = getInstance().TexCoord3dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord3dv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -9634,10 +8527,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord4f ] ---
 
-	/** JNI method for {@link #glTexCoord4f TexCoord4f} */
-	@JavadocExclude
-	public static native void nglTexCoord4f(float s, float t, float r, float q, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -9652,14 +8541,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord4f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord4f(s, t, r, q, __functionAddress);
+		invokeFFFFV(__functionAddress, s, t, r, q);
 	}
 
 	// --- [ glTexCoord4s ] ---
-
-	/** JNI method for {@link #glTexCoord4s TexCoord4s} */
-	@JavadocExclude
-	public static native void nglTexCoord4s(short s, short t, short r, short q, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -9675,14 +8560,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord4s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord4s(s, t, r, q, __functionAddress);
+		invokeSSSSV(__functionAddress, s, t, r, q);
 	}
 
 	// --- [ glTexCoord4i ] ---
-
-	/** JNI method for {@link #glTexCoord4i TexCoord4i} */
-	@JavadocExclude
-	public static native void nglTexCoord4i(int s, int t, int r, int q, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -9698,14 +8579,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord4i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord4i(s, t, r, q, __functionAddress);
+		invokeIIIIV(__functionAddress, s, t, r, q);
 	}
 
 	// --- [ glTexCoord4d ] ---
-
-	/** JNI method for {@link #glTexCoord4d TexCoord4d} */
-	@JavadocExclude
-	public static native void nglTexCoord4d(double s, double t, double r, double q, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -9721,14 +8598,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord4d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord4d(s, t, r, q, __functionAddress);
+		invokeDDDDV(__functionAddress, s, t, r, q);
 	}
 
 	// --- [ glTexCoord4fv ] ---
-
-	/** JNI method for {@link #glTexCoord4fv TexCoord4fv} */
-	@JavadocExclude
-	public static native void nglTexCoord4fv(long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glTexCoord4fv TexCoord4fv} */
 	@JavadocExclude
@@ -9736,7 +8609,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord4fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord4fv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -9761,17 +8634,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord4sv ] ---
 
-	/** JNI method for {@link #glTexCoord4sv TexCoord4sv} */
-	@JavadocExclude
-	public static native void nglTexCoord4sv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexCoord4sv TexCoord4sv} */
 	@JavadocExclude
 	public static void nglTexCoord4sv(long v) {
 		long __functionAddress = getInstance().TexCoord4sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord4sv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -9796,17 +8665,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord4iv ] ---
 
-	/** JNI method for {@link #glTexCoord4iv TexCoord4iv} */
-	@JavadocExclude
-	public static native void nglTexCoord4iv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexCoord4iv TexCoord4iv} */
 	@JavadocExclude
 	public static void nglTexCoord4iv(long v) {
 		long __functionAddress = getInstance().TexCoord4iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord4iv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -9831,17 +8696,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoord4dv ] ---
 
-	/** JNI method for {@link #glTexCoord4dv TexCoord4dv} */
-	@JavadocExclude
-	public static native void nglTexCoord4dv(long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexCoord4dv TexCoord4dv} */
 	@JavadocExclude
 	public static void nglTexCoord4dv(long v) {
 		long __functionAddress = getInstance().TexCoord4dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoord4dv(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	/**
@@ -9866,17 +8727,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexCoordPointer ] ---
 
-	/** JNI method for {@link #glTexCoordPointer TexCoordPointer} */
-	@JavadocExclude
-	public static native void nglTexCoordPointer(int size, int type, int stride, long pointer, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexCoordPointer TexCoordPointer} */
 	@JavadocExclude
 	public static void nglTexCoordPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().TexCoordPointer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoordPointer(size, type, stride, pointer, __functionAddress);
+		invokeIIIPV(__functionAddress, size, type, stride, pointer);
 	}
 
 	/**
@@ -9925,10 +8782,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexEnvi ] ---
 
-	/** JNI method for {@link #glTexEnvi TexEnvi} */
-	@JavadocExclude
-	public static native void nglTexEnvi(int target, int pname, int param, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexEnvi.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -9941,20 +8794,16 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexEnvi(int target, int pname, int param) {
 		long __functionAddress = getInstance().TexEnvi;
-		nglTexEnvi(target, pname, param, __functionAddress);
+		invokeIIIV(__functionAddress, target, pname, param);
 	}
 
 	// --- [ glTexEnviv ] ---
-
-	/** JNI method for {@link #glTexEnviv TexEnviv} */
-	@JavadocExclude
-	public static native void nglTexEnviv(int target, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glTexEnviv TexEnviv} */
 	@JavadocExclude
 	public static void nglTexEnviv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexEnviv;
-		nglTexEnviv(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -9981,10 +8830,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexEnvf ] ---
 
-	/** JNI method for {@link #glTexEnvf TexEnvf} */
-	@JavadocExclude
-	public static native void nglTexEnvf(int target, int pname, float param, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexEnvf.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -9996,20 +8841,16 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexEnvf(int target, int pname, float param) {
 		long __functionAddress = getInstance().TexEnvf;
-		nglTexEnvf(target, pname, param, __functionAddress);
+		invokeIIFV(__functionAddress, target, pname, param);
 	}
 
 	// --- [ glTexEnvfv ] ---
-
-	/** JNI method for {@link #glTexEnvfv TexEnvfv} */
-	@JavadocExclude
-	public static native void nglTexEnvfv(int target, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glTexEnvfv TexEnvfv} */
 	@JavadocExclude
 	public static void nglTexEnvfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexEnvfv;
-		nglTexEnvfv(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -10036,10 +8877,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexGeni ] ---
 
-	/** JNI method for {@link #glTexGeni TexGeni} */
-	@JavadocExclude
-	public static native void nglTexGeni(int coord, int pname, int param, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexGeni.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -10061,14 +8898,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexGeni;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexGeni(coord, pname, param, __functionAddress);
+		invokeIIIV(__functionAddress, coord, pname, param);
 	}
 
 	// --- [ glTexGeniv ] ---
-
-	/** JNI method for {@link #glTexGeniv TexGeniv} */
-	@JavadocExclude
-	public static native void nglTexGeniv(int coord, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glTexGeniv TexGeniv} */
 	@JavadocExclude
@@ -10076,7 +8909,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexGeniv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexGeniv(coord, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, coord, pname, params);
 	}
 
 	/**
@@ -10103,10 +8936,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexGenf ] ---
 
-	/** JNI method for {@link #glTexGenf TexGenf} */
-	@JavadocExclude
-	public static native void nglTexGenf(int coord, int pname, float param, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexGenf.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -10120,14 +8949,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexGenf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexGenf(coord, pname, param, __functionAddress);
+		invokeIIFV(__functionAddress, coord, pname, param);
 	}
 
 	// --- [ glTexGenfv ] ---
-
-	/** JNI method for {@link #glTexGenfv TexGenfv} */
-	@JavadocExclude
-	public static native void nglTexGenfv(int coord, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glTexGenfv TexGenfv} */
 	@JavadocExclude
@@ -10135,7 +8960,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexGenfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexGenfv(coord, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, coord, pname, params);
 	}
 
 	/**
@@ -10162,10 +8987,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexGend ] ---
 
-	/** JNI method for {@link #glTexGend TexGend} */
-	@JavadocExclude
-	public static native void nglTexGend(int coord, int pname, double param, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexGend.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -10179,14 +9000,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexGend;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexGend(coord, pname, param, __functionAddress);
+		invokeIIDV(__functionAddress, coord, pname, param);
 	}
 
 	// --- [ glTexGendv ] ---
-
-	/** JNI method for {@link #glTexGendv TexGendv} */
-	@JavadocExclude
-	public static native void nglTexGendv(int coord, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glTexGendv TexGendv} */
 	@JavadocExclude
@@ -10194,7 +9011,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexGendv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexGendv(coord, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, coord, pname, params);
 	}
 
 	/**
@@ -10221,15 +9038,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexImage2D ] ---
 
-	/** JNI method for {@link #glTexImage2D TexImage2D} */
-	@JavadocExclude
-	public static native void nglTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexImage2D TexImage2D} */
 	@JavadocExclude
 	public static void nglTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexImage2D;
-		nglTexImage2D(target, level, internalformat, width, height, border, format, type, pixels, __functionAddress);
+		invokeIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
 	/**
@@ -10290,15 +9103,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexImage1D ] ---
 
-	/** JNI method for {@link #glTexImage1D TexImage1D} */
-	@JavadocExclude
-	public static native void nglTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, long pixels, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexImage1D TexImage1D} */
 	@JavadocExclude
 	public static void nglTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexImage1D;
-		nglTexImage1D(target, level, internalformat, width, border, format, type, pixels, __functionAddress);
+		invokeIIIIIIIPV(__functionAddress, target, level, internalformat, width, border, format, type, pixels);
 	}
 
 	/**
@@ -10358,10 +9167,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glCopyTexImage2D ] ---
 
-	/** JNI method for {@link #glCopyTexImage2D CopyTexImage2D} */
-	@JavadocExclude
-	public static native void nglCopyTexImage2D(int target, int level, int internalFormat, int x, int y, int width, int height, int border, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyTexImage2D.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -10392,14 +9197,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glCopyTexImage2D(int target, int level, int internalFormat, int x, int y, int width, int height, int border) {
 		long __functionAddress = getInstance().CopyTexImage2D;
-		nglCopyTexImage2D(target, level, internalFormat, x, y, width, height, border, __functionAddress);
+		invokeIIIIIIIIV(__functionAddress, target, level, internalFormat, x, y, width, height, border);
 	}
 
 	// --- [ glCopyTexImage1D ] ---
-
-	/** JNI method for {@link #glCopyTexImage1D CopyTexImage1D} */
-	@JavadocExclude
-	public static native void nglCopyTexImage1D(int target, int level, int internalFormat, int x, int y, int width, int border, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyTexImage1D.xhtml">OpenGL SDK Reference</a></p>
@@ -10420,14 +9221,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glCopyTexImage1D(int target, int level, int internalFormat, int x, int y, int width, int border) {
 		long __functionAddress = getInstance().CopyTexImage1D;
-		nglCopyTexImage1D(target, level, internalFormat, x, y, width, border, __functionAddress);
+		invokeIIIIIIIV(__functionAddress, target, level, internalFormat, x, y, width, border);
 	}
 
 	// --- [ glCopyTexSubImage1D ] ---
-
-	/** JNI method for {@link #glCopyTexSubImage1D CopyTexSubImage1D} */
-	@JavadocExclude
-	public static native void nglCopyTexSubImage1D(int target, int level, int xoffset, int x, int y, int width, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyTexSubImage1D.xhtml">OpenGL SDK Reference</a></p>
@@ -10445,14 +9242,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glCopyTexSubImage1D(int target, int level, int xoffset, int x, int y, int width) {
 		long __functionAddress = getInstance().CopyTexSubImage1D;
-		nglCopyTexSubImage1D(target, level, xoffset, x, y, width, __functionAddress);
+		invokeIIIIIIV(__functionAddress, target, level, xoffset, x, y, width);
 	}
 
 	// --- [ glCopyTexSubImage2D ] ---
-
-	/** JNI method for {@link #glCopyTexSubImage2D CopyTexSubImage2D} */
-	@JavadocExclude
-	public static native void nglCopyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyTexSubImage2D.xhtml">OpenGL SDK Reference</a></p>
@@ -10472,14 +9265,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glCopyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().CopyTexSubImage2D;
-		nglCopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height, __functionAddress);
+		invokeIIIIIIIIV(__functionAddress, target, level, xoffset, yoffset, x, y, width, height);
 	}
 
 	// --- [ glTexParameteri ] ---
-
-	/** JNI method for {@link #glTexParameteri TexParameteri} */
-	@JavadocExclude
-	public static native void nglTexParameteri(int target, int pname, int param, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexParameteri.xhtml">OpenGL SDK Reference</a></p>
@@ -10492,20 +9281,16 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexParameteri(int target, int pname, int param) {
 		long __functionAddress = getInstance().TexParameteri;
-		nglTexParameteri(target, pname, param, __functionAddress);
+		invokeIIIV(__functionAddress, target, pname, param);
 	}
 
 	// --- [ glTexParameteriv ] ---
-
-	/** JNI method for {@link #glTexParameteriv TexParameteriv} */
-	@JavadocExclude
-	public static native void nglTexParameteriv(int target, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glTexParameteriv TexParameteriv} */
 	@JavadocExclude
 	public static void nglTexParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameteriv;
-		nglTexParameteriv(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -10532,10 +9317,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexParameterf ] ---
 
-	/** JNI method for {@link #glTexParameterf TexParameterf} */
-	@JavadocExclude
-	public static native void nglTexParameterf(int target, int pname, float param, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexParameterf.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -10547,20 +9328,16 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexParameterf(int target, int pname, float param) {
 		long __functionAddress = getInstance().TexParameterf;
-		nglTexParameterf(target, pname, param, __functionAddress);
+		invokeIIFV(__functionAddress, target, pname, param);
 	}
 
 	// --- [ glTexParameterfv ] ---
-
-	/** JNI method for {@link #glTexParameterfv TexParameterfv} */
-	@JavadocExclude
-	public static native void nglTexParameterfv(int target, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glTexParameterfv TexParameterfv} */
 	@JavadocExclude
 	public static void nglTexParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterfv;
-		nglTexParameterfv(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -10587,15 +9364,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexSubImage1D ] ---
 
-	/** JNI method for {@link #glTexSubImage1D TexSubImage1D} */
-	@JavadocExclude
-	public static native void nglTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, long pixels, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexSubImage1D TexSubImage1D} */
 	@JavadocExclude
 	public static void nglTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexSubImage1D;
-		nglTexSubImage1D(target, level, xoffset, width, format, type, pixels, __functionAddress);
+		invokeIIIIIIPV(__functionAddress, target, level, xoffset, width, format, type, pixels);
 	}
 
 	/**
@@ -10654,15 +9427,11 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTexSubImage2D ] ---
 
-	/** JNI method for {@link #glTexSubImage2D TexSubImage2D} */
-	@JavadocExclude
-	public static native void nglTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexSubImage2D TexSubImage2D} */
 	@JavadocExclude
 	public static void nglTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexSubImage2D;
-		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels, __functionAddress);
+		invokeIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
 	/**
@@ -10724,10 +9493,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glTranslatef ] ---
 
-	/** JNI method for {@link #glTranslatef Translatef} */
-	@JavadocExclude
-	public static native void nglTranslatef(float x, float y, float z, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTranslatef.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -10749,14 +9514,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Translatef;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTranslatef(x, y, z, __functionAddress);
+		invokeFFFV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glTranslated ] ---
-
-	/** JNI method for {@link #glTranslated Translated} */
-	@JavadocExclude
-	public static native void nglTranslated(double x, double y, double z, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTranslated.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -10771,14 +9532,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Translated;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTranslated(x, y, z, __functionAddress);
+		invokeDDDV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glVertex2f ] ---
-
-	/** JNI method for {@link #glVertex2f Vertex2f} */
-	@JavadocExclude
-	public static native void nglVertex2f(float x, float y, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -10793,14 +9550,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex2f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex2f(x, y, __functionAddress);
+		invokeFFV(__functionAddress, x, y);
 	}
 
 	// --- [ glVertex2s ] ---
-
-	/** JNI method for {@link #glVertex2s Vertex2s} */
-	@JavadocExclude
-	public static native void nglVertex2s(short x, short y, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -10814,14 +9567,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex2s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex2s(x, y, __functionAddress);
+		invokeSSV(__functionAddress, x, y);
 	}
 
 	// --- [ glVertex2i ] ---
-
-	/** JNI method for {@link #glVertex2i Vertex2i} */
-	@JavadocExclude
-	public static native void nglVertex2i(int x, int y, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -10835,14 +9584,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex2i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex2i(x, y, __functionAddress);
+		invokeIIV(__functionAddress, x, y);
 	}
 
 	// --- [ glVertex2d ] ---
-
-	/** JNI method for {@link #glVertex2d Vertex2d} */
-	@JavadocExclude
-	public static native void nglVertex2d(double x, double y, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -10856,14 +9601,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex2d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex2d(x, y, __functionAddress);
+		invokeDDV(__functionAddress, x, y);
 	}
 
 	// --- [ glVertex2fv ] ---
-
-	/** JNI method for {@link #glVertex2fv Vertex2fv} */
-	@JavadocExclude
-	public static native void nglVertex2fv(long coords, long __functionAddress);
 
 	/** Unsafe version of {@link #glVertex2fv Vertex2fv} */
 	@JavadocExclude
@@ -10871,7 +9612,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex2fv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -10896,17 +9637,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex2sv ] ---
 
-	/** JNI method for {@link #glVertex2sv Vertex2sv} */
-	@JavadocExclude
-	public static native void nglVertex2sv(long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertex2sv Vertex2sv} */
 	@JavadocExclude
 	public static void nglVertex2sv(long coords) {
 		long __functionAddress = getInstance().Vertex2sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex2sv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -10931,17 +9668,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex2iv ] ---
 
-	/** JNI method for {@link #glVertex2iv Vertex2iv} */
-	@JavadocExclude
-	public static native void nglVertex2iv(long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertex2iv Vertex2iv} */
 	@JavadocExclude
 	public static void nglVertex2iv(long coords) {
 		long __functionAddress = getInstance().Vertex2iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex2iv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -10966,17 +9699,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex2dv ] ---
 
-	/** JNI method for {@link #glVertex2dv Vertex2dv} */
-	@JavadocExclude
-	public static native void nglVertex2dv(long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertex2dv Vertex2dv} */
 	@JavadocExclude
 	public static void nglVertex2dv(long coords) {
 		long __functionAddress = getInstance().Vertex2dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex2dv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -11001,10 +9730,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex3f ] ---
 
-	/** JNI method for {@link #glVertex3f Vertex3f} */
-	@JavadocExclude
-	public static native void nglVertex3f(float x, float y, float z, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -11019,14 +9744,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex3f(x, y, z, __functionAddress);
+		invokeFFFV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glVertex3s ] ---
-
-	/** JNI method for {@link #glVertex3s Vertex3s} */
-	@JavadocExclude
-	public static native void nglVertex3s(short x, short y, short z, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -11041,14 +9762,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex3s(x, y, z, __functionAddress);
+		invokeSSSV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glVertex3i ] ---
-
-	/** JNI method for {@link #glVertex3i Vertex3i} */
-	@JavadocExclude
-	public static native void nglVertex3i(int x, int y, int z, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -11063,14 +9780,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex3i(x, y, z, __functionAddress);
+		invokeIIIV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glVertex3d ] ---
-
-	/** JNI method for {@link #glVertex3d Vertex3d} */
-	@JavadocExclude
-	public static native void nglVertex3d(double x, double y, double z, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -11085,14 +9798,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex3d(x, y, z, __functionAddress);
+		invokeDDDV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glVertex3fv ] ---
-
-	/** JNI method for {@link #glVertex3fv Vertex3fv} */
-	@JavadocExclude
-	public static native void nglVertex3fv(long coords, long __functionAddress);
 
 	/** Unsafe version of {@link #glVertex3fv Vertex3fv} */
 	@JavadocExclude
@@ -11100,7 +9809,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex3fv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -11125,17 +9834,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex3sv ] ---
 
-	/** JNI method for {@link #glVertex3sv Vertex3sv} */
-	@JavadocExclude
-	public static native void nglVertex3sv(long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertex3sv Vertex3sv} */
 	@JavadocExclude
 	public static void nglVertex3sv(long coords) {
 		long __functionAddress = getInstance().Vertex3sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex3sv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -11160,17 +9865,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex3iv ] ---
 
-	/** JNI method for {@link #glVertex3iv Vertex3iv} */
-	@JavadocExclude
-	public static native void nglVertex3iv(long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertex3iv Vertex3iv} */
 	@JavadocExclude
 	public static void nglVertex3iv(long coords) {
 		long __functionAddress = getInstance().Vertex3iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex3iv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -11195,17 +9896,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex3dv ] ---
 
-	/** JNI method for {@link #glVertex3dv Vertex3dv} */
-	@JavadocExclude
-	public static native void nglVertex3dv(long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertex3dv Vertex3dv} */
 	@JavadocExclude
 	public static void nglVertex3dv(long coords) {
 		long __functionAddress = getInstance().Vertex3dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex3dv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -11230,10 +9927,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex4f ] ---
 
-	/** JNI method for {@link #glVertex4f Vertex4f} */
-	@JavadocExclude
-	public static native void nglVertex4f(float x, float y, float z, float w, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4f.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -11248,14 +9941,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex4f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex4f(x, y, z, w, __functionAddress);
+		invokeFFFFV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glVertex4s ] ---
-
-	/** JNI method for {@link #glVertex4s Vertex4s} */
-	@JavadocExclude
-	public static native void nglVertex4s(short x, short y, short z, short w, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4s.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -11271,14 +9960,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex4s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex4s(x, y, z, w, __functionAddress);
+		invokeSSSSV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glVertex4i ] ---
-
-	/** JNI method for {@link #glVertex4i Vertex4i} */
-	@JavadocExclude
-	public static native void nglVertex4i(int x, int y, int z, int w, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4i.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -11294,14 +9979,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex4i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex4i(x, y, z, w, __functionAddress);
+		invokeIIIIV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glVertex4d ] ---
-
-	/** JNI method for {@link #glVertex4d Vertex4d} */
-	@JavadocExclude
-	public static native void nglVertex4d(double x, double y, double z, double w, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4d.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -11317,14 +9998,10 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex4d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex4d(x, y, z, w, __functionAddress);
+		invokeDDDDV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glVertex4fv ] ---
-
-	/** JNI method for {@link #glVertex4fv Vertex4fv} */
-	@JavadocExclude
-	public static native void nglVertex4fv(long coords, long __functionAddress);
 
 	/** Unsafe version of {@link #glVertex4fv Vertex4fv} */
 	@JavadocExclude
@@ -11332,7 +10009,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex4fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex4fv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -11357,17 +10034,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex4sv ] ---
 
-	/** JNI method for {@link #glVertex4sv Vertex4sv} */
-	@JavadocExclude
-	public static native void nglVertex4sv(long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertex4sv Vertex4sv} */
 	@JavadocExclude
 	public static void nglVertex4sv(long coords) {
 		long __functionAddress = getInstance().Vertex4sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex4sv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -11392,17 +10065,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex4iv ] ---
 
-	/** JNI method for {@link #glVertex4iv Vertex4iv} */
-	@JavadocExclude
-	public static native void nglVertex4iv(long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertex4iv Vertex4iv} */
 	@JavadocExclude
 	public static void nglVertex4iv(long coords) {
 		long __functionAddress = getInstance().Vertex4iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex4iv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -11427,17 +10096,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertex4dv ] ---
 
-	/** JNI method for {@link #glVertex4dv Vertex4dv} */
-	@JavadocExclude
-	public static native void nglVertex4dv(long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertex4dv Vertex4dv} */
 	@JavadocExclude
 	public static void nglVertex4dv(long coords) {
 		long __functionAddress = getInstance().Vertex4dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertex4dv(coords, __functionAddress);
+		invokePV(__functionAddress, coords);
 	}
 
 	/**
@@ -11462,17 +10127,13 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glVertexPointer ] ---
 
-	/** JNI method for {@link #glVertexPointer VertexPointer} */
-	@JavadocExclude
-	public static native void nglVertexPointer(int size, int type, int stride, long pointer, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexPointer VertexPointer} */
 	@JavadocExclude
 	public static void nglVertexPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexPointer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexPointer(size, type, stride, pointer, __functionAddress);
+		invokeIIIPV(__functionAddress, size, type, stride, pointer);
 	}
 
 	/**
@@ -11521,10 +10182,6 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	// --- [ glViewport ] ---
 
-	/** JNI method for {@link #glViewport Viewport} */
-	@JavadocExclude
-	public static native void nglViewport(int x, int y, int w, int h, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glViewport.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -11548,7 +10205,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glViewport(int x, int y, int w, int h) {
 		long __functionAddress = getInstance().Viewport;
-		nglViewport(x, y, w, h, __functionAddress);
+		invokeIIIIV(__functionAddress, x, y, w, h);
 	}
 
 }

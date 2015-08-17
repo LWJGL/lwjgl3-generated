@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
@@ -253,17 +254,13 @@ public final class CL12 {
 
 	// --- [ clGetExtensionFunctionAddressForPlatform ] ---
 
-	/** JNI method for {@link #clGetExtensionFunctionAddressForPlatform GetExtensionFunctionAddressForPlatform} */
-	@JavadocExclude
-	public static native long nclGetExtensionFunctionAddressForPlatform(long platform, long funcname, long __functionAddress);
-
 	/** Unsafe version of {@link #clGetExtensionFunctionAddressForPlatform GetExtensionFunctionAddressForPlatform} */
 	@JavadocExclude
 	public static long nclGetExtensionFunctionAddressForPlatform(long platform, long funcname) {
 		long __functionAddress = getInstance().GetExtensionFunctionAddressForPlatform;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(platform);
-		return nclGetExtensionFunctionAddressForPlatform(platform, funcname, __functionAddress);
+		return invokePPP(__functionAddress, platform, funcname);
 	}
 
 	/**
@@ -296,10 +293,6 @@ public final class CL12 {
 
 	// --- [ clRetainDevice ] ---
 
-	/** JNI method for {@link #clRetainDevice RetainDevice} */
-	@JavadocExclude
-	public static native int nclRetainDevice(long device, long __functionAddress);
-
 	/**
 	 * Increments the device reference count if {@code device} is a valid sub-device created by a call to {@link #clCreateSubDevices CreateSubDevices}. If {@code device} is a
 	 * root level device i.e. a {@code cl_device_id} returned by {@link CL10#clGetDeviceIDs GetDeviceIDs}, the device reference count remains unchanged.
@@ -317,14 +310,10 @@ public final class CL12 {
 		long __functionAddress = getInstance().RetainDevice;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		return nclRetainDevice(device, __functionAddress);
+		return invokePI(__functionAddress, device);
 	}
 
 	// --- [ clReleaseDevice ] ---
-
-	/** JNI method for {@link #clReleaseDevice ReleaseDevice} */
-	@JavadocExclude
-	public static native int nclReleaseDevice(long device, long __functionAddress);
 
 	/**
 	 * Decrements the device reference count if {@code device} is a valid sub-device created by a call to {@link #clCreateSubDevices CreateSubDevices}. If {@code device} is a
@@ -346,14 +335,10 @@ public final class CL12 {
 		long __functionAddress = getInstance().ReleaseDevice;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		return nclReleaseDevice(device, __functionAddress);
+		return invokePI(__functionAddress, device);
 	}
 
 	// --- [ clCreateSubDevices ] ---
-
-	/** JNI method for {@link #clCreateSubDevices CreateSubDevices} */
-	@JavadocExclude
-	public static native int nclCreateSubDevices(long in_device, long properties, int num_devices, long out_devices, long num_devices_ret, long __functionAddress);
 
 	/** Unsafe version of {@link #clCreateSubDevices CreateSubDevices} */
 	@JavadocExclude
@@ -361,7 +346,7 @@ public final class CL12 {
 		long __functionAddress = getInstance().CreateSubDevices;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(in_device);
-		return nclCreateSubDevices(in_device, properties, num_devices, out_devices, num_devices_ret, __functionAddress);
+		return invokePPIPPI(__functionAddress, in_device, properties, num_devices, out_devices, num_devices_ret);
 	}
 
 	/**
@@ -427,17 +412,13 @@ public final class CL12 {
 
 	// --- [ clCreateImage ] ---
 
-	/** JNI method for {@link #clCreateImage CreateImage} */
-	@JavadocExclude
-	public static native long nclCreateImage(long context, long flags, long image_format, long image_desc, long host_ptr, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clCreateImage CreateImage} */
 	@JavadocExclude
 	public static long nclCreateImage(long context, long flags, long image_format, long image_desc, long host_ptr, long errcode_ret) {
 		long __functionAddress = getInstance().CreateImage;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nclCreateImage(context, flags, image_format, image_desc, host_ptr, errcode_ret, __functionAddress);
+		return invokePJPPPPP(__functionAddress, context, flags, image_format, image_desc, host_ptr, errcode_ret);
 	}
 
 	/**
@@ -558,17 +539,13 @@ public final class CL12 {
 
 	// --- [ clCreateProgramWithBuiltInKernels ] ---
 
-	/** JNI method for {@link #clCreateProgramWithBuiltInKernels CreateProgramWithBuiltInKernels} */
-	@JavadocExclude
-	public static native long nclCreateProgramWithBuiltInKernels(long context, int num_devices, long device_list, long kernel_names, long errcode_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clCreateProgramWithBuiltInKernels CreateProgramWithBuiltInKernels} */
 	@JavadocExclude
 	public static long nclCreateProgramWithBuiltInKernels(long context, int num_devices, long device_list, long kernel_names, long errcode_ret) {
 		long __functionAddress = getInstance().CreateProgramWithBuiltInKernels;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nclCreateProgramWithBuiltInKernels(context, num_devices, device_list, kernel_names, errcode_ret, __functionAddress);
+		return invokePIPPPP(__functionAddress, context, num_devices, device_list, kernel_names, errcode_ret);
 	}
 
 	/**
@@ -632,17 +609,13 @@ public final class CL12 {
 
 	// --- [ clCompileProgram ] ---
 
-	/** JNI method for {@link #clCompileProgram CompileProgram} */
-	@JavadocExclude
-	public static native int nclCompileProgram(long program, int num_devices, long device_list, long options, int num_input_headers, long input_headers, long header_include_names, long pfn_notify, long user_data, long __functionAddress);
-
 	/** Unsafe version of {@link #clCompileProgram CompileProgram} */
 	@JavadocExclude
 	public static int nclCompileProgram(long program, int num_devices, long device_list, long options, int num_input_headers, long input_headers, long header_include_names, long pfn_notify, long user_data) {
 		long __functionAddress = getInstance().CompileProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(program);
-		return nclCompileProgram(program, num_devices, device_list, options, num_input_headers, input_headers, header_include_names, pfn_notify, user_data, __functionAddress);
+		return invokePIPPIPPPPI(__functionAddress, program, num_devices, device_list, options, num_input_headers, input_headers, header_include_names, pfn_notify, user_data);
 	}
 
 	/**
@@ -733,17 +706,13 @@ public final class CL12 {
 
 	// --- [ clLinkProgram ] ---
 
-	/** JNI method for {@link #clLinkProgram LinkProgram} */
-	@JavadocExclude
-	public static native long nclLinkProgram(long context, int num_devices, long device_list, long options, int num_input_programs, long input_programs, long pfn_notify, long user_data, long __functionAddress);
-
 	/** Unsafe version of {@link #clLinkProgram LinkProgram} */
 	@JavadocExclude
 	public static long nclLinkProgram(long context, int num_devices, long device_list, long options, int num_input_programs, long input_programs, long pfn_notify, long user_data) {
 		long __functionAddress = getInstance().LinkProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nclLinkProgram(context, num_devices, device_list, options, num_input_programs, input_programs, pfn_notify, user_data, __functionAddress);
+		return invokePIPPIPPPP(__functionAddress, context, num_devices, device_list, options, num_input_programs, input_programs, pfn_notify, user_data);
 	}
 
 	/**
@@ -845,10 +814,6 @@ public final class CL12 {
 
 	// --- [ clUnloadPlatformCompiler ] ---
 
-	/** JNI method for {@link #clUnloadPlatformCompiler UnloadPlatformCompiler} */
-	@JavadocExclude
-	public static native int nclUnloadPlatformCompiler(long platform, long __functionAddress);
-
 	/**
 	 * Allows the implementation to release the resources allocated by the OpenCL compiler for platform. This is a hint from the application and does not
 	 * guarantee that the compiler will not be used in the future or that the compiler will actually be unloaded by the implementation. Calls to
@@ -866,14 +831,10 @@ public final class CL12 {
 		long __functionAddress = getInstance().UnloadPlatformCompiler;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(platform);
-		return nclUnloadPlatformCompiler(platform, __functionAddress);
+		return invokePI(__functionAddress, platform);
 	}
 
 	// --- [ clGetKernelArgInfo ] ---
-
-	/** JNI method for {@link #clGetKernelArgInfo GetKernelArgInfo} */
-	@JavadocExclude
-	public static native int nclGetKernelArgInfo(long kernel, int arg_indx, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
 
 	/** Unsafe version of {@link #clGetKernelArgInfo GetKernelArgInfo} */
 	@JavadocExclude
@@ -881,7 +842,7 @@ public final class CL12 {
 		long __functionAddress = getInstance().GetKernelArgInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(kernel);
-		return nclGetKernelArgInfo(kernel, arg_indx, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
+		return invokePIIPPPI(__functionAddress, kernel, arg_indx, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -937,10 +898,6 @@ public final class CL12 {
 
 	// --- [ clEnqueueFillBuffer ] ---
 
-	/** JNI method for {@link #clEnqueueFillBuffer EnqueueFillBuffer} */
-	@JavadocExclude
-	public static native int nclEnqueueFillBuffer(long command_queue, long buffer, long pattern, long pattern_size, long offset, long size, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueFillBuffer EnqueueFillBuffer} */
 	@JavadocExclude
 	public static int nclEnqueueFillBuffer(long command_queue, long buffer, long pattern, long pattern_size, long offset, long size, int num_events_in_wait_list, long event_wait_list, long event) {
@@ -949,7 +906,7 @@ public final class CL12 {
 			checkPointer(command_queue);
 			checkPointer(buffer);
 		}
-		return nclEnqueueFillBuffer(command_queue, buffer, pattern, pattern_size, offset, size, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePPPPPPIPPI(__functionAddress, command_queue, buffer, pattern, pattern_size, offset, size, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -1013,10 +970,6 @@ public final class CL12 {
 
 	// --- [ clEnqueueFillImage ] ---
 
-	/** JNI method for {@link #clEnqueueFillImage EnqueueFillImage} */
-	@JavadocExclude
-	public static native int nclEnqueueFillImage(long command_queue, long image, long fill_color, long origin, long region, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueFillImage EnqueueFillImage} */
 	@JavadocExclude
 	public static int nclEnqueueFillImage(long command_queue, long image, long fill_color, long origin, long region, int num_events_in_wait_list, long event_wait_list, long event) {
@@ -1025,7 +978,7 @@ public final class CL12 {
 			checkPointer(command_queue);
 			checkPointer(image);
 		}
-		return nclEnqueueFillImage(command_queue, image, fill_color, origin, region, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePPPPPIPPI(__functionAddress, command_queue, image, fill_color, origin, region, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -1092,17 +1045,13 @@ public final class CL12 {
 
 	// --- [ clEnqueueMigrateMemObjects ] ---
 
-	/** JNI method for {@link #clEnqueueMigrateMemObjects EnqueueMigrateMemObjects} */
-	@JavadocExclude
-	public static native int nclEnqueueMigrateMemObjects(long command_queue, int num_mem_objects, long mem_objects, long flags, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueMigrateMemObjects EnqueueMigrateMemObjects} */
 	@JavadocExclude
 	public static int nclEnqueueMigrateMemObjects(long command_queue, int num_mem_objects, long mem_objects, long flags, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueMigrateMemObjects;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return nclEnqueueMigrateMemObjects(command_queue, num_mem_objects, mem_objects, flags, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePIPJIPPI(__functionAddress, command_queue, num_mem_objects, mem_objects, flags, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -1168,17 +1117,13 @@ public final class CL12 {
 
 	// --- [ clEnqueueMarkerWithWaitList ] ---
 
-	/** JNI method for {@link #clEnqueueMarkerWithWaitList EnqueueMarkerWithWaitList} */
-	@JavadocExclude
-	public static native int nclEnqueueMarkerWithWaitList(long command_queue, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueMarkerWithWaitList EnqueueMarkerWithWaitList} */
 	@JavadocExclude
 	public static int nclEnqueueMarkerWithWaitList(long command_queue, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueMarkerWithWaitList;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return nclEnqueueMarkerWithWaitList(command_queue, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePIPPI(__functionAddress, command_queue, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -1224,17 +1169,13 @@ public final class CL12 {
 
 	// --- [ clEnqueueBarrierWithWaitList ] ---
 
-	/** JNI method for {@link #clEnqueueBarrierWithWaitList EnqueueBarrierWithWaitList} */
-	@JavadocExclude
-	public static native int nclEnqueueBarrierWithWaitList(long command_queue, int num_events_in_wait_list, long event_wait_list, long event, long __functionAddress);
-
 	/** Unsafe version of {@link #clEnqueueBarrierWithWaitList EnqueueBarrierWithWaitList} */
 	@JavadocExclude
 	public static int nclEnqueueBarrierWithWaitList(long command_queue, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueBarrierWithWaitList;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return nclEnqueueBarrierWithWaitList(command_queue, num_events_in_wait_list, event_wait_list, event, __functionAddress);
+		return invokePIPPI(__functionAddress, command_queue, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**

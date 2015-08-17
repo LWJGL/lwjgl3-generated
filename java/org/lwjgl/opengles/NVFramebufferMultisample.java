@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/NV_framebuffer_multisample.txt">NV_framebuffer_multisample</a> extension.
@@ -69,13 +70,9 @@ public final class NVFramebufferMultisample {
 
 	// --- [ glRenderbufferStorageMultisampleNV ] ---
 
-	/** JNI method for {@link #glRenderbufferStorageMultisampleNV RenderbufferStorageMultisampleNV} */
-	@JavadocExclude
-	public static native void nglRenderbufferStorageMultisampleNV(int target, int samples, int internalformat, int width, int height, long __functionAddress);
-
 	public static void glRenderbufferStorageMultisampleNV(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageMultisampleNV;
-		nglRenderbufferStorageMultisampleNV(target, samples, internalformat, width, height, __functionAddress);
+		invokeIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
 }

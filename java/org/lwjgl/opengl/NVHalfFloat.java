@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -168,26 +169,18 @@ public final class NVHalfFloat {
 
 	// --- [ glVertex2hNV ] ---
 
-	/** JNI method for {@link #glVertex2hNV Vertex2hNV} */
-	@JavadocExclude
-	public static native void nglVertex2hNV(short x, short y, long __functionAddress);
-
 	public static void glVertex2hNV(short x, short y) {
 		long __functionAddress = getInstance().Vertex2hNV;
-		nglVertex2hNV(x, y, __functionAddress);
+		invokeSSV(__functionAddress, x, y);
 	}
 
 	// --- [ glVertex2hvNV ] ---
-
-	/** JNI method for {@link #glVertex2hvNV Vertex2hvNV} */
-	@JavadocExclude
-	public static native void nglVertex2hvNV(long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glVertex2hvNV Vertex2hvNV} */
 	@JavadocExclude
 	public static void nglVertex2hvNV(long v) {
 		long __functionAddress = getInstance().Vertex2hvNV;
-		nglVertex2hvNV(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	public static void glVertex2hvNV(ByteBuffer v) {
@@ -205,26 +198,18 @@ public final class NVHalfFloat {
 
 	// --- [ glVertex3hNV ] ---
 
-	/** JNI method for {@link #glVertex3hNV Vertex3hNV} */
-	@JavadocExclude
-	public static native void nglVertex3hNV(short x, short y, short z, long __functionAddress);
-
 	public static void glVertex3hNV(short x, short y, short z) {
 		long __functionAddress = getInstance().Vertex3hNV;
-		nglVertex3hNV(x, y, z, __functionAddress);
+		invokeSSSV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glVertex3hvNV ] ---
-
-	/** JNI method for {@link #glVertex3hvNV Vertex3hvNV} */
-	@JavadocExclude
-	public static native void nglVertex3hvNV(long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glVertex3hvNV Vertex3hvNV} */
 	@JavadocExclude
 	public static void nglVertex3hvNV(long v) {
 		long __functionAddress = getInstance().Vertex3hvNV;
-		nglVertex3hvNV(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	public static void glVertex3hvNV(ByteBuffer v) {
@@ -242,26 +227,18 @@ public final class NVHalfFloat {
 
 	// --- [ glVertex4hNV ] ---
 
-	/** JNI method for {@link #glVertex4hNV Vertex4hNV} */
-	@JavadocExclude
-	public static native void nglVertex4hNV(short x, short y, short z, short w, long __functionAddress);
-
 	public static void glVertex4hNV(short x, short y, short z, short w) {
 		long __functionAddress = getInstance().Vertex4hNV;
-		nglVertex4hNV(x, y, z, w, __functionAddress);
+		invokeSSSSV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glVertex4hvNV ] ---
-
-	/** JNI method for {@link #glVertex4hvNV Vertex4hvNV} */
-	@JavadocExclude
-	public static native void nglVertex4hvNV(long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glVertex4hvNV Vertex4hvNV} */
 	@JavadocExclude
 	public static void nglVertex4hvNV(long v) {
 		long __functionAddress = getInstance().Vertex4hvNV;
-		nglVertex4hvNV(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	public static void glVertex4hvNV(ByteBuffer v) {
@@ -279,26 +256,18 @@ public final class NVHalfFloat {
 
 	// --- [ glNormal3hNV ] ---
 
-	/** JNI method for {@link #glNormal3hNV Normal3hNV} */
-	@JavadocExclude
-	public static native void nglNormal3hNV(short nx, short ny, short nz, long __functionAddress);
-
 	public static void glNormal3hNV(short nx, short ny, short nz) {
 		long __functionAddress = getInstance().Normal3hNV;
-		nglNormal3hNV(nx, ny, nz, __functionAddress);
+		invokeSSSV(__functionAddress, nx, ny, nz);
 	}
 
 	// --- [ glNormal3hvNV ] ---
-
-	/** JNI method for {@link #glNormal3hvNV Normal3hvNV} */
-	@JavadocExclude
-	public static native void nglNormal3hvNV(long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glNormal3hvNV Normal3hvNV} */
 	@JavadocExclude
 	public static void nglNormal3hvNV(long v) {
 		long __functionAddress = getInstance().Normal3hvNV;
-		nglNormal3hvNV(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	public static void glNormal3hvNV(ByteBuffer v) {
@@ -316,26 +285,18 @@ public final class NVHalfFloat {
 
 	// --- [ glColor3hNV ] ---
 
-	/** JNI method for {@link #glColor3hNV Color3hNV} */
-	@JavadocExclude
-	public static native void nglColor3hNV(short red, short green, short blue, long __functionAddress);
-
 	public static void glColor3hNV(short red, short green, short blue) {
 		long __functionAddress = getInstance().Color3hNV;
-		nglColor3hNV(red, green, blue, __functionAddress);
+		invokeSSSV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3hvNV ] ---
-
-	/** JNI method for {@link #glColor3hvNV Color3hvNV} */
-	@JavadocExclude
-	public static native void nglColor3hvNV(long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glColor3hvNV Color3hvNV} */
 	@JavadocExclude
 	public static void nglColor3hvNV(long v) {
 		long __functionAddress = getInstance().Color3hvNV;
-		nglColor3hvNV(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	public static void glColor3hvNV(ByteBuffer v) {
@@ -353,26 +314,18 @@ public final class NVHalfFloat {
 
 	// --- [ glColor4hNV ] ---
 
-	/** JNI method for {@link #glColor4hNV Color4hNV} */
-	@JavadocExclude
-	public static native void nglColor4hNV(short red, short green, short blue, short alpha, long __functionAddress);
-
 	public static void glColor4hNV(short red, short green, short blue, short alpha) {
 		long __functionAddress = getInstance().Color4hNV;
-		nglColor4hNV(red, green, blue, alpha, __functionAddress);
+		invokeSSSSV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4hvNV ] ---
-
-	/** JNI method for {@link #glColor4hvNV Color4hvNV} */
-	@JavadocExclude
-	public static native void nglColor4hvNV(long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glColor4hvNV Color4hvNV} */
 	@JavadocExclude
 	public static void nglColor4hvNV(long v) {
 		long __functionAddress = getInstance().Color4hvNV;
-		nglColor4hvNV(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	public static void glColor4hvNV(ByteBuffer v) {
@@ -390,26 +343,18 @@ public final class NVHalfFloat {
 
 	// --- [ glTexCoord1hNV ] ---
 
-	/** JNI method for {@link #glTexCoord1hNV TexCoord1hNV} */
-	@JavadocExclude
-	public static native void nglTexCoord1hNV(short s, long __functionAddress);
-
 	public static void glTexCoord1hNV(short s) {
 		long __functionAddress = getInstance().TexCoord1hNV;
-		nglTexCoord1hNV(s, __functionAddress);
+		invokeSV(__functionAddress, s);
 	}
 
 	// --- [ glTexCoord1hvNV ] ---
-
-	/** JNI method for {@link #glTexCoord1hvNV TexCoord1hvNV} */
-	@JavadocExclude
-	public static native void nglTexCoord1hvNV(long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glTexCoord1hvNV TexCoord1hvNV} */
 	@JavadocExclude
 	public static void nglTexCoord1hvNV(long v) {
 		long __functionAddress = getInstance().TexCoord1hvNV;
-		nglTexCoord1hvNV(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	public static void glTexCoord1hvNV(ByteBuffer v) {
@@ -427,26 +372,18 @@ public final class NVHalfFloat {
 
 	// --- [ glTexCoord2hNV ] ---
 
-	/** JNI method for {@link #glTexCoord2hNV TexCoord2hNV} */
-	@JavadocExclude
-	public static native void nglTexCoord2hNV(short s, short t, long __functionAddress);
-
 	public static void glTexCoord2hNV(short s, short t) {
 		long __functionAddress = getInstance().TexCoord2hNV;
-		nglTexCoord2hNV(s, t, __functionAddress);
+		invokeSSV(__functionAddress, s, t);
 	}
 
 	// --- [ glTexCoord2hvNV ] ---
-
-	/** JNI method for {@link #glTexCoord2hvNV TexCoord2hvNV} */
-	@JavadocExclude
-	public static native void nglTexCoord2hvNV(long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glTexCoord2hvNV TexCoord2hvNV} */
 	@JavadocExclude
 	public static void nglTexCoord2hvNV(long v) {
 		long __functionAddress = getInstance().TexCoord2hvNV;
-		nglTexCoord2hvNV(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	public static void glTexCoord2hvNV(ByteBuffer v) {
@@ -464,26 +401,18 @@ public final class NVHalfFloat {
 
 	// --- [ glTexCoord3hNV ] ---
 
-	/** JNI method for {@link #glTexCoord3hNV TexCoord3hNV} */
-	@JavadocExclude
-	public static native void nglTexCoord3hNV(short s, short t, short r, long __functionAddress);
-
 	public static void glTexCoord3hNV(short s, short t, short r) {
 		long __functionAddress = getInstance().TexCoord3hNV;
-		nglTexCoord3hNV(s, t, r, __functionAddress);
+		invokeSSSV(__functionAddress, s, t, r);
 	}
 
 	// --- [ glTexCoord3hvNV ] ---
-
-	/** JNI method for {@link #glTexCoord3hvNV TexCoord3hvNV} */
-	@JavadocExclude
-	public static native void nglTexCoord3hvNV(long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glTexCoord3hvNV TexCoord3hvNV} */
 	@JavadocExclude
 	public static void nglTexCoord3hvNV(long v) {
 		long __functionAddress = getInstance().TexCoord3hvNV;
-		nglTexCoord3hvNV(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	public static void glTexCoord3hvNV(ByteBuffer v) {
@@ -501,26 +430,18 @@ public final class NVHalfFloat {
 
 	// --- [ glTexCoord4hNV ] ---
 
-	/** JNI method for {@link #glTexCoord4hNV TexCoord4hNV} */
-	@JavadocExclude
-	public static native void nglTexCoord4hNV(short s, short t, short r, short q, long __functionAddress);
-
 	public static void glTexCoord4hNV(short s, short t, short r, short q) {
 		long __functionAddress = getInstance().TexCoord4hNV;
-		nglTexCoord4hNV(s, t, r, q, __functionAddress);
+		invokeSSSSV(__functionAddress, s, t, r, q);
 	}
 
 	// --- [ glTexCoord4hvNV ] ---
-
-	/** JNI method for {@link #glTexCoord4hvNV TexCoord4hvNV} */
-	@JavadocExclude
-	public static native void nglTexCoord4hvNV(long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glTexCoord4hvNV TexCoord4hvNV} */
 	@JavadocExclude
 	public static void nglTexCoord4hvNV(long v) {
 		long __functionAddress = getInstance().TexCoord4hvNV;
-		nglTexCoord4hvNV(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	public static void glTexCoord4hvNV(ByteBuffer v) {
@@ -538,26 +459,18 @@ public final class NVHalfFloat {
 
 	// --- [ glMultiTexCoord1hNV ] ---
 
-	/** JNI method for {@link #glMultiTexCoord1hNV MultiTexCoord1hNV} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord1hNV(int target, short s, long __functionAddress);
-
 	public static void glMultiTexCoord1hNV(int target, short s) {
 		long __functionAddress = getInstance().MultiTexCoord1hNV;
-		nglMultiTexCoord1hNV(target, s, __functionAddress);
+		invokeISV(__functionAddress, target, s);
 	}
 
 	// --- [ glMultiTexCoord1hvNV ] ---
-
-	/** JNI method for {@link #glMultiTexCoord1hvNV MultiTexCoord1hvNV} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord1hvNV(int target, long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glMultiTexCoord1hvNV MultiTexCoord1hvNV} */
 	@JavadocExclude
 	public static void nglMultiTexCoord1hvNV(int target, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1hvNV;
-		nglMultiTexCoord1hvNV(target, v, __functionAddress);
+		invokeIPV(__functionAddress, target, v);
 	}
 
 	public static void glMultiTexCoord1hvNV(int target, ByteBuffer v) {
@@ -575,26 +488,18 @@ public final class NVHalfFloat {
 
 	// --- [ glMultiTexCoord2hNV ] ---
 
-	/** JNI method for {@link #glMultiTexCoord2hNV MultiTexCoord2hNV} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord2hNV(int target, short s, short t, long __functionAddress);
-
 	public static void glMultiTexCoord2hNV(int target, short s, short t) {
 		long __functionAddress = getInstance().MultiTexCoord2hNV;
-		nglMultiTexCoord2hNV(target, s, t, __functionAddress);
+		invokeISSV(__functionAddress, target, s, t);
 	}
 
 	// --- [ glMultiTexCoord2hvNV ] ---
-
-	/** JNI method for {@link #glMultiTexCoord2hvNV MultiTexCoord2hvNV} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord2hvNV(int target, long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glMultiTexCoord2hvNV MultiTexCoord2hvNV} */
 	@JavadocExclude
 	public static void nglMultiTexCoord2hvNV(int target, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2hvNV;
-		nglMultiTexCoord2hvNV(target, v, __functionAddress);
+		invokeIPV(__functionAddress, target, v);
 	}
 
 	public static void glMultiTexCoord2hvNV(int target, ByteBuffer v) {
@@ -612,26 +517,18 @@ public final class NVHalfFloat {
 
 	// --- [ glMultiTexCoord3hNV ] ---
 
-	/** JNI method for {@link #glMultiTexCoord3hNV MultiTexCoord3hNV} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord3hNV(int target, short s, short t, short r, long __functionAddress);
-
 	public static void glMultiTexCoord3hNV(int target, short s, short t, short r) {
 		long __functionAddress = getInstance().MultiTexCoord3hNV;
-		nglMultiTexCoord3hNV(target, s, t, r, __functionAddress);
+		invokeISSSV(__functionAddress, target, s, t, r);
 	}
 
 	// --- [ glMultiTexCoord3hvNV ] ---
-
-	/** JNI method for {@link #glMultiTexCoord3hvNV MultiTexCoord3hvNV} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord3hvNV(int target, long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glMultiTexCoord3hvNV MultiTexCoord3hvNV} */
 	@JavadocExclude
 	public static void nglMultiTexCoord3hvNV(int target, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3hvNV;
-		nglMultiTexCoord3hvNV(target, v, __functionAddress);
+		invokeIPV(__functionAddress, target, v);
 	}
 
 	public static void glMultiTexCoord3hvNV(int target, ByteBuffer v) {
@@ -649,26 +546,18 @@ public final class NVHalfFloat {
 
 	// --- [ glMultiTexCoord4hNV ] ---
 
-	/** JNI method for {@link #glMultiTexCoord4hNV MultiTexCoord4hNV} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord4hNV(int target, short s, short t, short r, short q, long __functionAddress);
-
 	public static void glMultiTexCoord4hNV(int target, short s, short t, short r, short q) {
 		long __functionAddress = getInstance().MultiTexCoord4hNV;
-		nglMultiTexCoord4hNV(target, s, t, r, q, __functionAddress);
+		invokeISSSSV(__functionAddress, target, s, t, r, q);
 	}
 
 	// --- [ glMultiTexCoord4hvNV ] ---
-
-	/** JNI method for {@link #glMultiTexCoord4hvNV MultiTexCoord4hvNV} */
-	@JavadocExclude
-	public static native void nglMultiTexCoord4hvNV(int target, long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glMultiTexCoord4hvNV MultiTexCoord4hvNV} */
 	@JavadocExclude
 	public static void nglMultiTexCoord4hvNV(int target, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4hvNV;
-		nglMultiTexCoord4hvNV(target, v, __functionAddress);
+		invokeIPV(__functionAddress, target, v);
 	}
 
 	public static void glMultiTexCoord4hvNV(int target, ByteBuffer v) {
@@ -686,22 +575,14 @@ public final class NVHalfFloat {
 
 	// --- [ glFogCoordhNV ] ---
 
-	/** JNI method for {@link #glFogCoordhNV FogCoordhNV} */
-	@JavadocExclude
-	public static native void nglFogCoordhNV(short fog, long __functionAddress);
-
 	public static void glFogCoordhNV(short fog) {
 		long __functionAddress = getInstance().FogCoordhNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglFogCoordhNV(fog, __functionAddress);
+		invokeSV(__functionAddress, fog);
 	}
 
 	// --- [ glFogCoordhvNV ] ---
-
-	/** JNI method for {@link #glFogCoordhvNV FogCoordhvNV} */
-	@JavadocExclude
-	public static native void nglFogCoordhvNV(long fog, long __functionAddress);
 
 	/** Unsafe version of {@link #glFogCoordhvNV FogCoordhvNV} */
 	@JavadocExclude
@@ -709,7 +590,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().FogCoordhvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglFogCoordhvNV(fog, __functionAddress);
+		invokePV(__functionAddress, fog);
 	}
 
 	public static void glFogCoordhvNV(ByteBuffer fog) {
@@ -727,22 +608,14 @@ public final class NVHalfFloat {
 
 	// --- [ glSecondaryColor3hNV ] ---
 
-	/** JNI method for {@link #glSecondaryColor3hNV SecondaryColor3hNV} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3hNV(short red, short green, short blue, long __functionAddress);
-
 	public static void glSecondaryColor3hNV(short red, short green, short blue) {
 		long __functionAddress = getInstance().SecondaryColor3hNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglSecondaryColor3hNV(red, green, blue, __functionAddress);
+		invokeSSSV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3hvNV ] ---
-
-	/** JNI method for {@link #glSecondaryColor3hvNV SecondaryColor3hvNV} */
-	@JavadocExclude
-	public static native void nglSecondaryColor3hvNV(long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glSecondaryColor3hvNV SecondaryColor3hvNV} */
 	@JavadocExclude
@@ -750,7 +623,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().SecondaryColor3hvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglSecondaryColor3hvNV(v, __functionAddress);
+		invokePV(__functionAddress, v);
 	}
 
 	public static void glSecondaryColor3hvNV(ByteBuffer v) {
@@ -768,22 +641,14 @@ public final class NVHalfFloat {
 
 	// --- [ glVertexWeighthNV ] ---
 
-	/** JNI method for {@link #glVertexWeighthNV VertexWeighthNV} */
-	@JavadocExclude
-	public static native void nglVertexWeighthNV(short weight, long __functionAddress);
-
 	public static void glVertexWeighthNV(short weight) {
 		long __functionAddress = getInstance().VertexWeighthNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexWeighthNV(weight, __functionAddress);
+		invokeSV(__functionAddress, weight);
 	}
 
 	// --- [ glVertexWeighthvNV ] ---
-
-	/** JNI method for {@link #glVertexWeighthvNV VertexWeighthvNV} */
-	@JavadocExclude
-	public static native void nglVertexWeighthvNV(long weight, long __functionAddress);
 
 	/** Unsafe version of {@link #glVertexWeighthvNV VertexWeighthvNV} */
 	@JavadocExclude
@@ -791,7 +656,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().VertexWeighthvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexWeighthvNV(weight, __functionAddress);
+		invokePV(__functionAddress, weight);
 	}
 
 	public static void glVertexWeighthvNV(ByteBuffer weight) {
@@ -809,22 +674,14 @@ public final class NVHalfFloat {
 
 	// --- [ glVertexAttrib1hNV ] ---
 
-	/** JNI method for {@link #glVertexAttrib1hNV VertexAttrib1hNV} */
-	@JavadocExclude
-	public static native void nglVertexAttrib1hNV(int index, short x, long __functionAddress);
-
 	public static void glVertexAttrib1hNV(int index, short x) {
 		long __functionAddress = getInstance().VertexAttrib1hNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexAttrib1hNV(index, x, __functionAddress);
+		invokeISV(__functionAddress, index, x);
 	}
 
 	// --- [ glVertexAttrib1hvNV ] ---
-
-	/** JNI method for {@link #glVertexAttrib1hvNV VertexAttrib1hvNV} */
-	@JavadocExclude
-	public static native void nglVertexAttrib1hvNV(int index, long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glVertexAttrib1hvNV VertexAttrib1hvNV} */
 	@JavadocExclude
@@ -832,7 +689,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().VertexAttrib1hvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexAttrib1hvNV(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttrib1hvNV(int index, ByteBuffer v) {
@@ -850,22 +707,14 @@ public final class NVHalfFloat {
 
 	// --- [ glVertexAttrib2hNV ] ---
 
-	/** JNI method for {@link #glVertexAttrib2hNV VertexAttrib2hNV} */
-	@JavadocExclude
-	public static native void nglVertexAttrib2hNV(int index, short x, short y, long __functionAddress);
-
 	public static void glVertexAttrib2hNV(int index, short x, short y) {
 		long __functionAddress = getInstance().VertexAttrib2hNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexAttrib2hNV(index, x, y, __functionAddress);
+		invokeISSV(__functionAddress, index, x, y);
 	}
 
 	// --- [ glVertexAttrib2hvNV ] ---
-
-	/** JNI method for {@link #glVertexAttrib2hvNV VertexAttrib2hvNV} */
-	@JavadocExclude
-	public static native void nglVertexAttrib2hvNV(int index, long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glVertexAttrib2hvNV VertexAttrib2hvNV} */
 	@JavadocExclude
@@ -873,7 +722,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().VertexAttrib2hvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexAttrib2hvNV(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttrib2hvNV(int index, ByteBuffer v) {
@@ -891,22 +740,14 @@ public final class NVHalfFloat {
 
 	// --- [ glVertexAttrib3hNV ] ---
 
-	/** JNI method for {@link #glVertexAttrib3hNV VertexAttrib3hNV} */
-	@JavadocExclude
-	public static native void nglVertexAttrib3hNV(int index, short x, short y, short z, long __functionAddress);
-
 	public static void glVertexAttrib3hNV(int index, short x, short y, short z) {
 		long __functionAddress = getInstance().VertexAttrib3hNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexAttrib3hNV(index, x, y, z, __functionAddress);
+		invokeISSSV(__functionAddress, index, x, y, z);
 	}
 
 	// --- [ glVertexAttrib3hvNV ] ---
-
-	/** JNI method for {@link #glVertexAttrib3hvNV VertexAttrib3hvNV} */
-	@JavadocExclude
-	public static native void nglVertexAttrib3hvNV(int index, long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glVertexAttrib3hvNV VertexAttrib3hvNV} */
 	@JavadocExclude
@@ -914,7 +755,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().VertexAttrib3hvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexAttrib3hvNV(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttrib3hvNV(int index, ByteBuffer v) {
@@ -932,22 +773,14 @@ public final class NVHalfFloat {
 
 	// --- [ glVertexAttrib4hNV ] ---
 
-	/** JNI method for {@link #glVertexAttrib4hNV VertexAttrib4hNV} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4hNV(int index, short x, short y, short z, short w, long __functionAddress);
-
 	public static void glVertexAttrib4hNV(int index, short x, short y, short z, short w) {
 		long __functionAddress = getInstance().VertexAttrib4hNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexAttrib4hNV(index, x, y, z, w, __functionAddress);
+		invokeISSSSV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttrib4hvNV ] ---
-
-	/** JNI method for {@link #glVertexAttrib4hvNV VertexAttrib4hvNV} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4hvNV(int index, long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glVertexAttrib4hvNV VertexAttrib4hvNV} */
 	@JavadocExclude
@@ -955,7 +788,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().VertexAttrib4hvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexAttrib4hvNV(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttrib4hvNV(int index, ByteBuffer v) {
@@ -973,17 +806,13 @@ public final class NVHalfFloat {
 
 	// --- [ glVertexAttribs1hvNV ] ---
 
-	/** JNI method for {@link #glVertexAttribs1hvNV VertexAttribs1hvNV} */
-	@JavadocExclude
-	public static native void nglVertexAttribs1hvNV(int index, int n, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttribs1hvNV VertexAttribs1hvNV} */
 	@JavadocExclude
 	public static void nglVertexAttribs1hvNV(int index, int n, long v) {
 		long __functionAddress = getInstance().VertexAttribs1hvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexAttribs1hvNV(index, n, v, __functionAddress);
+		invokeIIPV(__functionAddress, index, n, v);
 	}
 
 	public static void glVertexAttribs1hvNV(int index, int n, ByteBuffer v) {
@@ -999,17 +828,13 @@ public final class NVHalfFloat {
 
 	// --- [ glVertexAttribs2hvNV ] ---
 
-	/** JNI method for {@link #glVertexAttribs2hvNV VertexAttribs2hvNV} */
-	@JavadocExclude
-	public static native void nglVertexAttribs2hvNV(int index, int n, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttribs2hvNV VertexAttribs2hvNV} */
 	@JavadocExclude
 	public static void nglVertexAttribs2hvNV(int index, int n, long v) {
 		long __functionAddress = getInstance().VertexAttribs2hvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexAttribs2hvNV(index, n, v, __functionAddress);
+		invokeIIPV(__functionAddress, index, n, v);
 	}
 
 	public static void glVertexAttribs2hvNV(int index, int n, ByteBuffer v) {
@@ -1025,17 +850,13 @@ public final class NVHalfFloat {
 
 	// --- [ glVertexAttribs3hvNV ] ---
 
-	/** JNI method for {@link #glVertexAttribs3hvNV VertexAttribs3hvNV} */
-	@JavadocExclude
-	public static native void nglVertexAttribs3hvNV(int index, int n, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttribs3hvNV VertexAttribs3hvNV} */
 	@JavadocExclude
 	public static void nglVertexAttribs3hvNV(int index, int n, long v) {
 		long __functionAddress = getInstance().VertexAttribs3hvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexAttribs3hvNV(index, n, v, __functionAddress);
+		invokeIIPV(__functionAddress, index, n, v);
 	}
 
 	public static void glVertexAttribs3hvNV(int index, int n, ByteBuffer v) {
@@ -1051,17 +872,13 @@ public final class NVHalfFloat {
 
 	// --- [ glVertexAttribs4hvNV ] ---
 
-	/** JNI method for {@link #glVertexAttribs4hvNV VertexAttribs4hvNV} */
-	@JavadocExclude
-	public static native void nglVertexAttribs4hvNV(int index, int n, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttribs4hvNV VertexAttribs4hvNV} */
 	@JavadocExclude
 	public static void nglVertexAttribs4hvNV(int index, int n, long v) {
 		long __functionAddress = getInstance().VertexAttribs4hvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexAttribs4hvNV(index, n, v, __functionAddress);
+		invokeIIPV(__functionAddress, index, n, v);
 	}
 
 	public static void glVertexAttribs4hvNV(int index, int n, ByteBuffer v) {

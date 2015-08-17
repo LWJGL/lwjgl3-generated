@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -71,15 +72,11 @@ public final class KHRGLSharing {
 
 	// --- [ clGetGLContextInfoKHR ] ---
 
-	/** JNI method for {@link #clGetGLContextInfoKHR GetGLContextInfoKHR} */
-	@JavadocExclude
-	public static native int nclGetGLContextInfoKHR(long properties, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clGetGLContextInfoKHR GetGLContextInfoKHR} */
 	@JavadocExclude
 	public static int nclGetGLContextInfoKHR(long properties, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetGLContextInfoKHR;
-		return nclGetGLContextInfoKHR(properties, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
+		return invokePIPPPI(__functionAddress, properties, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -109,10 +110,6 @@ public final class KHRRobustness {
 
 	// --- [ glGetGraphicsResetStatusKHR ] ---
 
-	/** JNI method for {@link #glGetGraphicsResetStatusKHR GetGraphicsResetStatusKHR} */
-	@JavadocExclude
-	public static native int nglGetGraphicsResetStatusKHR(long __functionAddress);
-
 	/**
 	 * Indicates if the GL context has been in a reset state at any point since the last call to GetGraphicsResetStatus:
 	 * <ul>
@@ -147,20 +144,16 @@ public final class KHRRobustness {
 	 */
 	public static int glGetGraphicsResetStatusKHR() {
 		long __functionAddress = getInstance().GetGraphicsResetStatusKHR;
-		return nglGetGraphicsResetStatusKHR(__functionAddress);
+		return invokeI(__functionAddress);
 	}
 
 	// --- [ glReadnPixelsKHR ] ---
-
-	/** JNI method for {@link #glReadnPixelsKHR ReadnPixelsKHR} */
-	@JavadocExclude
-	public static native void nglReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, long pixels, long __functionAddress);
 
 	/** Unsafe version of {@link #glReadnPixelsKHR ReadnPixelsKHR} */
 	@JavadocExclude
 	public static void nglReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = getInstance().ReadnPixelsKHR;
-		nglReadnPixelsKHR(x, y, width, height, format, type, bufSize, pixels, __functionAddress);
+		invokeIIIIIIIPV(__functionAddress, x, y, width, height, format, type, bufSize, pixels);
 	}
 
 	/**
@@ -208,15 +201,11 @@ public final class KHRRobustness {
 
 	// --- [ glGetnUniformfvKHR ] ---
 
-	/** JNI method for {@link #glGetnUniformfvKHR GetnUniformfvKHR} */
-	@JavadocExclude
-	public static native void nglGetnUniformfvKHR(int program, int location, int bufSize, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetnUniformfvKHR GetnUniformfvKHR} */
 	@JavadocExclude
 	public static void nglGetnUniformfvKHR(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformfvKHR;
-		nglGetnUniformfvKHR(program, location, bufSize, params, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**
@@ -248,15 +237,11 @@ public final class KHRRobustness {
 
 	// --- [ glGetnUniformivKHR ] ---
 
-	/** JNI method for {@link #glGetnUniformivKHR GetnUniformivKHR} */
-	@JavadocExclude
-	public static native void nglGetnUniformivKHR(int program, int location, int bufSize, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetnUniformivKHR GetnUniformivKHR} */
 	@JavadocExclude
 	public static void nglGetnUniformivKHR(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformivKHR;
-		nglGetnUniformivKHR(program, location, bufSize, params, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**
@@ -288,15 +273,11 @@ public final class KHRRobustness {
 
 	// --- [ glGetnUniformuivKHR ] ---
 
-	/** JNI method for {@link #glGetnUniformuivKHR GetnUniformuivKHR} */
-	@JavadocExclude
-	public static native void nglGetnUniformuivKHR(int program, int location, int bufSize, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetnUniformuivKHR GetnUniformuivKHR} */
 	@JavadocExclude
 	public static void nglGetnUniformuivKHR(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformuivKHR;
-		nglGetnUniformuivKHR(program, location, bufSize, params, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**

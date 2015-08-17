@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -92,15 +93,11 @@ public final class NVExplicitMultisample {
 
 	// --- [ glGetMultisamplefvNV ] ---
 
-	/** JNI method for {@link #glGetMultisamplefvNV GetMultisamplefvNV} */
-	@JavadocExclude
-	public static native void nglGetMultisamplefvNV(int pname, int index, long val, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetMultisamplefvNV GetMultisamplefvNV} */
 	@JavadocExclude
 	public static void nglGetMultisamplefvNV(int pname, int index, long val) {
 		long __functionAddress = getInstance().GetMultisamplefvNV;
-		nglGetMultisamplefvNV(pname, index, val, __functionAddress);
+		invokeIIPV(__functionAddress, pname, index, val);
 	}
 
 	public static void glGetMultisamplefvNV(int pname, int index, ByteBuffer val) {
@@ -118,24 +115,16 @@ public final class NVExplicitMultisample {
 
 	// --- [ glSampleMaskIndexedNV ] ---
 
-	/** JNI method for {@link #glSampleMaskIndexedNV SampleMaskIndexedNV} */
-	@JavadocExclude
-	public static native void nglSampleMaskIndexedNV(int index, int mask, long __functionAddress);
-
 	public static void glSampleMaskIndexedNV(int index, int mask) {
 		long __functionAddress = getInstance().SampleMaskIndexedNV;
-		nglSampleMaskIndexedNV(index, mask, __functionAddress);
+		invokeIIV(__functionAddress, index, mask);
 	}
 
 	// --- [ glTexRenderbufferNV ] ---
 
-	/** JNI method for {@link #glTexRenderbufferNV TexRenderbufferNV} */
-	@JavadocExclude
-	public static native void nglTexRenderbufferNV(int target, int renderbuffer, long __functionAddress);
-
 	public static void glTexRenderbufferNV(int target, int renderbuffer) {
 		long __functionAddress = getInstance().TexRenderbufferNV;
-		nglTexRenderbufferNV(target, renderbuffer, __functionAddress);
+		invokeIIV(__functionAddress, target, renderbuffer);
 	}
 
 }

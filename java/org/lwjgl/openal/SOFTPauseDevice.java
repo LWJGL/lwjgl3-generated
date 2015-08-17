@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://kcat.strangesoft.net/openal-extensions/SOFT_pause_device.txt">SOFT_pause_device</a> extension.
@@ -52,10 +53,6 @@ public final class SOFTPauseDevice {
 
 	// --- [ alcDevicePauseSOFT ] ---
 
-	/** JNI method for {@link #alcDevicePauseSOFT DevicePauseSOFT} */
-	@JavadocExclude
-	public static native void nalcDevicePauseSOFT(long device, long __functionAddress);
-
 	/**
 	 * Pauses a playback device.
 	 * 
@@ -68,14 +65,10 @@ public final class SOFTPauseDevice {
 		long __functionAddress = getInstance().DevicePauseSOFT;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		nalcDevicePauseSOFT(device, __functionAddress);
+		invokePV(__functionAddress, device);
 	}
 
 	// --- [ alcDeviceResumeSOFT ] ---
-
-	/** JNI method for {@link #alcDeviceResumeSOFT DeviceResumeSOFT} */
-	@JavadocExclude
-	public static native void nalcDeviceResumeSOFT(long device, long __functionAddress);
 
 	/**
 	 * Resumes playback of a paused device.
@@ -92,7 +85,7 @@ public final class SOFTPauseDevice {
 		long __functionAddress = getInstance().DeviceResumeSOFT;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		nalcDeviceResumeSOFT(device, __functionAddress);
+		invokePV(__functionAddress, device);
 	}
 
 }

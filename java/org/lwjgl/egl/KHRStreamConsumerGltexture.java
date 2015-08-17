@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/KHR/EGL_KHR_stream_consumer_gltexture.txt">KHR_stream_consumer_gltexture</a> extension.
@@ -47,24 +48,16 @@ public final class KHRStreamConsumerGLTexture {
 
 	// --- [ eglStreamConsumerGLTextureExternalKHR ] ---
 
-	/** JNI method for {@link #eglStreamConsumerGLTextureExternalKHR StreamConsumerGLTextureExternalKHR} */
-	@JavadocExclude
-	public static native boolean neglStreamConsumerGLTextureExternalKHR(long dpy, long stream, long __functionAddress);
-
 	public static boolean eglStreamConsumerGLTextureExternalKHR(long dpy, long stream) {
 		long __functionAddress = getInstance().StreamConsumerGLTextureExternalKHR;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return neglStreamConsumerGLTextureExternalKHR(dpy, stream, __functionAddress);
+		return invokePPZ(__functionAddress, dpy, stream);
 	}
 
 	// --- [ eglStreamConsumerAcquireKHR ] ---
-
-	/** JNI method for {@link #eglStreamConsumerAcquireKHR StreamConsumerAcquireKHR} */
-	@JavadocExclude
-	public static native boolean neglStreamConsumerAcquireKHR(long dpy, long stream, long __functionAddress);
 
 	public static boolean eglStreamConsumerAcquireKHR(long dpy, long stream) {
 		long __functionAddress = getInstance().StreamConsumerAcquireKHR;
@@ -72,14 +65,10 @@ public final class KHRStreamConsumerGLTexture {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return neglStreamConsumerAcquireKHR(dpy, stream, __functionAddress);
+		return invokePPZ(__functionAddress, dpy, stream);
 	}
 
 	// --- [ eglStreamConsumerReleaseKHR ] ---
-
-	/** JNI method for {@link #eglStreamConsumerReleaseKHR StreamConsumerReleaseKHR} */
-	@JavadocExclude
-	public static native boolean neglStreamConsumerReleaseKHR(long dpy, long stream, long __functionAddress);
 
 	public static boolean eglStreamConsumerReleaseKHR(long dpy, long stream) {
 		long __functionAddress = getInstance().StreamConsumerReleaseKHR;
@@ -87,7 +76,7 @@ public final class KHRStreamConsumerGLTexture {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return neglStreamConsumerReleaseKHR(dpy, stream, __functionAddress);
+		return invokePPZ(__functionAddress, dpy, stream);
 	}
 
 }

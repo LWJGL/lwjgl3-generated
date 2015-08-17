@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/vertex_shader_tessellator.txt">AMD_vertex_shader_tessellator</a> extension.
@@ -117,24 +118,16 @@ public final class AMDVertexShaderTessellator {
 
 	// --- [ glTessellationFactorAMD ] ---
 
-	/** JNI method for {@link #glTessellationFactorAMD TessellationFactorAMD} */
-	@JavadocExclude
-	public static native void nglTessellationFactorAMD(float factor, long __functionAddress);
-
 	public static void glTessellationFactorAMD(float factor) {
 		long __functionAddress = getInstance().TessellationFactorAMD;
-		nglTessellationFactorAMD(factor, __functionAddress);
+		invokeFV(__functionAddress, factor);
 	}
 
 	// --- [ glTessellationModeAMD ] ---
 
-	/** JNI method for {@link #glTessellationModeAMD TessellationModeAMD} */
-	@JavadocExclude
-	public static native void nglTessellationModeAMD(int mode, long __functionAddress);
-
 	public static void glTessellationModeAMD(int mode) {
 		long __functionAddress = getInstance().TessellationModeAMD;
-		nglTessellationModeAMD(mode, __functionAddress);
+		invokeIV(__functionAddress, mode);
 	}
 
 }

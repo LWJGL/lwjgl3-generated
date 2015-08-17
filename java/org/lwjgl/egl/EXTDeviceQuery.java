@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -57,17 +58,13 @@ public final class EXTDeviceQuery {
 
 	// --- [ eglQueryDeviceAttribEXT ] ---
 
-	/** JNI method for {@link #eglQueryDeviceAttribEXT QueryDeviceAttribEXT} */
-	@JavadocExclude
-	public static native boolean neglQueryDeviceAttribEXT(long device, int attribute, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #eglQueryDeviceAttribEXT QueryDeviceAttribEXT} */
 	@JavadocExclude
 	public static boolean neglQueryDeviceAttribEXT(long device, int attribute, long value) {
 		long __functionAddress = getInstance().QueryDeviceAttribEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		return neglQueryDeviceAttribEXT(device, attribute, value, __functionAddress);
+		return invokePIPZ(__functionAddress, device, attribute, value);
 	}
 
 	public static boolean eglQueryDeviceAttribEXT(long device, int attribute, ByteBuffer value) {
@@ -85,17 +82,13 @@ public final class EXTDeviceQuery {
 
 	// --- [ eglQueryDeviceStringEXT ] ---
 
-	/** JNI method for {@link #eglQueryDeviceStringEXT QueryDeviceStringEXT} */
-	@JavadocExclude
-	public static native long neglQueryDeviceStringEXT(long device, int name, long __functionAddress);
-
 	/** Unsafe version of {@link #eglQueryDeviceStringEXT QueryDeviceStringEXT} */
 	@JavadocExclude
 	public static long neglQueryDeviceStringEXT(long device, int name) {
 		long __functionAddress = getInstance().QueryDeviceStringEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		return neglQueryDeviceStringEXT(device, name, __functionAddress);
+		return invokePIP(__functionAddress, device, name);
 	}
 
 	public static String eglQueryDeviceStringEXT(long device, int name) {
@@ -105,17 +98,13 @@ public final class EXTDeviceQuery {
 
 	// --- [ eglQueryDisplayAttribEXT ] ---
 
-	/** JNI method for {@link #eglQueryDisplayAttribEXT QueryDisplayAttribEXT} */
-	@JavadocExclude
-	public static native boolean neglQueryDisplayAttribEXT(long dpy, int attribute, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #eglQueryDisplayAttribEXT QueryDisplayAttribEXT} */
 	@JavadocExclude
 	public static boolean neglQueryDisplayAttribEXT(long dpy, int attribute, long value) {
 		long __functionAddress = getInstance().QueryDisplayAttribEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return neglQueryDisplayAttribEXT(dpy, attribute, value, __functionAddress);
+		return invokePIPZ(__functionAddress, dpy, attribute, value);
 	}
 
 	public static boolean eglQueryDisplayAttribEXT(long dpy, int attribute, ByteBuffer value) {

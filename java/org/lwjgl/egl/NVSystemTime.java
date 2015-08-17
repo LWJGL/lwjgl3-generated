@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/NV/EGL_NV_system_time.txt">NV_system_time</a> extension.
@@ -40,24 +41,16 @@ public final class NVSystemTime {
 
 	// --- [ eglGetSystemTimeFrequencyNV ] ---
 
-	/** JNI method for {@link #eglGetSystemTimeFrequencyNV GetSystemTimeFrequencyNV} */
-	@JavadocExclude
-	public static native long neglGetSystemTimeFrequencyNV(long __functionAddress);
-
 	public static long eglGetSystemTimeFrequencyNV() {
 		long __functionAddress = getInstance().GetSystemTimeFrequencyNV;
-		return neglGetSystemTimeFrequencyNV(__functionAddress);
+		return invokeJ(__functionAddress);
 	}
 
 	// --- [ eglGetSystemTimeNV ] ---
 
-	/** JNI method for {@link #eglGetSystemTimeNV GetSystemTimeNV} */
-	@JavadocExclude
-	public static native long neglGetSystemTimeNV(long __functionAddress);
-
 	public static long eglGetSystemTimeNV() {
 		long __functionAddress = getInstance().GetSystemTimeNV;
-		return neglGetSystemTimeNV(__functionAddress);
+		return invokeJ(__functionAddress);
 	}
 
 }

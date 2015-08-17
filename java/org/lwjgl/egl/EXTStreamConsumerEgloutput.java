@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/EXT/EGL_EXT_stream_consumer_egloutput.txt">EXT_stream_consumer_egloutput</a> extension.
@@ -44,10 +45,6 @@ public final class EXTStreamConsumerEGLOutput {
 
 	// --- [ eglStreamConsumerOutputEXT ] ---
 
-	/** JNI method for {@link #eglStreamConsumerOutputEXT StreamConsumerOutputEXT} */
-	@JavadocExclude
-	public static native boolean neglStreamConsumerOutputEXT(long dpy, long stream, long layer, long __functionAddress);
-
 	public static boolean eglStreamConsumerOutputEXT(long dpy, long stream, long layer) {
 		long __functionAddress = getInstance().StreamConsumerOutputEXT;
 		if ( LWJGLUtil.CHECKS ) {
@@ -55,7 +52,7 @@ public final class EXTStreamConsumerEGLOutput {
 			checkPointer(stream);
 			checkPointer(layer);
 		}
-		return neglStreamConsumerOutputEXT(dpy, stream, layer, __functionAddress);
+		return invokePPPZ(__functionAddress, dpy, stream, layer);
 	}
 
 }

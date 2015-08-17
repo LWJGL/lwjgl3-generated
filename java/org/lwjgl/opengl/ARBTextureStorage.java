@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/texture_storage.txt">ARB_texture_storage</a> extension.
@@ -86,7 +87,7 @@ public final class ARBTextureStorage {
 	 */
 	public static void glTexStorage1D(int target, int levels, int internalformat, int width) {
 		long __functionAddress = getInstance().TexStorage1D;
-		GL42.nglTexStorage1D(target, levels, internalformat, width, __functionAddress);
+		invokeIIIIV(__functionAddress, target, levels, internalformat, width);
 	}
 
 	// --- [ glTexStorage2D ] ---
@@ -102,7 +103,7 @@ public final class ARBTextureStorage {
 	 */
 	public static void glTexStorage2D(int target, int levels, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().TexStorage2D;
-		GL42.nglTexStorage2D(target, levels, internalformat, width, height, __functionAddress);
+		invokeIIIIIV(__functionAddress, target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTexStorage3D ] ---
@@ -119,14 +120,10 @@ public final class ARBTextureStorage {
 	 */
 	public static void glTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth) {
 		long __functionAddress = getInstance().TexStorage3D;
-		GL42.nglTexStorage3D(target, levels, internalformat, width, height, depth, __functionAddress);
+		invokeIIIIIIV(__functionAddress, target, levels, internalformat, width, height, depth);
 	}
 
 	// --- [ glTextureStorage1DEXT ] ---
-
-	/** JNI method for {@link #glTextureStorage1DEXT TextureStorage1DEXT} */
-	@JavadocExclude
-	public static native void nglTextureStorage1DEXT(int texture, int target, int levels, int internalformat, int width, long __functionAddress);
 
 	/**
 	 * DSA version of {@link #glTexStorage1D TexStorage1D}.
@@ -141,14 +138,10 @@ public final class ARBTextureStorage {
 		long __functionAddress = getInstance().TextureStorage1DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTextureStorage1DEXT(texture, target, levels, internalformat, width, __functionAddress);
+		invokeIIIIIV(__functionAddress, texture, target, levels, internalformat, width);
 	}
 
 	// --- [ glTextureStorage2DEXT ] ---
-
-	/** JNI method for {@link #glTextureStorage2DEXT TextureStorage2DEXT} */
-	@JavadocExclude
-	public static native void nglTextureStorage2DEXT(int texture, int target, int levels, int internalformat, int width, int height, long __functionAddress);
 
 	/**
 	 * DSA version of {@link #glTexStorage2D TexStorage2D}.
@@ -164,14 +157,10 @@ public final class ARBTextureStorage {
 		long __functionAddress = getInstance().TextureStorage2DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTextureStorage2DEXT(texture, target, levels, internalformat, width, height, __functionAddress);
+		invokeIIIIIIV(__functionAddress, texture, target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTextureStorage3DEXT ] ---
-
-	/** JNI method for {@link #glTextureStorage3DEXT TextureStorage3DEXT} */
-	@JavadocExclude
-	public static native void nglTextureStorage3DEXT(int texture, int target, int levels, int internalformat, int width, int height, int depth, long __functionAddress);
 
 	/**
 	 * DSA version of {@link #glTexStorage3D TexStorage3D}.
@@ -188,7 +177,7 @@ public final class ARBTextureStorage {
 		long __functionAddress = getInstance().TextureStorage3DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTextureStorage3DEXT(texture, target, levels, internalformat, width, height, depth, __functionAddress);
+		invokeIIIIIIIV(__functionAddress, texture, target, levels, internalformat, width, height, depth);
 	}
 
 }

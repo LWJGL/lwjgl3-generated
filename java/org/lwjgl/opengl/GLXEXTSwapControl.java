@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 import org.lwjgl.system.linux.*;
 
@@ -55,10 +56,6 @@ public final class GLXEXTSwapControl {
 
 	// --- [ glXSwapIntervalEXT ] ---
 
-	/** JNI method for {@link #glXSwapIntervalEXT SwapIntervalEXT} */
-	@JavadocExclude
-	public static native void nglXSwapIntervalEXT(long display, long drawable, int interval, long __functionAddress);
-
 	/**
 	 * Specifies the minimum number of video frame periods per buffer swap for a particular GLX drawable (e.g. a value of two means that the color buffers will
 	 * be swapped at most every other video frame). The interval takes effect when {@link GLX#glXSwapBuffers SwapBuffers} is first called on the drawable subsequent to the
@@ -74,7 +71,7 @@ public final class GLXEXTSwapControl {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		nglXSwapIntervalEXT(display, drawable, interval, __functionAddress);
+		invokePPIV(__functionAddress, display, drawable, interval);
 	}
 
 }

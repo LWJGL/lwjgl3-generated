@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -207,37 +208,25 @@ public final class EXTFramebufferObject {
 
 	// --- [ glIsRenderbufferEXT ] ---
 
-	/** JNI method for {@link #glIsRenderbufferEXT IsRenderbufferEXT} */
-	@JavadocExclude
-	public static native boolean nglIsRenderbufferEXT(int renderbuffer, long __functionAddress);
-
 	public static boolean glIsRenderbufferEXT(int renderbuffer) {
 		long __functionAddress = getInstance().IsRenderbufferEXT;
-		return nglIsRenderbufferEXT(renderbuffer, __functionAddress);
+		return invokeIZ(__functionAddress, renderbuffer);
 	}
 
 	// --- [ glBindRenderbufferEXT ] ---
 
-	/** JNI method for {@link #glBindRenderbufferEXT BindRenderbufferEXT} */
-	@JavadocExclude
-	public static native void nglBindRenderbufferEXT(int target, int renderbuffer, long __functionAddress);
-
 	public static void glBindRenderbufferEXT(int target, int renderbuffer) {
 		long __functionAddress = getInstance().BindRenderbufferEXT;
-		nglBindRenderbufferEXT(target, renderbuffer, __functionAddress);
+		invokeIIV(__functionAddress, target, renderbuffer);
 	}
 
 	// --- [ glDeleteRenderbuffersEXT ] ---
-
-	/** JNI method for {@link #glDeleteRenderbuffersEXT DeleteRenderbuffersEXT} */
-	@JavadocExclude
-	public static native void nglDeleteRenderbuffersEXT(int n, long renderbuffers, long __functionAddress);
 
 	/** Unsafe version of {@link #glDeleteRenderbuffersEXT DeleteRenderbuffersEXT} */
 	@JavadocExclude
 	public static void nglDeleteRenderbuffersEXT(int n, long renderbuffers) {
 		long __functionAddress = getInstance().DeleteRenderbuffersEXT;
-		nglDeleteRenderbuffersEXT(n, renderbuffers, __functionAddress);
+		invokeIPV(__functionAddress, n, renderbuffers);
 	}
 
 	public static void glDeleteRenderbuffersEXT(int n, ByteBuffer renderbuffers) {
@@ -260,15 +249,11 @@ public final class EXTFramebufferObject {
 
 	// --- [ glGenRenderbuffersEXT ] ---
 
-	/** JNI method for {@link #glGenRenderbuffersEXT GenRenderbuffersEXT} */
-	@JavadocExclude
-	public static native void nglGenRenderbuffersEXT(int n, long renderbuffers, long __functionAddress);
-
 	/** Unsafe version of {@link #glGenRenderbuffersEXT GenRenderbuffersEXT} */
 	@JavadocExclude
 	public static void nglGenRenderbuffersEXT(int n, long renderbuffers) {
 		long __functionAddress = getInstance().GenRenderbuffersEXT;
-		nglGenRenderbuffersEXT(n, renderbuffers, __functionAddress);
+		invokeIPV(__functionAddress, n, renderbuffers);
 	}
 
 	public static void glGenRenderbuffersEXT(int n, ByteBuffer renderbuffers) {
@@ -292,26 +277,18 @@ public final class EXTFramebufferObject {
 
 	// --- [ glRenderbufferStorageEXT ] ---
 
-	/** JNI method for {@link #glRenderbufferStorageEXT RenderbufferStorageEXT} */
-	@JavadocExclude
-	public static native void nglRenderbufferStorageEXT(int target, int internalformat, int width, int height, long __functionAddress);
-
 	public static void glRenderbufferStorageEXT(int target, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageEXT;
-		nglRenderbufferStorageEXT(target, internalformat, width, height, __functionAddress);
+		invokeIIIIV(__functionAddress, target, internalformat, width, height);
 	}
 
 	// --- [ glGetRenderbufferParameterivEXT ] ---
-
-	/** JNI method for {@link #glGetRenderbufferParameterivEXT GetRenderbufferParameterivEXT} */
-	@JavadocExclude
-	public static native void nglGetRenderbufferParameterivEXT(int target, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetRenderbufferParameterivEXT GetRenderbufferParameterivEXT} */
 	@JavadocExclude
 	public static void nglGetRenderbufferParameterivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetRenderbufferParameterivEXT;
-		nglGetRenderbufferParameterivEXT(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetRenderbufferParameterivEXT(int target, int pname, ByteBuffer params) {
@@ -337,37 +314,25 @@ public final class EXTFramebufferObject {
 
 	// --- [ glIsFramebufferEXT ] ---
 
-	/** JNI method for {@link #glIsFramebufferEXT IsFramebufferEXT} */
-	@JavadocExclude
-	public static native boolean nglIsFramebufferEXT(int framebuffer, long __functionAddress);
-
 	public static boolean glIsFramebufferEXT(int framebuffer) {
 		long __functionAddress = getInstance().IsFramebufferEXT;
-		return nglIsFramebufferEXT(framebuffer, __functionAddress);
+		return invokeIZ(__functionAddress, framebuffer);
 	}
 
 	// --- [ glBindFramebufferEXT ] ---
 
-	/** JNI method for {@link #glBindFramebufferEXT BindFramebufferEXT} */
-	@JavadocExclude
-	public static native void nglBindFramebufferEXT(int target, int framebuffer, long __functionAddress);
-
 	public static void glBindFramebufferEXT(int target, int framebuffer) {
 		long __functionAddress = getInstance().BindFramebufferEXT;
-		nglBindFramebufferEXT(target, framebuffer, __functionAddress);
+		invokeIIV(__functionAddress, target, framebuffer);
 	}
 
 	// --- [ glDeleteFramebuffersEXT ] ---
-
-	/** JNI method for {@link #glDeleteFramebuffersEXT DeleteFramebuffersEXT} */
-	@JavadocExclude
-	public static native void nglDeleteFramebuffersEXT(int n, long framebuffers, long __functionAddress);
 
 	/** Unsafe version of {@link #glDeleteFramebuffersEXT DeleteFramebuffersEXT} */
 	@JavadocExclude
 	public static void nglDeleteFramebuffersEXT(int n, long framebuffers) {
 		long __functionAddress = getInstance().DeleteFramebuffersEXT;
-		nglDeleteFramebuffersEXT(n, framebuffers, __functionAddress);
+		invokeIPV(__functionAddress, n, framebuffers);
 	}
 
 	public static void glDeleteFramebuffersEXT(int n, ByteBuffer framebuffers) {
@@ -390,15 +355,11 @@ public final class EXTFramebufferObject {
 
 	// --- [ glGenFramebuffersEXT ] ---
 
-	/** JNI method for {@link #glGenFramebuffersEXT GenFramebuffersEXT} */
-	@JavadocExclude
-	public static native void nglGenFramebuffersEXT(int n, long framebuffers, long __functionAddress);
-
 	/** Unsafe version of {@link #glGenFramebuffersEXT GenFramebuffersEXT} */
 	@JavadocExclude
 	public static void nglGenFramebuffersEXT(int n, long framebuffers) {
 		long __functionAddress = getInstance().GenFramebuffersEXT;
-		nglGenFramebuffersEXT(n, framebuffers, __functionAddress);
+		invokeIPV(__functionAddress, n, framebuffers);
 	}
 
 	public static void glGenFramebuffersEXT(int n, ByteBuffer framebuffers) {
@@ -422,70 +383,46 @@ public final class EXTFramebufferObject {
 
 	// --- [ glCheckFramebufferStatusEXT ] ---
 
-	/** JNI method for {@link #glCheckFramebufferStatusEXT CheckFramebufferStatusEXT} */
-	@JavadocExclude
-	public static native int nglCheckFramebufferStatusEXT(int target, long __functionAddress);
-
 	public static int glCheckFramebufferStatusEXT(int target) {
 		long __functionAddress = getInstance().CheckFramebufferStatusEXT;
-		return nglCheckFramebufferStatusEXT(target, __functionAddress);
+		return invokeII(__functionAddress, target);
 	}
 
 	// --- [ glFramebufferTexture1DEXT ] ---
 
-	/** JNI method for {@link #glFramebufferTexture1DEXT FramebufferTexture1DEXT} */
-	@JavadocExclude
-	public static native void nglFramebufferTexture1DEXT(int target, int attachment, int textarget, int texture, int level, long __functionAddress);
-
 	public static void glFramebufferTexture1DEXT(int target, int attachment, int textarget, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTexture1DEXT;
-		nglFramebufferTexture1DEXT(target, attachment, textarget, texture, level, __functionAddress);
+		invokeIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
 	}
 
 	// --- [ glFramebufferTexture2DEXT ] ---
 
-	/** JNI method for {@link #glFramebufferTexture2DEXT FramebufferTexture2DEXT} */
-	@JavadocExclude
-	public static native void nglFramebufferTexture2DEXT(int target, int attachment, int textarget, int texture, int level, long __functionAddress);
-
 	public static void glFramebufferTexture2DEXT(int target, int attachment, int textarget, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTexture2DEXT;
-		nglFramebufferTexture2DEXT(target, attachment, textarget, texture, level, __functionAddress);
+		invokeIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
 	}
 
 	// --- [ glFramebufferTexture3DEXT ] ---
 
-	/** JNI method for {@link #glFramebufferTexture3DEXT FramebufferTexture3DEXT} */
-	@JavadocExclude
-	public static native void nglFramebufferTexture3DEXT(int target, int attachment, int textarget, int texture, int level, int zoffset, long __functionAddress);
-
 	public static void glFramebufferTexture3DEXT(int target, int attachment, int textarget, int texture, int level, int zoffset) {
 		long __functionAddress = getInstance().FramebufferTexture3DEXT;
-		nglFramebufferTexture3DEXT(target, attachment, textarget, texture, level, zoffset, __functionAddress);
+		invokeIIIIIIV(__functionAddress, target, attachment, textarget, texture, level, zoffset);
 	}
 
 	// --- [ glFramebufferRenderbufferEXT ] ---
 
-	/** JNI method for {@link #glFramebufferRenderbufferEXT FramebufferRenderbufferEXT} */
-	@JavadocExclude
-	public static native void nglFramebufferRenderbufferEXT(int target, int attachment, int renderbuffertarget, int renderbuffer, long __functionAddress);
-
 	public static void glFramebufferRenderbufferEXT(int target, int attachment, int renderbuffertarget, int renderbuffer) {
 		long __functionAddress = getInstance().FramebufferRenderbufferEXT;
-		nglFramebufferRenderbufferEXT(target, attachment, renderbuffertarget, renderbuffer, __functionAddress);
+		invokeIIIIV(__functionAddress, target, attachment, renderbuffertarget, renderbuffer);
 	}
 
 	// --- [ glGetFramebufferAttachmentParameterivEXT ] ---
-
-	/** JNI method for {@link #glGetFramebufferAttachmentParameterivEXT GetFramebufferAttachmentParameterivEXT} */
-	@JavadocExclude
-	public static native void nglGetFramebufferAttachmentParameterivEXT(int target, int attachment, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetFramebufferAttachmentParameterivEXT GetFramebufferAttachmentParameterivEXT} */
 	@JavadocExclude
 	public static void nglGetFramebufferAttachmentParameterivEXT(int target, int attachment, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferAttachmentParameterivEXT;
-		nglGetFramebufferAttachmentParameterivEXT(target, attachment, pname, params, __functionAddress);
+		invokeIIIPV(__functionAddress, target, attachment, pname, params);
 	}
 
 	public static void glGetFramebufferAttachmentParameterivEXT(int target, int attachment, int pname, ByteBuffer params) {
@@ -511,13 +448,9 @@ public final class EXTFramebufferObject {
 
 	// --- [ glGenerateMipmapEXT ] ---
 
-	/** JNI method for {@link #glGenerateMipmapEXT GenerateMipmapEXT} */
-	@JavadocExclude
-	public static native void nglGenerateMipmapEXT(int target, long __functionAddress);
-
 	public static void glGenerateMipmapEXT(int target) {
 		long __functionAddress = getInstance().GenerateMipmapEXT;
-		nglGenerateMipmapEXT(target, __functionAddress);
+		invokeIV(__functionAddress, target);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -47,10 +48,6 @@ public final class MESAImageDMABufExport {
 
 	// --- [ eglExportDMABUFImageQueryMESA ] ---
 
-	/** JNI method for {@link #eglExportDMABUFImageQueryMESA ExportDMABUFImageQueryMESA} */
-	@JavadocExclude
-	public static native boolean neglExportDMABUFImageQueryMESA(long dpy, long image, long fourcc, long num_planes, long modifiers, long __functionAddress);
-
 	/** Unsafe version of {@link #eglExportDMABUFImageQueryMESA ExportDMABUFImageQueryMESA} */
 	@JavadocExclude
 	public static boolean neglExportDMABUFImageQueryMESA(long dpy, long image, long fourcc, long num_planes, long modifiers) {
@@ -59,7 +56,7 @@ public final class MESAImageDMABufExport {
 			checkPointer(dpy);
 			checkPointer(image);
 		}
-		return neglExportDMABUFImageQueryMESA(dpy, image, fourcc, num_planes, modifiers, __functionAddress);
+		return invokePPPPPZ(__functionAddress, dpy, image, fourcc, num_planes, modifiers);
 	}
 
 	public static boolean eglExportDMABUFImageQueryMESA(long dpy, long image, ByteBuffer fourcc, ByteBuffer num_planes, ByteBuffer modifiers) {
@@ -83,10 +80,6 @@ public final class MESAImageDMABufExport {
 
 	// --- [ eglExportDMABUFImageMESA ] ---
 
-	/** JNI method for {@link #eglExportDMABUFImageMESA ExportDMABUFImageMESA} */
-	@JavadocExclude
-	public static native boolean neglExportDMABUFImageMESA(long dpy, long image, long fds, long strides, long offsets, long __functionAddress);
-
 	/** Unsafe version of {@link #eglExportDMABUFImageMESA ExportDMABUFImageMESA} */
 	@JavadocExclude
 	public static boolean neglExportDMABUFImageMESA(long dpy, long image, long fds, long strides, long offsets) {
@@ -95,7 +88,7 @@ public final class MESAImageDMABufExport {
 			checkPointer(dpy);
 			checkPointer(image);
 		}
-		return neglExportDMABUFImageMESA(dpy, image, fds, strides, offsets, __functionAddress);
+		return invokePPPPPZ(__functionAddress, dpy, image, fds, strides, offsets);
 	}
 
 	public static boolean eglExportDMABUFImageMESA(long dpy, long image, ByteBuffer fds, ByteBuffer strides, ByteBuffer offsets) {

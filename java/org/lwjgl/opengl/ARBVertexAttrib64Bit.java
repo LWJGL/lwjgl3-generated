@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -120,7 +121,7 @@ public final class ARBVertexAttrib64Bit {
 	 */
 	public static void glVertexAttribL1d(int index, double x) {
 		long __functionAddress = getInstance().VertexAttribL1d;
-		GL41.nglVertexAttribL1d(index, x, __functionAddress);
+		invokeIDV(__functionAddress, index, x);
 	}
 
 	// --- [ glVertexAttribL2d ] ---
@@ -134,7 +135,7 @@ public final class ARBVertexAttrib64Bit {
 	 */
 	public static void glVertexAttribL2d(int index, double x, double y) {
 		long __functionAddress = getInstance().VertexAttribL2d;
-		GL41.nglVertexAttribL2d(index, x, y, __functionAddress);
+		invokeIDDV(__functionAddress, index, x, y);
 	}
 
 	// --- [ glVertexAttribL3d ] ---
@@ -149,7 +150,7 @@ public final class ARBVertexAttrib64Bit {
 	 */
 	public static void glVertexAttribL3d(int index, double x, double y, double z) {
 		long __functionAddress = getInstance().VertexAttribL3d;
-		GL41.nglVertexAttribL3d(index, x, y, z, __functionAddress);
+		invokeIDDDV(__functionAddress, index, x, y, z);
 	}
 
 	// --- [ glVertexAttribL4d ] ---
@@ -165,7 +166,7 @@ public final class ARBVertexAttrib64Bit {
 	 */
 	public static void glVertexAttribL4d(int index, double x, double y, double z, double w) {
 		long __functionAddress = getInstance().VertexAttribL4d;
-		GL41.nglVertexAttribL4d(index, x, y, z, w, __functionAddress);
+		invokeIDDDDV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttribL1dv ] ---
@@ -174,7 +175,7 @@ public final class ARBVertexAttrib64Bit {
 	@JavadocExclude
 	public static void nglVertexAttribL1dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL1dv;
-		GL41.nglVertexAttribL1dv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -186,14 +187,14 @@ public final class ARBVertexAttrib64Bit {
 	public static void glVertexAttribL1dv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1 << 3);
-		nglVertexAttribL1dv(index, memAddress(v));
+		GL41.nglVertexAttribL1dv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL1dv VertexAttribL1dv} */
 	public static void glVertexAttribL1dv(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 1);
-		nglVertexAttribL1dv(index, memAddress(v));
+		GL41.nglVertexAttribL1dv(index, memAddress(v));
 	}
 
 	// --- [ glVertexAttribL2dv ] ---
@@ -202,7 +203,7 @@ public final class ARBVertexAttrib64Bit {
 	@JavadocExclude
 	public static void nglVertexAttribL2dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL2dv;
-		GL41.nglVertexAttribL2dv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -214,14 +215,14 @@ public final class ARBVertexAttrib64Bit {
 	public static void glVertexAttribL2dv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2 << 3);
-		nglVertexAttribL2dv(index, memAddress(v));
+		GL41.nglVertexAttribL2dv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL2dv VertexAttribL2dv} */
 	public static void glVertexAttribL2dv(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 2);
-		nglVertexAttribL2dv(index, memAddress(v));
+		GL41.nglVertexAttribL2dv(index, memAddress(v));
 	}
 
 	// --- [ glVertexAttribL3dv ] ---
@@ -230,7 +231,7 @@ public final class ARBVertexAttrib64Bit {
 	@JavadocExclude
 	public static void nglVertexAttribL3dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL3dv;
-		GL41.nglVertexAttribL3dv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -242,14 +243,14 @@ public final class ARBVertexAttrib64Bit {
 	public static void glVertexAttribL3dv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3 << 3);
-		nglVertexAttribL3dv(index, memAddress(v));
+		GL41.nglVertexAttribL3dv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL3dv VertexAttribL3dv} */
 	public static void glVertexAttribL3dv(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 3);
-		nglVertexAttribL3dv(index, memAddress(v));
+		GL41.nglVertexAttribL3dv(index, memAddress(v));
 	}
 
 	// --- [ glVertexAttribL4dv ] ---
@@ -258,7 +259,7 @@ public final class ARBVertexAttrib64Bit {
 	@JavadocExclude
 	public static void nglVertexAttribL4dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL4dv;
-		GL41.nglVertexAttribL4dv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -270,14 +271,14 @@ public final class ARBVertexAttrib64Bit {
 	public static void glVertexAttribL4dv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 3);
-		nglVertexAttribL4dv(index, memAddress(v));
+		GL41.nglVertexAttribL4dv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL4dv VertexAttribL4dv} */
 	public static void glVertexAttribL4dv(int index, DoubleBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
-		nglVertexAttribL4dv(index, memAddress(v));
+		GL41.nglVertexAttribL4dv(index, memAddress(v));
 	}
 
 	// --- [ glVertexAttribLPointer ] ---
@@ -286,7 +287,7 @@ public final class ARBVertexAttrib64Bit {
 	@JavadocExclude
 	public static void nglVertexAttribLPointer(int index, int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexAttribLPointer;
-		GL41.nglVertexAttribLPointer(index, size, type, stride, pointer, __functionAddress);
+		invokeIIIIPV(__functionAddress, index, size, type, stride, pointer);
 	}
 
 	/**
@@ -303,21 +304,21 @@ public final class ARBVertexAttrib64Bit {
 	public static void glVertexAttribLPointer(int index, int size, int type, int stride, ByteBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglVertexAttribLPointer(index, size, type, stride, memAddress(pointer));
+		GL41.nglVertexAttribLPointer(index, size, type, stride, memAddress(pointer));
 	}
 
 	/** Buffer object offset version of: {@link #glVertexAttribLPointer VertexAttribLPointer} */
 	public static void glVertexAttribLPointer(int index, int size, int type, int stride, long pointerOffset) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
-		nglVertexAttribLPointer(index, size, type, stride, pointerOffset);
+		GL41.nglVertexAttribLPointer(index, size, type, stride, pointerOffset);
 	}
 
 	/** GL_DOUBLE version of: {@link #glVertexAttribLPointer VertexAttribLPointer} */
 	public static void glVertexAttribLPointer(int index, int size, int stride, DoubleBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglVertexAttribLPointer(index, size, GL11.GL_DOUBLE, stride, memAddress(pointer));
+		GL41.nglVertexAttribLPointer(index, size, GL11.GL_DOUBLE, stride, memAddress(pointer));
 	}
 
 	// --- [ glGetVertexAttribLdv ] ---
@@ -326,7 +327,7 @@ public final class ARBVertexAttrib64Bit {
 	@JavadocExclude
 	public static void nglGetVertexAttribLdv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribLdv;
-		GL41.nglGetVertexAttribLdv(index, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -337,19 +338,15 @@ public final class ARBVertexAttrib64Bit {
 	 * @param params the requested data
 	 */
 	public static void glGetVertexAttribLdv(int index, int pname, ByteBuffer params) {
-		nglGetVertexAttribLdv(index, pname, memAddress(params));
+		GL41.nglGetVertexAttribLdv(index, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetVertexAttribLdv GetVertexAttribLdv} */
 	public static void glGetVertexAttribLdv(int index, int pname, DoubleBuffer params) {
-		nglGetVertexAttribLdv(index, pname, memAddress(params));
+		GL41.nglGetVertexAttribLdv(index, pname, memAddress(params));
 	}
 
 	// --- [ glVertexArrayVertexAttribLOffsetEXT ] ---
-
-	/** JNI method for {@link #glVertexArrayVertexAttribLOffsetEXT VertexArrayVertexAttribLOffsetEXT} */
-	@JavadocExclude
-	public static native void nglVertexArrayVertexAttribLOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset, long __functionAddress);
 
 	/**
 	 * DSA version of {@link #glVertexAttribLPointer VertexAttribLPointer}.
@@ -367,7 +364,7 @@ public final class ARBVertexAttrib64Bit {
 		long __functionAddress = getInstance().VertexArrayVertexAttribLOffsetEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexArrayVertexAttribLOffsetEXT(vaobj, buffer, index, size, type, stride, offset, __functionAddress);
+		invokeIIIIIIPV(__functionAddress, vaobj, buffer, index, size, type, stride, offset);
 	}
 
 }

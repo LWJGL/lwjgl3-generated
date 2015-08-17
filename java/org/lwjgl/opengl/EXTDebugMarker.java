@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -62,15 +63,11 @@ public final class EXTDebugMarker {
 
 	// --- [ glInsertEventMarkerEXT ] ---
 
-	/** JNI method for {@link #glInsertEventMarkerEXT InsertEventMarkerEXT} */
-	@JavadocExclude
-	public static native void nglInsertEventMarkerEXT(int length, long marker, long __functionAddress);
-
 	/** Unsafe version of {@link #glInsertEventMarkerEXT InsertEventMarkerEXT} */
 	@JavadocExclude
 	public static void nglInsertEventMarkerEXT(int length, long marker) {
 		long __functionAddress = getInstance().InsertEventMarkerEXT;
-		nglInsertEventMarkerEXT(length, marker, __functionAddress);
+		invokeIPV(__functionAddress, length, marker);
 	}
 
 	public static void glInsertEventMarkerEXT(int length, ByteBuffer marker) {
@@ -94,15 +91,11 @@ public final class EXTDebugMarker {
 
 	// --- [ glPushGroupMarkerEXT ] ---
 
-	/** JNI method for {@link #glPushGroupMarkerEXT PushGroupMarkerEXT} */
-	@JavadocExclude
-	public static native void nglPushGroupMarkerEXT(int length, long marker, long __functionAddress);
-
 	/** Unsafe version of {@link #glPushGroupMarkerEXT PushGroupMarkerEXT} */
 	@JavadocExclude
 	public static void nglPushGroupMarkerEXT(int length, long marker) {
 		long __functionAddress = getInstance().PushGroupMarkerEXT;
-		nglPushGroupMarkerEXT(length, marker, __functionAddress);
+		invokeIPV(__functionAddress, length, marker);
 	}
 
 	public static void glPushGroupMarkerEXT(int length, ByteBuffer marker) {
@@ -126,13 +119,9 @@ public final class EXTDebugMarker {
 
 	// --- [ glPopGroupMarkerEXT ] ---
 
-	/** JNI method for {@link #glPopGroupMarkerEXT PopGroupMarkerEXT} */
-	@JavadocExclude
-	public static native void nglPopGroupMarkerEXT(long __functionAddress);
-
 	public static void glPopGroupMarkerEXT() {
 		long __functionAddress = getInstance().PopGroupMarkerEXT;
-		nglPopGroupMarkerEXT(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 }

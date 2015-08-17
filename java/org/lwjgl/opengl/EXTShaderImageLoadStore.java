@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/shader_image_load_store.txt">EXT_shader_image_load_store</a> extension.
@@ -141,24 +142,16 @@ public final class EXTShaderImageLoadStore {
 
 	// --- [ glBindImageTextureEXT ] ---
 
-	/** JNI method for {@link #glBindImageTextureEXT BindImageTextureEXT} */
-	@JavadocExclude
-	public static native void nglBindImageTextureEXT(int index, int texture, int level, boolean layered, int layer, int access, int format, long __functionAddress);
-
 	public static void glBindImageTextureEXT(int index, int texture, int level, boolean layered, int layer, int access, int format) {
 		long __functionAddress = getInstance().BindImageTextureEXT;
-		nglBindImageTextureEXT(index, texture, level, layered, layer, access, format, __functionAddress);
+		invokeIIIZIIIV(__functionAddress, index, texture, level, layered, layer, access, format);
 	}
 
 	// --- [ glMemoryBarrierEXT ] ---
 
-	/** JNI method for {@link #glMemoryBarrierEXT MemoryBarrierEXT} */
-	@JavadocExclude
-	public static native void nglMemoryBarrierEXT(int barriers, long __functionAddress);
-
 	public static void glMemoryBarrierEXT(int barriers) {
 		long __functionAddress = getInstance().MemoryBarrierEXT;
-		nglMemoryBarrierEXT(barriers, __functionAddress);
+		invokeIV(__functionAddress, barriers);
 	}
 
 }

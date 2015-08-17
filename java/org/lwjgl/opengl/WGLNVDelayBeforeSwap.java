@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 import org.lwjgl.system.windows.WinBase;
 
@@ -53,10 +54,6 @@ public final class WGLNVDelayBeforeSwap {
 
 	// --- [ wglDelayBeforeSwapNV ] ---
 
-	/** JNI method for {@link #wglDelayBeforeSwapNV DelayBeforeSwapNV} */
-	@JavadocExclude
-	public static native int nwglDelayBeforeSwapNV(long hDC, float seconds, long __functionAddress);
-
 	/**
 	 * Blocks the CPU until {@code seconds} seconds before a synchronized swap would occur on the window associated with {@code hDC}. It also returns a boolean
 	 * value equal to {@link WinBase#TRUE} when the implementation had to wait for the synchronized swap and {@link WinBase#FALSE} otherwise.
@@ -88,7 +85,7 @@ public final class WGLNVDelayBeforeSwap {
 		long __functionAddress = getInstance().DelayBeforeSwapNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hDC);
-		return nwglDelayBeforeSwapNV(hDC, seconds, __functionAddress);
+		return invokePFI(__functionAddress, hDC, seconds);
 	}
 
 }

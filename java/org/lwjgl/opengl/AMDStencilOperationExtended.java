@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/stencil_operation_extended.txt">AMD_stencil_operation_extended</a> extension.
@@ -64,13 +65,9 @@ public final class AMDStencilOperationExtended {
 
 	// --- [ glStencilOpValueAMD ] ---
 
-	/** JNI method for {@link #glStencilOpValueAMD StencilOpValueAMD} */
-	@JavadocExclude
-	public static native void nglStencilOpValueAMD(int face, int value, long __functionAddress);
-
 	public static void glStencilOpValueAMD(int face, int value) {
 		long __functionAddress = getInstance().StencilOpValueAMD;
-		nglStencilOpValueAMD(face, value, __functionAddress);
+		invokeIIV(__functionAddress, face, value);
 	}
 
 }

@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 import org.lwjgl.system.linux.*;
 
@@ -49,10 +50,6 @@ public final class GLXSGISwapControl {
 
 	// --- [ glXSwapIntervalSGI ] ---
 
-	/** JNI method for {@link #glXSwapIntervalSGI SwapIntervalSGI} */
-	@JavadocExclude
-	public static native int nglXSwapIntervalSGI(int interval, long __functionAddress);
-
 	/**
 	 * Specifies the minimum number of video frame periods per buffer swap. (e.g. a value of two means that the color buffers will be swapped at most every
 	 * other video frame.)  A return value of zero indicates success; otherwise an error occurred.  The interval takes effect when {@link GLX#glXSwapBuffers SwapBuffers}
@@ -65,7 +62,7 @@ public final class GLXSGISwapControl {
 	 */
 	public static int glXSwapIntervalSGI(int interval) {
 		long __functionAddress = getInstance().SwapIntervalSGI;
-		return nglXSwapIntervalSGI(interval, __functionAddress);
+		return invokeII(__functionAddress, interval);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
@@ -401,10 +402,6 @@ public final class GL20 {
 
 	// --- [ glCreateProgram ] ---
 
-	/** JNI method for {@link #glCreateProgram CreateProgram} */
-	@JavadocExclude
-	public static native int nglCreateProgram(long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateProgram.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -412,14 +409,10 @@ Creates a program object.
 	 */
 	public static int glCreateProgram() {
 		long __functionAddress = getInstance().CreateProgram;
-		return nglCreateProgram(__functionAddress);
+		return invokeI(__functionAddress);
 	}
 
 	// --- [ glDeleteProgram ] ---
-
-	/** JNI method for {@link #glDeleteProgram DeleteProgram} */
-	@JavadocExclude
-	public static native void nglDeleteProgram(int program, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteProgram.xhtml">OpenGL SDK Reference</a></p>
@@ -430,14 +423,10 @@ Creates a program object.
 	 */
 	public static void glDeleteProgram(int program) {
 		long __functionAddress = getInstance().DeleteProgram;
-		nglDeleteProgram(program, __functionAddress);
+		invokeIV(__functionAddress, program);
 	}
 
 	// --- [ glIsProgram ] ---
-
-	/** JNI method for {@link #glIsProgram IsProgram} */
-	@JavadocExclude
-	public static native boolean nglIsProgram(int program, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsProgram.xhtml">OpenGL SDK Reference</a></p>
@@ -449,14 +438,10 @@ Creates a program object.
 	 */
 	public static boolean glIsProgram(int program) {
 		long __functionAddress = getInstance().IsProgram;
-		return nglIsProgram(program, __functionAddress);
+		return invokeIZ(__functionAddress, program);
 	}
 
 	// --- [ glCreateShader ] ---
-
-	/** JNI method for {@link #glCreateShader CreateShader} */
-	@JavadocExclude
-	public static native int nglCreateShader(int type, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateShader.xhtml">OpenGL SDK Reference</a></p>
@@ -467,14 +452,10 @@ Creates a program object.
 	 */
 	public static int glCreateShader(int type) {
 		long __functionAddress = getInstance().CreateShader;
-		return nglCreateShader(type, __functionAddress);
+		return invokeII(__functionAddress, type);
 	}
 
 	// --- [ glDeleteShader ] ---
-
-	/** JNI method for {@link #glDeleteShader DeleteShader} */
-	@JavadocExclude
-	public static native void nglDeleteShader(int shader, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteShader.xhtml">OpenGL SDK Reference</a></p>
@@ -485,14 +466,10 @@ Creates a program object.
 	 */
 	public static void glDeleteShader(int shader) {
 		long __functionAddress = getInstance().DeleteShader;
-		nglDeleteShader(shader, __functionAddress);
+		invokeIV(__functionAddress, shader);
 	}
 
 	// --- [ glIsShader ] ---
-
-	/** JNI method for {@link #glIsShader IsShader} */
-	@JavadocExclude
-	public static native boolean nglIsShader(int shader, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsShader.xhtml">OpenGL SDK Reference</a></p>
@@ -504,14 +481,10 @@ Creates a program object.
 	 */
 	public static boolean glIsShader(int shader) {
 		long __functionAddress = getInstance().IsShader;
-		return nglIsShader(shader, __functionAddress);
+		return invokeIZ(__functionAddress, shader);
 	}
 
 	// --- [ glAttachShader ] ---
-
-	/** JNI method for {@link #glAttachShader AttachShader} */
-	@JavadocExclude
-	public static native void nglAttachShader(int program, int shader, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glAttachShader.xhtml">OpenGL SDK Reference</a></p>
@@ -534,14 +507,10 @@ Creates a program object.
 	 */
 	public static void glAttachShader(int program, int shader) {
 		long __functionAddress = getInstance().AttachShader;
-		nglAttachShader(program, shader, __functionAddress);
+		invokeIIV(__functionAddress, program, shader);
 	}
 
 	// --- [ glDetachShader ] ---
-
-	/** JNI method for {@link #glDetachShader DetachShader} */
-	@JavadocExclude
-	public static native void nglDetachShader(int program, int shader, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDetachShader.xhtml">OpenGL SDK Reference</a></p>
@@ -553,20 +522,16 @@ Creates a program object.
 	 */
 	public static void glDetachShader(int program, int shader) {
 		long __functionAddress = getInstance().DetachShader;
-		nglDetachShader(program, shader, __functionAddress);
+		invokeIIV(__functionAddress, program, shader);
 	}
 
 	// --- [ glShaderSource ] ---
-
-	/** JNI method for {@link #glShaderSource ShaderSource} */
-	@JavadocExclude
-	public static native void nglShaderSource(int shader, int count, long strings, long length, long __functionAddress);
 
 	/** Unsafe version of {@link #glShaderSource ShaderSource} */
 	@JavadocExclude
 	public static void nglShaderSource(int shader, int count, long strings, long length) {
 		long __functionAddress = getInstance().ShaderSource;
-		nglShaderSource(shader, count, strings, length, __functionAddress);
+		invokeIIPPV(__functionAddress, shader, count, strings, length);
 	}
 
 	/**
@@ -623,10 +588,6 @@ Creates a program object.
 
 	// --- [ glCompileShader ] ---
 
-	/** JNI method for {@link #glCompileShader CompileShader} */
-	@JavadocExclude
-	public static native void nglCompileShader(int shader, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCompileShader.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -636,14 +597,10 @@ Creates a program object.
 	 */
 	public static void glCompileShader(int shader) {
 		long __functionAddress = getInstance().CompileShader;
-		nglCompileShader(shader, __functionAddress);
+		invokeIV(__functionAddress, shader);
 	}
 
 	// --- [ glLinkProgram ] ---
-
-	/** JNI method for {@link #glLinkProgram LinkProgram} */
-	@JavadocExclude
-	public static native void nglLinkProgram(int program, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glLinkProgram.xhtml">OpenGL SDK Reference</a></p>
@@ -654,14 +611,10 @@ Creates a program object.
 	 */
 	public static void glLinkProgram(int program) {
 		long __functionAddress = getInstance().LinkProgram;
-		nglLinkProgram(program, __functionAddress);
+		invokeIV(__functionAddress, program);
 	}
 
 	// --- [ glUseProgram ] ---
-
-	/** JNI method for {@link #glUseProgram UseProgram} */
-	@JavadocExclude
-	public static native void nglUseProgram(int program, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUseProgram.xhtml">OpenGL SDK Reference</a></p>
@@ -672,14 +625,10 @@ Creates a program object.
 	 */
 	public static void glUseProgram(int program) {
 		long __functionAddress = getInstance().UseProgram;
-		nglUseProgram(program, __functionAddress);
+		invokeIV(__functionAddress, program);
 	}
 
 	// --- [ glValidateProgram ] ---
-
-	/** JNI method for {@link #glValidateProgram ValidateProgram} */
-	@JavadocExclude
-	public static native void nglValidateProgram(int program, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glValidateProgram.xhtml">OpenGL SDK Reference</a></p>
@@ -690,14 +639,10 @@ Creates a program object.
 	 */
 	public static void glValidateProgram(int program) {
 		long __functionAddress = getInstance().ValidateProgram;
-		nglValidateProgram(program, __functionAddress);
+		invokeIV(__functionAddress, program);
 	}
 
 	// --- [ glUniform1f ] ---
-
-	/** JNI method for {@link #glUniform1f Uniform1f} */
-	@JavadocExclude
-	public static native void nglUniform1f(int location, float v0, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1f.xhtml">OpenGL SDK Reference</a></p>
@@ -709,14 +654,10 @@ Creates a program object.
 	 */
 	public static void glUniform1f(int location, float v0) {
 		long __functionAddress = getInstance().Uniform1f;
-		nglUniform1f(location, v0, __functionAddress);
+		invokeIFV(__functionAddress, location, v0);
 	}
 
 	// --- [ glUniform2f ] ---
-
-	/** JNI method for {@link #glUniform2f Uniform2f} */
-	@JavadocExclude
-	public static native void nglUniform2f(int location, float v0, float v1, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2f.xhtml">OpenGL SDK Reference</a></p>
@@ -729,14 +670,10 @@ Creates a program object.
 	 */
 	public static void glUniform2f(int location, float v0, float v1) {
 		long __functionAddress = getInstance().Uniform2f;
-		nglUniform2f(location, v0, v1, __functionAddress);
+		invokeIFFV(__functionAddress, location, v0, v1);
 	}
 
 	// --- [ glUniform3f ] ---
-
-	/** JNI method for {@link #glUniform3f Uniform3f} */
-	@JavadocExclude
-	public static native void nglUniform3f(int location, float v0, float v1, float v2, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3f.xhtml">OpenGL SDK Reference</a></p>
@@ -750,14 +687,10 @@ Creates a program object.
 	 */
 	public static void glUniform3f(int location, float v0, float v1, float v2) {
 		long __functionAddress = getInstance().Uniform3f;
-		nglUniform3f(location, v0, v1, v2, __functionAddress);
+		invokeIFFFV(__functionAddress, location, v0, v1, v2);
 	}
 
 	// --- [ glUniform4f ] ---
-
-	/** JNI method for {@link #glUniform4f Uniform4f} */
-	@JavadocExclude
-	public static native void nglUniform4f(int location, float v0, float v1, float v2, float v3, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4f.xhtml">OpenGL SDK Reference</a></p>
@@ -772,14 +705,10 @@ Creates a program object.
 	 */
 	public static void glUniform4f(int location, float v0, float v1, float v2, float v3) {
 		long __functionAddress = getInstance().Uniform4f;
-		nglUniform4f(location, v0, v1, v2, v3, __functionAddress);
+		invokeIFFFFV(__functionAddress, location, v0, v1, v2, v3);
 	}
 
 	// --- [ glUniform1i ] ---
-
-	/** JNI method for {@link #glUniform1i Uniform1i} */
-	@JavadocExclude
-	public static native void nglUniform1i(int location, int v0, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1i.xhtml">OpenGL SDK Reference</a></p>
@@ -791,14 +720,10 @@ Creates a program object.
 	 */
 	public static void glUniform1i(int location, int v0) {
 		long __functionAddress = getInstance().Uniform1i;
-		nglUniform1i(location, v0, __functionAddress);
+		invokeIIV(__functionAddress, location, v0);
 	}
 
 	// --- [ glUniform2i ] ---
-
-	/** JNI method for {@link #glUniform2i Uniform2i} */
-	@JavadocExclude
-	public static native void nglUniform2i(int location, int v0, int v1, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2i.xhtml">OpenGL SDK Reference</a></p>
@@ -811,14 +736,10 @@ Creates a program object.
 	 */
 	public static void glUniform2i(int location, int v0, int v1) {
 		long __functionAddress = getInstance().Uniform2i;
-		nglUniform2i(location, v0, v1, __functionAddress);
+		invokeIIIV(__functionAddress, location, v0, v1);
 	}
 
 	// --- [ glUniform3i ] ---
-
-	/** JNI method for {@link #glUniform3i Uniform3i} */
-	@JavadocExclude
-	public static native void nglUniform3i(int location, int v0, int v1, int v2, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3i.xhtml">OpenGL SDK Reference</a></p>
@@ -832,14 +753,10 @@ Creates a program object.
 	 */
 	public static void glUniform3i(int location, int v0, int v1, int v2) {
 		long __functionAddress = getInstance().Uniform3i;
-		nglUniform3i(location, v0, v1, v2, __functionAddress);
+		invokeIIIIV(__functionAddress, location, v0, v1, v2);
 	}
 
 	// --- [ glUniform4i ] ---
-
-	/** JNI method for {@link #glUniform4i Uniform4i} */
-	@JavadocExclude
-	public static native void nglUniform4i(int location, int v0, int v1, int v2, int v3, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4i.xhtml">OpenGL SDK Reference</a></p>
@@ -854,20 +771,16 @@ Creates a program object.
 	 */
 	public static void glUniform4i(int location, int v0, int v1, int v2, int v3) {
 		long __functionAddress = getInstance().Uniform4i;
-		nglUniform4i(location, v0, v1, v2, v3, __functionAddress);
+		invokeIIIIIV(__functionAddress, location, v0, v1, v2, v3);
 	}
 
 	// --- [ glUniform1fv ] ---
-
-	/** JNI method for {@link #glUniform1fv Uniform1fv} */
-	@JavadocExclude
-	public static native void nglUniform1fv(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniform1fv Uniform1fv} */
 	@JavadocExclude
 	public static void nglUniform1fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1fv;
-		nglUniform1fv(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -892,15 +805,11 @@ Creates a program object.
 
 	// --- [ glUniform2fv ] ---
 
-	/** JNI method for {@link #glUniform2fv Uniform2fv} */
-	@JavadocExclude
-	public static native void nglUniform2fv(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform2fv Uniform2fv} */
 	@JavadocExclude
 	public static void nglUniform2fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2fv;
-		nglUniform2fv(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -925,15 +834,11 @@ Creates a program object.
 
 	// --- [ glUniform3fv ] ---
 
-	/** JNI method for {@link #glUniform3fv Uniform3fv} */
-	@JavadocExclude
-	public static native void nglUniform3fv(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform3fv Uniform3fv} */
 	@JavadocExclude
 	public static void nglUniform3fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3fv;
-		nglUniform3fv(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -958,15 +863,11 @@ Creates a program object.
 
 	// --- [ glUniform4fv ] ---
 
-	/** JNI method for {@link #glUniform4fv Uniform4fv} */
-	@JavadocExclude
-	public static native void nglUniform4fv(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform4fv Uniform4fv} */
 	@JavadocExclude
 	public static void nglUniform4fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4fv;
-		nglUniform4fv(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -991,15 +892,11 @@ Creates a program object.
 
 	// --- [ glUniform1iv ] ---
 
-	/** JNI method for {@link #glUniform1iv Uniform1iv} */
-	@JavadocExclude
-	public static native void nglUniform1iv(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform1iv Uniform1iv} */
 	@JavadocExclude
 	public static void nglUniform1iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1iv;
-		nglUniform1iv(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -1024,15 +921,11 @@ Creates a program object.
 
 	// --- [ glUniform2iv ] ---
 
-	/** JNI method for {@link #glUniform2iv Uniform2iv} */
-	@JavadocExclude
-	public static native void nglUniform2iv(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform2iv Uniform2iv} */
 	@JavadocExclude
 	public static void nglUniform2iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2iv;
-		nglUniform2iv(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -1057,15 +950,11 @@ Creates a program object.
 
 	// --- [ glUniform3iv ] ---
 
-	/** JNI method for {@link #glUniform3iv Uniform3iv} */
-	@JavadocExclude
-	public static native void nglUniform3iv(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform3iv Uniform3iv} */
 	@JavadocExclude
 	public static void nglUniform3iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3iv;
-		nglUniform3iv(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -1090,15 +979,11 @@ Creates a program object.
 
 	// --- [ glUniform4iv ] ---
 
-	/** JNI method for {@link #glUniform4iv Uniform4iv} */
-	@JavadocExclude
-	public static native void nglUniform4iv(int location, int count, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniform4iv Uniform4iv} */
 	@JavadocExclude
 	public static void nglUniform4iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4iv;
-		nglUniform4iv(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -1123,15 +1008,11 @@ Creates a program object.
 
 	// --- [ glUniformMatrix2fv ] ---
 
-	/** JNI method for {@link #glUniformMatrix2fv UniformMatrix2fv} */
-	@JavadocExclude
-	public static native void nglUniformMatrix2fv(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix2fv UniformMatrix2fv} */
 	@JavadocExclude
 	public static void nglUniformMatrix2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2fv;
-		nglUniformMatrix2fv(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -1157,15 +1038,11 @@ Creates a program object.
 
 	// --- [ glUniformMatrix3fv ] ---
 
-	/** JNI method for {@link #glUniformMatrix3fv UniformMatrix3fv} */
-	@JavadocExclude
-	public static native void nglUniformMatrix3fv(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix3fv UniformMatrix3fv} */
 	@JavadocExclude
 	public static void nglUniformMatrix3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3fv;
-		nglUniformMatrix3fv(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -1191,15 +1068,11 @@ Creates a program object.
 
 	// --- [ glUniformMatrix4fv ] ---
 
-	/** JNI method for {@link #glUniformMatrix4fv UniformMatrix4fv} */
-	@JavadocExclude
-	public static native void nglUniformMatrix4fv(int location, int count, boolean transpose, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glUniformMatrix4fv UniformMatrix4fv} */
 	@JavadocExclude
 	public static void nglUniformMatrix4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4fv;
-		nglUniformMatrix4fv(location, count, transpose, value, __functionAddress);
+		invokeIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -1225,15 +1098,11 @@ Creates a program object.
 
 	// --- [ glGetShaderiv ] ---
 
-	/** JNI method for {@link #glGetShaderiv GetShaderiv} */
-	@JavadocExclude
-	public static native void nglGetShaderiv(int shader, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetShaderiv GetShaderiv} */
 	@JavadocExclude
 	public static void nglGetShaderiv(int shader, int pname, long params) {
 		long __functionAddress = getInstance().GetShaderiv;
-		nglGetShaderiv(shader, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, shader, pname, params);
 	}
 
 	/**
@@ -1268,15 +1137,11 @@ Creates a program object.
 
 	// --- [ glGetProgramiv ] ---
 
-	/** JNI method for {@link #glGetProgramiv GetProgramiv} */
-	@JavadocExclude
-	public static native void nglGetProgramiv(int program, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetProgramiv GetProgramiv} */
 	@JavadocExclude
 	public static void nglGetProgramiv(int program, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramiv;
-		nglGetProgramiv(program, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, program, pname, params);
 	}
 
 	/**
@@ -1311,15 +1176,11 @@ Creates a program object.
 
 	// --- [ glGetShaderInfoLog ] ---
 
-	/** JNI method for {@link #glGetShaderInfoLog GetShaderInfoLog} */
-	@JavadocExclude
-	public static native void nglGetShaderInfoLog(int shader, int maxLength, long length, long infoLog, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetShaderInfoLog GetShaderInfoLog} */
 	@JavadocExclude
 	public static void nglGetShaderInfoLog(int shader, int maxLength, long length, long infoLog) {
 		long __functionAddress = getInstance().GetShaderInfoLog;
-		nglGetShaderInfoLog(shader, maxLength, length, infoLog, __functionAddress);
+		invokeIIPPV(__functionAddress, shader, maxLength, length, infoLog);
 	}
 
 	/**
@@ -1368,15 +1229,11 @@ Creates a program object.
 
 	// --- [ glGetProgramInfoLog ] ---
 
-	/** JNI method for {@link #glGetProgramInfoLog GetProgramInfoLog} */
-	@JavadocExclude
-	public static native void nglGetProgramInfoLog(int program, int maxLength, long length, long infoLog, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetProgramInfoLog GetProgramInfoLog} */
 	@JavadocExclude
 	public static void nglGetProgramInfoLog(int program, int maxLength, long length, long infoLog) {
 		long __functionAddress = getInstance().GetProgramInfoLog;
-		nglGetProgramInfoLog(program, maxLength, length, infoLog, __functionAddress);
+		invokeIIPPV(__functionAddress, program, maxLength, length, infoLog);
 	}
 
 	/**
@@ -1425,15 +1282,11 @@ Creates a program object.
 
 	// --- [ glGetAttachedShaders ] ---
 
-	/** JNI method for {@link #glGetAttachedShaders GetAttachedShaders} */
-	@JavadocExclude
-	public static native void nglGetAttachedShaders(int program, int maxCount, long count, long shaders, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetAttachedShaders GetAttachedShaders} */
 	@JavadocExclude
 	public static void nglGetAttachedShaders(int program, int maxCount, long count, long shaders) {
 		long __functionAddress = getInstance().GetAttachedShaders;
-		nglGetAttachedShaders(program, maxCount, count, shaders, __functionAddress);
+		invokeIIPPV(__functionAddress, program, maxCount, count, shaders);
 	}
 
 	/**
@@ -1484,15 +1337,11 @@ Creates a program object.
 
 	// --- [ glGetUniformLocation ] ---
 
-	/** JNI method for {@link #glGetUniformLocation GetUniformLocation} */
-	@JavadocExclude
-	public static native int nglGetUniformLocation(int program, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetUniformLocation GetUniformLocation} */
 	@JavadocExclude
 	public static int nglGetUniformLocation(int program, long name) {
 		long __functionAddress = getInstance().GetUniformLocation;
-		return nglGetUniformLocation(program, name, __functionAddress);
+		return invokeIPI(__functionAddress, program, name);
 	}
 
 	/**
@@ -1518,15 +1367,11 @@ Creates a program object.
 
 	// --- [ glGetActiveUniform ] ---
 
-	/** JNI method for {@link #glGetActiveUniform GetActiveUniform} */
-	@JavadocExclude
-	public static native void nglGetActiveUniform(int program, int index, int maxLength, long length, long size, long type, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetActiveUniform GetActiveUniform} */
 	@JavadocExclude
 	public static void nglGetActiveUniform(int program, int index, int maxLength, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetActiveUniform;
-		nglGetActiveUniform(program, index, maxLength, length, size, type, name, __functionAddress);
+		invokeIIIPPPPV(__functionAddress, program, index, maxLength, length, size, type, name);
 	}
 
 	/**
@@ -1591,15 +1436,11 @@ Creates a program object.
 
 	// --- [ glGetUniformfv ] ---
 
-	/** JNI method for {@link #glGetUniformfv GetUniformfv} */
-	@JavadocExclude
-	public static native void nglGetUniformfv(int program, int location, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetUniformfv GetUniformfv} */
 	@JavadocExclude
 	public static void nglGetUniformfv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformfv;
-		nglGetUniformfv(program, location, params, __functionAddress);
+		invokeIIPV(__functionAddress, program, location, params);
 	}
 
 	/**
@@ -1634,15 +1475,11 @@ Creates a program object.
 
 	// --- [ glGetUniformiv ] ---
 
-	/** JNI method for {@link #glGetUniformiv GetUniformiv} */
-	@JavadocExclude
-	public static native void nglGetUniformiv(int program, int location, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetUniformiv GetUniformiv} */
 	@JavadocExclude
 	public static void nglGetUniformiv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformiv;
-		nglGetUniformiv(program, location, params, __functionAddress);
+		invokeIIPV(__functionAddress, program, location, params);
 	}
 
 	/**
@@ -1677,15 +1514,11 @@ Creates a program object.
 
 	// --- [ glGetShaderSource ] ---
 
-	/** JNI method for {@link #glGetShaderSource GetShaderSource} */
-	@JavadocExclude
-	public static native void nglGetShaderSource(int shader, int maxLength, long length, long source, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetShaderSource GetShaderSource} */
 	@JavadocExclude
 	public static void nglGetShaderSource(int shader, int maxLength, long length, long source) {
 		long __functionAddress = getInstance().GetShaderSource;
-		nglGetShaderSource(shader, maxLength, length, source, __functionAddress);
+		invokeIIPPV(__functionAddress, shader, maxLength, length, source);
 	}
 
 	/**
@@ -1734,10 +1567,6 @@ Creates a program object.
 
 	// --- [ glVertexAttrib1f ] ---
 
-	/** JNI method for {@link #glVertexAttrib1f VertexAttrib1f} */
-	@JavadocExclude
-	public static native void nglVertexAttrib1f(int index, float v0, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1f.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -1748,14 +1577,10 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib1f(int index, float v0) {
 		long __functionAddress = getInstance().VertexAttrib1f;
-		nglVertexAttrib1f(index, v0, __functionAddress);
+		invokeIFV(__functionAddress, index, v0);
 	}
 
 	// --- [ glVertexAttrib1s ] ---
-
-	/** JNI method for {@link #glVertexAttrib1s VertexAttrib1s} */
-	@JavadocExclude
-	public static native void nglVertexAttrib1s(int index, short v0, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1s.xhtml">OpenGL SDK Reference</a></p>
@@ -1767,14 +1592,10 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib1s(int index, short v0) {
 		long __functionAddress = getInstance().VertexAttrib1s;
-		nglVertexAttrib1s(index, v0, __functionAddress);
+		invokeISV(__functionAddress, index, v0);
 	}
 
 	// --- [ glVertexAttrib1d ] ---
-
-	/** JNI method for {@link #glVertexAttrib1d VertexAttrib1d} */
-	@JavadocExclude
-	public static native void nglVertexAttrib1d(int index, double v0, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1d.xhtml">OpenGL SDK Reference</a></p>
@@ -1786,14 +1607,10 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib1d(int index, double v0) {
 		long __functionAddress = getInstance().VertexAttrib1d;
-		nglVertexAttrib1d(index, v0, __functionAddress);
+		invokeIDV(__functionAddress, index, v0);
 	}
 
 	// --- [ glVertexAttrib2f ] ---
-
-	/** JNI method for {@link #glVertexAttrib2f VertexAttrib2f} */
-	@JavadocExclude
-	public static native void nglVertexAttrib2f(int index, float v0, float v1, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2f.xhtml">OpenGL SDK Reference</a></p>
@@ -1806,14 +1623,10 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib2f(int index, float v0, float v1) {
 		long __functionAddress = getInstance().VertexAttrib2f;
-		nglVertexAttrib2f(index, v0, v1, __functionAddress);
+		invokeIFFV(__functionAddress, index, v0, v1);
 	}
 
 	// --- [ glVertexAttrib2s ] ---
-
-	/** JNI method for {@link #glVertexAttrib2s VertexAttrib2s} */
-	@JavadocExclude
-	public static native void nglVertexAttrib2s(int index, short v0, short v1, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2s.xhtml">OpenGL SDK Reference</a></p>
@@ -1826,14 +1639,10 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib2s(int index, short v0, short v1) {
 		long __functionAddress = getInstance().VertexAttrib2s;
-		nglVertexAttrib2s(index, v0, v1, __functionAddress);
+		invokeISSV(__functionAddress, index, v0, v1);
 	}
 
 	// --- [ glVertexAttrib2d ] ---
-
-	/** JNI method for {@link #glVertexAttrib2d VertexAttrib2d} */
-	@JavadocExclude
-	public static native void nglVertexAttrib2d(int index, double v0, double v1, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2d.xhtml">OpenGL SDK Reference</a></p>
@@ -1846,14 +1655,10 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib2d(int index, double v0, double v1) {
 		long __functionAddress = getInstance().VertexAttrib2d;
-		nglVertexAttrib2d(index, v0, v1, __functionAddress);
+		invokeIDDV(__functionAddress, index, v0, v1);
 	}
 
 	// --- [ glVertexAttrib3f ] ---
-
-	/** JNI method for {@link #glVertexAttrib3f VertexAttrib3f} */
-	@JavadocExclude
-	public static native void nglVertexAttrib3f(int index, float v0, float v1, float v2, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3f.xhtml">OpenGL SDK Reference</a></p>
@@ -1867,14 +1672,10 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib3f(int index, float v0, float v1, float v2) {
 		long __functionAddress = getInstance().VertexAttrib3f;
-		nglVertexAttrib3f(index, v0, v1, v2, __functionAddress);
+		invokeIFFFV(__functionAddress, index, v0, v1, v2);
 	}
 
 	// --- [ glVertexAttrib3s ] ---
-
-	/** JNI method for {@link #glVertexAttrib3s VertexAttrib3s} */
-	@JavadocExclude
-	public static native void nglVertexAttrib3s(int index, short v0, short v1, short v2, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3s.xhtml">OpenGL SDK Reference</a></p>
@@ -1888,14 +1689,10 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib3s(int index, short v0, short v1, short v2) {
 		long __functionAddress = getInstance().VertexAttrib3s;
-		nglVertexAttrib3s(index, v0, v1, v2, __functionAddress);
+		invokeISSSV(__functionAddress, index, v0, v1, v2);
 	}
 
 	// --- [ glVertexAttrib3d ] ---
-
-	/** JNI method for {@link #glVertexAttrib3d VertexAttrib3d} */
-	@JavadocExclude
-	public static native void nglVertexAttrib3d(int index, double v0, double v1, double v2, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3d.xhtml">OpenGL SDK Reference</a></p>
@@ -1909,14 +1706,10 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib3d(int index, double v0, double v1, double v2) {
 		long __functionAddress = getInstance().VertexAttrib3d;
-		nglVertexAttrib3d(index, v0, v1, v2, __functionAddress);
+		invokeIDDDV(__functionAddress, index, v0, v1, v2);
 	}
 
 	// --- [ glVertexAttrib4f ] ---
-
-	/** JNI method for {@link #glVertexAttrib4f VertexAttrib4f} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4f(int index, float v0, float v1, float v2, float v3, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4f.xhtml">OpenGL SDK Reference</a></p>
@@ -1931,14 +1724,10 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib4f(int index, float v0, float v1, float v2, float v3) {
 		long __functionAddress = getInstance().VertexAttrib4f;
-		nglVertexAttrib4f(index, v0, v1, v2, v3, __functionAddress);
+		invokeIFFFFV(__functionAddress, index, v0, v1, v2, v3);
 	}
 
 	// --- [ glVertexAttrib4s ] ---
-
-	/** JNI method for {@link #glVertexAttrib4s VertexAttrib4s} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4s(int index, short v0, short v1, short v2, short v3, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4s.xhtml">OpenGL SDK Reference</a></p>
@@ -1953,14 +1742,10 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib4s(int index, short v0, short v1, short v2, short v3) {
 		long __functionAddress = getInstance().VertexAttrib4s;
-		nglVertexAttrib4s(index, v0, v1, v2, v3, __functionAddress);
+		invokeISSSSV(__functionAddress, index, v0, v1, v2, v3);
 	}
 
 	// --- [ glVertexAttrib4d ] ---
-
-	/** JNI method for {@link #glVertexAttrib4d VertexAttrib4d} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4d(int index, double v0, double v1, double v2, double v3, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4d.xhtml">OpenGL SDK Reference</a></p>
@@ -1975,14 +1760,10 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib4d(int index, double v0, double v1, double v2, double v3) {
 		long __functionAddress = getInstance().VertexAttrib4d;
-		nglVertexAttrib4d(index, v0, v1, v2, v3, __functionAddress);
+		invokeIDDDDV(__functionAddress, index, v0, v1, v2, v3);
 	}
 
 	// --- [ glVertexAttrib4Nub ] ---
-
-	/** JNI method for {@link #glVertexAttrib4Nub VertexAttrib4Nub} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4Nub(int index, byte x, byte y, byte z, byte w, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4Nub.xhtml">OpenGL SDK Reference</a></p>
@@ -1997,20 +1778,16 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib4Nub(int index, byte x, byte y, byte z, byte w) {
 		long __functionAddress = getInstance().VertexAttrib4Nub;
-		nglVertexAttrib4Nub(index, x, y, z, w, __functionAddress);
+		invokeIBBBBV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttrib1fv ] ---
-
-	/** JNI method for {@link #glVertexAttrib1fv VertexAttrib1fv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib1fv(int index, long v, long __functionAddress);
 
 	/** Unsafe version of {@link #glVertexAttrib1fv VertexAttrib1fv} */
 	@JavadocExclude
 	public static void nglVertexAttrib1fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1fv;
-		nglVertexAttrib1fv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2036,15 +1813,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib1sv ] ---
 
-	/** JNI method for {@link #glVertexAttrib1sv VertexAttrib1sv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib1sv(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttrib1sv VertexAttrib1sv} */
 	@JavadocExclude
 	public static void nglVertexAttrib1sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1sv;
-		nglVertexAttrib1sv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2070,15 +1843,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib1dv ] ---
 
-	/** JNI method for {@link #glVertexAttrib1dv VertexAttrib1dv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib1dv(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttrib1dv VertexAttrib1dv} */
 	@JavadocExclude
 	public static void nglVertexAttrib1dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1dv;
-		nglVertexAttrib1dv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2104,15 +1873,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib2fv ] ---
 
-	/** JNI method for {@link #glVertexAttrib2fv VertexAttrib2fv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib2fv(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttrib2fv VertexAttrib2fv} */
 	@JavadocExclude
 	public static void nglVertexAttrib2fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2fv;
-		nglVertexAttrib2fv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2138,15 +1903,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib2sv ] ---
 
-	/** JNI method for {@link #glVertexAttrib2sv VertexAttrib2sv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib2sv(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttrib2sv VertexAttrib2sv} */
 	@JavadocExclude
 	public static void nglVertexAttrib2sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2sv;
-		nglVertexAttrib2sv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2172,15 +1933,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib2dv ] ---
 
-	/** JNI method for {@link #glVertexAttrib2dv VertexAttrib2dv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib2dv(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttrib2dv VertexAttrib2dv} */
 	@JavadocExclude
 	public static void nglVertexAttrib2dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2dv;
-		nglVertexAttrib2dv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2206,15 +1963,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib3fv ] ---
 
-	/** JNI method for {@link #glVertexAttrib3fv VertexAttrib3fv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib3fv(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttrib3fv VertexAttrib3fv} */
 	@JavadocExclude
 	public static void nglVertexAttrib3fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3fv;
-		nglVertexAttrib3fv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2240,15 +1993,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib3sv ] ---
 
-	/** JNI method for {@link #glVertexAttrib3sv VertexAttrib3sv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib3sv(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttrib3sv VertexAttrib3sv} */
 	@JavadocExclude
 	public static void nglVertexAttrib3sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3sv;
-		nglVertexAttrib3sv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2274,15 +2023,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib3dv ] ---
 
-	/** JNI method for {@link #glVertexAttrib3dv VertexAttrib3dv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib3dv(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttrib3dv VertexAttrib3dv} */
 	@JavadocExclude
 	public static void nglVertexAttrib3dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3dv;
-		nglVertexAttrib3dv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2308,15 +2053,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4fv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4fv VertexAttrib4fv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4fv(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttrib4fv VertexAttrib4fv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4fv;
-		nglVertexAttrib4fv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2342,15 +2083,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4sv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4sv VertexAttrib4sv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4sv(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttrib4sv VertexAttrib4sv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4sv;
-		nglVertexAttrib4sv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2376,15 +2113,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4dv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4dv VertexAttrib4dv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4dv(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttrib4dv VertexAttrib4dv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4dv;
-		nglVertexAttrib4dv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2410,15 +2143,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4iv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4iv VertexAttrib4iv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4iv(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttrib4iv VertexAttrib4iv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4iv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4iv;
-		nglVertexAttrib4iv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2444,15 +2173,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4bv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4bv VertexAttrib4bv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4bv(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttrib4bv VertexAttrib4bv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4bv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4bv;
-		nglVertexAttrib4bv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2471,15 +2196,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4ubv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4ubv VertexAttrib4ubv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4ubv(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttrib4ubv VertexAttrib4ubv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4ubv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4ubv;
-		nglVertexAttrib4ubv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2498,15 +2219,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4usv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4usv VertexAttrib4usv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4usv(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttrib4usv VertexAttrib4usv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4usv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4usv;
-		nglVertexAttrib4usv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2532,15 +2249,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4uiv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4uiv VertexAttrib4uiv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4uiv(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttrib4uiv VertexAttrib4uiv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4uiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4uiv;
-		nglVertexAttrib4uiv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2566,15 +2279,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4Nbv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4Nbv VertexAttrib4Nbv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4Nbv(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttrib4Nbv VertexAttrib4Nbv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4Nbv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nbv;
-		nglVertexAttrib4Nbv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2593,15 +2302,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4Nsv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4Nsv VertexAttrib4Nsv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4Nsv(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttrib4Nsv VertexAttrib4Nsv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4Nsv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nsv;
-		nglVertexAttrib4Nsv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2627,15 +2332,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4Niv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4Niv VertexAttrib4Niv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4Niv(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttrib4Niv VertexAttrib4Niv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4Niv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Niv;
-		nglVertexAttrib4Niv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2661,15 +2362,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4Nubv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4Nubv VertexAttrib4Nubv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4Nubv(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttrib4Nubv VertexAttrib4Nubv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4Nubv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nubv;
-		nglVertexAttrib4Nubv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2688,15 +2385,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4Nusv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4Nusv VertexAttrib4Nusv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4Nusv(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttrib4Nusv VertexAttrib4Nusv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4Nusv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nusv;
-		nglVertexAttrib4Nusv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2722,15 +2415,11 @@ Creates a program object.
 
 	// --- [ glVertexAttrib4Nuiv ] ---
 
-	/** JNI method for {@link #glVertexAttrib4Nuiv VertexAttrib4Nuiv} */
-	@JavadocExclude
-	public static native void nglVertexAttrib4Nuiv(int index, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttrib4Nuiv VertexAttrib4Nuiv} */
 	@JavadocExclude
 	public static void nglVertexAttrib4Nuiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nuiv;
-		nglVertexAttrib4Nuiv(index, v, __functionAddress);
+		invokeIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2756,15 +2445,11 @@ Creates a program object.
 
 	// --- [ glVertexAttribPointer ] ---
 
-	/** JNI method for {@link #glVertexAttribPointer VertexAttribPointer} */
-	@JavadocExclude
-	public static native void nglVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttribPointer VertexAttribPointer} */
 	@JavadocExclude
 	public static void nglVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexAttribPointer;
-		nglVertexAttribPointer(index, size, type, normalized, stride, pointer, __functionAddress);
+		invokeIIIZIPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
 	/**
@@ -2817,10 +2502,6 @@ Creates a program object.
 
 	// --- [ glEnableVertexAttribArray ] ---
 
-	/** JNI method for {@link #glEnableVertexAttribArray EnableVertexAttribArray} */
-	@JavadocExclude
-	public static native void nglEnableVertexAttribArray(int index, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glEnableVertexAttribArray.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -2830,14 +2511,10 @@ Creates a program object.
 	 */
 	public static void glEnableVertexAttribArray(int index) {
 		long __functionAddress = getInstance().EnableVertexAttribArray;
-		nglEnableVertexAttribArray(index, __functionAddress);
+		invokeIV(__functionAddress, index);
 	}
 
 	// --- [ glDisableVertexAttribArray ] ---
-
-	/** JNI method for {@link #glDisableVertexAttribArray DisableVertexAttribArray} */
-	@JavadocExclude
-	public static native void nglDisableVertexAttribArray(int index, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glEnableVertexAttribArray.xhtml">OpenGL SDK Reference</a></p>
@@ -2848,20 +2525,16 @@ Creates a program object.
 	 */
 	public static void glDisableVertexAttribArray(int index) {
 		long __functionAddress = getInstance().DisableVertexAttribArray;
-		nglDisableVertexAttribArray(index, __functionAddress);
+		invokeIV(__functionAddress, index);
 	}
 
 	// --- [ glBindAttribLocation ] ---
-
-	/** JNI method for {@link #glBindAttribLocation BindAttribLocation} */
-	@JavadocExclude
-	public static native void nglBindAttribLocation(int program, int index, long name, long __functionAddress);
 
 	/** Unsafe version of {@link #glBindAttribLocation BindAttribLocation} */
 	@JavadocExclude
 	public static void nglBindAttribLocation(int program, int index, long name) {
 		long __functionAddress = getInstance().BindAttribLocation;
-		nglBindAttribLocation(program, index, name, __functionAddress);
+		invokeIIPV(__functionAddress, program, index, name);
 	}
 
 	/**
@@ -2888,15 +2561,11 @@ Creates a program object.
 
 	// --- [ glGetActiveAttrib ] ---
 
-	/** JNI method for {@link #glGetActiveAttrib GetActiveAttrib} */
-	@JavadocExclude
-	public static native void nglGetActiveAttrib(int program, int index, int maxLength, long length, long size, long type, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetActiveAttrib GetActiveAttrib} */
 	@JavadocExclude
 	public static void nglGetActiveAttrib(int program, int index, int maxLength, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetActiveAttrib;
-		nglGetActiveAttrib(program, index, maxLength, length, size, type, name, __functionAddress);
+		invokeIIIPPPPV(__functionAddress, program, index, maxLength, length, size, type, name);
 	}
 
 	/**
@@ -2961,15 +2630,11 @@ Creates a program object.
 
 	// --- [ glGetAttribLocation ] ---
 
-	/** JNI method for {@link #glGetAttribLocation GetAttribLocation} */
-	@JavadocExclude
-	public static native int nglGetAttribLocation(int program, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetAttribLocation GetAttribLocation} */
 	@JavadocExclude
 	public static int nglGetAttribLocation(int program, long name) {
 		long __functionAddress = getInstance().GetAttribLocation;
-		return nglGetAttribLocation(program, name, __functionAddress);
+		return invokeIPI(__functionAddress, program, name);
 	}
 
 	/**
@@ -2995,15 +2660,11 @@ Creates a program object.
 
 	// --- [ glGetVertexAttribiv ] ---
 
-	/** JNI method for {@link #glGetVertexAttribiv GetVertexAttribiv} */
-	@JavadocExclude
-	public static native void nglGetVertexAttribiv(int index, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetVertexAttribiv GetVertexAttribiv} */
 	@JavadocExclude
 	public static void nglGetVertexAttribiv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribiv;
-		nglGetVertexAttribiv(index, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -3038,15 +2699,11 @@ Creates a program object.
 
 	// --- [ glGetVertexAttribfv ] ---
 
-	/** JNI method for {@link #glGetVertexAttribfv GetVertexAttribfv} */
-	@JavadocExclude
-	public static native void nglGetVertexAttribfv(int index, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetVertexAttribfv GetVertexAttribfv} */
 	@JavadocExclude
 	public static void nglGetVertexAttribfv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribfv;
-		nglGetVertexAttribfv(index, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -3073,15 +2730,11 @@ Creates a program object.
 
 	// --- [ glGetVertexAttribdv ] ---
 
-	/** JNI method for {@link #glGetVertexAttribdv GetVertexAttribdv} */
-	@JavadocExclude
-	public static native void nglGetVertexAttribdv(int index, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetVertexAttribdv GetVertexAttribdv} */
 	@JavadocExclude
 	public static void nglGetVertexAttribdv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribdv;
-		nglGetVertexAttribdv(index, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -3108,15 +2761,11 @@ Creates a program object.
 
 	// --- [ glGetVertexAttribPointerv ] ---
 
-	/** JNI method for {@link #glGetVertexAttribPointerv GetVertexAttribPointerv} */
-	@JavadocExclude
-	public static native void nglGetVertexAttribPointerv(int index, int pname, long pointer, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetVertexAttribPointerv GetVertexAttribPointerv} */
 	@JavadocExclude
 	public static void nglGetVertexAttribPointerv(int index, int pname, long pointer) {
 		long __functionAddress = getInstance().GetVertexAttribPointerv;
-		nglGetVertexAttribPointerv(index, pname, pointer, __functionAddress);
+		invokeIIPV(__functionAddress, index, pname, pointer);
 	}
 
 	/**
@@ -3151,15 +2800,11 @@ Creates a program object.
 
 	// --- [ glDrawBuffers ] ---
 
-	/** JNI method for {@link #glDrawBuffers DrawBuffers} */
-	@JavadocExclude
-	public static native void nglDrawBuffers(int n, long bufs, long __functionAddress);
-
 	/** Unsafe version of {@link #glDrawBuffers DrawBuffers} */
 	@JavadocExclude
 	public static void nglDrawBuffers(int n, long bufs) {
 		long __functionAddress = getInstance().DrawBuffers;
-		nglDrawBuffers(n, bufs, __functionAddress);
+		invokeIPV(__functionAddress, n, bufs);
 	}
 
 	/**
@@ -3190,10 +2835,6 @@ Creates a program object.
 
 	// --- [ glBlendEquationSeparate ] ---
 
-	/** JNI method for {@link #glBlendEquationSeparate BlendEquationSeparate} */
-	@JavadocExclude
-	public static native void nglBlendEquationSeparate(int modeRGB, int modeAlpha, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBlendEquationSeparate.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -3204,14 +2845,10 @@ Creates a program object.
 	 */
 	public static void glBlendEquationSeparate(int modeRGB, int modeAlpha) {
 		long __functionAddress = getInstance().BlendEquationSeparate;
-		nglBlendEquationSeparate(modeRGB, modeAlpha, __functionAddress);
+		invokeIIV(__functionAddress, modeRGB, modeAlpha);
 	}
 
 	// --- [ glStencilOpSeparate ] ---
-
-	/** JNI method for {@link #glStencilOpSeparate StencilOpSeparate} */
-	@JavadocExclude
-	public static native void nglStencilOpSeparate(int face, int sfail, int dpfail, int dppass, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glStencilOpSeparate.xhtml">OpenGL SDK Reference</a></p>
@@ -3226,14 +2863,10 @@ Creates a program object.
 	 */
 	public static void glStencilOpSeparate(int face, int sfail, int dpfail, int dppass) {
 		long __functionAddress = getInstance().StencilOpSeparate;
-		nglStencilOpSeparate(face, sfail, dpfail, dppass, __functionAddress);
+		invokeIIIIV(__functionAddress, face, sfail, dpfail, dppass);
 	}
 
 	// --- [ glStencilFuncSeparate ] ---
-
-	/** JNI method for {@link #glStencilFuncSeparate StencilFuncSeparate} */
-	@JavadocExclude
-	public static native void nglStencilFuncSeparate(int face, int func, int ref, int mask, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glStencilFuncSeparate.xhtml">OpenGL SDK Reference</a></p>
@@ -3248,14 +2881,10 @@ Creates a program object.
 	 */
 	public static void glStencilFuncSeparate(int face, int func, int ref, int mask) {
 		long __functionAddress = getInstance().StencilFuncSeparate;
-		nglStencilFuncSeparate(face, func, ref, mask, __functionAddress);
+		invokeIIIIV(__functionAddress, face, func, ref, mask);
 	}
 
 	// --- [ glStencilMaskSeparate ] ---
-
-	/** JNI method for {@link #glStencilMaskSeparate StencilMaskSeparate} */
-	@JavadocExclude
-	public static native void nglStencilMaskSeparate(int face, int mask, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glStencilMaskSeparate.xhtml">OpenGL SDK Reference</a></p>
@@ -3267,7 +2896,7 @@ Creates a program object.
 	 */
 	public static void glStencilMaskSeparate(int face, int mask) {
 		long __functionAddress = getInstance().StencilMaskSeparate;
-		nglStencilMaskSeparate(face, mask, __functionAddress);
+		invokeIIV(__functionAddress, face, mask);
 	}
 
 }

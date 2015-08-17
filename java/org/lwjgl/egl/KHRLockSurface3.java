@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -72,10 +73,6 @@ public final class KHRLockSurface3 {
 
 	// --- [ eglLockSurfaceKHR ] ---
 
-	/** JNI method for {@link #eglLockSurfaceKHR LockSurfaceKHR} */
-	@JavadocExclude
-	public static native boolean neglLockSurfaceKHR(long dpy, long surface, long attrib_list, long __functionAddress);
-
 	/** Unsafe version of {@link #eglLockSurfaceKHR LockSurfaceKHR} */
 	@JavadocExclude
 	public static boolean neglLockSurfaceKHR(long dpy, long surface, long attrib_list) {
@@ -84,7 +81,7 @@ public final class KHRLockSurface3 {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return neglLockSurfaceKHR(dpy, surface, attrib_list, __functionAddress);
+		return invokePPPZ(__functionAddress, dpy, surface, attrib_list);
 	}
 
 	public static boolean eglLockSurfaceKHR(long dpy, long surface, ByteBuffer attrib_list) {
@@ -102,24 +99,16 @@ public final class KHRLockSurface3 {
 
 	// --- [ eglUnlockSurfaceKHR ] ---
 
-	/** JNI method for {@link #eglUnlockSurfaceKHR UnlockSurfaceKHR} */
-	@JavadocExclude
-	public static native boolean neglUnlockSurfaceKHR(long dpy, long surface, long __functionAddress);
-
 	public static boolean eglUnlockSurfaceKHR(long dpy, long surface) {
 		long __functionAddress = getInstance().UnlockSurfaceKHR;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return neglUnlockSurfaceKHR(dpy, surface, __functionAddress);
+		return invokePPZ(__functionAddress, dpy, surface);
 	}
 
 	// --- [ eglQuerySurface64KHR ] ---
-
-	/** JNI method for {@link #eglQuerySurface64KHR QuerySurface64KHR} */
-	@JavadocExclude
-	public static native boolean neglQuerySurface64KHR(long dpy, long surface, int attribute, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #eglQuerySurface64KHR QuerySurface64KHR} */
 	@JavadocExclude
@@ -129,7 +118,7 @@ public final class KHRLockSurface3 {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return neglQuerySurface64KHR(dpy, surface, attribute, value, __functionAddress);
+		return invokePPIPZ(__functionAddress, dpy, surface, attribute, value);
 	}
 
 	public static boolean eglQuerySurface64KHR(long dpy, long surface, int attribute, ByteBuffer value) {

@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/NV/EGL_NV_post_sub_buffer.txt">NV_post_sub_buffer</a> extension.
@@ -43,17 +44,13 @@ public final class NVPostSubBuffer {
 
 	// --- [ eglPostSubBufferNV ] ---
 
-	/** JNI method for {@link #eglPostSubBufferNV PostSubBufferNV} */
-	@JavadocExclude
-	public static native boolean neglPostSubBufferNV(long dpy, long surface, int x, int y, int width, int height, long __functionAddress);
-
 	public static boolean eglPostSubBufferNV(long dpy, long surface, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().PostSubBufferNV;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return neglPostSubBufferNV(dpy, surface, x, y, width, height, __functionAddress);
+		return invokePPIIIIZ(__functionAddress, dpy, surface, x, y, width, height);
 	}
 
 }

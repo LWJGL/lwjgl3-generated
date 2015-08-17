@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -140,10 +141,6 @@ public final class WGLARBRenderTexture {
 
 	// --- [ wglBindTexImageARB ] ---
 
-	/** JNI method for {@link #wglBindTexImageARB BindTexImageARB} */
-	@JavadocExclude
-	public static native int nwglBindTexImageARB(long pbuffer, int buffer, long __functionAddress);
-
 	/**
 	 * Defines a one-dimensional texture image or two-dimensional texture image or a set of two-dimensional cube map texture images. The texture image or
 	 * images consist of the image data in {@code buffer} for the specified {@code pbuffer} and need not be copied. The texture target, the texture format and
@@ -156,14 +153,10 @@ public final class WGLARBRenderTexture {
 		long __functionAddress = getInstance().BindTexImageARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(pbuffer);
-		return nwglBindTexImageARB(pbuffer, buffer, __functionAddress);
+		return invokePII(__functionAddress, pbuffer, buffer);
 	}
 
 	// --- [ wglReleaseTexImageARB ] ---
-
-	/** JNI method for {@link #wglReleaseTexImageARB ReleaseTexImageARB} */
-	@JavadocExclude
-	public static native int nwglReleaseTexImageARB(long pbuffer, int buffer, long __functionAddress);
 
 	/**
 	 * Releases the specified color buffer back to the pbuffer. The pbuffer is made available for reading and writing when it no longer has any color buffers
@@ -176,14 +169,10 @@ public final class WGLARBRenderTexture {
 		long __functionAddress = getInstance().ReleaseTexImageARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(pbuffer);
-		return nwglReleaseTexImageARB(pbuffer, buffer, __functionAddress);
+		return invokePII(__functionAddress, pbuffer, buffer);
 	}
 
 	// --- [ wglSetPbufferAttribARB ] ---
-
-	/** JNI method for {@link #wglSetPbufferAttribARB SetPbufferAttribARB} */
-	@JavadocExclude
-	public static native int nwglSetPbufferAttribARB(long pbuffer, long attribList, long __functionAddress);
 
 	/** Unsafe version of {@link #wglSetPbufferAttribARB SetPbufferAttribARB} */
 	@JavadocExclude
@@ -191,7 +180,7 @@ public final class WGLARBRenderTexture {
 		long __functionAddress = getInstance().SetPbufferAttribARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(pbuffer);
-		return nwglSetPbufferAttribARB(pbuffer, attribList, __functionAddress);
+		return invokePPI(__functionAddress, pbuffer, attribList);
 	}
 
 	/**

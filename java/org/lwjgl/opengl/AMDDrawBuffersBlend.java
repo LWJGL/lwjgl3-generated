@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/draw_buffers_blend.txt">AMD_draw_buffers_blend</a> extension.
@@ -60,46 +61,30 @@ public final class AMDDrawBuffersBlend {
 
 	// --- [ glBlendFuncIndexedAMD ] ---
 
-	/** JNI method for {@link #glBlendFuncIndexedAMD BlendFuncIndexedAMD} */
-	@JavadocExclude
-	public static native void nglBlendFuncIndexedAMD(int buf, int src, int dst, long __functionAddress);
-
 	public static void glBlendFuncIndexedAMD(int buf, int src, int dst) {
 		long __functionAddress = getInstance().BlendFuncIndexedAMD;
-		nglBlendFuncIndexedAMD(buf, src, dst, __functionAddress);
+		invokeIIIV(__functionAddress, buf, src, dst);
 	}
 
 	// --- [ glBlendFuncSeparateIndexedAMD ] ---
 
-	/** JNI method for {@link #glBlendFuncSeparateIndexedAMD BlendFuncSeparateIndexedAMD} */
-	@JavadocExclude
-	public static native void nglBlendFuncSeparateIndexedAMD(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha, long __functionAddress);
-
 	public static void glBlendFuncSeparateIndexedAMD(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
 		long __functionAddress = getInstance().BlendFuncSeparateIndexedAMD;
-		nglBlendFuncSeparateIndexedAMD(buf, srcRGB, dstRGB, srcAlpha, dstAlpha, __functionAddress);
+		invokeIIIIIV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 
 	// --- [ glBlendEquationIndexedAMD ] ---
 
-	/** JNI method for {@link #glBlendEquationIndexedAMD BlendEquationIndexedAMD} */
-	@JavadocExclude
-	public static native void nglBlendEquationIndexedAMD(int buf, int mode, long __functionAddress);
-
 	public static void glBlendEquationIndexedAMD(int buf, int mode) {
 		long __functionAddress = getInstance().BlendEquationIndexedAMD;
-		nglBlendEquationIndexedAMD(buf, mode, __functionAddress);
+		invokeIIV(__functionAddress, buf, mode);
 	}
 
 	// --- [ glBlendEquationSeparateIndexedAMD ] ---
 
-	/** JNI method for {@link #glBlendEquationSeparateIndexedAMD BlendEquationSeparateIndexedAMD} */
-	@JavadocExclude
-	public static native void nglBlendEquationSeparateIndexedAMD(int buf, int modeRGB, int modeAlpha, long __functionAddress);
-
 	public static void glBlendEquationSeparateIndexedAMD(int buf, int modeRGB, int modeAlpha) {
 		long __functionAddress = getInstance().BlendEquationSeparateIndexedAMD;
-		nglBlendEquationSeparateIndexedAMD(buf, modeRGB, modeAlpha, __functionAddress);
+		invokeIIIV(__functionAddress, buf, modeRGB, modeAlpha);
 	}
 
 }

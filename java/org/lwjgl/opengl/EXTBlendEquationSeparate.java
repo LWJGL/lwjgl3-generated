@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/blend_equation_separate.txt">EXT_blend_equation_separate</a> extension.
@@ -62,13 +63,9 @@ public final class EXTBlendEquationSeparate {
 
 	// --- [ glBlendEquationSeparateEXT ] ---
 
-	/** JNI method for {@link #glBlendEquationSeparateEXT BlendEquationSeparateEXT} */
-	@JavadocExclude
-	public static native void nglBlendEquationSeparateEXT(int modeRGB, int modeAlpha, long __functionAddress);
-
 	public static void glBlendEquationSeparateEXT(int modeRGB, int modeAlpha) {
 		long __functionAddress = getInstance().BlendEquationSeparateEXT;
-		nglBlendEquationSeparateEXT(modeRGB, modeAlpha, __functionAddress);
+		invokeIIV(__functionAddress, modeRGB, modeAlpha);
 	}
 
 }

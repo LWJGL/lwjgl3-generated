@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
@@ -210,15 +211,11 @@ public final class KHRDebug {
 
 	// --- [ glDebugMessageControlKHR ] ---
 
-	/** JNI method for {@link #glDebugMessageControlKHR DebugMessageControlKHR} */
-	@JavadocExclude
-	public static native void nglDebugMessageControlKHR(int source, int type, int severity, int count, long ids, boolean enabled, long __functionAddress);
-
 	/** Unsafe version of {@link #glDebugMessageControlKHR DebugMessageControlKHR} */
 	@JavadocExclude
 	public static void nglDebugMessageControlKHR(int source, int type, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = getInstance().DebugMessageControlKHR;
-		nglDebugMessageControlKHR(source, type, severity, count, ids, enabled, __functionAddress);
+		invokeIIIIPZV(__functionAddress, source, type, severity, count, ids, enabled);
 	}
 
 	/**
@@ -273,15 +270,11 @@ public final class KHRDebug {
 
 	// --- [ glDebugMessageInsertKHR ] ---
 
-	/** JNI method for {@link #glDebugMessageInsertKHR DebugMessageInsertKHR} */
-	@JavadocExclude
-	public static native void nglDebugMessageInsertKHR(int source, int type, int id, int severity, int length, long message, long __functionAddress);
-
 	/** Unsafe version of {@link #glDebugMessageInsertKHR DebugMessageInsertKHR} */
 	@JavadocExclude
 	public static void nglDebugMessageInsertKHR(int source, int type, int id, int severity, int length, long message) {
 		long __functionAddress = getInstance().DebugMessageInsertKHR;
-		nglDebugMessageInsertKHR(source, type, id, severity, length, message, __functionAddress);
+		invokeIIIIIPV(__functionAddress, source, type, id, severity, length, message);
 	}
 
 	/**
@@ -324,10 +317,6 @@ public final class KHRDebug {
 
 	// --- [ glDebugMessageCallbackKHR ] ---
 
-	/** JNI method for {@link #glDebugMessageCallbackKHR DebugMessageCallbackKHR} */
-	@JavadocExclude
-	public static native void nglDebugMessageCallbackKHR(long callback, long userParam, long __functionAddress);
-
 	/**
 	 * Specifies a callback to receive debugging messages from the GL.
 	 * 
@@ -361,20 +350,16 @@ public final class KHRDebug {
 	 */
 	public static void glDebugMessageCallbackKHR(GLDebugMessageKHRCallback callback, long userParam) {
 		long __functionAddress = getInstance().DebugMessageCallbackKHR;
-		nglDebugMessageCallbackKHR(callback == null ? NULL : callback.getPointer(), userParam, __functionAddress);
+		invokePPV(__functionAddress, callback == null ? NULL : callback.getPointer(), userParam);
 	}
 
 	// --- [ glGetDebugMessageLogKHR ] ---
-
-	/** JNI method for {@link #glGetDebugMessageLogKHR GetDebugMessageLogKHR} */
-	@JavadocExclude
-	public static native int nglGetDebugMessageLogKHR(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetDebugMessageLogKHR GetDebugMessageLogKHR} */
 	@JavadocExclude
 	public static int nglGetDebugMessageLogKHR(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
 		long __functionAddress = getInstance().GetDebugMessageLogKHR;
-		return nglGetDebugMessageLogKHR(count, bufsize, sources, types, ids, severities, lengths, messageLog, __functionAddress);
+		return invokeIIPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
 	}
 
 	/**
@@ -436,15 +421,11 @@ public final class KHRDebug {
 
 	// --- [ glGetPointervKHR ] ---
 
-	/** JNI method for {@link #glGetPointervKHR GetPointervKHR} */
-	@JavadocExclude
-	public static native void nglGetPointervKHR(int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetPointervKHR GetPointervKHR} */
 	@JavadocExclude
 	public static void nglGetPointervKHR(int pname, long params) {
 		long __functionAddress = getInstance().GetPointervKHR;
-		nglGetPointervKHR(pname, params, __functionAddress);
+		invokeIPV(__functionAddress, pname, params);
 	}
 
 	public static void glGetPointervKHR(int pname, ByteBuffer params) {
@@ -470,15 +451,11 @@ public final class KHRDebug {
 
 	// --- [ glPushDebugGroupKHR ] ---
 
-	/** JNI method for {@link #glPushDebugGroupKHR PushDebugGroupKHR} */
-	@JavadocExclude
-	public static native void nglPushDebugGroupKHR(int source, int id, int length, long message, long __functionAddress);
-
 	/** Unsafe version of {@link #glPushDebugGroupKHR PushDebugGroupKHR} */
 	@JavadocExclude
 	public static void nglPushDebugGroupKHR(int source, int id, int length, long message) {
 		long __functionAddress = getInstance().PushDebugGroupKHR;
-		nglPushDebugGroupKHR(source, id, length, message, __functionAddress);
+		invokeIIIPV(__functionAddress, source, id, length, message);
 	}
 
 	/**
@@ -520,10 +497,6 @@ public final class KHRDebug {
 
 	// --- [ glPopDebugGroupKHR ] ---
 
-	/** JNI method for {@link #glPopDebugGroupKHR PopDebugGroupKHR} */
-	@JavadocExclude
-	public static native void nglPopDebugGroupKHR(long __functionAddress);
-
 	/**
 	 * Pops the active debug group. When a debug group is popped, the GL will also generate a debug output message describing its cause based on the
 	 * {@code message} string, the source {@code source}, and an ID {@code id} submitted to the associated {@link #glPushDebugGroupKHR PushDebugGroupKHR} command.
@@ -536,20 +509,16 @@ public final class KHRDebug {
 	 */
 	public static void glPopDebugGroupKHR() {
 		long __functionAddress = getInstance().PopDebugGroupKHR;
-		nglPopDebugGroupKHR(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glObjectLabelKHR ] ---
-
-	/** JNI method for {@link #glObjectLabelKHR ObjectLabelKHR} */
-	@JavadocExclude
-	public static native void nglObjectLabelKHR(int identifier, int name, int length, long label, long __functionAddress);
 
 	/** Unsafe version of {@link #glObjectLabelKHR ObjectLabelKHR} */
 	@JavadocExclude
 	public static void nglObjectLabelKHR(int identifier, int name, int length, long label) {
 		long __functionAddress = getInstance().ObjectLabelKHR;
-		nglObjectLabelKHR(identifier, name, length, label, __functionAddress);
+		invokeIIIPV(__functionAddress, identifier, name, length, label);
 	}
 
 	/**
@@ -581,15 +550,11 @@ public final class KHRDebug {
 
 	// --- [ glGetObjectLabelKHR ] ---
 
-	/** JNI method for {@link #glGetObjectLabelKHR GetObjectLabelKHR} */
-	@JavadocExclude
-	public static native void nglGetObjectLabelKHR(int identifier, int name, int bufSize, long length, long label, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetObjectLabelKHR GetObjectLabelKHR} */
 	@JavadocExclude
 	public static void nglGetObjectLabelKHR(int identifier, int name, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectLabelKHR;
-		nglGetObjectLabelKHR(identifier, name, bufSize, length, label, __functionAddress);
+		invokeIIIPPV(__functionAddress, identifier, name, bufSize, length, label);
 	}
 
 	/**
@@ -637,17 +602,13 @@ public final class KHRDebug {
 
 	// --- [ glObjectPtrLabelKHR ] ---
 
-	/** JNI method for {@link #glObjectPtrLabelKHR ObjectPtrLabelKHR} */
-	@JavadocExclude
-	public static native void nglObjectPtrLabelKHR(long ptr, int length, long label, long __functionAddress);
-
 	/** Unsafe version of {@link #glObjectPtrLabelKHR ObjectPtrLabelKHR} */
 	@JavadocExclude
 	public static void nglObjectPtrLabelKHR(long ptr, int length, long label) {
 		long __functionAddress = getInstance().ObjectPtrLabelKHR;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ptr);
-		nglObjectPtrLabelKHR(ptr, length, label, __functionAddress);
+		invokePIPV(__functionAddress, ptr, length, label);
 	}
 
 	/**
@@ -678,17 +639,13 @@ public final class KHRDebug {
 
 	// --- [ glGetObjectPtrLabelKHR ] ---
 
-	/** JNI method for {@link #glGetObjectPtrLabelKHR GetObjectPtrLabelKHR} */
-	@JavadocExclude
-	public static native void nglGetObjectPtrLabelKHR(long ptr, int bufSize, long length, long label, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetObjectPtrLabelKHR GetObjectPtrLabelKHR} */
 	@JavadocExclude
 	public static void nglGetObjectPtrLabelKHR(long ptr, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectPtrLabelKHR;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ptr);
-		nglGetObjectPtrLabelKHR(ptr, bufSize, length, label, __functionAddress);
+		invokePIPPV(__functionAddress, ptr, bufSize, length, label);
 	}
 
 	/**

@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 import org.lwjgl.system.linux.*;
 
@@ -51,10 +52,6 @@ public final class GLXNVCopyImage {
 
 	// --- [ glXCopyImageSubDataNV ] ---
 
-	/** JNI method for {@link #glXCopyImageSubDataNV CopyImageSubDataNV} */
-	@JavadocExclude
-	public static native void nglXCopyImageSubDataNV(long display, long srcCtx, int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, long dstCtx, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth, long __functionAddress);
-
 	/**
 	 * Behaves identically to the core function {@link NVCopyImage#glCopyImageSubDataNV}, except that the {@code srcCtx} and {@code dstCtx} parameters specify
 	 * the contexts in which to look up the source and destination objects, respectively. A value of {@code NULL} for either context indicates that the value which is
@@ -83,7 +80,7 @@ public final class GLXNVCopyImage {
 		long __functionAddress = getInstance().CopyImageSubDataNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		nglXCopyImageSubDataNV(display, srcCtx, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstCtx, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth, __functionAddress);
+		invokePPIIIIIIPIIIIIIIIIV(__functionAddress, display, srcCtx, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstCtx, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/wgl_extensions_string.txt">WGL_EXT_extensions_string</a> extension. */
@@ -46,15 +47,11 @@ public final class WGLEXTExtensionsString {
 
 	// --- [ wglGetExtensionsStringEXT ] ---
 
-	/** JNI method for {@link #wglGetExtensionsStringEXT GetExtensionsStringEXT} */
-	@JavadocExclude
-	public static native long nwglGetExtensionsStringEXT(long __functionAddress);
-
 	/** Unsafe version of {@link #wglGetExtensionsStringEXT GetExtensionsStringEXT} */
 	@JavadocExclude
 	public static long nwglGetExtensionsStringEXT() {
 		long __functionAddress = getInstance().GetExtensionsStringEXT;
-		return nwglGetExtensionsStringEXT(__functionAddress);
+		return invokeP(__functionAddress);
 	}
 
 	/**

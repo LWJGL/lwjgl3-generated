@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -67,10 +68,6 @@ public final class APPLEGLSharing {
 
 	// --- [ clGetGLContextInfoAPPLE ] ---
 
-	/** JNI method for {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE} */
-	@JavadocExclude
-	public static native int nclGetGLContextInfoAPPLE(long context, long platform_gl_ctx, int param_name, long param_value_size, long param_value, long param_value_size_ret, long __functionAddress);
-
 	/** Unsafe version of {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE} */
 	@JavadocExclude
 	public static int nclGetGLContextInfoAPPLE(long context, long platform_gl_ctx, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
@@ -79,7 +76,7 @@ public final class APPLEGLSharing {
 			checkPointer(context);
 			checkPointer(platform_gl_ctx);
 		}
-		return nclGetGLContextInfoAPPLE(context, platform_gl_ctx, param_name, param_value_size, param_value, param_value_size_ret, __functionAddress);
+		return invokePPIPPPI(__functionAddress, context, platform_gl_ctx, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**

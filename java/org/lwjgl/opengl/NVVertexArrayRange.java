@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -68,15 +69,11 @@ public final class NVVertexArrayRange {
 
 	// --- [ glVertexArrayRangeNV ] ---
 
-	/** JNI method for {@link #glVertexArrayRangeNV VertexArrayRangeNV} */
-	@JavadocExclude
-	public static native void nglVertexArrayRangeNV(int length, long pointer, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexArrayRangeNV VertexArrayRangeNV} */
 	@JavadocExclude
 	public static void nglVertexArrayRangeNV(int length, long pointer) {
 		long __functionAddress = getInstance().VertexArrayRangeNV;
-		nglVertexArrayRangeNV(length, pointer, __functionAddress);
+		invokeIPV(__functionAddress, length, pointer);
 	}
 
 	public static void glVertexArrayRangeNV(int length, ByteBuffer pointer) {
@@ -85,13 +82,9 @@ public final class NVVertexArrayRange {
 
 	// --- [ glFlushVertexArrayRangeNV ] ---
 
-	/** JNI method for {@link #glFlushVertexArrayRangeNV FlushVertexArrayRangeNV} */
-	@JavadocExclude
-	public static native void nglFlushVertexArrayRangeNV(long __functionAddress);
-
 	public static void glFlushVertexArrayRangeNV() {
 		long __functionAddress = getInstance().FlushVertexArrayRangeNV;
-		nglFlushVertexArrayRangeNV(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 }

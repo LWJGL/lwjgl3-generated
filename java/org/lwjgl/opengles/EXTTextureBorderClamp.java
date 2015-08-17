@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -90,15 +91,11 @@ public final class EXTTextureBorderClamp {
 
 	// --- [ glTexParameterIivEXT ] ---
 
-	/** JNI method for {@link #glTexParameterIivEXT TexParameterIivEXT} */
-	@JavadocExclude
-	public static native void nglTexParameterIivEXT(int target, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexParameterIivEXT TexParameterIivEXT} */
 	@JavadocExclude
 	public static void nglTexParameterIivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIivEXT;
-		nglTexParameterIivEXT(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glTexParameterIivEXT(int target, int pname, ByteBuffer params) {
@@ -116,15 +113,11 @@ public final class EXTTextureBorderClamp {
 
 	// --- [ glTexParameterIuivEXT ] ---
 
-	/** JNI method for {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
-	@JavadocExclude
-	public static native void nglTexParameterIuivEXT(int target, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
 	@JavadocExclude
 	public static void nglTexParameterIuivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIuivEXT;
-		nglTexParameterIuivEXT(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glTexParameterIuivEXT(int target, int pname, ByteBuffer params) {
@@ -142,15 +135,11 @@ public final class EXTTextureBorderClamp {
 
 	// --- [ glGetTexParameterIivEXT ] ---
 
-	/** JNI method for {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
-	@JavadocExclude
-	public static native void nglGetTexParameterIivEXT(int target, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
 	@JavadocExclude
 	public static void nglGetTexParameterIivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIivEXT;
-		nglGetTexParameterIivEXT(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetTexParameterIivEXT(int target, int pname, ByteBuffer params) {
@@ -176,15 +165,11 @@ public final class EXTTextureBorderClamp {
 
 	// --- [ glGetTexParameterIuivEXT ] ---
 
-	/** JNI method for {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
-	@JavadocExclude
-	public static native void nglGetTexParameterIuivEXT(int target, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
 	@JavadocExclude
 	public static void nglGetTexParameterIuivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIuivEXT;
-		nglGetTexParameterIuivEXT(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetTexParameterIuivEXT(int target, int pname, ByteBuffer params) {
@@ -210,15 +195,11 @@ public final class EXTTextureBorderClamp {
 
 	// --- [ glSamplerParameterIivEXT ] ---
 
-	/** JNI method for {@link #glSamplerParameterIivEXT SamplerParameterIivEXT} */
-	@JavadocExclude
-	public static native void nglSamplerParameterIivEXT(int sampler, int pname, long param, long __functionAddress);
-
 	/** Unsafe version of {@link #glSamplerParameterIivEXT SamplerParameterIivEXT} */
 	@JavadocExclude
 	public static void nglSamplerParameterIivEXT(int sampler, int pname, long param) {
 		long __functionAddress = getInstance().SamplerParameterIivEXT;
-		nglSamplerParameterIivEXT(sampler, pname, param, __functionAddress);
+		invokeIIPV(__functionAddress, sampler, pname, param);
 	}
 
 	public static void glSamplerParameterIivEXT(int sampler, int pname, ByteBuffer param) {
@@ -236,15 +217,11 @@ public final class EXTTextureBorderClamp {
 
 	// --- [ glSamplerParameterIuivEXT ] ---
 
-	/** JNI method for {@link #glSamplerParameterIuivEXT SamplerParameterIuivEXT} */
-	@JavadocExclude
-	public static native void nglSamplerParameterIuivEXT(int sampler, int pname, long param, long __functionAddress);
-
 	/** Unsafe version of {@link #glSamplerParameterIuivEXT SamplerParameterIuivEXT} */
 	@JavadocExclude
 	public static void nglSamplerParameterIuivEXT(int sampler, int pname, long param) {
 		long __functionAddress = getInstance().SamplerParameterIuivEXT;
-		nglSamplerParameterIuivEXT(sampler, pname, param, __functionAddress);
+		invokeIIPV(__functionAddress, sampler, pname, param);
 	}
 
 	public static void glSamplerParameterIuivEXT(int sampler, int pname, ByteBuffer param) {
@@ -262,15 +239,11 @@ public final class EXTTextureBorderClamp {
 
 	// --- [ glGetSamplerParameterIivEXT ] ---
 
-	/** JNI method for {@link #glGetSamplerParameterIivEXT GetSamplerParameterIivEXT} */
-	@JavadocExclude
-	public static native void nglGetSamplerParameterIivEXT(int sampler, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetSamplerParameterIivEXT GetSamplerParameterIivEXT} */
 	@JavadocExclude
 	public static void nglGetSamplerParameterIivEXT(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIivEXT;
-		nglGetSamplerParameterIivEXT(sampler, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	public static void glGetSamplerParameterIivEXT(int sampler, int pname, ByteBuffer params) {
@@ -296,15 +269,11 @@ public final class EXTTextureBorderClamp {
 
 	// --- [ glGetSamplerParameterIuivEXT ] ---
 
-	/** JNI method for {@link #glGetSamplerParameterIuivEXT GetSamplerParameterIuivEXT} */
-	@JavadocExclude
-	public static native void nglGetSamplerParameterIuivEXT(int sampler, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetSamplerParameterIuivEXT GetSamplerParameterIuivEXT} */
 	@JavadocExclude
 	public static void nglGetSamplerParameterIuivEXT(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIuivEXT;
-		nglGetSamplerParameterIuivEXT(sampler, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	public static void glGetSamplerParameterIuivEXT(int sampler, int pname, ByteBuffer params) {

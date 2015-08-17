@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
@@ -80,15 +81,11 @@ public final class JEmalloc {
 
 	// --- [ je_malloc ] ---
 
-	/** JNI method for {@link #je_malloc malloc} */
-	@JavadocExclude
-	public static native long nje_malloc(long size, long __functionAddress);
-
 	/** Unsafe version of {@link #je_malloc malloc} */
 	@JavadocExclude
 	public static long nje_malloc(long size) {
 		long __functionAddress = getInstance().malloc;
-		return nje_malloc(size, __functionAddress);
+		return invokePP(__functionAddress, size);
 	}
 
 	/**
@@ -104,15 +101,11 @@ public final class JEmalloc {
 
 	// --- [ je_calloc ] ---
 
-	/** JNI method for {@link #je_calloc calloc} */
-	@JavadocExclude
-	public static native long nje_calloc(long num, long size, long __functionAddress);
-
 	/** Unsafe version of {@link #je_calloc calloc} */
 	@JavadocExclude
 	public static long nje_calloc(long num, long size) {
 		long __functionAddress = getInstance().calloc;
-		return nje_calloc(num, size, __functionAddress);
+		return invokePPP(__functionAddress, num, size);
 	}
 
 	/**
@@ -129,15 +122,11 @@ public final class JEmalloc {
 
 	// --- [ je_posix_memalign ] ---
 
-	/** JNI method for {@link #je_posix_memalign posix_memalign} */
-	@JavadocExclude
-	public static native int nje_posix_memalign(long memptr, long alignment, long size, long __functionAddress);
-
 	/** Unsafe version of {@link #je_posix_memalign posix_memalign} */
 	@JavadocExclude
 	public static int nje_posix_memalign(long memptr, long alignment, long size) {
 		long __functionAddress = getInstance().posix_memalign;
-		return nje_posix_memalign(memptr, alignment, size, __functionAddress);
+		return invokePPPI(__functionAddress, memptr, alignment, size);
 	}
 
 	/**
@@ -163,15 +152,11 @@ public final class JEmalloc {
 
 	// --- [ je_aligned_alloc ] ---
 
-	/** JNI method for {@link #je_aligned_alloc aligned_alloc} */
-	@JavadocExclude
-	public static native long nje_aligned_alloc(long alignment, long size, long __functionAddress);
-
 	/** Unsafe version of {@link #je_aligned_alloc aligned_alloc} */
 	@JavadocExclude
 	public static long nje_aligned_alloc(long alignment, long size) {
 		long __functionAddress = getInstance().aligned_alloc;
-		return nje_aligned_alloc(alignment, size, __functionAddress);
+		return invokePPP(__functionAddress, alignment, size);
 	}
 
 	/**
@@ -188,15 +173,11 @@ public final class JEmalloc {
 
 	// --- [ je_realloc ] ---
 
-	/** JNI method for {@link #je_realloc realloc} */
-	@JavadocExclude
-	public static native long nje_realloc(long ptr, long size, long __functionAddress);
-
 	/** Unsafe version of {@link #je_realloc realloc} */
 	@JavadocExclude
 	public static long nje_realloc(long ptr, long size) {
 		long __functionAddress = getInstance().realloc;
-		return nje_realloc(ptr, size, __functionAddress);
+		return invokePPP(__functionAddress, ptr, size);
 	}
 
 	/**
@@ -216,15 +197,11 @@ public final class JEmalloc {
 
 	// --- [ je_free ] ---
 
-	/** JNI method for {@link #je_free free} */
-	@JavadocExclude
-	public static native void nje_free(long ptr, long __functionAddress);
-
 	/** Unsafe version of {@link #je_free free} */
 	@JavadocExclude
 	public static void nje_free(long ptr) {
 		long __functionAddress = getInstance().free;
-		nje_free(ptr, __functionAddress);
+		invokePV(__functionAddress, ptr);
 	}
 
 	/**
@@ -238,15 +215,11 @@ public final class JEmalloc {
 
 	// --- [ je_mallocx ] ---
 
-	/** JNI method for {@link #je_mallocx mallocx} */
-	@JavadocExclude
-	public static native long nje_mallocx(long size, int flags, long __functionAddress);
-
 	/** Unsafe version of {@link #je_mallocx mallocx} */
 	@JavadocExclude
 	public static long nje_mallocx(long size, int flags) {
 		long __functionAddress = getInstance().mallocx;
-		return nje_mallocx(size, flags, __functionAddress);
+		return invokePIP(__functionAddress, size, flags);
 	}
 
 	/**
@@ -263,15 +236,11 @@ public final class JEmalloc {
 
 	// --- [ je_rallocx ] ---
 
-	/** JNI method for {@link #je_rallocx rallocx} */
-	@JavadocExclude
-	public static native long nje_rallocx(long ptr, long size, int flags, long __functionAddress);
-
 	/** Unsafe version of {@link #je_rallocx rallocx} */
 	@JavadocExclude
 	public static long nje_rallocx(long ptr, long size, int flags) {
 		long __functionAddress = getInstance().rallocx;
-		return nje_rallocx(ptr, size, flags, __functionAddress);
+		return invokePPIP(__functionAddress, ptr, size, flags);
 	}
 
 	/**
@@ -290,15 +259,11 @@ public final class JEmalloc {
 
 	// --- [ je_xallocx ] ---
 
-	/** JNI method for {@link #je_xallocx xallocx} */
-	@JavadocExclude
-	public static native long nje_xallocx(long ptr, long size, long extra, int flags, long __functionAddress);
-
 	/** Unsafe version of {@link #je_xallocx xallocx} */
 	@JavadocExclude
 	public static long nje_xallocx(long ptr, long size, long extra, int flags) {
 		long __functionAddress = getInstance().xallocx;
-		return nje_xallocx(ptr, size, extra, flags, __functionAddress);
+		return invokePPPIP(__functionAddress, ptr, size, extra, flags);
 	}
 
 	/**
@@ -317,15 +282,11 @@ public final class JEmalloc {
 
 	// --- [ je_sallocx ] ---
 
-	/** JNI method for {@link #je_sallocx sallocx} */
-	@JavadocExclude
-	public static native long nje_sallocx(long ptr, int flags, long __functionAddress);
-
 	/** Unsafe version of {@link #je_sallocx sallocx} */
 	@JavadocExclude
 	public static long nje_sallocx(long ptr, int flags) {
 		long __functionAddress = getInstance().sallocx;
-		return nje_sallocx(ptr, flags, __functionAddress);
+		return invokePIP(__functionAddress, ptr, flags);
 	}
 
 	/**
@@ -340,15 +301,11 @@ public final class JEmalloc {
 
 	// --- [ je_dallocx ] ---
 
-	/** JNI method for {@link #je_dallocx dallocx} */
-	@JavadocExclude
-	public static native void nje_dallocx(long ptr, int flags, long __functionAddress);
-
 	/** Unsafe version of {@link #je_dallocx dallocx} */
 	@JavadocExclude
 	public static void nje_dallocx(long ptr, int flags) {
 		long __functionAddress = getInstance().dallocx;
-		nje_dallocx(ptr, flags, __functionAddress);
+		invokePIV(__functionAddress, ptr, flags);
 	}
 
 	/**
@@ -363,15 +320,11 @@ public final class JEmalloc {
 
 	// --- [ je_sdallocx ] ---
 
-	/** JNI method for {@link #je_sdallocx sdallocx} */
-	@JavadocExclude
-	public static native void nje_sdallocx(long ptr, long size, int flags, long __functionAddress);
-
 	/** Unsafe version of {@link #je_sdallocx sdallocx} */
 	@JavadocExclude
 	public static void nje_sdallocx(long ptr, long size, int flags) {
 		long __functionAddress = getInstance().sdallocx;
-		nje_sdallocx(ptr, size, flags, __functionAddress);
+		invokePPIV(__functionAddress, ptr, size, flags);
 	}
 
 	/**
@@ -387,15 +340,11 @@ public final class JEmalloc {
 
 	// --- [ je_nallocx ] ---
 
-	/** JNI method for {@link #je_nallocx nallocx} */
-	@JavadocExclude
-	public static native long nje_nallocx(long size, int flags, long __functionAddress);
-
 	/** Unsafe version of {@link #je_nallocx nallocx} */
 	@JavadocExclude
 	public static long nje_nallocx(long size, int flags) {
 		long __functionAddress = getInstance().nallocx;
-		return nje_nallocx(size, flags, __functionAddress);
+		return invokePIP(__functionAddress, size, flags);
 	}
 
 	/**
@@ -413,15 +362,11 @@ public final class JEmalloc {
 
 	// --- [ je_mallctl ] ---
 
-	/** JNI method for {@link #je_mallctl mallctl} */
-	@JavadocExclude
-	public static native int nje_mallctl(long name, long oldp, long oldlenp, long newp, long newlen, long __functionAddress);
-
 	/** Unsafe version of {@link #je_mallctl mallctl} */
 	@JavadocExclude
 	public static int nje_mallctl(long name, long oldp, long oldlenp, long newp, long newlen) {
 		long __functionAddress = getInstance().mallctl;
-		return nje_mallctl(name, oldp, oldlenp, newp, newlen, __functionAddress);
+		return invokePPPPPI(__functionAddress, name, oldp, oldlenp, newp, newlen);
 	}
 
 	/**
@@ -465,15 +410,11 @@ public final class JEmalloc {
 
 	// --- [ je_mallctlnametomib ] ---
 
-	/** JNI method for {@link #je_mallctlnametomib mallctlnametomib} */
-	@JavadocExclude
-	public static native int nje_mallctlnametomib(long name, long mibp, long miblenp, long __functionAddress);
-
 	/** Unsafe version of {@link #je_mallctlnametomib mallctlnametomib} */
 	@JavadocExclude
 	public static int nje_mallctlnametomib(long name, long mibp, long miblenp) {
 		long __functionAddress = getInstance().mallctlnametomib;
-		return nje_mallctlnametomib(name, mibp, miblenp, __functionAddress);
+		return invokePPPI(__functionAddress, name, mibp, miblenp);
 	}
 
 	/**
@@ -537,15 +478,11 @@ public final class JEmalloc {
 
 	// --- [ je_mallctlbymib ] ---
 
-	/** JNI method for {@link #je_mallctlbymib mallctlbymib} */
-	@JavadocExclude
-	public static native int nje_mallctlbymib(long mib, long miblen, long oldp, long oldlenp, long newp, long newlen, long __functionAddress);
-
 	/** Unsafe version of {@link #je_mallctlbymib mallctlbymib} */
 	@JavadocExclude
 	public static int nje_mallctlbymib(long mib, long miblen, long oldp, long oldlenp, long newp, long newlen) {
 		long __functionAddress = getInstance().mallctlbymib;
-		return nje_mallctlbymib(mib, miblen, oldp, oldlenp, newp, newlen, __functionAddress);
+		return invokePPPPPPI(__functionAddress, mib, miblen, oldp, oldlenp, newp, newlen);
 	}
 
 	/**
@@ -576,15 +513,11 @@ public final class JEmalloc {
 
 	// --- [ je_malloc_stats_print ] ---
 
-	/** JNI method for {@link #je_malloc_stats_print malloc_stats_print} */
-	@JavadocExclude
-	public static native void nje_malloc_stats_print(long write_cb, long je_cbopaque, long opts, long __functionAddress);
-
 	/** Unsafe version of {@link #je_malloc_stats_print malloc_stats_print} */
 	@JavadocExclude
 	public static void nje_malloc_stats_print(long write_cb, long je_cbopaque, long opts) {
 		long __functionAddress = getInstance().malloc_stats_print;
-		nje_malloc_stats_print(write_cb, je_cbopaque, opts, __functionAddress);
+		invokePPPV(__functionAddress, write_cb, je_cbopaque, opts);
 	}
 
 	/**
@@ -615,15 +548,11 @@ public final class JEmalloc {
 
 	// --- [ je_malloc_usable_size ] ---
 
-	/** JNI method for {@link #je_malloc_usable_size malloc_usable_size} */
-	@JavadocExclude
-	public static native long nje_malloc_usable_size(long ptr, long __functionAddress);
-
 	/** Unsafe version of {@link #je_malloc_usable_size malloc_usable_size} */
 	@JavadocExclude
 	public static long nje_malloc_usable_size(long ptr) {
 		long __functionAddress = getInstance().malloc_usable_size;
-		return nje_malloc_usable_size(ptr, __functionAddress);
+		return invokePP(__functionAddress, ptr);
 	}
 
 	/**

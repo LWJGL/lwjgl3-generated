@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -76,17 +77,13 @@ public final class NVSync {
 
 	// --- [ eglCreateFenceSyncNV ] ---
 
-	/** JNI method for {@link #eglCreateFenceSyncNV CreateFenceSyncNV} */
-	@JavadocExclude
-	public static native long neglCreateFenceSyncNV(long dpy, int condition, long attrib_list, long __functionAddress);
-
 	/** Unsafe version of {@link #eglCreateFenceSyncNV CreateFenceSyncNV} */
 	@JavadocExclude
 	public static long neglCreateFenceSyncNV(long dpy, int condition, long attrib_list) {
 		long __functionAddress = getInstance().CreateFenceSyncNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return neglCreateFenceSyncNV(dpy, condition, attrib_list, __functionAddress);
+		return invokePIPP(__functionAddress, dpy, condition, attrib_list);
 	}
 
 	public static long eglCreateFenceSyncNV(long dpy, int condition, ByteBuffer attrib_list) {
@@ -104,61 +101,41 @@ public final class NVSync {
 
 	// --- [ eglDestroySyncNV ] ---
 
-	/** JNI method for {@link #eglDestroySyncNV DestroySyncNV} */
-	@JavadocExclude
-	public static native boolean neglDestroySyncNV(long sync, long __functionAddress);
-
 	public static boolean eglDestroySyncNV(long sync) {
 		long __functionAddress = getInstance().DestroySyncNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		return neglDestroySyncNV(sync, __functionAddress);
+		return invokePZ(__functionAddress, sync);
 	}
 
 	// --- [ eglFenceNV ] ---
-
-	/** JNI method for {@link #eglFenceNV FenceNV} */
-	@JavadocExclude
-	public static native boolean neglFenceNV(long sync, long __functionAddress);
 
 	public static boolean eglFenceNV(long sync) {
 		long __functionAddress = getInstance().FenceNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		return neglFenceNV(sync, __functionAddress);
+		return invokePZ(__functionAddress, sync);
 	}
 
 	// --- [ eglClientWaitSyncNV ] ---
-
-	/** JNI method for {@link #eglClientWaitSyncNV ClientWaitSyncNV} */
-	@JavadocExclude
-	public static native int neglClientWaitSyncNV(long sync, int flags, long timeout, long __functionAddress);
 
 	public static int eglClientWaitSyncNV(long sync, int flags, long timeout) {
 		long __functionAddress = getInstance().ClientWaitSyncNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		return neglClientWaitSyncNV(sync, flags, timeout, __functionAddress);
+		return invokePIJI(__functionAddress, sync, flags, timeout);
 	}
 
 	// --- [ eglSignalSyncNV ] ---
-
-	/** JNI method for {@link #eglSignalSyncNV SignalSyncNV} */
-	@JavadocExclude
-	public static native boolean neglSignalSyncNV(long sync, int mode, long __functionAddress);
 
 	public static boolean eglSignalSyncNV(long sync, int mode) {
 		long __functionAddress = getInstance().SignalSyncNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		return neglSignalSyncNV(sync, mode, __functionAddress);
+		return invokePIZ(__functionAddress, sync, mode);
 	}
 
 	// --- [ eglGetSyncAttribNV ] ---
-
-	/** JNI method for {@link #eglGetSyncAttribNV GetSyncAttribNV} */
-	@JavadocExclude
-	public static native boolean neglGetSyncAttribNV(long sync, int attribute, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #eglGetSyncAttribNV GetSyncAttribNV} */
 	@JavadocExclude
@@ -166,7 +143,7 @@ public final class NVSync {
 		long __functionAddress = getInstance().GetSyncAttribNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		return neglGetSyncAttribNV(sync, attribute, value, __functionAddress);
+		return invokePIPZ(__functionAddress, sync, attribute, value);
 	}
 
 	public static boolean eglGetSyncAttribNV(long sync, int attribute, ByteBuffer value) {

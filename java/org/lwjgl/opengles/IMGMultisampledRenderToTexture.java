@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/IMG/IMG_multisampled_render_to_texture.txt">IMG_multisampled_render_to_texture</a> extension.
@@ -76,24 +77,16 @@ public final class IMGMultisampledRenderToTexture {
 
 	// --- [ glRenderbufferStorageMultisampleIMG ] ---
 
-	/** JNI method for {@link #glRenderbufferStorageMultisampleIMG RenderbufferStorageMultisampleIMG} */
-	@JavadocExclude
-	public static native void nglRenderbufferStorageMultisampleIMG(int target, int samples, int internalformat, int width, int height, long __functionAddress);
-
 	public static void glRenderbufferStorageMultisampleIMG(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageMultisampleIMG;
-		nglRenderbufferStorageMultisampleIMG(target, samples, internalformat, width, height, __functionAddress);
+		invokeIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
 	// --- [ glFramebufferTexture2DMultisampleIMG ] ---
 
-	/** JNI method for {@link #glFramebufferTexture2DMultisampleIMG FramebufferTexture2DMultisampleIMG} */
-	@JavadocExclude
-	public static native void nglFramebufferTexture2DMultisampleIMG(int target, int attachment, int textarget, int texture, int level, int samples, long __functionAddress);
-
 	public static void glFramebufferTexture2DMultisampleIMG(int target, int attachment, int textarget, int texture, int level, int samples) {
 		long __functionAddress = getInstance().FramebufferTexture2DMultisampleIMG;
-		nglFramebufferTexture2DMultisampleIMG(target, attachment, textarget, texture, level, samples, __functionAddress);
+		invokeIIIIIIV(__functionAddress, target, attachment, textarget, texture, level, samples);
 	}
 
 }

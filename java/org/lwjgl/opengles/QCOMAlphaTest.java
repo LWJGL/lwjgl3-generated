@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/QCOM/QCOM_alpha_test.txt">QCOM_alpha_test</a> extension.
@@ -58,13 +59,9 @@ public final class QCOMAlphaTest {
 
 	// --- [ glAlphaFuncQCOM ] ---
 
-	/** JNI method for {@link #glAlphaFuncQCOM AlphaFuncQCOM} */
-	@JavadocExclude
-	public static native void nglAlphaFuncQCOM(int func, float ref, long __functionAddress);
-
 	public static void glAlphaFuncQCOM(int func, float ref) {
 		long __functionAddress = getInstance().AlphaFuncQCOM;
-		nglAlphaFuncQCOM(func, ref, __functionAddress);
+		invokeIFV(__functionAddress, func, ref);
 	}
 
 }

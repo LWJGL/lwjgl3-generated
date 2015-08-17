@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
@@ -68,15 +69,11 @@ public final class OESMapbuffer {
 
 	// --- [ glMapBufferOES ] ---
 
-	/** JNI method for {@link #glMapBufferOES MapBufferOES} */
-	@JavadocExclude
-	public static native long nglMapBufferOES(int target, int access, long __functionAddress);
-
 	/** Unsafe version of {@link #glMapBufferOES MapBufferOES} */
 	@JavadocExclude
 	public static long nglMapBufferOES(int target, int access) {
 		long __functionAddress = getInstance().MapBufferOES;
-		return nglMapBufferOES(target, access, __functionAddress);
+		return invokeIIP(__functionAddress, target, access);
 	}
 
 	public static ByteBuffer glMapBufferOES(int target, int access) {
@@ -99,26 +96,18 @@ public final class OESMapbuffer {
 
 	// --- [ glUnmapBufferOES ] ---
 
-	/** JNI method for {@link #glUnmapBufferOES UnmapBufferOES} */
-	@JavadocExclude
-	public static native boolean nglUnmapBufferOES(int target, long __functionAddress);
-
 	public static boolean glUnmapBufferOES(int target) {
 		long __functionAddress = getInstance().UnmapBufferOES;
-		return nglUnmapBufferOES(target, __functionAddress);
+		return invokeIZ(__functionAddress, target);
 	}
 
 	// --- [ glGetBufferPointervOES ] ---
-
-	/** JNI method for {@link #glGetBufferPointervOES GetBufferPointervOES} */
-	@JavadocExclude
-	public static native void nglGetBufferPointervOES(int target, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetBufferPointervOES GetBufferPointervOES} */
 	@JavadocExclude
 	public static void nglGetBufferPointervOES(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferPointervOES;
-		nglGetBufferPointervOES(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetBufferPointervOES(int target, int pname, ByteBuffer params) {

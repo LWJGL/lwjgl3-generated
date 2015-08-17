@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_primitive_bounding_box.txt">EXT_primitive_bounding_box</a> extension.
@@ -64,13 +65,9 @@ public final class EXTPrimitiveBoundingBox {
 
 	// --- [ glPrimitiveBoundingBoxEXT ] ---
 
-	/** JNI method for {@link #glPrimitiveBoundingBoxEXT PrimitiveBoundingBoxEXT} */
-	@JavadocExclude
-	public static native void nglPrimitiveBoundingBoxEXT(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW, long __functionAddress);
-
 	public static void glPrimitiveBoundingBoxEXT(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW) {
 		long __functionAddress = getInstance().PrimitiveBoundingBoxEXT;
-		nglPrimitiveBoundingBoxEXT(minX, minY, minZ, minW, maxX, maxY, maxZ, maxW, __functionAddress);
+		invokeFFFFFFFFV(__functionAddress, minX, minY, minZ, minW, maxX, maxY, maxZ, maxW);
 	}
 
 }

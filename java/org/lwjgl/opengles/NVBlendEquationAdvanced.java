@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/blend_equation_advanced.txt">NV_blend_equation_advanced</a> extension.
@@ -153,24 +154,16 @@ public final class NVBlendEquationAdvanced {
 
 	// --- [ glBlendParameteriNV ] ---
 
-	/** JNI method for {@link #glBlendParameteriNV BlendParameteriNV} */
-	@JavadocExclude
-	public static native void nglBlendParameteriNV(int pname, int value, long __functionAddress);
-
 	public static void glBlendParameteriNV(int pname, int value) {
 		long __functionAddress = getInstance().BlendParameteriNV;
-		nglBlendParameteriNV(pname, value, __functionAddress);
+		invokeIIV(__functionAddress, pname, value);
 	}
 
 	// --- [ glBlendBarrierNV ] ---
 
-	/** JNI method for {@link #glBlendBarrierNV BlendBarrierNV} */
-	@JavadocExclude
-	public static native void nglBlendBarrierNV(long __functionAddress);
-
 	public static void glBlendBarrierNV() {
 		long __functionAddress = getInstance().BlendBarrierNV;
-		nglBlendBarrierNV(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 }

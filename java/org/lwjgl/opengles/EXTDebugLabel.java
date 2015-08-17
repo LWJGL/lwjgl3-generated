@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -69,15 +70,11 @@ public final class EXTDebugLabel {
 
 	// --- [ glLabelObjectEXT ] ---
 
-	/** JNI method for {@link #glLabelObjectEXT LabelObjectEXT} */
-	@JavadocExclude
-	public static native void nglLabelObjectEXT(int type, int object, int length, long label, long __functionAddress);
-
 	/** Unsafe version of {@link #glLabelObjectEXT LabelObjectEXT} */
 	@JavadocExclude
 	public static void nglLabelObjectEXT(int type, int object, int length, long label) {
 		long __functionAddress = getInstance().LabelObjectEXT;
-		nglLabelObjectEXT(type, object, length, label, __functionAddress);
+		invokeIIIPV(__functionAddress, type, object, length, label);
 	}
 
 	public static void glLabelObjectEXT(int type, int object, int length, ByteBuffer label) {
@@ -101,15 +98,11 @@ public final class EXTDebugLabel {
 
 	// --- [ glGetObjectLabelEXT ] ---
 
-	/** JNI method for {@link #glGetObjectLabelEXT GetObjectLabelEXT} */
-	@JavadocExclude
-	public static native void nglGetObjectLabelEXT(int type, int object, int bufSize, long length, long label, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetObjectLabelEXT GetObjectLabelEXT} */
 	@JavadocExclude
 	public static void nglGetObjectLabelEXT(int type, int object, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectLabelEXT;
-		nglGetObjectLabelEXT(type, object, bufSize, length, label, __functionAddress);
+		invokeIIIPPV(__functionAddress, type, object, bufSize, length, label);
 	}
 
 	public static void glGetObjectLabelEXT(int type, int object, int bufSize, ByteBuffer length, ByteBuffer label) {

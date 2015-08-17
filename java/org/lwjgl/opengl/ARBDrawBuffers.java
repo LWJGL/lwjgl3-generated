@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -73,15 +74,11 @@ public final class ARBDrawBuffers {
 
 	// --- [ glDrawBuffersARB ] ---
 
-	/** JNI method for {@link #glDrawBuffersARB DrawBuffersARB} */
-	@JavadocExclude
-	public static native void nglDrawBuffersARB(int n, long bufs, long __functionAddress);
-
 	/** Unsafe version of {@link #glDrawBuffersARB DrawBuffersARB} */
 	@JavadocExclude
 	public static void nglDrawBuffersARB(int n, long bufs) {
 		long __functionAddress = getInstance().DrawBuffersARB;
-		nglDrawBuffersARB(n, bufs, __functionAddress);
+		invokeIPV(__functionAddress, n, bufs);
 	}
 
 	/**

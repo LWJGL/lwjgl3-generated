@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/ANDROID/EGL_ANDROID_native_fence_sync.txt">ANDROID_native_fence_sync</a> extension.
@@ -50,17 +51,13 @@ public final class ANDROIDNativeFenceSync {
 
 	// --- [ eglDupNativeFenceFDANDROID ] ---
 
-	/** JNI method for {@link #eglDupNativeFenceFDANDROID DupNativeFenceFDANDROID} */
-	@JavadocExclude
-	public static native int neglDupNativeFenceFDANDROID(long dpy, long sync, long __functionAddress);
-
 	public static int eglDupNativeFenceFDANDROID(long dpy, long sync) {
 		long __functionAddress = getInstance().DupNativeFenceFDANDROID;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return neglDupNativeFenceFDANDROID(dpy, sync, __functionAddress);
+		return invokePPI(__functionAddress, dpy, sync);
 	}
 
 }

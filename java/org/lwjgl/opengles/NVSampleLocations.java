@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -87,15 +88,11 @@ public final class NVSampleLocations {
 
 	// --- [ glFramebufferSampleLocationsfvNV ] ---
 
-	/** JNI method for {@link #glFramebufferSampleLocationsfvNV FramebufferSampleLocationsfvNV} */
-	@JavadocExclude
-	public static native void nglFramebufferSampleLocationsfvNV(int target, int start, int count, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glFramebufferSampleLocationsfvNV FramebufferSampleLocationsfvNV} */
 	@JavadocExclude
 	public static void nglFramebufferSampleLocationsfvNV(int target, int start, int count, long v) {
 		long __functionAddress = getInstance().FramebufferSampleLocationsfvNV;
-		nglFramebufferSampleLocationsfvNV(target, start, count, v, __functionAddress);
+		invokeIIIPV(__functionAddress, target, start, count, v);
 	}
 
 	public static void glFramebufferSampleLocationsfvNV(int target, int start, int count, ByteBuffer v) {
@@ -111,15 +108,11 @@ public final class NVSampleLocations {
 
 	// --- [ glNamedFramebufferSampleLocationsfvNV ] ---
 
-	/** JNI method for {@link #glNamedFramebufferSampleLocationsfvNV NamedFramebufferSampleLocationsfvNV} */
-	@JavadocExclude
-	public static native void nglNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, long v, long __functionAddress);
-
 	/** Unsafe version of {@link #glNamedFramebufferSampleLocationsfvNV NamedFramebufferSampleLocationsfvNV} */
 	@JavadocExclude
 	public static void nglNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, long v) {
 		long __functionAddress = getInstance().NamedFramebufferSampleLocationsfvNV;
-		nglNamedFramebufferSampleLocationsfvNV(framebuffer, start, count, v, __functionAddress);
+		invokeIIIPV(__functionAddress, framebuffer, start, count, v);
 	}
 
 	public static void glNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, ByteBuffer v) {
@@ -135,13 +128,9 @@ public final class NVSampleLocations {
 
 	// --- [ glResolveDepthValuesNV ] ---
 
-	/** JNI method for {@link #glResolveDepthValuesNV ResolveDepthValuesNV} */
-	@JavadocExclude
-	public static native void nglResolveDepthValuesNV(long __functionAddress);
-
 	public static void glResolveDepthValuesNV() {
 		long __functionAddress = getInstance().ResolveDepthValuesNV;
-		nglResolveDepthValuesNV(__functionAddress);
+		invokeV(__functionAddress);
 	}
 
 }

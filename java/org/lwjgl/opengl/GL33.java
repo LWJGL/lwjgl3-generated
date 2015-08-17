@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -240,15 +241,11 @@ public final class GL33 {
 
 	// --- [ glBindFragDataLocationIndexed ] ---
 
-	/** JNI method for {@link #glBindFragDataLocationIndexed BindFragDataLocationIndexed} */
-	@JavadocExclude
-	public static native void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glBindFragDataLocationIndexed BindFragDataLocationIndexed} */
 	@JavadocExclude
 	public static void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name) {
 		long __functionAddress = getInstance().BindFragDataLocationIndexed;
-		nglBindFragDataLocationIndexed(program, colorNumber, index, name, __functionAddress);
+		invokeIIIPV(__functionAddress, program, colorNumber, index, name);
 	}
 
 	/**
@@ -276,15 +273,11 @@ public final class GL33 {
 
 	// --- [ glGetFragDataIndex ] ---
 
-	/** JNI method for {@link #glGetFragDataIndex GetFragDataIndex} */
-	@JavadocExclude
-	public static native int nglGetFragDataIndex(int program, long name, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetFragDataIndex GetFragDataIndex} */
 	@JavadocExclude
 	public static int nglGetFragDataIndex(int program, long name) {
 		long __functionAddress = getInstance().GetFragDataIndex;
-		return nglGetFragDataIndex(program, name, __functionAddress);
+		return invokeIPI(__functionAddress, program, name);
 	}
 
 	/**
@@ -310,15 +303,11 @@ public final class GL33 {
 
 	// --- [ glGenSamplers ] ---
 
-	/** JNI method for {@link #glGenSamplers GenSamplers} */
-	@JavadocExclude
-	public static native void nglGenSamplers(int count, long samplers, long __functionAddress);
-
 	/** Unsafe version of {@link #glGenSamplers GenSamplers} */
 	@JavadocExclude
 	public static void nglGenSamplers(int count, long samplers) {
 		long __functionAddress = getInstance().GenSamplers;
-		nglGenSamplers(count, samplers, __functionAddress);
+		invokeIPV(__functionAddress, count, samplers);
 	}
 
 	/**
@@ -350,15 +339,11 @@ public final class GL33 {
 
 	// --- [ glDeleteSamplers ] ---
 
-	/** JNI method for {@link #glDeleteSamplers DeleteSamplers} */
-	@JavadocExclude
-	public static native void nglDeleteSamplers(int count, long samplers, long __functionAddress);
-
 	/** Unsafe version of {@link #glDeleteSamplers DeleteSamplers} */
 	@JavadocExclude
 	public static void nglDeleteSamplers(int count, long samplers) {
 		long __functionAddress = getInstance().DeleteSamplers;
-		nglDeleteSamplers(count, samplers, __functionAddress);
+		invokeIPV(__functionAddress, count, samplers);
 	}
 
 	/**
@@ -389,10 +374,6 @@ public final class GL33 {
 
 	// --- [ glIsSampler ] ---
 
-	/** JNI method for {@link #glIsSampler IsSampler} */
-	@JavadocExclude
-	public static native boolean nglIsSampler(int sampler, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glIsSampler.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -402,14 +383,10 @@ public final class GL33 {
 	 */
 	public static boolean glIsSampler(int sampler) {
 		long __functionAddress = getInstance().IsSampler;
-		return nglIsSampler(sampler, __functionAddress);
+		return invokeIZ(__functionAddress, sampler);
 	}
 
 	// --- [ glBindSampler ] ---
-
-	/** JNI method for {@link #glBindSampler BindSampler} */
-	@JavadocExclude
-	public static native void nglBindSampler(int unit, int sampler, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindSampler.xhtml">OpenGL SDK Reference</a></p>
@@ -421,14 +398,10 @@ public final class GL33 {
 	 */
 	public static void glBindSampler(int unit, int sampler) {
 		long __functionAddress = getInstance().BindSampler;
-		nglBindSampler(unit, sampler, __functionAddress);
+		invokeIIV(__functionAddress, unit, sampler);
 	}
 
 	// --- [ glSamplerParameteri ] ---
-
-	/** JNI method for {@link #glSamplerParameteri SamplerParameteri} */
-	@JavadocExclude
-	public static native void nglSamplerParameteri(int sampler, int pname, int param, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glSamplerParameteri.xhtml">OpenGL SDK Reference</a></p>
@@ -441,14 +414,10 @@ public final class GL33 {
 	 */
 	public static void glSamplerParameteri(int sampler, int pname, int param) {
 		long __functionAddress = getInstance().SamplerParameteri;
-		nglSamplerParameteri(sampler, pname, param, __functionAddress);
+		invokeIIIV(__functionAddress, sampler, pname, param);
 	}
 
 	// --- [ glSamplerParameterf ] ---
-
-	/** JNI method for {@link #glSamplerParameterf SamplerParameterf} */
-	@JavadocExclude
-	public static native void nglSamplerParameterf(int sampler, int pname, float param, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glSamplerParameterf.xhtml">OpenGL SDK Reference</a></p>
@@ -461,20 +430,16 @@ public final class GL33 {
 	 */
 	public static void glSamplerParameterf(int sampler, int pname, float param) {
 		long __functionAddress = getInstance().SamplerParameterf;
-		nglSamplerParameterf(sampler, pname, param, __functionAddress);
+		invokeIIFV(__functionAddress, sampler, pname, param);
 	}
 
 	// --- [ glSamplerParameteriv ] ---
-
-	/** JNI method for {@link #glSamplerParameteriv SamplerParameteriv} */
-	@JavadocExclude
-	public static native void nglSamplerParameteriv(int sampler, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glSamplerParameteriv SamplerParameteriv} */
 	@JavadocExclude
 	public static void nglSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameteriv;
-		nglSamplerParameteriv(sampler, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -497,15 +462,11 @@ public final class GL33 {
 
 	// --- [ glSamplerParameterfv ] ---
 
-	/** JNI method for {@link #glSamplerParameterfv SamplerParameterfv} */
-	@JavadocExclude
-	public static native void nglSamplerParameterfv(int sampler, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glSamplerParameterfv SamplerParameterfv} */
 	@JavadocExclude
 	public static void nglSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterfv;
-		nglSamplerParameterfv(sampler, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -528,15 +489,11 @@ public final class GL33 {
 
 	// --- [ glSamplerParameterIiv ] ---
 
-	/** JNI method for {@link #glSamplerParameterIiv SamplerParameterIiv} */
-	@JavadocExclude
-	public static native void nglSamplerParameterIiv(int sampler, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glSamplerParameterIiv SamplerParameterIiv} */
 	@JavadocExclude
 	public static void nglSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterIiv;
-		nglSamplerParameterIiv(sampler, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -559,15 +516,11 @@ public final class GL33 {
 
 	// --- [ glSamplerParameterIuiv ] ---
 
-	/** JNI method for {@link #glSamplerParameterIuiv SamplerParameterIuiv} */
-	@JavadocExclude
-	public static native void nglSamplerParameterIuiv(int sampler, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glSamplerParameterIuiv SamplerParameterIuiv} */
 	@JavadocExclude
 	public static void nglSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterIuiv;
-		nglSamplerParameterIuiv(sampler, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -590,15 +543,11 @@ public final class GL33 {
 
 	// --- [ glGetSamplerParameteriv ] ---
 
-	/** JNI method for {@link #glGetSamplerParameteriv GetSamplerParameteriv} */
-	@JavadocExclude
-	public static native void nglGetSamplerParameteriv(int sampler, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetSamplerParameteriv GetSamplerParameteriv} */
 	@JavadocExclude
 	public static void nglGetSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameteriv;
-		nglGetSamplerParameteriv(sampler, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -633,15 +582,11 @@ public final class GL33 {
 
 	// --- [ glGetSamplerParameterfv ] ---
 
-	/** JNI method for {@link #glGetSamplerParameterfv GetSamplerParameterfv} */
-	@JavadocExclude
-	public static native void nglGetSamplerParameterfv(int sampler, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetSamplerParameterfv GetSamplerParameterfv} */
 	@JavadocExclude
 	public static void nglGetSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterfv;
-		nglGetSamplerParameterfv(sampler, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -676,15 +621,11 @@ public final class GL33 {
 
 	// --- [ glGetSamplerParameterIiv ] ---
 
-	/** JNI method for {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
-	@JavadocExclude
-	public static native void nglGetSamplerParameterIiv(int sampler, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
 	@JavadocExclude
 	public static void nglGetSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIiv;
-		nglGetSamplerParameterIiv(sampler, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -719,15 +660,11 @@ public final class GL33 {
 
 	// --- [ glGetSamplerParameterIuiv ] ---
 
-	/** JNI method for {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
-	@JavadocExclude
-	public static native void nglGetSamplerParameterIuiv(int sampler, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
 	@JavadocExclude
 	public static void nglGetSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIuiv;
-		nglGetSamplerParameterIuiv(sampler, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -762,10 +699,6 @@ public final class GL33 {
 
 	// --- [ glQueryCounter ] ---
 
-	/** JNI method for {@link #glQueryCounter QueryCounter} */
-	@JavadocExclude
-	public static native void nglQueryCounter(int id, int target, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glQueryCounter.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -776,20 +709,16 @@ public final class GL33 {
 	 */
 	public static void glQueryCounter(int id, int target) {
 		long __functionAddress = getInstance().QueryCounter;
-		nglQueryCounter(id, target, __functionAddress);
+		invokeIIV(__functionAddress, id, target);
 	}
 
 	// --- [ glGetQueryObjecti64v ] ---
-
-	/** JNI method for {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
-	@JavadocExclude
-	public static native void nglGetQueryObjecti64v(int id, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
 	@JavadocExclude
 	public static void nglGetQueryObjecti64v(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjecti64v;
-		nglGetQueryObjecti64v(id, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, id, pname, params);
 	}
 
 	/**
@@ -824,15 +753,11 @@ public final class GL33 {
 
 	// --- [ glGetQueryObjectui64v ] ---
 
-	/** JNI method for {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
-	@JavadocExclude
-	public static native void nglGetQueryObjectui64v(int id, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
 	@JavadocExclude
 	public static void nglGetQueryObjectui64v(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectui64v;
-		nglGetQueryObjectui64v(id, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, id, pname, params);
 	}
 
 	/**
@@ -867,10 +792,6 @@ public final class GL33 {
 
 	// --- [ glVertexAttribDivisor ] ---
 
-	/** JNI method for {@link #glVertexAttribDivisor VertexAttribDivisor} */
-	@JavadocExclude
-	public static native void nglVertexAttribDivisor(int index, int divisor, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribDivisor.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -881,14 +802,10 @@ public final class GL33 {
 	 */
 	public static void glVertexAttribDivisor(int index, int divisor) {
 		long __functionAddress = getInstance().VertexAttribDivisor;
-		nglVertexAttribDivisor(index, divisor, __functionAddress);
+		invokeIIV(__functionAddress, index, divisor);
 	}
 
 	// --- [ glVertexP2ui ] ---
-
-	/** JNI method for {@link #glVertexP2ui VertexP2ui} */
-	@JavadocExclude
-	public static native void nglVertexP2ui(int type, int value, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertexP2ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -902,14 +819,10 @@ public final class GL33 {
 		long __functionAddress = getInstance().VertexP2ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexP2ui(type, value, __functionAddress);
+		invokeIIV(__functionAddress, type, value);
 	}
 
 	// --- [ glVertexP3ui ] ---
-
-	/** JNI method for {@link #glVertexP3ui VertexP3ui} */
-	@JavadocExclude
-	public static native void nglVertexP3ui(int type, int value, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertexP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -923,14 +836,10 @@ public final class GL33 {
 		long __functionAddress = getInstance().VertexP3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexP3ui(type, value, __functionAddress);
+		invokeIIV(__functionAddress, type, value);
 	}
 
 	// --- [ glVertexP4ui ] ---
-
-	/** JNI method for {@link #glVertexP4ui VertexP4ui} */
-	@JavadocExclude
-	public static native void nglVertexP4ui(int type, int value, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertexP4ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -944,14 +853,10 @@ public final class GL33 {
 		long __functionAddress = getInstance().VertexP4ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexP4ui(type, value, __functionAddress);
+		invokeIIV(__functionAddress, type, value);
 	}
 
 	// --- [ glVertexP2uiv ] ---
-
-	/** JNI method for {@link #glVertexP2uiv VertexP2uiv} */
-	@JavadocExclude
-	public static native void nglVertexP2uiv(int type, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glVertexP2uiv VertexP2uiv} */
 	@JavadocExclude
@@ -959,7 +864,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().VertexP2uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexP2uiv(type, value, __functionAddress);
+		invokeIPV(__functionAddress, type, value);
 	}
 
 	/**
@@ -985,17 +890,13 @@ public final class GL33 {
 
 	// --- [ glVertexP3uiv ] ---
 
-	/** JNI method for {@link #glVertexP3uiv VertexP3uiv} */
-	@JavadocExclude
-	public static native void nglVertexP3uiv(int type, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexP3uiv VertexP3uiv} */
 	@JavadocExclude
 	public static void nglVertexP3uiv(int type, long value) {
 		long __functionAddress = getInstance().VertexP3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexP3uiv(type, value, __functionAddress);
+		invokeIPV(__functionAddress, type, value);
 	}
 
 	/**
@@ -1021,17 +922,13 @@ public final class GL33 {
 
 	// --- [ glVertexP4uiv ] ---
 
-	/** JNI method for {@link #glVertexP4uiv VertexP4uiv} */
-	@JavadocExclude
-	public static native void nglVertexP4uiv(int type, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexP4uiv VertexP4uiv} */
 	@JavadocExclude
 	public static void nglVertexP4uiv(int type, long value) {
 		long __functionAddress = getInstance().VertexP4uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglVertexP4uiv(type, value, __functionAddress);
+		invokeIPV(__functionAddress, type, value);
 	}
 
 	/**
@@ -1057,10 +954,6 @@ public final class GL33 {
 
 	// --- [ glTexCoordP1ui ] ---
 
-	/** JNI method for {@link #glTexCoordP1ui TexCoordP1ui} */
-	@JavadocExclude
-	public static native void nglTexCoordP1ui(int type, int coords, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP1ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -1073,14 +966,10 @@ public final class GL33 {
 		long __functionAddress = getInstance().TexCoordP1ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoordP1ui(type, coords, __functionAddress);
+		invokeIIV(__functionAddress, type, coords);
 	}
 
 	// --- [ glTexCoordP2ui ] ---
-
-	/** JNI method for {@link #glTexCoordP2ui TexCoordP2ui} */
-	@JavadocExclude
-	public static native void nglTexCoordP2ui(int type, int coords, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP2ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1094,14 +983,10 @@ public final class GL33 {
 		long __functionAddress = getInstance().TexCoordP2ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoordP2ui(type, coords, __functionAddress);
+		invokeIIV(__functionAddress, type, coords);
 	}
 
 	// --- [ glTexCoordP3ui ] ---
-
-	/** JNI method for {@link #glTexCoordP3ui TexCoordP3ui} */
-	@JavadocExclude
-	public static native void nglTexCoordP3ui(int type, int coords, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1115,14 +1000,10 @@ public final class GL33 {
 		long __functionAddress = getInstance().TexCoordP3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoordP3ui(type, coords, __functionAddress);
+		invokeIIV(__functionAddress, type, coords);
 	}
 
 	// --- [ glTexCoordP4ui ] ---
-
-	/** JNI method for {@link #glTexCoordP4ui TexCoordP4ui} */
-	@JavadocExclude
-	public static native void nglTexCoordP4ui(int type, int coords, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP4ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1136,14 +1017,10 @@ public final class GL33 {
 		long __functionAddress = getInstance().TexCoordP4ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoordP4ui(type, coords, __functionAddress);
+		invokeIIV(__functionAddress, type, coords);
 	}
 
 	// --- [ glTexCoordP1uiv ] ---
-
-	/** JNI method for {@link #glTexCoordP1uiv TexCoordP1uiv} */
-	@JavadocExclude
-	public static native void nglTexCoordP1uiv(int type, long coords, long __functionAddress);
 
 	/** Unsafe version of {@link #glTexCoordP1uiv TexCoordP1uiv} */
 	@JavadocExclude
@@ -1151,7 +1028,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().TexCoordP1uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoordP1uiv(type, coords, __functionAddress);
+		invokeIPV(__functionAddress, type, coords);
 	}
 
 	/**
@@ -1177,17 +1054,13 @@ public final class GL33 {
 
 	// --- [ glTexCoordP2uiv ] ---
 
-	/** JNI method for {@link #glTexCoordP2uiv TexCoordP2uiv} */
-	@JavadocExclude
-	public static native void nglTexCoordP2uiv(int type, long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexCoordP2uiv TexCoordP2uiv} */
 	@JavadocExclude
 	public static void nglTexCoordP2uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP2uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoordP2uiv(type, coords, __functionAddress);
+		invokeIPV(__functionAddress, type, coords);
 	}
 
 	/**
@@ -1213,17 +1086,13 @@ public final class GL33 {
 
 	// --- [ glTexCoordP3uiv ] ---
 
-	/** JNI method for {@link #glTexCoordP3uiv TexCoordP3uiv} */
-	@JavadocExclude
-	public static native void nglTexCoordP3uiv(int type, long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexCoordP3uiv TexCoordP3uiv} */
 	@JavadocExclude
 	public static void nglTexCoordP3uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoordP3uiv(type, coords, __functionAddress);
+		invokeIPV(__functionAddress, type, coords);
 	}
 
 	/**
@@ -1249,17 +1118,13 @@ public final class GL33 {
 
 	// --- [ glTexCoordP4uiv ] ---
 
-	/** JNI method for {@link #glTexCoordP4uiv TexCoordP4uiv} */
-	@JavadocExclude
-	public static native void nglTexCoordP4uiv(int type, long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glTexCoordP4uiv TexCoordP4uiv} */
 	@JavadocExclude
 	public static void nglTexCoordP4uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP4uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglTexCoordP4uiv(type, coords, __functionAddress);
+		invokeIPV(__functionAddress, type, coords);
 	}
 
 	/**
@@ -1285,10 +1150,6 @@ public final class GL33 {
 
 	// --- [ glMultiTexCoordP1ui ] ---
 
-	/** JNI method for {@link #glMultiTexCoordP1ui MultiTexCoordP1ui} */
-	@JavadocExclude
-	public static native void nglMultiTexCoordP1ui(int texture, int type, int coords, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP1ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -1302,14 +1163,10 @@ public final class GL33 {
 		long __functionAddress = getInstance().MultiTexCoordP1ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoordP1ui(texture, type, coords, __functionAddress);
+		invokeIIIV(__functionAddress, texture, type, coords);
 	}
 
 	// --- [ glMultiTexCoordP2ui ] ---
-
-	/** JNI method for {@link #glMultiTexCoordP2ui MultiTexCoordP2ui} */
-	@JavadocExclude
-	public static native void nglMultiTexCoordP2ui(int texture, int type, int coords, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP2ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1324,14 +1181,10 @@ public final class GL33 {
 		long __functionAddress = getInstance().MultiTexCoordP2ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoordP2ui(texture, type, coords, __functionAddress);
+		invokeIIIV(__functionAddress, texture, type, coords);
 	}
 
 	// --- [ glMultiTexCoordP3ui ] ---
-
-	/** JNI method for {@link #glMultiTexCoordP3ui MultiTexCoordP3ui} */
-	@JavadocExclude
-	public static native void nglMultiTexCoordP3ui(int texture, int type, int coords, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1346,14 +1199,10 @@ public final class GL33 {
 		long __functionAddress = getInstance().MultiTexCoordP3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoordP3ui(texture, type, coords, __functionAddress);
+		invokeIIIV(__functionAddress, texture, type, coords);
 	}
 
 	// --- [ glMultiTexCoordP4ui ] ---
-
-	/** JNI method for {@link #glMultiTexCoordP4ui MultiTexCoordP4ui} */
-	@JavadocExclude
-	public static native void nglMultiTexCoordP4ui(int texture, int type, int coords, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP4ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1368,14 +1217,10 @@ public final class GL33 {
 		long __functionAddress = getInstance().MultiTexCoordP4ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoordP4ui(texture, type, coords, __functionAddress);
+		invokeIIIV(__functionAddress, texture, type, coords);
 	}
 
 	// --- [ glMultiTexCoordP1uiv ] ---
-
-	/** JNI method for {@link #glMultiTexCoordP1uiv MultiTexCoordP1uiv} */
-	@JavadocExclude
-	public static native void nglMultiTexCoordP1uiv(int texture, int type, long coords, long __functionAddress);
 
 	/** Unsafe version of {@link #glMultiTexCoordP1uiv MultiTexCoordP1uiv} */
 	@JavadocExclude
@@ -1383,7 +1228,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().MultiTexCoordP1uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoordP1uiv(texture, type, coords, __functionAddress);
+		invokeIIPV(__functionAddress, texture, type, coords);
 	}
 
 	/**
@@ -1410,17 +1255,13 @@ public final class GL33 {
 
 	// --- [ glMultiTexCoordP2uiv ] ---
 
-	/** JNI method for {@link #glMultiTexCoordP2uiv MultiTexCoordP2uiv} */
-	@JavadocExclude
-	public static native void nglMultiTexCoordP2uiv(int texture, int type, long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiTexCoordP2uiv MultiTexCoordP2uiv} */
 	@JavadocExclude
 	public static void nglMultiTexCoordP2uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP2uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoordP2uiv(texture, type, coords, __functionAddress);
+		invokeIIPV(__functionAddress, texture, type, coords);
 	}
 
 	/**
@@ -1447,17 +1288,13 @@ public final class GL33 {
 
 	// --- [ glMultiTexCoordP3uiv ] ---
 
-	/** JNI method for {@link #glMultiTexCoordP3uiv MultiTexCoordP3uiv} */
-	@JavadocExclude
-	public static native void nglMultiTexCoordP3uiv(int texture, int type, long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiTexCoordP3uiv MultiTexCoordP3uiv} */
 	@JavadocExclude
 	public static void nglMultiTexCoordP3uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoordP3uiv(texture, type, coords, __functionAddress);
+		invokeIIPV(__functionAddress, texture, type, coords);
 	}
 
 	/**
@@ -1484,17 +1321,13 @@ public final class GL33 {
 
 	// --- [ glMultiTexCoordP4uiv ] ---
 
-	/** JNI method for {@link #glMultiTexCoordP4uiv MultiTexCoordP4uiv} */
-	@JavadocExclude
-	public static native void nglMultiTexCoordP4uiv(int texture, int type, long coords, long __functionAddress);
-
 	/** Unsafe version of {@link #glMultiTexCoordP4uiv MultiTexCoordP4uiv} */
 	@JavadocExclude
 	public static void nglMultiTexCoordP4uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP4uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglMultiTexCoordP4uiv(texture, type, coords, __functionAddress);
+		invokeIIPV(__functionAddress, texture, type, coords);
 	}
 
 	/**
@@ -1521,10 +1354,6 @@ public final class GL33 {
 
 	// --- [ glNormalP3ui ] ---
 
-	/** JNI method for {@link #glNormalP3ui NormalP3ui} */
-	@JavadocExclude
-	public static native void nglNormalP3ui(int type, int coords, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormalP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -1537,14 +1366,10 @@ public final class GL33 {
 		long __functionAddress = getInstance().NormalP3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglNormalP3ui(type, coords, __functionAddress);
+		invokeIIV(__functionAddress, type, coords);
 	}
 
 	// --- [ glNormalP3uiv ] ---
-
-	/** JNI method for {@link #glNormalP3uiv NormalP3uiv} */
-	@JavadocExclude
-	public static native void nglNormalP3uiv(int type, long coords, long __functionAddress);
 
 	/** Unsafe version of {@link #glNormalP3uiv NormalP3uiv} */
 	@JavadocExclude
@@ -1552,7 +1377,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().NormalP3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglNormalP3uiv(type, coords, __functionAddress);
+		invokeIPV(__functionAddress, type, coords);
 	}
 
 	/**
@@ -1578,10 +1403,6 @@ public final class GL33 {
 
 	// --- [ glColorP3ui ] ---
 
-	/** JNI method for {@link #glColorP3ui ColorP3ui} */
-	@JavadocExclude
-	public static native void nglColorP3ui(int type, int color, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColorP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -1594,14 +1415,10 @@ public final class GL33 {
 		long __functionAddress = getInstance().ColorP3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColorP3ui(type, color, __functionAddress);
+		invokeIIV(__functionAddress, type, color);
 	}
 
 	// --- [ glColorP4ui ] ---
-
-	/** JNI method for {@link #glColorP4ui ColorP4ui} */
-	@JavadocExclude
-	public static native void nglColorP4ui(int type, int color, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColorP4ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
@@ -1615,14 +1432,10 @@ public final class GL33 {
 		long __functionAddress = getInstance().ColorP4ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColorP4ui(type, color, __functionAddress);
+		invokeIIV(__functionAddress, type, color);
 	}
 
 	// --- [ glColorP3uiv ] ---
-
-	/** JNI method for {@link #glColorP3uiv ColorP3uiv} */
-	@JavadocExclude
-	public static native void nglColorP3uiv(int type, long color, long __functionAddress);
 
 	/** Unsafe version of {@link #glColorP3uiv ColorP3uiv} */
 	@JavadocExclude
@@ -1630,7 +1443,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().ColorP3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColorP3uiv(type, color, __functionAddress);
+		invokeIPV(__functionAddress, type, color);
 	}
 
 	/**
@@ -1656,17 +1469,13 @@ public final class GL33 {
 
 	// --- [ glColorP4uiv ] ---
 
-	/** JNI method for {@link #glColorP4uiv ColorP4uiv} */
-	@JavadocExclude
-	public static native void nglColorP4uiv(int type, long color, long __functionAddress);
-
 	/** Unsafe version of {@link #glColorP4uiv ColorP4uiv} */
 	@JavadocExclude
 	public static void nglColorP4uiv(int type, long color) {
 		long __functionAddress = getInstance().ColorP4uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglColorP4uiv(type, color, __functionAddress);
+		invokeIPV(__functionAddress, type, color);
 	}
 
 	/**
@@ -1692,10 +1501,6 @@ public final class GL33 {
 
 	// --- [ glSecondaryColorP3ui ] ---
 
-	/** JNI method for {@link #glSecondaryColorP3ui SecondaryColorP3ui} */
-	@JavadocExclude
-	public static native void nglSecondaryColorP3ui(int type, int color, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColorP3ui.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
@@ -1708,14 +1513,10 @@ public final class GL33 {
 		long __functionAddress = getInstance().SecondaryColorP3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglSecondaryColorP3ui(type, color, __functionAddress);
+		invokeIIV(__functionAddress, type, color);
 	}
 
 	// --- [ glSecondaryColorP3uiv ] ---
-
-	/** JNI method for {@link #glSecondaryColorP3uiv SecondaryColorP3uiv} */
-	@JavadocExclude
-	public static native void nglSecondaryColorP3uiv(int type, long color, long __functionAddress);
 
 	/** Unsafe version of {@link #glSecondaryColorP3uiv SecondaryColorP3uiv} */
 	@JavadocExclude
@@ -1723,7 +1524,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().SecondaryColorP3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		nglSecondaryColorP3uiv(type, color, __functionAddress);
+		invokeIPV(__functionAddress, type, color);
 	}
 
 	/**
@@ -1749,10 +1550,6 @@ public final class GL33 {
 
 	// --- [ glVertexAttribP1ui ] ---
 
-	/** JNI method for {@link #glVertexAttribP1ui VertexAttribP1ui} */
-	@JavadocExclude
-	public static native void nglVertexAttribP1ui(int index, int type, boolean normalized, int value, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP1ui.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -1765,14 +1562,10 @@ public final class GL33 {
 	 */
 	public static void glVertexAttribP1ui(int index, int type, boolean normalized, int value) {
 		long __functionAddress = getInstance().VertexAttribP1ui;
-		nglVertexAttribP1ui(index, type, normalized, value, __functionAddress);
+		invokeIIZIV(__functionAddress, index, type, normalized, value);
 	}
 
 	// --- [ glVertexAttribP2ui ] ---
-
-	/** JNI method for {@link #glVertexAttribP2ui VertexAttribP2ui} */
-	@JavadocExclude
-	public static native void nglVertexAttribP2ui(int index, int type, boolean normalized, int value, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP2ui.xhtml">OpenGL SDK Reference</a></p>
@@ -1786,14 +1579,10 @@ public final class GL33 {
 	 */
 	public static void glVertexAttribP2ui(int index, int type, boolean normalized, int value) {
 		long __functionAddress = getInstance().VertexAttribP2ui;
-		nglVertexAttribP2ui(index, type, normalized, value, __functionAddress);
+		invokeIIZIV(__functionAddress, index, type, normalized, value);
 	}
 
 	// --- [ glVertexAttribP3ui ] ---
-
-	/** JNI method for {@link #glVertexAttribP3ui VertexAttribP3ui} */
-	@JavadocExclude
-	public static native void nglVertexAttribP3ui(int index, int type, boolean normalized, int value, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP3ui.xhtml">OpenGL SDK Reference</a></p>
@@ -1807,14 +1596,10 @@ public final class GL33 {
 	 */
 	public static void glVertexAttribP3ui(int index, int type, boolean normalized, int value) {
 		long __functionAddress = getInstance().VertexAttribP3ui;
-		nglVertexAttribP3ui(index, type, normalized, value, __functionAddress);
+		invokeIIZIV(__functionAddress, index, type, normalized, value);
 	}
 
 	// --- [ glVertexAttribP4ui ] ---
-
-	/** JNI method for {@link #glVertexAttribP4ui VertexAttribP4ui} */
-	@JavadocExclude
-	public static native void nglVertexAttribP4ui(int index, int type, boolean normalized, int value, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP4ui.xhtml">OpenGL SDK Reference</a></p>
@@ -1828,20 +1613,16 @@ public final class GL33 {
 	 */
 	public static void glVertexAttribP4ui(int index, int type, boolean normalized, int value) {
 		long __functionAddress = getInstance().VertexAttribP4ui;
-		nglVertexAttribP4ui(index, type, normalized, value, __functionAddress);
+		invokeIIZIV(__functionAddress, index, type, normalized, value);
 	}
 
 	// --- [ glVertexAttribP1uiv ] ---
-
-	/** JNI method for {@link #glVertexAttribP1uiv VertexAttribP1uiv} */
-	@JavadocExclude
-	public static native void nglVertexAttribP1uiv(int index, int type, boolean normalized, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glVertexAttribP1uiv VertexAttribP1uiv} */
 	@JavadocExclude
 	public static void nglVertexAttribP1uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP1uiv;
-		nglVertexAttribP1uiv(index, type, normalized, value, __functionAddress);
+		invokeIIZPV(__functionAddress, index, type, normalized, value);
 	}
 
 	/**
@@ -1869,15 +1650,11 @@ public final class GL33 {
 
 	// --- [ glVertexAttribP2uiv ] ---
 
-	/** JNI method for {@link #glVertexAttribP2uiv VertexAttribP2uiv} */
-	@JavadocExclude
-	public static native void nglVertexAttribP2uiv(int index, int type, boolean normalized, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttribP2uiv VertexAttribP2uiv} */
 	@JavadocExclude
 	public static void nglVertexAttribP2uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP2uiv;
-		nglVertexAttribP2uiv(index, type, normalized, value, __functionAddress);
+		invokeIIZPV(__functionAddress, index, type, normalized, value);
 	}
 
 	/**
@@ -1905,15 +1682,11 @@ public final class GL33 {
 
 	// --- [ glVertexAttribP3uiv ] ---
 
-	/** JNI method for {@link #glVertexAttribP3uiv VertexAttribP3uiv} */
-	@JavadocExclude
-	public static native void nglVertexAttribP3uiv(int index, int type, boolean normalized, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttribP3uiv VertexAttribP3uiv} */
 	@JavadocExclude
 	public static void nglVertexAttribP3uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP3uiv;
-		nglVertexAttribP3uiv(index, type, normalized, value, __functionAddress);
+		invokeIIZPV(__functionAddress, index, type, normalized, value);
 	}
 
 	/**
@@ -1941,15 +1714,11 @@ public final class GL33 {
 
 	// --- [ glVertexAttribP4uiv ] ---
 
-	/** JNI method for {@link #glVertexAttribP4uiv VertexAttribP4uiv} */
-	@JavadocExclude
-	public static native void nglVertexAttribP4uiv(int index, int type, boolean normalized, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glVertexAttribP4uiv VertexAttribP4uiv} */
 	@JavadocExclude
 	public static void nglVertexAttribP4uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP4uiv;
-		nglVertexAttribP4uiv(index, type, normalized, value, __functionAddress);
+		invokeIIZPV(__functionAddress, index, type, normalized, value);
 	}
 
 	/**

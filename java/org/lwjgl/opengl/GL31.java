@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
@@ -213,10 +214,6 @@ public final class GL31 {
 
 	// --- [ glDrawArraysInstanced ] ---
 
-	/** JNI method for {@link #glDrawArraysInstanced DrawArraysInstanced} */
-	@JavadocExclude
-	public static native void nglDrawArraysInstanced(int mode, int first, int count, int primcount, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawArraysInstanced.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -229,20 +226,16 @@ public final class GL31 {
 	 */
 	public static void glDrawArraysInstanced(int mode, int first, int count, int primcount) {
 		long __functionAddress = getInstance().DrawArraysInstanced;
-		nglDrawArraysInstanced(mode, first, count, primcount, __functionAddress);
+		invokeIIIIV(__functionAddress, mode, first, count, primcount);
 	}
 
 	// --- [ glDrawElementsInstanced ] ---
-
-	/** JNI method for {@link #glDrawElementsInstanced DrawElementsInstanced} */
-	@JavadocExclude
-	public static native void nglDrawElementsInstanced(int mode, int count, int type, long indices, int primcount, long __functionAddress);
 
 	/** Unsafe version of {@link #glDrawElementsInstanced DrawElementsInstanced} */
 	@JavadocExclude
 	public static void nglDrawElementsInstanced(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = getInstance().DrawElementsInstanced;
-		nglDrawElementsInstanced(mode, count, type, indices, primcount, __functionAddress);
+		invokeIIIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
 	/**
@@ -301,10 +294,6 @@ public final class GL31 {
 
 	// --- [ glCopyBufferSubData ] ---
 
-	/** JNI method for {@link #glCopyBufferSubData CopyBufferSubData} */
-	@JavadocExclude
-	public static native void nglCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCopyBufferSubData.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -328,14 +317,10 @@ public final class GL31 {
 	 */
 	public static void glCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
 		long __functionAddress = getInstance().CopyBufferSubData;
-		nglCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size, __functionAddress);
+		invokeIIPPPV(__functionAddress, readTarget, writeTarget, readOffset, writeOffset, size);
 	}
 
 	// --- [ glPrimitiveRestartIndex ] ---
-
-	/** JNI method for {@link #glPrimitiveRestartIndex PrimitiveRestartIndex} */
-	@JavadocExclude
-	public static native void nglPrimitiveRestartIndex(int index, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPrimitiveRestartIndex.xhtml">OpenGL SDK Reference</a></p>
@@ -346,14 +331,10 @@ public final class GL31 {
 	 */
 	public static void glPrimitiveRestartIndex(int index) {
 		long __functionAddress = getInstance().PrimitiveRestartIndex;
-		nglPrimitiveRestartIndex(index, __functionAddress);
+		invokeIV(__functionAddress, index);
 	}
 
 	// --- [ glTexBuffer ] ---
-
-	/** JNI method for {@link #glTexBuffer TexBuffer} */
-	@JavadocExclude
-	public static native void nglTexBuffer(int target, int internalformat, int buffer, long __functionAddress);
 
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexBuffer.xhtml">OpenGL SDK Reference</a></p>
@@ -386,20 +367,16 @@ public final class GL31 {
 	 */
 	public static void glTexBuffer(int target, int internalformat, int buffer) {
 		long __functionAddress = getInstance().TexBuffer;
-		nglTexBuffer(target, internalformat, buffer, __functionAddress);
+		invokeIIIV(__functionAddress, target, internalformat, buffer);
 	}
 
 	// --- [ glGetUniformIndices ] ---
-
-	/** JNI method for {@link #glGetUniformIndices GetUniformIndices} */
-	@JavadocExclude
-	public static native void nglGetUniformIndices(int program, int uniformCount, long uniformNames, long uniformIndices, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetUniformIndices GetUniformIndices} */
 	@JavadocExclude
 	public static void nglGetUniformIndices(int program, int uniformCount, long uniformNames, long uniformIndices) {
 		long __functionAddress = getInstance().GetUniformIndices;
-		nglGetUniformIndices(program, uniformCount, uniformNames, uniformIndices, __functionAddress);
+		invokeIIPPV(__functionAddress, program, uniformCount, uniformNames, uniformIndices);
 	}
 
 	/**
@@ -451,15 +428,11 @@ public final class GL31 {
 
 	// --- [ glGetActiveUniformsiv ] ---
 
-	/** JNI method for {@link #glGetActiveUniformsiv GetActiveUniformsiv} */
-	@JavadocExclude
-	public static native void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetActiveUniformsiv GetActiveUniformsiv} */
 	@JavadocExclude
 	public static void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveUniformsiv;
-		nglGetActiveUniformsiv(program, uniformCount, uniformIndices, pname, params, __functionAddress);
+		invokeIIPIPV(__functionAddress, program, uniformCount, uniformIndices, pname, params);
 	}
 
 	/**
@@ -499,15 +472,11 @@ public final class GL31 {
 
 	// --- [ glGetActiveUniformName ] ---
 
-	/** JNI method for {@link #glGetActiveUniformName GetActiveUniformName} */
-	@JavadocExclude
-	public static native void nglGetActiveUniformName(int program, int uniformIndex, int bufSize, long length, long uniformName, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetActiveUniformName GetActiveUniformName} */
 	@JavadocExclude
 	public static void nglGetActiveUniformName(int program, int uniformIndex, int bufSize, long length, long uniformName) {
 		long __functionAddress = getInstance().GetActiveUniformName;
-		nglGetActiveUniformName(program, uniformIndex, bufSize, length, uniformName, __functionAddress);
+		invokeIIIPPV(__functionAddress, program, uniformIndex, bufSize, length, uniformName);
 	}
 
 	/**
@@ -557,15 +526,11 @@ public final class GL31 {
 
 	// --- [ glGetUniformBlockIndex ] ---
 
-	/** JNI method for {@link #glGetUniformBlockIndex GetUniformBlockIndex} */
-	@JavadocExclude
-	public static native int nglGetUniformBlockIndex(int program, long uniformBlockName, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetUniformBlockIndex GetUniformBlockIndex} */
 	@JavadocExclude
 	public static int nglGetUniformBlockIndex(int program, long uniformBlockName) {
 		long __functionAddress = getInstance().GetUniformBlockIndex;
-		return nglGetUniformBlockIndex(program, uniformBlockName, __functionAddress);
+		return invokeIPI(__functionAddress, program, uniformBlockName);
 	}
 
 	/**
@@ -591,15 +556,11 @@ public final class GL31 {
 
 	// --- [ glGetActiveUniformBlockiv ] ---
 
-	/** JNI method for {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv} */
-	@JavadocExclude
-	public static native void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv} */
 	@JavadocExclude
 	public static void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveUniformBlockiv;
-		nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, params, __functionAddress);
+		invokeIIIPV(__functionAddress, program, uniformBlockIndex, pname, params);
 	}
 
 	/**
@@ -635,15 +596,11 @@ public final class GL31 {
 
 	// --- [ glGetActiveUniformBlockName ] ---
 
-	/** JNI method for {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
-	@JavadocExclude
-	public static native void nglGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, long length, long uniformBlockName, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
 	@JavadocExclude
 	public static void nglGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, long length, long uniformBlockName) {
 		long __functionAddress = getInstance().GetActiveUniformBlockName;
-		nglGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, length, uniformBlockName, __functionAddress);
+		invokeIIIPPV(__functionAddress, program, uniformBlockIndex, bufSize, length, uniformBlockName);
 	}
 
 	/**
@@ -693,10 +650,6 @@ public final class GL31 {
 
 	// --- [ glUniformBlockBinding ] ---
 
-	/** JNI method for {@link #glUniformBlockBinding UniformBlockBinding} */
-	@JavadocExclude
-	public static native void nglUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding, long __functionAddress);
-
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformBlockBinding.xhtml">OpenGL SDK Reference</a></p>
 	 * 
@@ -708,7 +661,7 @@ public final class GL31 {
 	 */
 	public static void glUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding) {
 		long __functionAddress = getInstance().UniformBlockBinding;
-		nglUniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding, __functionAddress);
+		invokeIIIV(__functionAddress, program, uniformBlockIndex, uniformBlockBinding);
 	}
 
 }

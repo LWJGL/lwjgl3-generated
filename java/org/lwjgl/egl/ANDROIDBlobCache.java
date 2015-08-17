@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/ANDROID/EGL_ANDROID_blob_cache.txt">ANDROID_blob_cache</a> extension.
@@ -48,15 +49,11 @@ public final class ANDROIDBlobCache {
 
 	// --- [ eglSetBlobCacheFuncsANDROID ] ---
 
-	/** JNI method for {@link #eglSetBlobCacheFuncsANDROID SetBlobCacheFuncsANDROID} */
-	@JavadocExclude
-	public static native void neglSetBlobCacheFuncsANDROID(long dpy, long set, long get, long __functionAddress);
-
 	public static void eglSetBlobCacheFuncsANDROID(long dpy, EGLSetBlobFuncANDROID set, EGLGetBlobFuncANDROID get) {
 		long __functionAddress = getInstance().SetBlobCacheFuncsANDROID;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		neglSetBlobCacheFuncsANDROID(dpy, set.getPointer(), get.getPointer(), __functionAddress);
+		invokePPPV(__functionAddress, dpy, set.getPointer(), get.getPointer());
 	}
 
      /**

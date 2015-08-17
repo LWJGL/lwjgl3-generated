@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_draw_buffers_indexed.txt">EXT_draw_buffers_indexed</a> extension.
@@ -75,90 +76,58 @@ public final class EXTDrawBuffersIndexed {
 
 	// --- [ glEnableiEXT ] ---
 
-	/** JNI method for {@link #glEnableiEXT EnableiEXT} */
-	@JavadocExclude
-	public static native void nglEnableiEXT(int target, int index, long __functionAddress);
-
 	public static void glEnableiEXT(int target, int index) {
 		long __functionAddress = getInstance().EnableiEXT;
-		nglEnableiEXT(target, index, __functionAddress);
+		invokeIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glDisableiEXT ] ---
 
-	/** JNI method for {@link #glDisableiEXT DisableiEXT} */
-	@JavadocExclude
-	public static native void nglDisableiEXT(int target, int index, long __functionAddress);
-
 	public static void glDisableiEXT(int target, int index) {
 		long __functionAddress = getInstance().DisableiEXT;
-		nglDisableiEXT(target, index, __functionAddress);
+		invokeIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glBlendEquationiEXT ] ---
 
-	/** JNI method for {@link #glBlendEquationiEXT BlendEquationiEXT} */
-	@JavadocExclude
-	public static native void nglBlendEquationiEXT(int buf, int mode, long __functionAddress);
-
 	public static void glBlendEquationiEXT(int buf, int mode) {
 		long __functionAddress = getInstance().BlendEquationiEXT;
-		nglBlendEquationiEXT(buf, mode, __functionAddress);
+		invokeIIV(__functionAddress, buf, mode);
 	}
 
 	// --- [ glBlendEquationSeparateiEXT ] ---
 
-	/** JNI method for {@link #glBlendEquationSeparateiEXT BlendEquationSeparateiEXT} */
-	@JavadocExclude
-	public static native void nglBlendEquationSeparateiEXT(int buf, int modeRGB, int modeAlpha, long __functionAddress);
-
 	public static void glBlendEquationSeparateiEXT(int buf, int modeRGB, int modeAlpha) {
 		long __functionAddress = getInstance().BlendEquationSeparateiEXT;
-		nglBlendEquationSeparateiEXT(buf, modeRGB, modeAlpha, __functionAddress);
+		invokeIIIV(__functionAddress, buf, modeRGB, modeAlpha);
 	}
 
 	// --- [ glBlendFunciEXT ] ---
 
-	/** JNI method for {@link #glBlendFunciEXT BlendFunciEXT} */
-	@JavadocExclude
-	public static native void nglBlendFunciEXT(int buf, int src, int dst, long __functionAddress);
-
 	public static void glBlendFunciEXT(int buf, int src, int dst) {
 		long __functionAddress = getInstance().BlendFunciEXT;
-		nglBlendFunciEXT(buf, src, dst, __functionAddress);
+		invokeIIIV(__functionAddress, buf, src, dst);
 	}
 
 	// --- [ glBlendFuncSeparateiEXT ] ---
 
-	/** JNI method for {@link #glBlendFuncSeparateiEXT BlendFuncSeparateiEXT} */
-	@JavadocExclude
-	public static native void nglBlendFuncSeparateiEXT(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha, long __functionAddress);
-
 	public static void glBlendFuncSeparateiEXT(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
 		long __functionAddress = getInstance().BlendFuncSeparateiEXT;
-		nglBlendFuncSeparateiEXT(buf, srcRGB, dstRGB, srcAlpha, dstAlpha, __functionAddress);
+		invokeIIIIIV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 
 	// --- [ glColorMaskiEXT ] ---
 
-	/** JNI method for {@link #glColorMaskiEXT ColorMaskiEXT} */
-	@JavadocExclude
-	public static native void nglColorMaskiEXT(int index, boolean r, boolean g, boolean b, boolean a, long __functionAddress);
-
 	public static void glColorMaskiEXT(int index, boolean r, boolean g, boolean b, boolean a) {
 		long __functionAddress = getInstance().ColorMaskiEXT;
-		nglColorMaskiEXT(index, r, g, b, a, __functionAddress);
+		invokeIZZZZV(__functionAddress, index, r, g, b, a);
 	}
 
 	// --- [ glIsEnablediEXT ] ---
 
-	/** JNI method for {@link #glIsEnablediEXT IsEnablediEXT} */
-	@JavadocExclude
-	public static native boolean nglIsEnablediEXT(int target, int index, long __functionAddress);
-
 	public static boolean glIsEnablediEXT(int target, int index) {
 		long __functionAddress = getInstance().IsEnablediEXT;
-		return nglIsEnablediEXT(target, index, __functionAddress);
+		return invokeIIZ(__functionAddress, target, index);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -104,10 +105,6 @@ public final class GLXSGIXFBConfig {
 
 	// --- [ glXGetFBConfigAttribSGIX ] ---
 
-	/** JNI method for {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX} */
-	@JavadocExclude
-	public static native int nglXGetFBConfigAttribSGIX(long display, long config, int attribute, long value, long __functionAddress);
-
 	/** Unsafe version of {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX} */
 	@JavadocExclude
 	public static int nglXGetFBConfigAttribSGIX(long display, long config, int attribute, long value) {
@@ -116,7 +113,7 @@ public final class GLXSGIXFBConfig {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return nglXGetFBConfigAttribSGIX(display, config, attribute, value, __functionAddress);
+		return invokePPIPI(__functionAddress, display, config, attribute, value);
 	}
 
 	/**
@@ -142,17 +139,13 @@ public final class GLXSGIXFBConfig {
 
 	// --- [ glXChooseFBConfigSGIX ] ---
 
-	/** JNI method for {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX} */
-	@JavadocExclude
-	public static native long nglXChooseFBConfigSGIX(long display, int screen, long attrib_list, long nelements, long __functionAddress);
-
 	/** Unsafe version of {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX} */
 	@JavadocExclude
 	public static long nglXChooseFBConfigSGIX(long display, int screen, long attrib_list, long nelements) {
 		long __functionAddress = getInstance().ChooseFBConfigSGIX;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return nglXChooseFBConfigSGIX(display, screen, attrib_list, nelements, __functionAddress);
+		return invokePIPPP(__functionAddress, display, screen, attrib_list, nelements);
 	}
 
 	/**
@@ -179,10 +172,6 @@ public final class GLXSGIXFBConfig {
 
 	// --- [ glXCreateGLXPixmapWithConfigSGIX ] ---
 
-	/** JNI method for {@link #glXCreateGLXPixmapWithConfigSGIX CreateGLXPixmapWithConfigSGIX} */
-	@JavadocExclude
-	public static native long nglXCreateGLXPixmapWithConfigSGIX(long display, long config, long pixmap, long __functionAddress);
-
 	/**
 	 * Creates a GLX pixmap using a {@code GLXFBConfigSGIX}.
 	 *
@@ -196,14 +185,10 @@ public final class GLXSGIXFBConfig {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return nglXCreateGLXPixmapWithConfigSGIX(display, config, pixmap, __functionAddress);
+		return invokePPPP(__functionAddress, display, config, pixmap);
 	}
 
 	// --- [ glXCreateContextWithConfigSGIX ] ---
-
-	/** JNI method for {@link #glXCreateContextWithConfigSGIX CreateContextWithConfigSGIX} */
-	@JavadocExclude
-	public static native long nglXCreateContextWithConfigSGIX(long display, long config, int render_type, long share_list, int direct, long __functionAddress);
 
 	/**
 	 * Creates a GLX context using a {@code GLXFBConfigSGIX}.
@@ -221,14 +206,10 @@ public final class GLXSGIXFBConfig {
 			checkPointer(config);
 			checkPointer(share_list);
 		}
-		return nglXCreateContextWithConfigSGIX(display, config, render_type, share_list, direct, __functionAddress);
+		return invokePPIPIP(__functionAddress, display, config, render_type, share_list, direct);
 	}
 
 	// --- [ glXGetVisualFromFBConfigSGIX ] ---
-
-	/** JNI method for {@link #glXGetVisualFromFBConfigSGIX GetVisualFromFBConfigSGIX} */
-	@JavadocExclude
-	public static native long nglXGetVisualFromFBConfigSGIX(long display, long config, long __functionAddress);
 
 	/** Unsafe version of {@link #glXGetVisualFromFBConfigSGIX GetVisualFromFBConfigSGIX} */
 	@JavadocExclude
@@ -238,7 +219,7 @@ public final class GLXSGIXFBConfig {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return nglXGetVisualFromFBConfigSGIX(display, config, __functionAddress);
+		return invokePPP(__functionAddress, display, config);
 	}
 
 	/**
@@ -254,17 +235,13 @@ public final class GLXSGIXFBConfig {
 
 	// --- [ glXGetFBConfigFromVisualSGIX ] ---
 
-	/** JNI method for {@link #glXGetFBConfigFromVisualSGIX GetFBConfigFromVisualSGIX} */
-	@JavadocExclude
-	public static native long nglXGetFBConfigFromVisualSGIX(long display, long vis, long __functionAddress);
-
 	/** Unsafe version of {@link #glXGetFBConfigFromVisualSGIX GetFBConfigFromVisualSGIX} */
 	@JavadocExclude
 	public static long nglXGetFBConfigFromVisualSGIX(long display, long vis) {
 		long __functionAddress = getInstance().GetFBConfigFromVisualSGIX;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return nglXGetFBConfigFromVisualSGIX(display, vis, __functionAddress);
+		return invokePPP(__functionAddress, display, vis);
 	}
 
 	/**

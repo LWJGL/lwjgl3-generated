@@ -9,6 +9,7 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/texture_buffer_object.txt">EXT_texture_buffer_object</a> extension.
@@ -79,13 +80,9 @@ public final class EXTTextureBufferObject {
 
 	// --- [ glTexBufferEXT ] ---
 
-	/** JNI method for {@link #glTexBufferEXT TexBufferEXT} */
-	@JavadocExclude
-	public static native void nglTexBufferEXT(int target, int internalformat, int buffer, long __functionAddress);
-
 	public static void glTexBufferEXT(int target, int internalformat, int buffer) {
 		long __functionAddress = getInstance().TexBufferEXT;
-		nglTexBufferEXT(target, internalformat, buffer, __functionAddress);
+		invokeIIIV(__functionAddress, target, internalformat, buffer);
 	}
 
 }

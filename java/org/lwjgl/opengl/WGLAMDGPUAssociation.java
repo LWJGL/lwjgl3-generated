@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -89,15 +90,11 @@ public final class WGLAMDGPUAssociation {
 
 	// --- [ wglGetGPUIDsAMD ] ---
 
-	/** JNI method for {@link #wglGetGPUIDsAMD GetGPUIDsAMD} */
-	@JavadocExclude
-	public static native int nwglGetGPUIDsAMD(int maxCount, long ids, long __functionAddress);
-
 	/** Unsafe version of {@link #wglGetGPUIDsAMD GetGPUIDsAMD} */
 	@JavadocExclude
 	public static int nwglGetGPUIDsAMD(int maxCount, long ids) {
 		long __functionAddress = getInstance().GetGPUIDsAMD;
-		return nwglGetGPUIDsAMD(maxCount, ids, __functionAddress);
+		return invokeIPI(__functionAddress, maxCount, ids);
 	}
 
 	/**
@@ -123,15 +120,11 @@ public final class WGLAMDGPUAssociation {
 
 	// --- [ wglGetGPUInfoAMD ] ---
 
-	/** JNI method for {@link #wglGetGPUInfoAMD GetGPUInfoAMD} */
-	@JavadocExclude
-	public static native int nwglGetGPUInfoAMD(int id, int property, int dataType, int size, long data, long __functionAddress);
-
 	/** Unsafe version of {@link #wglGetGPUInfoAMD GetGPUInfoAMD} */
 	@JavadocExclude
 	public static int nwglGetGPUInfoAMD(int id, int property, int dataType, int size, long data) {
 		long __functionAddress = getInstance().GetGPUInfoAMD;
-		return nwglGetGPUInfoAMD(id, property, dataType, size, data, __functionAddress);
+		return invokeIIIIPI(__functionAddress, id, property, dataType, size, data);
 	}
 
 	/**
@@ -172,10 +165,6 @@ public final class WGLAMDGPUAssociation {
 
 	// --- [ wglGetContextGPUIDAMD ] ---
 
-	/** JNI method for {@link #wglGetContextGPUIDAMD GetContextGPUIDAMD} */
-	@JavadocExclude
-	public static native int nwglGetContextGPUIDAMD(long hglrc, long __functionAddress);
-
 	/**
 	 * Determine which GPU a context is attached to.
 	 * 
@@ -189,14 +178,10 @@ public final class WGLAMDGPUAssociation {
 		long __functionAddress = getInstance().GetContextGPUIDAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hglrc);
-		return nwglGetContextGPUIDAMD(hglrc, __functionAddress);
+		return invokePI(__functionAddress, hglrc);
 	}
 
 	// --- [ wglCreateAssociatedContextAMD ] ---
-
-	/** JNI method for {@link #wglCreateAssociatedContextAMD CreateAssociatedContextAMD} */
-	@JavadocExclude
-	public static native long nwglCreateAssociatedContextAMD(int id, long __functionAddress);
 
 	/**
 	 * Creates an associated context. Upon successful creation, no pixel format is tied to an associated context.
@@ -205,20 +190,16 @@ public final class WGLAMDGPUAssociation {
 	 */
 	public static long wglCreateAssociatedContextAMD(int id) {
 		long __functionAddress = getInstance().CreateAssociatedContextAMD;
-		return nwglCreateAssociatedContextAMD(id, __functionAddress);
+		return invokeIP(__functionAddress, id);
 	}
 
 	// --- [ wglCreateAssociatedContextAttribsAMD ] ---
-
-	/** JNI method for {@link #wglCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */
-	@JavadocExclude
-	public static native long nwglCreateAssociatedContextAttribsAMD(int id, long shareContext, long attribList, long __functionAddress);
 
 	/** Unsafe version of {@link #wglCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */
 	@JavadocExclude
 	public static long nwglCreateAssociatedContextAttribsAMD(int id, long shareContext, long attribList) {
 		long __functionAddress = getInstance().CreateAssociatedContextAttribsAMD;
-		return nwglCreateAssociatedContextAttribsAMD(id, shareContext, attribList, __functionAddress);
+		return invokeIPPP(__functionAddress, id, shareContext, attribList);
 	}
 
 	/**
@@ -245,10 +226,6 @@ public final class WGLAMDGPUAssociation {
 
 	// --- [ wglDeleteAssociatedContextAMD ] ---
 
-	/** JNI method for {@link #wglDeleteAssociatedContextAMD DeleteAssociatedContextAMD} */
-	@JavadocExclude
-	public static native int nwglDeleteAssociatedContextAMD(long hglrc, long __functionAddress);
-
 	/**
 	 * Deletes an associated context. An associated context cannot be deleted by calling {@link WGL#wglDeleteContext DeleteContext}.
 	 *
@@ -258,14 +235,10 @@ public final class WGLAMDGPUAssociation {
 		long __functionAddress = getInstance().DeleteAssociatedContextAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hglrc);
-		return nwglDeleteAssociatedContextAMD(hglrc, __functionAddress);
+		return invokePI(__functionAddress, hglrc);
 	}
 
 	// --- [ wglMakeAssociatedContextCurrentAMD ] ---
-
-	/** JNI method for {@link #wglMakeAssociatedContextCurrentAMD MakeAssociatedContextCurrentAMD} */
-	@JavadocExclude
-	public static native int nwglMakeAssociatedContextCurrentAMD(long hglrc, long __functionAddress);
 
 	/**
 	 * Makes an associated context current in the current thread.
@@ -276,26 +249,18 @@ public final class WGLAMDGPUAssociation {
 		long __functionAddress = getInstance().MakeAssociatedContextCurrentAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hglrc);
-		return nwglMakeAssociatedContextCurrentAMD(hglrc, __functionAddress);
+		return invokePI(__functionAddress, hglrc);
 	}
 
 	// --- [ wglGetCurrentAssociatedContextAMD ] ---
 
-	/** JNI method for {@link #wglGetCurrentAssociatedContextAMD GetCurrentAssociatedContextAMD} */
-	@JavadocExclude
-	public static native long nwglGetCurrentAssociatedContextAMD(long __functionAddress);
-
 	/** Returns the current associated context in the current thread. */
 	public static long wglGetCurrentAssociatedContextAMD() {
 		long __functionAddress = getInstance().GetCurrentAssociatedContextAMD;
-		return nwglGetCurrentAssociatedContextAMD(__functionAddress);
+		return invokeP(__functionAddress);
 	}
 
 	// --- [ wglBlitContextFramebufferAMD ] ---
-
-	/** JNI method for {@link #wglBlitContextFramebufferAMD BlitContextFramebufferAMD} */
-	@JavadocExclude
-	public static native void nwglBlitContextFramebufferAMD(long dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter, long __functionAddress);
 
 	/**
 	 * Blits data from one context to another. This facilitates high performance data communication between multiple contexts.
@@ -318,7 +283,7 @@ public final class WGLAMDGPUAssociation {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dstCtx);
 		}
-		nwglBlitContextFramebufferAMD(dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter, __functionAddress);
+		invokePIIIIIIIIIIV(__functionAddress, dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 
 }

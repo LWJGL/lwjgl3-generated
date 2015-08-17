@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -95,26 +96,18 @@ public final class EXTPointParameters {
 
 	// --- [ glPointParameterfEXT ] ---
 
-	/** JNI method for {@link #glPointParameterfEXT PointParameterfEXT} */
-	@JavadocExclude
-	public static native void nglPointParameterfEXT(int pname, float param, long __functionAddress);
-
 	public static void glPointParameterfEXT(int pname, float param) {
 		long __functionAddress = getInstance().PointParameterfEXT;
-		nglPointParameterfEXT(pname, param, __functionAddress);
+		invokeIFV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPointParameterfvEXT ] ---
-
-	/** JNI method for {@link #glPointParameterfvEXT PointParameterfvEXT} */
-	@JavadocExclude
-	public static native void nglPointParameterfvEXT(int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glPointParameterfvEXT PointParameterfvEXT} */
 	@JavadocExclude
 	public static void nglPointParameterfvEXT(int pname, long params) {
 		long __functionAddress = getInstance().PointParameterfvEXT;
-		nglPointParameterfvEXT(pname, params, __functionAddress);
+		invokeIPV(__functionAddress, pname, params);
 	}
 
 	public static void glPointParameterfvEXT(int pname, ByteBuffer params) {

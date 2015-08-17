@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -155,81 +156,53 @@ public final class NVShaderBufferLoad {
 
 	// --- [ glMakeBufferResidentNV ] ---
 
-	/** JNI method for {@link #glMakeBufferResidentNV MakeBufferResidentNV} */
-	@JavadocExclude
-	public static native void nglMakeBufferResidentNV(int target, int access, long __functionAddress);
-
 	public static void glMakeBufferResidentNV(int target, int access) {
 		long __functionAddress = getInstance().MakeBufferResidentNV;
-		nglMakeBufferResidentNV(target, access, __functionAddress);
+		invokeIIV(__functionAddress, target, access);
 	}
 
 	// --- [ glMakeBufferNonResidentNV ] ---
 
-	/** JNI method for {@link #glMakeBufferNonResidentNV MakeBufferNonResidentNV} */
-	@JavadocExclude
-	public static native void nglMakeBufferNonResidentNV(int target, long __functionAddress);
-
 	public static void glMakeBufferNonResidentNV(int target) {
 		long __functionAddress = getInstance().MakeBufferNonResidentNV;
-		nglMakeBufferNonResidentNV(target, __functionAddress);
+		invokeIV(__functionAddress, target);
 	}
 
 	// --- [ glIsBufferResidentNV ] ---
 
-	/** JNI method for {@link #glIsBufferResidentNV IsBufferResidentNV} */
-	@JavadocExclude
-	public static native boolean nglIsBufferResidentNV(int target, long __functionAddress);
-
 	public static boolean glIsBufferResidentNV(int target) {
 		long __functionAddress = getInstance().IsBufferResidentNV;
-		return nglIsBufferResidentNV(target, __functionAddress);
+		return invokeIZ(__functionAddress, target);
 	}
 
 	// --- [ glMakeNamedBufferResidentNV ] ---
 
-	/** JNI method for {@link #glMakeNamedBufferResidentNV MakeNamedBufferResidentNV} */
-	@JavadocExclude
-	public static native void nglMakeNamedBufferResidentNV(int buffer, int access, long __functionAddress);
-
 	public static void glMakeNamedBufferResidentNV(int buffer, int access) {
 		long __functionAddress = getInstance().MakeNamedBufferResidentNV;
-		nglMakeNamedBufferResidentNV(buffer, access, __functionAddress);
+		invokeIIV(__functionAddress, buffer, access);
 	}
 
 	// --- [ glMakeNamedBufferNonResidentNV ] ---
 
-	/** JNI method for {@link #glMakeNamedBufferNonResidentNV MakeNamedBufferNonResidentNV} */
-	@JavadocExclude
-	public static native void nglMakeNamedBufferNonResidentNV(int buffer, long __functionAddress);
-
 	public static void glMakeNamedBufferNonResidentNV(int buffer) {
 		long __functionAddress = getInstance().MakeNamedBufferNonResidentNV;
-		nglMakeNamedBufferNonResidentNV(buffer, __functionAddress);
+		invokeIV(__functionAddress, buffer);
 	}
 
 	// --- [ glIsNamedBufferResidentNV ] ---
 
-	/** JNI method for {@link #glIsNamedBufferResidentNV IsNamedBufferResidentNV} */
-	@JavadocExclude
-	public static native boolean nglIsNamedBufferResidentNV(int buffer, long __functionAddress);
-
 	public static boolean glIsNamedBufferResidentNV(int buffer) {
 		long __functionAddress = getInstance().IsNamedBufferResidentNV;
-		return nglIsNamedBufferResidentNV(buffer, __functionAddress);
+		return invokeIZ(__functionAddress, buffer);
 	}
 
 	// --- [ glGetBufferParameterui64vNV ] ---
-
-	/** JNI method for {@link #glGetBufferParameterui64vNV GetBufferParameterui64vNV} */
-	@JavadocExclude
-	public static native void nglGetBufferParameterui64vNV(int target, int pname, long params, long __functionAddress);
 
 	/** Unsafe version of {@link #glGetBufferParameterui64vNV GetBufferParameterui64vNV} */
 	@JavadocExclude
 	public static void nglGetBufferParameterui64vNV(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferParameterui64vNV;
-		nglGetBufferParameterui64vNV(target, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetBufferParameterui64vNV(int target, int pname, ByteBuffer params) {
@@ -255,15 +228,11 @@ public final class NVShaderBufferLoad {
 
 	// --- [ glGetNamedBufferParameterui64vNV ] ---
 
-	/** JNI method for {@link #glGetNamedBufferParameterui64vNV GetNamedBufferParameterui64vNV} */
-	@JavadocExclude
-	public static native void nglGetNamedBufferParameterui64vNV(int buffer, int pname, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetNamedBufferParameterui64vNV GetNamedBufferParameterui64vNV} */
 	@JavadocExclude
 	public static void nglGetNamedBufferParameterui64vNV(int buffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedBufferParameterui64vNV;
-		nglGetNamedBufferParameterui64vNV(buffer, pname, params, __functionAddress);
+		invokeIIPV(__functionAddress, buffer, pname, params);
 	}
 
 	public static void glGetNamedBufferParameterui64vNV(int buffer, int pname, ByteBuffer params) {
@@ -289,15 +258,11 @@ public final class NVShaderBufferLoad {
 
 	// --- [ glGetIntegerui64vNV ] ---
 
-	/** JNI method for {@link #glGetIntegerui64vNV GetIntegerui64vNV} */
-	@JavadocExclude
-	public static native void nglGetIntegerui64vNV(int value, long result, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetIntegerui64vNV GetIntegerui64vNV} */
 	@JavadocExclude
 	public static void nglGetIntegerui64vNV(int value, long result) {
 		long __functionAddress = getInstance().GetIntegerui64vNV;
-		nglGetIntegerui64vNV(value, result, __functionAddress);
+		invokeIPV(__functionAddress, value, result);
 	}
 
 	public static void glGetIntegerui64vNV(int value, ByteBuffer result) {
@@ -323,26 +288,18 @@ public final class NVShaderBufferLoad {
 
 	// --- [ glUniformui64NV ] ---
 
-	/** JNI method for {@link #glUniformui64NV Uniformui64NV} */
-	@JavadocExclude
-	public static native void nglUniformui64NV(int location, long value, long __functionAddress);
-
 	public static void glUniformui64NV(int location, long value) {
 		long __functionAddress = getInstance().Uniformui64NV;
-		nglUniformui64NV(location, value, __functionAddress);
+		invokeIJV(__functionAddress, location, value);
 	}
 
 	// --- [ glUniformui64vNV ] ---
-
-	/** JNI method for {@link #glUniformui64vNV Uniformui64vNV} */
-	@JavadocExclude
-	public static native void nglUniformui64vNV(int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glUniformui64vNV Uniformui64vNV} */
 	@JavadocExclude
 	public static void nglUniformui64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniformui64vNV;
-		nglUniformui64vNV(location, count, value, __functionAddress);
+		invokeIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniformui64vNV(int location, int count, ByteBuffer value) {
@@ -358,15 +315,11 @@ public final class NVShaderBufferLoad {
 
 	// --- [ glGetUniformui64vNV ] ---
 
-	/** JNI method for {@link #glGetUniformui64vNV GetUniformui64vNV} */
-	@JavadocExclude
-	public static native void nglGetUniformui64vNV(int program, int location, long params, long __functionAddress);
-
 	/** Unsafe version of {@link #glGetUniformui64vNV GetUniformui64vNV} */
 	@JavadocExclude
 	public static void nglGetUniformui64vNV(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformui64vNV;
-		nglGetUniformui64vNV(program, location, params, __functionAddress);
+		invokeIIPV(__functionAddress, program, location, params);
 	}
 
 	public static void glGetUniformui64vNV(int program, int location, ByteBuffer params) {
@@ -392,26 +345,18 @@ public final class NVShaderBufferLoad {
 
 	// --- [ glProgramUniformui64NV ] ---
 
-	/** JNI method for {@link #glProgramUniformui64NV ProgramUniformui64NV} */
-	@JavadocExclude
-	public static native void nglProgramUniformui64NV(int program, int location, long value, long __functionAddress);
-
 	public static void glProgramUniformui64NV(int program, int location, long value) {
 		long __functionAddress = getInstance().ProgramUniformui64NV;
-		nglProgramUniformui64NV(program, location, value, __functionAddress);
+		invokeIIJV(__functionAddress, program, location, value);
 	}
 
 	// --- [ glProgramUniformui64vNV ] ---
-
-	/** JNI method for {@link #glProgramUniformui64vNV ProgramUniformui64vNV} */
-	@JavadocExclude
-	public static native void nglProgramUniformui64vNV(int program, int location, int count, long value, long __functionAddress);
 
 	/** Unsafe version of {@link #glProgramUniformui64vNV ProgramUniformui64vNV} */
 	@JavadocExclude
 	public static void nglProgramUniformui64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniformui64vNV;
-		nglProgramUniformui64vNV(program, location, count, value, __functionAddress);
+		invokeIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniformui64vNV(int program, int location, int count, ByteBuffer value) {
