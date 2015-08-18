@@ -2948,11 +2948,6 @@ public final class GLES20 {
 		nglVertexAttribPointer(index, size, type, normalized, stride, pointerOffset);
 	}
 
-	/** GL_FLOAT version of: {@link #glVertexAttribPointer VertexAttribPointer} */
-	public static void glVertexAttribPointer(int index, int size, boolean normalized, int stride, FloatBuffer pointer) {
-		nglVertexAttribPointer(index, size, GLES20.GL_FLOAT, normalized, stride, memAddress(pointer));
-	}
-
 	/** ShortBuffer version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, ShortBuffer pointer) {
 		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
@@ -2960,6 +2955,11 @@ public final class GLES20 {
 
 	/** IntBuffer version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, IntBuffer pointer) {
+		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
+	}
+
+	/** FloatBuffer version of: {@link #glVertexAttribPointer VertexAttribPointer} */
+	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, FloatBuffer pointer) {
 		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
 	}
 

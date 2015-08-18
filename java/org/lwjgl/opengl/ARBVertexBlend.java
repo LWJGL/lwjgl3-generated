@@ -377,13 +377,6 @@ public final class ARBVertexBlend {
 		nglWeightPointerARB(size, type, stride, pointerOffset);
 	}
 
-	/** GL_FLOAT version of: {@link #glWeightPointerARB WeightPointerARB} */
-	public static void glWeightPointerARB(int size, int stride, FloatBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		nglWeightPointerARB(size, GL11.GL_FLOAT, stride, memAddress(pointer));
-	}
-
 	/** ShortBuffer version of: {@link #glWeightPointerARB WeightPointerARB} */
 	public static void glWeightPointerARB(int size, int type, int stride, ShortBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
@@ -393,6 +386,13 @@ public final class ARBVertexBlend {
 
 	/** IntBuffer version of: {@link #glWeightPointerARB WeightPointerARB} */
 	public static void glWeightPointerARB(int size, int type, int stride, IntBuffer pointer) {
+		if ( LWJGLUtil.CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		nglWeightPointerARB(size, type, stride, memAddress(pointer));
+	}
+
+	/** FloatBuffer version of: {@link #glWeightPointerARB WeightPointerARB} */
+	public static void glWeightPointerARB(int size, int type, int stride, FloatBuffer pointer) {
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglWeightPointerARB(size, type, stride, memAddress(pointer));

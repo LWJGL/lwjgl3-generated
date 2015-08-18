@@ -540,13 +540,13 @@ public final class NVPathRendering {
 		nglPathCommandsNV(path, commands.remaining(), memAddress(commands), coords.remaining() >> GLChecks.typeToByteShift(coordType), coordType, memAddress(coords));
 	}
 
-	/** GL_FLOAT version of: {@link #glPathCommandsNV PathCommandsNV} */
-	public static void glPathCommandsNV(int path, ByteBuffer commands, FloatBuffer coords) {
-		nglPathCommandsNV(path, commands.remaining(), memAddress(commands), coords.remaining(), GL11.GL_FLOAT, memAddress(coords));
-	}
-
 	/** ShortBuffer version of: {@link #glPathCommandsNV PathCommandsNV} */
 	public static void glPathCommandsNV(int path, ByteBuffer commands, int coordType, ShortBuffer coords) {
+		nglPathCommandsNV(path, commands.remaining(), memAddress(commands), coords.remaining(), coordType, memAddress(coords));
+	}
+
+	/** FloatBuffer version of: {@link #glPathCommandsNV PathCommandsNV} */
+	public static void glPathCommandsNV(int path, ByteBuffer commands, int coordType, FloatBuffer coords) {
 		nglPathCommandsNV(path, commands.remaining(), memAddress(commands), coords.remaining(), coordType, memAddress(coords));
 	}
 
@@ -578,13 +578,13 @@ public final class NVPathRendering {
 		nglPathCoordsNV(path, coords.remaining() >> GLChecks.typeToByteShift(coordType), coordType, memAddress(coords));
 	}
 
-	/** GL_FLOAT version of: {@link #glPathCoordsNV PathCoordsNV} */
-	public static void glPathCoordsNV(int path, FloatBuffer coords) {
-		nglPathCoordsNV(path, coords.remaining(), GL11.GL_FLOAT, memAddress(coords));
-	}
-
 	/** ShortBuffer version of: {@link #glPathCoordsNV PathCoordsNV} */
 	public static void glPathCoordsNV(int path, int coordType, ShortBuffer coords) {
+		nglPathCoordsNV(path, coords.remaining(), coordType, memAddress(coords));
+	}
+
+	/** FloatBuffer version of: {@link #glPathCoordsNV PathCoordsNV} */
+	public static void glPathCoordsNV(int path, int coordType, FloatBuffer coords) {
 		nglPathCoordsNV(path, coords.remaining(), coordType, memAddress(coords));
 	}
 
@@ -622,13 +622,13 @@ public final class NVPathRendering {
 		nglPathSubCommandsNV(path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), coords.remaining() >> GLChecks.typeToByteShift(coordType), coordType, memAddress(coords));
 	}
 
-	/** GL_FLOAT version of: {@link #glPathSubCommandsNV PathSubCommandsNV} */
-	public static void glPathSubCommandsNV(int path, int commandStart, int commandsToDelete, ByteBuffer commands, FloatBuffer coords) {
-		nglPathSubCommandsNV(path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), coords.remaining(), GL11.GL_FLOAT, memAddress(coords));
-	}
-
 	/** ShortBuffer version of: {@link #glPathSubCommandsNV PathSubCommandsNV} */
 	public static void glPathSubCommandsNV(int path, int commandStart, int commandsToDelete, ByteBuffer commands, int coordType, ShortBuffer coords) {
+		nglPathSubCommandsNV(path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), coords.remaining(), coordType, memAddress(coords));
+	}
+
+	/** FloatBuffer version of: {@link #glPathSubCommandsNV PathSubCommandsNV} */
+	public static void glPathSubCommandsNV(int path, int commandStart, int commandsToDelete, ByteBuffer commands, int coordType, FloatBuffer coords) {
 		nglPathSubCommandsNV(path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), coords.remaining(), coordType, memAddress(coords));
 	}
 
@@ -661,13 +661,13 @@ public final class NVPathRendering {
 		nglPathSubCoordsNV(path, coordStart, coords.remaining() >> GLChecks.typeToByteShift(coordType), coordType, memAddress(coords));
 	}
 
-	/** GL_FLOAT version of: {@link #glPathSubCoordsNV PathSubCoordsNV} */
-	public static void glPathSubCoordsNV(int path, int coordStart, FloatBuffer coords) {
-		nglPathSubCoordsNV(path, coordStart, coords.remaining(), GL11.GL_FLOAT, memAddress(coords));
-	}
-
 	/** ShortBuffer version of: {@link #glPathSubCoordsNV PathSubCoordsNV} */
 	public static void glPathSubCoordsNV(int path, int coordStart, int coordType, ShortBuffer coords) {
+		nglPathSubCoordsNV(path, coordStart, coords.remaining(), coordType, memAddress(coords));
+	}
+
+	/** FloatBuffer version of: {@link #glPathSubCoordsNV PathSubCoordsNV} */
+	public static void glPathSubCoordsNV(int path, int coordStart, int coordType, FloatBuffer coords) {
 		nglPathSubCoordsNV(path, coordStart, coords.remaining(), coordType, memAddress(coords));
 	}
 

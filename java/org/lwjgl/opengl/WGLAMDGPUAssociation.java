@@ -153,14 +153,14 @@ public final class WGLAMDGPUAssociation {
 		return nwglGetGPUInfoAMD(id, property, dataType, data.remaining() >> GLChecks.typeToByteShift(dataType), memAddress(data));
 	}
 
-	/** GL_UNSIGNED_BYTE version of: {@link #wglGetGPUInfoAMD GetGPUInfoAMD} */
-	public static int wglGetGPUInfoAMD(int id, int property, ByteBuffer data) {
-		return nwglGetGPUInfoAMD(id, property, GL11.GL_UNSIGNED_BYTE, data.remaining(), memAddress(data));
+	/** IntBuffer version of: {@link #wglGetGPUInfoAMD GetGPUInfoAMD} */
+	public static int wglGetGPUInfoAMD(int id, int property, int dataType, IntBuffer data) {
+		return nwglGetGPUInfoAMD(id, property, dataType, data.remaining(), memAddress(data));
 	}
 
-	/** GL_UNSIGNED_INT version of: {@link #wglGetGPUInfoAMD GetGPUInfoAMD} */
-	public static int wglGetGPUInfoAMD(int id, int property, IntBuffer data) {
-		return nwglGetGPUInfoAMD(id, property, GL11.GL_UNSIGNED_INT, data.remaining(), memAddress(data));
+	/** FloatBuffer version of: {@link #wglGetGPUInfoAMD GetGPUInfoAMD} */
+	public static int wglGetGPUInfoAMD(int id, int property, int dataType, FloatBuffer data) {
+		return nwglGetGPUInfoAMD(id, property, dataType, data.remaining(), memAddress(data));
 	}
 
 	// --- [ wglGetContextGPUIDAMD ] ---
