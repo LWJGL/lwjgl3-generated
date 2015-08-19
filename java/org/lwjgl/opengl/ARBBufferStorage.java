@@ -139,37 +139,37 @@ public final class ARBBufferStorage {
 	public static void glBufferStorage(int target, long size, ByteBuffer data, int flags) {
 		if ( LWJGLUtil.CHECKS )
 			if ( data != null ) checkBuffer(data, size);
-		GL44.nglBufferStorage(target, size, memAddressSafe(data), flags);
+		nglBufferStorage(target, size, memAddressSafe(data), flags);
 	}
 
 	/** Alternative version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, long size, int flags) {
-		GL44.nglBufferStorage(target, size, 0L, flags);
+		nglBufferStorage(target, size, 0L, flags);
 	}
 
 	/** ByteBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, ByteBuffer data, int flags) {
-		GL44.nglBufferStorage(target, data.remaining(), memAddress(data), flags);
+		nglBufferStorage(target, data.remaining(), memAddress(data), flags);
 	}
 
 	/** ShortBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, ShortBuffer data, int flags) {
-		GL44.nglBufferStorage(target, data.remaining() << 1, memAddress(data), flags);
+		nglBufferStorage(target, data.remaining() << 1, memAddress(data), flags);
 	}
 
 	/** IntBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, IntBuffer data, int flags) {
-		GL44.nglBufferStorage(target, data.remaining() << 2, memAddress(data), flags);
+		nglBufferStorage(target, data.remaining() << 2, memAddress(data), flags);
 	}
 
 	/** FloatBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, FloatBuffer data, int flags) {
-		GL44.nglBufferStorage(target, data.remaining() << 2, memAddress(data), flags);
+		nglBufferStorage(target, data.remaining() << 2, memAddress(data), flags);
 	}
 
 	/** DoubleBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, DoubleBuffer data, int flags) {
-		GL44.nglBufferStorage(target, data.remaining() << 3, memAddress(data), flags);
+		nglBufferStorage(target, data.remaining() << 3, memAddress(data), flags);
 	}
 
 	// --- [ glNamedBufferStorageEXT ] ---

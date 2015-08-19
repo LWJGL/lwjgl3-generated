@@ -206,14 +206,14 @@ public final class ARBVertexType2_10_10_10_REV {
 	public static void glVertexP2uiv(int type, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		GL33.nglVertexP2uiv(type, memAddress(value));
+		nglVertexP2uiv(type, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glVertexP2uiv VertexP2uiv} */
 	public static void glVertexP2uiv(int type, IntBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		GL33.nglVertexP2uiv(type, memAddress(value));
+		nglVertexP2uiv(type, memAddress(value));
 	}
 
 	// --- [ glVertexP3uiv ] ---
@@ -236,14 +236,14 @@ public final class ARBVertexType2_10_10_10_REV {
 	public static void glVertexP3uiv(int type, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		GL33.nglVertexP3uiv(type, memAddress(value));
+		nglVertexP3uiv(type, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glVertexP3uiv VertexP3uiv} */
 	public static void glVertexP3uiv(int type, IntBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		GL33.nglVertexP3uiv(type, memAddress(value));
+		nglVertexP3uiv(type, memAddress(value));
 	}
 
 	// --- [ glVertexP4uiv ] ---
@@ -266,14 +266,14 @@ public final class ARBVertexType2_10_10_10_REV {
 	public static void glVertexP4uiv(int type, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		GL33.nglVertexP4uiv(type, memAddress(value));
+		nglVertexP4uiv(type, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glVertexP4uiv VertexP4uiv} */
 	public static void glVertexP4uiv(int type, IntBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		GL33.nglVertexP4uiv(type, memAddress(value));
+		nglVertexP4uiv(type, memAddress(value));
 	}
 
 	// --- [ glTexCoordP1ui ] ---
@@ -356,14 +356,14 @@ public final class ARBVertexType2_10_10_10_REV {
 	public static void glTexCoordP1uiv(int type, ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1 << 2);
-		GL33.nglTexCoordP1uiv(type, memAddress(coords));
+		nglTexCoordP1uiv(type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glTexCoordP1uiv TexCoordP1uiv} */
 	public static void glTexCoordP1uiv(int type, IntBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1);
-		GL33.nglTexCoordP1uiv(type, memAddress(coords));
+		nglTexCoordP1uiv(type, memAddress(coords));
 	}
 
 	// --- [ glTexCoordP2uiv ] ---
@@ -386,14 +386,14 @@ public final class ARBVertexType2_10_10_10_REV {
 	public static void glTexCoordP2uiv(int type, ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1 << 2);
-		GL33.nglTexCoordP2uiv(type, memAddress(coords));
+		nglTexCoordP2uiv(type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glTexCoordP2uiv TexCoordP2uiv} */
 	public static void glTexCoordP2uiv(int type, IntBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1);
-		GL33.nglTexCoordP2uiv(type, memAddress(coords));
+		nglTexCoordP2uiv(type, memAddress(coords));
 	}
 
 	// --- [ glTexCoordP3uiv ] ---
@@ -416,14 +416,14 @@ public final class ARBVertexType2_10_10_10_REV {
 	public static void glTexCoordP3uiv(int type, ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1 << 2);
-		GL33.nglTexCoordP3uiv(type, memAddress(coords));
+		nglTexCoordP3uiv(type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glTexCoordP3uiv TexCoordP3uiv} */
 	public static void glTexCoordP3uiv(int type, IntBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1);
-		GL33.nglTexCoordP3uiv(type, memAddress(coords));
+		nglTexCoordP3uiv(type, memAddress(coords));
 	}
 
 	// --- [ glTexCoordP4uiv ] ---
@@ -446,14 +446,14 @@ public final class ARBVertexType2_10_10_10_REV {
 	public static void glTexCoordP4uiv(int type, ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1 << 2);
-		GL33.nglTexCoordP4uiv(type, memAddress(coords));
+		nglTexCoordP4uiv(type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glTexCoordP4uiv TexCoordP4uiv} */
 	public static void glTexCoordP4uiv(int type, IntBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1);
-		GL33.nglTexCoordP4uiv(type, memAddress(coords));
+		nglTexCoordP4uiv(type, memAddress(coords));
 	}
 
 	// --- [ glMultiTexCoordP1ui ] ---
@@ -541,14 +541,14 @@ public final class ARBVertexType2_10_10_10_REV {
 	public static void glMultiTexCoordP1uiv(int texture, int type, ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1 << 2);
-		GL33.nglMultiTexCoordP1uiv(texture, type, memAddress(coords));
+		nglMultiTexCoordP1uiv(texture, type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoordP1uiv MultiTexCoordP1uiv} */
 	public static void glMultiTexCoordP1uiv(int texture, int type, IntBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1);
-		GL33.nglMultiTexCoordP1uiv(texture, type, memAddress(coords));
+		nglMultiTexCoordP1uiv(texture, type, memAddress(coords));
 	}
 
 	// --- [ glMultiTexCoordP2uiv ] ---
@@ -572,14 +572,14 @@ public final class ARBVertexType2_10_10_10_REV {
 	public static void glMultiTexCoordP2uiv(int texture, int type, ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1 << 2);
-		GL33.nglMultiTexCoordP2uiv(texture, type, memAddress(coords));
+		nglMultiTexCoordP2uiv(texture, type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoordP2uiv MultiTexCoordP2uiv} */
 	public static void glMultiTexCoordP2uiv(int texture, int type, IntBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1);
-		GL33.nglMultiTexCoordP2uiv(texture, type, memAddress(coords));
+		nglMultiTexCoordP2uiv(texture, type, memAddress(coords));
 	}
 
 	// --- [ glMultiTexCoordP3uiv ] ---
@@ -603,14 +603,14 @@ public final class ARBVertexType2_10_10_10_REV {
 	public static void glMultiTexCoordP3uiv(int texture, int type, ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1 << 2);
-		GL33.nglMultiTexCoordP3uiv(texture, type, memAddress(coords));
+		nglMultiTexCoordP3uiv(texture, type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoordP3uiv MultiTexCoordP3uiv} */
 	public static void glMultiTexCoordP3uiv(int texture, int type, IntBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1);
-		GL33.nglMultiTexCoordP3uiv(texture, type, memAddress(coords));
+		nglMultiTexCoordP3uiv(texture, type, memAddress(coords));
 	}
 
 	// --- [ glMultiTexCoordP4uiv ] ---
@@ -634,14 +634,14 @@ public final class ARBVertexType2_10_10_10_REV {
 	public static void glMultiTexCoordP4uiv(int texture, int type, ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1 << 2);
-		GL33.nglMultiTexCoordP4uiv(texture, type, memAddress(coords));
+		nglMultiTexCoordP4uiv(texture, type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoordP4uiv MultiTexCoordP4uiv} */
 	public static void glMultiTexCoordP4uiv(int texture, int type, IntBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1);
-		GL33.nglMultiTexCoordP4uiv(texture, type, memAddress(coords));
+		nglMultiTexCoordP4uiv(texture, type, memAddress(coords));
 	}
 
 	// --- [ glNormalP3ui ] ---
@@ -679,14 +679,14 @@ public final class ARBVertexType2_10_10_10_REV {
 	public static void glNormalP3uiv(int type, ByteBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1 << 2);
-		GL33.nglNormalP3uiv(type, memAddress(coords));
+		nglNormalP3uiv(type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glNormalP3uiv NormalP3uiv} */
 	public static void glNormalP3uiv(int type, IntBuffer coords) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(coords, 1);
-		GL33.nglNormalP3uiv(type, memAddress(coords));
+		nglNormalP3uiv(type, memAddress(coords));
 	}
 
 	// --- [ glColorP3ui ] ---
@@ -739,14 +739,14 @@ public final class ARBVertexType2_10_10_10_REV {
 	public static void glColorP3uiv(int type, ByteBuffer color) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(color, 1 << 2);
-		GL33.nglColorP3uiv(type, memAddress(color));
+		nglColorP3uiv(type, memAddress(color));
 	}
 
 	/** Alternative version of: {@link #glColorP3uiv ColorP3uiv} */
 	public static void glColorP3uiv(int type, IntBuffer color) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(color, 1);
-		GL33.nglColorP3uiv(type, memAddress(color));
+		nglColorP3uiv(type, memAddress(color));
 	}
 
 	// --- [ glColorP4uiv ] ---
@@ -769,14 +769,14 @@ public final class ARBVertexType2_10_10_10_REV {
 	public static void glColorP4uiv(int type, ByteBuffer color) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(color, 1 << 2);
-		GL33.nglColorP4uiv(type, memAddress(color));
+		nglColorP4uiv(type, memAddress(color));
 	}
 
 	/** Alternative version of: {@link #glColorP4uiv ColorP4uiv} */
 	public static void glColorP4uiv(int type, IntBuffer color) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(color, 1);
-		GL33.nglColorP4uiv(type, memAddress(color));
+		nglColorP4uiv(type, memAddress(color));
 	}
 
 	// --- [ glSecondaryColorP3ui ] ---
@@ -814,14 +814,14 @@ public final class ARBVertexType2_10_10_10_REV {
 	public static void glSecondaryColorP3uiv(int type, ByteBuffer color) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(color, 1 << 2);
-		GL33.nglSecondaryColorP3uiv(type, memAddress(color));
+		nglSecondaryColorP3uiv(type, memAddress(color));
 	}
 
 	/** Alternative version of: {@link #glSecondaryColorP3uiv SecondaryColorP3uiv} */
 	public static void glSecondaryColorP3uiv(int type, IntBuffer color) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(color, 1);
-		GL33.nglSecondaryColorP3uiv(type, memAddress(color));
+		nglSecondaryColorP3uiv(type, memAddress(color));
 	}
 
 	// --- [ glVertexAttribP1ui ] ---
@@ -904,14 +904,14 @@ public final class ARBVertexType2_10_10_10_REV {
 	public static void glVertexAttribP1uiv(int index, int type, boolean normalized, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		GL33.nglVertexAttribP1uiv(index, type, normalized, memAddress(value));
+		nglVertexAttribP1uiv(index, type, normalized, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribP1uiv VertexAttribP1uiv} */
 	public static void glVertexAttribP1uiv(int index, int type, boolean normalized, IntBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		GL33.nglVertexAttribP1uiv(index, type, normalized, memAddress(value));
+		nglVertexAttribP1uiv(index, type, normalized, memAddress(value));
 	}
 
 	// --- [ glVertexAttribP2uiv ] ---
@@ -934,14 +934,14 @@ public final class ARBVertexType2_10_10_10_REV {
 	public static void glVertexAttribP2uiv(int index, int type, boolean normalized, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		GL33.nglVertexAttribP2uiv(index, type, normalized, memAddress(value));
+		nglVertexAttribP2uiv(index, type, normalized, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribP2uiv VertexAttribP2uiv} */
 	public static void glVertexAttribP2uiv(int index, int type, boolean normalized, IntBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		GL33.nglVertexAttribP2uiv(index, type, normalized, memAddress(value));
+		nglVertexAttribP2uiv(index, type, normalized, memAddress(value));
 	}
 
 	// --- [ glVertexAttribP3uiv ] ---
@@ -964,14 +964,14 @@ public final class ARBVertexType2_10_10_10_REV {
 	public static void glVertexAttribP3uiv(int index, int type, boolean normalized, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		GL33.nglVertexAttribP3uiv(index, type, normalized, memAddress(value));
+		nglVertexAttribP3uiv(index, type, normalized, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribP3uiv VertexAttribP3uiv} */
 	public static void glVertexAttribP3uiv(int index, int type, boolean normalized, IntBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		GL33.nglVertexAttribP3uiv(index, type, normalized, memAddress(value));
+		nglVertexAttribP3uiv(index, type, normalized, memAddress(value));
 	}
 
 	// --- [ glVertexAttribP4uiv ] ---
@@ -994,14 +994,14 @@ public final class ARBVertexType2_10_10_10_REV {
 	public static void glVertexAttribP4uiv(int index, int type, boolean normalized, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		GL33.nglVertexAttribP4uiv(index, type, normalized, memAddress(value));
+		nglVertexAttribP4uiv(index, type, normalized, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribP4uiv VertexAttribP4uiv} */
 	public static void glVertexAttribP4uiv(int index, int type, boolean normalized, IntBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		GL33.nglVertexAttribP4uiv(index, type, normalized, memAddress(value));
+		nglVertexAttribP4uiv(index, type, normalized, memAddress(value));
 	}
 
 }

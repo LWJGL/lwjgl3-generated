@@ -87,22 +87,22 @@ public final class ARBClearBufferObject {
 	 *                       If data is {@code NULL}, then it is ignored and the sub-range of the buffer is filled with zeros.
 	 */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, ByteBuffer data) {
-		GL43.nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
+		nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
 	}
 
 	/** ShortBuffer version of: {@link #glClearBufferData ClearBufferData} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, ShortBuffer data) {
-		GL43.nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
+		nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
 	}
 
 	/** IntBuffer version of: {@link #glClearBufferData ClearBufferData} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, IntBuffer data) {
-		GL43.nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
+		nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
 	}
 
 	/** FloatBuffer version of: {@link #glClearBufferData ClearBufferData} */
 	public static void glClearBufferData(int target, int internalformat, int format, int type, FloatBuffer data) {
-		GL43.nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
+		nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
 	}
 
 	// --- [ glClearBufferSubData ] ---
@@ -129,22 +129,22 @@ public final class ARBClearBufferObject {
 	 *                       If data is {@code NULL}, then it is ignored and the sub-range of the buffer is filled with zeros.
 	 */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, ByteBuffer data) {
-		GL43.nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
+		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
 	}
 
 	/** ShortBuffer version of: {@link #glClearBufferSubData ClearBufferSubData} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, ShortBuffer data) {
-		GL43.nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
+		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
 	}
 
 	/** IntBuffer version of: {@link #glClearBufferSubData ClearBufferSubData} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, IntBuffer data) {
-		GL43.nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
+		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
 	}
 
 	/** FloatBuffer version of: {@link #glClearBufferSubData ClearBufferSubData} */
 	public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, FloatBuffer data) {
-		GL43.nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
+		nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
 	}
 
 	// --- [ glClearNamedBufferDataEXT ] ---

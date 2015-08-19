@@ -66,14 +66,14 @@ public final class KHRImage {
 	public static long eglCreateImageKHR(long dpy, long ctx, int target, long buffer, ByteBuffer attrib_list) {
 		if ( LWJGLUtil.CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
-		return KHRImageBase.neglCreateImageKHR(dpy, ctx, target, buffer, memAddressSafe(attrib_list));
+		return neglCreateImageKHR(dpy, ctx, target, buffer, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #eglCreateImageKHR CreateImageKHR} */
 	public static long eglCreateImageKHR(long dpy, long ctx, int target, long buffer, IntBuffer attrib_list) {
 		if ( LWJGLUtil.CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
-		return KHRImageBase.neglCreateImageKHR(dpy, ctx, target, buffer, memAddressSafe(attrib_list));
+		return neglCreateImageKHR(dpy, ctx, target, buffer, memAddressSafe(attrib_list));
 	}
 
 	// --- [ eglDestroyImageKHR ] ---

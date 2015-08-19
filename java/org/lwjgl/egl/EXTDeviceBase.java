@@ -73,14 +73,14 @@ public final class EXTDeviceBase {
 	public static boolean eglQueryDeviceAttribEXT(long device, int attribute, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << POINTER_SHIFT);
-		return EXTDeviceQuery.neglQueryDeviceAttribEXT(device, attribute, memAddress(value));
+		return neglQueryDeviceAttribEXT(device, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQueryDeviceAttribEXT QueryDeviceAttribEXT} */
 	public static boolean eglQueryDeviceAttribEXT(long device, int attribute, PointerBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		return EXTDeviceQuery.neglQueryDeviceAttribEXT(device, attribute, memAddress(value));
+		return neglQueryDeviceAttribEXT(device, attribute, memAddress(value));
 	}
 
 	// --- [ eglQueryDeviceStringEXT ] ---
@@ -95,7 +95,7 @@ public final class EXTDeviceBase {
 	}
 
 	public static String eglQueryDeviceStringEXT(long device, int name) {
-		long __result = EXTDeviceQuery.neglQueryDeviceStringEXT(device, name);
+		long __result = neglQueryDeviceStringEXT(device, name);
 		return memDecodeASCII(__result);
 	}
 
@@ -113,14 +113,14 @@ public final class EXTDeviceBase {
 	public static boolean eglQueryDisplayAttribEXT(long dpy, int attribute, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << POINTER_SHIFT);
-		return EXTDeviceQuery.neglQueryDisplayAttribEXT(dpy, attribute, memAddress(value));
+		return neglQueryDisplayAttribEXT(dpy, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQueryDisplayAttribEXT QueryDisplayAttribEXT} */
 	public static boolean eglQueryDisplayAttribEXT(long dpy, int attribute, PointerBuffer value) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		return EXTDeviceQuery.neglQueryDisplayAttribEXT(dpy, attribute, memAddress(value));
+		return neglQueryDisplayAttribEXT(dpy, attribute, memAddress(value));
 	}
 
 	// --- [ eglQueryDevicesEXT ] ---
@@ -137,14 +137,14 @@ public final class EXTDeviceBase {
 			if ( devices != null ) checkBuffer(devices, max_devices << POINTER_SHIFT);
 			checkBuffer(num_devices, 1 << 2);
 		}
-		return EXTDeviceEnumeration.neglQueryDevicesEXT(max_devices, memAddressSafe(devices), memAddress(num_devices));
+		return neglQueryDevicesEXT(max_devices, memAddressSafe(devices), memAddress(num_devices));
 	}
 
 	/** Alternative version of: {@link #eglQueryDevicesEXT QueryDevicesEXT} */
 	public static boolean eglQueryDevicesEXT(PointerBuffer devices, IntBuffer num_devices) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(num_devices, 1);
-		return EXTDeviceEnumeration.neglQueryDevicesEXT(devices == null ? 0 : devices.remaining(), memAddressSafe(devices), memAddress(num_devices));
+		return neglQueryDevicesEXT(devices == null ? 0 : devices.remaining(), memAddressSafe(devices), memAddress(num_devices));
 	}
 
 }

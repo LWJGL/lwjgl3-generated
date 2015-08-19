@@ -134,21 +134,21 @@ public final class ARBFramebufferNoAttachments {
 	public static void glGetFramebufferParameteriv(int target, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		GL43.nglGetFramebufferParameteriv(target, pname, memAddress(params));
+		nglGetFramebufferParameteriv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
 	public static void glGetFramebufferParameteriv(int target, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		GL43.nglGetFramebufferParameteriv(target, pname, memAddress(params));
+		nglGetFramebufferParameteriv(target, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
 	public static int glGetFramebufferParameteri(int target, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		GL43.nglGetFramebufferParameteriv(target, pname, __buffer.address(params));
+		nglGetFramebufferParameteriv(target, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 

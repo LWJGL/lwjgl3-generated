@@ -251,19 +251,19 @@ public final class KHRDebug {
 	public static void glDebugMessageControl(int source, int type, int severity, int count, ByteBuffer ids, boolean enabled) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(ids, count << 2);
-		GL43.nglDebugMessageControl(source, type, severity, count, memAddress(ids), enabled);
+		nglDebugMessageControl(source, type, severity, count, memAddress(ids), enabled);
 	}
 
 	/** Alternative version of: {@link #glDebugMessageControl DebugMessageControl} */
 	public static void glDebugMessageControl(int source, int type, int severity, IntBuffer ids, boolean enabled) {
-		GL43.nglDebugMessageControl(source, type, severity, ids.remaining(), memAddress(ids), enabled);
+		nglDebugMessageControl(source, type, severity, ids.remaining(), memAddress(ids), enabled);
 	}
 
 	/** Single value version of: {@link #glDebugMessageControl DebugMessageControl} */
 	public static void glDebugMessageControl(int source, int type, int severity, int id, boolean enabled) {
 		APIBuffer __buffer = apiBuffer();
 		int ids = __buffer.intParam(id);
-		GL43.nglDebugMessageControl(source, type, severity, 1, __buffer.address(ids), enabled);
+		nglDebugMessageControl(source, type, severity, 1, __buffer.address(ids), enabled);
 	}
 
 	// --- [ glDebugMessageInsert ] ---
@@ -297,12 +297,12 @@ public final class KHRDebug {
 	public static void glDebugMessageInsert(int source, int type, int id, int severity, int length, ByteBuffer message) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(message, length);
-		GL43.nglDebugMessageInsert(source, type, id, severity, length, memAddress(message));
+		nglDebugMessageInsert(source, type, id, severity, length, memAddress(message));
 	}
 
 	/** Alternative version of: {@link #glDebugMessageInsert DebugMessageInsert} */
 	public static void glDebugMessageInsert(int source, int type, int id, int severity, ByteBuffer message) {
-		GL43.nglDebugMessageInsert(source, type, id, severity, message.remaining(), memAddress(message));
+		nglDebugMessageInsert(source, type, id, severity, message.remaining(), memAddress(message));
 	}
 
 	/** CharSequence version of: {@link #glDebugMessageInsert DebugMessageInsert} */
@@ -310,7 +310,7 @@ public final class KHRDebug {
 		APIBuffer __buffer = apiBuffer();
 		int messageEncoded = __buffer.stringParamUTF8(message, false);
 		int messageEncodedLen = __buffer.getOffset() - messageEncoded;
-		GL43.nglDebugMessageInsert(source, type, id, severity, messageEncodedLen, __buffer.address(messageEncoded));
+		nglDebugMessageInsert(source, type, id, severity, messageEncodedLen, __buffer.address(messageEncoded));
 	}
 
 	// --- [ glDebugMessageCallback ] ---
@@ -402,7 +402,7 @@ public final class KHRDebug {
 			if ( severities != null ) checkBuffer(severities, count << 2);
 			if ( lengths != null ) checkBuffer(lengths, count << 2);
 		}
-		return GL43.nglGetDebugMessageLog(count, bufsize, memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
+		return nglGetDebugMessageLog(count, bufsize, memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
 	}
 
 	/** Alternative version of: {@link #glGetDebugMessageLog GetDebugMessageLog} */
@@ -414,7 +414,7 @@ public final class KHRDebug {
 			if ( severities != null ) checkBuffer(severities, count);
 			if ( lengths != null ) checkBuffer(lengths, count);
 		}
-		return GL43.nglGetDebugMessageLog(count, messageLog == null ? 0 : messageLog.remaining(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
+		return nglGetDebugMessageLog(count, messageLog == null ? 0 : messageLog.remaining(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
 	}
 
 	// --- [ glPushDebugGroup ] ---
@@ -446,12 +446,12 @@ public final class KHRDebug {
 	public static void glPushDebugGroup(int source, int id, int length, ByteBuffer message) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(message, length);
-		GL43.nglPushDebugGroup(source, id, length, memAddress(message));
+		nglPushDebugGroup(source, id, length, memAddress(message));
 	}
 
 	/** Alternative version of: {@link #glPushDebugGroup PushDebugGroup} */
 	public static void glPushDebugGroup(int source, int id, ByteBuffer message) {
-		GL43.nglPushDebugGroup(source, id, message.remaining(), memAddress(message));
+		nglPushDebugGroup(source, id, message.remaining(), memAddress(message));
 	}
 
 	/** CharSequence version of: {@link #glPushDebugGroup PushDebugGroup} */
@@ -459,7 +459,7 @@ public final class KHRDebug {
 		APIBuffer __buffer = apiBuffer();
 		int messageEncoded = __buffer.stringParamUTF8(message, false);
 		int messageEncodedLen = __buffer.getOffset() - messageEncoded;
-		GL43.nglPushDebugGroup(source, id, messageEncodedLen, __buffer.address(messageEncoded));
+		nglPushDebugGroup(source, id, messageEncodedLen, __buffer.address(messageEncoded));
 	}
 
 	// --- [ glPopDebugGroup ] ---
@@ -498,12 +498,12 @@ public final class KHRDebug {
 	public static void glObjectLabel(int identifier, int name, int length, ByteBuffer label) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(label, length);
-		GL43.nglObjectLabel(identifier, name, length, memAddress(label));
+		nglObjectLabel(identifier, name, length, memAddress(label));
 	}
 
 	/** Alternative version of: {@link #glObjectLabel ObjectLabel} */
 	public static void glObjectLabel(int identifier, int name, ByteBuffer label) {
-		GL43.nglObjectLabel(identifier, name, label.remaining(), memAddress(label));
+		nglObjectLabel(identifier, name, label.remaining(), memAddress(label));
 	}
 
 	/** CharSequence version of: {@link #glObjectLabel ObjectLabel} */
@@ -511,7 +511,7 @@ public final class KHRDebug {
 		APIBuffer __buffer = apiBuffer();
 		int labelEncoded = __buffer.stringParamUTF8(label, false);
 		int labelEncodedLen = __buffer.getOffset() - labelEncoded;
-		GL43.nglObjectLabel(identifier, name, labelEncodedLen, __buffer.address(labelEncoded));
+		nglObjectLabel(identifier, name, labelEncodedLen, __buffer.address(labelEncoded));
 	}
 
 	// --- [ glGetObjectLabel ] ---
@@ -537,14 +537,14 @@ public final class KHRDebug {
 			checkBuffer(label, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
-		GL43.nglGetObjectLabel(identifier, name, bufSize, memAddressSafe(length), memAddress(label));
+		nglGetObjectLabel(identifier, name, bufSize, memAddressSafe(length), memAddress(label));
 	}
 
 	/** Alternative version of: {@link #glGetObjectLabel GetObjectLabel} */
 	public static void glGetObjectLabel(int identifier, int name, IntBuffer length, ByteBuffer label) {
 		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
-		GL43.nglGetObjectLabel(identifier, name, label.remaining(), memAddressSafe(length), memAddress(label));
+		nglGetObjectLabel(identifier, name, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
 
 	/** String return version of: {@link #glGetObjectLabel GetObjectLabel} */
@@ -552,7 +552,7 @@ public final class KHRDebug {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
-		GL43.nglGetObjectLabel(identifier, name, bufSize, __buffer.address(length), __buffer.address(label));
+		nglGetObjectLabel(identifier, name, bufSize, __buffer.address(length), __buffer.address(label));
 		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
 	}
 
@@ -562,7 +562,7 @@ public final class KHRDebug {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
-		GL43.nglGetObjectLabel(identifier, name, bufSize, __buffer.address(length), __buffer.address(label));
+		nglGetObjectLabel(identifier, name, bufSize, __buffer.address(length), __buffer.address(label));
 		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
 	}
 
@@ -587,12 +587,12 @@ public final class KHRDebug {
 	public static void glObjectPtrLabel(long ptr, int length, ByteBuffer label) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(label, length);
-		GL43.nglObjectPtrLabel(ptr, length, memAddress(label));
+		nglObjectPtrLabel(ptr, length, memAddress(label));
 	}
 
 	/** Alternative version of: {@link #glObjectPtrLabel ObjectPtrLabel} */
 	public static void glObjectPtrLabel(long ptr, ByteBuffer label) {
-		GL43.nglObjectPtrLabel(ptr, label.remaining(), memAddress(label));
+		nglObjectPtrLabel(ptr, label.remaining(), memAddress(label));
 	}
 
 	/** CharSequence version of: {@link #glObjectPtrLabel ObjectPtrLabel} */
@@ -600,7 +600,7 @@ public final class KHRDebug {
 		APIBuffer __buffer = apiBuffer();
 		int labelEncoded = __buffer.stringParamUTF8(label, false);
 		int labelEncodedLen = __buffer.getOffset() - labelEncoded;
-		GL43.nglObjectPtrLabel(ptr, labelEncodedLen, __buffer.address(labelEncoded));
+		nglObjectPtrLabel(ptr, labelEncodedLen, __buffer.address(labelEncoded));
 	}
 
 	// --- [ glGetObjectPtrLabel ] ---
@@ -627,14 +627,14 @@ public final class KHRDebug {
 			checkBuffer(label, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
-		GL43.nglGetObjectPtrLabel(ptr, bufSize, memAddressSafe(length), memAddress(label));
+		nglGetObjectPtrLabel(ptr, bufSize, memAddressSafe(length), memAddress(label));
 	}
 
 	/** Alternative version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
 	public static void glGetObjectPtrLabel(long ptr, IntBuffer length, ByteBuffer label) {
 		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
-		GL43.nglGetObjectPtrLabel(ptr, label.remaining(), memAddressSafe(length), memAddress(label));
+		nglGetObjectPtrLabel(ptr, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
 
 	/** String return version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
@@ -642,7 +642,7 @@ public final class KHRDebug {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
-		GL43.nglGetObjectPtrLabel(ptr, bufSize, __buffer.address(length), __buffer.address(label));
+		nglGetObjectPtrLabel(ptr, bufSize, __buffer.address(length), __buffer.address(label));
 		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
 	}
 
@@ -652,7 +652,7 @@ public final class KHRDebug {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int label = __buffer.bufferParam(bufSize);
-		GL43.nglGetObjectPtrLabel(ptr, bufSize, __buffer.address(length), __buffer.address(label));
+		nglGetObjectPtrLabel(ptr, bufSize, __buffer.address(length), __buffer.address(label));
 		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
 	}
 

@@ -102,7 +102,7 @@ public final class ARBGetProgramBinary {
 			if ( length != null ) checkBuffer(length, 1 << 2);
 			checkBuffer(binaryFormat, 1 << 2);
 		}
-		GL41.nglGetProgramBinary(program, bufSize, memAddressSafe(length), memAddress(binaryFormat), memAddress(binary));
+		nglGetProgramBinary(program, bufSize, memAddressSafe(length), memAddress(binaryFormat), memAddress(binary));
 	}
 
 	/** Alternative version of: {@link #glGetProgramBinary GetProgramBinary} */
@@ -111,7 +111,7 @@ public final class ARBGetProgramBinary {
 			if ( length != null ) checkBuffer(length, 1);
 			checkBuffer(binaryFormat, 1);
 		}
-		GL41.nglGetProgramBinary(program, binary.remaining(), memAddressSafe(length), memAddress(binaryFormat), memAddress(binary));
+		nglGetProgramBinary(program, binary.remaining(), memAddressSafe(length), memAddress(binaryFormat), memAddress(binary));
 	}
 
 	/** Buffer return version of: {@link #glGetProgramBinary GetProgramBinary} */
@@ -121,7 +121,7 @@ public final class ARBGetProgramBinary {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		ByteBuffer binary = BufferUtils.createByteBuffer(bufSize);
-		GL41.nglGetProgramBinary(program, bufSize, __buffer.address(length), memAddress(binaryFormat), memAddress(binary));
+		nglGetProgramBinary(program, bufSize, __buffer.address(length), memAddress(binaryFormat), memAddress(binary));
 		binary.limit(__buffer.intValue(length));
 		return binary;
 	}
@@ -134,7 +134,7 @@ public final class ARBGetProgramBinary {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		ByteBuffer binary = BufferUtils.createByteBuffer(bufSize);
-		GL41.nglGetProgramBinary(program, bufSize, __buffer.address(length), memAddress(binaryFormat), memAddress(binary));
+		nglGetProgramBinary(program, bufSize, __buffer.address(length), memAddress(binaryFormat), memAddress(binary));
 		binary.limit(__buffer.intValue(length));
 		return binary;
 	}
@@ -159,12 +159,12 @@ public final class ARBGetProgramBinary {
 	public static void glProgramBinary(int program, int binaryFormat, ByteBuffer binary, int length) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(binary, length);
-		GL41.nglProgramBinary(program, binaryFormat, memAddress(binary), length);
+		nglProgramBinary(program, binaryFormat, memAddress(binary), length);
 	}
 
 	/** Alternative version of: {@link #glProgramBinary ProgramBinary} */
 	public static void glProgramBinary(int program, int binaryFormat, ByteBuffer binary) {
-		GL41.nglProgramBinary(program, binaryFormat, memAddress(binary), binary.remaining());
+		nglProgramBinary(program, binaryFormat, memAddress(binary), binary.remaining());
 	}
 
 	// --- [ glProgramParameteri ] ---

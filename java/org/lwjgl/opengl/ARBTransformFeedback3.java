@@ -151,21 +151,21 @@ public final class ARBTransformFeedback3 {
 	public static void glGetQueryIndexediv(int target, int index, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		GL40.nglGetQueryIndexediv(target, index, pname, memAddress(params));
+		nglGetQueryIndexediv(target, index, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryIndexediv GetQueryIndexediv} */
 	public static void glGetQueryIndexediv(int target, int index, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		GL40.nglGetQueryIndexediv(target, index, pname, memAddress(params));
+		nglGetQueryIndexediv(target, index, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetQueryIndexediv GetQueryIndexediv} */
 	public static int glGetQueryIndexedi(int target, int index, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		GL40.nglGetQueryIndexediv(target, index, pname, __buffer.address(params));
+		nglGetQueryIndexediv(target, index, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 

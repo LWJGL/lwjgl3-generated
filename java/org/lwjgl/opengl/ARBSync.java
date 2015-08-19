@@ -216,21 +216,21 @@ public final class ARBSync {
 	public static void glGetInteger64v(int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 3);
-		GL32.nglGetInteger64v(pname, memAddress(params));
+		nglGetInteger64v(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetInteger64v GetInteger64v} */
 	public static void glGetInteger64v(int pname, LongBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		GL32.nglGetInteger64v(pname, memAddress(params));
+		nglGetInteger64v(pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetInteger64v GetInteger64v} */
 	public static long glGetInteger64(int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		GL32.nglGetInteger64v(pname, __buffer.address(params));
+		nglGetInteger64v(pname, __buffer.address(params));
 		return __buffer.longValue(params);
 	}
 
@@ -259,14 +259,14 @@ public final class ARBSync {
 			checkBuffer(values, bufSize << 2);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
-		GL32.nglGetSynciv(sync, pname, bufSize, memAddressSafe(length), memAddress(values));
+		nglGetSynciv(sync, pname, bufSize, memAddressSafe(length), memAddress(values));
 	}
 
 	/** Alternative version of: {@link #glGetSynciv GetSynciv} */
 	public static void glGetSynciv(long sync, int pname, IntBuffer length, IntBuffer values) {
 		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
-		GL32.nglGetSynciv(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
+		nglGetSynciv(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
 	}
 
 	/** Single return value version of: {@link #glGetSynciv GetSynciv} */
@@ -275,7 +275,7 @@ public final class ARBSync {
 			if ( length != null ) checkBuffer(length, 1);
 		APIBuffer __buffer = apiBuffer();
 		int values = __buffer.intParam();
-		GL32.nglGetSynciv(sync, pname, 1, memAddressSafe(length), __buffer.address(values));
+		nglGetSynciv(sync, pname, 1, memAddressSafe(length), __buffer.address(values));
 		return __buffer.intValue(values);
 	}
 

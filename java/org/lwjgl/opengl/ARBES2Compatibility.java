@@ -119,12 +119,12 @@ public final class ARBES2Compatibility {
 			checkBuffer(shaders, count << 2);
 			checkBuffer(binary, length);
 		}
-		GL41.nglShaderBinary(count, memAddress(shaders), binaryformat, memAddress(binary), length);
+		nglShaderBinary(count, memAddress(shaders), binaryformat, memAddress(binary), length);
 	}
 
 	/** Alternative version of: {@link #glShaderBinary ShaderBinary} */
 	public static void glShaderBinary(IntBuffer shaders, int binaryformat, ByteBuffer binary) {
-		GL41.nglShaderBinary(shaders.remaining(), memAddress(shaders), binaryformat, memAddress(binary), binary.remaining());
+		nglShaderBinary(shaders.remaining(), memAddress(shaders), binaryformat, memAddress(binary), binary.remaining());
 	}
 
 	// --- [ glGetShaderPrecisionFormat ] ---
@@ -149,7 +149,7 @@ public final class ARBES2Compatibility {
 			checkBuffer(range, 2 << 2);
 			checkBuffer(precision, 1 << 2);
 		}
-		GL41.nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), memAddress(precision));
+		nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), memAddress(precision));
 	}
 
 	/** Alternative version of: {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat} */
@@ -158,7 +158,7 @@ public final class ARBES2Compatibility {
 			checkBuffer(range, 2);
 			checkBuffer(precision, 1);
 		}
-		GL41.nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), memAddress(precision));
+		nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), memAddress(precision));
 	}
 
 	/** Single return value version of: {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat} */
@@ -167,7 +167,7 @@ public final class ARBES2Compatibility {
 			checkBuffer(range, 2);
 		APIBuffer __buffer = apiBuffer();
 		int precision = __buffer.intParam();
-		GL41.nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), __buffer.address(precision));
+		nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), __buffer.address(precision));
 		return __buffer.intValue(precision);
 	}
 

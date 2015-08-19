@@ -94,14 +94,14 @@ public final class ARBBlendFuncExtended {
 	public static void glBindFragDataLocationIndexed(int program, int colorNumber, int index, ByteBuffer name) {
 		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
-		GL33.nglBindFragDataLocationIndexed(program, colorNumber, index, memAddress(name));
+		nglBindFragDataLocationIndexed(program, colorNumber, index, memAddress(name));
 	}
 
 	/** CharSequence version of: {@link #glBindFragDataLocationIndexed BindFragDataLocationIndexed} */
 	public static void glBindFragDataLocationIndexed(int program, int colorNumber, int index, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		GL33.nglBindFragDataLocationIndexed(program, colorNumber, index, __buffer.address(nameEncoded));
+		nglBindFragDataLocationIndexed(program, colorNumber, index, __buffer.address(nameEncoded));
 	}
 
 	// --- [ glGetFragDataIndex ] ---
@@ -122,14 +122,14 @@ public final class ARBBlendFuncExtended {
 	public static int glGetFragDataIndex(int program, ByteBuffer name) {
 		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
-		return GL33.nglGetFragDataIndex(program, memAddress(name));
+		return nglGetFragDataIndex(program, memAddress(name));
 	}
 
 	/** CharSequence version of: {@link #glGetFragDataIndex GetFragDataIndex} */
 	public static int glGetFragDataIndex(int program, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return GL33.nglGetFragDataIndex(program, __buffer.address(nameEncoded));
+		return nglGetFragDataIndex(program, __buffer.address(nameEncoded));
 	}
 
 }

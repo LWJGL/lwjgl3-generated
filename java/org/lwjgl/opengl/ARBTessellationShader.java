@@ -176,7 +176,7 @@ public final class ARBTessellationShader {
 		if ( LWJGLUtil.CHECKS )
 			if ( LWJGLUtil.DEBUG )
 				checkBuffer(values, GL11.glGetInteger(GL_PATCH_VERTICES) << 2);
-		GL40.nglPatchParameterfv(pname, memAddress(values));
+		nglPatchParameterfv(pname, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #glPatchParameterfv PatchParameterfv} */
@@ -184,7 +184,7 @@ public final class ARBTessellationShader {
 		if ( LWJGLUtil.CHECKS )
 			if ( LWJGLUtil.DEBUG )
 				checkBuffer(values, GL11.glGetInteger(GL_PATCH_VERTICES));
-		GL40.nglPatchParameterfv(pname, memAddress(values));
+		nglPatchParameterfv(pname, memAddress(values));
 	}
 
 }

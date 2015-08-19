@@ -113,12 +113,12 @@ public final class ARBViewportArray {
 	public static void glViewportArrayv(int first, int count, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, (count << 2) << 2);
-		GL41.nglViewportArrayv(first, count, memAddress(v));
+		nglViewportArrayv(first, count, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glViewportArrayv ViewportArrayv} */
 	public static void glViewportArrayv(int first, FloatBuffer v) {
-		GL41.nglViewportArrayv(first, v.remaining() >> 2, memAddress(v));
+		nglViewportArrayv(first, v.remaining() >> 2, memAddress(v));
 	}
 
 	// --- [ glViewportIndexedf ] ---
@@ -155,14 +155,14 @@ public final class ARBViewportArray {
 	public static void glViewportIndexedfv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
-		GL41.nglViewportIndexedfv(index, memAddress(v));
+		nglViewportIndexedfv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glViewportIndexedfv ViewportIndexedfv} */
 	public static void glViewportIndexedfv(int index, FloatBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
-		GL41.nglViewportIndexedfv(index, memAddress(v));
+		nglViewportIndexedfv(index, memAddress(v));
 	}
 
 	// --- [ glScissorArrayv ] ---
@@ -184,12 +184,12 @@ public final class ARBViewportArray {
 	public static void glScissorArrayv(int first, int count, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, (count << 2) << 2);
-		GL41.nglScissorArrayv(first, count, memAddress(v));
+		nglScissorArrayv(first, count, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glScissorArrayv ScissorArrayv} */
 	public static void glScissorArrayv(int first, IntBuffer v) {
-		GL41.nglScissorArrayv(first, v.remaining() >> 2, memAddress(v));
+		nglScissorArrayv(first, v.remaining() >> 2, memAddress(v));
 	}
 
 	// --- [ glScissorIndexed ] ---
@@ -226,14 +226,14 @@ public final class ARBViewportArray {
 	public static void glScissorIndexedv(int index, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4 << 2);
-		GL41.nglScissorIndexedv(index, memAddress(v));
+		nglScissorIndexedv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glScissorIndexedv ScissorIndexedv} */
 	public static void glScissorIndexedv(int index, IntBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, 4);
-		GL41.nglScissorIndexedv(index, memAddress(v));
+		nglScissorIndexedv(index, memAddress(v));
 	}
 
 	// --- [ glDepthRangeArrayv ] ---
@@ -255,12 +255,12 @@ public final class ARBViewportArray {
 	public static void glDepthRangeArrayv(int first, int count, ByteBuffer v) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(v, (count << 1) << 3);
-		GL41.nglDepthRangeArrayv(first, count, memAddress(v));
+		nglDepthRangeArrayv(first, count, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glDepthRangeArrayv DepthRangeArrayv} */
 	public static void glDepthRangeArrayv(int first, DoubleBuffer v) {
-		GL41.nglDepthRangeArrayv(first, v.remaining() >> 1, memAddress(v));
+		nglDepthRangeArrayv(first, v.remaining() >> 1, memAddress(v));
 	}
 
 	// --- [ glDepthRangeIndexed ] ---
@@ -296,21 +296,21 @@ public final class ARBViewportArray {
 	public static void glGetFloati_v(int target, int index, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1 << 2);
-		GL41.nglGetFloati_v(target, index, memAddress(data));
+		nglGetFloati_v(target, index, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetFloati_v GetFloati_v} */
 	public static void glGetFloati_v(int target, int index, FloatBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1);
-		GL41.nglGetFloati_v(target, index, memAddress(data));
+		nglGetFloati_v(target, index, memAddress(data));
 	}
 
 	/** Single return value version of: {@link #glGetFloati_v GetFloati_v} */
 	public static float glGetFloati(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.floatParam();
-		GL41.nglGetFloati_v(target, index, __buffer.address(data));
+		nglGetFloati_v(target, index, __buffer.address(data));
 		return __buffer.floatValue(data);
 	}
 
@@ -333,21 +333,21 @@ public final class ARBViewportArray {
 	public static void glGetDoublei_v(int target, int index, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1 << 3);
-		GL41.nglGetDoublei_v(target, index, memAddress(data));
+		nglGetDoublei_v(target, index, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetDoublei_v GetDoublei_v} */
 	public static void glGetDoublei_v(int target, int index, DoubleBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, 1);
-		GL41.nglGetDoublei_v(target, index, memAddress(data));
+		nglGetDoublei_v(target, index, memAddress(data));
 	}
 
 	/** Single return value version of: {@link #glGetDoublei_v GetDoublei_v} */
 	public static double glGetDoublei(int target, int index) {
 		APIBuffer __buffer = apiBuffer();
 		int data = __buffer.doubleParam();
-		GL41.nglGetDoublei_v(target, index, __buffer.address(data));
+		nglGetDoublei_v(target, index, __buffer.address(data));
 		return __buffer.doubleValue(data);
 	}
 

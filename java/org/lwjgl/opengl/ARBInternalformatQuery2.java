@@ -223,19 +223,19 @@ public final class ARBInternalformatQuery2 {
 	public static void glGetInternalformati64v(int target, int internalformat, int pname, int bufSize, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, bufSize << 3);
-		GL43.nglGetInternalformati64v(target, internalformat, pname, bufSize, memAddress(params));
+		nglGetInternalformati64v(target, internalformat, pname, bufSize, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetInternalformati64v GetInternalformati64v} */
 	public static void glGetInternalformati64v(int target, int internalformat, int pname, LongBuffer params) {
-		GL43.nglGetInternalformati64v(target, internalformat, pname, params.remaining(), memAddress(params));
+		nglGetInternalformati64v(target, internalformat, pname, params.remaining(), memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetInternalformati64v GetInternalformati64v} */
 	public static long glGetInternalformati64(int target, int internalformat, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.longParam();
-		GL43.nglGetInternalformati64v(target, internalformat, pname, 1, __buffer.address(params));
+		nglGetInternalformati64v(target, internalformat, pname, 1, __buffer.address(params));
 		return __buffer.longValue(params);
 	}
 

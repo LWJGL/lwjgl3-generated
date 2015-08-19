@@ -160,21 +160,21 @@ public final class ARBProgramInterfaceQuery {
 	public static void glGetProgramInterfaceiv(int program, int programInterface, int pname, ByteBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		GL43.nglGetProgramInterfaceiv(program, programInterface, pname, memAddress(params));
+		nglGetProgramInterfaceiv(program, programInterface, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
 	public static void glGetProgramInterfaceiv(int program, int programInterface, int pname, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		GL43.nglGetProgramInterfaceiv(program, programInterface, pname, memAddress(params));
+		nglGetProgramInterfaceiv(program, programInterface, pname, memAddress(params));
 	}
 
 	/** Single return value version of: {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
 	public static int glGetProgramInterfacei(int program, int programInterface, int pname) {
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam();
-		GL43.nglGetProgramInterfaceiv(program, programInterface, pname, __buffer.address(params));
+		nglGetProgramInterfaceiv(program, programInterface, pname, __buffer.address(params));
 		return __buffer.intValue(params);
 	}
 
@@ -197,14 +197,14 @@ public final class ARBProgramInterfaceQuery {
 	public static int glGetProgramResourceIndex(int program, int programInterface, ByteBuffer name) {
 		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
-		return GL43.nglGetProgramResourceIndex(program, programInterface, memAddress(name));
+		return nglGetProgramResourceIndex(program, programInterface, memAddress(name));
 	}
 
 	/** CharSequence version of: {@link #glGetProgramResourceIndex GetProgramResourceIndex} */
 	public static int glGetProgramResourceIndex(int program, int programInterface, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return GL43.nglGetProgramResourceIndex(program, programInterface, __buffer.address(nameEncoded));
+		return nglGetProgramResourceIndex(program, programInterface, __buffer.address(nameEncoded));
 	}
 
 	// --- [ glGetProgramResourceName ] ---
@@ -231,14 +231,14 @@ public final class ARBProgramInterfaceQuery {
 			checkBuffer(name, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
-		GL43.nglGetProgramResourceName(program, programInterface, index, bufSize, memAddressSafe(length), memAddress(name));
+		nglGetProgramResourceName(program, programInterface, index, bufSize, memAddressSafe(length), memAddress(name));
 	}
 
 	/** Alternative version of: {@link #glGetProgramResourceName GetProgramResourceName} */
 	public static void glGetProgramResourceName(int program, int programInterface, int index, IntBuffer length, ByteBuffer name) {
 		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
-		GL43.nglGetProgramResourceName(program, programInterface, index, name.remaining(), memAddressSafe(length), memAddress(name));
+		nglGetProgramResourceName(program, programInterface, index, name.remaining(), memAddressSafe(length), memAddress(name));
 	}
 
 	/** String return version of: {@link #glGetProgramResourceName GetProgramResourceName} */
@@ -246,7 +246,7 @@ public final class ARBProgramInterfaceQuery {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
-		GL43.nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address(length), __buffer.address(name));
+		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address(length), __buffer.address(name));
 		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
@@ -256,7 +256,7 @@ public final class ARBProgramInterfaceQuery {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
-		GL43.nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address(length), __buffer.address(name));
+		nglGetProgramResourceName(program, programInterface, index, bufSize, __buffer.address(length), __buffer.address(name));
 		return memDecodeASCII(__buffer.buffer(), __buffer.intValue(length), name);
 	}
 
@@ -287,14 +287,14 @@ public final class ARBProgramInterfaceQuery {
 			checkBuffer(params, bufSize << 2);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
-		GL43.nglGetProgramResourceiv(program, programInterface, index, propCount, memAddress(props), bufSize, memAddressSafe(length), memAddress(params));
+		nglGetProgramResourceiv(program, programInterface, index, propCount, memAddress(props), bufSize, memAddressSafe(length), memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetProgramResourceiv GetProgramResourceiv} */
 	public static void glGetProgramResourceiv(int program, int programInterface, int index, IntBuffer props, IntBuffer length, IntBuffer params) {
 		if ( LWJGLUtil.CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
-		GL43.nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), params.remaining(), memAddressSafe(length), memAddress(params));
+		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), params.remaining(), memAddressSafe(length), memAddress(params));
 	}
 
 	/** Buffer return version of: {@link #glGetProgramResourceiv GetProgramResourceiv} */
@@ -302,7 +302,7 @@ public final class ARBProgramInterfaceQuery {
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		IntBuffer params = BufferUtils.createIntBuffer(bufSize);
-		GL43.nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), bufSize, __buffer.address(length), memAddress(params));
+		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), bufSize, __buffer.address(length), memAddress(params));
 		params.limit(__buffer.intValue(length));
 		return params;
 	}
@@ -326,14 +326,14 @@ public final class ARBProgramInterfaceQuery {
 	public static int glGetProgramResourceLocation(int program, int programInterface, ByteBuffer name) {
 		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
-		return GL43.nglGetProgramResourceLocation(program, programInterface, memAddress(name));
+		return nglGetProgramResourceLocation(program, programInterface, memAddress(name));
 	}
 
 	/** CharSequence version of: {@link #glGetProgramResourceLocation GetProgramResourceLocation} */
 	public static int glGetProgramResourceLocation(int program, int programInterface, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return GL43.nglGetProgramResourceLocation(program, programInterface, __buffer.address(nameEncoded));
+		return nglGetProgramResourceLocation(program, programInterface, __buffer.address(nameEncoded));
 	}
 
 	// --- [ glGetProgramResourceLocationIndex ] ---
@@ -355,14 +355,14 @@ public final class ARBProgramInterfaceQuery {
 	public static int glGetProgramResourceLocationIndex(int program, int programInterface, ByteBuffer name) {
 		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
-		return GL43.nglGetProgramResourceLocationIndex(program, programInterface, memAddress(name));
+		return nglGetProgramResourceLocationIndex(program, programInterface, memAddress(name));
 	}
 
 	/** CharSequence version of: {@link #glGetProgramResourceLocationIndex GetProgramResourceLocationIndex} */
 	public static int glGetProgramResourceLocationIndex(int program, int programInterface, CharSequence name) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
-		return GL43.nglGetProgramResourceLocationIndex(program, programInterface, __buffer.address(nameEncoded));
+		return nglGetProgramResourceLocationIndex(program, programInterface, __buffer.address(nameEncoded));
 	}
 
 }
