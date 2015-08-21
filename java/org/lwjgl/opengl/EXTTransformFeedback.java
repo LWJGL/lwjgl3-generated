@@ -189,19 +189,23 @@ public final class EXTTransformFeedback {
 	/** Array version of: {@link #glTransformFeedbackVaryingsEXT TransformFeedbackVaryingsEXT} */
 	public static void glTransformFeedbackVaryingsEXT(int program, CharSequence[] varyings, int bufferMode) {
 		APIBuffer __buffer = apiBuffer();
-		int varyingsAddress = __buffer.bufferParam(varyings.length << POINTER_SHIFT);
-		ByteBuffer[] varyingsBuffers = new ByteBuffer[varyings.length];
-		for ( int i = 0; i < varyings.length; i++ )
-			__buffer.pointerParam(varyingsAddress, i, memAddress(varyingsBuffers[i] = memEncodeASCII(varyings[i], true)));
-		nglTransformFeedbackVaryingsEXT(program, varyings.length, __buffer.address(varyingsAddress), bufferMode);
+		int varyingsAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayASCII(true, varyings));
+		try {
+			nglTransformFeedbackVaryingsEXT(program, varyings.length, __buffer.address(varyingsAddress), bufferMode);
+		} finally {
+			__buffer.pointerArrayFree(varyingsAddress, varyings.length);
+		}
 	}
 
 	/** Single varying version of: {@link #glTransformFeedbackVaryingsEXT TransformFeedbackVaryingsEXT} */
 	public static void glTransformFeedbackVaryingsEXT(int program, CharSequence varying, int bufferMode) {
 		APIBuffer __buffer = apiBuffer();
-		ByteBuffer varyingBuffers = memEncodeASCII(varying, true);
-		int varyingsAddress = __buffer.pointerParam(memAddress(varyingBuffers));
-		nglTransformFeedbackVaryingsEXT(program, 1, __buffer.address(varyingsAddress), bufferMode);
+		int varyingsAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayASCII(true, varying));
+		try {
+			nglTransformFeedbackVaryingsEXT(program, 1, __buffer.address(varyingsAddress), bufferMode);
+		} finally {
+			__buffer.pointerArrayFree(varyingsAddress, 1);
+		}
 	}
 
 	// --- [ glGetTransformFeedbackVaryingEXT ] ---
@@ -248,13 +252,13 @@ public final class EXTTransformFeedback {
 
 	/** String return (w/ implicit max length) version of: {@link #glGetTransformFeedbackVaryingEXT GetTransformFeedbackVaryingEXT} */
 	public static String glGetTransformFeedbackVaryingEXT(int program, int index, IntBuffer size, IntBuffer type) {
+		int bufSize = GL.getCapabilities().OpenGL20
+			? GL20.glGetProgrami(program, GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH_EXT)
+			: ARBShaderObjects.glGetObjectParameteriARB(program, GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH_EXT);
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
-		int bufSize = GL.getCapabilities().OpenGL20
-			? GL20.glGetProgrami(program, GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH_EXT)
-			: ARBShaderObjects.glGetObjectParameteriARB(program, GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH_EXT);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);

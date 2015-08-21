@@ -191,7 +191,7 @@ public final class JEmalloc {
 	 * @param size the number of bytes to allocate
 	 */
 	public static ByteBuffer je_realloc(ByteBuffer ptr, long size) {
-		long __result = nje_realloc(memAddress(ptr), size);
+		long __result = nje_realloc(memAddressSafe(ptr), size);
 		return memByteBuffer(__result, (int)size);
 	}
 
@@ -210,7 +210,7 @@ public final class JEmalloc {
 	 * @param ptr the allocated memory to free
 	 */
 	public static void je_free(ByteBuffer ptr) {
-		nje_free(memAddress(ptr));
+		nje_free(memAddressSafe(ptr));
 	}
 
 	// --- [ je_mallocx ] ---
@@ -227,7 +227,7 @@ public final class JEmalloc {
 	 * 0, or if request size overflows due to size class and/or alignment constraints.
 	 *
 	 * @param size  the number of bytes to allocate
-	 * @param flags 
+	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
 	 */
 	public static ByteBuffer je_mallocx(long size, int flags) {
 		long __result = nje_mallocx(size, flags);
@@ -250,10 +250,10 @@ public final class JEmalloc {
 	 *
 	 * @param ptr   the previously allocated memory or {@code NULL}
 	 * @param size  the number of bytes to allocate
-	 * @param flags 
+	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
 	 */
 	public static ByteBuffer je_rallocx(ByteBuffer ptr, long size, int flags) {
-		long __result = nje_rallocx(memAddress(ptr), size, flags);
+		long __result = nje_rallocx(memAddressSafe(ptr), size, flags);
 		return memByteBuffer(__result, (int)size);
 	}
 
@@ -274,10 +274,10 @@ public final class JEmalloc {
 	 * @param ptr   the previously allocated memory or {@code NULL}
 	 * @param size  the number of bytes to allocate
 	 * @param extra the number of extra bytes to allocate
-	 * @param flags 
+	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
 	 */
 	public static long je_xallocx(ByteBuffer ptr, long size, long extra, int flags) {
-		return nje_xallocx(memAddress(ptr), size, extra, flags);
+		return nje_xallocx(memAddressSafe(ptr), size, extra, flags);
 	}
 
 	// --- [ je_sallocx ] ---
@@ -293,7 +293,7 @@ public final class JEmalloc {
 	 * Returns the real size of the allocation at {@code ptr}.
 	 *
 	 * @param ptr   the allocated memory to query
-	 * @param flags 
+	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
 	 */
 	public static long je_sallocx(ByteBuffer ptr, int flags) {
 		return nje_sallocx(memAddress(ptr), flags);
@@ -312,7 +312,7 @@ public final class JEmalloc {
 	 * Causes the memory referenced by {@code ptr} to be made available for future allocations.
 	 *
 	 * @param ptr   the allocated memory to deallocate
-	 * @param flags 
+	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
 	 */
 	public static void je_dallocx(ByteBuffer ptr, int flags) {
 		nje_dallocx(memAddress(ptr), flags);
@@ -332,7 +332,7 @@ public final class JEmalloc {
 	 *
 	 * @param ptr   the allocated memory to deallocate
 	 * @param size  the number of bytes in {@code ptr}
-	 * @param flags 
+	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
 	 */
 	public static void je_sdallocx(ByteBuffer ptr, long size, int flags) {
 		nje_sdallocx(memAddress(ptr), size, flags);
@@ -353,7 +353,7 @@ public final class JEmalloc {
 	 * and/or alignment constraints.
 	 *
 	 * @param size  the number of bytes to allocate
-	 * @param flags 
+	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
 	 */
 	public static ByteBuffer je_nallocx(long size, int flags) {
 		long __result = nje_nallocx(size, flags);

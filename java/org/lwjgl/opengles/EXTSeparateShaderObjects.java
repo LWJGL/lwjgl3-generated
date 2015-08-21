@@ -231,19 +231,23 @@ public final class EXTSeparateShaderObjects {
 	/** Array version of: {@link #glCreateShaderProgramvEXT CreateShaderProgramvEXT} */
 	public static int glCreateShaderProgramvEXT(int type, CharSequence... strings) {
 		APIBuffer __buffer = apiBuffer();
-		int stringsAddress = __buffer.bufferParam(strings.length << POINTER_SHIFT);
-		ByteBuffer[] stringsBuffers = new ByteBuffer[strings.length];
-		for ( int i = 0; i < strings.length; i++ )
-			__buffer.pointerParam(stringsAddress, i, memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], true)));
-		return nglCreateShaderProgramvEXT(type, strings.length, __buffer.address(stringsAddress));
+		int stringsAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayUTF8(true, strings));
+		try {
+			return nglCreateShaderProgramvEXT(type, strings.length, __buffer.address(stringsAddress));
+		} finally {
+			__buffer.pointerArrayFree(stringsAddress, strings.length);
+		}
 	}
 
 	/** Single string version of: {@link #glCreateShaderProgramvEXT CreateShaderProgramvEXT} */
 	public static int glCreateShaderProgramvEXT(int type, CharSequence string) {
 		APIBuffer __buffer = apiBuffer();
-		ByteBuffer stringBuffers = memEncodeUTF8(string, true);
-		int stringsAddress = __buffer.pointerParam(memAddress(stringBuffers));
-		return nglCreateShaderProgramvEXT(type, 1, __buffer.address(stringsAddress));
+		int stringsAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayUTF8(true, string));
+		try {
+			return nglCreateShaderProgramvEXT(type, 1, __buffer.address(stringsAddress));
+		} finally {
+			__buffer.pointerArrayFree(stringsAddress, 1);
+		}
 	}
 
 	// --- [ glDeleteProgramPipelinesEXT ] ---

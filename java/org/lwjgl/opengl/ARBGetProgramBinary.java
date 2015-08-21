@@ -128,9 +128,9 @@ public final class ARBGetProgramBinary {
 
 	/** Buffer return (w/ implicit max length) version of: {@link #glGetProgramBinary GetProgramBinary} */
 	public static ByteBuffer glGetProgramBinary(int program, IntBuffer binaryFormat) {
+		int bufSize = GL20.glGetProgrami(program, GL_PROGRAM_BINARY_LENGTH);
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(binaryFormat, 1);
-		int bufSize = GL20.glGetProgrami(program, GL_PROGRAM_BINARY_LENGTH);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		ByteBuffer binary = BufferUtils.createByteBuffer(bufSize);

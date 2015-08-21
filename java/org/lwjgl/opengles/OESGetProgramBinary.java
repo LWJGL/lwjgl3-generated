@@ -114,9 +114,9 @@ public final class OESGetProgramBinary {
 
 	/** Buffer return (w/ implicit max length) version of: {@link #glGetProgramBinaryOES GetProgramBinaryOES} */
 	public static ByteBuffer glGetProgramBinaryOES(int program, IntBuffer binaryFormat) {
+		int bufSize = GLES20.glGetProgrami(program, GL_PROGRAM_BINARY_LENGTH_OES);
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(binaryFormat, 1);
-		int bufSize = GLES20.glGetProgrami(program, GL_PROGRAM_BINARY_LENGTH_OES);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		ByteBuffer binary = BufferUtils.createByteBuffer(bufSize);

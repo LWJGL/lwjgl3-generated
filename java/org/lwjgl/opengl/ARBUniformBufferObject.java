@@ -224,20 +224,24 @@ public final class ARBUniformBufferObject {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(uniformIndices, uniformNames.length);
 		APIBuffer __buffer = apiBuffer();
-		int uniformNamesAddress = __buffer.bufferParam(uniformNames.length << POINTER_SHIFT);
-		ByteBuffer[] uniformNamesBuffers = new ByteBuffer[uniformNames.length];
-		for ( int i = 0; i < uniformNames.length; i++ )
-			__buffer.pointerParam(uniformNamesAddress, i, memAddress(uniformNamesBuffers[i] = memEncodeASCII(uniformNames[i], true)));
-		nglGetUniformIndices(program, uniformNames.length, __buffer.address(uniformNamesAddress), memAddress(uniformIndices));
+		int uniformNamesAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayASCII(true, uniformNames));
+		try {
+			nglGetUniformIndices(program, uniformNames.length, __buffer.address(uniformNamesAddress), memAddress(uniformIndices));
+		} finally {
+			__buffer.pointerArrayFree(uniformNamesAddress, uniformNames.length);
+		}
 	}
 
 	/** Single uniformName version of: {@link #glGetUniformIndices GetUniformIndices} */
 	public static int glGetUniformIndices(int program, CharSequence uniformName) {
 		APIBuffer __buffer = apiBuffer();
-		ByteBuffer uniformNameBuffers = memEncodeASCII(uniformName, true);
-		int uniformNamesAddress = __buffer.pointerParam(memAddress(uniformNameBuffers));
+		int uniformNamesAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayASCII(true, uniformName));
 		int uniformIndices = __buffer.intParam();
-		nglGetUniformIndices(program, 1, __buffer.address(uniformNamesAddress), __buffer.address(uniformIndices));
+		try {
+			nglGetUniformIndices(program, 1, __buffer.address(uniformNamesAddress), __buffer.address(uniformIndices));
+		} finally {
+			__buffer.pointerArrayFree(uniformNamesAddress, 1);
+		}
 		return __buffer.intValue(uniformIndices);
 	}
 

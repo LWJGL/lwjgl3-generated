@@ -1173,11 +1173,11 @@ public final class ARBVertexShader {
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveAttribARB GetActiveAttribARB} */
 	public static String glGetActiveAttribARB(int programObj, int index, IntBuffer size, IntBuffer type) {
+		int maxLength = ARBShaderObjects.glGetObjectParameteriARB(programObj, GL_OBJECT_ACTIVE_ATTRIBUTE_MAX_LENGTH_ARB);
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
-		int maxLength = ARBShaderObjects.glGetObjectParameteriARB(programObj, GL_OBJECT_ACTIVE_ATTRIBUTE_MAX_LENGTH_ARB);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(maxLength);

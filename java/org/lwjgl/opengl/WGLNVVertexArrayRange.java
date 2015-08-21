@@ -58,7 +58,7 @@ public final class WGLNVVertexArrayRange {
 
 	public static ByteBuffer wglAllocateMemoryNV(int size, float readfreq, float writefreq, float priority) {
 		long __result = nwglAllocateMemoryNV(size, readfreq, writefreq, priority);
-		return memByteBuffer(__result, (int)size);
+		return memByteBuffer(__result, size);
 	}
 
 	// --- [ wglFreeMemoryNV ] ---

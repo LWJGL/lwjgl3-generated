@@ -2993,14 +2993,12 @@ public final class CL10 {
 		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		APIBuffer __buffer = apiBuffer();
-		int stringsLengths = __buffer.bufferParam(strings.length << POINTER_SHIFT);
-		for ( int i = 0; i < strings.length; i++ )
-			__buffer.pointerParam(stringsLengths, i, strings[i].length());
-		int stringsAddress = __buffer.bufferParam(strings.length << POINTER_SHIFT);
-		ByteBuffer[] stringsBuffers = new ByteBuffer[strings.length];
-		for ( int i = 0; i < strings.length; i++ )
-			__buffer.pointerParam(stringsAddress, i, memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], false)));
-		return nclCreateProgramWithSource(context, strings.length, __buffer.address(stringsAddress), __buffer.address(stringsLengths), memAddressSafe(errcode_ret));
+		int stringsAddress = __buffer.pointerArrayParamp(APIBuffer.stringArrayUTF8(false, strings));
+		try {
+			return nclCreateProgramWithSource(context, strings.length, __buffer.address(stringsAddress), __buffer.address(stringsAddress + (strings.length << POINTER_SHIFT)), memAddressSafe(errcode_ret));
+		} finally {
+			__buffer.pointerArrayFree(stringsAddress, strings.length);
+		}
 	}
 
 	/** Single string version of: {@link #clCreateProgramWithSource CreateProgramWithSource} */
@@ -3008,10 +3006,12 @@ public final class CL10 {
 		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		APIBuffer __buffer = apiBuffer();
-		int stringsLengths = __buffer.pointerParam(string.length());
-		ByteBuffer stringBuffers = memEncodeUTF8(string, false);
-		int stringsAddress = __buffer.pointerParam(memAddress(stringBuffers));
-		return nclCreateProgramWithSource(context, 1, __buffer.address(stringsAddress), __buffer.address(stringsLengths), memAddressSafe(errcode_ret));
+		int stringsAddress = __buffer.pointerArrayParamp(APIBuffer.stringArrayUTF8(false, string));
+		try {
+			return nclCreateProgramWithSource(context, 1, __buffer.address(stringsAddress), __buffer.address(stringsAddress + POINTER_SIZE), memAddressSafe(errcode_ret));
+		} finally {
+			__buffer.pointerArrayFree(stringsAddress, 1);
+		}
 	}
 
 	// --- [ clCreateProgramWithBinary ] ---
@@ -3101,13 +3101,8 @@ public final class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		APIBuffer __buffer = apiBuffer();
-		int binariesLengths = __buffer.bufferParam(binaries.length << POINTER_SHIFT);
-		for ( int i = 0; i < binaries.length; i++ )
-			__buffer.pointerParam(binariesLengths, i, binaries[i].remaining());
-		int binariesAddress = __buffer.bufferParam(binaries.length << POINTER_SHIFT);
-		for ( int i = 0; i < binaries.length; i++ )
-			__buffer.pointerParam(binariesAddress, i, memAddress(binaries[i]));
-		return nclCreateProgramWithBinary(context, binaries.length, memAddress(device_list), __buffer.address(binariesLengths), __buffer.address(binariesAddress), memAddressSafe(binary_status), memAddressSafe(errcode_ret));
+		int binariesAddress = __buffer.pointerArrayParamp(binaries);
+		return nclCreateProgramWithBinary(context, binaries.length, memAddress(device_list), __buffer.address(binariesAddress + (binaries.length << POINTER_SHIFT)), __buffer.address(binariesAddress), memAddressSafe(binary_status), memAddressSafe(errcode_ret));
 	}
 
 	/** Single binary version of: {@link #clCreateProgramWithBinary CreateProgramWithBinary} */
@@ -3118,9 +3113,8 @@ public final class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		APIBuffer __buffer = apiBuffer();
-		int binariesLengths = __buffer.pointerParam(binary.remaining());
-		int binariesAddress = __buffer.pointerParam(memAddress(binary));
-		return nclCreateProgramWithBinary(context, 1, memAddress(device_list), __buffer.address(binariesLengths), __buffer.address(binariesAddress), memAddressSafe(binary_status), memAddressSafe(errcode_ret));
+		int binariesAddress = __buffer.pointerArrayParamp(binary);
+		return nclCreateProgramWithBinary(context, 1, memAddress(device_list), __buffer.address(binariesAddress + POINTER_SIZE), __buffer.address(binariesAddress), memAddressSafe(binary_status), memAddressSafe(errcode_ret));
 	}
 
 	// --- [ clRetainProgram ] ---

@@ -1385,11 +1385,11 @@ public final class GLES20 {
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveAttrib GetActiveAttrib} */
 	public static String glGetActiveAttrib(int program, int index, IntBuffer size, IntBuffer type) {
+		int bufSize = glGetProgrami(program, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH);
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
-		int bufSize = glGetProgrami(program, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
@@ -1441,11 +1441,11 @@ public final class GLES20 {
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniform GetActiveUniform} */
 	public static String glGetActiveUniform(int program, int index, IntBuffer size, IntBuffer type) {
+		int bufSize = glGetProgrami(program, GL_ACTIVE_UNIFORM_MAX_LENGTH);
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
-		int bufSize = glGetProgrami(program, GL_ACTIVE_UNIFORM_MAX_LENGTH);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);
@@ -2339,23 +2339,23 @@ public final class GLES20 {
 	/** Array version of: {@link #glShaderSource ShaderSource} */
 	public static void glShaderSource(int shader, CharSequence... string) {
 		APIBuffer __buffer = apiBuffer();
-		int stringLengths = __buffer.bufferParam(string.length << 2);
-		for ( int i = 0; i < string.length; i++ )
-			__buffer.intParam(stringLengths, i, string[i].length());
-		int stringAddress = __buffer.bufferParam(string.length << POINTER_SHIFT);
-		ByteBuffer[] stringBuffers = new ByteBuffer[string.length];
-		for ( int i = 0; i < string.length; i++ )
-			__buffer.pointerParam(stringAddress, i, memAddress(stringBuffers[i] = memEncodeUTF8(string[i], false)));
-		nglShaderSource(shader, string.length, __buffer.address(stringAddress), __buffer.address(stringLengths));
+		int stringAddress = __buffer.pointerArrayParami(APIBuffer.stringArrayUTF8(false, string));
+		try {
+			nglShaderSource(shader, string.length, __buffer.address(stringAddress), __buffer.address(stringAddress + (string.length << POINTER_SHIFT)));
+		} finally {
+			__buffer.pointerArrayFree(stringAddress, string.length);
+		}
 	}
 
 	/** Single string version of: {@link #glShaderSource ShaderSource} */
 	public static void glShaderSource(int shader, CharSequence string) {
 		APIBuffer __buffer = apiBuffer();
-		int stringLengths = __buffer.intParam(string.length());
-		ByteBuffer stringBuffers = memEncodeUTF8(string, false);
-		int stringAddress = __buffer.pointerParam(memAddress(stringBuffers));
-		nglShaderSource(shader, 1, __buffer.address(stringAddress), __buffer.address(stringLengths));
+		int stringAddress = __buffer.pointerArrayParami(APIBuffer.stringArrayUTF8(false, string));
+		try {
+			nglShaderSource(shader, 1, __buffer.address(stringAddress), __buffer.address(stringAddress + POINTER_SIZE));
+		} finally {
+			__buffer.pointerArrayFree(stringAddress, 1);
+		}
 	}
 
 	// --- [ glStencilFunc ] ---

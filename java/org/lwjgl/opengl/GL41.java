@@ -488,9 +488,9 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 
 	/** Buffer return (w/ implicit max length) version of: {@link #glGetProgramBinary GetProgramBinary} */
 	public static ByteBuffer glGetProgramBinary(int program, IntBuffer binaryFormat) {
+		int bufSize = GL20.glGetProgrami(program, GL_PROGRAM_BINARY_LENGTH);
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(binaryFormat, 1);
-		int bufSize = GL20.glGetProgrami(program, GL_PROGRAM_BINARY_LENGTH);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		ByteBuffer binary = BufferUtils.createByteBuffer(bufSize);
@@ -633,19 +633,23 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	/** Array version of: {@link #glCreateShaderProgramv CreateShaderProgramv} */
 	public static int glCreateShaderProgramv(int type, CharSequence... strings) {
 		APIBuffer __buffer = apiBuffer();
-		int stringsAddress = __buffer.bufferParam(strings.length << POINTER_SHIFT);
-		ByteBuffer[] stringsBuffers = new ByteBuffer[strings.length];
-		for ( int i = 0; i < strings.length; i++ )
-			__buffer.pointerParam(stringsAddress, i, memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], true)));
-		return nglCreateShaderProgramv(type, strings.length, __buffer.address(stringsAddress));
+		int stringsAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayUTF8(true, strings));
+		try {
+			return nglCreateShaderProgramv(type, strings.length, __buffer.address(stringsAddress));
+		} finally {
+			__buffer.pointerArrayFree(stringsAddress, strings.length);
+		}
 	}
 
 	/** Single string version of: {@link #glCreateShaderProgramv CreateShaderProgramv} */
 	public static int glCreateShaderProgramv(int type, CharSequence string) {
 		APIBuffer __buffer = apiBuffer();
-		ByteBuffer stringBuffers = memEncodeUTF8(string, true);
-		int stringsAddress = __buffer.pointerParam(memAddress(stringBuffers));
-		return nglCreateShaderProgramv(type, 1, __buffer.address(stringsAddress));
+		int stringsAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayUTF8(true, string));
+		try {
+			return nglCreateShaderProgramv(type, 1, __buffer.address(stringsAddress));
+		} finally {
+			__buffer.pointerArrayFree(stringsAddress, 1);
+		}
 	}
 
 	// --- [ glBindProgramPipeline ] ---

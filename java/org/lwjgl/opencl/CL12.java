@@ -694,14 +694,32 @@ public final class CL12 {
 		return nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), __buffer.address(optionsEncoded), input_headers == null ? 0 : input_headers.remaining(), memAddressSafe(input_headers), memAddressSafe(header_include_names), pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
 	}
 
-	/** Single value version of: {@link #clCompileProgram CompileProgram} */
+	/** Array version of: {@link #clCompileProgram CompileProgram} */
+	public static int clCompileProgram(long program, PointerBuffer device_list, CharSequence options, long[] input_headers, CharSequence[] header_include_names, CLProgramCallback pfn_notify, long user_data) {
+		if ( LWJGLUtil.CHECKS )
+			checkArray(header_include_names, input_headers.length);
+		APIBuffer __buffer = apiBuffer();
+		int optionsEncoded = __buffer.stringParamASCII(options, true);
+		int input_headersAddress = __buffer.pointerArrayParam(input_headers);
+		int header_include_namesAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayASCII(true, header_include_names));
+		try {
+			return nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), __buffer.address(optionsEncoded), input_headers.length, __buffer.address(input_headersAddress), __buffer.address(header_include_namesAddress), pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
+		} finally {
+			__buffer.pointerArrayFree(header_include_namesAddress, header_include_names.length);
+		}
+	}
+
+	/** Single input_header &amp; header_include_name version of: {@link #clCompileProgram CompileProgram} */
 	public static int clCompileProgram(long program, PointerBuffer device_list, CharSequence options, long input_header, CharSequence header_include_name, CLProgramCallback pfn_notify, long user_data) {
 		APIBuffer __buffer = apiBuffer();
 		int optionsEncoded = __buffer.stringParamASCII(options, true);
-		int input_headers = __buffer.pointerParam(input_header);
-		ByteBuffer header_include_nameBuffer = memEncodeASCII(header_include_name);
-		int header_include_names = __buffer.pointerParam(memAddress(header_include_nameBuffer));
-		return nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), __buffer.address(optionsEncoded), 1, __buffer.address(input_headers), __buffer.address(header_include_names), pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
+		int input_headersAddress = __buffer.pointerArrayParam(input_header);
+		int header_include_namesAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayASCII(true, header_include_name));
+		try {
+			return nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), __buffer.address(optionsEncoded), 1, __buffer.address(input_headersAddress), __buffer.address(header_include_namesAddress), pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
+		} finally {
+			__buffer.pointerArrayFree(header_include_namesAddress, 1);
+		}
 	}
 
 	// --- [ clLinkProgram ] ---

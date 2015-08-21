@@ -567,23 +567,23 @@ Creates a program object.
 	/** Array version of: {@link #glShaderSource ShaderSource} */
 	public static void glShaderSource(int shader, CharSequence... strings) {
 		APIBuffer __buffer = apiBuffer();
-		int stringsLengths = __buffer.bufferParam(strings.length << 2);
-		for ( int i = 0; i < strings.length; i++ )
-			__buffer.intParam(stringsLengths, i, strings[i].length());
-		int stringsAddress = __buffer.bufferParam(strings.length << POINTER_SHIFT);
-		ByteBuffer[] stringsBuffers = new ByteBuffer[strings.length];
-		for ( int i = 0; i < strings.length; i++ )
-			__buffer.pointerParam(stringsAddress, i, memAddress(stringsBuffers[i] = memEncodeUTF8(strings[i], false)));
-		nglShaderSource(shader, strings.length, __buffer.address(stringsAddress), __buffer.address(stringsLengths));
+		int stringsAddress = __buffer.pointerArrayParami(APIBuffer.stringArrayUTF8(false, strings));
+		try {
+			nglShaderSource(shader, strings.length, __buffer.address(stringsAddress), __buffer.address(stringsAddress + (strings.length << POINTER_SHIFT)));
+		} finally {
+			__buffer.pointerArrayFree(stringsAddress, strings.length);
+		}
 	}
 
 	/** Single string version of: {@link #glShaderSource ShaderSource} */
 	public static void glShaderSource(int shader, CharSequence string) {
 		APIBuffer __buffer = apiBuffer();
-		int stringsLengths = __buffer.intParam(string.length());
-		ByteBuffer stringBuffers = memEncodeUTF8(string, false);
-		int stringsAddress = __buffer.pointerParam(memAddress(stringBuffers));
-		nglShaderSource(shader, 1, __buffer.address(stringsAddress), __buffer.address(stringsLengths));
+		int stringsAddress = __buffer.pointerArrayParami(APIBuffer.stringArrayUTF8(false, string));
+		try {
+			nglShaderSource(shader, 1, __buffer.address(stringsAddress), __buffer.address(stringsAddress + POINTER_SIZE));
+		} finally {
+			__buffer.pointerArrayFree(stringsAddress, 1);
+		}
 	}
 
 	// --- [ glCompileShader ] ---
@@ -1422,11 +1422,11 @@ Creates a program object.
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniform GetActiveUniform} */
 	public static String glGetActiveUniform(int program, int index, IntBuffer size, IntBuffer type) {
+		int maxLength = glGetProgrami(program, GL_ACTIVE_UNIFORM_MAX_LENGTH);
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
-		int maxLength = glGetProgrami(program, GL_ACTIVE_UNIFORM_MAX_LENGTH);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(maxLength);
@@ -2616,11 +2616,11 @@ Creates a program object.
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveAttrib GetActiveAttrib} */
 	public static String glGetActiveAttrib(int program, int index, IntBuffer size, IntBuffer type) {
+		int maxLength = glGetProgrami(program, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH);
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
-		int maxLength = glGetProgrami(program, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(maxLength);

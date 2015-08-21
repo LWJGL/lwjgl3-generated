@@ -2634,19 +2634,23 @@ Ends transform feedback operation.
 	/** Array version of: {@link #glTransformFeedbackVaryings TransformFeedbackVaryings} */
 	public static void glTransformFeedbackVaryings(int program, CharSequence[] varyings, int bufferMode) {
 		APIBuffer __buffer = apiBuffer();
-		int varyingsAddress = __buffer.bufferParam(varyings.length << POINTER_SHIFT);
-		ByteBuffer[] varyingsBuffers = new ByteBuffer[varyings.length];
-		for ( int i = 0; i < varyings.length; i++ )
-			__buffer.pointerParam(varyingsAddress, i, memAddress(varyingsBuffers[i] = memEncodeASCII(varyings[i], true)));
-		nglTransformFeedbackVaryings(program, varyings.length, __buffer.address(varyingsAddress), bufferMode);
+		int varyingsAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayASCII(true, varyings));
+		try {
+			nglTransformFeedbackVaryings(program, varyings.length, __buffer.address(varyingsAddress), bufferMode);
+		} finally {
+			__buffer.pointerArrayFree(varyingsAddress, varyings.length);
+		}
 	}
 
 	/** Single varying version of: {@link #glTransformFeedbackVaryings TransformFeedbackVaryings} */
 	public static void glTransformFeedbackVaryings(int program, CharSequence varying, int bufferMode) {
 		APIBuffer __buffer = apiBuffer();
-		ByteBuffer varyingBuffers = memEncodeASCII(varying, true);
-		int varyingsAddress = __buffer.pointerParam(memAddress(varyingBuffers));
-		nglTransformFeedbackVaryings(program, 1, __buffer.address(varyingsAddress), bufferMode);
+		int varyingsAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayASCII(true, varying));
+		try {
+			nglTransformFeedbackVaryings(program, 1, __buffer.address(varyingsAddress), bufferMode);
+		} finally {
+			__buffer.pointerArrayFree(varyingsAddress, 1);
+		}
 	}
 
 	// --- [ glGetTransformFeedbackVarying ] ---
@@ -2706,11 +2710,11 @@ Ends transform feedback operation.
 
 	/** String return (w/ implicit max length) version of: {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying} */
 	public static String glGetTransformFeedbackVarying(int program, int index, IntBuffer size, IntBuffer type) {
+		int bufSize = GL20.glGetProgrami(program, GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH);
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
-		int bufSize = GL20.glGetProgrami(program, GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(bufSize);

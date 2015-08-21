@@ -295,23 +295,23 @@ public final class ARBShaderObjects {
 	/** Array version of: {@link #glShaderSourceARB ShaderSourceARB} */
 	public static void glShaderSourceARB(int shaderObj, CharSequence... string) {
 		APIBuffer __buffer = apiBuffer();
-		int stringLengths = __buffer.bufferParam(string.length << 2);
-		for ( int i = 0; i < string.length; i++ )
-			__buffer.intParam(stringLengths, i, string[i].length());
-		int stringAddress = __buffer.bufferParam(string.length << POINTER_SHIFT);
-		ByteBuffer[] stringBuffers = new ByteBuffer[string.length];
-		for ( int i = 0; i < string.length; i++ )
-			__buffer.pointerParam(stringAddress, i, memAddress(stringBuffers[i] = memEncodeUTF8(string[i], false)));
-		nglShaderSourceARB(shaderObj, string.length, __buffer.address(stringAddress), __buffer.address(stringLengths));
+		int stringAddress = __buffer.pointerArrayParami(APIBuffer.stringArrayUTF8(false, string));
+		try {
+			nglShaderSourceARB(shaderObj, string.length, __buffer.address(stringAddress), __buffer.address(stringAddress + (string.length << POINTER_SHIFT)));
+		} finally {
+			__buffer.pointerArrayFree(stringAddress, string.length);
+		}
 	}
 
 	/** Single string version of: {@link #glShaderSourceARB ShaderSourceARB} */
 	public static void glShaderSourceARB(int shaderObj, CharSequence string) {
 		APIBuffer __buffer = apiBuffer();
-		int stringLengths = __buffer.intParam(string.length());
-		ByteBuffer stringBuffers = memEncodeUTF8(string, false);
-		int stringAddress = __buffer.pointerParam(memAddress(stringBuffers));
-		nglShaderSourceARB(shaderObj, 1, __buffer.address(stringAddress), __buffer.address(stringLengths));
+		int stringAddress = __buffer.pointerArrayParami(APIBuffer.stringArrayUTF8(false, string));
+		try {
+			nglShaderSourceARB(shaderObj, 1, __buffer.address(stringAddress), __buffer.address(stringAddress + POINTER_SIZE));
+		} finally {
+			__buffer.pointerArrayFree(stringAddress, 1);
+		}
 	}
 
 	// --- [ glCompileShaderARB ] ---
@@ -1147,11 +1147,11 @@ public final class ARBShaderObjects {
 
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniformARB GetActiveUniformARB} */
 	public static String glGetActiveUniformARB(int programObj, int index, IntBuffer size, IntBuffer type) {
+		int maxLength = glGetObjectParameteriARB(programObj, GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB);
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
-		int maxLength = glGetObjectParameteriARB(programObj, GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
 		int name = __buffer.bufferParam(maxLength);
