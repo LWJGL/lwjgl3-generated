@@ -303,7 +303,7 @@ public final class GL14 {
 	 */
 	public static void glBlendColor(float red, float green, float blue, float alpha) {
 		long __functionAddress = getInstance().BlendColor;
-		invokeFFFFV(__functionAddress, red, green, blue, alpha);
+		callFFFFV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glBlendEquation ] ---
@@ -317,7 +317,7 @@ public final class GL14 {
 	 */
 	public static void glBlendEquation(int mode) {
 		long __functionAddress = getInstance().BlendEquation;
-		invokeIV(__functionAddress, mode);
+		callIV(__functionAddress, mode);
 	}
 
 	// --- [ glFogCoordf ] ---
@@ -333,7 +333,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().FogCoordf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFV(__functionAddress, coord);
+		callFV(__functionAddress, coord);
 	}
 
 	// --- [ glFogCoordd ] ---
@@ -349,7 +349,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().FogCoordd;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDV(__functionAddress, coord);
+		callDV(__functionAddress, coord);
 	}
 
 	// --- [ glFogCoordfv ] ---
@@ -360,7 +360,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().FogCoordfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coord);
+		callPV(__functionAddress, coord);
 	}
 
 	/**
@@ -391,7 +391,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().FogCoorddv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coord);
+		callPV(__functionAddress, coord);
 	}
 
 	/**
@@ -422,7 +422,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().FogCoordPointer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, type, stride, pointer);
+		callIIPV(__functionAddress, type, stride, pointer);
 	}
 
 	/**
@@ -467,7 +467,7 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglMultiDrawArrays(int mode, long first, long count, int primcount) {
 		long __functionAddress = getInstance().MultiDrawArrays;
-		invokeIPPIV(__functionAddress, mode, first, count, primcount);
+		callIPPIV(__functionAddress, mode, first, count, primcount);
 	}
 
 	/**
@@ -501,7 +501,7 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglMultiDrawElements(int mode, long count, int type, long indices, int primcount) {
 		long __functionAddress = getInstance().MultiDrawElements;
-		invokeIPIPIV(__functionAddress, mode, count, type, indices, primcount);
+		callIPIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
 	/**
@@ -544,7 +544,7 @@ public final class GL14 {
 	 */
 	public static void glPointParameterf(int pname, float param) {
 		long __functionAddress = getInstance().PointParameterf;
-		invokeIFV(__functionAddress, pname, param);
+		callIFV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPointParameteri ] ---
@@ -559,7 +559,7 @@ public final class GL14 {
 	 */
 	public static void glPointParameteri(int pname, int param) {
 		long __functionAddress = getInstance().PointParameteri;
-		invokeIIV(__functionAddress, pname, param);
+		callIIV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPointParameterfv ] ---
@@ -568,7 +568,7 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglPointParameterfv(int pname, long params) {
 		long __functionAddress = getInstance().PointParameterfv;
-		invokeIPV(__functionAddress, pname, params);
+		callIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -598,7 +598,7 @@ public final class GL14 {
 	@JavadocExclude
 	public static void nglPointParameteriv(int pname, long params) {
 		long __functionAddress = getInstance().PointParameteriv;
-		invokeIPV(__functionAddress, pname, params);
+		callIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -637,7 +637,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3b;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeBBBV(__functionAddress, red, green, blue);
+		callBBBV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3s ] ---
@@ -655,7 +655,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSSSV(__functionAddress, red, green, blue);
+		callSSSV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3i ] ---
@@ -673,7 +673,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, red, green, blue);
+		callIIIV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3f ] ---
@@ -691,7 +691,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFFFV(__functionAddress, red, green, blue);
+		callFFFV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3d ] ---
@@ -709,7 +709,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDDDV(__functionAddress, red, green, blue);
+		callDDDV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3ub ] ---
@@ -727,7 +727,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3ub;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeBBBV(__functionAddress, red, green, blue);
+		callBBBV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3us ] ---
@@ -745,7 +745,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3us;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSSSV(__functionAddress, red, green, blue);
+		callSSSV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3ui ] ---
@@ -763,7 +763,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, red, green, blue);
+		callIIIV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3bv ] ---
@@ -774,7 +774,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3bv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -798,7 +798,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -829,7 +829,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -860,7 +860,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -891,7 +891,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -922,7 +922,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3ubv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -946,7 +946,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3usv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -977,7 +977,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColor3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -1008,7 +1008,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().SecondaryColorPointer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, size, type, stride, pointer);
+		callIIIPV(__functionAddress, size, type, stride, pointer);
 	}
 
 	/**
@@ -1069,7 +1069,7 @@ public final class GL14 {
 	 */
 	public static void glBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha) {
 		long __functionAddress = getInstance().BlendFuncSeparate;
-		invokeIIIIV(__functionAddress, sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
+		callIIIIV(__functionAddress, sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
 	}
 
 	// --- [ glWindowPos2i ] ---
@@ -1086,7 +1086,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos2i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, x, y);
+		callIIV(__functionAddress, x, y);
 	}
 
 	// --- [ glWindowPos2s ] ---
@@ -1103,7 +1103,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos2s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSSV(__functionAddress, x, y);
+		callSSV(__functionAddress, x, y);
 	}
 
 	// --- [ glWindowPos2f ] ---
@@ -1120,7 +1120,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos2f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFFV(__functionAddress, x, y);
+		callFFV(__functionAddress, x, y);
 	}
 
 	// --- [ glWindowPos2d ] ---
@@ -1137,7 +1137,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos2d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDDV(__functionAddress, x, y);
+		callDDV(__functionAddress, x, y);
 	}
 
 	// --- [ glWindowPos2iv ] ---
@@ -1148,7 +1148,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos2iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, p);
+		callPV(__functionAddress, p);
 	}
 
 	/**
@@ -1179,7 +1179,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos2sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, p);
+		callPV(__functionAddress, p);
 	}
 
 	/**
@@ -1210,7 +1210,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, p);
+		callPV(__functionAddress, p);
 	}
 
 	/**
@@ -1241,7 +1241,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos2dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, p);
+		callPV(__functionAddress, p);
 	}
 
 	/**
@@ -1279,7 +1279,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, x, y, z);
+		callIIIV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glWindowPos3s ] ---
@@ -1297,7 +1297,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSSSV(__functionAddress, x, y, z);
+		callSSSV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glWindowPos3f ] ---
@@ -1315,7 +1315,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFFFV(__functionAddress, x, y, z);
+		callFFFV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glWindowPos3d ] ---
@@ -1333,7 +1333,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDDDV(__functionAddress, x, y, z);
+		callDDDV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glWindowPos3iv ] ---
@@ -1344,7 +1344,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos3iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, p);
+		callPV(__functionAddress, p);
 	}
 
 	/**
@@ -1375,7 +1375,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos3sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, p);
+		callPV(__functionAddress, p);
 	}
 
 	/**
@@ -1406,7 +1406,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, p);
+		callPV(__functionAddress, p);
 	}
 
 	/**
@@ -1437,7 +1437,7 @@ public final class GL14 {
 		long __functionAddress = getInstance().WindowPos3dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, p);
+		callPV(__functionAddress, p);
 	}
 
 	/**

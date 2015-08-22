@@ -135,35 +135,35 @@ public final class EXTTransformFeedback {
 
 	public static void glBindBufferRangeEXT(int target, int index, int buffer, long offset, long size) {
 		long __functionAddress = getInstance().BindBufferRangeEXT;
-		invokeIIIPPV(__functionAddress, target, index, buffer, offset, size);
+		callIIIPPV(__functionAddress, target, index, buffer, offset, size);
 	}
 
 	// --- [ glBindBufferOffsetEXT ] ---
 
 	public static void glBindBufferOffsetEXT(int target, int index, int buffer, long offset) {
 		long __functionAddress = getInstance().BindBufferOffsetEXT;
-		invokeIIIPV(__functionAddress, target, index, buffer, offset);
+		callIIIPV(__functionAddress, target, index, buffer, offset);
 	}
 
 	// --- [ glBindBufferBaseEXT ] ---
 
 	public static void glBindBufferBaseEXT(int target, int index, int buffer) {
 		long __functionAddress = getInstance().BindBufferBaseEXT;
-		invokeIIIV(__functionAddress, target, index, buffer);
+		callIIIV(__functionAddress, target, index, buffer);
 	}
 
 	// --- [ glBeginTransformFeedbackEXT ] ---
 
 	public static void glBeginTransformFeedbackEXT(int primitiveMode) {
 		long __functionAddress = getInstance().BeginTransformFeedbackEXT;
-		invokeIV(__functionAddress, primitiveMode);
+		callIV(__functionAddress, primitiveMode);
 	}
 
 	// --- [ glEndTransformFeedbackEXT ] ---
 
 	public static void glEndTransformFeedbackEXT() {
 		long __functionAddress = getInstance().EndTransformFeedbackEXT;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glTransformFeedbackVaryingsEXT ] ---
@@ -172,7 +172,7 @@ public final class EXTTransformFeedback {
 	@JavadocExclude
 	public static void nglTransformFeedbackVaryingsEXT(int program, int count, long varyings, int bufferMode) {
 		long __functionAddress = getInstance().TransformFeedbackVaryingsEXT;
-		invokeIIPIV(__functionAddress, program, count, varyings, bufferMode);
+		callIIPIV(__functionAddress, program, count, varyings, bufferMode);
 	}
 
 	public static void glTransformFeedbackVaryingsEXT(int program, int count, ByteBuffer varyings, int bufferMode) {
@@ -214,7 +214,7 @@ public final class EXTTransformFeedback {
 	@JavadocExclude
 	public static void nglGetTransformFeedbackVaryingEXT(int program, int index, int bufSize, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetTransformFeedbackVaryingEXT;
-		invokeIIIPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
+		callIIIPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
 	}
 
 	public static void glGetTransformFeedbackVaryingEXT(int program, int index, int bufSize, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
@@ -272,7 +272,7 @@ public final class EXTTransformFeedback {
 	@JavadocExclude
 	public static void nglGetIntegerIndexedvEXT(int param, int index, long values) {
 		long __functionAddress = getInstance().GetIntegerIndexedvEXT;
-		invokeIIPV(__functionAddress, param, index, values);
+		callIIPV(__functionAddress, param, index, values);
 	}
 
 	public static void glGetIntegerIndexedvEXT(int param, int index, ByteBuffer values) {
@@ -302,7 +302,7 @@ public final class EXTTransformFeedback {
 	@JavadocExclude
 	public static void nglGetBooleanIndexedvEXT(int param, int index, long values) {
 		long __functionAddress = getInstance().GetBooleanIndexedvEXT;
-		invokeIIPV(__functionAddress, param, index, values);
+		callIIPV(__functionAddress, param, index, values);
 	}
 
 	public static void glGetBooleanIndexedvEXT(int param, int index, ByteBuffer values) {

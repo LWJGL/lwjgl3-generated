@@ -75,21 +75,21 @@ public final class EXTBindableUniform {
 
 	public static void glUniformBufferEXT(int program, int location, int buffer) {
 		long __functionAddress = getInstance().UniformBufferEXT;
-		invokeIIIV(__functionAddress, program, location, buffer);
+		callIIIV(__functionAddress, program, location, buffer);
 	}
 
 	// --- [ glGetUniformBufferSizeEXT ] ---
 
 	public static int glGetUniformBufferSizeEXT(int program, int location) {
 		long __functionAddress = getInstance().GetUniformBufferSizeEXT;
-		return invokeIII(__functionAddress, program, location);
+		return callIII(__functionAddress, program, location);
 	}
 
 	// --- [ glGetUniformOffsetEXT ] ---
 
 	public static long glGetUniformOffsetEXT(int program, int location) {
 		long __functionAddress = getInstance().GetUniformOffsetEXT;
-		return invokeIIP(__functionAddress, program, location);
+		return callIIP(__functionAddress, program, location);
 	}
 
 }

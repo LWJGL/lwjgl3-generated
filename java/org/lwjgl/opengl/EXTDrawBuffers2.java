@@ -72,7 +72,7 @@ public final class EXTDrawBuffers2 {
 
 	public static void glColorMaskIndexedEXT(int index, boolean r, boolean g, boolean b, boolean a) {
 		long __functionAddress = getInstance().ColorMaskIndexedEXT;
-		invokeIZZZZV(__functionAddress, index, r, g, b, a);
+		callIZZZZV(__functionAddress, index, r, g, b, a);
 	}
 
 	// --- [ glGetBooleanIndexedvEXT ] ---
@@ -81,7 +81,7 @@ public final class EXTDrawBuffers2 {
 	@JavadocExclude
 	public static void nglGetBooleanIndexedvEXT(int target, int index, long data) {
 		long __functionAddress = getInstance().GetBooleanIndexedvEXT;
-		invokeIIPV(__functionAddress, target, index, data);
+		callIIPV(__functionAddress, target, index, data);
 	}
 
 	public static void glGetBooleanIndexedvEXT(int target, int index, ByteBuffer data) {
@@ -104,7 +104,7 @@ public final class EXTDrawBuffers2 {
 	@JavadocExclude
 	public static void nglGetIntegerIndexedvEXT(int target, int index, long data) {
 		long __functionAddress = getInstance().GetIntegerIndexedvEXT;
-		invokeIIPV(__functionAddress, target, index, data);
+		callIIPV(__functionAddress, target, index, data);
 	}
 
 	public static void glGetIntegerIndexedvEXT(int target, int index, ByteBuffer data) {
@@ -132,21 +132,21 @@ public final class EXTDrawBuffers2 {
 
 	public static void glEnableIndexedEXT(int target, int index) {
 		long __functionAddress = getInstance().EnableIndexedEXT;
-		invokeIIV(__functionAddress, target, index);
+		callIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glDisableIndexedEXT ] ---
 
 	public static void glDisableIndexedEXT(int target, int index) {
 		long __functionAddress = getInstance().DisableIndexedEXT;
-		invokeIIV(__functionAddress, target, index);
+		callIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glIsEnabledIndexedEXT ] ---
 
 	public static boolean glIsEnabledIndexedEXT(int target, int index) {
 		long __functionAddress = getInstance().IsEnabledIndexedEXT;
-		return invokeIIZ(__functionAddress, target, index);
+		return callIIZ(__functionAddress, target, index);
 	}
 
 }

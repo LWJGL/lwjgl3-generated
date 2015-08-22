@@ -31,7 +31,7 @@ public final class CLImageDesc implements Pointer {
 		BUFFER;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(10);
+		IntBuffer offsets = memAllocInt(10);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -45,6 +45,8 @@ public final class CLImageDesc implements Pointer {
 		NUM_MIP_LEVELS = offsets.get(7);
 		NUM_SAMPLES = offsets.get(8);
 		BUFFER = offsets.get(9);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -69,16 +71,16 @@ public final class CLImageDesc implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setImageType(int image_type) { image_type(struct, image_type); }
-	public void setImageWidth(long image_width) { image_width(struct, image_width); }
-	public void setImageHeight(long image_height) { image_height(struct, image_height); }
-	public void setImageDepth(long image_depth) { image_depth(struct, image_depth); }
-	public void setImageArraySize(long image_array_size) { image_array_size(struct, image_array_size); }
-	public void setImageRowPitch(long image_row_pitch) { image_row_pitch(struct, image_row_pitch); }
-	public void setImageSlicePitch(long image_slice_pitch) { image_slice_pitch(struct, image_slice_pitch); }
-	public void setNumMipLevels(int num_mip_levels) { num_mip_levels(struct, num_mip_levels); }
-	public void setNumSamples(int num_samples) { num_samples(struct, num_samples); }
-	public void setBuffer(long buffer) { buffer(struct, buffer); }
+	public CLImageDesc setImageType(int image_type) { image_type(struct, image_type); return this; }
+	public CLImageDesc setImageWidth(long image_width) { image_width(struct, image_width); return this; }
+	public CLImageDesc setImageHeight(long image_height) { image_height(struct, image_height); return this; }
+	public CLImageDesc setImageDepth(long image_depth) { image_depth(struct, image_depth); return this; }
+	public CLImageDesc setImageArraySize(long image_array_size) { image_array_size(struct, image_array_size); return this; }
+	public CLImageDesc setImageRowPitch(long image_row_pitch) { image_row_pitch(struct, image_row_pitch); return this; }
+	public CLImageDesc setImageSlicePitch(long image_slice_pitch) { image_slice_pitch(struct, image_slice_pitch); return this; }
+	public CLImageDesc setNumMipLevels(int num_mip_levels) { num_mip_levels(struct, num_mip_levels); return this; }
+	public CLImageDesc setNumSamples(int num_samples) { num_samples(struct, num_samples); return this; }
+	public CLImageDesc setBuffer(long buffer) { buffer(struct, buffer); return this; }
 
 	public int getImageType() { return image_type(struct); }
 	public long getImageWidth() { return image_width(struct); }

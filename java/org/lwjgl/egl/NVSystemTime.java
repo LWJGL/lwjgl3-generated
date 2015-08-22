@@ -43,14 +43,14 @@ public final class NVSystemTime {
 
 	public static long eglGetSystemTimeFrequencyNV() {
 		long __functionAddress = getInstance().GetSystemTimeFrequencyNV;
-		return invokeJ(__functionAddress);
+		return callJ(__functionAddress);
 	}
 
 	// --- [ eglGetSystemTimeNV ] ---
 
 	public static long eglGetSystemTimeNV() {
 		long __functionAddress = getInstance().GetSystemTimeNV;
-		return invokeJ(__functionAddress);
+		return callJ(__functionAddress);
 	}
 
 }

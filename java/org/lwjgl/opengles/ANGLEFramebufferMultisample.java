@@ -72,7 +72,7 @@ public final class ANGLEFramebufferMultisample {
 
 	public static void glRenderbufferStorageMultisampleANGLE(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageMultisampleANGLE;
-		invokeIIIIIV(__functionAddress, target, samples, internalformat, width, height);
+		callIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
 }

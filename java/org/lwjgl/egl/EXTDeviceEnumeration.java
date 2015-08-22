@@ -54,7 +54,7 @@ public final class EXTDeviceEnumeration {
 	@JavadocExclude
 	public static boolean neglQueryDevicesEXT(int max_devices, long devices, long num_devices) {
 		long __functionAddress = getInstance().QueryDevicesEXT;
-		return invokeIPPZ(__functionAddress, max_devices, devices, num_devices);
+		return callIPPZ(__functionAddress, max_devices, devices, num_devices);
 	}
 
 	public static boolean eglQueryDevicesEXT(int max_devices, ByteBuffer devices, ByteBuffer num_devices) {

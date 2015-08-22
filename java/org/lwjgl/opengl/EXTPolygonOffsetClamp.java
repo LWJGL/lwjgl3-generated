@@ -71,7 +71,7 @@ public final class EXTPolygonOffsetClamp {
 	 */
 	public static void glPolygonOffsetClampEXT(float factor, float units, float clamp) {
 		long __functionAddress = getInstance().PolygonOffsetClampEXT;
-		invokeFFFV(__functionAddress, factor, units, clamp);
+		callFFFV(__functionAddress, factor, units, clamp);
 	}
 
 }

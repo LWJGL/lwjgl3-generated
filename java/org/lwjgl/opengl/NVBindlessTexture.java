@@ -129,7 +129,7 @@ public final class NVBindlessTexture {
 	 */
 	public static long glGetTextureHandleNV(int texture) {
 		long __functionAddress = getInstance().GetTextureHandleNV;
-		return invokeIJ(__functionAddress, texture);
+		return callIJ(__functionAddress, texture);
 	}
 
 	// --- [ glGetTextureSamplerHandleNV ] ---
@@ -167,7 +167,7 @@ public final class NVBindlessTexture {
 	 */
 	public static long glGetTextureSamplerHandleNV(int texture, int sampler) {
 		long __functionAddress = getInstance().GetTextureSamplerHandleNV;
-		return invokeIIJ(__functionAddress, texture, sampler);
+		return callIIJ(__functionAddress, texture, sampler);
 	}
 
 	// --- [ glMakeTextureHandleResidentNV ] ---
@@ -184,7 +184,7 @@ public final class NVBindlessTexture {
 	 */
 	public static void glMakeTextureHandleResidentNV(long handle) {
 		long __functionAddress = getInstance().MakeTextureHandleResidentNV;
-		invokeJV(__functionAddress, handle);
+		callJV(__functionAddress, handle);
 	}
 
 	// --- [ glMakeTextureHandleNonResidentNV ] ---
@@ -199,7 +199,7 @@ public final class NVBindlessTexture {
 	 */
 	public static void glMakeTextureHandleNonResidentNV(long handle) {
 		long __functionAddress = getInstance().MakeTextureHandleNonResidentNV;
-		invokeJV(__functionAddress, handle);
+		callJV(__functionAddress, handle);
 	}
 
 	// --- [ glGetImageHandleNV ] ---
@@ -244,7 +244,7 @@ public final class NVBindlessTexture {
 	 */
 	public static long glGetImageHandleNV(int texture, int level, boolean layered, int layer, int format) {
 		long __functionAddress = getInstance().GetImageHandleNV;
-		return invokeIIZIIJ(__functionAddress, texture, level, layered, layer, format);
+		return callIIZIIJ(__functionAddress, texture, level, layered, layer, format);
 	}
 
 	// --- [ glMakeImageHandleResidentNV ] ---
@@ -266,7 +266,7 @@ public final class NVBindlessTexture {
 	 */
 	public static void glMakeImageHandleResidentNV(long handle, int access) {
 		long __functionAddress = getInstance().MakeImageHandleResidentNV;
-		invokeJIV(__functionAddress, handle, access);
+		callJIV(__functionAddress, handle, access);
 	}
 
 	// --- [ glMakeImageHandleNonResidentNV ] ---
@@ -278,7 +278,7 @@ public final class NVBindlessTexture {
 	 */
 	public static void glMakeImageHandleNonResidentNV(long handle) {
 		long __functionAddress = getInstance().MakeImageHandleNonResidentNV;
-		invokeJV(__functionAddress, handle);
+		callJV(__functionAddress, handle);
 	}
 
 	// --- [ glUniformHandleui64NV ] ---
@@ -291,7 +291,7 @@ public final class NVBindlessTexture {
 	 */
 	public static void glUniformHandleui64NV(int location, long value) {
 		long __functionAddress = getInstance().UniformHandleui64NV;
-		invokeIJV(__functionAddress, location, value);
+		callIJV(__functionAddress, location, value);
 	}
 
 	// --- [ glUniformHandleui64vNV ] ---
@@ -300,7 +300,7 @@ public final class NVBindlessTexture {
 	@JavadocExclude
 	public static void nglUniformHandleui64vNV(int location, int count, long values) {
 		long __functionAddress = getInstance().UniformHandleui64vNV;
-		invokeIIPV(__functionAddress, location, count, values);
+		callIIPV(__functionAddress, location, count, values);
 	}
 
 	/**
@@ -332,7 +332,7 @@ public final class NVBindlessTexture {
 	 */
 	public static void glProgramUniformHandleui64NV(int program, int location, long value) {
 		long __functionAddress = getInstance().ProgramUniformHandleui64NV;
-		invokeIIJV(__functionAddress, program, location, value);
+		callIIJV(__functionAddress, program, location, value);
 	}
 
 	// --- [ glProgramUniformHandleui64vNV ] ---
@@ -341,7 +341,7 @@ public final class NVBindlessTexture {
 	@JavadocExclude
 	public static void nglProgramUniformHandleui64vNV(int program, int location, int count, long values) {
 		long __functionAddress = getInstance().ProgramUniformHandleui64vNV;
-		invokeIIIPV(__functionAddress, program, location, count, values);
+		callIIIPV(__functionAddress, program, location, count, values);
 	}
 
 	/**
@@ -372,7 +372,7 @@ public final class NVBindlessTexture {
 	 */
 	public static boolean glIsTextureHandleResidentNV(long handle) {
 		long __functionAddress = getInstance().IsTextureHandleResidentNV;
-		return invokeJZ(__functionAddress, handle);
+		return callJZ(__functionAddress, handle);
 	}
 
 	// --- [ glIsImageHandleResidentNV ] ---
@@ -384,7 +384,7 @@ public final class NVBindlessTexture {
 	 */
 	public static boolean glIsImageHandleResidentNV(long handle) {
 		long __functionAddress = getInstance().IsImageHandleResidentNV;
-		return invokeJZ(__functionAddress, handle);
+		return callJZ(__functionAddress, handle);
 	}
 
 }

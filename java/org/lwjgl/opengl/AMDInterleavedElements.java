@@ -71,7 +71,7 @@ public final class AMDInterleavedElements {
 
 	public static void glVertexAttribParameteriAMD(int index, int pname, int param) {
 		long __functionAddress = getInstance().VertexAttribParameteriAMD;
-		invokeIIIV(__functionAddress, index, pname, param);
+		callIIIV(__functionAddress, index, pname, param);
 	}
 
 }

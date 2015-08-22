@@ -121,7 +121,7 @@ public final class ARBBindlessTexture {
 	 */
 	public static long glGetTextureHandleARB(int texture) {
 		long __functionAddress = getInstance().GetTextureHandleARB;
-		return invokeIJ(__functionAddress, texture);
+		return callIJ(__functionAddress, texture);
 	}
 
 	// --- [ glGetTextureSamplerHandleARB ] ---
@@ -159,7 +159,7 @@ public final class ARBBindlessTexture {
 	 */
 	public static long glGetTextureSamplerHandleARB(int texture, int sampler) {
 		long __functionAddress = getInstance().GetTextureSamplerHandleARB;
-		return invokeIIJ(__functionAddress, texture, sampler);
+		return callIIJ(__functionAddress, texture, sampler);
 	}
 
 	// --- [ glMakeTextureHandleResidentARB ] ---
@@ -176,7 +176,7 @@ public final class ARBBindlessTexture {
 	 */
 	public static void glMakeTextureHandleResidentARB(long handle) {
 		long __functionAddress = getInstance().MakeTextureHandleResidentARB;
-		invokeJV(__functionAddress, handle);
+		callJV(__functionAddress, handle);
 	}
 
 	// --- [ glMakeTextureHandleNonResidentARB ] ---
@@ -191,7 +191,7 @@ public final class ARBBindlessTexture {
 	 */
 	public static void glMakeTextureHandleNonResidentARB(long handle) {
 		long __functionAddress = getInstance().MakeTextureHandleNonResidentARB;
-		invokeJV(__functionAddress, handle);
+		callJV(__functionAddress, handle);
 	}
 
 	// --- [ glGetImageHandleARB ] ---
@@ -236,7 +236,7 @@ public final class ARBBindlessTexture {
 	 */
 	public static long glGetImageHandleARB(int texture, int level, boolean layered, int layer, int format) {
 		long __functionAddress = getInstance().GetImageHandleARB;
-		return invokeIIZIIJ(__functionAddress, texture, level, layered, layer, format);
+		return callIIZIIJ(__functionAddress, texture, level, layered, layer, format);
 	}
 
 	// --- [ glMakeImageHandleResidentARB ] ---
@@ -258,7 +258,7 @@ public final class ARBBindlessTexture {
 	 */
 	public static void glMakeImageHandleResidentARB(long handle, int access) {
 		long __functionAddress = getInstance().MakeImageHandleResidentARB;
-		invokeJIV(__functionAddress, handle, access);
+		callJIV(__functionAddress, handle, access);
 	}
 
 	// --- [ glMakeImageHandleNonResidentARB ] ---
@@ -270,7 +270,7 @@ public final class ARBBindlessTexture {
 	 */
 	public static void glMakeImageHandleNonResidentARB(long handle) {
 		long __functionAddress = getInstance().MakeImageHandleNonResidentARB;
-		invokeJV(__functionAddress, handle);
+		callJV(__functionAddress, handle);
 	}
 
 	// --- [ glUniformHandleui64ARB ] ---
@@ -283,7 +283,7 @@ public final class ARBBindlessTexture {
 	 */
 	public static void glUniformHandleui64ARB(int location, long value) {
 		long __functionAddress = getInstance().UniformHandleui64ARB;
-		invokeIJV(__functionAddress, location, value);
+		callIJV(__functionAddress, location, value);
 	}
 
 	// --- [ glUniformHandleui64vARB ] ---
@@ -292,7 +292,7 @@ public final class ARBBindlessTexture {
 	@JavadocExclude
 	public static void nglUniformHandleui64vARB(int location, int count, long values) {
 		long __functionAddress = getInstance().UniformHandleui64vARB;
-		invokeIIPV(__functionAddress, location, count, values);
+		callIIPV(__functionAddress, location, count, values);
 	}
 
 	/**
@@ -324,7 +324,7 @@ public final class ARBBindlessTexture {
 	 */
 	public static void glProgramUniformHandleui64ARB(int program, int location, long value) {
 		long __functionAddress = getInstance().ProgramUniformHandleui64ARB;
-		invokeIIJV(__functionAddress, program, location, value);
+		callIIJV(__functionAddress, program, location, value);
 	}
 
 	// --- [ glProgramUniformHandleui64vARB ] ---
@@ -333,7 +333,7 @@ public final class ARBBindlessTexture {
 	@JavadocExclude
 	public static void nglProgramUniformHandleui64vARB(int program, int location, int count, long values) {
 		long __functionAddress = getInstance().ProgramUniformHandleui64vARB;
-		invokeIIIPV(__functionAddress, program, location, count, values);
+		callIIIPV(__functionAddress, program, location, count, values);
 	}
 
 	/**
@@ -364,7 +364,7 @@ public final class ARBBindlessTexture {
 	 */
 	public static boolean glIsTextureHandleResidentARB(long handle) {
 		long __functionAddress = getInstance().IsTextureHandleResidentARB;
-		return invokeJZ(__functionAddress, handle);
+		return callJZ(__functionAddress, handle);
 	}
 
 	// --- [ glIsImageHandleResidentARB ] ---
@@ -376,7 +376,7 @@ public final class ARBBindlessTexture {
 	 */
 	public static boolean glIsImageHandleResidentARB(long handle) {
 		long __functionAddress = getInstance().IsImageHandleResidentARB;
-		return invokeJZ(__functionAddress, handle);
+		return callJZ(__functionAddress, handle);
 	}
 
 	// --- [ glVertexAttribL1ui64ARB ] ---
@@ -389,7 +389,7 @@ public final class ARBBindlessTexture {
 	 */
 	public static void glVertexAttribL1ui64ARB(int index, long x) {
 		long __functionAddress = getInstance().VertexAttribL1ui64ARB;
-		invokeIJV(__functionAddress, index, x);
+		callIJV(__functionAddress, index, x);
 	}
 
 	// --- [ glVertexAttribL1ui64vARB ] ---
@@ -398,7 +398,7 @@ public final class ARBBindlessTexture {
 	@JavadocExclude
 	public static void nglVertexAttribL1ui64vARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL1ui64vARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -422,7 +422,7 @@ public final class ARBBindlessTexture {
 	@JavadocExclude
 	public static void nglGetVertexAttribLui64vARB(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribLui64vARB;
-		invokeIIPV(__functionAddress, index, pname, params);
+		callIIPV(__functionAddress, index, pname, params);
 	}
 
 	/**

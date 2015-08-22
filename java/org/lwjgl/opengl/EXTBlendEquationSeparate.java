@@ -65,7 +65,7 @@ public final class EXTBlendEquationSeparate {
 
 	public static void glBlendEquationSeparateEXT(int modeRGB, int modeAlpha) {
 		long __functionAddress = getInstance().BlendEquationSeparateEXT;
-		invokeIIV(__functionAddress, modeRGB, modeAlpha);
+		callIIV(__functionAddress, modeRGB, modeAlpha);
 	}
 
 }

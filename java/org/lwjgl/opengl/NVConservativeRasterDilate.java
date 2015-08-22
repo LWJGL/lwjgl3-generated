@@ -63,7 +63,7 @@ public final class NVConservativeRasterDilate {
 
 	public static void glConservativeRasterParameterfNV(int pname, float value) {
 		long __functionAddress = getInstance().ConservativeRasterParameterfNV;
-		invokeIFV(__functionAddress, pname, value);
+		callIFV(__functionAddress, pname, value);
 	}
 
 }

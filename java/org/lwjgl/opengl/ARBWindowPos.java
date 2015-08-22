@@ -102,7 +102,7 @@ public final class ARBWindowPos {
 	 */
 	public static void glWindowPos2iARB(int x, int y) {
 		long __functionAddress = getInstance().WindowPos2iARB;
-		invokeIIV(__functionAddress, x, y);
+		callIIV(__functionAddress, x, y);
 	}
 
 	// --- [ glWindowPos2sARB ] ---
@@ -115,7 +115,7 @@ public final class ARBWindowPos {
 	 */
 	public static void glWindowPos2sARB(short x, short y) {
 		long __functionAddress = getInstance().WindowPos2sARB;
-		invokeSSV(__functionAddress, x, y);
+		callSSV(__functionAddress, x, y);
 	}
 
 	// --- [ glWindowPos2fARB ] ---
@@ -128,7 +128,7 @@ public final class ARBWindowPos {
 	 */
 	public static void glWindowPos2fARB(float x, float y) {
 		long __functionAddress = getInstance().WindowPos2fARB;
-		invokeFFV(__functionAddress, x, y);
+		callFFV(__functionAddress, x, y);
 	}
 
 	// --- [ glWindowPos2dARB ] ---
@@ -141,7 +141,7 @@ public final class ARBWindowPos {
 	 */
 	public static void glWindowPos2dARB(double x, double y) {
 		long __functionAddress = getInstance().WindowPos2dARB;
-		invokeDDV(__functionAddress, x, y);
+		callDDV(__functionAddress, x, y);
 	}
 
 	// --- [ glWindowPos2ivARB ] ---
@@ -150,7 +150,7 @@ public final class ARBWindowPos {
 	@JavadocExclude
 	public static void nglWindowPos2ivARB(long p) {
 		long __functionAddress = getInstance().WindowPos2ivARB;
-		invokePV(__functionAddress, p);
+		callPV(__functionAddress, p);
 	}
 
 	/**
@@ -177,7 +177,7 @@ public final class ARBWindowPos {
 	@JavadocExclude
 	public static void nglWindowPos2svARB(long p) {
 		long __functionAddress = getInstance().WindowPos2svARB;
-		invokePV(__functionAddress, p);
+		callPV(__functionAddress, p);
 	}
 
 	/**
@@ -204,7 +204,7 @@ public final class ARBWindowPos {
 	@JavadocExclude
 	public static void nglWindowPos2fvARB(long p) {
 		long __functionAddress = getInstance().WindowPos2fvARB;
-		invokePV(__functionAddress, p);
+		callPV(__functionAddress, p);
 	}
 
 	/**
@@ -231,7 +231,7 @@ public final class ARBWindowPos {
 	@JavadocExclude
 	public static void nglWindowPos2dvARB(long p) {
 		long __functionAddress = getInstance().WindowPos2dvARB;
-		invokePV(__functionAddress, p);
+		callPV(__functionAddress, p);
 	}
 
 	/**
@@ -263,7 +263,7 @@ public final class ARBWindowPos {
 	 */
 	public static void glWindowPos3iARB(int x, int y, int z) {
 		long __functionAddress = getInstance().WindowPos3iARB;
-		invokeIIIV(__functionAddress, x, y, z);
+		callIIIV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glWindowPos3sARB ] ---
@@ -277,7 +277,7 @@ public final class ARBWindowPos {
 	 */
 	public static void glWindowPos3sARB(short x, short y, short z) {
 		long __functionAddress = getInstance().WindowPos3sARB;
-		invokeSSSV(__functionAddress, x, y, z);
+		callSSSV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glWindowPos3fARB ] ---
@@ -291,7 +291,7 @@ public final class ARBWindowPos {
 	 */
 	public static void glWindowPos3fARB(float x, float y, float z) {
 		long __functionAddress = getInstance().WindowPos3fARB;
-		invokeFFFV(__functionAddress, x, y, z);
+		callFFFV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glWindowPos3dARB ] ---
@@ -305,7 +305,7 @@ public final class ARBWindowPos {
 	 */
 	public static void glWindowPos3dARB(double x, double y, double z) {
 		long __functionAddress = getInstance().WindowPos3dARB;
-		invokeDDDV(__functionAddress, x, y, z);
+		callDDDV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glWindowPos3ivARB ] ---
@@ -314,7 +314,7 @@ public final class ARBWindowPos {
 	@JavadocExclude
 	public static void nglWindowPos3ivARB(long p) {
 		long __functionAddress = getInstance().WindowPos3ivARB;
-		invokePV(__functionAddress, p);
+		callPV(__functionAddress, p);
 	}
 
 	/**
@@ -341,7 +341,7 @@ public final class ARBWindowPos {
 	@JavadocExclude
 	public static void nglWindowPos3svARB(long p) {
 		long __functionAddress = getInstance().WindowPos3svARB;
-		invokePV(__functionAddress, p);
+		callPV(__functionAddress, p);
 	}
 
 	/**
@@ -368,7 +368,7 @@ public final class ARBWindowPos {
 	@JavadocExclude
 	public static void nglWindowPos3fvARB(long p) {
 		long __functionAddress = getInstance().WindowPos3fvARB;
-		invokePV(__functionAddress, p);
+		callPV(__functionAddress, p);
 	}
 
 	/**
@@ -395,7 +395,7 @@ public final class ARBWindowPos {
 	@JavadocExclude
 	public static void nglWindowPos3dvARB(long p) {
 		long __functionAddress = getInstance().WindowPos3dvARB;
-		invokePV(__functionAddress, p);
+		callPV(__functionAddress, p);
 	}
 
 	/**

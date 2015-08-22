@@ -77,7 +77,7 @@ public final class ARBTransposeMatrix {
 	@JavadocExclude
 	public static void nglLoadTransposeMatrixfARB(long m) {
 		long __functionAddress = getInstance().LoadTransposeMatrixfARB;
-		invokePV(__functionAddress, m);
+		callPV(__functionAddress, m);
 	}
 
 	/**
@@ -112,7 +112,7 @@ public final class ARBTransposeMatrix {
 	@JavadocExclude
 	public static void nglLoadTransposeMatrixdARB(long m) {
 		long __functionAddress = getInstance().LoadTransposeMatrixdARB;
-		invokePV(__functionAddress, m);
+		callPV(__functionAddress, m);
 	}
 
 	/**
@@ -139,7 +139,7 @@ public final class ARBTransposeMatrix {
 	@JavadocExclude
 	public static void nglMultTransposeMatrixfARB(long m) {
 		long __functionAddress = getInstance().MultTransposeMatrixfARB;
-		invokePV(__functionAddress, m);
+		callPV(__functionAddress, m);
 	}
 
 	/**
@@ -166,7 +166,7 @@ public final class ARBTransposeMatrix {
 	@JavadocExclude
 	public static void nglMultTransposeMatrixdARB(long m) {
 		long __functionAddress = getInstance().MultTransposeMatrixdARB;
-		invokePV(__functionAddress, m);
+		callPV(__functionAddress, m);
 	}
 
 	/**

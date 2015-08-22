@@ -193,7 +193,7 @@ public final class ARBUniformBufferObject {
 	@JavadocExclude
 	public static void nglGetUniformIndices(int program, int uniformCount, long uniformNames, long uniformIndices) {
 		long __functionAddress = getInstance().GetUniformIndices;
-		invokeIIPPV(__functionAddress, program, uniformCount, uniformNames, uniformIndices);
+		callIIPPV(__functionAddress, program, uniformCount, uniformNames, uniformIndices);
 	}
 
 	/**
@@ -251,7 +251,7 @@ public final class ARBUniformBufferObject {
 	@JavadocExclude
 	public static void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveUniformsiv;
-		invokeIIPIPV(__functionAddress, program, uniformCount, uniformIndices, pname, params);
+		callIIPIPV(__functionAddress, program, uniformCount, uniformIndices, pname, params);
 	}
 
 	/**
@@ -293,7 +293,7 @@ public final class ARBUniformBufferObject {
 	@JavadocExclude
 	public static void nglGetActiveUniformName(int program, int uniformIndex, int bufSize, long length, long uniformName) {
 		long __functionAddress = getInstance().GetActiveUniformName;
-		invokeIIIPPV(__functionAddress, program, uniformIndex, bufSize, length, uniformName);
+		callIIIPPV(__functionAddress, program, uniformIndex, bufSize, length, uniformName);
 	}
 
 	/**
@@ -345,7 +345,7 @@ public final class ARBUniformBufferObject {
 	@JavadocExclude
 	public static int nglGetUniformBlockIndex(int program, long uniformBlockName) {
 		long __functionAddress = getInstance().GetUniformBlockIndex;
-		return invokeIPI(__functionAddress, program, uniformBlockName);
+		return callIPI(__functionAddress, program, uniformBlockName);
 	}
 
 	/**
@@ -373,7 +373,7 @@ public final class ARBUniformBufferObject {
 	@JavadocExclude
 	public static void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveUniformBlockiv;
-		invokeIIIPV(__functionAddress, program, uniformBlockIndex, pname, params);
+		callIIIPV(__functionAddress, program, uniformBlockIndex, pname, params);
 	}
 
 	/**
@@ -411,7 +411,7 @@ public final class ARBUniformBufferObject {
 	@JavadocExclude
 	public static void nglGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, long length, long uniformBlockName) {
 		long __functionAddress = getInstance().GetActiveUniformBlockName;
-		invokeIIIPPV(__functionAddress, program, uniformBlockIndex, bufSize, length, uniformBlockName);
+		callIIIPPV(__functionAddress, program, uniformBlockIndex, bufSize, length, uniformBlockName);
 	}
 
 	/**
@@ -470,7 +470,7 @@ public final class ARBUniformBufferObject {
 	 */
 	public static void glBindBufferRange(int target, int index, int buffer, long offset, long size) {
 		long __functionAddress = getInstance().BindBufferRange;
-		invokeIIIPPV(__functionAddress, target, index, buffer, offset, size);
+		callIIIPPV(__functionAddress, target, index, buffer, offset, size);
 	}
 
 	// --- [ glBindBufferBase ] ---
@@ -484,7 +484,7 @@ public final class ARBUniformBufferObject {
 	 */
 	public static void glBindBufferBase(int target, int index, int buffer) {
 		long __functionAddress = getInstance().BindBufferBase;
-		invokeIIIV(__functionAddress, target, index, buffer);
+		callIIIV(__functionAddress, target, index, buffer);
 	}
 
 	// --- [ glGetIntegeri_v ] ---
@@ -493,7 +493,7 @@ public final class ARBUniformBufferObject {
 	@JavadocExclude
 	public static void nglGetIntegeri_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetIntegeri_v;
-		invokeIIPV(__functionAddress, target, index, data);
+		callIIPV(__functionAddress, target, index, data);
 	}
 
 	/**
@@ -535,7 +535,7 @@ public final class ARBUniformBufferObject {
 	 */
 	public static void glUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding) {
 		long __functionAddress = getInstance().UniformBlockBinding;
-		invokeIIIV(__functionAddress, program, uniformBlockIndex, uniformBlockBinding);
+		callIIIV(__functionAddress, program, uniformBlockIndex, uniformBlockBinding);
 	}
 
 }

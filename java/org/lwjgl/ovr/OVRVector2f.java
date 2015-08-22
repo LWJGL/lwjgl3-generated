@@ -23,12 +23,14 @@ public final class OVRVector2f implements Pointer {
 		Y;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(2);
+		IntBuffer offsets = memAllocInt(2);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		X = offsets.get(0);
 		Y = offsets.get(1);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -53,8 +55,8 @@ public final class OVRVector2f implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setX(float x) { x(struct, x); }
-	public void setY(float y) { y(struct, y); }
+	public OVRVector2f setX(float x) { x(struct, x); return this; }
+	public OVRVector2f setY(float y) { y(struct, y); return this; }
 
 	public float getX() { return x(struct); }
 	public float getY() { return y(struct); }

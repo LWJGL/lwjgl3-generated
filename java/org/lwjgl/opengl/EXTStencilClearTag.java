@@ -86,7 +86,7 @@ public final class EXTStencilClearTag {
 
 	public static void glStencilClearTagEXT(int stencilTagBits, int stencilClearTag) {
 		long __functionAddress = getInstance().StencilClearTagEXT;
-		invokeIIV(__functionAddress, stencilTagBits, stencilClearTag);
+		callIIV(__functionAddress, stencilTagBits, stencilClearTag);
 	}
 
 }

@@ -129,7 +129,7 @@ public final class ARBTextureMultisample {
 	 */
 	public static void glTexImage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TexImage2DMultisample;
-		invokeIIIIIZV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
+		callIIIIIZV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
 	// --- [ glTexImage3DMultisample ] ---
@@ -149,7 +149,7 @@ public final class ARBTextureMultisample {
 	 */
 	public static void glTexImage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TexImage3DMultisample;
-		invokeIIIIIIZV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
+		callIIIIIIZV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
 	// --- [ glGetMultisamplefv ] ---
@@ -158,7 +158,7 @@ public final class ARBTextureMultisample {
 	@JavadocExclude
 	public static void nglGetMultisamplefv(int pname, int index, long val) {
 		long __functionAddress = getInstance().GetMultisamplefv;
-		invokeIIPV(__functionAddress, pname, index, val);
+		callIIPV(__functionAddress, pname, index, val);
 	}
 
 	/**
@@ -199,7 +199,7 @@ public final class ARBTextureMultisample {
 	 */
 	public static void glSampleMaski(int index, int mask) {
 		long __functionAddress = getInstance().SampleMaski;
-		invokeIIV(__functionAddress, index, mask);
+		callIIV(__functionAddress, index, mask);
 	}
 
 }

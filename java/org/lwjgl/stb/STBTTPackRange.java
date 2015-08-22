@@ -25,7 +25,7 @@ public final class STBTTPackRange implements Pointer {
 		CHARDATA_FOR_RANGE;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(4);
+		IntBuffer offsets = memAllocInt(4);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -33,6 +33,8 @@ public final class STBTTPackRange implements Pointer {
 		FIRST_UNICODE_CHAR_IN_RANGE = offsets.get(1);
 		NUM_CHARS_IN_RANGE = offsets.get(2);
 		CHARDATA_FOR_RANGE = offsets.get(3);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -57,11 +59,11 @@ public final class STBTTPackRange implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setFontSize(float font_size) { font_size(struct, font_size); }
-	public void setFirstUnicodeCharInRange(int first_unicode_char_in_range) { first_unicode_char_in_range(struct, first_unicode_char_in_range); }
-	public void setNumCharsInRange(int num_chars_in_range) { num_chars_in_range(struct, num_chars_in_range); }
-	public void setChardataForRange(long chardata_for_range) { chardata_for_range(struct, chardata_for_range); }
-	public void setChardataForRange(ByteBuffer chardata_for_range) { chardata_for_range(struct, chardata_for_range); }
+	public STBTTPackRange setFontSize(float font_size) { font_size(struct, font_size); return this; }
+	public STBTTPackRange setFirstUnicodeCharInRange(int first_unicode_char_in_range) { first_unicode_char_in_range(struct, first_unicode_char_in_range); return this; }
+	public STBTTPackRange setNumCharsInRange(int num_chars_in_range) { num_chars_in_range(struct, num_chars_in_range); return this; }
+	public STBTTPackRange setChardataForRange(long chardata_for_range) { chardata_for_range(struct, chardata_for_range); return this; }
+	public STBTTPackRange setChardataForRange(ByteBuffer chardata_for_range) { chardata_for_range(struct, chardata_for_range); return this; }
 
 	public float getFontSize() { return font_size(struct); }
 	public int getFirstUnicodeCharInRange() { return first_unicode_char_in_range(struct); }

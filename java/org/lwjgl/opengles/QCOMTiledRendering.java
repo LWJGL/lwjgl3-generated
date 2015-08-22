@@ -126,14 +126,14 @@ public final class QCOMTiledRendering {
 
 	public static void glStartTilingQCOM(int x, int y, int width, int height, int preserveMask) {
 		long __functionAddress = getInstance().StartTilingQCOM;
-		invokeIIIIIV(__functionAddress, x, y, width, height, preserveMask);
+		callIIIIIV(__functionAddress, x, y, width, height, preserveMask);
 	}
 
 	// --- [ glEndTilingQCOM ] ---
 
 	public static void glEndTilingQCOM(int preserveMask) {
 		long __functionAddress = getInstance().EndTilingQCOM;
-		invokeIV(__functionAddress, preserveMask);
+		callIV(__functionAddress, preserveMask);
 	}
 
 }

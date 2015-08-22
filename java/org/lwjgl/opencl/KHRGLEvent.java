@@ -65,7 +65,7 @@ public final class KHRGLEvent {
 			checkPointer(context);
 			checkPointer(sync);
 		}
-		return invokePPPP(__functionAddress, context, sync, errcode_ret);
+		return callPPPP(__functionAddress, context, sync, errcode_ret);
 	}
 
 	/**

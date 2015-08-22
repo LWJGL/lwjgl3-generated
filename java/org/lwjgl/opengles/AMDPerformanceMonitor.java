@@ -97,7 +97,7 @@ public final class AMDPerformanceMonitor {
 	@JavadocExclude
 	public static void nglGetPerfMonitorGroupsAMD(long numGroups, int groupsSize, long groups) {
 		long __functionAddress = getInstance().GetPerfMonitorGroupsAMD;
-		invokePIPV(__functionAddress, numGroups, groupsSize, groups);
+		callPIPV(__functionAddress, numGroups, groupsSize, groups);
 	}
 
 	public static void glGetPerfMonitorGroupsAMD(ByteBuffer numGroups, int groupsSize, ByteBuffer groups) {
@@ -121,7 +121,7 @@ public final class AMDPerformanceMonitor {
 	@JavadocExclude
 	public static void nglGetPerfMonitorCountersAMD(int group, long numCounters, long maxActiveCounters, int counterSize, long counters) {
 		long __functionAddress = getInstance().GetPerfMonitorCountersAMD;
-		invokeIPPIPV(__functionAddress, group, numCounters, maxActiveCounters, counterSize, counters);
+		callIPPIPV(__functionAddress, group, numCounters, maxActiveCounters, counterSize, counters);
 	}
 
 	public static void glGetPerfMonitorCountersAMD(int group, ByteBuffer numCounters, ByteBuffer maxActiveCounters, int counterSize, ByteBuffer counters) {
@@ -148,7 +148,7 @@ public final class AMDPerformanceMonitor {
 	@JavadocExclude
 	public static void nglGetPerfMonitorGroupStringAMD(int group, int bufSize, long length, long groupString) {
 		long __functionAddress = getInstance().GetPerfMonitorGroupStringAMD;
-		invokeIIPPV(__functionAddress, group, bufSize, length, groupString);
+		callIIPPV(__functionAddress, group, bufSize, length, groupString);
 	}
 
 	public static void glGetPerfMonitorGroupStringAMD(int group, int bufSize, ByteBuffer length, ByteBuffer groupString) {
@@ -172,7 +172,7 @@ public final class AMDPerformanceMonitor {
 	@JavadocExclude
 	public static void nglGetPerfMonitorCounterStringAMD(int group, int counter, int bufSize, long length, long counterString) {
 		long __functionAddress = getInstance().GetPerfMonitorCounterStringAMD;
-		invokeIIIPPV(__functionAddress, group, counter, bufSize, length, counterString);
+		callIIIPPV(__functionAddress, group, counter, bufSize, length, counterString);
 	}
 
 	public static void glGetPerfMonitorCounterStringAMD(int group, int counter, int bufSize, ByteBuffer length, ByteBuffer counterString) {
@@ -196,7 +196,7 @@ public final class AMDPerformanceMonitor {
 	@JavadocExclude
 	public static void nglGetPerfMonitorCounterInfoAMD(int group, int counter, int pname, long data) {
 		long __functionAddress = getInstance().GetPerfMonitorCounterInfoAMD;
-		invokeIIIPV(__functionAddress, group, counter, pname, data);
+		callIIIPV(__functionAddress, group, counter, pname, data);
 	}
 
 	public static void glGetPerfMonitorCounterInfoAMD(int group, int counter, int pname, ByteBuffer data) {
@@ -225,7 +225,7 @@ public final class AMDPerformanceMonitor {
 	@JavadocExclude
 	public static void nglGenPerfMonitorsAMD(int n, long monitors) {
 		long __functionAddress = getInstance().GenPerfMonitorsAMD;
-		invokeIPV(__functionAddress, n, monitors);
+		callIPV(__functionAddress, n, monitors);
 	}
 
 	public static void glGenPerfMonitorsAMD(int n, ByteBuffer monitors) {
@@ -253,7 +253,7 @@ public final class AMDPerformanceMonitor {
 	@JavadocExclude
 	public static void nglDeletePerfMonitorsAMD(int n, long monitors) {
 		long __functionAddress = getInstance().DeletePerfMonitorsAMD;
-		invokeIPV(__functionAddress, n, monitors);
+		callIPV(__functionAddress, n, monitors);
 	}
 
 	public static void glDeletePerfMonitorsAMD(int n, ByteBuffer monitors) {
@@ -280,7 +280,7 @@ public final class AMDPerformanceMonitor {
 	@JavadocExclude
 	public static void nglSelectPerfMonitorCountersAMD(int monitor, boolean enable, int group, int numCounters, long counterList) {
 		long __functionAddress = getInstance().SelectPerfMonitorCountersAMD;
-		invokeIZIIPV(__functionAddress, monitor, enable, group, numCounters, counterList);
+		callIZIIPV(__functionAddress, monitor, enable, group, numCounters, counterList);
 	}
 
 	public static void glSelectPerfMonitorCountersAMD(int monitor, boolean enable, int group, int numCounters, ByteBuffer counterList) {
@@ -298,14 +298,14 @@ public final class AMDPerformanceMonitor {
 
 	public static void glBeginPerfMonitorAMD(int monitor) {
 		long __functionAddress = getInstance().BeginPerfMonitorAMD;
-		invokeIV(__functionAddress, monitor);
+		callIV(__functionAddress, monitor);
 	}
 
 	// --- [ glEndPerfMonitorAMD ] ---
 
 	public static void glEndPerfMonitorAMD(int monitor) {
 		long __functionAddress = getInstance().EndPerfMonitorAMD;
-		invokeIV(__functionAddress, monitor);
+		callIV(__functionAddress, monitor);
 	}
 
 	// --- [ glGetPerfMonitorCounterDataAMD ] ---
@@ -314,7 +314,7 @@ public final class AMDPerformanceMonitor {
 	@JavadocExclude
 	public static void nglGetPerfMonitorCounterDataAMD(int monitor, int pname, int dataSize, long data, long bytesWritten) {
 		long __functionAddress = getInstance().GetPerfMonitorCounterDataAMD;
-		invokeIIIPPV(__functionAddress, monitor, pname, dataSize, data, bytesWritten);
+		callIIIPPV(__functionAddress, monitor, pname, dataSize, data, bytesWritten);
 	}
 
 	public static void glGetPerfMonitorCounterDataAMD(int monitor, int pname, int dataSize, ByteBuffer data, ByteBuffer bytesWritten) {

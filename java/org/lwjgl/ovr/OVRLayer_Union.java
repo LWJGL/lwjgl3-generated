@@ -26,7 +26,7 @@ public final class OVRLayer_Union implements Pointer {
 		DIRECT;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(5);
+		IntBuffer offsets = memAllocInt(5);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -35,6 +35,8 @@ public final class OVRLayer_Union implements Pointer {
 		EYEFOVDEPTH = offsets.get(2);
 		QUAD = offsets.get(3);
 		DIRECT = offsets.get(4);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -59,73 +61,73 @@ public final class OVRLayer_Union implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setHeader(ByteBuffer Header) { HeaderSet(struct, Header); }
-	public void setHeaderType(int Type) { HeaderType(struct, Type); }
-	public void setHeaderFlags(int Flags) { HeaderFlags(struct, Flags); }
-	public void setEyeFov(ByteBuffer EyeFov) { EyeFovSet(struct, EyeFov); }
-	public void setEyeFovHeader(ByteBuffer Header) { EyeFovHeaderSet(struct, Header); }
-	public void setEyeFovHeaderType(int Type) { EyeFovHeaderType(struct, Type); }
-	public void setEyeFovHeaderFlags(int Flags) { EyeFovHeaderFlags(struct, Flags); }
-	public void setEyeFovColorTexture(PointerBuffer ColorTexture) { EyeFovColorTextureSet(struct, ColorTexture); }
-	public void setEyeFovColorTexture(ByteBuffer ColorTexture, int index) { EyeFovColorTextureSet(struct, ColorTexture, index); }
-	public void setEyeFovViewport(ByteBuffer Viewport) { EyeFovViewportSet(struct, Viewport); }
-	public void setEyeFovViewport(ByteBuffer Viewport, int index) { EyeFovViewportSet(struct, Viewport, index); }
-	public void setEyeFovFov(ByteBuffer Fov) { EyeFovFovSet(struct, Fov); }
-	public void setEyeFovFov(ByteBuffer Fov, int index) { EyeFovFovSet(struct, Fov, index); }
-	public void setEyeFovRenderPose(ByteBuffer RenderPose) { EyeFovRenderPoseSet(struct, RenderPose); }
-	public void setEyeFovRenderPose(ByteBuffer RenderPose, int index) { EyeFovRenderPoseSet(struct, RenderPose, index); }
-	public void setEyeFovDepth(ByteBuffer EyeFovDepth) { EyeFovDepthSet(struct, EyeFovDepth); }
-	public void setEyeFovDepthHeader(ByteBuffer Header) { EyeFovDepthHeaderSet(struct, Header); }
-	public void setEyeFovDepthHeaderType(int Type) { EyeFovDepthHeaderType(struct, Type); }
-	public void setEyeFovDepthHeaderFlags(int Flags) { EyeFovDepthHeaderFlags(struct, Flags); }
-	public void setEyeFovDepthColorTexture(PointerBuffer ColorTexture) { EyeFovDepthColorTextureSet(struct, ColorTexture); }
-	public void setEyeFovDepthColorTexture(ByteBuffer ColorTexture, int index) { EyeFovDepthColorTextureSet(struct, ColorTexture, index); }
-	public void setEyeFovDepthViewport(ByteBuffer Viewport) { EyeFovDepthViewportSet(struct, Viewport); }
-	public void setEyeFovDepthViewport(ByteBuffer Viewport, int index) { EyeFovDepthViewportSet(struct, Viewport, index); }
-	public void setEyeFovDepthFov(ByteBuffer Fov) { EyeFovDepthFovSet(struct, Fov); }
-	public void setEyeFovDepthFov(ByteBuffer Fov, int index) { EyeFovDepthFovSet(struct, Fov, index); }
-	public void setEyeFovDepthRenderPose(ByteBuffer RenderPose) { EyeFovDepthRenderPoseSet(struct, RenderPose); }
-	public void setEyeFovDepthRenderPose(ByteBuffer RenderPose, int index) { EyeFovDepthRenderPoseSet(struct, RenderPose, index); }
-	public void setEyeFovDepthDepthTexture(PointerBuffer DepthTexture) { EyeFovDepthDepthTextureSet(struct, DepthTexture); }
-	public void setEyeFovDepthDepthTexture(ByteBuffer DepthTexture, int index) { EyeFovDepthDepthTextureSet(struct, DepthTexture, index); }
-	public void setEyeFovDepthProjectionDesc(ByteBuffer ProjectionDesc) { EyeFovDepthProjectionDescSet(struct, ProjectionDesc); }
-	public void setEyeFovDepthProjectionDescProjection22(float Projection22) { EyeFovDepthProjectionDescProjection22(struct, Projection22); }
-	public void setEyeFovDepthProjectionDescProjection23(float Projection23) { EyeFovDepthProjectionDescProjection23(struct, Projection23); }
-	public void setEyeFovDepthProjectionDescProjection32(float Projection32) { EyeFovDepthProjectionDescProjection32(struct, Projection32); }
-	public void setQuad(ByteBuffer Quad) { QuadSet(struct, Quad); }
-	public void setQuadHeader(ByteBuffer Header) { QuadHeaderSet(struct, Header); }
-	public void setQuadHeaderType(int Type) { QuadHeaderType(struct, Type); }
-	public void setQuadHeaderFlags(int Flags) { QuadHeaderFlags(struct, Flags); }
-	public void setQuadColorTexture(long ColorTexture) { QuadColorTexture(struct, ColorTexture); }
-	public void setQuadColorTexture(ByteBuffer ColorTexture) { QuadColorTexture(struct, ColorTexture); }
-	public void setQuadViewport(ByteBuffer Viewport) { QuadViewportSet(struct, Viewport); }
-	public void setQuadViewportPos(ByteBuffer Pos) { QuadViewportPosSet(struct, Pos); }
-	public void setQuadViewportPosX(int x) { QuadViewportPosX(struct, x); }
-	public void setQuadViewportPosY(int y) { QuadViewportPosY(struct, y); }
-	public void setQuadViewportSize(ByteBuffer Size) { QuadViewportSizeSet(struct, Size); }
-	public void setQuadViewportSizeW(int w) { QuadViewportSizeW(struct, w); }
-	public void setQuadViewportSizeH(int h) { QuadViewportSizeH(struct, h); }
-	public void setQuadQuadPoseCenter(ByteBuffer QuadPoseCenter) { QuadQuadPoseCenterSet(struct, QuadPoseCenter); }
-	public void setQuadQuadPoseCenterOrientation(ByteBuffer Orientation) { QuadQuadPoseCenterOrientationSet(struct, Orientation); }
-	public void setQuadQuadPoseCenterOrientationX(float x) { QuadQuadPoseCenterOrientationX(struct, x); }
-	public void setQuadQuadPoseCenterOrientationY(float y) { QuadQuadPoseCenterOrientationY(struct, y); }
-	public void setQuadQuadPoseCenterOrientationZ(float z) { QuadQuadPoseCenterOrientationZ(struct, z); }
-	public void setQuadQuadPoseCenterOrientationW(float w) { QuadQuadPoseCenterOrientationW(struct, w); }
-	public void setQuadQuadPoseCenterPosition(ByteBuffer Position) { QuadQuadPoseCenterPositionSet(struct, Position); }
-	public void setQuadQuadPoseCenterPositionX(float x) { QuadQuadPoseCenterPositionX(struct, x); }
-	public void setQuadQuadPoseCenterPositionY(float y) { QuadQuadPoseCenterPositionY(struct, y); }
-	public void setQuadQuadPoseCenterPositionZ(float z) { QuadQuadPoseCenterPositionZ(struct, z); }
-	public void setQuadQuadSize(ByteBuffer QuadSize) { QuadQuadSizeSet(struct, QuadSize); }
-	public void setQuadQuadSizeX(float x) { QuadQuadSizeX(struct, x); }
-	public void setQuadQuadSizeY(float y) { QuadQuadSizeY(struct, y); }
-	public void setDirect(ByteBuffer Direct) { DirectSet(struct, Direct); }
-	public void setDirectHeader(ByteBuffer Header) { DirectHeaderSet(struct, Header); }
-	public void setDirectHeaderType(int Type) { DirectHeaderType(struct, Type); }
-	public void setDirectHeaderFlags(int Flags) { DirectHeaderFlags(struct, Flags); }
-	public void setDirectColorTexture(PointerBuffer ColorTexture) { DirectColorTextureSet(struct, ColorTexture); }
-	public void setDirectColorTexture(ByteBuffer ColorTexture, int index) { DirectColorTextureSet(struct, ColorTexture, index); }
-	public void setDirectViewport(ByteBuffer Viewport) { DirectViewportSet(struct, Viewport); }
-	public void setDirectViewport(ByteBuffer Viewport, int index) { DirectViewportSet(struct, Viewport, index); }
+	public OVRLayer_Union setHeader(ByteBuffer Header) { HeaderSet(struct, Header); return this; }
+	public OVRLayer_Union setHeaderType(int Type) { HeaderType(struct, Type); return this; }
+	public OVRLayer_Union setHeaderFlags(int Flags) { HeaderFlags(struct, Flags); return this; }
+	public OVRLayer_Union setEyeFov(ByteBuffer EyeFov) { EyeFovSet(struct, EyeFov); return this; }
+	public OVRLayer_Union setEyeFovHeader(ByteBuffer Header) { EyeFovHeaderSet(struct, Header); return this; }
+	public OVRLayer_Union setEyeFovHeaderType(int Type) { EyeFovHeaderType(struct, Type); return this; }
+	public OVRLayer_Union setEyeFovHeaderFlags(int Flags) { EyeFovHeaderFlags(struct, Flags); return this; }
+	public OVRLayer_Union setEyeFovColorTexture(PointerBuffer ColorTexture) { EyeFovColorTextureSet(struct, ColorTexture); return this; }
+	public OVRLayer_Union setEyeFovColorTexture(ByteBuffer ColorTexture, int index) { EyeFovColorTextureSet(struct, ColorTexture, index); return this; }
+	public OVRLayer_Union setEyeFovViewport(ByteBuffer Viewport) { EyeFovViewportSet(struct, Viewport); return this; }
+	public OVRLayer_Union setEyeFovViewport(ByteBuffer Viewport, int index) { EyeFovViewportSet(struct, Viewport, index); return this; }
+	public OVRLayer_Union setEyeFovFov(ByteBuffer Fov) { EyeFovFovSet(struct, Fov); return this; }
+	public OVRLayer_Union setEyeFovFov(ByteBuffer Fov, int index) { EyeFovFovSet(struct, Fov, index); return this; }
+	public OVRLayer_Union setEyeFovRenderPose(ByteBuffer RenderPose) { EyeFovRenderPoseSet(struct, RenderPose); return this; }
+	public OVRLayer_Union setEyeFovRenderPose(ByteBuffer RenderPose, int index) { EyeFovRenderPoseSet(struct, RenderPose, index); return this; }
+	public OVRLayer_Union setEyeFovDepth(ByteBuffer EyeFovDepth) { EyeFovDepthSet(struct, EyeFovDepth); return this; }
+	public OVRLayer_Union setEyeFovDepthHeader(ByteBuffer Header) { EyeFovDepthHeaderSet(struct, Header); return this; }
+	public OVRLayer_Union setEyeFovDepthHeaderType(int Type) { EyeFovDepthHeaderType(struct, Type); return this; }
+	public OVRLayer_Union setEyeFovDepthHeaderFlags(int Flags) { EyeFovDepthHeaderFlags(struct, Flags); return this; }
+	public OVRLayer_Union setEyeFovDepthColorTexture(PointerBuffer ColorTexture) { EyeFovDepthColorTextureSet(struct, ColorTexture); return this; }
+	public OVRLayer_Union setEyeFovDepthColorTexture(ByteBuffer ColorTexture, int index) { EyeFovDepthColorTextureSet(struct, ColorTexture, index); return this; }
+	public OVRLayer_Union setEyeFovDepthViewport(ByteBuffer Viewport) { EyeFovDepthViewportSet(struct, Viewport); return this; }
+	public OVRLayer_Union setEyeFovDepthViewport(ByteBuffer Viewport, int index) { EyeFovDepthViewportSet(struct, Viewport, index); return this; }
+	public OVRLayer_Union setEyeFovDepthFov(ByteBuffer Fov) { EyeFovDepthFovSet(struct, Fov); return this; }
+	public OVRLayer_Union setEyeFovDepthFov(ByteBuffer Fov, int index) { EyeFovDepthFovSet(struct, Fov, index); return this; }
+	public OVRLayer_Union setEyeFovDepthRenderPose(ByteBuffer RenderPose) { EyeFovDepthRenderPoseSet(struct, RenderPose); return this; }
+	public OVRLayer_Union setEyeFovDepthRenderPose(ByteBuffer RenderPose, int index) { EyeFovDepthRenderPoseSet(struct, RenderPose, index); return this; }
+	public OVRLayer_Union setEyeFovDepthDepthTexture(PointerBuffer DepthTexture) { EyeFovDepthDepthTextureSet(struct, DepthTexture); return this; }
+	public OVRLayer_Union setEyeFovDepthDepthTexture(ByteBuffer DepthTexture, int index) { EyeFovDepthDepthTextureSet(struct, DepthTexture, index); return this; }
+	public OVRLayer_Union setEyeFovDepthProjectionDesc(ByteBuffer ProjectionDesc) { EyeFovDepthProjectionDescSet(struct, ProjectionDesc); return this; }
+	public OVRLayer_Union setEyeFovDepthProjectionDescProjection22(float Projection22) { EyeFovDepthProjectionDescProjection22(struct, Projection22); return this; }
+	public OVRLayer_Union setEyeFovDepthProjectionDescProjection23(float Projection23) { EyeFovDepthProjectionDescProjection23(struct, Projection23); return this; }
+	public OVRLayer_Union setEyeFovDepthProjectionDescProjection32(float Projection32) { EyeFovDepthProjectionDescProjection32(struct, Projection32); return this; }
+	public OVRLayer_Union setQuad(ByteBuffer Quad) { QuadSet(struct, Quad); return this; }
+	public OVRLayer_Union setQuadHeader(ByteBuffer Header) { QuadHeaderSet(struct, Header); return this; }
+	public OVRLayer_Union setQuadHeaderType(int Type) { QuadHeaderType(struct, Type); return this; }
+	public OVRLayer_Union setQuadHeaderFlags(int Flags) { QuadHeaderFlags(struct, Flags); return this; }
+	public OVRLayer_Union setQuadColorTexture(long ColorTexture) { QuadColorTexture(struct, ColorTexture); return this; }
+	public OVRLayer_Union setQuadColorTexture(ByteBuffer ColorTexture) { QuadColorTexture(struct, ColorTexture); return this; }
+	public OVRLayer_Union setQuadViewport(ByteBuffer Viewport) { QuadViewportSet(struct, Viewport); return this; }
+	public OVRLayer_Union setQuadViewportPos(ByteBuffer Pos) { QuadViewportPosSet(struct, Pos); return this; }
+	public OVRLayer_Union setQuadViewportPosX(int x) { QuadViewportPosX(struct, x); return this; }
+	public OVRLayer_Union setQuadViewportPosY(int y) { QuadViewportPosY(struct, y); return this; }
+	public OVRLayer_Union setQuadViewportSize(ByteBuffer Size) { QuadViewportSizeSet(struct, Size); return this; }
+	public OVRLayer_Union setQuadViewportSizeW(int w) { QuadViewportSizeW(struct, w); return this; }
+	public OVRLayer_Union setQuadViewportSizeH(int h) { QuadViewportSizeH(struct, h); return this; }
+	public OVRLayer_Union setQuadQuadPoseCenter(ByteBuffer QuadPoseCenter) { QuadQuadPoseCenterSet(struct, QuadPoseCenter); return this; }
+	public OVRLayer_Union setQuadQuadPoseCenterOrientation(ByteBuffer Orientation) { QuadQuadPoseCenterOrientationSet(struct, Orientation); return this; }
+	public OVRLayer_Union setQuadQuadPoseCenterOrientationX(float x) { QuadQuadPoseCenterOrientationX(struct, x); return this; }
+	public OVRLayer_Union setQuadQuadPoseCenterOrientationY(float y) { QuadQuadPoseCenterOrientationY(struct, y); return this; }
+	public OVRLayer_Union setQuadQuadPoseCenterOrientationZ(float z) { QuadQuadPoseCenterOrientationZ(struct, z); return this; }
+	public OVRLayer_Union setQuadQuadPoseCenterOrientationW(float w) { QuadQuadPoseCenterOrientationW(struct, w); return this; }
+	public OVRLayer_Union setQuadQuadPoseCenterPosition(ByteBuffer Position) { QuadQuadPoseCenterPositionSet(struct, Position); return this; }
+	public OVRLayer_Union setQuadQuadPoseCenterPositionX(float x) { QuadQuadPoseCenterPositionX(struct, x); return this; }
+	public OVRLayer_Union setQuadQuadPoseCenterPositionY(float y) { QuadQuadPoseCenterPositionY(struct, y); return this; }
+	public OVRLayer_Union setQuadQuadPoseCenterPositionZ(float z) { QuadQuadPoseCenterPositionZ(struct, z); return this; }
+	public OVRLayer_Union setQuadQuadSize(ByteBuffer QuadSize) { QuadQuadSizeSet(struct, QuadSize); return this; }
+	public OVRLayer_Union setQuadQuadSizeX(float x) { QuadQuadSizeX(struct, x); return this; }
+	public OVRLayer_Union setQuadQuadSizeY(float y) { QuadQuadSizeY(struct, y); return this; }
+	public OVRLayer_Union setDirect(ByteBuffer Direct) { DirectSet(struct, Direct); return this; }
+	public OVRLayer_Union setDirectHeader(ByteBuffer Header) { DirectHeaderSet(struct, Header); return this; }
+	public OVRLayer_Union setDirectHeaderType(int Type) { DirectHeaderType(struct, Type); return this; }
+	public OVRLayer_Union setDirectHeaderFlags(int Flags) { DirectHeaderFlags(struct, Flags); return this; }
+	public OVRLayer_Union setDirectColorTexture(PointerBuffer ColorTexture) { DirectColorTextureSet(struct, ColorTexture); return this; }
+	public OVRLayer_Union setDirectColorTexture(ByteBuffer ColorTexture, int index) { DirectColorTextureSet(struct, ColorTexture, index); return this; }
+	public OVRLayer_Union setDirectViewport(ByteBuffer Viewport) { DirectViewportSet(struct, Viewport); return this; }
+	public OVRLayer_Union setDirectViewport(ByteBuffer Viewport, int index) { DirectViewportSet(struct, Viewport, index); return this; }
 
 	public void getHeader(ByteBuffer Header) { HeaderGet(struct, Header); }
 	public int getHeaderType() { return HeaderType(struct); }

@@ -213,7 +213,7 @@ public final class KHRDebug {
 	@JavadocExclude
 	public static void nglDebugMessageControl(int source, int type, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = getInstance().DebugMessageControl;
-		invokeIIIIPZV(__functionAddress, source, type, severity, count, ids, enabled);
+		callIIIIPZV(__functionAddress, source, type, severity, count, ids, enabled);
 	}
 
 	/**
@@ -272,7 +272,7 @@ public final class KHRDebug {
 	@JavadocExclude
 	public static void nglDebugMessageInsert(int source, int type, int id, int severity, int length, long message) {
 		long __functionAddress = getInstance().DebugMessageInsert;
-		invokeIIIIIPV(__functionAddress, source, type, id, severity, length, message);
+		callIIIIIPV(__functionAddress, source, type, id, severity, length, message);
 	}
 
 	/**
@@ -348,7 +348,7 @@ public final class KHRDebug {
 	 */
 	public static void glDebugMessageCallback(GLDebugMessageCallback callback, long userParam) {
 		long __functionAddress = getInstance().DebugMessageCallback;
-		invokePPV(__functionAddress, callback == null ? NULL : callback.getPointer(), userParam);
+		callPPV(__functionAddress, callback == null ? NULL : callback.getPointer(), userParam);
 	}
 
 	// --- [ glGetDebugMessageLog ] ---
@@ -357,7 +357,7 @@ public final class KHRDebug {
 	@JavadocExclude
 	public static int nglGetDebugMessageLog(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
 		long __functionAddress = getInstance().GetDebugMessageLog;
-		return invokeIIPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
+		return callIIPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
 	}
 
 	/**
@@ -423,7 +423,7 @@ public final class KHRDebug {
 	@JavadocExclude
 	public static void nglPushDebugGroup(int source, int id, int length, long message) {
 		long __functionAddress = getInstance().PushDebugGroup;
-		invokeIIIPV(__functionAddress, source, id, length, message);
+		callIIIPV(__functionAddress, source, id, length, message);
 	}
 
 	/**
@@ -475,7 +475,7 @@ public final class KHRDebug {
 	 */
 	public static void glPopDebugGroup() {
 		long __functionAddress = getInstance().PopDebugGroup;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glObjectLabel ] ---
@@ -484,7 +484,7 @@ public final class KHRDebug {
 	@JavadocExclude
 	public static void nglObjectLabel(int identifier, int name, int length, long label) {
 		long __functionAddress = getInstance().ObjectLabel;
-		invokeIIIPV(__functionAddress, identifier, name, length, label);
+		callIIIPV(__functionAddress, identifier, name, length, label);
 	}
 
 	/**
@@ -520,7 +520,7 @@ public final class KHRDebug {
 	@JavadocExclude
 	public static void nglGetObjectLabel(int identifier, int name, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectLabel;
-		invokeIIIPPV(__functionAddress, identifier, name, bufSize, length, label);
+		callIIIPPV(__functionAddress, identifier, name, bufSize, length, label);
 	}
 
 	/**
@@ -574,7 +574,7 @@ public final class KHRDebug {
 		long __functionAddress = getInstance().ObjectPtrLabel;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ptr);
-		invokePIPV(__functionAddress, ptr, length, label);
+		callPIPV(__functionAddress, ptr, length, label);
 	}
 
 	/**
@@ -611,7 +611,7 @@ public final class KHRDebug {
 		long __functionAddress = getInstance().GetObjectPtrLabel;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ptr);
-		invokePIPPV(__functionAddress, ptr, bufSize, length, label);
+		callPIPPV(__functionAddress, ptr, bufSize, length, label);
 	}
 
 	/**

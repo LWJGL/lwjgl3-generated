@@ -288,7 +288,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglCreateTransformFeedbacks(int n, long ids) {
 		long __functionAddress = getInstance().CreateTransformFeedbacks;
-		invokeIPV(__functionAddress, n, ids);
+		callIPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -327,7 +327,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glTransformFeedbackBufferBase(int xfb, int index, int buffer) {
 		long __functionAddress = getInstance().TransformFeedbackBufferBase;
-		invokeIIIV(__functionAddress, xfb, index, buffer);
+		callIIIV(__functionAddress, xfb, index, buffer);
 	}
 
 	// --- [ glTransformFeedbackBufferRange ] ---
@@ -343,7 +343,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glTransformFeedbackBufferRange(int xfb, int index, int buffer, long offset, long size) {
 		long __functionAddress = getInstance().TransformFeedbackBufferRange;
-		invokeIIIPPV(__functionAddress, xfb, index, buffer, offset, size);
+		callIIIPPV(__functionAddress, xfb, index, buffer, offset, size);
 	}
 
 	// --- [ glGetTransformFeedbackiv ] ---
@@ -352,7 +352,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetTransformFeedbackiv(int xfb, int pname, long param) {
 		long __functionAddress = getInstance().GetTransformFeedbackiv;
-		invokeIIPV(__functionAddress, xfb, pname, param);
+		callIIPV(__functionAddress, xfb, pname, param);
 	}
 
 	/**
@@ -389,7 +389,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetTransformFeedbacki_v(int xfb, int pname, int index, long param) {
 		long __functionAddress = getInstance().GetTransformFeedbacki_v;
-		invokeIIIPV(__functionAddress, xfb, pname, index, param);
+		callIIIPV(__functionAddress, xfb, pname, index, param);
 	}
 
 	/**
@@ -427,7 +427,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetTransformFeedbacki64_v(int xfb, int pname, int index, long param) {
 		long __functionAddress = getInstance().GetTransformFeedbacki64_v;
-		invokeIIIPV(__functionAddress, xfb, pname, index, param);
+		callIIIPV(__functionAddress, xfb, pname, index, param);
 	}
 
 	/**
@@ -465,7 +465,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglCreateBuffers(int n, long buffers) {
 		long __functionAddress = getInstance().CreateBuffers;
-		invokeIPV(__functionAddress, n, buffers);
+		callIPV(__functionAddress, n, buffers);
 	}
 
 	/**
@@ -500,7 +500,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglNamedBufferStorage(int buffer, long size, long data, int flags) {
 		long __functionAddress = getInstance().NamedBufferStorage;
-		invokeIPPIV(__functionAddress, buffer, size, data, flags);
+		callIPPIV(__functionAddress, buffer, size, data, flags);
 	}
 
 	/**
@@ -586,7 +586,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglNamedBufferData(int buffer, long size, long data, int usage) {
 		long __functionAddress = getInstance().NamedBufferData;
-		invokeIPPIV(__functionAddress, buffer, size, data, usage);
+		callIPPIV(__functionAddress, buffer, size, data, usage);
 	}
 
 	/**
@@ -639,7 +639,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglNamedBufferSubData(int buffer, long offset, long size, long data) {
 		long __functionAddress = getInstance().NamedBufferSubData;
-		invokeIPPPV(__functionAddress, buffer, offset, size, data);
+		callIPPPV(__functionAddress, buffer, offset, size, data);
 	}
 
 	/**
@@ -694,7 +694,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glCopyNamedBufferSubData(int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size) {
 		long __functionAddress = getInstance().CopyNamedBufferSubData;
-		invokeIIPPPV(__functionAddress, readBuffer, writeBuffer, readOffset, writeOffset, size);
+		callIIPPPV(__functionAddress, readBuffer, writeBuffer, readOffset, writeOffset, size);
 	}
 
 	// --- [ glClearNamedBufferData ] ---
@@ -703,7 +703,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglClearNamedBufferData(int buffer, int internalformat, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearNamedBufferData;
-		invokeIIIIPV(__functionAddress, buffer, internalformat, format, type, data);
+		callIIIIPV(__functionAddress, buffer, internalformat, format, type, data);
 	}
 
 	/**
@@ -743,7 +743,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglClearNamedBufferSubData(int buffer, int internalformat, long offset, long size, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearNamedBufferSubData;
-		invokeIIPPIIPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
+		callIIPPIIPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
 	}
 
 	/**
@@ -785,7 +785,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static long nglMapNamedBuffer(int buffer, int access) {
 		long __functionAddress = getInstance().MapNamedBuffer;
-		return invokeIIP(__functionAddress, buffer, access);
+		return callIIP(__functionAddress, buffer, access);
 	}
 
 	/**
@@ -818,7 +818,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static long nglMapNamedBufferRange(int buffer, long offset, long length, int access) {
 		long __functionAddress = getInstance().MapNamedBufferRange;
-		return invokeIPPIP(__functionAddress, buffer, offset, length, access);
+		return callIPPIP(__functionAddress, buffer, offset, length, access);
 	}
 
 	/**
@@ -849,7 +849,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static boolean glUnmapNamedBuffer(int buffer) {
 		long __functionAddress = getInstance().UnmapNamedBuffer;
-		return invokeIZ(__functionAddress, buffer);
+		return callIZ(__functionAddress, buffer);
 	}
 
 	// --- [ glFlushMappedNamedBufferRange ] ---
@@ -863,7 +863,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glFlushMappedNamedBufferRange(int buffer, long offset, long length) {
 		long __functionAddress = getInstance().FlushMappedNamedBufferRange;
-		invokeIPPV(__functionAddress, buffer, offset, length);
+		callIPPV(__functionAddress, buffer, offset, length);
 	}
 
 	// --- [ glGetNamedBufferParameteriv ] ---
@@ -872,7 +872,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetNamedBufferParameteriv(int buffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedBufferParameteriv;
-		invokeIIPV(__functionAddress, buffer, pname, params);
+		callIIPV(__functionAddress, buffer, pname, params);
 	}
 
 	/**
@@ -909,7 +909,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetNamedBufferParameteri64v(int buffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedBufferParameteri64v;
-		invokeIIPV(__functionAddress, buffer, pname, params);
+		callIIPV(__functionAddress, buffer, pname, params);
 	}
 
 	/**
@@ -946,7 +946,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetNamedBufferPointerv(int buffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedBufferPointerv;
-		invokeIIPV(__functionAddress, buffer, pname, params);
+		callIIPV(__functionAddress, buffer, pname, params);
 	}
 
 	/**
@@ -983,7 +983,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetNamedBufferSubData(int buffer, long offset, long size, long data) {
 		long __functionAddress = getInstance().GetNamedBufferSubData;
-		invokeIPPPV(__functionAddress, buffer, offset, size, data);
+		callIPPPV(__functionAddress, buffer, offset, size, data);
 	}
 
 	/**
@@ -1031,7 +1031,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglCreateFramebuffers(int n, long framebuffers) {
 		long __functionAddress = getInstance().CreateFramebuffers;
-		invokeIPV(__functionAddress, n, framebuffers);
+		callIPV(__functionAddress, n, framebuffers);
 	}
 
 	/**
@@ -1071,7 +1071,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glNamedFramebufferRenderbuffer(int framebuffer, int attachment, int renderbuffertarget, int renderbuffer) {
 		long __functionAddress = getInstance().NamedFramebufferRenderbuffer;
-		invokeIIIIV(__functionAddress, framebuffer, attachment, renderbuffertarget, renderbuffer);
+		callIIIIV(__functionAddress, framebuffer, attachment, renderbuffertarget, renderbuffer);
 	}
 
 	// --- [ glNamedFramebufferParameteri ] ---
@@ -1085,7 +1085,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glNamedFramebufferParameteri(int framebuffer, int pname, int param) {
 		long __functionAddress = getInstance().NamedFramebufferParameteri;
-		invokeIIIV(__functionAddress, framebuffer, pname, param);
+		callIIIV(__functionAddress, framebuffer, pname, param);
 	}
 
 	// --- [ glNamedFramebufferTexture ] ---
@@ -1100,7 +1100,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glNamedFramebufferTexture(int framebuffer, int attachment, int texture, int level) {
 		long __functionAddress = getInstance().NamedFramebufferTexture;
-		invokeIIIIV(__functionAddress, framebuffer, attachment, texture, level);
+		callIIIIV(__functionAddress, framebuffer, attachment, texture, level);
 	}
 
 	// --- [ glNamedFramebufferTextureLayer ] ---
@@ -1116,7 +1116,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glNamedFramebufferTextureLayer(int framebuffer, int attachment, int texture, int level, int layer) {
 		long __functionAddress = getInstance().NamedFramebufferTextureLayer;
-		invokeIIIIIV(__functionAddress, framebuffer, attachment, texture, level, layer);
+		callIIIIIV(__functionAddress, framebuffer, attachment, texture, level, layer);
 	}
 
 	// --- [ glNamedFramebufferDrawBuffer ] ---
@@ -1129,7 +1129,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glNamedFramebufferDrawBuffer(int framebuffer, int buf) {
 		long __functionAddress = getInstance().NamedFramebufferDrawBuffer;
-		invokeIIV(__functionAddress, framebuffer, buf);
+		callIIV(__functionAddress, framebuffer, buf);
 	}
 
 	// --- [ glNamedFramebufferDrawBuffers ] ---
@@ -1138,7 +1138,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglNamedFramebufferDrawBuffers(int framebuffer, int n, long bufs) {
 		long __functionAddress = getInstance().NamedFramebufferDrawBuffers;
-		invokeIIPV(__functionAddress, framebuffer, n, bufs);
+		callIIPV(__functionAddress, framebuffer, n, bufs);
 	}
 
 	/**
@@ -1176,7 +1176,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glNamedFramebufferReadBuffer(int framebuffer, int src) {
 		long __functionAddress = getInstance().NamedFramebufferReadBuffer;
-		invokeIIV(__functionAddress, framebuffer, src);
+		callIIV(__functionAddress, framebuffer, src);
 	}
 
 	// --- [ glInvalidateNamedFramebufferData ] ---
@@ -1185,7 +1185,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglInvalidateNamedFramebufferData(int framebuffer, int numAttachments, long attachments) {
 		long __functionAddress = getInstance().InvalidateNamedFramebufferData;
-		invokeIIPV(__functionAddress, framebuffer, numAttachments, attachments);
+		callIIPV(__functionAddress, framebuffer, numAttachments, attachments);
 	}
 
 	/**
@@ -1219,7 +1219,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglInvalidateNamedFramebufferSubData(int framebuffer, int numAttachments, long attachments, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().InvalidateNamedFramebufferSubData;
-		invokeIIPIIIIV(__functionAddress, framebuffer, numAttachments, attachments, x, y, width, height);
+		callIIPIIIIV(__functionAddress, framebuffer, numAttachments, attachments, x, y, width, height);
 	}
 
 	/**
@@ -1257,7 +1257,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearNamedFramebufferiv;
-		invokeIIIPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
+		callIIIPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
 	}
 
 	/**
@@ -1288,7 +1288,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearNamedFramebufferuiv;
-		invokeIIIPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
+		callIIIPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
 	}
 
 	/**
@@ -1318,7 +1318,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglClearNamedFramebufferfv(int framebuffer, int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearNamedFramebufferfv;
-		invokeIIIPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
+		callIIIPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
 	}
 
 	/**
@@ -1355,7 +1355,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glClearNamedFramebufferfi(int framebuffer, int buffer, float depth, int stencil) {
 		long __functionAddress = getInstance().ClearNamedFramebufferfi;
-		invokeIIFIV(__functionAddress, framebuffer, buffer, depth, stencil);
+		callIIFIV(__functionAddress, framebuffer, buffer, depth, stencil);
 	}
 
 	// --- [ glBlitNamedFramebuffer ] ---
@@ -1378,7 +1378,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glBlitNamedFramebuffer(int readFramebuffer, int drawFramebuffer, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
 		long __functionAddress = getInstance().BlitNamedFramebuffer;
-		invokeIIIIIIIIIIIIV(__functionAddress, readFramebuffer, drawFramebuffer, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
+		callIIIIIIIIIIIIV(__functionAddress, readFramebuffer, drawFramebuffer, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 
 	// --- [ glCheckNamedFramebufferStatus ] ---
@@ -1391,7 +1391,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static int glCheckNamedFramebufferStatus(int framebuffer, int target) {
 		long __functionAddress = getInstance().CheckNamedFramebufferStatus;
-		return invokeIII(__functionAddress, framebuffer, target);
+		return callIII(__functionAddress, framebuffer, target);
 	}
 
 	// --- [ glGetNamedFramebufferParameteriv ] ---
@@ -1400,7 +1400,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetNamedFramebufferParameteriv(int framebuffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedFramebufferParameteriv;
-		invokeIIPV(__functionAddress, framebuffer, pname, params);
+		callIIPV(__functionAddress, framebuffer, pname, params);
 	}
 
 	/**
@@ -1437,7 +1437,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedFramebufferAttachmentParameteriv;
-		invokeIIIPV(__functionAddress, framebuffer, attachment, pname, params);
+		callIIIPV(__functionAddress, framebuffer, attachment, pname, params);
 	}
 
 	/**
@@ -1475,7 +1475,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglCreateRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = getInstance().CreateRenderbuffers;
-		invokeIPV(__functionAddress, n, renderbuffers);
+		callIPV(__functionAddress, n, renderbuffers);
 	}
 
 	/**
@@ -1515,7 +1515,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glNamedRenderbufferStorage(int renderbuffer, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().NamedRenderbufferStorage;
-		invokeIIIIV(__functionAddress, renderbuffer, internalformat, width, height);
+		callIIIIV(__functionAddress, renderbuffer, internalformat, width, height);
 	}
 
 	// --- [ glNamedRenderbufferStorageMultisample ] ---
@@ -1531,7 +1531,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glNamedRenderbufferStorageMultisample(int renderbuffer, int samples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().NamedRenderbufferStorageMultisample;
-		invokeIIIIIV(__functionAddress, renderbuffer, samples, internalformat, width, height);
+		callIIIIIV(__functionAddress, renderbuffer, samples, internalformat, width, height);
 	}
 
 	// --- [ glGetNamedRenderbufferParameteriv ] ---
@@ -1540,7 +1540,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetNamedRenderbufferParameteriv(int renderbuffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedRenderbufferParameteriv;
-		invokeIIPV(__functionAddress, renderbuffer, pname, params);
+		callIIPV(__functionAddress, renderbuffer, pname, params);
 	}
 
 	/**
@@ -1577,7 +1577,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglCreateTextures(int target, int n, long textures) {
 		long __functionAddress = getInstance().CreateTextures;
-		invokeIIPV(__functionAddress, target, n, textures);
+		callIIPV(__functionAddress, target, n, textures);
 	}
 
 	/**
@@ -1617,7 +1617,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glTextureBuffer(int texture, int internalformat, int buffer) {
 		long __functionAddress = getInstance().TextureBuffer;
-		invokeIIIV(__functionAddress, texture, internalformat, buffer);
+		callIIIV(__functionAddress, texture, internalformat, buffer);
 	}
 
 	// --- [ glTextureBufferRange ] ---
@@ -1633,7 +1633,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glTextureBufferRange(int texture, int internalformat, int buffer, long offset, long size) {
 		long __functionAddress = getInstance().TextureBufferRange;
-		invokeIIIPPV(__functionAddress, texture, internalformat, buffer, offset, size);
+		callIIIPPV(__functionAddress, texture, internalformat, buffer, offset, size);
 	}
 
 	// --- [ glTextureStorage1D ] ---
@@ -1648,7 +1648,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glTextureStorage1D(int texture, int levels, int internalformat, int width) {
 		long __functionAddress = getInstance().TextureStorage1D;
-		invokeIIIIV(__functionAddress, texture, levels, internalformat, width);
+		callIIIIV(__functionAddress, texture, levels, internalformat, width);
 	}
 
 	// --- [ glTextureStorage2D ] ---
@@ -1664,7 +1664,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glTextureStorage2D(int texture, int levels, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().TextureStorage2D;
-		invokeIIIIIV(__functionAddress, texture, levels, internalformat, width, height);
+		callIIIIIV(__functionAddress, texture, levels, internalformat, width, height);
 	}
 
 	// --- [ glTextureStorage3D ] ---
@@ -1681,7 +1681,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glTextureStorage3D(int texture, int levels, int internalformat, int width, int height, int depth) {
 		long __functionAddress = getInstance().TextureStorage3D;
-		invokeIIIIIIV(__functionAddress, texture, levels, internalformat, width, height, depth);
+		callIIIIIIV(__functionAddress, texture, levels, internalformat, width, height, depth);
 	}
 
 	// --- [ glTextureStorage2DMultisample ] ---
@@ -1699,7 +1699,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glTextureStorage2DMultisample(int texture, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TextureStorage2DMultisample;
-		invokeIIIIIZV(__functionAddress, texture, samples, internalformat, width, height, fixedsamplelocations);
+		callIIIIIZV(__functionAddress, texture, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
 	// --- [ glTextureStorage3DMultisample ] ---
@@ -1718,7 +1718,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glTextureStorage3DMultisample(int texture, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TextureStorage3DMultisample;
-		invokeIIIIIIZV(__functionAddress, texture, samples, internalformat, width, height, depth, fixedsamplelocations);
+		callIIIIIIZV(__functionAddress, texture, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
 	// --- [ glTextureSubImage1D ] ---
@@ -1727,7 +1727,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureSubImage1D;
-		invokeIIIIIIPV(__functionAddress, texture, level, xoffset, width, format, type, pixels);
+		callIIIIIIPV(__functionAddress, texture, level, xoffset, width, format, type, pixels);
 	}
 
 	/**
@@ -1788,7 +1788,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureSubImage2D;
-		invokeIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, type, pixels);
+		callIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
 	/**
@@ -1851,7 +1851,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureSubImage3D;
-		invokeIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+		callIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 	/**
@@ -1916,7 +1916,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTextureSubImage1D;
-		invokeIIIIIIPV(__functionAddress, texture, level, xoffset, width, format, imageSize, data);
+		callIIIIIIPV(__functionAddress, texture, level, xoffset, width, format, imageSize, data);
 	}
 
 	/**
@@ -1958,7 +1958,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTextureSubImage2D;
-		invokeIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, imageSize, data);
+		callIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, imageSize, data);
 	}
 
 	/**
@@ -2002,7 +2002,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTextureSubImage3D;
-		invokeIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
+		callIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
 	/**
@@ -2056,7 +2056,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glCopyTextureSubImage1D(int texture, int level, int xoffset, int x, int y, int width) {
 		long __functionAddress = getInstance().CopyTextureSubImage1D;
-		invokeIIIIIIV(__functionAddress, texture, level, xoffset, x, y, width);
+		callIIIIIIV(__functionAddress, texture, level, xoffset, x, y, width);
 	}
 
 	// --- [ glCopyTextureSubImage2D ] ---
@@ -2075,7 +2075,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glCopyTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().CopyTextureSubImage2D;
-		invokeIIIIIIIIV(__functionAddress, texture, level, xoffset, yoffset, x, y, width, height);
+		callIIIIIIIIV(__functionAddress, texture, level, xoffset, yoffset, x, y, width, height);
 	}
 
 	// --- [ glCopyTextureSubImage3D ] ---
@@ -2095,7 +2095,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glCopyTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().CopyTextureSubImage3D;
-		invokeIIIIIIIIIV(__functionAddress, texture, level, xoffset, yoffset, zoffset, x, y, width, height);
+		callIIIIIIIIIV(__functionAddress, texture, level, xoffset, yoffset, zoffset, x, y, width, height);
 	}
 
 	// --- [ glTextureParameterf ] ---
@@ -2109,7 +2109,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glTextureParameterf(int texture, int pname, float param) {
 		long __functionAddress = getInstance().TextureParameterf;
-		invokeIIFV(__functionAddress, texture, pname, param);
+		callIIFV(__functionAddress, texture, pname, param);
 	}
 
 	// --- [ glTextureParameterfv ] ---
@@ -2118,7 +2118,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglTextureParameterfv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameterfv;
-		invokeIIPV(__functionAddress, texture, pname, params);
+		callIIPV(__functionAddress, texture, pname, params);
 	}
 
 	/**
@@ -2152,7 +2152,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glTextureParameteri(int texture, int pname, int param) {
 		long __functionAddress = getInstance().TextureParameteri;
-		invokeIIIV(__functionAddress, texture, pname, param);
+		callIIIV(__functionAddress, texture, pname, param);
 	}
 
 	// --- [ glTextureParameterIiv ] ---
@@ -2161,7 +2161,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglTextureParameterIiv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameterIiv;
-		invokeIIPV(__functionAddress, texture, pname, params);
+		callIIPV(__functionAddress, texture, pname, params);
 	}
 
 	/**
@@ -2197,7 +2197,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglTextureParameterIuiv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameterIuiv;
-		invokeIIPV(__functionAddress, texture, pname, params);
+		callIIPV(__functionAddress, texture, pname, params);
 	}
 
 	/**
@@ -2233,7 +2233,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglTextureParameteriv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().TextureParameteriv;
-		invokeIIPV(__functionAddress, texture, pname, params);
+		callIIPV(__functionAddress, texture, pname, params);
 	}
 
 	/**
@@ -2265,7 +2265,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glGenerateTextureMipmap(int texture) {
 		long __functionAddress = getInstance().GenerateTextureMipmap;
-		invokeIV(__functionAddress, texture);
+		callIV(__functionAddress, texture);
 	}
 
 	// --- [ glBindTextureUnit ] ---
@@ -2282,7 +2282,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glBindTextureUnit(int unit, int texture) {
 		long __functionAddress = getInstance().BindTextureUnit;
-		invokeIIV(__functionAddress, unit, texture);
+		callIIV(__functionAddress, unit, texture);
 	}
 
 	// --- [ glGetTextureImage ] ---
@@ -2291,7 +2291,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetTextureImage(int texture, int level, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = getInstance().GetTextureImage;
-		invokeIIIIIPV(__functionAddress, texture, level, format, type, bufSize, pixels);
+		callIIIIIPV(__functionAddress, texture, level, format, type, bufSize, pixels);
 	}
 
 	/**
@@ -2360,7 +2360,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetCompressedTextureImage(int texture, int level, int bufSize, long pixels) {
 		long __functionAddress = getInstance().GetCompressedTextureImage;
-		invokeIIIPV(__functionAddress, texture, level, bufSize, pixels);
+		callIIIPV(__functionAddress, texture, level, bufSize, pixels);
 	}
 
 	/**
@@ -2404,7 +2404,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetTextureLevelParameterfv(int texture, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureLevelParameterfv;
-		invokeIIIPV(__functionAddress, texture, level, pname, params);
+		callIIIPV(__functionAddress, texture, level, pname, params);
 	}
 
 	/**
@@ -2442,7 +2442,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetTextureLevelParameteriv(int texture, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureLevelParameteriv;
-		invokeIIIPV(__functionAddress, texture, level, pname, params);
+		callIIIPV(__functionAddress, texture, level, pname, params);
 	}
 
 	/**
@@ -2480,7 +2480,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetTextureParameterfv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterfv;
-		invokeIIPV(__functionAddress, texture, pname, params);
+		callIIPV(__functionAddress, texture, pname, params);
 	}
 
 	/**
@@ -2517,7 +2517,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetTextureParameterIiv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterIiv;
-		invokeIIPV(__functionAddress, texture, pname, params);
+		callIIPV(__functionAddress, texture, pname, params);
 	}
 
 	/**
@@ -2554,7 +2554,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetTextureParameterIuiv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterIuiv;
-		invokeIIPV(__functionAddress, texture, pname, params);
+		callIIPV(__functionAddress, texture, pname, params);
 	}
 
 	/**
@@ -2591,7 +2591,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetTextureParameteriv(int texture, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameteriv;
-		invokeIIPV(__functionAddress, texture, pname, params);
+		callIIPV(__functionAddress, texture, pname, params);
 	}
 
 	/**
@@ -2628,7 +2628,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglCreateVertexArrays(int n, long arrays) {
 		long __functionAddress = getInstance().CreateVertexArrays;
-		invokeIPV(__functionAddress, n, arrays);
+		callIPV(__functionAddress, n, arrays);
 	}
 
 	/**
@@ -2666,7 +2666,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glDisableVertexArrayAttrib(int vaobj, int index) {
 		long __functionAddress = getInstance().DisableVertexArrayAttrib;
-		invokeIIV(__functionAddress, vaobj, index);
+		callIIV(__functionAddress, vaobj, index);
 	}
 
 	// --- [ glEnableVertexArrayAttrib ] ---
@@ -2679,7 +2679,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glEnableVertexArrayAttrib(int vaobj, int index) {
 		long __functionAddress = getInstance().EnableVertexArrayAttrib;
-		invokeIIV(__functionAddress, vaobj, index);
+		callIIV(__functionAddress, vaobj, index);
 	}
 
 	// --- [ glVertexArrayElementBuffer ] ---
@@ -2692,7 +2692,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glVertexArrayElementBuffer(int vaobj, int buffer) {
 		long __functionAddress = getInstance().VertexArrayElementBuffer;
-		invokeIIV(__functionAddress, vaobj, buffer);
+		callIIV(__functionAddress, vaobj, buffer);
 	}
 
 	// --- [ glVertexArrayVertexBuffer ] ---
@@ -2708,7 +2708,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glVertexArrayVertexBuffer(int vaobj, int bindingindex, int buffer, long offset, int stride) {
 		long __functionAddress = getInstance().VertexArrayVertexBuffer;
-		invokeIIIPIV(__functionAddress, vaobj, bindingindex, buffer, offset, stride);
+		callIIIPIV(__functionAddress, vaobj, bindingindex, buffer, offset, stride);
 	}
 
 	// --- [ glVertexArrayVertexBuffers ] ---
@@ -2717,7 +2717,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglVertexArrayVertexBuffers(int vaobj, int first, int count, long buffers, long offsets, long strides) {
 		long __functionAddress = getInstance().VertexArrayVertexBuffers;
-		invokeIIIPPPV(__functionAddress, vaobj, first, count, buffers, offsets, strides);
+		callIIIPPPV(__functionAddress, vaobj, first, count, buffers, offsets, strides);
 	}
 
 	/**
@@ -2763,7 +2763,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glVertexArrayAttribFormat(int vaobj, int attribindex, int size, int type, boolean normalized, int relativeoffset) {
 		long __functionAddress = getInstance().VertexArrayAttribFormat;
-		invokeIIIIZIV(__functionAddress, vaobj, attribindex, size, type, normalized, relativeoffset);
+		callIIIIZIV(__functionAddress, vaobj, attribindex, size, type, normalized, relativeoffset);
 	}
 
 	// --- [ glVertexArrayAttribIFormat ] ---
@@ -2779,7 +2779,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glVertexArrayAttribIFormat(int vaobj, int attribindex, int size, int type, int relativeoffset) {
 		long __functionAddress = getInstance().VertexArrayAttribIFormat;
-		invokeIIIIIV(__functionAddress, vaobj, attribindex, size, type, relativeoffset);
+		callIIIIIV(__functionAddress, vaobj, attribindex, size, type, relativeoffset);
 	}
 
 	// --- [ glVertexArrayAttribLFormat ] ---
@@ -2795,7 +2795,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glVertexArrayAttribLFormat(int vaobj, int attribindex, int size, int type, int relativeoffset) {
 		long __functionAddress = getInstance().VertexArrayAttribLFormat;
-		invokeIIIIIV(__functionAddress, vaobj, attribindex, size, type, relativeoffset);
+		callIIIIIV(__functionAddress, vaobj, attribindex, size, type, relativeoffset);
 	}
 
 	// --- [ glVertexArrayAttribBinding ] ---
@@ -2809,7 +2809,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glVertexArrayAttribBinding(int vaobj, int attribindex, int bindingindex) {
 		long __functionAddress = getInstance().VertexArrayAttribBinding;
-		invokeIIIV(__functionAddress, vaobj, attribindex, bindingindex);
+		callIIIV(__functionAddress, vaobj, attribindex, bindingindex);
 	}
 
 	// --- [ glVertexArrayBindingDivisor ] ---
@@ -2823,7 +2823,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glVertexArrayBindingDivisor(int vaobj, int bindingindex, int divisor) {
 		long __functionAddress = getInstance().VertexArrayBindingDivisor;
-		invokeIIIV(__functionAddress, vaobj, bindingindex, divisor);
+		callIIIV(__functionAddress, vaobj, bindingindex, divisor);
 	}
 
 	// --- [ glGetVertexArrayiv ] ---
@@ -2832,7 +2832,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetVertexArrayiv(int vaobj, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayiv;
-		invokeIIPV(__functionAddress, vaobj, pname, param);
+		callIIPV(__functionAddress, vaobj, pname, param);
 	}
 
 	/**
@@ -2869,7 +2869,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetVertexArrayIndexediv(int vaobj, int index, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayIndexediv;
-		invokeIIIPV(__functionAddress, vaobj, index, pname, param);
+		callIIIPV(__functionAddress, vaobj, index, pname, param);
 	}
 
 	/**
@@ -2907,7 +2907,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetVertexArrayIndexed64iv(int vaobj, int index, int pname, long param) {
 		long __functionAddress = getInstance().GetVertexArrayIndexed64iv;
-		invokeIIIPV(__functionAddress, vaobj, index, pname, param);
+		callIIIPV(__functionAddress, vaobj, index, pname, param);
 	}
 
 	/**
@@ -2945,7 +2945,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglCreateSamplers(int n, long samplers) {
 		long __functionAddress = getInstance().CreateSamplers;
-		invokeIPV(__functionAddress, n, samplers);
+		callIPV(__functionAddress, n, samplers);
 	}
 
 	/**
@@ -2979,7 +2979,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglCreateProgramPipelines(int n, long pipelines) {
 		long __functionAddress = getInstance().CreateProgramPipelines;
-		invokeIPV(__functionAddress, n, pipelines);
+		callIPV(__functionAddress, n, pipelines);
 	}
 
 	/**
@@ -3013,7 +3013,7 @@ public final class ARBDirectStateAccess {
 	@JavadocExclude
 	public static void nglCreateQueries(int target, int n, long ids) {
 		long __functionAddress = getInstance().CreateQueries;
-		invokeIIPV(__functionAddress, target, n, ids);
+		callIIPV(__functionAddress, target, n, ids);
 	}
 
 	/**
@@ -3054,7 +3054,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glGetQueryBufferObjecti64v(int id, int buffer, int pname, long offset) {
 		long __functionAddress = getInstance().GetQueryBufferObjecti64v;
-		invokeIIIPV(__functionAddress, id, buffer, pname, offset);
+		callIIIPV(__functionAddress, id, buffer, pname, offset);
 	}
 
 	// --- [ glGetQueryBufferObjectiv ] ---
@@ -3069,7 +3069,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glGetQueryBufferObjectiv(int id, int buffer, int pname, long offset) {
 		long __functionAddress = getInstance().GetQueryBufferObjectiv;
-		invokeIIIPV(__functionAddress, id, buffer, pname, offset);
+		callIIIPV(__functionAddress, id, buffer, pname, offset);
 	}
 
 	// --- [ glGetQueryBufferObjectui64v ] ---
@@ -3084,7 +3084,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glGetQueryBufferObjectui64v(int id, int buffer, int pname, long offset) {
 		long __functionAddress = getInstance().GetQueryBufferObjectui64v;
-		invokeIIIPV(__functionAddress, id, buffer, pname, offset);
+		callIIIPV(__functionAddress, id, buffer, pname, offset);
 	}
 
 	// --- [ glGetQueryBufferObjectuiv ] ---
@@ -3099,7 +3099,7 @@ public final class ARBDirectStateAccess {
 	 */
 	public static void glGetQueryBufferObjectuiv(int id, int buffer, int pname, long offset) {
 		long __functionAddress = getInstance().GetQueryBufferObjectuiv;
-		invokeIIIPV(__functionAddress, id, buffer, pname, offset);
+		callIIIPV(__functionAddress, id, buffer, pname, offset);
 	}
 
 }

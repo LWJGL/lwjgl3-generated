@@ -23,12 +23,14 @@ public final class OVRSizei implements Pointer {
 		H;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(2);
+		IntBuffer offsets = memAllocInt(2);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		W = offsets.get(0);
 		H = offsets.get(1);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -53,8 +55,8 @@ public final class OVRSizei implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setW(int w) { w(struct, w); }
-	public void setH(int h) { h(struct, h); }
+	public OVRSizei setW(int w) { w(struct, w); return this; }
+	public OVRSizei setH(int h) { h(struct, h); return this; }
 
 	public int getW() { return w(struct); }
 	public int getH() { return h(struct); }

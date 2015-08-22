@@ -62,7 +62,7 @@ public final class EGL11 {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return invokePPIZ(__functionAddress, dpy, surface, buffer);
+		return callPPIZ(__functionAddress, dpy, surface, buffer);
 	}
 
 	// --- [ eglReleaseTexImage ] ---
@@ -73,7 +73,7 @@ public final class EGL11 {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return invokePPIZ(__functionAddress, dpy, surface, buffer);
+		return callPPIZ(__functionAddress, dpy, surface, buffer);
 	}
 
 	// --- [ eglSurfaceAttrib ] ---
@@ -84,7 +84,7 @@ public final class EGL11 {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return invokePPIIZ(__functionAddress, dpy, surface, attribute, value);
+		return callPPIIZ(__functionAddress, dpy, surface, attribute, value);
 	}
 
 	// --- [ eglSwapInterval ] ---
@@ -93,7 +93,7 @@ public final class EGL11 {
 		long __functionAddress = getInstance().SwapInterval;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return invokePIZ(__functionAddress, dpy, interval);
+		return callPIZ(__functionAddress, dpy, interval);
 	}
 
 }

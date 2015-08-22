@@ -78,7 +78,7 @@ public final class KHRReusableSync {
 		long __functionAddress = getInstance().CreateSyncKHR;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return invokePIPP(__functionAddress, dpy, type, attrib_list);
+		return callPIPP(__functionAddress, dpy, type, attrib_list);
 	}
 
 	public static long eglCreateSyncKHR(long dpy, int type, ByteBuffer attrib_list) {
@@ -102,7 +102,7 @@ public final class KHRReusableSync {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return invokePPZ(__functionAddress, dpy, sync);
+		return callPPZ(__functionAddress, dpy, sync);
 	}
 
 	// --- [ eglClientWaitSyncKHR ] ---
@@ -113,7 +113,7 @@ public final class KHRReusableSync {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return invokePPIJI(__functionAddress, dpy, sync, flags, timeout);
+		return callPPIJI(__functionAddress, dpy, sync, flags, timeout);
 	}
 
 	// --- [ eglSignalSyncKHR ] ---
@@ -124,7 +124,7 @@ public final class KHRReusableSync {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return invokePPIZ(__functionAddress, dpy, sync, mode);
+		return callPPIZ(__functionAddress, dpy, sync, mode);
 	}
 
 	// --- [ eglGetSyncAttribKHR ] ---
@@ -137,7 +137,7 @@ public final class KHRReusableSync {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return invokePPIPZ(__functionAddress, dpy, sync, attribute, value);
+		return callPPIPZ(__functionAddress, dpy, sync, attribute, value);
 	}
 
 	public static boolean eglGetSyncAttribKHR(long dpy, long sync, int attribute, ByteBuffer value) {

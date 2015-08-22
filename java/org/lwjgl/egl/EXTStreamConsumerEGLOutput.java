@@ -52,7 +52,7 @@ public final class EXTStreamConsumerEGLOutput {
 			checkPointer(stream);
 			checkPointer(layer);
 		}
-		return invokePPPZ(__functionAddress, dpy, stream, layer);
+		return callPPPZ(__functionAddress, dpy, stream, layer);
 	}
 
 }

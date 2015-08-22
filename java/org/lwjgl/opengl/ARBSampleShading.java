@@ -78,7 +78,7 @@ public final class ARBSampleShading {
 	 */
 	public static void glMinSampleShadingARB(float value) {
 		long __functionAddress = getInstance().MinSampleShadingARB;
-		invokeFV(__functionAddress, value);
+		callFV(__functionAddress, value);
 	}
 
 }

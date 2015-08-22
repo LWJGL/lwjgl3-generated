@@ -70,42 +70,42 @@ public final class NVTextureMultisample {
 
 	public static void glTexImage2DMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, boolean fixedSampleLocations) {
 		long __functionAddress = getInstance().TexImage2DMultisampleCoverageNV;
-		invokeIIIIIIZV(__functionAddress, target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations);
+		callIIIIIIZV(__functionAddress, target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations);
 	}
 
 	// --- [ glTexImage3DMultisampleCoverageNV ] ---
 
 	public static void glTexImage3DMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, int depth, boolean fixedSampleLocations) {
 		long __functionAddress = getInstance().TexImage3DMultisampleCoverageNV;
-		invokeIIIIIIIZV(__functionAddress, target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations);
+		callIIIIIIIZV(__functionAddress, target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations);
 	}
 
 	// --- [ glTextureImage2DMultisampleNV ] ---
 
 	public static void glTextureImage2DMultisampleNV(int texture, int target, int samples, int internalFormat, int width, int height, boolean fixedSampleLocations) {
 		long __functionAddress = getInstance().TextureImage2DMultisampleNV;
-		invokeIIIIIIZV(__functionAddress, texture, target, samples, internalFormat, width, height, fixedSampleLocations);
+		callIIIIIIZV(__functionAddress, texture, target, samples, internalFormat, width, height, fixedSampleLocations);
 	}
 
 	// --- [ glTextureImage3DMultisampleNV ] ---
 
 	public static void glTextureImage3DMultisampleNV(int texture, int target, int samples, int internalFormat, int width, int height, int depth, boolean fixedSampleLocations) {
 		long __functionAddress = getInstance().TextureImage3DMultisampleNV;
-		invokeIIIIIIIZV(__functionAddress, texture, target, samples, internalFormat, width, height, depth, fixedSampleLocations);
+		callIIIIIIIZV(__functionAddress, texture, target, samples, internalFormat, width, height, depth, fixedSampleLocations);
 	}
 
 	// --- [ glTextureImage2DMultisampleCoverageNV ] ---
 
 	public static void glTextureImage2DMultisampleCoverageNV(int texture, int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, boolean fixedSampleLocations) {
 		long __functionAddress = getInstance().TextureImage2DMultisampleCoverageNV;
-		invokeIIIIIIIZV(__functionAddress, texture, target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations);
+		callIIIIIIIZV(__functionAddress, texture, target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations);
 	}
 
 	// --- [ glTextureImage3DMultisampleCoverageNV ] ---
 
 	public static void glTextureImage3DMultisampleCoverageNV(int texture, int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, int depth, boolean fixedSampleLocations) {
 		long __functionAddress = getInstance().TextureImage3DMultisampleCoverageNV;
-		invokeIIIIIIIIZV(__functionAddress, texture, target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations);
+		callIIIIIIIIZV(__functionAddress, texture, target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations);
 	}
 
 }

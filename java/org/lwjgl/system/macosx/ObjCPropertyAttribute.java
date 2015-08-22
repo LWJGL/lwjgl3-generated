@@ -23,12 +23,14 @@ public final class ObjCPropertyAttribute implements Pointer {
 		VALUE;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(2);
+		IntBuffer offsets = memAllocInt(2);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		NAME = offsets.get(0);
 		VALUE = offsets.get(1);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -53,10 +55,10 @@ public final class ObjCPropertyAttribute implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setName(long name) { name(struct, name); }
-	public void setName(ByteBuffer name) { name(struct, name); }
-	public void setValue(long value) { value(struct, value); }
-	public void setValue(ByteBuffer value) { value(struct, value); }
+	public ObjCPropertyAttribute setName(long name) { name(struct, name); return this; }
+	public ObjCPropertyAttribute setName(ByteBuffer name) { name(struct, name); return this; }
+	public ObjCPropertyAttribute setValue(long value) { value(struct, value); return this; }
+	public ObjCPropertyAttribute setValue(ByteBuffer value) { value(struct, value); return this; }
 
 	public long getName() { return name(struct); }
 	public ByteBuffer getNameBuffer() { return nameBuffer(struct); }

@@ -18,8 +18,8 @@ import org.lwjgl.opengl.GL11;
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowFocusCallback} method. */
 public abstract class GLFWWindowFocusCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = FFICIF.malloc();
-	private static final PointerBuffer ARGS = BufferUtils.createPointerBuffer(2);
+	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = memAllocPointer(2);
 
 	static {
 		ARGS.put(0, ffi_type_pointer);

@@ -86,7 +86,7 @@ public final class ARBTimerQuery {
 	 */
 	public static void glQueryCounter(int id, int target) {
 		long __functionAddress = getInstance().QueryCounter;
-		invokeIIV(__functionAddress, id, target);
+		callIIV(__functionAddress, id, target);
 	}
 
 	// --- [ glGetQueryObjecti64v ] ---
@@ -95,7 +95,7 @@ public final class ARBTimerQuery {
 	@JavadocExclude
 	public static void nglGetQueryObjecti64v(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjecti64v;
-		invokeIIPV(__functionAddress, id, pname, params);
+		callIIPV(__functionAddress, id, pname, params);
 	}
 
 	/**
@@ -132,7 +132,7 @@ public final class ARBTimerQuery {
 	@JavadocExclude
 	public static void nglGetQueryObjectui64v(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectui64v;
-		invokeIIPV(__functionAddress, id, pname, params);
+		callIIPV(__functionAddress, id, pname, params);
 	}
 
 	/**

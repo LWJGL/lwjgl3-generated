@@ -135,7 +135,7 @@ public final class ARBGeometryShader4 {
 	 */
 	public static void glProgramParameteriARB(int program, int pname, int value) {
 		long __functionAddress = getInstance().ProgramParameteriARB;
-		invokeIIIV(__functionAddress, program, pname, value);
+		callIIIV(__functionAddress, program, pname, value);
 	}
 
 	// --- [ glFramebufferTextureARB ] ---
@@ -162,7 +162,7 @@ public final class ARBGeometryShader4 {
 	 */
 	public static void glFramebufferTextureARB(int target, int attachment, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTextureARB;
-		invokeIIIIV(__functionAddress, target, attachment, texture, level);
+		callIIIIV(__functionAddress, target, attachment, texture, level);
 	}
 
 	// --- [ glFramebufferTextureLayerARB ] ---
@@ -183,7 +183,7 @@ public final class ARBGeometryShader4 {
 	 */
 	public static void glFramebufferTextureLayerARB(int target, int attachment, int texture, int level, int layer) {
 		long __functionAddress = getInstance().FramebufferTextureLayerARB;
-		invokeIIIIIV(__functionAddress, target, attachment, texture, level, layer);
+		callIIIIIV(__functionAddress, target, attachment, texture, level, layer);
 	}
 
 	// --- [ glFramebufferTextureFaceARB ] ---
@@ -203,7 +203,7 @@ public final class ARBGeometryShader4 {
 	 */
 	public static void glFramebufferTextureFaceARB(int target, int attachment, int texture, int level, int face) {
 		long __functionAddress = getInstance().FramebufferTextureFaceARB;
-		invokeIIIIIV(__functionAddress, target, attachment, texture, level, face);
+		callIIIIIV(__functionAddress, target, attachment, texture, level, face);
 	}
 
 }

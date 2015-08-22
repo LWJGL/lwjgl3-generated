@@ -81,7 +81,7 @@ public final class ARBProvokingVertex {
 	 */
 	public static void glProvokingVertex(int mode) {
 		long __functionAddress = getInstance().ProvokingVertex;
-		invokeIV(__functionAddress, mode);
+		callIV(__functionAddress, mode);
 	}
 
 }

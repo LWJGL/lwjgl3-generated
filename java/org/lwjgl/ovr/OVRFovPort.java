@@ -29,7 +29,7 @@ public final class OVRFovPort implements Pointer {
 		RIGHTTAN;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(4);
+		IntBuffer offsets = memAllocInt(4);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -37,6 +37,8 @@ public final class OVRFovPort implements Pointer {
 		DOWNTAN = offsets.get(1);
 		LEFTTAN = offsets.get(2);
 		RIGHTTAN = offsets.get(3);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -61,10 +63,10 @@ public final class OVRFovPort implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setUpTan(float UpTan) { UpTan(struct, UpTan); }
-	public void setDownTan(float DownTan) { DownTan(struct, DownTan); }
-	public void setLeftTan(float LeftTan) { LeftTan(struct, LeftTan); }
-	public void setRightTan(float RightTan) { RightTan(struct, RightTan); }
+	public OVRFovPort setUpTan(float UpTan) { UpTan(struct, UpTan); return this; }
+	public OVRFovPort setDownTan(float DownTan) { DownTan(struct, DownTan); return this; }
+	public OVRFovPort setLeftTan(float LeftTan) { LeftTan(struct, LeftTan); return this; }
+	public OVRFovPort setRightTan(float RightTan) { RightTan(struct, RightTan); return this; }
 
 	public float getUpTan() { return UpTan(struct); }
 	public float getDownTan() { return DownTan(struct); }

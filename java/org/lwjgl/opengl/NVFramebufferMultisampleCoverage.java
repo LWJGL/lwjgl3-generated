@@ -71,7 +71,7 @@ public final class NVFramebufferMultisampleCoverage {
 
 	public static void glRenderbufferStorageMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageMultisampleCoverageNV;
-		invokeIIIIIIV(__functionAddress, target, coverageSamples, colorSamples, internalformat, width, height);
+		callIIIIIIV(__functionAddress, target, coverageSamples, colorSamples, internalformat, width, height);
 	}
 
 }

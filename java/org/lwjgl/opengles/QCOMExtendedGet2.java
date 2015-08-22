@@ -62,7 +62,7 @@ public final class QCOMExtendedGet2 {
 	@JavadocExclude
 	public static void nglExtGetShadersQCOM(long shaders, int maxShaders, long numShaders) {
 		long __functionAddress = getInstance().ExtGetShadersQCOM;
-		invokePIPV(__functionAddress, shaders, maxShaders, numShaders);
+		callPIPV(__functionAddress, shaders, maxShaders, numShaders);
 	}
 
 	public static void glExtGetShadersQCOM(ByteBuffer shaders, int maxShaders, ByteBuffer numShaders) {
@@ -86,7 +86,7 @@ public final class QCOMExtendedGet2 {
 	@JavadocExclude
 	public static void nglExtGetProgramsQCOM(long programs, int maxPrograms, long numPrograms) {
 		long __functionAddress = getInstance().ExtGetProgramsQCOM;
-		invokePIPV(__functionAddress, programs, maxPrograms, numPrograms);
+		callPIPV(__functionAddress, programs, maxPrograms, numPrograms);
 	}
 
 	public static void glExtGetProgramsQCOM(ByteBuffer programs, int maxPrograms, ByteBuffer numPrograms) {
@@ -108,7 +108,7 @@ public final class QCOMExtendedGet2 {
 
 	public static boolean glExtIsProgramBinaryQCOM(int program) {
 		long __functionAddress = getInstance().ExtIsProgramBinaryQCOM;
-		return invokeIZ(__functionAddress, program);
+		return callIZ(__functionAddress, program);
 	}
 
 	// --- [ glExtGetProgramBinarySourceQCOM ] ---
@@ -117,7 +117,7 @@ public final class QCOMExtendedGet2 {
 	@JavadocExclude
 	public static void nglExtGetProgramBinarySourceQCOM(int program, int shadertype, long source, long length) {
 		long __functionAddress = getInstance().ExtGetProgramBinarySourceQCOM;
-		invokeIIPPV(__functionAddress, program, shadertype, source, length);
+		callIIPPV(__functionAddress, program, shadertype, source, length);
 	}
 
 	public static void glExtGetProgramBinarySourceQCOM(int program, int shadertype, ByteBuffer source, ByteBuffer length) {

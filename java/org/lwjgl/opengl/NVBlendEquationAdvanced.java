@@ -117,14 +117,14 @@ public final class NVBlendEquationAdvanced {
 
 	public static void glBlendParameteriNV(int pname, int value) {
 		long __functionAddress = getInstance().BlendParameteriNV;
-		invokeIIV(__functionAddress, pname, value);
+		callIIV(__functionAddress, pname, value);
 	}
 
 	// --- [ glBlendBarrierNV ] ---
 
 	public static void glBlendBarrierNV() {
 		long __functionAddress = getInstance().BlendBarrierNV;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 }

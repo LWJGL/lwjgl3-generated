@@ -79,7 +79,7 @@ public final class ARBDrawIndirect {
 	@JavadocExclude
 	public static void nglDrawArraysIndirect(int mode, long indirect) {
 		long __functionAddress = getInstance().DrawArraysIndirect;
-		invokeIPV(__functionAddress, mode, indirect);
+		callIPV(__functionAddress, mode, indirect);
 	}
 
 	/**
@@ -133,7 +133,7 @@ public final class ARBDrawIndirect {
 	@JavadocExclude
 	public static void nglDrawElementsIndirect(int mode, int type, long indirect) {
 		long __functionAddress = getInstance().DrawElementsIndirect;
-		invokeIIPV(__functionAddress, mode, type, indirect);
+		callIIPV(__functionAddress, mode, type, indirect);
 	}
 
 	/**

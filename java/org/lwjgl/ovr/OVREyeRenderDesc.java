@@ -29,7 +29,7 @@ public final class OVREyeRenderDesc implements Pointer {
 		HMDTOEYEVIEWOFFSET;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(5);
+		IntBuffer offsets = memAllocInt(5);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -38,6 +38,8 @@ public final class OVREyeRenderDesc implements Pointer {
 		DISTORTEDVIEWPORT = offsets.get(2);
 		PIXELSPERTANANGLEATCENTER = offsets.get(3);
 		HMDTOEYEVIEWOFFSET = offsets.get(4);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -62,26 +64,26 @@ public final class OVREyeRenderDesc implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setEye(int Eye) { Eye(struct, Eye); }
-	public void setFov(ByteBuffer Fov) { FovSet(struct, Fov); }
-	public void setFovUpTan(float UpTan) { FovUpTan(struct, UpTan); }
-	public void setFovDownTan(float DownTan) { FovDownTan(struct, DownTan); }
-	public void setFovLeftTan(float LeftTan) { FovLeftTan(struct, LeftTan); }
-	public void setFovRightTan(float RightTan) { FovRightTan(struct, RightTan); }
-	public void setDistortedViewport(ByteBuffer DistortedViewport) { DistortedViewportSet(struct, DistortedViewport); }
-	public void setDistortedViewportPos(ByteBuffer Pos) { DistortedViewportPosSet(struct, Pos); }
-	public void setDistortedViewportPosX(int x) { DistortedViewportPosX(struct, x); }
-	public void setDistortedViewportPosY(int y) { DistortedViewportPosY(struct, y); }
-	public void setDistortedViewportSize(ByteBuffer Size) { DistortedViewportSizeSet(struct, Size); }
-	public void setDistortedViewportSizeW(int w) { DistortedViewportSizeW(struct, w); }
-	public void setDistortedViewportSizeH(int h) { DistortedViewportSizeH(struct, h); }
-	public void setPixelsPerTanAngleAtCenter(ByteBuffer PixelsPerTanAngleAtCenter) { PixelsPerTanAngleAtCenterSet(struct, PixelsPerTanAngleAtCenter); }
-	public void setPixelsPerTanAngleAtCenterX(float x) { PixelsPerTanAngleAtCenterX(struct, x); }
-	public void setPixelsPerTanAngleAtCenterY(float y) { PixelsPerTanAngleAtCenterY(struct, y); }
-	public void setHmdToEyeViewOffset(ByteBuffer HmdToEyeViewOffset) { HmdToEyeViewOffsetSet(struct, HmdToEyeViewOffset); }
-	public void setHmdToEyeViewOffsetX(float x) { HmdToEyeViewOffsetX(struct, x); }
-	public void setHmdToEyeViewOffsetY(float y) { HmdToEyeViewOffsetY(struct, y); }
-	public void setHmdToEyeViewOffsetZ(float z) { HmdToEyeViewOffsetZ(struct, z); }
+	public OVREyeRenderDesc setEye(int Eye) { Eye(struct, Eye); return this; }
+	public OVREyeRenderDesc setFov(ByteBuffer Fov) { FovSet(struct, Fov); return this; }
+	public OVREyeRenderDesc setFovUpTan(float UpTan) { FovUpTan(struct, UpTan); return this; }
+	public OVREyeRenderDesc setFovDownTan(float DownTan) { FovDownTan(struct, DownTan); return this; }
+	public OVREyeRenderDesc setFovLeftTan(float LeftTan) { FovLeftTan(struct, LeftTan); return this; }
+	public OVREyeRenderDesc setFovRightTan(float RightTan) { FovRightTan(struct, RightTan); return this; }
+	public OVREyeRenderDesc setDistortedViewport(ByteBuffer DistortedViewport) { DistortedViewportSet(struct, DistortedViewport); return this; }
+	public OVREyeRenderDesc setDistortedViewportPos(ByteBuffer Pos) { DistortedViewportPosSet(struct, Pos); return this; }
+	public OVREyeRenderDesc setDistortedViewportPosX(int x) { DistortedViewportPosX(struct, x); return this; }
+	public OVREyeRenderDesc setDistortedViewportPosY(int y) { DistortedViewportPosY(struct, y); return this; }
+	public OVREyeRenderDesc setDistortedViewportSize(ByteBuffer Size) { DistortedViewportSizeSet(struct, Size); return this; }
+	public OVREyeRenderDesc setDistortedViewportSizeW(int w) { DistortedViewportSizeW(struct, w); return this; }
+	public OVREyeRenderDesc setDistortedViewportSizeH(int h) { DistortedViewportSizeH(struct, h); return this; }
+	public OVREyeRenderDesc setPixelsPerTanAngleAtCenter(ByteBuffer PixelsPerTanAngleAtCenter) { PixelsPerTanAngleAtCenterSet(struct, PixelsPerTanAngleAtCenter); return this; }
+	public OVREyeRenderDesc setPixelsPerTanAngleAtCenterX(float x) { PixelsPerTanAngleAtCenterX(struct, x); return this; }
+	public OVREyeRenderDesc setPixelsPerTanAngleAtCenterY(float y) { PixelsPerTanAngleAtCenterY(struct, y); return this; }
+	public OVREyeRenderDesc setHmdToEyeViewOffset(ByteBuffer HmdToEyeViewOffset) { HmdToEyeViewOffsetSet(struct, HmdToEyeViewOffset); return this; }
+	public OVREyeRenderDesc setHmdToEyeViewOffsetX(float x) { HmdToEyeViewOffsetX(struct, x); return this; }
+	public OVREyeRenderDesc setHmdToEyeViewOffsetY(float y) { HmdToEyeViewOffsetY(struct, y); return this; }
+	public OVREyeRenderDesc setHmdToEyeViewOffsetZ(float z) { HmdToEyeViewOffsetZ(struct, z); return this; }
 
 	public int getEye() { return Eye(struct); }
 	public void getFov(ByteBuffer Fov) { FovGet(struct, Fov); }

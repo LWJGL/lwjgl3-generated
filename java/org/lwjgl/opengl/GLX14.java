@@ -58,7 +58,7 @@ public final class GLX14 {
 	@JavadocExclude
 	public static long nglXGetProcAddress(long procName) {
 		long __functionAddress = getInstance().GetProcAddress;
-		return invokePP(__functionAddress, procName);
+		return callPP(__functionAddress, procName);
 	}
 
 	/**

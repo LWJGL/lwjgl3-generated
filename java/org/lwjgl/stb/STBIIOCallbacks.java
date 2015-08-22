@@ -24,13 +24,15 @@ public final class STBIIOCallbacks implements Pointer {
 		EOF;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(3);
+		IntBuffer offsets = memAllocInt(3);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		READ = offsets.get(0);
 		SKIP = offsets.get(1);
 		EOF = offsets.get(2);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -55,9 +57,9 @@ public final class STBIIOCallbacks implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setRead(long read) { read(struct, read); }
-	public void setSkip(long skip) { skip(struct, skip); }
-	public void setEof(long eof) { eof(struct, eof); }
+	public STBIIOCallbacks setRead(long read) { read(struct, read); return this; }
+	public STBIIOCallbacks setSkip(long skip) { skip(struct, skip); return this; }
+	public STBIIOCallbacks setEof(long eof) { eof(struct, eof); return this; }
 
 	public long getRead() { return read(struct); }
 	public long getSkip() { return skip(struct); }

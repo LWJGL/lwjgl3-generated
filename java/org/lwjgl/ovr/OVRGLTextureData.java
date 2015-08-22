@@ -23,12 +23,14 @@ public final class OVRGLTextureData implements Pointer {
 		TEXID;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(2);
+		IntBuffer offsets = memAllocInt(2);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		HEADER = offsets.get(0);
 		TEXID = offsets.get(1);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -53,12 +55,12 @@ public final class OVRGLTextureData implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setHeader(ByteBuffer Header) { HeaderSet(struct, Header); }
-	public void setHeaderAPI(int API) { HeaderAPI(struct, API); }
-	public void setHeaderTextureSize(ByteBuffer TextureSize) { HeaderTextureSizeSet(struct, TextureSize); }
-	public void setHeaderTextureSizeW(int w) { HeaderTextureSizeW(struct, w); }
-	public void setHeaderTextureSizeH(int h) { HeaderTextureSizeH(struct, h); }
-	public void setTexId(int TexId) { TexId(struct, TexId); }
+	public OVRGLTextureData setHeader(ByteBuffer Header) { HeaderSet(struct, Header); return this; }
+	public OVRGLTextureData setHeaderAPI(int API) { HeaderAPI(struct, API); return this; }
+	public OVRGLTextureData setHeaderTextureSize(ByteBuffer TextureSize) { HeaderTextureSizeSet(struct, TextureSize); return this; }
+	public OVRGLTextureData setHeaderTextureSizeW(int w) { HeaderTextureSizeW(struct, w); return this; }
+	public OVRGLTextureData setHeaderTextureSizeH(int h) { HeaderTextureSizeH(struct, h); return this; }
+	public OVRGLTextureData setTexId(int TexId) { TexId(struct, TexId); return this; }
 
 	public void getHeader(ByteBuffer Header) { HeaderGet(struct, Header); }
 	public int getHeaderAPI() { return HeaderAPI(struct); }

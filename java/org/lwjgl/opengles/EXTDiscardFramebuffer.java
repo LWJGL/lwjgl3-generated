@@ -75,7 +75,7 @@ public final class EXTDiscardFramebuffer {
 	@JavadocExclude
 	public static void nglDiscardFramebufferEXT(int target, int numAttachments, long attachments) {
 		long __functionAddress = getInstance().DiscardFramebufferEXT;
-		invokeIIPV(__functionAddress, target, numAttachments, attachments);
+		callIIPV(__functionAddress, target, numAttachments, attachments);
 	}
 
 	public static void glDiscardFramebufferEXT(int target, int numAttachments, ByteBuffer attachments) {

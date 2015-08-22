@@ -153,7 +153,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().VertexP2ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, type, value);
+		callIIV(__functionAddress, type, value);
 	}
 
 	// --- [ glVertexP3ui ] ---
@@ -168,7 +168,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().VertexP3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, type, value);
+		callIIV(__functionAddress, type, value);
 	}
 
 	// --- [ glVertexP4ui ] ---
@@ -183,7 +183,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().VertexP4ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, type, value);
+		callIIV(__functionAddress, type, value);
 	}
 
 	// --- [ glVertexP2uiv ] ---
@@ -194,7 +194,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().VertexP2uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, type, value);
+		callIPV(__functionAddress, type, value);
 	}
 
 	/**
@@ -224,7 +224,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().VertexP3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, type, value);
+		callIPV(__functionAddress, type, value);
 	}
 
 	/**
@@ -254,7 +254,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().VertexP4uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, type, value);
+		callIPV(__functionAddress, type, value);
 	}
 
 	/**
@@ -288,7 +288,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().TexCoordP1ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, type, coords);
+		callIIV(__functionAddress, type, coords);
 	}
 
 	// --- [ glTexCoordP2ui ] ---
@@ -303,7 +303,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().TexCoordP2ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, type, coords);
+		callIIV(__functionAddress, type, coords);
 	}
 
 	// --- [ glTexCoordP3ui ] ---
@@ -318,7 +318,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().TexCoordP3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, type, coords);
+		callIIV(__functionAddress, type, coords);
 	}
 
 	// --- [ glTexCoordP4ui ] ---
@@ -333,7 +333,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().TexCoordP4ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, type, coords);
+		callIIV(__functionAddress, type, coords);
 	}
 
 	// --- [ glTexCoordP1uiv ] ---
@@ -344,7 +344,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().TexCoordP1uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, type, coords);
+		callIPV(__functionAddress, type, coords);
 	}
 
 	/**
@@ -374,7 +374,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().TexCoordP2uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, type, coords);
+		callIPV(__functionAddress, type, coords);
 	}
 
 	/**
@@ -404,7 +404,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().TexCoordP3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, type, coords);
+		callIPV(__functionAddress, type, coords);
 	}
 
 	/**
@@ -434,7 +434,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().TexCoordP4uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, type, coords);
+		callIPV(__functionAddress, type, coords);
 	}
 
 	/**
@@ -469,7 +469,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().MultiTexCoordP1ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, texture, type, coords);
+		callIIIV(__functionAddress, texture, type, coords);
 	}
 
 	// --- [ glMultiTexCoordP2ui ] ---
@@ -485,7 +485,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().MultiTexCoordP2ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, texture, type, coords);
+		callIIIV(__functionAddress, texture, type, coords);
 	}
 
 	// --- [ glMultiTexCoordP3ui ] ---
@@ -501,7 +501,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().MultiTexCoordP3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, texture, type, coords);
+		callIIIV(__functionAddress, texture, type, coords);
 	}
 
 	// --- [ glMultiTexCoordP4ui ] ---
@@ -517,7 +517,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().MultiTexCoordP4ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, texture, type, coords);
+		callIIIV(__functionAddress, texture, type, coords);
 	}
 
 	// --- [ glMultiTexCoordP1uiv ] ---
@@ -528,7 +528,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().MultiTexCoordP1uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, texture, type, coords);
+		callIIPV(__functionAddress, texture, type, coords);
 	}
 
 	/**
@@ -559,7 +559,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().MultiTexCoordP2uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, texture, type, coords);
+		callIIPV(__functionAddress, texture, type, coords);
 	}
 
 	/**
@@ -590,7 +590,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().MultiTexCoordP3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, texture, type, coords);
+		callIIPV(__functionAddress, texture, type, coords);
 	}
 
 	/**
@@ -621,7 +621,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().MultiTexCoordP4uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, texture, type, coords);
+		callIIPV(__functionAddress, texture, type, coords);
 	}
 
 	/**
@@ -656,7 +656,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().NormalP3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, type, coords);
+		callIIV(__functionAddress, type, coords);
 	}
 
 	// --- [ glNormalP3uiv ] ---
@@ -667,7 +667,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().NormalP3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, type, coords);
+		callIPV(__functionAddress, type, coords);
 	}
 
 	/**
@@ -701,7 +701,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().ColorP3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, type, color);
+		callIIV(__functionAddress, type, color);
 	}
 
 	// --- [ glColorP4ui ] ---
@@ -716,7 +716,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().ColorP4ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, type, color);
+		callIIV(__functionAddress, type, color);
 	}
 
 	// --- [ glColorP3uiv ] ---
@@ -727,7 +727,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().ColorP3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, type, color);
+		callIPV(__functionAddress, type, color);
 	}
 
 	/**
@@ -757,7 +757,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().ColorP4uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, type, color);
+		callIPV(__functionAddress, type, color);
 	}
 
 	/**
@@ -791,7 +791,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().SecondaryColorP3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, type, color);
+		callIIV(__functionAddress, type, color);
 	}
 
 	// --- [ glSecondaryColorP3uiv ] ---
@@ -802,7 +802,7 @@ public final class ARBVertexType2_10_10_10_REV {
 		long __functionAddress = getInstance().SecondaryColorP3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, type, color);
+		callIPV(__functionAddress, type, color);
 	}
 
 	/**
@@ -836,7 +836,7 @@ public final class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glVertexAttribP1ui(int index, int type, boolean normalized, int value) {
 		long __functionAddress = getInstance().VertexAttribP1ui;
-		invokeIIZIV(__functionAddress, index, type, normalized, value);
+		callIIZIV(__functionAddress, index, type, normalized, value);
 	}
 
 	// --- [ glVertexAttribP2ui ] ---
@@ -851,7 +851,7 @@ public final class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glVertexAttribP2ui(int index, int type, boolean normalized, int value) {
 		long __functionAddress = getInstance().VertexAttribP2ui;
-		invokeIIZIV(__functionAddress, index, type, normalized, value);
+		callIIZIV(__functionAddress, index, type, normalized, value);
 	}
 
 	// --- [ glVertexAttribP3ui ] ---
@@ -866,7 +866,7 @@ public final class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glVertexAttribP3ui(int index, int type, boolean normalized, int value) {
 		long __functionAddress = getInstance().VertexAttribP3ui;
-		invokeIIZIV(__functionAddress, index, type, normalized, value);
+		callIIZIV(__functionAddress, index, type, normalized, value);
 	}
 
 	// --- [ glVertexAttribP4ui ] ---
@@ -881,7 +881,7 @@ public final class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glVertexAttribP4ui(int index, int type, boolean normalized, int value) {
 		long __functionAddress = getInstance().VertexAttribP4ui;
-		invokeIIZIV(__functionAddress, index, type, normalized, value);
+		callIIZIV(__functionAddress, index, type, normalized, value);
 	}
 
 	// --- [ glVertexAttribP1uiv ] ---
@@ -890,7 +890,7 @@ public final class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglVertexAttribP1uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP1uiv;
-		invokeIIZPV(__functionAddress, index, type, normalized, value);
+		callIIZPV(__functionAddress, index, type, normalized, value);
 	}
 
 	/**
@@ -920,7 +920,7 @@ public final class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglVertexAttribP2uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP2uiv;
-		invokeIIZPV(__functionAddress, index, type, normalized, value);
+		callIIZPV(__functionAddress, index, type, normalized, value);
 	}
 
 	/**
@@ -950,7 +950,7 @@ public final class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglVertexAttribP3uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP3uiv;
-		invokeIIZPV(__functionAddress, index, type, normalized, value);
+		callIIZPV(__functionAddress, index, type, normalized, value);
 	}
 
 	/**
@@ -980,7 +980,7 @@ public final class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglVertexAttribP4uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP4uiv;
-		invokeIIZPV(__functionAddress, index, type, normalized, value);
+		callIIZPV(__functionAddress, index, type, normalized, value);
 	}
 
 	/**

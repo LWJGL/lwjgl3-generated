@@ -80,7 +80,7 @@ public final class GLXNVCopyImage {
 		long __functionAddress = getInstance().CopyImageSubDataNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		invokePPIIIIIIPIIIIIIIIIV(__functionAddress, display, srcCtx, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstCtx, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
+		callPPIIIIIIPIIIIIIIIIV(__functionAddress, display, srcCtx, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstCtx, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
 	}
 
 }

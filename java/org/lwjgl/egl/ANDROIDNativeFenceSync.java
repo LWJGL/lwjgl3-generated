@@ -57,7 +57,7 @@ public final class ANDROIDNativeFenceSync {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return invokePPI(__functionAddress, dpy, sync);
+		return callPPI(__functionAddress, dpy, sync);
 	}
 
 }

@@ -79,7 +79,7 @@ public final class ARBInstancedArrays {
 	 */
 	public static void glVertexAttribDivisorARB(int index, int divisor) {
 		long __functionAddress = getInstance().VertexAttribDivisorARB;
-		invokeIIV(__functionAddress, index, divisor);
+		callIIV(__functionAddress, index, divisor);
 	}
 
 	// --- [ glVertexArrayVertexAttribDivisorEXT ] ---
@@ -102,7 +102,7 @@ public final class ARBInstancedArrays {
 		long __functionAddress = getInstance().VertexArrayVertexAttribDivisorEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, vaobj, index, divisor);
+		callIIIV(__functionAddress, vaobj, index, divisor);
 	}
 
 }

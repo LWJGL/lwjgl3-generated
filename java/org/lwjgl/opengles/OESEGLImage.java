@@ -61,7 +61,7 @@ public final class OESEGLImage {
 		long __functionAddress = getInstance().EGLImageTargetTexture2DOES;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(image);
-		invokeIPV(__functionAddress, target, image);
+		callIPV(__functionAddress, target, image);
 	}
 
 	// --- [ glEGLImageTargetRenderbufferStorageOES ] ---
@@ -70,7 +70,7 @@ public final class OESEGLImage {
 		long __functionAddress = getInstance().EGLImageTargetRenderbufferStorageOES;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(image);
-		invokeIPV(__functionAddress, target, image);
+		callIPV(__functionAddress, target, image);
 	}
 
 }

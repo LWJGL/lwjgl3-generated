@@ -325,7 +325,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glReleaseShaderCompiler() {
 		long __functionAddress = getInstance().ReleaseShaderCompiler;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glShaderBinary ] ---
@@ -334,7 +334,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglShaderBinary(int count, long shaders, int binaryformat, long binary, int length) {
 		long __functionAddress = getInstance().ShaderBinary;
-		invokeIPIPIV(__functionAddress, count, shaders, binaryformat, binary, length);
+		callIPIPIV(__functionAddress, count, shaders, binaryformat, binary, length);
 	}
 
 	/**
@@ -367,7 +367,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglGetShaderPrecisionFormat(int shadertype, int precisiontype, long range, long precision) {
 		long __functionAddress = getInstance().GetShaderPrecisionFormat;
-		invokeIIPPV(__functionAddress, shadertype, precisiontype, range, precision);
+		callIIPPV(__functionAddress, shadertype, precisiontype, range, precision);
 	}
 
 	/**
@@ -419,7 +419,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glDepthRangef(float zNear, float zFar) {
 		long __functionAddress = getInstance().DepthRangef;
-		invokeFFV(__functionAddress, zNear, zFar);
+		callFFV(__functionAddress, zNear, zFar);
 	}
 
 	// --- [ glClearDepthf ] ---
@@ -433,7 +433,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glClearDepthf(float depth) {
 		long __functionAddress = getInstance().ClearDepthf;
-		invokeFV(__functionAddress, depth);
+		callFV(__functionAddress, depth);
 	}
 
 	// --- [ glGetProgramBinary ] ---
@@ -442,7 +442,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglGetProgramBinary(int program, int bufSize, long length, long binaryFormat, long binary) {
 		long __functionAddress = getInstance().GetProgramBinary;
-		invokeIIPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
+		callIIPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
 	}
 
 	/**
@@ -505,7 +505,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramBinary(int program, int binaryFormat, long binary, int length) {
 		long __functionAddress = getInstance().ProgramBinary;
-		invokeIIPIV(__functionAddress, program, binaryFormat, binary, length);
+		callIIPIV(__functionAddress, program, binaryFormat, binary, length);
 	}
 
 	/**
@@ -542,7 +542,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramParameteri(int program, int pname, int value) {
 		long __functionAddress = getInstance().ProgramParameteri;
-		invokeIIIV(__functionAddress, program, pname, value);
+		callIIIV(__functionAddress, program, pname, value);
 	}
 
 	// --- [ glUseProgramStages ] ---
@@ -558,7 +558,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glUseProgramStages(int pipeline, int stages, int program) {
 		long __functionAddress = getInstance().UseProgramStages;
-		invokeIIIV(__functionAddress, pipeline, stages, program);
+		callIIIV(__functionAddress, pipeline, stages, program);
 	}
 
 	// --- [ glActiveShaderProgram ] ---
@@ -573,7 +573,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glActiveShaderProgram(int pipeline, int program) {
 		long __functionAddress = getInstance().ActiveShaderProgram;
-		invokeIIV(__functionAddress, pipeline, program);
+		callIIV(__functionAddress, pipeline, program);
 	}
 
 	// --- [ glCreateShaderProgramv ] ---
@@ -582,7 +582,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static int nglCreateShaderProgramv(int type, int count, long strings) {
 		long __functionAddress = getInstance().CreateShaderProgramv;
-		return invokeIIPI(__functionAddress, type, count, strings);
+		return callIIPI(__functionAddress, type, count, strings);
 	}
 
 	/**
@@ -663,7 +663,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glBindProgramPipeline(int pipeline) {
 		long __functionAddress = getInstance().BindProgramPipeline;
-		invokeIV(__functionAddress, pipeline);
+		callIV(__functionAddress, pipeline);
 	}
 
 	// --- [ glDeleteProgramPipelines ] ---
@@ -672,7 +672,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglDeleteProgramPipelines(int n, long pipelines) {
 		long __functionAddress = getInstance().DeleteProgramPipelines;
-		invokeIPV(__functionAddress, n, pipelines);
+		callIPV(__functionAddress, n, pipelines);
 	}
 
 	/**
@@ -707,7 +707,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglGenProgramPipelines(int n, long pipelines) {
 		long __functionAddress = getInstance().GenProgramPipelines;
-		invokeIPV(__functionAddress, n, pipelines);
+		callIPV(__functionAddress, n, pipelines);
 	}
 
 	/**
@@ -748,7 +748,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static boolean glIsProgramPipeline(int pipeline) {
 		long __functionAddress = getInstance().IsProgramPipeline;
-		return invokeIZ(__functionAddress, pipeline);
+		return callIZ(__functionAddress, pipeline);
 	}
 
 	// --- [ glGetProgramPipelineiv ] ---
@@ -757,7 +757,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglGetProgramPipelineiv(int pipeline, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramPipelineiv;
-		invokeIIPV(__functionAddress, pipeline, pname, params);
+		callIIPV(__functionAddress, pipeline, pname, params);
 	}
 
 	/**
@@ -803,7 +803,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform1i(int program, int location, int x) {
 		long __functionAddress = getInstance().ProgramUniform1i;
-		invokeIIIV(__functionAddress, program, location, x);
+		callIIIV(__functionAddress, program, location, x);
 	}
 
 	// --- [ glProgramUniform2i ] ---
@@ -820,7 +820,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform2i(int program, int location, int x, int y) {
 		long __functionAddress = getInstance().ProgramUniform2i;
-		invokeIIIIV(__functionAddress, program, location, x, y);
+		callIIIIV(__functionAddress, program, location, x, y);
 	}
 
 	// --- [ glProgramUniform3i ] ---
@@ -838,7 +838,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform3i(int program, int location, int x, int y, int z) {
 		long __functionAddress = getInstance().ProgramUniform3i;
-		invokeIIIIIV(__functionAddress, program, location, x, y, z);
+		callIIIIIV(__functionAddress, program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform4i ] ---
@@ -857,7 +857,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform4i(int program, int location, int x, int y, int z, int w) {
 		long __functionAddress = getInstance().ProgramUniform4i;
-		invokeIIIIIIV(__functionAddress, program, location, x, y, z, w);
+		callIIIIIIV(__functionAddress, program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform1ui ] ---
@@ -873,7 +873,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform1ui(int program, int location, int x) {
 		long __functionAddress = getInstance().ProgramUniform1ui;
-		invokeIIIV(__functionAddress, program, location, x);
+		callIIIV(__functionAddress, program, location, x);
 	}
 
 	// --- [ glProgramUniform2ui ] ---
@@ -890,7 +890,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform2ui(int program, int location, int x, int y) {
 		long __functionAddress = getInstance().ProgramUniform2ui;
-		invokeIIIIV(__functionAddress, program, location, x, y);
+		callIIIIV(__functionAddress, program, location, x, y);
 	}
 
 	// --- [ glProgramUniform3ui ] ---
@@ -908,7 +908,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform3ui(int program, int location, int x, int y, int z) {
 		long __functionAddress = getInstance().ProgramUniform3ui;
-		invokeIIIIIV(__functionAddress, program, location, x, y, z);
+		callIIIIIV(__functionAddress, program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform4ui ] ---
@@ -927,7 +927,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform4ui(int program, int location, int x, int y, int z, int w) {
 		long __functionAddress = getInstance().ProgramUniform4ui;
-		invokeIIIIIIV(__functionAddress, program, location, x, y, z, w);
+		callIIIIIIV(__functionAddress, program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform1f ] ---
@@ -943,7 +943,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform1f(int program, int location, float x) {
 		long __functionAddress = getInstance().ProgramUniform1f;
-		invokeIIFV(__functionAddress, program, location, x);
+		callIIFV(__functionAddress, program, location, x);
 	}
 
 	// --- [ glProgramUniform2f ] ---
@@ -960,7 +960,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform2f(int program, int location, float x, float y) {
 		long __functionAddress = getInstance().ProgramUniform2f;
-		invokeIIFFV(__functionAddress, program, location, x, y);
+		callIIFFV(__functionAddress, program, location, x, y);
 	}
 
 	// --- [ glProgramUniform3f ] ---
@@ -978,7 +978,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform3f(int program, int location, float x, float y, float z) {
 		long __functionAddress = getInstance().ProgramUniform3f;
-		invokeIIFFFV(__functionAddress, program, location, x, y, z);
+		callIIFFFV(__functionAddress, program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform4f ] ---
@@ -997,7 +997,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform4f(int program, int location, float x, float y, float z, float w) {
 		long __functionAddress = getInstance().ProgramUniform4f;
-		invokeIIFFFFV(__functionAddress, program, location, x, y, z, w);
+		callIIFFFFV(__functionAddress, program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform1d ] ---
@@ -1013,7 +1013,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform1d(int program, int location, double x) {
 		long __functionAddress = getInstance().ProgramUniform1d;
-		invokeIIDV(__functionAddress, program, location, x);
+		callIIDV(__functionAddress, program, location, x);
 	}
 
 	// --- [ glProgramUniform2d ] ---
@@ -1030,7 +1030,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform2d(int program, int location, double x, double y) {
 		long __functionAddress = getInstance().ProgramUniform2d;
-		invokeIIDDV(__functionAddress, program, location, x, y);
+		callIIDDV(__functionAddress, program, location, x, y);
 	}
 
 	// --- [ glProgramUniform3d ] ---
@@ -1048,7 +1048,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform3d(int program, int location, double x, double y, double z) {
 		long __functionAddress = getInstance().ProgramUniform3d;
-		invokeIIDDDV(__functionAddress, program, location, x, y, z);
+		callIIDDDV(__functionAddress, program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform4d ] ---
@@ -1067,7 +1067,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform4d(int program, int location, double x, double y, double z, double w) {
 		long __functionAddress = getInstance().ProgramUniform4d;
-		invokeIIDDDDV(__functionAddress, program, location, x, y, z, w);
+		callIIDDDDV(__functionAddress, program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform1iv ] ---
@@ -1076,7 +1076,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform1iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1iv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1106,7 +1106,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform2iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2iv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1136,7 +1136,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform3iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3iv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1166,7 +1166,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform4iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4iv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1196,7 +1196,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform1uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1uiv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1226,7 +1226,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform2uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2uiv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1256,7 +1256,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform3uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3uiv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1286,7 +1286,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform4uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4uiv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1316,7 +1316,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform1fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1fv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1346,7 +1346,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform2fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2fv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1376,7 +1376,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform3fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3fv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1406,7 +1406,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform4fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4fv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1436,7 +1436,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform1dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1dv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1466,7 +1466,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform2dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2dv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1496,7 +1496,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform3dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3dv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1526,7 +1526,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniform4dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4dv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1556,7 +1556,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2fv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1587,7 +1587,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3fv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1618,7 +1618,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4fv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1649,7 +1649,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2dv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1680,7 +1680,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3dv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1711,7 +1711,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4dv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1742,7 +1742,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x3fv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1773,7 +1773,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x2fv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1804,7 +1804,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x4fv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1835,7 +1835,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x2fv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1866,7 +1866,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x4fv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1897,7 +1897,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x3fv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1928,7 +1928,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x3dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x3dv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1959,7 +1959,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x2dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x2dv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1990,7 +1990,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x4dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x4dv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -2021,7 +2021,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x2dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x2dv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -2052,7 +2052,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x4dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x4dv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -2083,7 +2083,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x3dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x3dv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -2119,7 +2119,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glValidateProgramPipeline(int pipeline) {
 		long __functionAddress = getInstance().ValidateProgramPipeline;
-		invokeIV(__functionAddress, pipeline);
+		callIV(__functionAddress, pipeline);
 	}
 
 	// --- [ glGetProgramPipelineInfoLog ] ---
@@ -2128,7 +2128,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglGetProgramPipelineInfoLog(int pipeline, int bufSize, long length, long infoLog) {
 		long __functionAddress = getInstance().GetProgramPipelineInfoLog;
-		invokeIIPPV(__functionAddress, pipeline, bufSize, length, infoLog);
+		callIIPPV(__functionAddress, pipeline, bufSize, length, infoLog);
 	}
 
 	/**
@@ -2187,7 +2187,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glVertexAttribL1d(int index, double x) {
 		long __functionAddress = getInstance().VertexAttribL1d;
-		invokeIDV(__functionAddress, index, x);
+		callIDV(__functionAddress, index, x);
 	}
 
 	// --- [ glVertexAttribL2d ] ---
@@ -2203,7 +2203,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glVertexAttribL2d(int index, double x, double y) {
 		long __functionAddress = getInstance().VertexAttribL2d;
-		invokeIDDV(__functionAddress, index, x, y);
+		callIDDV(__functionAddress, index, x, y);
 	}
 
 	// --- [ glVertexAttribL3d ] ---
@@ -2220,7 +2220,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glVertexAttribL3d(int index, double x, double y, double z) {
 		long __functionAddress = getInstance().VertexAttribL3d;
-		invokeIDDDV(__functionAddress, index, x, y, z);
+		callIDDDV(__functionAddress, index, x, y, z);
 	}
 
 	// --- [ glVertexAttribL4d ] ---
@@ -2238,7 +2238,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glVertexAttribL4d(int index, double x, double y, double z, double w) {
 		long __functionAddress = getInstance().VertexAttribL4d;
-		invokeIDDDDV(__functionAddress, index, x, y, z, w);
+		callIDDDDV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttribL1dv ] ---
@@ -2247,7 +2247,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglVertexAttribL1dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL1dv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2277,7 +2277,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglVertexAttribL2dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL2dv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2307,7 +2307,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglVertexAttribL3dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL3dv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2337,7 +2337,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglVertexAttribL4dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL4dv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2367,7 +2367,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglVertexAttribLPointer(int index, int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexAttribLPointer;
-		invokeIIIIPV(__functionAddress, index, size, type, stride, pointer);
+		callIIIIPV(__functionAddress, index, size, type, stride, pointer);
 	}
 
 	/**
@@ -2409,7 +2409,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglGetVertexAttribLdv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribLdv;
-		invokeIIPV(__functionAddress, index, pname, params);
+		callIIPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -2436,7 +2436,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglViewportArrayv(int first, int count, long v) {
 		long __functionAddress = getInstance().ViewportArrayv;
-		invokeIIPV(__functionAddress, first, count, v);
+		callIIPV(__functionAddress, first, count, v);
 	}
 
 	/**
@@ -2474,7 +2474,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glViewportIndexedf(int index, float x, float y, float w, float h) {
 		long __functionAddress = getInstance().ViewportIndexedf;
-		invokeIFFFFV(__functionAddress, index, x, y, w, h);
+		callIFFFFV(__functionAddress, index, x, y, w, h);
 	}
 
 	// --- [ glViewportIndexedfv ] ---
@@ -2483,7 +2483,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglViewportIndexedfv(int index, long v) {
 		long __functionAddress = getInstance().ViewportIndexedfv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2513,7 +2513,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglScissorArrayv(int first, int count, long v) {
 		long __functionAddress = getInstance().ScissorArrayv;
-		invokeIIPV(__functionAddress, first, count, v);
+		callIIPV(__functionAddress, first, count, v);
 	}
 
 	/**
@@ -2551,7 +2551,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glScissorIndexed(int index, int left, int bottom, int width, int height) {
 		long __functionAddress = getInstance().ScissorIndexed;
-		invokeIIIIIV(__functionAddress, index, left, bottom, width, height);
+		callIIIIIV(__functionAddress, index, left, bottom, width, height);
 	}
 
 	// --- [ glScissorIndexedv ] ---
@@ -2560,7 +2560,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglScissorIndexedv(int index, long v) {
 		long __functionAddress = getInstance().ScissorIndexedv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2590,7 +2590,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglDepthRangeArrayv(int first, int count, long v) {
 		long __functionAddress = getInstance().DepthRangeArrayv;
-		invokeIIPV(__functionAddress, first, count, v);
+		callIIPV(__functionAddress, first, count, v);
 	}
 
 	/**
@@ -2626,7 +2626,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glDepthRangeIndexed(int index, double zNear, double zFar) {
 		long __functionAddress = getInstance().DepthRangeIndexed;
-		invokeIDDV(__functionAddress, index, zNear, zFar);
+		callIDDV(__functionAddress, index, zNear, zFar);
 	}
 
 	// --- [ glGetFloati_v ] ---
@@ -2635,7 +2635,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglGetFloati_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetFloati_v;
-		invokeIIPV(__functionAddress, target, index, data);
+		callIIPV(__functionAddress, target, index, data);
 	}
 
 	/**
@@ -2674,7 +2674,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	@JavadocExclude
 	public static void nglGetDoublei_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetDoublei_v;
-		invokeIIPV(__functionAddress, target, index, data);
+		callIIPV(__functionAddress, target, index, data);
 	}
 
 	/**

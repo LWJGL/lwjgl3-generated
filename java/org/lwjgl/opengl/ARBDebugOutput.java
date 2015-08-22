@@ -177,7 +177,7 @@ public final class ARBDebugOutput {
 	@JavadocExclude
 	public static void nglDebugMessageControlARB(int source, int type, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = getInstance().DebugMessageControlARB;
-		invokeIIIIPZV(__functionAddress, source, type, severity, count, ids, enabled);
+		callIIIIPZV(__functionAddress, source, type, severity, count, ids, enabled);
 	}
 
 	/**
@@ -221,7 +221,7 @@ public final class ARBDebugOutput {
 	@JavadocExclude
 	public static void nglDebugMessageInsertARB(int source, int type, int id, int severity, int length, long buf) {
 		long __functionAddress = getInstance().DebugMessageInsertARB;
-		invokeIIIIIPV(__functionAddress, source, type, id, severity, length, buf);
+		callIIIIIPV(__functionAddress, source, type, id, severity, length, buf);
 	}
 
 	/**
@@ -299,7 +299,7 @@ public final class ARBDebugOutput {
 	 */
 	public static void glDebugMessageCallbackARB(GLDebugMessageARBCallback callback, long userParam) {
 		long __functionAddress = getInstance().DebugMessageCallbackARB;
-		invokePPV(__functionAddress, callback == null ? NULL : callback.getPointer(), userParam);
+		callPPV(__functionAddress, callback == null ? NULL : callback.getPointer(), userParam);
 	}
 
 	// --- [ glGetDebugMessageLogARB ] ---
@@ -308,7 +308,7 @@ public final class ARBDebugOutput {
 	@JavadocExclude
 	public static int nglGetDebugMessageLogARB(int count, int bufSize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
 		long __functionAddress = getInstance().GetDebugMessageLogARB;
-		return invokeIIPPPPPPI(__functionAddress, count, bufSize, sources, types, ids, severities, lengths, messageLog);
+		return callIIPPPPPPI(__functionAddress, count, bufSize, sources, types, ids, severities, lengths, messageLog);
 	}
 
 	/**

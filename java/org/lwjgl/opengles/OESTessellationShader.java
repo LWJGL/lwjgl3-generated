@@ -162,7 +162,7 @@ public final class OESTessellationShader {
 
 	public static void glPatchParameteriOES(int pname, int value) {
 		long __functionAddress = getInstance().PatchParameteriOES;
-		invokeIIV(__functionAddress, pname, value);
+		callIIV(__functionAddress, pname, value);
 	}
 
 }

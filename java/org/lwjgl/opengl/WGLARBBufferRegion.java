@@ -78,7 +78,7 @@ public final class WGLARBBufferRegion {
 		long __functionAddress = getInstance().CreateBufferRegionARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		return invokePIIP(__functionAddress, hdc, layerPlane, type);
+		return callPIIP(__functionAddress, hdc, layerPlane, type);
 	}
 
 	// --- [ wglDeleteBufferRegionARB ] ---
@@ -92,7 +92,7 @@ public final class WGLARBBufferRegion {
 		long __functionAddress = getInstance().DeleteBufferRegionARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(region);
-		invokePV(__functionAddress, region);
+		callPV(__functionAddress, region);
 	}
 
 	// --- [ wglSaveBufferRegionARB ] ---
@@ -117,7 +117,7 @@ public final class WGLARBBufferRegion {
 		long __functionAddress = getInstance().SaveBufferRegionARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(region);
-		return invokePIIIII(__functionAddress, region, x, y, width, height);
+		return callPIIIII(__functionAddress, region, x, y, width, height);
 	}
 
 	// --- [ wglRestoreBufferRegionARB ] ---
@@ -137,7 +137,7 @@ public final class WGLARBBufferRegion {
 		long __functionAddress = getInstance().RestoreBufferRegionARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(region);
-		return invokePIIIIIII(__functionAddress, region, x, y, width, height, xSrc, ySrc);
+		return callPIIIIIII(__functionAddress, region, x, y, width, height, xSrc, ySrc);
 	}
 
 }

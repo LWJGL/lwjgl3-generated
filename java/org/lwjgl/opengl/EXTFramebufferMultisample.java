@@ -97,7 +97,7 @@ public final class EXTFramebufferMultisample {
 
 	public static void glRenderbufferStorageMultisampleEXT(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageMultisampleEXT;
-		invokeIIIIIV(__functionAddress, target, samples, internalformat, width, height);
+		callIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
 }

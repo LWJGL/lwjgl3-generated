@@ -85,21 +85,21 @@ public final class NVDepthBufferFloat {
 
 	public static void glDepthRangedNV(double zNear, double zFar) {
 		long __functionAddress = getInstance().DepthRangedNV;
-		invokeDDV(__functionAddress, zNear, zFar);
+		callDDV(__functionAddress, zNear, zFar);
 	}
 
 	// --- [ glClearDepthdNV ] ---
 
 	public static void glClearDepthdNV(double depth) {
 		long __functionAddress = getInstance().ClearDepthdNV;
-		invokeDV(__functionAddress, depth);
+		callDV(__functionAddress, depth);
 	}
 
 	// --- [ glDepthBoundsdNV ] ---
 
 	public static void glDepthBoundsdNV(double zmin, double zmax) {
 		long __functionAddress = getInstance().DepthBoundsdNV;
-		invokeDDV(__functionAddress, zmin, zmax);
+		callDDV(__functionAddress, zmin, zmax);
 	}
 
 }

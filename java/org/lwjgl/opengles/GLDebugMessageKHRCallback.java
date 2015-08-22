@@ -16,8 +16,8 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** Instances of this interface may be passed to the {@link KHRDebug#glDebugMessageCallbackKHR} method. */
 public abstract class GLDebugMessageKHRCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = FFICIF.malloc();
-	private static final PointerBuffer ARGS = BufferUtils.createPointerBuffer(7);
+	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = memAllocPointer(7);
 
 	static {
 		ARGS.put(0, ffi_type_uint32);

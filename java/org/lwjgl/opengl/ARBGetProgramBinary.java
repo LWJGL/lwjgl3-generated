@@ -84,7 +84,7 @@ public final class ARBGetProgramBinary {
 	@JavadocExclude
 	public static void nglGetProgramBinary(int program, int bufSize, long length, long binaryFormat, long binary) {
 		long __functionAddress = getInstance().GetProgramBinary;
-		invokeIIPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
+		callIIPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
 	}
 
 	/**
@@ -145,7 +145,7 @@ public final class ARBGetProgramBinary {
 	@JavadocExclude
 	public static void nglProgramBinary(int program, int binaryFormat, long binary, int length) {
 		long __functionAddress = getInstance().ProgramBinary;
-		invokeIIPIV(__functionAddress, program, binaryFormat, binary, length);
+		callIIPIV(__functionAddress, program, binaryFormat, binary, length);
 	}
 
 	/**
@@ -178,7 +178,7 @@ public final class ARBGetProgramBinary {
 	 */
 	public static void glProgramParameteri(int program, int pname, int value) {
 		long __functionAddress = getInstance().ProgramParameteri;
-		invokeIIIV(__functionAddress, program, pname, value);
+		callIIIV(__functionAddress, program, pname, value);
 	}
 
 }

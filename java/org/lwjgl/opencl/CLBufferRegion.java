@@ -23,12 +23,14 @@ public final class CLBufferRegion implements Pointer {
 		SIZE;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(2);
+		IntBuffer offsets = memAllocInt(2);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		ORIGIN = offsets.get(0);
 		SIZE = offsets.get(1);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -53,8 +55,8 @@ public final class CLBufferRegion implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setOrigin(long origin) { origin(struct, origin); }
-	public void setSize(long size) { size(struct, size); }
+	public CLBufferRegion setOrigin(long origin) { origin(struct, origin); return this; }
+	public CLBufferRegion setSize(long size) { size(struct, size); return this; }
 
 	public long getOrigin() { return origin(struct); }
 	public long getSize() { return size(struct); }

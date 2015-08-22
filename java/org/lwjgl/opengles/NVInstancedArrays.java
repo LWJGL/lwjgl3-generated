@@ -67,7 +67,7 @@ public final class NVInstancedArrays {
 
 	public static void glVertexAttribDivisorNV(int index, int divisor) {
 		long __functionAddress = getInstance().VertexAttribDivisorNV;
-		invokeIIV(__functionAddress, index, divisor);
+		callIIV(__functionAddress, index, divisor);
 	}
 
 }

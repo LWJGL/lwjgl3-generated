@@ -81,14 +81,14 @@ public final class EXTMultisampledRenderToTexture {
 
 	public static void glRenderbufferStorageMultisampleEXT(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageMultisampleEXT;
-		invokeIIIIIV(__functionAddress, target, samples, internalformat, width, height);
+		callIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
 	// --- [ glFramebufferTexture2DMultisampleEXT ] ---
 
 	public static void glFramebufferTexture2DMultisampleEXT(int target, int attachment, int textarget, int texture, int level, int samples) {
 		long __functionAddress = getInstance().FramebufferTexture2DMultisampleEXT;
-		invokeIIIIIIV(__functionAddress, target, attachment, textarget, texture, level, samples);
+		callIIIIIIV(__functionAddress, target, attachment, textarget, texture, level, samples);
 	}
 
 }

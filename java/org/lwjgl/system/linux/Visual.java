@@ -28,7 +28,7 @@ public final class Visual implements Pointer {
 		MAP_ENTRIES;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(7);
+		IntBuffer offsets = memAllocInt(7);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -39,6 +39,8 @@ public final class Visual implements Pointer {
 		BLUE_MASK = offsets.get(4);
 		BITS_PER_RGB = offsets.get(5);
 		MAP_ENTRIES = offsets.get(6);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -63,13 +65,13 @@ public final class Visual implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setVisualid(long visualid) { visualid(struct, visualid); }
-	public void setClazz(int clazz) { clazz(struct, clazz); }
-	public void setRedMask(long red_mask) { red_mask(struct, red_mask); }
-	public void setGreenMask(long green_mask) { green_mask(struct, green_mask); }
-	public void setBlueMask(long blue_mask) { blue_mask(struct, blue_mask); }
-	public void setBitsPerRgb(int bits_per_rgb) { bits_per_rgb(struct, bits_per_rgb); }
-	public void setMapEntries(int map_entries) { map_entries(struct, map_entries); }
+	public Visual setVisualid(long visualid) { visualid(struct, visualid); return this; }
+	public Visual setClazz(int clazz) { clazz(struct, clazz); return this; }
+	public Visual setRedMask(long red_mask) { red_mask(struct, red_mask); return this; }
+	public Visual setGreenMask(long green_mask) { green_mask(struct, green_mask); return this; }
+	public Visual setBlueMask(long blue_mask) { blue_mask(struct, blue_mask); return this; }
+	public Visual setBitsPerRgb(int bits_per_rgb) { bits_per_rgb(struct, bits_per_rgb); return this; }
+	public Visual setMapEntries(int map_entries) { map_entries(struct, map_entries); return this; }
 
 	public long getVisualid() { return visualid(struct); }
 	public int getClazz() { return clazz(struct); }

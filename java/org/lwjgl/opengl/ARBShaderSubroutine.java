@@ -94,7 +94,7 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static int nglGetSubroutineUniformLocation(int program, int shadertype, long name) {
 		long __functionAddress = getInstance().GetSubroutineUniformLocation;
-		return invokeIIPI(__functionAddress, program, shadertype, name);
+		return callIIPI(__functionAddress, program, shadertype, name);
 	}
 
 	/**
@@ -123,7 +123,7 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static int nglGetSubroutineIndex(int program, int shadertype, long name) {
 		long __functionAddress = getInstance().GetSubroutineIndex;
-		return invokeIIPI(__functionAddress, program, shadertype, name);
+		return callIIPI(__functionAddress, program, shadertype, name);
 	}
 
 	/**
@@ -152,7 +152,7 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static void nglGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, long values) {
 		long __functionAddress = getInstance().GetActiveSubroutineUniformiv;
-		invokeIIIIPV(__functionAddress, program, shadertype, index, pname, values);
+		callIIIIPV(__functionAddress, program, shadertype, index, pname, values);
 	}
 
 	/**
@@ -191,7 +191,7 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static void nglGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize, long length, long name) {
 		long __functionAddress = getInstance().GetActiveSubroutineUniformName;
-		invokeIIIIPPV(__functionAddress, program, shadertype, index, bufsize, length, name);
+		callIIIIPPV(__functionAddress, program, shadertype, index, bufsize, length, name);
 	}
 
 	/**
@@ -244,7 +244,7 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static void nglGetActiveSubroutineName(int program, int shadertype, int index, int bufsize, long length, long name) {
 		long __functionAddress = getInstance().GetActiveSubroutineName;
-		invokeIIIIPPV(__functionAddress, program, shadertype, index, bufsize, length, name);
+		callIIIIPPV(__functionAddress, program, shadertype, index, bufsize, length, name);
 	}
 
 	/**
@@ -297,7 +297,7 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static void nglUniformSubroutinesuiv(int shadertype, int count, long indices) {
 		long __functionAddress = getInstance().UniformSubroutinesuiv;
-		invokeIIPV(__functionAddress, shadertype, count, indices);
+		callIIPV(__functionAddress, shadertype, count, indices);
 	}
 
 	/**
@@ -331,7 +331,7 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static void nglGetUniformSubroutineuiv(int shadertype, int location, long params) {
 		long __functionAddress = getInstance().GetUniformSubroutineuiv;
-		invokeIIPV(__functionAddress, shadertype, location, params);
+		callIIPV(__functionAddress, shadertype, location, params);
 	}
 
 	/**
@@ -368,7 +368,7 @@ public final class ARBShaderSubroutine {
 	@JavadocExclude
 	public static void nglGetProgramStageiv(int program, int shadertype, int pname, long values) {
 		long __functionAddress = getInstance().GetProgramStageiv;
-		invokeIIIPV(__functionAddress, program, shadertype, pname, values);
+		callIIIPV(__functionAddress, program, shadertype, pname, values);
 	}
 
 	/**

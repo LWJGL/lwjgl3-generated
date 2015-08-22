@@ -80,7 +80,7 @@ public final class EXTDepthBoundsTest {
 
 	public static void glDepthBoundsEXT(double zmin, double zmax) {
 		long __functionAddress = getInstance().DepthBoundsEXT;
-		invokeDDV(__functionAddress, zmin, zmax);
+		callDDV(__functionAddress, zmin, zmax);
 	}
 
 }

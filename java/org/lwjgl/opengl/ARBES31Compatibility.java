@@ -87,7 +87,7 @@ public final class ARBES31Compatibility {
 	 */
 	public static void glMemoryBarrierByRegion(int barriers) {
 		long __functionAddress = getInstance().MemoryBarrierByRegion;
-		invokeIV(__functionAddress, barriers);
+		callIV(__functionAddress, barriers);
 	}
 
 }

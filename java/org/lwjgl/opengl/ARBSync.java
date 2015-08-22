@@ -120,7 +120,7 @@ public final class ARBSync {
 	 */
 	public static long glFenceSync(int condition, int flags) {
 		long __functionAddress = getInstance().FenceSync;
-		return invokeIIP(__functionAddress, condition, flags);
+		return callIIP(__functionAddress, condition, flags);
 	}
 
 	// --- [ glIsSync ] ---
@@ -134,7 +134,7 @@ public final class ARBSync {
 		long __functionAddress = getInstance().IsSync;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		return invokePZ(__functionAddress, sync);
+		return callPZ(__functionAddress, sync);
 	}
 
 	// --- [ glDeleteSync ] ---
@@ -148,7 +148,7 @@ public final class ARBSync {
 		long __functionAddress = getInstance().DeleteSync;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		invokePV(__functionAddress, sync);
+		callPV(__functionAddress, sync);
 	}
 
 	// --- [ glClientWaitSync ] ---
@@ -173,7 +173,7 @@ public final class ARBSync {
 		long __functionAddress = getInstance().ClientWaitSync;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		return invokePIJI(__functionAddress, sync, flags, timeout);
+		return callPIJI(__functionAddress, sync, flags, timeout);
 	}
 
 	// --- [ glWaitSync ] ---
@@ -195,7 +195,7 @@ public final class ARBSync {
 		long __functionAddress = getInstance().WaitSync;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		invokePIJV(__functionAddress, sync, flags, timeout);
+		callPIJV(__functionAddress, sync, flags, timeout);
 	}
 
 	// --- [ glGetInteger64v ] ---
@@ -204,7 +204,7 @@ public final class ARBSync {
 	@JavadocExclude
 	public static void nglGetInteger64v(int pname, long params) {
 		long __functionAddress = getInstance().GetInteger64v;
-		invokeIPV(__functionAddress, pname, params);
+		callIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -242,7 +242,7 @@ public final class ARBSync {
 		long __functionAddress = getInstance().GetSynciv;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		invokePIIPPV(__functionAddress, sync, pname, bufSize, length, values);
+		callPIIPPV(__functionAddress, sync, pname, bufSize, length, values);
 	}
 
 	/**

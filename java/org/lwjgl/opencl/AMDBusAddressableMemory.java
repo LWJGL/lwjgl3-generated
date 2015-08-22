@@ -94,7 +94,7 @@ public final class AMDBusAddressableMemory {
 			checkPointer(command_queue);
 			checkPointer(mem_object);
 		}
-		return invokePPIIPPI(__functionAddress, command_queue, mem_object, value, num_events_in_wait_list, event_wait_list, event);
+		return callPPIIPPI(__functionAddress, command_queue, mem_object, value, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -146,7 +146,7 @@ public final class AMDBusAddressableMemory {
 			checkPointer(command_queue);
 			checkPointer(mem_object);
 		}
-		return invokePPIJIPPI(__functionAddress, command_queue, mem_object, value, offset, num_events_in_wait_list, event_wait_list, event);
+		return callPPIJIPPI(__functionAddress, command_queue, mem_object, value, offset, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -201,7 +201,7 @@ public final class AMDBusAddressableMemory {
 		long __functionAddress = getInstance().EnqueueMakeBuffersResidentAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return invokePIPIPIPPI(__functionAddress, command_queue, num_mem_objs, mem_objects, blocking_make_resident, bus_addresses, num_events_in_wait_list, event_wait_list, event);
+		return callPIPIPIPPI(__functionAddress, command_queue, num_mem_objs, mem_objects, blocking_make_resident, bus_addresses, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**

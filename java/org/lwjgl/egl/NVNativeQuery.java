@@ -51,7 +51,7 @@ public final class NVNativeQuery {
 		long __functionAddress = getInstance().QueryNativeDisplayNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return invokePPZ(__functionAddress, dpy, display_id);
+		return callPPZ(__functionAddress, dpy, display_id);
 	}
 
 	public static boolean eglQueryNativeDisplayNV(long dpy, ByteBuffer display_id) {
@@ -77,7 +77,7 @@ public final class NVNativeQuery {
 			checkPointer(dpy);
 			checkPointer(surf);
 		}
-		return invokePPPZ(__functionAddress, dpy, surf, window);
+		return callPPPZ(__functionAddress, dpy, surf, window);
 	}
 
 	public static boolean eglQueryNativeWindowNV(long dpy, long surf, ByteBuffer window) {
@@ -103,7 +103,7 @@ public final class NVNativeQuery {
 			checkPointer(dpy);
 			checkPointer(surf);
 		}
-		return invokePPPZ(__functionAddress, dpy, surf, pixmap);
+		return callPPPZ(__functionAddress, dpy, surf, pixmap);
 	}
 
 	public static boolean eglQueryNativePixmapNV(long dpy, long surf, ByteBuffer pixmap) {

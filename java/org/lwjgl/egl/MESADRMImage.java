@@ -61,7 +61,7 @@ public final class MESADRMImage {
 		long __functionAddress = getInstance().CreateDRMImageMESA;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return invokePPP(__functionAddress, dpy, attrib_list);
+		return callPPP(__functionAddress, dpy, attrib_list);
 	}
 
 	public static long eglCreateDRMImageMESA(long dpy, ByteBuffer attrib_list) {
@@ -87,7 +87,7 @@ public final class MESADRMImage {
 			checkPointer(dpy);
 			checkPointer(image);
 		}
-		return invokePPPPPZ(__functionAddress, dpy, image, name, handle, stride);
+		return callPPPPPZ(__functionAddress, dpy, image, name, handle, stride);
 	}
 
 	public static boolean eglExportDRMImageMESA(long dpy, long image, ByteBuffer name, ByteBuffer handle, ByteBuffer stride) {

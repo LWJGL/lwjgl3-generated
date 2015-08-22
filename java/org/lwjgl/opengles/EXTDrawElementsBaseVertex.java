@@ -106,7 +106,7 @@ public final class EXTDrawElementsBaseVertex {
 	@JavadocExclude
 	public static void nglDrawElementsBaseVertexEXT(int mode, int count, int type, long indices, int basevertex) {
 		long __functionAddress = getInstance().DrawElementsBaseVertexEXT;
-		invokeIIIPIV(__functionAddress, mode, count, type, indices, basevertex);
+		callIIIPIV(__functionAddress, mode, count, type, indices, basevertex);
 	}
 
 	public static void glDrawElementsBaseVertexEXT(int mode, int count, int type, ByteBuffer indices, int basevertex) {
@@ -148,7 +148,7 @@ public final class EXTDrawElementsBaseVertex {
 		long __functionAddress = getInstance().DrawRangeElementsBaseVertexEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIPIV(__functionAddress, mode, start, end, count, type, indices, basevertex);
+		callIIIIIPIV(__functionAddress, mode, start, end, count, type, indices, basevertex);
 	}
 
 	public static void glDrawRangeElementsBaseVertexEXT(int mode, int start, int end, int count, int type, ByteBuffer indices, int basevertex) {
@@ -190,7 +190,7 @@ public final class EXTDrawElementsBaseVertex {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseVertexEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPIIV(__functionAddress, mode, count, type, indices, instancecount, basevertex);
+		callIIIPIIV(__functionAddress, mode, count, type, indices, instancecount, basevertex);
 	}
 
 	public static void glDrawElementsInstancedBaseVertexEXT(int mode, int count, int type, ByteBuffer indices, int instancecount, int basevertex) {
@@ -232,7 +232,7 @@ public final class EXTDrawElementsBaseVertex {
 		long __functionAddress = getInstance().MultiDrawElementsBaseVertexEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPIPIPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
+		callIPIPIPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
 	}
 
 	public static void glMultiDrawElementsBaseVertexEXT(int mode, ByteBuffer count, int type, ByteBuffer indices, int primcount, ByteBuffer basevertex) {

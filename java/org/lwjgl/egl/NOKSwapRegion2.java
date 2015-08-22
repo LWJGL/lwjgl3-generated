@@ -58,7 +58,7 @@ public final class NOKSwapRegion2 {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return invokePPIPZ(__functionAddress, dpy, surface, numRects, rects);
+		return callPPIPZ(__functionAddress, dpy, surface, numRects, rects);
 	}
 
 	public static boolean eglSwapBuffersRegion2NOK(long dpy, long surface, int numRects, ByteBuffer rects) {

@@ -78,7 +78,7 @@ public final class WGLNVGPUAffinity {
 	@JavadocExclude
 	public static int nwglEnumGpusNV(int gpuIndex, long gpu) {
 		long __functionAddress = getInstance().EnumGpusNV;
-		return invokeIPI(__functionAddress, gpuIndex, gpu);
+		return callIPI(__functionAddress, gpuIndex, gpu);
 	}
 
 	/**
@@ -108,7 +108,7 @@ public final class WGLNVGPUAffinity {
 		long __functionAddress = getInstance().EnumGpuDevicesNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(gpu);
-		return invokePIPI(__functionAddress, gpu, deviceIndex, gpuDevice);
+		return callPIPI(__functionAddress, gpu, deviceIndex, gpuDevice);
 	}
 
 	/**
@@ -130,7 +130,7 @@ public final class WGLNVGPUAffinity {
 	@JavadocExclude
 	public static long nwglCreateAffinityDCNV(long gpuList) {
 		long __functionAddress = getInstance().CreateAffinityDCNV;
-		return invokePP(__functionAddress, gpuList);
+		return callPP(__functionAddress, gpuList);
 	}
 
 	/**
@@ -164,7 +164,7 @@ public final class WGLNVGPUAffinity {
 		long __functionAddress = getInstance().EnumGpusFromAffinityDCNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(affinityDC);
-		return invokePIPI(__functionAddress, affinityDC, gpuIndex, gpu);
+		return callPIPI(__functionAddress, affinityDC, gpuIndex, gpu);
 	}
 
 	/**
@@ -198,7 +198,7 @@ public final class WGLNVGPUAffinity {
 		long __functionAddress = getInstance().DeleteDCNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		return invokePI(__functionAddress, hdc);
+		return callPI(__functionAddress, hdc);
 	}
 
 }

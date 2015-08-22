@@ -409,7 +409,7 @@ Creates a program object.
 	 */
 	public static int glCreateProgram() {
 		long __functionAddress = getInstance().CreateProgram;
-		return invokeI(__functionAddress);
+		return callI(__functionAddress);
 	}
 
 	// --- [ glDeleteProgram ] ---
@@ -423,7 +423,7 @@ Creates a program object.
 	 */
 	public static void glDeleteProgram(int program) {
 		long __functionAddress = getInstance().DeleteProgram;
-		invokeIV(__functionAddress, program);
+		callIV(__functionAddress, program);
 	}
 
 	// --- [ glIsProgram ] ---
@@ -438,7 +438,7 @@ Creates a program object.
 	 */
 	public static boolean glIsProgram(int program) {
 		long __functionAddress = getInstance().IsProgram;
-		return invokeIZ(__functionAddress, program);
+		return callIZ(__functionAddress, program);
 	}
 
 	// --- [ glCreateShader ] ---
@@ -452,7 +452,7 @@ Creates a program object.
 	 */
 	public static int glCreateShader(int type) {
 		long __functionAddress = getInstance().CreateShader;
-		return invokeII(__functionAddress, type);
+		return callII(__functionAddress, type);
 	}
 
 	// --- [ glDeleteShader ] ---
@@ -466,7 +466,7 @@ Creates a program object.
 	 */
 	public static void glDeleteShader(int shader) {
 		long __functionAddress = getInstance().DeleteShader;
-		invokeIV(__functionAddress, shader);
+		callIV(__functionAddress, shader);
 	}
 
 	// --- [ glIsShader ] ---
@@ -481,7 +481,7 @@ Creates a program object.
 	 */
 	public static boolean glIsShader(int shader) {
 		long __functionAddress = getInstance().IsShader;
-		return invokeIZ(__functionAddress, shader);
+		return callIZ(__functionAddress, shader);
 	}
 
 	// --- [ glAttachShader ] ---
@@ -507,7 +507,7 @@ Creates a program object.
 	 */
 	public static void glAttachShader(int program, int shader) {
 		long __functionAddress = getInstance().AttachShader;
-		invokeIIV(__functionAddress, program, shader);
+		callIIV(__functionAddress, program, shader);
 	}
 
 	// --- [ glDetachShader ] ---
@@ -522,7 +522,7 @@ Creates a program object.
 	 */
 	public static void glDetachShader(int program, int shader) {
 		long __functionAddress = getInstance().DetachShader;
-		invokeIIV(__functionAddress, program, shader);
+		callIIV(__functionAddress, program, shader);
 	}
 
 	// --- [ glShaderSource ] ---
@@ -531,7 +531,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglShaderSource(int shader, int count, long strings, long length) {
 		long __functionAddress = getInstance().ShaderSource;
-		invokeIIPPV(__functionAddress, shader, count, strings, length);
+		callIIPPV(__functionAddress, shader, count, strings, length);
 	}
 
 	/**
@@ -597,7 +597,7 @@ Creates a program object.
 	 */
 	public static void glCompileShader(int shader) {
 		long __functionAddress = getInstance().CompileShader;
-		invokeIV(__functionAddress, shader);
+		callIV(__functionAddress, shader);
 	}
 
 	// --- [ glLinkProgram ] ---
@@ -611,7 +611,7 @@ Creates a program object.
 	 */
 	public static void glLinkProgram(int program) {
 		long __functionAddress = getInstance().LinkProgram;
-		invokeIV(__functionAddress, program);
+		callIV(__functionAddress, program);
 	}
 
 	// --- [ glUseProgram ] ---
@@ -625,7 +625,7 @@ Creates a program object.
 	 */
 	public static void glUseProgram(int program) {
 		long __functionAddress = getInstance().UseProgram;
-		invokeIV(__functionAddress, program);
+		callIV(__functionAddress, program);
 	}
 
 	// --- [ glValidateProgram ] ---
@@ -639,7 +639,7 @@ Creates a program object.
 	 */
 	public static void glValidateProgram(int program) {
 		long __functionAddress = getInstance().ValidateProgram;
-		invokeIV(__functionAddress, program);
+		callIV(__functionAddress, program);
 	}
 
 	// --- [ glUniform1f ] ---
@@ -654,7 +654,7 @@ Creates a program object.
 	 */
 	public static void glUniform1f(int location, float v0) {
 		long __functionAddress = getInstance().Uniform1f;
-		invokeIFV(__functionAddress, location, v0);
+		callIFV(__functionAddress, location, v0);
 	}
 
 	// --- [ glUniform2f ] ---
@@ -670,7 +670,7 @@ Creates a program object.
 	 */
 	public static void glUniform2f(int location, float v0, float v1) {
 		long __functionAddress = getInstance().Uniform2f;
-		invokeIFFV(__functionAddress, location, v0, v1);
+		callIFFV(__functionAddress, location, v0, v1);
 	}
 
 	// --- [ glUniform3f ] ---
@@ -687,7 +687,7 @@ Creates a program object.
 	 */
 	public static void glUniform3f(int location, float v0, float v1, float v2) {
 		long __functionAddress = getInstance().Uniform3f;
-		invokeIFFFV(__functionAddress, location, v0, v1, v2);
+		callIFFFV(__functionAddress, location, v0, v1, v2);
 	}
 
 	// --- [ glUniform4f ] ---
@@ -705,7 +705,7 @@ Creates a program object.
 	 */
 	public static void glUniform4f(int location, float v0, float v1, float v2, float v3) {
 		long __functionAddress = getInstance().Uniform4f;
-		invokeIFFFFV(__functionAddress, location, v0, v1, v2, v3);
+		callIFFFFV(__functionAddress, location, v0, v1, v2, v3);
 	}
 
 	// --- [ glUniform1i ] ---
@@ -720,7 +720,7 @@ Creates a program object.
 	 */
 	public static void glUniform1i(int location, int v0) {
 		long __functionAddress = getInstance().Uniform1i;
-		invokeIIV(__functionAddress, location, v0);
+		callIIV(__functionAddress, location, v0);
 	}
 
 	// --- [ glUniform2i ] ---
@@ -736,7 +736,7 @@ Creates a program object.
 	 */
 	public static void glUniform2i(int location, int v0, int v1) {
 		long __functionAddress = getInstance().Uniform2i;
-		invokeIIIV(__functionAddress, location, v0, v1);
+		callIIIV(__functionAddress, location, v0, v1);
 	}
 
 	// --- [ glUniform3i ] ---
@@ -753,7 +753,7 @@ Creates a program object.
 	 */
 	public static void glUniform3i(int location, int v0, int v1, int v2) {
 		long __functionAddress = getInstance().Uniform3i;
-		invokeIIIIV(__functionAddress, location, v0, v1, v2);
+		callIIIIV(__functionAddress, location, v0, v1, v2);
 	}
 
 	// --- [ glUniform4i ] ---
@@ -771,7 +771,7 @@ Creates a program object.
 	 */
 	public static void glUniform4i(int location, int v0, int v1, int v2, int v3) {
 		long __functionAddress = getInstance().Uniform4i;
-		invokeIIIIIV(__functionAddress, location, v0, v1, v2, v3);
+		callIIIIIV(__functionAddress, location, v0, v1, v2, v3);
 	}
 
 	// --- [ glUniform1fv ] ---
@@ -780,7 +780,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglUniform1fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1fv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -809,7 +809,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglUniform2fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2fv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -838,7 +838,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglUniform3fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3fv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -867,7 +867,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglUniform4fv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4fv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -896,7 +896,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglUniform1iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1iv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -925,7 +925,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglUniform2iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2iv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -954,7 +954,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglUniform3iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3iv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -983,7 +983,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglUniform4iv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4iv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -1012,7 +1012,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglUniformMatrix2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2fv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -1042,7 +1042,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglUniformMatrix3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3fv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -1072,7 +1072,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglUniformMatrix4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4fv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -1102,7 +1102,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetShaderiv(int shader, int pname, long params) {
 		long __functionAddress = getInstance().GetShaderiv;
-		invokeIIPV(__functionAddress, shader, pname, params);
+		callIIPV(__functionAddress, shader, pname, params);
 	}
 
 	/**
@@ -1141,7 +1141,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetProgramiv(int program, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramiv;
-		invokeIIPV(__functionAddress, program, pname, params);
+		callIIPV(__functionAddress, program, pname, params);
 	}
 
 	/**
@@ -1180,7 +1180,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetShaderInfoLog(int shader, int maxLength, long length, long infoLog) {
 		long __functionAddress = getInstance().GetShaderInfoLog;
-		invokeIIPPV(__functionAddress, shader, maxLength, length, infoLog);
+		callIIPPV(__functionAddress, shader, maxLength, length, infoLog);
 	}
 
 	/**
@@ -1233,7 +1233,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetProgramInfoLog(int program, int maxLength, long length, long infoLog) {
 		long __functionAddress = getInstance().GetProgramInfoLog;
-		invokeIIPPV(__functionAddress, program, maxLength, length, infoLog);
+		callIIPPV(__functionAddress, program, maxLength, length, infoLog);
 	}
 
 	/**
@@ -1286,7 +1286,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetAttachedShaders(int program, int maxCount, long count, long shaders) {
 		long __functionAddress = getInstance().GetAttachedShaders;
-		invokeIIPPV(__functionAddress, program, maxCount, count, shaders);
+		callIIPPV(__functionAddress, program, maxCount, count, shaders);
 	}
 
 	/**
@@ -1341,7 +1341,7 @@ Creates a program object.
 	@JavadocExclude
 	public static int nglGetUniformLocation(int program, long name) {
 		long __functionAddress = getInstance().GetUniformLocation;
-		return invokeIPI(__functionAddress, program, name);
+		return callIPI(__functionAddress, program, name);
 	}
 
 	/**
@@ -1371,7 +1371,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetActiveUniform(int program, int index, int maxLength, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetActiveUniform;
-		invokeIIIPPPPV(__functionAddress, program, index, maxLength, length, size, type, name);
+		callIIIPPPPV(__functionAddress, program, index, maxLength, length, size, type, name);
 	}
 
 	/**
@@ -1440,7 +1440,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetUniformfv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformfv;
-		invokeIIPV(__functionAddress, program, location, params);
+		callIIPV(__functionAddress, program, location, params);
 	}
 
 	/**
@@ -1479,7 +1479,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetUniformiv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformiv;
-		invokeIIPV(__functionAddress, program, location, params);
+		callIIPV(__functionAddress, program, location, params);
 	}
 
 	/**
@@ -1518,7 +1518,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetShaderSource(int shader, int maxLength, long length, long source) {
 		long __functionAddress = getInstance().GetShaderSource;
-		invokeIIPPV(__functionAddress, shader, maxLength, length, source);
+		callIIPPV(__functionAddress, shader, maxLength, length, source);
 	}
 
 	/**
@@ -1577,7 +1577,7 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib1f(int index, float v0) {
 		long __functionAddress = getInstance().VertexAttrib1f;
-		invokeIFV(__functionAddress, index, v0);
+		callIFV(__functionAddress, index, v0);
 	}
 
 	// --- [ glVertexAttrib1s ] ---
@@ -1592,7 +1592,7 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib1s(int index, short v0) {
 		long __functionAddress = getInstance().VertexAttrib1s;
-		invokeISV(__functionAddress, index, v0);
+		callISV(__functionAddress, index, v0);
 	}
 
 	// --- [ glVertexAttrib1d ] ---
@@ -1607,7 +1607,7 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib1d(int index, double v0) {
 		long __functionAddress = getInstance().VertexAttrib1d;
-		invokeIDV(__functionAddress, index, v0);
+		callIDV(__functionAddress, index, v0);
 	}
 
 	// --- [ glVertexAttrib2f ] ---
@@ -1623,7 +1623,7 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib2f(int index, float v0, float v1) {
 		long __functionAddress = getInstance().VertexAttrib2f;
-		invokeIFFV(__functionAddress, index, v0, v1);
+		callIFFV(__functionAddress, index, v0, v1);
 	}
 
 	// --- [ glVertexAttrib2s ] ---
@@ -1639,7 +1639,7 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib2s(int index, short v0, short v1) {
 		long __functionAddress = getInstance().VertexAttrib2s;
-		invokeISSV(__functionAddress, index, v0, v1);
+		callISSV(__functionAddress, index, v0, v1);
 	}
 
 	// --- [ glVertexAttrib2d ] ---
@@ -1655,7 +1655,7 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib2d(int index, double v0, double v1) {
 		long __functionAddress = getInstance().VertexAttrib2d;
-		invokeIDDV(__functionAddress, index, v0, v1);
+		callIDDV(__functionAddress, index, v0, v1);
 	}
 
 	// --- [ glVertexAttrib3f ] ---
@@ -1672,7 +1672,7 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib3f(int index, float v0, float v1, float v2) {
 		long __functionAddress = getInstance().VertexAttrib3f;
-		invokeIFFFV(__functionAddress, index, v0, v1, v2);
+		callIFFFV(__functionAddress, index, v0, v1, v2);
 	}
 
 	// --- [ glVertexAttrib3s ] ---
@@ -1689,7 +1689,7 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib3s(int index, short v0, short v1, short v2) {
 		long __functionAddress = getInstance().VertexAttrib3s;
-		invokeISSSV(__functionAddress, index, v0, v1, v2);
+		callISSSV(__functionAddress, index, v0, v1, v2);
 	}
 
 	// --- [ glVertexAttrib3d ] ---
@@ -1706,7 +1706,7 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib3d(int index, double v0, double v1, double v2) {
 		long __functionAddress = getInstance().VertexAttrib3d;
-		invokeIDDDV(__functionAddress, index, v0, v1, v2);
+		callIDDDV(__functionAddress, index, v0, v1, v2);
 	}
 
 	// --- [ glVertexAttrib4f ] ---
@@ -1724,7 +1724,7 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib4f(int index, float v0, float v1, float v2, float v3) {
 		long __functionAddress = getInstance().VertexAttrib4f;
-		invokeIFFFFV(__functionAddress, index, v0, v1, v2, v3);
+		callIFFFFV(__functionAddress, index, v0, v1, v2, v3);
 	}
 
 	// --- [ glVertexAttrib4s ] ---
@@ -1742,7 +1742,7 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib4s(int index, short v0, short v1, short v2, short v3) {
 		long __functionAddress = getInstance().VertexAttrib4s;
-		invokeISSSSV(__functionAddress, index, v0, v1, v2, v3);
+		callISSSSV(__functionAddress, index, v0, v1, v2, v3);
 	}
 
 	// --- [ glVertexAttrib4d ] ---
@@ -1760,7 +1760,7 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib4d(int index, double v0, double v1, double v2, double v3) {
 		long __functionAddress = getInstance().VertexAttrib4d;
-		invokeIDDDDV(__functionAddress, index, v0, v1, v2, v3);
+		callIDDDDV(__functionAddress, index, v0, v1, v2, v3);
 	}
 
 	// --- [ glVertexAttrib4Nub ] ---
@@ -1778,7 +1778,7 @@ Creates a program object.
 	 */
 	public static void glVertexAttrib4Nub(int index, byte x, byte y, byte z, byte w) {
 		long __functionAddress = getInstance().VertexAttrib4Nub;
-		invokeIBBBBV(__functionAddress, index, x, y, z, w);
+		callIBBBBV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttrib1fv ] ---
@@ -1787,7 +1787,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib1fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1fv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1817,7 +1817,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib1sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1sv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1847,7 +1847,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib1dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1dv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1877,7 +1877,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib2fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2fv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1907,7 +1907,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib2sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2sv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1937,7 +1937,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib2dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2dv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1967,7 +1967,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib3fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3fv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1997,7 +1997,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib3sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3sv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2027,7 +2027,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib3dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3dv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2057,7 +2057,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4fv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4fv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2087,7 +2087,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4sv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2117,7 +2117,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4dv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2147,7 +2147,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4iv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4iv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2177,7 +2177,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4bv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4bv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2200,7 +2200,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4ubv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4ubv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2223,7 +2223,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4usv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4usv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2253,7 +2253,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4uiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4uiv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2283,7 +2283,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4Nbv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nbv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2306,7 +2306,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4Nsv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nsv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2336,7 +2336,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4Niv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Niv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2366,7 +2366,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4Nubv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nubv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2389,7 +2389,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4Nusv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nusv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2419,7 +2419,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttrib4Nuiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4Nuiv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -2449,7 +2449,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexAttribPointer;
-		invokeIIIZIPV(__functionAddress, index, size, type, normalized, stride, pointer);
+		callIIIZIPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
 	/**
@@ -2511,7 +2511,7 @@ Creates a program object.
 	 */
 	public static void glEnableVertexAttribArray(int index) {
 		long __functionAddress = getInstance().EnableVertexAttribArray;
-		invokeIV(__functionAddress, index);
+		callIV(__functionAddress, index);
 	}
 
 	// --- [ glDisableVertexAttribArray ] ---
@@ -2525,7 +2525,7 @@ Creates a program object.
 	 */
 	public static void glDisableVertexAttribArray(int index) {
 		long __functionAddress = getInstance().DisableVertexAttribArray;
-		invokeIV(__functionAddress, index);
+		callIV(__functionAddress, index);
 	}
 
 	// --- [ glBindAttribLocation ] ---
@@ -2534,7 +2534,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglBindAttribLocation(int program, int index, long name) {
 		long __functionAddress = getInstance().BindAttribLocation;
-		invokeIIPV(__functionAddress, program, index, name);
+		callIIPV(__functionAddress, program, index, name);
 	}
 
 	/**
@@ -2565,7 +2565,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetActiveAttrib(int program, int index, int maxLength, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetActiveAttrib;
-		invokeIIIPPPPV(__functionAddress, program, index, maxLength, length, size, type, name);
+		callIIIPPPPV(__functionAddress, program, index, maxLength, length, size, type, name);
 	}
 
 	/**
@@ -2634,7 +2634,7 @@ Creates a program object.
 	@JavadocExclude
 	public static int nglGetAttribLocation(int program, long name) {
 		long __functionAddress = getInstance().GetAttribLocation;
-		return invokeIPI(__functionAddress, program, name);
+		return callIPI(__functionAddress, program, name);
 	}
 
 	/**
@@ -2664,7 +2664,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetVertexAttribiv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribiv;
-		invokeIIPV(__functionAddress, index, pname, params);
+		callIIPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -2703,7 +2703,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetVertexAttribfv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribfv;
-		invokeIIPV(__functionAddress, index, pname, params);
+		callIIPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -2734,7 +2734,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetVertexAttribdv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribdv;
-		invokeIIPV(__functionAddress, index, pname, params);
+		callIIPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -2765,7 +2765,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglGetVertexAttribPointerv(int index, int pname, long pointer) {
 		long __functionAddress = getInstance().GetVertexAttribPointerv;
-		invokeIIPV(__functionAddress, index, pname, pointer);
+		callIIPV(__functionAddress, index, pname, pointer);
 	}
 
 	/**
@@ -2804,7 +2804,7 @@ Creates a program object.
 	@JavadocExclude
 	public static void nglDrawBuffers(int n, long bufs) {
 		long __functionAddress = getInstance().DrawBuffers;
-		invokeIPV(__functionAddress, n, bufs);
+		callIPV(__functionAddress, n, bufs);
 	}
 
 	/**
@@ -2845,7 +2845,7 @@ Creates a program object.
 	 */
 	public static void glBlendEquationSeparate(int modeRGB, int modeAlpha) {
 		long __functionAddress = getInstance().BlendEquationSeparate;
-		invokeIIV(__functionAddress, modeRGB, modeAlpha);
+		callIIV(__functionAddress, modeRGB, modeAlpha);
 	}
 
 	// --- [ glStencilOpSeparate ] ---
@@ -2863,7 +2863,7 @@ Creates a program object.
 	 */
 	public static void glStencilOpSeparate(int face, int sfail, int dpfail, int dppass) {
 		long __functionAddress = getInstance().StencilOpSeparate;
-		invokeIIIIV(__functionAddress, face, sfail, dpfail, dppass);
+		callIIIIV(__functionAddress, face, sfail, dpfail, dppass);
 	}
 
 	// --- [ glStencilFuncSeparate ] ---
@@ -2881,7 +2881,7 @@ Creates a program object.
 	 */
 	public static void glStencilFuncSeparate(int face, int func, int ref, int mask) {
 		long __functionAddress = getInstance().StencilFuncSeparate;
-		invokeIIIIV(__functionAddress, face, func, ref, mask);
+		callIIIIV(__functionAddress, face, func, ref, mask);
 	}
 
 	// --- [ glStencilMaskSeparate ] ---
@@ -2896,7 +2896,7 @@ Creates a program object.
 	 */
 	public static void glStencilMaskSeparate(int face, int mask) {
 		long __functionAddress = getInstance().StencilMaskSeparate;
-		invokeIIV(__functionAddress, face, mask);
+		callIIV(__functionAddress, face, mask);
 	}
 
 }

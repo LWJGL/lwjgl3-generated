@@ -94,7 +94,7 @@ public final class WGLAMDGPUAssociation {
 	@JavadocExclude
 	public static int nwglGetGPUIDsAMD(int maxCount, long ids) {
 		long __functionAddress = getInstance().GetGPUIDsAMD;
-		return invokeIPI(__functionAddress, maxCount, ids);
+		return callIPI(__functionAddress, maxCount, ids);
 	}
 
 	/**
@@ -124,7 +124,7 @@ public final class WGLAMDGPUAssociation {
 	@JavadocExclude
 	public static int nwglGetGPUInfoAMD(int id, int property, int dataType, int size, long data) {
 		long __functionAddress = getInstance().GetGPUInfoAMD;
-		return invokeIIIIPI(__functionAddress, id, property, dataType, size, data);
+		return callIIIIPI(__functionAddress, id, property, dataType, size, data);
 	}
 
 	/**
@@ -178,7 +178,7 @@ public final class WGLAMDGPUAssociation {
 		long __functionAddress = getInstance().GetContextGPUIDAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hglrc);
-		return invokePI(__functionAddress, hglrc);
+		return callPI(__functionAddress, hglrc);
 	}
 
 	// --- [ wglCreateAssociatedContextAMD ] ---
@@ -190,7 +190,7 @@ public final class WGLAMDGPUAssociation {
 	 */
 	public static long wglCreateAssociatedContextAMD(int id) {
 		long __functionAddress = getInstance().CreateAssociatedContextAMD;
-		return invokeIP(__functionAddress, id);
+		return callIP(__functionAddress, id);
 	}
 
 	// --- [ wglCreateAssociatedContextAttribsAMD ] ---
@@ -199,7 +199,7 @@ public final class WGLAMDGPUAssociation {
 	@JavadocExclude
 	public static long nwglCreateAssociatedContextAttribsAMD(int id, long shareContext, long attribList) {
 		long __functionAddress = getInstance().CreateAssociatedContextAttribsAMD;
-		return invokeIPPP(__functionAddress, id, shareContext, attribList);
+		return callIPPP(__functionAddress, id, shareContext, attribList);
 	}
 
 	/**
@@ -235,7 +235,7 @@ public final class WGLAMDGPUAssociation {
 		long __functionAddress = getInstance().DeleteAssociatedContextAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hglrc);
-		return invokePI(__functionAddress, hglrc);
+		return callPI(__functionAddress, hglrc);
 	}
 
 	// --- [ wglMakeAssociatedContextCurrentAMD ] ---
@@ -249,7 +249,7 @@ public final class WGLAMDGPUAssociation {
 		long __functionAddress = getInstance().MakeAssociatedContextCurrentAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hglrc);
-		return invokePI(__functionAddress, hglrc);
+		return callPI(__functionAddress, hglrc);
 	}
 
 	// --- [ wglGetCurrentAssociatedContextAMD ] ---
@@ -257,7 +257,7 @@ public final class WGLAMDGPUAssociation {
 	/** Returns the current associated context in the current thread. */
 	public static long wglGetCurrentAssociatedContextAMD() {
 		long __functionAddress = getInstance().GetCurrentAssociatedContextAMD;
-		return invokeP(__functionAddress);
+		return callP(__functionAddress);
 	}
 
 	// --- [ wglBlitContextFramebufferAMD ] ---
@@ -283,7 +283,7 @@ public final class WGLAMDGPUAssociation {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dstCtx);
 		}
-		invokePIIIIIIIIIIV(__functionAddress, dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
+		callPIIIIIIIIIIV(__functionAddress, dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 
 }

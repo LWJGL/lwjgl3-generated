@@ -92,7 +92,7 @@ public final class INTELAccelerator {
 		long __functionAddress = getInstance().CreateAcceleratorINTEL;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return invokePIPPPP(__functionAddress, context, accelerator_type, descriptor_size, descriptor, errcode_ret);
+		return callPIPPPP(__functionAddress, context, accelerator_type, descriptor_size, descriptor, errcode_ret);
 	}
 
 	/**
@@ -160,7 +160,7 @@ public final class INTELAccelerator {
 		long __functionAddress = getInstance().RetainAcceleratorINTEL;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(accelerator);
-		return invokePI(__functionAddress, accelerator);
+		return callPI(__functionAddress, accelerator);
 	}
 
 	// --- [ clReleaseAcceleratorINTEL ] ---
@@ -182,7 +182,7 @@ public final class INTELAccelerator {
 		long __functionAddress = getInstance().ReleaseAcceleratorINTEL;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(accelerator);
-		return invokePI(__functionAddress, accelerator);
+		return callPI(__functionAddress, accelerator);
 	}
 
 	// --- [ clGetAcceleratorInfoINTEL ] ---
@@ -193,7 +193,7 @@ public final class INTELAccelerator {
 		long __functionAddress = getInstance().GetAcceleratorInfoINTEL;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(accelerator);
-		return invokePIPPPI(__functionAddress, accelerator, param_name, param_value_size, param_value, param_value_size_ret);
+		return callPIPPPI(__functionAddress, accelerator, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**

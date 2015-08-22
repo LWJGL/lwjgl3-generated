@@ -47,7 +47,7 @@ public final class EGL14 {
 
 	public static long eglGetCurrentContext() {
 		long __functionAddress = getInstance().GetCurrentContext;
-		return invokeP(__functionAddress);
+		return callP(__functionAddress);
 	}
 
 }

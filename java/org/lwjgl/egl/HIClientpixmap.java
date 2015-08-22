@@ -50,7 +50,7 @@ public final class HIClientpixmap {
 			checkPointer(dpy);
 			checkPointer(config);
 		}
-		return invokePPPP(__functionAddress, dpy, config, pixmap);
+		return callPPPP(__functionAddress, dpy, config, pixmap);
 	}
 
 	public static long eglCreatePixmapSurfaceHI(long dpy, long config, ByteBuffer pixmap) {

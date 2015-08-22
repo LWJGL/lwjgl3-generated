@@ -53,7 +53,7 @@ public final class EXTSwapBuffersWithDamage {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return invokePPPIZ(__functionAddress, dpy, surface, rects, n_rects);
+		return callPPPIZ(__functionAddress, dpy, surface, rects, n_rects);
 	}
 
 	public static boolean eglSwapBuffersWithDamageEXT(long dpy, long surface, ByteBuffer rects, int n_rects) {

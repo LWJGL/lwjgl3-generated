@@ -24,13 +24,15 @@ public final class FFIClosure implements Pointer {
 		USER_DATA;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(3);
+		IntBuffer offsets = memAllocInt(3);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		CIF = offsets.get(0);
 		FUN = offsets.get(1);
 		USER_DATA = offsets.get(2);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -51,10 +53,10 @@ public final class FFIClosure implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setCif(long cif) { cif(struct, cif); }
-	public void setCif(ByteBuffer cif) { cif(struct, cif); }
-	public void setFun(long fun) { fun(struct, fun); }
-	public void setUserData(long user_data) { user_data(struct, user_data); }
+	public FFIClosure setCif(long cif) { cif(struct, cif); return this; }
+	public FFIClosure setCif(ByteBuffer cif) { cif(struct, cif); return this; }
+	public FFIClosure setFun(long fun) { fun(struct, fun); return this; }
+	public FFIClosure setUserData(long user_data) { user_data(struct, user_data); return this; }
 
 	public long getCif() { return cif(struct); }
 	public ByteBuffer getCifBuffer() { return cifBuffer(struct); }

@@ -27,7 +27,7 @@ public final class GLFWvidmode implements Pointer {
 		REFRESHRATE;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(6);
+		IntBuffer offsets = memAllocInt(6);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -37,6 +37,8 @@ public final class GLFWvidmode implements Pointer {
 		GREENBITS = offsets.get(3);
 		BLUEBITS = offsets.get(4);
 		REFRESHRATE = offsets.get(5);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -61,12 +63,12 @@ public final class GLFWvidmode implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setWidth(int width) { width(struct, width); }
-	public void setHeight(int height) { height(struct, height); }
-	public void setRedBits(int redBits) { redBits(struct, redBits); }
-	public void setGreenBits(int greenBits) { greenBits(struct, greenBits); }
-	public void setBlueBits(int blueBits) { blueBits(struct, blueBits); }
-	public void setRefreshRate(int refreshRate) { refreshRate(struct, refreshRate); }
+	public GLFWvidmode setWidth(int width) { width(struct, width); return this; }
+	public GLFWvidmode setHeight(int height) { height(struct, height); return this; }
+	public GLFWvidmode setRedBits(int redBits) { redBits(struct, redBits); return this; }
+	public GLFWvidmode setGreenBits(int greenBits) { greenBits(struct, greenBits); return this; }
+	public GLFWvidmode setBlueBits(int blueBits) { blueBits(struct, blueBits); return this; }
+	public GLFWvidmode setRefreshRate(int refreshRate) { refreshRate(struct, refreshRate); return this; }
 
 	public int getWidth() { return width(struct); }
 	public int getHeight() { return height(struct); }

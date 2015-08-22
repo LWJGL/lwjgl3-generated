@@ -27,7 +27,7 @@ public final class FFICIF implements Pointer {
 		FLAGS;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(6);
+		IntBuffer offsets = memAllocInt(6);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -37,6 +37,8 @@ public final class FFICIF implements Pointer {
 		RTYPE = offsets.get(3);
 		BYTES = offsets.get(4);
 		FLAGS = offsets.get(5);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -61,13 +63,13 @@ public final class FFICIF implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setAbi(int abi) { abi(struct, abi); }
-	public void setNargs(int nargs) { nargs(struct, nargs); }
-	public void setArgTypes(long arg_types) { arg_types(struct, arg_types); }
-	public void setArgTypes(ByteBuffer arg_types) { arg_types(struct, arg_types); }
-	public void setRtype(long rtype) { rtype(struct, rtype); }
-	public void setBytes(int bytes) { bytes(struct, bytes); }
-	public void setFlags(int flags) { flags(struct, flags); }
+	public FFICIF setAbi(int abi) { abi(struct, abi); return this; }
+	public FFICIF setNargs(int nargs) { nargs(struct, nargs); return this; }
+	public FFICIF setArgTypes(long arg_types) { arg_types(struct, arg_types); return this; }
+	public FFICIF setArgTypes(ByteBuffer arg_types) { arg_types(struct, arg_types); return this; }
+	public FFICIF setRtype(long rtype) { rtype(struct, rtype); return this; }
+	public FFICIF setBytes(int bytes) { bytes(struct, bytes); return this; }
+	public FFICIF setFlags(int flags) { flags(struct, flags); return this; }
 
 	public int getAbi() { return abi(struct); }
 	public int getNargs() { return nargs(struct); }

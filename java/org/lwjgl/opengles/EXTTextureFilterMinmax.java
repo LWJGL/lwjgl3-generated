@@ -70,7 +70,7 @@ public final class EXTTextureFilterMinmax {
 
 	public static void glRasterSamplesEXT(int samples, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().RasterSamplesEXT;
-		invokeIZV(__functionAddress, samples, fixedsamplelocations);
+		callIZV(__functionAddress, samples, fixedsamplelocations);
 	}
 
 }

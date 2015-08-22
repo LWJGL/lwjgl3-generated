@@ -64,7 +64,7 @@ public final class CL12GL {
 		long __functionAddress = getInstance().CreateFromGLTexture;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return invokePJIIIPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
+		return callPJIIIPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
 	}
 
 	/**

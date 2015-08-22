@@ -92,7 +92,7 @@ public final class NVSampleLocations {
 	@JavadocExclude
 	public static void nglFramebufferSampleLocationsfvNV(int target, int start, int count, long v) {
 		long __functionAddress = getInstance().FramebufferSampleLocationsfvNV;
-		invokeIIIPV(__functionAddress, target, start, count, v);
+		callIIIPV(__functionAddress, target, start, count, v);
 	}
 
 	public static void glFramebufferSampleLocationsfvNV(int target, int start, int count, ByteBuffer v) {
@@ -112,7 +112,7 @@ public final class NVSampleLocations {
 	@JavadocExclude
 	public static void nglNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, long v) {
 		long __functionAddress = getInstance().NamedFramebufferSampleLocationsfvNV;
-		invokeIIIPV(__functionAddress, framebuffer, start, count, v);
+		callIIIPV(__functionAddress, framebuffer, start, count, v);
 	}
 
 	public static void glNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, ByteBuffer v) {
@@ -130,7 +130,7 @@ public final class NVSampleLocations {
 
 	public static void glResolveDepthValuesNV() {
 		long __functionAddress = getInstance().ResolveDepthValuesNV;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 }

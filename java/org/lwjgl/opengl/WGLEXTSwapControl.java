@@ -70,7 +70,7 @@ public final class WGLEXTSwapControl {
 	 */
 	public static int wglSwapIntervalEXT(int interval) {
 		long __functionAddress = getInstance().SwapIntervalEXT;
-		return invokeII(__functionAddress, interval);
+		return callII(__functionAddress, interval);
 	}
 
 	// --- [ wglGetSwapIntervalEXT ] ---
@@ -78,7 +78,7 @@ public final class WGLEXTSwapControl {
 	/** Returns the current swap interval for the window associated with the current context. */
 	public static int wglGetSwapIntervalEXT() {
 		long __functionAddress = getInstance().GetSwapIntervalEXT;
-		return invokeI(__functionAddress);
+		return callI(__functionAddress);
 	}
 
 }

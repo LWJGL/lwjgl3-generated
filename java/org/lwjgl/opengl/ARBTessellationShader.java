@@ -154,7 +154,7 @@ public final class ARBTessellationShader {
 	 */
 	public static void glPatchParameteri(int pname, int value) {
 		long __functionAddress = getInstance().PatchParameteri;
-		invokeIIV(__functionAddress, pname, value);
+		callIIV(__functionAddress, pname, value);
 	}
 
 	// --- [ glPatchParameterfv ] ---
@@ -163,7 +163,7 @@ public final class ARBTessellationShader {
 	@JavadocExclude
 	public static void nglPatchParameterfv(int pname, long values) {
 		long __functionAddress = getInstance().PatchParameterfv;
-		invokeIPV(__functionAddress, pname, values);
+		callIPV(__functionAddress, pname, values);
 	}
 
 	/**

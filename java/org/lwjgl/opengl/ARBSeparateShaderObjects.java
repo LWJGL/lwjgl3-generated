@@ -256,7 +256,7 @@ public final class ARBSeparateShaderObjects {
 	 */
 	public static void glUseProgramStages(int pipeline, int stages, int program) {
 		long __functionAddress = getInstance().UseProgramStages;
-		invokeIIIV(__functionAddress, pipeline, stages, program);
+		callIIIV(__functionAddress, pipeline, stages, program);
 	}
 
 	// --- [ glActiveShaderProgram ] ---
@@ -269,7 +269,7 @@ public final class ARBSeparateShaderObjects {
 	 */
 	public static void glActiveShaderProgram(int pipeline, int program) {
 		long __functionAddress = getInstance().ActiveShaderProgram;
-		invokeIIV(__functionAddress, pipeline, program);
+		callIIV(__functionAddress, pipeline, program);
 	}
 
 	// --- [ glCreateShaderProgramv ] ---
@@ -278,7 +278,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static int nglCreateShaderProgramv(int type, int count, long strings) {
 		long __functionAddress = getInstance().CreateShaderProgramv;
-		return invokeIIPI(__functionAddress, type, count, strings);
+		return callIIPI(__functionAddress, type, count, strings);
 	}
 
 	/**
@@ -355,7 +355,7 @@ public final class ARBSeparateShaderObjects {
 	 */
 	public static void glBindProgramPipeline(int pipeline) {
 		long __functionAddress = getInstance().BindProgramPipeline;
-		invokeIV(__functionAddress, pipeline);
+		callIV(__functionAddress, pipeline);
 	}
 
 	// --- [ glDeleteProgramPipelines ] ---
@@ -364,7 +364,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglDeleteProgramPipelines(int n, long pipelines) {
 		long __functionAddress = getInstance().DeleteProgramPipelines;
-		invokeIPV(__functionAddress, n, pipelines);
+		callIPV(__functionAddress, n, pipelines);
 	}
 
 	/**
@@ -397,7 +397,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglGenProgramPipelines(int n, long pipelines) {
 		long __functionAddress = getInstance().GenProgramPipelines;
-		invokeIPV(__functionAddress, n, pipelines);
+		callIPV(__functionAddress, n, pipelines);
 	}
 
 	/**
@@ -434,7 +434,7 @@ public final class ARBSeparateShaderObjects {
 	 */
 	public static boolean glIsProgramPipeline(int pipeline) {
 		long __functionAddress = getInstance().IsProgramPipeline;
-		return invokeIZ(__functionAddress, pipeline);
+		return callIZ(__functionAddress, pipeline);
 	}
 
 	// --- [ glProgramParameteri ] ---
@@ -448,7 +448,7 @@ public final class ARBSeparateShaderObjects {
 	 */
 	public static void glProgramParameteri(int program, int pname, int value) {
 		long __functionAddress = getInstance().ProgramParameteri;
-		invokeIIIV(__functionAddress, program, pname, value);
+		callIIIV(__functionAddress, program, pname, value);
 	}
 
 	// --- [ glGetProgramPipelineiv ] ---
@@ -457,7 +457,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglGetProgramPipelineiv(int pipeline, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramPipelineiv;
-		invokeIIPV(__functionAddress, pipeline, pname, params);
+		callIIPV(__functionAddress, pipeline, pname, params);
 	}
 
 	/**
@@ -499,7 +499,7 @@ public final class ARBSeparateShaderObjects {
 	 */
 	public static void glProgramUniform1i(int program, int location, int x) {
 		long __functionAddress = getInstance().ProgramUniform1i;
-		invokeIIIV(__functionAddress, program, location, x);
+		callIIIV(__functionAddress, program, location, x);
 	}
 
 	// --- [ glProgramUniform2i ] ---
@@ -514,7 +514,7 @@ public final class ARBSeparateShaderObjects {
 	 */
 	public static void glProgramUniform2i(int program, int location, int x, int y) {
 		long __functionAddress = getInstance().ProgramUniform2i;
-		invokeIIIIV(__functionAddress, program, location, x, y);
+		callIIIIV(__functionAddress, program, location, x, y);
 	}
 
 	// --- [ glProgramUniform3i ] ---
@@ -530,7 +530,7 @@ public final class ARBSeparateShaderObjects {
 	 */
 	public static void glProgramUniform3i(int program, int location, int x, int y, int z) {
 		long __functionAddress = getInstance().ProgramUniform3i;
-		invokeIIIIIV(__functionAddress, program, location, x, y, z);
+		callIIIIIV(__functionAddress, program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform4i ] ---
@@ -547,7 +547,7 @@ public final class ARBSeparateShaderObjects {
 	 */
 	public static void glProgramUniform4i(int program, int location, int x, int y, int z, int w) {
 		long __functionAddress = getInstance().ProgramUniform4i;
-		invokeIIIIIIV(__functionAddress, program, location, x, y, z, w);
+		callIIIIIIV(__functionAddress, program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform1ui ] ---
@@ -561,7 +561,7 @@ public final class ARBSeparateShaderObjects {
 	 */
 	public static void glProgramUniform1ui(int program, int location, int x) {
 		long __functionAddress = getInstance().ProgramUniform1ui;
-		invokeIIIV(__functionAddress, program, location, x);
+		callIIIV(__functionAddress, program, location, x);
 	}
 
 	// --- [ glProgramUniform2ui ] ---
@@ -576,7 +576,7 @@ public final class ARBSeparateShaderObjects {
 	 */
 	public static void glProgramUniform2ui(int program, int location, int x, int y) {
 		long __functionAddress = getInstance().ProgramUniform2ui;
-		invokeIIIIV(__functionAddress, program, location, x, y);
+		callIIIIV(__functionAddress, program, location, x, y);
 	}
 
 	// --- [ glProgramUniform3ui ] ---
@@ -592,7 +592,7 @@ public final class ARBSeparateShaderObjects {
 	 */
 	public static void glProgramUniform3ui(int program, int location, int x, int y, int z) {
 		long __functionAddress = getInstance().ProgramUniform3ui;
-		invokeIIIIIV(__functionAddress, program, location, x, y, z);
+		callIIIIIV(__functionAddress, program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform4ui ] ---
@@ -609,7 +609,7 @@ public final class ARBSeparateShaderObjects {
 	 */
 	public static void glProgramUniform4ui(int program, int location, int x, int y, int z, int w) {
 		long __functionAddress = getInstance().ProgramUniform4ui;
-		invokeIIIIIIV(__functionAddress, program, location, x, y, z, w);
+		callIIIIIIV(__functionAddress, program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform1f ] ---
@@ -623,7 +623,7 @@ public final class ARBSeparateShaderObjects {
 	 */
 	public static void glProgramUniform1f(int program, int location, float x) {
 		long __functionAddress = getInstance().ProgramUniform1f;
-		invokeIIFV(__functionAddress, program, location, x);
+		callIIFV(__functionAddress, program, location, x);
 	}
 
 	// --- [ glProgramUniform2f ] ---
@@ -638,7 +638,7 @@ public final class ARBSeparateShaderObjects {
 	 */
 	public static void glProgramUniform2f(int program, int location, float x, float y) {
 		long __functionAddress = getInstance().ProgramUniform2f;
-		invokeIIFFV(__functionAddress, program, location, x, y);
+		callIIFFV(__functionAddress, program, location, x, y);
 	}
 
 	// --- [ glProgramUniform3f ] ---
@@ -654,7 +654,7 @@ public final class ARBSeparateShaderObjects {
 	 */
 	public static void glProgramUniform3f(int program, int location, float x, float y, float z) {
 		long __functionAddress = getInstance().ProgramUniform3f;
-		invokeIIFFFV(__functionAddress, program, location, x, y, z);
+		callIIFFFV(__functionAddress, program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform4f ] ---
@@ -671,7 +671,7 @@ public final class ARBSeparateShaderObjects {
 	 */
 	public static void glProgramUniform4f(int program, int location, float x, float y, float z, float w) {
 		long __functionAddress = getInstance().ProgramUniform4f;
-		invokeIIFFFFV(__functionAddress, program, location, x, y, z, w);
+		callIIFFFFV(__functionAddress, program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform1d ] ---
@@ -685,7 +685,7 @@ public final class ARBSeparateShaderObjects {
 	 */
 	public static void glProgramUniform1d(int program, int location, double x) {
 		long __functionAddress = getInstance().ProgramUniform1d;
-		invokeIIDV(__functionAddress, program, location, x);
+		callIIDV(__functionAddress, program, location, x);
 	}
 
 	// --- [ glProgramUniform2d ] ---
@@ -700,7 +700,7 @@ public final class ARBSeparateShaderObjects {
 	 */
 	public static void glProgramUniform2d(int program, int location, double x, double y) {
 		long __functionAddress = getInstance().ProgramUniform2d;
-		invokeIIDDV(__functionAddress, program, location, x, y);
+		callIIDDV(__functionAddress, program, location, x, y);
 	}
 
 	// --- [ glProgramUniform3d ] ---
@@ -716,7 +716,7 @@ public final class ARBSeparateShaderObjects {
 	 */
 	public static void glProgramUniform3d(int program, int location, double x, double y, double z) {
 		long __functionAddress = getInstance().ProgramUniform3d;
-		invokeIIDDDV(__functionAddress, program, location, x, y, z);
+		callIIDDDV(__functionAddress, program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform4d ] ---
@@ -733,7 +733,7 @@ public final class ARBSeparateShaderObjects {
 	 */
 	public static void glProgramUniform4d(int program, int location, double x, double y, double z, double w) {
 		long __functionAddress = getInstance().ProgramUniform4d;
-		invokeIIDDDDV(__functionAddress, program, location, x, y, z, w);
+		callIIDDDDV(__functionAddress, program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform1iv ] ---
@@ -742,7 +742,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniform1iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1iv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -770,7 +770,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniform2iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2iv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -798,7 +798,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniform3iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3iv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -826,7 +826,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniform4iv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4iv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -854,7 +854,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniform1uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1uiv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -882,7 +882,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniform2uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2uiv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -910,7 +910,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniform3uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3uiv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -938,7 +938,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniform4uiv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4uiv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -966,7 +966,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniform1fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1fv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -994,7 +994,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniform2fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2fv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1022,7 +1022,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniform3fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3fv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1050,7 +1050,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniform4fv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4fv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1078,7 +1078,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniform1dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1dv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1106,7 +1106,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniform2dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2dv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1134,7 +1134,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniform3dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3dv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1162,7 +1162,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniform4dv(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4dv;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -1190,7 +1190,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2fv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1219,7 +1219,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3fv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1248,7 +1248,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4fv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1277,7 +1277,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2dv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1306,7 +1306,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3dv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1335,7 +1335,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4dv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1364,7 +1364,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x3fv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1393,7 +1393,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x2fv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1422,7 +1422,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x4fv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1451,7 +1451,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x2fv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1480,7 +1480,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x4fv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1509,7 +1509,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x3fv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1538,7 +1538,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x3dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x3dv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1567,7 +1567,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x2dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x2dv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1596,7 +1596,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x4dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x4dv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1625,7 +1625,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x2dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x2dv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1654,7 +1654,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x4dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x4dv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1683,7 +1683,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x3dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x3dv;
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1715,7 +1715,7 @@ public final class ARBSeparateShaderObjects {
 	 */
 	public static void glValidateProgramPipeline(int pipeline) {
 		long __functionAddress = getInstance().ValidateProgramPipeline;
-		invokeIV(__functionAddress, pipeline);
+		callIV(__functionAddress, pipeline);
 	}
 
 	// --- [ glGetProgramPipelineInfoLog ] ---
@@ -1724,7 +1724,7 @@ public final class ARBSeparateShaderObjects {
 	@JavadocExclude
 	public static void nglGetProgramPipelineInfoLog(int pipeline, int bufSize, long length, long infoLog) {
 		long __functionAddress = getInstance().GetProgramPipelineInfoLog;
-		invokeIIPPV(__functionAddress, pipeline, bufSize, length, infoLog);
+		callIIPPV(__functionAddress, pipeline, bufSize, length, infoLog);
 	}
 
 	/**

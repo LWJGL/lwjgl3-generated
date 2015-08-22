@@ -120,14 +120,14 @@ public final class AMDVertexShaderTessellator {
 
 	public static void glTessellationFactorAMD(float factor) {
 		long __functionAddress = getInstance().TessellationFactorAMD;
-		invokeFV(__functionAddress, factor);
+		callFV(__functionAddress, factor);
 	}
 
 	// --- [ glTessellationModeAMD ] ---
 
 	public static void glTessellationModeAMD(int mode) {
 		long __functionAddress = getInstance().TessellationModeAMD;
-		invokeIV(__functionAddress, mode);
+		callIV(__functionAddress, mode);
 	}
 
 }

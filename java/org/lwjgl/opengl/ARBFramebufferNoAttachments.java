@@ -112,7 +112,7 @@ public final class ARBFramebufferNoAttachments {
 	 */
 	public static void glFramebufferParameteri(int target, int pname, int param) {
 		long __functionAddress = getInstance().FramebufferParameteri;
-		invokeIIIV(__functionAddress, target, pname, param);
+		callIIIV(__functionAddress, target, pname, param);
 	}
 
 	// --- [ glGetFramebufferParameteriv ] ---
@@ -121,7 +121,7 @@ public final class ARBFramebufferNoAttachments {
 	@JavadocExclude
 	public static void nglGetFramebufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferParameteriv;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -165,7 +165,7 @@ public final class ARBFramebufferNoAttachments {
 		long __functionAddress = getInstance().NamedFramebufferParameteriEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, framebuffer, pname, param);
+		callIIIV(__functionAddress, framebuffer, pname, param);
 	}
 
 	// --- [ glGetNamedFramebufferParameterivEXT ] ---
@@ -176,7 +176,7 @@ public final class ARBFramebufferNoAttachments {
 		long __functionAddress = getInstance().GetNamedFramebufferParameterivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, framebuffer, pname, params);
+		callIIPV(__functionAddress, framebuffer, pname, params);
 	}
 
 	/**

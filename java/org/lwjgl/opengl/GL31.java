@@ -226,7 +226,7 @@ public final class GL31 {
 	 */
 	public static void glDrawArraysInstanced(int mode, int first, int count, int primcount) {
 		long __functionAddress = getInstance().DrawArraysInstanced;
-		invokeIIIIV(__functionAddress, mode, first, count, primcount);
+		callIIIIV(__functionAddress, mode, first, count, primcount);
 	}
 
 	// --- [ glDrawElementsInstanced ] ---
@@ -235,7 +235,7 @@ public final class GL31 {
 	@JavadocExclude
 	public static void nglDrawElementsInstanced(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = getInstance().DrawElementsInstanced;
-		invokeIIIPIV(__functionAddress, mode, count, type, indices, primcount);
+		callIIIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
 	/**
@@ -317,7 +317,7 @@ public final class GL31 {
 	 */
 	public static void glCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
 		long __functionAddress = getInstance().CopyBufferSubData;
-		invokeIIPPPV(__functionAddress, readTarget, writeTarget, readOffset, writeOffset, size);
+		callIIPPPV(__functionAddress, readTarget, writeTarget, readOffset, writeOffset, size);
 	}
 
 	// --- [ glPrimitiveRestartIndex ] ---
@@ -331,7 +331,7 @@ public final class GL31 {
 	 */
 	public static void glPrimitiveRestartIndex(int index) {
 		long __functionAddress = getInstance().PrimitiveRestartIndex;
-		invokeIV(__functionAddress, index);
+		callIV(__functionAddress, index);
 	}
 
 	// --- [ glTexBuffer ] ---
@@ -367,7 +367,7 @@ public final class GL31 {
 	 */
 	public static void glTexBuffer(int target, int internalformat, int buffer) {
 		long __functionAddress = getInstance().TexBuffer;
-		invokeIIIV(__functionAddress, target, internalformat, buffer);
+		callIIIV(__functionAddress, target, internalformat, buffer);
 	}
 
 	// --- [ glGetUniformIndices ] ---
@@ -376,7 +376,7 @@ public final class GL31 {
 	@JavadocExclude
 	public static void nglGetUniformIndices(int program, int uniformCount, long uniformNames, long uniformIndices) {
 		long __functionAddress = getInstance().GetUniformIndices;
-		invokeIIPPV(__functionAddress, program, uniformCount, uniformNames, uniformIndices);
+		callIIPPV(__functionAddress, program, uniformCount, uniformNames, uniformIndices);
 	}
 
 	/**
@@ -436,7 +436,7 @@ public final class GL31 {
 	@JavadocExclude
 	public static void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveUniformsiv;
-		invokeIIPIPV(__functionAddress, program, uniformCount, uniformIndices, pname, params);
+		callIIPIPV(__functionAddress, program, uniformCount, uniformIndices, pname, params);
 	}
 
 	/**
@@ -480,7 +480,7 @@ public final class GL31 {
 	@JavadocExclude
 	public static void nglGetActiveUniformName(int program, int uniformIndex, int bufSize, long length, long uniformName) {
 		long __functionAddress = getInstance().GetActiveUniformName;
-		invokeIIIPPV(__functionAddress, program, uniformIndex, bufSize, length, uniformName);
+		callIIIPPV(__functionAddress, program, uniformIndex, bufSize, length, uniformName);
 	}
 
 	/**
@@ -534,7 +534,7 @@ public final class GL31 {
 	@JavadocExclude
 	public static int nglGetUniformBlockIndex(int program, long uniformBlockName) {
 		long __functionAddress = getInstance().GetUniformBlockIndex;
-		return invokeIPI(__functionAddress, program, uniformBlockName);
+		return callIPI(__functionAddress, program, uniformBlockName);
 	}
 
 	/**
@@ -564,7 +564,7 @@ public final class GL31 {
 	@JavadocExclude
 	public static void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveUniformBlockiv;
-		invokeIIIPV(__functionAddress, program, uniformBlockIndex, pname, params);
+		callIIIPV(__functionAddress, program, uniformBlockIndex, pname, params);
 	}
 
 	/**
@@ -604,7 +604,7 @@ public final class GL31 {
 	@JavadocExclude
 	public static void nglGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, long length, long uniformBlockName) {
 		long __functionAddress = getInstance().GetActiveUniformBlockName;
-		invokeIIIPPV(__functionAddress, program, uniformBlockIndex, bufSize, length, uniformBlockName);
+		callIIIPPV(__functionAddress, program, uniformBlockIndex, bufSize, length, uniformBlockName);
 	}
 
 	/**
@@ -665,7 +665,7 @@ public final class GL31 {
 	 */
 	public static void glUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding) {
 		long __functionAddress = getInstance().UniformBlockBinding;
-		invokeIIIV(__functionAddress, program, uniformBlockIndex, uniformBlockBinding);
+		callIIIV(__functionAddress, program, uniformBlockIndex, uniformBlockBinding);
 	}
 
 }

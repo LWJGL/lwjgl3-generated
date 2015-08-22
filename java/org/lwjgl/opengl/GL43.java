@@ -570,7 +570,7 @@ public final class GL43 {
 	@JavadocExclude
 	public static void nglClearBufferData(int target, int internalformat, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearBufferData;
-		invokeIIIIPV(__functionAddress, target, internalformat, format, type, data);
+		callIIIIPV(__functionAddress, target, internalformat, format, type, data);
 	}
 
 	/**
@@ -612,7 +612,7 @@ public final class GL43 {
 	@JavadocExclude
 	public static void nglClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearBufferSubData;
-		invokeIIPPIIPV(__functionAddress, target, internalformat, offset, size, format, type, data);
+		callIIPPIIPV(__functionAddress, target, internalformat, offset, size, format, type, data);
 	}
 
 	/**
@@ -663,7 +663,7 @@ public final class GL43 {
 	 */
 	public static void glDispatchCompute(int num_groups_x, int num_groups_y, int num_groups_z) {
 		long __functionAddress = getInstance().DispatchCompute;
-		invokeIIIV(__functionAddress, num_groups_x, num_groups_y, num_groups_z);
+		callIIIV(__functionAddress, num_groups_x, num_groups_y, num_groups_z);
 	}
 
 	// --- [ glDispatchComputeIndirect ] ---
@@ -693,7 +693,7 @@ public final class GL43 {
 		long __functionAddress = getInstance().DispatchComputeIndirect;
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL43.GL_DISPATCH_INDIRECT_BUFFER_BINDING, true);
-		invokePV(__functionAddress, indirect);
+		callPV(__functionAddress, indirect);
 	}
 
 	// --- [ glCopyImageSubData ] ---
@@ -721,7 +721,7 @@ public final class GL43 {
 	 */
 	public static void glCopyImageSubData(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth) {
 		long __functionAddress = getInstance().CopyImageSubData;
-		invokeIIIIIIIIIIIIIIIV(__functionAddress, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
+		callIIIIIIIIIIIIIIIV(__functionAddress, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
 	}
 
 	// --- [ glDebugMessageControl ] ---
@@ -730,7 +730,7 @@ public final class GL43 {
 	@JavadocExclude
 	public static void nglDebugMessageControl(int source, int type, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = getInstance().DebugMessageControl;
-		invokeIIIIPZV(__functionAddress, source, type, severity, count, ids, enabled);
+		callIIIIPZV(__functionAddress, source, type, severity, count, ids, enabled);
 	}
 
 	/**
@@ -791,7 +791,7 @@ public final class GL43 {
 	@JavadocExclude
 	public static void nglDebugMessageInsert(int source, int type, int id, int severity, int length, long message) {
 		long __functionAddress = getInstance().DebugMessageInsert;
-		invokeIIIIIPV(__functionAddress, source, type, id, severity, length, message);
+		callIIIIIPV(__functionAddress, source, type, id, severity, length, message);
 	}
 
 	/**
@@ -871,7 +871,7 @@ public final class GL43 {
 	 */
 	public static void glDebugMessageCallback(GLDebugMessageCallback callback, long userParam) {
 		long __functionAddress = getInstance().DebugMessageCallback;
-		invokePPV(__functionAddress, callback == null ? NULL : callback.getPointer(), userParam);
+		callPPV(__functionAddress, callback == null ? NULL : callback.getPointer(), userParam);
 	}
 
 	// --- [ glGetDebugMessageLog ] ---
@@ -880,7 +880,7 @@ public final class GL43 {
 	@JavadocExclude
 	public static int nglGetDebugMessageLog(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
 		long __functionAddress = getInstance().GetDebugMessageLog;
-		return invokeIIPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
+		return callIIPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
 	}
 
 	/**
@@ -948,7 +948,7 @@ public final class GL43 {
 	@JavadocExclude
 	public static void nglPushDebugGroup(int source, int id, int length, long message) {
 		long __functionAddress = getInstance().PushDebugGroup;
-		invokeIIIPV(__functionAddress, source, id, length, message);
+		callIIIPV(__functionAddress, source, id, length, message);
 	}
 
 	/**
@@ -1004,7 +1004,7 @@ public final class GL43 {
 	 */
 	public static void glPopDebugGroup() {
 		long __functionAddress = getInstance().PopDebugGroup;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glObjectLabel ] ---
@@ -1013,7 +1013,7 @@ public final class GL43 {
 	@JavadocExclude
 	public static void nglObjectLabel(int identifier, int name, int length, long label) {
 		long __functionAddress = getInstance().ObjectLabel;
-		invokeIIIPV(__functionAddress, identifier, name, length, label);
+		callIIIPV(__functionAddress, identifier, name, length, label);
 	}
 
 	/**
@@ -1051,7 +1051,7 @@ public final class GL43 {
 	@JavadocExclude
 	public static void nglGetObjectLabel(int identifier, int name, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectLabel;
-		invokeIIIPPV(__functionAddress, identifier, name, bufSize, length, label);
+		callIIIPPV(__functionAddress, identifier, name, bufSize, length, label);
 	}
 
 	/**
@@ -1107,7 +1107,7 @@ public final class GL43 {
 		long __functionAddress = getInstance().ObjectPtrLabel;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ptr);
-		invokePIPV(__functionAddress, ptr, length, label);
+		callPIPV(__functionAddress, ptr, length, label);
 	}
 
 	/**
@@ -1146,7 +1146,7 @@ public final class GL43 {
 		long __functionAddress = getInstance().GetObjectPtrLabel;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ptr);
-		invokePIPPV(__functionAddress, ptr, bufSize, length, label);
+		callPIPPV(__functionAddress, ptr, bufSize, length, label);
 	}
 
 	/**
@@ -1206,7 +1206,7 @@ public final class GL43 {
 	 */
 	public static void glFramebufferParameteri(int target, int pname, int param) {
 		long __functionAddress = getInstance().FramebufferParameteri;
-		invokeIIIV(__functionAddress, target, pname, param);
+		callIIIV(__functionAddress, target, pname, param);
 	}
 
 	// --- [ glGetFramebufferParameteriv ] ---
@@ -1215,7 +1215,7 @@ public final class GL43 {
 	@JavadocExclude
 	public static void nglGetFramebufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferParameteriv;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -1254,7 +1254,7 @@ public final class GL43 {
 	@JavadocExclude
 	public static void nglGetInternalformati64v(int target, int internalformat, int pname, int bufSize, long params) {
 		long __functionAddress = getInstance().GetInternalformati64v;
-		invokeIIIIPV(__functionAddress, target, internalformat, pname, bufSize, params);
+		callIIIIPV(__functionAddress, target, internalformat, pname, bufSize, params);
 	}
 
 	/**
@@ -1305,7 +1305,7 @@ public final class GL43 {
 	 */
 	public static void glInvalidateTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth) {
 		long __functionAddress = getInstance().InvalidateTexSubImage;
-		invokeIIIIIIIIV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth);
+		callIIIIIIIIV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth);
 	}
 
 	// --- [ glInvalidateTexImage ] ---
@@ -1320,7 +1320,7 @@ public final class GL43 {
 	 */
 	public static void glInvalidateTexImage(int texture, int level) {
 		long __functionAddress = getInstance().InvalidateTexImage;
-		invokeIIV(__functionAddress, texture, level);
+		callIIV(__functionAddress, texture, level);
 	}
 
 	// --- [ glInvalidateBufferSubData ] ---
@@ -1336,7 +1336,7 @@ public final class GL43 {
 	 */
 	public static void glInvalidateBufferSubData(int buffer, long offset, long length) {
 		long __functionAddress = getInstance().InvalidateBufferSubData;
-		invokeIPPV(__functionAddress, buffer, offset, length);
+		callIPPV(__functionAddress, buffer, offset, length);
 	}
 
 	// --- [ glInvalidateBufferData ] ---
@@ -1350,7 +1350,7 @@ public final class GL43 {
 	 */
 	public static void glInvalidateBufferData(int buffer) {
 		long __functionAddress = getInstance().InvalidateBufferData;
-		invokeIV(__functionAddress, buffer);
+		callIV(__functionAddress, buffer);
 	}
 
 	// --- [ glInvalidateFramebuffer ] ---
@@ -1359,7 +1359,7 @@ public final class GL43 {
 	@JavadocExclude
 	public static void nglInvalidateFramebuffer(int target, int numAttachments, long attachments) {
 		long __functionAddress = getInstance().InvalidateFramebuffer;
-		invokeIIPV(__functionAddress, target, numAttachments, attachments);
+		callIIPV(__functionAddress, target, numAttachments, attachments);
 	}
 
 	/**
@@ -1395,7 +1395,7 @@ public final class GL43 {
 	@JavadocExclude
 	public static void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().InvalidateSubFramebuffer;
-		invokeIIPIIIIV(__functionAddress, target, numAttachments, attachments, x, y, width, height);
+		callIIPIIIIV(__functionAddress, target, numAttachments, attachments, x, y, width, height);
 	}
 
 	/**
@@ -1435,7 +1435,7 @@ public final class GL43 {
 	@JavadocExclude
 	public static void nglMultiDrawArraysIndirect(int mode, long indirect, int primcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawArraysIndirect;
-		invokeIPIIV(__functionAddress, mode, indirect, primcount, stride);
+		callIPIIV(__functionAddress, mode, indirect, primcount, stride);
 	}
 
 	/**
@@ -1498,7 +1498,7 @@ public final class GL43 {
 	@JavadocExclude
 	public static void nglMultiDrawElementsIndirect(int mode, int type, long indirect, int primcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawElementsIndirect;
-		invokeIIPIIV(__functionAddress, mode, type, indirect, primcount, stride);
+		callIIPIIV(__functionAddress, mode, type, indirect, primcount, stride);
 	}
 
 	/**
@@ -1563,7 +1563,7 @@ public final class GL43 {
 	@JavadocExclude
 	public static void nglGetProgramInterfaceiv(int program, int programInterface, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramInterfaceiv;
-		invokeIIIPV(__functionAddress, program, programInterface, pname, params);
+		callIIIPV(__functionAddress, program, programInterface, pname, params);
 	}
 
 	/**
@@ -1603,7 +1603,7 @@ public final class GL43 {
 	@JavadocExclude
 	public static int nglGetProgramResourceIndex(int program, int programInterface, long name) {
 		long __functionAddress = getInstance().GetProgramResourceIndex;
-		return invokeIIPI(__functionAddress, program, programInterface, name);
+		return callIIPI(__functionAddress, program, programInterface, name);
 	}
 
 	/**
@@ -1634,7 +1634,7 @@ public final class GL43 {
 	@JavadocExclude
 	public static void nglGetProgramResourceName(int program, int programInterface, int index, int bufSize, long length, long name) {
 		long __functionAddress = getInstance().GetProgramResourceName;
-		invokeIIIIPPV(__functionAddress, program, programInterface, index, bufSize, length, name);
+		callIIIIPPV(__functionAddress, program, programInterface, index, bufSize, length, name);
 	}
 
 	/**
@@ -1689,7 +1689,7 @@ public final class GL43 {
 	@JavadocExclude
 	public static void nglGetProgramResourceiv(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params) {
 		long __functionAddress = getInstance().GetProgramResourceiv;
-		invokeIIIIPIPPV(__functionAddress, program, programInterface, index, propCount, props, bufSize, length, params);
+		callIIIIPIPPV(__functionAddress, program, programInterface, index, propCount, props, bufSize, length, params);
 	}
 
 	/**
@@ -1738,7 +1738,7 @@ public final class GL43 {
 	@JavadocExclude
 	public static int nglGetProgramResourceLocation(int program, int programInterface, long name) {
 		long __functionAddress = getInstance().GetProgramResourceLocation;
-		return invokeIIPI(__functionAddress, program, programInterface, name);
+		return callIIPI(__functionAddress, program, programInterface, name);
 	}
 
 	/**
@@ -1769,7 +1769,7 @@ public final class GL43 {
 	@JavadocExclude
 	public static int nglGetProgramResourceLocationIndex(int program, int programInterface, long name) {
 		long __functionAddress = getInstance().GetProgramResourceLocationIndex;
-		return invokeIIPI(__functionAddress, program, programInterface, name);
+		return callIIPI(__functionAddress, program, programInterface, name);
 	}
 
 	/**
@@ -1807,7 +1807,7 @@ public final class GL43 {
 	 */
 	public static void glShaderStorageBlockBinding(int program, int storageBlockIndex, int storageBlockBinding) {
 		long __functionAddress = getInstance().ShaderStorageBlockBinding;
-		invokeIIIV(__functionAddress, program, storageBlockIndex, storageBlockBinding);
+		callIIIV(__functionAddress, program, storageBlockIndex, storageBlockBinding);
 	}
 
 	// --- [ glTexBufferRange ] ---
@@ -1825,7 +1825,7 @@ public final class GL43 {
 	 */
 	public static void glTexBufferRange(int target, int internalformat, int buffer, long offset, long size) {
 		long __functionAddress = getInstance().TexBufferRange;
-		invokeIIIPPV(__functionAddress, target, internalformat, buffer, offset, size);
+		callIIIPPV(__functionAddress, target, internalformat, buffer, offset, size);
 	}
 
 	// --- [ glTexStorage2DMultisample ] ---
@@ -1845,7 +1845,7 @@ public final class GL43 {
 	 */
 	public static void glTexStorage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TexStorage2DMultisample;
-		invokeIIIIIZV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
+		callIIIIIZV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
 	// --- [ glTexStorage3DMultisample ] ---
@@ -1866,7 +1866,7 @@ public final class GL43 {
 	 */
 	public static void glTexStorage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TexStorage3DMultisample;
-		invokeIIIIIIZV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
+		callIIIIIIZV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
 	// --- [ glTextureView ] ---
@@ -1887,7 +1887,7 @@ public final class GL43 {
 	 */
 	public static void glTextureView(int texture, int target, int origtexture, int internalformat, int minlevel, int numlevels, int minlayer, int numlayers) {
 		long __functionAddress = getInstance().TextureView;
-		invokeIIIIIIIIV(__functionAddress, texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
+		callIIIIIIIIV(__functionAddress, texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
 	}
 
 	// --- [ glBindVertexBuffer ] ---
@@ -1904,7 +1904,7 @@ public final class GL43 {
 	 */
 	public static void glBindVertexBuffer(int bindingindex, int buffer, long offset, int stride) {
 		long __functionAddress = getInstance().BindVertexBuffer;
-		invokeIIPIV(__functionAddress, bindingindex, buffer, offset, stride);
+		callIIPIV(__functionAddress, bindingindex, buffer, offset, stride);
 	}
 
 	// --- [ glVertexAttribFormat ] ---
@@ -1923,7 +1923,7 @@ public final class GL43 {
 	 */
 	public static void glVertexAttribFormat(int attribindex, int size, int type, boolean normalized, int relativeoffset) {
 		long __functionAddress = getInstance().VertexAttribFormat;
-		invokeIIIZIV(__functionAddress, attribindex, size, type, normalized, relativeoffset);
+		callIIIZIV(__functionAddress, attribindex, size, type, normalized, relativeoffset);
 	}
 
 	// --- [ glVertexAttribIFormat ] ---
@@ -1940,7 +1940,7 @@ public final class GL43 {
 	 */
 	public static void glVertexAttribIFormat(int attribindex, int size, int type, int relativeoffset) {
 		long __functionAddress = getInstance().VertexAttribIFormat;
-		invokeIIIIV(__functionAddress, attribindex, size, type, relativeoffset);
+		callIIIIV(__functionAddress, attribindex, size, type, relativeoffset);
 	}
 
 	// --- [ glVertexAttribLFormat ] ---
@@ -1957,7 +1957,7 @@ public final class GL43 {
 	 */
 	public static void glVertexAttribLFormat(int attribindex, int size, int type, int relativeoffset) {
 		long __functionAddress = getInstance().VertexAttribLFormat;
-		invokeIIIIV(__functionAddress, attribindex, size, type, relativeoffset);
+		callIIIIV(__functionAddress, attribindex, size, type, relativeoffset);
 	}
 
 	// --- [ glVertexAttribBinding ] ---
@@ -1972,7 +1972,7 @@ public final class GL43 {
 	 */
 	public static void glVertexAttribBinding(int attribindex, int bindingindex) {
 		long __functionAddress = getInstance().VertexAttribBinding;
-		invokeIIV(__functionAddress, attribindex, bindingindex);
+		callIIV(__functionAddress, attribindex, bindingindex);
 	}
 
 	// --- [ glVertexBindingDivisor ] ---
@@ -1987,7 +1987,7 @@ public final class GL43 {
 	 */
 	public static void glVertexBindingDivisor(int bindingindex, int divisor) {
 		long __functionAddress = getInstance().VertexBindingDivisor;
-		invokeIIV(__functionAddress, bindingindex, divisor);
+		callIIV(__functionAddress, bindingindex, divisor);
 	}
 
      /**

@@ -64,7 +64,7 @@ public final class GLX11 {
 		long __functionAddress = getInstance().QueryExtensionsString;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return invokePIP(__functionAddress, display, screen);
+		return callPIP(__functionAddress, display, screen);
 	}
 
 	/**
@@ -86,7 +86,7 @@ public final class GLX11 {
 		long __functionAddress = getInstance().GetClientString;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return invokePIP(__functionAddress, display, name);
+		return callPIP(__functionAddress, display, name);
 	}
 
 	/**
@@ -108,7 +108,7 @@ public final class GLX11 {
 		long __functionAddress = getInstance().QueryServerString;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return invokePIIP(__functionAddress, display, screen, name);
+		return callPIIP(__functionAddress, display, screen, name);
 	}
 
 	/**

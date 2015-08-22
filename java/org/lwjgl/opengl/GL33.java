@@ -245,7 +245,7 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name) {
 		long __functionAddress = getInstance().BindFragDataLocationIndexed;
-		invokeIIIPV(__functionAddress, program, colorNumber, index, name);
+		callIIIPV(__functionAddress, program, colorNumber, index, name);
 	}
 
 	/**
@@ -277,7 +277,7 @@ public final class GL33 {
 	@JavadocExclude
 	public static int nglGetFragDataIndex(int program, long name) {
 		long __functionAddress = getInstance().GetFragDataIndex;
-		return invokeIPI(__functionAddress, program, name);
+		return callIPI(__functionAddress, program, name);
 	}
 
 	/**
@@ -307,7 +307,7 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglGenSamplers(int count, long samplers) {
 		long __functionAddress = getInstance().GenSamplers;
-		invokeIPV(__functionAddress, count, samplers);
+		callIPV(__functionAddress, count, samplers);
 	}
 
 	/**
@@ -343,7 +343,7 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglDeleteSamplers(int count, long samplers) {
 		long __functionAddress = getInstance().DeleteSamplers;
-		invokeIPV(__functionAddress, count, samplers);
+		callIPV(__functionAddress, count, samplers);
 	}
 
 	/**
@@ -383,7 +383,7 @@ public final class GL33 {
 	 */
 	public static boolean glIsSampler(int sampler) {
 		long __functionAddress = getInstance().IsSampler;
-		return invokeIZ(__functionAddress, sampler);
+		return callIZ(__functionAddress, sampler);
 	}
 
 	// --- [ glBindSampler ] ---
@@ -398,7 +398,7 @@ public final class GL33 {
 	 */
 	public static void glBindSampler(int unit, int sampler) {
 		long __functionAddress = getInstance().BindSampler;
-		invokeIIV(__functionAddress, unit, sampler);
+		callIIV(__functionAddress, unit, sampler);
 	}
 
 	// --- [ glSamplerParameteri ] ---
@@ -414,7 +414,7 @@ public final class GL33 {
 	 */
 	public static void glSamplerParameteri(int sampler, int pname, int param) {
 		long __functionAddress = getInstance().SamplerParameteri;
-		invokeIIIV(__functionAddress, sampler, pname, param);
+		callIIIV(__functionAddress, sampler, pname, param);
 	}
 
 	// --- [ glSamplerParameterf ] ---
@@ -430,7 +430,7 @@ public final class GL33 {
 	 */
 	public static void glSamplerParameterf(int sampler, int pname, float param) {
 		long __functionAddress = getInstance().SamplerParameterf;
-		invokeIIFV(__functionAddress, sampler, pname, param);
+		callIIFV(__functionAddress, sampler, pname, param);
 	}
 
 	// --- [ glSamplerParameteriv ] ---
@@ -439,7 +439,7 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameteriv;
-		invokeIIPV(__functionAddress, sampler, pname, params);
+		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -466,7 +466,7 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterfv;
-		invokeIIPV(__functionAddress, sampler, pname, params);
+		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -493,7 +493,7 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterIiv;
-		invokeIIPV(__functionAddress, sampler, pname, params);
+		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -520,7 +520,7 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterIuiv;
-		invokeIIPV(__functionAddress, sampler, pname, params);
+		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -547,7 +547,7 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglGetSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameteriv;
-		invokeIIPV(__functionAddress, sampler, pname, params);
+		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -586,7 +586,7 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglGetSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterfv;
-		invokeIIPV(__functionAddress, sampler, pname, params);
+		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -625,7 +625,7 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglGetSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIiv;
-		invokeIIPV(__functionAddress, sampler, pname, params);
+		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -664,7 +664,7 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglGetSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIuiv;
-		invokeIIPV(__functionAddress, sampler, pname, params);
+		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -709,7 +709,7 @@ public final class GL33 {
 	 */
 	public static void glQueryCounter(int id, int target) {
 		long __functionAddress = getInstance().QueryCounter;
-		invokeIIV(__functionAddress, id, target);
+		callIIV(__functionAddress, id, target);
 	}
 
 	// --- [ glGetQueryObjecti64v ] ---
@@ -718,7 +718,7 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglGetQueryObjecti64v(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjecti64v;
-		invokeIIPV(__functionAddress, id, pname, params);
+		callIIPV(__functionAddress, id, pname, params);
 	}
 
 	/**
@@ -757,7 +757,7 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglGetQueryObjectui64v(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectui64v;
-		invokeIIPV(__functionAddress, id, pname, params);
+		callIIPV(__functionAddress, id, pname, params);
 	}
 
 	/**
@@ -802,7 +802,7 @@ public final class GL33 {
 	 */
 	public static void glVertexAttribDivisor(int index, int divisor) {
 		long __functionAddress = getInstance().VertexAttribDivisor;
-		invokeIIV(__functionAddress, index, divisor);
+		callIIV(__functionAddress, index, divisor);
 	}
 
 	// --- [ glVertexP2ui ] ---
@@ -819,7 +819,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().VertexP2ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, type, value);
+		callIIV(__functionAddress, type, value);
 	}
 
 	// --- [ glVertexP3ui ] ---
@@ -836,7 +836,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().VertexP3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, type, value);
+		callIIV(__functionAddress, type, value);
 	}
 
 	// --- [ glVertexP4ui ] ---
@@ -853,7 +853,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().VertexP4ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, type, value);
+		callIIV(__functionAddress, type, value);
 	}
 
 	// --- [ glVertexP2uiv ] ---
@@ -864,7 +864,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().VertexP2uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, type, value);
+		callIPV(__functionAddress, type, value);
 	}
 
 	/**
@@ -896,7 +896,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().VertexP3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, type, value);
+		callIPV(__functionAddress, type, value);
 	}
 
 	/**
@@ -928,7 +928,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().VertexP4uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, type, value);
+		callIPV(__functionAddress, type, value);
 	}
 
 	/**
@@ -966,7 +966,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().TexCoordP1ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, type, coords);
+		callIIV(__functionAddress, type, coords);
 	}
 
 	// --- [ glTexCoordP2ui ] ---
@@ -983,7 +983,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().TexCoordP2ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, type, coords);
+		callIIV(__functionAddress, type, coords);
 	}
 
 	// --- [ glTexCoordP3ui ] ---
@@ -1000,7 +1000,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().TexCoordP3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, type, coords);
+		callIIV(__functionAddress, type, coords);
 	}
 
 	// --- [ glTexCoordP4ui ] ---
@@ -1017,7 +1017,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().TexCoordP4ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, type, coords);
+		callIIV(__functionAddress, type, coords);
 	}
 
 	// --- [ glTexCoordP1uiv ] ---
@@ -1028,7 +1028,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().TexCoordP1uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, type, coords);
+		callIPV(__functionAddress, type, coords);
 	}
 
 	/**
@@ -1060,7 +1060,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().TexCoordP2uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, type, coords);
+		callIPV(__functionAddress, type, coords);
 	}
 
 	/**
@@ -1092,7 +1092,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().TexCoordP3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, type, coords);
+		callIPV(__functionAddress, type, coords);
 	}
 
 	/**
@@ -1124,7 +1124,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().TexCoordP4uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, type, coords);
+		callIPV(__functionAddress, type, coords);
 	}
 
 	/**
@@ -1163,7 +1163,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().MultiTexCoordP1ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, texture, type, coords);
+		callIIIV(__functionAddress, texture, type, coords);
 	}
 
 	// --- [ glMultiTexCoordP2ui ] ---
@@ -1181,7 +1181,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().MultiTexCoordP2ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, texture, type, coords);
+		callIIIV(__functionAddress, texture, type, coords);
 	}
 
 	// --- [ glMultiTexCoordP3ui ] ---
@@ -1199,7 +1199,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().MultiTexCoordP3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, texture, type, coords);
+		callIIIV(__functionAddress, texture, type, coords);
 	}
 
 	// --- [ glMultiTexCoordP4ui ] ---
@@ -1217,7 +1217,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().MultiTexCoordP4ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, texture, type, coords);
+		callIIIV(__functionAddress, texture, type, coords);
 	}
 
 	// --- [ glMultiTexCoordP1uiv ] ---
@@ -1228,7 +1228,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().MultiTexCoordP1uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, texture, type, coords);
+		callIIPV(__functionAddress, texture, type, coords);
 	}
 
 	/**
@@ -1261,7 +1261,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().MultiTexCoordP2uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, texture, type, coords);
+		callIIPV(__functionAddress, texture, type, coords);
 	}
 
 	/**
@@ -1294,7 +1294,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().MultiTexCoordP3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, texture, type, coords);
+		callIIPV(__functionAddress, texture, type, coords);
 	}
 
 	/**
@@ -1327,7 +1327,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().MultiTexCoordP4uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, texture, type, coords);
+		callIIPV(__functionAddress, texture, type, coords);
 	}
 
 	/**
@@ -1366,7 +1366,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().NormalP3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, type, coords);
+		callIIV(__functionAddress, type, coords);
 	}
 
 	// --- [ glNormalP3uiv ] ---
@@ -1377,7 +1377,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().NormalP3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, type, coords);
+		callIPV(__functionAddress, type, coords);
 	}
 
 	/**
@@ -1415,7 +1415,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().ColorP3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, type, color);
+		callIIV(__functionAddress, type, color);
 	}
 
 	// --- [ glColorP4ui ] ---
@@ -1432,7 +1432,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().ColorP4ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, type, color);
+		callIIV(__functionAddress, type, color);
 	}
 
 	// --- [ glColorP3uiv ] ---
@@ -1443,7 +1443,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().ColorP3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, type, color);
+		callIPV(__functionAddress, type, color);
 	}
 
 	/**
@@ -1475,7 +1475,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().ColorP4uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, type, color);
+		callIPV(__functionAddress, type, color);
 	}
 
 	/**
@@ -1513,7 +1513,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().SecondaryColorP3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, type, color);
+		callIIV(__functionAddress, type, color);
 	}
 
 	// --- [ glSecondaryColorP3uiv ] ---
@@ -1524,7 +1524,7 @@ public final class GL33 {
 		long __functionAddress = getInstance().SecondaryColorP3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, type, color);
+		callIPV(__functionAddress, type, color);
 	}
 
 	/**
@@ -1562,7 +1562,7 @@ public final class GL33 {
 	 */
 	public static void glVertexAttribP1ui(int index, int type, boolean normalized, int value) {
 		long __functionAddress = getInstance().VertexAttribP1ui;
-		invokeIIZIV(__functionAddress, index, type, normalized, value);
+		callIIZIV(__functionAddress, index, type, normalized, value);
 	}
 
 	// --- [ glVertexAttribP2ui ] ---
@@ -1579,7 +1579,7 @@ public final class GL33 {
 	 */
 	public static void glVertexAttribP2ui(int index, int type, boolean normalized, int value) {
 		long __functionAddress = getInstance().VertexAttribP2ui;
-		invokeIIZIV(__functionAddress, index, type, normalized, value);
+		callIIZIV(__functionAddress, index, type, normalized, value);
 	}
 
 	// --- [ glVertexAttribP3ui ] ---
@@ -1596,7 +1596,7 @@ public final class GL33 {
 	 */
 	public static void glVertexAttribP3ui(int index, int type, boolean normalized, int value) {
 		long __functionAddress = getInstance().VertexAttribP3ui;
-		invokeIIZIV(__functionAddress, index, type, normalized, value);
+		callIIZIV(__functionAddress, index, type, normalized, value);
 	}
 
 	// --- [ glVertexAttribP4ui ] ---
@@ -1613,7 +1613,7 @@ public final class GL33 {
 	 */
 	public static void glVertexAttribP4ui(int index, int type, boolean normalized, int value) {
 		long __functionAddress = getInstance().VertexAttribP4ui;
-		invokeIIZIV(__functionAddress, index, type, normalized, value);
+		callIIZIV(__functionAddress, index, type, normalized, value);
 	}
 
 	// --- [ glVertexAttribP1uiv ] ---
@@ -1622,7 +1622,7 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglVertexAttribP1uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP1uiv;
-		invokeIIZPV(__functionAddress, index, type, normalized, value);
+		callIIZPV(__functionAddress, index, type, normalized, value);
 	}
 
 	/**
@@ -1654,7 +1654,7 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglVertexAttribP2uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP2uiv;
-		invokeIIZPV(__functionAddress, index, type, normalized, value);
+		callIIZPV(__functionAddress, index, type, normalized, value);
 	}
 
 	/**
@@ -1686,7 +1686,7 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglVertexAttribP3uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP3uiv;
-		invokeIIZPV(__functionAddress, index, type, normalized, value);
+		callIIZPV(__functionAddress, index, type, normalized, value);
 	}
 
 	/**
@@ -1718,7 +1718,7 @@ public final class GL33 {
 	@JavadocExclude
 	public static void nglVertexAttribP4uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = getInstance().VertexAttribP4uiv;
-		invokeIIZPV(__functionAddress, index, type, normalized, value);
+		callIIZPV(__functionAddress, index, type, normalized, value);
 	}
 
 	/**

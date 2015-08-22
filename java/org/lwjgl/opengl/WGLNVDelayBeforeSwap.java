@@ -85,7 +85,7 @@ public final class WGLNVDelayBeforeSwap {
 		long __functionAddress = getInstance().DelayBeforeSwapNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hDC);
-		return invokePFI(__functionAddress, hDC, seconds);
+		return callPFI(__functionAddress, hDC, seconds);
 	}
 
 }

@@ -111,7 +111,7 @@ public final class GL21 {
 	@JavadocExclude
 	public static void nglUniformMatrix2x3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x3fv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -141,7 +141,7 @@ public final class GL21 {
 	@JavadocExclude
 	public static void nglUniformMatrix3x2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x2fv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -171,7 +171,7 @@ public final class GL21 {
 	@JavadocExclude
 	public static void nglUniformMatrix2x4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x4fv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -201,7 +201,7 @@ public final class GL21 {
 	@JavadocExclude
 	public static void nglUniformMatrix4x2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x2fv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -231,7 +231,7 @@ public final class GL21 {
 	@JavadocExclude
 	public static void nglUniformMatrix3x4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x4fv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -261,7 +261,7 @@ public final class GL21 {
 	@JavadocExclude
 	public static void nglUniformMatrix4x3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x3fv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**

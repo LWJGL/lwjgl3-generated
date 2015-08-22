@@ -140,7 +140,7 @@ public final class EXTGeometryShader {
 
 	public static void glFramebufferTextureEXT(int target, int attachment, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTextureEXT;
-		invokeIIIIV(__functionAddress, target, attachment, texture, level);
+		callIIIIV(__functionAddress, target, attachment, texture, level);
 	}
 
 }

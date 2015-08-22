@@ -90,7 +90,7 @@ public final class NVTransformFeedback2 {
 
 	public static void glBindTransformFeedbackNV(int target, int id) {
 		long __functionAddress = getInstance().BindTransformFeedbackNV;
-		invokeIIV(__functionAddress, target, id);
+		callIIV(__functionAddress, target, id);
 	}
 
 	// --- [ glDeleteTransformFeedbacksNV ] ---
@@ -99,7 +99,7 @@ public final class NVTransformFeedback2 {
 	@JavadocExclude
 	public static void nglDeleteTransformFeedbacksNV(int n, long ids) {
 		long __functionAddress = getInstance().DeleteTransformFeedbacksNV;
-		invokeIPV(__functionAddress, n, ids);
+		callIPV(__functionAddress, n, ids);
 	}
 
 	public static void glDeleteTransformFeedbacksNV(int n, ByteBuffer ids) {
@@ -126,7 +126,7 @@ public final class NVTransformFeedback2 {
 	@JavadocExclude
 	public static void nglGenTransformFeedbacksNV(int n, long ids) {
 		long __functionAddress = getInstance().GenTransformFeedbacksNV;
-		invokeIPV(__functionAddress, n, ids);
+		callIPV(__functionAddress, n, ids);
 	}
 
 	public static void glGenTransformFeedbacksNV(int n, ByteBuffer ids) {
@@ -156,28 +156,28 @@ public final class NVTransformFeedback2 {
 
 	public static boolean glIsTransformFeedbackNV(int id) {
 		long __functionAddress = getInstance().IsTransformFeedbackNV;
-		return invokeIZ(__functionAddress, id);
+		return callIZ(__functionAddress, id);
 	}
 
 	// --- [ glPauseTransformFeedbackNV ] ---
 
 	public static void glPauseTransformFeedbackNV() {
 		long __functionAddress = getInstance().PauseTransformFeedbackNV;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glResumeTransformFeedbackNV ] ---
 
 	public static void glResumeTransformFeedbackNV() {
 		long __functionAddress = getInstance().ResumeTransformFeedbackNV;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glDrawTransformFeedbackNV ] ---
 
 	public static void glDrawTransformFeedbackNV(int mode, int id) {
 		long __functionAddress = getInstance().DrawTransformFeedbackNV;
-		invokeIIV(__functionAddress, mode, id);
+		callIIV(__functionAddress, mode, id);
 	}
 
 }

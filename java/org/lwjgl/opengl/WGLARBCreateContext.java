@@ -76,7 +76,7 @@ public final class WGLARBCreateContext {
 		long __functionAddress = getInstance().CreateContextAttribsARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		return invokePPPP(__functionAddress, hdc, shareContext, attribList);
+		return callPPPP(__functionAddress, hdc, shareContext, attribList);
 	}
 
 	/**

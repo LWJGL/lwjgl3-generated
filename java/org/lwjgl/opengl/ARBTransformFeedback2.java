@@ -98,7 +98,7 @@ public final class ARBTransformFeedback2 {
 	 */
 	public static void glBindTransformFeedback(int target, int id) {
 		long __functionAddress = getInstance().BindTransformFeedback;
-		invokeIIV(__functionAddress, target, id);
+		callIIV(__functionAddress, target, id);
 	}
 
 	// --- [ glDeleteTransformFeedbacks ] ---
@@ -107,7 +107,7 @@ public final class ARBTransformFeedback2 {
 	@JavadocExclude
 	public static void nglDeleteTransformFeedbacks(int n, long ids) {
 		long __functionAddress = getInstance().DeleteTransformFeedbacks;
-		invokeIPV(__functionAddress, n, ids);
+		callIPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -140,7 +140,7 @@ public final class ARBTransformFeedback2 {
 	@JavadocExclude
 	public static void nglGenTransformFeedbacks(int n, long ids) {
 		long __functionAddress = getInstance().GenTransformFeedbacks;
-		invokeIPV(__functionAddress, n, ids);
+		callIPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -177,7 +177,7 @@ public final class ARBTransformFeedback2 {
 	 */
 	public static boolean glIsTransformFeedback(int id) {
 		long __functionAddress = getInstance().IsTransformFeedback;
-		return invokeIZ(__functionAddress, id);
+		return callIZ(__functionAddress, id);
 	}
 
 	// --- [ glPauseTransformFeedback ] ---
@@ -197,7 +197,7 @@ public final class ARBTransformFeedback2 {
 	 */
 	public static void glPauseTransformFeedback() {
 		long __functionAddress = getInstance().PauseTransformFeedback;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glResumeTransformFeedback ] ---
@@ -209,7 +209,7 @@ public final class ARBTransformFeedback2 {
 	 */
 	public static void glResumeTransformFeedback() {
 		long __functionAddress = getInstance().ResumeTransformFeedback;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glDrawTransformFeedback ] ---
@@ -222,7 +222,7 @@ public final class ARBTransformFeedback2 {
 	 */
 	public static void glDrawTransformFeedback(int mode, int id) {
 		long __functionAddress = getInstance().DrawTransformFeedback;
-		invokeIIV(__functionAddress, mode, id);
+		callIIV(__functionAddress, mode, id);
 	}
 
 }

@@ -23,12 +23,14 @@ public final class OVRErrorInfo implements Pointer {
 		ERRORSTRING;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(2);
+		IntBuffer offsets = memAllocInt(2);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		RESULT = offsets.get(0);
 		ERRORSTRING = offsets.get(1);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -53,9 +55,9 @@ public final class OVRErrorInfo implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setResult(int Result) { Result(struct, Result); }
-	public void setErrorString(ByteBuffer ErrorString) { ErrorStringSet(struct, ErrorString); }
-	public void setErrorString(int index, byte ErrorString) { ErrorString(struct, index, ErrorString); }
+	public OVRErrorInfo setResult(int Result) { Result(struct, Result); return this; }
+	public OVRErrorInfo setErrorString(ByteBuffer ErrorString) { ErrorStringSet(struct, ErrorString); return this; }
+	public OVRErrorInfo setErrorString(int index, byte ErrorString) { ErrorString(struct, index, ErrorString); return this; }
 
 	public int getResult() { return Result(struct); }
 	public void getErrorString(ByteBuffer ErrorString) { ErrorStringGet(struct, ErrorString); }

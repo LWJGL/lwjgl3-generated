@@ -87,7 +87,7 @@ public final class ARBTextureStorage {
 	 */
 	public static void glTexStorage1D(int target, int levels, int internalformat, int width) {
 		long __functionAddress = getInstance().TexStorage1D;
-		invokeIIIIV(__functionAddress, target, levels, internalformat, width);
+		callIIIIV(__functionAddress, target, levels, internalformat, width);
 	}
 
 	// --- [ glTexStorage2D ] ---
@@ -103,7 +103,7 @@ public final class ARBTextureStorage {
 	 */
 	public static void glTexStorage2D(int target, int levels, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().TexStorage2D;
-		invokeIIIIIV(__functionAddress, target, levels, internalformat, width, height);
+		callIIIIIV(__functionAddress, target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTexStorage3D ] ---
@@ -120,7 +120,7 @@ public final class ARBTextureStorage {
 	 */
 	public static void glTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth) {
 		long __functionAddress = getInstance().TexStorage3D;
-		invokeIIIIIIV(__functionAddress, target, levels, internalformat, width, height, depth);
+		callIIIIIIV(__functionAddress, target, levels, internalformat, width, height, depth);
 	}
 
 	// --- [ glTextureStorage1DEXT ] ---
@@ -138,7 +138,7 @@ public final class ARBTextureStorage {
 		long __functionAddress = getInstance().TextureStorage1DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIV(__functionAddress, texture, target, levels, internalformat, width);
+		callIIIIIV(__functionAddress, texture, target, levels, internalformat, width);
 	}
 
 	// --- [ glTextureStorage2DEXT ] ---
@@ -157,7 +157,7 @@ public final class ARBTextureStorage {
 		long __functionAddress = getInstance().TextureStorage2DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIV(__functionAddress, texture, target, levels, internalformat, width, height);
+		callIIIIIIV(__functionAddress, texture, target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTextureStorage3DEXT ] ---
@@ -177,7 +177,7 @@ public final class ARBTextureStorage {
 		long __functionAddress = getInstance().TextureStorage3DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIV(__functionAddress, texture, target, levels, internalformat, width, height, depth);
+		callIIIIIIIV(__functionAddress, texture, target, levels, internalformat, width, height, depth);
 	}
 
 }

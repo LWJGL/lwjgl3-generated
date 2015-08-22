@@ -129,7 +129,7 @@ public final class WGLARBPixelFormat {
 		long __functionAddress = getInstance().GetPixelFormatAttribivARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		return invokePIIIPPI(__functionAddress, hdc, pixelFormat, layerPlane, n, attributes, values);
+		return callPIIIPPI(__functionAddress, hdc, pixelFormat, layerPlane, n, attributes, values);
 	}
 
 	/**
@@ -174,7 +174,7 @@ public final class WGLARBPixelFormat {
 		long __functionAddress = getInstance().GetPixelFormatAttribfvARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		return invokePIIIPPI(__functionAddress, hdc, pixelFormat, layerPlane, n, attributes, values);
+		return callPIIIPPI(__functionAddress, hdc, pixelFormat, layerPlane, n, attributes, values);
 	}
 
 	/**
@@ -219,7 +219,7 @@ public final class WGLARBPixelFormat {
 		long __functionAddress = getInstance().ChoosePixelFormatARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		return invokePPPIPPI(__functionAddress, hdc, attribIList, attribFList, maxFormats, formats, numFormats);
+		return callPPPIPPI(__functionAddress, hdc, attribIList, attribFList, maxFormats, formats, numFormats);
 	}
 
 	/**

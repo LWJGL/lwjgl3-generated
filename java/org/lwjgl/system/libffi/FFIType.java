@@ -25,7 +25,7 @@ public final class FFIType implements Pointer {
 		ELEMENTS;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(4);
+		IntBuffer offsets = memAllocInt(4);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -33,6 +33,8 @@ public final class FFIType implements Pointer {
 		ALIGNMENT = offsets.get(1);
 		TYPE = offsets.get(2);
 		ELEMENTS = offsets.get(3);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -57,11 +59,11 @@ public final class FFIType implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setSize(long size) { size(struct, size); }
-	public void setAlignment(int alignment) { alignment(struct, alignment); }
-	public void setType(int type) { type(struct, type); }
-	public void setElements(long elements) { elements(struct, elements); }
-	public void setElements(ByteBuffer elements) { elements(struct, elements); }
+	public FFIType setSize(long size) { size(struct, size); return this; }
+	public FFIType setAlignment(int alignment) { alignment(struct, alignment); return this; }
+	public FFIType setType(int type) { type(struct, type); return this; }
+	public FFIType setElements(long elements) { elements(struct, elements); return this; }
+	public FFIType setElements(ByteBuffer elements) { elements(struct, elements); return this; }
 
 	public long getSize() { return size(struct); }
 	public int getAlignment() { return alignment(struct); }

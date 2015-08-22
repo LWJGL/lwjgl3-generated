@@ -56,7 +56,7 @@ public final class MESAImageDMABufExport {
 			checkPointer(dpy);
 			checkPointer(image);
 		}
-		return invokePPPPPZ(__functionAddress, dpy, image, fourcc, num_planes, modifiers);
+		return callPPPPPZ(__functionAddress, dpy, image, fourcc, num_planes, modifiers);
 	}
 
 	public static boolean eglExportDMABUFImageQueryMESA(long dpy, long image, ByteBuffer fourcc, ByteBuffer num_planes, ByteBuffer modifiers) {
@@ -88,7 +88,7 @@ public final class MESAImageDMABufExport {
 			checkPointer(dpy);
 			checkPointer(image);
 		}
-		return invokePPPPPZ(__functionAddress, dpy, image, fds, strides, offsets);
+		return callPPPPPZ(__functionAddress, dpy, image, fds, strides, offsets);
 	}
 
 	public static boolean eglExportDMABUFImageMESA(long dpy, long image, ByteBuffer fds, ByteBuffer strides, ByteBuffer offsets) {

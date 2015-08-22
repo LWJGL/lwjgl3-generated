@@ -23,12 +23,14 @@ public final class OVRPosef implements Pointer {
 		POSITION;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(2);
+		IntBuffer offsets = memAllocInt(2);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		ORIENTATION = offsets.get(0);
 		POSITION = offsets.get(1);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -53,15 +55,15 @@ public final class OVRPosef implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setOrientation(ByteBuffer Orientation) { OrientationSet(struct, Orientation); }
-	public void setOrientationX(float x) { OrientationX(struct, x); }
-	public void setOrientationY(float y) { OrientationY(struct, y); }
-	public void setOrientationZ(float z) { OrientationZ(struct, z); }
-	public void setOrientationW(float w) { OrientationW(struct, w); }
-	public void setPosition(ByteBuffer Position) { PositionSet(struct, Position); }
-	public void setPositionX(float x) { PositionX(struct, x); }
-	public void setPositionY(float y) { PositionY(struct, y); }
-	public void setPositionZ(float z) { PositionZ(struct, z); }
+	public OVRPosef setOrientation(ByteBuffer Orientation) { OrientationSet(struct, Orientation); return this; }
+	public OVRPosef setOrientationX(float x) { OrientationX(struct, x); return this; }
+	public OVRPosef setOrientationY(float y) { OrientationY(struct, y); return this; }
+	public OVRPosef setOrientationZ(float z) { OrientationZ(struct, z); return this; }
+	public OVRPosef setOrientationW(float w) { OrientationW(struct, w); return this; }
+	public OVRPosef setPosition(ByteBuffer Position) { PositionSet(struct, Position); return this; }
+	public OVRPosef setPositionX(float x) { PositionX(struct, x); return this; }
+	public OVRPosef setPositionY(float y) { PositionY(struct, y); return this; }
+	public OVRPosef setPositionZ(float z) { PositionZ(struct, z); return this; }
 
 	public void getOrientation(ByteBuffer Orientation) { OrientationGet(struct, Orientation); }
 	public float getOrientationX() { return OrientationX(struct); }

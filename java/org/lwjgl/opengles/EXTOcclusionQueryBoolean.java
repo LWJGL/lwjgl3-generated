@@ -87,7 +87,7 @@ public final class EXTOcclusionQueryBoolean {
 	@JavadocExclude
 	public static void nglGenQueriesEXT(int n, long ids) {
 		long __functionAddress = getInstance().GenQueriesEXT;
-		invokeIPV(__functionAddress, n, ids);
+		callIPV(__functionAddress, n, ids);
 	}
 
 	public static void glGenQueriesEXT(int n, ByteBuffer ids) {
@@ -115,7 +115,7 @@ public final class EXTOcclusionQueryBoolean {
 	@JavadocExclude
 	public static void nglDeleteQueriesEXT(int n, long ids) {
 		long __functionAddress = getInstance().DeleteQueriesEXT;
-		invokeIPV(__functionAddress, n, ids);
+		callIPV(__functionAddress, n, ids);
 	}
 
 	public static void glDeleteQueriesEXT(int n, ByteBuffer ids) {
@@ -140,21 +140,21 @@ public final class EXTOcclusionQueryBoolean {
 
 	public static boolean glIsQueryEXT(int id) {
 		long __functionAddress = getInstance().IsQueryEXT;
-		return invokeIZ(__functionAddress, id);
+		return callIZ(__functionAddress, id);
 	}
 
 	// --- [ glBeginQueryEXT ] ---
 
 	public static void glBeginQueryEXT(int target, int id) {
 		long __functionAddress = getInstance().BeginQueryEXT;
-		invokeIIV(__functionAddress, target, id);
+		callIIV(__functionAddress, target, id);
 	}
 
 	// --- [ glEndQueryEXT ] ---
 
 	public static void glEndQueryEXT(int target) {
 		long __functionAddress = getInstance().EndQueryEXT;
-		invokeIV(__functionAddress, target);
+		callIV(__functionAddress, target);
 	}
 
 	// --- [ glGetQueryivEXT ] ---
@@ -163,7 +163,7 @@ public final class EXTOcclusionQueryBoolean {
 	@JavadocExclude
 	public static void nglGetQueryivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryivEXT;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetQueryivEXT(int target, int pname, ByteBuffer params) {
@@ -193,7 +193,7 @@ public final class EXTOcclusionQueryBoolean {
 	@JavadocExclude
 	public static void nglGetQueryObjectuivEXT(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectuivEXT;
-		invokeIIPV(__functionAddress, id, pname, params);
+		callIIPV(__functionAddress, id, pname, params);
 	}
 
 	public static void glGetQueryObjectuivEXT(int id, int pname, ByteBuffer params) {

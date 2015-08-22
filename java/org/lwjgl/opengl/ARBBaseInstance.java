@@ -77,7 +77,7 @@ public final class ARBBaseInstance {
 	 */
 	public static void glDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance) {
 		long __functionAddress = getInstance().DrawArraysInstancedBaseInstance;
-		invokeIIIIIV(__functionAddress, mode, first, count, primcount, baseinstance);
+		callIIIIIV(__functionAddress, mode, first, count, primcount, baseinstance);
 	}
 
 	// --- [ glDrawElementsInstancedBaseInstance ] ---
@@ -86,7 +86,7 @@ public final class ARBBaseInstance {
 	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseInstance(int mode, int count, int type, long indices, int primcount, int baseinstance) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseInstance;
-		invokeIIIPIIV(__functionAddress, mode, count, type, indices, primcount, baseinstance);
+		callIIIPIIV(__functionAddress, mode, count, type, indices, primcount, baseinstance);
 	}
 
 	/**
@@ -148,7 +148,7 @@ public final class ARBBaseInstance {
 	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indices, int primcount, int basevertex, int baseinstance) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseVertexBaseInstance;
-		invokeIIIPIIIV(__functionAddress, mode, count, type, indices, primcount, basevertex, baseinstance);
+		callIIIPIIIV(__functionAddress, mode, count, type, indices, primcount, basevertex, baseinstance);
 	}
 
 	/**

@@ -70,7 +70,7 @@ public final class GLXSGIXSwapBarrier {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		invokePPIV(__functionAddress, display, drawable, barrier);
+		callPPIV(__functionAddress, display, drawable, barrier);
 	}
 
 	// --- [ glXQueryMaxSwapBarriersSGIX ] ---
@@ -81,7 +81,7 @@ public final class GLXSGIXSwapBarrier {
 		long __functionAddress = getInstance().QueryMaxSwapBarriersSGIX;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return invokePIPI(__functionAddress, display, screen, max);
+		return callPIPI(__functionAddress, display, screen, max);
 	}
 
 	/**

@@ -214,7 +214,7 @@ public final class ARBVertexShader {
 	 */
 	public static void glVertexAttrib1fARB(int index, float v0) {
 		long __functionAddress = getInstance().VertexAttrib1fARB;
-		invokeIFV(__functionAddress, index, v0);
+		callIFV(__functionAddress, index, v0);
 	}
 
 	// --- [ glVertexAttrib1sARB ] ---
@@ -227,7 +227,7 @@ public final class ARBVertexShader {
 	 */
 	public static void glVertexAttrib1sARB(int index, short v0) {
 		long __functionAddress = getInstance().VertexAttrib1sARB;
-		invokeISV(__functionAddress, index, v0);
+		callISV(__functionAddress, index, v0);
 	}
 
 	// --- [ glVertexAttrib1dARB ] ---
@@ -240,7 +240,7 @@ public final class ARBVertexShader {
 	 */
 	public static void glVertexAttrib1dARB(int index, double v0) {
 		long __functionAddress = getInstance().VertexAttrib1dARB;
-		invokeIDV(__functionAddress, index, v0);
+		callIDV(__functionAddress, index, v0);
 	}
 
 	// --- [ glVertexAttrib2fARB ] ---
@@ -254,7 +254,7 @@ public final class ARBVertexShader {
 	 */
 	public static void glVertexAttrib2fARB(int index, float v0, float v1) {
 		long __functionAddress = getInstance().VertexAttrib2fARB;
-		invokeIFFV(__functionAddress, index, v0, v1);
+		callIFFV(__functionAddress, index, v0, v1);
 	}
 
 	// --- [ glVertexAttrib2sARB ] ---
@@ -268,7 +268,7 @@ public final class ARBVertexShader {
 	 */
 	public static void glVertexAttrib2sARB(int index, short v0, short v1) {
 		long __functionAddress = getInstance().VertexAttrib2sARB;
-		invokeISSV(__functionAddress, index, v0, v1);
+		callISSV(__functionAddress, index, v0, v1);
 	}
 
 	// --- [ glVertexAttrib2dARB ] ---
@@ -282,7 +282,7 @@ public final class ARBVertexShader {
 	 */
 	public static void glVertexAttrib2dARB(int index, double v0, double v1) {
 		long __functionAddress = getInstance().VertexAttrib2dARB;
-		invokeIDDV(__functionAddress, index, v0, v1);
+		callIDDV(__functionAddress, index, v0, v1);
 	}
 
 	// --- [ glVertexAttrib3fARB ] ---
@@ -297,7 +297,7 @@ public final class ARBVertexShader {
 	 */
 	public static void glVertexAttrib3fARB(int index, float v0, float v1, float v2) {
 		long __functionAddress = getInstance().VertexAttrib3fARB;
-		invokeIFFFV(__functionAddress, index, v0, v1, v2);
+		callIFFFV(__functionAddress, index, v0, v1, v2);
 	}
 
 	// --- [ glVertexAttrib3sARB ] ---
@@ -312,7 +312,7 @@ public final class ARBVertexShader {
 	 */
 	public static void glVertexAttrib3sARB(int index, short v0, short v1, short v2) {
 		long __functionAddress = getInstance().VertexAttrib3sARB;
-		invokeISSSV(__functionAddress, index, v0, v1, v2);
+		callISSSV(__functionAddress, index, v0, v1, v2);
 	}
 
 	// --- [ glVertexAttrib3dARB ] ---
@@ -327,7 +327,7 @@ public final class ARBVertexShader {
 	 */
 	public static void glVertexAttrib3dARB(int index, double v0, double v1, double v2) {
 		long __functionAddress = getInstance().VertexAttrib3dARB;
-		invokeIDDDV(__functionAddress, index, v0, v1, v2);
+		callIDDDV(__functionAddress, index, v0, v1, v2);
 	}
 
 	// --- [ glVertexAttrib4fARB ] ---
@@ -343,7 +343,7 @@ public final class ARBVertexShader {
 	 */
 	public static void glVertexAttrib4fARB(int index, float v0, float v1, float v2, float v3) {
 		long __functionAddress = getInstance().VertexAttrib4fARB;
-		invokeIFFFFV(__functionAddress, index, v0, v1, v2, v3);
+		callIFFFFV(__functionAddress, index, v0, v1, v2, v3);
 	}
 
 	// --- [ glVertexAttrib4sARB ] ---
@@ -359,7 +359,7 @@ public final class ARBVertexShader {
 	 */
 	public static void glVertexAttrib4sARB(int index, short v0, short v1, short v2, short v3) {
 		long __functionAddress = getInstance().VertexAttrib4sARB;
-		invokeISSSSV(__functionAddress, index, v0, v1, v2, v3);
+		callISSSSV(__functionAddress, index, v0, v1, v2, v3);
 	}
 
 	// --- [ glVertexAttrib4dARB ] ---
@@ -375,7 +375,7 @@ public final class ARBVertexShader {
 	 */
 	public static void glVertexAttrib4dARB(int index, double v0, double v1, double v2, double v3) {
 		long __functionAddress = getInstance().VertexAttrib4dARB;
-		invokeIDDDDV(__functionAddress, index, v0, v1, v2, v3);
+		callIDDDDV(__functionAddress, index, v0, v1, v2, v3);
 	}
 
 	// --- [ glVertexAttrib4NubARB ] ---
@@ -391,7 +391,7 @@ public final class ARBVertexShader {
 	 */
 	public static void glVertexAttrib4NubARB(int index, byte x, byte y, byte z, byte w) {
 		long __functionAddress = getInstance().VertexAttrib4NubARB;
-		invokeIBBBBV(__functionAddress, index, x, y, z, w);
+		callIBBBBV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttrib1fvARB ] ---
@@ -400,7 +400,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib1fvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1fvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -428,7 +428,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib1svARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1svARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -456,7 +456,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib1dvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1dvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -484,7 +484,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib2fvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2fvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -512,7 +512,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib2svARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2svARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -540,7 +540,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib2dvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2dvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -568,7 +568,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib3fvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3fvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -596,7 +596,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib3svARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3svARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -624,7 +624,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib3dvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3dvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -652,7 +652,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib4fvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4fvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -680,7 +680,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib4svARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4svARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -708,7 +708,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib4dvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4dvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -736,7 +736,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib4ivARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4ivARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -764,7 +764,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib4bvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4bvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -785,7 +785,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib4ubvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4ubvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -806,7 +806,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib4usvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4usvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -834,7 +834,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib4uivARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4uivARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -862,7 +862,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib4NbvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4NbvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -883,7 +883,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib4NsvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4NsvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -911,7 +911,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib4NivARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4NivARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -939,7 +939,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib4NubvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4NubvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -960,7 +960,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib4NusvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4NusvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -988,7 +988,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttrib4NuivARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4NuivARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1016,7 +1016,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexAttribPointerARB;
-		invokeIIIZIPV(__functionAddress, index, size, type, normalized, stride, pointer);
+		callIIIZIPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
 	/**
@@ -1074,7 +1074,7 @@ public final class ARBVertexShader {
 	 */
 	public static void glEnableVertexAttribArrayARB(int index) {
 		long __functionAddress = getInstance().EnableVertexAttribArrayARB;
-		invokeIV(__functionAddress, index);
+		callIV(__functionAddress, index);
 	}
 
 	// --- [ glDisableVertexAttribArrayARB ] ---
@@ -1086,7 +1086,7 @@ public final class ARBVertexShader {
 	 */
 	public static void glDisableVertexAttribArrayARB(int index) {
 		long __functionAddress = getInstance().DisableVertexAttribArrayARB;
-		invokeIV(__functionAddress, index);
+		callIV(__functionAddress, index);
 	}
 
 	// --- [ glBindAttribLocationARB ] ---
@@ -1095,7 +1095,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglBindAttribLocationARB(int programObj, int index, long name) {
 		long __functionAddress = getInstance().BindAttribLocationARB;
-		invokeIIPV(__functionAddress, programObj, index, name);
+		callIIPV(__functionAddress, programObj, index, name);
 	}
 
 	/**
@@ -1124,7 +1124,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglGetActiveAttribARB(int programObj, int index, int maxLength, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetActiveAttribARB;
-		invokeIIIPPPPV(__functionAddress, programObj, index, maxLength, length, size, type, name);
+		callIIIPPPPV(__functionAddress, programObj, index, maxLength, length, size, type, name);
 	}
 
 	/**
@@ -1191,7 +1191,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static int nglGetAttribLocationARB(int programObj, long name) {
 		long __functionAddress = getInstance().GetAttribLocationARB;
-		return invokeIPI(__functionAddress, programObj, name);
+		return callIPI(__functionAddress, programObj, name);
 	}
 
 	/**
@@ -1219,7 +1219,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglGetVertexAttribivARB(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribivARB;
-		invokeIIPV(__functionAddress, index, pname, params);
+		callIIPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -1256,7 +1256,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglGetVertexAttribfvARB(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribfvARB;
-		invokeIIPV(__functionAddress, index, pname, params);
+		callIIPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -1285,7 +1285,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglGetVertexAttribdvARB(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribdvARB;
-		invokeIIPV(__functionAddress, index, pname, params);
+		callIIPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -1314,7 +1314,7 @@ public final class ARBVertexShader {
 	@JavadocExclude
 	public static void nglGetVertexAttribPointervARB(int index, int pname, long pointer) {
 		long __functionAddress = getInstance().GetVertexAttribPointervARB;
-		invokeIIPV(__functionAddress, index, pname, pointer);
+		callIIPV(__functionAddress, index, pname, pointer);
 	}
 
 	/**

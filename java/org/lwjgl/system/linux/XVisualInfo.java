@@ -31,7 +31,7 @@ public final class XVisualInfo implements Pointer {
 		BITS_PER_RGB;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(10);
+		IntBuffer offsets = memAllocInt(10);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -45,6 +45,8 @@ public final class XVisualInfo implements Pointer {
 		BLUE_MASK = offsets.get(7);
 		COLORMAP_SIZE = offsets.get(8);
 		BITS_PER_RGB = offsets.get(9);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -69,17 +71,17 @@ public final class XVisualInfo implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setVisual(long visual) { visual(struct, visual); }
-	public void setVisual(ByteBuffer visual) { visual(struct, visual); }
-	public void setVisualid(long visualid) { visualid(struct, visualid); }
-	public void setScreen(int screen) { screen(struct, screen); }
-	public void setDepth(int depth) { depth(struct, depth); }
-	public void setClazz(int clazz) { clazz(struct, clazz); }
-	public void setRedMask(long red_mask) { red_mask(struct, red_mask); }
-	public void setGreenMask(long green_mask) { green_mask(struct, green_mask); }
-	public void setBlueMask(long blue_mask) { blue_mask(struct, blue_mask); }
-	public void setColormapSize(int colormap_size) { colormap_size(struct, colormap_size); }
-	public void setBitsPerRgb(int bits_per_rgb) { bits_per_rgb(struct, bits_per_rgb); }
+	public XVisualInfo setVisual(long visual) { visual(struct, visual); return this; }
+	public XVisualInfo setVisual(ByteBuffer visual) { visual(struct, visual); return this; }
+	public XVisualInfo setVisualid(long visualid) { visualid(struct, visualid); return this; }
+	public XVisualInfo setScreen(int screen) { screen(struct, screen); return this; }
+	public XVisualInfo setDepth(int depth) { depth(struct, depth); return this; }
+	public XVisualInfo setClazz(int clazz) { clazz(struct, clazz); return this; }
+	public XVisualInfo setRedMask(long red_mask) { red_mask(struct, red_mask); return this; }
+	public XVisualInfo setGreenMask(long green_mask) { green_mask(struct, green_mask); return this; }
+	public XVisualInfo setBlueMask(long blue_mask) { blue_mask(struct, blue_mask); return this; }
+	public XVisualInfo setColormapSize(int colormap_size) { colormap_size(struct, colormap_size); return this; }
+	public XVisualInfo setBitsPerRgb(int bits_per_rgb) { bits_per_rgb(struct, bits_per_rgb); return this; }
 
 	public long getVisual() { return visual(struct); }
 	public ByteBuffer getVisualBuffer() { return visualBuffer(struct); }

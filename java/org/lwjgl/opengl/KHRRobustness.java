@@ -146,7 +146,7 @@ public final class KHRRobustness {
 	 */
 	public static int glGetGraphicsResetStatus() {
 		long __functionAddress = getInstance().GetGraphicsResetStatus;
-		return invokeI(__functionAddress);
+		return callI(__functionAddress);
 	}
 
 	// --- [ glReadnPixels ] ---
@@ -155,7 +155,7 @@ public final class KHRRobustness {
 	@JavadocExclude
 	public static void nglReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = getInstance().ReadnPixels;
-		invokeIIIIIIIPV(__functionAddress, x, y, width, height, format, type, bufSize, pixels);
+		callIIIIIIIPV(__functionAddress, x, y, width, height, format, type, bufSize, pixels);
 	}
 
 	/**
@@ -219,7 +219,7 @@ public final class KHRRobustness {
 	@JavadocExclude
 	public static void nglGetnUniformfv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformfv;
-		invokeIIIPV(__functionAddress, program, location, bufSize, params);
+		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**
@@ -255,7 +255,7 @@ public final class KHRRobustness {
 	@JavadocExclude
 	public static void nglGetnUniformiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformiv;
-		invokeIIIPV(__functionAddress, program, location, bufSize, params);
+		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**
@@ -291,7 +291,7 @@ public final class KHRRobustness {
 	@JavadocExclude
 	public static void nglGetnUniformuiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformuiv;
-		invokeIIIPV(__functionAddress, program, location, bufSize, params);
+		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**

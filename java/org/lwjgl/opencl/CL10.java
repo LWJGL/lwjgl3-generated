@@ -532,7 +532,7 @@ public final class CL10 {
 	@JavadocExclude
 	public static int nclGetPlatformIDs(int num_entries, long platforms, long num_platforms) {
 		long __functionAddress = getInstance().GetPlatformIDs;
-		return invokeIPPI(__functionAddress, num_entries, platforms, num_platforms);
+		return callIPPI(__functionAddress, num_entries, platforms, num_platforms);
 	}
 
 	/**
@@ -575,7 +575,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().GetPlatformInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(platform);
-		return invokePIPPPI(__functionAddress, platform, param_name, param_value_size, param_value, param_value_size_ret);
+		return callPIPPPI(__functionAddress, platform, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -618,7 +618,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().GetDeviceIDs;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(platform);
-		return invokePJIPPI(__functionAddress, platform, device_type, num_entries, devices, num_devices);
+		return callPJIPPI(__functionAddress, platform, device_type, num_entries, devices, num_devices);
 	}
 
 	/**
@@ -667,7 +667,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().GetDeviceInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		return invokePIPPPI(__functionAddress, device, param_name, param_value_size, param_value, param_value_size_ret);
+		return callPIPPPI(__functionAddress, device, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -732,7 +732,7 @@ public final class CL10 {
 	@JavadocExclude
 	public static long nclCreateContext(long properties, int num_devices, long devices, long pfn_notify, long user_data, long errcode_ret) {
 		long __functionAddress = getInstance().CreateContext;
-		return invokePIPPPPP(__functionAddress, properties, num_devices, devices, pfn_notify, user_data, errcode_ret);
+		return callPIPPPPP(__functionAddress, properties, num_devices, devices, pfn_notify, user_data, errcode_ret);
 	}
 
 	/**
@@ -802,7 +802,7 @@ public final class CL10 {
 	@JavadocExclude
 	public static long nclCreateContextFromType(long properties, long device_type, long pfn_notify, long user_data, long errcode_ret) {
 		long __functionAddress = getInstance().CreateContextFromType;
-		return invokePJPPPP(__functionAddress, properties, device_type, pfn_notify, user_data, errcode_ret);
+		return callPJPPPP(__functionAddress, properties, device_type, pfn_notify, user_data, errcode_ret);
 	}
 
 	/**
@@ -854,7 +854,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().RetainContext;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return invokePI(__functionAddress, context);
+		return callPI(__functionAddress, context);
 	}
 
 	// --- [ clReleaseContext ] ---
@@ -878,7 +878,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().ReleaseContext;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return invokePI(__functionAddress, context);
+		return callPI(__functionAddress, context);
 	}
 
 	// --- [ clGetContextInfo ] ---
@@ -889,7 +889,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().GetContextInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return invokePIPPPI(__functionAddress, context, param_name, param_value_size, param_value, param_value_size_ret);
+		return callPIPPPI(__functionAddress, context, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -949,7 +949,7 @@ public final class CL10 {
 			checkPointer(context);
 			checkPointer(device);
 		}
-		return invokePPJPP(__functionAddress, context, device, properties, errcode_ret);
+		return callPPJPP(__functionAddress, context, device, properties, errcode_ret);
 	}
 
 	/**
@@ -1012,7 +1012,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().RetainCommandQueue;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return invokePI(__functionAddress, command_queue);
+		return callPI(__functionAddress, command_queue);
 	}
 
 	// --- [ clReleaseCommandQueue ] ---
@@ -1038,7 +1038,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().ReleaseCommandQueue;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return invokePI(__functionAddress, command_queue);
+		return callPI(__functionAddress, command_queue);
 	}
 
 	// --- [ clGetCommandQueueInfo ] ---
@@ -1049,7 +1049,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().GetCommandQueueInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return invokePIPPPI(__functionAddress, command_queue, param_name, param_value_size, param_value, param_value_size_ret);
+		return callPIPPPI(__functionAddress, command_queue, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -1114,7 +1114,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().CreateBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return invokePJPPPP(__functionAddress, context, flags, size, host_ptr, errcode_ret);
+		return callPJPPPP(__functionAddress, context, flags, size, host_ptr, errcode_ret);
 	}
 
 	/**
@@ -1202,7 +1202,7 @@ public final class CL10 {
 			checkPointer(command_queue);
 			checkPointer(buffer);
 		}
-		return invokePPIPPPIPPI(__functionAddress, command_queue, buffer, blocking_read, offset, size, ptr, num_events_in_wait_list, event_wait_list, event);
+		return callPPIPPPIPPI(__functionAddress, command_queue, buffer, blocking_read, offset, size, ptr, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -1316,7 +1316,7 @@ public final class CL10 {
 			checkPointer(command_queue);
 			checkPointer(buffer);
 		}
-		return invokePPIPPPIPPI(__functionAddress, command_queue, buffer, blocking_write, offset, size, ptr, num_events_in_wait_list, event_wait_list, event);
+		return callPPIPPPIPPI(__functionAddress, command_queue, buffer, blocking_write, offset, size, ptr, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -1430,7 +1430,7 @@ public final class CL10 {
 			checkPointer(src_buffer);
 			checkPointer(dst_buffer);
 		}
-		return invokePPPPPPIPPI(__functionAddress, command_queue, src_buffer, dst_buffer, src_offset, dst_offset, size, num_events_in_wait_list, event_wait_list, event);
+		return callPPPPPPIPPI(__functionAddress, command_queue, src_buffer, dst_buffer, src_offset, dst_offset, size, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -1501,7 +1501,7 @@ public final class CL10 {
 			checkPointer(command_queue);
 			checkPointer(buffer);
 		}
-		return invokePPIJPPIPPPP(__functionAddress, command_queue, buffer, blocking_map, map_flags, offset, size, num_events_in_wait_list, event_wait_list, event, errcode_ret);
+		return callPPIJPPIPPPP(__functionAddress, command_queue, buffer, blocking_map, map_flags, offset, size, num_events_in_wait_list, event_wait_list, event, errcode_ret);
 	}
 
 	/**
@@ -1596,7 +1596,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().CreateImage2D;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return invokePJPPPPPPP(__functionAddress, context, flags, image_format, image_width, image_height, image_row_pitch, host_ptr, errcode_ret);
+		return callPJPPPPPPP(__functionAddress, context, flags, image_format, image_width, image_height, image_row_pitch, host_ptr, errcode_ret);
 	}
 
 	/**
@@ -1686,7 +1686,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().CreateImage3D;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return invokePJPPPPPPPPP(__functionAddress, context, flags, image_format, image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, host_ptr, errcode_ret);
+		return callPJPPPPPPPPP(__functionAddress, context, flags, image_format, image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, host_ptr, errcode_ret);
 	}
 
 	/**
@@ -1783,7 +1783,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().GetSupportedImageFormats;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return invokePJIIPPI(__functionAddress, context, flags, image_type, num_entries, image_formats, num_image_formats);
+		return callPJIIPPI(__functionAddress, context, flags, image_type, num_entries, image_formats, num_image_formats);
 	}
 
 	/**
@@ -1839,7 +1839,7 @@ public final class CL10 {
 			checkPointer(command_queue);
 			checkPointer(image);
 		}
-		return invokePPIPPPPPIPPI(__functionAddress, command_queue, image, blocking_read, origin, region, row_pitch, slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event);
+		return callPPIPPPPPIPPI(__functionAddress, command_queue, image, blocking_read, origin, region, row_pitch, slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -1990,7 +1990,7 @@ public final class CL10 {
 			checkPointer(command_queue);
 			checkPointer(image);
 		}
-		return invokePPIPPPPPIPPI(__functionAddress, command_queue, image, blocking_write, origin, region, input_row_pitch, input_slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event);
+		return callPPIPPPPPIPPI(__functionAddress, command_queue, image, blocking_write, origin, region, input_row_pitch, input_slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -2142,7 +2142,7 @@ public final class CL10 {
 			checkPointer(src_image);
 			checkPointer(dst_image);
 		}
-		return invokePPPPPPIPPI(__functionAddress, command_queue, src_image, dst_image, src_origin, dst_origin, region, num_events_in_wait_list, event_wait_list, event);
+		return callPPPPPPIPPI(__functionAddress, command_queue, src_image, dst_image, src_origin, dst_origin, region, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -2248,7 +2248,7 @@ public final class CL10 {
 			checkPointer(src_image);
 			checkPointer(dst_buffer);
 		}
-		return invokePPPPPPIPPI(__functionAddress, command_queue, src_image, dst_buffer, src_origin, region, dst_offset, num_events_in_wait_list, event_wait_list, event);
+		return callPPPPPPIPPI(__functionAddress, command_queue, src_image, dst_buffer, src_origin, region, dst_offset, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -2339,7 +2339,7 @@ public final class CL10 {
 			checkPointer(src_buffer);
 			checkPointer(dst_image);
 		}
-		return invokePPPPPPIPPI(__functionAddress, command_queue, src_buffer, dst_image, src_offset, dst_origin, region, num_events_in_wait_list, event_wait_list, event);
+		return callPPPPPPIPPI(__functionAddress, command_queue, src_buffer, dst_image, src_offset, dst_origin, region, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -2425,7 +2425,7 @@ public final class CL10 {
 			checkPointer(command_queue);
 			checkPointer(image);
 		}
-		return invokePPIJPPPPIPPPP(__functionAddress, command_queue, image, blocking_map, map_flags, origin, region, image_row_pitch, image_slice_pitch, num_events_in_wait_list, event_wait_list, event, errcode_ret);
+		return callPPIJPPPPIPPPP(__functionAddress, command_queue, image, blocking_map, map_flags, origin, region, image_row_pitch, image_slice_pitch, num_events_in_wait_list, event_wait_list, event, errcode_ret);
 	}
 
 	/**
@@ -2562,7 +2562,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().GetImageInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(image);
-		return invokePIPPPI(__functionAddress, image, param_name, param_value_size, param_value, param_value_size_ret);
+		return callPIPPPI(__functionAddress, image, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -2632,7 +2632,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().RetainMemObject;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(memobj);
-		return invokePI(__functionAddress, memobj);
+		return callPI(__functionAddress, memobj);
 	}
 
 	// --- [ clReleaseMemObject ] ---
@@ -2657,7 +2657,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().ReleaseMemObject;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(memobj);
-		return invokePI(__functionAddress, memobj);
+		return callPI(__functionAddress, memobj);
 	}
 
 	// --- [ clEnqueueUnmapMemObject ] ---
@@ -2670,7 +2670,7 @@ public final class CL10 {
 			checkPointer(command_queue);
 			checkPointer(memobj);
 		}
-		return invokePPPIPPI(__functionAddress, command_queue, memobj, mapped_ptr, num_events_in_wait_list, event_wait_list, event);
+		return callPPPIPPI(__functionAddress, command_queue, memobj, mapped_ptr, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -2730,7 +2730,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().GetMemObjectInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(memobj);
-		return invokePIPPPI(__functionAddress, memobj, param_name, param_value_size, param_value, param_value_size_ret);
+		return callPIPPPI(__functionAddress, memobj, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -2795,7 +2795,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().CreateSampler;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return invokePIIIPP(__functionAddress, context, normalized_coords, addressing_mode, filter_mode, errcode_ret);
+		return callPIIIPP(__functionAddress, context, normalized_coords, addressing_mode, filter_mode, errcode_ret);
 	}
 
 	/**
@@ -2854,7 +2854,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().RetainSampler;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sampler);
-		return invokePI(__functionAddress, sampler);
+		return callPI(__functionAddress, sampler);
 	}
 
 	// --- [ clReleaseSampler ] ---
@@ -2876,7 +2876,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().ReleaseSampler;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sampler);
-		return invokePI(__functionAddress, sampler);
+		return callPI(__functionAddress, sampler);
 	}
 
 	// --- [ clGetSamplerInfo ] ---
@@ -2887,7 +2887,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().GetSamplerInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sampler);
-		return invokePIPPPI(__functionAddress, sampler, param_name, param_value_size, param_value, param_value_size_ret);
+		return callPIPPPI(__functionAddress, sampler, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -2945,7 +2945,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().CreateProgramWithSource;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return invokePIPPPP(__functionAddress, context, count, strings, lengths, errcode_ret);
+		return callPIPPPP(__functionAddress, context, count, strings, lengths, errcode_ret);
 	}
 
 	/**
@@ -3022,7 +3022,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().CreateProgramWithBinary;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return invokePIPPPPPP(__functionAddress, context, num_devices, device_list, lengths, binaries, binary_status, errcode_ret);
+		return callPIPPPPPP(__functionAddress, context, num_devices, device_list, lengths, binaries, binary_status, errcode_ret);
 	}
 
 	/**
@@ -3135,7 +3135,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().RetainProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(program);
-		return invokePI(__functionAddress, program);
+		return callPI(__functionAddress, program);
 	}
 
 	// --- [ clReleaseProgram ] ---
@@ -3157,7 +3157,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().ReleaseProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(program);
-		return invokePI(__functionAddress, program);
+		return callPI(__functionAddress, program);
 	}
 
 	// --- [ clBuildProgram ] ---
@@ -3168,7 +3168,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().BuildProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(program);
-		return invokePIPPPPI(__functionAddress, program, num_devices, device_list, options, pfn_notify, user_data);
+		return callPIPPPPI(__functionAddress, program, num_devices, device_list, options, pfn_notify, user_data);
 	}
 
 	/**
@@ -3256,7 +3256,7 @@ public final class CL10 {
 	 */
 	public static int clUnloadCompiler() {
 		long __functionAddress = getInstance().UnloadCompiler;
-		return invokeI(__functionAddress);
+		return callI(__functionAddress);
 	}
 
 	// --- [ clGetProgramInfo ] ---
@@ -3267,7 +3267,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().GetProgramInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(program);
-		return invokePIPPPI(__functionAddress, program, param_name, param_value_size, param_value, param_value_size_ret);
+		return callPIPPPI(__functionAddress, program, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -3329,7 +3329,7 @@ public final class CL10 {
 			checkPointer(program);
 			checkPointer(device);
 		}
-		return invokePPIPPPI(__functionAddress, program, device, param_name, param_value_size, param_value, param_value_size_ret);
+		return callPPIPPPI(__functionAddress, program, device, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -3389,7 +3389,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().CreateKernel;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(program);
-		return invokePPPP(__functionAddress, program, kernel_name, errcode_ret);
+		return callPPPP(__functionAddress, program, kernel_name, errcode_ret);
 	}
 
 	/**
@@ -3455,7 +3455,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().CreateKernelsInProgram;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(program);
-		return invokePIPPI(__functionAddress, program, num_kernels, kernels, num_kernels_ret);
+		return callPIPPI(__functionAddress, program, num_kernels, kernels, num_kernels_ret);
 	}
 
 	/**
@@ -3512,7 +3512,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().RetainKernel;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(kernel);
-		return invokePI(__functionAddress, kernel);
+		return callPI(__functionAddress, kernel);
 	}
 
 	// --- [ clReleaseKernel ] ---
@@ -3536,7 +3536,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().ReleaseKernel;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(kernel);
-		return invokePI(__functionAddress, kernel);
+		return callPI(__functionAddress, kernel);
 	}
 
 	// --- [ clSetKernelArg ] ---
@@ -3547,7 +3547,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().SetKernelArg;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(kernel);
-		return invokePIPPI(__functionAddress, kernel, arg_index, arg_size, arg_value);
+		return callPIPPI(__functionAddress, kernel, arg_index, arg_size, arg_value);
 	}
 
 	/**
@@ -3911,7 +3911,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().GetKernelInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(kernel);
-		return invokePIPPPI(__functionAddress, kernel, param_name, param_value_size, param_value, param_value_size_ret);
+		return callPIPPPI(__functionAddress, kernel, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -3971,7 +3971,7 @@ public final class CL10 {
 			checkPointer(kernel);
 			checkPointer(device);
 		}
-		return invokePPIPPPI(__functionAddress, kernel, device, param_name, param_value_size, param_value, param_value_size_ret);
+		return callPPIPPPI(__functionAddress, kernel, device, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -4044,7 +4044,7 @@ public final class CL10 {
 			checkPointer(command_queue);
 			checkPointer(kernel);
 		}
-		return invokePPIPPPIPPI(__functionAddress, command_queue, kernel, work_dim, global_work_offset, global_work_size, local_work_size, num_events_in_wait_list, event_wait_list, event);
+		return callPPIPPPIPPI(__functionAddress, command_queue, kernel, work_dim, global_work_offset, global_work_size, local_work_size, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -4157,7 +4157,7 @@ public final class CL10 {
 			checkPointer(command_queue);
 			checkPointer(kernel);
 		}
-		return invokePPIPPI(__functionAddress, command_queue, kernel, num_events_in_wait_list, event_wait_list, event);
+		return callPPIPPI(__functionAddress, command_queue, kernel, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -4202,7 +4202,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().EnqueueNativeKernel;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return invokePPPPIPPIPPI(__functionAddress, command_queue, user_func, args, cb_args, num_mem_objects, mem_list, args_mem_loc, num_events_in_wait_list, event_wait_list, event);
+		return callPPPPIPPIPPI(__functionAddress, command_queue, user_func, args, cb_args, num_mem_objects, mem_list, args_mem_loc, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -4290,7 +4290,7 @@ public final class CL10 {
 	@JavadocExclude
 	public static int nclWaitForEvents(int num_events, long event_list) {
 		long __functionAddress = getInstance().WaitForEvents;
-		return invokeIPI(__functionAddress, num_events, event_list);
+		return callIPI(__functionAddress, num_events, event_list);
 	}
 
 	/**
@@ -4336,7 +4336,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().GetEventInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(event);
-		return invokePIPPPI(__functionAddress, event, param_name, param_value_size, param_value, param_value_size_ret);
+		return callPIPPPI(__functionAddress, event, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -4409,7 +4409,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().RetainEvent;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(event);
-		return invokePI(__functionAddress, event);
+		return callPI(__functionAddress, event);
 	}
 
 	// --- [ clReleaseEvent ] ---
@@ -4441,7 +4441,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().ReleaseEvent;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(event);
-		return invokePI(__functionAddress, event);
+		return callPI(__functionAddress, event);
 	}
 
 	// --- [ clEnqueueMarker ] ---
@@ -4452,7 +4452,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().EnqueueMarker;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return invokePPI(__functionAddress, command_queue, event);
+		return callPPI(__functionAddress, command_queue, event);
 	}
 
 	/**
@@ -4506,7 +4506,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().EnqueueBarrier;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return invokePI(__functionAddress, command_queue);
+		return callPI(__functionAddress, command_queue);
 	}
 
 	// --- [ clEnqueueWaitForEvents ] ---
@@ -4517,7 +4517,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().EnqueueWaitForEvents;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return invokePIPI(__functionAddress, command_queue, num_events, event_list);
+		return callPIPI(__functionAddress, command_queue, num_events, event_list);
 	}
 
 	/**
@@ -4563,7 +4563,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().GetEventProfilingInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(event);
-		return invokePIPPPI(__functionAddress, event, param_name, param_value_size, param_value, param_value_size_ret);
+		return callPIPPPI(__functionAddress, event, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -4637,7 +4637,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().Flush;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return invokePI(__functionAddress, command_queue);
+		return callPI(__functionAddress, command_queue);
 	}
 
 	// --- [ clFinish ] ---
@@ -4653,7 +4653,7 @@ public final class CL10 {
 		long __functionAddress = getInstance().Finish;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return invokePI(__functionAddress, command_queue);
+		return callPI(__functionAddress, command_queue);
 	}
 
 	// --- [ clGetExtensionFunctionAddress ] ---
@@ -4662,7 +4662,7 @@ public final class CL10 {
 	@JavadocExclude
 	public static long nclGetExtensionFunctionAddress(long funcname) {
 		long __functionAddress = getInstance().GetExtensionFunctionAddress;
-		return invokePP(__functionAddress, funcname);
+		return callPP(__functionAddress, funcname);
 	}
 
 	/**

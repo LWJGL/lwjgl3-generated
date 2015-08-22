@@ -85,7 +85,7 @@ public final class NVInternalformatSampleQuery {
 	@JavadocExclude
 	public static void nglGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int bufSize, long params) {
 		long __functionAddress = getInstance().GetInternalformatSampleivNV;
-		invokeIIIIIPV(__functionAddress, target, internalformat, samples, pname, bufSize, params);
+		callIIIIIPV(__functionAddress, target, internalformat, samples, pname, bufSize, params);
 	}
 
 	public static void glGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int bufSize, ByteBuffer params) {

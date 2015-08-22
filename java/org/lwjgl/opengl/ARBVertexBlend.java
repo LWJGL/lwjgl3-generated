@@ -145,7 +145,7 @@ public final class ARBVertexBlend {
 	@JavadocExclude
 	public static void nglWeightfvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightfvARB;
-		invokeIPV(__functionAddress, size, weights);
+		callIPV(__functionAddress, size, weights);
 	}
 
 	/**
@@ -171,7 +171,7 @@ public final class ARBVertexBlend {
 	@JavadocExclude
 	public static void nglWeightbvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightbvARB;
-		invokeIPV(__functionAddress, size, weights);
+		callIPV(__functionAddress, size, weights);
 	}
 
 	/**
@@ -197,7 +197,7 @@ public final class ARBVertexBlend {
 	@JavadocExclude
 	public static void nglWeightubvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightubvARB;
-		invokeIPV(__functionAddress, size, weights);
+		callIPV(__functionAddress, size, weights);
 	}
 
 	/**
@@ -223,7 +223,7 @@ public final class ARBVertexBlend {
 	@JavadocExclude
 	public static void nglWeightsvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightsvARB;
-		invokeIPV(__functionAddress, size, weights);
+		callIPV(__functionAddress, size, weights);
 	}
 
 	/**
@@ -249,7 +249,7 @@ public final class ARBVertexBlend {
 	@JavadocExclude
 	public static void nglWeightusvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightusvARB;
-		invokeIPV(__functionAddress, size, weights);
+		callIPV(__functionAddress, size, weights);
 	}
 
 	/**
@@ -275,7 +275,7 @@ public final class ARBVertexBlend {
 	@JavadocExclude
 	public static void nglWeightivARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightivARB;
-		invokeIPV(__functionAddress, size, weights);
+		callIPV(__functionAddress, size, weights);
 	}
 
 	/**
@@ -301,7 +301,7 @@ public final class ARBVertexBlend {
 	@JavadocExclude
 	public static void nglWeightuivARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightuivARB;
-		invokeIPV(__functionAddress, size, weights);
+		callIPV(__functionAddress, size, weights);
 	}
 
 	/**
@@ -327,7 +327,7 @@ public final class ARBVertexBlend {
 	@JavadocExclude
 	public static void nglWeightdvARB(int size, long weights) {
 		long __functionAddress = getInstance().WeightdvARB;
-		invokeIPV(__functionAddress, size, weights);
+		callIPV(__functionAddress, size, weights);
 	}
 
 	/**
@@ -353,7 +353,7 @@ public final class ARBVertexBlend {
 	@JavadocExclude
 	public static void nglWeightPointerARB(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().WeightPointerARB;
-		invokeIIIPV(__functionAddress, size, type, stride, pointer);
+		callIIIPV(__functionAddress, size, type, stride, pointer);
 	}
 
 	/**
@@ -407,7 +407,7 @@ public final class ARBVertexBlend {
 	 */
 	public static void glVertexBlendARB(int count) {
 		long __functionAddress = getInstance().VertexBlendARB;
-		invokeIV(__functionAddress, count);
+		callIV(__functionAddress, count);
 	}
 
 }

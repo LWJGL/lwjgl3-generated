@@ -57,7 +57,7 @@ public final class APPLECommandQueueSelectComputeUnits {
 			checkPointer(context);
 			checkPointer(device);
 		}
-		return invokePPPPP(__functionAddress, context, device, properties, errcode_ret);
+		return callPPPPP(__functionAddress, context, device, properties, errcode_ret);
 	}
 
 	/**

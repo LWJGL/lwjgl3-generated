@@ -105,7 +105,7 @@ public final class EXTRobustness {
 
 	public static int glGetGraphicsResetStatusEXT() {
 		long __functionAddress = getInstance().GetGraphicsResetStatusEXT;
-		return invokeI(__functionAddress);
+		return callI(__functionAddress);
 	}
 
 	// --- [ glReadnPixelsEXT ] ---
@@ -114,7 +114,7 @@ public final class EXTRobustness {
 	@JavadocExclude
 	public static void nglReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int bufSize, long data) {
 		long __functionAddress = getInstance().ReadnPixelsEXT;
-		invokeIIIIIIIPV(__functionAddress, x, y, width, height, format, type, bufSize, data);
+		callIIIIIIIPV(__functionAddress, x, y, width, height, format, type, bufSize, data);
 	}
 
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int bufSize, ByteBuffer data) {
@@ -154,7 +154,7 @@ public final class EXTRobustness {
 	@JavadocExclude
 	public static void nglGetnUniformfvEXT(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformfvEXT;
-		invokeIIIPV(__functionAddress, program, location, bufSize, params);
+		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	public static void glGetnUniformfvEXT(int program, int location, int bufSize, ByteBuffer params) {
@@ -182,7 +182,7 @@ public final class EXTRobustness {
 	@JavadocExclude
 	public static void nglGetnUniformivEXT(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformivEXT;
-		invokeIIIPV(__functionAddress, program, location, bufSize, params);
+		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	public static void glGetnUniformivEXT(int program, int location, int bufSize, ByteBuffer params) {

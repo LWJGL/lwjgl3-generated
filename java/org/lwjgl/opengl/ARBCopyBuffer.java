@@ -80,7 +80,7 @@ public final class ARBCopyBuffer {
 	 */
 	public static void glCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
 		long __functionAddress = getInstance().CopyBufferSubData;
-		invokeIIPPPV(__functionAddress, readTarget, writeTarget, readOffset, writeOffset, size);
+		callIIPPPV(__functionAddress, readTarget, writeTarget, readOffset, writeOffset, size);
 	}
 
 }

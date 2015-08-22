@@ -28,13 +28,15 @@ public final class OVRTimewarpProjectionDesc implements Pointer {
 		PROJECTION32;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(3);
+		IntBuffer offsets = memAllocInt(3);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		PROJECTION22 = offsets.get(0);
 		PROJECTION23 = offsets.get(1);
 		PROJECTION32 = offsets.get(2);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -59,9 +61,9 @@ public final class OVRTimewarpProjectionDesc implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setProjection22(float Projection22) { Projection22(struct, Projection22); }
-	public void setProjection23(float Projection23) { Projection23(struct, Projection23); }
-	public void setProjection32(float Projection32) { Projection32(struct, Projection32); }
+	public OVRTimewarpProjectionDesc setProjection22(float Projection22) { Projection22(struct, Projection22); return this; }
+	public OVRTimewarpProjectionDesc setProjection23(float Projection23) { Projection23(struct, Projection23); return this; }
+	public OVRTimewarpProjectionDesc setProjection32(float Projection32) { Projection32(struct, Projection32); return this; }
 
 	public float getProjection22() { return Projection22(struct); }
 	public float getProjection23() { return Projection23(struct); }

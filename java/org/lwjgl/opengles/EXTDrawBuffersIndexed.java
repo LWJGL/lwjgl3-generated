@@ -78,56 +78,56 @@ public final class EXTDrawBuffersIndexed {
 
 	public static void glEnableiEXT(int target, int index) {
 		long __functionAddress = getInstance().EnableiEXT;
-		invokeIIV(__functionAddress, target, index);
+		callIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glDisableiEXT ] ---
 
 	public static void glDisableiEXT(int target, int index) {
 		long __functionAddress = getInstance().DisableiEXT;
-		invokeIIV(__functionAddress, target, index);
+		callIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glBlendEquationiEXT ] ---
 
 	public static void glBlendEquationiEXT(int buf, int mode) {
 		long __functionAddress = getInstance().BlendEquationiEXT;
-		invokeIIV(__functionAddress, buf, mode);
+		callIIV(__functionAddress, buf, mode);
 	}
 
 	// --- [ glBlendEquationSeparateiEXT ] ---
 
 	public static void glBlendEquationSeparateiEXT(int buf, int modeRGB, int modeAlpha) {
 		long __functionAddress = getInstance().BlendEquationSeparateiEXT;
-		invokeIIIV(__functionAddress, buf, modeRGB, modeAlpha);
+		callIIIV(__functionAddress, buf, modeRGB, modeAlpha);
 	}
 
 	// --- [ glBlendFunciEXT ] ---
 
 	public static void glBlendFunciEXT(int buf, int src, int dst) {
 		long __functionAddress = getInstance().BlendFunciEXT;
-		invokeIIIV(__functionAddress, buf, src, dst);
+		callIIIV(__functionAddress, buf, src, dst);
 	}
 
 	// --- [ glBlendFuncSeparateiEXT ] ---
 
 	public static void glBlendFuncSeparateiEXT(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
 		long __functionAddress = getInstance().BlendFuncSeparateiEXT;
-		invokeIIIIIV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
+		callIIIIIV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 
 	// --- [ glColorMaskiEXT ] ---
 
 	public static void glColorMaskiEXT(int index, boolean r, boolean g, boolean b, boolean a) {
 		long __functionAddress = getInstance().ColorMaskiEXT;
-		invokeIZZZZV(__functionAddress, index, r, g, b, a);
+		callIZZZZV(__functionAddress, index, r, g, b, a);
 	}
 
 	// --- [ glIsEnablediEXT ] ---
 
 	public static boolean glIsEnablediEXT(int target, int index) {
 		long __functionAddress = getInstance().IsEnablediEXT;
-		return invokeIIZ(__functionAddress, target, index);
+		return callIIZ(__functionAddress, target, index);
 	}
 
 }

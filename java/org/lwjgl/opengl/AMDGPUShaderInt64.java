@@ -173,28 +173,28 @@ public final class AMDGPUShaderInt64 {
 
 	public static void glUniform1i64NV(int location, long x) {
 		long __functionAddress = getInstance().Uniform1i64NV;
-		invokeIJV(__functionAddress, location, x);
+		callIJV(__functionAddress, location, x);
 	}
 
 	// --- [ glUniform2i64NV ] ---
 
 	public static void glUniform2i64NV(int location, long x, long y) {
 		long __functionAddress = getInstance().Uniform2i64NV;
-		invokeIJJV(__functionAddress, location, x, y);
+		callIJJV(__functionAddress, location, x, y);
 	}
 
 	// --- [ glUniform3i64NV ] ---
 
 	public static void glUniform3i64NV(int location, long x, long y, long z) {
 		long __functionAddress = getInstance().Uniform3i64NV;
-		invokeIJJJV(__functionAddress, location, x, y, z);
+		callIJJJV(__functionAddress, location, x, y, z);
 	}
 
 	// --- [ glUniform4i64NV ] ---
 
 	public static void glUniform4i64NV(int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().Uniform4i64NV;
-		invokeIJJJJV(__functionAddress, location, x, y, z, w);
+		callIJJJJV(__functionAddress, location, x, y, z, w);
 	}
 
 	// --- [ glUniform1i64vNV ] ---
@@ -203,7 +203,7 @@ public final class AMDGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglUniform1i64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1i64vNV;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform1i64vNV(int location, int count, ByteBuffer value) {
@@ -223,7 +223,7 @@ public final class AMDGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglUniform2i64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2i64vNV;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform2i64vNV(int location, int count, ByteBuffer value) {
@@ -243,7 +243,7 @@ public final class AMDGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglUniform3i64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3i64vNV;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform3i64vNV(int location, int count, ByteBuffer value) {
@@ -263,7 +263,7 @@ public final class AMDGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglUniform4i64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4i64vNV;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform4i64vNV(int location, int count, ByteBuffer value) {
@@ -281,28 +281,28 @@ public final class AMDGPUShaderInt64 {
 
 	public static void glUniform1ui64NV(int location, long x) {
 		long __functionAddress = getInstance().Uniform1ui64NV;
-		invokeIJV(__functionAddress, location, x);
+		callIJV(__functionAddress, location, x);
 	}
 
 	// --- [ glUniform2ui64NV ] ---
 
 	public static void glUniform2ui64NV(int location, long x, long y) {
 		long __functionAddress = getInstance().Uniform2ui64NV;
-		invokeIJJV(__functionAddress, location, x, y);
+		callIJJV(__functionAddress, location, x, y);
 	}
 
 	// --- [ glUniform3ui64NV ] ---
 
 	public static void glUniform3ui64NV(int location, long x, long y, long z) {
 		long __functionAddress = getInstance().Uniform3ui64NV;
-		invokeIJJJV(__functionAddress, location, x, y, z);
+		callIJJJV(__functionAddress, location, x, y, z);
 	}
 
 	// --- [ glUniform4ui64NV ] ---
 
 	public static void glUniform4ui64NV(int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().Uniform4ui64NV;
-		invokeIJJJJV(__functionAddress, location, x, y, z, w);
+		callIJJJJV(__functionAddress, location, x, y, z, w);
 	}
 
 	// --- [ glUniform1ui64vNV ] ---
@@ -311,7 +311,7 @@ public final class AMDGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglUniform1ui64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1ui64vNV;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform1ui64vNV(int location, int count, ByteBuffer value) {
@@ -331,7 +331,7 @@ public final class AMDGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglUniform2ui64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2ui64vNV;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform2ui64vNV(int location, int count, ByteBuffer value) {
@@ -351,7 +351,7 @@ public final class AMDGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglUniform3ui64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3ui64vNV;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform3ui64vNV(int location, int count, ByteBuffer value) {
@@ -371,7 +371,7 @@ public final class AMDGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglUniform4ui64vNV(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4ui64vNV;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform4ui64vNV(int location, int count, ByteBuffer value) {
@@ -391,7 +391,7 @@ public final class AMDGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglGetUniformi64vNV(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformi64vNV;
-		invokeIIPV(__functionAddress, program, location, params);
+		callIIPV(__functionAddress, program, location, params);
 	}
 
 	public static void glGetUniformi64vNV(int program, int location, ByteBuffer params) {
@@ -421,7 +421,7 @@ public final class AMDGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglGetUniformui64vNV(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformui64vNV;
-		invokeIIPV(__functionAddress, program, location, params);
+		callIIPV(__functionAddress, program, location, params);
 	}
 
 	public static void glGetUniformui64vNV(int program, int location, ByteBuffer params) {
@@ -449,28 +449,28 @@ public final class AMDGPUShaderInt64 {
 
 	public static void glProgramUniform1i64NV(int program, int location, long x) {
 		long __functionAddress = getInstance().ProgramUniform1i64NV;
-		invokeIIJV(__functionAddress, program, location, x);
+		callIIJV(__functionAddress, program, location, x);
 	}
 
 	// --- [ glProgramUniform2i64NV ] ---
 
 	public static void glProgramUniform2i64NV(int program, int location, long x, long y) {
 		long __functionAddress = getInstance().ProgramUniform2i64NV;
-		invokeIIJJV(__functionAddress, program, location, x, y);
+		callIIJJV(__functionAddress, program, location, x, y);
 	}
 
 	// --- [ glProgramUniform3i64NV ] ---
 
 	public static void glProgramUniform3i64NV(int program, int location, long x, long y, long z) {
 		long __functionAddress = getInstance().ProgramUniform3i64NV;
-		invokeIIJJJV(__functionAddress, program, location, x, y, z);
+		callIIJJJV(__functionAddress, program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform4i64NV ] ---
 
 	public static void glProgramUniform4i64NV(int program, int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().ProgramUniform4i64NV;
-		invokeIIJJJJV(__functionAddress, program, location, x, y, z, w);
+		callIIJJJJV(__functionAddress, program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform1i64vNV ] ---
@@ -479,7 +479,7 @@ public final class AMDGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglProgramUniform1i64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1i64vNV;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform1i64vNV(int program, int location, int count, ByteBuffer value) {
@@ -499,7 +499,7 @@ public final class AMDGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglProgramUniform2i64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2i64vNV;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform2i64vNV(int program, int location, int count, ByteBuffer value) {
@@ -519,7 +519,7 @@ public final class AMDGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglProgramUniform3i64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3i64vNV;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform3i64vNV(int program, int location, int count, ByteBuffer value) {
@@ -539,7 +539,7 @@ public final class AMDGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglProgramUniform4i64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4i64vNV;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform4i64vNV(int program, int location, int count, ByteBuffer value) {
@@ -557,28 +557,28 @@ public final class AMDGPUShaderInt64 {
 
 	public static void glProgramUniform1ui64NV(int program, int location, long x) {
 		long __functionAddress = getInstance().ProgramUniform1ui64NV;
-		invokeIIJV(__functionAddress, program, location, x);
+		callIIJV(__functionAddress, program, location, x);
 	}
 
 	// --- [ glProgramUniform2ui64NV ] ---
 
 	public static void glProgramUniform2ui64NV(int program, int location, long x, long y) {
 		long __functionAddress = getInstance().ProgramUniform2ui64NV;
-		invokeIIJJV(__functionAddress, program, location, x, y);
+		callIIJJV(__functionAddress, program, location, x, y);
 	}
 
 	// --- [ glProgramUniform3ui64NV ] ---
 
 	public static void glProgramUniform3ui64NV(int program, int location, long x, long y, long z) {
 		long __functionAddress = getInstance().ProgramUniform3ui64NV;
-		invokeIIJJJV(__functionAddress, program, location, x, y, z);
+		callIIJJJV(__functionAddress, program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform4ui64NV ] ---
 
 	public static void glProgramUniform4ui64NV(int program, int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().ProgramUniform4ui64NV;
-		invokeIIJJJJV(__functionAddress, program, location, x, y, z, w);
+		callIIJJJJV(__functionAddress, program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform1ui64vNV ] ---
@@ -587,7 +587,7 @@ public final class AMDGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglProgramUniform1ui64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1ui64vNV;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform1ui64vNV(int program, int location, int count, ByteBuffer value) {
@@ -607,7 +607,7 @@ public final class AMDGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglProgramUniform2ui64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2ui64vNV;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform2ui64vNV(int program, int location, int count, ByteBuffer value) {
@@ -627,7 +627,7 @@ public final class AMDGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglProgramUniform3ui64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3ui64vNV;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform3ui64vNV(int program, int location, int count, ByteBuffer value) {
@@ -647,7 +647,7 @@ public final class AMDGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglProgramUniform4ui64vNV(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4ui64vNV;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform4ui64vNV(int program, int location, int count, ByteBuffer value) {

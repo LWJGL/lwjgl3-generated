@@ -84,14 +84,14 @@ public final class AMDSparseTexture {
 
 	public static void glTexStorageSparseAMD(int target, int internalFormat, int width, int height, int depth, int layers, int flags) {
 		long __functionAddress = getInstance().TexStorageSparseAMD;
-		invokeIIIIIIIV(__functionAddress, target, internalFormat, width, height, depth, layers, flags);
+		callIIIIIIIV(__functionAddress, target, internalFormat, width, height, depth, layers, flags);
 	}
 
 	// --- [ glTextureStorageSparseAMD ] ---
 
 	public static void glTextureStorageSparseAMD(int texture, int target, int internalFormat, int width, int height, int depth, int layers, int flags) {
 		long __functionAddress = getInstance().TextureStorageSparseAMD;
-		invokeIIIIIIIIV(__functionAddress, texture, target, internalFormat, width, height, depth, layers, flags);
+		callIIIIIIIIV(__functionAddress, texture, target, internalFormat, width, height, depth, layers, flags);
 	}
 
 }

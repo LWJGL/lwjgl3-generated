@@ -31,7 +31,7 @@ public final class GPU_DEVICE implements Pointer {
 		VIRTUALSCREEN;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(5);
+		IntBuffer offsets = memAllocInt(5);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -40,6 +40,8 @@ public final class GPU_DEVICE implements Pointer {
 		DEVICESTRING = offsets.get(2);
 		FLAGS = offsets.get(3);
 		VIRTUALSCREEN = offsets.get(4);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -64,17 +66,17 @@ public final class GPU_DEVICE implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setCb(int cb) { cb(struct, cb); }
-	public void setDeviceName(ByteBuffer DeviceName) { DeviceNameSet(struct, DeviceName); }
-	public void setDeviceName(CharSequence DeviceName) { DeviceName(struct, DeviceName); }
-	public void setDeviceString(ByteBuffer DeviceString) { DeviceStringSet(struct, DeviceString); }
-	public void setDeviceString(CharSequence DeviceString) { DeviceString(struct, DeviceString); }
-	public void setFlags(int Flags) { Flags(struct, Flags); }
-	public void setVirtualScreen(ByteBuffer virtualScreen) { virtualScreenSet(struct, virtualScreen); }
-	public void setVirtualScreenLeft(int left) { virtualScreenLeft(struct, left); }
-	public void setVirtualScreenTop(int top) { virtualScreenTop(struct, top); }
-	public void setVirtualScreenRight(int right) { virtualScreenRight(struct, right); }
-	public void setVirtualScreenBottom(int bottom) { virtualScreenBottom(struct, bottom); }
+	public GPU_DEVICE setCb(int cb) { cb(struct, cb); return this; }
+	public GPU_DEVICE setDeviceName(ByteBuffer DeviceName) { DeviceNameSet(struct, DeviceName); return this; }
+	public GPU_DEVICE setDeviceName(CharSequence DeviceName) { DeviceName(struct, DeviceName); return this; }
+	public GPU_DEVICE setDeviceString(ByteBuffer DeviceString) { DeviceStringSet(struct, DeviceString); return this; }
+	public GPU_DEVICE setDeviceString(CharSequence DeviceString) { DeviceString(struct, DeviceString); return this; }
+	public GPU_DEVICE setFlags(int Flags) { Flags(struct, Flags); return this; }
+	public GPU_DEVICE setVirtualScreen(ByteBuffer virtualScreen) { virtualScreenSet(struct, virtualScreen); return this; }
+	public GPU_DEVICE setVirtualScreenLeft(int left) { virtualScreenLeft(struct, left); return this; }
+	public GPU_DEVICE setVirtualScreenTop(int top) { virtualScreenTop(struct, top); return this; }
+	public GPU_DEVICE setVirtualScreenRight(int right) { virtualScreenRight(struct, right); return this; }
+	public GPU_DEVICE setVirtualScreenBottom(int bottom) { virtualScreenBottom(struct, bottom); return this; }
 
 	public int getCb() { return cb(struct); }
 	public void getDeviceName(ByteBuffer DeviceName) { DeviceNameGet(struct, DeviceName); }

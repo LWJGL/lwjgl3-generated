@@ -103,42 +103,42 @@ public final class EXTTextureStorage {
 
 	public static void glTexStorage1DEXT(int target, int levels, int internalformat, int width) {
 		long __functionAddress = getInstance().TexStorage1DEXT;
-		invokeIIIIV(__functionAddress, target, levels, internalformat, width);
+		callIIIIV(__functionAddress, target, levels, internalformat, width);
 	}
 
 	// --- [ glTexStorage2DEXT ] ---
 
 	public static void glTexStorage2DEXT(int target, int levels, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().TexStorage2DEXT;
-		invokeIIIIIV(__functionAddress, target, levels, internalformat, width, height);
+		callIIIIIV(__functionAddress, target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTexStorage3DEXT ] ---
 
 	public static void glTexStorage3DEXT(int target, int levels, int internalformat, int width, int height, int depth) {
 		long __functionAddress = getInstance().TexStorage3DEXT;
-		invokeIIIIIIV(__functionAddress, target, levels, internalformat, width, height, depth);
+		callIIIIIIV(__functionAddress, target, levels, internalformat, width, height, depth);
 	}
 
 	// --- [ glTextureStorage1DEXT ] ---
 
 	public static void glTextureStorage1DEXT(int texture, int target, int levels, int internalformat, int width) {
 		long __functionAddress = getInstance().TextureStorage1DEXT;
-		invokeIIIIIV(__functionAddress, texture, target, levels, internalformat, width);
+		callIIIIIV(__functionAddress, texture, target, levels, internalformat, width);
 	}
 
 	// --- [ glTextureStorage2DEXT ] ---
 
 	public static void glTextureStorage2DEXT(int texture, int target, int levels, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().TextureStorage2DEXT;
-		invokeIIIIIIV(__functionAddress, texture, target, levels, internalformat, width, height);
+		callIIIIIIV(__functionAddress, texture, target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTextureStorage3DEXT ] ---
 
 	public static void glTextureStorage3DEXT(int texture, int target, int levels, int internalformat, int width, int height, int depth) {
 		long __functionAddress = getInstance().TextureStorage3DEXT;
-		invokeIIIIIIIV(__functionAddress, texture, target, levels, internalformat, width, height, depth);
+		callIIIIIIIV(__functionAddress, texture, target, levels, internalformat, width, height, depth);
 	}
 
 }

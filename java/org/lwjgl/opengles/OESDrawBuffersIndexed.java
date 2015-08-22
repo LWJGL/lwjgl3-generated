@@ -77,56 +77,56 @@ public final class OESDrawBuffersIndexed {
 
 	public static void glEnableiOES(int target, int index) {
 		long __functionAddress = getInstance().EnableiOES;
-		invokeIIV(__functionAddress, target, index);
+		callIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glDisableiOES ] ---
 
 	public static void glDisableiOES(int target, int index) {
 		long __functionAddress = getInstance().DisableiOES;
-		invokeIIV(__functionAddress, target, index);
+		callIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glBlendEquationiOES ] ---
 
 	public static void glBlendEquationiOES(int buf, int mode) {
 		long __functionAddress = getInstance().BlendEquationiOES;
-		invokeIIV(__functionAddress, buf, mode);
+		callIIV(__functionAddress, buf, mode);
 	}
 
 	// --- [ glBlendEquationSeparateiOES ] ---
 
 	public static void glBlendEquationSeparateiOES(int buf, int modeRGB, int modeAlpha) {
 		long __functionAddress = getInstance().BlendEquationSeparateiOES;
-		invokeIIIV(__functionAddress, buf, modeRGB, modeAlpha);
+		callIIIV(__functionAddress, buf, modeRGB, modeAlpha);
 	}
 
 	// --- [ glBlendFunciOES ] ---
 
 	public static void glBlendFunciOES(int buf, int src, int dst) {
 		long __functionAddress = getInstance().BlendFunciOES;
-		invokeIIIV(__functionAddress, buf, src, dst);
+		callIIIV(__functionAddress, buf, src, dst);
 	}
 
 	// --- [ glBlendFuncSeparateiOES ] ---
 
 	public static void glBlendFuncSeparateiOES(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
 		long __functionAddress = getInstance().BlendFuncSeparateiOES;
-		invokeIIIIIV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
+		callIIIIIV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 
 	// --- [ glColorMaskiOES ] ---
 
 	public static void glColorMaskiOES(int index, boolean r, boolean g, boolean b, boolean a) {
 		long __functionAddress = getInstance().ColorMaskiOES;
-		invokeIZZZZV(__functionAddress, index, r, g, b, a);
+		callIZZZZV(__functionAddress, index, r, g, b, a);
 	}
 
 	// --- [ glIsEnablediOES ] ---
 
 	public static boolean glIsEnablediOES(int target, int index) {
 		long __functionAddress = getInstance().IsEnablediOES;
-		return invokeIIZ(__functionAddress, target, index);
+		return callIIZ(__functionAddress, target, index);
 	}
 
 }

@@ -60,14 +60,14 @@ public final class NVXConditionalRender {
 
 	public static void glBeginConditionalRenderNVX(int id) {
 		long __functionAddress = getInstance().BeginConditionalRenderNVX;
-		invokeIV(__functionAddress, id);
+		callIV(__functionAddress, id);
 	}
 
 	// --- [ glEndConditionalRenderNVX ] ---
 
 	public static void glEndConditionalRenderNVX() {
 		long __functionAddress = getInstance().EndConditionalRenderNVX;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 }

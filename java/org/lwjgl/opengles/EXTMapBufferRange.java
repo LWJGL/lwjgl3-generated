@@ -79,7 +79,7 @@ public final class EXTMapBufferRange {
 	@JavadocExclude
 	public static long nglMapBufferRangeEXT(int target, long offset, long length, int access) {
 		long __functionAddress = getInstance().MapBufferRangeEXT;
-		return invokeIPPIP(__functionAddress, target, offset, length, access);
+		return callIPPIP(__functionAddress, target, offset, length, access);
 	}
 
 	public static ByteBuffer glMapBufferRangeEXT(int target, long offset, long length, int access) {
@@ -97,7 +97,7 @@ public final class EXTMapBufferRange {
 
 	public static void glFlushMappedBufferRangeEXT(int target, long offset, long length) {
 		long __functionAddress = getInstance().FlushMappedBufferRangeEXT;
-		invokeIPPV(__functionAddress, target, offset, length);
+		callIPPV(__functionAddress, target, offset, length);
 	}
 
 }

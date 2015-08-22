@@ -26,7 +26,7 @@ public final class STBTTVertex implements Pointer {
 		TYPE;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(5);
+		IntBuffer offsets = memAllocInt(5);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -35,6 +35,8 @@ public final class STBTTVertex implements Pointer {
 		CX = offsets.get(2);
 		CY = offsets.get(3);
 		TYPE = offsets.get(4);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -59,11 +61,11 @@ public final class STBTTVertex implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setX(int x) { x(struct, x); }
-	public void setY(int y) { y(struct, y); }
-	public void setCx(int cx) { cx(struct, cx); }
-	public void setCy(int cy) { cy(struct, cy); }
-	public void setType(int type) { type(struct, type); }
+	public STBTTVertex setX(int x) { x(struct, x); return this; }
+	public STBTTVertex setY(int y) { y(struct, y); return this; }
+	public STBTTVertex setCx(int cx) { cx(struct, cx); return this; }
+	public STBTTVertex setCy(int cy) { cy(struct, cy); return this; }
+	public STBTTVertex setType(int type) { type(struct, type); return this; }
 
 	public int getX() { return x(struct); }
 	public int getY() { return y(struct); }

@@ -81,7 +81,7 @@ public final class EXTBufferStorage {
 	@JavadocExclude
 	public static void nglBufferStorageEXT(int target, long size, long data, int flags) {
 		long __functionAddress = getInstance().BufferStorageEXT;
-		invokeIPPIV(__functionAddress, target, size, data, flags);
+		callIPPIV(__functionAddress, target, size, data, flags);
 	}
 
 	public static void glBufferStorageEXT(int target, long size, ByteBuffer data, int flags) {

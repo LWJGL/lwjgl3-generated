@@ -71,7 +71,7 @@ public final class ARBClearBufferObject {
 	@JavadocExclude
 	public static void nglClearBufferData(int target, int internalformat, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearBufferData;
-		invokeIIIIPV(__functionAddress, target, internalformat, format, type, data);
+		callIIIIPV(__functionAddress, target, internalformat, format, type, data);
 	}
 
 	/**
@@ -111,7 +111,7 @@ public final class ARBClearBufferObject {
 	@JavadocExclude
 	public static void nglClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearBufferSubData;
-		invokeIIPPIIPV(__functionAddress, target, internalformat, offset, size, format, type, data);
+		callIIPPIIPV(__functionAddress, target, internalformat, offset, size, format, type, data);
 	}
 
 	/**
@@ -155,7 +155,7 @@ public final class ARBClearBufferObject {
 		long __functionAddress = getInstance().ClearNamedBufferDataEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIPV(__functionAddress, buffer, internalformat, format, type, data);
+		callIIIIPV(__functionAddress, buffer, internalformat, format, type, data);
 	}
 
 	/**
@@ -197,7 +197,7 @@ public final class ARBClearBufferObject {
 		long __functionAddress = getInstance().ClearNamedBufferSubDataEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPPIIPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
+		callIIPPIIPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
 	}
 
 	/**

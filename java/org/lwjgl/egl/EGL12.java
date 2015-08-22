@@ -78,14 +78,14 @@ public final class EGL12 {
 
 	public static boolean eglBindAPI(int api) {
 		long __functionAddress = getInstance().BindAPI;
-		return invokeIZ(__functionAddress, api);
+		return callIZ(__functionAddress, api);
 	}
 
 	// --- [ eglQueryAPI ] ---
 
 	public static int eglQueryAPI() {
 		long __functionAddress = getInstance().QueryAPI;
-		return invokeI(__functionAddress);
+		return callI(__functionAddress);
 	}
 
 	// --- [ eglCreatePbufferFromClientBuffer ] ---
@@ -99,7 +99,7 @@ public final class EGL12 {
 			checkPointer(buffer);
 			checkPointer(config);
 		}
-		return invokePIPPPP(__functionAddress, dpy, buftype, buffer, config, attrib_list);
+		return callPIPPPP(__functionAddress, dpy, buftype, buffer, config, attrib_list);
 	}
 
 	public static long eglCreatePbufferFromClientBuffer(long dpy, int buftype, long buffer, long config, ByteBuffer attrib_list) {
@@ -119,14 +119,14 @@ public final class EGL12 {
 
 	public static boolean eglReleaseThread() {
 		long __functionAddress = getInstance().ReleaseThread;
-		return invokeZ(__functionAddress);
+		return callZ(__functionAddress);
 	}
 
 	// --- [ eglWaitClient ] ---
 
 	public static boolean eglWaitClient() {
 		long __functionAddress = getInstance().WaitClient;
-		return invokeZ(__functionAddress);
+		return callZ(__functionAddress);
 	}
 
 }

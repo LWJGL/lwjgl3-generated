@@ -83,7 +83,7 @@ public final class ARBPointParameters {
 	 */
 	public static void glPointParameterfARB(int pname, float param) {
 		long __functionAddress = getInstance().PointParameterfARB;
-		invokeIFV(__functionAddress, pname, param);
+		callIFV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPointParameterfvARB ] ---
@@ -92,7 +92,7 @@ public final class ARBPointParameters {
 	@JavadocExclude
 	public static void nglPointParameterfvARB(int pname, long params) {
 		long __functionAddress = getInstance().PointParameterfvARB;
-		invokeIPV(__functionAddress, pname, params);
+		callIPV(__functionAddress, pname, params);
 	}
 
 	/**

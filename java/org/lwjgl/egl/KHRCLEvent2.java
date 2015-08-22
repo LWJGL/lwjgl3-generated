@@ -61,7 +61,7 @@ public final class KHRCLEvent2 {
 		long __functionAddress = getInstance().CreateSync64KHR;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return invokePIPP(__functionAddress, dpy, type, attrib_list);
+		return callPIPP(__functionAddress, dpy, type, attrib_list);
 	}
 
 	public static long eglCreateSync64KHR(long dpy, int type, ByteBuffer attrib_list) {

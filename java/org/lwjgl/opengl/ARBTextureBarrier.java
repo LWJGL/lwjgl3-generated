@@ -53,7 +53,7 @@ public final class ARBTextureBarrier {
 	/** Guarantees that writes have completed and caches have been invalidated before subsequent Draws are executed. */
 	public static void glTextureBarrier() {
 		long __functionAddress = getInstance().TextureBarrier;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 }

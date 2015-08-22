@@ -77,7 +77,7 @@ public final class GLXARBCreateContext {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return invokePPPIPP(__functionAddress, display, config, share_context, direct, attrib_list);
+		return callPPPIPP(__functionAddress, display, config, share_context, direct, attrib_list);
 	}
 
 	/**

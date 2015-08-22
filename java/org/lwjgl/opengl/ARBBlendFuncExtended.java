@@ -80,7 +80,7 @@ public final class ARBBlendFuncExtended {
 	@JavadocExclude
 	public static void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name) {
 		long __functionAddress = getInstance().BindFragDataLocationIndexed;
-		invokeIIIPV(__functionAddress, program, colorNumber, index, name);
+		callIIIPV(__functionAddress, program, colorNumber, index, name);
 	}
 
 	/**
@@ -110,7 +110,7 @@ public final class ARBBlendFuncExtended {
 	@JavadocExclude
 	public static int nglGetFragDataIndex(int program, long name) {
 		long __functionAddress = getInstance().GetFragDataIndex;
-		return invokeIPI(__functionAddress, program, name);
+		return callIPI(__functionAddress, program, name);
 	}
 
 	/**

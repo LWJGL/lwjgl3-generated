@@ -76,7 +76,7 @@ public final class KHRGLSharing {
 	@JavadocExclude
 	public static int nclGetGLContextInfoKHR(long properties, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetGLContextInfoKHR;
-		return invokePIPPPI(__functionAddress, properties, param_name, param_value_size, param_value, param_value_size_ret);
+		return callPIPPPI(__functionAddress, properties, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**

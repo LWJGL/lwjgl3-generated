@@ -26,7 +26,7 @@ public final class GLYPHMETRICSFLOAT implements Pointer {
 		CELLINCY;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(5);
+		IntBuffer offsets = memAllocInt(5);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -35,6 +35,8 @@ public final class GLYPHMETRICSFLOAT implements Pointer {
 		GLYPHORIGIN = offsets.get(2);
 		CELLINCX = offsets.get(3);
 		CELLINCY = offsets.get(4);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -59,13 +61,13 @@ public final class GLYPHMETRICSFLOAT implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setBlackBoxX(float blackBoxX) { blackBoxX(struct, blackBoxX); }
-	public void setBlockBoxY(float blockBoxY) { blockBoxY(struct, blockBoxY); }
-	public void setGlyphOrigin(ByteBuffer glyphOrigin) { glyphOriginSet(struct, glyphOrigin); }
-	public void setGlyphOriginX(float x) { glyphOriginX(struct, x); }
-	public void setGlyphOriginY(float y) { glyphOriginY(struct, y); }
-	public void setCellIncX(float cellIncX) { cellIncX(struct, cellIncX); }
-	public void setCellIncY(float cellIncY) { cellIncY(struct, cellIncY); }
+	public GLYPHMETRICSFLOAT setBlackBoxX(float blackBoxX) { blackBoxX(struct, blackBoxX); return this; }
+	public GLYPHMETRICSFLOAT setBlockBoxY(float blockBoxY) { blockBoxY(struct, blockBoxY); return this; }
+	public GLYPHMETRICSFLOAT setGlyphOrigin(ByteBuffer glyphOrigin) { glyphOriginSet(struct, glyphOrigin); return this; }
+	public GLYPHMETRICSFLOAT setGlyphOriginX(float x) { glyphOriginX(struct, x); return this; }
+	public GLYPHMETRICSFLOAT setGlyphOriginY(float y) { glyphOriginY(struct, y); return this; }
+	public GLYPHMETRICSFLOAT setCellIncX(float cellIncX) { cellIncX(struct, cellIncX); return this; }
+	public GLYPHMETRICSFLOAT setCellIncY(float cellIncY) { cellIncY(struct, cellIncY); return this; }
 
 	public float getBlackBoxX() { return blackBoxX(struct); }
 	public float getBlockBoxY() { return blockBoxY(struct); }

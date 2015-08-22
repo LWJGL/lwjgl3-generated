@@ -158,7 +158,7 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glUniform1i64ARB(int location, long x) {
 		long __functionAddress = getInstance().Uniform1i64ARB;
-		invokeIJV(__functionAddress, location, x);
+		callIJV(__functionAddress, location, x);
 	}
 
 	// --- [ glUniform1i64vARB ] ---
@@ -167,7 +167,7 @@ public final class ARBGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglUniform1i64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1i64vARB;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -199,7 +199,7 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glProgramUniform1i64ARB(int program, int location, long x) {
 		long __functionAddress = getInstance().ProgramUniform1i64ARB;
-		invokeIIJV(__functionAddress, program, location, x);
+		callIIJV(__functionAddress, program, location, x);
 	}
 
 	// --- [ glProgramUniform1i64vARB ] ---
@@ -208,7 +208,7 @@ public final class ARBGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglProgramUniform1i64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1i64vARB;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -241,7 +241,7 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glUniform2i64ARB(int location, long x, long y) {
 		long __functionAddress = getInstance().Uniform2i64ARB;
-		invokeIJJV(__functionAddress, location, x, y);
+		callIJJV(__functionAddress, location, x, y);
 	}
 
 	// --- [ glUniform2i64vARB ] ---
@@ -250,7 +250,7 @@ public final class ARBGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglUniform2i64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2i64vARB;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -283,7 +283,7 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glProgramUniform2i64ARB(int program, int location, long x, long y) {
 		long __functionAddress = getInstance().ProgramUniform2i64ARB;
-		invokeIIJJV(__functionAddress, program, location, x, y);
+		callIIJJV(__functionAddress, program, location, x, y);
 	}
 
 	// --- [ glProgramUniform2i64vARB ] ---
@@ -292,7 +292,7 @@ public final class ARBGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglProgramUniform2i64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2i64vARB;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -326,7 +326,7 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glUniform3i64ARB(int location, long x, long y, long z) {
 		long __functionAddress = getInstance().Uniform3i64ARB;
-		invokeIJJJV(__functionAddress, location, x, y, z);
+		callIJJJV(__functionAddress, location, x, y, z);
 	}
 
 	// --- [ glUniform3i64vARB ] ---
@@ -335,7 +335,7 @@ public final class ARBGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglUniform3i64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3i64vARB;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -369,7 +369,7 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glProgramUniform3i64ARB(int program, int location, long x, long y, long z) {
 		long __functionAddress = getInstance().ProgramUniform3i64ARB;
-		invokeIIJJJV(__functionAddress, program, location, x, y, z);
+		callIIJJJV(__functionAddress, program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform3i64vARB ] ---
@@ -378,7 +378,7 @@ public final class ARBGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglProgramUniform3i64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3i64vARB;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -413,7 +413,7 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glUniform4i64ARB(int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().Uniform4i64ARB;
-		invokeIJJJJV(__functionAddress, location, x, y, z, w);
+		callIJJJJV(__functionAddress, location, x, y, z, w);
 	}
 
 	// --- [ glUniform4i64vARB ] ---
@@ -422,7 +422,7 @@ public final class ARBGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglUniform4i64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4i64vARB;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -457,7 +457,7 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glProgramUniform4i64ARB(int program, int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().ProgramUniform4i64ARB;
-		invokeIIJJJJV(__functionAddress, program, location, x, y, z, w);
+		callIIJJJJV(__functionAddress, program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform4i64vARB ] ---
@@ -466,7 +466,7 @@ public final class ARBGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglProgramUniform4i64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4i64vARB;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -498,7 +498,7 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glUniform1ui64ARB(int location, long x) {
 		long __functionAddress = getInstance().Uniform1ui64ARB;
-		invokeIJV(__functionAddress, location, x);
+		callIJV(__functionAddress, location, x);
 	}
 
 	// --- [ glUniform1ui64vARB ] ---
@@ -507,7 +507,7 @@ public final class ARBGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglUniform1ui64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1ui64vARB;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -539,7 +539,7 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glProgramUniform1ui64ARB(int program, int location, long x) {
 		long __functionAddress = getInstance().ProgramUniform1ui64ARB;
-		invokeIIJV(__functionAddress, program, location, x);
+		callIIJV(__functionAddress, program, location, x);
 	}
 
 	// --- [ glProgramUniform1ui64vARB ] ---
@@ -548,7 +548,7 @@ public final class ARBGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglProgramUniform1ui64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1ui64vARB;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -581,7 +581,7 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glUniform2ui64ARB(int location, long x, long y) {
 		long __functionAddress = getInstance().Uniform2ui64ARB;
-		invokeIJJV(__functionAddress, location, x, y);
+		callIJJV(__functionAddress, location, x, y);
 	}
 
 	// --- [ glUniform2ui64vARB ] ---
@@ -590,7 +590,7 @@ public final class ARBGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglUniform2ui64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2ui64vARB;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -623,7 +623,7 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glProgramUniform2ui64ARB(int program, int location, long x, long y) {
 		long __functionAddress = getInstance().ProgramUniform2ui64ARB;
-		invokeIIJJV(__functionAddress, program, location, x, y);
+		callIIJJV(__functionAddress, program, location, x, y);
 	}
 
 	// --- [ glProgramUniform2ui64vARB ] ---
@@ -632,7 +632,7 @@ public final class ARBGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglProgramUniform2ui64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2ui64vARB;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -666,7 +666,7 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glUniform3ui64ARB(int location, long x, long y, long z) {
 		long __functionAddress = getInstance().Uniform3ui64ARB;
-		invokeIJJJV(__functionAddress, location, x, y, z);
+		callIJJJV(__functionAddress, location, x, y, z);
 	}
 
 	// --- [ glUniform3ui64vARB ] ---
@@ -675,7 +675,7 @@ public final class ARBGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglUniform3ui64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3ui64vARB;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -709,7 +709,7 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glProgramUniform3ui64ARB(int program, int location, long x, long y, long z) {
 		long __functionAddress = getInstance().ProgramUniform3ui64ARB;
-		invokeIIJJJV(__functionAddress, program, location, x, y, z);
+		callIIJJJV(__functionAddress, program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform3ui64vARB ] ---
@@ -718,7 +718,7 @@ public final class ARBGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglProgramUniform3ui64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3ui64vARB;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -753,7 +753,7 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glUniform4ui64ARB(int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().Uniform4ui64ARB;
-		invokeIJJJJV(__functionAddress, location, x, y, z, w);
+		callIJJJJV(__functionAddress, location, x, y, z, w);
 	}
 
 	// --- [ glUniform4ui64vARB ] ---
@@ -762,7 +762,7 @@ public final class ARBGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglUniform4ui64vARB(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4ui64vARB;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -797,7 +797,7 @@ public final class ARBGPUShaderInt64 {
 	 */
 	public static void glProgramUniform4ui64ARB(int program, int location, long x, long y, long z, long w) {
 		long __functionAddress = getInstance().ProgramUniform4ui64ARB;
-		invokeIIJJJJV(__functionAddress, program, location, x, y, z, w);
+		callIIJJJJV(__functionAddress, program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform4ui64vARB ] ---
@@ -806,7 +806,7 @@ public final class ARBGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglProgramUniform4ui64vARB(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4ui64vARB;
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -834,7 +834,7 @@ public final class ARBGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglGetUniformi64vARB(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformi64vARB;
-		invokeIIPV(__functionAddress, program, location, params);
+		callIIPV(__functionAddress, program, location, params);
 	}
 
 	/**
@@ -871,7 +871,7 @@ public final class ARBGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglGetUniformui64vARB(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformui64vARB;
-		invokeIIPV(__functionAddress, program, location, params);
+		callIIPV(__functionAddress, program, location, params);
 	}
 
 	/**
@@ -908,7 +908,7 @@ public final class ARBGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglGetnUniformi64vARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformi64vARB;
-		invokeIIIPV(__functionAddress, program, location, bufSize, params);
+		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**
@@ -944,7 +944,7 @@ public final class ARBGPUShaderInt64 {
 	@JavadocExclude
 	public static void nglGetnUniformui64vARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformui64vARB;
-		invokeIIIPV(__functionAddress, program, location, bufSize, params);
+		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**

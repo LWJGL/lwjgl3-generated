@@ -127,7 +127,7 @@ public final class ARBVertexAttribBinding {
 	 */
 	public static void glBindVertexBuffer(int bindingindex, int buffer, long offset, int stride) {
 		long __functionAddress = getInstance().BindVertexBuffer;
-		invokeIIPIV(__functionAddress, bindingindex, buffer, offset, stride);
+		callIIPIV(__functionAddress, bindingindex, buffer, offset, stride);
 	}
 
 	// --- [ glVertexAttribFormat ] ---
@@ -144,7 +144,7 @@ public final class ARBVertexAttribBinding {
 	 */
 	public static void glVertexAttribFormat(int attribindex, int size, int type, boolean normalized, int relativeoffset) {
 		long __functionAddress = getInstance().VertexAttribFormat;
-		invokeIIIZIV(__functionAddress, attribindex, size, type, normalized, relativeoffset);
+		callIIIZIV(__functionAddress, attribindex, size, type, normalized, relativeoffset);
 	}
 
 	// --- [ glVertexAttribIFormat ] ---
@@ -159,7 +159,7 @@ public final class ARBVertexAttribBinding {
 	 */
 	public static void glVertexAttribIFormat(int attribindex, int size, int type, int relativeoffset) {
 		long __functionAddress = getInstance().VertexAttribIFormat;
-		invokeIIIIV(__functionAddress, attribindex, size, type, relativeoffset);
+		callIIIIV(__functionAddress, attribindex, size, type, relativeoffset);
 	}
 
 	// --- [ glVertexAttribLFormat ] ---
@@ -174,7 +174,7 @@ public final class ARBVertexAttribBinding {
 	 */
 	public static void glVertexAttribLFormat(int attribindex, int size, int type, int relativeoffset) {
 		long __functionAddress = getInstance().VertexAttribLFormat;
-		invokeIIIIV(__functionAddress, attribindex, size, type, relativeoffset);
+		callIIIIV(__functionAddress, attribindex, size, type, relativeoffset);
 	}
 
 	// --- [ glVertexAttribBinding ] ---
@@ -187,7 +187,7 @@ public final class ARBVertexAttribBinding {
 	 */
 	public static void glVertexAttribBinding(int attribindex, int bindingindex) {
 		long __functionAddress = getInstance().VertexAttribBinding;
-		invokeIIV(__functionAddress, attribindex, bindingindex);
+		callIIV(__functionAddress, attribindex, bindingindex);
 	}
 
 	// --- [ glVertexBindingDivisor ] ---
@@ -200,7 +200,7 @@ public final class ARBVertexAttribBinding {
 	 */
 	public static void glVertexBindingDivisor(int bindingindex, int divisor) {
 		long __functionAddress = getInstance().VertexBindingDivisor;
-		invokeIIV(__functionAddress, bindingindex, divisor);
+		callIIV(__functionAddress, bindingindex, divisor);
 	}
 
 	// --- [ glVertexArrayBindVertexBufferEXT ] ---
@@ -218,7 +218,7 @@ public final class ARBVertexAttribBinding {
 		long __functionAddress = getInstance().VertexArrayBindVertexBufferEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPIV(__functionAddress, vaobj, bindingindex, buffer, offset, stride);
+		callIIIPIV(__functionAddress, vaobj, bindingindex, buffer, offset, stride);
 	}
 
 	// --- [ glVertexArrayVertexAttribFormatEXT ] ---
@@ -238,7 +238,7 @@ public final class ARBVertexAttribBinding {
 		long __functionAddress = getInstance().VertexArrayVertexAttribFormatEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIZIV(__functionAddress, vaobj, attribindex, size, type, normalized, relativeoffset);
+		callIIIIZIV(__functionAddress, vaobj, attribindex, size, type, normalized, relativeoffset);
 	}
 
 	// --- [ glVertexArrayVertexAttribIFormatEXT ] ---
@@ -256,7 +256,7 @@ public final class ARBVertexAttribBinding {
 		long __functionAddress = getInstance().VertexArrayVertexAttribIFormatEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIV(__functionAddress, vaobj, attribindex, size, type, relativeoffset);
+		callIIIIIV(__functionAddress, vaobj, attribindex, size, type, relativeoffset);
 	}
 
 	// --- [ glVertexArrayVertexAttribLFormatEXT ] ---
@@ -274,7 +274,7 @@ public final class ARBVertexAttribBinding {
 		long __functionAddress = getInstance().VertexArrayVertexAttribLFormatEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIV(__functionAddress, vaobj, attribindex, size, type, relativeoffset);
+		callIIIIIV(__functionAddress, vaobj, attribindex, size, type, relativeoffset);
 	}
 
 	// --- [ glVertexArrayVertexAttribBindingEXT ] ---
@@ -290,7 +290,7 @@ public final class ARBVertexAttribBinding {
 		long __functionAddress = getInstance().VertexArrayVertexAttribBindingEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, vaobj, attribindex, bindingindex);
+		callIIIV(__functionAddress, vaobj, attribindex, bindingindex);
 	}
 
 	// --- [ glVertexArrayVertexBindingDivisorEXT ] ---
@@ -306,7 +306,7 @@ public final class ARBVertexAttribBinding {
 		long __functionAddress = getInstance().VertexArrayVertexBindingDivisorEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, vaobj, bindingindex, divisor);
+		callIIIV(__functionAddress, vaobj, bindingindex, divisor);
 	}
 
 }

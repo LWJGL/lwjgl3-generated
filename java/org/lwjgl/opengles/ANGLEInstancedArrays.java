@@ -72,7 +72,7 @@ public final class ANGLEInstancedArrays {
 
 	public static void glDrawArraysInstancedANGLE(int mode, int first, int count, int primcount) {
 		long __functionAddress = getInstance().DrawArraysInstancedANGLE;
-		invokeIIIIV(__functionAddress, mode, first, count, primcount);
+		callIIIIV(__functionAddress, mode, first, count, primcount);
 	}
 
 	// --- [ glDrawElementsInstancedANGLE ] ---
@@ -81,7 +81,7 @@ public final class ANGLEInstancedArrays {
 	@JavadocExclude
 	public static void nglDrawElementsInstancedANGLE(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = getInstance().DrawElementsInstancedANGLE;
-		invokeIIIPIV(__functionAddress, mode, count, type, indices, primcount);
+		callIIIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
 	public static void glDrawElementsInstancedANGLE(int mode, int count, int type, ByteBuffer indices, int primcount) {
@@ -119,7 +119,7 @@ public final class ANGLEInstancedArrays {
 
 	public static void glVertexAttribDivisorANGLE(int index, int divisor) {
 		long __functionAddress = getInstance().VertexAttribDivisorANGLE;
-		invokeIIV(__functionAddress, index, divisor);
+		callIIV(__functionAddress, index, divisor);
 	}
 
 }

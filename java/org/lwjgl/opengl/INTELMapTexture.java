@@ -87,7 +87,7 @@ public final class INTELMapTexture {
 	 */
 	public static void glSyncTextureINTEL(int texture) {
 		long __functionAddress = getInstance().SyncTextureINTEL;
-		invokeIV(__functionAddress, texture);
+		callIV(__functionAddress, texture);
 	}
 
 	// --- [ glUnmapTexture2DINTEL ] ---
@@ -102,7 +102,7 @@ public final class INTELMapTexture {
 	 */
 	public static void glUnmapTexture2DINTEL(int texture, int level) {
 		long __functionAddress = getInstance().UnmapTexture2DINTEL;
-		invokeIIV(__functionAddress, texture, level);
+		callIIV(__functionAddress, texture, level);
 	}
 
 	// --- [ glMapTexture2DINTEL ] ---
@@ -111,7 +111,7 @@ public final class INTELMapTexture {
 	@JavadocExclude
 	public static long nglMapTexture2DINTEL(int texture, int level, int access, long stride, long layout) {
 		long __functionAddress = getInstance().MapTexture2DINTEL;
-		return invokeIIIPPP(__functionAddress, texture, level, access, stride, layout);
+		return callIIIPPP(__functionAddress, texture, level, access, stride, layout);
 	}
 
 	/**

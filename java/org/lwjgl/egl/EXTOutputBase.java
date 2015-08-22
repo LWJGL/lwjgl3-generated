@@ -83,7 +83,7 @@ public final class EXTOutputBase {
 		long __functionAddress = getInstance().GetOutputLayersEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return invokePPPIPZ(__functionAddress, dpy, attrib_list, layers, max_layers, num_layers);
+		return callPPPIPZ(__functionAddress, dpy, attrib_list, layers, max_layers, num_layers);
 	}
 
 	public static boolean eglGetOutputLayersEXT(long dpy, ByteBuffer attrib_list, ByteBuffer layers, int max_layers, ByteBuffer num_layers) {
@@ -112,7 +112,7 @@ public final class EXTOutputBase {
 		long __functionAddress = getInstance().GetOutputPortsEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return invokePPPIPZ(__functionAddress, dpy, attrib_list, ports, max_ports, num_ports);
+		return callPPPIPZ(__functionAddress, dpy, attrib_list, ports, max_ports, num_ports);
 	}
 
 	public static boolean eglGetOutputPortsEXT(long dpy, ByteBuffer attrib_list, ByteBuffer ports, int max_ports, ByteBuffer num_ports) {
@@ -141,7 +141,7 @@ public final class EXTOutputBase {
 			checkPointer(dpy);
 			checkPointer(layer);
 		}
-		return invokePPIPZ(__functionAddress, dpy, layer, attribute, value);
+		return callPPIPZ(__functionAddress, dpy, layer, attribute, value);
 	}
 
 	// --- [ eglQueryOutputLayerAttribEXT ] ---
@@ -154,7 +154,7 @@ public final class EXTOutputBase {
 			checkPointer(dpy);
 			checkPointer(layer);
 		}
-		return invokePPIPZ(__functionAddress, dpy, layer, attribute, value);
+		return callPPIPZ(__functionAddress, dpy, layer, attribute, value);
 	}
 
 	public static boolean eglQueryOutputLayerAttribEXT(long dpy, long layer, int attribute, ByteBuffer value) {
@@ -180,7 +180,7 @@ public final class EXTOutputBase {
 			checkPointer(dpy);
 			checkPointer(layer);
 		}
-		return invokePPIP(__functionAddress, dpy, layer, name);
+		return callPPIP(__functionAddress, dpy, layer, name);
 	}
 
 	public static String eglQueryOutputLayerStringEXT(long dpy, long layer, int name) {
@@ -196,7 +196,7 @@ public final class EXTOutputBase {
 			checkPointer(dpy);
 			checkPointer(port);
 		}
-		return invokePPIPZ(__functionAddress, dpy, port, attribute, value);
+		return callPPIPZ(__functionAddress, dpy, port, attribute, value);
 	}
 
 	// --- [ eglQueryOutputPortAttribEXT ] ---
@@ -209,7 +209,7 @@ public final class EXTOutputBase {
 			checkPointer(dpy);
 			checkPointer(port);
 		}
-		return invokePPIPZ(__functionAddress, dpy, port, attribute, value);
+		return callPPIPZ(__functionAddress, dpy, port, attribute, value);
 	}
 
 	public static boolean eglQueryOutputPortAttribEXT(long dpy, long port, int attribute, ByteBuffer value) {
@@ -235,7 +235,7 @@ public final class EXTOutputBase {
 			checkPointer(dpy);
 			checkPointer(port);
 		}
-		return invokePPIP(__functionAddress, dpy, port, name);
+		return callPPIP(__functionAddress, dpy, port, name);
 	}
 
 	public static String eglQueryOutputPortStringEXT(long dpy, long port, int name) {

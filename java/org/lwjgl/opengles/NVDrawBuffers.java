@@ -98,7 +98,7 @@ public final class NVDrawBuffers {
 	@JavadocExclude
 	public static void nglDrawBuffersNV(int n, long bufs) {
 		long __functionAddress = getInstance().DrawBuffersNV;
-		invokeIPV(__functionAddress, n, bufs);
+		callIPV(__functionAddress, n, bufs);
 	}
 
 	public static void glDrawBuffersNV(int n, ByteBuffer bufs) {

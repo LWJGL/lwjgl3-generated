@@ -95,7 +95,7 @@ public final class EXTTextureBorderClamp {
 	@JavadocExclude
 	public static void nglTexParameterIivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIivEXT;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glTexParameterIivEXT(int target, int pname, ByteBuffer params) {
@@ -117,7 +117,7 @@ public final class EXTTextureBorderClamp {
 	@JavadocExclude
 	public static void nglTexParameterIuivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIuivEXT;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glTexParameterIuivEXT(int target, int pname, ByteBuffer params) {
@@ -139,7 +139,7 @@ public final class EXTTextureBorderClamp {
 	@JavadocExclude
 	public static void nglGetTexParameterIivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIivEXT;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetTexParameterIivEXT(int target, int pname, ByteBuffer params) {
@@ -169,7 +169,7 @@ public final class EXTTextureBorderClamp {
 	@JavadocExclude
 	public static void nglGetTexParameterIuivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIuivEXT;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetTexParameterIuivEXT(int target, int pname, ByteBuffer params) {
@@ -199,7 +199,7 @@ public final class EXTTextureBorderClamp {
 	@JavadocExclude
 	public static void nglSamplerParameterIivEXT(int sampler, int pname, long param) {
 		long __functionAddress = getInstance().SamplerParameterIivEXT;
-		invokeIIPV(__functionAddress, sampler, pname, param);
+		callIIPV(__functionAddress, sampler, pname, param);
 	}
 
 	public static void glSamplerParameterIivEXT(int sampler, int pname, ByteBuffer param) {
@@ -221,7 +221,7 @@ public final class EXTTextureBorderClamp {
 	@JavadocExclude
 	public static void nglSamplerParameterIuivEXT(int sampler, int pname, long param) {
 		long __functionAddress = getInstance().SamplerParameterIuivEXT;
-		invokeIIPV(__functionAddress, sampler, pname, param);
+		callIIPV(__functionAddress, sampler, pname, param);
 	}
 
 	public static void glSamplerParameterIuivEXT(int sampler, int pname, ByteBuffer param) {
@@ -243,7 +243,7 @@ public final class EXTTextureBorderClamp {
 	@JavadocExclude
 	public static void nglGetSamplerParameterIivEXT(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIivEXT;
-		invokeIIPV(__functionAddress, sampler, pname, params);
+		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	public static void glGetSamplerParameterIivEXT(int sampler, int pname, ByteBuffer params) {
@@ -273,7 +273,7 @@ public final class EXTTextureBorderClamp {
 	@JavadocExclude
 	public static void nglGetSamplerParameterIuivEXT(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIuivEXT;
-		invokeIIPV(__functionAddress, sampler, pname, params);
+		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	public static void glGetSamplerParameterIuivEXT(int sampler, int pname, ByteBuffer params) {

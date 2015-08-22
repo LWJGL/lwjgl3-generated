@@ -91,7 +91,7 @@ public final class ARBSampleLocations {
 	@JavadocExclude
 	public static void nglFramebufferSampleLocationsfvARB(int target, int start, int count, long v) {
 		long __functionAddress = getInstance().FramebufferSampleLocationsfvARB;
-		invokeIIIPV(__functionAddress, target, start, count, v);
+		callIIIPV(__functionAddress, target, start, count, v);
 	}
 
 	/**
@@ -124,7 +124,7 @@ public final class ARBSampleLocations {
 	@JavadocExclude
 	public static void nglNamedFramebufferSampleLocationsfvARB(int framebuffer, int start, int count, long v) {
 		long __functionAddress = getInstance().NamedFramebufferSampleLocationsfvARB;
-		invokeIIIPV(__functionAddress, framebuffer, start, count, v);
+		callIIIPV(__functionAddress, framebuffer, start, count, v);
 	}
 
 	/**
@@ -155,7 +155,7 @@ public final class ARBSampleLocations {
 	 */
 	public static void glEvaluateDepthValuesARB() {
 		long __functionAddress = getInstance().EvaluateDepthValuesARB;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 }

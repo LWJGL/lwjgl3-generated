@@ -311,7 +311,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().ColorTable;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIPV(__functionAddress, target, internalformat, width, format, type, table);
+		callIIIIIPV(__functionAddress, target, internalformat, width, format, type, table);
 	}
 
 	/**
@@ -373,7 +373,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().CopyColorTable;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIV(__functionAddress, target, internalformat, x, y, width);
+		callIIIIIV(__functionAddress, target, internalformat, x, y, width);
 	}
 
 	// --- [ glColorTableParameteriv ] ---
@@ -384,7 +384,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().ColorTableParameteriv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -415,7 +415,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().ColorTableParameterfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -446,7 +446,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().GetColorTable;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, target, format, type, table);
+		callIIIPV(__functionAddress, target, format, type, table);
 	}
 
 	/**
@@ -499,7 +499,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().GetColorTableParameteriv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -538,7 +538,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().GetColorTableParameterfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -577,7 +577,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().ColorSubTable;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIPV(__functionAddress, target, start, count, format, type, data);
+		callIIIIIPV(__functionAddress, target, start, count, format, type, data);
 	}
 
 	/**
@@ -618,7 +618,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().CopyColorSubTable;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIV(__functionAddress, target, start, x, y, width);
+		callIIIIIV(__functionAddress, target, start, x, y, width);
 	}
 
 	// --- [ glConvolutionFilter1D ] ---
@@ -629,7 +629,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().ConvolutionFilter1D;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIPV(__functionAddress, target, internalformat, width, format, type, data);
+		callIIIIIPV(__functionAddress, target, internalformat, width, format, type, data);
 	}
 
 	/**
@@ -663,7 +663,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().ConvolutionFilter2D;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIPV(__functionAddress, target, internalformat, width, height, format, type, data);
+		callIIIIIIPV(__functionAddress, target, internalformat, width, height, format, type, data);
 	}
 
 	/**
@@ -706,7 +706,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().CopyConvolutionFilter1D;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIV(__functionAddress, target, internalformat, x, y, width);
+		callIIIIIV(__functionAddress, target, internalformat, x, y, width);
 	}
 
 	// --- [ glCopyConvolutionFilter2D ] ---
@@ -726,7 +726,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().CopyConvolutionFilter2D;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIV(__functionAddress, target, internalformat, x, y, width, height);
+		callIIIIIIV(__functionAddress, target, internalformat, x, y, width, height);
 	}
 
 	// --- [ glGetConvolutionFilter ] ---
@@ -737,7 +737,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().GetConvolutionFilter;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, target, format, type, image);
+		callIIIPV(__functionAddress, target, format, type, image);
 	}
 
 	/**
@@ -769,7 +769,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().SeparableFilter2D;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIPPV(__functionAddress, target, internalformat, width, height, format, type, row, column);
+		callIIIIIIPPV(__functionAddress, target, internalformat, width, height, format, type, row, column);
 	}
 
 	/**
@@ -805,7 +805,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().GetSeparableFilter;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPPPV(__functionAddress, target, format, type, row, column, span);
+		callIIIPPPV(__functionAddress, target, format, type, row, column, span);
 	}
 
 	/**
@@ -844,7 +844,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().ConvolutionParameteri;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, target, pname, param);
+		callIIIV(__functionAddress, target, pname, param);
 	}
 
 	// --- [ glConvolutionParameteriv ] ---
@@ -855,7 +855,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().ConvolutionParameteriv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -891,7 +891,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().ConvolutionParameterf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIFV(__functionAddress, target, pname, param);
+		callIIFV(__functionAddress, target, pname, param);
 	}
 
 	// --- [ glConvolutionParameterfv ] ---
@@ -902,7 +902,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().ConvolutionParameterfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -933,7 +933,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().GetConvolutionParameteriv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -972,7 +972,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().GetConvolutionParameterfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -1017,7 +1017,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().Histogram;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIZV(__functionAddress, target, width, internalformat, sink);
+		callIIIZV(__functionAddress, target, width, internalformat, sink);
 	}
 
 	// --- [ glResetHistogram ] ---
@@ -1031,7 +1031,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().ResetHistogram;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIV(__functionAddress, target);
+		callIV(__functionAddress, target);
 	}
 
 	// --- [ glGetHistogram ] ---
@@ -1042,7 +1042,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().GetHistogram;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIZIIPV(__functionAddress, target, reset, format, type, values);
+		callIZIIPV(__functionAddress, target, reset, format, type, values);
 	}
 
 	/**
@@ -1075,7 +1075,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().GetHistogramParameteriv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -1114,7 +1114,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().GetHistogramParameterfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -1158,7 +1158,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().Minmax;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIZV(__functionAddress, target, internalformat, sink);
+		callIIZV(__functionAddress, target, internalformat, sink);
 	}
 
 	// --- [ glResetMinmax ] ---
@@ -1172,7 +1172,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().ResetMinmax;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIV(__functionAddress, target);
+		callIV(__functionAddress, target);
 	}
 
 	// --- [ glGetMinmax ] ---
@@ -1183,7 +1183,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().GetMinmax;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIZIIPV(__functionAddress, target, reset, format, type, values);
+		callIZIIPV(__functionAddress, target, reset, format, type, values);
 	}
 
 	/**
@@ -1217,7 +1217,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().GetMinmaxParameteriv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -1256,7 +1256,7 @@ public final class ARBImaging {
 		long __functionAddress = getInstance().GetMinmaxParameterfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -1299,7 +1299,7 @@ public final class ARBImaging {
 	 */
 	public static void glBlendColor(float red, float green, float blue, float alpha) {
 		long __functionAddress = getInstance().BlendColor;
-		invokeFFFFV(__functionAddress, red, green, blue, alpha);
+		callFFFFV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glBlendEquation ] ---
@@ -1311,7 +1311,7 @@ public final class ARBImaging {
 	 */
 	public static void glBlendEquation(int mode) {
 		long __functionAddress = getInstance().BlendEquation;
-		invokeIV(__functionAddress, mode);
+		callIV(__functionAddress, mode);
 	}
 
 }

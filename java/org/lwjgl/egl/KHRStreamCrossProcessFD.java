@@ -68,7 +68,7 @@ public final class KHRStreamCrossProcessFD {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return invokePPI(__functionAddress, dpy, stream);
+		return callPPI(__functionAddress, dpy, stream);
 	}
 
 	// --- [ eglCreateStreamFromFileDescriptorKHR ] ---
@@ -77,7 +77,7 @@ public final class KHRStreamCrossProcessFD {
 		long __functionAddress = getInstance().CreateStreamFromFileDescriptorKHR;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return invokePIP(__functionAddress, dpy, file_descriptor);
+		return callPIP(__functionAddress, dpy, file_descriptor);
 	}
 
 }

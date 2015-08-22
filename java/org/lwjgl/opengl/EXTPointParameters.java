@@ -98,7 +98,7 @@ public final class EXTPointParameters {
 
 	public static void glPointParameterfEXT(int pname, float param) {
 		long __functionAddress = getInstance().PointParameterfEXT;
-		invokeIFV(__functionAddress, pname, param);
+		callIFV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPointParameterfvEXT ] ---
@@ -107,7 +107,7 @@ public final class EXTPointParameters {
 	@JavadocExclude
 	public static void nglPointParameterfvEXT(int pname, long params) {
 		long __functionAddress = getInstance().PointParameterfvEXT;
-		invokeIPV(__functionAddress, pname, params);
+		callIPV(__functionAddress, pname, params);
 	}
 
 	public static void glPointParameterfvEXT(int pname, ByteBuffer params) {

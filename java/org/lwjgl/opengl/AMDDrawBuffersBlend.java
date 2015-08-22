@@ -63,28 +63,28 @@ public final class AMDDrawBuffersBlend {
 
 	public static void glBlendFuncIndexedAMD(int buf, int src, int dst) {
 		long __functionAddress = getInstance().BlendFuncIndexedAMD;
-		invokeIIIV(__functionAddress, buf, src, dst);
+		callIIIV(__functionAddress, buf, src, dst);
 	}
 
 	// --- [ glBlendFuncSeparateIndexedAMD ] ---
 
 	public static void glBlendFuncSeparateIndexedAMD(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
 		long __functionAddress = getInstance().BlendFuncSeparateIndexedAMD;
-		invokeIIIIIV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
+		callIIIIIV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 
 	// --- [ glBlendEquationIndexedAMD ] ---
 
 	public static void glBlendEquationIndexedAMD(int buf, int mode) {
 		long __functionAddress = getInstance().BlendEquationIndexedAMD;
-		invokeIIV(__functionAddress, buf, mode);
+		callIIV(__functionAddress, buf, mode);
 	}
 
 	// --- [ glBlendEquationSeparateIndexedAMD ] ---
 
 	public static void glBlendEquationSeparateIndexedAMD(int buf, int modeRGB, int modeAlpha) {
 		long __functionAddress = getInstance().BlendEquationSeparateIndexedAMD;
-		invokeIIIV(__functionAddress, buf, modeRGB, modeAlpha);
+		callIIIV(__functionAddress, buf, modeRGB, modeAlpha);
 	}
 
 }

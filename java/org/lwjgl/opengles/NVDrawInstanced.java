@@ -68,7 +68,7 @@ public final class NVDrawInstanced {
 
 	public static void glDrawArraysInstancedNV(int mode, int first, int count, int primcount) {
 		long __functionAddress = getInstance().DrawArraysInstancedNV;
-		invokeIIIIV(__functionAddress, mode, first, count, primcount);
+		callIIIIV(__functionAddress, mode, first, count, primcount);
 	}
 
 	// --- [ glDrawElementsInstancedNV ] ---
@@ -77,7 +77,7 @@ public final class NVDrawInstanced {
 	@JavadocExclude
 	public static void nglDrawElementsInstancedNV(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = getInstance().DrawElementsInstancedNV;
-		invokeIIIPIV(__functionAddress, mode, count, type, indices, primcount);
+		callIIIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
 	/**

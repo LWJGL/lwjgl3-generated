@@ -32,12 +32,14 @@ public final class OVRViewScaleDesc implements Pointer {
 		HMDSPACETOWORLDSCALEINMETERS;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(2);
+		IntBuffer offsets = memAllocInt(2);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		HMDTOEYEVIEWOFFSET = offsets.get(0);
 		HMDSPACETOWORLDSCALEINMETERS = offsets.get(1);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -62,9 +64,9 @@ public final class OVRViewScaleDesc implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setHmdToEyeViewOffset(ByteBuffer HmdToEyeViewOffset) { HmdToEyeViewOffsetSet(struct, HmdToEyeViewOffset); }
-	public void setHmdToEyeViewOffset(ByteBuffer HmdToEyeViewOffset, int index) { HmdToEyeViewOffsetSet(struct, HmdToEyeViewOffset, index); }
-	public void setHmdSpaceToWorldScaleInMeters(float HmdSpaceToWorldScaleInMeters) { HmdSpaceToWorldScaleInMeters(struct, HmdSpaceToWorldScaleInMeters); }
+	public OVRViewScaleDesc setHmdToEyeViewOffset(ByteBuffer HmdToEyeViewOffset) { HmdToEyeViewOffsetSet(struct, HmdToEyeViewOffset); return this; }
+	public OVRViewScaleDesc setHmdToEyeViewOffset(ByteBuffer HmdToEyeViewOffset, int index) { HmdToEyeViewOffsetSet(struct, HmdToEyeViewOffset, index); return this; }
+	public OVRViewScaleDesc setHmdSpaceToWorldScaleInMeters(float HmdSpaceToWorldScaleInMeters) { HmdSpaceToWorldScaleInMeters(struct, HmdSpaceToWorldScaleInMeters); return this; }
 
 	public void getHmdToEyeViewOffset(ByteBuffer HmdToEyeViewOffset) { HmdToEyeViewOffsetGet(struct, HmdToEyeViewOffset); }
 	public void getHmdToEyeViewOffset(ByteBuffer HmdToEyeViewOffset, int index) { HmdToEyeViewOffsetGet(struct, HmdToEyeViewOffset, index); }

@@ -67,7 +67,7 @@ public final class EXTDebugMarker {
 	@JavadocExclude
 	public static void nglInsertEventMarkerEXT(int length, long marker) {
 		long __functionAddress = getInstance().InsertEventMarkerEXT;
-		invokeIPV(__functionAddress, length, marker);
+		callIPV(__functionAddress, length, marker);
 	}
 
 	public static void glInsertEventMarkerEXT(int length, ByteBuffer marker) {
@@ -95,7 +95,7 @@ public final class EXTDebugMarker {
 	@JavadocExclude
 	public static void nglPushGroupMarkerEXT(int length, long marker) {
 		long __functionAddress = getInstance().PushGroupMarkerEXT;
-		invokeIPV(__functionAddress, length, marker);
+		callIPV(__functionAddress, length, marker);
 	}
 
 	public static void glPushGroupMarkerEXT(int length, ByteBuffer marker) {
@@ -121,7 +121,7 @@ public final class EXTDebugMarker {
 
 	public static void glPopGroupMarkerEXT() {
 		long __functionAddress = getInstance().PopGroupMarkerEXT;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 }

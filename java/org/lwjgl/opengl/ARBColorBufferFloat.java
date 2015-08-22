@@ -85,7 +85,7 @@ public final class ARBColorBufferFloat {
 	 */
 	public static void glClampColorARB(int target, int clamp) {
 		long __functionAddress = getInstance().ClampColorARB;
-		invokeIIV(__functionAddress, target, clamp);
+		callIIV(__functionAddress, target, clamp);
 	}
 
 }

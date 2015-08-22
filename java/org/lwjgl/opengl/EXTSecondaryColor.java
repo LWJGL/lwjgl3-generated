@@ -116,7 +116,7 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3bEXT(byte red, byte green, byte blue) {
 		long __functionAddress = getInstance().SecondaryColor3bEXT;
-		invokeBBBV(__functionAddress, red, green, blue);
+		callBBBV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3sEXT ] ---
@@ -130,7 +130,7 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3sEXT(short red, short green, short blue) {
 		long __functionAddress = getInstance().SecondaryColor3sEXT;
-		invokeSSSV(__functionAddress, red, green, blue);
+		callSSSV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3iEXT ] ---
@@ -144,7 +144,7 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3iEXT(int red, int green, int blue) {
 		long __functionAddress = getInstance().SecondaryColor3iEXT;
-		invokeIIIV(__functionAddress, red, green, blue);
+		callIIIV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3fEXT ] ---
@@ -158,7 +158,7 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3fEXT(float red, float green, float blue) {
 		long __functionAddress = getInstance().SecondaryColor3fEXT;
-		invokeFFFV(__functionAddress, red, green, blue);
+		callFFFV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3dEXT ] ---
@@ -172,7 +172,7 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3dEXT(double red, double green, double blue) {
 		long __functionAddress = getInstance().SecondaryColor3dEXT;
-		invokeDDDV(__functionAddress, red, green, blue);
+		callDDDV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3ubEXT ] ---
@@ -186,7 +186,7 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3ubEXT(byte red, byte green, byte blue) {
 		long __functionAddress = getInstance().SecondaryColor3ubEXT;
-		invokeBBBV(__functionAddress, red, green, blue);
+		callBBBV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3usEXT ] ---
@@ -200,7 +200,7 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3usEXT(short red, short green, short blue) {
 		long __functionAddress = getInstance().SecondaryColor3usEXT;
-		invokeSSSV(__functionAddress, red, green, blue);
+		callSSSV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3uiEXT ] ---
@@ -214,7 +214,7 @@ public final class EXTSecondaryColor {
 	 */
 	public static void glSecondaryColor3uiEXT(int red, int green, int blue) {
 		long __functionAddress = getInstance().SecondaryColor3uiEXT;
-		invokeIIIV(__functionAddress, red, green, blue);
+		callIIIV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3bvEXT ] ---
@@ -223,7 +223,7 @@ public final class EXTSecondaryColor {
 	@JavadocExclude
 	public static void nglSecondaryColor3bvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3bvEXT;
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -243,7 +243,7 @@ public final class EXTSecondaryColor {
 	@JavadocExclude
 	public static void nglSecondaryColor3svEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3svEXT;
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -270,7 +270,7 @@ public final class EXTSecondaryColor {
 	@JavadocExclude
 	public static void nglSecondaryColor3ivEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3ivEXT;
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -297,7 +297,7 @@ public final class EXTSecondaryColor {
 	@JavadocExclude
 	public static void nglSecondaryColor3fvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3fvEXT;
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -324,7 +324,7 @@ public final class EXTSecondaryColor {
 	@JavadocExclude
 	public static void nglSecondaryColor3dvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3dvEXT;
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -351,7 +351,7 @@ public final class EXTSecondaryColor {
 	@JavadocExclude
 	public static void nglSecondaryColor3ubvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3ubvEXT;
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -371,7 +371,7 @@ public final class EXTSecondaryColor {
 	@JavadocExclude
 	public static void nglSecondaryColor3usvEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3usvEXT;
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -398,7 +398,7 @@ public final class EXTSecondaryColor {
 	@JavadocExclude
 	public static void nglSecondaryColor3uivEXT(long v) {
 		long __functionAddress = getInstance().SecondaryColor3uivEXT;
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -425,7 +425,7 @@ public final class EXTSecondaryColor {
 	@JavadocExclude
 	public static void nglSecondaryColorPointerEXT(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().SecondaryColorPointerEXT;
-		invokeIIIPV(__functionAddress, size, type, stride, pointer);
+		callIIIPV(__functionAddress, size, type, stride, pointer);
 	}
 
 	/**

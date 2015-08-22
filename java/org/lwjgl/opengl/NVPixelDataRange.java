@@ -106,7 +106,7 @@ public final class NVPixelDataRange {
 	@JavadocExclude
 	public static void nglPixelDataRangeNV(int target, int length, long pointer) {
 		long __functionAddress = getInstance().PixelDataRangeNV;
-		invokeIIPV(__functionAddress, target, length, pointer);
+		callIIPV(__functionAddress, target, length, pointer);
 	}
 
 	public static void glPixelDataRangeNV(int target, int length, ByteBuffer pointer) {
@@ -124,7 +124,7 @@ public final class NVPixelDataRange {
 
 	public static void glFlushPixelDataRangeNV(int target) {
 		long __functionAddress = getInstance().FlushPixelDataRangeNV;
-		invokeIV(__functionAddress, target);
+		callIV(__functionAddress, target);
 	}
 
 }

@@ -67,7 +67,7 @@ public final class ARBTransformFeedbackInstanced {
 	 */
 	public static void glDrawTransformFeedbackInstanced(int mode, int id, int primcount) {
 		long __functionAddress = getInstance().DrawTransformFeedbackInstanced;
-		invokeIIIV(__functionAddress, mode, id, primcount);
+		callIIIV(__functionAddress, mode, id, primcount);
 	}
 
 	// --- [ glDrawTransformFeedbackStreamInstanced ] ---
@@ -82,7 +82,7 @@ public final class ARBTransformFeedbackInstanced {
 	 */
 	public static void glDrawTransformFeedbackStreamInstanced(int mode, int id, int stream, int primcount) {
 		long __functionAddress = getInstance().DrawTransformFeedbackStreamInstanced;
-		invokeIIIIV(__functionAddress, mode, id, stream, primcount);
+		callIIIIV(__functionAddress, mode, id, stream, primcount);
 	}
 
 }

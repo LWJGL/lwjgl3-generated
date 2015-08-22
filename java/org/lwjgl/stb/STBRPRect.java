@@ -27,7 +27,7 @@ public final class STBRPRect implements Pointer {
 		WAS_PACKED;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(6);
+		IntBuffer offsets = memAllocInt(6);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -37,6 +37,8 @@ public final class STBRPRect implements Pointer {
 		X = offsets.get(3);
 		Y = offsets.get(4);
 		WAS_PACKED = offsets.get(5);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -61,12 +63,12 @@ public final class STBRPRect implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setId(int id) { id(struct, id); }
-	public void setW(int w) { w(struct, w); }
-	public void setH(int h) { h(struct, h); }
-	public void setX(int x) { x(struct, x); }
-	public void setY(int y) { y(struct, y); }
-	public void setWasPacked(int was_packed) { was_packed(struct, was_packed); }
+	public STBRPRect setId(int id) { id(struct, id); return this; }
+	public STBRPRect setW(int w) { w(struct, w); return this; }
+	public STBRPRect setH(int h) { h(struct, h); return this; }
+	public STBRPRect setX(int x) { x(struct, x); return this; }
+	public STBRPRect setY(int y) { y(struct, y); return this; }
+	public STBRPRect setWasPacked(int was_packed) { was_packed(struct, was_packed); return this; }
 
 	public int getId() { return id(struct); }
 	public int getW() { return w(struct); }

@@ -196,7 +196,7 @@ public final class ARBGPUShaderFP64 {
 	 */
 	public static void glUniform1d(int location, double x) {
 		long __functionAddress = getInstance().Uniform1d;
-		invokeIDV(__functionAddress, location, x);
+		callIDV(__functionAddress, location, x);
 	}
 
 	// --- [ glUniform2d ] ---
@@ -210,7 +210,7 @@ public final class ARBGPUShaderFP64 {
 	 */
 	public static void glUniform2d(int location, double x, double y) {
 		long __functionAddress = getInstance().Uniform2d;
-		invokeIDDV(__functionAddress, location, x, y);
+		callIDDV(__functionAddress, location, x, y);
 	}
 
 	// --- [ glUniform3d ] ---
@@ -225,7 +225,7 @@ public final class ARBGPUShaderFP64 {
 	 */
 	public static void glUniform3d(int location, double x, double y, double z) {
 		long __functionAddress = getInstance().Uniform3d;
-		invokeIDDDV(__functionAddress, location, x, y, z);
+		callIDDDV(__functionAddress, location, x, y, z);
 	}
 
 	// --- [ glUniform4d ] ---
@@ -241,7 +241,7 @@ public final class ARBGPUShaderFP64 {
 	 */
 	public static void glUniform4d(int location, double x, double y, double z, double w) {
 		long __functionAddress = getInstance().Uniform4d;
-		invokeIDDDDV(__functionAddress, location, x, y, z, w);
+		callIDDDDV(__functionAddress, location, x, y, z, w);
 	}
 
 	// --- [ glUniform1dv ] ---
@@ -250,7 +250,7 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniform1dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1dv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -277,7 +277,7 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniform2dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2dv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -304,7 +304,7 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniform3dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3dv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -331,7 +331,7 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniform4dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4dv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -358,7 +358,7 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniformMatrix2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2dv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -386,7 +386,7 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniformMatrix3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3dv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -414,7 +414,7 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniformMatrix4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4dv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -442,7 +442,7 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniformMatrix2x3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x3dv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -470,7 +470,7 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniformMatrix2x4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x4dv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -498,7 +498,7 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniformMatrix3x2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x2dv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -526,7 +526,7 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniformMatrix3x4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x4dv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -554,7 +554,7 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniformMatrix4x2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x2dv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -582,7 +582,7 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglUniformMatrix4x3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x3dv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -610,7 +610,7 @@ public final class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglGetUniformdv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformdv;
-		invokeIIPV(__functionAddress, program, location, params);
+		callIIPV(__functionAddress, program, location, params);
 	}
 
 	/**
@@ -654,7 +654,7 @@ public final class ARBGPUShaderFP64 {
 		long __functionAddress = getInstance().ProgramUniform1dEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIDV(__functionAddress, program, location, x);
+		callIIDV(__functionAddress, program, location, x);
 	}
 
 	// --- [ glProgramUniform2dEXT ] ---
@@ -671,7 +671,7 @@ public final class ARBGPUShaderFP64 {
 		long __functionAddress = getInstance().ProgramUniform2dEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIDDV(__functionAddress, program, location, x, y);
+		callIIDDV(__functionAddress, program, location, x, y);
 	}
 
 	// --- [ glProgramUniform3dEXT ] ---
@@ -689,7 +689,7 @@ public final class ARBGPUShaderFP64 {
 		long __functionAddress = getInstance().ProgramUniform3dEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIDDDV(__functionAddress, program, location, x, y, z);
+		callIIDDDV(__functionAddress, program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform4dEXT ] ---
@@ -708,7 +708,7 @@ public final class ARBGPUShaderFP64 {
 		long __functionAddress = getInstance().ProgramUniform4dEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIDDDDV(__functionAddress, program, location, x, y, z, w);
+		callIIDDDDV(__functionAddress, program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform1dvEXT ] ---
@@ -719,7 +719,7 @@ public final class ARBGPUShaderFP64 {
 		long __functionAddress = getInstance().ProgramUniform1dvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -749,7 +749,7 @@ public final class ARBGPUShaderFP64 {
 		long __functionAddress = getInstance().ProgramUniform2dvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -779,7 +779,7 @@ public final class ARBGPUShaderFP64 {
 		long __functionAddress = getInstance().ProgramUniform3dvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -809,7 +809,7 @@ public final class ARBGPUShaderFP64 {
 		long __functionAddress = getInstance().ProgramUniform4dvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	/**
@@ -839,7 +839,7 @@ public final class ARBGPUShaderFP64 {
 		long __functionAddress = getInstance().ProgramUniformMatrix2dvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -870,7 +870,7 @@ public final class ARBGPUShaderFP64 {
 		long __functionAddress = getInstance().ProgramUniformMatrix3dvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -901,7 +901,7 @@ public final class ARBGPUShaderFP64 {
 		long __functionAddress = getInstance().ProgramUniformMatrix4dvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -932,7 +932,7 @@ public final class ARBGPUShaderFP64 {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x3dvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -963,7 +963,7 @@ public final class ARBGPUShaderFP64 {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x4dvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -994,7 +994,7 @@ public final class ARBGPUShaderFP64 {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x2dvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1025,7 +1025,7 @@ public final class ARBGPUShaderFP64 {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x4dvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1056,7 +1056,7 @@ public final class ARBGPUShaderFP64 {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x2dvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**
@@ -1087,7 +1087,7 @@ public final class ARBGPUShaderFP64 {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x3dvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	/**

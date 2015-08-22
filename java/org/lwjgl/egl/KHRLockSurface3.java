@@ -81,7 +81,7 @@ public final class KHRLockSurface3 {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return invokePPPZ(__functionAddress, dpy, surface, attrib_list);
+		return callPPPZ(__functionAddress, dpy, surface, attrib_list);
 	}
 
 	public static boolean eglLockSurfaceKHR(long dpy, long surface, ByteBuffer attrib_list) {
@@ -105,7 +105,7 @@ public final class KHRLockSurface3 {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return invokePPZ(__functionAddress, dpy, surface);
+		return callPPZ(__functionAddress, dpy, surface);
 	}
 
 	// --- [ eglQuerySurface64KHR ] ---
@@ -118,7 +118,7 @@ public final class KHRLockSurface3 {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return invokePPIPZ(__functionAddress, dpy, surface, attribute, value);
+		return callPPIPZ(__functionAddress, dpy, surface, attribute, value);
 	}
 
 	public static boolean eglQuerySurface64KHR(long dpy, long surface, int attribute, ByteBuffer value) {

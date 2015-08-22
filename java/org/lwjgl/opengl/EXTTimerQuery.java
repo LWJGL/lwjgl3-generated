@@ -74,7 +74,7 @@ public final class EXTTimerQuery {
 	@JavadocExclude
 	public static void nglGetQueryObjecti64vEXT(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjecti64vEXT;
-		invokeIIPV(__functionAddress, id, pname, params);
+		callIIPV(__functionAddress, id, pname, params);
 	}
 
 	public static void glGetQueryObjecti64vEXT(int id, int pname, ByteBuffer params) {
@@ -104,7 +104,7 @@ public final class EXTTimerQuery {
 	@JavadocExclude
 	public static void nglGetQueryObjectui64vEXT(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectui64vEXT;
-		invokeIIPV(__functionAddress, id, pname, params);
+		callIIPV(__functionAddress, id, pname, params);
 	}
 
 	public static void glGetQueryObjectui64vEXT(int id, int pname, ByteBuffer params) {

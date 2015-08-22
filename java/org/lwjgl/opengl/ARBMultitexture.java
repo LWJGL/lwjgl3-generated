@@ -175,7 +175,7 @@ public final class ARBMultitexture {
 	 */
 	public static void glActiveTextureARB(int texture) {
 		long __functionAddress = getInstance().ActiveTextureARB;
-		invokeIV(__functionAddress, texture);
+		callIV(__functionAddress, texture);
 	}
 
 	// --- [ glClientActiveTextureARB ] ---
@@ -188,7 +188,7 @@ public final class ARBMultitexture {
 	 */
 	public static void glClientActiveTextureARB(int texture) {
 		long __functionAddress = getInstance().ClientActiveTextureARB;
-		invokeIV(__functionAddress, texture);
+		callIV(__functionAddress, texture);
 	}
 
 	// --- [ glMultiTexCoord1fARB ] ---
@@ -201,7 +201,7 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord1fARB(int texture, float s) {
 		long __functionAddress = getInstance().MultiTexCoord1fARB;
-		invokeIFV(__functionAddress, texture, s);
+		callIFV(__functionAddress, texture, s);
 	}
 
 	// --- [ glMultiTexCoord1sARB ] ---
@@ -214,7 +214,7 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord1sARB(int texture, short s) {
 		long __functionAddress = getInstance().MultiTexCoord1sARB;
-		invokeISV(__functionAddress, texture, s);
+		callISV(__functionAddress, texture, s);
 	}
 
 	// --- [ glMultiTexCoord1iARB ] ---
@@ -227,7 +227,7 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord1iARB(int texture, int s) {
 		long __functionAddress = getInstance().MultiTexCoord1iARB;
-		invokeIIV(__functionAddress, texture, s);
+		callIIV(__functionAddress, texture, s);
 	}
 
 	// --- [ glMultiTexCoord1dARB ] ---
@@ -240,7 +240,7 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord1dARB(int texture, double s) {
 		long __functionAddress = getInstance().MultiTexCoord1dARB;
-		invokeIDV(__functionAddress, texture, s);
+		callIDV(__functionAddress, texture, s);
 	}
 
 	// --- [ glMultiTexCoord1fvARB ] ---
@@ -249,7 +249,7 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord1fvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1fvARB;
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -277,7 +277,7 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord1svARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1svARB;
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -305,7 +305,7 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord1ivARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1ivARB;
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -333,7 +333,7 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord1dvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1dvARB;
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -366,7 +366,7 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord2fARB(int texture, float s, float t) {
 		long __functionAddress = getInstance().MultiTexCoord2fARB;
-		invokeIFFV(__functionAddress, texture, s, t);
+		callIFFV(__functionAddress, texture, s, t);
 	}
 
 	// --- [ glMultiTexCoord2sARB ] ---
@@ -380,7 +380,7 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord2sARB(int texture, short s, short t) {
 		long __functionAddress = getInstance().MultiTexCoord2sARB;
-		invokeISSV(__functionAddress, texture, s, t);
+		callISSV(__functionAddress, texture, s, t);
 	}
 
 	// --- [ glMultiTexCoord2iARB ] ---
@@ -394,7 +394,7 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord2iARB(int texture, int s, int t) {
 		long __functionAddress = getInstance().MultiTexCoord2iARB;
-		invokeIIIV(__functionAddress, texture, s, t);
+		callIIIV(__functionAddress, texture, s, t);
 	}
 
 	// --- [ glMultiTexCoord2dARB ] ---
@@ -408,7 +408,7 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord2dARB(int texture, double s, double t) {
 		long __functionAddress = getInstance().MultiTexCoord2dARB;
-		invokeIDDV(__functionAddress, texture, s, t);
+		callIDDV(__functionAddress, texture, s, t);
 	}
 
 	// --- [ glMultiTexCoord2fvARB ] ---
@@ -417,7 +417,7 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord2fvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2fvARB;
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -445,7 +445,7 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord2svARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2svARB;
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -473,7 +473,7 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord2ivARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2ivARB;
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -501,7 +501,7 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord2dvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2dvARB;
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -535,7 +535,7 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord3fARB(int texture, float s, float t, float r) {
 		long __functionAddress = getInstance().MultiTexCoord3fARB;
-		invokeIFFFV(__functionAddress, texture, s, t, r);
+		callIFFFV(__functionAddress, texture, s, t, r);
 	}
 
 	// --- [ glMultiTexCoord3sARB ] ---
@@ -550,7 +550,7 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord3sARB(int texture, short s, short t, short r) {
 		long __functionAddress = getInstance().MultiTexCoord3sARB;
-		invokeISSSV(__functionAddress, texture, s, t, r);
+		callISSSV(__functionAddress, texture, s, t, r);
 	}
 
 	// --- [ glMultiTexCoord3iARB ] ---
@@ -565,7 +565,7 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord3iARB(int texture, int s, int t, int r) {
 		long __functionAddress = getInstance().MultiTexCoord3iARB;
-		invokeIIIIV(__functionAddress, texture, s, t, r);
+		callIIIIV(__functionAddress, texture, s, t, r);
 	}
 
 	// --- [ glMultiTexCoord3dARB ] ---
@@ -580,7 +580,7 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord3dARB(int texture, double s, double t, double r) {
 		long __functionAddress = getInstance().MultiTexCoord3dARB;
-		invokeIDDDV(__functionAddress, texture, s, t, r);
+		callIDDDV(__functionAddress, texture, s, t, r);
 	}
 
 	// --- [ glMultiTexCoord3fvARB ] ---
@@ -589,7 +589,7 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord3fvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3fvARB;
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -617,7 +617,7 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord3svARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3svARB;
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -645,7 +645,7 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord3ivARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3ivARB;
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -673,7 +673,7 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord3dvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3dvARB;
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -708,7 +708,7 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord4fARB(int texture, float s, float t, float r, float q) {
 		long __functionAddress = getInstance().MultiTexCoord4fARB;
-		invokeIFFFFV(__functionAddress, texture, s, t, r, q);
+		callIFFFFV(__functionAddress, texture, s, t, r, q);
 	}
 
 	// --- [ glMultiTexCoord4sARB ] ---
@@ -724,7 +724,7 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord4sARB(int texture, short s, short t, short r, short q) {
 		long __functionAddress = getInstance().MultiTexCoord4sARB;
-		invokeISSSSV(__functionAddress, texture, s, t, r, q);
+		callISSSSV(__functionAddress, texture, s, t, r, q);
 	}
 
 	// --- [ glMultiTexCoord4iARB ] ---
@@ -740,7 +740,7 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord4iARB(int texture, int s, int t, int r, int q) {
 		long __functionAddress = getInstance().MultiTexCoord4iARB;
-		invokeIIIIIV(__functionAddress, texture, s, t, r, q);
+		callIIIIIV(__functionAddress, texture, s, t, r, q);
 	}
 
 	// --- [ glMultiTexCoord4dARB ] ---
@@ -756,7 +756,7 @@ public final class ARBMultitexture {
 	 */
 	public static void glMultiTexCoord4dARB(int texture, double s, double t, double r, double q) {
 		long __functionAddress = getInstance().MultiTexCoord4dARB;
-		invokeIDDDDV(__functionAddress, texture, s, t, r, q);
+		callIDDDDV(__functionAddress, texture, s, t, r, q);
 	}
 
 	// --- [ glMultiTexCoord4fvARB ] ---
@@ -765,7 +765,7 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord4fvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4fvARB;
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -793,7 +793,7 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord4svARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4svARB;
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -821,7 +821,7 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord4ivARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4ivARB;
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -849,7 +849,7 @@ public final class ARBMultitexture {
 	@JavadocExclude
 	public static void nglMultiTexCoord4dvARB(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4dvARB;
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**

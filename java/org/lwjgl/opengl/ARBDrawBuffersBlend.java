@@ -79,7 +79,7 @@ public final class ARBDrawBuffersBlend {
 	 */
 	public static void glBlendEquationiARB(int buf, int mode) {
 		long __functionAddress = getInstance().BlendEquationiARB;
-		invokeIIV(__functionAddress, buf, mode);
+		callIIV(__functionAddress, buf, mode);
 	}
 
 	// --- [ glBlendEquationSeparateiARB ] ---
@@ -103,7 +103,7 @@ public final class ARBDrawBuffersBlend {
 	 */
 	public static void glBlendEquationSeparateiARB(int buf, int modeRGB, int modeAlpha) {
 		long __functionAddress = getInstance().BlendEquationSeparateiARB;
-		invokeIIIV(__functionAddress, buf, modeRGB, modeAlpha);
+		callIIIV(__functionAddress, buf, modeRGB, modeAlpha);
 	}
 
 	// --- [ glBlendFunciARB ] ---
@@ -126,7 +126,7 @@ public final class ARBDrawBuffersBlend {
 	 */
 	public static void glBlendFunciARB(int buf, int src, int dst) {
 		long __functionAddress = getInstance().BlendFunciARB;
-		invokeIIIV(__functionAddress, buf, src, dst);
+		callIIIV(__functionAddress, buf, src, dst);
 	}
 
 	// --- [ glBlendFuncSeparateiARB ] ---
@@ -151,7 +151,7 @@ public final class ARBDrawBuffersBlend {
 	 */
 	public static void glBlendFuncSeparateiARB(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
 		long __functionAddress = getInstance().BlendFuncSeparateiARB;
-		invokeIIIIIV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
+		callIIIIIV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 
 }

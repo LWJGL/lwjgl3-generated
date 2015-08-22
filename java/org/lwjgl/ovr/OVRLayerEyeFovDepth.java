@@ -31,7 +31,7 @@ public final class OVRLayerEyeFovDepth implements Pointer {
 		PROJECTIONDESC;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(7);
+		IntBuffer offsets = memAllocInt(7);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -42,6 +42,8 @@ public final class OVRLayerEyeFovDepth implements Pointer {
 		RENDERPOSE = offsets.get(4);
 		DEPTHTEXTURE = offsets.get(5);
 		PROJECTIONDESC = offsets.get(6);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -66,23 +68,23 @@ public final class OVRLayerEyeFovDepth implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setHeader(ByteBuffer Header) { HeaderSet(struct, Header); }
-	public void setHeaderType(int Type) { HeaderType(struct, Type); }
-	public void setHeaderFlags(int Flags) { HeaderFlags(struct, Flags); }
-	public void setColorTexture(PointerBuffer ColorTexture) { ColorTextureSet(struct, ColorTexture); }
-	public void setColorTexture(ByteBuffer ColorTexture, int index) { ColorTextureSet(struct, ColorTexture, index); }
-	public void setViewport(ByteBuffer Viewport) { ViewportSet(struct, Viewport); }
-	public void setViewport(ByteBuffer Viewport, int index) { ViewportSet(struct, Viewport, index); }
-	public void setFov(ByteBuffer Fov) { FovSet(struct, Fov); }
-	public void setFov(ByteBuffer Fov, int index) { FovSet(struct, Fov, index); }
-	public void setRenderPose(ByteBuffer RenderPose) { RenderPoseSet(struct, RenderPose); }
-	public void setRenderPose(ByteBuffer RenderPose, int index) { RenderPoseSet(struct, RenderPose, index); }
-	public void setDepthTexture(PointerBuffer DepthTexture) { DepthTextureSet(struct, DepthTexture); }
-	public void setDepthTexture(ByteBuffer DepthTexture, int index) { DepthTextureSet(struct, DepthTexture, index); }
-	public void setProjectionDesc(ByteBuffer ProjectionDesc) { ProjectionDescSet(struct, ProjectionDesc); }
-	public void setProjectionDescProjection22(float Projection22) { ProjectionDescProjection22(struct, Projection22); }
-	public void setProjectionDescProjection23(float Projection23) { ProjectionDescProjection23(struct, Projection23); }
-	public void setProjectionDescProjection32(float Projection32) { ProjectionDescProjection32(struct, Projection32); }
+	public OVRLayerEyeFovDepth setHeader(ByteBuffer Header) { HeaderSet(struct, Header); return this; }
+	public OVRLayerEyeFovDepth setHeaderType(int Type) { HeaderType(struct, Type); return this; }
+	public OVRLayerEyeFovDepth setHeaderFlags(int Flags) { HeaderFlags(struct, Flags); return this; }
+	public OVRLayerEyeFovDepth setColorTexture(PointerBuffer ColorTexture) { ColorTextureSet(struct, ColorTexture); return this; }
+	public OVRLayerEyeFovDepth setColorTexture(ByteBuffer ColorTexture, int index) { ColorTextureSet(struct, ColorTexture, index); return this; }
+	public OVRLayerEyeFovDepth setViewport(ByteBuffer Viewport) { ViewportSet(struct, Viewport); return this; }
+	public OVRLayerEyeFovDepth setViewport(ByteBuffer Viewport, int index) { ViewportSet(struct, Viewport, index); return this; }
+	public OVRLayerEyeFovDepth setFov(ByteBuffer Fov) { FovSet(struct, Fov); return this; }
+	public OVRLayerEyeFovDepth setFov(ByteBuffer Fov, int index) { FovSet(struct, Fov, index); return this; }
+	public OVRLayerEyeFovDepth setRenderPose(ByteBuffer RenderPose) { RenderPoseSet(struct, RenderPose); return this; }
+	public OVRLayerEyeFovDepth setRenderPose(ByteBuffer RenderPose, int index) { RenderPoseSet(struct, RenderPose, index); return this; }
+	public OVRLayerEyeFovDepth setDepthTexture(PointerBuffer DepthTexture) { DepthTextureSet(struct, DepthTexture); return this; }
+	public OVRLayerEyeFovDepth setDepthTexture(ByteBuffer DepthTexture, int index) { DepthTextureSet(struct, DepthTexture, index); return this; }
+	public OVRLayerEyeFovDepth setProjectionDesc(ByteBuffer ProjectionDesc) { ProjectionDescSet(struct, ProjectionDesc); return this; }
+	public OVRLayerEyeFovDepth setProjectionDescProjection22(float Projection22) { ProjectionDescProjection22(struct, Projection22); return this; }
+	public OVRLayerEyeFovDepth setProjectionDescProjection23(float Projection23) { ProjectionDescProjection23(struct, Projection23); return this; }
+	public OVRLayerEyeFovDepth setProjectionDescProjection32(float Projection32) { ProjectionDescProjection32(struct, Projection32); return this; }
 
 	public void getHeader(ByteBuffer Header) { HeaderGet(struct, Header); }
 	public int getHeaderType() { return HeaderType(struct); }

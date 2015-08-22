@@ -79,7 +79,7 @@ public final class OESGetProgramBinary {
 	@JavadocExclude
 	public static void nglGetProgramBinaryOES(int program, int bufSize, long length, long binaryFormat, long binary) {
 		long __functionAddress = getInstance().GetProgramBinaryOES;
-		invokeIIPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
+		callIIPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
 	}
 
 	public static void glGetProgramBinaryOES(int program, int bufSize, ByteBuffer length, ByteBuffer binaryFormat, ByteBuffer binary) {
@@ -131,7 +131,7 @@ public final class OESGetProgramBinary {
 	@JavadocExclude
 	public static void nglProgramBinaryOES(int program, int binaryFormat, long binary, int length) {
 		long __functionAddress = getInstance().ProgramBinaryOES;
-		invokeIIPIV(__functionAddress, program, binaryFormat, binary, length);
+		callIIPIV(__functionAddress, program, binaryFormat, binary, length);
 	}
 
 	public static void glProgramBinaryOES(int program, int binaryFormat, ByteBuffer binary, int length) {

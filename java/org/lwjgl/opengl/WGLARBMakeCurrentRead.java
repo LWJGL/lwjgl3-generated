@@ -92,7 +92,7 @@ public final class WGLARBMakeCurrentRead {
 			checkPointer(readDC);
 			checkPointer(hglrc);
 		}
-		return invokePPPI(__functionAddress, drawDC, readDC, hglrc);
+		return callPPPI(__functionAddress, drawDC, readDC, hglrc);
 	}
 
 	// --- [ wglGetCurrentReadDCARB ] ---
@@ -100,7 +100,7 @@ public final class WGLARBMakeCurrentRead {
 	/** Returns the "read" device context for the current OpenGL context. */
 	public static long wglGetCurrentReadDCARB() {
 		long __functionAddress = getInstance().GetCurrentReadDCARB;
-		return invokeP(__functionAddress);
+		return callP(__functionAddress);
 	}
 
 }

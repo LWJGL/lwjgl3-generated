@@ -69,7 +69,7 @@ public final class QCOMDriverControl {
 	@JavadocExclude
 	public static void nglGetDriverControlsQCOM(long num, int size, long driverControls) {
 		long __functionAddress = getInstance().GetDriverControlsQCOM;
-		invokePIPV(__functionAddress, num, size, driverControls);
+		callPIPV(__functionAddress, num, size, driverControls);
 	}
 
 	public static void glGetDriverControlsQCOM(ByteBuffer num, int size, ByteBuffer driverControls) {
@@ -93,7 +93,7 @@ public final class QCOMDriverControl {
 	@JavadocExclude
 	public static void nglGetDriverControlStringQCOM(int driverControl, int bufSize, long length, long driverControlString) {
 		long __functionAddress = getInstance().GetDriverControlStringQCOM;
-		invokeIIPPV(__functionAddress, driverControl, bufSize, length, driverControlString);
+		callIIPPV(__functionAddress, driverControl, bufSize, length, driverControlString);
 	}
 
 	public static void glGetDriverControlStringQCOM(int driverControl, int bufSize, ByteBuffer length, ByteBuffer driverControlString) {
@@ -124,14 +124,14 @@ public final class QCOMDriverControl {
 
 	public static void glEnableDriverControlQCOM(int driverControl) {
 		long __functionAddress = getInstance().EnableDriverControlQCOM;
-		invokeIV(__functionAddress, driverControl);
+		callIV(__functionAddress, driverControl);
 	}
 
 	// --- [ glDisableDriverControlQCOM ] ---
 
 	public static void glDisableDriverControlQCOM(int driverControl) {
 		long __functionAddress = getInstance().DisableDriverControlQCOM;
-		invokeIV(__functionAddress, driverControl);
+		callIV(__functionAddress, driverControl);
 	}
 
 }

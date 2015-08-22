@@ -124,7 +124,7 @@ public final class ARBShadingLanguageInclude {
 	@JavadocExclude
 	public static void nglNamedStringARB(int type, int namelen, long name, int stringlen, long string) {
 		long __functionAddress = getInstance().NamedStringARB;
-		invokeIIPIPV(__functionAddress, type, namelen, name, stringlen, string);
+		callIIPIPV(__functionAddress, type, namelen, name, stringlen, string);
 	}
 
 	/**
@@ -168,7 +168,7 @@ public final class ARBShadingLanguageInclude {
 	@JavadocExclude
 	public static void nglDeleteNamedStringARB(int namelen, long name) {
 		long __functionAddress = getInstance().DeleteNamedStringARB;
-		invokeIPV(__functionAddress, namelen, name);
+		callIPV(__functionAddress, namelen, name);
 	}
 
 	/**
@@ -202,7 +202,7 @@ public final class ARBShadingLanguageInclude {
 	@JavadocExclude
 	public static void nglCompileShaderIncludeARB(int shader, int count, long path, long length) {
 		long __functionAddress = getInstance().CompileShaderIncludeARB;
-		invokeIIPPV(__functionAddress, shader, count, path, length);
+		callIIPPV(__functionAddress, shader, count, path, length);
 	}
 
 	/**
@@ -238,7 +238,7 @@ public final class ARBShadingLanguageInclude {
 	@JavadocExclude
 	public static boolean nglIsNamedStringARB(int namelen, long name) {
 		long __functionAddress = getInstance().IsNamedStringARB;
-		return invokeIPZ(__functionAddress, namelen, name);
+		return callIPZ(__functionAddress, namelen, name);
 	}
 
 	/**
@@ -273,7 +273,7 @@ public final class ARBShadingLanguageInclude {
 	@JavadocExclude
 	public static void nglGetNamedStringARB(int namelen, long name, int bufSize, long stringlen, long string) {
 		long __functionAddress = getInstance().GetNamedStringARB;
-		invokeIPIPPV(__functionAddress, namelen, name, bufSize, stringlen, string);
+		callIPIPPV(__functionAddress, namelen, name, bufSize, stringlen, string);
 	}
 
 	/**
@@ -341,7 +341,7 @@ public final class ARBShadingLanguageInclude {
 	@JavadocExclude
 	public static void nglGetNamedStringivARB(int namelen, long name, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedStringivARB;
-		invokeIPIPV(__functionAddress, namelen, name, pname, params);
+		callIPIPV(__functionAddress, namelen, name, pname, params);
 	}
 
 	/**

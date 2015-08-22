@@ -91,7 +91,7 @@ public final class NVFence {
 	@JavadocExclude
 	public static void nglDeleteFencesNV(int n, long fences) {
 		long __functionAddress = getInstance().DeleteFencesNV;
-		invokeIPV(__functionAddress, n, fences);
+		callIPV(__functionAddress, n, fences);
 	}
 
 	public static void glDeleteFencesNV(int n, ByteBuffer fences) {
@@ -118,7 +118,7 @@ public final class NVFence {
 	@JavadocExclude
 	public static void nglGenFencesNV(int n, long fences) {
 		long __functionAddress = getInstance().GenFencesNV;
-		invokeIPV(__functionAddress, n, fences);
+		callIPV(__functionAddress, n, fences);
 	}
 
 	public static void glGenFencesNV(int n, ByteBuffer fences) {
@@ -144,14 +144,14 @@ public final class NVFence {
 
 	public static boolean glIsFenceNV(int fence) {
 		long __functionAddress = getInstance().IsFenceNV;
-		return invokeIZ(__functionAddress, fence);
+		return callIZ(__functionAddress, fence);
 	}
 
 	// --- [ glTestFenceNV ] ---
 
 	public static boolean glTestFenceNV(int fence) {
 		long __functionAddress = getInstance().TestFenceNV;
-		return invokeIZ(__functionAddress, fence);
+		return callIZ(__functionAddress, fence);
 	}
 
 	// --- [ glGetFenceivNV ] ---
@@ -160,7 +160,7 @@ public final class NVFence {
 	@JavadocExclude
 	public static void nglGetFenceivNV(int fence, int pname, long params) {
 		long __functionAddress = getInstance().GetFenceivNV;
-		invokeIIPV(__functionAddress, fence, pname, params);
+		callIIPV(__functionAddress, fence, pname, params);
 	}
 
 	public static void glGetFenceivNV(int fence, int pname, ByteBuffer params) {
@@ -188,14 +188,14 @@ public final class NVFence {
 
 	public static void glFinishFenceNV(int fence) {
 		long __functionAddress = getInstance().FinishFenceNV;
-		invokeIV(__functionAddress, fence);
+		callIV(__functionAddress, fence);
 	}
 
 	// --- [ glSetFenceNV ] ---
 
 	public static void glSetFenceNV(int fence, int condition) {
 		long __functionAddress = getInstance().SetFenceNV;
-		invokeIIV(__functionAddress, fence, condition);
+		callIIV(__functionAddress, fence, condition);
 	}
 
 }

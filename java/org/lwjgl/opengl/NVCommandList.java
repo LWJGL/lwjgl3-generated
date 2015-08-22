@@ -246,7 +246,7 @@ public final class NVCommandList {
 	@JavadocExclude
 	public static void nglCreateStatesNV(int n, long states) {
 		long __functionAddress = getInstance().CreateStatesNV;
-		invokeIPV(__functionAddress, n, states);
+		callIPV(__functionAddress, n, states);
 	}
 
 	/**
@@ -280,7 +280,7 @@ public final class NVCommandList {
 	@JavadocExclude
 	public static void nglDeleteStatesNV(int n, long states) {
 		long __functionAddress = getInstance().DeleteStatesNV;
-		invokeIPV(__functionAddress, n, states);
+		callIPV(__functionAddress, n, states);
 	}
 
 	/**
@@ -317,7 +317,7 @@ public final class NVCommandList {
 	 */
 	public static boolean glIsStateNV(int state) {
 		long __functionAddress = getInstance().IsStateNV;
-		return invokeIZ(__functionAddress, state);
+		return callIZ(__functionAddress, state);
 	}
 
 	// --- [ glStateCaptureNV ] ---
@@ -346,7 +346,7 @@ public final class NVCommandList {
 	 */
 	public static void glStateCaptureNV(int state, int mode) {
 		long __functionAddress = getInstance().StateCaptureNV;
-		invokeIIV(__functionAddress, state, mode);
+		callIIV(__functionAddress, state, mode);
 	}
 
 	// --- [ glGetCommandHeaderNV ] ---
@@ -360,7 +360,7 @@ public final class NVCommandList {
 	 */
 	public static int glGetCommandHeaderNV(int tokenID, int size) {
 		long __functionAddress = getInstance().GetCommandHeaderNV;
-		return invokeIII(__functionAddress, tokenID, size);
+		return callIII(__functionAddress, tokenID, size);
 	}
 
 	// --- [ glGetStageIndexNV ] ---
@@ -373,7 +373,7 @@ public final class NVCommandList {
 	 */
 	public static short glGetStageIndexNV(int shadertype) {
 		long __functionAddress = getInstance().GetStageIndexNV;
-		return invokeIS(__functionAddress, shadertype);
+		return callIS(__functionAddress, shadertype);
 	}
 
 	// --- [ glDrawCommandsNV ] ---
@@ -382,7 +382,7 @@ public final class NVCommandList {
 	@JavadocExclude
 	public static void nglDrawCommandsNV(int primitiveMode, int buffer, long indirects, long sizes, int count) {
 		long __functionAddress = getInstance().DrawCommandsNV;
-		invokeIIPPIV(__functionAddress, primitiveMode, buffer, indirects, sizes, count);
+		callIIPPIV(__functionAddress, primitiveMode, buffer, indirects, sizes, count);
 	}
 
 	/**
@@ -416,7 +416,7 @@ public final class NVCommandList {
 	@JavadocExclude
 	public static void nglDrawCommandsAddressNV(int primitiveMode, long indirects, long sizes, int count) {
 		long __functionAddress = getInstance().DrawCommandsAddressNV;
-		invokeIPPIV(__functionAddress, primitiveMode, indirects, sizes, count);
+		callIPPIV(__functionAddress, primitiveMode, indirects, sizes, count);
 	}
 
 	/**
@@ -449,7 +449,7 @@ public final class NVCommandList {
 	@JavadocExclude
 	public static void nglDrawCommandsStatesNV(int buffer, long indirects, long sizes, long states, long fbos, int count) {
 		long __functionAddress = getInstance().DrawCommandsStatesNV;
-		invokeIPPPPIV(__functionAddress, buffer, indirects, sizes, states, fbos, count);
+		callIPPPPIV(__functionAddress, buffer, indirects, sizes, states, fbos, count);
 	}
 
 	/**
@@ -491,7 +491,7 @@ public final class NVCommandList {
 	@JavadocExclude
 	public static void nglDrawCommandsStatesAddressNV(long indirects, long sizes, long states, long fbos, int count) {
 		long __functionAddress = getInstance().DrawCommandsStatesAddressNV;
-		invokePPPPIV(__functionAddress, indirects, sizes, states, fbos, count);
+		callPPPPIV(__functionAddress, indirects, sizes, states, fbos, count);
 	}
 
 	/**
@@ -532,7 +532,7 @@ public final class NVCommandList {
 	@JavadocExclude
 	public static void nglCreateCommandListsNV(int n, long lists) {
 		long __functionAddress = getInstance().CreateCommandListsNV;
-		invokeIPV(__functionAddress, n, lists);
+		callIPV(__functionAddress, n, lists);
 	}
 
 	/**
@@ -566,7 +566,7 @@ public final class NVCommandList {
 	@JavadocExclude
 	public static void nglDeleteCommandListsNV(int n, long lists) {
 		long __functionAddress = getInstance().DeleteCommandListsNV;
-		invokeIPV(__functionAddress, n, lists);
+		callIPV(__functionAddress, n, lists);
 	}
 
 	/**
@@ -603,7 +603,7 @@ public final class NVCommandList {
 	 */
 	public static boolean glIsCommandListNV(int list) {
 		long __functionAddress = getInstance().IsCommandListNV;
-		return invokeIZ(__functionAddress, list);
+		return callIZ(__functionAddress, list);
 	}
 
 	// --- [ glListDrawCommandsStatesClientNV ] ---
@@ -612,7 +612,7 @@ public final class NVCommandList {
 	@JavadocExclude
 	public static void nglListDrawCommandsStatesClientNV(int list, int segment, long indirects, long sizes, long states, long fbos, int count) {
 		long __functionAddress = getInstance().ListDrawCommandsStatesClientNV;
-		invokeIIPPPPIV(__functionAddress, list, segment, indirects, sizes, states, fbos, count);
+		callIIPPPPIV(__functionAddress, list, segment, indirects, sizes, states, fbos, count);
 	}
 
 	/**
@@ -666,7 +666,7 @@ public final class NVCommandList {
 	 */
 	public static void glCommandListSegmentsNV(int list, int segments) {
 		long __functionAddress = getInstance().CommandListSegmentsNV;
-		invokeIIV(__functionAddress, list, segments);
+		callIIV(__functionAddress, list, segments);
 	}
 
 	// --- [ glCompileCommandListNV ] ---
@@ -679,7 +679,7 @@ public final class NVCommandList {
 	 */
 	public static void glCompileCommandListNV(int list) {
 		long __functionAddress = getInstance().CompileCommandListNV;
-		invokeIV(__functionAddress, list);
+		callIV(__functionAddress, list);
 	}
 
 	// --- [ glCallCommandListNV ] ---
@@ -693,7 +693,7 @@ public final class NVCommandList {
 	 */
 	public static void glCallCommandListNV(int list) {
 		long __functionAddress = getInstance().CallCommandListNV;
-		invokeIV(__functionAddress, list);
+		callIV(__functionAddress, list);
 	}
 
 }

@@ -112,7 +112,7 @@ public final class AMDDebugOutput {
 	@JavadocExclude
 	public static void nglDebugMessageEnableAMD(int category, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = getInstance().DebugMessageEnableAMD;
-		invokeIIIPZV(__functionAddress, category, severity, count, ids, enabled);
+		callIIIPZV(__functionAddress, category, severity, count, ids, enabled);
 	}
 
 	/**
@@ -166,7 +166,7 @@ public final class AMDDebugOutput {
 	@JavadocExclude
 	public static void nglDebugMessageInsertAMD(int category, int severity, int id, int length, long buf) {
 		long __functionAddress = getInstance().DebugMessageInsertAMD;
-		invokeIIIIPV(__functionAddress, category, severity, id, length, buf);
+		callIIIIPV(__functionAddress, category, severity, id, length, buf);
 	}
 
 	/**
@@ -236,7 +236,7 @@ public final class AMDDebugOutput {
 	 */
 	public static void glDebugMessageCallbackAMD(GLDebugMessageAMDCallback callback, long userParam) {
 		long __functionAddress = getInstance().DebugMessageCallbackAMD;
-		invokePPV(__functionAddress, callback == null ? NULL : callback.getPointer(), userParam);
+		callPPV(__functionAddress, callback == null ? NULL : callback.getPointer(), userParam);
 	}
 
 	// --- [ glGetDebugMessageLogAMD ] ---
@@ -245,7 +245,7 @@ public final class AMDDebugOutput {
 	@JavadocExclude
 	public static int nglGetDebugMessageLogAMD(int count, int bufsize, long categories, long severities, long ids, long lengths, long messageLog) {
 		long __functionAddress = getInstance().GetDebugMessageLogAMD;
-		return invokeIIPPPPPI(__functionAddress, count, bufsize, categories, severities, ids, lengths, messageLog);
+		return callIIPPPPPI(__functionAddress, count, bufsize, categories, severities, ids, lengths, messageLog);
 	}
 
 	/**

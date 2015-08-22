@@ -100,7 +100,7 @@ public final class ARBViewportArray {
 	@JavadocExclude
 	public static void nglViewportArrayv(int first, int count, long v) {
 		long __functionAddress = getInstance().ViewportArrayv;
-		invokeIIPV(__functionAddress, first, count, v);
+		callIIPV(__functionAddress, first, count, v);
 	}
 
 	/**
@@ -134,7 +134,7 @@ public final class ARBViewportArray {
 	 */
 	public static void glViewportIndexedf(int index, float x, float y, float w, float h) {
 		long __functionAddress = getInstance().ViewportIndexedf;
-		invokeIFFFFV(__functionAddress, index, x, y, w, h);
+		callIFFFFV(__functionAddress, index, x, y, w, h);
 	}
 
 	// --- [ glViewportIndexedfv ] ---
@@ -143,7 +143,7 @@ public final class ARBViewportArray {
 	@JavadocExclude
 	public static void nglViewportIndexedfv(int index, long v) {
 		long __functionAddress = getInstance().ViewportIndexedfv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -171,7 +171,7 @@ public final class ARBViewportArray {
 	@JavadocExclude
 	public static void nglScissorArrayv(int first, int count, long v) {
 		long __functionAddress = getInstance().ScissorArrayv;
-		invokeIIPV(__functionAddress, first, count, v);
+		callIIPV(__functionAddress, first, count, v);
 	}
 
 	/**
@@ -205,7 +205,7 @@ public final class ARBViewportArray {
 	 */
 	public static void glScissorIndexed(int index, int left, int bottom, int width, int height) {
 		long __functionAddress = getInstance().ScissorIndexed;
-		invokeIIIIIV(__functionAddress, index, left, bottom, width, height);
+		callIIIIIV(__functionAddress, index, left, bottom, width, height);
 	}
 
 	// --- [ glScissorIndexedv ] ---
@@ -214,7 +214,7 @@ public final class ARBViewportArray {
 	@JavadocExclude
 	public static void nglScissorIndexedv(int index, long v) {
 		long __functionAddress = getInstance().ScissorIndexedv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -242,7 +242,7 @@ public final class ARBViewportArray {
 	@JavadocExclude
 	public static void nglDepthRangeArrayv(int first, int count, long v) {
 		long __functionAddress = getInstance().DepthRangeArrayv;
-		invokeIIPV(__functionAddress, first, count, v);
+		callIIPV(__functionAddress, first, count, v);
 	}
 
 	/**
@@ -274,7 +274,7 @@ public final class ARBViewportArray {
 	 */
 	public static void glDepthRangeIndexed(int index, double zNear, double zFar) {
 		long __functionAddress = getInstance().DepthRangeIndexed;
-		invokeIDDV(__functionAddress, index, zNear, zFar);
+		callIDDV(__functionAddress, index, zNear, zFar);
 	}
 
 	// --- [ glGetFloati_v ] ---
@@ -283,7 +283,7 @@ public final class ARBViewportArray {
 	@JavadocExclude
 	public static void nglGetFloati_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetFloati_v;
-		invokeIIPV(__functionAddress, target, index, data);
+		callIIPV(__functionAddress, target, index, data);
 	}
 
 	/**
@@ -320,7 +320,7 @@ public final class ARBViewportArray {
 	@JavadocExclude
 	public static void nglGetDoublei_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetDoublei_v;
-		invokeIIPV(__functionAddress, target, index, data);
+		callIIPV(__functionAddress, target, index, data);
 	}
 
 	/**

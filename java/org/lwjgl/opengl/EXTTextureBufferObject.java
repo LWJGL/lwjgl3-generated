@@ -82,7 +82,7 @@ public final class EXTTextureBufferObject {
 
 	public static void glTexBufferEXT(int target, int internalformat, int buffer) {
 		long __functionAddress = getInstance().TexBufferEXT;
-		invokeIIIV(__functionAddress, target, internalformat, buffer);
+		callIIIV(__functionAddress, target, internalformat, buffer);
 	}
 
 }

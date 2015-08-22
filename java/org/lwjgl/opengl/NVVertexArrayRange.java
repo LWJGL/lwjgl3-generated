@@ -73,7 +73,7 @@ public final class NVVertexArrayRange {
 	@JavadocExclude
 	public static void nglVertexArrayRangeNV(int length, long pointer) {
 		long __functionAddress = getInstance().VertexArrayRangeNV;
-		invokeIPV(__functionAddress, length, pointer);
+		callIPV(__functionAddress, length, pointer);
 	}
 
 	public static void glVertexArrayRangeNV(int length, ByteBuffer pointer) {
@@ -84,7 +84,7 @@ public final class NVVertexArrayRange {
 
 	public static void glFlushVertexArrayRangeNV() {
 		long __functionAddress = getInstance().FlushVertexArrayRangeNV;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 }

@@ -73,7 +73,7 @@ public final class OESMapbuffer {
 	@JavadocExclude
 	public static long nglMapBufferOES(int target, int access) {
 		long __functionAddress = getInstance().MapBufferOES;
-		return invokeIIP(__functionAddress, target, access);
+		return callIIP(__functionAddress, target, access);
 	}
 
 	public static ByteBuffer glMapBufferOES(int target, int access) {
@@ -98,7 +98,7 @@ public final class OESMapbuffer {
 
 	public static boolean glUnmapBufferOES(int target) {
 		long __functionAddress = getInstance().UnmapBufferOES;
-		return invokeIZ(__functionAddress, target);
+		return callIZ(__functionAddress, target);
 	}
 
 	// --- [ glGetBufferPointervOES ] ---
@@ -107,7 +107,7 @@ public final class OESMapbuffer {
 	@JavadocExclude
 	public static void nglGetBufferPointervOES(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferPointervOES;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetBufferPointervOES(int target, int pname, ByteBuffer params) {

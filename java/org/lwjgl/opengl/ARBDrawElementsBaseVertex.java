@@ -105,7 +105,7 @@ public final class ARBDrawElementsBaseVertex {
 	@JavadocExclude
 	public static void nglDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex) {
 		long __functionAddress = getInstance().DrawElementsBaseVertex;
-		invokeIIIPIV(__functionAddress, mode, count, type, indices, basevertex);
+		callIIIPIV(__functionAddress, mode, count, type, indices, basevertex);
 	}
 
 	/**
@@ -166,7 +166,7 @@ public final class ARBDrawElementsBaseVertex {
 	@JavadocExclude
 	public static void nglDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex) {
 		long __functionAddress = getInstance().DrawRangeElementsBaseVertex;
-		invokeIIIIIPIV(__functionAddress, mode, start, end, count, type, indices, basevertex);
+		callIIIIIPIV(__functionAddress, mode, start, end, count, type, indices, basevertex);
 	}
 
 	/**
@@ -229,7 +229,7 @@ public final class ARBDrawElementsBaseVertex {
 	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int primcount, int basevertex) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseVertex;
-		invokeIIIPIIV(__functionAddress, mode, count, type, indices, primcount, basevertex);
+		callIIIPIIV(__functionAddress, mode, count, type, indices, primcount, basevertex);
 	}
 
 	/**
@@ -291,7 +291,7 @@ public final class ARBDrawElementsBaseVertex {
 	@JavadocExclude
 	public static void nglMultiDrawElementsBaseVertex(int mode, long count, int type, long indices, int primcount, long basevertex) {
 		long __functionAddress = getInstance().MultiDrawElementsBaseVertex;
-		invokeIPIPIPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
+		callIPIPIPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
 	}
 
 	/**

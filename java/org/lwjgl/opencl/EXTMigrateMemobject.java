@@ -62,7 +62,7 @@ public final class EXTMigrateMemobject {
 		long __functionAddress = getInstance().EnqueueMigrateMemObjectEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return invokePIPJIPPI(__functionAddress, command_queue, num_mem_objects, mem_objects, flags, num_events_in_wait_list, event_wait_list, event);
+		return callPIPJIPPI(__functionAddress, command_queue, num_mem_objects, mem_objects, flags, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**

@@ -29,7 +29,7 @@ public final class CLDeviceTopologyAMD implements Pointer {
 			PCIE_FUNCTION;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(8);
+		IntBuffer offsets = memAllocInt(8);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -41,6 +41,8 @@ public final class CLDeviceTopologyAMD implements Pointer {
 			PCIE_BUS = offsets.get(5);
 			PCIE_DEVICE = offsets.get(6);
 			PCIE_FUNCTION = offsets.get(7);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -65,13 +67,13 @@ public final class CLDeviceTopologyAMD implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setRawType(int type) { rawType(struct, type); }
-	public void setRawData(ByteBuffer data) { rawDataSet(struct, data); }
-	public void setRawData(int index, int data) { rawData(struct, index, data); }
-	public void setPcieType(int type) { pcieType(struct, type); }
-	public void setPcieBus(int bus) { pcieBus(struct, bus); }
-	public void setPcieDevice(int device) { pcieDevice(struct, device); }
-	public void setPcieFunction(int function) { pcieFunction(struct, function); }
+	public CLDeviceTopologyAMD setRawType(int type) { rawType(struct, type); return this; }
+	public CLDeviceTopologyAMD setRawData(ByteBuffer data) { rawDataSet(struct, data); return this; }
+	public CLDeviceTopologyAMD setRawData(int index, int data) { rawData(struct, index, data); return this; }
+	public CLDeviceTopologyAMD setPcieType(int type) { pcieType(struct, type); return this; }
+	public CLDeviceTopologyAMD setPcieBus(int bus) { pcieBus(struct, bus); return this; }
+	public CLDeviceTopologyAMD setPcieDevice(int device) { pcieDevice(struct, device); return this; }
+	public CLDeviceTopologyAMD setPcieFunction(int function) { pcieFunction(struct, function); return this; }
 
 	public int getRawType() { return rawType(struct); }
 	public void getRawData(ByteBuffer data) { rawDataGet(struct, data); }

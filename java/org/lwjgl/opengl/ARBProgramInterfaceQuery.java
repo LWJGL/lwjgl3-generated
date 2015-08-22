@@ -146,7 +146,7 @@ public final class ARBProgramInterfaceQuery {
 	@JavadocExclude
 	public static void nglGetProgramInterfaceiv(int program, int programInterface, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramInterfaceiv;
-		invokeIIIPV(__functionAddress, program, programInterface, pname, params);
+		callIIIPV(__functionAddress, program, programInterface, pname, params);
 	}
 
 	/**
@@ -184,7 +184,7 @@ public final class ARBProgramInterfaceQuery {
 	@JavadocExclude
 	public static int nglGetProgramResourceIndex(int program, int programInterface, long name) {
 		long __functionAddress = getInstance().GetProgramResourceIndex;
-		return invokeIIPI(__functionAddress, program, programInterface, name);
+		return callIIPI(__functionAddress, program, programInterface, name);
 	}
 
 	/**
@@ -213,7 +213,7 @@ public final class ARBProgramInterfaceQuery {
 	@JavadocExclude
 	public static void nglGetProgramResourceName(int program, int programInterface, int index, int bufSize, long length, long name) {
 		long __functionAddress = getInstance().GetProgramResourceName;
-		invokeIIIIPPV(__functionAddress, program, programInterface, index, bufSize, length, name);
+		callIIIIPPV(__functionAddress, program, programInterface, index, bufSize, length, name);
 	}
 
 	/**
@@ -266,7 +266,7 @@ public final class ARBProgramInterfaceQuery {
 	@JavadocExclude
 	public static void nglGetProgramResourceiv(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params) {
 		long __functionAddress = getInstance().GetProgramResourceiv;
-		invokeIIIIPIPPV(__functionAddress, program, programInterface, index, propCount, props, bufSize, length, params);
+		callIIIIPIPPV(__functionAddress, program, programInterface, index, propCount, props, bufSize, length, params);
 	}
 
 	/**
@@ -313,7 +313,7 @@ public final class ARBProgramInterfaceQuery {
 	@JavadocExclude
 	public static int nglGetProgramResourceLocation(int program, int programInterface, long name) {
 		long __functionAddress = getInstance().GetProgramResourceLocation;
-		return invokeIIPI(__functionAddress, program, programInterface, name);
+		return callIIPI(__functionAddress, program, programInterface, name);
 	}
 
 	/**
@@ -342,7 +342,7 @@ public final class ARBProgramInterfaceQuery {
 	@JavadocExclude
 	public static int nglGetProgramResourceLocationIndex(int program, int programInterface, long name) {
 		long __functionAddress = getInstance().GetProgramResourceLocationIndex;
-		return invokeIIPI(__functionAddress, program, programInterface, name);
+		return callIIPI(__functionAddress, program, programInterface, name);
 	}
 
 	/**

@@ -25,7 +25,7 @@ public final class RECT implements Pointer {
 		BOTTOM;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(4);
+		IntBuffer offsets = memAllocInt(4);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -33,6 +33,8 @@ public final class RECT implements Pointer {
 		TOP = offsets.get(1);
 		RIGHT = offsets.get(2);
 		BOTTOM = offsets.get(3);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -57,10 +59,10 @@ public final class RECT implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setLeft(int left) { left(struct, left); }
-	public void setTop(int top) { top(struct, top); }
-	public void setRight(int right) { right(struct, right); }
-	public void setBottom(int bottom) { bottom(struct, bottom); }
+	public RECT setLeft(int left) { left(struct, left); return this; }
+	public RECT setTop(int top) { top(struct, top); return this; }
+	public RECT setRight(int right) { right(struct, right); return this; }
+	public RECT setBottom(int bottom) { bottom(struct, bottom); return this; }
 
 	public int getLeft() { return left(struct); }
 	public int getTop() { return top(struct); }

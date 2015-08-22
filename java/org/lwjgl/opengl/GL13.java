@@ -340,7 +340,7 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage3D;
-		invokeIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
+		callIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
 	}
 
 	/**
@@ -386,7 +386,7 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage2D;
-		invokeIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, border, imageSize, data);
+		callIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, border, imageSize, data);
 	}
 
 	/**
@@ -431,7 +431,7 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage1D;
-		invokeIIIIIIPV(__functionAddress, target, level, internalformat, width, border, imageSize, data);
+		callIIIIIIPV(__functionAddress, target, level, internalformat, width, border, imageSize, data);
 	}
 
 	/**
@@ -475,7 +475,7 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage3D;
-		invokeIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
+		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
 	/**
@@ -523,7 +523,7 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage2D;
-		invokeIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, imageSize, data);
+		callIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, imageSize, data);
 	}
 
 	/**
@@ -569,7 +569,7 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage1D;
-		invokeIIIIIIPV(__functionAddress, target, level, xoffset, width, format, imageSize, data);
+		callIIIIIIPV(__functionAddress, target, level, xoffset, width, format, imageSize, data);
 	}
 
 	/**
@@ -613,7 +613,7 @@ public final class GL13 {
 	@JavadocExclude
 	public static void nglGetCompressedTexImage(int target, int level, long pixels) {
 		long __functionAddress = getInstance().GetCompressedTexImage;
-		invokeIIPV(__functionAddress, target, level, pixels);
+		callIIPV(__functionAddress, target, level, pixels);
 	}
 
 	/**
@@ -666,7 +666,7 @@ public final class GL13 {
 	 */
 	public static void glSampleCoverage(float value, boolean invert) {
 		long __functionAddress = getInstance().SampleCoverage;
-		invokeFZV(__functionAddress, value, invert);
+		callFZV(__functionAddress, value, invert);
 	}
 
 	// --- [ glActiveTexture ] ---
@@ -681,7 +681,7 @@ public final class GL13 {
 	 */
 	public static void glActiveTexture(int texture) {
 		long __functionAddress = getInstance().ActiveTexture;
-		invokeIV(__functionAddress, texture);
+		callIV(__functionAddress, texture);
 	}
 
 	// --- [ glClientActiveTexture ] ---
@@ -698,7 +698,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().ClientActiveTexture;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIV(__functionAddress, texture);
+		callIV(__functionAddress, texture);
 	}
 
 	// --- [ glMultiTexCoord1f ] ---
@@ -715,7 +715,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord1f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIFV(__functionAddress, texture, s);
+		callIFV(__functionAddress, texture, s);
 	}
 
 	// --- [ glMultiTexCoord1s ] ---
@@ -732,7 +732,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord1s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeISV(__functionAddress, texture, s);
+		callISV(__functionAddress, texture, s);
 	}
 
 	// --- [ glMultiTexCoord1i ] ---
@@ -749,7 +749,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord1i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, texture, s);
+		callIIV(__functionAddress, texture, s);
 	}
 
 	// --- [ glMultiTexCoord1d ] ---
@@ -766,7 +766,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord1d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIDV(__functionAddress, texture, s);
+		callIDV(__functionAddress, texture, s);
 	}
 
 	// --- [ glMultiTexCoord1fv ] ---
@@ -777,7 +777,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord1fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -809,7 +809,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord1sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -841,7 +841,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord1iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -873,7 +873,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord1dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -912,7 +912,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord2f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIFFV(__functionAddress, texture, s, t);
+		callIFFV(__functionAddress, texture, s, t);
 	}
 
 	// --- [ glMultiTexCoord2s ] ---
@@ -930,7 +930,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord2s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeISSV(__functionAddress, texture, s, t);
+		callISSV(__functionAddress, texture, s, t);
 	}
 
 	// --- [ glMultiTexCoord2i ] ---
@@ -948,7 +948,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord2i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, texture, s, t);
+		callIIIV(__functionAddress, texture, s, t);
 	}
 
 	// --- [ glMultiTexCoord2d ] ---
@@ -966,7 +966,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord2d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIDDV(__functionAddress, texture, s, t);
+		callIDDV(__functionAddress, texture, s, t);
 	}
 
 	// --- [ glMultiTexCoord2fv ] ---
@@ -977,7 +977,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1009,7 +1009,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord2sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1041,7 +1041,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord2iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1073,7 +1073,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord2dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1113,7 +1113,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIFFFV(__functionAddress, texture, s, t, r);
+		callIFFFV(__functionAddress, texture, s, t, r);
 	}
 
 	// --- [ glMultiTexCoord3s ] ---
@@ -1132,7 +1132,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeISSSV(__functionAddress, texture, s, t, r);
+		callISSSV(__functionAddress, texture, s, t, r);
 	}
 
 	// --- [ glMultiTexCoord3i ] ---
@@ -1151,7 +1151,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIV(__functionAddress, texture, s, t, r);
+		callIIIIV(__functionAddress, texture, s, t, r);
 	}
 
 	// --- [ glMultiTexCoord3d ] ---
@@ -1170,7 +1170,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIDDDV(__functionAddress, texture, s, t, r);
+		callIDDDV(__functionAddress, texture, s, t, r);
 	}
 
 	// --- [ glMultiTexCoord3fv ] ---
@@ -1181,7 +1181,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1213,7 +1213,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord3sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1245,7 +1245,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord3iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1277,7 +1277,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord3dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1318,7 +1318,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord4f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIFFFFV(__functionAddress, texture, s, t, r, q);
+		callIFFFFV(__functionAddress, texture, s, t, r, q);
 	}
 
 	// --- [ glMultiTexCoord4s ] ---
@@ -1338,7 +1338,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord4s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeISSSSV(__functionAddress, texture, s, t, r, q);
+		callISSSSV(__functionAddress, texture, s, t, r, q);
 	}
 
 	// --- [ glMultiTexCoord4i ] ---
@@ -1358,7 +1358,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord4i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIV(__functionAddress, texture, s, t, r, q);
+		callIIIIIV(__functionAddress, texture, s, t, r, q);
 	}
 
 	// --- [ glMultiTexCoord4d ] ---
@@ -1378,7 +1378,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord4d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIDDDDV(__functionAddress, texture, s, t, r, q);
+		callIDDDDV(__functionAddress, texture, s, t, r, q);
 	}
 
 	// --- [ glMultiTexCoord4fv ] ---
@@ -1389,7 +1389,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord4fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1421,7 +1421,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord4sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1453,7 +1453,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord4iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1485,7 +1485,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultiTexCoord4dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, texture, v);
+		callIPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -1517,7 +1517,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().LoadTransposeMatrixf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, m);
+		callPV(__functionAddress, m);
 	}
 
 	/**
@@ -1556,7 +1556,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().LoadTransposeMatrixd;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, m);
+		callPV(__functionAddress, m);
 	}
 
 	/**
@@ -1587,7 +1587,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultTransposeMatrixf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, m);
+		callPV(__functionAddress, m);
 	}
 
 	/**
@@ -1618,7 +1618,7 @@ public final class GL13 {
 		long __functionAddress = getInstance().MultTransposeMatrixd;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, m);
+		callPV(__functionAddress, m);
 	}
 
 	/**

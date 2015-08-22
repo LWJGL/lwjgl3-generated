@@ -58,7 +58,7 @@ public final class GLXSGIVideoSync {
 	@JavadocExclude
 	public static int nglXGetVideoSyncSGI(long count) {
 		long __functionAddress = getInstance().GetVideoSyncSGI;
-		return invokePI(__functionAddress, count);
+		return callPI(__functionAddress, count);
 	}
 
 	/**
@@ -85,7 +85,7 @@ public final class GLXSGIVideoSync {
 	@JavadocExclude
 	public static int nglXWaitVideoSyncSGI(int divisor, int remainder, long count) {
 		long __functionAddress = getInstance().WaitVideoSyncSGI;
-		return invokeIIPI(__functionAddress, divisor, remainder, count);
+		return callIIPI(__functionAddress, divisor, remainder, count);
 	}
 
 	/**

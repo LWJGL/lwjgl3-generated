@@ -59,7 +59,7 @@ public final class GLXARBGetProcAddress {
 	@JavadocExclude
 	public static long nglXGetProcAddressARB(long procName) {
 		long __functionAddress = getInstance().GetProcAddressARB;
-		return invokePP(__functionAddress, procName);
+		return callPP(__functionAddress, procName);
 	}
 
 	/**

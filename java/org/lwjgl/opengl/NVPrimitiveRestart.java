@@ -74,14 +74,14 @@ public final class NVPrimitiveRestart {
 
 	public static void glPrimitiveRestartNV() {
 		long __functionAddress = getInstance().PrimitiveRestartNV;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glPrimitiveRestartIndexNV ] ---
 
 	public static void glPrimitiveRestartIndexNV(int index) {
 		long __functionAddress = getInstance().PrimitiveRestartIndexNV;
-		invokeIV(__functionAddress, index);
+		callIV(__functionAddress, index);
 	}
 
 }

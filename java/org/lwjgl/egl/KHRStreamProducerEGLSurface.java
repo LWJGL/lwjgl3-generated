@@ -54,7 +54,7 @@ public final class KHRStreamProducerEGLSurface {
 			checkPointer(config);
 			checkPointer(stream);
 		}
-		return invokePPPPP(__functionAddress, dpy, config, stream, attrib_list);
+		return callPPPPP(__functionAddress, dpy, config, stream, attrib_list);
 	}
 
 	public static long eglCreateStreamProducerSurfaceKHR(long dpy, long config, long stream, ByteBuffer attrib_list) {

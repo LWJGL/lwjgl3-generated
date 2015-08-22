@@ -78,7 +78,7 @@ public final class ARBIndirectParameters {
 	@JavadocExclude
 	public static void nglMultiDrawArraysIndirectCountARB(int mode, long indirect, long drawcount, int maxdrawcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawArraysIndirectCountARB;
-		invokeIPPIIV(__functionAddress, mode, indirect, drawcount, maxdrawcount, stride);
+		callIPPIIV(__functionAddress, mode, indirect, drawcount, maxdrawcount, stride);
 	}
 
 	/**
@@ -123,7 +123,7 @@ public final class ARBIndirectParameters {
 	@JavadocExclude
 	public static void nglMultiDrawElementsIndirectCountARB(int mode, int type, long indirect, long drawcount, int maxdrawcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawElementsIndirectCountARB;
-		invokeIIPPIIV(__functionAddress, mode, type, indirect, drawcount, maxdrawcount, stride);
+		callIIPPIIV(__functionAddress, mode, type, indirect, drawcount, maxdrawcount, stride);
 	}
 
 	/**

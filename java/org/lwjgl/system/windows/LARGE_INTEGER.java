@@ -21,11 +21,13 @@ public final class LARGE_INTEGER implements Pointer {
 		QUADPART;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(1);
+		IntBuffer offsets = memAllocInt(1);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		QUADPART = offsets.get(0);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -50,7 +52,7 @@ public final class LARGE_INTEGER implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setQuadPart(long QuadPart) { QuadPart(struct, QuadPart); }
+	public LARGE_INTEGER setQuadPart(long QuadPart) { QuadPart(struct, QuadPart); return this; }
 
 	public long getQuadPart() { return QuadPart(struct); }
 

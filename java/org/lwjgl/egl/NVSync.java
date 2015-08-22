@@ -83,7 +83,7 @@ public final class NVSync {
 		long __functionAddress = getInstance().CreateFenceSyncNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return invokePIPP(__functionAddress, dpy, condition, attrib_list);
+		return callPIPP(__functionAddress, dpy, condition, attrib_list);
 	}
 
 	public static long eglCreateFenceSyncNV(long dpy, int condition, ByteBuffer attrib_list) {
@@ -105,7 +105,7 @@ public final class NVSync {
 		long __functionAddress = getInstance().DestroySyncNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		return invokePZ(__functionAddress, sync);
+		return callPZ(__functionAddress, sync);
 	}
 
 	// --- [ eglFenceNV ] ---
@@ -114,7 +114,7 @@ public final class NVSync {
 		long __functionAddress = getInstance().FenceNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		return invokePZ(__functionAddress, sync);
+		return callPZ(__functionAddress, sync);
 	}
 
 	// --- [ eglClientWaitSyncNV ] ---
@@ -123,7 +123,7 @@ public final class NVSync {
 		long __functionAddress = getInstance().ClientWaitSyncNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		return invokePIJI(__functionAddress, sync, flags, timeout);
+		return callPIJI(__functionAddress, sync, flags, timeout);
 	}
 
 	// --- [ eglSignalSyncNV ] ---
@@ -132,7 +132,7 @@ public final class NVSync {
 		long __functionAddress = getInstance().SignalSyncNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		return invokePIZ(__functionAddress, sync, mode);
+		return callPIZ(__functionAddress, sync, mode);
 	}
 
 	// --- [ eglGetSyncAttribNV ] ---
@@ -143,7 +143,7 @@ public final class NVSync {
 		long __functionAddress = getInstance().GetSyncAttribNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		return invokePIPZ(__functionAddress, sync, attribute, value);
+		return callPIPZ(__functionAddress, sync, attribute, value);
 	}
 
 	public static boolean eglGetSyncAttribNV(long sync, int attribute, ByteBuffer value) {

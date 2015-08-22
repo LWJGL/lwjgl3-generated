@@ -82,7 +82,7 @@ public final class ARBCLEvent {
 			checkPointer(context);
 			checkPointer(event);
 		}
-		return invokePPIP(__functionAddress, context, event, flags);
+		return callPPIP(__functionAddress, context, event, flags);
 	}
 
 }

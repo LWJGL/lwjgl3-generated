@@ -85,7 +85,7 @@ public final class ARBBufferStorage {
 	@JavadocExclude
 	public static void nglBufferStorage(int target, long size, long data, int flags) {
 		long __functionAddress = getInstance().BufferStorage;
-		invokeIPPIV(__functionAddress, target, size, data, flags);
+		callIPPIV(__functionAddress, target, size, data, flags);
 	}
 
 	/**
@@ -180,7 +180,7 @@ public final class ARBBufferStorage {
 		long __functionAddress = getInstance().NamedBufferStorageEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPPIV(__functionAddress, buffer, size, data, flags);
+		callIPPIV(__functionAddress, buffer, size, data, flags);
 	}
 
 	/**

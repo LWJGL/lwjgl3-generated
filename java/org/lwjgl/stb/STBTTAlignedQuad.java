@@ -29,7 +29,7 @@ public final class STBTTAlignedQuad implements Pointer {
 		T1;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(8);
+		IntBuffer offsets = memAllocInt(8);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -41,6 +41,8 @@ public final class STBTTAlignedQuad implements Pointer {
 		Y1 = offsets.get(5);
 		S1 = offsets.get(6);
 		T1 = offsets.get(7);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -65,14 +67,14 @@ public final class STBTTAlignedQuad implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setX0(float x0) { x0(struct, x0); }
-	public void setY0(float y0) { y0(struct, y0); }
-	public void setS0(float s0) { s0(struct, s0); }
-	public void setT0(float t0) { t0(struct, t0); }
-	public void setX1(float x1) { x1(struct, x1); }
-	public void setY1(float y1) { y1(struct, y1); }
-	public void setS1(float s1) { s1(struct, s1); }
-	public void setT1(float t1) { t1(struct, t1); }
+	public STBTTAlignedQuad setX0(float x0) { x0(struct, x0); return this; }
+	public STBTTAlignedQuad setY0(float y0) { y0(struct, y0); return this; }
+	public STBTTAlignedQuad setS0(float s0) { s0(struct, s0); return this; }
+	public STBTTAlignedQuad setT0(float t0) { t0(struct, t0); return this; }
+	public STBTTAlignedQuad setX1(float x1) { x1(struct, x1); return this; }
+	public STBTTAlignedQuad setY1(float y1) { y1(struct, y1); return this; }
+	public STBTTAlignedQuad setS1(float s1) { s1(struct, s1); return this; }
+	public STBTTAlignedQuad setT1(float t1) { t1(struct, t1); return this; }
 
 	public float getX0() { return x0(struct); }
 	public float getY0() { return y0(struct); }

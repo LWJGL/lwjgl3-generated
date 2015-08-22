@@ -47,7 +47,7 @@ public final class KHRWaitSync {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return invokePPII(__functionAddress, dpy, sync, flags);
+		return callPPII(__functionAddress, dpy, sync, flags);
 	}
 
 }

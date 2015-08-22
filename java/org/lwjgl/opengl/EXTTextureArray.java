@@ -111,7 +111,7 @@ public final class EXTTextureArray {
 
 	public static void glFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer) {
 		long __functionAddress = getInstance().FramebufferTextureLayerEXT;
-		invokeIIIIIV(__functionAddress, target, attachment, texture, level, layer);
+		callIIIIIV(__functionAddress, target, attachment, texture, level, layer);
 	}
 
 }

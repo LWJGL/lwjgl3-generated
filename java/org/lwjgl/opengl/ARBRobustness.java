@@ -195,7 +195,7 @@ public final class ARBRobustness {
 	 */
 	public static int glGetGraphicsResetStatusARB() {
 		long __functionAddress = getInstance().GetGraphicsResetStatusARB;
-		return invokeI(__functionAddress);
+		return callI(__functionAddress);
 	}
 
 	// --- [ glGetnMapdvARB ] ---
@@ -206,7 +206,7 @@ public final class ARBRobustness {
 		long __functionAddress = getInstance().GetnMapdvARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, target, query, bufSize, data);
+		callIIIPV(__functionAddress, target, query, bufSize, data);
 	}
 
 	/**
@@ -244,7 +244,7 @@ public final class ARBRobustness {
 		long __functionAddress = getInstance().GetnMapfvARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, target, query, bufSize, data);
+		callIIIPV(__functionAddress, target, query, bufSize, data);
 	}
 
 	/**
@@ -282,7 +282,7 @@ public final class ARBRobustness {
 		long __functionAddress = getInstance().GetnMapivARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, target, query, bufSize, data);
+		callIIIPV(__functionAddress, target, query, bufSize, data);
 	}
 
 	/**
@@ -320,7 +320,7 @@ public final class ARBRobustness {
 		long __functionAddress = getInstance().GetnPixelMapfvARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, map, bufSize, data);
+		callIIPV(__functionAddress, map, bufSize, data);
 	}
 
 	/**
@@ -349,7 +349,7 @@ public final class ARBRobustness {
 		long __functionAddress = getInstance().GetnPixelMapuivARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, map, bufSize, data);
+		callIIPV(__functionAddress, map, bufSize, data);
 	}
 
 	/**
@@ -378,7 +378,7 @@ public final class ARBRobustness {
 		long __functionAddress = getInstance().GetnPixelMapusvARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, map, bufSize, data);
+		callIIPV(__functionAddress, map, bufSize, data);
 	}
 
 	/**
@@ -407,7 +407,7 @@ public final class ARBRobustness {
 		long __functionAddress = getInstance().GetnPolygonStippleARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, bufSize, pattern);
+		callIPV(__functionAddress, bufSize, pattern);
 	}
 
 	/**
@@ -444,7 +444,7 @@ public final class ARBRobustness {
 	@JavadocExclude
 	public static void nglGetnTexImageARB(int tex, int level, int format, int type, int bufSize, long img) {
 		long __functionAddress = getInstance().GetnTexImageARB;
-		invokeIIIIIPV(__functionAddress, tex, level, format, type, bufSize, img);
+		callIIIIIPV(__functionAddress, tex, level, format, type, bufSize, img);
 	}
 
 	/**
@@ -513,7 +513,7 @@ public final class ARBRobustness {
 	@JavadocExclude
 	public static void nglReadnPixelsARB(int x, int y, int width, int height, int format, int type, int bufSize, long data) {
 		long __functionAddress = getInstance().ReadnPixelsARB;
-		invokeIIIIIIIPV(__functionAddress, x, y, width, height, format, type, bufSize, data);
+		callIIIIIIIPV(__functionAddress, x, y, width, height, format, type, bufSize, data);
 	}
 
 	/**
@@ -579,7 +579,7 @@ public final class ARBRobustness {
 		long __functionAddress = getInstance().GetnColorTableARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIPV(__functionAddress, target, format, type, bufSize, table);
+		callIIIIPV(__functionAddress, target, format, type, bufSize, table);
 	}
 
 	/**
@@ -642,7 +642,7 @@ public final class ARBRobustness {
 		long __functionAddress = getInstance().GetnConvolutionFilterARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIPV(__functionAddress, target, format, type, bufSize, image);
+		callIIIIPV(__functionAddress, target, format, type, bufSize, image);
 	}
 
 	/**
@@ -684,7 +684,7 @@ public final class ARBRobustness {
 		long __functionAddress = getInstance().GetnSeparableFilterARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIPIPPV(__functionAddress, target, format, type, rowBufSize, row, columnBufSize, column, span);
+		callIIIIPIPPV(__functionAddress, target, format, type, rowBufSize, row, columnBufSize, column, span);
 	}
 
 	/**
@@ -730,7 +730,7 @@ public final class ARBRobustness {
 		long __functionAddress = getInstance().GetnHistogramARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIZIIIPV(__functionAddress, target, reset, format, type, bufSize, values);
+		callIZIIIPV(__functionAddress, target, reset, format, type, bufSize, values);
 	}
 
 	/**
@@ -773,7 +773,7 @@ public final class ARBRobustness {
 		long __functionAddress = getInstance().GetnMinmaxARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIZIIIPV(__functionAddress, target, reset, format, type, bufSize, values);
+		callIZIIIPV(__functionAddress, target, reset, format, type, bufSize, values);
 	}
 
 	/**
@@ -817,7 +817,7 @@ public final class ARBRobustness {
 		long __functionAddress = getInstance().GetnCompressedTexImageARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, target, level, bufSize, img);
+		callIIIPV(__functionAddress, target, level, bufSize, img);
 	}
 
 	/**
@@ -863,7 +863,7 @@ public final class ARBRobustness {
 		long __functionAddress = getInstance().GetnUniformfvARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, location, bufSize, params);
+		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**
@@ -901,7 +901,7 @@ public final class ARBRobustness {
 		long __functionAddress = getInstance().GetnUniformivARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, location, bufSize, params);
+		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**
@@ -939,7 +939,7 @@ public final class ARBRobustness {
 		long __functionAddress = getInstance().GetnUniformuivARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, location, bufSize, params);
+		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**
@@ -977,7 +977,7 @@ public final class ARBRobustness {
 		long __functionAddress = getInstance().GetnUniformdvARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, location, bufSize, params);
+		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**

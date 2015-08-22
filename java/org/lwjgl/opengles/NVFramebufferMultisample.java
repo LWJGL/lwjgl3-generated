@@ -72,7 +72,7 @@ public final class NVFramebufferMultisample {
 
 	public static void glRenderbufferStorageMultisampleNV(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageMultisampleNV;
-		invokeIIIIIV(__functionAddress, target, samples, internalformat, width, height);
+		callIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
 }

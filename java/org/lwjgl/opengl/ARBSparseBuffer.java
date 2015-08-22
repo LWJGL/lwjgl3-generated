@@ -75,7 +75,7 @@ public final class ARBSparseBuffer {
 	 */
 	public static void glBufferPageCommitmentARB(int target, long offset, long size, boolean commit) {
 		long __functionAddress = getInstance().BufferPageCommitmentARB;
-		invokeIPPZV(__functionAddress, target, offset, size, commit);
+		callIPPZV(__functionAddress, target, offset, size, commit);
 	}
 
 	// --- [ glNamedBufferPageCommitmentEXT ] ---
@@ -92,7 +92,7 @@ public final class ARBSparseBuffer {
 		long __functionAddress = getInstance().NamedBufferPageCommitmentEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPPZV(__functionAddress, buffer, offset, size, commit);
+		callIPPZV(__functionAddress, buffer, offset, size, commit);
 	}
 
 	// --- [ glNamedBufferPageCommitmentARB ] ---
@@ -109,7 +109,7 @@ public final class ARBSparseBuffer {
 		long __functionAddress = getInstance().NamedBufferPageCommitmentARB;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPPZV(__functionAddress, buffer, offset, size, commit);
+		callIPPZV(__functionAddress, buffer, offset, size, commit);
 	}
 
 }

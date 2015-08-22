@@ -55,7 +55,7 @@ public final class NVStreamSync {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return invokePPIPP(__functionAddress, dpy, stream, type, attrib_list);
+		return callPPIPP(__functionAddress, dpy, stream, type, attrib_list);
 	}
 
 	public static long eglCreateStreamSyncNV(long dpy, long stream, int type, ByteBuffer attrib_list) {

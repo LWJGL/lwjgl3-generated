@@ -96,14 +96,14 @@ public final class NVCoverageSample {
 
 	public static void glCoverageMaskNV(boolean mask) {
 		long __functionAddress = getInstance().CoverageMaskNV;
-		invokeZV(__functionAddress, mask);
+		callZV(__functionAddress, mask);
 	}
 
 	// --- [ glCoverageOperationNV ] ---
 
 	public static void glCoverageOperationNV(int operation) {
 		long __functionAddress = getInstance().CoverageOperationNV;
-		invokeIV(__functionAddress, operation);
+		callIV(__functionAddress, operation);
 	}
 
 }

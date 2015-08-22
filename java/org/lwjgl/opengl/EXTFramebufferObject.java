@@ -210,14 +210,14 @@ public final class EXTFramebufferObject {
 
 	public static boolean glIsRenderbufferEXT(int renderbuffer) {
 		long __functionAddress = getInstance().IsRenderbufferEXT;
-		return invokeIZ(__functionAddress, renderbuffer);
+		return callIZ(__functionAddress, renderbuffer);
 	}
 
 	// --- [ glBindRenderbufferEXT ] ---
 
 	public static void glBindRenderbufferEXT(int target, int renderbuffer) {
 		long __functionAddress = getInstance().BindRenderbufferEXT;
-		invokeIIV(__functionAddress, target, renderbuffer);
+		callIIV(__functionAddress, target, renderbuffer);
 	}
 
 	// --- [ glDeleteRenderbuffersEXT ] ---
@@ -226,7 +226,7 @@ public final class EXTFramebufferObject {
 	@JavadocExclude
 	public static void nglDeleteRenderbuffersEXT(int n, long renderbuffers) {
 		long __functionAddress = getInstance().DeleteRenderbuffersEXT;
-		invokeIPV(__functionAddress, n, renderbuffers);
+		callIPV(__functionAddress, n, renderbuffers);
 	}
 
 	public static void glDeleteRenderbuffersEXT(int n, ByteBuffer renderbuffers) {
@@ -253,7 +253,7 @@ public final class EXTFramebufferObject {
 	@JavadocExclude
 	public static void nglGenRenderbuffersEXT(int n, long renderbuffers) {
 		long __functionAddress = getInstance().GenRenderbuffersEXT;
-		invokeIPV(__functionAddress, n, renderbuffers);
+		callIPV(__functionAddress, n, renderbuffers);
 	}
 
 	public static void glGenRenderbuffersEXT(int n, ByteBuffer renderbuffers) {
@@ -279,7 +279,7 @@ public final class EXTFramebufferObject {
 
 	public static void glRenderbufferStorageEXT(int target, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageEXT;
-		invokeIIIIV(__functionAddress, target, internalformat, width, height);
+		callIIIIV(__functionAddress, target, internalformat, width, height);
 	}
 
 	// --- [ glGetRenderbufferParameterivEXT ] ---
@@ -288,7 +288,7 @@ public final class EXTFramebufferObject {
 	@JavadocExclude
 	public static void nglGetRenderbufferParameterivEXT(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetRenderbufferParameterivEXT;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetRenderbufferParameterivEXT(int target, int pname, ByteBuffer params) {
@@ -316,14 +316,14 @@ public final class EXTFramebufferObject {
 
 	public static boolean glIsFramebufferEXT(int framebuffer) {
 		long __functionAddress = getInstance().IsFramebufferEXT;
-		return invokeIZ(__functionAddress, framebuffer);
+		return callIZ(__functionAddress, framebuffer);
 	}
 
 	// --- [ glBindFramebufferEXT ] ---
 
 	public static void glBindFramebufferEXT(int target, int framebuffer) {
 		long __functionAddress = getInstance().BindFramebufferEXT;
-		invokeIIV(__functionAddress, target, framebuffer);
+		callIIV(__functionAddress, target, framebuffer);
 	}
 
 	// --- [ glDeleteFramebuffersEXT ] ---
@@ -332,7 +332,7 @@ public final class EXTFramebufferObject {
 	@JavadocExclude
 	public static void nglDeleteFramebuffersEXT(int n, long framebuffers) {
 		long __functionAddress = getInstance().DeleteFramebuffersEXT;
-		invokeIPV(__functionAddress, n, framebuffers);
+		callIPV(__functionAddress, n, framebuffers);
 	}
 
 	public static void glDeleteFramebuffersEXT(int n, ByteBuffer framebuffers) {
@@ -359,7 +359,7 @@ public final class EXTFramebufferObject {
 	@JavadocExclude
 	public static void nglGenFramebuffersEXT(int n, long framebuffers) {
 		long __functionAddress = getInstance().GenFramebuffersEXT;
-		invokeIPV(__functionAddress, n, framebuffers);
+		callIPV(__functionAddress, n, framebuffers);
 	}
 
 	public static void glGenFramebuffersEXT(int n, ByteBuffer framebuffers) {
@@ -385,35 +385,35 @@ public final class EXTFramebufferObject {
 
 	public static int glCheckFramebufferStatusEXT(int target) {
 		long __functionAddress = getInstance().CheckFramebufferStatusEXT;
-		return invokeII(__functionAddress, target);
+		return callII(__functionAddress, target);
 	}
 
 	// --- [ glFramebufferTexture1DEXT ] ---
 
 	public static void glFramebufferTexture1DEXT(int target, int attachment, int textarget, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTexture1DEXT;
-		invokeIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
+		callIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
 	}
 
 	// --- [ glFramebufferTexture2DEXT ] ---
 
 	public static void glFramebufferTexture2DEXT(int target, int attachment, int textarget, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTexture2DEXT;
-		invokeIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
+		callIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
 	}
 
 	// --- [ glFramebufferTexture3DEXT ] ---
 
 	public static void glFramebufferTexture3DEXT(int target, int attachment, int textarget, int texture, int level, int zoffset) {
 		long __functionAddress = getInstance().FramebufferTexture3DEXT;
-		invokeIIIIIIV(__functionAddress, target, attachment, textarget, texture, level, zoffset);
+		callIIIIIIV(__functionAddress, target, attachment, textarget, texture, level, zoffset);
 	}
 
 	// --- [ glFramebufferRenderbufferEXT ] ---
 
 	public static void glFramebufferRenderbufferEXT(int target, int attachment, int renderbuffertarget, int renderbuffer) {
 		long __functionAddress = getInstance().FramebufferRenderbufferEXT;
-		invokeIIIIV(__functionAddress, target, attachment, renderbuffertarget, renderbuffer);
+		callIIIIV(__functionAddress, target, attachment, renderbuffertarget, renderbuffer);
 	}
 
 	// --- [ glGetFramebufferAttachmentParameterivEXT ] ---
@@ -422,7 +422,7 @@ public final class EXTFramebufferObject {
 	@JavadocExclude
 	public static void nglGetFramebufferAttachmentParameterivEXT(int target, int attachment, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferAttachmentParameterivEXT;
-		invokeIIIPV(__functionAddress, target, attachment, pname, params);
+		callIIIPV(__functionAddress, target, attachment, pname, params);
 	}
 
 	public static void glGetFramebufferAttachmentParameterivEXT(int target, int attachment, int pname, ByteBuffer params) {
@@ -450,7 +450,7 @@ public final class EXTFramebufferObject {
 
 	public static void glGenerateMipmapEXT(int target) {
 		long __functionAddress = getInstance().GenerateMipmapEXT;
-		invokeIV(__functionAddress, target);
+		callIV(__functionAddress, target);
 	}
 
 }

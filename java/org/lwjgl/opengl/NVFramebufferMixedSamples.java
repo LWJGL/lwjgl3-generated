@@ -88,7 +88,7 @@ public final class NVFramebufferMixedSamples {
 
 	public static void glRasterSamplesEXT(int samples, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().RasterSamplesEXT;
-		invokeIZV(__functionAddress, samples, fixedsamplelocations);
+		callIZV(__functionAddress, samples, fixedsamplelocations);
 	}
 
 	// --- [ glCoverageModulationTableNV ] ---
@@ -97,7 +97,7 @@ public final class NVFramebufferMixedSamples {
 	@JavadocExclude
 	public static void nglCoverageModulationTableNV(int n, long v) {
 		long __functionAddress = getInstance().CoverageModulationTableNV;
-		invokeIPV(__functionAddress, n, v);
+		callIPV(__functionAddress, n, v);
 	}
 
 	/**
@@ -121,7 +121,7 @@ public final class NVFramebufferMixedSamples {
 	@JavadocExclude
 	public static void nglGetCoverageModulationTableNV(int bufsize, long v) {
 		long __functionAddress = getInstance().GetCoverageModulationTableNV;
-		invokeIPV(__functionAddress, bufsize, v);
+		callIPV(__functionAddress, bufsize, v);
 	}
 
 	public static void glGetCoverageModulationTableNV(int bufsize, ByteBuffer v) {
@@ -137,7 +137,7 @@ public final class NVFramebufferMixedSamples {
 
 	public static void glCoverageModulationNV(int components) {
 		long __functionAddress = getInstance().CoverageModulationNV;
-		invokeIV(__functionAddress, components);
+		callIV(__functionAddress, components);
 	}
 
 }

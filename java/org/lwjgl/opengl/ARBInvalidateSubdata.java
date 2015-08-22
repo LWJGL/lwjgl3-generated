@@ -102,7 +102,7 @@ public final class ARBInvalidateSubdata {
 	 */
 	public static void glInvalidateTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth) {
 		long __functionAddress = getInstance().InvalidateTexSubImage;
-		invokeIIIIIIIIV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth);
+		callIIIIIIIIV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth);
 	}
 
 	// --- [ glInvalidateTexImage ] ---
@@ -115,7 +115,7 @@ public final class ARBInvalidateSubdata {
 	 */
 	public static void glInvalidateTexImage(int texture, int level) {
 		long __functionAddress = getInstance().InvalidateTexImage;
-		invokeIIV(__functionAddress, texture, level);
+		callIIV(__functionAddress, texture, level);
 	}
 
 	// --- [ glInvalidateBufferSubData ] ---
@@ -129,7 +129,7 @@ public final class ARBInvalidateSubdata {
 	 */
 	public static void glInvalidateBufferSubData(int buffer, long offset, long length) {
 		long __functionAddress = getInstance().InvalidateBufferSubData;
-		invokeIPPV(__functionAddress, buffer, offset, length);
+		callIPPV(__functionAddress, buffer, offset, length);
 	}
 
 	// --- [ glInvalidateBufferData ] ---
@@ -141,7 +141,7 @@ public final class ARBInvalidateSubdata {
 	 */
 	public static void glInvalidateBufferData(int buffer) {
 		long __functionAddress = getInstance().InvalidateBufferData;
-		invokeIV(__functionAddress, buffer);
+		callIV(__functionAddress, buffer);
 	}
 
 	// --- [ glInvalidateFramebuffer ] ---
@@ -150,7 +150,7 @@ public final class ARBInvalidateSubdata {
 	@JavadocExclude
 	public static void nglInvalidateFramebuffer(int target, int numAttachments, long attachments) {
 		long __functionAddress = getInstance().InvalidateFramebuffer;
-		invokeIIPV(__functionAddress, target, numAttachments, attachments);
+		callIIPV(__functionAddress, target, numAttachments, attachments);
 	}
 
 	/**
@@ -184,7 +184,7 @@ public final class ARBInvalidateSubdata {
 	@JavadocExclude
 	public static void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().InvalidateSubFramebuffer;
-		invokeIIPIIIIV(__functionAddress, target, numAttachments, attachments, x, y, width, height);
+		callIIPIIIIV(__functionAddress, target, numAttachments, attachments, x, y, width, height);
 	}
 
 	/**

@@ -97,7 +97,7 @@ public final class NVExplicitMultisample {
 	@JavadocExclude
 	public static void nglGetMultisamplefvNV(int pname, int index, long val) {
 		long __functionAddress = getInstance().GetMultisamplefvNV;
-		invokeIIPV(__functionAddress, pname, index, val);
+		callIIPV(__functionAddress, pname, index, val);
 	}
 
 	public static void glGetMultisamplefvNV(int pname, int index, ByteBuffer val) {
@@ -117,14 +117,14 @@ public final class NVExplicitMultisample {
 
 	public static void glSampleMaskIndexedNV(int index, int mask) {
 		long __functionAddress = getInstance().SampleMaskIndexedNV;
-		invokeIIV(__functionAddress, index, mask);
+		callIIV(__functionAddress, index, mask);
 	}
 
 	// --- [ glTexRenderbufferNV ] ---
 
 	public static void glTexRenderbufferNV(int target, int renderbuffer) {
 		long __functionAddress = getInstance().TexRenderbufferNV;
-		invokeIIV(__functionAddress, target, renderbuffer);
+		callIIV(__functionAddress, target, renderbuffer);
 	}
 
 }

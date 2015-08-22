@@ -65,7 +65,7 @@ public final class EXTBlendMinmax {
 
 	public static void glBlendEquationEXT(int mode) {
 		long __functionAddress = getInstance().BlendEquationEXT;
-		invokeIV(__functionAddress, mode);
+		callIV(__functionAddress, mode);
 	}
 
 }

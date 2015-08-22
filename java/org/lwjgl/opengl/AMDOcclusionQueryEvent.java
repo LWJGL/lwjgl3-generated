@@ -76,7 +76,7 @@ public final class AMDOcclusionQueryEvent {
 	 */
 	public static void glQueryObjectParameteruiAMD(int target, int id, int pname, int param) {
 		long __functionAddress = getInstance().QueryObjectParameteruiAMD;
-		invokeIIIIV(__functionAddress, target, id, pname, param);
+		callIIIIV(__functionAddress, target, id, pname, param);
 	}
 
 }

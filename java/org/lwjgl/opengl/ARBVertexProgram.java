@@ -335,7 +335,7 @@ public final class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib1sARB(int index, short x) {
 		long __functionAddress = getInstance().VertexAttrib1sARB;
-		invokeISV(__functionAddress, index, x);
+		callISV(__functionAddress, index, x);
 	}
 
 	// --- [ glVertexAttrib1fARB ] ---
@@ -348,7 +348,7 @@ public final class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib1fARB(int index, float x) {
 		long __functionAddress = getInstance().VertexAttrib1fARB;
-		invokeIFV(__functionAddress, index, x);
+		callIFV(__functionAddress, index, x);
 	}
 
 	// --- [ glVertexAttrib1dARB ] ---
@@ -361,7 +361,7 @@ public final class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib1dARB(int index, double x) {
 		long __functionAddress = getInstance().VertexAttrib1dARB;
-		invokeIDV(__functionAddress, index, x);
+		callIDV(__functionAddress, index, x);
 	}
 
 	// --- [ glVertexAttrib2sARB ] ---
@@ -375,7 +375,7 @@ public final class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib2sARB(int index, short x, short y) {
 		long __functionAddress = getInstance().VertexAttrib2sARB;
-		invokeISSV(__functionAddress, index, x, y);
+		callISSV(__functionAddress, index, x, y);
 	}
 
 	// --- [ glVertexAttrib2fARB ] ---
@@ -389,7 +389,7 @@ public final class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib2fARB(int index, float x, float y) {
 		long __functionAddress = getInstance().VertexAttrib2fARB;
-		invokeIFFV(__functionAddress, index, x, y);
+		callIFFV(__functionAddress, index, x, y);
 	}
 
 	// --- [ glVertexAttrib2dARB ] ---
@@ -403,7 +403,7 @@ public final class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib2dARB(int index, double x, double y) {
 		long __functionAddress = getInstance().VertexAttrib2dARB;
-		invokeIDDV(__functionAddress, index, x, y);
+		callIDDV(__functionAddress, index, x, y);
 	}
 
 	// --- [ glVertexAttrib3sARB ] ---
@@ -418,7 +418,7 @@ public final class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib3sARB(int index, short x, short y, short z) {
 		long __functionAddress = getInstance().VertexAttrib3sARB;
-		invokeISSSV(__functionAddress, index, x, y, z);
+		callISSSV(__functionAddress, index, x, y, z);
 	}
 
 	// --- [ glVertexAttrib3fARB ] ---
@@ -433,7 +433,7 @@ public final class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib3fARB(int index, float x, float y, float z) {
 		long __functionAddress = getInstance().VertexAttrib3fARB;
-		invokeIFFFV(__functionAddress, index, x, y, z);
+		callIFFFV(__functionAddress, index, x, y, z);
 	}
 
 	// --- [ glVertexAttrib3dARB ] ---
@@ -448,7 +448,7 @@ public final class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib3dARB(int index, double x, double y, double z) {
 		long __functionAddress = getInstance().VertexAttrib3dARB;
-		invokeIDDDV(__functionAddress, index, x, y, z);
+		callIDDDV(__functionAddress, index, x, y, z);
 	}
 
 	// --- [ glVertexAttrib4sARB ] ---
@@ -464,7 +464,7 @@ public final class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib4sARB(int index, short x, short y, short z, short w) {
 		long __functionAddress = getInstance().VertexAttrib4sARB;
-		invokeISSSSV(__functionAddress, index, x, y, z, w);
+		callISSSSV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttrib4fARB ] ---
@@ -480,7 +480,7 @@ public final class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib4fARB(int index, float x, float y, float z, float w) {
 		long __functionAddress = getInstance().VertexAttrib4fARB;
-		invokeIFFFFV(__functionAddress, index, x, y, z, w);
+		callIFFFFV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttrib4dARB ] ---
@@ -496,7 +496,7 @@ public final class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib4dARB(int index, double x, double y, double z, double w) {
 		long __functionAddress = getInstance().VertexAttrib4dARB;
-		invokeIDDDDV(__functionAddress, index, x, y, z, w);
+		callIDDDDV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttrib4NubARB ] ---
@@ -512,7 +512,7 @@ public final class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib4NubARB(int index, byte x, byte y, byte z, byte w) {
 		long __functionAddress = getInstance().VertexAttrib4NubARB;
-		invokeIBBBBV(__functionAddress, index, x, y, z, w);
+		callIBBBBV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttrib1svARB ] ---
@@ -521,7 +521,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib1svARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1svARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -549,7 +549,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib1fvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1fvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -577,7 +577,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib1dvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib1dvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -605,7 +605,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib2svARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2svARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -633,7 +633,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib2fvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2fvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -661,7 +661,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib2dvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib2dvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -689,7 +689,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib3svARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3svARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -717,7 +717,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib3fvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3fvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -745,7 +745,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib3dvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib3dvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -773,7 +773,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib4fvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4fvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -801,7 +801,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib4bvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4bvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -822,7 +822,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib4svARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4svARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -850,7 +850,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib4ivARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4ivARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -878,7 +878,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib4ubvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4ubvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -899,7 +899,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib4usvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4usvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -927,7 +927,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib4uivARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4uivARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -955,7 +955,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib4dvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4dvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -983,7 +983,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib4NbvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4NbvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1004,7 +1004,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib4NsvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4NsvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1032,7 +1032,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib4NivARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4NivARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1060,7 +1060,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib4NubvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4NubvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1081,7 +1081,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib4NusvARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4NusvARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1109,7 +1109,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttrib4NuivARB(int index, long v) {
 		long __functionAddress = getInstance().VertexAttrib4NuivARB;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1137,7 +1137,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexAttribPointerARB;
-		invokeIIIZIPV(__functionAddress, index, size, type, normalized, stride, pointer);
+		callIIIZIPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
 	/**
@@ -1193,7 +1193,7 @@ public final class ARBVertexProgram {
 	 */
 	public static void glEnableVertexAttribArrayARB(int index) {
 		long __functionAddress = getInstance().EnableVertexAttribArrayARB;
-		invokeIV(__functionAddress, index);
+		callIV(__functionAddress, index);
 	}
 
 	// --- [ glDisableVertexAttribArrayARB ] ---
@@ -1205,7 +1205,7 @@ public final class ARBVertexProgram {
 	 */
 	public static void glDisableVertexAttribArrayARB(int index) {
 		long __functionAddress = getInstance().DisableVertexAttribArrayARB;
-		invokeIV(__functionAddress, index);
+		callIV(__functionAddress, index);
 	}
 
 	// --- [ glProgramStringARB ] ---
@@ -1214,7 +1214,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglProgramStringARB(int target, int format, int len, long string) {
 		long __functionAddress = getInstance().ProgramStringARB;
-		invokeIIIPV(__functionAddress, target, format, len, string);
+		callIIIPV(__functionAddress, target, format, len, string);
 	}
 
 	/**
@@ -1259,7 +1259,7 @@ public final class ARBVertexProgram {
 	 */
 	public static void glBindProgramARB(int target, int program) {
 		long __functionAddress = getInstance().BindProgramARB;
-		invokeIIV(__functionAddress, target, program);
+		callIIV(__functionAddress, target, program);
 	}
 
 	// --- [ glDeleteProgramsARB ] ---
@@ -1268,7 +1268,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglDeleteProgramsARB(int n, long programs) {
 		long __functionAddress = getInstance().DeleteProgramsARB;
-		invokeIPV(__functionAddress, n, programs);
+		callIPV(__functionAddress, n, programs);
 	}
 
 	/**
@@ -1294,7 +1294,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglGenProgramsARB(int n, long programs) {
 		long __functionAddress = getInstance().GenProgramsARB;
-		invokeIPV(__functionAddress, n, programs);
+		callIPV(__functionAddress, n, programs);
 	}
 
 	/**
@@ -1337,7 +1337,7 @@ public final class ARBVertexProgram {
 	 */
 	public static void glProgramEnvParameter4dARB(int target, int index, double x, double y, double z, double w) {
 		long __functionAddress = getInstance().ProgramEnvParameter4dARB;
-		invokeIIDDDDV(__functionAddress, target, index, x, y, z, w);
+		callIIDDDDV(__functionAddress, target, index, x, y, z, w);
 	}
 
 	// --- [ glProgramEnvParameter4dvARB ] ---
@@ -1346,7 +1346,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglProgramEnvParameter4dvARB(int target, int index, long params) {
 		long __functionAddress = getInstance().ProgramEnvParameter4dvARB;
-		invokeIIPV(__functionAddress, target, index, params);
+		callIIPV(__functionAddress, target, index, params);
 	}
 
 	/**
@@ -1383,7 +1383,7 @@ public final class ARBVertexProgram {
 	 */
 	public static void glProgramEnvParameter4fARB(int target, int index, float x, float y, float z, float w) {
 		long __functionAddress = getInstance().ProgramEnvParameter4fARB;
-		invokeIIFFFFV(__functionAddress, target, index, x, y, z, w);
+		callIIFFFFV(__functionAddress, target, index, x, y, z, w);
 	}
 
 	// --- [ glProgramEnvParameter4fvARB ] ---
@@ -1392,7 +1392,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglProgramEnvParameter4fvARB(int target, int index, long params) {
 		long __functionAddress = getInstance().ProgramEnvParameter4fvARB;
-		invokeIIPV(__functionAddress, target, index, params);
+		callIIPV(__functionAddress, target, index, params);
 	}
 
 	/**
@@ -1429,7 +1429,7 @@ public final class ARBVertexProgram {
 	 */
 	public static void glProgramLocalParameter4dARB(int target, int index, double x, double y, double z, double w) {
 		long __functionAddress = getInstance().ProgramLocalParameter4dARB;
-		invokeIIDDDDV(__functionAddress, target, index, x, y, z, w);
+		callIIDDDDV(__functionAddress, target, index, x, y, z, w);
 	}
 
 	// --- [ glProgramLocalParameter4dvARB ] ---
@@ -1438,7 +1438,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglProgramLocalParameter4dvARB(int target, int index, long params) {
 		long __functionAddress = getInstance().ProgramLocalParameter4dvARB;
-		invokeIIPV(__functionAddress, target, index, params);
+		callIIPV(__functionAddress, target, index, params);
 	}
 
 	/**
@@ -1475,7 +1475,7 @@ public final class ARBVertexProgram {
 	 */
 	public static void glProgramLocalParameter4fARB(int target, int index, float x, float y, float z, float w) {
 		long __functionAddress = getInstance().ProgramLocalParameter4fARB;
-		invokeIIFFFFV(__functionAddress, target, index, x, y, z, w);
+		callIIFFFFV(__functionAddress, target, index, x, y, z, w);
 	}
 
 	// --- [ glProgramLocalParameter4fvARB ] ---
@@ -1484,7 +1484,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglProgramLocalParameter4fvARB(int target, int index, long params) {
 		long __functionAddress = getInstance().ProgramLocalParameter4fvARB;
-		invokeIIPV(__functionAddress, target, index, params);
+		callIIPV(__functionAddress, target, index, params);
 	}
 
 	/**
@@ -1513,7 +1513,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglGetProgramEnvParameterfvARB(int target, int index, long params) {
 		long __functionAddress = getInstance().GetProgramEnvParameterfvARB;
-		invokeIIPV(__functionAddress, target, index, params);
+		callIIPV(__functionAddress, target, index, params);
 	}
 
 	/**
@@ -1543,7 +1543,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglGetProgramEnvParameterdvARB(int target, int index, long params) {
 		long __functionAddress = getInstance().GetProgramEnvParameterdvARB;
-		invokeIIPV(__functionAddress, target, index, params);
+		callIIPV(__functionAddress, target, index, params);
 	}
 
 	/**
@@ -1572,7 +1572,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglGetProgramLocalParameterfvARB(int target, int index, long params) {
 		long __functionAddress = getInstance().GetProgramLocalParameterfvARB;
-		invokeIIPV(__functionAddress, target, index, params);
+		callIIPV(__functionAddress, target, index, params);
 	}
 
 	/**
@@ -1602,7 +1602,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglGetProgramLocalParameterdvARB(int target, int index, long params) {
 		long __functionAddress = getInstance().GetProgramLocalParameterdvARB;
-		invokeIIPV(__functionAddress, target, index, params);
+		callIIPV(__functionAddress, target, index, params);
 	}
 
 	/**
@@ -1631,7 +1631,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglGetProgramivARB(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetProgramivARB;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -1669,7 +1669,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglGetProgramStringARB(int target, int pname, long string) {
 		long __functionAddress = getInstance().GetProgramStringARB;
-		invokeIIPV(__functionAddress, target, pname, string);
+		callIIPV(__functionAddress, target, pname, string);
 	}
 
 	/**
@@ -1695,7 +1695,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglGetVertexAttribfvARB(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribfvARB;
-		invokeIIPV(__functionAddress, index, pname, params);
+		callIIPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -1725,7 +1725,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglGetVertexAttribdvARB(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribdvARB;
-		invokeIIPV(__functionAddress, index, pname, params);
+		callIIPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -1754,7 +1754,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglGetVertexAttribivARB(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribivARB;
-		invokeIIPV(__functionAddress, index, pname, params);
+		callIIPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -1791,7 +1791,7 @@ public final class ARBVertexProgram {
 	@JavadocExclude
 	public static void nglGetVertexAttribPointervARB(int index, int pname, long pointer) {
 		long __functionAddress = getInstance().GetVertexAttribPointervARB;
-		invokeIIPV(__functionAddress, index, pname, pointer);
+		callIIPV(__functionAddress, index, pname, pointer);
 	}
 
 	/**
@@ -1833,7 +1833,7 @@ public final class ARBVertexProgram {
 	 */
 	public static boolean glIsProgramARB(int program) {
 		long __functionAddress = getInstance().IsProgramARB;
-		return invokeIZ(__functionAddress, program);
+		return callIZ(__functionAddress, program);
 	}
 
 }

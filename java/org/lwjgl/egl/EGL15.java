@@ -110,7 +110,7 @@ public final class EGL15 {
 		long __functionAddress = getInstance().CreateSync;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return invokePIPP(__functionAddress, dpy, type, attrib_list);
+		return callPIPP(__functionAddress, dpy, type, attrib_list);
 	}
 
 	public static long eglCreateSync(long dpy, int type, ByteBuffer attrib_list) {
@@ -134,7 +134,7 @@ public final class EGL15 {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return invokePPZ(__functionAddress, dpy, sync);
+		return callPPZ(__functionAddress, dpy, sync);
 	}
 
 	// --- [ eglClientWaitSync ] ---
@@ -145,7 +145,7 @@ public final class EGL15 {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return invokePPIJI(__functionAddress, dpy, sync, flags, timeout);
+		return callPPIJI(__functionAddress, dpy, sync, flags, timeout);
 	}
 
 	// --- [ eglGetSyncAttrib ] ---
@@ -158,7 +158,7 @@ public final class EGL15 {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return invokePPIPZ(__functionAddress, dpy, sync, attribute, value);
+		return callPPIPZ(__functionAddress, dpy, sync, attribute, value);
 	}
 
 	public static boolean eglGetSyncAttrib(long dpy, long sync, int attribute, ByteBuffer value) {
@@ -185,7 +185,7 @@ public final class EGL15 {
 			checkPointer(ctx);
 			checkPointer(buffer);
 		}
-		return invokePPIPPP(__functionAddress, dpy, ctx, target, buffer, attrib_list);
+		return callPPIPPP(__functionAddress, dpy, ctx, target, buffer, attrib_list);
 	}
 
 	public static long eglCreateImage(long dpy, long ctx, int target, long buffer, ByteBuffer attrib_list) {
@@ -209,7 +209,7 @@ public final class EGL15 {
 			checkPointer(dpy);
 			checkPointer(image);
 		}
-		return invokePPZ(__functionAddress, dpy, image);
+		return callPPZ(__functionAddress, dpy, image);
 	}
 
 	// --- [ eglGetPlatformDisplay ] ---
@@ -220,7 +220,7 @@ public final class EGL15 {
 		long __functionAddress = getInstance().GetPlatformDisplay;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(native_display);
-		return invokeIPPP(__functionAddress, platform, native_display, attrib_list);
+		return callIPPP(__functionAddress, platform, native_display, attrib_list);
 	}
 
 	public static long eglGetPlatformDisplay(int platform, long native_display, ByteBuffer attrib_list) {
@@ -247,7 +247,7 @@ public final class EGL15 {
 			checkPointer(config);
 			checkPointer(native_window);
 		}
-		return invokePPPPP(__functionAddress, dpy, config, native_window, attrib_list);
+		return callPPPPP(__functionAddress, dpy, config, native_window, attrib_list);
 	}
 
 	public static long eglCreatePlatformWindowSurface(long dpy, long config, long native_window, ByteBuffer attrib_list) {
@@ -274,7 +274,7 @@ public final class EGL15 {
 			checkPointer(config);
 			checkPointer(native_pixmap);
 		}
-		return invokePPPPP(__functionAddress, dpy, config, native_pixmap, attrib_list);
+		return callPPPPP(__functionAddress, dpy, config, native_pixmap, attrib_list);
 	}
 
 	public static long eglCreatePlatformPixmapSurface(long dpy, long config, long native_pixmap, ByteBuffer attrib_list) {
@@ -298,7 +298,7 @@ public final class EGL15 {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return invokePPIZ(__functionAddress, dpy, sync, flags);
+		return callPPIZ(__functionAddress, dpy, sync, flags);
 	}
 
 }

@@ -72,7 +72,7 @@ public final class EXTInstancedArrays {
 
 	public static void glDrawArraysInstancedEXT(int mode, int start, int count, int primcount) {
 		long __functionAddress = getInstance().DrawArraysInstancedEXT;
-		invokeIIIIV(__functionAddress, mode, start, count, primcount);
+		callIIIIV(__functionAddress, mode, start, count, primcount);
 	}
 
 	// --- [ glDrawElementsInstancedEXT ] ---
@@ -81,7 +81,7 @@ public final class EXTInstancedArrays {
 	@JavadocExclude
 	public static void nglDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = getInstance().DrawElementsInstancedEXT;
-		invokeIIIPIV(__functionAddress, mode, count, type, indices, primcount);
+		callIIIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
 	public static void glDrawElementsInstancedEXT(int mode, int count, int type, ByteBuffer indices, int primcount) {
@@ -119,7 +119,7 @@ public final class EXTInstancedArrays {
 
 	public static void glVertexAttribDivisorEXT(int index, int divisor) {
 		long __functionAddress = getInstance().VertexAttribDivisorEXT;
-		invokeIIV(__functionAddress, index, divisor);
+		callIIV(__functionAddress, index, divisor);
 	}
 
 }

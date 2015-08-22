@@ -64,7 +64,7 @@ public final class ANGLETranslatedShaderSource {
 	@JavadocExclude
 	public static void nglGetTranslatedShaderSourceANGLE(int shader, int bufsize, long length, long source) {
 		long __functionAddress = getInstance().GetTranslatedShaderSourceANGLE;
-		invokeIIPPV(__functionAddress, shader, bufsize, length, source);
+		callIIPPV(__functionAddress, shader, bufsize, length, source);
 	}
 
 	public static void glGetTranslatedShaderSourceANGLE(int shader, int bufsize, ByteBuffer length, ByteBuffer source) {

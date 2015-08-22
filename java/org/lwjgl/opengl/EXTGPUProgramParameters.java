@@ -63,7 +63,7 @@ public final class EXTGPUProgramParameters {
 	@JavadocExclude
 	public static void nglProgramEnvParameters4fvEXT(int target, int index, int count, long params) {
 		long __functionAddress = getInstance().ProgramEnvParameters4fvEXT;
-		invokeIIIPV(__functionAddress, target, index, count, params);
+		callIIIPV(__functionAddress, target, index, count, params);
 	}
 
 	public static void glProgramEnvParameters4fvEXT(int target, int index, int count, ByteBuffer params) {
@@ -83,7 +83,7 @@ public final class EXTGPUProgramParameters {
 	@JavadocExclude
 	public static void nglProgramLocalParameters4fvEXT(int target, int index, int count, long params) {
 		long __functionAddress = getInstance().ProgramLocalParameters4fvEXT;
-		invokeIIIPV(__functionAddress, target, index, count, params);
+		callIIIPV(__functionAddress, target, index, count, params);
 	}
 
 	public static void glProgramLocalParameters4fvEXT(int target, int index, int count, ByteBuffer params) {

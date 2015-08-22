@@ -61,7 +61,7 @@ public final class QCOMAlphaTest {
 
 	public static void glAlphaFuncQCOM(int func, float ref) {
 		long __functionAddress = getInstance().AlphaFuncQCOM;
-		invokeIFV(__functionAddress, func, ref);
+		callIFV(__functionAddress, func, ref);
 	}
 
 }

@@ -22,11 +22,13 @@ public final class OVRMatrix4f implements Pointer {
 		M;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(1);
+		IntBuffer offsets = memAllocInt(1);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		M = offsets.get(0);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -51,8 +53,8 @@ public final class OVRMatrix4f implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setM(ByteBuffer m) { mSet(struct, m); }
-	public void setM(int index, float m) { m(struct, index, m); }
+	public OVRMatrix4f setM(ByteBuffer m) { mSet(struct, m); return this; }
+	public OVRMatrix4f setM(int index, float m) { m(struct, index, m); return this; }
 
 	public void getM(ByteBuffer m) { mGet(struct, m); }
 

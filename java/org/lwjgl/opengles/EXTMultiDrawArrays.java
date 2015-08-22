@@ -59,7 +59,7 @@ public final class EXTMultiDrawArrays {
 	@JavadocExclude
 	public static void nglMultiDrawArraysEXT(int mode, long first, long count, int primcount) {
 		long __functionAddress = getInstance().MultiDrawArraysEXT;
-		invokeIPPIV(__functionAddress, mode, first, count, primcount);
+		callIPPIV(__functionAddress, mode, first, count, primcount);
 	}
 
 	public static void glMultiDrawArraysEXT(int mode, ByteBuffer first, ByteBuffer count, int primcount) {
@@ -83,7 +83,7 @@ public final class EXTMultiDrawArrays {
 	@JavadocExclude
 	public static void nglMultiDrawElementsEXT(int mode, long count, int type, long indices, int primcount) {
 		long __functionAddress = getInstance().MultiDrawElementsEXT;
-		invokeIPIPIV(__functionAddress, mode, count, type, indices, primcount);
+		callIPIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
 	public static void glMultiDrawElementsEXT(int mode, ByteBuffer count, int type, ByteBuffer indices, int primcount) {

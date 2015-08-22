@@ -37,7 +37,7 @@ public final class OVRLayerQuad implements Pointer {
 		QUADSIZE;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(5);
+		IntBuffer offsets = memAllocInt(5);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -46,6 +46,8 @@ public final class OVRLayerQuad implements Pointer {
 		VIEWPORT = offsets.get(2);
 		QUADPOSECENTER = offsets.get(3);
 		QUADSIZE = offsets.get(4);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -70,31 +72,31 @@ public final class OVRLayerQuad implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setHeader(ByteBuffer Header) { HeaderSet(struct, Header); }
-	public void setHeaderType(int Type) { HeaderType(struct, Type); }
-	public void setHeaderFlags(int Flags) { HeaderFlags(struct, Flags); }
-	public void setColorTexture(long ColorTexture) { ColorTexture(struct, ColorTexture); }
-	public void setColorTexture(ByteBuffer ColorTexture) { ColorTexture(struct, ColorTexture); }
-	public void setViewport(ByteBuffer Viewport) { ViewportSet(struct, Viewport); }
-	public void setViewportPos(ByteBuffer Pos) { ViewportPosSet(struct, Pos); }
-	public void setViewportPosX(int x) { ViewportPosX(struct, x); }
-	public void setViewportPosY(int y) { ViewportPosY(struct, y); }
-	public void setViewportSize(ByteBuffer Size) { ViewportSizeSet(struct, Size); }
-	public void setViewportSizeW(int w) { ViewportSizeW(struct, w); }
-	public void setViewportSizeH(int h) { ViewportSizeH(struct, h); }
-	public void setQuadPoseCenter(ByteBuffer QuadPoseCenter) { QuadPoseCenterSet(struct, QuadPoseCenter); }
-	public void setQuadPoseCenterOrientation(ByteBuffer Orientation) { QuadPoseCenterOrientationSet(struct, Orientation); }
-	public void setQuadPoseCenterOrientationX(float x) { QuadPoseCenterOrientationX(struct, x); }
-	public void setQuadPoseCenterOrientationY(float y) { QuadPoseCenterOrientationY(struct, y); }
-	public void setQuadPoseCenterOrientationZ(float z) { QuadPoseCenterOrientationZ(struct, z); }
-	public void setQuadPoseCenterOrientationW(float w) { QuadPoseCenterOrientationW(struct, w); }
-	public void setQuadPoseCenterPosition(ByteBuffer Position) { QuadPoseCenterPositionSet(struct, Position); }
-	public void setQuadPoseCenterPositionX(float x) { QuadPoseCenterPositionX(struct, x); }
-	public void setQuadPoseCenterPositionY(float y) { QuadPoseCenterPositionY(struct, y); }
-	public void setQuadPoseCenterPositionZ(float z) { QuadPoseCenterPositionZ(struct, z); }
-	public void setQuadSize(ByteBuffer QuadSize) { QuadSizeSet(struct, QuadSize); }
-	public void setQuadSizeX(float x) { QuadSizeX(struct, x); }
-	public void setQuadSizeY(float y) { QuadSizeY(struct, y); }
+	public OVRLayerQuad setHeader(ByteBuffer Header) { HeaderSet(struct, Header); return this; }
+	public OVRLayerQuad setHeaderType(int Type) { HeaderType(struct, Type); return this; }
+	public OVRLayerQuad setHeaderFlags(int Flags) { HeaderFlags(struct, Flags); return this; }
+	public OVRLayerQuad setColorTexture(long ColorTexture) { ColorTexture(struct, ColorTexture); return this; }
+	public OVRLayerQuad setColorTexture(ByteBuffer ColorTexture) { ColorTexture(struct, ColorTexture); return this; }
+	public OVRLayerQuad setViewport(ByteBuffer Viewport) { ViewportSet(struct, Viewport); return this; }
+	public OVRLayerQuad setViewportPos(ByteBuffer Pos) { ViewportPosSet(struct, Pos); return this; }
+	public OVRLayerQuad setViewportPosX(int x) { ViewportPosX(struct, x); return this; }
+	public OVRLayerQuad setViewportPosY(int y) { ViewportPosY(struct, y); return this; }
+	public OVRLayerQuad setViewportSize(ByteBuffer Size) { ViewportSizeSet(struct, Size); return this; }
+	public OVRLayerQuad setViewportSizeW(int w) { ViewportSizeW(struct, w); return this; }
+	public OVRLayerQuad setViewportSizeH(int h) { ViewportSizeH(struct, h); return this; }
+	public OVRLayerQuad setQuadPoseCenter(ByteBuffer QuadPoseCenter) { QuadPoseCenterSet(struct, QuadPoseCenter); return this; }
+	public OVRLayerQuad setQuadPoseCenterOrientation(ByteBuffer Orientation) { QuadPoseCenterOrientationSet(struct, Orientation); return this; }
+	public OVRLayerQuad setQuadPoseCenterOrientationX(float x) { QuadPoseCenterOrientationX(struct, x); return this; }
+	public OVRLayerQuad setQuadPoseCenterOrientationY(float y) { QuadPoseCenterOrientationY(struct, y); return this; }
+	public OVRLayerQuad setQuadPoseCenterOrientationZ(float z) { QuadPoseCenterOrientationZ(struct, z); return this; }
+	public OVRLayerQuad setQuadPoseCenterOrientationW(float w) { QuadPoseCenterOrientationW(struct, w); return this; }
+	public OVRLayerQuad setQuadPoseCenterPosition(ByteBuffer Position) { QuadPoseCenterPositionSet(struct, Position); return this; }
+	public OVRLayerQuad setQuadPoseCenterPositionX(float x) { QuadPoseCenterPositionX(struct, x); return this; }
+	public OVRLayerQuad setQuadPoseCenterPositionY(float y) { QuadPoseCenterPositionY(struct, y); return this; }
+	public OVRLayerQuad setQuadPoseCenterPositionZ(float z) { QuadPoseCenterPositionZ(struct, z); return this; }
+	public OVRLayerQuad setQuadSize(ByteBuffer QuadSize) { QuadSizeSet(struct, QuadSize); return this; }
+	public OVRLayerQuad setQuadSizeX(float x) { QuadSizeX(struct, x); return this; }
+	public OVRLayerQuad setQuadSizeY(float y) { QuadSizeY(struct, y); return this; }
 
 	public void getHeader(ByteBuffer Header) { HeaderGet(struct, Header); }
 	public int getHeaderType() { return HeaderType(struct); }

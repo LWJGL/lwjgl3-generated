@@ -24,13 +24,15 @@ public final class GLFWimage implements Pointer {
 		PIXELS;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(3);
+		IntBuffer offsets = memAllocInt(3);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		WIDTH = offsets.get(0);
 		HEIGHT = offsets.get(1);
 		PIXELS = offsets.get(2);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -55,10 +57,10 @@ public final class GLFWimage implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setWidth(int width) { width(struct, width); }
-	public void setHeight(int height) { height(struct, height); }
-	public void setPixels(long pixels) { pixels(struct, pixels); }
-	public void setPixels(ByteBuffer pixels) { pixels(struct, pixels); }
+	public GLFWimage setWidth(int width) { width(struct, width); return this; }
+	public GLFWimage setHeight(int height) { height(struct, height); return this; }
+	public GLFWimage setPixels(long pixels) { pixels(struct, pixels); return this; }
+	public GLFWimage setPixels(ByteBuffer pixels) { pixels(struct, pixels); return this; }
 
 	public int getWidth() { return width(struct); }
 	public int getHeight() { return height(struct); }

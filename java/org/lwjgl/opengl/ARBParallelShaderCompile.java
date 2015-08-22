@@ -72,7 +72,7 @@ public final class ARBParallelShaderCompile {
 	 */
 	public static void glMaxShaderCompilerThreadsARB(int count) {
 		long __functionAddress = getInstance().MaxShaderCompilerThreadsARB;
-		invokeIV(__functionAddress, count);
+		callIV(__functionAddress, count);
 	}
 
 }

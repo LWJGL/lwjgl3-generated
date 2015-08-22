@@ -600,7 +600,7 @@ public final class GLES30 {
 
 	public static void glReadBuffer(int src) {
 		long __functionAddress = getInstance().ReadBuffer;
-		invokeIV(__functionAddress, src);
+		callIV(__functionAddress, src);
 	}
 
 	// --- [ glDrawRangeElements ] ---
@@ -609,7 +609,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglDrawRangeElements(int mode, int start, int end, int count, int type, long indices) {
 		long __functionAddress = getInstance().DrawRangeElements;
-		invokeIIIIIPV(__functionAddress, mode, start, end, count, type, indices);
+		callIIIIIPV(__functionAddress, mode, start, end, count, type, indices);
 	}
 
 	public static void glDrawRangeElements(int mode, int start, int end, int count, int type, ByteBuffer indices) {
@@ -649,7 +649,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexImage3D;
-		invokeIIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
+		callIIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ByteBuffer pixels) {
@@ -682,7 +682,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexSubImage3D;
-		invokeIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer pixels) {
@@ -713,7 +713,7 @@ public final class GLES30 {
 
 	public static void glCopyTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().CopyTexSubImage3D;
-		invokeIIIIIIIIIV(__functionAddress, target, level, xoffset, yoffset, zoffset, x, y, width, height);
+		callIIIIIIIIIV(__functionAddress, target, level, xoffset, yoffset, zoffset, x, y, width, height);
 	}
 
 	// --- [ glCompressedTexImage3D ] ---
@@ -722,7 +722,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage3D;
-		invokeIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
+		callIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
 	}
 
 	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, ByteBuffer data) {
@@ -747,7 +747,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage3D;
-		invokeIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
+		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
 	public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, ByteBuffer data) {
@@ -772,7 +772,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGenQueries(int n, long ids) {
 		long __functionAddress = getInstance().GenQueries;
-		invokeIPV(__functionAddress, n, ids);
+		callIPV(__functionAddress, n, ids);
 	}
 
 	public static void glGenQueries(int n, ByteBuffer ids) {
@@ -800,7 +800,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglDeleteQueries(int n, long ids) {
 		long __functionAddress = getInstance().DeleteQueries;
-		invokeIPV(__functionAddress, n, ids);
+		callIPV(__functionAddress, n, ids);
 	}
 
 	public static void glDeleteQueries(int n, ByteBuffer ids) {
@@ -825,21 +825,21 @@ public final class GLES30 {
 
 	public static boolean glIsQuery(int id) {
 		long __functionAddress = getInstance().IsQuery;
-		return invokeIZ(__functionAddress, id);
+		return callIZ(__functionAddress, id);
 	}
 
 	// --- [ glBeginQuery ] ---
 
 	public static void glBeginQuery(int target, int id) {
 		long __functionAddress = getInstance().BeginQuery;
-		invokeIIV(__functionAddress, target, id);
+		callIIV(__functionAddress, target, id);
 	}
 
 	// --- [ glEndQuery ] ---
 
 	public static void glEndQuery(int target) {
 		long __functionAddress = getInstance().EndQuery;
-		invokeIV(__functionAddress, target);
+		callIV(__functionAddress, target);
 	}
 
 	// --- [ glGetQueryiv ] ---
@@ -848,7 +848,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGetQueryiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryiv;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetQueryiv(int target, int pname, ByteBuffer params) {
@@ -878,7 +878,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGetQueryObjectuiv(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectuiv;
-		invokeIIPV(__functionAddress, id, pname, params);
+		callIIPV(__functionAddress, id, pname, params);
 	}
 
 	public static void glGetQueryObjectuiv(int id, int pname, ByteBuffer params) {
@@ -906,7 +906,7 @@ public final class GLES30 {
 
 	public static boolean glUnmapBuffer(int target) {
 		long __functionAddress = getInstance().UnmapBuffer;
-		return invokeIZ(__functionAddress, target);
+		return callIZ(__functionAddress, target);
 	}
 
 	// --- [ glGetBufferPointerv ] ---
@@ -915,7 +915,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGetBufferPointerv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferPointerv;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetBufferPointerv(int target, int pname, ByteBuffer params) {
@@ -945,7 +945,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglDrawBuffers(int n, long bufs) {
 		long __functionAddress = getInstance().DrawBuffers;
-		invokeIPV(__functionAddress, n, bufs);
+		callIPV(__functionAddress, n, bufs);
 	}
 
 	public static void glDrawBuffers(int n, ByteBuffer bufs) {
@@ -972,7 +972,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglUniformMatrix2x3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x3fv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	public static void glUniformMatrix2x3fv(int location, int count, boolean transpose, ByteBuffer value) {
@@ -992,7 +992,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglUniformMatrix3x2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x2fv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	public static void glUniformMatrix3x2fv(int location, int count, boolean transpose, ByteBuffer value) {
@@ -1012,7 +1012,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglUniformMatrix2x4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x4fv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	public static void glUniformMatrix2x4fv(int location, int count, boolean transpose, ByteBuffer value) {
@@ -1032,7 +1032,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglUniformMatrix4x2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x2fv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	public static void glUniformMatrix4x2fv(int location, int count, boolean transpose, ByteBuffer value) {
@@ -1052,7 +1052,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglUniformMatrix3x4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x4fv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	public static void glUniformMatrix3x4fv(int location, int count, boolean transpose, ByteBuffer value) {
@@ -1072,7 +1072,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglUniformMatrix4x3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x3fv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	public static void glUniformMatrix4x3fv(int location, int count, boolean transpose, ByteBuffer value) {
@@ -1090,21 +1090,21 @@ public final class GLES30 {
 
 	public static void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
 		long __functionAddress = getInstance().BlitFramebuffer;
-		invokeIIIIIIIIIIV(__functionAddress, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
+		callIIIIIIIIIIV(__functionAddress, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 
 	// --- [ glRenderbufferStorageMultisample ] ---
 
 	public static void glRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageMultisample;
-		invokeIIIIIV(__functionAddress, target, samples, internalformat, width, height);
+		callIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
 	// --- [ glFramebufferTextureLayer ] ---
 
 	public static void glFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer) {
 		long __functionAddress = getInstance().FramebufferTextureLayer;
-		invokeIIIIIV(__functionAddress, target, attachment, texture, level, layer);
+		callIIIIIV(__functionAddress, target, attachment, texture, level, layer);
 	}
 
 	// --- [ glMapBufferRange ] ---
@@ -1113,7 +1113,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static long nglMapBufferRange(int target, long offset, long length, int access) {
 		long __functionAddress = getInstance().MapBufferRange;
-		return invokeIPPIP(__functionAddress, target, offset, length, access);
+		return callIPPIP(__functionAddress, target, offset, length, access);
 	}
 
 	public static ByteBuffer glMapBufferRange(int target, long offset, long length, int access) {
@@ -1131,14 +1131,14 @@ public final class GLES30 {
 
 	public static void glFlushMappedBufferRange(int target, long offset, long length) {
 		long __functionAddress = getInstance().FlushMappedBufferRange;
-		invokeIPPV(__functionAddress, target, offset, length);
+		callIPPV(__functionAddress, target, offset, length);
 	}
 
 	// --- [ glBindVertexArray ] ---
 
 	public static void glBindVertexArray(int array) {
 		long __functionAddress = getInstance().BindVertexArray;
-		invokeIV(__functionAddress, array);
+		callIV(__functionAddress, array);
 	}
 
 	// --- [ glDeleteVertexArrays ] ---
@@ -1147,7 +1147,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglDeleteVertexArrays(int n, long arrays) {
 		long __functionAddress = getInstance().DeleteVertexArrays;
-		invokeIPV(__functionAddress, n, arrays);
+		callIPV(__functionAddress, n, arrays);
 	}
 
 	public static void glDeleteVertexArrays(int n, ByteBuffer arrays) {
@@ -1174,7 +1174,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGenVertexArrays(int n, long arrays) {
 		long __functionAddress = getInstance().GenVertexArrays;
-		invokeIPV(__functionAddress, n, arrays);
+		callIPV(__functionAddress, n, arrays);
 	}
 
 	public static void glGenVertexArrays(int n, ByteBuffer arrays) {
@@ -1200,7 +1200,7 @@ public final class GLES30 {
 
 	public static boolean glIsVertexArray(int array) {
 		long __functionAddress = getInstance().IsVertexArray;
-		return invokeIZ(__functionAddress, array);
+		return callIZ(__functionAddress, array);
 	}
 
 	// --- [ glGetIntegeri_v ] ---
@@ -1209,7 +1209,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGetIntegeri_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetIntegeri_v;
-		invokeIIPV(__functionAddress, target, index, data);
+		callIIPV(__functionAddress, target, index, data);
 	}
 
 	public static void glGetIntegeri_v(int target, int index, ByteBuffer data) {
@@ -1237,28 +1237,28 @@ public final class GLES30 {
 
 	public static void glBeginTransformFeedback(int primitiveMode) {
 		long __functionAddress = getInstance().BeginTransformFeedback;
-		invokeIV(__functionAddress, primitiveMode);
+		callIV(__functionAddress, primitiveMode);
 	}
 
 	// --- [ glEndTransformFeedback ] ---
 
 	public static void glEndTransformFeedback() {
 		long __functionAddress = getInstance().EndTransformFeedback;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glBindBufferRange ] ---
 
 	public static void glBindBufferRange(int target, int index, int buffer, long offset, long size) {
 		long __functionAddress = getInstance().BindBufferRange;
-		invokeIIIPPV(__functionAddress, target, index, buffer, offset, size);
+		callIIIPPV(__functionAddress, target, index, buffer, offset, size);
 	}
 
 	// --- [ glBindBufferBase ] ---
 
 	public static void glBindBufferBase(int target, int index, int buffer) {
 		long __functionAddress = getInstance().BindBufferBase;
-		invokeIIIV(__functionAddress, target, index, buffer);
+		callIIIV(__functionAddress, target, index, buffer);
 	}
 
 	// --- [ glTransformFeedbackVaryings ] ---
@@ -1267,7 +1267,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglTransformFeedbackVaryings(int program, int count, long varyings, int bufferMode) {
 		long __functionAddress = getInstance().TransformFeedbackVaryings;
-		invokeIIPIV(__functionAddress, program, count, varyings, bufferMode);
+		callIIPIV(__functionAddress, program, count, varyings, bufferMode);
 	}
 
 	public static void glTransformFeedbackVaryings(int program, int count, ByteBuffer varyings, int bufferMode) {
@@ -1309,7 +1309,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGetTransformFeedbackVarying(int program, int index, int bufSize, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetTransformFeedbackVarying;
-		invokeIIIPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
+		callIIIPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
 	}
 
 	public static void glGetTransformFeedbackVarying(int program, int index, int bufSize, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
@@ -1365,7 +1365,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglVertexAttribIPointer(int index, int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexAttribIPointer;
-		invokeIIIIPV(__functionAddress, index, size, type, stride, pointer);
+		callIIIIPV(__functionAddress, index, size, type, stride, pointer);
 	}
 
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, ByteBuffer pointer) {
@@ -1393,7 +1393,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGetVertexAttribIiv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribIiv;
-		invokeIIPV(__functionAddress, index, pname, params);
+		callIIPV(__functionAddress, index, pname, params);
 	}
 
 	public static void glGetVertexAttribIiv(int index, int pname, ByteBuffer params) {
@@ -1423,7 +1423,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGetVertexAttribIuiv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribIuiv;
-		invokeIIPV(__functionAddress, index, pname, params);
+		callIIPV(__functionAddress, index, pname, params);
 	}
 
 	public static void glGetVertexAttribIuiv(int index, int pname, ByteBuffer params) {
@@ -1451,14 +1451,14 @@ public final class GLES30 {
 
 	public static void glVertexAttribI4i(int index, int x, int y, int z, int w) {
 		long __functionAddress = getInstance().VertexAttribI4i;
-		invokeIIIIIV(__functionAddress, index, x, y, z, w);
+		callIIIIIV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttribI4ui ] ---
 
 	public static void glVertexAttribI4ui(int index, int x, int y, int z, int w) {
 		long __functionAddress = getInstance().VertexAttribI4ui;
-		invokeIIIIIV(__functionAddress, index, x, y, z, w);
+		callIIIIIV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttribI4iv ] ---
@@ -1467,7 +1467,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglVertexAttribI4iv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4iv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttribI4iv(int index, ByteBuffer v) {
@@ -1489,7 +1489,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglVertexAttribI4uiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4uiv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttribI4uiv(int index, ByteBuffer v) {
@@ -1511,7 +1511,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGetUniformuiv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformuiv;
-		invokeIIPV(__functionAddress, program, location, params);
+		callIIPV(__functionAddress, program, location, params);
 	}
 
 	public static void glGetUniformuiv(int program, int location, ByteBuffer params) {
@@ -1541,7 +1541,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static int nglGetFragDataLocation(int program, long name) {
 		long __functionAddress = getInstance().GetFragDataLocation;
-		return invokeIPI(__functionAddress, program, name);
+		return callIPI(__functionAddress, program, name);
 	}
 
 	public static int glGetFragDataLocation(int program, ByteBuffer name) {
@@ -1561,28 +1561,28 @@ public final class GLES30 {
 
 	public static void glUniform1ui(int location, int v0) {
 		long __functionAddress = getInstance().Uniform1ui;
-		invokeIIV(__functionAddress, location, v0);
+		callIIV(__functionAddress, location, v0);
 	}
 
 	// --- [ glUniform2ui ] ---
 
 	public static void glUniform2ui(int location, int v0, int v1) {
 		long __functionAddress = getInstance().Uniform2ui;
-		invokeIIIV(__functionAddress, location, v0, v1);
+		callIIIV(__functionAddress, location, v0, v1);
 	}
 
 	// --- [ glUniform3ui ] ---
 
 	public static void glUniform3ui(int location, int v0, int v1, int v2) {
 		long __functionAddress = getInstance().Uniform3ui;
-		invokeIIIIV(__functionAddress, location, v0, v1, v2);
+		callIIIIV(__functionAddress, location, v0, v1, v2);
 	}
 
 	// --- [ glUniform4ui ] ---
 
 	public static void glUniform4ui(int location, int v0, int v1, int v2, int v3) {
 		long __functionAddress = getInstance().Uniform4ui;
-		invokeIIIIIV(__functionAddress, location, v0, v1, v2, v3);
+		callIIIIIV(__functionAddress, location, v0, v1, v2, v3);
 	}
 
 	// --- [ glUniform1uiv ] ---
@@ -1591,7 +1591,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglUniform1uiv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1uiv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform1uiv(int location, int count, ByteBuffer value) {
@@ -1611,7 +1611,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglUniform2uiv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2uiv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform2uiv(int location, int count, ByteBuffer value) {
@@ -1631,7 +1631,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglUniform3uiv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3uiv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform3uiv(int location, int count, ByteBuffer value) {
@@ -1651,7 +1651,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglUniform4uiv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4uiv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform4uiv(int location, int count, ByteBuffer value) {
@@ -1671,7 +1671,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglClearBufferiv(int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearBufferiv;
-		invokeIIPV(__functionAddress, buffer, drawbuffer, value);
+		callIIPV(__functionAddress, buffer, drawbuffer, value);
 	}
 
 	public static void glClearBufferiv(int buffer, int drawbuffer, ByteBuffer value) {
@@ -1693,7 +1693,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglClearBufferuiv(int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearBufferuiv;
-		invokeIIPV(__functionAddress, buffer, drawbuffer, value);
+		callIIPV(__functionAddress, buffer, drawbuffer, value);
 	}
 
 	public static void glClearBufferuiv(int buffer, int drawbuffer, ByteBuffer value) {
@@ -1715,7 +1715,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglClearBufferfv(int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearBufferfv;
-		invokeIIPV(__functionAddress, buffer, drawbuffer, value);
+		callIIPV(__functionAddress, buffer, drawbuffer, value);
 	}
 
 	public static void glClearBufferfv(int buffer, int drawbuffer, ByteBuffer value) {
@@ -1735,7 +1735,7 @@ public final class GLES30 {
 
 	public static void glClearBufferfi(int buffer, int drawbuffer, float depth, int stencil) {
 		long __functionAddress = getInstance().ClearBufferfi;
-		invokeIIFIV(__functionAddress, buffer, drawbuffer, depth, stencil);
+		callIIFIV(__functionAddress, buffer, drawbuffer, depth, stencil);
 	}
 
 	// --- [ glGetStringi ] ---
@@ -1744,7 +1744,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static long nglGetStringi(int name, int index) {
 		long __functionAddress = getInstance().GetStringi;
-		return invokeIIP(__functionAddress, name, index);
+		return callIIP(__functionAddress, name, index);
 	}
 
 	public static String glGetStringi(int name, int index) {
@@ -1756,7 +1756,7 @@ public final class GLES30 {
 
 	public static void glCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
 		long __functionAddress = getInstance().CopyBufferSubData;
-		invokeIIPPPV(__functionAddress, readTarget, writeTarget, readOffset, writeOffset, size);
+		callIIPPPV(__functionAddress, readTarget, writeTarget, readOffset, writeOffset, size);
 	}
 
 	// --- [ glGetUniformIndices ] ---
@@ -1765,7 +1765,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGetUniformIndices(int program, int uniformCount, long uniformNames, long uniformIndices) {
 		long __functionAddress = getInstance().GetUniformIndices;
-		invokeIIPPV(__functionAddress, program, uniformCount, uniformNames, uniformIndices);
+		callIIPPV(__functionAddress, program, uniformCount, uniformNames, uniformIndices);
 	}
 
 	public static void glGetUniformIndices(int program, int uniformCount, ByteBuffer uniformNames, ByteBuffer uniformIndices) {
@@ -1789,7 +1789,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveUniformsiv;
-		invokeIIPIPV(__functionAddress, program, uniformCount, uniformIndices, pname, params);
+		callIIPIPV(__functionAddress, program, uniformCount, uniformIndices, pname, params);
 	}
 
 	public static void glGetActiveUniformsiv(int program, int uniformCount, ByteBuffer uniformIndices, int pname, ByteBuffer params) {
@@ -1813,7 +1813,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static int nglGetUniformBlockIndex(int program, long uniformBlockName) {
 		long __functionAddress = getInstance().GetUniformBlockIndex;
-		return invokeIPI(__functionAddress, program, uniformBlockName);
+		return callIPI(__functionAddress, program, uniformBlockName);
 	}
 
 	public static int glGetUniformBlockIndex(int program, ByteBuffer uniformBlockName) {
@@ -1835,7 +1835,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveUniformBlockiv;
-		invokeIIIPV(__functionAddress, program, uniformBlockIndex, pname, params);
+		callIIIPV(__functionAddress, program, uniformBlockIndex, pname, params);
 	}
 
 	public static void glGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, ByteBuffer params) {
@@ -1865,7 +1865,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, long length, long uniformBlockName) {
 		long __functionAddress = getInstance().GetActiveUniformBlockName;
-		invokeIIIPPV(__functionAddress, program, uniformBlockIndex, bufSize, length, uniformBlockName);
+		callIIIPPV(__functionAddress, program, uniformBlockIndex, bufSize, length, uniformBlockName);
 	}
 
 	public static void glGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, ByteBuffer length, ByteBuffer uniformBlockName) {
@@ -1906,14 +1906,14 @@ public final class GLES30 {
 
 	public static void glUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding) {
 		long __functionAddress = getInstance().UniformBlockBinding;
-		invokeIIIV(__functionAddress, program, uniformBlockIndex, uniformBlockBinding);
+		callIIIV(__functionAddress, program, uniformBlockIndex, uniformBlockBinding);
 	}
 
 	// --- [ glDrawArraysInstanced ] ---
 
 	public static void glDrawArraysInstanced(int mode, int first, int count, int instancecount) {
 		long __functionAddress = getInstance().DrawArraysInstanced;
-		invokeIIIIV(__functionAddress, mode, first, count, instancecount);
+		callIIIIV(__functionAddress, mode, first, count, instancecount);
 	}
 
 	// --- [ glDrawElementsInstanced ] ---
@@ -1922,7 +1922,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglDrawElementsInstanced(int mode, int count, int type, long indices, int instancecount) {
 		long __functionAddress = getInstance().DrawElementsInstanced;
-		invokeIIIPIV(__functionAddress, mode, count, type, indices, instancecount);
+		callIIIPIV(__functionAddress, mode, count, type, indices, instancecount);
 	}
 
 	public static void glDrawElementsInstanced(int mode, int count, int type, ByteBuffer indices, int instancecount) {
@@ -1960,7 +1960,7 @@ public final class GLES30 {
 
 	public static long glFenceSync(int condition, int flags) {
 		long __functionAddress = getInstance().FenceSync;
-		return invokeIIP(__functionAddress, condition, flags);
+		return callIIP(__functionAddress, condition, flags);
 	}
 
 	// --- [ glIsSync ] ---
@@ -1969,7 +1969,7 @@ public final class GLES30 {
 		long __functionAddress = getInstance().IsSync;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		return invokePZ(__functionAddress, sync);
+		return callPZ(__functionAddress, sync);
 	}
 
 	// --- [ glDeleteSync ] ---
@@ -1978,7 +1978,7 @@ public final class GLES30 {
 		long __functionAddress = getInstance().DeleteSync;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		invokePV(__functionAddress, sync);
+		callPV(__functionAddress, sync);
 	}
 
 	// --- [ glClientWaitSync ] ---
@@ -1987,7 +1987,7 @@ public final class GLES30 {
 		long __functionAddress = getInstance().ClientWaitSync;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		return invokePIJI(__functionAddress, sync, flags, timeout);
+		return callPIJI(__functionAddress, sync, flags, timeout);
 	}
 
 	// --- [ glWaitSync ] ---
@@ -1996,7 +1996,7 @@ public final class GLES30 {
 		long __functionAddress = getInstance().WaitSync;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		invokePIJV(__functionAddress, sync, flags, timeout);
+		callPIJV(__functionAddress, sync, flags, timeout);
 	}
 
 	// --- [ glGetInteger64v ] ---
@@ -2005,7 +2005,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGetInteger64v(int pname, long data) {
 		long __functionAddress = getInstance().GetInteger64v;
-		invokeIPV(__functionAddress, pname, data);
+		callIPV(__functionAddress, pname, data);
 	}
 
 	public static void glGetInteger64v(int pname, ByteBuffer data) {
@@ -2037,7 +2037,7 @@ public final class GLES30 {
 		long __functionAddress = getInstance().GetSynciv;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		invokePIIPPV(__functionAddress, sync, pname, bufSize, length, values);
+		callPIIPPV(__functionAddress, sync, pname, bufSize, length, values);
 	}
 
 	public static void glGetSynciv(long sync, int pname, int bufSize, ByteBuffer length, ByteBuffer values) {
@@ -2071,7 +2071,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGetInteger64i_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetInteger64i_v;
-		invokeIIPV(__functionAddress, target, index, data);
+		callIIPV(__functionAddress, target, index, data);
 	}
 
 	public static void glGetInteger64i_v(int target, int index, ByteBuffer data) {
@@ -2101,7 +2101,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGetBufferParameteri64v(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferParameteri64v;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetBufferParameteri64v(int target, int pname, ByteBuffer params) {
@@ -2131,7 +2131,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGenSamplers(int count, long samplers) {
 		long __functionAddress = getInstance().GenSamplers;
-		invokeIPV(__functionAddress, count, samplers);
+		callIPV(__functionAddress, count, samplers);
 	}
 
 	public static void glGenSamplers(int count, ByteBuffer samplers) {
@@ -2159,7 +2159,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglDeleteSamplers(int count, long samplers) {
 		long __functionAddress = getInstance().DeleteSamplers;
-		invokeIPV(__functionAddress, count, samplers);
+		callIPV(__functionAddress, count, samplers);
 	}
 
 	public static void glDeleteSamplers(int count, ByteBuffer samplers) {
@@ -2184,21 +2184,21 @@ public final class GLES30 {
 
 	public static boolean glIsSampler(int sampler) {
 		long __functionAddress = getInstance().IsSampler;
-		return invokeIZ(__functionAddress, sampler);
+		return callIZ(__functionAddress, sampler);
 	}
 
 	// --- [ glBindSampler ] ---
 
 	public static void glBindSampler(int unit, int sampler) {
 		long __functionAddress = getInstance().BindSampler;
-		invokeIIV(__functionAddress, unit, sampler);
+		callIIV(__functionAddress, unit, sampler);
 	}
 
 	// --- [ glSamplerParameteri ] ---
 
 	public static void glSamplerParameteri(int sampler, int pname, int param) {
 		long __functionAddress = getInstance().SamplerParameteri;
-		invokeIIIV(__functionAddress, sampler, pname, param);
+		callIIIV(__functionAddress, sampler, pname, param);
 	}
 
 	// --- [ glSamplerParameteriv ] ---
@@ -2207,7 +2207,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglSamplerParameteriv(int sampler, int pname, long param) {
 		long __functionAddress = getInstance().SamplerParameteriv;
-		invokeIIPV(__functionAddress, sampler, pname, param);
+		callIIPV(__functionAddress, sampler, pname, param);
 	}
 
 	public static void glSamplerParameteriv(int sampler, int pname, ByteBuffer param) {
@@ -2223,7 +2223,7 @@ public final class GLES30 {
 
 	public static void glSamplerParameterf(int sampler, int pname, float param) {
 		long __functionAddress = getInstance().SamplerParameterf;
-		invokeIIFV(__functionAddress, sampler, pname, param);
+		callIIFV(__functionAddress, sampler, pname, param);
 	}
 
 	// --- [ glSamplerParameterfv ] ---
@@ -2232,7 +2232,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglSamplerParameterfv(int sampler, int pname, long param) {
 		long __functionAddress = getInstance().SamplerParameterfv;
-		invokeIIPV(__functionAddress, sampler, pname, param);
+		callIIPV(__functionAddress, sampler, pname, param);
 	}
 
 	public static void glSamplerParameterfv(int sampler, int pname, ByteBuffer param) {
@@ -2250,7 +2250,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGetSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameteriv;
-		invokeIIPV(__functionAddress, sampler, pname, params);
+		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	public static void glGetSamplerParameteriv(int sampler, int pname, ByteBuffer params) {
@@ -2280,7 +2280,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGetSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterfv;
-		invokeIIPV(__functionAddress, sampler, pname, params);
+		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	public static void glGetSamplerParameterfv(int sampler, int pname, ByteBuffer params) {
@@ -2308,14 +2308,14 @@ public final class GLES30 {
 
 	public static void glVertexAttribDivisor(int index, int divisor) {
 		long __functionAddress = getInstance().VertexAttribDivisor;
-		invokeIIV(__functionAddress, index, divisor);
+		callIIV(__functionAddress, index, divisor);
 	}
 
 	// --- [ glBindTransformFeedback ] ---
 
 	public static void glBindTransformFeedback(int target, int id) {
 		long __functionAddress = getInstance().BindTransformFeedback;
-		invokeIIV(__functionAddress, target, id);
+		callIIV(__functionAddress, target, id);
 	}
 
 	// --- [ glDeleteTransformFeedbacks ] ---
@@ -2324,7 +2324,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglDeleteTransformFeedbacks(int n, long ids) {
 		long __functionAddress = getInstance().DeleteTransformFeedbacks;
-		invokeIPV(__functionAddress, n, ids);
+		callIPV(__functionAddress, n, ids);
 	}
 
 	public static void glDeleteTransformFeedbacks(int n, ByteBuffer ids) {
@@ -2351,7 +2351,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGenTransformFeedbacks(int n, long ids) {
 		long __functionAddress = getInstance().GenTransformFeedbacks;
-		invokeIPV(__functionAddress, n, ids);
+		callIPV(__functionAddress, n, ids);
 	}
 
 	public static void glGenTransformFeedbacks(int n, ByteBuffer ids) {
@@ -2377,21 +2377,21 @@ public final class GLES30 {
 
 	public static boolean glIsTransformFeedback(int id) {
 		long __functionAddress = getInstance().IsTransformFeedback;
-		return invokeIZ(__functionAddress, id);
+		return callIZ(__functionAddress, id);
 	}
 
 	// --- [ glPauseTransformFeedback ] ---
 
 	public static void glPauseTransformFeedback() {
 		long __functionAddress = getInstance().PauseTransformFeedback;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glResumeTransformFeedback ] ---
 
 	public static void glResumeTransformFeedback() {
 		long __functionAddress = getInstance().ResumeTransformFeedback;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glGetProgramBinary ] ---
@@ -2400,7 +2400,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGetProgramBinary(int program, int bufSize, long length, long binaryFormat, long binary) {
 		long __functionAddress = getInstance().GetProgramBinary;
-		invokeIIPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
+		callIIPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
 	}
 
 	public static void glGetProgramBinary(int program, int bufSize, ByteBuffer length, ByteBuffer binaryFormat, ByteBuffer binary) {
@@ -2452,7 +2452,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglProgramBinary(int program, int binaryFormat, long binary, int length) {
 		long __functionAddress = getInstance().ProgramBinary;
-		invokeIIPIV(__functionAddress, program, binaryFormat, binary, length);
+		callIIPIV(__functionAddress, program, binaryFormat, binary, length);
 	}
 
 	public static void glProgramBinary(int program, int binaryFormat, ByteBuffer binary, int length) {
@@ -2470,7 +2470,7 @@ public final class GLES30 {
 
 	public static void glProgramParameteri(int program, int pname, int value) {
 		long __functionAddress = getInstance().ProgramParameteri;
-		invokeIIIV(__functionAddress, program, pname, value);
+		callIIIV(__functionAddress, program, pname, value);
 	}
 
 	// --- [ glInvalidateFramebuffer ] ---
@@ -2479,7 +2479,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglInvalidateFramebuffer(int target, int numAttachments, long attachments) {
 		long __functionAddress = getInstance().InvalidateFramebuffer;
-		invokeIIPV(__functionAddress, target, numAttachments, attachments);
+		callIIPV(__functionAddress, target, numAttachments, attachments);
 	}
 
 	public static void glInvalidateFramebuffer(int target, int numAttachments, ByteBuffer attachments) {
@@ -2506,7 +2506,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().InvalidateSubFramebuffer;
-		invokeIIPIIIIV(__functionAddress, target, numAttachments, attachments, x, y, width, height);
+		callIIPIIIIV(__functionAddress, target, numAttachments, attachments, x, y, width, height);
 	}
 
 	public static void glInvalidateSubFramebuffer(int target, int numAttachments, ByteBuffer attachments, int x, int y, int width, int height) {
@@ -2531,14 +2531,14 @@ public final class GLES30 {
 
 	public static void glTexStorage2D(int target, int levels, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().TexStorage2D;
-		invokeIIIIIV(__functionAddress, target, levels, internalformat, width, height);
+		callIIIIIV(__functionAddress, target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTexStorage3D ] ---
 
 	public static void glTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth) {
 		long __functionAddress = getInstance().TexStorage3D;
-		invokeIIIIIIV(__functionAddress, target, levels, internalformat, width, height, depth);
+		callIIIIIIV(__functionAddress, target, levels, internalformat, width, height, depth);
 	}
 
 	// --- [ glGetInternalformativ ] ---
@@ -2547,7 +2547,7 @@ public final class GLES30 {
 	@JavadocExclude
 	public static void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params) {
 		long __functionAddress = getInstance().GetInternalformativ;
-		invokeIIIIPV(__functionAddress, target, internalformat, pname, bufSize, params);
+		callIIIIPV(__functionAddress, target, internalformat, pname, bufSize, params);
 	}
 
 	public static void glGetInternalformativ(int target, int internalformat, int pname, int bufSize, ByteBuffer params) {

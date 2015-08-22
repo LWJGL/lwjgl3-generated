@@ -67,7 +67,7 @@ public final class EXTDeviceBase {
 		long __functionAddress = getInstance().QueryDeviceAttribEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		return invokePIPZ(__functionAddress, device, attribute, value);
+		return callPIPZ(__functionAddress, device, attribute, value);
 	}
 
 	public static boolean eglQueryDeviceAttribEXT(long device, int attribute, ByteBuffer value) {
@@ -91,7 +91,7 @@ public final class EXTDeviceBase {
 		long __functionAddress = getInstance().QueryDeviceStringEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		return invokePIP(__functionAddress, device, name);
+		return callPIP(__functionAddress, device, name);
 	}
 
 	public static String eglQueryDeviceStringEXT(long device, int name) {
@@ -107,7 +107,7 @@ public final class EXTDeviceBase {
 		long __functionAddress = getInstance().QueryDisplayAttribEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return invokePIPZ(__functionAddress, dpy, attribute, value);
+		return callPIPZ(__functionAddress, dpy, attribute, value);
 	}
 
 	public static boolean eglQueryDisplayAttribEXT(long dpy, int attribute, ByteBuffer value) {
@@ -129,7 +129,7 @@ public final class EXTDeviceBase {
 	@JavadocExclude
 	public static boolean neglQueryDevicesEXT(int max_devices, long devices, long num_devices) {
 		long __functionAddress = getInstance().QueryDevicesEXT;
-		return invokeIPPZ(__functionAddress, max_devices, devices, num_devices);
+		return callIPPZ(__functionAddress, max_devices, devices, num_devices);
 	}
 
 	public static boolean eglQueryDevicesEXT(int max_devices, ByteBuffer devices, ByteBuffer num_devices) {

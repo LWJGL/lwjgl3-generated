@@ -110,7 +110,7 @@ public final class ARBShaderStorageBufferObject {
 	 */
 	public static void glShaderStorageBlockBinding(int program, int storageBlockIndex, int storageBlockBinding) {
 		long __functionAddress = getInstance().ShaderStorageBlockBinding;
-		invokeIIIV(__functionAddress, program, storageBlockIndex, storageBlockBinding);
+		callIIIV(__functionAddress, program, storageBlockIndex, storageBlockBinding);
 	}
 
 }

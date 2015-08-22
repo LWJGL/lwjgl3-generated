@@ -28,7 +28,7 @@ public final class GLXStereoNotifyEventEXT implements Pointer {
 		STEREO_TREE;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(8);
+		IntBuffer offsets = memAllocInt(8);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -40,6 +40,8 @@ public final class GLXStereoNotifyEventEXT implements Pointer {
 		EVTYPE = offsets.get(5);
 		WINDOW = offsets.get(6);
 		STEREO_TREE = offsets.get(7);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -64,14 +66,14 @@ public final class GLXStereoNotifyEventEXT implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setType(int type) { type(struct, type); }
-	public void setSerial(long serial) { serial(struct, serial); }
-	public void setSendEvent(int send_event) { send_event(struct, send_event); }
-	public void setDisplay(long display) { display(struct, display); }
-	public void setExtension(int extension) { extension(struct, extension); }
-	public void setEvtype(int evtype) { evtype(struct, evtype); }
-	public void setWindow(long window) { window(struct, window); }
-	public void setStereoTree(int stereo_tree) { stereo_tree(struct, stereo_tree); }
+	public GLXStereoNotifyEventEXT setType(int type) { type(struct, type); return this; }
+	public GLXStereoNotifyEventEXT setSerial(long serial) { serial(struct, serial); return this; }
+	public GLXStereoNotifyEventEXT setSendEvent(int send_event) { send_event(struct, send_event); return this; }
+	public GLXStereoNotifyEventEXT setDisplay(long display) { display(struct, display); return this; }
+	public GLXStereoNotifyEventEXT setExtension(int extension) { extension(struct, extension); return this; }
+	public GLXStereoNotifyEventEXT setEvtype(int evtype) { evtype(struct, evtype); return this; }
+	public GLXStereoNotifyEventEXT setWindow(long window) { window(struct, window); return this; }
+	public GLXStereoNotifyEventEXT setStereoTree(int stereo_tree) { stereo_tree(struct, stereo_tree); return this; }
 
 	public int getType() { return type(struct); }
 	public long getSerial() { return serial(struct); }

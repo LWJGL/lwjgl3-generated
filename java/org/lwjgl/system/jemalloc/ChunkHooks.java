@@ -28,7 +28,7 @@ public final class ChunkHooks implements Pointer {
 		MERGE;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(7);
+		IntBuffer offsets = memAllocInt(7);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -39,6 +39,8 @@ public final class ChunkHooks implements Pointer {
 		PURGE = offsets.get(4);
 		SPLIT = offsets.get(5);
 		MERGE = offsets.get(6);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -63,13 +65,13 @@ public final class ChunkHooks implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setAlloc(long alloc) { alloc(struct, alloc); }
-	public void setDalloc(long dalloc) { dalloc(struct, dalloc); }
-	public void setCommit(long commit) { commit(struct, commit); }
-	public void setDecommit(long decommit) { decommit(struct, decommit); }
-	public void setPurge(long purge) { purge(struct, purge); }
-	public void setSplit(long split) { split(struct, split); }
-	public void setMerge(long merge) { merge(struct, merge); }
+	public ChunkHooks setAlloc(long alloc) { alloc(struct, alloc); return this; }
+	public ChunkHooks setDalloc(long dalloc) { dalloc(struct, dalloc); return this; }
+	public ChunkHooks setCommit(long commit) { commit(struct, commit); return this; }
+	public ChunkHooks setDecommit(long decommit) { decommit(struct, decommit); return this; }
+	public ChunkHooks setPurge(long purge) { purge(struct, purge); return this; }
+	public ChunkHooks setSplit(long split) { split(struct, split); return this; }
+	public ChunkHooks setMerge(long merge) { merge(struct, merge); return this; }
 
 	public long getAlloc() { return alloc(struct); }
 	public long getDalloc() { return dalloc(struct); }

@@ -155,7 +155,7 @@ public final class EGL10 {
 		long __functionAddress = getInstance().ChooseConfig;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return invokePPPIPZ(__functionAddress, dpy, attrib_list, configs, config_size, num_config);
+		return callPPPIPZ(__functionAddress, dpy, attrib_list, configs, config_size, num_config);
 	}
 
 	public static boolean eglChooseConfig(long dpy, ByteBuffer attrib_list, ByteBuffer configs, int config_size, ByteBuffer num_config) {
@@ -185,7 +185,7 @@ public final class EGL10 {
 			checkPointer(surface);
 			checkPointer(target);
 		}
-		return invokePPPZ(__functionAddress, dpy, surface, target);
+		return callPPPZ(__functionAddress, dpy, surface, target);
 	}
 
 	// --- [ eglCreateContext ] ---
@@ -198,7 +198,7 @@ public final class EGL10 {
 			checkPointer(dpy);
 			checkPointer(config);
 		}
-		return invokePPPPP(__functionAddress, dpy, config, share_context, attrib_list);
+		return callPPPPP(__functionAddress, dpy, config, share_context, attrib_list);
 	}
 
 	public static long eglCreateContext(long dpy, long config, long share_context, ByteBuffer attrib_list) {
@@ -224,7 +224,7 @@ public final class EGL10 {
 			checkPointer(dpy);
 			checkPointer(config);
 		}
-		return invokePPPP(__functionAddress, dpy, config, attrib_list);
+		return callPPPP(__functionAddress, dpy, config, attrib_list);
 	}
 
 	public static long eglCreatePbufferSurface(long dpy, long config, ByteBuffer attrib_list) {
@@ -251,7 +251,7 @@ public final class EGL10 {
 			checkPointer(config);
 			checkPointer(pixmap);
 		}
-		return invokePPPPP(__functionAddress, dpy, config, pixmap, attrib_list);
+		return callPPPPP(__functionAddress, dpy, config, pixmap, attrib_list);
 	}
 
 	public static long eglCreatePixmapSurface(long dpy, long config, long pixmap, ByteBuffer attrib_list) {
@@ -278,7 +278,7 @@ public final class EGL10 {
 			checkPointer(config);
 			checkPointer(win);
 		}
-		return invokePPPPP(__functionAddress, dpy, config, win, attrib_list);
+		return callPPPPP(__functionAddress, dpy, config, win, attrib_list);
 	}
 
 	public static long eglCreateWindowSurface(long dpy, long config, long win, ByteBuffer attrib_list) {
@@ -302,7 +302,7 @@ public final class EGL10 {
 			checkPointer(dpy);
 			checkPointer(ctx);
 		}
-		return invokePPZ(__functionAddress, dpy, ctx);
+		return callPPZ(__functionAddress, dpy, ctx);
 	}
 
 	// --- [ eglDestroySurface ] ---
@@ -313,7 +313,7 @@ public final class EGL10 {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return invokePPZ(__functionAddress, dpy, surface);
+		return callPPZ(__functionAddress, dpy, surface);
 	}
 
 	// --- [ eglGetConfigAttrib ] ---
@@ -326,7 +326,7 @@ public final class EGL10 {
 			checkPointer(dpy);
 			checkPointer(config);
 		}
-		return invokePPIPZ(__functionAddress, dpy, config, attribute, value);
+		return callPPIPZ(__functionAddress, dpy, config, attribute, value);
 	}
 
 	public static boolean eglGetConfigAttrib(long dpy, long config, int attribute, ByteBuffer value) {
@@ -350,7 +350,7 @@ public final class EGL10 {
 		long __functionAddress = getInstance().GetConfigs;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return invokePPIPZ(__functionAddress, dpy, configs, config_size, num_config);
+		return callPPIPZ(__functionAddress, dpy, configs, config_size, num_config);
 	}
 
 	public static boolean eglGetConfigs(long dpy, ByteBuffer configs, int config_size, ByteBuffer num_config) {
@@ -372,28 +372,28 @@ public final class EGL10 {
 
 	public static long eglGetCurrentDisplay() {
 		long __functionAddress = getInstance().GetCurrentDisplay;
-		return invokeP(__functionAddress);
+		return callP(__functionAddress);
 	}
 
 	// --- [ eglGetCurrentSurface ] ---
 
 	public static long eglGetCurrentSurface(int readdraw) {
 		long __functionAddress = getInstance().GetCurrentSurface;
-		return invokeIP(__functionAddress, readdraw);
+		return callIP(__functionAddress, readdraw);
 	}
 
 	// --- [ eglGetDisplay ] ---
 
 	public static long eglGetDisplay(long display_id) {
 		long __functionAddress = getInstance().GetDisplay;
-		return invokePP(__functionAddress, display_id);
+		return callPP(__functionAddress, display_id);
 	}
 
 	// --- [ eglGetError ] ---
 
 	public static int eglGetError() {
 		long __functionAddress = getInstance().GetError;
-		return invokeI(__functionAddress);
+		return callI(__functionAddress);
 	}
 
 	// --- [ eglGetProcAddress ] ---
@@ -402,7 +402,7 @@ public final class EGL10 {
 	@JavadocExclude
 	public static long neglGetProcAddress(long procname) {
 		long __functionAddress = getInstance().GetProcAddress;
-		return invokePP(__functionAddress, procname);
+		return callPP(__functionAddress, procname);
 	}
 
 	public static long eglGetProcAddress(ByteBuffer procname) {
@@ -426,7 +426,7 @@ public final class EGL10 {
 		long __functionAddress = getInstance().Initialize;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return invokePPPZ(__functionAddress, dpy, major, minor);
+		return callPPPZ(__functionAddress, dpy, major, minor);
 	}
 
 	public static boolean eglInitialize(long dpy, ByteBuffer major, ByteBuffer minor) {
@@ -456,7 +456,7 @@ public final class EGL10 {
 			checkPointer(read);
 			checkPointer(ctx);
 		}
-		return invokePPPPZ(__functionAddress, dpy, draw, read, ctx);
+		return callPPPPZ(__functionAddress, dpy, draw, read, ctx);
 	}
 
 	// --- [ eglQueryContext ] ---
@@ -469,7 +469,7 @@ public final class EGL10 {
 			checkPointer(dpy);
 			checkPointer(ctx);
 		}
-		return invokePPIPZ(__functionAddress, dpy, ctx, attribute, value);
+		return callPPIPZ(__functionAddress, dpy, ctx, attribute, value);
 	}
 
 	public static boolean eglQueryContext(long dpy, long ctx, int attribute, ByteBuffer value) {
@@ -491,7 +491,7 @@ public final class EGL10 {
 	@JavadocExclude
 	public static long neglQueryString(long dpy, int name) {
 		long __functionAddress = getInstance().QueryString;
-		return invokePIP(__functionAddress, dpy, name);
+		return callPIP(__functionAddress, dpy, name);
 	}
 
 	public static String eglQueryString(long dpy, int name) {
@@ -509,7 +509,7 @@ public final class EGL10 {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return invokePPIPZ(__functionAddress, dpy, surface, attribute, value);
+		return callPPIPZ(__functionAddress, dpy, surface, attribute, value);
 	}
 
 	public static boolean eglQuerySurface(long dpy, long surface, int attribute, ByteBuffer value) {
@@ -533,7 +533,7 @@ public final class EGL10 {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return invokePPZ(__functionAddress, dpy, surface);
+		return callPPZ(__functionAddress, dpy, surface);
 	}
 
 	// --- [ eglTerminate ] ---
@@ -542,21 +542,21 @@ public final class EGL10 {
 		long __functionAddress = getInstance().Terminate;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return invokePZ(__functionAddress, dpy);
+		return callPZ(__functionAddress, dpy);
 	}
 
 	// --- [ eglWaitGL ] ---
 
 	public static boolean eglWaitGL() {
 		long __functionAddress = getInstance().WaitGL;
-		return invokeZ(__functionAddress);
+		return callZ(__functionAddress);
 	}
 
 	// --- [ eglWaitNative ] ---
 
 	public static boolean eglWaitNative(int engine) {
 		long __functionAddress = getInstance().WaitNative;
-		return invokeIZ(__functionAddress, engine);
+		return callIZ(__functionAddress, engine);
 	}
 
 }

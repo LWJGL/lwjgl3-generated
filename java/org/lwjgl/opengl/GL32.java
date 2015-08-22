@@ -261,7 +261,7 @@ public final class GL32 {
 	@JavadocExclude
 	public static void nglGetBufferParameteri64v(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferParameteri64v;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -300,7 +300,7 @@ public final class GL32 {
 	@JavadocExclude
 	public static void nglDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex) {
 		long __functionAddress = getInstance().DrawElementsBaseVertex;
-		invokeIIIPIV(__functionAddress, mode, count, type, indices, basevertex);
+		callIIIPIV(__functionAddress, mode, count, type, indices, basevertex);
 	}
 
 	/**
@@ -363,7 +363,7 @@ public final class GL32 {
 	@JavadocExclude
 	public static void nglDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex) {
 		long __functionAddress = getInstance().DrawRangeElementsBaseVertex;
-		invokeIIIIIPIV(__functionAddress, mode, start, end, count, type, indices, basevertex);
+		callIIIIIPIV(__functionAddress, mode, start, end, count, type, indices, basevertex);
 	}
 
 	/**
@@ -428,7 +428,7 @@ public final class GL32 {
 	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int primcount, int basevertex) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseVertex;
-		invokeIIIPIIV(__functionAddress, mode, count, type, indices, primcount, basevertex);
+		callIIIPIIV(__functionAddress, mode, count, type, indices, primcount, basevertex);
 	}
 
 	/**
@@ -492,7 +492,7 @@ public final class GL32 {
 	@JavadocExclude
 	public static void nglMultiDrawElementsBaseVertex(int mode, long count, int type, long indices, int primcount, long basevertex) {
 		long __functionAddress = getInstance().MultiDrawElementsBaseVertex;
-		invokeIPIPIPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
+		callIPIPIPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
 	}
 
 	/**
@@ -538,7 +538,7 @@ public final class GL32 {
 	 */
 	public static void glProvokingVertex(int mode) {
 		long __functionAddress = getInstance().ProvokingVertex;
-		invokeIV(__functionAddress, mode);
+		callIV(__functionAddress, mode);
 	}
 
 	// --- [ glTexImage2DMultisample ] ---
@@ -559,7 +559,7 @@ public final class GL32 {
 	 */
 	public static void glTexImage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TexImage2DMultisample;
-		invokeIIIIIZV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
+		callIIIIIZV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
 	// --- [ glTexImage3DMultisample ] ---
@@ -581,7 +581,7 @@ public final class GL32 {
 	 */
 	public static void glTexImage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TexImage3DMultisample;
-		invokeIIIIIIZV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
+		callIIIIIIZV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
 	// --- [ glGetMultisamplefv ] ---
@@ -590,7 +590,7 @@ public final class GL32 {
 	@JavadocExclude
 	public static void nglGetMultisamplefv(int pname, int index, long val) {
 		long __functionAddress = getInstance().GetMultisamplefv;
-		invokeIIPV(__functionAddress, pname, index, val);
+		callIIPV(__functionAddress, pname, index, val);
 	}
 
 	/**
@@ -635,7 +635,7 @@ public final class GL32 {
 	 */
 	public static void glSampleMaski(int index, int mask) {
 		long __functionAddress = getInstance().SampleMaski;
-		invokeIIV(__functionAddress, index, mask);
+		callIIV(__functionAddress, index, mask);
 	}
 
 	// --- [ glFramebufferTexture ] ---
@@ -652,7 +652,7 @@ public final class GL32 {
 	 */
 	public static void glFramebufferTexture(int target, int attachment, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTexture;
-		invokeIIIIV(__functionAddress, target, attachment, texture, level);
+		callIIIIV(__functionAddress, target, attachment, texture, level);
 	}
 
 	// --- [ glFenceSync ] ---
@@ -668,7 +668,7 @@ public final class GL32 {
 	 */
 	public static long glFenceSync(int condition, int flags) {
 		long __functionAddress = getInstance().FenceSync;
-		return invokeIIP(__functionAddress, condition, flags);
+		return callIIP(__functionAddress, condition, flags);
 	}
 
 	// --- [ glIsSync ] ---
@@ -684,7 +684,7 @@ public final class GL32 {
 		long __functionAddress = getInstance().IsSync;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		return invokePZ(__functionAddress, sync);
+		return callPZ(__functionAddress, sync);
 	}
 
 	// --- [ glDeleteSync ] ---
@@ -700,7 +700,7 @@ public final class GL32 {
 		long __functionAddress = getInstance().DeleteSync;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		invokePV(__functionAddress, sync);
+		callPV(__functionAddress, sync);
 	}
 
 	// --- [ glClientWaitSync ] ---
@@ -727,7 +727,7 @@ public final class GL32 {
 		long __functionAddress = getInstance().ClientWaitSync;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		return invokePIJI(__functionAddress, sync, flags, timeout);
+		return callPIJI(__functionAddress, sync, flags, timeout);
 	}
 
 	// --- [ glWaitSync ] ---
@@ -751,7 +751,7 @@ public final class GL32 {
 		long __functionAddress = getInstance().WaitSync;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		invokePIJV(__functionAddress, sync, flags, timeout);
+		callPIJV(__functionAddress, sync, flags, timeout);
 	}
 
 	// --- [ glGetInteger64v ] ---
@@ -760,7 +760,7 @@ public final class GL32 {
 	@JavadocExclude
 	public static void nglGetInteger64v(int pname, long params) {
 		long __functionAddress = getInstance().GetInteger64v;
-		invokeIPV(__functionAddress, pname, params);
+		callIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -798,7 +798,7 @@ public final class GL32 {
 	@JavadocExclude
 	public static void nglGetInteger64i_v(int pname, int index, long params) {
 		long __functionAddress = getInstance().GetInteger64i_v;
-		invokeIIPV(__functionAddress, pname, index, params);
+		callIIPV(__functionAddress, pname, index, params);
 	}
 
 	/**
@@ -839,7 +839,7 @@ public final class GL32 {
 		long __functionAddress = getInstance().GetSynciv;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(sync);
-		invokePIIPPV(__functionAddress, sync, pname, bufSize, length, values);
+		callPIIPPV(__functionAddress, sync, pname, bufSize, length, values);
 	}
 
 	/**

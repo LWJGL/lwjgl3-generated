@@ -734,14 +734,14 @@ public final class EXTDirectStateAccess {
 
 	public static void glClientAttribDefaultEXT(int mask) {
 		long __functionAddress = getInstance().ClientAttribDefaultEXT;
-		invokeIV(__functionAddress, mask);
+		callIV(__functionAddress, mask);
 	}
 
 	// --- [ glPushClientAttribDefaultEXT ] ---
 
 	public static void glPushClientAttribDefaultEXT(int mask) {
 		long __functionAddress = getInstance().PushClientAttribDefaultEXT;
-		invokeIV(__functionAddress, mask);
+		callIV(__functionAddress, mask);
 	}
 
 	// --- [ glMatrixLoadfEXT ] ---
@@ -750,7 +750,7 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglMatrixLoadfEXT(int matrixMode, long m) {
 		long __functionAddress = getInstance().MatrixLoadfEXT;
-		invokeIPV(__functionAddress, matrixMode, m);
+		callIPV(__functionAddress, matrixMode, m);
 	}
 
 	public static void glMatrixLoadfEXT(int matrixMode, ByteBuffer m) {
@@ -772,7 +772,7 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglMatrixLoaddEXT(int matrixMode, long m) {
 		long __functionAddress = getInstance().MatrixLoaddEXT;
-		invokeIPV(__functionAddress, matrixMode, m);
+		callIPV(__functionAddress, matrixMode, m);
 	}
 
 	public static void glMatrixLoaddEXT(int matrixMode, ByteBuffer m) {
@@ -794,7 +794,7 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglMatrixMultfEXT(int matrixMode, long m) {
 		long __functionAddress = getInstance().MatrixMultfEXT;
-		invokeIPV(__functionAddress, matrixMode, m);
+		callIPV(__functionAddress, matrixMode, m);
 	}
 
 	public static void glMatrixMultfEXT(int matrixMode, ByteBuffer m) {
@@ -816,7 +816,7 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglMatrixMultdEXT(int matrixMode, long m) {
 		long __functionAddress = getInstance().MatrixMultdEXT;
-		invokeIPV(__functionAddress, matrixMode, m);
+		callIPV(__functionAddress, matrixMode, m);
 	}
 
 	public static void glMatrixMultdEXT(int matrixMode, ByteBuffer m) {
@@ -836,84 +836,84 @@ public final class EXTDirectStateAccess {
 
 	public static void glMatrixLoadIdentityEXT(int matrixMode) {
 		long __functionAddress = getInstance().MatrixLoadIdentityEXT;
-		invokeIV(__functionAddress, matrixMode);
+		callIV(__functionAddress, matrixMode);
 	}
 
 	// --- [ glMatrixRotatefEXT ] ---
 
 	public static void glMatrixRotatefEXT(int matrixMode, float angle, float x, float y, float z) {
 		long __functionAddress = getInstance().MatrixRotatefEXT;
-		invokeIFFFFV(__functionAddress, matrixMode, angle, x, y, z);
+		callIFFFFV(__functionAddress, matrixMode, angle, x, y, z);
 	}
 
 	// --- [ glMatrixRotatedEXT ] ---
 
 	public static void glMatrixRotatedEXT(int matrixMode, double angle, double x, double y, double z) {
 		long __functionAddress = getInstance().MatrixRotatedEXT;
-		invokeIDDDDV(__functionAddress, matrixMode, angle, x, y, z);
+		callIDDDDV(__functionAddress, matrixMode, angle, x, y, z);
 	}
 
 	// --- [ glMatrixScalefEXT ] ---
 
 	public static void glMatrixScalefEXT(int matrixMode, float x, float y, float z) {
 		long __functionAddress = getInstance().MatrixScalefEXT;
-		invokeIFFFV(__functionAddress, matrixMode, x, y, z);
+		callIFFFV(__functionAddress, matrixMode, x, y, z);
 	}
 
 	// --- [ glMatrixScaledEXT ] ---
 
 	public static void glMatrixScaledEXT(int matrixMode, double x, double y, double z) {
 		long __functionAddress = getInstance().MatrixScaledEXT;
-		invokeIDDDV(__functionAddress, matrixMode, x, y, z);
+		callIDDDV(__functionAddress, matrixMode, x, y, z);
 	}
 
 	// --- [ glMatrixTranslatefEXT ] ---
 
 	public static void glMatrixTranslatefEXT(int matrixMode, float x, float y, float z) {
 		long __functionAddress = getInstance().MatrixTranslatefEXT;
-		invokeIFFFV(__functionAddress, matrixMode, x, y, z);
+		callIFFFV(__functionAddress, matrixMode, x, y, z);
 	}
 
 	// --- [ glMatrixTranslatedEXT ] ---
 
 	public static void glMatrixTranslatedEXT(int matrixMode, double x, double y, double z) {
 		long __functionAddress = getInstance().MatrixTranslatedEXT;
-		invokeIDDDV(__functionAddress, matrixMode, x, y, z);
+		callIDDDV(__functionAddress, matrixMode, x, y, z);
 	}
 
 	// --- [ glMatrixOrthoEXT ] ---
 
 	public static void glMatrixOrthoEXT(int matrixMode, double l, double r, double b, double t, double n, double f) {
 		long __functionAddress = getInstance().MatrixOrthoEXT;
-		invokeIDDDDDDV(__functionAddress, matrixMode, l, r, b, t, n, f);
+		callIDDDDDDV(__functionAddress, matrixMode, l, r, b, t, n, f);
 	}
 
 	// --- [ glMatrixFrustumEXT ] ---
 
 	public static void glMatrixFrustumEXT(int matrixMode, double l, double r, double b, double t, double n, double f) {
 		long __functionAddress = getInstance().MatrixFrustumEXT;
-		invokeIDDDDDDV(__functionAddress, matrixMode, l, r, b, t, n, f);
+		callIDDDDDDV(__functionAddress, matrixMode, l, r, b, t, n, f);
 	}
 
 	// --- [ glMatrixPushEXT ] ---
 
 	public static void glMatrixPushEXT(int matrixMode) {
 		long __functionAddress = getInstance().MatrixPushEXT;
-		invokeIV(__functionAddress, matrixMode);
+		callIV(__functionAddress, matrixMode);
 	}
 
 	// --- [ glMatrixPopEXT ] ---
 
 	public static void glMatrixPopEXT(int matrixMode) {
 		long __functionAddress = getInstance().MatrixPopEXT;
-		invokeIV(__functionAddress, matrixMode);
+		callIV(__functionAddress, matrixMode);
 	}
 
 	// --- [ glTextureParameteriEXT ] ---
 
 	public static void glTextureParameteriEXT(int texture, int target, int pname, int param) {
 		long __functionAddress = getInstance().TextureParameteriEXT;
-		invokeIIIIV(__functionAddress, texture, target, pname, param);
+		callIIIIV(__functionAddress, texture, target, pname, param);
 	}
 
 	// --- [ glTextureParameterivEXT ] ---
@@ -922,7 +922,7 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglTextureParameterivEXT(int texture, int target, int pname, long param) {
 		long __functionAddress = getInstance().TextureParameterivEXT;
-		invokeIIIPV(__functionAddress, texture, target, pname, param);
+		callIIIPV(__functionAddress, texture, target, pname, param);
 	}
 
 	public static void glTextureParameterivEXT(int texture, int target, int pname, ByteBuffer param) {
@@ -942,7 +942,7 @@ public final class EXTDirectStateAccess {
 
 	public static void glTextureParameterfEXT(int texture, int target, int pname, float param) {
 		long __functionAddress = getInstance().TextureParameterfEXT;
-		invokeIIIFV(__functionAddress, texture, target, pname, param);
+		callIIIFV(__functionAddress, texture, target, pname, param);
 	}
 
 	// --- [ glTextureParameterfvEXT ] ---
@@ -951,7 +951,7 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglTextureParameterfvEXT(int texture, int target, int pname, long param) {
 		long __functionAddress = getInstance().TextureParameterfvEXT;
-		invokeIIIPV(__functionAddress, texture, target, pname, param);
+		callIIIPV(__functionAddress, texture, target, pname, param);
 	}
 
 	public static void glTextureParameterfvEXT(int texture, int target, int pname, ByteBuffer param) {
@@ -973,7 +973,7 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureImage1DEXT;
-		invokeIIIIIIIIPV(__functionAddress, texture, target, level, internalformat, width, border, format, type, pixels);
+		callIIIIIIIIPV(__functionAddress, texture, target, level, internalformat, width, border, format, type, pixels);
 	}
 
 	public static void glTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int format, int type, ByteBuffer pixels) {
@@ -1023,7 +1023,7 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureImage2DEXT;
-		invokeIIIIIIIIIPV(__functionAddress, texture, target, level, internalformat, width, height, border, format, type, pixels);
+		callIIIIIIIIIPV(__functionAddress, texture, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
 	public static void glTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, ByteBuffer pixels) {
@@ -1073,7 +1073,7 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureSubImage1DEXT;
-		invokeIIIIIIIPV(__functionAddress, texture, target, level, xoffset, width, format, type, pixels);
+		callIIIIIIIPV(__functionAddress, texture, target, level, xoffset, width, format, type, pixels);
 	}
 
 	public static void glTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int type, ByteBuffer pixels) {
@@ -1123,7 +1123,7 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TextureSubImage2DEXT;
-		invokeIIIIIIIIIPV(__functionAddress, texture, target, level, xoffset, yoffset, width, height, format, type, pixels);
+		callIIIIIIIIIPV(__functionAddress, texture, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
 	public static void glTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, ByteBuffer pixels) {
@@ -1171,28 +1171,28 @@ public final class EXTDirectStateAccess {
 
 	public static void glCopyTextureImage1DEXT(int texture, int target, int level, int internalformat, int x, int y, int width, int border) {
 		long __functionAddress = getInstance().CopyTextureImage1DEXT;
-		invokeIIIIIIIIV(__functionAddress, texture, target, level, internalformat, x, y, width, border);
+		callIIIIIIIIV(__functionAddress, texture, target, level, internalformat, x, y, width, border);
 	}
 
 	// --- [ glCopyTextureImage2DEXT ] ---
 
 	public static void glCopyTextureImage2DEXT(int texture, int target, int level, int internalformat, int x, int y, int width, int height, int border) {
 		long __functionAddress = getInstance().CopyTextureImage2DEXT;
-		invokeIIIIIIIIIV(__functionAddress, texture, target, level, internalformat, x, y, width, height, border);
+		callIIIIIIIIIV(__functionAddress, texture, target, level, internalformat, x, y, width, height, border);
 	}
 
 	// --- [ glCopyTextureSubImage1DEXT ] ---
 
 	public static void glCopyTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int x, int y, int width) {
 		long __functionAddress = getInstance().CopyTextureSubImage1DEXT;
-		invokeIIIIIIIV(__functionAddress, texture, target, level, xoffset, x, y, width);
+		callIIIIIIIV(__functionAddress, texture, target, level, xoffset, x, y, width);
 	}
 
 	// --- [ glCopyTextureSubImage2DEXT ] ---
 
 	public static void glCopyTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().CopyTextureSubImage2DEXT;
-		invokeIIIIIIIIIV(__functionAddress, texture, target, level, xoffset, yoffset, x, y, width, height);
+		callIIIIIIIIIV(__functionAddress, texture, target, level, xoffset, yoffset, x, y, width, height);
 	}
 
 	// --- [ glGetTextureImageEXT ] ---
@@ -1201,7 +1201,7 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetTextureImageEXT(int texture, int target, int level, int format, int type, long pixels) {
 		long __functionAddress = getInstance().GetTextureImageEXT;
-		invokeIIIIIPV(__functionAddress, texture, target, level, format, type, pixels);
+		callIIIIIPV(__functionAddress, texture, target, level, format, type, pixels);
 	}
 
 	public static void glGetTextureImageEXT(int texture, int target, int level, int format, int type, ByteBuffer pixels) {
@@ -1251,7 +1251,7 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetTextureParameterfvEXT(int texture, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterfvEXT;
-		invokeIIIPV(__functionAddress, texture, target, pname, params);
+		callIIIPV(__functionAddress, texture, target, pname, params);
 	}
 
 	public static void glGetTextureParameterfvEXT(int texture, int target, int pname, ByteBuffer params) {
@@ -1281,7 +1281,7 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetTextureParameterivEXT(int texture, int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureParameterivEXT;
-		invokeIIIPV(__functionAddress, texture, target, pname, params);
+		callIIIPV(__functionAddress, texture, target, pname, params);
 	}
 
 	public static void glGetTextureParameterivEXT(int texture, int target, int pname, ByteBuffer params) {
@@ -1311,7 +1311,7 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetTextureLevelParameterfvEXT(int texture, int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureLevelParameterfvEXT;
-		invokeIIIIPV(__functionAddress, texture, target, level, pname, params);
+		callIIIIPV(__functionAddress, texture, target, level, pname, params);
 	}
 
 	public static void glGetTextureLevelParameterfvEXT(int texture, int target, int level, int pname, ByteBuffer params) {
@@ -1341,7 +1341,7 @@ public final class EXTDirectStateAccess {
 	@JavadocExclude
 	public static void nglGetTextureLevelParameterivEXT(int texture, int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTextureLevelParameterivEXT;
-		invokeIIIIPV(__functionAddress, texture, target, level, pname, params);
+		callIIIIPV(__functionAddress, texture, target, level, pname, params);
 	}
 
 	public static void glGetTextureLevelParameterivEXT(int texture, int target, int level, int pname, ByteBuffer params) {
@@ -1373,7 +1373,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().TextureImage3DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIIIIPV(__functionAddress, texture, target, level, internalformat, width, height, depth, border, format, type, pixels);
+		callIIIIIIIIIIPV(__functionAddress, texture, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
 	public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ByteBuffer pixels) {
@@ -1425,7 +1425,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().TextureSubImage3DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIIIIIPV(__functionAddress, texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+		callIIIIIIIIIIIPV(__functionAddress, texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 	public static void glTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer pixels) {
@@ -1475,7 +1475,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().CopyTextureSubImage3DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIIIIV(__functionAddress, texture, target, level, xoffset, yoffset, zoffset, x, y, width, height);
+		callIIIIIIIIIIV(__functionAddress, texture, target, level, xoffset, yoffset, zoffset, x, y, width, height);
 	}
 
 	// --- [ glBindMultiTextureEXT ] ---
@@ -1484,7 +1484,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().BindMultiTextureEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, texunit, target, texture);
+		callIIIV(__functionAddress, texunit, target, texture);
 	}
 
 	// --- [ glMultiTexCoordPointerEXT ] ---
@@ -1495,7 +1495,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexCoordPointerEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIPV(__functionAddress, texunit, size, type, stride, pointer);
+		callIIIIPV(__functionAddress, texunit, size, type, stride, pointer);
 	}
 
 	public static void glMultiTexCoordPointerEXT(int texunit, int size, int type, int stride, ByteBuffer pointer) {
@@ -1538,7 +1538,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexEnvfEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIFV(__functionAddress, texunit, target, pname, param);
+		callIIIFV(__functionAddress, texunit, target, pname, param);
 	}
 
 	// --- [ glMultiTexEnvfvEXT ] ---
@@ -1549,7 +1549,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexEnvfvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texunit, target, pname, params);
+		callIIIPV(__functionAddress, texunit, target, pname, params);
 	}
 
 	public static void glMultiTexEnvfvEXT(int texunit, int target, int pname, ByteBuffer params) {
@@ -1571,7 +1571,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexEnviEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIV(__functionAddress, texunit, target, pname, param);
+		callIIIIV(__functionAddress, texunit, target, pname, param);
 	}
 
 	// --- [ glMultiTexEnvivEXT ] ---
@@ -1582,7 +1582,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexEnvivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texunit, target, pname, params);
+		callIIIPV(__functionAddress, texunit, target, pname, params);
 	}
 
 	public static void glMultiTexEnvivEXT(int texunit, int target, int pname, ByteBuffer params) {
@@ -1604,7 +1604,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexGendEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIDV(__functionAddress, texunit, coord, pname, param);
+		callIIIDV(__functionAddress, texunit, coord, pname, param);
 	}
 
 	// --- [ glMultiTexGendvEXT ] ---
@@ -1615,7 +1615,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexGendvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texunit, coord, pname, params);
+		callIIIPV(__functionAddress, texunit, coord, pname, params);
 	}
 
 	public static void glMultiTexGendvEXT(int texunit, int coord, int pname, ByteBuffer params) {
@@ -1637,7 +1637,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexGenfEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIFV(__functionAddress, texunit, coord, pname, param);
+		callIIIFV(__functionAddress, texunit, coord, pname, param);
 	}
 
 	// --- [ glMultiTexGenfvEXT ] ---
@@ -1648,7 +1648,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexGenfvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texunit, coord, pname, params);
+		callIIIPV(__functionAddress, texunit, coord, pname, params);
 	}
 
 	public static void glMultiTexGenfvEXT(int texunit, int coord, int pname, ByteBuffer params) {
@@ -1670,7 +1670,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexGeniEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIV(__functionAddress, texunit, coord, pname, param);
+		callIIIIV(__functionAddress, texunit, coord, pname, param);
 	}
 
 	// --- [ glMultiTexGenivEXT ] ---
@@ -1681,7 +1681,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexGenivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texunit, coord, pname, params);
+		callIIIPV(__functionAddress, texunit, coord, pname, params);
 	}
 
 	public static void glMultiTexGenivEXT(int texunit, int coord, int pname, ByteBuffer params) {
@@ -1705,7 +1705,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetMultiTexEnvfvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texunit, target, pname, params);
+		callIIIPV(__functionAddress, texunit, target, pname, params);
 	}
 
 	public static void glGetMultiTexEnvfvEXT(int texunit, int target, int pname, ByteBuffer params) {
@@ -1737,7 +1737,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetMultiTexEnvivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texunit, target, pname, params);
+		callIIIPV(__functionAddress, texunit, target, pname, params);
 	}
 
 	public static void glGetMultiTexEnvivEXT(int texunit, int target, int pname, ByteBuffer params) {
@@ -1769,7 +1769,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetMultiTexGendvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texunit, coord, pname, params);
+		callIIIPV(__functionAddress, texunit, coord, pname, params);
 	}
 
 	public static void glGetMultiTexGendvEXT(int texunit, int coord, int pname, ByteBuffer params) {
@@ -1801,7 +1801,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetMultiTexGenfvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texunit, coord, pname, params);
+		callIIIPV(__functionAddress, texunit, coord, pname, params);
 	}
 
 	public static void glGetMultiTexGenfvEXT(int texunit, int coord, int pname, ByteBuffer params) {
@@ -1833,7 +1833,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetMultiTexGenivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texunit, coord, pname, params);
+		callIIIPV(__functionAddress, texunit, coord, pname, params);
 	}
 
 	public static void glGetMultiTexGenivEXT(int texunit, int coord, int pname, ByteBuffer params) {
@@ -1863,7 +1863,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexParameteriEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIV(__functionAddress, texunit, target, pname, param);
+		callIIIIV(__functionAddress, texunit, target, pname, param);
 	}
 
 	// --- [ glMultiTexParameterivEXT ] ---
@@ -1874,7 +1874,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexParameterivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texunit, target, pname, param);
+		callIIIPV(__functionAddress, texunit, target, pname, param);
 	}
 
 	public static void glMultiTexParameterivEXT(int texunit, int target, int pname, ByteBuffer param) {
@@ -1896,7 +1896,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexParameterfEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIFV(__functionAddress, texunit, target, pname, param);
+		callIIIFV(__functionAddress, texunit, target, pname, param);
 	}
 
 	// --- [ glMultiTexParameterfvEXT ] ---
@@ -1907,7 +1907,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexParameterfvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texunit, target, pname, param);
+		callIIIPV(__functionAddress, texunit, target, pname, param);
 	}
 
 	public static void glMultiTexParameterfvEXT(int texunit, int target, int pname, ByteBuffer param) {
@@ -1931,7 +1931,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexImage1DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIIPV(__functionAddress, texunit, target, level, internalformat, width, border, format, type, pixels);
+		callIIIIIIIIPV(__functionAddress, texunit, target, level, internalformat, width, border, format, type, pixels);
 	}
 
 	public static void glMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int format, int type, ByteBuffer pixels) {
@@ -1983,7 +1983,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexImage2DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIIIPV(__functionAddress, texunit, target, level, internalformat, width, height, border, format, type, pixels);
+		callIIIIIIIIIPV(__functionAddress, texunit, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
 	public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, ByteBuffer pixels) {
@@ -2035,7 +2035,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexSubImage1DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIPV(__functionAddress, texunit, target, level, xoffset, width, format, type, pixels);
+		callIIIIIIIPV(__functionAddress, texunit, target, level, xoffset, width, format, type, pixels);
 	}
 
 	public static void glMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int type, ByteBuffer pixels) {
@@ -2087,7 +2087,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexSubImage2DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIIIPV(__functionAddress, texunit, target, level, xoffset, yoffset, width, height, format, type, pixels);
+		callIIIIIIIIIPV(__functionAddress, texunit, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
 	public static void glMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, ByteBuffer pixels) {
@@ -2137,7 +2137,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().CopyMultiTexImage1DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIIV(__functionAddress, texunit, target, level, internalformat, x, y, width, border);
+		callIIIIIIIIV(__functionAddress, texunit, target, level, internalformat, x, y, width, border);
 	}
 
 	// --- [ glCopyMultiTexImage2DEXT ] ---
@@ -2146,7 +2146,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().CopyMultiTexImage2DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIIIV(__functionAddress, texunit, target, level, internalformat, x, y, width, height, border);
+		callIIIIIIIIIV(__functionAddress, texunit, target, level, internalformat, x, y, width, height, border);
 	}
 
 	// --- [ glCopyMultiTexSubImage1DEXT ] ---
@@ -2155,7 +2155,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().CopyMultiTexSubImage1DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIV(__functionAddress, texunit, target, level, xoffset, x, y, width);
+		callIIIIIIIV(__functionAddress, texunit, target, level, xoffset, x, y, width);
 	}
 
 	// --- [ glCopyMultiTexSubImage2DEXT ] ---
@@ -2164,7 +2164,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().CopyMultiTexSubImage2DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIIIV(__functionAddress, texunit, target, level, xoffset, yoffset, x, y, width, height);
+		callIIIIIIIIIV(__functionAddress, texunit, target, level, xoffset, yoffset, x, y, width, height);
 	}
 
 	// --- [ glGetMultiTexImageEXT ] ---
@@ -2175,7 +2175,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetMultiTexImageEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIPV(__functionAddress, texunit, target, level, format, type, pixels);
+		callIIIIIPV(__functionAddress, texunit, target, level, format, type, pixels);
 	}
 
 	public static void glGetMultiTexImageEXT(int texunit, int target, int level, int format, int type, ByteBuffer pixels) {
@@ -2227,7 +2227,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetMultiTexParameterfvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texunit, target, pname, params);
+		callIIIPV(__functionAddress, texunit, target, pname, params);
 	}
 
 	public static void glGetMultiTexParameterfvEXT(int texunit, int target, int pname, ByteBuffer params) {
@@ -2259,7 +2259,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetMultiTexParameterivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texunit, target, pname, params);
+		callIIIPV(__functionAddress, texunit, target, pname, params);
 	}
 
 	public static void glGetMultiTexParameterivEXT(int texunit, int target, int pname, ByteBuffer params) {
@@ -2291,7 +2291,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetMultiTexLevelParameterfvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIPV(__functionAddress, texunit, target, level, pname, params);
+		callIIIIPV(__functionAddress, texunit, target, level, pname, params);
 	}
 
 	public static void glGetMultiTexLevelParameterfvEXT(int texunit, int target, int level, int pname, ByteBuffer params) {
@@ -2323,7 +2323,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetMultiTexLevelParameterivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIPV(__functionAddress, texunit, target, level, pname, params);
+		callIIIIPV(__functionAddress, texunit, target, level, pname, params);
 	}
 
 	public static void glGetMultiTexLevelParameterivEXT(int texunit, int target, int level, int pname, ByteBuffer params) {
@@ -2355,7 +2355,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexImage3DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIIIIPV(__functionAddress, texunit, target, level, internalformat, width, height, depth, border, format, type, pixels);
+		callIIIIIIIIIIPV(__functionAddress, texunit, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
 	public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ByteBuffer pixels) {
@@ -2407,7 +2407,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexSubImage3DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIIIIIPV(__functionAddress, texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+		callIIIIIIIIIIIPV(__functionAddress, texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 	public static void glMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer pixels) {
@@ -2457,7 +2457,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().CopyMultiTexSubImage3DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIIIIV(__functionAddress, texunit, target, level, xoffset, yoffset, zoffset, x, y, width, height);
+		callIIIIIIIIIIV(__functionAddress, texunit, target, level, xoffset, yoffset, zoffset, x, y, width, height);
 	}
 
 	// --- [ glEnableClientStateIndexedEXT ] ---
@@ -2466,7 +2466,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().EnableClientStateIndexedEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, array, index);
+		callIIV(__functionAddress, array, index);
 	}
 
 	// --- [ glDisableClientStateIndexedEXT ] ---
@@ -2475,7 +2475,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().DisableClientStateIndexedEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, array, index);
+		callIIV(__functionAddress, array, index);
 	}
 
 	// --- [ glEnableClientStateiEXT ] ---
@@ -2484,7 +2484,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().EnableClientStateiEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, array, index);
+		callIIV(__functionAddress, array, index);
 	}
 
 	// --- [ glDisableClientStateiEXT ] ---
@@ -2493,7 +2493,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().DisableClientStateiEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, array, index);
+		callIIV(__functionAddress, array, index);
 	}
 
 	// --- [ glGetFloatIndexedvEXT ] ---
@@ -2504,7 +2504,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetFloatIndexedvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, target, index, params);
+		callIIPV(__functionAddress, target, index, params);
 	}
 
 	public static void glGetFloatIndexedvEXT(int target, int index, ByteBuffer params) {
@@ -2536,7 +2536,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetDoubleIndexedvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, target, index, params);
+		callIIPV(__functionAddress, target, index, params);
 	}
 
 	public static void glGetDoubleIndexedvEXT(int target, int index, ByteBuffer params) {
@@ -2568,7 +2568,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetPointerIndexedvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, target, index, params);
+		callIIPV(__functionAddress, target, index, params);
 	}
 
 	public static void glGetPointerIndexedvEXT(int target, int index, ByteBuffer params) {
@@ -2600,7 +2600,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetFloati_vEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, pname, index, params);
+		callIIPV(__functionAddress, pname, index, params);
 	}
 
 	public static void glGetFloati_vEXT(int pname, int index, ByteBuffer params) {
@@ -2632,7 +2632,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetDoublei_vEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, pname, index, params);
+		callIIPV(__functionAddress, pname, index, params);
 	}
 
 	public static void glGetDoublei_vEXT(int pname, int index, ByteBuffer params) {
@@ -2664,7 +2664,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetPointeri_vEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, pname, index, params);
+		callIIPV(__functionAddress, pname, index, params);
 	}
 
 	public static void glGetPointeri_vEXT(int pname, int index, ByteBuffer params) {
@@ -2694,7 +2694,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().EnableIndexedEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, cap, index);
+		callIIV(__functionAddress, cap, index);
 	}
 
 	// --- [ glDisableIndexedEXT ] ---
@@ -2703,7 +2703,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().DisableIndexedEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, cap, index);
+		callIIV(__functionAddress, cap, index);
 	}
 
 	// --- [ glIsEnabledIndexedEXT ] ---
@@ -2712,7 +2712,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().IsEnabledIndexedEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return invokeIIZ(__functionAddress, target, index);
+		return callIIZ(__functionAddress, target, index);
 	}
 
 	// --- [ glGetIntegerIndexedvEXT ] ---
@@ -2723,7 +2723,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetIntegerIndexedvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, target, index, params);
+		callIIPV(__functionAddress, target, index, params);
 	}
 
 	public static void glGetIntegerIndexedvEXT(int target, int index, ByteBuffer params) {
@@ -2755,7 +2755,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetBooleanIndexedvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, target, index, params);
+		callIIPV(__functionAddress, target, index, params);
 	}
 
 	public static void glGetBooleanIndexedvEXT(int target, int index, ByteBuffer params) {
@@ -2780,7 +2780,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedProgramStringEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIPV(__functionAddress, program, target, format, len, string);
+		callIIIIPV(__functionAddress, program, target, format, len, string);
 	}
 
 	public static void glNamedProgramStringEXT(int program, int target, int format, int len, ByteBuffer string) {
@@ -2800,7 +2800,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedProgramLocalParameter4dEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIDDDDV(__functionAddress, program, target, index, x, y, z, w);
+		callIIIDDDDV(__functionAddress, program, target, index, x, y, z, w);
 	}
 
 	// --- [ glNamedProgramLocalParameter4dvEXT ] ---
@@ -2811,7 +2811,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedProgramLocalParameter4dvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, target, index, params);
+		callIIIPV(__functionAddress, program, target, index, params);
 	}
 
 	public static void glNamedProgramLocalParameter4dvEXT(int program, int target, int index, ByteBuffer params) {
@@ -2833,7 +2833,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedProgramLocalParameter4fEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIFFFFV(__functionAddress, program, target, index, x, y, z, w);
+		callIIIFFFFV(__functionAddress, program, target, index, x, y, z, w);
 	}
 
 	// --- [ glNamedProgramLocalParameter4fvEXT ] ---
@@ -2844,7 +2844,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedProgramLocalParameter4fvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, target, index, params);
+		callIIIPV(__functionAddress, program, target, index, params);
 	}
 
 	public static void glNamedProgramLocalParameter4fvEXT(int program, int target, int index, ByteBuffer params) {
@@ -2868,7 +2868,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetNamedProgramLocalParameterdvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, target, index, params);
+		callIIIPV(__functionAddress, program, target, index, params);
 	}
 
 	public static void glGetNamedProgramLocalParameterdvEXT(int program, int target, int index, ByteBuffer params) {
@@ -2892,7 +2892,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetNamedProgramLocalParameterfvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, target, index, params);
+		callIIIPV(__functionAddress, program, target, index, params);
 	}
 
 	public static void glGetNamedProgramLocalParameterfvEXT(int program, int target, int index, ByteBuffer params) {
@@ -2916,7 +2916,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetNamedProgramivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, target, pname, params);
+		callIIIPV(__functionAddress, program, target, pname, params);
 	}
 
 	public static void glGetNamedProgramivEXT(int program, int target, int pname, ByteBuffer params) {
@@ -2948,7 +2948,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetNamedProgramStringEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, target, pname, string);
+		callIIIPV(__functionAddress, program, target, pname, string);
 	}
 
 	public static void glGetNamedProgramStringEXT(int program, int target, int pname, ByteBuffer string) {
@@ -2966,7 +2966,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().CompressedTextureImage3DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIIIPV(__functionAddress, texture, target, level, internalformat, width, height, depth, border, imageSize, data);
+		callIIIIIIIIIPV(__functionAddress, texture, target, level, internalformat, width, height, depth, border, imageSize, data);
 	}
 
 	public static void glCompressedTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, ByteBuffer data) {
@@ -2999,7 +2999,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().CompressedTextureImage2DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIIPV(__functionAddress, texture, target, level, internalformat, width, height, border, imageSize, data);
+		callIIIIIIIIPV(__functionAddress, texture, target, level, internalformat, width, height, border, imageSize, data);
 	}
 
 	public static void glCompressedTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int imageSize, ByteBuffer data) {
@@ -3032,7 +3032,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().CompressedTextureImage1DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIPV(__functionAddress, texture, target, level, internalformat, width, border, imageSize, data);
+		callIIIIIIIPV(__functionAddress, texture, target, level, internalformat, width, border, imageSize, data);
 	}
 
 	public static void glCompressedTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int imageSize, ByteBuffer data) {
@@ -3065,7 +3065,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().CompressedTextureSubImage3DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIIIIIPV(__functionAddress, texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
+		callIIIIIIIIIIIPV(__functionAddress, texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
 	public static void glCompressedTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, ByteBuffer data) {
@@ -3098,7 +3098,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().CompressedTextureSubImage2DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIIIPV(__functionAddress, texture, target, level, xoffset, yoffset, width, height, format, imageSize, data);
+		callIIIIIIIIIPV(__functionAddress, texture, target, level, xoffset, yoffset, width, height, format, imageSize, data);
 	}
 
 	public static void glCompressedTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, ByteBuffer data) {
@@ -3131,7 +3131,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().CompressedTextureSubImage1DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIPV(__functionAddress, texture, target, level, xoffset, width, format, imageSize, data);
+		callIIIIIIIPV(__functionAddress, texture, target, level, xoffset, width, format, imageSize, data);
 	}
 
 	public static void glCompressedTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int imageSize, ByteBuffer data) {
@@ -3164,7 +3164,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetCompressedTextureImageEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texture, target, level, img);
+		callIIIPV(__functionAddress, texture, target, level, img);
 	}
 
 	public static void glGetCompressedTextureImageEXT(int texture, int target, int level, ByteBuffer img) {
@@ -3191,7 +3191,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().CompressedMultiTexImage3DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIIIPV(__functionAddress, texunit, target, level, internalformat, width, height, depth, border, imageSize, data);
+		callIIIIIIIIIPV(__functionAddress, texunit, target, level, internalformat, width, height, depth, border, imageSize, data);
 	}
 
 	public static void glCompressedMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, ByteBuffer data) {
@@ -3224,7 +3224,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().CompressedMultiTexImage2DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIIPV(__functionAddress, texunit, target, level, internalformat, width, height, border, imageSize, data);
+		callIIIIIIIIPV(__functionAddress, texunit, target, level, internalformat, width, height, border, imageSize, data);
 	}
 
 	public static void glCompressedMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int imageSize, ByteBuffer data) {
@@ -3257,7 +3257,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().CompressedMultiTexImage1DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIPV(__functionAddress, texunit, target, level, internalformat, width, border, imageSize, data);
+		callIIIIIIIPV(__functionAddress, texunit, target, level, internalformat, width, border, imageSize, data);
 	}
 
 	public static void glCompressedMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int imageSize, ByteBuffer data) {
@@ -3290,7 +3290,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().CompressedMultiTexSubImage3DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIIIIIPV(__functionAddress, texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
+		callIIIIIIIIIIIPV(__functionAddress, texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
 	public static void glCompressedMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, ByteBuffer data) {
@@ -3323,7 +3323,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().CompressedMultiTexSubImage2DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIIIPV(__functionAddress, texunit, target, level, xoffset, yoffset, width, height, format, imageSize, data);
+		callIIIIIIIIIPV(__functionAddress, texunit, target, level, xoffset, yoffset, width, height, format, imageSize, data);
 	}
 
 	public static void glCompressedMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, ByteBuffer data) {
@@ -3356,7 +3356,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().CompressedMultiTexSubImage1DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIPV(__functionAddress, texunit, target, level, xoffset, width, format, imageSize, data);
+		callIIIIIIIPV(__functionAddress, texunit, target, level, xoffset, width, format, imageSize, data);
 	}
 
 	public static void glCompressedMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int imageSize, ByteBuffer data) {
@@ -3389,7 +3389,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetCompressedMultiTexImageEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texunit, target, level, img);
+		callIIIPV(__functionAddress, texunit, target, level, img);
 	}
 
 	public static void glGetCompressedMultiTexImageEXT(int texunit, int target, int level, ByteBuffer img) {
@@ -3416,7 +3416,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MatrixLoadTransposefEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, matrixMode, m);
+		callIPV(__functionAddress, matrixMode, m);
 	}
 
 	public static void glMatrixLoadTransposefEXT(int matrixMode, ByteBuffer m) {
@@ -3440,7 +3440,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MatrixLoadTransposedEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, matrixMode, m);
+		callIPV(__functionAddress, matrixMode, m);
 	}
 
 	public static void glMatrixLoadTransposedEXT(int matrixMode, ByteBuffer m) {
@@ -3464,7 +3464,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MatrixMultTransposefEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, matrixMode, m);
+		callIPV(__functionAddress, matrixMode, m);
 	}
 
 	public static void glMatrixMultTransposefEXT(int matrixMode, ByteBuffer m) {
@@ -3488,7 +3488,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MatrixMultTransposedEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, matrixMode, m);
+		callIPV(__functionAddress, matrixMode, m);
 	}
 
 	public static void glMatrixMultTransposedEXT(int matrixMode, ByteBuffer m) {
@@ -3512,7 +3512,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedBufferDataEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPPIV(__functionAddress, buffer, size, data, usage);
+		callIPPIV(__functionAddress, buffer, size, data, usage);
 	}
 
 	public static void glNamedBufferDataEXT(int buffer, long size, ByteBuffer data, int usage) {
@@ -3559,7 +3559,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedBufferSubDataEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPPPV(__functionAddress, buffer, offset, size, data);
+		callIPPPV(__functionAddress, buffer, offset, size, data);
 	}
 
 	public static void glNamedBufferSubDataEXT(int buffer, long offset, long size, ByteBuffer data) {
@@ -3601,7 +3601,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MapNamedBufferEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return invokeIIP(__functionAddress, buffer, access);
+		return callIIP(__functionAddress, buffer, access);
 	}
 
 	public static ByteBuffer glMapNamedBufferEXT(int buffer, int access) {
@@ -3628,7 +3628,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().UnmapNamedBufferEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return invokeIZ(__functionAddress, buffer);
+		return callIZ(__functionAddress, buffer);
 	}
 
 	// --- [ glGetNamedBufferParameterivEXT ] ---
@@ -3639,7 +3639,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetNamedBufferParameterivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, buffer, pname, params);
+		callIIPV(__functionAddress, buffer, pname, params);
 	}
 
 	public static void glGetNamedBufferParameterivEXT(int buffer, int pname, ByteBuffer params) {
@@ -3671,7 +3671,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetNamedBufferSubDataEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPPPV(__functionAddress, buffer, offset, size, data);
+		callIPPPV(__functionAddress, buffer, offset, size, data);
 	}
 
 	public static void glGetNamedBufferSubDataEXT(int buffer, long offset, long size, ByteBuffer data) {
@@ -3711,7 +3711,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform1fEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIFV(__functionAddress, program, location, v0);
+		callIIFV(__functionAddress, program, location, v0);
 	}
 
 	// --- [ glProgramUniform2fEXT ] ---
@@ -3720,7 +3720,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform2fEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIFFV(__functionAddress, program, location, v0, v1);
+		callIIFFV(__functionAddress, program, location, v0, v1);
 	}
 
 	// --- [ glProgramUniform3fEXT ] ---
@@ -3729,7 +3729,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform3fEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIFFFV(__functionAddress, program, location, v0, v1, v2);
+		callIIFFFV(__functionAddress, program, location, v0, v1, v2);
 	}
 
 	// --- [ glProgramUniform4fEXT ] ---
@@ -3738,7 +3738,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform4fEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIFFFFV(__functionAddress, program, location, v0, v1, v2, v3);
+		callIIFFFFV(__functionAddress, program, location, v0, v1, v2, v3);
 	}
 
 	// --- [ glProgramUniform1iEXT ] ---
@@ -3747,7 +3747,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform1iEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, program, location, v0);
+		callIIIV(__functionAddress, program, location, v0);
 	}
 
 	// --- [ glProgramUniform2iEXT ] ---
@@ -3756,7 +3756,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform2iEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIV(__functionAddress, program, location, v0, v1);
+		callIIIIV(__functionAddress, program, location, v0, v1);
 	}
 
 	// --- [ glProgramUniform3iEXT ] ---
@@ -3765,7 +3765,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform3iEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIV(__functionAddress, program, location, v0, v1, v2);
+		callIIIIIV(__functionAddress, program, location, v0, v1, v2);
 	}
 
 	// --- [ glProgramUniform4iEXT ] ---
@@ -3774,7 +3774,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform4iEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIV(__functionAddress, program, location, v0, v1, v2, v3);
+		callIIIIIIV(__functionAddress, program, location, v0, v1, v2, v3);
 	}
 
 	// --- [ glProgramUniform1fvEXT ] ---
@@ -3785,7 +3785,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform1fvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform1fvEXT(int program, int location, int count, ByteBuffer value) {
@@ -3807,7 +3807,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform2fvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform2fvEXT(int program, int location, int count, ByteBuffer value) {
@@ -3829,7 +3829,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform3fvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform3fvEXT(int program, int location, int count, ByteBuffer value) {
@@ -3851,7 +3851,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform4fvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform4fvEXT(int program, int location, int count, ByteBuffer value) {
@@ -3873,7 +3873,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform1ivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform1ivEXT(int program, int location, int count, ByteBuffer value) {
@@ -3895,7 +3895,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform2ivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform2ivEXT(int program, int location, int count, ByteBuffer value) {
@@ -3917,7 +3917,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform3ivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform3ivEXT(int program, int location, int count, ByteBuffer value) {
@@ -3939,7 +3939,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform4ivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform4ivEXT(int program, int location, int count, ByteBuffer value) {
@@ -3961,7 +3961,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniformMatrix2fvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	public static void glProgramUniformMatrix2fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
@@ -3983,7 +3983,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniformMatrix3fvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	public static void glProgramUniformMatrix3fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
@@ -4005,7 +4005,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniformMatrix4fvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	public static void glProgramUniformMatrix4fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
@@ -4027,7 +4027,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x3fvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	public static void glProgramUniformMatrix2x3fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
@@ -4049,7 +4049,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x2fvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	public static void glProgramUniformMatrix3x2fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
@@ -4071,7 +4071,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x4fvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	public static void glProgramUniformMatrix2x4fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
@@ -4093,7 +4093,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x2fvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	public static void glProgramUniformMatrix4x2fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
@@ -4115,7 +4115,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x4fvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	public static void glProgramUniformMatrix3x4fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
@@ -4137,7 +4137,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x3fvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIZPV(__functionAddress, program, location, count, transpose, value);
+		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
 
 	public static void glProgramUniformMatrix4x3fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
@@ -4157,7 +4157,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().TextureBufferEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIV(__functionAddress, texture, target, internalformat, buffer);
+		callIIIIV(__functionAddress, texture, target, internalformat, buffer);
 	}
 
 	// --- [ glMultiTexBufferEXT ] ---
@@ -4166,7 +4166,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexBufferEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIV(__functionAddress, texunit, target, internalformat, buffer);
+		callIIIIV(__functionAddress, texunit, target, internalformat, buffer);
 	}
 
 	// --- [ glTextureParameterIivEXT ] ---
@@ -4177,7 +4177,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().TextureParameterIivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texture, target, pname, params);
+		callIIIPV(__functionAddress, texture, target, pname, params);
 	}
 
 	public static void glTextureParameterIivEXT(int texture, int target, int pname, ByteBuffer params) {
@@ -4201,7 +4201,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().TextureParameterIuivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texture, target, pname, params);
+		callIIIPV(__functionAddress, texture, target, pname, params);
 	}
 
 	public static void glTextureParameterIuivEXT(int texture, int target, int pname, ByteBuffer params) {
@@ -4225,7 +4225,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetTextureParameterIivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texture, target, pname, params);
+		callIIIPV(__functionAddress, texture, target, pname, params);
 	}
 
 	public static void glGetTextureParameterIivEXT(int texture, int target, int pname, ByteBuffer params) {
@@ -4257,7 +4257,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetTextureParameterIuivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texture, target, pname, params);
+		callIIIPV(__functionAddress, texture, target, pname, params);
 	}
 
 	public static void glGetTextureParameterIuivEXT(int texture, int target, int pname, ByteBuffer params) {
@@ -4289,7 +4289,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexParameterIivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texunit, target, pname, params);
+		callIIIPV(__functionAddress, texunit, target, pname, params);
 	}
 
 	public static void glMultiTexParameterIivEXT(int texunit, int target, int pname, ByteBuffer params) {
@@ -4313,7 +4313,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexParameterIuivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texunit, target, pname, params);
+		callIIIPV(__functionAddress, texunit, target, pname, params);
 	}
 
 	public static void glMultiTexParameterIuivEXT(int texunit, int target, int pname, ByteBuffer params) {
@@ -4337,7 +4337,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetMultiTexParameterIivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texunit, target, pname, params);
+		callIIIPV(__functionAddress, texunit, target, pname, params);
 	}
 
 	public static void glGetMultiTexParameterIivEXT(int texunit, int target, int pname, ByteBuffer params) {
@@ -4369,7 +4369,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetMultiTexParameterIuivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texunit, target, pname, params);
+		callIIIPV(__functionAddress, texunit, target, pname, params);
 	}
 
 	public static void glGetMultiTexParameterIuivEXT(int texunit, int target, int pname, ByteBuffer params) {
@@ -4399,7 +4399,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform1uiEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, program, location, v0);
+		callIIIV(__functionAddress, program, location, v0);
 	}
 
 	// --- [ glProgramUniform2uiEXT ] ---
@@ -4408,7 +4408,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform2uiEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIV(__functionAddress, program, location, v0, v1);
+		callIIIIV(__functionAddress, program, location, v0, v1);
 	}
 
 	// --- [ glProgramUniform3uiEXT ] ---
@@ -4417,7 +4417,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform3uiEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIV(__functionAddress, program, location, v0, v1, v2);
+		callIIIIIV(__functionAddress, program, location, v0, v1, v2);
 	}
 
 	// --- [ glProgramUniform4uiEXT ] ---
@@ -4426,7 +4426,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform4uiEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIV(__functionAddress, program, location, v0, v1, v2, v3);
+		callIIIIIIV(__functionAddress, program, location, v0, v1, v2, v3);
 	}
 
 	// --- [ glProgramUniform1uivEXT ] ---
@@ -4437,7 +4437,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform1uivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform1uivEXT(int program, int location, int count, ByteBuffer value) {
@@ -4459,7 +4459,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform2uivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform2uivEXT(int program, int location, int count, ByteBuffer value) {
@@ -4481,7 +4481,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform3uivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform3uivEXT(int program, int location, int count, ByteBuffer value) {
@@ -4503,7 +4503,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().ProgramUniform4uivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, location, count, value);
+		callIIIPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform4uivEXT(int program, int location, int count, ByteBuffer value) {
@@ -4525,7 +4525,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedProgramLocalParameters4fvEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIPV(__functionAddress, program, target, index, count, params);
+		callIIIIPV(__functionAddress, program, target, index, count, params);
 	}
 
 	public static void glNamedProgramLocalParameters4fvEXT(int program, int target, int index, int count, ByteBuffer params) {
@@ -4545,7 +4545,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedProgramLocalParameterI4iEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIV(__functionAddress, program, target, index, x, y, z, w);
+		callIIIIIIIV(__functionAddress, program, target, index, x, y, z, w);
 	}
 
 	// --- [ glNamedProgramLocalParameterI4ivEXT ] ---
@@ -4556,7 +4556,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedProgramLocalParameterI4ivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, target, index, params);
+		callIIIPV(__functionAddress, program, target, index, params);
 	}
 
 	public static void glNamedProgramLocalParameterI4ivEXT(int program, int target, int index, ByteBuffer params) {
@@ -4580,7 +4580,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedProgramLocalParametersI4ivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIPV(__functionAddress, program, target, index, count, params);
+		callIIIIPV(__functionAddress, program, target, index, count, params);
 	}
 
 	public static void glNamedProgramLocalParametersI4ivEXT(int program, int target, int index, int count, ByteBuffer params) {
@@ -4600,7 +4600,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedProgramLocalParameterI4uiEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIV(__functionAddress, program, target, index, x, y, z, w);
+		callIIIIIIIV(__functionAddress, program, target, index, x, y, z, w);
 	}
 
 	// --- [ glNamedProgramLocalParameterI4uivEXT ] ---
@@ -4611,7 +4611,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedProgramLocalParameterI4uivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, target, index, params);
+		callIIIPV(__functionAddress, program, target, index, params);
 	}
 
 	public static void glNamedProgramLocalParameterI4uivEXT(int program, int target, int index, ByteBuffer params) {
@@ -4635,7 +4635,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedProgramLocalParametersI4uivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIPV(__functionAddress, program, target, index, count, params);
+		callIIIIPV(__functionAddress, program, target, index, count, params);
 	}
 
 	public static void glNamedProgramLocalParametersI4uivEXT(int program, int target, int index, int count, ByteBuffer params) {
@@ -4657,7 +4657,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetNamedProgramLocalParameterIivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, target, index, params);
+		callIIIPV(__functionAddress, program, target, index, params);
 	}
 
 	public static void glGetNamedProgramLocalParameterIivEXT(int program, int target, int index, ByteBuffer params) {
@@ -4681,7 +4681,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetNamedProgramLocalParameterIuivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, program, target, index, params);
+		callIIIPV(__functionAddress, program, target, index, params);
 	}
 
 	public static void glGetNamedProgramLocalParameterIuivEXT(int program, int target, int index, ByteBuffer params) {
@@ -4703,7 +4703,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedRenderbufferStorageEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIV(__functionAddress, renderbuffer, internalformat, width, height);
+		callIIIIV(__functionAddress, renderbuffer, internalformat, width, height);
 	}
 
 	// --- [ glGetNamedRenderbufferParameterivEXT ] ---
@@ -4714,7 +4714,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetNamedRenderbufferParameterivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, renderbuffer, pname, params);
+		callIIPV(__functionAddress, renderbuffer, pname, params);
 	}
 
 	public static void glGetNamedRenderbufferParameterivEXT(int renderbuffer, int pname, ByteBuffer params) {
@@ -4744,7 +4744,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedRenderbufferStorageMultisampleEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIV(__functionAddress, renderbuffer, samples, internalformat, width, height);
+		callIIIIIV(__functionAddress, renderbuffer, samples, internalformat, width, height);
 	}
 
 	// --- [ glNamedRenderbufferStorageMultisampleCoverageEXT ] ---
@@ -4753,7 +4753,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedRenderbufferStorageMultisampleCoverageEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIV(__functionAddress, renderbuffer, coverageSamples, colorSamples, internalformat, width, height);
+		callIIIIIIV(__functionAddress, renderbuffer, coverageSamples, colorSamples, internalformat, width, height);
 	}
 
 	// --- [ glCheckNamedFramebufferStatusEXT ] ---
@@ -4762,7 +4762,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().CheckNamedFramebufferStatusEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return invokeIII(__functionAddress, framebuffer, target);
+		return callIII(__functionAddress, framebuffer, target);
 	}
 
 	// --- [ glNamedFramebufferTexture1DEXT ] ---
@@ -4771,7 +4771,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedFramebufferTexture1DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIV(__functionAddress, framebuffer, attachment, textarget, texture, level);
+		callIIIIIV(__functionAddress, framebuffer, attachment, textarget, texture, level);
 	}
 
 	// --- [ glNamedFramebufferTexture2DEXT ] ---
@@ -4780,7 +4780,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedFramebufferTexture2DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIV(__functionAddress, framebuffer, attachment, textarget, texture, level);
+		callIIIIIV(__functionAddress, framebuffer, attachment, textarget, texture, level);
 	}
 
 	// --- [ glNamedFramebufferTexture3DEXT ] ---
@@ -4789,7 +4789,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedFramebufferTexture3DEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIV(__functionAddress, framebuffer, attachment, textarget, texture, level, zoffset);
+		callIIIIIIV(__functionAddress, framebuffer, attachment, textarget, texture, level, zoffset);
 	}
 
 	// --- [ glNamedFramebufferRenderbufferEXT ] ---
@@ -4798,7 +4798,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedFramebufferRenderbufferEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIV(__functionAddress, framebuffer, attachment, renderbuffertarget, renderbuffer);
+		callIIIIV(__functionAddress, framebuffer, attachment, renderbuffertarget, renderbuffer);
 	}
 
 	// --- [ glGetNamedFramebufferAttachmentParameterivEXT ] ---
@@ -4809,7 +4809,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetNamedFramebufferAttachmentParameterivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, framebuffer, attachment, pname, params);
+		callIIIPV(__functionAddress, framebuffer, attachment, pname, params);
 	}
 
 	public static void glGetNamedFramebufferAttachmentParameterivEXT(int framebuffer, int attachment, int pname, ByteBuffer params) {
@@ -4839,7 +4839,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GenerateTextureMipmapEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, texture, target);
+		callIIV(__functionAddress, texture, target);
 	}
 
 	// --- [ glGenerateMultiTexMipmapEXT ] ---
@@ -4848,7 +4848,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GenerateMultiTexMipmapEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, texunit, target);
+		callIIV(__functionAddress, texunit, target);
 	}
 
 	// --- [ glFramebufferDrawBufferEXT ] ---
@@ -4857,7 +4857,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().FramebufferDrawBufferEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, framebuffer, mode);
+		callIIV(__functionAddress, framebuffer, mode);
 	}
 
 	// --- [ glFramebufferDrawBuffersEXT ] ---
@@ -4868,7 +4868,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().FramebufferDrawBuffersEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, framebuffer, n, bufs);
+		callIIPV(__functionAddress, framebuffer, n, bufs);
 	}
 
 	public static void glFramebufferDrawBuffersEXT(int framebuffer, int n, ByteBuffer bufs) {
@@ -4888,7 +4888,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().FramebufferReadBufferEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, framebuffer, mode);
+		callIIV(__functionAddress, framebuffer, mode);
 	}
 
 	// --- [ glGetFramebufferParameterivEXT ] ---
@@ -4899,7 +4899,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetFramebufferParameterivEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, framebuffer, pname, param);
+		callIIPV(__functionAddress, framebuffer, pname, param);
 	}
 
 	public static void glGetFramebufferParameterivEXT(int framebuffer, int pname, ByteBuffer param) {
@@ -4929,7 +4929,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedCopyBufferSubDataEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPPPV(__functionAddress, readBuffer, writeBuffer, readOffset, writeOffset, size);
+		callIIPPPV(__functionAddress, readBuffer, writeBuffer, readOffset, writeOffset, size);
 	}
 
 	// --- [ glNamedFramebufferTextureEXT ] ---
@@ -4938,7 +4938,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedFramebufferTextureEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIV(__functionAddress, framebuffer, attachment, texture, level);
+		callIIIIV(__functionAddress, framebuffer, attachment, texture, level);
 	}
 
 	// --- [ glNamedFramebufferTextureLayerEXT ] ---
@@ -4947,7 +4947,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedFramebufferTextureLayerEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIV(__functionAddress, framebuffer, attachment, texture, level, layer);
+		callIIIIIV(__functionAddress, framebuffer, attachment, texture, level, layer);
 	}
 
 	// --- [ glNamedFramebufferTextureFaceEXT ] ---
@@ -4956,7 +4956,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().NamedFramebufferTextureFaceEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIV(__functionAddress, framebuffer, attachment, texture, level, face);
+		callIIIIIV(__functionAddress, framebuffer, attachment, texture, level, face);
 	}
 
 	// --- [ glTextureRenderbufferEXT ] ---
@@ -4965,7 +4965,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().TextureRenderbufferEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, texture, target, renderbuffer);
+		callIIIV(__functionAddress, texture, target, renderbuffer);
 	}
 
 	// --- [ glMultiTexRenderbufferEXT ] ---
@@ -4974,7 +4974,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MultiTexRenderbufferEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, texunit, target, renderbuffer);
+		callIIIV(__functionAddress, texunit, target, renderbuffer);
 	}
 
 	// --- [ glVertexArrayVertexOffsetEXT ] ---
@@ -4983,7 +4983,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().VertexArrayVertexOffsetEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIPV(__functionAddress, vaobj, buffer, size, type, stride, offset);
+		callIIIIIPV(__functionAddress, vaobj, buffer, size, type, stride, offset);
 	}
 
 	// --- [ glVertexArrayColorOffsetEXT ] ---
@@ -4992,7 +4992,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().VertexArrayColorOffsetEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIPV(__functionAddress, vaobj, buffer, size, type, stride, offset);
+		callIIIIIPV(__functionAddress, vaobj, buffer, size, type, stride, offset);
 	}
 
 	// --- [ glVertexArrayEdgeFlagOffsetEXT ] ---
@@ -5001,7 +5001,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().VertexArrayEdgeFlagOffsetEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, vaobj, buffer, stride, offset);
+		callIIIPV(__functionAddress, vaobj, buffer, stride, offset);
 	}
 
 	// --- [ glVertexArrayIndexOffsetEXT ] ---
@@ -5010,7 +5010,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().VertexArrayIndexOffsetEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIPV(__functionAddress, vaobj, buffer, type, stride, offset);
+		callIIIIPV(__functionAddress, vaobj, buffer, type, stride, offset);
 	}
 
 	// --- [ glVertexArrayNormalOffsetEXT ] ---
@@ -5019,7 +5019,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().VertexArrayNormalOffsetEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIPV(__functionAddress, vaobj, buffer, type, stride, offset);
+		callIIIIPV(__functionAddress, vaobj, buffer, type, stride, offset);
 	}
 
 	// --- [ glVertexArrayTexCoordOffsetEXT ] ---
@@ -5028,7 +5028,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().VertexArrayTexCoordOffsetEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIPV(__functionAddress, vaobj, buffer, size, type, stride, offset);
+		callIIIIIPV(__functionAddress, vaobj, buffer, size, type, stride, offset);
 	}
 
 	// --- [ glVertexArrayMultiTexCoordOffsetEXT ] ---
@@ -5037,7 +5037,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().VertexArrayMultiTexCoordOffsetEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIPV(__functionAddress, vaobj, buffer, texunit, size, type, stride, offset);
+		callIIIIIIPV(__functionAddress, vaobj, buffer, texunit, size, type, stride, offset);
 	}
 
 	// --- [ glVertexArrayFogCoordOffsetEXT ] ---
@@ -5046,7 +5046,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().VertexArrayFogCoordOffsetEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIPV(__functionAddress, vaobj, buffer, type, stride, offset);
+		callIIIIPV(__functionAddress, vaobj, buffer, type, stride, offset);
 	}
 
 	// --- [ glVertexArraySecondaryColorOffsetEXT ] ---
@@ -5055,7 +5055,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().VertexArraySecondaryColorOffsetEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIPV(__functionAddress, vaobj, buffer, size, type, stride, offset);
+		callIIIIIPV(__functionAddress, vaobj, buffer, size, type, stride, offset);
 	}
 
 	// --- [ glVertexArrayVertexAttribOffsetEXT ] ---
@@ -5064,7 +5064,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().VertexArrayVertexAttribOffsetEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIZIPV(__functionAddress, vaobj, buffer, index, size, type, normalized, stride, offset);
+		callIIIIIZIPV(__functionAddress, vaobj, buffer, index, size, type, normalized, stride, offset);
 	}
 
 	// --- [ glVertexArrayVertexAttribIOffsetEXT ] ---
@@ -5073,7 +5073,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().VertexArrayVertexAttribIOffsetEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIPV(__functionAddress, vaobj, buffer, index, size, type, stride, offset);
+		callIIIIIIPV(__functionAddress, vaobj, buffer, index, size, type, stride, offset);
 	}
 
 	// --- [ glEnableVertexArrayEXT ] ---
@@ -5082,7 +5082,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().EnableVertexArrayEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, vaobj, array);
+		callIIV(__functionAddress, vaobj, array);
 	}
 
 	// --- [ glDisableVertexArrayEXT ] ---
@@ -5091,7 +5091,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().DisableVertexArrayEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, vaobj, array);
+		callIIV(__functionAddress, vaobj, array);
 	}
 
 	// --- [ glEnableVertexArrayAttribEXT ] ---
@@ -5100,7 +5100,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().EnableVertexArrayAttribEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, vaobj, index);
+		callIIV(__functionAddress, vaobj, index);
 	}
 
 	// --- [ glDisableVertexArrayAttribEXT ] ---
@@ -5109,7 +5109,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().DisableVertexArrayAttribEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, vaobj, index);
+		callIIV(__functionAddress, vaobj, index);
 	}
 
 	// --- [ glGetVertexArrayIntegervEXT ] ---
@@ -5120,7 +5120,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetVertexArrayIntegervEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, vaobj, pname, param);
+		callIIPV(__functionAddress, vaobj, pname, param);
 	}
 
 	public static void glGetVertexArrayIntegervEXT(int vaobj, int pname, ByteBuffer param) {
@@ -5152,7 +5152,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetVertexArrayPointervEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, vaobj, pname, param);
+		callIIPV(__functionAddress, vaobj, pname, param);
 	}
 
 	public static void glGetVertexArrayPointervEXT(int vaobj, int pname, ByteBuffer param) {
@@ -5184,7 +5184,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetVertexArrayIntegeri_vEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, vaobj, index, pname, param);
+		callIIIPV(__functionAddress, vaobj, index, pname, param);
 	}
 
 	public static void glGetVertexArrayIntegeri_vEXT(int vaobj, int index, int pname, ByteBuffer param) {
@@ -5216,7 +5216,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().GetVertexArrayPointeri_vEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, vaobj, index, pname, param);
+		callIIIPV(__functionAddress, vaobj, index, pname, param);
 	}
 
 	public static void glGetVertexArrayPointeri_vEXT(int vaobj, int index, int pname, ByteBuffer param) {
@@ -5248,7 +5248,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().MapNamedBufferRangeEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return invokeIPPIP(__functionAddress, buffer, offset, length, access);
+		return callIPPIP(__functionAddress, buffer, offset, length, access);
 	}
 
 	public static ByteBuffer glMapNamedBufferRangeEXT(int buffer, long offset, long length, int access) {
@@ -5268,7 +5268,7 @@ public final class EXTDirectStateAccess {
 		long __functionAddress = getInstance().FlushMappedNamedBufferRangeEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPPV(__functionAddress, buffer, offset, length);
+		callIPPV(__functionAddress, buffer, offset, length);
 	}
 
 }

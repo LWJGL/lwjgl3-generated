@@ -28,7 +28,7 @@ public final class STBTTBakedChar implements Pointer {
 		XADVANCE;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(7);
+		IntBuffer offsets = memAllocInt(7);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -39,6 +39,8 @@ public final class STBTTBakedChar implements Pointer {
 		XOFF = offsets.get(4);
 		YOFF = offsets.get(5);
 		XADVANCE = offsets.get(6);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -63,13 +65,13 @@ public final class STBTTBakedChar implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setX0(int x0) { x0(struct, x0); }
-	public void setY0(int y0) { y0(struct, y0); }
-	public void setX1(int x1) { x1(struct, x1); }
-	public void setY1(int y1) { y1(struct, y1); }
-	public void setXoff(float xoff) { xoff(struct, xoff); }
-	public void setYoff(float yoff) { yoff(struct, yoff); }
-	public void setXadvance(float xadvance) { xadvance(struct, xadvance); }
+	public STBTTBakedChar setX0(int x0) { x0(struct, x0); return this; }
+	public STBTTBakedChar setY0(int y0) { y0(struct, y0); return this; }
+	public STBTTBakedChar setX1(int x1) { x1(struct, x1); return this; }
+	public STBTTBakedChar setY1(int y1) { y1(struct, y1); return this; }
+	public STBTTBakedChar setXoff(float xoff) { xoff(struct, xoff); return this; }
+	public STBTTBakedChar setYoff(float yoff) { yoff(struct, yoff); return this; }
+	public STBTTBakedChar setXadvance(float xadvance) { xadvance(struct, xadvance); return this; }
 
 	public int getX0() { return x0(struct); }
 	public int getY0() { return y0(struct); }

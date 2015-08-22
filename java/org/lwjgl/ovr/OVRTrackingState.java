@@ -27,7 +27,7 @@ public final class OVRTrackingState implements Pointer {
 		LASTCAMERAFRAMECOUNTER;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(6);
+		IntBuffer offsets = memAllocInt(6);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -37,6 +37,8 @@ public final class OVRTrackingState implements Pointer {
 		RAWSENSORDATA = offsets.get(3);
 		STATUSFLAGS = offsets.get(4);
 		LASTCAMERAFRAMECOUNTER = offsets.get(5);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -61,71 +63,71 @@ public final class OVRTrackingState implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setHeadPose(ByteBuffer HeadPose) { HeadPoseSet(struct, HeadPose); }
-	public void setHeadPoseThePose(ByteBuffer ThePose) { HeadPoseThePoseSet(struct, ThePose); }
-	public void setHeadPoseThePoseOrientation(ByteBuffer Orientation) { HeadPoseThePoseOrientationSet(struct, Orientation); }
-	public void setHeadPoseThePoseOrientationX(float x) { HeadPoseThePoseOrientationX(struct, x); }
-	public void setHeadPoseThePoseOrientationY(float y) { HeadPoseThePoseOrientationY(struct, y); }
-	public void setHeadPoseThePoseOrientationZ(float z) { HeadPoseThePoseOrientationZ(struct, z); }
-	public void setHeadPoseThePoseOrientationW(float w) { HeadPoseThePoseOrientationW(struct, w); }
-	public void setHeadPoseThePosePosition(ByteBuffer Position) { HeadPoseThePosePositionSet(struct, Position); }
-	public void setHeadPoseThePosePositionX(float x) { HeadPoseThePosePositionX(struct, x); }
-	public void setHeadPoseThePosePositionY(float y) { HeadPoseThePosePositionY(struct, y); }
-	public void setHeadPoseThePosePositionZ(float z) { HeadPoseThePosePositionZ(struct, z); }
-	public void setHeadPoseAngularVelocity(ByteBuffer AngularVelocity) { HeadPoseAngularVelocitySet(struct, AngularVelocity); }
-	public void setHeadPoseAngularVelocityX(float x) { HeadPoseAngularVelocityX(struct, x); }
-	public void setHeadPoseAngularVelocityY(float y) { HeadPoseAngularVelocityY(struct, y); }
-	public void setHeadPoseAngularVelocityZ(float z) { HeadPoseAngularVelocityZ(struct, z); }
-	public void setHeadPoseLinearVelocity(ByteBuffer LinearVelocity) { HeadPoseLinearVelocitySet(struct, LinearVelocity); }
-	public void setHeadPoseLinearVelocityX(float x) { HeadPoseLinearVelocityX(struct, x); }
-	public void setHeadPoseLinearVelocityY(float y) { HeadPoseLinearVelocityY(struct, y); }
-	public void setHeadPoseLinearVelocityZ(float z) { HeadPoseLinearVelocityZ(struct, z); }
-	public void setHeadPoseAngularAcceleration(ByteBuffer AngularAcceleration) { HeadPoseAngularAccelerationSet(struct, AngularAcceleration); }
-	public void setHeadPoseAngularAccelerationX(float x) { HeadPoseAngularAccelerationX(struct, x); }
-	public void setHeadPoseAngularAccelerationY(float y) { HeadPoseAngularAccelerationY(struct, y); }
-	public void setHeadPoseAngularAccelerationZ(float z) { HeadPoseAngularAccelerationZ(struct, z); }
-	public void setHeadPoseLinearAcceleration(ByteBuffer LinearAcceleration) { HeadPoseLinearAccelerationSet(struct, LinearAcceleration); }
-	public void setHeadPoseLinearAccelerationX(float x) { HeadPoseLinearAccelerationX(struct, x); }
-	public void setHeadPoseLinearAccelerationY(float y) { HeadPoseLinearAccelerationY(struct, y); }
-	public void setHeadPoseLinearAccelerationZ(float z) { HeadPoseLinearAccelerationZ(struct, z); }
-	public void setHeadPoseTimeInSeconds(double TimeInSeconds) { HeadPoseTimeInSeconds(struct, TimeInSeconds); }
-	public void setCameraPose(ByteBuffer CameraPose) { CameraPoseSet(struct, CameraPose); }
-	public void setCameraPoseOrientation(ByteBuffer Orientation) { CameraPoseOrientationSet(struct, Orientation); }
-	public void setCameraPoseOrientationX(float x) { CameraPoseOrientationX(struct, x); }
-	public void setCameraPoseOrientationY(float y) { CameraPoseOrientationY(struct, y); }
-	public void setCameraPoseOrientationZ(float z) { CameraPoseOrientationZ(struct, z); }
-	public void setCameraPoseOrientationW(float w) { CameraPoseOrientationW(struct, w); }
-	public void setCameraPosePosition(ByteBuffer Position) { CameraPosePositionSet(struct, Position); }
-	public void setCameraPosePositionX(float x) { CameraPosePositionX(struct, x); }
-	public void setCameraPosePositionY(float y) { CameraPosePositionY(struct, y); }
-	public void setCameraPosePositionZ(float z) { CameraPosePositionZ(struct, z); }
-	public void setLeveledCameraPose(ByteBuffer LeveledCameraPose) { LeveledCameraPoseSet(struct, LeveledCameraPose); }
-	public void setLeveledCameraPoseOrientation(ByteBuffer Orientation) { LeveledCameraPoseOrientationSet(struct, Orientation); }
-	public void setLeveledCameraPoseOrientationX(float x) { LeveledCameraPoseOrientationX(struct, x); }
-	public void setLeveledCameraPoseOrientationY(float y) { LeveledCameraPoseOrientationY(struct, y); }
-	public void setLeveledCameraPoseOrientationZ(float z) { LeveledCameraPoseOrientationZ(struct, z); }
-	public void setLeveledCameraPoseOrientationW(float w) { LeveledCameraPoseOrientationW(struct, w); }
-	public void setLeveledCameraPosePosition(ByteBuffer Position) { LeveledCameraPosePositionSet(struct, Position); }
-	public void setLeveledCameraPosePositionX(float x) { LeveledCameraPosePositionX(struct, x); }
-	public void setLeveledCameraPosePositionY(float y) { LeveledCameraPosePositionY(struct, y); }
-	public void setLeveledCameraPosePositionZ(float z) { LeveledCameraPosePositionZ(struct, z); }
-	public void setRawSensorData(ByteBuffer RawSensorData) { RawSensorDataSet(struct, RawSensorData); }
-	public void setRawSensorDataAccelerometer(ByteBuffer Accelerometer) { RawSensorDataAccelerometerSet(struct, Accelerometer); }
-	public void setRawSensorDataAccelerometerX(float x) { RawSensorDataAccelerometerX(struct, x); }
-	public void setRawSensorDataAccelerometerY(float y) { RawSensorDataAccelerometerY(struct, y); }
-	public void setRawSensorDataAccelerometerZ(float z) { RawSensorDataAccelerometerZ(struct, z); }
-	public void setRawSensorDataGyro(ByteBuffer Gyro) { RawSensorDataGyroSet(struct, Gyro); }
-	public void setRawSensorDataGyroX(float x) { RawSensorDataGyroX(struct, x); }
-	public void setRawSensorDataGyroY(float y) { RawSensorDataGyroY(struct, y); }
-	public void setRawSensorDataGyroZ(float z) { RawSensorDataGyroZ(struct, z); }
-	public void setRawSensorDataMagnetometer(ByteBuffer Magnetometer) { RawSensorDataMagnetometerSet(struct, Magnetometer); }
-	public void setRawSensorDataMagnetometerX(float x) { RawSensorDataMagnetometerX(struct, x); }
-	public void setRawSensorDataMagnetometerY(float y) { RawSensorDataMagnetometerY(struct, y); }
-	public void setRawSensorDataMagnetometerZ(float z) { RawSensorDataMagnetometerZ(struct, z); }
-	public void setRawSensorDataTemperature(float Temperature) { RawSensorDataTemperature(struct, Temperature); }
-	public void setRawSensorDataTimeInSeconds(float TimeInSeconds) { RawSensorDataTimeInSeconds(struct, TimeInSeconds); }
-	public void setStatusFlags(int StatusFlags) { StatusFlags(struct, StatusFlags); }
-	public void setLastCameraFrameCounter(int LastCameraFrameCounter) { LastCameraFrameCounter(struct, LastCameraFrameCounter); }
+	public OVRTrackingState setHeadPose(ByteBuffer HeadPose) { HeadPoseSet(struct, HeadPose); return this; }
+	public OVRTrackingState setHeadPoseThePose(ByteBuffer ThePose) { HeadPoseThePoseSet(struct, ThePose); return this; }
+	public OVRTrackingState setHeadPoseThePoseOrientation(ByteBuffer Orientation) { HeadPoseThePoseOrientationSet(struct, Orientation); return this; }
+	public OVRTrackingState setHeadPoseThePoseOrientationX(float x) { HeadPoseThePoseOrientationX(struct, x); return this; }
+	public OVRTrackingState setHeadPoseThePoseOrientationY(float y) { HeadPoseThePoseOrientationY(struct, y); return this; }
+	public OVRTrackingState setHeadPoseThePoseOrientationZ(float z) { HeadPoseThePoseOrientationZ(struct, z); return this; }
+	public OVRTrackingState setHeadPoseThePoseOrientationW(float w) { HeadPoseThePoseOrientationW(struct, w); return this; }
+	public OVRTrackingState setHeadPoseThePosePosition(ByteBuffer Position) { HeadPoseThePosePositionSet(struct, Position); return this; }
+	public OVRTrackingState setHeadPoseThePosePositionX(float x) { HeadPoseThePosePositionX(struct, x); return this; }
+	public OVRTrackingState setHeadPoseThePosePositionY(float y) { HeadPoseThePosePositionY(struct, y); return this; }
+	public OVRTrackingState setHeadPoseThePosePositionZ(float z) { HeadPoseThePosePositionZ(struct, z); return this; }
+	public OVRTrackingState setHeadPoseAngularVelocity(ByteBuffer AngularVelocity) { HeadPoseAngularVelocitySet(struct, AngularVelocity); return this; }
+	public OVRTrackingState setHeadPoseAngularVelocityX(float x) { HeadPoseAngularVelocityX(struct, x); return this; }
+	public OVRTrackingState setHeadPoseAngularVelocityY(float y) { HeadPoseAngularVelocityY(struct, y); return this; }
+	public OVRTrackingState setHeadPoseAngularVelocityZ(float z) { HeadPoseAngularVelocityZ(struct, z); return this; }
+	public OVRTrackingState setHeadPoseLinearVelocity(ByteBuffer LinearVelocity) { HeadPoseLinearVelocitySet(struct, LinearVelocity); return this; }
+	public OVRTrackingState setHeadPoseLinearVelocityX(float x) { HeadPoseLinearVelocityX(struct, x); return this; }
+	public OVRTrackingState setHeadPoseLinearVelocityY(float y) { HeadPoseLinearVelocityY(struct, y); return this; }
+	public OVRTrackingState setHeadPoseLinearVelocityZ(float z) { HeadPoseLinearVelocityZ(struct, z); return this; }
+	public OVRTrackingState setHeadPoseAngularAcceleration(ByteBuffer AngularAcceleration) { HeadPoseAngularAccelerationSet(struct, AngularAcceleration); return this; }
+	public OVRTrackingState setHeadPoseAngularAccelerationX(float x) { HeadPoseAngularAccelerationX(struct, x); return this; }
+	public OVRTrackingState setHeadPoseAngularAccelerationY(float y) { HeadPoseAngularAccelerationY(struct, y); return this; }
+	public OVRTrackingState setHeadPoseAngularAccelerationZ(float z) { HeadPoseAngularAccelerationZ(struct, z); return this; }
+	public OVRTrackingState setHeadPoseLinearAcceleration(ByteBuffer LinearAcceleration) { HeadPoseLinearAccelerationSet(struct, LinearAcceleration); return this; }
+	public OVRTrackingState setHeadPoseLinearAccelerationX(float x) { HeadPoseLinearAccelerationX(struct, x); return this; }
+	public OVRTrackingState setHeadPoseLinearAccelerationY(float y) { HeadPoseLinearAccelerationY(struct, y); return this; }
+	public OVRTrackingState setHeadPoseLinearAccelerationZ(float z) { HeadPoseLinearAccelerationZ(struct, z); return this; }
+	public OVRTrackingState setHeadPoseTimeInSeconds(double TimeInSeconds) { HeadPoseTimeInSeconds(struct, TimeInSeconds); return this; }
+	public OVRTrackingState setCameraPose(ByteBuffer CameraPose) { CameraPoseSet(struct, CameraPose); return this; }
+	public OVRTrackingState setCameraPoseOrientation(ByteBuffer Orientation) { CameraPoseOrientationSet(struct, Orientation); return this; }
+	public OVRTrackingState setCameraPoseOrientationX(float x) { CameraPoseOrientationX(struct, x); return this; }
+	public OVRTrackingState setCameraPoseOrientationY(float y) { CameraPoseOrientationY(struct, y); return this; }
+	public OVRTrackingState setCameraPoseOrientationZ(float z) { CameraPoseOrientationZ(struct, z); return this; }
+	public OVRTrackingState setCameraPoseOrientationW(float w) { CameraPoseOrientationW(struct, w); return this; }
+	public OVRTrackingState setCameraPosePosition(ByteBuffer Position) { CameraPosePositionSet(struct, Position); return this; }
+	public OVRTrackingState setCameraPosePositionX(float x) { CameraPosePositionX(struct, x); return this; }
+	public OVRTrackingState setCameraPosePositionY(float y) { CameraPosePositionY(struct, y); return this; }
+	public OVRTrackingState setCameraPosePositionZ(float z) { CameraPosePositionZ(struct, z); return this; }
+	public OVRTrackingState setLeveledCameraPose(ByteBuffer LeveledCameraPose) { LeveledCameraPoseSet(struct, LeveledCameraPose); return this; }
+	public OVRTrackingState setLeveledCameraPoseOrientation(ByteBuffer Orientation) { LeveledCameraPoseOrientationSet(struct, Orientation); return this; }
+	public OVRTrackingState setLeveledCameraPoseOrientationX(float x) { LeveledCameraPoseOrientationX(struct, x); return this; }
+	public OVRTrackingState setLeveledCameraPoseOrientationY(float y) { LeveledCameraPoseOrientationY(struct, y); return this; }
+	public OVRTrackingState setLeveledCameraPoseOrientationZ(float z) { LeveledCameraPoseOrientationZ(struct, z); return this; }
+	public OVRTrackingState setLeveledCameraPoseOrientationW(float w) { LeveledCameraPoseOrientationW(struct, w); return this; }
+	public OVRTrackingState setLeveledCameraPosePosition(ByteBuffer Position) { LeveledCameraPosePositionSet(struct, Position); return this; }
+	public OVRTrackingState setLeveledCameraPosePositionX(float x) { LeveledCameraPosePositionX(struct, x); return this; }
+	public OVRTrackingState setLeveledCameraPosePositionY(float y) { LeveledCameraPosePositionY(struct, y); return this; }
+	public OVRTrackingState setLeveledCameraPosePositionZ(float z) { LeveledCameraPosePositionZ(struct, z); return this; }
+	public OVRTrackingState setRawSensorData(ByteBuffer RawSensorData) { RawSensorDataSet(struct, RawSensorData); return this; }
+	public OVRTrackingState setRawSensorDataAccelerometer(ByteBuffer Accelerometer) { RawSensorDataAccelerometerSet(struct, Accelerometer); return this; }
+	public OVRTrackingState setRawSensorDataAccelerometerX(float x) { RawSensorDataAccelerometerX(struct, x); return this; }
+	public OVRTrackingState setRawSensorDataAccelerometerY(float y) { RawSensorDataAccelerometerY(struct, y); return this; }
+	public OVRTrackingState setRawSensorDataAccelerometerZ(float z) { RawSensorDataAccelerometerZ(struct, z); return this; }
+	public OVRTrackingState setRawSensorDataGyro(ByteBuffer Gyro) { RawSensorDataGyroSet(struct, Gyro); return this; }
+	public OVRTrackingState setRawSensorDataGyroX(float x) { RawSensorDataGyroX(struct, x); return this; }
+	public OVRTrackingState setRawSensorDataGyroY(float y) { RawSensorDataGyroY(struct, y); return this; }
+	public OVRTrackingState setRawSensorDataGyroZ(float z) { RawSensorDataGyroZ(struct, z); return this; }
+	public OVRTrackingState setRawSensorDataMagnetometer(ByteBuffer Magnetometer) { RawSensorDataMagnetometerSet(struct, Magnetometer); return this; }
+	public OVRTrackingState setRawSensorDataMagnetometerX(float x) { RawSensorDataMagnetometerX(struct, x); return this; }
+	public OVRTrackingState setRawSensorDataMagnetometerY(float y) { RawSensorDataMagnetometerY(struct, y); return this; }
+	public OVRTrackingState setRawSensorDataMagnetometerZ(float z) { RawSensorDataMagnetometerZ(struct, z); return this; }
+	public OVRTrackingState setRawSensorDataTemperature(float Temperature) { RawSensorDataTemperature(struct, Temperature); return this; }
+	public OVRTrackingState setRawSensorDataTimeInSeconds(float TimeInSeconds) { RawSensorDataTimeInSeconds(struct, TimeInSeconds); return this; }
+	public OVRTrackingState setStatusFlags(int StatusFlags) { StatusFlags(struct, StatusFlags); return this; }
+	public OVRTrackingState setLastCameraFrameCounter(int LastCameraFrameCounter) { LastCameraFrameCounter(struct, LastCameraFrameCounter); return this; }
 
 	public void getHeadPose(ByteBuffer HeadPose) { HeadPoseGet(struct, HeadPose); }
 	public void getHeadPoseThePose(ByteBuffer ThePose) { HeadPoseThePoseGet(struct, ThePose); }

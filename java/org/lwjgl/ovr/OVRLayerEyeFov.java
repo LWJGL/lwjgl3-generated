@@ -29,7 +29,7 @@ public final class OVRLayerEyeFov implements Pointer {
 		RENDERPOSE;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(5);
+		IntBuffer offsets = memAllocInt(5);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -38,6 +38,8 @@ public final class OVRLayerEyeFov implements Pointer {
 		VIEWPORT = offsets.get(2);
 		FOV = offsets.get(3);
 		RENDERPOSE = offsets.get(4);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -62,17 +64,17 @@ public final class OVRLayerEyeFov implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setHeader(ByteBuffer Header) { HeaderSet(struct, Header); }
-	public void setHeaderType(int Type) { HeaderType(struct, Type); }
-	public void setHeaderFlags(int Flags) { HeaderFlags(struct, Flags); }
-	public void setColorTexture(PointerBuffer ColorTexture) { ColorTextureSet(struct, ColorTexture); }
-	public void setColorTexture(ByteBuffer ColorTexture, int index) { ColorTextureSet(struct, ColorTexture, index); }
-	public void setViewport(ByteBuffer Viewport) { ViewportSet(struct, Viewport); }
-	public void setViewport(ByteBuffer Viewport, int index) { ViewportSet(struct, Viewport, index); }
-	public void setFov(ByteBuffer Fov) { FovSet(struct, Fov); }
-	public void setFov(ByteBuffer Fov, int index) { FovSet(struct, Fov, index); }
-	public void setRenderPose(ByteBuffer RenderPose) { RenderPoseSet(struct, RenderPose); }
-	public void setRenderPose(ByteBuffer RenderPose, int index) { RenderPoseSet(struct, RenderPose, index); }
+	public OVRLayerEyeFov setHeader(ByteBuffer Header) { HeaderSet(struct, Header); return this; }
+	public OVRLayerEyeFov setHeaderType(int Type) { HeaderType(struct, Type); return this; }
+	public OVRLayerEyeFov setHeaderFlags(int Flags) { HeaderFlags(struct, Flags); return this; }
+	public OVRLayerEyeFov setColorTexture(PointerBuffer ColorTexture) { ColorTextureSet(struct, ColorTexture); return this; }
+	public OVRLayerEyeFov setColorTexture(ByteBuffer ColorTexture, int index) { ColorTextureSet(struct, ColorTexture, index); return this; }
+	public OVRLayerEyeFov setViewport(ByteBuffer Viewport) { ViewportSet(struct, Viewport); return this; }
+	public OVRLayerEyeFov setViewport(ByteBuffer Viewport, int index) { ViewportSet(struct, Viewport, index); return this; }
+	public OVRLayerEyeFov setFov(ByteBuffer Fov) { FovSet(struct, Fov); return this; }
+	public OVRLayerEyeFov setFov(ByteBuffer Fov, int index) { FovSet(struct, Fov, index); return this; }
+	public OVRLayerEyeFov setRenderPose(ByteBuffer RenderPose) { RenderPoseSet(struct, RenderPose); return this; }
+	public OVRLayerEyeFov setRenderPose(ByteBuffer RenderPose, int index) { RenderPoseSet(struct, RenderPose, index); return this; }
 
 	public void getHeader(ByteBuffer Header) { HeaderGet(struct, Header); }
 	public int getHeaderType() { return HeaderType(struct); }

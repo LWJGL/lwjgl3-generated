@@ -73,14 +73,14 @@ public final class NVConditionalRender {
 
 	public static void glBeginConditionalRenderNV(int id, int mode) {
 		long __functionAddress = getInstance().BeginConditionalRenderNV;
-		invokeIIV(__functionAddress, id, mode);
+		callIIV(__functionAddress, id, mode);
 	}
 
 	// --- [ glEndConditionalRenderNV ] ---
 
 	public static void glEndConditionalRenderNV() {
 		long __functionAddress = getInstance().EndConditionalRenderNV;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 }

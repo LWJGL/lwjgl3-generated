@@ -73,7 +73,7 @@ public final class EXTX11SyncObject {
 	 */
 	public static long glImportSyncEXT(int external_sync_type, long external_sync, int flags) {
 		long __functionAddress = getInstance().ImportSyncEXT;
-		return invokeIPIP(__functionAddress, external_sync_type, external_sync, flags);
+		return callIPIP(__functionAddress, external_sync_type, external_sync, flags);
 	}
 
 }

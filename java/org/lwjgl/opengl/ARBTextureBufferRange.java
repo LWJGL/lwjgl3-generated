@@ -75,7 +75,7 @@ public final class ARBTextureBufferRange {
 	 */
 	public static void glTexBufferRange(int target, int internalformat, int buffer, long offset, long size) {
 		long __functionAddress = getInstance().TexBufferRange;
-		invokeIIIPPV(__functionAddress, target, internalformat, buffer, offset, size);
+		callIIIPPV(__functionAddress, target, internalformat, buffer, offset, size);
 	}
 
 	// --- [ glTextureBufferRangeEXT ] ---
@@ -94,7 +94,7 @@ public final class ARBTextureBufferRange {
 		long __functionAddress = getInstance().TextureBufferRangeEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIPPV(__functionAddress, texture, target, internalformat, buffer, offset, size);
+		callIIIIPPV(__functionAddress, texture, target, internalformat, buffer, offset, size);
 	}
 
 }

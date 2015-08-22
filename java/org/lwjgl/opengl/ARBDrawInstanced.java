@@ -77,7 +77,7 @@ public final class ARBDrawInstanced {
 	 */
 	public static void glDrawArraysInstancedARB(int mode, int first, int count, int primcount) {
 		long __functionAddress = getInstance().DrawArraysInstancedARB;
-		invokeIIIIV(__functionAddress, mode, first, count, primcount);
+		callIIIIV(__functionAddress, mode, first, count, primcount);
 	}
 
 	// --- [ glDrawElementsInstancedARB ] ---
@@ -86,7 +86,7 @@ public final class ARBDrawInstanced {
 	@JavadocExclude
 	public static void nglDrawElementsInstancedARB(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = getInstance().DrawElementsInstancedARB;
-		invokeIIIPIV(__functionAddress, mode, count, type, indices, primcount);
+		callIIIPIV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
 	/**

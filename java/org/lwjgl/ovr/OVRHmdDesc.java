@@ -39,7 +39,7 @@ public final class OVRHmdDesc implements Pointer {
 		RESOLUTION;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(18);
+		IntBuffer offsets = memAllocInt(18);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -61,6 +61,8 @@ public final class OVRHmdDesc implements Pointer {
 		MAXEYEFOV = offsets.get(15);
 		EYERENDERORDER = offsets.get(16);
 		RESOLUTION = offsets.get(17);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -85,32 +87,32 @@ public final class OVRHmdDesc implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setType(int Type) { Type(struct, Type); }
-	public void setProductName(long ProductName) { ProductName(struct, ProductName); }
-	public void setProductName(ByteBuffer ProductName) { ProductName(struct, ProductName); }
-	public void setManufacturer(long Manufacturer) { Manufacturer(struct, Manufacturer); }
-	public void setManufacturer(ByteBuffer Manufacturer) { Manufacturer(struct, Manufacturer); }
-	public void setVendorId(int VendorId) { VendorId(struct, VendorId); }
-	public void setProductId(int ProductId) { ProductId(struct, ProductId); }
-	public void setSerialNumber(ByteBuffer SerialNumber) { SerialNumberSet(struct, SerialNumber); }
-	public void setSerialNumber(CharSequence SerialNumber) { SerialNumber(struct, SerialNumber); }
-	public void setFirmwareMajor(int FirmwareMajor) { FirmwareMajor(struct, FirmwareMajor); }
-	public void setFirmwareMinor(int FirmwareMinor) { FirmwareMinor(struct, FirmwareMinor); }
-	public void setCameraFrustumHFovInRadians(float CameraFrustumHFovInRadians) { CameraFrustumHFovInRadians(struct, CameraFrustumHFovInRadians); }
-	public void setCameraFrustumVFovInRadians(float CameraFrustumVFovInRadians) { CameraFrustumVFovInRadians(struct, CameraFrustumVFovInRadians); }
-	public void setCameraFrustumNearZInMeters(float CameraFrustumNearZInMeters) { CameraFrustumNearZInMeters(struct, CameraFrustumNearZInMeters); }
-	public void setCameraFrustumFarZInMeters(float CameraFrustumFarZInMeters) { CameraFrustumFarZInMeters(struct, CameraFrustumFarZInMeters); }
-	public void setHmdCaps(int HmdCaps) { HmdCaps(struct, HmdCaps); }
-	public void setTrackingCaps(int TrackingCaps) { TrackingCaps(struct, TrackingCaps); }
-	public void setDefaultEyeFov(ByteBuffer DefaultEyeFov) { DefaultEyeFovSet(struct, DefaultEyeFov); }
-	public void setDefaultEyeFov(ByteBuffer DefaultEyeFov, int index) { DefaultEyeFovSet(struct, DefaultEyeFov, index); }
-	public void setMaxEyeFov(ByteBuffer MaxEyeFov) { MaxEyeFovSet(struct, MaxEyeFov); }
-	public void setMaxEyeFov(ByteBuffer MaxEyeFov, int index) { MaxEyeFovSet(struct, MaxEyeFov, index); }
-	public void setEyeRenderOrder(ByteBuffer EyeRenderOrder) { EyeRenderOrderSet(struct, EyeRenderOrder); }
-	public void setEyeRenderOrder(int index, int EyeRenderOrder) { EyeRenderOrder(struct, index, EyeRenderOrder); }
-	public void setResolution(ByteBuffer Resolution) { ResolutionSet(struct, Resolution); }
-	public void setResolutionW(int w) { ResolutionW(struct, w); }
-	public void setResolutionH(int h) { ResolutionH(struct, h); }
+	public OVRHmdDesc setType(int Type) { Type(struct, Type); return this; }
+	public OVRHmdDesc setProductName(long ProductName) { ProductName(struct, ProductName); return this; }
+	public OVRHmdDesc setProductName(ByteBuffer ProductName) { ProductName(struct, ProductName); return this; }
+	public OVRHmdDesc setManufacturer(long Manufacturer) { Manufacturer(struct, Manufacturer); return this; }
+	public OVRHmdDesc setManufacturer(ByteBuffer Manufacturer) { Manufacturer(struct, Manufacturer); return this; }
+	public OVRHmdDesc setVendorId(int VendorId) { VendorId(struct, VendorId); return this; }
+	public OVRHmdDesc setProductId(int ProductId) { ProductId(struct, ProductId); return this; }
+	public OVRHmdDesc setSerialNumber(ByteBuffer SerialNumber) { SerialNumberSet(struct, SerialNumber); return this; }
+	public OVRHmdDesc setSerialNumber(CharSequence SerialNumber) { SerialNumber(struct, SerialNumber); return this; }
+	public OVRHmdDesc setFirmwareMajor(int FirmwareMajor) { FirmwareMajor(struct, FirmwareMajor); return this; }
+	public OVRHmdDesc setFirmwareMinor(int FirmwareMinor) { FirmwareMinor(struct, FirmwareMinor); return this; }
+	public OVRHmdDesc setCameraFrustumHFovInRadians(float CameraFrustumHFovInRadians) { CameraFrustumHFovInRadians(struct, CameraFrustumHFovInRadians); return this; }
+	public OVRHmdDesc setCameraFrustumVFovInRadians(float CameraFrustumVFovInRadians) { CameraFrustumVFovInRadians(struct, CameraFrustumVFovInRadians); return this; }
+	public OVRHmdDesc setCameraFrustumNearZInMeters(float CameraFrustumNearZInMeters) { CameraFrustumNearZInMeters(struct, CameraFrustumNearZInMeters); return this; }
+	public OVRHmdDesc setCameraFrustumFarZInMeters(float CameraFrustumFarZInMeters) { CameraFrustumFarZInMeters(struct, CameraFrustumFarZInMeters); return this; }
+	public OVRHmdDesc setHmdCaps(int HmdCaps) { HmdCaps(struct, HmdCaps); return this; }
+	public OVRHmdDesc setTrackingCaps(int TrackingCaps) { TrackingCaps(struct, TrackingCaps); return this; }
+	public OVRHmdDesc setDefaultEyeFov(ByteBuffer DefaultEyeFov) { DefaultEyeFovSet(struct, DefaultEyeFov); return this; }
+	public OVRHmdDesc setDefaultEyeFov(ByteBuffer DefaultEyeFov, int index) { DefaultEyeFovSet(struct, DefaultEyeFov, index); return this; }
+	public OVRHmdDesc setMaxEyeFov(ByteBuffer MaxEyeFov) { MaxEyeFovSet(struct, MaxEyeFov); return this; }
+	public OVRHmdDesc setMaxEyeFov(ByteBuffer MaxEyeFov, int index) { MaxEyeFovSet(struct, MaxEyeFov, index); return this; }
+	public OVRHmdDesc setEyeRenderOrder(ByteBuffer EyeRenderOrder) { EyeRenderOrderSet(struct, EyeRenderOrder); return this; }
+	public OVRHmdDesc setEyeRenderOrder(int index, int EyeRenderOrder) { EyeRenderOrder(struct, index, EyeRenderOrder); return this; }
+	public OVRHmdDesc setResolution(ByteBuffer Resolution) { ResolutionSet(struct, Resolution); return this; }
+	public OVRHmdDesc setResolutionW(int w) { ResolutionW(struct, w); return this; }
+	public OVRHmdDesc setResolutionH(int h) { ResolutionH(struct, h); return this; }
 
 	public int getType() { return Type(struct); }
 	public long getProductName() { return ProductName(struct); }

@@ -118,7 +118,7 @@ public final class ARBComputeShader {
 	 */
 	public static void glDispatchCompute(int num_groups_x, int num_groups_y, int num_groups_z) {
 		long __functionAddress = getInstance().DispatchCompute;
-		invokeIIIV(__functionAddress, num_groups_x, num_groups_y, num_groups_z);
+		callIIIV(__functionAddress, num_groups_x, num_groups_y, num_groups_z);
 	}
 
 	// --- [ glDispatchComputeIndirect ] ---
@@ -146,7 +146,7 @@ public final class ARBComputeShader {
 		long __functionAddress = getInstance().DispatchComputeIndirect;
 		if ( LWJGLUtil.CHECKS )
 			GLChecks.ensureBufferObject(GL43.GL_DISPATCH_INDIRECT_BUFFER_BINDING, true);
-		invokePV(__functionAddress, indirect);
+		callPV(__functionAddress, indirect);
 	}
 
 }

@@ -101,7 +101,7 @@ public final class KHRStream {
 		long __functionAddress = getInstance().CreateStreamKHR;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		return invokePPP(__functionAddress, dpy, attrib_list);
+		return callPPP(__functionAddress, dpy, attrib_list);
 	}
 
 	public static long eglCreateStreamKHR(long dpy, ByteBuffer attrib_list) {
@@ -125,7 +125,7 @@ public final class KHRStream {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return invokePPZ(__functionAddress, dpy, stream);
+		return callPPZ(__functionAddress, dpy, stream);
 	}
 
 	// --- [ eglStreamAttribKHR ] ---
@@ -136,7 +136,7 @@ public final class KHRStream {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return invokePPIIZ(__functionAddress, dpy, stream, attribute, value);
+		return callPPIIZ(__functionAddress, dpy, stream, attribute, value);
 	}
 
 	// --- [ eglQueryStreamKHR ] ---
@@ -149,7 +149,7 @@ public final class KHRStream {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return invokePPIPZ(__functionAddress, dpy, stream, attribute, value);
+		return callPPIPZ(__functionAddress, dpy, stream, attribute, value);
 	}
 
 	public static boolean eglQueryStreamKHR(long dpy, long stream, int attribute, ByteBuffer value) {
@@ -175,7 +175,7 @@ public final class KHRStream {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return invokePPIPZ(__functionAddress, dpy, stream, attribute, value);
+		return callPPIPZ(__functionAddress, dpy, stream, attribute, value);
 	}
 
 	public static boolean eglQueryStreamu64KHR(long dpy, long stream, int attribute, ByteBuffer value) {

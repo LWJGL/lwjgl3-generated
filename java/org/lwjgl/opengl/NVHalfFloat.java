@@ -171,7 +171,7 @@ public final class NVHalfFloat {
 
 	public static void glVertex2hNV(short x, short y) {
 		long __functionAddress = getInstance().Vertex2hNV;
-		invokeSSV(__functionAddress, x, y);
+		callSSV(__functionAddress, x, y);
 	}
 
 	// --- [ glVertex2hvNV ] ---
@@ -180,7 +180,7 @@ public final class NVHalfFloat {
 	@JavadocExclude
 	public static void nglVertex2hvNV(long v) {
 		long __functionAddress = getInstance().Vertex2hvNV;
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	public static void glVertex2hvNV(ByteBuffer v) {
@@ -200,7 +200,7 @@ public final class NVHalfFloat {
 
 	public static void glVertex3hNV(short x, short y, short z) {
 		long __functionAddress = getInstance().Vertex3hNV;
-		invokeSSSV(__functionAddress, x, y, z);
+		callSSSV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glVertex3hvNV ] ---
@@ -209,7 +209,7 @@ public final class NVHalfFloat {
 	@JavadocExclude
 	public static void nglVertex3hvNV(long v) {
 		long __functionAddress = getInstance().Vertex3hvNV;
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	public static void glVertex3hvNV(ByteBuffer v) {
@@ -229,7 +229,7 @@ public final class NVHalfFloat {
 
 	public static void glVertex4hNV(short x, short y, short z, short w) {
 		long __functionAddress = getInstance().Vertex4hNV;
-		invokeSSSSV(__functionAddress, x, y, z, w);
+		callSSSSV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glVertex4hvNV ] ---
@@ -238,7 +238,7 @@ public final class NVHalfFloat {
 	@JavadocExclude
 	public static void nglVertex4hvNV(long v) {
 		long __functionAddress = getInstance().Vertex4hvNV;
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	public static void glVertex4hvNV(ByteBuffer v) {
@@ -258,7 +258,7 @@ public final class NVHalfFloat {
 
 	public static void glNormal3hNV(short nx, short ny, short nz) {
 		long __functionAddress = getInstance().Normal3hNV;
-		invokeSSSV(__functionAddress, nx, ny, nz);
+		callSSSV(__functionAddress, nx, ny, nz);
 	}
 
 	// --- [ glNormal3hvNV ] ---
@@ -267,7 +267,7 @@ public final class NVHalfFloat {
 	@JavadocExclude
 	public static void nglNormal3hvNV(long v) {
 		long __functionAddress = getInstance().Normal3hvNV;
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	public static void glNormal3hvNV(ByteBuffer v) {
@@ -287,7 +287,7 @@ public final class NVHalfFloat {
 
 	public static void glColor3hNV(short red, short green, short blue) {
 		long __functionAddress = getInstance().Color3hNV;
-		invokeSSSV(__functionAddress, red, green, blue);
+		callSSSV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3hvNV ] ---
@@ -296,7 +296,7 @@ public final class NVHalfFloat {
 	@JavadocExclude
 	public static void nglColor3hvNV(long v) {
 		long __functionAddress = getInstance().Color3hvNV;
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	public static void glColor3hvNV(ByteBuffer v) {
@@ -316,7 +316,7 @@ public final class NVHalfFloat {
 
 	public static void glColor4hNV(short red, short green, short blue, short alpha) {
 		long __functionAddress = getInstance().Color4hNV;
-		invokeSSSSV(__functionAddress, red, green, blue, alpha);
+		callSSSSV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4hvNV ] ---
@@ -325,7 +325,7 @@ public final class NVHalfFloat {
 	@JavadocExclude
 	public static void nglColor4hvNV(long v) {
 		long __functionAddress = getInstance().Color4hvNV;
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	public static void glColor4hvNV(ByteBuffer v) {
@@ -345,7 +345,7 @@ public final class NVHalfFloat {
 
 	public static void glTexCoord1hNV(short s) {
 		long __functionAddress = getInstance().TexCoord1hNV;
-		invokeSV(__functionAddress, s);
+		callSV(__functionAddress, s);
 	}
 
 	// --- [ glTexCoord1hvNV ] ---
@@ -354,7 +354,7 @@ public final class NVHalfFloat {
 	@JavadocExclude
 	public static void nglTexCoord1hvNV(long v) {
 		long __functionAddress = getInstance().TexCoord1hvNV;
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	public static void glTexCoord1hvNV(ByteBuffer v) {
@@ -374,7 +374,7 @@ public final class NVHalfFloat {
 
 	public static void glTexCoord2hNV(short s, short t) {
 		long __functionAddress = getInstance().TexCoord2hNV;
-		invokeSSV(__functionAddress, s, t);
+		callSSV(__functionAddress, s, t);
 	}
 
 	// --- [ glTexCoord2hvNV ] ---
@@ -383,7 +383,7 @@ public final class NVHalfFloat {
 	@JavadocExclude
 	public static void nglTexCoord2hvNV(long v) {
 		long __functionAddress = getInstance().TexCoord2hvNV;
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	public static void glTexCoord2hvNV(ByteBuffer v) {
@@ -403,7 +403,7 @@ public final class NVHalfFloat {
 
 	public static void glTexCoord3hNV(short s, short t, short r) {
 		long __functionAddress = getInstance().TexCoord3hNV;
-		invokeSSSV(__functionAddress, s, t, r);
+		callSSSV(__functionAddress, s, t, r);
 	}
 
 	// --- [ glTexCoord3hvNV ] ---
@@ -412,7 +412,7 @@ public final class NVHalfFloat {
 	@JavadocExclude
 	public static void nglTexCoord3hvNV(long v) {
 		long __functionAddress = getInstance().TexCoord3hvNV;
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	public static void glTexCoord3hvNV(ByteBuffer v) {
@@ -432,7 +432,7 @@ public final class NVHalfFloat {
 
 	public static void glTexCoord4hNV(short s, short t, short r, short q) {
 		long __functionAddress = getInstance().TexCoord4hNV;
-		invokeSSSSV(__functionAddress, s, t, r, q);
+		callSSSSV(__functionAddress, s, t, r, q);
 	}
 
 	// --- [ glTexCoord4hvNV ] ---
@@ -441,7 +441,7 @@ public final class NVHalfFloat {
 	@JavadocExclude
 	public static void nglTexCoord4hvNV(long v) {
 		long __functionAddress = getInstance().TexCoord4hvNV;
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	public static void glTexCoord4hvNV(ByteBuffer v) {
@@ -461,7 +461,7 @@ public final class NVHalfFloat {
 
 	public static void glMultiTexCoord1hNV(int target, short s) {
 		long __functionAddress = getInstance().MultiTexCoord1hNV;
-		invokeISV(__functionAddress, target, s);
+		callISV(__functionAddress, target, s);
 	}
 
 	// --- [ glMultiTexCoord1hvNV ] ---
@@ -470,7 +470,7 @@ public final class NVHalfFloat {
 	@JavadocExclude
 	public static void nglMultiTexCoord1hvNV(int target, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1hvNV;
-		invokeIPV(__functionAddress, target, v);
+		callIPV(__functionAddress, target, v);
 	}
 
 	public static void glMultiTexCoord1hvNV(int target, ByteBuffer v) {
@@ -490,7 +490,7 @@ public final class NVHalfFloat {
 
 	public static void glMultiTexCoord2hNV(int target, short s, short t) {
 		long __functionAddress = getInstance().MultiTexCoord2hNV;
-		invokeISSV(__functionAddress, target, s, t);
+		callISSV(__functionAddress, target, s, t);
 	}
 
 	// --- [ glMultiTexCoord2hvNV ] ---
@@ -499,7 +499,7 @@ public final class NVHalfFloat {
 	@JavadocExclude
 	public static void nglMultiTexCoord2hvNV(int target, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2hvNV;
-		invokeIPV(__functionAddress, target, v);
+		callIPV(__functionAddress, target, v);
 	}
 
 	public static void glMultiTexCoord2hvNV(int target, ByteBuffer v) {
@@ -519,7 +519,7 @@ public final class NVHalfFloat {
 
 	public static void glMultiTexCoord3hNV(int target, short s, short t, short r) {
 		long __functionAddress = getInstance().MultiTexCoord3hNV;
-		invokeISSSV(__functionAddress, target, s, t, r);
+		callISSSV(__functionAddress, target, s, t, r);
 	}
 
 	// --- [ glMultiTexCoord3hvNV ] ---
@@ -528,7 +528,7 @@ public final class NVHalfFloat {
 	@JavadocExclude
 	public static void nglMultiTexCoord3hvNV(int target, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3hvNV;
-		invokeIPV(__functionAddress, target, v);
+		callIPV(__functionAddress, target, v);
 	}
 
 	public static void glMultiTexCoord3hvNV(int target, ByteBuffer v) {
@@ -548,7 +548,7 @@ public final class NVHalfFloat {
 
 	public static void glMultiTexCoord4hNV(int target, short s, short t, short r, short q) {
 		long __functionAddress = getInstance().MultiTexCoord4hNV;
-		invokeISSSSV(__functionAddress, target, s, t, r, q);
+		callISSSSV(__functionAddress, target, s, t, r, q);
 	}
 
 	// --- [ glMultiTexCoord4hvNV ] ---
@@ -557,7 +557,7 @@ public final class NVHalfFloat {
 	@JavadocExclude
 	public static void nglMultiTexCoord4hvNV(int target, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4hvNV;
-		invokeIPV(__functionAddress, target, v);
+		callIPV(__functionAddress, target, v);
 	}
 
 	public static void glMultiTexCoord4hvNV(int target, ByteBuffer v) {
@@ -579,7 +579,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().FogCoordhNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSV(__functionAddress, fog);
+		callSV(__functionAddress, fog);
 	}
 
 	// --- [ glFogCoordhvNV ] ---
@@ -590,7 +590,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().FogCoordhvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, fog);
+		callPV(__functionAddress, fog);
 	}
 
 	public static void glFogCoordhvNV(ByteBuffer fog) {
@@ -612,7 +612,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().SecondaryColor3hNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSSSV(__functionAddress, red, green, blue);
+		callSSSV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glSecondaryColor3hvNV ] ---
@@ -623,7 +623,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().SecondaryColor3hvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	public static void glSecondaryColor3hvNV(ByteBuffer v) {
@@ -645,7 +645,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().VertexWeighthNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSV(__functionAddress, weight);
+		callSV(__functionAddress, weight);
 	}
 
 	// --- [ glVertexWeighthvNV ] ---
@@ -656,7 +656,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().VertexWeighthvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, weight);
+		callPV(__functionAddress, weight);
 	}
 
 	public static void glVertexWeighthvNV(ByteBuffer weight) {
@@ -678,7 +678,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().VertexAttrib1hNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeISV(__functionAddress, index, x);
+		callISV(__functionAddress, index, x);
 	}
 
 	// --- [ glVertexAttrib1hvNV ] ---
@@ -689,7 +689,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().VertexAttrib1hvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttrib1hvNV(int index, ByteBuffer v) {
@@ -711,7 +711,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().VertexAttrib2hNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeISSV(__functionAddress, index, x, y);
+		callISSV(__functionAddress, index, x, y);
 	}
 
 	// --- [ glVertexAttrib2hvNV ] ---
@@ -722,7 +722,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().VertexAttrib2hvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttrib2hvNV(int index, ByteBuffer v) {
@@ -744,7 +744,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().VertexAttrib3hNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeISSSV(__functionAddress, index, x, y, z);
+		callISSSV(__functionAddress, index, x, y, z);
 	}
 
 	// --- [ glVertexAttrib3hvNV ] ---
@@ -755,7 +755,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().VertexAttrib3hvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttrib3hvNV(int index, ByteBuffer v) {
@@ -777,7 +777,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().VertexAttrib4hNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeISSSSV(__functionAddress, index, x, y, z, w);
+		callISSSSV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttrib4hvNV ] ---
@@ -788,7 +788,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().VertexAttrib4hvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttrib4hvNV(int index, ByteBuffer v) {
@@ -812,7 +812,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().VertexAttribs1hvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, index, n, v);
+		callIIPV(__functionAddress, index, n, v);
 	}
 
 	public static void glVertexAttribs1hvNV(int index, int n, ByteBuffer v) {
@@ -834,7 +834,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().VertexAttribs2hvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, index, n, v);
+		callIIPV(__functionAddress, index, n, v);
 	}
 
 	public static void glVertexAttribs2hvNV(int index, int n, ByteBuffer v) {
@@ -856,7 +856,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().VertexAttribs3hvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, index, n, v);
+		callIIPV(__functionAddress, index, n, v);
 	}
 
 	public static void glVertexAttribs3hvNV(int index, int n, ByteBuffer v) {
@@ -878,7 +878,7 @@ public final class NVHalfFloat {
 		long __functionAddress = getInstance().VertexAttribs4hvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, index, n, v);
+		callIIPV(__functionAddress, index, n, v);
 	}
 
 	public static void glVertexAttribs4hvNV(int index, int n, ByteBuffer v) {

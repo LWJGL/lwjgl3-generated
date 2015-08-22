@@ -65,7 +65,7 @@ public final class GLXSGIMakeCurrentRead {
 		long __functionAddress = getInstance().MakeCurrentReadSGI;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return invokePPPPI(__functionAddress, display, draw, read, ctx);
+		return callPPPPI(__functionAddress, display, draw, read, ctx);
 	}
 
 	// --- [ glXGetCurrentReadDrawableSGI ] ---
@@ -73,7 +73,7 @@ public final class GLXSGIMakeCurrentRead {
 	/** Returns the name of the {@code GLXDrawable} currently being used as a pixel query source. */
 	public static long glXGetCurrentReadDrawableSGI() {
 		long __functionAddress = getInstance().GetCurrentReadDrawableSGI;
-		return invokeP(__functionAddress);
+		return callP(__functionAddress);
 	}
 
 }

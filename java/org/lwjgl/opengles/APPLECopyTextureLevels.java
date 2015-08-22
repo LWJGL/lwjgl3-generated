@@ -65,7 +65,7 @@ public final class APPLECopyTextureLevels {
 
 	public static void glCopyTextureLevelsAPPLE(int destinationTexture, int sourceTexture, int sourceBaseLevel, int sourceLevelCount) {
 		long __functionAddress = getInstance().CopyTextureLevelsAPPLE;
-		invokeIIIIV(__functionAddress, destinationTexture, sourceTexture, sourceBaseLevel, sourceLevelCount);
+		callIIIIV(__functionAddress, destinationTexture, sourceTexture, sourceBaseLevel, sourceLevelCount);
 	}
 
 }

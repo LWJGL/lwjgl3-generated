@@ -71,7 +71,7 @@ public final class GLXEXTImportContext {
 	/** Returns the display associated with the current context. */
 	public static long glXGetCurrentDisplayEXT() {
 		long __functionAddress = getInstance().GetCurrentDisplayEXT;
-		return invokeP(__functionAddress);
+		return callP(__functionAddress);
 	}
 
 	// --- [ glXQueryContextInfoEXT ] ---
@@ -84,7 +84,7 @@ public final class GLXEXTImportContext {
 			checkPointer(display);
 			checkPointer(context);
 		}
-		return invokePPIPI(__functionAddress, display, context, attribute, value);
+		return callPPIPI(__functionAddress, display, context, attribute, value);
 	}
 
 	/**
@@ -119,7 +119,7 @@ public final class GLXEXTImportContext {
 		long __functionAddress = getInstance().GetContextIDEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return invokePP(__functionAddress, context);
+		return callPP(__functionAddress, context);
 	}
 
 	// --- [ glXImportContextEXT ] ---
@@ -134,7 +134,7 @@ public final class GLXEXTImportContext {
 		long __functionAddress = getInstance().ImportContextEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return invokePPP(__functionAddress, display, contextID);
+		return callPPP(__functionAddress, display, contextID);
 	}
 
 	// --- [ glXFreeContextEXT ] ---
@@ -151,7 +151,7 @@ public final class GLXEXTImportContext {
 			checkPointer(display);
 			checkPointer(context);
 		}
-		invokePPV(__functionAddress, display, context);
+		callPPV(__functionAddress, display, context);
 	}
 
 }

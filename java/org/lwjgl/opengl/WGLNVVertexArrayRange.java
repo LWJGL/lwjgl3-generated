@@ -53,7 +53,7 @@ public final class WGLNVVertexArrayRange {
 	@JavadocExclude
 	public static long nwglAllocateMemoryNV(int size, float readfreq, float writefreq, float priority) {
 		long __functionAddress = getInstance().AllocateMemoryNV;
-		return invokeIFFFP(__functionAddress, size, readfreq, writefreq, priority);
+		return callIFFFP(__functionAddress, size, readfreq, writefreq, priority);
 	}
 
 	public static ByteBuffer wglAllocateMemoryNV(int size, float readfreq, float writefreq, float priority) {
@@ -67,7 +67,7 @@ public final class WGLNVVertexArrayRange {
 	@JavadocExclude
 	public static void nwglFreeMemoryNV(long pointer) {
 		long __functionAddress = getInstance().FreeMemoryNV;
-		invokePV(__functionAddress, pointer);
+		callPV(__functionAddress, pointer);
 	}
 
 	public static void wglFreeMemoryNV(ByteBuffer pointer) {

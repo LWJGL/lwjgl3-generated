@@ -89,7 +89,7 @@ public final class WGLNVDXInterop {
 			checkPointer(dxObject);
 			checkPointer(shareHandle);
 		}
-		return invokePPI(__functionAddress, dxObject, shareHandle);
+		return callPPI(__functionAddress, dxObject, shareHandle);
 	}
 
 	// --- [ wglDXOpenDeviceNV ] ---
@@ -103,7 +103,7 @@ public final class WGLNVDXInterop {
 		long __functionAddress = getInstance().DXOpenDeviceNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dxDevice);
-		return invokePP(__functionAddress, dxDevice);
+		return callPP(__functionAddress, dxDevice);
 	}
 
 	// --- [ wglDXCloseDeviceNV ] ---
@@ -112,7 +112,7 @@ public final class WGLNVDXInterop {
 		long __functionAddress = getInstance().DXCloseDeviceNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		return invokePI(__functionAddress, device);
+		return callPI(__functionAddress, device);
 	}
 
 	// --- [ wglDXRegisterObjectNV ] ---
@@ -132,7 +132,7 @@ public final class WGLNVDXInterop {
 			checkPointer(device);
 			checkPointer(dxResource);
 		}
-		return invokePPIIIP(__functionAddress, device, dxResource, name, type, access);
+		return callPPIIIP(__functionAddress, device, dxResource, name, type, access);
 	}
 
 	// --- [ wglDXUnregisterObjectNV ] ---
@@ -143,7 +143,7 @@ public final class WGLNVDXInterop {
 			checkPointer(device);
 			checkPointer(object);
 		}
-		return invokePPI(__functionAddress, device, object);
+		return callPPI(__functionAddress, device, object);
 	}
 
 	// --- [ wglDXObjectAccessNV ] ---
@@ -158,7 +158,7 @@ public final class WGLNVDXInterop {
 		long __functionAddress = getInstance().DXObjectAccessNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(object);
-		return invokePII(__functionAddress, object, access);
+		return callPII(__functionAddress, object, access);
 	}
 
 	// --- [ wglDXLockObjectsNV ] ---
@@ -169,7 +169,7 @@ public final class WGLNVDXInterop {
 		long __functionAddress = getInstance().DXLockObjectsNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		return invokePIPI(__functionAddress, device, count, objects);
+		return callPIPI(__functionAddress, device, count, objects);
 	}
 
 	/**
@@ -205,7 +205,7 @@ public final class WGLNVDXInterop {
 		long __functionAddress = getInstance().DXUnlockObjectsNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(device);
-		return invokePIPI(__functionAddress, device, count, objects);
+		return callPIPI(__functionAddress, device, count, objects);
 	}
 
 	/**

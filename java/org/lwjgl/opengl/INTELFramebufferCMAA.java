@@ -66,7 +66,7 @@ public final class INTELFramebufferCMAA {
 	 */
 	public static void glApplyFramebufferAttachmentCMAAINTEL() {
 		long __functionAddress = getInstance().ApplyFramebufferAttachmentCMAAINTEL;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 }

@@ -114,28 +114,28 @@ public final class EXTGeometryShader4 {
 
 	public static void glProgramParameteriEXT(int program, int pname, int value) {
 		long __functionAddress = getInstance().ProgramParameteriEXT;
-		invokeIIIV(__functionAddress, program, pname, value);
+		callIIIV(__functionAddress, program, pname, value);
 	}
 
 	// --- [ glFramebufferTextureEXT ] ---
 
 	public static void glFramebufferTextureEXT(int target, int attachment, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTextureEXT;
-		invokeIIIIV(__functionAddress, target, attachment, texture, level);
+		callIIIIV(__functionAddress, target, attachment, texture, level);
 	}
 
 	// --- [ glFramebufferTextureLayerEXT ] ---
 
 	public static void glFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer) {
 		long __functionAddress = getInstance().FramebufferTextureLayerEXT;
-		invokeIIIIIV(__functionAddress, target, attachment, texture, level, layer);
+		callIIIIIV(__functionAddress, target, attachment, texture, level, layer);
 	}
 
 	// --- [ glFramebufferTextureFaceEXT ] ---
 
 	public static void glFramebufferTextureFaceEXT(int target, int attachment, int texture, int level, int face) {
 		long __functionAddress = getInstance().FramebufferTextureFaceEXT;
-		invokeIIIIIV(__functionAddress, target, attachment, texture, level, face);
+		callIIIIIV(__functionAddress, target, attachment, texture, level, face);
 	}
 
 }

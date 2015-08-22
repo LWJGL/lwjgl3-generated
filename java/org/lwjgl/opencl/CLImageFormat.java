@@ -23,12 +23,14 @@ public final class CLImageFormat implements Pointer {
 		IMAGE_CHANNEL_DATA_TYPE;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(2);
+		IntBuffer offsets = memAllocInt(2);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		IMAGE_CHANNEL_ORDER = offsets.get(0);
 		IMAGE_CHANNEL_DATA_TYPE = offsets.get(1);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -53,8 +55,8 @@ public final class CLImageFormat implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setImageChannelOrder(int image_channel_order) { image_channel_order(struct, image_channel_order); }
-	public void setImageChannelDataType(int image_channel_data_type) { image_channel_data_type(struct, image_channel_data_type); }
+	public CLImageFormat setImageChannelOrder(int image_channel_order) { image_channel_order(struct, image_channel_order); return this; }
+	public CLImageFormat setImageChannelDataType(int image_channel_data_type) { image_channel_data_type(struct, image_channel_data_type); return this; }
 
 	public int getImageChannelOrder() { return image_channel_order(struct); }
 	public int getImageChannelDataType() { return image_channel_data_type(struct); }

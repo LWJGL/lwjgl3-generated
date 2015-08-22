@@ -63,7 +63,7 @@ public final class AMDSamplePositions {
 	@JavadocExclude
 	public static void nglSetMultisamplefvAMD(int pname, int index, long val) {
 		long __functionAddress = getInstance().SetMultisamplefvAMD;
-		invokeIIPV(__functionAddress, pname, index, val);
+		callIIPV(__functionAddress, pname, index, val);
 	}
 
 	public static void glSetMultisamplefvAMD(int pname, int index, ByteBuffer val) {

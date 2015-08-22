@@ -105,7 +105,7 @@ public final class OESDrawElementsBaseVertex {
 	@JavadocExclude
 	public static void nglDrawElementsBaseVertexOES(int mode, int count, int type, long indices, int basevertex) {
 		long __functionAddress = getInstance().DrawElementsBaseVertexOES;
-		invokeIIIPIV(__functionAddress, mode, count, type, indices, basevertex);
+		callIIIPIV(__functionAddress, mode, count, type, indices, basevertex);
 	}
 
 	public static void glDrawElementsBaseVertexOES(int mode, int count, int type, ByteBuffer indices, int basevertex) {
@@ -147,7 +147,7 @@ public final class OESDrawElementsBaseVertex {
 		long __functionAddress = getInstance().DrawRangeElementsBaseVertexOES;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIPIV(__functionAddress, mode, start, end, count, type, indices, basevertex);
+		callIIIIIPIV(__functionAddress, mode, start, end, count, type, indices, basevertex);
 	}
 
 	public static void glDrawRangeElementsBaseVertexOES(int mode, int start, int end, int count, int type, ByteBuffer indices, int basevertex) {
@@ -189,7 +189,7 @@ public final class OESDrawElementsBaseVertex {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseVertexOES;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPIIV(__functionAddress, mode, count, type, indices, instancecount, basevertex);
+		callIIIPIIV(__functionAddress, mode, count, type, indices, instancecount, basevertex);
 	}
 
 	public static void glDrawElementsInstancedBaseVertexOES(int mode, int count, int type, ByteBuffer indices, int instancecount, int basevertex) {
@@ -231,7 +231,7 @@ public final class OESDrawElementsBaseVertex {
 		long __functionAddress = getInstance().MultiDrawElementsBaseVertexOES;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPIPIPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
+		callIPIPIPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
 	}
 
 	public static void glMultiDrawElementsBaseVertexOES(int mode, ByteBuffer count, int type, ByteBuffer indices, int primcount, ByteBuffer basevertex) {

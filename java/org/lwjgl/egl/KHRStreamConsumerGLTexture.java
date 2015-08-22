@@ -54,7 +54,7 @@ public final class KHRStreamConsumerGLTexture {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return invokePPZ(__functionAddress, dpy, stream);
+		return callPPZ(__functionAddress, dpy, stream);
 	}
 
 	// --- [ eglStreamConsumerAcquireKHR ] ---
@@ -65,7 +65,7 @@ public final class KHRStreamConsumerGLTexture {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return invokePPZ(__functionAddress, dpy, stream);
+		return callPPZ(__functionAddress, dpy, stream);
 	}
 
 	// --- [ eglStreamConsumerReleaseKHR ] ---
@@ -76,7 +76,7 @@ public final class KHRStreamConsumerGLTexture {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return invokePPZ(__functionAddress, dpy, stream);
+		return callPPZ(__functionAddress, dpy, stream);
 	}
 
 }

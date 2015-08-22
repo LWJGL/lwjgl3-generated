@@ -171,7 +171,7 @@ public final class ARBShaderImageLoadStore {
 	 */
 	public static void glBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format) {
 		long __functionAddress = getInstance().BindImageTexture;
-		invokeIIIZIIIV(__functionAddress, unit, texture, level, layered, layer, access, format);
+		callIIIZIIIV(__functionAddress, unit, texture, level, layered, layer, access, format);
 	}
 
 	// --- [ glMemoryBarrier ] ---
@@ -183,7 +183,7 @@ public final class ARBShaderImageLoadStore {
 	 */
 	public static void glMemoryBarrier(int barriers) {
 		long __functionAddress = getInstance().MemoryBarrier;
-		invokeIV(__functionAddress, barriers);
+		callIV(__functionAddress, barriers);
 	}
 
 }

@@ -80,7 +80,7 @@ public final class ARBMapBufferRange {
 	@JavadocExclude
 	public static long nglMapBufferRange(int target, long offset, long length, int access) {
 		long __functionAddress = getInstance().MapBufferRange;
-		return invokeIPPIP(__functionAddress, target, offset, length, access);
+		return callIPPIP(__functionAddress, target, offset, length, access);
 	}
 
 	/**
@@ -119,7 +119,7 @@ public final class ARBMapBufferRange {
 	 */
 	public static void glFlushMappedBufferRange(int target, long offset, long length) {
 		long __functionAddress = getInstance().FlushMappedBufferRange;
-		invokeIPPV(__functionAddress, target, offset, length);
+		callIPPV(__functionAddress, target, offset, length);
 	}
 
 }

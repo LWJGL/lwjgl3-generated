@@ -99,7 +99,7 @@ public final class NVViewportArray {
 	@JavadocExclude
 	public static void nglViewportArrayvNV(int first, int count, long v) {
 		long __functionAddress = getInstance().ViewportArrayvNV;
-		invokeIIPV(__functionAddress, first, count, v);
+		callIIPV(__functionAddress, first, count, v);
 	}
 
 	public static void glViewportArrayvNV(int first, int count, ByteBuffer v) {
@@ -117,7 +117,7 @@ public final class NVViewportArray {
 
 	public static void glViewportIndexedfNV(int index, float x, float y, float w, float h) {
 		long __functionAddress = getInstance().ViewportIndexedfNV;
-		invokeIFFFFV(__functionAddress, index, x, y, w, h);
+		callIFFFFV(__functionAddress, index, x, y, w, h);
 	}
 
 	// --- [ glViewportIndexedfvNV ] ---
@@ -126,7 +126,7 @@ public final class NVViewportArray {
 	@JavadocExclude
 	public static void nglViewportIndexedfvNV(int index, long v) {
 		long __functionAddress = getInstance().ViewportIndexedfvNV;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	public static void glViewportIndexedfvNV(int index, ByteBuffer v) {
@@ -148,7 +148,7 @@ public final class NVViewportArray {
 	@JavadocExclude
 	public static void nglScissorArrayvNV(int first, int count, long v) {
 		long __functionAddress = getInstance().ScissorArrayvNV;
-		invokeIIPV(__functionAddress, first, count, v);
+		callIIPV(__functionAddress, first, count, v);
 	}
 
 	public static void glScissorArrayvNV(int first, int count, ByteBuffer v) {
@@ -166,7 +166,7 @@ public final class NVViewportArray {
 
 	public static void glScissorIndexedNV(int index, int left, int bottom, int width, int height) {
 		long __functionAddress = getInstance().ScissorIndexedNV;
-		invokeIIIIIV(__functionAddress, index, left, bottom, width, height);
+		callIIIIIV(__functionAddress, index, left, bottom, width, height);
 	}
 
 	// --- [ glScissorIndexedvNV ] ---
@@ -175,7 +175,7 @@ public final class NVViewportArray {
 	@JavadocExclude
 	public static void nglScissorIndexedvNV(int index, long v) {
 		long __functionAddress = getInstance().ScissorIndexedvNV;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	public static void glScissorIndexedvNV(int index, ByteBuffer v) {
@@ -197,7 +197,7 @@ public final class NVViewportArray {
 	@JavadocExclude
 	public static void nglDepthRangeArrayfvNV(int first, int count, long v) {
 		long __functionAddress = getInstance().DepthRangeArrayfvNV;
-		invokeIIPV(__functionAddress, first, count, v);
+		callIIPV(__functionAddress, first, count, v);
 	}
 
 	public static void glDepthRangeArrayfvNV(int first, int count, ByteBuffer v) {
@@ -215,7 +215,7 @@ public final class NVViewportArray {
 
 	public static void glDepthRangeIndexedfNV(int index, float n, float f) {
 		long __functionAddress = getInstance().DepthRangeIndexedfNV;
-		invokeIFFV(__functionAddress, index, n, f);
+		callIFFV(__functionAddress, index, n, f);
 	}
 
 	// --- [ glGetFloati_vNV ] ---
@@ -224,7 +224,7 @@ public final class NVViewportArray {
 	@JavadocExclude
 	public static void nglGetFloati_vNV(int target, int index, long data) {
 		long __functionAddress = getInstance().GetFloati_vNV;
-		invokeIIPV(__functionAddress, target, index, data);
+		callIIPV(__functionAddress, target, index, data);
 	}
 
 	public static void glGetFloati_vNV(int target, int index, ByteBuffer data) {
@@ -252,21 +252,21 @@ public final class NVViewportArray {
 
 	public static void glEnableiNV(int target, int index) {
 		long __functionAddress = getInstance().EnableiNV;
-		invokeIIV(__functionAddress, target, index);
+		callIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glDisableiNV ] ---
 
 	public static void glDisableiNV(int target, int index) {
 		long __functionAddress = getInstance().DisableiNV;
-		invokeIIV(__functionAddress, target, index);
+		callIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glIsEnablediNV ] ---
 
 	public static boolean glIsEnablediNV(int target, int index) {
 		long __functionAddress = getInstance().IsEnablediNV;
-		return invokeIIZ(__functionAddress, target, index);
+		return callIIZ(__functionAddress, target, index);
 	}
 
 }

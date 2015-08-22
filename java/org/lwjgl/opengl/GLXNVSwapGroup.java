@@ -82,7 +82,7 @@ public final class GLXNVSwapGroup {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		return invokePPII(__functionAddress, display, drawable, group);
+		return callPPII(__functionAddress, display, drawable, group);
 	}
 
 	// --- [ glXBindSwapBarrierNV ] ---
@@ -98,7 +98,7 @@ public final class GLXNVSwapGroup {
 		long __functionAddress = getInstance().BindSwapBarrierNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return invokePIII(__functionAddress, display, group, barrier);
+		return callPIII(__functionAddress, display, group, barrier);
 	}
 
 	// --- [ glXQuerySwapGroupNV ] ---
@@ -111,7 +111,7 @@ public final class GLXNVSwapGroup {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		return invokePPPPI(__functionAddress, display, drawable, group, barrier);
+		return callPPPPI(__functionAddress, display, drawable, group, barrier);
 	}
 
 	/**
@@ -147,7 +147,7 @@ public final class GLXNVSwapGroup {
 		long __functionAddress = getInstance().QueryMaxSwapGroupsNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return invokePIPPI(__functionAddress, display, screen, maxGroups, maxBarriers);
+		return callPIPPI(__functionAddress, display, screen, maxGroups, maxBarriers);
 	}
 
 	/**
@@ -183,7 +183,7 @@ public final class GLXNVSwapGroup {
 		long __functionAddress = getInstance().QueryFrameCountNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return invokePIPI(__functionAddress, display, screen, count);
+		return callPIPI(__functionAddress, display, screen, count);
 	}
 
 	/**
@@ -218,7 +218,7 @@ public final class GLXNVSwapGroup {
 		long __functionAddress = getInstance().ResetFrameCountNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return invokePII(__functionAddress, display, screen);
+		return callPII(__functionAddress, display, screen);
 	}
 
 }

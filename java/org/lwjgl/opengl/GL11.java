@@ -1455,7 +1455,7 @@ public final class GL11 {
 	 */
 	public static void glEnable(int target) {
 		long __functionAddress = getInstance().Enable;
-		invokeIV(__functionAddress, target);
+		callIV(__functionAddress, target);
 	}
 
 	// --- [ glDisable ] ---
@@ -1469,7 +1469,7 @@ public final class GL11 {
 	 */
 	public static void glDisable(int target) {
 		long __functionAddress = getInstance().Disable;
-		invokeIV(__functionAddress, target);
+		callIV(__functionAddress, target);
 	}
 
 	// --- [ glAccum ] ---
@@ -1487,7 +1487,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Accum;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIFV(__functionAddress, op, value);
+		callIFV(__functionAddress, op, value);
 	}
 
 	// --- [ glAlphaFunc ] ---
@@ -1506,7 +1506,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().AlphaFunc;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIFV(__functionAddress, func, ref);
+		callIFV(__functionAddress, func, ref);
 	}
 
 	// --- [ glAreTexturesResident ] ---
@@ -1517,7 +1517,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().AreTexturesResident;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return invokeIPPZ(__functionAddress, n, textures, residences);
+		return callIPPZ(__functionAddress, n, textures, residences);
 	}
 
 	/**
@@ -1566,7 +1566,7 @@ public final class GL11 {
 	 */
 	public static void glArrayElement(int i) {
 		long __functionAddress = getInstance().ArrayElement;
-		invokeIV(__functionAddress, i);
+		callIV(__functionAddress, i);
 	}
 
 	// --- [ glBegin ] ---
@@ -1582,7 +1582,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Begin;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIV(__functionAddress, mode);
+		callIV(__functionAddress, mode);
 	}
 
 	// --- [ glBindTexture ] ---
@@ -1601,7 +1601,7 @@ public final class GL11 {
 	 */
 	public static void glBindTexture(int target, int texture) {
 		long __functionAddress = getInstance().BindTexture;
-		invokeIIV(__functionAddress, target, texture);
+		callIIV(__functionAddress, target, texture);
 	}
 
 	// --- [ glBitmap ] ---
@@ -1612,7 +1612,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Bitmap;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIFFFFPV(__functionAddress, w, h, xOrig, yOrig, xInc, yInc, data);
+		callIIFFFFPV(__functionAddress, w, h, xOrig, yOrig, xInc, yInc, data);
 	}
 
 	/**
@@ -1654,7 +1654,7 @@ public final class GL11 {
 	 */
 	public static void glBlendFunc(int sfactor, int dfactor) {
 		long __functionAddress = getInstance().BlendFunc;
-		invokeIIV(__functionAddress, sfactor, dfactor);
+		callIIV(__functionAddress, sfactor, dfactor);
 	}
 
 	// --- [ glCallList ] ---
@@ -1670,7 +1670,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().CallList;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIV(__functionAddress, list);
+		callIV(__functionAddress, list);
 	}
 
 	// --- [ glCallLists ] ---
@@ -1681,7 +1681,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().CallLists;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, n, type, lists);
+		callIIPV(__functionAddress, n, type, lists);
 	}
 
 	/**
@@ -1731,7 +1731,7 @@ public final class GL11 {
 	 */
 	public static void glClear(int mask) {
 		long __functionAddress = getInstance().Clear;
-		invokeIV(__functionAddress, mask);
+		callIV(__functionAddress, mask);
 	}
 
 	// --- [ glClearAccum ] ---
@@ -1750,7 +1750,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().ClearAccum;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFFFFV(__functionAddress, red, green, blue, alpha);
+		callFFFFV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glClearColor ] ---
@@ -1767,7 +1767,7 @@ public final class GL11 {
 	 */
 	public static void glClearColor(float red, float green, float blue, float alpha) {
 		long __functionAddress = getInstance().ClearColor;
-		invokeFFFFV(__functionAddress, red, green, blue, alpha);
+		callFFFFV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glClearDepth ] ---
@@ -1782,7 +1782,7 @@ public final class GL11 {
 	 */
 	public static void glClearDepth(double depth) {
 		long __functionAddress = getInstance().ClearDepth;
-		invokeDV(__functionAddress, depth);
+		callDV(__functionAddress, depth);
 	}
 
 	// --- [ glClearIndex ] ---
@@ -1800,7 +1800,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().ClearIndex;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFV(__functionAddress, index);
+		callFV(__functionAddress, index);
 	}
 
 	// --- [ glClearStencil ] ---
@@ -1814,7 +1814,7 @@ public final class GL11 {
 	 */
 	public static void glClearStencil(int s) {
 		long __functionAddress = getInstance().ClearStencil;
-		invokeIV(__functionAddress, s);
+		callIV(__functionAddress, s);
 	}
 
 	// --- [ glClipPlane ] ---
@@ -1823,7 +1823,7 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglClipPlane(int plane, long equation) {
 		long __functionAddress = getInstance().ClipPlane;
-		invokeIPV(__functionAddress, plane, equation);
+		callIPV(__functionAddress, plane, equation);
 	}
 
 	/**
@@ -1862,7 +1862,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3b;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeBBBV(__functionAddress, red, green, blue);
+		callBBBV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3s ] ---
@@ -1880,7 +1880,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSSSV(__functionAddress, red, green, blue);
+		callSSSV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3i ] ---
@@ -1898,7 +1898,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, red, green, blue);
+		callIIIV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3f ] ---
@@ -1916,7 +1916,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFFFV(__functionAddress, red, green, blue);
+		callFFFV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3d ] ---
@@ -1934,7 +1934,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDDDV(__functionAddress, red, green, blue);
+		callDDDV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3ub ] ---
@@ -1952,7 +1952,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3ub;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeBBBV(__functionAddress, red, green, blue);
+		callBBBV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3us ] ---
@@ -1970,7 +1970,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3us;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSSSV(__functionAddress, red, green, blue);
+		callSSSV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3ui ] ---
@@ -1988,7 +1988,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, red, green, blue);
+		callIIIV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3bv ] ---
@@ -1999,7 +1999,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3bv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -2023,7 +2023,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -2054,7 +2054,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -2085,7 +2085,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -2116,7 +2116,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -2147,7 +2147,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3ubv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -2171,7 +2171,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3usv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -2202,7 +2202,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color3uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -2241,7 +2241,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4b;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeBBBBV(__functionAddress, red, green, blue, alpha);
+		callBBBBV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4s ] ---
@@ -2260,7 +2260,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSSSSV(__functionAddress, red, green, blue, alpha);
+		callSSSSV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4i ] ---
@@ -2279,7 +2279,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIV(__functionAddress, red, green, blue, alpha);
+		callIIIIV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4f ] ---
@@ -2298,7 +2298,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFFFFV(__functionAddress, red, green, blue, alpha);
+		callFFFFV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4d ] ---
@@ -2317,7 +2317,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDDDDV(__functionAddress, red, green, blue, alpha);
+		callDDDDV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4ub ] ---
@@ -2336,7 +2336,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4ub;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeBBBBV(__functionAddress, red, green, blue, alpha);
+		callBBBBV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4us ] ---
@@ -2355,7 +2355,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4us;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSSSSV(__functionAddress, red, green, blue, alpha);
+		callSSSSV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4ui ] ---
@@ -2374,7 +2374,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4ui;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIV(__functionAddress, red, green, blue, alpha);
+		callIIIIV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4bv ] ---
@@ -2385,7 +2385,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4bv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -2409,7 +2409,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -2440,7 +2440,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -2471,7 +2471,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -2502,7 +2502,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -2533,7 +2533,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4ubv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -2557,7 +2557,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4usv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -2588,7 +2588,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().Color4uiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -2625,7 +2625,7 @@ public final class GL11 {
 	 */
 	public static void glColorMask(boolean red, boolean green, boolean blue, boolean alpha) {
 		long __functionAddress = getInstance().ColorMask;
-		invokeZZZZV(__functionAddress, red, green, blue, alpha);
+		callZZZZV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColorMaterial ] ---
@@ -2644,7 +2644,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().ColorMaterial;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, face, mode);
+		callIIV(__functionAddress, face, mode);
 	}
 
 	// --- [ glColorPointer ] ---
@@ -2655,7 +2655,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().ColorPointer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, size, type, stride, pointer);
+		callIIIPV(__functionAddress, size, type, stride, pointer);
 	}
 
 	/**
@@ -2717,7 +2717,7 @@ public final class GL11 {
 	 */
 	public static void glCopyPixels(int x, int y, int width, int height, int type) {
 		long __functionAddress = getInstance().CopyPixels;
-		invokeIIIIIV(__functionAddress, x, y, width, height, type);
+		callIIIIIV(__functionAddress, x, y, width, height, type);
 	}
 
 	// --- [ glCullFace ] ---
@@ -2733,7 +2733,7 @@ public final class GL11 {
 	 */
 	public static void glCullFace(int mode) {
 		long __functionAddress = getInstance().CullFace;
-		invokeIV(__functionAddress, mode);
+		callIV(__functionAddress, mode);
 	}
 
 	// --- [ glDeleteLists ] ---
@@ -2751,7 +2751,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().DeleteLists;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, list, range);
+		callIIV(__functionAddress, list, range);
 	}
 
 	// --- [ glDepthFunc ] ---
@@ -2765,7 +2765,7 @@ public final class GL11 {
 	 */
 	public static void glDepthFunc(int func) {
 		long __functionAddress = getInstance().DepthFunc;
-		invokeIV(__functionAddress, func);
+		callIV(__functionAddress, func);
 	}
 
 	// --- [ glDepthMask ] ---
@@ -2779,7 +2779,7 @@ public final class GL11 {
 	 */
 	public static void glDepthMask(boolean flag) {
 		long __functionAddress = getInstance().DepthMask;
-		invokeZV(__functionAddress, flag);
+		callZV(__functionAddress, flag);
 	}
 
 	// --- [ glDepthRange ] ---
@@ -2794,7 +2794,7 @@ public final class GL11 {
 	 */
 	public static void glDepthRange(double zNear, double zFar) {
 		long __functionAddress = getInstance().DepthRange;
-		invokeDDV(__functionAddress, zNear, zFar);
+		callDDV(__functionAddress, zNear, zFar);
 	}
 
 	// --- [ glDisableClientState ] ---
@@ -2810,7 +2810,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().DisableClientState;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIV(__functionAddress, array);
+		callIV(__functionAddress, array);
 	}
 
 	// --- [ glDrawArrays ] ---
@@ -2830,7 +2830,7 @@ public final class GL11 {
 	 */
 	public static void glDrawArrays(int mode, int first, int count) {
 		long __functionAddress = getInstance().DrawArrays;
-		invokeIIIV(__functionAddress, mode, first, count);
+		callIIIV(__functionAddress, mode, first, count);
 	}
 
 	// --- [ glDrawBuffer ] ---
@@ -2847,7 +2847,7 @@ public final class GL11 {
 	 */
 	public static void glDrawBuffer(int buf) {
 		long __functionAddress = getInstance().DrawBuffer;
-		invokeIV(__functionAddress, buf);
+		callIV(__functionAddress, buf);
 	}
 
 	// --- [ glDrawElements ] ---
@@ -2856,7 +2856,7 @@ public final class GL11 {
 	@JavadocExclude
 	public static void nglDrawElements(int mode, int count, int type, long indices) {
 		long __functionAddress = getInstance().DrawElements;
-		invokeIIIPV(__functionAddress, mode, count, type, indices);
+		callIIIPV(__functionAddress, mode, count, type, indices);
 	}
 
 	/**
@@ -2922,7 +2922,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().DrawPixels;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIPV(__functionAddress, width, height, format, type, pixels);
+		callIIIIPV(__functionAddress, width, height, format, type, pixels);
 	}
 
 	/**
@@ -2989,7 +2989,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().EdgeFlag;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeZV(__functionAddress, flag);
+		callZV(__functionAddress, flag);
 	}
 
 	// --- [ glEdgeFlagv ] ---
@@ -3000,7 +3000,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().EdgeFlagv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, flag);
+		callPV(__functionAddress, flag);
 	}
 
 	/**
@@ -3024,7 +3024,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().EdgeFlagPointer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, stride, pointer);
+		callIPV(__functionAddress, stride, pointer);
 	}
 
 	/**
@@ -3061,7 +3061,7 @@ public final class GL11 {
 		long __functionAddress = getInstance().EnableClientState;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIV(__functionAddress, array);
+		callIV(__functionAddress, array);
 	}
 
 	// --- [ glEnd ] ---
@@ -3075,7 +3075,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().End;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glEvalCoord1f ] ---
@@ -3091,7 +3091,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalCoord1f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFV(__functionAddress, u);
+		callFV(__functionAddress, u);
 	}
 
 	// --- [ glEvalCoord1fv ] ---
@@ -3102,7 +3102,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalCoord1fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, u);
+		callPV(__functionAddress, u);
 	}
 
 	/**
@@ -3134,7 +3134,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalCoord1d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDV(__functionAddress, u);
+		callDV(__functionAddress, u);
 	}
 
 	// --- [ glEvalCoord1dv ] ---
@@ -3145,7 +3145,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalCoord1dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, u);
+		callPV(__functionAddress, u);
 	}
 
 	/**
@@ -3178,7 +3178,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalCoord2f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFFV(__functionAddress, u, v);
+		callFFV(__functionAddress, u, v);
 	}
 
 	// --- [ glEvalCoord2fv ] ---
@@ -3189,7 +3189,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalCoord2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, u);
+		callPV(__functionAddress, u);
 	}
 
 	/**
@@ -3222,7 +3222,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalCoord2d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDDV(__functionAddress, u, v);
+		callDDV(__functionAddress, u, v);
 	}
 
 	// --- [ glEvalCoord2dv ] ---
@@ -3233,7 +3233,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalCoord2dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, u);
+		callPV(__functionAddress, u);
 	}
 
 	/**
@@ -3267,7 +3267,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalMesh1;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, mode, i1, i2);
+		callIIIV(__functionAddress, mode, i1, i2);
 	}
 
 	// --- [ glEvalMesh2 ] ---
@@ -3287,7 +3287,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalMesh2;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIV(__functionAddress, mode, i1, i2, j1, j2);
+		callIIIIIV(__functionAddress, mode, i1, i2, j1, j2);
 	}
 
 	// --- [ glEvalPoint1 ] ---
@@ -3303,7 +3303,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalPoint1;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIV(__functionAddress, i);
+		callIV(__functionAddress, i);
 	}
 
 	// --- [ glEvalPoint2 ] ---
@@ -3320,7 +3320,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().EvalPoint2;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, i, j);
+		callIIV(__functionAddress, i, j);
 	}
 
 	// --- [ glFeedbackBuffer ] ---
@@ -3331,7 +3331,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 		long __functionAddress = getInstance().FeedbackBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, size, type, buffer);
+		callIIPV(__functionAddress, size, type, buffer);
 	}
 
 	/**
@@ -3364,7 +3364,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 */
 	public static void glFinish() {
 		long __functionAddress = getInstance().Finish;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glFlush ] ---
@@ -3376,7 +3376,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glFlush() {
 		long __functionAddress = getInstance().Flush;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glFogi ] ---
@@ -3393,7 +3393,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Fogi;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, pname, param);
+		callIIV(__functionAddress, pname, param);
 	}
 
 	// --- [ glFogiv ] ---
@@ -3404,7 +3404,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Fogiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, pname, params);
+		callIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -3442,7 +3442,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Fogf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIFV(__functionAddress, pname, param);
+		callIFV(__functionAddress, pname, param);
 	}
 
 	// --- [ glFogfv ] ---
@@ -3453,7 +3453,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Fogfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, pname, params);
+		callIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -3490,7 +3490,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glFrontFace(int dir) {
 		long __functionAddress = getInstance().FrontFace;
-		invokeIV(__functionAddress, dir);
+		callIV(__functionAddress, dir);
 	}
 
 	// --- [ glGenLists ] ---
@@ -3509,7 +3509,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().GenLists;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return invokeII(__functionAddress, s);
+		return callII(__functionAddress, s);
 	}
 
 	// --- [ glGenTextures ] ---
@@ -3518,7 +3518,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGenTextures(int n, long textures) {
 		long __functionAddress = getInstance().GenTextures;
-		invokeIPV(__functionAddress, n, textures);
+		callIPV(__functionAddress, n, textures);
 	}
 
 	/**
@@ -3555,7 +3555,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglDeleteTextures(int n, long textures) {
 		long __functionAddress = getInstance().DeleteTextures;
-		invokeIPV(__functionAddress, n, textures);
+		callIPV(__functionAddress, n, textures);
 	}
 
 	/**
@@ -3596,7 +3596,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetClipPlane(int plane, long equation) {
 		long __functionAddress = getInstance().GetClipPlane;
-		invokeIPV(__functionAddress, plane, equation);
+		callIPV(__functionAddress, plane, equation);
 	}
 
 	/**
@@ -3627,7 +3627,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetBooleanv(int pname, long params) {
 		long __functionAddress = getInstance().GetBooleanv;
-		invokeIPV(__functionAddress, pname, params);
+		callIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -3662,7 +3662,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetFloatv(int pname, long params) {
 		long __functionAddress = getInstance().GetFloatv;
-		invokeIPV(__functionAddress, pname, params);
+		callIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -3704,7 +3704,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetIntegerv(int pname, long params) {
 		long __functionAddress = getInstance().GetIntegerv;
-		invokeIPV(__functionAddress, pname, params);
+		callIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -3746,7 +3746,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetDoublev(int pname, long params) {
 		long __functionAddress = getInstance().GetDoublev;
-		invokeIPV(__functionAddress, pname, params);
+		callIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -3794,7 +3794,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static int glGetError() {
 		long __functionAddress = getInstance().GetError;
-		return invokeI(__functionAddress);
+		return callI(__functionAddress);
 	}
 
 	// --- [ glGetLightiv ] ---
@@ -3805,7 +3805,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().GetLightiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, light, pname, data);
+		callIIPV(__functionAddress, light, pname, data);
 	}
 
 	/**
@@ -3846,7 +3846,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().GetLightfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, light, pname, data);
+		callIIPV(__functionAddress, light, pname, data);
 	}
 
 	/**
@@ -3887,7 +3887,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().GetMapiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, target, query, data);
+		callIIPV(__functionAddress, target, query, data);
 	}
 
 	/**
@@ -3928,7 +3928,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().GetMapfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, target, query, data);
+		callIIPV(__functionAddress, target, query, data);
 	}
 
 	/**
@@ -3969,7 +3969,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().GetMapdv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, target, query, data);
+		callIIPV(__functionAddress, target, query, data);
 	}
 
 	/**
@@ -4010,7 +4010,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().GetMaterialiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, face, pname, data);
+		callIIPV(__functionAddress, face, pname, data);
 	}
 
 	/**
@@ -4039,7 +4039,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().GetMaterialfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, face, pname, data);
+		callIIPV(__functionAddress, face, pname, data);
 	}
 
 	/**
@@ -4068,7 +4068,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().GetPixelMapfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, map, data);
+		callIPV(__functionAddress, map, data);
 	}
 
 	/**
@@ -4111,7 +4111,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().GetPixelMapusv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, map, data);
+		callIPV(__functionAddress, map, data);
 	}
 
 	/**
@@ -4154,7 +4154,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().GetPixelMapuiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, map, data);
+		callIPV(__functionAddress, map, data);
 	}
 
 	/**
@@ -4195,7 +4195,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetPointerv(int pname, long params) {
 		long __functionAddress = getInstance().GetPointerv;
-		invokeIPV(__functionAddress, pname, params);
+		callIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -4235,7 +4235,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().GetPolygonStipple;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, pattern);
+		callPV(__functionAddress, pattern);
 	}
 
 	/**
@@ -4266,7 +4266,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static long nglGetString(int name) {
 		long __functionAddress = getInstance().GetString;
-		return invokeIP(__functionAddress, name);
+		return callIP(__functionAddress, name);
 	}
 
 	/**
@@ -4285,7 +4285,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetTexEnviv(int env, int pname, long data) {
 		long __functionAddress = getInstance().GetTexEnviv;
-		invokeIIPV(__functionAddress, env, pname, data);
+		callIIPV(__functionAddress, env, pname, data);
 	}
 
 	/**
@@ -4324,7 +4324,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetTexEnvfv(int env, int pname, long data) {
 		long __functionAddress = getInstance().GetTexEnvfv;
-		invokeIIPV(__functionAddress, env, pname, data);
+		callIIPV(__functionAddress, env, pname, data);
 	}
 
 	/**
@@ -4365,7 +4365,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().GetTexGeniv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, coord, pname, data);
+		callIIPV(__functionAddress, coord, pname, data);
 	}
 
 	/**
@@ -4406,7 +4406,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().GetTexGenfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, coord, pname, data);
+		callIIPV(__functionAddress, coord, pname, data);
 	}
 
 	/**
@@ -4447,7 +4447,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().GetTexGendv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, coord, pname, data);
+		callIIPV(__functionAddress, coord, pname, data);
 	}
 
 	/**
@@ -4486,7 +4486,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetTexImage(int tex, int level, int format, int type, long pixels) {
 		long __functionAddress = getInstance().GetTexImage;
-		invokeIIIIPV(__functionAddress, tex, level, format, type, pixels);
+		callIIIIPV(__functionAddress, tex, level, format, type, pixels);
 	}
 
 	/**
@@ -4547,7 +4547,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetTexLevelParameteriv(int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTexLevelParameteriv;
-		invokeIIIPV(__functionAddress, target, level, pname, params);
+		callIIIPV(__functionAddress, target, level, pname, params);
 	}
 
 	/**
@@ -4587,7 +4587,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetTexLevelParameterfv(int target, int level, int pname, long params) {
 		long __functionAddress = getInstance().GetTexLevelParameterfv;
-		invokeIIIPV(__functionAddress, target, level, pname, params);
+		callIIIPV(__functionAddress, target, level, pname, params);
 	}
 
 	/**
@@ -4627,7 +4627,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetTexParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameteriv;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -4666,7 +4666,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetTexParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterfv;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -4712,7 +4712,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glHint(int target, int hint) {
 		long __functionAddress = getInstance().Hint;
-		invokeIIV(__functionAddress, target, hint);
+		callIIV(__functionAddress, target, hint);
 	}
 
 	// --- [ glIndexi ] ---
@@ -4728,7 +4728,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Indexi;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIV(__functionAddress, index);
+		callIV(__functionAddress, index);
 	}
 
 	// --- [ glIndexub ] ---
@@ -4744,7 +4744,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Indexub;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeBV(__functionAddress, index);
+		callBV(__functionAddress, index);
 	}
 
 	// --- [ glIndexs ] ---
@@ -4760,7 +4760,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Indexs;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSV(__functionAddress, index);
+		callSV(__functionAddress, index);
 	}
 
 	// --- [ glIndexf ] ---
@@ -4776,7 +4776,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Indexf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFV(__functionAddress, index);
+		callFV(__functionAddress, index);
 	}
 
 	// --- [ glIndexd ] ---
@@ -4792,7 +4792,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Indexd;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDV(__functionAddress, index);
+		callDV(__functionAddress, index);
 	}
 
 	// --- [ glIndexiv ] ---
@@ -4803,7 +4803,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Indexiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, index);
+		callPV(__functionAddress, index);
 	}
 
 	/**
@@ -4834,7 +4834,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Indexubv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, index);
+		callPV(__functionAddress, index);
 	}
 
 	/**
@@ -4858,7 +4858,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Indexsv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, index);
+		callPV(__functionAddress, index);
 	}
 
 	/**
@@ -4889,7 +4889,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Indexfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, index);
+		callPV(__functionAddress, index);
 	}
 
 	/**
@@ -4920,7 +4920,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().Indexdv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, index);
+		callPV(__functionAddress, index);
 	}
 
 	/**
@@ -4958,7 +4958,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().IndexMask;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIV(__functionAddress, mask);
+		callIV(__functionAddress, mask);
 	}
 
 	// --- [ glIndexPointer ] ---
@@ -4969,7 +4969,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 		long __functionAddress = getInstance().IndexPointer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, type, stride, pointer);
+		callIIPV(__functionAddress, type, stride, pointer);
 	}
 
 	/**
@@ -5026,7 +5026,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().InitNames;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glInterleavedArrays ] ---
@@ -5035,7 +5035,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglInterleavedArrays(int format, int stride, long pointer) {
 		long __functionAddress = getInstance().InterleavedArrays;
-		invokeIIPV(__functionAddress, format, stride, pointer);
+		callIIPV(__functionAddress, format, stride, pointer);
 	}
 
 	/**
@@ -5099,7 +5099,7 @@ Clears the selection name stack.
 	 */
 	public static boolean glIsEnabled(int cap) {
 		long __functionAddress = getInstance().IsEnabled;
-		return invokeIZ(__functionAddress, cap);
+		return callIZ(__functionAddress, cap);
 	}
 
 	// --- [ glIsList ] ---
@@ -5115,7 +5115,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().IsList;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return invokeIZ(__functionAddress, list);
+		return callIZ(__functionAddress, list);
 	}
 
 	// --- [ glIsTexture ] ---
@@ -5129,7 +5129,7 @@ Clears the selection name stack.
 	 */
 	public static boolean glIsTexture(int texture) {
 		long __functionAddress = getInstance().IsTexture;
-		return invokeIZ(__functionAddress, texture);
+		return callIZ(__functionAddress, texture);
 	}
 
 	// --- [ glLightModeli ] ---
@@ -5146,7 +5146,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().LightModeli;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, pname, param);
+		callIIV(__functionAddress, pname, param);
 	}
 
 	// --- [ glLightModelf ] ---
@@ -5163,7 +5163,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().LightModelf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIFV(__functionAddress, pname, param);
+		callIFV(__functionAddress, pname, param);
 	}
 
 	// --- [ glLightModeliv ] ---
@@ -5174,7 +5174,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().LightModeliv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, pname, params);
+		callIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -5206,7 +5206,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().LightModelfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, pname, params);
+		callIPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -5245,7 +5245,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Lighti;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, light, pname, param);
+		callIIIV(__functionAddress, light, pname, param);
 	}
 
 	// --- [ glLightf ] ---
@@ -5263,7 +5263,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Lightf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIFV(__functionAddress, light, pname, param);
+		callIIFV(__functionAddress, light, pname, param);
 	}
 
 	// --- [ glLightiv ] ---
@@ -5274,7 +5274,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Lightiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, light, pname, params);
+		callIIPV(__functionAddress, light, pname, params);
 	}
 
 	/**
@@ -5307,7 +5307,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Lightfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, light, pname, params);
+		callIIPV(__functionAddress, light, pname, params);
 	}
 
 	/**
@@ -5348,7 +5348,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().LineStipple;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeISV(__functionAddress, factor, pattern);
+		callISV(__functionAddress, factor, pattern);
 	}
 
 	// --- [ glLineWidth ] ---
@@ -5362,7 +5362,7 @@ Clears the selection name stack.
 	 */
 	public static void glLineWidth(float width) {
 		long __functionAddress = getInstance().LineWidth;
-		invokeFV(__functionAddress, width);
+		callFV(__functionAddress, width);
 	}
 
 	// --- [ glListBase ] ---
@@ -5378,7 +5378,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().ListBase;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIV(__functionAddress, base);
+		callIV(__functionAddress, base);
 	}
 
 	// --- [ glLoadMatrixf ] ---
@@ -5389,7 +5389,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().LoadMatrixf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, m);
+		callPV(__functionAddress, m);
 	}
 
 	/**
@@ -5431,7 +5431,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().LoadMatrixd;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, m);
+		callPV(__functionAddress, m);
 	}
 
 	/**
@@ -5473,7 +5473,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().LoadIdentity;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glLoadName ] ---
@@ -5489,7 +5489,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().LoadName;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIV(__functionAddress, name);
+		callIV(__functionAddress, name);
 	}
 
 	// --- [ glLogicOp ] ---
@@ -5503,7 +5503,7 @@ Clears the selection name stack.
 	 */
 	public static void glLogicOp(int op) {
 		long __functionAddress = getInstance().LogicOp;
-		invokeIV(__functionAddress, op);
+		callIV(__functionAddress, op);
 	}
 
 	// --- [ glMap1f ] ---
@@ -5514,7 +5514,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Map1f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIFFIIPV(__functionAddress, target, u1, u2, stride, order, points);
+		callIFFIIPV(__functionAddress, target, u1, u2, stride, order, points);
 	}
 
 	/**
@@ -5551,7 +5551,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Map1d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIDDIIPV(__functionAddress, target, u1, u2, stride, order, points);
+		callIDDIIPV(__functionAddress, target, u1, u2, stride, order, points);
 	}
 
 	/**
@@ -5587,7 +5587,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Map2f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIFFIIFFIIPV(__functionAddress, target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
+		callIFFIIFFIIPV(__functionAddress, target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
 	}
 
 	/**
@@ -5627,7 +5627,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Map2d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIDDIIDDIIPV(__functionAddress, target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
+		callIDDIIDDIIPV(__functionAddress, target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
 	}
 
 	/**
@@ -5674,7 +5674,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().MapGrid1f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIFFV(__functionAddress, n, u1, u2);
+		callIFFV(__functionAddress, n, u1, u2);
 	}
 
 	// --- [ glMapGrid1d ] ---
@@ -5692,7 +5692,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().MapGrid1d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIDDV(__functionAddress, n, u1, u2);
+		callIDDV(__functionAddress, n, u1, u2);
 	}
 
 	// --- [ glMapGrid2f ] ---
@@ -5713,7 +5713,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().MapGrid2f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIFFIFFV(__functionAddress, un, u1, u2, vn, v1, v2);
+		callIFFIFFV(__functionAddress, un, u1, u2, vn, v1, v2);
 	}
 
 	// --- [ glMapGrid2d ] ---
@@ -5734,7 +5734,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().MapGrid2d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIDDIDDV(__functionAddress, un, u1, u2, vn, v1, v2);
+		callIDDIDDV(__functionAddress, un, u1, u2, vn, v1, v2);
 	}
 
 	// --- [ glMateriali ] ---
@@ -5752,7 +5752,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Materiali;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, face, pname, param);
+		callIIIV(__functionAddress, face, pname, param);
 	}
 
 	// --- [ glMaterialf ] ---
@@ -5770,7 +5770,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Materialf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIFV(__functionAddress, face, pname, param);
+		callIIFV(__functionAddress, face, pname, param);
 	}
 
 	// --- [ glMaterialiv ] ---
@@ -5781,7 +5781,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Materialiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, face, pname, params);
+		callIIPV(__functionAddress, face, pname, params);
 	}
 
 	/**
@@ -5814,7 +5814,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Materialfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, face, pname, params);
+		callIIPV(__functionAddress, face, pname, params);
 	}
 
 	/**
@@ -5852,7 +5852,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().MatrixMode;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIV(__functionAddress, mode);
+		callIV(__functionAddress, mode);
 	}
 
 	// --- [ glMultMatrixf ] ---
@@ -5863,7 +5863,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().MultMatrixf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, m);
+		callPV(__functionAddress, m);
 	}
 
 	/**
@@ -5894,7 +5894,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().MultMatrixd;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, m);
+		callPV(__functionAddress, m);
 	}
 
 	/**
@@ -5946,7 +5946,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Frustum;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDDDDDDV(__functionAddress, l, r, b, t, n, f);
+		callDDDDDDV(__functionAddress, l, r, b, t, n, f);
 	}
 
 	// --- [ glNewList ] ---
@@ -5963,7 +5963,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().NewList;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, n, mode);
+		callIIV(__functionAddress, n, mode);
 	}
 
 	// --- [ glEndList ] ---
@@ -5978,7 +5978,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().EndList;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glNormal3f ] ---
@@ -5996,7 +5996,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Normal3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFFFV(__functionAddress, nx, ny, nz);
+		callFFFV(__functionAddress, nx, ny, nz);
 	}
 
 	// --- [ glNormal3b ] ---
@@ -6014,7 +6014,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Normal3b;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeBBBV(__functionAddress, nx, ny, nz);
+		callBBBV(__functionAddress, nx, ny, nz);
 	}
 
 	// --- [ glNormal3s ] ---
@@ -6032,7 +6032,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Normal3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSSSV(__functionAddress, nx, ny, nz);
+		callSSSV(__functionAddress, nx, ny, nz);
 	}
 
 	// --- [ glNormal3i ] ---
@@ -6050,7 +6050,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Normal3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, nx, ny, nz);
+		callIIIV(__functionAddress, nx, ny, nz);
 	}
 
 	// --- [ glNormal3d ] ---
@@ -6068,7 +6068,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Normal3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDDDV(__functionAddress, nx, ny, nz);
+		callDDDV(__functionAddress, nx, ny, nz);
 	}
 
 	// --- [ glNormal3fv ] ---
@@ -6079,7 +6079,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Normal3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -6110,7 +6110,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Normal3bv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -6134,7 +6134,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Normal3sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -6165,7 +6165,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Normal3iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -6196,7 +6196,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Normal3dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -6227,7 +6227,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().NormalPointer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, type, stride, pointer);
+		callIIPV(__functionAddress, type, stride, pointer);
 	}
 
 	/**
@@ -6302,7 +6302,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().Ortho;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDDDDDDV(__functionAddress, l, r, b, t, n, f);
+		callDDDDDDV(__functionAddress, l, r, b, t, n, f);
 	}
 
 	// --- [ glPassThrough ] ---
@@ -6320,7 +6320,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().PassThrough;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFV(__functionAddress, token);
+		callFV(__functionAddress, token);
 	}
 
 	// --- [ glPixelMapfv ] ---
@@ -6331,7 +6331,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().PixelMapfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, map, size, values);
+		callIIPV(__functionAddress, map, size, values);
 	}
 
 	/**
@@ -6373,7 +6373,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().PixelMapusv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, map, size, values);
+		callIIPV(__functionAddress, map, size, values);
 	}
 
 	/**
@@ -6415,7 +6415,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().PixelMapuiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, map, size, values);
+		callIIPV(__functionAddress, map, size, values);
 	}
 
 	/**
@@ -6461,7 +6461,7 @@ Clears the selection name stack.
 	 */
 	public static void glPixelStorei(int pname, int param) {
 		long __functionAddress = getInstance().PixelStorei;
-		invokeIIV(__functionAddress, pname, param);
+		callIIV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPixelStoref ] ---
@@ -6476,7 +6476,7 @@ Clears the selection name stack.
 	 */
 	public static void glPixelStoref(int pname, int param) {
 		long __functionAddress = getInstance().PixelStoref;
-		invokeIIV(__functionAddress, pname, param);
+		callIIV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPixelTransferi ] ---
@@ -6493,7 +6493,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().PixelTransferi;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, pname, param);
+		callIIV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPixelTransferf ] ---
@@ -6510,7 +6510,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().PixelTransferf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIFV(__functionAddress, pname, param);
+		callIFV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPixelZoom ] ---
@@ -6535,7 +6535,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().PixelZoom;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFFV(__functionAddress, xfactor, yfactor);
+		callFFV(__functionAddress, xfactor, yfactor);
 	}
 
 	// --- [ glPointSize ] ---
@@ -6549,7 +6549,7 @@ Clears the selection name stack.
 	 */
 	public static void glPointSize(float size) {
 		long __functionAddress = getInstance().PointSize;
-		invokeFV(__functionAddress, size);
+		callFV(__functionAddress, size);
 	}
 
 	// --- [ glPolygonMode ] ---
@@ -6568,7 +6568,7 @@ Clears the selection name stack.
 	 */
 	public static void glPolygonMode(int face, int mode) {
 		long __functionAddress = getInstance().PolygonMode;
-		invokeIIV(__functionAddress, face, mode);
+		callIIV(__functionAddress, face, mode);
 	}
 
 	// --- [ glPolygonOffset ] ---
@@ -6587,7 +6587,7 @@ Clears the selection name stack.
 	 */
 	public static void glPolygonOffset(float factor, float units) {
 		long __functionAddress = getInstance().PolygonOffset;
-		invokeFFV(__functionAddress, factor, units);
+		callFFV(__functionAddress, factor, units);
 	}
 
 	// --- [ glPolygonStipple ] ---
@@ -6598,7 +6598,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().PolygonStipple;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, pattern);
+		callPV(__functionAddress, pattern);
 	}
 
 	/**
@@ -6648,7 +6648,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().PushAttrib;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIV(__functionAddress, mask);
+		callIV(__functionAddress, mask);
 	}
 
 	// --- [ glPushClientAttrib ] ---
@@ -6671,7 +6671,7 @@ Clears the selection name stack.
 		long __functionAddress = getInstance().PushClientAttrib;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIV(__functionAddress, mask);
+		callIV(__functionAddress, mask);
 	}
 
 	// --- [ glPopAttrib ] ---
@@ -6685,7 +6685,7 @@ Resets the values of those state variables that were saved with the last {@link 
 		long __functionAddress = getInstance().PopAttrib;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glPopClientAttrib ] ---
@@ -6699,7 +6699,7 @@ Resets the values of those state variables that were saved with the last {@link 
 		long __functionAddress = getInstance().PopClientAttrib;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glPopMatrix ] ---
@@ -6713,7 +6713,7 @@ Pops the top entry off the current matrix stack, replacing the current matrix wi
 		long __functionAddress = getInstance().PopMatrix;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glPopName ] ---
@@ -6727,7 +6727,7 @@ Pops one name off the top of the selection name stack.
 		long __functionAddress = getInstance().PopName;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glPrioritizeTextures ] ---
@@ -6738,7 +6738,7 @@ Pops one name off the top of the selection name stack.
 		long __functionAddress = getInstance().PrioritizeTextures;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPPV(__functionAddress, n, textures, priorities);
+		callIPPV(__functionAddress, n, textures, priorities);
 	}
 
 	/**
@@ -6777,7 +6777,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().PushMatrix;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glPushName ] ---
@@ -6793,7 +6793,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().PushName;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIV(__functionAddress, name);
+		callIV(__functionAddress, name);
 	}
 
 	// --- [ glRasterPos2i ] ---
@@ -6816,7 +6816,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos2i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, x, y);
+		callIIV(__functionAddress, x, y);
 	}
 
 	// --- [ glRasterPos2s ] ---
@@ -6833,7 +6833,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos2s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSSV(__functionAddress, x, y);
+		callSSV(__functionAddress, x, y);
 	}
 
 	// --- [ glRasterPos2f ] ---
@@ -6850,7 +6850,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos2f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFFV(__functionAddress, x, y);
+		callFFV(__functionAddress, x, y);
 	}
 
 	// --- [ glRasterPos2d ] ---
@@ -6867,7 +6867,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos2d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDDV(__functionAddress, x, y);
+		callDDV(__functionAddress, x, y);
 	}
 
 	// --- [ glRasterPos2iv ] ---
@@ -6878,7 +6878,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos2iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -6909,7 +6909,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos2sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -6940,7 +6940,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -6971,7 +6971,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos2dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -7009,7 +7009,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, x, y, z);
+		callIIIV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glRasterPos3s ] ---
@@ -7027,7 +7027,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSSSV(__functionAddress, x, y, z);
+		callSSSV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glRasterPos3f ] ---
@@ -7045,7 +7045,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFFFV(__functionAddress, x, y, z);
+		callFFFV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glRasterPos3d ] ---
@@ -7063,7 +7063,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDDDV(__functionAddress, x, y, z);
+		callDDDV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glRasterPos3iv ] ---
@@ -7074,7 +7074,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos3iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -7105,7 +7105,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos3sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -7136,7 +7136,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -7167,7 +7167,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos3dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -7206,7 +7206,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos4i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIV(__functionAddress, x, y, z, w);
+		callIIIIV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glRasterPos4s ] ---
@@ -7225,7 +7225,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos4s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSSSSV(__functionAddress, x, y, z, w);
+		callSSSSV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glRasterPos4f ] ---
@@ -7244,7 +7244,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos4f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFFFFV(__functionAddress, x, y, z, w);
+		callFFFFV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glRasterPos4d ] ---
@@ -7263,7 +7263,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos4d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDDDDV(__functionAddress, x, y, z, w);
+		callDDDDV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glRasterPos4iv ] ---
@@ -7274,7 +7274,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos4iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -7305,7 +7305,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos4sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -7336,7 +7336,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos4fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -7367,7 +7367,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RasterPos4dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -7404,7 +7404,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glReadBuffer(int src) {
 		long __functionAddress = getInstance().ReadBuffer;
-		invokeIV(__functionAddress, src);
+		callIV(__functionAddress, src);
 	}
 
 	// --- [ glReadPixels ] ---
@@ -7413,7 +7413,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglReadPixels(int x, int y, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = getInstance().ReadPixels;
-		invokeIIIIIIPV(__functionAddress, x, y, width, height, format, type, pixels);
+		callIIIIIIPV(__functionAddress, x, y, width, height, format, type, pixels);
 	}
 
 	/**
@@ -7496,7 +7496,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Recti;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIV(__functionAddress, x1, y1, x2, y2);
+		callIIIIV(__functionAddress, x1, y1, x2, y2);
 	}
 
 	// --- [ glRects ] ---
@@ -7515,7 +7515,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Rects;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSSSSV(__functionAddress, x1, y1, x2, y2);
+		callSSSSV(__functionAddress, x1, y1, x2, y2);
 	}
 
 	// --- [ glRectf ] ---
@@ -7534,7 +7534,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Rectf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFFFFV(__functionAddress, x1, y1, x2, y2);
+		callFFFFV(__functionAddress, x1, y1, x2, y2);
 	}
 
 	// --- [ glRectd ] ---
@@ -7553,7 +7553,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Rectd;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDDDDV(__functionAddress, x1, y1, x2, y2);
+		callDDDDV(__functionAddress, x1, y1, x2, y2);
 	}
 
 	// --- [ glRectiv ] ---
@@ -7564,7 +7564,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Rectiv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePPV(__functionAddress, v1, v2);
+		callPPV(__functionAddress, v1, v2);
 	}
 
 	/**
@@ -7600,7 +7600,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Rectsv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePPV(__functionAddress, v1, v2);
+		callPPV(__functionAddress, v1, v2);
 	}
 
 	/**
@@ -7636,7 +7636,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Rectfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePPV(__functionAddress, v1, v2);
+		callPPV(__functionAddress, v1, v2);
 	}
 
 	/**
@@ -7672,7 +7672,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Rectdv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePPV(__functionAddress, v1, v2);
+		callPPV(__functionAddress, v1, v2);
 	}
 
 	/**
@@ -7713,7 +7713,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().RenderMode;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return invokeII(__functionAddress, mode);
+		return callII(__functionAddress, mode);
 	}
 
 	// --- [ glRotatef ] ---
@@ -7751,7 +7751,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Rotatef;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFFFFV(__functionAddress, angle, x, y, z);
+		callFFFFV(__functionAddress, angle, x, y, z);
 	}
 
 	// --- [ glRotated ] ---
@@ -7770,7 +7770,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Rotated;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDDDDV(__functionAddress, angle, x, y, z);
+		callDDDDV(__functionAddress, angle, x, y, z);
 	}
 
 	// --- [ glScalef ] ---
@@ -7796,7 +7796,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Scalef;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFFFV(__functionAddress, x, y, z);
+		callFFFV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glScaled ] ---
@@ -7814,7 +7814,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Scaled;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDDDV(__functionAddress, x, y, z);
+		callDDDV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glScissor ] ---
@@ -7834,7 +7834,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glScissor(int x, int y, int width, int height) {
 		long __functionAddress = getInstance().Scissor;
-		invokeIIIIV(__functionAddress, x, y, width, height);
+		callIIIIV(__functionAddress, x, y, width, height);
 	}
 
 	// --- [ glSelectBuffer ] ---
@@ -7845,7 +7845,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().SelectBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, size, buffer);
+		callIPV(__functionAddress, size, buffer);
 	}
 
 	/**
@@ -7884,7 +7884,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().ShadeModel;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIV(__functionAddress, mode);
+		callIV(__functionAddress, mode);
 	}
 
 	// --- [ glStencilFunc ] ---
@@ -7905,7 +7905,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glStencilFunc(int func, int ref, int mask) {
 		long __functionAddress = getInstance().StencilFunc;
-		invokeIIIV(__functionAddress, func, ref, mask);
+		callIIIV(__functionAddress, func, ref, mask);
 	}
 
 	// --- [ glStencilMask ] ---
@@ -7922,7 +7922,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glStencilMask(int mask) {
 		long __functionAddress = getInstance().StencilMask;
-		invokeIV(__functionAddress, mask);
+		callIV(__functionAddress, mask);
 	}
 
 	// --- [ glStencilOp ] ---
@@ -7946,7 +7946,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glStencilOp(int sfail, int dpfail, int dppass) {
 		long __functionAddress = getInstance().StencilOp;
-		invokeIIIV(__functionAddress, sfail, dpfail, dppass);
+		callIIIV(__functionAddress, sfail, dpfail, dppass);
 	}
 
 	// --- [ glTexCoord1f ] ---
@@ -7962,7 +7962,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord1f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFV(__functionAddress, s);
+		callFV(__functionAddress, s);
 	}
 
 	// --- [ glTexCoord1s ] ---
@@ -7978,7 +7978,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord1s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSV(__functionAddress, s);
+		callSV(__functionAddress, s);
 	}
 
 	// --- [ glTexCoord1i ] ---
@@ -7994,7 +7994,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord1i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIV(__functionAddress, s);
+		callIV(__functionAddress, s);
 	}
 
 	// --- [ glTexCoord1d ] ---
@@ -8010,7 +8010,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord1d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDV(__functionAddress, s);
+		callDV(__functionAddress, s);
 	}
 
 	// --- [ glTexCoord1fv ] ---
@@ -8021,7 +8021,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord1fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -8052,7 +8052,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord1sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -8083,7 +8083,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord1iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -8114,7 +8114,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord1dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -8151,7 +8151,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord2f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFFV(__functionAddress, s, t);
+		callFFV(__functionAddress, s, t);
 	}
 
 	// --- [ glTexCoord2s ] ---
@@ -8168,7 +8168,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord2s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSSV(__functionAddress, s, t);
+		callSSV(__functionAddress, s, t);
 	}
 
 	// --- [ glTexCoord2i ] ---
@@ -8185,7 +8185,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord2i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, s, t);
+		callIIV(__functionAddress, s, t);
 	}
 
 	// --- [ glTexCoord2d ] ---
@@ -8202,7 +8202,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord2d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDDV(__functionAddress, s, t);
+		callDDV(__functionAddress, s, t);
 	}
 
 	// --- [ glTexCoord2fv ] ---
@@ -8213,7 +8213,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -8244,7 +8244,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord2sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -8275,7 +8275,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord2iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -8306,7 +8306,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord2dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -8344,7 +8344,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFFFV(__functionAddress, s, t, r);
+		callFFFV(__functionAddress, s, t, r);
 	}
 
 	// --- [ glTexCoord3s ] ---
@@ -8362,7 +8362,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSSSV(__functionAddress, s, t, r);
+		callSSSV(__functionAddress, s, t, r);
 	}
 
 	// --- [ glTexCoord3i ] ---
@@ -8380,7 +8380,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, s, t, r);
+		callIIIV(__functionAddress, s, t, r);
 	}
 
 	// --- [ glTexCoord3d ] ---
@@ -8398,7 +8398,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDDDV(__functionAddress, s, t, r);
+		callDDDV(__functionAddress, s, t, r);
 	}
 
 	// --- [ glTexCoord3fv ] ---
@@ -8409,7 +8409,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -8440,7 +8440,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord3sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -8471,7 +8471,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord3iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -8502,7 +8502,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord3dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -8541,7 +8541,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord4f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFFFFV(__functionAddress, s, t, r, q);
+		callFFFFV(__functionAddress, s, t, r, q);
 	}
 
 	// --- [ glTexCoord4s ] ---
@@ -8560,7 +8560,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord4s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSSSSV(__functionAddress, s, t, r, q);
+		callSSSSV(__functionAddress, s, t, r, q);
 	}
 
 	// --- [ glTexCoord4i ] ---
@@ -8579,7 +8579,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord4i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIV(__functionAddress, s, t, r, q);
+		callIIIIV(__functionAddress, s, t, r, q);
 	}
 
 	// --- [ glTexCoord4d ] ---
@@ -8598,7 +8598,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord4d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDDDDV(__functionAddress, s, t, r, q);
+		callDDDDV(__functionAddress, s, t, r, q);
 	}
 
 	// --- [ glTexCoord4fv ] ---
@@ -8609,7 +8609,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord4fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -8640,7 +8640,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord4sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -8671,7 +8671,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord4iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -8702,7 +8702,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoord4dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, v);
+		callPV(__functionAddress, v);
 	}
 
 	/**
@@ -8733,7 +8733,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexCoordPointer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, size, type, stride, pointer);
+		callIIIPV(__functionAddress, size, type, stride, pointer);
 	}
 
 	/**
@@ -8794,7 +8794,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexEnvi(int target, int pname, int param) {
 		long __functionAddress = getInstance().TexEnvi;
-		invokeIIIV(__functionAddress, target, pname, param);
+		callIIIV(__functionAddress, target, pname, param);
 	}
 
 	// --- [ glTexEnviv ] ---
@@ -8803,7 +8803,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexEnviv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexEnviv;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -8841,7 +8841,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexEnvf(int target, int pname, float param) {
 		long __functionAddress = getInstance().TexEnvf;
-		invokeIIFV(__functionAddress, target, pname, param);
+		callIIFV(__functionAddress, target, pname, param);
 	}
 
 	// --- [ glTexEnvfv ] ---
@@ -8850,7 +8850,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexEnvfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexEnvfv;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -8898,7 +8898,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexGeni;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, coord, pname, param);
+		callIIIV(__functionAddress, coord, pname, param);
 	}
 
 	// --- [ glTexGeniv ] ---
@@ -8909,7 +8909,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexGeniv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, coord, pname, params);
+		callIIPV(__functionAddress, coord, pname, params);
 	}
 
 	/**
@@ -8949,7 +8949,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexGenf;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIFV(__functionAddress, coord, pname, param);
+		callIIFV(__functionAddress, coord, pname, param);
 	}
 
 	// --- [ glTexGenfv ] ---
@@ -8960,7 +8960,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexGenfv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, coord, pname, params);
+		callIIPV(__functionAddress, coord, pname, params);
 	}
 
 	/**
@@ -9000,7 +9000,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexGend;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIDV(__functionAddress, coord, pname, param);
+		callIIDV(__functionAddress, coord, pname, param);
 	}
 
 	// --- [ glTexGendv ] ---
@@ -9011,7 +9011,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().TexGendv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, coord, pname, params);
+		callIIPV(__functionAddress, coord, pname, params);
 	}
 
 	/**
@@ -9042,7 +9042,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexImage2D;
-		invokeIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
+		callIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
 	/**
@@ -9107,7 +9107,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexImage1D;
-		invokeIIIIIIIPV(__functionAddress, target, level, internalformat, width, border, format, type, pixels);
+		callIIIIIIIPV(__functionAddress, target, level, internalformat, width, border, format, type, pixels);
 	}
 
 	/**
@@ -9197,7 +9197,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glCopyTexImage2D(int target, int level, int internalFormat, int x, int y, int width, int height, int border) {
 		long __functionAddress = getInstance().CopyTexImage2D;
-		invokeIIIIIIIIV(__functionAddress, target, level, internalFormat, x, y, width, height, border);
+		callIIIIIIIIV(__functionAddress, target, level, internalFormat, x, y, width, height, border);
 	}
 
 	// --- [ glCopyTexImage1D ] ---
@@ -9221,7 +9221,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glCopyTexImage1D(int target, int level, int internalFormat, int x, int y, int width, int border) {
 		long __functionAddress = getInstance().CopyTexImage1D;
-		invokeIIIIIIIV(__functionAddress, target, level, internalFormat, x, y, width, border);
+		callIIIIIIIV(__functionAddress, target, level, internalFormat, x, y, width, border);
 	}
 
 	// --- [ glCopyTexSubImage1D ] ---
@@ -9242,7 +9242,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glCopyTexSubImage1D(int target, int level, int xoffset, int x, int y, int width) {
 		long __functionAddress = getInstance().CopyTexSubImage1D;
-		invokeIIIIIIV(__functionAddress, target, level, xoffset, x, y, width);
+		callIIIIIIV(__functionAddress, target, level, xoffset, x, y, width);
 	}
 
 	// --- [ glCopyTexSubImage2D ] ---
@@ -9265,7 +9265,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glCopyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().CopyTexSubImage2D;
-		invokeIIIIIIIIV(__functionAddress, target, level, xoffset, yoffset, x, y, width, height);
+		callIIIIIIIIV(__functionAddress, target, level, xoffset, yoffset, x, y, width, height);
 	}
 
 	// --- [ glTexParameteri ] ---
@@ -9281,7 +9281,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexParameteri(int target, int pname, int param) {
 		long __functionAddress = getInstance().TexParameteri;
-		invokeIIIV(__functionAddress, target, pname, param);
+		callIIIV(__functionAddress, target, pname, param);
 	}
 
 	// --- [ glTexParameteriv ] ---
@@ -9290,7 +9290,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameteriv;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -9328,7 +9328,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexParameterf(int target, int pname, float param) {
 		long __functionAddress = getInstance().TexParameterf;
-		invokeIIFV(__functionAddress, target, pname, param);
+		callIIFV(__functionAddress, target, pname, param);
 	}
 
 	// --- [ glTexParameterfv ] ---
@@ -9337,7 +9337,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexParameterfv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterfv;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -9368,7 +9368,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexSubImage1D;
-		invokeIIIIIIPV(__functionAddress, target, level, xoffset, width, format, type, pixels);
+		callIIIIIIPV(__functionAddress, target, level, xoffset, width, format, type, pixels);
 	}
 
 	/**
@@ -9431,7 +9431,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = getInstance().TexSubImage2D;
-		invokeIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
+		callIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
 	/**
@@ -9514,7 +9514,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Translatef;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFFFV(__functionAddress, x, y, z);
+		callFFFV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glTranslated ] ---
@@ -9532,7 +9532,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Translated;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDDDV(__functionAddress, x, y, z);
+		callDDDV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glVertex2f ] ---
@@ -9550,7 +9550,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex2f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFFV(__functionAddress, x, y);
+		callFFV(__functionAddress, x, y);
 	}
 
 	// --- [ glVertex2s ] ---
@@ -9567,7 +9567,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex2s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSSV(__functionAddress, x, y);
+		callSSV(__functionAddress, x, y);
 	}
 
 	// --- [ glVertex2i ] ---
@@ -9584,7 +9584,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex2i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIV(__functionAddress, x, y);
+		callIIV(__functionAddress, x, y);
 	}
 
 	// --- [ glVertex2d ] ---
@@ -9601,7 +9601,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex2d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDDV(__functionAddress, x, y);
+		callDDV(__functionAddress, x, y);
 	}
 
 	// --- [ glVertex2fv ] ---
@@ -9612,7 +9612,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex2fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -9643,7 +9643,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex2sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -9674,7 +9674,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex2iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -9705,7 +9705,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex2dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -9744,7 +9744,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex3f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFFFV(__functionAddress, x, y, z);
+		callFFFV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glVertex3s ] ---
@@ -9762,7 +9762,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex3s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSSSV(__functionAddress, x, y, z);
+		callSSSV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glVertex3i ] ---
@@ -9780,7 +9780,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex3i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, x, y, z);
+		callIIIV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glVertex3d ] ---
@@ -9798,7 +9798,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex3d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDDDV(__functionAddress, x, y, z);
+		callDDDV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glVertex3fv ] ---
@@ -9809,7 +9809,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex3fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -9840,7 +9840,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex3sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -9871,7 +9871,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex3iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -9902,7 +9902,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex3dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -9941,7 +9941,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex4f;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFFFFV(__functionAddress, x, y, z, w);
+		callFFFFV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glVertex4s ] ---
@@ -9960,7 +9960,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex4s;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeSSSSV(__functionAddress, x, y, z, w);
+		callSSSSV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glVertex4i ] ---
@@ -9979,7 +9979,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex4i;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIV(__functionAddress, x, y, z, w);
+		callIIIIV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glVertex4d ] ---
@@ -9998,7 +9998,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex4d;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeDDDDV(__functionAddress, x, y, z, w);
+		callDDDDV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glVertex4fv ] ---
@@ -10009,7 +10009,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex4fv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -10040,7 +10040,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex4sv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -10071,7 +10071,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex4iv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -10102,7 +10102,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().Vertex4dv;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokePV(__functionAddress, coords);
+		callPV(__functionAddress, coords);
 	}
 
 	/**
@@ -10133,7 +10133,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 		long __functionAddress = getInstance().VertexPointer;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, size, type, stride, pointer);
+		callIIIPV(__functionAddress, size, type, stride, pointer);
 	}
 
 	/**
@@ -10205,7 +10205,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glViewport(int x, int y, int w, int h) {
 		long __functionAddress = getInstance().Viewport;
-		invokeIIIIV(__functionAddress, x, y, w, h);
+		callIIIIV(__functionAddress, x, y, w, h);
 	}
 
 }

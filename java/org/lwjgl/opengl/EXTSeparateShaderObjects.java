@@ -92,14 +92,14 @@ public final class EXTSeparateShaderObjects {
 
 	public static void glUseShaderProgramEXT(int type, int program) {
 		long __functionAddress = getInstance().UseShaderProgramEXT;
-		invokeIIV(__functionAddress, type, program);
+		callIIV(__functionAddress, type, program);
 	}
 
 	// --- [ glActiveProgramEXT ] ---
 
 	public static void glActiveProgramEXT(int program) {
 		long __functionAddress = getInstance().ActiveProgramEXT;
-		invokeIV(__functionAddress, program);
+		callIV(__functionAddress, program);
 	}
 
 	// --- [ glCreateShaderProgramEXT ] ---
@@ -108,7 +108,7 @@ public final class EXTSeparateShaderObjects {
 	@JavadocExclude
 	public static int nglCreateShaderProgramEXT(int type, long string) {
 		long __functionAddress = getInstance().CreateShaderProgramEXT;
-		return invokeIPI(__functionAddress, type, string);
+		return callIPI(__functionAddress, type, string);
 	}
 
 	public static int glCreateShaderProgramEXT(int type, ByteBuffer string) {

@@ -23,12 +23,14 @@ public final class ObjCMethodDescription implements Pointer {
 		TYPES;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(2);
+		IntBuffer offsets = memAllocInt(2);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		NAME = offsets.get(0);
 		TYPES = offsets.get(1);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -53,9 +55,9 @@ public final class ObjCMethodDescription implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setName(long name) { name(struct, name); }
-	public void setTypes(long types) { types(struct, types); }
-	public void setTypes(ByteBuffer types) { types(struct, types); }
+	public ObjCMethodDescription setName(long name) { name(struct, name); return this; }
+	public ObjCMethodDescription setTypes(long types) { types(struct, types); return this; }
+	public ObjCMethodDescription setTypes(ByteBuffer types) { types(struct, types); return this; }
 
 	public long getName() { return name(struct); }
 	public long getTypes() { return types(struct); }

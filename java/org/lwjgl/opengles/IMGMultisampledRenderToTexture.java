@@ -79,14 +79,14 @@ public final class IMGMultisampledRenderToTexture {
 
 	public static void glRenderbufferStorageMultisampleIMG(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageMultisampleIMG;
-		invokeIIIIIV(__functionAddress, target, samples, internalformat, width, height);
+		callIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
 	// --- [ glFramebufferTexture2DMultisampleIMG ] ---
 
 	public static void glFramebufferTexture2DMultisampleIMG(int target, int attachment, int textarget, int texture, int level, int samples) {
 		long __functionAddress = getInstance().FramebufferTexture2DMultisampleIMG;
-		invokeIIIIIIV(__functionAddress, target, attachment, textarget, texture, level, samples);
+		callIIIIIIV(__functionAddress, target, attachment, textarget, texture, level, samples);
 	}
 
 }

@@ -113,7 +113,7 @@ public final class GLXSGIXFBConfig {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return invokePPIPI(__functionAddress, display, config, attribute, value);
+		return callPPIPI(__functionAddress, display, config, attribute, value);
 	}
 
 	/**
@@ -145,7 +145,7 @@ public final class GLXSGIXFBConfig {
 		long __functionAddress = getInstance().ChooseFBConfigSGIX;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return invokePIPPP(__functionAddress, display, screen, attrib_list, nelements);
+		return callPIPPP(__functionAddress, display, screen, attrib_list, nelements);
 	}
 
 	/**
@@ -185,7 +185,7 @@ public final class GLXSGIXFBConfig {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return invokePPPP(__functionAddress, display, config, pixmap);
+		return callPPPP(__functionAddress, display, config, pixmap);
 	}
 
 	// --- [ glXCreateContextWithConfigSGIX ] ---
@@ -206,7 +206,7 @@ public final class GLXSGIXFBConfig {
 			checkPointer(config);
 			checkPointer(share_list);
 		}
-		return invokePPIPIP(__functionAddress, display, config, render_type, share_list, direct);
+		return callPPIPIP(__functionAddress, display, config, render_type, share_list, direct);
 	}
 
 	// --- [ glXGetVisualFromFBConfigSGIX ] ---
@@ -219,7 +219,7 @@ public final class GLXSGIXFBConfig {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return invokePPP(__functionAddress, display, config);
+		return callPPP(__functionAddress, display, config);
 	}
 
 	/**
@@ -241,7 +241,7 @@ public final class GLXSGIXFBConfig {
 		long __functionAddress = getInstance().GetFBConfigFromVisualSGIX;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return invokePPP(__functionAddress, display, vis);
+		return callPPP(__functionAddress, display, vis);
 	}
 
 	/**

@@ -67,7 +67,7 @@ public final class AMDStencilOperationExtended {
 
 	public static void glStencilOpValueAMD(int face, int value) {
 		long __functionAddress = getInstance().StencilOpValueAMD;
-		invokeIIV(__functionAddress, face, value);
+		callIIV(__functionAddress, face, value);
 	}
 
 }

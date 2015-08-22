@@ -97,7 +97,7 @@ public final class KHRTerminateContext {
 		long __functionAddress = getInstance().TerminateContextKHR;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return invokePI(__functionAddress, context);
+		return callPI(__functionAddress, context);
 	}
 
 }

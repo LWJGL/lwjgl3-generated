@@ -28,13 +28,15 @@ public final class OVRLayerDirect implements Pointer {
 		VIEWPORT;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(3);
+		IntBuffer offsets = memAllocInt(3);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		HEADER = offsets.get(0);
 		COLORTEXTURE = offsets.get(1);
 		VIEWPORT = offsets.get(2);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -59,13 +61,13 @@ public final class OVRLayerDirect implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setHeader(ByteBuffer Header) { HeaderSet(struct, Header); }
-	public void setHeaderType(int Type) { HeaderType(struct, Type); }
-	public void setHeaderFlags(int Flags) { HeaderFlags(struct, Flags); }
-	public void setColorTexture(PointerBuffer ColorTexture) { ColorTextureSet(struct, ColorTexture); }
-	public void setColorTexture(ByteBuffer ColorTexture, int index) { ColorTextureSet(struct, ColorTexture, index); }
-	public void setViewport(ByteBuffer Viewport) { ViewportSet(struct, Viewport); }
-	public void setViewport(ByteBuffer Viewport, int index) { ViewportSet(struct, Viewport, index); }
+	public OVRLayerDirect setHeader(ByteBuffer Header) { HeaderSet(struct, Header); return this; }
+	public OVRLayerDirect setHeaderType(int Type) { HeaderType(struct, Type); return this; }
+	public OVRLayerDirect setHeaderFlags(int Flags) { HeaderFlags(struct, Flags); return this; }
+	public OVRLayerDirect setColorTexture(PointerBuffer ColorTexture) { ColorTextureSet(struct, ColorTexture); return this; }
+	public OVRLayerDirect setColorTexture(ByteBuffer ColorTexture, int index) { ColorTextureSet(struct, ColorTexture, index); return this; }
+	public OVRLayerDirect setViewport(ByteBuffer Viewport) { ViewportSet(struct, Viewport); return this; }
+	public OVRLayerDirect setViewport(ByteBuffer Viewport, int index) { ViewportSet(struct, Viewport, index); return this; }
 
 	public void getHeader(ByteBuffer Header) { HeaderGet(struct, Header); }
 	public int getHeaderType() { return HeaderType(struct); }

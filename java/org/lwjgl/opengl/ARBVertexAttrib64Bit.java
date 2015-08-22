@@ -121,7 +121,7 @@ public final class ARBVertexAttrib64Bit {
 	 */
 	public static void glVertexAttribL1d(int index, double x) {
 		long __functionAddress = getInstance().VertexAttribL1d;
-		invokeIDV(__functionAddress, index, x);
+		callIDV(__functionAddress, index, x);
 	}
 
 	// --- [ glVertexAttribL2d ] ---
@@ -135,7 +135,7 @@ public final class ARBVertexAttrib64Bit {
 	 */
 	public static void glVertexAttribL2d(int index, double x, double y) {
 		long __functionAddress = getInstance().VertexAttribL2d;
-		invokeIDDV(__functionAddress, index, x, y);
+		callIDDV(__functionAddress, index, x, y);
 	}
 
 	// --- [ glVertexAttribL3d ] ---
@@ -150,7 +150,7 @@ public final class ARBVertexAttrib64Bit {
 	 */
 	public static void glVertexAttribL3d(int index, double x, double y, double z) {
 		long __functionAddress = getInstance().VertexAttribL3d;
-		invokeIDDDV(__functionAddress, index, x, y, z);
+		callIDDDV(__functionAddress, index, x, y, z);
 	}
 
 	// --- [ glVertexAttribL4d ] ---
@@ -166,7 +166,7 @@ public final class ARBVertexAttrib64Bit {
 	 */
 	public static void glVertexAttribL4d(int index, double x, double y, double z, double w) {
 		long __functionAddress = getInstance().VertexAttribL4d;
-		invokeIDDDDV(__functionAddress, index, x, y, z, w);
+		callIDDDDV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttribL1dv ] ---
@@ -175,7 +175,7 @@ public final class ARBVertexAttrib64Bit {
 	@JavadocExclude
 	public static void nglVertexAttribL1dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL1dv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -203,7 +203,7 @@ public final class ARBVertexAttrib64Bit {
 	@JavadocExclude
 	public static void nglVertexAttribL2dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL2dv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -231,7 +231,7 @@ public final class ARBVertexAttrib64Bit {
 	@JavadocExclude
 	public static void nglVertexAttribL3dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL3dv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -259,7 +259,7 @@ public final class ARBVertexAttrib64Bit {
 	@JavadocExclude
 	public static void nglVertexAttribL4dv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribL4dv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -287,7 +287,7 @@ public final class ARBVertexAttrib64Bit {
 	@JavadocExclude
 	public static void nglVertexAttribLPointer(int index, int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexAttribLPointer;
-		invokeIIIIPV(__functionAddress, index, size, type, stride, pointer);
+		callIIIIPV(__functionAddress, index, size, type, stride, pointer);
 	}
 
 	/**
@@ -327,7 +327,7 @@ public final class ARBVertexAttrib64Bit {
 	@JavadocExclude
 	public static void nglGetVertexAttribLdv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribLdv;
-		invokeIIPV(__functionAddress, index, pname, params);
+		callIIPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -364,7 +364,7 @@ public final class ARBVertexAttrib64Bit {
 		long __functionAddress = getInstance().VertexArrayVertexAttribLOffsetEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIPV(__functionAddress, vaobj, buffer, index, size, type, stride, offset);
+		callIIIIIIPV(__functionAddress, vaobj, buffer, index, size, type, stride, offset);
 	}
 
 }

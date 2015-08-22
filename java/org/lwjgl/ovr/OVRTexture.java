@@ -23,12 +23,14 @@ public final class OVRTexture implements Pointer {
 		PLATFORMDATA;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(2);
+		IntBuffer offsets = memAllocInt(2);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		HEADER = offsets.get(0);
 		PLATFORMDATA = offsets.get(1);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -53,13 +55,13 @@ public final class OVRTexture implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setHeader(ByteBuffer Header) { HeaderSet(struct, Header); }
-	public void setHeaderAPI(int API) { HeaderAPI(struct, API); }
-	public void setHeaderTextureSize(ByteBuffer TextureSize) { HeaderTextureSizeSet(struct, TextureSize); }
-	public void setHeaderTextureSizeW(int w) { HeaderTextureSizeW(struct, w); }
-	public void setHeaderTextureSizeH(int h) { HeaderTextureSizeH(struct, h); }
-	public void setPlatformData(ByteBuffer PlatformData) { PlatformDataSet(struct, PlatformData); }
-	public void setPlatformData(int index, long PlatformData) { PlatformData(struct, index, PlatformData); }
+	public OVRTexture setHeader(ByteBuffer Header) { HeaderSet(struct, Header); return this; }
+	public OVRTexture setHeaderAPI(int API) { HeaderAPI(struct, API); return this; }
+	public OVRTexture setHeaderTextureSize(ByteBuffer TextureSize) { HeaderTextureSizeSet(struct, TextureSize); return this; }
+	public OVRTexture setHeaderTextureSizeW(int w) { HeaderTextureSizeW(struct, w); return this; }
+	public OVRTexture setHeaderTextureSizeH(int h) { HeaderTextureSizeH(struct, h); return this; }
+	public OVRTexture setPlatformData(ByteBuffer PlatformData) { PlatformDataSet(struct, PlatformData); return this; }
+	public OVRTexture setPlatformData(int index, long PlatformData) { PlatformData(struct, index, PlatformData); return this; }
 
 	public void getHeader(ByteBuffer Header) { HeaderGet(struct, Header); }
 	public int getHeaderAPI() { return HeaderAPI(struct); }

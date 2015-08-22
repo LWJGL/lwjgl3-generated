@@ -93,7 +93,7 @@ public final class ARBES2Compatibility {
 	/** Releases resources allocated by the shader compiler. This is a hint from the application, and does not prevent later use of the shader compiler. */
 	public static void glReleaseShaderCompiler() {
 		long __functionAddress = getInstance().ReleaseShaderCompiler;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glShaderBinary ] ---
@@ -102,7 +102,7 @@ public final class ARBES2Compatibility {
 	@JavadocExclude
 	public static void nglShaderBinary(int count, long shaders, int binaryformat, long binary, int length) {
 		long __functionAddress = getInstance().ShaderBinary;
-		invokeIPIPIV(__functionAddress, count, shaders, binaryformat, binary, length);
+		callIPIPIV(__functionAddress, count, shaders, binaryformat, binary, length);
 	}
 
 	/**
@@ -133,7 +133,7 @@ public final class ARBES2Compatibility {
 	@JavadocExclude
 	public static void nglGetShaderPrecisionFormat(int shadertype, int precisiontype, long range, long precision) {
 		long __functionAddress = getInstance().GetShaderPrecisionFormat;
-		invokeIIPPV(__functionAddress, shadertype, precisiontype, range, precision);
+		callIIPPV(__functionAddress, shadertype, precisiontype, range, precision);
 	}
 
 	/**
@@ -181,7 +181,7 @@ public final class ARBES2Compatibility {
 	 */
 	public static void glDepthRangef(float zNear, float zFar) {
 		long __functionAddress = getInstance().DepthRangef;
-		invokeFFV(__functionAddress, zNear, zFar);
+		callFFV(__functionAddress, zNear, zFar);
 	}
 
 	// --- [ glClearDepthf ] ---
@@ -193,7 +193,7 @@ public final class ARBES2Compatibility {
 	 */
 	public static void glClearDepthf(float depth) {
 		long __functionAddress = getInstance().ClearDepthf;
-		invokeFV(__functionAddress, depth);
+		callFV(__functionAddress, depth);
 	}
 
 }

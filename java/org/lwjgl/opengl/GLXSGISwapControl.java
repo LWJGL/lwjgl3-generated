@@ -62,7 +62,7 @@ public final class GLXSGISwapControl {
 	 */
 	public static int glXSwapIntervalSGI(int interval) {
 		long __functionAddress = getInstance().SwapIntervalSGI;
-		return invokeII(__functionAddress, interval);
+		return callII(__functionAddress, interval);
 	}
 
 }

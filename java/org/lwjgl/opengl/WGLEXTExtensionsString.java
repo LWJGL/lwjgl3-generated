@@ -51,7 +51,7 @@ public final class WGLEXTExtensionsString {
 	@JavadocExclude
 	public static long nwglGetExtensionsStringEXT() {
 		long __functionAddress = getInstance().GetExtensionsStringEXT;
-		return invokeP(__functionAddress);
+		return callP(__functionAddress);
 	}
 
 	/**

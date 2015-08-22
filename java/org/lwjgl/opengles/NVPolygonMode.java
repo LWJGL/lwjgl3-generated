@@ -67,7 +67,7 @@ public final class NVPolygonMode {
 
 	public static void glPolygonModeNV(int face, int mode) {
 		long __functionAddress = getInstance().PolygonModeNV;
-		invokeIIV(__functionAddress, face, mode);
+		callIIV(__functionAddress, face, mode);
 	}
 
 }

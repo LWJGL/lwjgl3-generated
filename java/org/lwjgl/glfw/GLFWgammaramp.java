@@ -25,7 +25,7 @@ public final class GLFWgammaramp implements Pointer {
 		SIZE;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(4);
+		IntBuffer offsets = memAllocInt(4);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -33,6 +33,8 @@ public final class GLFWgammaramp implements Pointer {
 		GREEN = offsets.get(1);
 		BLUE = offsets.get(2);
 		SIZE = offsets.get(3);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -57,13 +59,13 @@ public final class GLFWgammaramp implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setRed(long red) { red(struct, red); }
-	public void setRed(ByteBuffer red) { red(struct, red); }
-	public void setGreen(long green) { green(struct, green); }
-	public void setGreen(ByteBuffer green) { green(struct, green); }
-	public void setBlue(long blue) { blue(struct, blue); }
-	public void setBlue(ByteBuffer blue) { blue(struct, blue); }
-	public void setSize(int size) { size(struct, size); }
+	public GLFWgammaramp setRed(long red) { red(struct, red); return this; }
+	public GLFWgammaramp setRed(ByteBuffer red) { red(struct, red); return this; }
+	public GLFWgammaramp setGreen(long green) { green(struct, green); return this; }
+	public GLFWgammaramp setGreen(ByteBuffer green) { green(struct, green); return this; }
+	public GLFWgammaramp setBlue(long blue) { blue(struct, blue); return this; }
+	public GLFWgammaramp setBlue(ByteBuffer blue) { blue(struct, blue); return this; }
+	public GLFWgammaramp setSize(int size) { size(struct, size); return this; }
 
 	public long getRed() { return red(struct); }
 	public ByteBuffer getRed(int byteLen) { return red(struct, byteLen); }

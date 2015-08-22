@@ -27,7 +27,7 @@ public final class STBVorbisInfo implements Pointer {
 		MAX_FRAME_SIZE;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(6);
+		IntBuffer offsets = memAllocInt(6);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -37,6 +37,8 @@ public final class STBVorbisInfo implements Pointer {
 		SETUP_TEMP_MEMORY_REQUIRED = offsets.get(3);
 		TEMP_MEMORY_REQUIRED = offsets.get(4);
 		MAX_FRAME_SIZE = offsets.get(5);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -61,12 +63,12 @@ public final class STBVorbisInfo implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setSampleRate(int sample_rate) { sample_rate(struct, sample_rate); }
-	public void setChannels(int channels) { channels(struct, channels); }
-	public void setSetupMemoryRequired(int setup_memory_required) { setup_memory_required(struct, setup_memory_required); }
-	public void setSetupTempMemoryRequired(int setup_temp_memory_required) { setup_temp_memory_required(struct, setup_temp_memory_required); }
-	public void setTempMemoryRequired(int temp_memory_required) { temp_memory_required(struct, temp_memory_required); }
-	public void setMaxFrameSize(int max_frame_size) { max_frame_size(struct, max_frame_size); }
+	public STBVorbisInfo setSampleRate(int sample_rate) { sample_rate(struct, sample_rate); return this; }
+	public STBVorbisInfo setChannels(int channels) { channels(struct, channels); return this; }
+	public STBVorbisInfo setSetupMemoryRequired(int setup_memory_required) { setup_memory_required(struct, setup_memory_required); return this; }
+	public STBVorbisInfo setSetupTempMemoryRequired(int setup_temp_memory_required) { setup_temp_memory_required(struct, setup_temp_memory_required); return this; }
+	public STBVorbisInfo setTempMemoryRequired(int temp_memory_required) { temp_memory_required(struct, temp_memory_required); return this; }
+	public STBVorbisInfo setMaxFrameSize(int max_frame_size) { max_frame_size(struct, max_frame_size); return this; }
 
 	public int getSampleRate() { return sample_rate(struct); }
 	public int getChannels() { return channels(struct); }

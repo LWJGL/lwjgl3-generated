@@ -131,7 +131,7 @@ public final class ARBShaderAtomicCounters {
 	@JavadocExclude
 	public static void nglGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveAtomicCounterBufferiv;
-		invokeIIIPV(__functionAddress, program, bufferIndex, pname, params);
+		callIIIPV(__functionAddress, program, bufferIndex, pname, params);
 	}
 
 	/**

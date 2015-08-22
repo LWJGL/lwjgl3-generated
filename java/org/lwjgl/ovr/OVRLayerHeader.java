@@ -23,12 +23,14 @@ public final class OVRLayerHeader implements Pointer {
 		FLAGS;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(2);
+		IntBuffer offsets = memAllocInt(2);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		TYPE = offsets.get(0);
 		FLAGS = offsets.get(1);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -53,8 +55,8 @@ public final class OVRLayerHeader implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setType(int Type) { Type(struct, Type); }
-	public void setFlags(int Flags) { Flags(struct, Flags); }
+	public OVRLayerHeader setType(int Type) { Type(struct, Type); return this; }
+	public OVRLayerHeader setFlags(int Flags) { Flags(struct, Flags); return this; }
 
 	public int getType() { return Type(struct); }
 	public int getFlags() { return Flags(struct); }

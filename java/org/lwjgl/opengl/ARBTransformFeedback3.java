@@ -101,7 +101,7 @@ public final class ARBTransformFeedback3 {
 	 */
 	public static void glDrawTransformFeedbackStream(int mode, int id, int stream) {
 		long __functionAddress = getInstance().DrawTransformFeedbackStream;
-		invokeIIIV(__functionAddress, mode, id, stream);
+		callIIIV(__functionAddress, mode, id, stream);
 	}
 
 	// --- [ glBeginQueryIndexed ] ---
@@ -115,7 +115,7 @@ public final class ARBTransformFeedback3 {
 	 */
 	public static void glBeginQueryIndexed(int target, int index, int id) {
 		long __functionAddress = getInstance().BeginQueryIndexed;
-		invokeIIIV(__functionAddress, target, index, id);
+		callIIIV(__functionAddress, target, index, id);
 	}
 
 	// --- [ glEndQueryIndexed ] ---
@@ -128,7 +128,7 @@ public final class ARBTransformFeedback3 {
 	 */
 	public static void glEndQueryIndexed(int target, int index) {
 		long __functionAddress = getInstance().EndQueryIndexed;
-		invokeIIV(__functionAddress, target, index);
+		callIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glGetQueryIndexediv ] ---
@@ -137,7 +137,7 @@ public final class ARBTransformFeedback3 {
 	@JavadocExclude
 	public static void nglGetQueryIndexediv(int target, int index, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryIndexediv;
-		invokeIIIPV(__functionAddress, target, index, pname, params);
+		callIIIPV(__functionAddress, target, index, pname, params);
 	}
 
 	/**

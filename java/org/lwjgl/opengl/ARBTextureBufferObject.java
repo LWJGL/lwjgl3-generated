@@ -109,7 +109,7 @@ public final class ARBTextureBufferObject {
 	 */
 	public static void glTexBufferARB(int target, int internalformat, int buffer) {
 		long __functionAddress = getInstance().TexBufferARB;
-		invokeIIIV(__functionAddress, target, internalformat, buffer);
+		callIIIV(__functionAddress, target, internalformat, buffer);
 	}
 
 }

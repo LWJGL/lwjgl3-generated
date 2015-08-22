@@ -23,12 +23,14 @@ public final class STBVorbisAlloc implements Pointer {
 		ALLOC_BUFFER_LENGTH_IN_BYTES;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(2);
+		IntBuffer offsets = memAllocInt(2);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		ALLOC_BUFFER = offsets.get(0);
 		ALLOC_BUFFER_LENGTH_IN_BYTES = offsets.get(1);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -53,9 +55,9 @@ public final class STBVorbisAlloc implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setAllocBuffer(long alloc_buffer) { alloc_buffer(struct, alloc_buffer); }
-	public void setAllocBuffer(ByteBuffer alloc_buffer) { alloc_buffer(struct, alloc_buffer); }
-	public void setAllocBufferLengthInBytes(int alloc_buffer_length_in_bytes) { alloc_buffer_length_in_bytes(struct, alloc_buffer_length_in_bytes); }
+	public STBVorbisAlloc setAllocBuffer(long alloc_buffer) { alloc_buffer(struct, alloc_buffer); return this; }
+	public STBVorbisAlloc setAllocBuffer(ByteBuffer alloc_buffer) { alloc_buffer(struct, alloc_buffer); return this; }
+	public STBVorbisAlloc setAllocBufferLengthInBytes(int alloc_buffer_length_in_bytes) { alloc_buffer_length_in_bytes(struct, alloc_buffer_length_in_bytes); return this; }
 
 	public long getAllocBuffer() { return alloc_buffer(struct); }
 	public ByteBuffer getAllocBuffer(int byteLen) { return alloc_buffer(struct, byteLen); }

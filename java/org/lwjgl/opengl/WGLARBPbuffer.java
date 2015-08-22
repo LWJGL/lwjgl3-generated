@@ -103,7 +103,7 @@ public final class WGLARBPbuffer {
 		long __functionAddress = getInstance().CreatePbufferARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		return invokePIIIPP(__functionAddress, hdc, pixelFormat, width, height, attribList);
+		return callPIIIPP(__functionAddress, hdc, pixelFormat, width, height, attribList);
 	}
 
 	/**
@@ -142,7 +142,7 @@ public final class WGLARBPbuffer {
 		long __functionAddress = getInstance().GetPbufferDCARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(pbuffer);
-		return invokePP(__functionAddress, pbuffer);
+		return callPP(__functionAddress, pbuffer);
 	}
 
 	// --- [ wglReleasePbufferDCARB ] ---
@@ -159,7 +159,7 @@ public final class WGLARBPbuffer {
 			checkPointer(pbuffer);
 			checkPointer(hdc);
 		}
-		return invokePPI(__functionAddress, pbuffer, hdc);
+		return callPPI(__functionAddress, pbuffer, hdc);
 	}
 
 	// --- [ wglDestroyPbufferARB ] ---
@@ -176,7 +176,7 @@ public final class WGLARBPbuffer {
 		long __functionAddress = getInstance().DestroyPbufferARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(pbuffer);
-		return invokePI(__functionAddress, pbuffer);
+		return callPI(__functionAddress, pbuffer);
 	}
 
 	// --- [ wglQueryPbufferARB ] ---
@@ -187,7 +187,7 @@ public final class WGLARBPbuffer {
 		long __functionAddress = getInstance().QueryPbufferARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(pbuffer);
-		return invokePIPI(__functionAddress, pbuffer, attribute, value);
+		return callPIPI(__functionAddress, pbuffer, attribute, value);
 	}
 
 	/**

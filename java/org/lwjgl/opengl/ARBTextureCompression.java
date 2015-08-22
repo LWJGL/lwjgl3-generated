@@ -109,7 +109,7 @@ public final class ARBTextureCompression {
 	@JavadocExclude
 	public static void nglCompressedTexImage3DARB(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage3DARB;
-		invokeIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
+		callIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
 	}
 
 	/**
@@ -153,7 +153,7 @@ public final class ARBTextureCompression {
 	@JavadocExclude
 	public static void nglCompressedTexImage2DARB(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage2DARB;
-		invokeIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, border, imageSize, data);
+		callIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, border, imageSize, data);
 	}
 
 	/**
@@ -196,7 +196,7 @@ public final class ARBTextureCompression {
 	@JavadocExclude
 	public static void nglCompressedTexImage1DARB(int target, int level, int internalformat, int width, int border, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexImage1DARB;
-		invokeIIIIIIPV(__functionAddress, target, level, internalformat, width, border, imageSize, data);
+		callIIIIIIPV(__functionAddress, target, level, internalformat, width, border, imageSize, data);
 	}
 
 	/**
@@ -238,7 +238,7 @@ public final class ARBTextureCompression {
 	@JavadocExclude
 	public static void nglCompressedTexSubImage3DARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage3DARB;
-		invokeIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
+		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
 	/**
@@ -284,7 +284,7 @@ public final class ARBTextureCompression {
 	@JavadocExclude
 	public static void nglCompressedTexSubImage2DARB(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage2DARB;
-		invokeIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, imageSize, data);
+		callIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, imageSize, data);
 	}
 
 	/**
@@ -328,7 +328,7 @@ public final class ARBTextureCompression {
 	@JavadocExclude
 	public static void nglCompressedTexSubImage1DARB(int target, int level, int xoffset, int width, int format, int imageSize, long data) {
 		long __functionAddress = getInstance().CompressedTexSubImage1DARB;
-		invokeIIIIIIPV(__functionAddress, target, level, xoffset, width, format, imageSize, data);
+		callIIIIIIPV(__functionAddress, target, level, xoffset, width, format, imageSize, data);
 	}
 
 	/**
@@ -370,7 +370,7 @@ public final class ARBTextureCompression {
 	@JavadocExclude
 	public static void nglGetCompressedTexImageARB(int target, int level, long pixels) {
 		long __functionAddress = getInstance().GetCompressedTexImageARB;
-		invokeIIPV(__functionAddress, target, level, pixels);
+		callIIPV(__functionAddress, target, level, pixels);
 	}
 
 	/**

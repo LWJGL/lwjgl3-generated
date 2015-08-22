@@ -23,12 +23,14 @@ public final class OVRGLTexture implements Pointer {
 		OGL;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(2);
+		IntBuffer offsets = memAllocInt(2);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		TEXTURE = offsets.get(0);
 		OGL = offsets.get(1);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -53,21 +55,21 @@ public final class OVRGLTexture implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setTexture(ByteBuffer Texture) { TextureSet(struct, Texture); }
-	public void setTextureHeader(ByteBuffer Header) { TextureHeaderSet(struct, Header); }
-	public void setTextureHeaderAPI(int API) { TextureHeaderAPI(struct, API); }
-	public void setTextureHeaderTextureSize(ByteBuffer TextureSize) { TextureHeaderTextureSizeSet(struct, TextureSize); }
-	public void setTextureHeaderTextureSizeW(int w) { TextureHeaderTextureSizeW(struct, w); }
-	public void setTextureHeaderTextureSizeH(int h) { TextureHeaderTextureSizeH(struct, h); }
-	public void setTexturePlatformData(ByteBuffer PlatformData) { TexturePlatformDataSet(struct, PlatformData); }
-	public void setTexturePlatformData(int index, long PlatformData) { TexturePlatformData(struct, index, PlatformData); }
-	public void setOGL(ByteBuffer ogl) { OGLSet(struct, ogl); }
-	public void setOGLHeader(ByteBuffer Header) { OGLHeaderSet(struct, Header); }
-	public void setOGLHeaderAPI(int API) { OGLHeaderAPI(struct, API); }
-	public void setOGLHeaderTextureSize(ByteBuffer TextureSize) { OGLHeaderTextureSizeSet(struct, TextureSize); }
-	public void setOGLHeaderTextureSizeW(int w) { OGLHeaderTextureSizeW(struct, w); }
-	public void setOGLHeaderTextureSizeH(int h) { OGLHeaderTextureSizeH(struct, h); }
-	public void setOGLTexId(int TexId) { OGLTexId(struct, TexId); }
+	public OVRGLTexture setTexture(ByteBuffer Texture) { TextureSet(struct, Texture); return this; }
+	public OVRGLTexture setTextureHeader(ByteBuffer Header) { TextureHeaderSet(struct, Header); return this; }
+	public OVRGLTexture setTextureHeaderAPI(int API) { TextureHeaderAPI(struct, API); return this; }
+	public OVRGLTexture setTextureHeaderTextureSize(ByteBuffer TextureSize) { TextureHeaderTextureSizeSet(struct, TextureSize); return this; }
+	public OVRGLTexture setTextureHeaderTextureSizeW(int w) { TextureHeaderTextureSizeW(struct, w); return this; }
+	public OVRGLTexture setTextureHeaderTextureSizeH(int h) { TextureHeaderTextureSizeH(struct, h); return this; }
+	public OVRGLTexture setTexturePlatformData(ByteBuffer PlatformData) { TexturePlatformDataSet(struct, PlatformData); return this; }
+	public OVRGLTexture setTexturePlatformData(int index, long PlatformData) { TexturePlatformData(struct, index, PlatformData); return this; }
+	public OVRGLTexture setOGL(ByteBuffer ogl) { OGLSet(struct, ogl); return this; }
+	public OVRGLTexture setOGLHeader(ByteBuffer Header) { OGLHeaderSet(struct, Header); return this; }
+	public OVRGLTexture setOGLHeaderAPI(int API) { OGLHeaderAPI(struct, API); return this; }
+	public OVRGLTexture setOGLHeaderTextureSize(ByteBuffer TextureSize) { OGLHeaderTextureSizeSet(struct, TextureSize); return this; }
+	public OVRGLTexture setOGLHeaderTextureSizeW(int w) { OGLHeaderTextureSizeW(struct, w); return this; }
+	public OVRGLTexture setOGLHeaderTextureSizeH(int h) { OGLHeaderTextureSizeH(struct, h); return this; }
+	public OVRGLTexture setOGLTexId(int TexId) { OGLTexId(struct, TexId); return this; }
 
 	public void getTexture(ByteBuffer Texture) { TextureGet(struct, Texture); }
 	public void getTextureHeader(ByteBuffer Header) { TextureHeaderGet(struct, Header); }

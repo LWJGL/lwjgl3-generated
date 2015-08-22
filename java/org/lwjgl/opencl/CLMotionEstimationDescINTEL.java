@@ -25,7 +25,7 @@ public final class CLMotionEstimationDescINTEL implements Pointer {
 		SEARCH_PATH_TYPE;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(4);
+		IntBuffer offsets = memAllocInt(4);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -33,6 +33,8 @@ public final class CLMotionEstimationDescINTEL implements Pointer {
 		SUBPIXEL_MODE = offsets.get(1);
 		SAD_ADJUST_MODE = offsets.get(2);
 		SEARCH_PATH_TYPE = offsets.get(3);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -57,10 +59,10 @@ public final class CLMotionEstimationDescINTEL implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setMbBlockType(int mb_block_type) { mb_block_type(struct, mb_block_type); }
-	public void setSubpixelMode(int subpixel_mode) { subpixel_mode(struct, subpixel_mode); }
-	public void setSadAdjustMode(int sad_adjust_mode) { sad_adjust_mode(struct, sad_adjust_mode); }
-	public void setSearchPathType(int search_path_type) { search_path_type(struct, search_path_type); }
+	public CLMotionEstimationDescINTEL setMbBlockType(int mb_block_type) { mb_block_type(struct, mb_block_type); return this; }
+	public CLMotionEstimationDescINTEL setSubpixelMode(int subpixel_mode) { subpixel_mode(struct, subpixel_mode); return this; }
+	public CLMotionEstimationDescINTEL setSadAdjustMode(int sad_adjust_mode) { sad_adjust_mode(struct, sad_adjust_mode); return this; }
+	public CLMotionEstimationDescINTEL setSearchPathType(int search_path_type) { search_path_type(struct, search_path_type); return this; }
 
 	public int getMbBlockType() { return mb_block_type(struct); }
 	public int getSubpixelMode() { return subpixel_mode(struct); }

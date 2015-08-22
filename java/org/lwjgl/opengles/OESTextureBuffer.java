@@ -103,14 +103,14 @@ public final class OESTextureBuffer {
 
 	public static void glTexBufferOES(int target, int internalformat, int buffer) {
 		long __functionAddress = getInstance().TexBufferOES;
-		invokeIIIV(__functionAddress, target, internalformat, buffer);
+		callIIIV(__functionAddress, target, internalformat, buffer);
 	}
 
 	// --- [ glTexBufferRangeOES ] ---
 
 	public static void glTexBufferRangeOES(int target, int internalformat, int buffer, long offset, long size) {
 		long __functionAddress = getInstance().TexBufferRangeOES;
-		invokeIIIPPV(__functionAddress, target, internalformat, buffer, offset, size);
+		callIIIPPV(__functionAddress, target, internalformat, buffer, offset, size);
 	}
 
 }

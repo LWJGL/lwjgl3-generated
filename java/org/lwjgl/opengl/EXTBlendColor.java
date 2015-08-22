@@ -63,7 +63,7 @@ public final class EXTBlendColor {
 
 	public static void glBlendColorEXT(float red, float green, float blue, float alpha) {
 		long __functionAddress = getInstance().BlendColorEXT;
-		invokeFFFFV(__functionAddress, red, green, blue, alpha);
+		callFFFFV(__functionAddress, red, green, blue, alpha);
 	}
 
 }

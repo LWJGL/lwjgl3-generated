@@ -76,7 +76,7 @@ public final class EXTProvokingVertex {
 
 	public static void glProvokingVertexEXT(int mode) {
 		long __functionAddress = getInstance().ProvokingVertexEXT;
-		invokeIV(__functionAddress, mode);
+		callIV(__functionAddress, mode);
 	}
 
 }

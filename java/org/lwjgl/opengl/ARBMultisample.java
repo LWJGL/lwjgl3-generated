@@ -93,7 +93,7 @@ public final class ARBMultisample {
 	 */
 	public static void glSampleCoverageARB(float value, boolean invert) {
 		long __functionAddress = getInstance().SampleCoverageARB;
-		invokeFZV(__functionAddress, value, invert);
+		callFZV(__functionAddress, value, invert);
 	}
 
 }

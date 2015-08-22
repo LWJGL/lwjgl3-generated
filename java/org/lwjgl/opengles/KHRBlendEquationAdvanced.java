@@ -109,7 +109,7 @@ public final class KHRBlendEquationAdvanced {
 	 */
 	public static void glBlendBarrierKHR() {
 		long __functionAddress = getInstance().BlendBarrierKHR;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 }

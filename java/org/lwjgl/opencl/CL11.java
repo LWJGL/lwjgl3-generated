@@ -128,7 +128,7 @@ public final class CL11 {
 		long __functionAddress = getInstance().CreateSubBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(buffer);
-		return invokePJIPPP(__functionAddress, buffer, flags, buffer_create_type, buffer_create_info, errcode_ret);
+		return callPJIPPP(__functionAddress, buffer, flags, buffer_create_type, buffer_create_info, errcode_ret);
 	}
 
 	/**
@@ -213,7 +213,7 @@ public final class CL11 {
 		long __functionAddress = getInstance().SetMemObjectDestructorCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(memobj);
-		return invokePPPI(__functionAddress, memobj, pfn_notify.getPointer(), user_data);
+		return callPPPI(__functionAddress, memobj, pfn_notify.getPointer(), user_data);
 	}
 
 	// --- [ clEnqueueReadBufferRect ] ---
@@ -226,7 +226,7 @@ public final class CL11 {
 			checkPointer(command_queue);
 			checkPointer(buffer);
 		}
-		return invokePPIPPPPPPPPIPPI(__functionAddress, command_queue, buffer, blocking_read, buffer_offset, host_offset, region, buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event);
+		return callPPIPPPPPPPPIPPI(__functionAddress, command_queue, buffer, blocking_read, buffer_offset, host_offset, region, buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -378,7 +378,7 @@ public final class CL11 {
 			checkPointer(command_queue);
 			checkPointer(buffer);
 		}
-		return invokePPIPPPPPPPPIPPI(__functionAddress, command_queue, buffer, blocking_write, buffer_offset, host_offset, region, buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event);
+		return callPPIPPPPPPPPIPPI(__functionAddress, command_queue, buffer, blocking_write, buffer_offset, host_offset, region, buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -531,7 +531,7 @@ public final class CL11 {
 			checkPointer(src_buffer);
 			checkPointer(dst_buffer);
 		}
-		return invokePPPPPPPPPPIPPI(__functionAddress, command_queue, src_buffer, dst_buffer, src_origin, dst_origin, region, src_row_pitch, src_slice_pitch, dst_row_pitch, dst_slice_pitch, num_events_in_wait_list, event_wait_list, event);
+		return callPPPPPPPPPPIPPI(__functionAddress, command_queue, src_buffer, dst_buffer, src_origin, dst_origin, region, src_row_pitch, src_slice_pitch, dst_row_pitch, dst_slice_pitch, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -631,7 +631,7 @@ public final class CL11 {
 		long __functionAddress = getInstance().CreateUserEvent;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return invokePPP(__functionAddress, context, errcode_ret);
+		return callPPP(__functionAddress, context, errcode_ret);
 	}
 
 	/**
@@ -706,7 +706,7 @@ public final class CL11 {
 		long __functionAddress = getInstance().SetUserEventStatus;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(event);
-		return invokePII(__functionAddress, event, execution_status);
+		return callPII(__functionAddress, event, execution_status);
 	}
 
 	// --- [ clSetEventCallback ] ---
@@ -759,7 +759,7 @@ public final class CL11 {
 		long __functionAddress = getInstance().SetEventCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(event);
-		return invokePIPPI(__functionAddress, event, command_exec_callback_type, pfn_notify.getPointer(), user_data);
+		return callPIPPI(__functionAddress, event, command_exec_callback_type, pfn_notify.getPointer(), user_data);
 	}
 
      /**

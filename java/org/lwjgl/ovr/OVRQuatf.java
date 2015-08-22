@@ -25,7 +25,7 @@ public final class OVRQuatf implements Pointer {
 		W;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(4);
+		IntBuffer offsets = memAllocInt(4);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -33,6 +33,8 @@ public final class OVRQuatf implements Pointer {
 		Y = offsets.get(1);
 		Z = offsets.get(2);
 		W = offsets.get(3);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -57,10 +59,10 @@ public final class OVRQuatf implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setX(float x) { x(struct, x); }
-	public void setY(float y) { y(struct, y); }
-	public void setZ(float z) { z(struct, z); }
-	public void setW(float w) { w(struct, w); }
+	public OVRQuatf setX(float x) { x(struct, x); return this; }
+	public OVRQuatf setY(float y) { y(struct, y); return this; }
+	public OVRQuatf setZ(float z) { z(struct, z); return this; }
+	public OVRQuatf setW(float w) { w(struct, w); return this; }
 
 	public float getX() { return x(struct); }
 	public float getY() { return y(struct); }

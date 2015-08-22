@@ -23,12 +23,14 @@ public final class OVRRecti implements Pointer {
 		SIZE;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(2);
+		IntBuffer offsets = memAllocInt(2);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		POS = offsets.get(0);
 		SIZE = offsets.get(1);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -53,12 +55,12 @@ public final class OVRRecti implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setPos(ByteBuffer Pos) { PosSet(struct, Pos); }
-	public void setPosX(int x) { PosX(struct, x); }
-	public void setPosY(int y) { PosY(struct, y); }
-	public void setSize(ByteBuffer Size) { SizeSet(struct, Size); }
-	public void setSizeW(int w) { SizeW(struct, w); }
-	public void setSizeH(int h) { SizeH(struct, h); }
+	public OVRRecti setPos(ByteBuffer Pos) { PosSet(struct, Pos); return this; }
+	public OVRRecti setPosX(int x) { PosX(struct, x); return this; }
+	public OVRRecti setPosY(int y) { PosY(struct, y); return this; }
+	public OVRRecti setSize(ByteBuffer Size) { SizeSet(struct, Size); return this; }
+	public OVRRecti setSizeW(int w) { SizeW(struct, w); return this; }
+	public OVRRecti setSizeH(int h) { SizeH(struct, h); return this; }
 
 	public void getPos(ByteBuffer Pos) { PosGet(struct, Pos); }
 	public int getPosX() { return PosX(struct); }

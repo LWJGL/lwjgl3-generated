@@ -32,13 +32,15 @@ public final class OVRSwapTextureSet implements Pointer {
 		CURRENTINDEX;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(3);
+		IntBuffer offsets = memAllocInt(3);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		TEXTURES = offsets.get(0);
 		TEXTURECOUNT = offsets.get(1);
 		CURRENTINDEX = offsets.get(2);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -63,10 +65,10 @@ public final class OVRSwapTextureSet implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setTextures(long Textures) { Textures(struct, Textures); }
-	public void setTextures(ByteBuffer Textures) { Textures(struct, Textures); }
-	public void setTextureCount(int TextureCount) { TextureCount(struct, TextureCount); }
-	public void setCurrentIndex(int CurrentIndex) { CurrentIndex(struct, CurrentIndex); }
+	public OVRSwapTextureSet setTextures(long Textures) { Textures(struct, Textures); return this; }
+	public OVRSwapTextureSet setTextures(ByteBuffer Textures) { Textures(struct, Textures); return this; }
+	public OVRSwapTextureSet setTextureCount(int TextureCount) { TextureCount(struct, TextureCount); return this; }
+	public OVRSwapTextureSet setCurrentIndex(int CurrentIndex) { CurrentIndex(struct, CurrentIndex); return this; }
 
 	public long getTextures() { return Textures(struct); }
 	public ByteBuffer getTexturesBuffer() { return TexturesBuffer(struct); }

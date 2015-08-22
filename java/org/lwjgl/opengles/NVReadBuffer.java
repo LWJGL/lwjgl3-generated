@@ -59,7 +59,7 @@ public final class NVReadBuffer {
 
 	public static void glReadBufferNV(int mode) {
 		long __functionAddress = getInstance().ReadBufferNV;
-		invokeIV(__functionAddress, mode);
+		callIV(__functionAddress, mode);
 	}
 
 }

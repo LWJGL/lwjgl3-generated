@@ -328,7 +328,7 @@ public final class GL40 {
 	 */
 	public static void glBlendEquationi(int buf, int mode) {
 		long __functionAddress = getInstance().BlendEquationi;
-		invokeIIV(__functionAddress, buf, mode);
+		callIIV(__functionAddress, buf, mode);
 	}
 
 	// --- [ glBlendEquationSeparatei ] ---
@@ -344,7 +344,7 @@ public final class GL40 {
 	 */
 	public static void glBlendEquationSeparatei(int buf, int modeRGB, int modeAlpha) {
 		long __functionAddress = getInstance().BlendEquationSeparatei;
-		invokeIIIV(__functionAddress, buf, modeRGB, modeAlpha);
+		callIIIV(__functionAddress, buf, modeRGB, modeAlpha);
 	}
 
 	// --- [ glBlendFunci ] ---
@@ -360,7 +360,7 @@ public final class GL40 {
 	 */
 	public static void glBlendFunci(int buf, int sfactor, int dfactor) {
 		long __functionAddress = getInstance().BlendFunci;
-		invokeIIIV(__functionAddress, buf, sfactor, dfactor);
+		callIIIV(__functionAddress, buf, sfactor, dfactor);
 	}
 
 	// --- [ glBlendFuncSeparatei ] ---
@@ -378,7 +378,7 @@ public final class GL40 {
 	 */
 	public static void glBlendFuncSeparatei(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
 		long __functionAddress = getInstance().BlendFuncSeparatei;
-		invokeIIIIIV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
+		callIIIIIV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 
 	// --- [ glDrawArraysIndirect ] ---
@@ -387,7 +387,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglDrawArraysIndirect(int mode, long indirect) {
 		long __functionAddress = getInstance().DrawArraysIndirect;
-		invokeIPV(__functionAddress, mode, indirect);
+		callIPV(__functionAddress, mode, indirect);
 	}
 
 	/**
@@ -443,7 +443,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglDrawElementsIndirect(int mode, int type, long indirect) {
 		long __functionAddress = getInstance().DrawElementsIndirect;
-		invokeIIPV(__functionAddress, mode, type, indirect);
+		callIIPV(__functionAddress, mode, type, indirect);
 	}
 
 	/**
@@ -519,7 +519,7 @@ public final class GL40 {
 	 */
 	public static void glUniform1d(int location, double x) {
 		long __functionAddress = getInstance().Uniform1d;
-		invokeIDV(__functionAddress, location, x);
+		callIDV(__functionAddress, location, x);
 	}
 
 	// --- [ glUniform2d ] ---
@@ -535,7 +535,7 @@ public final class GL40 {
 	 */
 	public static void glUniform2d(int location, double x, double y) {
 		long __functionAddress = getInstance().Uniform2d;
-		invokeIDDV(__functionAddress, location, x, y);
+		callIDDV(__functionAddress, location, x, y);
 	}
 
 	// --- [ glUniform3d ] ---
@@ -552,7 +552,7 @@ public final class GL40 {
 	 */
 	public static void glUniform3d(int location, double x, double y, double z) {
 		long __functionAddress = getInstance().Uniform3d;
-		invokeIDDDV(__functionAddress, location, x, y, z);
+		callIDDDV(__functionAddress, location, x, y, z);
 	}
 
 	// --- [ glUniform4d ] ---
@@ -570,7 +570,7 @@ public final class GL40 {
 	 */
 	public static void glUniform4d(int location, double x, double y, double z, double w) {
 		long __functionAddress = getInstance().Uniform4d;
-		invokeIDDDDV(__functionAddress, location, x, y, z, w);
+		callIDDDDV(__functionAddress, location, x, y, z, w);
 	}
 
 	// --- [ glUniform1dv ] ---
@@ -579,7 +579,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniform1dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1dv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -608,7 +608,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniform2dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2dv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -637,7 +637,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniform3dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3dv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -666,7 +666,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniform4dv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4dv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -695,7 +695,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniformMatrix2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2dv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -725,7 +725,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniformMatrix3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3dv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -755,7 +755,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniformMatrix4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4dv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -785,7 +785,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniformMatrix2x3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x3dv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -815,7 +815,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniformMatrix2x4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix2x4dv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -845,7 +845,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniformMatrix3x2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x2dv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -875,7 +875,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniformMatrix3x4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix3x4dv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -905,7 +905,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniformMatrix4x2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x2dv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -935,7 +935,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniformMatrix4x3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().UniformMatrix4x3dv;
-		invokeIIZPV(__functionAddress, location, count, transpose, value);
+		callIIZPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -965,7 +965,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglGetUniformdv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformdv;
-		invokeIIPV(__functionAddress, program, location, params);
+		callIIPV(__functionAddress, program, location, params);
 	}
 
 	/**
@@ -1009,7 +1009,7 @@ public final class GL40 {
 	 */
 	public static void glMinSampleShading(float value) {
 		long __functionAddress = getInstance().MinSampleShading;
-		invokeFV(__functionAddress, value);
+		callFV(__functionAddress, value);
 	}
 
 	// --- [ glGetSubroutineUniformLocation ] ---
@@ -1018,7 +1018,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static int nglGetSubroutineUniformLocation(int program, int shadertype, long name) {
 		long __functionAddress = getInstance().GetSubroutineUniformLocation;
-		return invokeIIPI(__functionAddress, program, shadertype, name);
+		return callIIPI(__functionAddress, program, shadertype, name);
 	}
 
 	/**
@@ -1049,7 +1049,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static int nglGetSubroutineIndex(int program, int shadertype, long name) {
 		long __functionAddress = getInstance().GetSubroutineIndex;
-		return invokeIIPI(__functionAddress, program, shadertype, name);
+		return callIIPI(__functionAddress, program, shadertype, name);
 	}
 
 	/**
@@ -1080,7 +1080,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, long values) {
 		long __functionAddress = getInstance().GetActiveSubroutineUniformiv;
-		invokeIIIIPV(__functionAddress, program, shadertype, index, pname, values);
+		callIIIIPV(__functionAddress, program, shadertype, index, pname, values);
 	}
 
 	/**
@@ -1121,7 +1121,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize, long length, long name) {
 		long __functionAddress = getInstance().GetActiveSubroutineUniformName;
-		invokeIIIIPPV(__functionAddress, program, shadertype, index, bufsize, length, name);
+		callIIIIPPV(__functionAddress, program, shadertype, index, bufsize, length, name);
 	}
 
 	/**
@@ -1176,7 +1176,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglGetActiveSubroutineName(int program, int shadertype, int index, int bufsize, long length, long name) {
 		long __functionAddress = getInstance().GetActiveSubroutineName;
-		invokeIIIIPPV(__functionAddress, program, shadertype, index, bufsize, length, name);
+		callIIIIPPV(__functionAddress, program, shadertype, index, bufsize, length, name);
 	}
 
 	/**
@@ -1231,7 +1231,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglUniformSubroutinesuiv(int shadertype, int count, long indices) {
 		long __functionAddress = getInstance().UniformSubroutinesuiv;
-		invokeIIPV(__functionAddress, shadertype, count, indices);
+		callIIPV(__functionAddress, shadertype, count, indices);
 	}
 
 	/**
@@ -1267,7 +1267,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglGetUniformSubroutineuiv(int shadertype, int location, long params) {
 		long __functionAddress = getInstance().GetUniformSubroutineuiv;
-		invokeIIPV(__functionAddress, shadertype, location, params);
+		callIIPV(__functionAddress, shadertype, location, params);
 	}
 
 	/**
@@ -1306,7 +1306,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglGetProgramStageiv(int program, int shadertype, int pname, long values) {
 		long __functionAddress = getInstance().GetProgramStageiv;
-		invokeIIIPV(__functionAddress, program, shadertype, pname, values);
+		callIIIPV(__functionAddress, program, shadertype, pname, values);
 	}
 
 	/**
@@ -1352,7 +1352,7 @@ public final class GL40 {
 	 */
 	public static void glPatchParameteri(int pname, int value) {
 		long __functionAddress = getInstance().PatchParameteri;
-		invokeIIV(__functionAddress, pname, value);
+		callIIV(__functionAddress, pname, value);
 	}
 
 	// --- [ glPatchParameterfv ] ---
@@ -1361,7 +1361,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglPatchParameterfv(int pname, long values) {
 		long __functionAddress = getInstance().PatchParameterfv;
-		invokeIPV(__functionAddress, pname, values);
+		callIPV(__functionAddress, pname, values);
 	}
 
 	/**
@@ -1399,7 +1399,7 @@ public final class GL40 {
 	 */
 	public static void glBindTransformFeedback(int target, int id) {
 		long __functionAddress = getInstance().BindTransformFeedback;
-		invokeIIV(__functionAddress, target, id);
+		callIIV(__functionAddress, target, id);
 	}
 
 	// --- [ glDeleteTransformFeedbacks ] ---
@@ -1408,7 +1408,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglDeleteTransformFeedbacks(int n, long ids) {
 		long __functionAddress = getInstance().DeleteTransformFeedbacks;
-		invokeIPV(__functionAddress, n, ids);
+		callIPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -1443,7 +1443,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglGenTransformFeedbacks(int n, long ids) {
 		long __functionAddress = getInstance().GenTransformFeedbacks;
-		invokeIPV(__functionAddress, n, ids);
+		callIPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -1484,7 +1484,7 @@ public final class GL40 {
 	 */
 	public static boolean glIsTransformFeedback(int id) {
 		long __functionAddress = getInstance().IsTransformFeedback;
-		return invokeIZ(__functionAddress, id);
+		return callIZ(__functionAddress, id);
 	}
 
 	// --- [ glPauseTransformFeedback ] ---
@@ -1506,7 +1506,7 @@ public final class GL40 {
 	 */
 	public static void glPauseTransformFeedback() {
 		long __functionAddress = getInstance().PauseTransformFeedback;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glResumeTransformFeedback ] ---
@@ -1520,7 +1520,7 @@ public final class GL40 {
 	 */
 	public static void glResumeTransformFeedback() {
 		long __functionAddress = getInstance().ResumeTransformFeedback;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glDrawTransformFeedback ] ---
@@ -1535,7 +1535,7 @@ public final class GL40 {
 	 */
 	public static void glDrawTransformFeedback(int mode, int id) {
 		long __functionAddress = getInstance().DrawTransformFeedback;
-		invokeIIV(__functionAddress, mode, id);
+		callIIV(__functionAddress, mode, id);
 	}
 
 	// --- [ glDrawTransformFeedbackStream ] ---
@@ -1551,7 +1551,7 @@ public final class GL40 {
 	 */
 	public static void glDrawTransformFeedbackStream(int mode, int id, int stream) {
 		long __functionAddress = getInstance().DrawTransformFeedbackStream;
-		invokeIIIV(__functionAddress, mode, id, stream);
+		callIIIV(__functionAddress, mode, id, stream);
 	}
 
 	// --- [ glBeginQueryIndexed ] ---
@@ -1567,7 +1567,7 @@ public final class GL40 {
 	 */
 	public static void glBeginQueryIndexed(int target, int index, int id) {
 		long __functionAddress = getInstance().BeginQueryIndexed;
-		invokeIIIV(__functionAddress, target, index, id);
+		callIIIV(__functionAddress, target, index, id);
 	}
 
 	// --- [ glEndQueryIndexed ] ---
@@ -1582,7 +1582,7 @@ public final class GL40 {
 	 */
 	public static void glEndQueryIndexed(int target, int index) {
 		long __functionAddress = getInstance().EndQueryIndexed;
-		invokeIIV(__functionAddress, target, index);
+		callIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glGetQueryIndexediv ] ---
@@ -1591,7 +1591,7 @@ public final class GL40 {
 	@JavadocExclude
 	public static void nglGetQueryIndexediv(int target, int index, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryIndexediv;
-		invokeIIIPV(__functionAddress, target, index, pname, params);
+		callIIIPV(__functionAddress, target, index, pname, params);
 	}
 
 	/**

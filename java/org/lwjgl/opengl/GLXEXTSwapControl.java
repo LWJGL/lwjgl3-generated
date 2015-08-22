@@ -71,7 +71,7 @@ public final class GLXEXTSwapControl {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		invokePPIV(__functionAddress, display, drawable, interval);
+		callPPIV(__functionAddress, display, drawable, interval);
 	}
 
 }

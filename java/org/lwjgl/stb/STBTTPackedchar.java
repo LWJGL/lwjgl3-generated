@@ -30,7 +30,7 @@ public final class STBTTPackedchar implements Pointer {
 		YOFF2;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(9);
+		IntBuffer offsets = memAllocInt(9);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -43,6 +43,8 @@ public final class STBTTPackedchar implements Pointer {
 		XADVANCE = offsets.get(6);
 		XOFF2 = offsets.get(7);
 		YOFF2 = offsets.get(8);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -67,15 +69,15 @@ public final class STBTTPackedchar implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setX0(int x0) { x0(struct, x0); }
-	public void setY0(int y0) { y0(struct, y0); }
-	public void setX1(int x1) { x1(struct, x1); }
-	public void setY1(int y1) { y1(struct, y1); }
-	public void setXoff(float xoff) { xoff(struct, xoff); }
-	public void setYoff(float yoff) { yoff(struct, yoff); }
-	public void setXadvance(float xadvance) { xadvance(struct, xadvance); }
-	public void setXoff2(float xoff2) { xoff2(struct, xoff2); }
-	public void setYoff2(float yoff2) { yoff2(struct, yoff2); }
+	public STBTTPackedchar setX0(int x0) { x0(struct, x0); return this; }
+	public STBTTPackedchar setY0(int y0) { y0(struct, y0); return this; }
+	public STBTTPackedchar setX1(int x1) { x1(struct, x1); return this; }
+	public STBTTPackedchar setY1(int y1) { y1(struct, y1); return this; }
+	public STBTTPackedchar setXoff(float xoff) { xoff(struct, xoff); return this; }
+	public STBTTPackedchar setYoff(float yoff) { yoff(struct, yoff); return this; }
+	public STBTTPackedchar setXadvance(float xadvance) { xadvance(struct, xadvance); return this; }
+	public STBTTPackedchar setXoff2(float xoff2) { xoff2(struct, xoff2); return this; }
+	public STBTTPackedchar setYoff2(float yoff2) { yoff2(struct, yoff2); return this; }
 
 	public int getX0() { return x0(struct); }
 	public int getY0() { return y0(struct); }

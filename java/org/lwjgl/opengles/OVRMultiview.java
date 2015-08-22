@@ -75,7 +75,7 @@ public final class OVRMultiview {
 
 	public static void glFramebufferTextureMultiviewOVR(int target, int attachment, int texture, int level, int baseViewIndex, int numViews) {
 		long __functionAddress = getInstance().FramebufferTextureMultiviewOVR;
-		invokeIIIIIIV(__functionAddress, target, attachment, texture, level, baseViewIndex, numViews);
+		callIIIIIIV(__functionAddress, target, attachment, texture, level, baseViewIndex, numViews);
 	}
 
 }

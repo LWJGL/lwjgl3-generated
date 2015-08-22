@@ -265,7 +265,7 @@ public final class GL42 {
 	@JavadocExclude
 	public static void nglGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, long params) {
 		long __functionAddress = getInstance().GetActiveAtomicCounterBufferiv;
-		invokeIIIPV(__functionAddress, program, bufferIndex, pname, params);
+		callIIIPV(__functionAddress, program, bufferIndex, pname, params);
 	}
 
 	/**
@@ -313,7 +313,7 @@ public final class GL42 {
 	 */
 	public static void glTexStorage1D(int target, int levels, int internalformat, int width) {
 		long __functionAddress = getInstance().TexStorage1D;
-		invokeIIIIV(__functionAddress, target, levels, internalformat, width);
+		callIIIIV(__functionAddress, target, levels, internalformat, width);
 	}
 
 	// --- [ glTexStorage2D ] ---
@@ -331,7 +331,7 @@ public final class GL42 {
 	 */
 	public static void glTexStorage2D(int target, int levels, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().TexStorage2D;
-		invokeIIIIIV(__functionAddress, target, levels, internalformat, width, height);
+		callIIIIIV(__functionAddress, target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTexStorage3D ] ---
@@ -350,7 +350,7 @@ public final class GL42 {
 	 */
 	public static void glTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth) {
 		long __functionAddress = getInstance().TexStorage3D;
-		invokeIIIIIIV(__functionAddress, target, levels, internalformat, width, height, depth);
+		callIIIIIIV(__functionAddress, target, levels, internalformat, width, height, depth);
 	}
 
 	// --- [ glDrawTransformFeedbackInstanced ] ---
@@ -366,7 +366,7 @@ public final class GL42 {
 	 */
 	public static void glDrawTransformFeedbackInstanced(int mode, int id, int primcount) {
 		long __functionAddress = getInstance().DrawTransformFeedbackInstanced;
-		invokeIIIV(__functionAddress, mode, id, primcount);
+		callIIIV(__functionAddress, mode, id, primcount);
 	}
 
 	// --- [ glDrawTransformFeedbackStreamInstanced ] ---
@@ -383,7 +383,7 @@ public final class GL42 {
 	 */
 	public static void glDrawTransformFeedbackStreamInstanced(int mode, int id, int stream, int primcount) {
 		long __functionAddress = getInstance().DrawTransformFeedbackStreamInstanced;
-		invokeIIIIV(__functionAddress, mode, id, stream, primcount);
+		callIIIIV(__functionAddress, mode, id, stream, primcount);
 	}
 
 	// --- [ glDrawArraysInstancedBaseInstance ] ---
@@ -401,7 +401,7 @@ public final class GL42 {
 	 */
 	public static void glDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance) {
 		long __functionAddress = getInstance().DrawArraysInstancedBaseInstance;
-		invokeIIIIIV(__functionAddress, mode, first, count, primcount, baseinstance);
+		callIIIIIV(__functionAddress, mode, first, count, primcount, baseinstance);
 	}
 
 	// --- [ glDrawElementsInstancedBaseInstance ] ---
@@ -410,7 +410,7 @@ public final class GL42 {
 	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseInstance(int mode, int count, int type, long indices, int primcount, int baseinstance) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseInstance;
-		invokeIIIPIIV(__functionAddress, mode, count, type, indices, primcount, baseinstance);
+		callIIIPIIV(__functionAddress, mode, count, type, indices, primcount, baseinstance);
 	}
 
 	/**
@@ -474,7 +474,7 @@ public final class GL42 {
 	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indices, int primcount, int basevertex, int baseinstance) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseVertexBaseInstance;
-		invokeIIIPIIIV(__functionAddress, mode, count, type, indices, primcount, basevertex, baseinstance);
+		callIIIPIIIV(__functionAddress, mode, count, type, indices, primcount, basevertex, baseinstance);
 	}
 
 	/**
@@ -550,7 +550,7 @@ public final class GL42 {
 	 */
 	public static void glBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format) {
 		long __functionAddress = getInstance().BindImageTexture;
-		invokeIIIZIIIV(__functionAddress, unit, texture, level, layered, layer, access, format);
+		callIIIZIIIV(__functionAddress, unit, texture, level, layered, layer, access, format);
 	}
 
 	// --- [ glMemoryBarrier ] ---
@@ -564,7 +564,7 @@ public final class GL42 {
 	 */
 	public static void glMemoryBarrier(int barriers) {
 		long __functionAddress = getInstance().MemoryBarrier;
-		invokeIV(__functionAddress, barriers);
+		callIV(__functionAddress, barriers);
 	}
 
 	// --- [ glGetInternalformativ ] ---
@@ -573,7 +573,7 @@ public final class GL42 {
 	@JavadocExclude
 	public static void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params) {
 		long __functionAddress = getInstance().GetInternalformativ;
-		invokeIIIIPV(__functionAddress, target, internalformat, pname, bufSize, params);
+		callIIIIPV(__functionAddress, target, internalformat, pname, bufSize, params);
 	}
 
 	/**

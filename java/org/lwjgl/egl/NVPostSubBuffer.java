@@ -50,7 +50,7 @@ public final class NVPostSubBuffer {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return invokePPIIIIZ(__functionAddress, dpy, surface, x, y, width, height);
+		return callPPIIIIZ(__functionAddress, dpy, surface, x, y, width, height);
 	}
 
 }

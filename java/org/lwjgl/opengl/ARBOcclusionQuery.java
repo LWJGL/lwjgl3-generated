@@ -119,7 +119,7 @@ public final class ARBOcclusionQuery {
 	@JavadocExclude
 	public static void nglGenQueriesARB(int n, long ids) {
 		long __functionAddress = getInstance().GenQueriesARB;
-		invokeIPV(__functionAddress, n, ids);
+		callIPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -153,7 +153,7 @@ public final class ARBOcclusionQuery {
 	@JavadocExclude
 	public static void nglDeleteQueriesARB(int n, long ids) {
 		long __functionAddress = getInstance().DeleteQueriesARB;
-		invokeIPV(__functionAddress, n, ids);
+		callIPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -189,7 +189,7 @@ public final class ARBOcclusionQuery {
 	 */
 	public static boolean glIsQueryARB(int id) {
 		long __functionAddress = getInstance().IsQueryARB;
-		return invokeIZ(__functionAddress, id);
+		return callIZ(__functionAddress, id);
 	}
 
 	// --- [ glBeginQueryARB ] ---
@@ -202,7 +202,7 @@ public final class ARBOcclusionQuery {
 	 */
 	public static void glBeginQueryARB(int target, int id) {
 		long __functionAddress = getInstance().BeginQueryARB;
-		invokeIIV(__functionAddress, target, id);
+		callIIV(__functionAddress, target, id);
 	}
 
 	// --- [ glEndQueryARB ] ---
@@ -214,7 +214,7 @@ public final class ARBOcclusionQuery {
 	 */
 	public static void glEndQueryARB(int target) {
 		long __functionAddress = getInstance().EndQueryARB;
-		invokeIV(__functionAddress, target);
+		callIV(__functionAddress, target);
 	}
 
 	// --- [ glGetQueryivARB ] ---
@@ -223,7 +223,7 @@ public final class ARBOcclusionQuery {
 	@JavadocExclude
 	public static void nglGetQueryivARB(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryivARB;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -260,7 +260,7 @@ public final class ARBOcclusionQuery {
 	@JavadocExclude
 	public static void nglGetQueryObjectivARB(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectivARB;
-		invokeIIPV(__functionAddress, id, pname, params);
+		callIIPV(__functionAddress, id, pname, params);
 	}
 
 	/**
@@ -297,7 +297,7 @@ public final class ARBOcclusionQuery {
 	@JavadocExclude
 	public static void nglGetQueryObjectuivARB(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectuivARB;
-		invokeIIPV(__functionAddress, id, pname, params);
+		callIIPV(__functionAddress, id, pname, params);
 	}
 
 	/**

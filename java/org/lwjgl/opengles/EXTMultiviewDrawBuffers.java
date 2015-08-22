@@ -86,7 +86,7 @@ public final class EXTMultiviewDrawBuffers {
 
 	public static void glReadBufferIndexedEXT(int src, int index) {
 		long __functionAddress = getInstance().ReadBufferIndexedEXT;
-		invokeIIV(__functionAddress, src, index);
+		callIIV(__functionAddress, src, index);
 	}
 
 	// --- [ glDrawBuffersIndexedEXT ] ---
@@ -95,7 +95,7 @@ public final class EXTMultiviewDrawBuffers {
 	@JavadocExclude
 	public static void nglDrawBuffersIndexedEXT(int n, long location, long indices) {
 		long __functionAddress = getInstance().DrawBuffersIndexedEXT;
-		invokeIPPV(__functionAddress, n, location, indices);
+		callIPPV(__functionAddress, n, location, indices);
 	}
 
 	public static void glDrawBuffersIndexedEXT(int n, ByteBuffer location, ByteBuffer indices) {
@@ -119,7 +119,7 @@ public final class EXTMultiviewDrawBuffers {
 	@JavadocExclude
 	public static void nglGetIntegeri_vEXT(int target, int index, long data) {
 		long __functionAddress = getInstance().GetIntegeri_vEXT;
-		invokeIIPV(__functionAddress, target, index, data);
+		callIIPV(__functionAddress, target, index, data);
 	}
 
 	public static void glGetIntegeri_vEXT(int target, int index, ByteBuffer data) {

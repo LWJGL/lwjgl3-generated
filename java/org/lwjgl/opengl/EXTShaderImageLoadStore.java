@@ -144,14 +144,14 @@ public final class EXTShaderImageLoadStore {
 
 	public static void glBindImageTextureEXT(int index, int texture, int level, boolean layered, int layer, int access, int format) {
 		long __functionAddress = getInstance().BindImageTextureEXT;
-		invokeIIIZIIIV(__functionAddress, index, texture, level, layered, layer, access, format);
+		callIIIZIIIV(__functionAddress, index, texture, level, layered, layer, access, format);
 	}
 
 	// --- [ glMemoryBarrierEXT ] ---
 
 	public static void glMemoryBarrierEXT(int barriers) {
 		long __functionAddress = getInstance().MemoryBarrierEXT;
-		invokeIV(__functionAddress, barriers);
+		callIV(__functionAddress, barriers);
 	}
 
 }

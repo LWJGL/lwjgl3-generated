@@ -101,7 +101,7 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglGenSamplers(int count, long samplers) {
 		long __functionAddress = getInstance().GenSamplers;
-		invokeIPV(__functionAddress, count, samplers);
+		callIPV(__functionAddress, count, samplers);
 	}
 
 	/**
@@ -135,7 +135,7 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglDeleteSamplers(int count, long samplers) {
 		long __functionAddress = getInstance().DeleteSamplers;
-		invokeIPV(__functionAddress, count, samplers);
+		callIPV(__functionAddress, count, samplers);
 	}
 
 	/**
@@ -171,7 +171,7 @@ public final class ARBSamplerObjects {
 	 */
 	public static boolean glIsSampler(int sampler) {
 		long __functionAddress = getInstance().IsSampler;
-		return invokeIZ(__functionAddress, sampler);
+		return callIZ(__functionAddress, sampler);
 	}
 
 	// --- [ glBindSampler ] ---
@@ -184,7 +184,7 @@ public final class ARBSamplerObjects {
 	 */
 	public static void glBindSampler(int unit, int sampler) {
 		long __functionAddress = getInstance().BindSampler;
-		invokeIIV(__functionAddress, unit, sampler);
+		callIIV(__functionAddress, unit, sampler);
 	}
 
 	// --- [ glSamplerParameteri ] ---
@@ -198,7 +198,7 @@ public final class ARBSamplerObjects {
 	 */
 	public static void glSamplerParameteri(int sampler, int pname, int param) {
 		long __functionAddress = getInstance().SamplerParameteri;
-		invokeIIIV(__functionAddress, sampler, pname, param);
+		callIIIV(__functionAddress, sampler, pname, param);
 	}
 
 	// --- [ glSamplerParameterf ] ---
@@ -212,7 +212,7 @@ public final class ARBSamplerObjects {
 	 */
 	public static void glSamplerParameterf(int sampler, int pname, float param) {
 		long __functionAddress = getInstance().SamplerParameterf;
-		invokeIIFV(__functionAddress, sampler, pname, param);
+		callIIFV(__functionAddress, sampler, pname, param);
 	}
 
 	// --- [ glSamplerParameteriv ] ---
@@ -221,7 +221,7 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameteriv;
-		invokeIIPV(__functionAddress, sampler, pname, params);
+		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -246,7 +246,7 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterfv;
-		invokeIIPV(__functionAddress, sampler, pname, params);
+		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -271,7 +271,7 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterIiv;
-		invokeIIPV(__functionAddress, sampler, pname, params);
+		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -296,7 +296,7 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().SamplerParameterIuiv;
-		invokeIIPV(__functionAddress, sampler, pname, params);
+		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -321,7 +321,7 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglGetSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameteriv;
-		invokeIIPV(__functionAddress, sampler, pname, params);
+		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -358,7 +358,7 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglGetSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterfv;
-		invokeIIPV(__functionAddress, sampler, pname, params);
+		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -395,7 +395,7 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglGetSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIiv;
-		invokeIIPV(__functionAddress, sampler, pname, params);
+		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -432,7 +432,7 @@ public final class ARBSamplerObjects {
 	@JavadocExclude
 	public static void nglGetSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = getInstance().GetSamplerParameterIuiv;
-		invokeIIPV(__functionAddress, sampler, pname, params);
+		callIIPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**

@@ -78,7 +78,7 @@ public final class ARBDrawBuffers {
 	@JavadocExclude
 	public static void nglDrawBuffersARB(int n, long bufs) {
 		long __functionAddress = getInstance().DrawBuffersARB;
-		invokeIPV(__functionAddress, n, bufs);
+		callIPV(__functionAddress, n, bufs);
 	}
 
 	/**

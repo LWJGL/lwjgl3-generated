@@ -25,7 +25,7 @@ public final class OVRInitParams implements Pointer {
 		CONNECTIONTIMEOUTMS;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(4);
+		IntBuffer offsets = memAllocInt(4);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -33,6 +33,8 @@ public final class OVRInitParams implements Pointer {
 		REQUESTEDMINORVERSION = offsets.get(1);
 		LOGCALLBACK = offsets.get(2);
 		CONNECTIONTIMEOUTMS = offsets.get(3);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -57,10 +59,10 @@ public final class OVRInitParams implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setFlags(int Flags) { Flags(struct, Flags); }
-	public void setRequestedMinorVersion(int RequestedMinorVersion) { RequestedMinorVersion(struct, RequestedMinorVersion); }
-	public void setLogCallback(long LogCallback) { LogCallback(struct, LogCallback); }
-	public void setConnectionTimeoutMS(int ConnectionTimeoutMS) { ConnectionTimeoutMS(struct, ConnectionTimeoutMS); }
+	public OVRInitParams setFlags(int Flags) { Flags(struct, Flags); return this; }
+	public OVRInitParams setRequestedMinorVersion(int RequestedMinorVersion) { RequestedMinorVersion(struct, RequestedMinorVersion); return this; }
+	public OVRInitParams setLogCallback(long LogCallback) { LogCallback(struct, LogCallback); return this; }
+	public OVRInitParams setConnectionTimeoutMS(int ConnectionTimeoutMS) { ConnectionTimeoutMS(struct, ConnectionTimeoutMS); return this; }
 
 	public int getFlags() { return Flags(struct); }
 	public int getRequestedMinorVersion() { return RequestedMinorVersion(struct); }

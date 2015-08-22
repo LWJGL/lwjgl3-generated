@@ -68,7 +68,7 @@ public final class NVConservativeRaster {
 
 	public static void glSubpixelPrecisionBiasNV(int xbits, int ybits) {
 		long __functionAddress = getInstance().SubpixelPrecisionBiasNV;
-		invokeIIV(__functionAddress, xbits, ybits);
+		callIIV(__functionAddress, xbits, ybits);
 	}
 
 }

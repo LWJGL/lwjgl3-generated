@@ -23,12 +23,14 @@ public final class CLBusAddressAMD implements Pointer {
 		MARKER_BUS_ADDRESS;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(2);
+		IntBuffer offsets = memAllocInt(2);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		SURFACE_BUS_ADDRESS = offsets.get(0);
 		MARKER_BUS_ADDRESS = offsets.get(1);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -53,8 +55,8 @@ public final class CLBusAddressAMD implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setSurfaceBusAddress(long surface_bus_address) { surface_bus_address(struct, surface_bus_address); }
-	public void setMarkerBusAddress(long marker_bus_address) { marker_bus_address(struct, marker_bus_address); }
+	public CLBusAddressAMD setSurfaceBusAddress(long surface_bus_address) { surface_bus_address(struct, surface_bus_address); return this; }
+	public CLBusAddressAMD setMarkerBusAddress(long marker_bus_address) { marker_bus_address(struct, marker_bus_address); return this; }
 
 	public long getSurfaceBusAddress() { return surface_bus_address(struct); }
 	public long getMarkerBusAddress() { return marker_bus_address(struct); }

@@ -65,14 +65,14 @@ public final class EXTCompiledVertexArray {
 
 	public static void glLockArraysEXT(int first, int count) {
 		long __functionAddress = getInstance().LockArraysEXT;
-		invokeIIV(__functionAddress, first, count);
+		callIIV(__functionAddress, first, count);
 	}
 
 	// --- [ glUnlockArraysEXT ] ---
 
 	public static void glUnlockArraysEXT() {
 		long __functionAddress = getInstance().UnlockArraysEXT;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 }

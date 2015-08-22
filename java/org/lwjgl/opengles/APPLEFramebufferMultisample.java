@@ -90,14 +90,14 @@ public final class APPLEFramebufferMultisample {
 
 	public static void glRenderbufferStorageMultisampleAPPLE(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageMultisampleAPPLE;
-		invokeIIIIIV(__functionAddress, target, samples, internalformat, width, height);
+		callIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
 	// --- [ glResolveMultisampleFramebufferAPPLE ] ---
 
 	public static void glResolveMultisampleFramebufferAPPLE() {
 		long __functionAddress = getInstance().ResolveMultisampleFramebufferAPPLE;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 }

@@ -51,7 +51,7 @@ public final class NVTextureBarrier {
 
 	public static void glTextureBarrierNV() {
 		long __functionAddress = getInstance().TextureBarrierNV;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 }

@@ -25,7 +25,7 @@ public final class OVRFrameTiming implements Pointer {
 		DISPLAYFRAMEINDEX;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(4);
+		IntBuffer offsets = memAllocInt(4);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -33,6 +33,8 @@ public final class OVRFrameTiming implements Pointer {
 		FRAMEINTERVALSECONDS = offsets.get(1);
 		APPFRAMEINDEX = offsets.get(2);
 		DISPLAYFRAMEINDEX = offsets.get(3);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -57,10 +59,10 @@ public final class OVRFrameTiming implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setDisplayMidpointSeconds(double DisplayMidpointSeconds) { DisplayMidpointSeconds(struct, DisplayMidpointSeconds); }
-	public void setFrameIntervalSeconds(double FrameIntervalSeconds) { FrameIntervalSeconds(struct, FrameIntervalSeconds); }
-	public void setAppFrameIndex(double AppFrameIndex) { AppFrameIndex(struct, AppFrameIndex); }
-	public void setDisplayFrameIndex(double DisplayFrameIndex) { DisplayFrameIndex(struct, DisplayFrameIndex); }
+	public OVRFrameTiming setDisplayMidpointSeconds(double DisplayMidpointSeconds) { DisplayMidpointSeconds(struct, DisplayMidpointSeconds); return this; }
+	public OVRFrameTiming setFrameIntervalSeconds(double FrameIntervalSeconds) { FrameIntervalSeconds(struct, FrameIntervalSeconds); return this; }
+	public OVRFrameTiming setAppFrameIndex(double AppFrameIndex) { AppFrameIndex(struct, AppFrameIndex); return this; }
+	public OVRFrameTiming setDisplayFrameIndex(double DisplayFrameIndex) { DisplayFrameIndex(struct, DisplayFrameIndex); return this; }
 
 	public double getDisplayMidpointSeconds() { return DisplayMidpointSeconds(struct); }
 	public double getFrameIntervalSeconds() { return FrameIntervalSeconds(struct); }

@@ -62,7 +62,7 @@ public final class APPLEContextLoggingFunctions {
 	@JavadocExclude
 	public static void nclLogMessagesToSystemLogAPPLE(long errstr, long private_info, long cb, long user_data) {
 		long __functionAddress = getInstance().LogMessagesToSystemLogAPPLE;
-		invokePPPPV(__functionAddress, errstr, private_info, cb, user_data);
+		callPPPPV(__functionAddress, errstr, private_info, cb, user_data);
 	}
 
 	/**
@@ -83,7 +83,7 @@ public final class APPLEContextLoggingFunctions {
 	@JavadocExclude
 	public static void nclLogMessagesToStdoutAPPLE(long errstr, long private_info, long cb, long user_data) {
 		long __functionAddress = getInstance().LogMessagesToStdoutAPPLE;
-		invokePPPPV(__functionAddress, errstr, private_info, cb, user_data);
+		callPPPPV(__functionAddress, errstr, private_info, cb, user_data);
 	}
 
 	/**
@@ -104,7 +104,7 @@ public final class APPLEContextLoggingFunctions {
 	@JavadocExclude
 	public static void nclLogMessagesToStderrAPPLE(long errstr, long private_info, long cb, long user_data) {
 		long __functionAddress = getInstance().LogMessagesToStderrAPPLE;
-		invokePPPPV(__functionAddress, errstr, private_info, cb, user_data);
+		callPPPPV(__functionAddress, errstr, private_info, cb, user_data);
 	}
 
 	/**

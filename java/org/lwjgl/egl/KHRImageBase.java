@@ -61,7 +61,7 @@ public final class KHRImageBase {
 			checkPointer(ctx);
 			checkPointer(buffer);
 		}
-		return invokePPIPPP(__functionAddress, dpy, ctx, target, buffer, attrib_list);
+		return callPPIPPP(__functionAddress, dpy, ctx, target, buffer, attrib_list);
 	}
 
 	public static long eglCreateImageKHR(long dpy, long ctx, int target, long buffer, ByteBuffer attrib_list) {
@@ -85,7 +85,7 @@ public final class KHRImageBase {
 			checkPointer(dpy);
 			checkPointer(image);
 		}
-		return invokePPZ(__functionAddress, dpy, image);
+		return callPPZ(__functionAddress, dpy, image);
 	}
 
 }

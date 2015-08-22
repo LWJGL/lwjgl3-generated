@@ -48,7 +48,7 @@ public final class ANGLEQuerySurfacePointer {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return invokePPIPZ(__functionAddress, dpy, surface, attribute, value);
+		return callPPIPZ(__functionAddress, dpy, surface, attribute, value);
 	}
 
 	public static boolean eglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, ByteBuffer value) {

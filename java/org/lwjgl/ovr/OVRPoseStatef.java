@@ -27,7 +27,7 @@ public final class OVRPoseStatef implements Pointer {
 		TIMEINSECONDS;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(6);
+		IntBuffer offsets = memAllocInt(6);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -37,6 +37,8 @@ public final class OVRPoseStatef implements Pointer {
 		ANGULARACCELERATION = offsets.get(3);
 		LINEARACCELERATION = offsets.get(4);
 		TIMEINSECONDS = offsets.get(5);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -61,33 +63,33 @@ public final class OVRPoseStatef implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setThePose(ByteBuffer ThePose) { ThePoseSet(struct, ThePose); }
-	public void setThePoseOrientation(ByteBuffer Orientation) { ThePoseOrientationSet(struct, Orientation); }
-	public void setThePoseOrientationX(float x) { ThePoseOrientationX(struct, x); }
-	public void setThePoseOrientationY(float y) { ThePoseOrientationY(struct, y); }
-	public void setThePoseOrientationZ(float z) { ThePoseOrientationZ(struct, z); }
-	public void setThePoseOrientationW(float w) { ThePoseOrientationW(struct, w); }
-	public void setThePosePosition(ByteBuffer Position) { ThePosePositionSet(struct, Position); }
-	public void setThePosePositionX(float x) { ThePosePositionX(struct, x); }
-	public void setThePosePositionY(float y) { ThePosePositionY(struct, y); }
-	public void setThePosePositionZ(float z) { ThePosePositionZ(struct, z); }
-	public void setAngularVelocity(ByteBuffer AngularVelocity) { AngularVelocitySet(struct, AngularVelocity); }
-	public void setAngularVelocityX(float x) { AngularVelocityX(struct, x); }
-	public void setAngularVelocityY(float y) { AngularVelocityY(struct, y); }
-	public void setAngularVelocityZ(float z) { AngularVelocityZ(struct, z); }
-	public void setLinearVelocity(ByteBuffer LinearVelocity) { LinearVelocitySet(struct, LinearVelocity); }
-	public void setLinearVelocityX(float x) { LinearVelocityX(struct, x); }
-	public void setLinearVelocityY(float y) { LinearVelocityY(struct, y); }
-	public void setLinearVelocityZ(float z) { LinearVelocityZ(struct, z); }
-	public void setAngularAcceleration(ByteBuffer AngularAcceleration) { AngularAccelerationSet(struct, AngularAcceleration); }
-	public void setAngularAccelerationX(float x) { AngularAccelerationX(struct, x); }
-	public void setAngularAccelerationY(float y) { AngularAccelerationY(struct, y); }
-	public void setAngularAccelerationZ(float z) { AngularAccelerationZ(struct, z); }
-	public void setLinearAcceleration(ByteBuffer LinearAcceleration) { LinearAccelerationSet(struct, LinearAcceleration); }
-	public void setLinearAccelerationX(float x) { LinearAccelerationX(struct, x); }
-	public void setLinearAccelerationY(float y) { LinearAccelerationY(struct, y); }
-	public void setLinearAccelerationZ(float z) { LinearAccelerationZ(struct, z); }
-	public void setTimeInSeconds(double TimeInSeconds) { TimeInSeconds(struct, TimeInSeconds); }
+	public OVRPoseStatef setThePose(ByteBuffer ThePose) { ThePoseSet(struct, ThePose); return this; }
+	public OVRPoseStatef setThePoseOrientation(ByteBuffer Orientation) { ThePoseOrientationSet(struct, Orientation); return this; }
+	public OVRPoseStatef setThePoseOrientationX(float x) { ThePoseOrientationX(struct, x); return this; }
+	public OVRPoseStatef setThePoseOrientationY(float y) { ThePoseOrientationY(struct, y); return this; }
+	public OVRPoseStatef setThePoseOrientationZ(float z) { ThePoseOrientationZ(struct, z); return this; }
+	public OVRPoseStatef setThePoseOrientationW(float w) { ThePoseOrientationW(struct, w); return this; }
+	public OVRPoseStatef setThePosePosition(ByteBuffer Position) { ThePosePositionSet(struct, Position); return this; }
+	public OVRPoseStatef setThePosePositionX(float x) { ThePosePositionX(struct, x); return this; }
+	public OVRPoseStatef setThePosePositionY(float y) { ThePosePositionY(struct, y); return this; }
+	public OVRPoseStatef setThePosePositionZ(float z) { ThePosePositionZ(struct, z); return this; }
+	public OVRPoseStatef setAngularVelocity(ByteBuffer AngularVelocity) { AngularVelocitySet(struct, AngularVelocity); return this; }
+	public OVRPoseStatef setAngularVelocityX(float x) { AngularVelocityX(struct, x); return this; }
+	public OVRPoseStatef setAngularVelocityY(float y) { AngularVelocityY(struct, y); return this; }
+	public OVRPoseStatef setAngularVelocityZ(float z) { AngularVelocityZ(struct, z); return this; }
+	public OVRPoseStatef setLinearVelocity(ByteBuffer LinearVelocity) { LinearVelocitySet(struct, LinearVelocity); return this; }
+	public OVRPoseStatef setLinearVelocityX(float x) { LinearVelocityX(struct, x); return this; }
+	public OVRPoseStatef setLinearVelocityY(float y) { LinearVelocityY(struct, y); return this; }
+	public OVRPoseStatef setLinearVelocityZ(float z) { LinearVelocityZ(struct, z); return this; }
+	public OVRPoseStatef setAngularAcceleration(ByteBuffer AngularAcceleration) { AngularAccelerationSet(struct, AngularAcceleration); return this; }
+	public OVRPoseStatef setAngularAccelerationX(float x) { AngularAccelerationX(struct, x); return this; }
+	public OVRPoseStatef setAngularAccelerationY(float y) { AngularAccelerationY(struct, y); return this; }
+	public OVRPoseStatef setAngularAccelerationZ(float z) { AngularAccelerationZ(struct, z); return this; }
+	public OVRPoseStatef setLinearAcceleration(ByteBuffer LinearAcceleration) { LinearAccelerationSet(struct, LinearAcceleration); return this; }
+	public OVRPoseStatef setLinearAccelerationX(float x) { LinearAccelerationX(struct, x); return this; }
+	public OVRPoseStatef setLinearAccelerationY(float y) { LinearAccelerationY(struct, y); return this; }
+	public OVRPoseStatef setLinearAccelerationZ(float z) { LinearAccelerationZ(struct, z); return this; }
+	public OVRPoseStatef setTimeInSeconds(double TimeInSeconds) { TimeInSeconds(struct, TimeInSeconds); return this; }
 
 	public void getThePose(ByteBuffer ThePose) { ThePoseGet(struct, ThePose); }
 	public void getThePoseOrientation(ByteBuffer Orientation) { ThePoseOrientationGet(struct, Orientation); }

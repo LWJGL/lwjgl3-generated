@@ -175,7 +175,7 @@ public final class CL20 {
 			checkPointer(context);
 			checkPointer(device);
 		}
-		return invokePPPPP(__functionAddress, context, device, properties, errcode_ret);
+		return callPPPPP(__functionAddress, context, device, properties, errcode_ret);
 	}
 
 	/**
@@ -226,7 +226,7 @@ public final class CL20 {
 		long __functionAddress = getInstance().CreatePipe;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return invokePJIIPPP(__functionAddress, context, flags, pipe_packet_size, pipe_max_packets, properties, errcode_ret);
+		return callPJIIPPP(__functionAddress, context, flags, pipe_packet_size, pipe_max_packets, properties, errcode_ret);
 	}
 
 	/**
@@ -275,7 +275,7 @@ public final class CL20 {
 		long __functionAddress = getInstance().GetPipeInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(pipe);
-		return invokePIPPPI(__functionAddress, pipe, param_name, param_value_size, param_value, param_value_size_ret);
+		return callPIPPPI(__functionAddress, pipe, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -326,7 +326,7 @@ public final class CL20 {
 		long __functionAddress = getInstance().SVMAlloc;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return invokePJPIP(__functionAddress, context, flags, size, alignment);
+		return callPJPIP(__functionAddress, context, flags, size, alignment);
 	}
 
 	/**
@@ -388,7 +388,7 @@ public final class CL20 {
 		long __functionAddress = getInstance().SVMFree;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		invokePPV(__functionAddress, context, svm_pointer);
+		callPPV(__functionAddress, context, svm_pointer);
 	}
 
 	/**
@@ -418,7 +418,7 @@ public final class CL20 {
 		long __functionAddress = getInstance().EnqueueSVMFree;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return invokePIPPPIPPI(__functionAddress, command_queue, num_svm_pointers, svm_pointers, pfn_free_func, user_data, num_events_in_wait_list, event_wait_list, event);
+		return callPIPPPIPPI(__functionAddress, command_queue, num_svm_pointers, svm_pointers, pfn_free_func, user_data, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -478,7 +478,7 @@ public final class CL20 {
 		long __functionAddress = getInstance().EnqueueSVMMemcpy;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return invokePIPPPIPPI(__functionAddress, command_queue, blocking_copy, dst_ptr, src_ptr, size, num_events_in_wait_list, event_wait_list, event);
+		return callPIPPPIPPI(__functionAddress, command_queue, blocking_copy, dst_ptr, src_ptr, size, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -547,7 +547,7 @@ public final class CL20 {
 		long __functionAddress = getInstance().EnqueueSVMMemFill;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return invokePPPPPIPPI(__functionAddress, command_queue, svm_ptr, pattern, pattern_size, size, num_events_in_wait_list, event_wait_list, event);
+		return callPPPPPIPPI(__functionAddress, command_queue, svm_ptr, pattern, pattern_size, size, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -612,7 +612,7 @@ public final class CL20 {
 		long __functionAddress = getInstance().EnqueueSVMMap;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return invokePIJPPIPPI(__functionAddress, command_queue, blocking_map, map_flags, svm_ptr, size, num_events_in_wait_list, event_wait_list, event);
+		return callPIJPPIPPI(__functionAddress, command_queue, blocking_map, map_flags, svm_ptr, size, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -679,7 +679,7 @@ public final class CL20 {
 		long __functionAddress = getInstance().EnqueueSVMUnmap;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return invokePPIPPI(__functionAddress, command_queue, svm_ptr, num_events_in_wait_list, event_wait_list, event);
+		return callPPIPPI(__functionAddress, command_queue, svm_ptr, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -732,7 +732,7 @@ public final class CL20 {
 		long __functionAddress = getInstance().SetKernelArgSVMPointer;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(kernel);
-		return invokePIPI(__functionAddress, kernel, arg_index, arg_value);
+		return callPIPI(__functionAddress, kernel, arg_index, arg_value);
 	}
 
 	/**
@@ -769,7 +769,7 @@ public final class CL20 {
 		long __functionAddress = getInstance().SetKernelExecInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(kernel);
-		return invokePIPPI(__functionAddress, kernel, param_name, param_value_size, param_value);
+		return callPIPPI(__functionAddress, kernel, param_name, param_value_size, param_value);
 	}
 
 	/**
@@ -847,7 +847,7 @@ public final class CL20 {
 		long __functionAddress = getInstance().CreateSamplerWithProperties;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return invokePPPP(__functionAddress, context, sampler_properties, errcode_ret);
+		return callPPPP(__functionAddress, context, sampler_properties, errcode_ret);
 	}
 
 	/**

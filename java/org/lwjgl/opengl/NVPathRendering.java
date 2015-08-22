@@ -514,7 +514,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglPathCommandsNV(int path, int numCommands, long commands, int numCoords, int coordType, long coords) {
 		long __functionAddress = getInstance().PathCommandsNV;
-		invokeIIPIIPV(__functionAddress, path, numCommands, commands, numCoords, coordType, coords);
+		callIIPIIPV(__functionAddress, path, numCommands, commands, numCoords, coordType, coords);
 	}
 
 	/**
@@ -556,7 +556,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglPathCoordsNV(int path, int numCoords, int coordType, long coords) {
 		long __functionAddress = getInstance().PathCoordsNV;
-		invokeIIIPV(__functionAddress, path, numCoords, coordType, coords);
+		callIIIPV(__functionAddress, path, numCoords, coordType, coords);
 	}
 
 	/**
@@ -594,7 +594,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglPathSubCommandsNV(int path, int commandStart, int commandsToDelete, int numCommands, long commands, int numCoords, int coordType, long coords) {
 		long __functionAddress = getInstance().PathSubCommandsNV;
-		invokeIIIIPIIPV(__functionAddress, path, commandStart, commandsToDelete, numCommands, commands, numCoords, coordType, coords);
+		callIIIIPIIPV(__functionAddress, path, commandStart, commandsToDelete, numCommands, commands, numCoords, coordType, coords);
 	}
 
 	/**
@@ -638,7 +638,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglPathSubCoordsNV(int path, int coordStart, int numCoords, int coordType, long coords) {
 		long __functionAddress = getInstance().PathSubCoordsNV;
-		invokeIIIIPV(__functionAddress, path, coordStart, numCoords, coordType, coords);
+		callIIIIPV(__functionAddress, path, coordStart, numCoords, coordType, coords);
 	}
 
 	/**
@@ -677,7 +677,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglPathStringNV(int path, int format, int length, long pathString) {
 		long __functionAddress = getInstance().PathStringNV;
-		invokeIIIPV(__functionAddress, path, format, length, pathString);
+		callIIIPV(__functionAddress, path, format, length, pathString);
 	}
 
 	/**
@@ -705,7 +705,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglPathGlyphsNV(int firstPathName, int fontTarget, long fontName, int fontStyle, int numGlyphs, int type, long charcodes, int handleMissingGlyphs, int pathParameterTemplate, float emScale) {
 		long __functionAddress = getInstance().PathGlyphsNV;
-		invokeIIPIIIPIIFV(__functionAddress, firstPathName, fontTarget, fontName, fontStyle, numGlyphs, type, charcodes, handleMissingGlyphs, pathParameterTemplate, emScale);
+		callIIPIIIPIIFV(__functionAddress, firstPathName, fontTarget, fontName, fontStyle, numGlyphs, type, charcodes, handleMissingGlyphs, pathParameterTemplate, emScale);
 	}
 
 	/**
@@ -743,7 +743,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglPathGlyphRangeNV(int firstPathName, int fontTarget, long fontName, int fontStyle, int firstGlyph, int numGlyphs, int handleMissingGlyphs, int pathParameterTemplate, float emScale) {
 		long __functionAddress = getInstance().PathGlyphRangeNV;
-		invokeIIPIIIIIFV(__functionAddress, firstPathName, fontTarget, fontName, fontStyle, firstGlyph, numGlyphs, handleMissingGlyphs, pathParameterTemplate, emScale);
+		callIIPIIIIIFV(__functionAddress, firstPathName, fontTarget, fontName, fontStyle, firstGlyph, numGlyphs, handleMissingGlyphs, pathParameterTemplate, emScale);
 	}
 
 	/**
@@ -773,7 +773,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().PathGlyphIndexArrayNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return invokeIIPIIIIFI(__functionAddress, firstPathName, fontTarget, fontName, fontStyle, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
+		return callIIPIIIIFI(__functionAddress, firstPathName, fontTarget, fontName, fontStyle, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
 	}
 
 	/**
@@ -802,7 +802,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().PathMemoryGlyphIndexArrayNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return invokeIIPPIIIIFI(__functionAddress, firstPathName, fontTarget, fontSize, fontData, faceIndex, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
+		return callIIPPIIIIFI(__functionAddress, firstPathName, fontTarget, fontSize, fontData, faceIndex, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
 	}
 
 	/**
@@ -833,7 +833,7 @@ public final class NVPathRendering {
 
 	public static void glCopyPathNV(int resultPath, int srcPath) {
 		long __functionAddress = getInstance().CopyPathNV;
-		invokeIIV(__functionAddress, resultPath, srcPath);
+		callIIV(__functionAddress, resultPath, srcPath);
 	}
 
 	// --- [ glWeightPathsNV ] ---
@@ -844,7 +844,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().WeightPathsNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPPV(__functionAddress, resultPath, numPaths, paths, weights);
+		callIIPPV(__functionAddress, resultPath, numPaths, paths, weights);
 	}
 
 	public static void glWeightPathsNV(int resultPath, int numPaths, ByteBuffer paths, ByteBuffer weights) {
@@ -866,7 +866,7 @@ public final class NVPathRendering {
 
 	public static void glInterpolatePathsNV(int resultPath, int pathA, int pathB, float weight) {
 		long __functionAddress = getInstance().InterpolatePathsNV;
-		invokeIIIFV(__functionAddress, resultPath, pathA, pathB, weight);
+		callIIIFV(__functionAddress, resultPath, pathA, pathB, weight);
 	}
 
 	// --- [ glTransformPathNV ] ---
@@ -875,7 +875,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglTransformPathNV(int resultPath, int srcPath, int transformType, long transformValues) {
 		long __functionAddress = getInstance().TransformPathNV;
-		invokeIIIPV(__functionAddress, resultPath, srcPath, transformType, transformValues);
+		callIIIPV(__functionAddress, resultPath, srcPath, transformType, transformValues);
 	}
 
 	/**
@@ -905,7 +905,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglPathParameterivNV(int path, int pname, long value) {
 		long __functionAddress = getInstance().PathParameterivNV;
-		invokeIIPV(__functionAddress, path, pname, value);
+		callIIPV(__functionAddress, path, pname, value);
 	}
 
 	/**
@@ -939,7 +939,7 @@ public final class NVPathRendering {
 	 */
 	public static void glPathParameteriNV(int path, int pname, int value) {
 		long __functionAddress = getInstance().PathParameteriNV;
-		invokeIIIV(__functionAddress, path, pname, value);
+		callIIIV(__functionAddress, path, pname, value);
 	}
 
 	// --- [ glPathParameterfvNV ] ---
@@ -948,7 +948,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglPathParameterfvNV(int path, int pname, long value) {
 		long __functionAddress = getInstance().PathParameterfvNV;
-		invokeIIPV(__functionAddress, path, pname, value);
+		callIIPV(__functionAddress, path, pname, value);
 	}
 
 	/**
@@ -982,7 +982,7 @@ public final class NVPathRendering {
 	 */
 	public static void glPathParameterfNV(int path, int pname, float value) {
 		long __functionAddress = getInstance().PathParameterfNV;
-		invokeIIFV(__functionAddress, path, pname, value);
+		callIIFV(__functionAddress, path, pname, value);
 	}
 
 	// --- [ glPathDashArrayNV ] ---
@@ -991,7 +991,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglPathDashArrayNV(int path, int dashCount, long dashArray) {
 		long __functionAddress = getInstance().PathDashArrayNV;
-		invokeIIPV(__functionAddress, path, dashCount, dashArray);
+		callIIPV(__functionAddress, path, dashCount, dashArray);
 	}
 
 	public static void glPathDashArrayNV(int path, int dashCount, ByteBuffer dashArray) {
@@ -1009,35 +1009,35 @@ public final class NVPathRendering {
 
 	public static int glGenPathsNV(int range) {
 		long __functionAddress = getInstance().GenPathsNV;
-		return invokeII(__functionAddress, range);
+		return callII(__functionAddress, range);
 	}
 
 	// --- [ glDeletePathsNV ] ---
 
 	public static void glDeletePathsNV(int path, int range) {
 		long __functionAddress = getInstance().DeletePathsNV;
-		invokeIIV(__functionAddress, path, range);
+		callIIV(__functionAddress, path, range);
 	}
 
 	// --- [ glIsPathNV ] ---
 
 	public static boolean glIsPathNV(int path) {
 		long __functionAddress = getInstance().IsPathNV;
-		return invokeIZ(__functionAddress, path);
+		return callIZ(__functionAddress, path);
 	}
 
 	// --- [ glPathStencilFuncNV ] ---
 
 	public static void glPathStencilFuncNV(int func, int ref, int mask) {
 		long __functionAddress = getInstance().PathStencilFuncNV;
-		invokeIIIV(__functionAddress, func, ref, mask);
+		callIIIV(__functionAddress, func, ref, mask);
 	}
 
 	// --- [ glPathStencilDepthOffsetNV ] ---
 
 	public static void glPathStencilDepthOffsetNV(float factor, float units) {
 		long __functionAddress = getInstance().PathStencilDepthOffsetNV;
-		invokeFFV(__functionAddress, factor, units);
+		callFFV(__functionAddress, factor, units);
 	}
 
 	// --- [ glStencilFillPathNV ] ---
@@ -1051,14 +1051,14 @@ public final class NVPathRendering {
 	 */
 	public static void glStencilFillPathNV(int path, int fillMode, int mask) {
 		long __functionAddress = getInstance().StencilFillPathNV;
-		invokeIIIV(__functionAddress, path, fillMode, mask);
+		callIIIV(__functionAddress, path, fillMode, mask);
 	}
 
 	// --- [ glStencilStrokePathNV ] ---
 
 	public static void glStencilStrokePathNV(int path, int reference, int mask) {
 		long __functionAddress = getInstance().StencilStrokePathNV;
-		invokeIIIV(__functionAddress, path, reference, mask);
+		callIIIV(__functionAddress, path, reference, mask);
 	}
 
 	// --- [ glStencilFillPathInstancedNV ] ---
@@ -1067,7 +1067,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglStencilFillPathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int fillMode, int mask, int transformType, long transformValues) {
 		long __functionAddress = getInstance().StencilFillPathInstancedNV;
-		invokeIIPIIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, fillMode, mask, transformType, transformValues);
+		callIIPIIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, fillMode, mask, transformType, transformValues);
 	}
 
 	/**
@@ -1104,7 +1104,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglStencilStrokePathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int reference, int mask, int transformType, long transformValues) {
 		long __functionAddress = getInstance().StencilStrokePathInstancedNV;
-		invokeIIPIIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, reference, mask, transformType, transformValues);
+		callIIPIIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, reference, mask, transformType, transformValues);
 	}
 
 	/**
@@ -1139,7 +1139,7 @@ public final class NVPathRendering {
 
 	public static void glPathCoverDepthFuncNV(int zfunc) {
 		long __functionAddress = getInstance().PathCoverDepthFuncNV;
-		invokeIV(__functionAddress, zfunc);
+		callIV(__functionAddress, zfunc);
 	}
 
 	// --- [ glPathColorGenNV ] ---
@@ -1150,7 +1150,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().PathColorGenNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, color, genMode, colorFormat, coeffs);
+		callIIIPV(__functionAddress, color, genMode, colorFormat, coeffs);
 	}
 
 	/**
@@ -1182,7 +1182,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().PathTexGenNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIPV(__functionAddress, texCoordSet, genMode, components, coeffs);
+		callIIIPV(__functionAddress, texCoordSet, genMode, components, coeffs);
 	}
 
 	public static void glPathTexGenNV(int texCoordSet, int genMode, int components, ByteBuffer coeffs) {
@@ -1204,7 +1204,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().PathFogGenNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIV(__functionAddress, genMode);
+		callIV(__functionAddress, genMode);
 	}
 
 	// --- [ glCoverFillPathNV ] ---
@@ -1217,7 +1217,7 @@ public final class NVPathRendering {
 	 */
 	public static void glCoverFillPathNV(int path, int coverMode) {
 		long __functionAddress = getInstance().CoverFillPathNV;
-		invokeIIV(__functionAddress, path, coverMode);
+		callIIV(__functionAddress, path, coverMode);
 	}
 
 	// --- [ glCoverStrokePathNV ] ---
@@ -1230,7 +1230,7 @@ public final class NVPathRendering {
 	 */
 	public static void glCoverStrokePathNV(int path, int coverMode) {
 		long __functionAddress = getInstance().CoverStrokePathNV;
-		invokeIIV(__functionAddress, path, coverMode);
+		callIIV(__functionAddress, path, coverMode);
 	}
 
 	// --- [ glCoverFillPathInstancedNV ] ---
@@ -1239,7 +1239,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglCoverFillPathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int coverMode, int transformType, long transformValues) {
 		long __functionAddress = getInstance().CoverFillPathInstancedNV;
-		invokeIIPIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, coverMode, transformType, transformValues);
+		callIIPIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, coverMode, transformType, transformValues);
 	}
 
 	/**
@@ -1275,7 +1275,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglCoverStrokePathInstancedNV(int numPaths, int pathNameType, long paths, int pathBase, int coverMode, int transformType, long transformValues) {
 		long __functionAddress = getInstance().CoverStrokePathInstancedNV;
-		invokeIIPIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, coverMode, transformType, transformValues);
+		callIIPIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, coverMode, transformType, transformValues);
 	}
 
 	/**
@@ -1319,7 +1319,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().StencilThenCoverFillPathNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIV(__functionAddress, path, fillMode, mask, coverMode);
+		callIIIIV(__functionAddress, path, fillMode, mask, coverMode);
 	}
 
 	// --- [ glStencilThenCoverStrokePathNV ] ---
@@ -1336,7 +1336,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().StencilThenCoverStrokePathNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIV(__functionAddress, path, reference, mask, coverMode);
+		callIIIIV(__functionAddress, path, reference, mask, coverMode);
 	}
 
 	// --- [ glStencilThenCoverFillPathInstancedNV ] ---
@@ -1347,7 +1347,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().StencilThenCoverFillPathInstancedNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPIIIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, fillMode, mask, coverMode, transformType, transformValues);
+		callIIPIIIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, fillMode, mask, coverMode, transformType, transformValues);
 	}
 
 	/**
@@ -1387,7 +1387,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().StencilThenCoverStrokePathInstancedNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPIIIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, reference, mask, coverMode, transformType, transformValues);
+		callIIPIIIIIPV(__functionAddress, numPaths, pathNameType, paths, pathBase, reference, mask, coverMode, transformType, transformValues);
 	}
 
 	/**
@@ -1427,7 +1427,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().PathGlyphIndexRangeNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return invokeIPIIFII(__functionAddress, fontTarget, fontName, fontStyle, pathParameterTemplate, emScale, baseAndCount);
+		return callIPIIFII(__functionAddress, fontTarget, fontName, fontStyle, pathParameterTemplate, emScale, baseAndCount);
 	}
 
 	/**
@@ -1454,7 +1454,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().ProgramPathFragmentInputGenNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIPV(__functionAddress, program, location, genMode, components, coeffs);
+		callIIIIPV(__functionAddress, program, location, genMode, components, coeffs);
 	}
 
 	public static void glProgramPathFragmentInputGenNV(int program, int location, int genMode, int components, ByteBuffer coeffs) {
@@ -1476,7 +1476,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglGetPathParameterivNV(int path, int pname, long value) {
 		long __functionAddress = getInstance().GetPathParameterivNV;
-		invokeIIPV(__functionAddress, path, pname, value);
+		callIIPV(__functionAddress, path, pname, value);
 	}
 
 	/**
@@ -1513,7 +1513,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglGetPathParameterfvNV(int path, int pname, long value) {
 		long __functionAddress = getInstance().GetPathParameterfvNV;
-		invokeIIPV(__functionAddress, path, pname, value);
+		callIIPV(__functionAddress, path, pname, value);
 	}
 
 	/**
@@ -1550,7 +1550,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglGetPathCommandsNV(int path, long commands) {
 		long __functionAddress = getInstance().GetPathCommandsNV;
-		invokeIPV(__functionAddress, path, commands);
+		callIPV(__functionAddress, path, commands);
 	}
 
 	public static void glGetPathCommandsNV(int path, ByteBuffer commands) {
@@ -1566,7 +1566,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglGetPathCoordsNV(int path, long coords) {
 		long __functionAddress = getInstance().GetPathCoordsNV;
-		invokeIPV(__functionAddress, path, coords);
+		callIPV(__functionAddress, path, coords);
 	}
 
 	public static void glGetPathCoordsNV(int path, ByteBuffer coords) {
@@ -1590,7 +1590,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglGetPathDashArrayNV(int path, long dashArray) {
 		long __functionAddress = getInstance().GetPathDashArrayNV;
-		invokeIPV(__functionAddress, path, dashArray);
+		callIPV(__functionAddress, path, dashArray);
 	}
 
 	public static void glGetPathDashArrayNV(int path, ByteBuffer dashArray) {
@@ -1614,7 +1614,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglGetPathMetricsNV(int metricQueryMask, int numPaths, int pathNameType, long paths, int pathBase, int stride, long metrics) {
 		long __functionAddress = getInstance().GetPathMetricsNV;
-		invokeIIIPIIPV(__functionAddress, metricQueryMask, numPaths, pathNameType, paths, pathBase, stride, metrics);
+		callIIIPIIPV(__functionAddress, metricQueryMask, numPaths, pathNameType, paths, pathBase, stride, metrics);
 	}
 
 	/**
@@ -1650,7 +1650,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglGetPathMetricRangeNV(int metricQueryMask, int firstPathName, int numPaths, int stride, long metrics) {
 		long __functionAddress = getInstance().GetPathMetricRangeNV;
-		invokeIIIIPV(__functionAddress, metricQueryMask, firstPathName, numPaths, stride, metrics);
+		callIIIIPV(__functionAddress, metricQueryMask, firstPathName, numPaths, stride, metrics);
 	}
 
 	/**
@@ -1681,7 +1681,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static void nglGetPathSpacingNV(int pathListMode, int numPaths, int pathNameType, long paths, int pathBase, float advanceScale, float kerningScale, int transformType, long returnedSpacing) {
 		long __functionAddress = getInstance().GetPathSpacingNV;
-		invokeIIIPIFFIPV(__functionAddress, pathListMode, numPaths, pathNameType, paths, pathBase, advanceScale, kerningScale, transformType, returnedSpacing);
+		callIIIPIFFIPV(__functionAddress, pathListMode, numPaths, pathNameType, paths, pathBase, advanceScale, kerningScale, transformType, returnedSpacing);
 	}
 
 	/**
@@ -1721,7 +1721,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().GetPathColorGenivNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, color, pname, value);
+		callIIPV(__functionAddress, color, pname, value);
 	}
 
 	/**
@@ -1760,7 +1760,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().GetPathColorGenfvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, color, pname, value);
+		callIIPV(__functionAddress, color, pname, value);
 	}
 
 	/**
@@ -1799,7 +1799,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().GetPathTexGenivNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, texCoordSet, pname, value);
+		callIIPV(__functionAddress, texCoordSet, pname, value);
 	}
 
 	/**
@@ -1838,7 +1838,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().GetPathTexGenfvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, texCoordSet, pname, value);
+		callIIPV(__functionAddress, texCoordSet, pname, value);
 	}
 
 	/**
@@ -1869,21 +1869,21 @@ public final class NVPathRendering {
 
 	public static boolean glIsPointInFillPathNV(int path, int mask, float x, float y) {
 		long __functionAddress = getInstance().IsPointInFillPathNV;
-		return invokeIIFFZ(__functionAddress, path, mask, x, y);
+		return callIIFFZ(__functionAddress, path, mask, x, y);
 	}
 
 	// --- [ glIsPointInStrokePathNV ] ---
 
 	public static boolean glIsPointInStrokePathNV(int path, float x, float y) {
 		long __functionAddress = getInstance().IsPointInStrokePathNV;
-		return invokeIFFZ(__functionAddress, path, x, y);
+		return callIFFZ(__functionAddress, path, x, y);
 	}
 
 	// --- [ glGetPathLengthNV ] ---
 
 	public static float glGetPathLengthNV(int path, int startSegment, int numSegments) {
 		long __functionAddress = getInstance().GetPathLengthNV;
-		return invokeIIIF(__functionAddress, path, startSegment, numSegments);
+		return callIIIF(__functionAddress, path, startSegment, numSegments);
 	}
 
 	// --- [ glPointAlongPathNV ] ---
@@ -1892,7 +1892,7 @@ public final class NVPathRendering {
 	@JavadocExclude
 	public static boolean nglPointAlongPathNV(int path, int startSegment, int numSegments, float distance, long x, long y, long tangentX, long tangentY) {
 		long __functionAddress = getInstance().PointAlongPathNV;
-		return invokeIIIFPPPPZ(__functionAddress, path, startSegment, numSegments, distance, x, y, tangentX, tangentY);
+		return callIIIFPPPPZ(__functionAddress, path, startSegment, numSegments, distance, x, y, tangentX, tangentY);
 	}
 
 	public static boolean glPointAlongPathNV(int path, int startSegment, int numSegments, float distance, ByteBuffer x, ByteBuffer y, ByteBuffer tangentX, ByteBuffer tangentY) {
@@ -1924,7 +1924,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().MatrixLoad3x2fNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, matrixMode, m);
+		callIPV(__functionAddress, matrixMode, m);
 	}
 
 	/**
@@ -1954,7 +1954,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().MatrixLoad3x3fNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, matrixMode, m);
+		callIPV(__functionAddress, matrixMode, m);
 	}
 
 	/**
@@ -1984,7 +1984,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().MatrixLoadTranspose3x3fNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, matrixMode, m);
+		callIPV(__functionAddress, matrixMode, m);
 	}
 
 	/**
@@ -2014,7 +2014,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().MatrixMult3x2fNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, matrixMode, m);
+		callIPV(__functionAddress, matrixMode, m);
 	}
 
 	/**
@@ -2044,7 +2044,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().MatrixMult3x3fNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, matrixMode, m);
+		callIPV(__functionAddress, matrixMode, m);
 	}
 
 	/**
@@ -2074,7 +2074,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().MatrixMultTranspose3x3fNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, matrixMode, m);
+		callIPV(__functionAddress, matrixMode, m);
 	}
 
 	/**
@@ -2104,7 +2104,7 @@ public final class NVPathRendering {
 		long __functionAddress = getInstance().GetProgramResourcefvNV;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIPIPPV(__functionAddress, program, programInterface, index, propCount, props, bufSize, length, params);
+		callIIIIPIPPV(__functionAddress, program, programInterface, index, propCount, props, bufSize, length, params);
 	}
 
 	public static void glGetProgramResourcefvNV(int program, int programInterface, int index, int propCount, ByteBuffer props, int bufSize, ByteBuffer length, ByteBuffer params) {

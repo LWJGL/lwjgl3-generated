@@ -47,7 +47,7 @@ public final class GLX12 {
 	/** Returns the display associated with the current context and drawable. */
 	public static long glXGetCurrentDisplay() {
 		long __functionAddress = getInstance().GetCurrentDisplay;
-		return invokeP(__functionAddress);
+		return callP(__functionAddress);
 	}
 
 }

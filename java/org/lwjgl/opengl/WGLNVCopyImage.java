@@ -79,7 +79,7 @@ public final class WGLNVCopyImage {
 			checkPointer(srcRC);
 			checkPointer(dstRC);
 		}
-		return invokePIIIIIIPIIIIIIIIII(__functionAddress, srcRC, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstRC, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
+		return callPIIIIIIPIIIIIIIIII(__functionAddress, srcRC, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstRC, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
 	}
 
 }

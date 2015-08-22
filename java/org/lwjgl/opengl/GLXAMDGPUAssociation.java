@@ -95,7 +95,7 @@ public final class GLXAMDGPUAssociation {
 		long __functionAddress = getInstance().BlitContextFramebufferAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dstCtx);
-		invokePIIIIIIIIIIV(__functionAddress, dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
+		callPIIIIIIIIIIV(__functionAddress, dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 
 	// --- [ glXCreateAssociatedContextAMD ] ---
@@ -110,7 +110,7 @@ public final class GLXAMDGPUAssociation {
 		long __functionAddress = getInstance().CreateAssociatedContextAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(share_list);
-		return invokeIPP(__functionAddress, id, share_list);
+		return callIPP(__functionAddress, id, share_list);
 	}
 
 	// --- [ glXCreateAssociatedContextAttribsAMD ] ---
@@ -121,7 +121,7 @@ public final class GLXAMDGPUAssociation {
 		long __functionAddress = getInstance().CreateAssociatedContextAttribsAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(share_context);
-		return invokeIPPP(__functionAddress, id, share_context, attribList);
+		return callIPPP(__functionAddress, id, share_context, attribList);
 	}
 
 	/**
@@ -151,7 +151,7 @@ public final class GLXAMDGPUAssociation {
 		long __functionAddress = getInstance().DeleteAssociatedContextAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		return invokePI(__functionAddress, ctx);
+		return callPI(__functionAddress, ctx);
 	}
 
 	// --- [ glXGetContextGPUIDAMD ] ---
@@ -165,7 +165,7 @@ public final class GLXAMDGPUAssociation {
 		long __functionAddress = getInstance().GetContextGPUIDAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		return invokePI(__functionAddress, ctx);
+		return callPI(__functionAddress, ctx);
 	}
 
 	// --- [ glXGetCurrentAssociatedContextAMD ] ---
@@ -173,7 +173,7 @@ public final class GLXAMDGPUAssociation {
 	/** Queries the crrent associated context. */
 	public static long glXGetCurrentAssociatedContextAMD() {
 		long __functionAddress = getInstance().GetCurrentAssociatedContextAMD;
-		return invokeP(__functionAddress);
+		return callP(__functionAddress);
 	}
 
 	// --- [ glXGetGPUIDsAMD ] ---
@@ -186,7 +186,7 @@ public final class GLXAMDGPUAssociation {
 	 */
 	public static int glXGetGPUIDsAMD(int maxCount, int ids) {
 		long __functionAddress = getInstance().GetGPUIDsAMD;
-		return invokeIII(__functionAddress, maxCount, ids);
+		return callIII(__functionAddress, maxCount, ids);
 	}
 
 	// --- [ glXGetGPUInfoAMD ] ---
@@ -195,7 +195,7 @@ public final class GLXAMDGPUAssociation {
 	@JavadocExclude
 	public static int nglXGetGPUInfoAMD(int id, int property, int dataType, int size, long data) {
 		long __functionAddress = getInstance().GetGPUInfoAMD;
-		return invokeIIIIPI(__functionAddress, id, property, dataType, size, data);
+		return callIIIIPI(__functionAddress, id, property, dataType, size, data);
 	}
 
 	/**
@@ -222,7 +222,7 @@ public final class GLXAMDGPUAssociation {
 		long __functionAddress = getInstance().MakeAssociatedContextCurrentAMD;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		return invokePI(__functionAddress, ctx);
+		return callPI(__functionAddress, ctx);
 	}
 
 }

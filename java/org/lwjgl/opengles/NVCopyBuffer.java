@@ -58,7 +58,7 @@ public final class NVCopyBuffer {
 
 	public static void glCopyBufferSubDataNV(int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
 		long __functionAddress = getInstance().CopyBufferSubDataNV;
-		invokeIIPPPV(__functionAddress, readTarget, writeTarget, readOffset, writeOffset, size);
+		callIIPPPV(__functionAddress, readTarget, writeTarget, readOffset, writeOffset, size);
 	}
 
 }

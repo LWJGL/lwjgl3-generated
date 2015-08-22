@@ -87,7 +87,7 @@ public final class NVPointSprite {
 
 	public static void glPointParameteriNV(int pname, int param) {
 		long __functionAddress = getInstance().PointParameteriNV;
-		invokeIIV(__functionAddress, pname, param);
+		callIIV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPointParameterivNV ] ---
@@ -96,7 +96,7 @@ public final class NVPointSprite {
 	@JavadocExclude
 	public static void nglPointParameterivNV(int pname, long params) {
 		long __functionAddress = getInstance().PointParameterivNV;
-		invokeIPV(__functionAddress, pname, params);
+		callIPV(__functionAddress, pname, params);
 	}
 
 	public static void glPointParameterivNV(int pname, ByteBuffer params) {

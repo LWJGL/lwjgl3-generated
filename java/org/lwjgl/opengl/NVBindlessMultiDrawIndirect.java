@@ -69,7 +69,7 @@ public final class NVBindlessMultiDrawIndirect {
 	@JavadocExclude
 	public static void nglMultiDrawArraysIndirectBindlessNV(int mode, long indirect, int drawCount, int stride, int vertexBufferCount) {
 		long __functionAddress = getInstance().MultiDrawArraysIndirectBindlessNV;
-		invokeIPIIIV(__functionAddress, mode, indirect, drawCount, stride, vertexBufferCount);
+		callIPIIIV(__functionAddress, mode, indirect, drawCount, stride, vertexBufferCount);
 	}
 
 	/**
@@ -104,7 +104,7 @@ public final class NVBindlessMultiDrawIndirect {
 	@JavadocExclude
 	public static void nglMultiDrawElementsIndirectBindlessNV(int mode, int type, long indirect, int drawCount, int stride, int vertexBufferCount) {
 		long __functionAddress = getInstance().MultiDrawElementsIndirectBindlessNV;
-		invokeIIPIIIV(__functionAddress, mode, type, indirect, drawCount, stride, vertexBufferCount);
+		callIIPIIIV(__functionAddress, mode, type, indirect, drawCount, stride, vertexBufferCount);
 	}
 
 	/**

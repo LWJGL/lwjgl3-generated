@@ -80,7 +80,7 @@ public final class ARBClipControl {
 	 */
 	public static void glClipControl(int origin, int depth) {
 		long __functionAddress = getInstance().ClipControl;
-		invokeIIV(__functionAddress, origin, depth);
+		callIIV(__functionAddress, origin, depth);
 	}
 
 }

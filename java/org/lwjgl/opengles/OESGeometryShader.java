@@ -140,7 +140,7 @@ public final class OESGeometryShader {
 
 	public static void glFramebufferTextureOES(int target, int attachment, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTextureOES;
-		invokeIIIIV(__functionAddress, target, attachment, texture, level);
+		callIIIIV(__functionAddress, target, attachment, texture, level);
 	}
 
 }

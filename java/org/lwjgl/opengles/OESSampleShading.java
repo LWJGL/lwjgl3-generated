@@ -69,7 +69,7 @@ public final class OESSampleShading {
 
 	public static void glMinSampleShadingOES(float value) {
 		long __functionAddress = getInstance().MinSampleShadingOES;
-		invokeFV(__functionAddress, value);
+		callFV(__functionAddress, value);
 	}
 
 }

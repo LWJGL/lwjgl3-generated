@@ -149,7 +149,7 @@ public final class GLX13 {
 		long __functionAddress = getInstance().GetFBConfigs;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return invokePIPP(__functionAddress, display, screen, nelements);
+		return callPIPP(__functionAddress, display, screen, nelements);
 	}
 
 	/**
@@ -173,7 +173,7 @@ public final class GLX13 {
 		long __functionAddress = getInstance().ChooseFBConfig;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return invokePIPPP(__functionAddress, display, screen, attrib_list, nelements);
+		return callPIPPP(__functionAddress, display, screen, attrib_list, nelements);
 	}
 
 	/**
@@ -212,7 +212,7 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return invokePPIPI(__functionAddress, display, config, attribute, value);
+		return callPPIPI(__functionAddress, display, config, attribute, value);
 	}
 
 	/**
@@ -246,7 +246,7 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return invokePPP(__functionAddress, display, config);
+		return callPPP(__functionAddress, display, config);
 	}
 
 	/**
@@ -270,7 +270,7 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return invokePPPPP(__functionAddress, display, config, win, attrib_list);
+		return callPPPPP(__functionAddress, display, config, win, attrib_list);
 	}
 
 	/**
@@ -304,7 +304,7 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return invokePPPPP(__functionAddress, display, config, pixmap, attrib_list);
+		return callPPPPP(__functionAddress, display, config, pixmap, attrib_list);
 	}
 
 	/**
@@ -342,7 +342,7 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(pixmap);
 		}
-		invokePPV(__functionAddress, display, pixmap);
+		callPPV(__functionAddress, display, pixmap);
 	}
 
 	// --- [ glXCreatePbuffer ] ---
@@ -355,7 +355,7 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return invokePPPP(__functionAddress, display, config, attrib_list);
+		return callPPPP(__functionAddress, display, config, attrib_list);
 	}
 
 	/**
@@ -392,7 +392,7 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(pbuf);
 		}
-		invokePPV(__functionAddress, display, pbuf);
+		callPPV(__functionAddress, display, pbuf);
 	}
 
 	// --- [ glXQueryDrawable ] ---
@@ -405,7 +405,7 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(draw);
 		}
-		invokePPIPV(__functionAddress, display, draw, attribute, value);
+		callPPIPV(__functionAddress, display, draw, attribute, value);
 	}
 
 	/**
@@ -446,7 +446,7 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return invokePPIPIP(__functionAddress, display, config, render_type, share_list, direct);
+		return callPPIPIP(__functionAddress, display, config, render_type, share_list, direct);
 	}
 
 	// --- [ glXMakeContextCurrent ] ---
@@ -463,7 +463,7 @@ public final class GLX13 {
 		long __functionAddress = getInstance().MakeContextCurrent;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return invokePPPPI(__functionAddress, display, draw, read, ctx);
+		return callPPPPI(__functionAddress, display, draw, read, ctx);
 	}
 
 	// --- [ glXGetCurrentReadDrawable ] ---
@@ -471,7 +471,7 @@ public final class GLX13 {
 	/** Returns the current GLXDrawable used for reading in the current thread. */
 	public static long glXGetCurrentReadDrawable() {
 		long __functionAddress = getInstance().GetCurrentReadDrawable;
-		return invokeP(__functionAddress);
+		return callP(__functionAddress);
 	}
 
 	// --- [ glXQueryContext ] ---
@@ -484,7 +484,7 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(ctx);
 		}
-		return invokePPIPI(__functionAddress, display, ctx, attribute, value);
+		return callPPIPI(__functionAddress, display, ctx, attribute, value);
 	}
 
 	/**
@@ -523,7 +523,7 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(draw);
 		}
-		invokePPPV(__functionAddress, display, draw, event_mask);
+		callPPPV(__functionAddress, display, draw, event_mask);
 	}
 
 	// --- [ glXGetSelectedEvent ] ---
@@ -536,7 +536,7 @@ public final class GLX13 {
 			checkPointer(display);
 			checkPointer(draw);
 		}
-		invokePPPV(__functionAddress, display, draw, event_mask);
+		callPPPV(__functionAddress, display, draw, event_mask);
 	}
 
 	/**

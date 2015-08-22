@@ -74,7 +74,7 @@ public final class EXTDebugLabel {
 	@JavadocExclude
 	public static void nglLabelObjectEXT(int type, int object, int length, long label) {
 		long __functionAddress = getInstance().LabelObjectEXT;
-		invokeIIIPV(__functionAddress, type, object, length, label);
+		callIIIPV(__functionAddress, type, object, length, label);
 	}
 
 	public static void glLabelObjectEXT(int type, int object, int length, ByteBuffer label) {
@@ -102,7 +102,7 @@ public final class EXTDebugLabel {
 	@JavadocExclude
 	public static void nglGetObjectLabelEXT(int type, int object, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectLabelEXT;
-		invokeIIIPPV(__functionAddress, type, object, bufSize, length, label);
+		callIIIPPV(__functionAddress, type, object, bufSize, length, label);
 	}
 
 	public static void glGetObjectLabelEXT(int type, int object, int bufSize, ByteBuffer length, ByteBuffer label) {

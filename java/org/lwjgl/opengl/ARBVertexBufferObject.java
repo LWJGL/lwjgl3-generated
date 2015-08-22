@@ -168,7 +168,7 @@ public final class ARBVertexBufferObject {
 	 */
 	public static void glBindBufferARB(int target, int buffer) {
 		long __functionAddress = getInstance().BindBufferARB;
-		invokeIIV(__functionAddress, target, buffer);
+		callIIV(__functionAddress, target, buffer);
 	}
 
 	// --- [ glDeleteBuffersARB ] ---
@@ -177,7 +177,7 @@ public final class ARBVertexBufferObject {
 	@JavadocExclude
 	public static void nglDeleteBuffersARB(int n, long buffers) {
 		long __functionAddress = getInstance().DeleteBuffersARB;
-		invokeIPV(__functionAddress, n, buffers);
+		callIPV(__functionAddress, n, buffers);
 	}
 
 	/**
@@ -210,7 +210,7 @@ public final class ARBVertexBufferObject {
 	@JavadocExclude
 	public static void nglGenBuffersARB(int n, long buffers) {
 		long __functionAddress = getInstance().GenBuffersARB;
-		invokeIPV(__functionAddress, n, buffers);
+		callIPV(__functionAddress, n, buffers);
 	}
 
 	/**
@@ -247,7 +247,7 @@ public final class ARBVertexBufferObject {
 	 */
 	public static boolean glIsBufferARB(int buffer) {
 		long __functionAddress = getInstance().IsBufferARB;
-		return invokeIZ(__functionAddress, buffer);
+		return callIZ(__functionAddress, buffer);
 	}
 
 	// --- [ glBufferDataARB ] ---
@@ -256,7 +256,7 @@ public final class ARBVertexBufferObject {
 	@JavadocExclude
 	public static void nglBufferDataARB(int target, long size, long data, int usage) {
 		long __functionAddress = getInstance().BufferDataARB;
-		invokeIPPIV(__functionAddress, target, size, data, usage);
+		callIPPIV(__functionAddress, target, size, data, usage);
 	}
 
 	/**
@@ -325,7 +325,7 @@ public final class ARBVertexBufferObject {
 	@JavadocExclude
 	public static void nglBufferSubDataARB(int target, long offset, long size, long data) {
 		long __functionAddress = getInstance().BufferSubDataARB;
-		invokeIPPPV(__functionAddress, target, offset, size, data);
+		callIPPPV(__functionAddress, target, offset, size, data);
 	}
 
 	/**
@@ -353,7 +353,7 @@ public final class ARBVertexBufferObject {
 	@JavadocExclude
 	public static void nglGetBufferSubDataARB(int target, long offset, long size, long data) {
 		long __functionAddress = getInstance().GetBufferSubDataARB;
-		invokeIPPPV(__functionAddress, target, offset, size, data);
+		callIPPPV(__functionAddress, target, offset, size, data);
 	}
 
 	/**
@@ -401,7 +401,7 @@ public final class ARBVertexBufferObject {
 	@JavadocExclude
 	public static long nglMapBufferARB(int target, int access) {
 		long __functionAddress = getInstance().MapBufferARB;
-		return invokeIIP(__functionAddress, target, access);
+		return callIIP(__functionAddress, target, access);
 	}
 
 	/**
@@ -449,7 +449,7 @@ public final class ARBVertexBufferObject {
 	 */
 	public static boolean glUnmapBufferARB(int target) {
 		long __functionAddress = getInstance().UnmapBufferARB;
-		return invokeIZ(__functionAddress, target);
+		return callIZ(__functionAddress, target);
 	}
 
 	// --- [ glGetBufferParameterivARB ] ---
@@ -458,7 +458,7 @@ public final class ARBVertexBufferObject {
 	@JavadocExclude
 	public static void nglGetBufferParameterivARB(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferParameterivARB;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -491,7 +491,7 @@ public final class ARBVertexBufferObject {
 	@JavadocExclude
 	public static void nglGetBufferPointervARB(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferPointervARB;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**

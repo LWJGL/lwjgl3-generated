@@ -68,7 +68,7 @@ public final class EXTPlatformBase {
 		long __functionAddress = getInstance().GetPlatformDisplayEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(native_display);
-		return invokeIPPP(__functionAddress, platform, native_display, attrib_list);
+		return callIPPP(__functionAddress, platform, native_display, attrib_list);
 	}
 
 	public static long eglGetPlatformDisplayEXT(int platform, long native_display, ByteBuffer attrib_list) {
@@ -95,7 +95,7 @@ public final class EXTPlatformBase {
 			checkPointer(config);
 			checkPointer(native_window);
 		}
-		return invokePPPPP(__functionAddress, dpy, config, native_window, attrib_list);
+		return callPPPPP(__functionAddress, dpy, config, native_window, attrib_list);
 	}
 
 	public static long eglCreatePlatformWindowSurfaceEXT(long dpy, long config, long native_window, ByteBuffer attrib_list) {
@@ -122,7 +122,7 @@ public final class EXTPlatformBase {
 			checkPointer(config);
 			checkPointer(native_pixmap);
 		}
-		return invokePPPPP(__functionAddress, dpy, config, native_pixmap, attrib_list);
+		return callPPPPP(__functionAddress, dpy, config, native_pixmap, attrib_list);
 	}
 
 	public static long eglCreatePlatformPixmapSurfaceEXT(long dpy, long config, long native_pixmap, ByteBuffer attrib_list) {

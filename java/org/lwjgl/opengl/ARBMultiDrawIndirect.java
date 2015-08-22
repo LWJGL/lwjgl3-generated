@@ -66,7 +66,7 @@ public final class ARBMultiDrawIndirect {
 	@JavadocExclude
 	public static void nglMultiDrawArraysIndirect(int mode, long indirect, int primcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawArraysIndirect;
-		invokeIPIIV(__functionAddress, mode, indirect, primcount, stride);
+		callIPIIV(__functionAddress, mode, indirect, primcount, stride);
 	}
 
 	/**
@@ -127,7 +127,7 @@ public final class ARBMultiDrawIndirect {
 	@JavadocExclude
 	public static void nglMultiDrawElementsIndirect(int mode, int type, long indirect, int primcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawElementsIndirect;
-		invokeIIPIIV(__functionAddress, mode, type, indirect, primcount, stride);
+		callIIPIIV(__functionAddress, mode, type, indirect, primcount, stride);
 	}
 
 	/**

@@ -26,7 +26,7 @@ public final class OVRSensorData implements Pointer {
 		TIMEINSECONDS;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(5);
+		IntBuffer offsets = memAllocInt(5);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -35,6 +35,8 @@ public final class OVRSensorData implements Pointer {
 		MAGNETOMETER = offsets.get(2);
 		TEMPERATURE = offsets.get(3);
 		TIMEINSECONDS = offsets.get(4);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -59,20 +61,20 @@ public final class OVRSensorData implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setAccelerometer(ByteBuffer Accelerometer) { AccelerometerSet(struct, Accelerometer); }
-	public void setAccelerometerX(float x) { AccelerometerX(struct, x); }
-	public void setAccelerometerY(float y) { AccelerometerY(struct, y); }
-	public void setAccelerometerZ(float z) { AccelerometerZ(struct, z); }
-	public void setGyro(ByteBuffer Gyro) { GyroSet(struct, Gyro); }
-	public void setGyroX(float x) { GyroX(struct, x); }
-	public void setGyroY(float y) { GyroY(struct, y); }
-	public void setGyroZ(float z) { GyroZ(struct, z); }
-	public void setMagnetometer(ByteBuffer Magnetometer) { MagnetometerSet(struct, Magnetometer); }
-	public void setMagnetometerX(float x) { MagnetometerX(struct, x); }
-	public void setMagnetometerY(float y) { MagnetometerY(struct, y); }
-	public void setMagnetometerZ(float z) { MagnetometerZ(struct, z); }
-	public void setTemperature(float Temperature) { Temperature(struct, Temperature); }
-	public void setTimeInSeconds(float TimeInSeconds) { TimeInSeconds(struct, TimeInSeconds); }
+	public OVRSensorData setAccelerometer(ByteBuffer Accelerometer) { AccelerometerSet(struct, Accelerometer); return this; }
+	public OVRSensorData setAccelerometerX(float x) { AccelerometerX(struct, x); return this; }
+	public OVRSensorData setAccelerometerY(float y) { AccelerometerY(struct, y); return this; }
+	public OVRSensorData setAccelerometerZ(float z) { AccelerometerZ(struct, z); return this; }
+	public OVRSensorData setGyro(ByteBuffer Gyro) { GyroSet(struct, Gyro); return this; }
+	public OVRSensorData setGyroX(float x) { GyroX(struct, x); return this; }
+	public OVRSensorData setGyroY(float y) { GyroY(struct, y); return this; }
+	public OVRSensorData setGyroZ(float z) { GyroZ(struct, z); return this; }
+	public OVRSensorData setMagnetometer(ByteBuffer Magnetometer) { MagnetometerSet(struct, Magnetometer); return this; }
+	public OVRSensorData setMagnetometerX(float x) { MagnetometerX(struct, x); return this; }
+	public OVRSensorData setMagnetometerY(float y) { MagnetometerY(struct, y); return this; }
+	public OVRSensorData setMagnetometerZ(float z) { MagnetometerZ(struct, z); return this; }
+	public OVRSensorData setTemperature(float Temperature) { Temperature(struct, Temperature); return this; }
+	public OVRSensorData setTimeInSeconds(float TimeInSeconds) { TimeInSeconds(struct, TimeInSeconds); return this; }
 
 	public void getAccelerometer(ByteBuffer Accelerometer) { AccelerometerGet(struct, Accelerometer); }
 	public float getAccelerometerX() { return AccelerometerX(struct); }

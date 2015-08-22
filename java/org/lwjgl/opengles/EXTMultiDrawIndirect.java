@@ -64,7 +64,7 @@ public final class EXTMultiDrawIndirect {
 	@JavadocExclude
 	public static void nglMultiDrawArraysIndirectEXT(int mode, long indirect, int drawcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawArraysIndirectEXT;
-		invokeIPIIV(__functionAddress, mode, indirect, drawcount, stride);
+		callIPIIV(__functionAddress, mode, indirect, drawcount, stride);
 	}
 
 	public static void glMultiDrawArraysIndirectEXT(int mode, ByteBuffer indirect, int drawcount, int stride) {
@@ -91,7 +91,7 @@ public final class EXTMultiDrawIndirect {
 	@JavadocExclude
 	public static void nglMultiDrawElementsIndirectEXT(int mode, int type, long indirect, int drawcount, int stride) {
 		long __functionAddress = getInstance().MultiDrawElementsIndirectEXT;
-		invokeIIPIIV(__functionAddress, mode, type, indirect, drawcount, stride);
+		callIIPIIV(__functionAddress, mode, type, indirect, drawcount, stride);
 	}
 
 	public static void glMultiDrawElementsIndirectEXT(int mode, int type, ByteBuffer indirect, int drawcount, int stride) {

@@ -120,77 +120,77 @@ public final class NVVertexBufferUnifiedMemory {
 
 	public static void glBufferAddressRangeNV(int pname, int index, long address, long length) {
 		long __functionAddress = getInstance().BufferAddressRangeNV;
-		invokeIIJPV(__functionAddress, pname, index, address, length);
+		callIIJPV(__functionAddress, pname, index, address, length);
 	}
 
 	// --- [ glVertexFormatNV ] ---
 
 	public static void glVertexFormatNV(int size, int type, int stride) {
 		long __functionAddress = getInstance().VertexFormatNV;
-		invokeIIIV(__functionAddress, size, type, stride);
+		callIIIV(__functionAddress, size, type, stride);
 	}
 
 	// --- [ glNormalFormatNV ] ---
 
 	public static void glNormalFormatNV(int type, int stride) {
 		long __functionAddress = getInstance().NormalFormatNV;
-		invokeIIV(__functionAddress, type, stride);
+		callIIV(__functionAddress, type, stride);
 	}
 
 	// --- [ glColorFormatNV ] ---
 
 	public static void glColorFormatNV(int size, int type, int stride) {
 		long __functionAddress = getInstance().ColorFormatNV;
-		invokeIIIV(__functionAddress, size, type, stride);
+		callIIIV(__functionAddress, size, type, stride);
 	}
 
 	// --- [ glIndexFormatNV ] ---
 
 	public static void glIndexFormatNV(int type, int stride) {
 		long __functionAddress = getInstance().IndexFormatNV;
-		invokeIIV(__functionAddress, type, stride);
+		callIIV(__functionAddress, type, stride);
 	}
 
 	// --- [ glTexCoordFormatNV ] ---
 
 	public static void glTexCoordFormatNV(int size, int type, int stride) {
 		long __functionAddress = getInstance().TexCoordFormatNV;
-		invokeIIIV(__functionAddress, size, type, stride);
+		callIIIV(__functionAddress, size, type, stride);
 	}
 
 	// --- [ glEdgeFlagFormatNV ] ---
 
 	public static void glEdgeFlagFormatNV(int stride) {
 		long __functionAddress = getInstance().EdgeFlagFormatNV;
-		invokeIV(__functionAddress, stride);
+		callIV(__functionAddress, stride);
 	}
 
 	// --- [ glSecondaryColorFormatNV ] ---
 
 	public static void glSecondaryColorFormatNV(int size, int type, int stride) {
 		long __functionAddress = getInstance().SecondaryColorFormatNV;
-		invokeIIIV(__functionAddress, size, type, stride);
+		callIIIV(__functionAddress, size, type, stride);
 	}
 
 	// --- [ glFogCoordFormatNV ] ---
 
 	public static void glFogCoordFormatNV(int type, int stride) {
 		long __functionAddress = getInstance().FogCoordFormatNV;
-		invokeIIV(__functionAddress, type, stride);
+		callIIV(__functionAddress, type, stride);
 	}
 
 	// --- [ glVertexAttribFormatNV ] ---
 
 	public static void glVertexAttribFormatNV(int index, int size, int type, boolean normalized, int stride) {
 		long __functionAddress = getInstance().VertexAttribFormatNV;
-		invokeIIIZIV(__functionAddress, index, size, type, normalized, stride);
+		callIIIZIV(__functionAddress, index, size, type, normalized, stride);
 	}
 
 	// --- [ glVertexAttribIFormatNV ] ---
 
 	public static void glVertexAttribIFormatNV(int index, int size, int type, int stride) {
 		long __functionAddress = getInstance().VertexAttribIFormatNV;
-		invokeIIIIV(__functionAddress, index, size, type, stride);
+		callIIIIV(__functionAddress, index, size, type, stride);
 	}
 
 	// --- [ glGetIntegerui64i_vNV ] ---
@@ -199,7 +199,7 @@ public final class NVVertexBufferUnifiedMemory {
 	@JavadocExclude
 	public static void nglGetIntegerui64i_vNV(int value, int index, long result) {
 		long __functionAddress = getInstance().GetIntegerui64i_vNV;
-		invokeIIPV(__functionAddress, value, index, result);
+		callIIPV(__functionAddress, value, index, result);
 	}
 
 	public static void glGetIntegerui64i_vNV(int value, int index, ByteBuffer result) {

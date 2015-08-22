@@ -67,7 +67,7 @@ public final class EXTBaseInstance {
 
 	public static void glDrawArraysInstancedBaseInstanceEXT(int mode, int first, int count, int instancecount, int baseinstance) {
 		long __functionAddress = getInstance().DrawArraysInstancedBaseInstanceEXT;
-		invokeIIIIIV(__functionAddress, mode, first, count, instancecount, baseinstance);
+		callIIIIIV(__functionAddress, mode, first, count, instancecount, baseinstance);
 	}
 
 	// --- [ glDrawElementsInstancedBaseInstanceEXT ] ---
@@ -76,7 +76,7 @@ public final class EXTBaseInstance {
 	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseInstanceEXT(int mode, int count, int type, long indices, int instancecount, int baseinstance) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseInstanceEXT;
-		invokeIIIPIIV(__functionAddress, mode, count, type, indices, instancecount, baseinstance);
+		callIIIPIIV(__functionAddress, mode, count, type, indices, instancecount, baseinstance);
 	}
 
 	public static void glDrawElementsInstancedBaseInstanceEXT(int mode, int count, int type, ByteBuffer indices, int instancecount, int baseinstance) {
@@ -116,7 +116,7 @@ public final class EXTBaseInstance {
 	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseVertexBaseInstanceEXT(int mode, int count, int type, long indices, int instancecount, int basevertex, int baseinstance) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseVertexBaseInstanceEXT;
-		invokeIIIPIIIV(__functionAddress, mode, count, type, indices, instancecount, basevertex, baseinstance);
+		callIIIPIIIV(__functionAddress, mode, count, type, indices, instancecount, basevertex, baseinstance);
 	}
 
 	public static void glDrawElementsInstancedBaseVertexBaseInstanceEXT(int mode, int count, int type, ByteBuffer indices, int instancecount, int basevertex, int baseinstance) {

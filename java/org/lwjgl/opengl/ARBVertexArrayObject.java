@@ -76,7 +76,7 @@ public final class ARBVertexArrayObject {
 	 */
 	public static void glBindVertexArray(int array) {
 		long __functionAddress = getInstance().BindVertexArray;
-		invokeIV(__functionAddress, array);
+		callIV(__functionAddress, array);
 	}
 
 	// --- [ glDeleteVertexArrays ] ---
@@ -85,7 +85,7 @@ public final class ARBVertexArrayObject {
 	@JavadocExclude
 	public static void nglDeleteVertexArrays(int n, long arrays) {
 		long __functionAddress = getInstance().DeleteVertexArrays;
-		invokeIPV(__functionAddress, n, arrays);
+		callIPV(__functionAddress, n, arrays);
 	}
 
 	/**
@@ -118,7 +118,7 @@ public final class ARBVertexArrayObject {
 	@JavadocExclude
 	public static void nglGenVertexArrays(int n, long arrays) {
 		long __functionAddress = getInstance().GenVertexArrays;
-		invokeIPV(__functionAddress, n, arrays);
+		callIPV(__functionAddress, n, arrays);
 	}
 
 	/**
@@ -155,7 +155,7 @@ public final class ARBVertexArrayObject {
 	 */
 	public static boolean glIsVertexArray(int array) {
 		long __functionAddress = getInstance().IsVertexArray;
-		return invokeIZ(__functionAddress, array);
+		return callIZ(__functionAddress, array);
 	}
 
 }

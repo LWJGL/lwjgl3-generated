@@ -77,7 +77,7 @@ public final class ARBTextureStorageMultisample {
 	 */
 	public static void glTexStorage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TexStorage2DMultisample;
-		invokeIIIIIZV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
+		callIIIIIZV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
 	// --- [ glTexStorage3DMultisample ] ---
@@ -96,7 +96,7 @@ public final class ARBTextureStorageMultisample {
 	 */
 	public static void glTexStorage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TexStorage3DMultisample;
-		invokeIIIIIIZV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
+		callIIIIIIZV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
 	// --- [ glTextureStorage2DMultisampleEXT ] ---
@@ -117,7 +117,7 @@ public final class ARBTextureStorageMultisample {
 		long __functionAddress = getInstance().TextureStorage2DMultisampleEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIZV(__functionAddress, texture, target, samples, internalformat, width, height, fixedsamplelocations);
+		callIIIIIIZV(__functionAddress, texture, target, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
 	// --- [ glTextureStorage3DMultisampleEXT ] ---
@@ -139,7 +139,7 @@ public final class ARBTextureStorageMultisample {
 		long __functionAddress = getInstance().TextureStorage3DMultisampleEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIZV(__functionAddress, texture, target, samples, internalformat, width, height, depth, fixedsamplelocations);
+		callIIIIIIIZV(__functionAddress, texture, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
 }

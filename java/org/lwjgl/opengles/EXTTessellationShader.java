@@ -162,7 +162,7 @@ public final class EXTTessellationShader {
 
 	public static void glPatchParameteriEXT(int pname, int value) {
 		long __functionAddress = getInstance().PatchParameteriEXT;
-		invokeIIV(__functionAddress, pname, value);
+		callIIV(__functionAddress, pname, value);
 	}
 
 }

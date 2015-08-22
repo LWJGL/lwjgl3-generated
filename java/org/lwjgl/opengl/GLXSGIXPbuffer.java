@@ -121,7 +121,7 @@ public final class GLXSGIXPbuffer {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return invokePPIIPP(__functionAddress, display, config, width, height, attrib_list);
+		return callPPIIPP(__functionAddress, display, config, width, height, attrib_list);
 	}
 
 	/**
@@ -160,7 +160,7 @@ public final class GLXSGIXPbuffer {
 			checkPointer(display);
 			checkPointer(pbuf);
 		}
-		invokePPV(__functionAddress, display, pbuf);
+		callPPV(__functionAddress, display, pbuf);
 	}
 
 	// --- [ glXQueryGLXPbufferSGIX ] ---
@@ -173,7 +173,7 @@ public final class GLXSGIXPbuffer {
 			checkPointer(display);
 			checkPointer(pbuf);
 		}
-		invokePPIPV(__functionAddress, display, pbuf, attribute, value);
+		callPPIPV(__functionAddress, display, pbuf, attribute, value);
 	}
 
 	/**
@@ -212,7 +212,7 @@ public final class GLXSGIXPbuffer {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		invokePPPV(__functionAddress, display, drawable, mask);
+		callPPPV(__functionAddress, display, drawable, mask);
 	}
 
 	// --- [ glXGetSelectedEventSGIX ] ---
@@ -225,7 +225,7 @@ public final class GLXSGIXPbuffer {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		invokePPPV(__functionAddress, display, drawable, mask);
+		callPPPV(__functionAddress, display, drawable, mask);
 	}
 
 	/**

@@ -87,7 +87,7 @@ public final class QCOMExtendedGet {
 	@JavadocExclude
 	public static void nglExtGetTexturesQCOM(long textures, int maxTextures, long numTextures) {
 		long __functionAddress = getInstance().ExtGetTexturesQCOM;
-		invokePIPV(__functionAddress, textures, maxTextures, numTextures);
+		callPIPV(__functionAddress, textures, maxTextures, numTextures);
 	}
 
 	public static void glExtGetTexturesQCOM(ByteBuffer textures, int maxTextures, ByteBuffer numTextures) {
@@ -111,7 +111,7 @@ public final class QCOMExtendedGet {
 	@JavadocExclude
 	public static void nglExtGetBuffersQCOM(long buffers, int maxBuffers, long numBuffers) {
 		long __functionAddress = getInstance().ExtGetBuffersQCOM;
-		invokePIPV(__functionAddress, buffers, maxBuffers, numBuffers);
+		callPIPV(__functionAddress, buffers, maxBuffers, numBuffers);
 	}
 
 	public static void glExtGetBuffersQCOM(ByteBuffer buffers, int maxBuffers, ByteBuffer numBuffers) {
@@ -135,7 +135,7 @@ public final class QCOMExtendedGet {
 	@JavadocExclude
 	public static void nglExtGetRenderbuffersQCOM(long renderbuffers, int maxRenderbuffers, long numRenderbuffers) {
 		long __functionAddress = getInstance().ExtGetRenderbuffersQCOM;
-		invokePIPV(__functionAddress, renderbuffers, maxRenderbuffers, numRenderbuffers);
+		callPIPV(__functionAddress, renderbuffers, maxRenderbuffers, numRenderbuffers);
 	}
 
 	public static void glExtGetRenderbuffersQCOM(ByteBuffer renderbuffers, int maxRenderbuffers, ByteBuffer numRenderbuffers) {
@@ -159,7 +159,7 @@ public final class QCOMExtendedGet {
 	@JavadocExclude
 	public static void nglExtGetFramebuffersQCOM(long framebuffers, int maxFramebuffers, long numFramebuffers) {
 		long __functionAddress = getInstance().ExtGetFramebuffersQCOM;
-		invokePIPV(__functionAddress, framebuffers, maxFramebuffers, numFramebuffers);
+		callPIPV(__functionAddress, framebuffers, maxFramebuffers, numFramebuffers);
 	}
 
 	public static void glExtGetFramebuffersQCOM(ByteBuffer framebuffers, int maxFramebuffers, ByteBuffer numFramebuffers) {
@@ -183,7 +183,7 @@ public final class QCOMExtendedGet {
 	@JavadocExclude
 	public static void nglExtGetTexLevelParameterivQCOM(int texture, int face, int level, int pname, long params) {
 		long __functionAddress = getInstance().ExtGetTexLevelParameterivQCOM;
-		invokeIIIIPV(__functionAddress, texture, face, level, pname, params);
+		callIIIIPV(__functionAddress, texture, face, level, pname, params);
 	}
 
 	public static void glExtGetTexLevelParameterivQCOM(int texture, int face, int level, int pname, ByteBuffer params) {
@@ -211,7 +211,7 @@ public final class QCOMExtendedGet {
 
 	public static void glExtTexObjectStateOverrideiQCOM(int target, int pname, int param) {
 		long __functionAddress = getInstance().ExtTexObjectStateOverrideiQCOM;
-		invokeIIIV(__functionAddress, target, pname, param);
+		callIIIV(__functionAddress, target, pname, param);
 	}
 
 	// --- [ glExtGetTexSubImageQCOM ] ---
@@ -220,7 +220,7 @@ public final class QCOMExtendedGet {
 	@JavadocExclude
 	public static void nglExtGetTexSubImageQCOM(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long texels) {
 		long __functionAddress = getInstance().ExtGetTexSubImageQCOM;
-		invokeIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, texels);
+		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, texels);
 	}
 
 	public static void glExtGetTexSubImageQCOM(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer texels) {
@@ -233,7 +233,7 @@ public final class QCOMExtendedGet {
 	@JavadocExclude
 	public static void nglExtGetBufferPointervQCOM(int target, long params) {
 		long __functionAddress = getInstance().ExtGetBufferPointervQCOM;
-		invokeIPV(__functionAddress, target, params);
+		callIPV(__functionAddress, target, params);
 	}
 
 	public static void glExtGetBufferPointervQCOM(int target, ByteBuffer params) {

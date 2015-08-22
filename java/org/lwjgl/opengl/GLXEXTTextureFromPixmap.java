@@ -121,7 +121,7 @@ public final class GLXEXTTextureFromPixmap {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		invokePPIPV(__functionAddress, display, drawable, buffer, attrib_list);
+		callPPIPV(__functionAddress, display, drawable, buffer, attrib_list);
 	}
 
 	/**
@@ -161,7 +161,7 @@ public final class GLXEXTTextureFromPixmap {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		invokePPIV(__functionAddress, display, drawable, buffer);
+		callPPIV(__functionAddress, display, drawable, buffer);
 	}
 
 }

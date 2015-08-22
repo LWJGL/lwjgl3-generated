@@ -68,7 +68,7 @@ public final class NVFragmentCoverageToColor {
 	 */
 	public static void glFragmentCoverageColorNV(int color) {
 		long __functionAddress = getInstance().FragmentCoverageColorNV;
-		invokeIV(__functionAddress, color);
+		callIV(__functionAddress, color);
 	}
 
 }

@@ -58,7 +58,7 @@ public final class WGLARBExtensionsString {
 		long __functionAddress = getInstance().GetExtensionsStringARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hdc);
-		return invokePP(__functionAddress, hdc);
+		return callPP(__functionAddress, hdc);
 	}
 
 	/**

@@ -73,14 +73,14 @@ public final class WGLNVSwapGroup {
 		long __functionAddress = getInstance().JoinSwapGroupNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hDC);
-		return invokePII(__functionAddress, hDC, group);
+		return callPII(__functionAddress, hDC, group);
 	}
 
 	// --- [ wglBindSwapBarrierNV ] ---
 
 	public static int wglBindSwapBarrierNV(int group, int barrier) {
 		long __functionAddress = getInstance().BindSwapBarrierNV;
-		return invokeIII(__functionAddress, group, barrier);
+		return callIII(__functionAddress, group, barrier);
 	}
 
 	// --- [ wglQuerySwapGroupNV ] ---
@@ -91,7 +91,7 @@ public final class WGLNVSwapGroup {
 		long __functionAddress = getInstance().QuerySwapGroupNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hDC);
-		return invokePPPI(__functionAddress, hDC, group, barrier);
+		return callPPPI(__functionAddress, hDC, group, barrier);
 	}
 
 	public static int wglQuerySwapGroupNV(long hDC, ByteBuffer group, ByteBuffer barrier) {
@@ -119,7 +119,7 @@ public final class WGLNVSwapGroup {
 		long __functionAddress = getInstance().QueryMaxSwapGroupsNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hDC);
-		return invokePPPI(__functionAddress, hDC, maxGroups, maxBarriers);
+		return callPPPI(__functionAddress, hDC, maxGroups, maxBarriers);
 	}
 
 	public static int wglQueryMaxSwapGroupsNV(long hDC, ByteBuffer maxGroups, ByteBuffer maxBarriers) {
@@ -147,7 +147,7 @@ public final class WGLNVSwapGroup {
 		long __functionAddress = getInstance().QueryFrameCountNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hDC);
-		return invokePPI(__functionAddress, hDC, count);
+		return callPPI(__functionAddress, hDC, count);
 	}
 
 	public static int wglQueryFrameCountNV(long hDC, ByteBuffer count) {
@@ -169,7 +169,7 @@ public final class WGLNVSwapGroup {
 		long __functionAddress = getInstance().ResetFrameCountNV;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hDC);
-		return invokePI(__functionAddress, hDC);
+		return callPI(__functionAddress, hDC);
 	}
 
 }

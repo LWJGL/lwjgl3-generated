@@ -23,12 +23,14 @@ public final class OVRTextureHeader implements Pointer {
 		TEXTURESIZE;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(2);
+		IntBuffer offsets = memAllocInt(2);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		API = offsets.get(0);
 		TEXTURESIZE = offsets.get(1);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -53,10 +55,10 @@ public final class OVRTextureHeader implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setAPI(int api) { API(struct, api); }
-	public void setTextureSize(ByteBuffer TextureSize) { TextureSizeSet(struct, TextureSize); }
-	public void setTextureSizeW(int w) { TextureSizeW(struct, w); }
-	public void setTextureSizeH(int h) { TextureSizeH(struct, h); }
+	public OVRTextureHeader setAPI(int api) { API(struct, api); return this; }
+	public OVRTextureHeader setTextureSize(ByteBuffer TextureSize) { TextureSizeSet(struct, TextureSize); return this; }
+	public OVRTextureHeader setTextureSizeW(int w) { TextureSizeW(struct, w); return this; }
+	public OVRTextureHeader setTextureSizeH(int h) { TextureSizeH(struct, h); return this; }
 
 	public int getAPI() { return API(struct); }
 	public void getTextureSize(ByteBuffer TextureSize) { TextureSizeGet(struct, TextureSize); }

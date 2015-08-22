@@ -190,7 +190,7 @@ public final class GL15 {
 	 */
 	public static void glBindBuffer(int target, int buffer) {
 		long __functionAddress = getInstance().BindBuffer;
-		invokeIIV(__functionAddress, target, buffer);
+		callIIV(__functionAddress, target, buffer);
 	}
 
 	// --- [ glDeleteBuffers ] ---
@@ -199,7 +199,7 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglDeleteBuffers(int n, long buffers) {
 		long __functionAddress = getInstance().DeleteBuffers;
-		invokeIPV(__functionAddress, n, buffers);
+		callIPV(__functionAddress, n, buffers);
 	}
 
 	/**
@@ -234,7 +234,7 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglGenBuffers(int n, long buffers) {
 		long __functionAddress = getInstance().GenBuffers;
-		invokeIPV(__functionAddress, n, buffers);
+		callIPV(__functionAddress, n, buffers);
 	}
 
 	/**
@@ -275,7 +275,7 @@ public final class GL15 {
 	 */
 	public static boolean glIsBuffer(int buffer) {
 		long __functionAddress = getInstance().IsBuffer;
-		return invokeIZ(__functionAddress, buffer);
+		return callIZ(__functionAddress, buffer);
 	}
 
 	// --- [ glBufferData ] ---
@@ -284,7 +284,7 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglBufferData(int target, long size, long data, int usage) {
 		long __functionAddress = getInstance().BufferData;
-		invokeIPPIV(__functionAddress, target, size, data, usage);
+		callIPPIV(__functionAddress, target, size, data, usage);
 	}
 
 	/**
@@ -355,7 +355,7 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglBufferSubData(int target, long offset, long size, long data) {
 		long __functionAddress = getInstance().BufferSubData;
-		invokeIPPPV(__functionAddress, target, offset, size, data);
+		callIPPPV(__functionAddress, target, offset, size, data);
 	}
 
 	/**
@@ -405,7 +405,7 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglGetBufferSubData(int target, long offset, long size, long data) {
 		long __functionAddress = getInstance().GetBufferSubData;
-		invokeIPPPV(__functionAddress, target, offset, size, data);
+		callIPPPV(__functionAddress, target, offset, size, data);
 	}
 
 	/**
@@ -455,7 +455,7 @@ public final class GL15 {
 	@JavadocExclude
 	public static long nglMapBuffer(int target, int access) {
 		long __functionAddress = getInstance().MapBuffer;
-		return invokeIIP(__functionAddress, target, access);
+		return callIIP(__functionAddress, target, access);
 	}
 
 	/**
@@ -507,7 +507,7 @@ public final class GL15 {
 	 */
 	public static boolean glUnmapBuffer(int target) {
 		long __functionAddress = getInstance().UnmapBuffer;
-		return invokeIZ(__functionAddress, target);
+		return callIZ(__functionAddress, target);
 	}
 
 	// --- [ glGetBufferParameteriv ] ---
@@ -516,7 +516,7 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglGetBufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferParameteriv;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -555,7 +555,7 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglGetBufferPointerv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetBufferPointerv;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -594,7 +594,7 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglGenQueries(int n, long ids) {
 		long __functionAddress = getInstance().GenQueries;
-		invokeIPV(__functionAddress, n, ids);
+		callIPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -630,7 +630,7 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglDeleteQueries(int n, long ids) {
 		long __functionAddress = getInstance().DeleteQueries;
-		invokeIPV(__functionAddress, n, ids);
+		callIPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -670,7 +670,7 @@ public final class GL15 {
 	 */
 	public static boolean glIsQuery(int id) {
 		long __functionAddress = getInstance().IsQuery;
-		return invokeIZ(__functionAddress, id);
+		return callIZ(__functionAddress, id);
 	}
 
 	// --- [ glBeginQuery ] ---
@@ -685,7 +685,7 @@ public final class GL15 {
 	 */
 	public static void glBeginQuery(int target, int id) {
 		long __functionAddress = getInstance().BeginQuery;
-		invokeIIV(__functionAddress, target, id);
+		callIIV(__functionAddress, target, id);
 	}
 
 	// --- [ glEndQuery ] ---
@@ -699,7 +699,7 @@ public final class GL15 {
 	 */
 	public static void glEndQuery(int target) {
 		long __functionAddress = getInstance().EndQuery;
-		invokeIV(__functionAddress, target);
+		callIV(__functionAddress, target);
 	}
 
 	// --- [ glGetQueryiv ] ---
@@ -708,7 +708,7 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglGetQueryiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryiv;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -747,7 +747,7 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglGetQueryObjectiv(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectiv;
-		invokeIIPV(__functionAddress, id, pname, params);
+		callIIPV(__functionAddress, id, pname, params);
 	}
 
 	/**
@@ -786,7 +786,7 @@ public final class GL15 {
 	@JavadocExclude
 	public static void nglGetQueryObjectuiv(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectuiv;
-		invokeIIPV(__functionAddress, id, pname, params);
+		callIIPV(__functionAddress, id, pname, params);
 	}
 
 	/**

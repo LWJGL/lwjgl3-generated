@@ -66,7 +66,7 @@ public final class GLXSGIXSwapGroup {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		invokePPPV(__functionAddress, display, drawable, member);
+		callPPPV(__functionAddress, display, drawable, member);
 	}
 
 }

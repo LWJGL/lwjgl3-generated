@@ -153,7 +153,7 @@ public final class WGLARBRenderTexture {
 		long __functionAddress = getInstance().BindTexImageARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(pbuffer);
-		return invokePII(__functionAddress, pbuffer, buffer);
+		return callPII(__functionAddress, pbuffer, buffer);
 	}
 
 	// --- [ wglReleaseTexImageARB ] ---
@@ -169,7 +169,7 @@ public final class WGLARBRenderTexture {
 		long __functionAddress = getInstance().ReleaseTexImageARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(pbuffer);
-		return invokePII(__functionAddress, pbuffer, buffer);
+		return callPII(__functionAddress, pbuffer, buffer);
 	}
 
 	// --- [ wglSetPbufferAttribARB ] ---
@@ -180,7 +180,7 @@ public final class WGLARBRenderTexture {
 		long __functionAddress = getInstance().SetPbufferAttribARB;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(pbuffer);
-		return invokePPI(__functionAddress, pbuffer, attribList);
+		return callPPI(__functionAddress, pbuffer, attribList);
 	}
 
 	/**

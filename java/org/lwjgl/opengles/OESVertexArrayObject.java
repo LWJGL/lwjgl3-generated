@@ -65,7 +65,7 @@ public final class OESVertexArrayObject {
 
 	public static void glBindVertexArrayOES(int array) {
 		long __functionAddress = getInstance().BindVertexArrayOES;
-		invokeIV(__functionAddress, array);
+		callIV(__functionAddress, array);
 	}
 
 	// --- [ glDeleteVertexArraysOES ] ---
@@ -74,7 +74,7 @@ public final class OESVertexArrayObject {
 	@JavadocExclude
 	public static void nglDeleteVertexArraysOES(int n, long arrays) {
 		long __functionAddress = getInstance().DeleteVertexArraysOES;
-		invokeIPV(__functionAddress, n, arrays);
+		callIPV(__functionAddress, n, arrays);
 	}
 
 	public static void glDeleteVertexArraysOES(int n, ByteBuffer arrays) {
@@ -101,7 +101,7 @@ public final class OESVertexArrayObject {
 	@JavadocExclude
 	public static void nglGenVertexArraysOES(int n, long arrays) {
 		long __functionAddress = getInstance().GenVertexArraysOES;
-		invokeIPV(__functionAddress, n, arrays);
+		callIPV(__functionAddress, n, arrays);
 	}
 
 	public static void glGenVertexArraysOES(int n, ByteBuffer arrays) {
@@ -131,7 +131,7 @@ public final class OESVertexArrayObject {
 
 	public static boolean glIsVertexArrayOES(int array) {
 		long __functionAddress = getInstance().IsVertexArrayOES;
-		return invokeIZ(__functionAddress, array);
+		return callIZ(__functionAddress, array);
 	}
 
 }

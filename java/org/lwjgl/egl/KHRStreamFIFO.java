@@ -72,7 +72,7 @@ public final class KHRStreamFIFO {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return invokePPIPZ(__functionAddress, dpy, stream, attribute, value);
+		return callPPIPZ(__functionAddress, dpy, stream, attribute, value);
 	}
 
 	public static boolean eglQueryStreamTimeKHR(long dpy, long stream, int attribute, ByteBuffer value) {

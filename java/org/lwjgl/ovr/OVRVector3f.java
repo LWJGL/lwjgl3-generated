@@ -24,13 +24,15 @@ public final class OVRVector3f implements Pointer {
 		Z;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(3);
+		IntBuffer offsets = memAllocInt(3);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		X = offsets.get(0);
 		Y = offsets.get(1);
 		Z = offsets.get(2);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -55,9 +57,9 @@ public final class OVRVector3f implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setX(float x) { x(struct, x); }
-	public void setY(float y) { y(struct, y); }
-	public void setZ(float z) { z(struct, z); }
+	public OVRVector3f setX(float x) { x(struct, x); return this; }
+	public OVRVector3f setY(float y) { y(struct, y); return this; }
+	public OVRVector3f setZ(float z) { z(struct, z); return this; }
 
 	public float getX() { return x(struct); }
 	public float getY() { return y(struct); }

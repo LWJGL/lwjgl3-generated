@@ -153,7 +153,7 @@ public final class ARBSparseTexture {
 	 */
 	public static void glTexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit) {
 		long __functionAddress = getInstance().TexPageCommitmentARB;
-		invokeIIIIIIIIZV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, commit);
+		callIIIIIIIIZV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, commit);
 	}
 
 	// --- [ glTexturePageCommitmentEXT ] ---
@@ -175,7 +175,7 @@ public final class ARBSparseTexture {
 		long __functionAddress = getInstance().TexturePageCommitmentEXT;
 		if ( LWJGLUtil.CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIIIZV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, commit);
+		callIIIIIIIIZV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, commit);
 	}
 
 }

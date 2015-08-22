@@ -61,7 +61,7 @@ public final class EXTStencilTwoSide {
 
 	public static void glActiveStencilFaceEXT(int face) {
 		long __functionAddress = getInstance().ActiveStencilFaceEXT;
-		invokeIV(__functionAddress, face);
+		callIV(__functionAddress, face);
 	}
 
 }

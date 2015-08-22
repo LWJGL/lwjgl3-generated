@@ -689,7 +689,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static long nglGetStringi(int name, int index) {
 		long __functionAddress = getInstance().GetStringi;
-		return invokeIIP(__functionAddress, name, index);
+		return callIIP(__functionAddress, name, index);
 	}
 
 	/**
@@ -709,7 +709,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglClearBufferiv(int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearBufferiv;
-		invokeIIPV(__functionAddress, buffer, drawbuffer, value);
+		callIIPV(__functionAddress, buffer, drawbuffer, value);
 	}
 
 	/**
@@ -741,7 +741,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglClearBufferuiv(int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearBufferuiv;
-		invokeIIPV(__functionAddress, buffer, drawbuffer, value);
+		callIIPV(__functionAddress, buffer, drawbuffer, value);
 	}
 
 	/**
@@ -772,7 +772,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglClearBufferfv(int buffer, int drawbuffer, long value) {
 		long __functionAddress = getInstance().ClearBufferfv;
-		invokeIIPV(__functionAddress, buffer, drawbuffer, value);
+		callIIPV(__functionAddress, buffer, drawbuffer, value);
 	}
 
 	/**
@@ -812,7 +812,7 @@ public final class GL30 {
 	 */
 	public static void glClearBufferfi(int buffer, int drawbuffer, float depth, int stencil) {
 		long __functionAddress = getInstance().ClearBufferfi;
-		invokeIIFIV(__functionAddress, buffer, drawbuffer, depth, stencil);
+		callIIFIV(__functionAddress, buffer, drawbuffer, depth, stencil);
 	}
 
 	// --- [ glVertexAttribI1i ] ---
@@ -827,7 +827,7 @@ public final class GL30 {
 	 */
 	public static void glVertexAttribI1i(int index, int x) {
 		long __functionAddress = getInstance().VertexAttribI1i;
-		invokeIIV(__functionAddress, index, x);
+		callIIV(__functionAddress, index, x);
 	}
 
 	// --- [ glVertexAttribI2i ] ---
@@ -843,7 +843,7 @@ public final class GL30 {
 	 */
 	public static void glVertexAttribI2i(int index, int x, int y) {
 		long __functionAddress = getInstance().VertexAttribI2i;
-		invokeIIIV(__functionAddress, index, x, y);
+		callIIIV(__functionAddress, index, x, y);
 	}
 
 	// --- [ glVertexAttribI3i ] ---
@@ -860,7 +860,7 @@ public final class GL30 {
 	 */
 	public static void glVertexAttribI3i(int index, int x, int y, int z) {
 		long __functionAddress = getInstance().VertexAttribI3i;
-		invokeIIIIV(__functionAddress, index, x, y, z);
+		callIIIIV(__functionAddress, index, x, y, z);
 	}
 
 	// --- [ glVertexAttribI4i ] ---
@@ -878,7 +878,7 @@ public final class GL30 {
 	 */
 	public static void glVertexAttribI4i(int index, int x, int y, int z, int w) {
 		long __functionAddress = getInstance().VertexAttribI4i;
-		invokeIIIIIV(__functionAddress, index, x, y, z, w);
+		callIIIIIV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttribI1ui ] ---
@@ -893,7 +893,7 @@ public final class GL30 {
 	 */
 	public static void glVertexAttribI1ui(int index, int x) {
 		long __functionAddress = getInstance().VertexAttribI1ui;
-		invokeIIV(__functionAddress, index, x);
+		callIIV(__functionAddress, index, x);
 	}
 
 	// --- [ glVertexAttribI2ui ] ---
@@ -909,7 +909,7 @@ public final class GL30 {
 	 */
 	public static void glVertexAttribI2ui(int index, int x, int y) {
 		long __functionAddress = getInstance().VertexAttribI2ui;
-		invokeIIIV(__functionAddress, index, x, y);
+		callIIIV(__functionAddress, index, x, y);
 	}
 
 	// --- [ glVertexAttribI3ui ] ---
@@ -926,7 +926,7 @@ public final class GL30 {
 	 */
 	public static void glVertexAttribI3ui(int index, int x, int y, int z) {
 		long __functionAddress = getInstance().VertexAttribI3ui;
-		invokeIIIIV(__functionAddress, index, x, y, z);
+		callIIIIV(__functionAddress, index, x, y, z);
 	}
 
 	// --- [ glVertexAttribI4ui ] ---
@@ -944,7 +944,7 @@ public final class GL30 {
 	 */
 	public static void glVertexAttribI4ui(int index, int x, int y, int z, int w) {
 		long __functionAddress = getInstance().VertexAttribI4ui;
-		invokeIIIIIV(__functionAddress, index, x, y, z, w);
+		callIIIIIV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttribI1iv ] ---
@@ -953,7 +953,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI1iv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI1iv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -983,7 +983,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI2iv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI2iv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1013,7 +1013,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI3iv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI3iv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1043,7 +1043,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI4iv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4iv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1073,7 +1073,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI1uiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI1uiv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1103,7 +1103,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI2uiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI2uiv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1133,7 +1133,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI3uiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI3uiv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1163,7 +1163,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI4uiv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4uiv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1193,7 +1193,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI4bv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4bv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1216,7 +1216,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI4sv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4sv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1246,7 +1246,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI4ubv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4ubv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1269,7 +1269,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribI4usv(int index, long v) {
 		long __functionAddress = getInstance().VertexAttribI4usv;
-		invokeIPV(__functionAddress, index, v);
+		callIPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1299,7 +1299,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglVertexAttribIPointer(int index, int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexAttribIPointer;
-		invokeIIIIPV(__functionAddress, index, size, type, stride, pointer);
+		callIIIIPV(__functionAddress, index, size, type, stride, pointer);
 	}
 
 	/**
@@ -1348,7 +1348,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglGetVertexAttribIiv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribIiv;
-		invokeIIPV(__functionAddress, index, pname, params);
+		callIIPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -1387,7 +1387,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglGetVertexAttribIuiv(int index, int pname, long params) {
 		long __functionAddress = getInstance().GetVertexAttribIuiv;
-		invokeIIPV(__functionAddress, index, pname, params);
+		callIIPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -1432,7 +1432,7 @@ public final class GL30 {
 	 */
 	public static void glUniform1ui(int location, int v0) {
 		long __functionAddress = getInstance().Uniform1ui;
-		invokeIIV(__functionAddress, location, v0);
+		callIIV(__functionAddress, location, v0);
 	}
 
 	// --- [ glUniform2ui ] ---
@@ -1448,7 +1448,7 @@ public final class GL30 {
 	 */
 	public static void glUniform2ui(int location, int v0, int v1) {
 		long __functionAddress = getInstance().Uniform2ui;
-		invokeIIIV(__functionAddress, location, v0, v1);
+		callIIIV(__functionAddress, location, v0, v1);
 	}
 
 	// --- [ glUniform3ui ] ---
@@ -1465,7 +1465,7 @@ public final class GL30 {
 	 */
 	public static void glUniform3ui(int location, int v0, int v1, int v2) {
 		long __functionAddress = getInstance().Uniform3ui;
-		invokeIIIIV(__functionAddress, location, v0, v1, v2);
+		callIIIIV(__functionAddress, location, v0, v1, v2);
 	}
 
 	// --- [ glUniform4ui ] ---
@@ -1483,7 +1483,7 @@ public final class GL30 {
 	 */
 	public static void glUniform4ui(int location, int v0, int v1, int v2, int v3) {
 		long __functionAddress = getInstance().Uniform4ui;
-		invokeIIIIIV(__functionAddress, location, v0, v1, v2, v3);
+		callIIIIIV(__functionAddress, location, v0, v1, v2, v3);
 	}
 
 	// --- [ glUniform1uiv ] ---
@@ -1492,7 +1492,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglUniform1uiv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform1uiv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -1521,7 +1521,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglUniform2uiv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform2uiv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -1550,7 +1550,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglUniform3uiv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform3uiv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -1579,7 +1579,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglUniform4uiv(int location, int count, long value) {
 		long __functionAddress = getInstance().Uniform4uiv;
-		invokeIIPV(__functionAddress, location, count, value);
+		callIIPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -1608,7 +1608,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglGetUniformuiv(int program, int location, long params) {
 		long __functionAddress = getInstance().GetUniformuiv;
-		invokeIIPV(__functionAddress, program, location, params);
+		callIIPV(__functionAddress, program, location, params);
 	}
 
 	/**
@@ -1647,7 +1647,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static void nglBindFragDataLocation(int program, int colorNumber, long name) {
 		long __functionAddress = getInstance().BindFragDataLocation;
-		invokeIIPV(__functionAddress, program, colorNumber, name);
+		callIIPV(__functionAddress, program, colorNumber, name);
 	}
 
 	/**
@@ -1678,7 +1678,7 @@ public final class GL30 {
 	@JavadocExclude
 	public static int nglGetFragDataLocation(int program, long name) {
 		long __functionAddress = getInstance().GetFragDataLocation;
-		return invokeIPI(__functionAddress, program, name);
+		return callIPI(__functionAddress, program, name);
 	}
 
 	/**
@@ -1714,7 +1714,7 @@ public final class GL30 {
 	 */
 	public static void glBeginConditionalRender(int id, int mode) {
 		long __functionAddress = getInstance().BeginConditionalRender;
-		invokeIIV(__functionAddress, id, mode);
+		callIIV(__functionAddress, id, mode);
 	}
 
 	// --- [ glEndConditionalRender ] ---
@@ -1726,7 +1726,7 @@ Ends conditional rendering.
 	 */
 	public static void glEndConditionalRender() {
 		long __functionAddress = getInstance().EndConditionalRender;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glMapBufferRange ] ---
@@ -1735,7 +1735,7 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static long nglMapBufferRange(int target, long offset, long length, int access) {
 		long __functionAddress = getInstance().MapBufferRange;
-		return invokeIPPIP(__functionAddress, target, offset, length, access);
+		return callIPPIP(__functionAddress, target, offset, length, access);
 	}
 
 	/**
@@ -1778,7 +1778,7 @@ Ends conditional rendering.
 	 */
 	public static void glFlushMappedBufferRange(int target, long offset, long length) {
 		long __functionAddress = getInstance().FlushMappedBufferRange;
-		invokeIPPV(__functionAddress, target, offset, length);
+		callIPPV(__functionAddress, target, offset, length);
 	}
 
 	// --- [ glClampColor ] ---
@@ -1793,7 +1793,7 @@ Ends conditional rendering.
 	 */
 	public static void glClampColor(int target, int clamp) {
 		long __functionAddress = getInstance().ClampColor;
-		invokeIIV(__functionAddress, target, clamp);
+		callIIV(__functionAddress, target, clamp);
 	}
 
 	// --- [ glIsRenderbuffer ] ---
@@ -1807,7 +1807,7 @@ Ends conditional rendering.
 	 */
 	public static boolean glIsRenderbuffer(int renderbuffer) {
 		long __functionAddress = getInstance().IsRenderbuffer;
-		return invokeIZ(__functionAddress, renderbuffer);
+		return callIZ(__functionAddress, renderbuffer);
 	}
 
 	// --- [ glBindRenderbuffer ] ---
@@ -1822,7 +1822,7 @@ Ends conditional rendering.
 	 */
 	public static void glBindRenderbuffer(int target, int renderbuffer) {
 		long __functionAddress = getInstance().BindRenderbuffer;
-		invokeIIV(__functionAddress, target, renderbuffer);
+		callIIV(__functionAddress, target, renderbuffer);
 	}
 
 	// --- [ glDeleteRenderbuffers ] ---
@@ -1831,7 +1831,7 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglDeleteRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = getInstance().DeleteRenderbuffers;
-		invokeIPV(__functionAddress, n, renderbuffers);
+		callIPV(__functionAddress, n, renderbuffers);
 	}
 
 	/**
@@ -1866,7 +1866,7 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglGenRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = getInstance().GenRenderbuffers;
-		invokeIPV(__functionAddress, n, renderbuffers);
+		callIPV(__functionAddress, n, renderbuffers);
 	}
 
 	/**
@@ -1910,7 +1910,7 @@ Ends conditional rendering.
 	 */
 	public static void glRenderbufferStorage(int target, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorage;
-		invokeIIIIV(__functionAddress, target, internalformat, width, height);
+		callIIIIV(__functionAddress, target, internalformat, width, height);
 	}
 
 	// --- [ glRenderbufferStorageMultisample ] ---
@@ -1930,7 +1930,7 @@ Ends conditional rendering.
 	 */
 	public static void glRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageMultisample;
-		invokeIIIIIV(__functionAddress, target, samples, internalformat, width, height);
+		callIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
 	// --- [ glGetRenderbufferParameteriv ] ---
@@ -1939,7 +1939,7 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglGetRenderbufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetRenderbufferParameteriv;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -1983,7 +1983,7 @@ Ends conditional rendering.
 	 */
 	public static boolean glIsFramebuffer(int framebuffer) {
 		long __functionAddress = getInstance().IsFramebuffer;
-		return invokeIZ(__functionAddress, framebuffer);
+		return callIZ(__functionAddress, framebuffer);
 	}
 
 	// --- [ glBindFramebuffer ] ---
@@ -1998,7 +1998,7 @@ Ends conditional rendering.
 	 */
 	public static void glBindFramebuffer(int target, int framebuffer) {
 		long __functionAddress = getInstance().BindFramebuffer;
-		invokeIIV(__functionAddress, target, framebuffer);
+		callIIV(__functionAddress, target, framebuffer);
 	}
 
 	// --- [ glDeleteFramebuffers ] ---
@@ -2007,7 +2007,7 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglDeleteFramebuffers(int n, long framebuffers) {
 		long __functionAddress = getInstance().DeleteFramebuffers;
-		invokeIPV(__functionAddress, n, framebuffers);
+		callIPV(__functionAddress, n, framebuffers);
 	}
 
 	/**
@@ -2042,7 +2042,7 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglGenFramebuffers(int n, long framebuffers) {
 		long __functionAddress = getInstance().GenFramebuffers;
-		invokeIPV(__functionAddress, n, framebuffers);
+		callIPV(__functionAddress, n, framebuffers);
 	}
 
 	/**
@@ -2083,7 +2083,7 @@ Ends conditional rendering.
 	 */
 	public static int glCheckFramebufferStatus(int target) {
 		long __functionAddress = getInstance().CheckFramebufferStatus;
-		return invokeII(__functionAddress, target);
+		return callII(__functionAddress, target);
 	}
 
 	// --- [ glFramebufferTexture1D ] ---
@@ -2101,7 +2101,7 @@ Ends conditional rendering.
 	 */
 	public static void glFramebufferTexture1D(int target, int attachment, int textarget, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTexture1D;
-		invokeIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
+		callIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
 	}
 
 	// --- [ glFramebufferTexture2D ] ---
@@ -2119,7 +2119,7 @@ Ends conditional rendering.
 	 */
 	public static void glFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTexture2D;
-		invokeIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
+		callIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
 	}
 
 	// --- [ glFramebufferTexture3D ] ---
@@ -2138,7 +2138,7 @@ Ends conditional rendering.
 	 */
 	public static void glFramebufferTexture3D(int target, int attachment, int textarget, int texture, int level, int layer) {
 		long __functionAddress = getInstance().FramebufferTexture3D;
-		invokeIIIIIIV(__functionAddress, target, attachment, textarget, texture, level, layer);
+		callIIIIIIV(__functionAddress, target, attachment, textarget, texture, level, layer);
 	}
 
 	// --- [ glFramebufferTextureLayer ] ---
@@ -2156,7 +2156,7 @@ Ends conditional rendering.
 	 */
 	public static void glFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer) {
 		long __functionAddress = getInstance().FramebufferTextureLayer;
-		invokeIIIIIV(__functionAddress, target, attachment, texture, level, layer);
+		callIIIIIV(__functionAddress, target, attachment, texture, level, layer);
 	}
 
 	// --- [ glFramebufferRenderbuffer ] ---
@@ -2173,7 +2173,7 @@ Ends conditional rendering.
 	 */
 	public static void glFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer) {
 		long __functionAddress = getInstance().FramebufferRenderbuffer;
-		invokeIIIIV(__functionAddress, target, attachment, renderbuffertarget, renderbuffer);
+		callIIIIV(__functionAddress, target, attachment, renderbuffertarget, renderbuffer);
 	}
 
 	// --- [ glGetFramebufferAttachmentParameteriv ] ---
@@ -2182,7 +2182,7 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferAttachmentParameteriv;
-		invokeIIIPV(__functionAddress, target, attachment, pname, params);
+		callIIIPV(__functionAddress, target, attachment, pname, params);
 	}
 
 	/**
@@ -2236,7 +2236,7 @@ Ends conditional rendering.
 	 */
 	public static void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
 		long __functionAddress = getInstance().BlitFramebuffer;
-		invokeIIIIIIIIIIV(__functionAddress, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
+		callIIIIIIIIIIV(__functionAddress, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 
 	// --- [ glGenerateMipmap ] ---
@@ -2250,7 +2250,7 @@ Ends conditional rendering.
 	 */
 	public static void glGenerateMipmap(int target) {
 		long __functionAddress = getInstance().GenerateMipmap;
-		invokeIV(__functionAddress, target);
+		callIV(__functionAddress, target);
 	}
 
 	// --- [ glTexParameterIiv ] ---
@@ -2259,7 +2259,7 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglTexParameterIiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIiv;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -2297,7 +2297,7 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglTexParameterIuiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().TexParameterIuiv;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -2335,7 +2335,7 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglGetTexParameterIiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIiv;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -2374,7 +2374,7 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglGetTexParameterIuiv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetTexParameterIuiv;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -2422,7 +2422,7 @@ Ends conditional rendering.
 	 */
 	public static void glColorMaski(int buf, boolean r, boolean g, boolean b, boolean a) {
 		long __functionAddress = getInstance().ColorMaski;
-		invokeIZZZZV(__functionAddress, buf, r, g, b, a);
+		callIZZZZV(__functionAddress, buf, r, g, b, a);
 	}
 
 	// --- [ glGetBooleani_v ] ---
@@ -2431,7 +2431,7 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglGetBooleani_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetBooleani_v;
-		invokeIIPV(__functionAddress, target, index, data);
+		callIIPV(__functionAddress, target, index, data);
 	}
 
 	/**
@@ -2463,7 +2463,7 @@ Ends conditional rendering.
 	@JavadocExclude
 	public static void nglGetIntegeri_v(int target, int index, long data) {
 		long __functionAddress = getInstance().GetIntegeri_v;
-		invokeIIPV(__functionAddress, target, index, data);
+		callIIPV(__functionAddress, target, index, data);
 	}
 
 	/**
@@ -2508,7 +2508,7 @@ Ends conditional rendering.
 	 */
 	public static void glEnablei(int cap, int index) {
 		long __functionAddress = getInstance().Enablei;
-		invokeIIV(__functionAddress, cap, index);
+		callIIV(__functionAddress, cap, index);
 	}
 
 	// --- [ glDisablei ] ---
@@ -2523,7 +2523,7 @@ Ends conditional rendering.
 	 */
 	public static void glDisablei(int target, int index) {
 		long __functionAddress = getInstance().Disablei;
-		invokeIIV(__functionAddress, target, index);
+		callIIV(__functionAddress, target, index);
 	}
 
 	// --- [ glIsEnabledi ] ---
@@ -2538,7 +2538,7 @@ Ends conditional rendering.
 	 */
 	public static boolean glIsEnabledi(int target, int index) {
 		long __functionAddress = getInstance().IsEnabledi;
-		return invokeIIZ(__functionAddress, target, index);
+		return callIIZ(__functionAddress, target, index);
 	}
 
 	// --- [ glBindBufferRange ] ---
@@ -2556,7 +2556,7 @@ Ends conditional rendering.
 	 */
 	public static void glBindBufferRange(int target, int index, int buffer, long offset, long size) {
 		long __functionAddress = getInstance().BindBufferRange;
-		invokeIIIPPV(__functionAddress, target, index, buffer, offset, size);
+		callIIIPPV(__functionAddress, target, index, buffer, offset, size);
 	}
 
 	// --- [ glBindBufferBase ] ---
@@ -2572,7 +2572,7 @@ Ends conditional rendering.
 	 */
 	public static void glBindBufferBase(int target, int index, int buffer) {
 		long __functionAddress = getInstance().BindBufferBase;
-		invokeIIIV(__functionAddress, target, index, buffer);
+		callIIIV(__functionAddress, target, index, buffer);
 	}
 
 	// --- [ glBeginTransformFeedback ] ---
@@ -2586,7 +2586,7 @@ Ends conditional rendering.
 	 */
 	public static void glBeginTransformFeedback(int primitiveMode) {
 		long __functionAddress = getInstance().BeginTransformFeedback;
-		invokeIV(__functionAddress, primitiveMode);
+		callIV(__functionAddress, primitiveMode);
 	}
 
 	// --- [ glEndTransformFeedback ] ---
@@ -2598,7 +2598,7 @@ Ends transform feedback operation.
 	 */
 	public static void glEndTransformFeedback() {
 		long __functionAddress = getInstance().EndTransformFeedback;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glTransformFeedbackVaryings ] ---
@@ -2607,7 +2607,7 @@ Ends transform feedback operation.
 	@JavadocExclude
 	public static void nglTransformFeedbackVaryings(int program, int count, long varyings, int bufferMode) {
 		long __functionAddress = getInstance().TransformFeedbackVaryings;
-		invokeIIPIV(__functionAddress, program, count, varyings, bufferMode);
+		callIIPIV(__functionAddress, program, count, varyings, bufferMode);
 	}
 
 	/**
@@ -2659,7 +2659,7 @@ Ends transform feedback operation.
 	@JavadocExclude
 	public static void nglGetTransformFeedbackVarying(int program, int index, int bufSize, long length, long size, long type, long name) {
 		long __functionAddress = getInstance().GetTransformFeedbackVarying;
-		invokeIIIPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
+		callIIIPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
 	}
 
 	/**
@@ -2733,7 +2733,7 @@ Ends transform feedback operation.
 	 */
 	public static void glBindVertexArray(int array) {
 		long __functionAddress = getInstance().BindVertexArray;
-		invokeIV(__functionAddress, array);
+		callIV(__functionAddress, array);
 	}
 
 	// --- [ glDeleteVertexArrays ] ---
@@ -2742,7 +2742,7 @@ Ends transform feedback operation.
 	@JavadocExclude
 	public static void nglDeleteVertexArrays(int n, long arrays) {
 		long __functionAddress = getInstance().DeleteVertexArrays;
-		invokeIPV(__functionAddress, n, arrays);
+		callIPV(__functionAddress, n, arrays);
 	}
 
 	/**
@@ -2777,7 +2777,7 @@ Ends transform feedback operation.
 	@JavadocExclude
 	public static void nglGenVertexArrays(int n, long arrays) {
 		long __functionAddress = getInstance().GenVertexArrays;
-		invokeIPV(__functionAddress, n, arrays);
+		callIPV(__functionAddress, n, arrays);
 	}
 
 	/**
@@ -2818,7 +2818,7 @@ Ends transform feedback operation.
 	 */
 	public static boolean glIsVertexArray(int array) {
 		long __functionAddress = getInstance().IsVertexArray;
-		return invokeIZ(__functionAddress, array);
+		return callIZ(__functionAddress, array);
 	}
 
 }

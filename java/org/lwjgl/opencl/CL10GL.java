@@ -125,7 +125,7 @@ public final class CL10GL {
 		long __functionAddress = getInstance().CreateFromGLBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return invokePJIPP(__functionAddress, context, flags, bufobj, errcode_ret);
+		return callPJIPP(__functionAddress, context, flags, bufobj, errcode_ret);
 	}
 
 	/**
@@ -175,7 +175,7 @@ public final class CL10GL {
 		long __functionAddress = getInstance().CreateFromGLTexture2D;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return invokePJIIIPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
+		return callPJIIIPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
 	}
 
 	/**
@@ -236,7 +236,7 @@ public final class CL10GL {
 		long __functionAddress = getInstance().CreateFromGLTexture3D;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return invokePJIIIPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
+		return callPJIIIPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
 	}
 
 	/**
@@ -296,7 +296,7 @@ public final class CL10GL {
 		long __functionAddress = getInstance().CreateFromGLRenderbuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return invokePJIPP(__functionAddress, context, flags, renderbuffer, errcode_ret);
+		return callPJIPP(__functionAddress, context, flags, renderbuffer, errcode_ret);
 	}
 
 	/**
@@ -348,7 +348,7 @@ public final class CL10GL {
 		long __functionAddress = getInstance().GetGLObjectInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(memobj);
-		return invokePPPI(__functionAddress, memobj, gl_object_type, gl_object_name);
+		return callPPPI(__functionAddress, memobj, gl_object_type, gl_object_name);
 	}
 
 	/**
@@ -384,7 +384,7 @@ public final class CL10GL {
 		long __functionAddress = getInstance().GetGLTextureInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(memobj);
-		return invokePIPPPI(__functionAddress, memobj, param_name, param_value_size, param_value, param_value_size_ret);
+		return callPIPPPI(__functionAddress, memobj, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -436,7 +436,7 @@ public final class CL10GL {
 		long __functionAddress = getInstance().EnqueueAcquireGLObjects;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return invokePIPIPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
+		return callPIPIPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -512,7 +512,7 @@ public final class CL10GL {
 		long __functionAddress = getInstance().EnqueueReleaseGLObjects;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(command_queue);
-		return invokePIPIPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
+		return callPIPIPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**

@@ -80,7 +80,7 @@ public final class ARBMultiBind {
 	@JavadocExclude
 	public static void nglBindBuffersBase(int target, int first, int count, long buffers) {
 		long __functionAddress = getInstance().BindBuffersBase;
-		invokeIIIPV(__functionAddress, target, first, count, buffers);
+		callIIIPV(__functionAddress, target, first, count, buffers);
 	}
 
 	/**
@@ -119,7 +119,7 @@ public final class ARBMultiBind {
 	@JavadocExclude
 	public static void nglBindBuffersRange(int target, int first, int count, long buffers, long offsets, long sizes) {
 		long __functionAddress = getInstance().BindBuffersRange;
-		invokeIIIPPPV(__functionAddress, target, first, count, buffers, offsets, sizes);
+		callIIIPPPV(__functionAddress, target, first, count, buffers, offsets, sizes);
 	}
 
 	/**
@@ -173,7 +173,7 @@ public final class ARBMultiBind {
 	@JavadocExclude
 	public static void nglBindTextures(int first, int count, long textures) {
 		long __functionAddress = getInstance().BindTextures;
-		invokeIIPV(__functionAddress, first, count, textures);
+		callIIPV(__functionAddress, first, count, textures);
 	}
 
 	/**
@@ -231,7 +231,7 @@ public final class ARBMultiBind {
 	@JavadocExclude
 	public static void nglBindSamplers(int first, int count, long samplers) {
 		long __functionAddress = getInstance().BindSamplers;
-		invokeIIPV(__functionAddress, first, count, samplers);
+		callIIPV(__functionAddress, first, count, samplers);
 	}
 
 	/**
@@ -273,7 +273,7 @@ public final class ARBMultiBind {
 	@JavadocExclude
 	public static void nglBindImageTextures(int first, int count, long textures) {
 		long __functionAddress = getInstance().BindImageTextures;
-		invokeIIPV(__functionAddress, first, count, textures);
+		callIIPV(__functionAddress, first, count, textures);
 	}
 
 	/**
@@ -326,7 +326,7 @@ public final class ARBMultiBind {
 	@JavadocExclude
 	public static void nglBindVertexBuffers(int first, int count, long buffers, long offsets, long strides) {
 		long __functionAddress = getInstance().BindVertexBuffers;
-		invokeIIPPPV(__functionAddress, first, count, buffers, offsets, strides);
+		callIIPPPV(__functionAddress, first, count, buffers, offsets, strides);
 	}
 
 	/**

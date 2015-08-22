@@ -76,7 +76,7 @@ public final class ARBClearTexture {
 	@JavadocExclude
 	public static void nglClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearTexSubImage;
-		invokeIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
+		callIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
 	}
 
 	/**
@@ -137,7 +137,7 @@ public final class ARBClearTexture {
 	@JavadocExclude
 	public static void nglClearTexImage(int texture, int level, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearTexImage;
-		invokeIIIIPV(__functionAddress, texture, level, format, type, data);
+		callIIIIPV(__functionAddress, texture, level, format, type, data);
 	}
 
 	/**

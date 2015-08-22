@@ -65,7 +65,7 @@ public final class ARBInternalformatQuery {
 	@JavadocExclude
 	public static void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params) {
 		long __functionAddress = getInstance().GetInternalformativ;
-		invokeIIIIPV(__functionAddress, target, internalformat, pname, bufSize, params);
+		callIIIIPV(__functionAddress, target, internalformat, pname, bufSize, params);
 	}
 
 	/**

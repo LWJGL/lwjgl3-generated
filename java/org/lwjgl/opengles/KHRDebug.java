@@ -215,7 +215,7 @@ public final class KHRDebug {
 	@JavadocExclude
 	public static void nglDebugMessageControlKHR(int source, int type, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = getInstance().DebugMessageControlKHR;
-		invokeIIIIPZV(__functionAddress, source, type, severity, count, ids, enabled);
+		callIIIIPZV(__functionAddress, source, type, severity, count, ids, enabled);
 	}
 
 	/**
@@ -274,7 +274,7 @@ public final class KHRDebug {
 	@JavadocExclude
 	public static void nglDebugMessageInsertKHR(int source, int type, int id, int severity, int length, long message) {
 		long __functionAddress = getInstance().DebugMessageInsertKHR;
-		invokeIIIIIPV(__functionAddress, source, type, id, severity, length, message);
+		callIIIIIPV(__functionAddress, source, type, id, severity, length, message);
 	}
 
 	/**
@@ -350,7 +350,7 @@ public final class KHRDebug {
 	 */
 	public static void glDebugMessageCallbackKHR(GLDebugMessageKHRCallback callback, long userParam) {
 		long __functionAddress = getInstance().DebugMessageCallbackKHR;
-		invokePPV(__functionAddress, callback == null ? NULL : callback.getPointer(), userParam);
+		callPPV(__functionAddress, callback == null ? NULL : callback.getPointer(), userParam);
 	}
 
 	// --- [ glGetDebugMessageLogKHR ] ---
@@ -359,7 +359,7 @@ public final class KHRDebug {
 	@JavadocExclude
 	public static int nglGetDebugMessageLogKHR(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
 		long __functionAddress = getInstance().GetDebugMessageLogKHR;
-		return invokeIIPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
+		return callIIPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
 	}
 
 	/**
@@ -425,7 +425,7 @@ public final class KHRDebug {
 	@JavadocExclude
 	public static void nglGetPointervKHR(int pname, long params) {
 		long __functionAddress = getInstance().GetPointervKHR;
-		invokeIPV(__functionAddress, pname, params);
+		callIPV(__functionAddress, pname, params);
 	}
 
 	public static void glGetPointervKHR(int pname, ByteBuffer params) {
@@ -455,7 +455,7 @@ public final class KHRDebug {
 	@JavadocExclude
 	public static void nglPushDebugGroupKHR(int source, int id, int length, long message) {
 		long __functionAddress = getInstance().PushDebugGroupKHR;
-		invokeIIIPV(__functionAddress, source, id, length, message);
+		callIIIPV(__functionAddress, source, id, length, message);
 	}
 
 	/**
@@ -509,7 +509,7 @@ public final class KHRDebug {
 	 */
 	public static void glPopDebugGroupKHR() {
 		long __functionAddress = getInstance().PopDebugGroupKHR;
-		invokeV(__functionAddress);
+		callV(__functionAddress);
 	}
 
 	// --- [ glObjectLabelKHR ] ---
@@ -518,7 +518,7 @@ public final class KHRDebug {
 	@JavadocExclude
 	public static void nglObjectLabelKHR(int identifier, int name, int length, long label) {
 		long __functionAddress = getInstance().ObjectLabelKHR;
-		invokeIIIPV(__functionAddress, identifier, name, length, label);
+		callIIIPV(__functionAddress, identifier, name, length, label);
 	}
 
 	/**
@@ -554,7 +554,7 @@ public final class KHRDebug {
 	@JavadocExclude
 	public static void nglGetObjectLabelKHR(int identifier, int name, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectLabelKHR;
-		invokeIIIPPV(__functionAddress, identifier, name, bufSize, length, label);
+		callIIIPPV(__functionAddress, identifier, name, bufSize, length, label);
 	}
 
 	/**
@@ -608,7 +608,7 @@ public final class KHRDebug {
 		long __functionAddress = getInstance().ObjectPtrLabelKHR;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ptr);
-		invokePIPV(__functionAddress, ptr, length, label);
+		callPIPV(__functionAddress, ptr, length, label);
 	}
 
 	/**
@@ -645,7 +645,7 @@ public final class KHRDebug {
 		long __functionAddress = getInstance().GetObjectPtrLabelKHR;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ptr);
-		invokePIPPV(__functionAddress, ptr, bufSize, length, label);
+		callPIPPV(__functionAddress, ptr, bufSize, length, label);
 	}
 
 	/**

@@ -404,7 +404,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static boolean glIsRenderbuffer(int renderbuffer) {
 		long __functionAddress = getInstance().IsRenderbuffer;
-		return invokeIZ(__functionAddress, renderbuffer);
+		return callIZ(__functionAddress, renderbuffer);
 	}
 
 	// --- [ glBindRenderbuffer ] ---
@@ -417,7 +417,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glBindRenderbuffer(int target, int renderbuffer) {
 		long __functionAddress = getInstance().BindRenderbuffer;
-		invokeIIV(__functionAddress, target, renderbuffer);
+		callIIV(__functionAddress, target, renderbuffer);
 	}
 
 	// --- [ glDeleteRenderbuffers ] ---
@@ -426,7 +426,7 @@ public final class ARBFramebufferObject {
 	@JavadocExclude
 	public static void nglDeleteRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = getInstance().DeleteRenderbuffers;
-		invokeIPV(__functionAddress, n, renderbuffers);
+		callIPV(__functionAddress, n, renderbuffers);
 	}
 
 	/**
@@ -459,7 +459,7 @@ public final class ARBFramebufferObject {
 	@JavadocExclude
 	public static void nglGenRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = getInstance().GenRenderbuffers;
-		invokeIPV(__functionAddress, n, renderbuffers);
+		callIPV(__functionAddress, n, renderbuffers);
 	}
 
 	/**
@@ -499,7 +499,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glRenderbufferStorage(int target, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorage;
-		invokeIIIIV(__functionAddress, target, internalformat, width, height);
+		callIIIIV(__functionAddress, target, internalformat, width, height);
 	}
 
 	// --- [ glRenderbufferStorageMultisample ] ---
@@ -517,7 +517,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().RenderbufferStorageMultisample;
-		invokeIIIIIV(__functionAddress, target, samples, internalformat, width, height);
+		callIIIIIV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
 	// --- [ glGetRenderbufferParameteriv ] ---
@@ -526,7 +526,7 @@ public final class ARBFramebufferObject {
 	@JavadocExclude
 	public static void nglGetRenderbufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = getInstance().GetRenderbufferParameteriv;
-		invokeIIPV(__functionAddress, target, pname, params);
+		callIIPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -566,7 +566,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static boolean glIsFramebuffer(int framebuffer) {
 		long __functionAddress = getInstance().IsFramebuffer;
-		return invokeIZ(__functionAddress, framebuffer);
+		return callIZ(__functionAddress, framebuffer);
 	}
 
 	// --- [ glBindFramebuffer ] ---
@@ -579,7 +579,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glBindFramebuffer(int target, int framebuffer) {
 		long __functionAddress = getInstance().BindFramebuffer;
-		invokeIIV(__functionAddress, target, framebuffer);
+		callIIV(__functionAddress, target, framebuffer);
 	}
 
 	// --- [ glDeleteFramebuffers ] ---
@@ -588,7 +588,7 @@ public final class ARBFramebufferObject {
 	@JavadocExclude
 	public static void nglDeleteFramebuffers(int n, long framebuffers) {
 		long __functionAddress = getInstance().DeleteFramebuffers;
-		invokeIPV(__functionAddress, n, framebuffers);
+		callIPV(__functionAddress, n, framebuffers);
 	}
 
 	/**
@@ -621,7 +621,7 @@ public final class ARBFramebufferObject {
 	@JavadocExclude
 	public static void nglGenFramebuffers(int n, long framebuffers) {
 		long __functionAddress = getInstance().GenFramebuffers;
-		invokeIPV(__functionAddress, n, framebuffers);
+		callIPV(__functionAddress, n, framebuffers);
 	}
 
 	/**
@@ -658,7 +658,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static int glCheckFramebufferStatus(int target) {
 		long __functionAddress = getInstance().CheckFramebufferStatus;
-		return invokeII(__functionAddress, target);
+		return callII(__functionAddress, target);
 	}
 
 	// --- [ glFramebufferTexture1D ] ---
@@ -674,7 +674,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glFramebufferTexture1D(int target, int attachment, int textarget, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTexture1D;
-		invokeIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
+		callIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
 	}
 
 	// --- [ glFramebufferTexture2D ] ---
@@ -690,7 +690,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level) {
 		long __functionAddress = getInstance().FramebufferTexture2D;
-		invokeIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
+		callIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
 	}
 
 	// --- [ glFramebufferTexture3D ] ---
@@ -707,7 +707,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glFramebufferTexture3D(int target, int attachment, int textarget, int texture, int level, int layer) {
 		long __functionAddress = getInstance().FramebufferTexture3D;
-		invokeIIIIIIV(__functionAddress, target, attachment, textarget, texture, level, layer);
+		callIIIIIIV(__functionAddress, target, attachment, textarget, texture, level, layer);
 	}
 
 	// --- [ glFramebufferTextureLayer ] ---
@@ -723,7 +723,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer) {
 		long __functionAddress = getInstance().FramebufferTextureLayer;
-		invokeIIIIIV(__functionAddress, target, attachment, texture, level, layer);
+		callIIIIIV(__functionAddress, target, attachment, texture, level, layer);
 	}
 
 	// --- [ glFramebufferRenderbuffer ] ---
@@ -738,7 +738,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer) {
 		long __functionAddress = getInstance().FramebufferRenderbuffer;
-		invokeIIIIV(__functionAddress, target, attachment, renderbuffertarget, renderbuffer);
+		callIIIIV(__functionAddress, target, attachment, renderbuffertarget, renderbuffer);
 	}
 
 	// --- [ glGetFramebufferAttachmentParameteriv ] ---
@@ -747,7 +747,7 @@ public final class ARBFramebufferObject {
 	@JavadocExclude
 	public static void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params) {
 		long __functionAddress = getInstance().GetFramebufferAttachmentParameteriv;
-		invokeIIIPV(__functionAddress, target, attachment, pname, params);
+		callIIIPV(__functionAddress, target, attachment, pname, params);
 	}
 
 	/**
@@ -797,7 +797,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
 		long __functionAddress = getInstance().BlitFramebuffer;
-		invokeIIIIIIIIIIV(__functionAddress, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
+		callIIIIIIIIIIV(__functionAddress, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 
 	// --- [ glGenerateMipmap ] ---
@@ -809,7 +809,7 @@ public final class ARBFramebufferObject {
 	 */
 	public static void glGenerateMipmap(int target) {
 		long __functionAddress = getInstance().GenerateMipmap;
-		invokeIV(__functionAddress, target);
+		callIV(__functionAddress, target);
 	}
 
 }

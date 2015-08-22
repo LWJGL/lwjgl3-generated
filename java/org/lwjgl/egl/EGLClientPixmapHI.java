@@ -25,7 +25,7 @@ public final class EGLClientPixmapHI implements Pointer {
 		ISTRIDE;
 
 	static {
-		IntBuffer offsets = BufferUtils.createIntBuffer(4);
+		IntBuffer offsets = memAllocInt(4);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -33,6 +33,8 @@ public final class EGLClientPixmapHI implements Pointer {
 		IWIDTH = offsets.get(1);
 		IHEIGHT = offsets.get(2);
 		ISTRIDE = offsets.get(3);
+
+		memFree(offsets);
 	}
 
 	private final ByteBuffer struct;
@@ -57,11 +59,11 @@ public final class EGLClientPixmapHI implements Pointer {
 		return memAddress(struct);
 	}
 
-	public void setPData(long pData) { pData(struct, pData); }
-	public void setPData(ByteBuffer pData) { pData(struct, pData); }
-	public void setIWidth(int iWidth) { iWidth(struct, iWidth); }
-	public void setIHeight(int iHeight) { iHeight(struct, iHeight); }
-	public void setIStride(int iStride) { iStride(struct, iStride); }
+	public EGLClientPixmapHI setPData(long pData) { pData(struct, pData); return this; }
+	public EGLClientPixmapHI setPData(ByteBuffer pData) { pData(struct, pData); return this; }
+	public EGLClientPixmapHI setIWidth(int iWidth) { iWidth(struct, iWidth); return this; }
+	public EGLClientPixmapHI setIHeight(int iHeight) { iHeight(struct, iHeight); return this; }
+	public EGLClientPixmapHI setIStride(int iStride) { iStride(struct, iStride); return this; }
 
 	public long getPData() { return pData(struct); }
 	public ByteBuffer getPData(int byteLen) { return pData(struct, byteLen); }
