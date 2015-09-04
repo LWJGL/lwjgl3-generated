@@ -17,11 +17,12 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 public abstract class OVRLogCallback extends Closure.Void {
 
 	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(2);
+	private static final PointerBuffer ARGS = memAllocPointer(3);
 
 	static {
-		ARGS.put(0, ffi_type_sint32);
-		ARGS.put(1, ffi_type_pointer);
+		ARGS.put(0, ffi_type_pointer);
+		ARGS.put(1, ffi_type_sint32);
+		ARGS.put(2, ffi_type_pointer);
 
 		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
 		if ( status != FFI_OK )
@@ -40,21 +41,23 @@ public abstract class OVRLogCallback extends Closure.Void {
 	@Override
 	protected void callback(long args) {
 		invoke(
-			memGetInt(memGetAddress(POINTER_SIZE * 0 + args)),
-			memGetAddress(memGetAddress(POINTER_SIZE * 1 + args))
+			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args)),
+			memGetInt(memGetAddress(POINTER_SIZE * 1 + args)),
+			memGetAddress(memGetAddress(POINTER_SIZE * 2 + args))
 		);
 	}
 	/**
 	 * The logging callback.
 	 *
-	 * @param level   one of the ovrLogLevel constants
-	 * @param message a UTF8-encoded null-terminated string
+	 * @param userData an arbitrary value specified by the user of ovrInitParams
+	 * @param level    one of the ovrLogLevel constants
+	 * @param message  a UTF8-encoded null-terminated string
 	 */
-	public abstract void invoke(int level, long message);
+	public abstract void invoke(long userData, int level, long message);
 
 	/** A functional interface for {@link OVRLogCallback}. */
 	public interface SAM {
-		void invoke(int level, long message);
+		void invoke(long userData, int level, long message);
 	}
 
 }

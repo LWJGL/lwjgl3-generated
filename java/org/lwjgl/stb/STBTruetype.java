@@ -491,7 +491,7 @@ public final class STBTruetype {
 
 	/**
 	 * Creates character bitmaps from multiple ranges of characters stored in ranges. This will usually create a better-packed bitmap than multiple calls to
-	 * {@link #stbtt_PackFontRange PackFontRange}.
+	 * {@link #stbtt_PackFontRange PackFontRange}. Note that you can call this multiple times within a single {@link #stbtt_PackBegin PackBegin}/{@link #stbtt_PackEnd PackEnd}.
 	 *
 	 * @param spc        an {@link STBTTPackContext} struct
 	 * @param fontdata   the font data
@@ -525,10 +525,13 @@ public final class STBTruetype {
 	/**
 	 * Oversampling a font increases the quality by allowing higher-quality subpixel positioning, and is especially valuable at smaller text sizes.
 	 * 
-	 * <p>This function sets the amount of oversampling for all following calls to {@link #stbtt_PackFontRange PackFontRange}. The default (no oversampling) is achieved by
-	 * {@code h_oversample=1, v_oversample=1}. The total number of pixels required is {@code h_oversample*v_oversample} larger than the default; for example,
-	 * 2x2 oversampling requires 4x the storage of 1x1. For best results, render oversampled textures with bilinear filtering. Look at the readme in
+	 * <p>This function sets the amount of oversampling for all following calls to {@link #stbtt_PackFontRange PackFontRange} or {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects} for a given pack context. The
+	 * default (no oversampling) is achieved by {@code h_oversample=1, v_oversample=1}. The total number of pixels required is
+	 * {@code h_oversample*v_oversample} larger than the default; for example, 2x2 oversampling requires 4x the storage of 1x1. For best results, render
+	 * oversampled textures with bilinear filtering. Look at the readme in
 	 * <a href="https://github.com/nothings/stb/blob/master/tests/oversample/README.md">stb/tests/oversample</a> for information about oversampled fonts.</p>
+	 * 
+	 * <p>To use with PackFontRangesGather etc., you must set it before calls to {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects}.</p>
 	 *
 	 * @param spc          an {@link STBTTPackContext} struct
 	 * @param h_oversample the horizontal oversampling amount
@@ -580,6 +583,107 @@ public final class STBTruetype {
 			checkBuffer(q, STBTTAlignedQuad.SIZEOF);
 		}
 		nstbtt_GetPackedQuad(memAddress(chardata), pw, ph, char_index, memAddress(xpos), memAddress(ypos), memAddress(q), align_to_integer);
+	}
+
+	// --- [ stbtt_PackFontRangesGatherRects ] ---
+
+	/** JNI method for {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects} */
+	@JavadocExclude
+	public static native int nstbtt_PackFontRangesGatherRects(long spc, long info, long ranges, int num_ranges, long rects);
+
+	/**
+	 * Calling these functions in sequence is roughly equivalent to calling {@link #stbtt_PackFontRanges PackFontRanges}. If you want more control over the packing of multiple fonts, or
+	 * if you want to pack custom data into a font texture, take a look at the source of {@link #stbtt_PackFontRanges PackFontRanges} and create a custom version using these functions,
+	 * e.g. call {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects} multiple times, building up a single array of rects, then call {@link #stbtt_PackFontRangesPackRects PackFontRangesPackRects} once, then call
+	 * {@link #stbtt_PackFontRangesRenderIntoRects PackFontRangesRenderIntoRects} repeatedly. This may result in a better packing than calling {@link #stbtt_PackFontRanges PackFontRanges} multiple times (or it may not).
+	 *
+	 * @param spc        an {@link STBTTPackContext} struct
+	 * @param info       an {@link STBTTFontinfo} struct
+	 * @param ranges     an array of {@link STBTTPackRange} structs
+	 * @param num_ranges the number of {@link STBTTPackRange} structs in {@code ranges}
+	 * @param rects      an array of {@link STBRPRect} structs. It must be big enough to accommodate all characters in the given ranges.
+	 */
+	public static int stbtt_PackFontRangesGatherRects(ByteBuffer spc, ByteBuffer info, ByteBuffer ranges, int num_ranges, ByteBuffer rects) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkBuffer(spc, STBTTPackContext.SIZEOF);
+			checkBuffer(info, STBTTFontinfo.SIZEOF);
+			checkBuffer(ranges, num_ranges * STBTTPackRange.SIZEOF);
+			checkBuffer(rects, STBRPRect.SIZEOF);
+		}
+		return nstbtt_PackFontRangesGatherRects(memAddress(spc), memAddress(info), memAddress(ranges), num_ranges, memAddress(rects));
+	}
+
+	/** Alternative version of: {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects} */
+	public static int stbtt_PackFontRangesGatherRects(ByteBuffer spc, ByteBuffer info, ByteBuffer ranges, ByteBuffer rects) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkBuffer(spc, STBTTPackContext.SIZEOF);
+			checkBuffer(info, STBTTFontinfo.SIZEOF);
+			checkBuffer(rects, STBRPRect.SIZEOF);
+		}
+		return nstbtt_PackFontRangesGatherRects(memAddress(spc), memAddress(info), memAddress(ranges), ranges.remaining() / STBTTPackRange.SIZEOF, memAddress(rects));
+	}
+
+	// --- [ stbtt_PackFontRangesPackRects ] ---
+
+	/** JNI method for {@link #stbtt_PackFontRangesPackRects PackFontRangesPackRects} */
+	@JavadocExclude
+	public static native void nstbtt_PackFontRangesPackRects(long spc, long rects, int num_rects);
+
+	/**
+	 * See {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects}.
+	 *
+	 * @param spc       an {@link STBTTPackContext} struct
+	 * @param rects     an array of {@link STBRPRect} structs
+	 * @param num_rects the number of structs in {@code rects}
+	 */
+	public static void stbtt_PackFontRangesPackRects(ByteBuffer spc, ByteBuffer rects, int num_rects) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkBuffer(spc, STBTTPackContext.SIZEOF);
+			checkBuffer(rects, num_rects * STBRPRect.SIZEOF);
+		}
+		nstbtt_PackFontRangesPackRects(memAddress(spc), memAddress(rects), num_rects);
+	}
+
+	/** Alternative version of: {@link #stbtt_PackFontRangesPackRects PackFontRangesPackRects} */
+	public static void stbtt_PackFontRangesPackRects(ByteBuffer spc, ByteBuffer rects) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(spc, STBTTPackContext.SIZEOF);
+		nstbtt_PackFontRangesPackRects(memAddress(spc), memAddress(rects), rects.remaining() / STBRPRect.SIZEOF);
+	}
+
+	// --- [ stbtt_PackFontRangesRenderIntoRects ] ---
+
+	/** JNI method for {@link #stbtt_PackFontRangesRenderIntoRects PackFontRangesRenderIntoRects} */
+	@JavadocExclude
+	public static native int nstbtt_PackFontRangesRenderIntoRects(long spc, long info, long ranges, int num_ranges, long rects);
+
+	/**
+	 * See {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects}.
+	 *
+	 * @param spc        an {@link STBTTPackContext} struct
+	 * @param info       an {@link STBTTFontinfo} struct
+	 * @param ranges     an array of {@link STBTTPackRange} structs
+	 * @param num_ranges the number of {@link STBTTPackRange} structs in {@code ranges}
+	 * @param rects      an array of {@link STBRPRect} structs. It must be big enough to accommodate all characters in the given ranges.
+	 */
+	public static int stbtt_PackFontRangesRenderIntoRects(ByteBuffer spc, ByteBuffer info, ByteBuffer ranges, int num_ranges, ByteBuffer rects) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkBuffer(spc, STBTTPackContext.SIZEOF);
+			checkBuffer(info, STBTTFontinfo.SIZEOF);
+			checkBuffer(ranges, num_ranges * STBTTPackRange.SIZEOF);
+			checkBuffer(rects, STBRPRect.SIZEOF);
+		}
+		return nstbtt_PackFontRangesRenderIntoRects(memAddress(spc), memAddress(info), memAddress(ranges), num_ranges, memAddress(rects));
+	}
+
+	/** Alternative version of: {@link #stbtt_PackFontRangesRenderIntoRects PackFontRangesRenderIntoRects} */
+	public static int stbtt_PackFontRangesRenderIntoRects(ByteBuffer spc, ByteBuffer info, ByteBuffer ranges, ByteBuffer rects) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkBuffer(spc, STBTTPackContext.SIZEOF);
+			checkBuffer(info, STBTTFontinfo.SIZEOF);
+			checkBuffer(rects, STBRPRect.SIZEOF);
+		}
+		return nstbtt_PackFontRangesRenderIntoRects(memAddress(spc), memAddress(info), memAddress(ranges), ranges.remaining() / STBTTPackRange.SIZEOF, memAddress(rects));
 	}
 
 	// --- [ stbtt_GetFontOffsetForIndex ] ---

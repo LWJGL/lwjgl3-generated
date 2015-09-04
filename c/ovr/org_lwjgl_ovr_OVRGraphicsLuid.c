@@ -6,18 +6,19 @@
 #include <stddef.h>
 #include "common_tools.h"
 DISABLE_WARNINGS()
-#ifdef LWJGL_WINDOWS
-	__pragma(warning(disable : 4242 4244 4701 4702 4711 4996))
-#endif
-#include "stb_rect_pack.h"
+#include "OVR_CAPI.h"
 ENABLE_WARNINGS()
 
 EXTERN_C_EXIT
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBRPContext_offsets(JNIEnv *__env, jclass clazz) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRGraphicsLuid_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
+	jint *buffer = (jint *)(intptr_t)bufferAddress;
+
 	UNUSED_PARAMS(__env, clazz)
 
-	return sizeof(stbrp_context);
+	buffer[0] = (jint)offsetof(ovrGraphicsLuid, Reserved);
+
+	return sizeof(ovrGraphicsLuid);
 }
 
 EXTERN_C_EXIT

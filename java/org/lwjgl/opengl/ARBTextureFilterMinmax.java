@@ -12,7 +12,7 @@ package org.lwjgl.opengl;
  * computing an weighted average of a collection of texels in the neighborhood of the texture coordinate provided.</p>
  * 
  * <p>This extension provides a new texture and sampler parameter ({@link #GL_TEXTURE_REDUCTION_MODE_ARB TEXTURE_REDUCTION_MODE_ARB}) which allows applications to produce a filtered texel value
- * by computing a component-wise minimum ({@link GL11#GL_MIN MIN}) or maximum ({@link GL11#GL_MAX MAX}) of the texels that would normally be averaged. The reduction mode is orthogonal
+ * by computing a component-wise minimum ({@link GL14#GL_MIN MIN}) or maximum ({@link GL14#GL_MAX MAX}) of the texels that would normally be averaged. The reduction mode is orthogonal
  * to the minification and magnification filter parameters. The filter parameters are used to identify the set of texels used to produce a final filtered
  * value; the reduction mode identifies how these texels are combined.</p>
  * 

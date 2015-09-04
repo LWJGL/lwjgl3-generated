@@ -23,6 +23,9 @@ public final class OVRErrorCode {
 	/** The Tracker Firmware is out of date but is acceptable. */
 	public static final int ovrSuccess_TrackerFirmwareMismatch = 4101;
 
+	/** The controller firmware is out of date but is acceptable. */
+	public static final int ovrSuccess_ControllerFirmwareMismatch = 4104;
+
 	/** Failure to allocate memory. */
 	public static final int ovrError_MemoryAllocationFailure = -1000;
 
@@ -83,6 +86,12 @@ public final class OVRErrorCode {
 	/** Chosen rendering adapters between client and service do not match. */
 	public static final int ovrError_MismatchedAdapters = -3009;
 
+	/** Calling application has leaked resources. */
+	public static final int ovrError_LeakingResources = -3010;
+
+	/** Client version too old to connect to service. */
+	public static final int ovrError_ClientVersion = -3011;
+
 	/** Headset has no bundle adjustment data. */
 	public static final int ovrError_InvalidBundleAdjustment = -4000;
 
@@ -107,17 +116,41 @@ public final class OVRErrorCode {
 	/** The tracker is not receiving the sync signal (cable disconnected?) */
 	public static final int ovrError_SyncDisconnected = -4007;
 
+	/** Failed to read memory from the tracker. */
+	public static final int ovrError_TrackerMemoryReadFailure = -4008;
+
+	/** Failed to write memory from the tracker. */
+	public static final int ovrError_TrackerMemoryWriteFailure = -4009;
+
+	/** Timed out waiting for a camera frame. */
+	public static final int ovrError_TrackerFrameTimeout = -4010;
+
+	/** Truncated frame returned from tracker. */
+	public static final int ovrError_TrackerTruncatedFrame = -4011;
+
 	/** The HMD Firmware is out of date and is unacceptable. */
 	public static final int ovrError_HMDFirmwareMismatch = -4100;
 
 	/** The Tracker Firmware is out of date and is unacceptable. */
 	public static final int ovrError_TrackerFirmwareMismatch = -4101;
 
+	/** A bootloader HMD is detected by the service. */
+	public static final int ovrError_BootloaderDeviceDetected = -4102;
+
+	/** The tracker calibration is missing or incorrect. */
+	public static final int ovrError_TrackerCalibrationError = -4103;
+
+	/** The controller firmware is out of date and is unacceptable. */
+	public static final int ovrError_ControllerFirmwareMismatch = -4104;
+
 	/** Requested async work not yet complete. */
 	public static final int ovrError_Incomplete = -5000;
 
 	/** Requested async work was abandoned and result is incomplete. */
 	public static final int ovrError_Abandoned = -5001;
+
+	/** In the event of a system-wide graphics reset or cable unplug this is returned to the app. */
+	public static final int ovrError_DisplayLost = -6000;
 
 	private OVRErrorCode() {}
 

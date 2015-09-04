@@ -6,7 +6,7 @@
 #include "common_tools.h"
 DISABLE_WARNINGS()
 #ifdef LWJGL_WINDOWS
-	__pragma(warning(disable : 4242 4244 4702 4711 4738 4820 4996))
+	__pragma(warning(disable : 4242 4244 4701 4702 4711 4996))
 #endif
 #define STB_TRUETYPE_IMPLEMENTATION
 #define STBTT_STATIC
@@ -81,6 +81,31 @@ JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetPackedQuad(JNIE
 	stbtt_aligned_quad *q = (stbtt_aligned_quad *)(intptr_t)qAddress;
 	UNUSED_PARAMS(__env, clazz)
 	stbtt_GetPackedQuad(chardata, pw, ph, char_index, xpos, ypos, q, align_to_integer);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1PackFontRangesGatherRects(JNIEnv *__env, jclass clazz, jlong spcAddress, jlong infoAddress, jlong rangesAddress, jint num_ranges, jlong rectsAddress) {
+	stbtt_pack_context *spc = (stbtt_pack_context *)(intptr_t)spcAddress;
+	stbtt_fontinfo *info = (stbtt_fontinfo *)(intptr_t)infoAddress;
+	stbtt_pack_range *ranges = (stbtt_pack_range *)(intptr_t)rangesAddress;
+	stbrp_rect *rects = (stbrp_rect *)(intptr_t)rectsAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)stbtt_PackFontRangesGatherRects(spc, info, ranges, num_ranges, rects);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1PackFontRangesPackRects(JNIEnv *__env, jclass clazz, jlong spcAddress, jlong rectsAddress, jint num_rects) {
+	stbtt_pack_context *spc = (stbtt_pack_context *)(intptr_t)spcAddress;
+	stbrp_rect *rects = (stbrp_rect *)(intptr_t)rectsAddress;
+	UNUSED_PARAMS(__env, clazz)
+	stbtt_PackFontRangesPackRects(spc, rects, num_rects);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1PackFontRangesRenderIntoRects(JNIEnv *__env, jclass clazz, jlong spcAddress, jlong infoAddress, jlong rangesAddress, jint num_ranges, jlong rectsAddress) {
+	stbtt_pack_context *spc = (stbtt_pack_context *)(intptr_t)spcAddress;
+	stbtt_fontinfo *info = (stbtt_fontinfo *)(intptr_t)infoAddress;
+	stbtt_pack_range *ranges = (stbtt_pack_range *)(intptr_t)rangesAddress;
+	stbrp_rect *rects = (stbrp_rect *)(intptr_t)rectsAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)stbtt_PackFontRangesRenderIntoRects(spc, info, ranges, num_ranges, rects);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetFontOffsetForIndex(JNIEnv *__env, jclass clazz, jlong dataAddress, jint index) {

@@ -28,12 +28,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRHmdDesc_offsets(JNIEnv *__env, jcla
 	buffer[9] = (jint)offsetof(ovrHmdDesc, CameraFrustumVFovInRadians);
 	buffer[10] = (jint)offsetof(ovrHmdDesc, CameraFrustumNearZInMeters);
 	buffer[11] = (jint)offsetof(ovrHmdDesc, CameraFrustumFarZInMeters);
-	buffer[12] = (jint)offsetof(ovrHmdDesc, HmdCaps);
-	buffer[13] = (jint)offsetof(ovrHmdDesc, TrackingCaps);
-	buffer[14] = (jint)offsetof(ovrHmdDesc, DefaultEyeFov);
-	buffer[15] = (jint)offsetof(ovrHmdDesc, MaxEyeFov);
-	buffer[16] = (jint)offsetof(ovrHmdDesc, EyeRenderOrder);
-	buffer[17] = (jint)offsetof(ovrHmdDesc, Resolution);
+	buffer[12] = (jint)offsetof(ovrHmdDesc, AvailableHmdCaps);
+	buffer[13] = (jint)offsetof(ovrHmdDesc, DefaultHmdCaps);
+	buffer[14] = (jint)offsetof(ovrHmdDesc, AvailableTrackingCaps);
+	buffer[15] = (jint)offsetof(ovrHmdDesc, DefaultTrackingCaps);
+	buffer[16] = (jint)offsetof(ovrHmdDesc, DefaultEyeFov);
+	buffer[17] = (jint)offsetof(ovrHmdDesc, MaxEyeFov);
+	buffer[18] = (jint)offsetof(ovrHmdDesc, Resolution);
+	buffer[19] = (jint)offsetof(ovrHmdDesc, DisplayRefreshRate);
 
 	return sizeof(ovrHmdDesc);
 }

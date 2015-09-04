@@ -848,8 +848,8 @@ public final class STBImage {
 	public static STBISkipCallback STBISkipCallback(final STBISkipCallback.SAM sam) {
 		return new STBISkipCallback() {
 			@Override
-			public int invoke(long user, int n) {
-				return sam.invoke(user, n);
+			public void invoke(long user, int n) {
+				sam.invoke(user, n);
 			}
 		};
 	}

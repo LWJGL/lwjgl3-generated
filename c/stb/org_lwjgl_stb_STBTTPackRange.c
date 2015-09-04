@@ -7,7 +7,7 @@
 #include "common_tools.h"
 DISABLE_WARNINGS()
 #ifdef LWJGL_WINDOWS
-	__pragma(warning(disable : 4242 4244 4702 4711 4738 4820 4996))
+	__pragma(warning(disable : 4242 4244 4701 4702 4711 4996))
 #endif
 #include "stb_truetype.h"
 ENABLE_WARNINGS()
@@ -20,9 +20,10 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBTTPackRange_offsets(JNIEnv *__env, 
 	UNUSED_PARAMS(__env, clazz)
 
 	buffer[0] = (jint)offsetof(stbtt_pack_range, font_size);
-	buffer[1] = (jint)offsetof(stbtt_pack_range, first_unicode_char_in_range);
-	buffer[2] = (jint)offsetof(stbtt_pack_range, num_chars_in_range);
-	buffer[3] = (jint)offsetof(stbtt_pack_range, chardata_for_range);
+	buffer[1] = (jint)offsetof(stbtt_pack_range, first_unicode_codepoint_in_range);
+	buffer[2] = (jint)offsetof(stbtt_pack_range, array_of_unicode_codepoints);
+	buffer[3] = (jint)offsetof(stbtt_pack_range, num_chars);
+	buffer[4] = (jint)offsetof(stbtt_pack_range, chardata_for_range);
 
 	return sizeof(stbtt_pack_range);
 }

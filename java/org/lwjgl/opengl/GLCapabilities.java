@@ -1198,7 +1198,7 @@ public final class GLCapabilities {
 	 * accessed is unpopulated, either from a priori knowledge or from feedback provided by the return value of previously executed "sparse" texture lookup
 	 * functions.</p>
 	 * 
-	 * <p>Requires {@link  ARB_sparse_texture2}</p>
+	 * <p>Requires {@link #GL_ARB_sparse_texture2 ARB_sparse_texture2}</p>
 	 */
 	public final boolean GL_ARB_sparse_texture_clamp;
 	/** When true, {@link ARBStencilTexturing} is supported. */

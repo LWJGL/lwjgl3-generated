@@ -22,21 +22,23 @@ public final class OVRTrackingState implements Pointer {
 		HEADPOSE,
 		CAMERAPOSE,
 		LEVELEDCAMERAPOSE,
+		HANDPOSES,
 		RAWSENSORDATA,
 		STATUSFLAGS,
 		LASTCAMERAFRAMECOUNTER;
 
 	static {
-		IntBuffer offsets = memAllocInt(6);
+		IntBuffer offsets = memAllocInt(7);
 
 		SIZEOF = offsets(memAddress(offsets));
 
 		HEADPOSE = offsets.get(0);
 		CAMERAPOSE = offsets.get(1);
 		LEVELEDCAMERAPOSE = offsets.get(2);
-		RAWSENSORDATA = offsets.get(3);
-		STATUSFLAGS = offsets.get(4);
-		LASTCAMERAFRAMECOUNTER = offsets.get(5);
+		HANDPOSES = offsets.get(3);
+		RAWSENSORDATA = offsets.get(4);
+		STATUSFLAGS = offsets.get(5);
+		LASTCAMERAFRAMECOUNTER = offsets.get(6);
 
 		memFree(offsets);
 	}
@@ -111,6 +113,8 @@ public final class OVRTrackingState implements Pointer {
 	public OVRTrackingState setLeveledCameraPosePositionX(float x) { LeveledCameraPosePositionX(struct, x); return this; }
 	public OVRTrackingState setLeveledCameraPosePositionY(float y) { LeveledCameraPosePositionY(struct, y); return this; }
 	public OVRTrackingState setLeveledCameraPosePositionZ(float z) { LeveledCameraPosePositionZ(struct, z); return this; }
+	public OVRTrackingState setHandPoses(ByteBuffer HandPoses) { HandPosesSet(struct, HandPoses); return this; }
+	public OVRTrackingState setHandPoses(ByteBuffer HandPoses, int index) { HandPosesSet(struct, HandPoses, index); return this; }
 	public OVRTrackingState setRawSensorData(ByteBuffer RawSensorData) { RawSensorDataSet(struct, RawSensorData); return this; }
 	public OVRTrackingState setRawSensorDataAccelerometer(ByteBuffer Accelerometer) { RawSensorDataAccelerometerSet(struct, Accelerometer); return this; }
 	public OVRTrackingState setRawSensorDataAccelerometerX(float x) { RawSensorDataAccelerometerX(struct, x); return this; }
@@ -177,6 +181,8 @@ public final class OVRTrackingState implements Pointer {
 	public float getLeveledCameraPosePositionX() { return LeveledCameraPosePositionX(struct); }
 	public float getLeveledCameraPosePositionY() { return LeveledCameraPosePositionY(struct); }
 	public float getLeveledCameraPosePositionZ() { return LeveledCameraPosePositionZ(struct); }
+	public void getHandPoses(ByteBuffer HandPoses) { HandPosesGet(struct, HandPoses); }
+	public void getHandPoses(ByteBuffer HandPoses, int index) { HandPosesGet(struct, HandPoses, index); }
 	public void getRawSensorData(ByteBuffer RawSensorData) { RawSensorDataGet(struct, RawSensorData); }
 	public void getRawSensorDataAccelerometer(ByteBuffer Accelerometer) { RawSensorDataAccelerometerGet(struct, Accelerometer); }
 	public float getRawSensorDataAccelerometerX() { return RawSensorDataAccelerometerX(struct); }
@@ -207,6 +213,7 @@ public final class OVRTrackingState implements Pointer {
 		ByteBuffer HeadPose,
 		ByteBuffer CameraPose,
 		ByteBuffer LeveledCameraPose,
+		ByteBuffer HandPoses,
 		ByteBuffer RawSensorData,
 		int StatusFlags,
 		int LastCameraFrameCounter
@@ -216,6 +223,7 @@ public final class OVRTrackingState implements Pointer {
 		HeadPoseSet(ovrtrackingstate, HeadPose);
 		CameraPoseSet(ovrtrackingstate, CameraPose);
 		LeveledCameraPoseSet(ovrtrackingstate, LeveledCameraPose);
+		HandPosesSet(ovrtrackingstate, HandPoses);
 		RawSensorDataSet(ovrtrackingstate, RawSensorData);
 		StatusFlags(ovrtrackingstate, StatusFlags);
 		LastCameraFrameCounter(ovrtrackingstate, LastCameraFrameCounter);
@@ -271,6 +279,14 @@ public final class OVRTrackingState implements Pointer {
 	public static void LeveledCameraPosePositionX(ByteBuffer ovrtrackingstate, float x) { ovrtrackingstate.putFloat(ovrtrackingstate.position() + LEVELEDCAMERAPOSE + OVRPosef.POSITION + OVRVector3f.X, x); }
 	public static void LeveledCameraPosePositionY(ByteBuffer ovrtrackingstate, float y) { ovrtrackingstate.putFloat(ovrtrackingstate.position() + LEVELEDCAMERAPOSE + OVRPosef.POSITION + OVRVector3f.Y, y); }
 	public static void LeveledCameraPosePositionZ(ByteBuffer ovrtrackingstate, float z) { ovrtrackingstate.putFloat(ovrtrackingstate.position() + LEVELEDCAMERAPOSE + OVRPosef.POSITION + OVRVector3f.Z, z); }
+	public static void HandPosesSet(ByteBuffer ovrtrackingstate, ByteBuffer HandPoses) {
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(HandPoses, 2 * OVRPoseStatef.SIZEOF);
+		memCopy(memAddress(HandPoses), memAddress(ovrtrackingstate) + HANDPOSES, HandPoses.remaining());
+	}
+	public static void HandPosesSet(ByteBuffer ovrtrackingstate, ByteBuffer HandPoses, int index) {
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(HandPoses, OVRPoseStatef.SIZEOF);
+		memCopy(memAddress(HandPoses), memAddress(ovrtrackingstate) + HANDPOSES + index * OVRPoseStatef.SIZEOF, HandPoses.remaining());
+	}
 	public static void RawSensorDataSet(ByteBuffer ovrtrackingstate, ByteBuffer RawSensorData) { if ( RawSensorData != null ) memCopy(memAddress(RawSensorData), memAddress(ovrtrackingstate) + RAWSENSORDATA, OVRSensorData.SIZEOF); }
 	public static void RawSensorDataAccelerometerSet(ByteBuffer ovrtrackingstate, ByteBuffer Accelerometer) { if ( Accelerometer != null ) memCopy(memAddress(Accelerometer), memAddress(ovrtrackingstate) + RAWSENSORDATA + OVRSensorData.ACCELEROMETER, OVRVector3f.SIZEOF); }
 	public static void RawSensorDataAccelerometerX(ByteBuffer ovrtrackingstate, float x) { ovrtrackingstate.putFloat(ovrtrackingstate.position() + RAWSENSORDATA + OVRSensorData.ACCELEROMETER + OVRVector3f.X, x); }
@@ -337,6 +353,14 @@ public final class OVRTrackingState implements Pointer {
 	public static float LeveledCameraPosePositionX(ByteBuffer ovrtrackingstate) { return ovrtrackingstate.getFloat(ovrtrackingstate.position() + LEVELEDCAMERAPOSE + OVRPosef.POSITION + OVRVector3f.X); }
 	public static float LeveledCameraPosePositionY(ByteBuffer ovrtrackingstate) { return ovrtrackingstate.getFloat(ovrtrackingstate.position() + LEVELEDCAMERAPOSE + OVRPosef.POSITION + OVRVector3f.Y); }
 	public static float LeveledCameraPosePositionZ(ByteBuffer ovrtrackingstate) { return ovrtrackingstate.getFloat(ovrtrackingstate.position() + LEVELEDCAMERAPOSE + OVRPosef.POSITION + OVRVector3f.Z); }
+	public static void HandPosesGet(ByteBuffer ovrtrackingstate, ByteBuffer HandPoses) {
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(HandPoses, 2 * OVRPoseStatef.SIZEOF);
+		memCopy(memAddress(ovrtrackingstate) + HANDPOSES, memAddress(HandPoses), HandPoses.remaining());
+	}
+	public static void HandPosesGet(ByteBuffer ovrtrackingstate, ByteBuffer HandPoses, int index) {
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(HandPoses, OVRPoseStatef.SIZEOF);
+		memCopy(memAddress(ovrtrackingstate) + HANDPOSES + index * OVRPoseStatef.SIZEOF, memAddress(HandPoses), HandPoses.remaining());
+	}
 	public static void RawSensorDataGet(ByteBuffer ovrtrackingstate, ByteBuffer RawSensorData) { if ( LWJGLUtil.CHECKS ) checkBuffer(RawSensorData, OVRSensorData.SIZEOF); memCopy(memAddress(ovrtrackingstate) + RAWSENSORDATA, memAddress(RawSensorData), OVRSensorData.SIZEOF); }
 	public static void RawSensorDataAccelerometerGet(ByteBuffer ovrtrackingstate, ByteBuffer Accelerometer) { if ( LWJGLUtil.CHECKS ) checkBuffer(Accelerometer, OVRVector3f.SIZEOF); memCopy(memAddress(ovrtrackingstate) + RAWSENSORDATA + OVRSensorData.ACCELEROMETER, memAddress(Accelerometer), OVRVector3f.SIZEOF); }
 	public static float RawSensorDataAccelerometerX(ByteBuffer ovrtrackingstate) { return ovrtrackingstate.getFloat(ovrtrackingstate.position() + RAWSENSORDATA + OVRSensorData.ACCELEROMETER + OVRVector3f.X); }

@@ -24,6 +24,7 @@ public final class GLESCapabilities {
 	final APPLEFramebufferMultisample         __APPLEFramebufferMultisample;
 	final APPLESync                           __APPLESync;
 	final EXTBaseInstance                     __EXTBaseInstance;
+	final EXTBlendFuncExtended                __EXTBlendFuncExtended;
 	final EXTBufferStorage                    __EXTBufferStorage;
 	final EXTCopyImage                        __EXTCopyImage;
 	final EXTDebugLabel                       __EXTDebugLabel;
@@ -215,6 +216,8 @@ public final class GLESCapabilities {
 	public final boolean GL_DMP_shader_binary;
 	/** When true, {@link EXTBaseInstance} is supported. */
 	public final boolean GL_EXT_base_instance;
+	/** When true, {@link EXTBlendFuncExtended} is supported. */
+	public final boolean GL_EXT_blend_func_extended;
 	/** When true, {@link EXTBlendMinmax} is supported. */
 	public final boolean GL_EXT_blend_minmax;
 	/** When true, {@link EXTBufferStorage} is supported. */
@@ -296,6 +299,8 @@ public final class GLESCapabilities {
 	public final boolean GL_EXT_multi_draw_arrays;
 	/** When true, {@link EXTMultiDrawIndirect} is supported. */
 	public final boolean GL_EXT_multi_draw_indirect;
+	/** When true, {@link EXTMultisampleCompatibility} is supported. */
+	public final boolean GL_EXT_multisample_compatibility;
 	/** When true, {@link EXTMultisampledRenderToTexture} is supported. */
 	public final boolean GL_EXT_multisampled_render_to_texture;
 	/** When true, {@link EXTMultiviewDrawBuffers} is supported. */
@@ -1140,6 +1145,7 @@ public final class GLESCapabilities {
 		GL_DMP_program_binary = ext.contains("GL_DMP_program_binary");
 		GL_DMP_shader_binary = ext.contains("GL_DMP_shader_binary");
 		GL_EXT_base_instance = (__EXTBaseInstance = EXTBaseInstance.create(ext, provider)) != null;
+		GL_EXT_blend_func_extended = (__EXTBlendFuncExtended = EXTBlendFuncExtended.create(ext, provider)) != null;
 		GL_EXT_blend_minmax = ext.contains("GL_EXT_blend_minmax");
 		GL_EXT_buffer_storage = (__EXTBufferStorage = EXTBufferStorage.create(ext, provider)) != null;
 		GL_EXT_color_buffer_float = ext.contains("GL_EXT_color_buffer_float");
@@ -1161,6 +1167,7 @@ public final class GLESCapabilities {
 		GL_EXT_map_buffer_range = (__EXTMapBufferRange = EXTMapBufferRange.create(ext, provider)) != null;
 		GL_EXT_multi_draw_arrays = (__EXTMultiDrawArrays = EXTMultiDrawArrays.create(ext, provider)) != null;
 		GL_EXT_multi_draw_indirect = (__EXTMultiDrawIndirect = EXTMultiDrawIndirect.create(ext, provider)) != null;
+		GL_EXT_multisample_compatibility = ext.contains("GL_EXT_multisample_compatibility");
 		GL_EXT_multisampled_render_to_texture = (__EXTMultisampledRenderToTexture = EXTMultisampledRenderToTexture.create(ext, provider)) != null;
 		GL_EXT_multiview_draw_buffers = (__EXTMultiviewDrawBuffers = EXTMultiviewDrawBuffers.create(ext, provider)) != null;
 		GL_EXT_occlusion_query_boolean = (__EXTOcclusionQueryBoolean = EXTOcclusionQueryBoolean.create(ext, provider)) != null;

@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** Instances of this interface may be set to the {@code skip} field of the {@link STBIIOCallbacks} struct. */
-public abstract class STBISkipCallback extends Closure.Int {
+public abstract class STBISkipCallback extends Closure.Void {
 
 	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
 	private static final PointerBuffer ARGS = memAllocPointer(2);
@@ -23,7 +23,7 @@ public abstract class STBISkipCallback extends Closure.Int {
 		ARGS.put(0, ffi_type_pointer);
 		ARGS.put(1, ffi_type_sint32);
 
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_sint32, ARGS);
+		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
 		if ( status != FFI_OK )
 			throw new IllegalStateException(String.format("Failed to prepare STBISkipCallback callback interface. Status: 0x%X", status));
 	}
@@ -38,8 +38,8 @@ public abstract class STBISkipCallback extends Closure.Int {
 	 * @param args pointer to an array of jvalues
 	 */
 	@Override
-	protected int callback(long args) {
-		return invoke(
+	protected void callback(long args) {
+		invoke(
 			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args)),
 			memGetInt(memGetAddress(POINTER_SIZE * 1 + args))
 		);
@@ -50,11 +50,11 @@ public abstract class STBISkipCallback extends Closure.Int {
 	 * @param user a pointer to user data
 	 * @param n    the number of bytes to skip if positive, or <em>unget</em> the last {@code -n} bytes if negative
 	 */
-	public abstract int invoke(long user, int n);
+	public abstract void invoke(long user, int n);
 
 	/** A functional interface for {@link STBISkipCallback}. */
 	public interface SAM {
-		int invoke(long user, int n);
+		void invoke(long user, int n);
 	}
 
 }

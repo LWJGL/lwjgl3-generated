@@ -127,9 +127,9 @@ public final class OVRUtil {
 	 * Computes offset eye poses based on {@code headPose} returned by {@link OVRTrackingState}.
 	 *
 	 * @param headPose           indicates the HMD position and orientation to use for the calculation
-	 * @param hmdToEyeViewOffset can be {@link OVREyeRenderDesc}{@code .HmdToEyeViewOffset} returned from {@link OVR#ovrHmd_GetRenderDesc Hmd_GetRenderDesc}. For monoscopic rendering, use a vector that is the
+	 * @param hmdToEyeViewOffset can be {@link OVREyeRenderDesc}{@code .HmdToEyeViewOffset} returned from {@link OVR#ovr_GetRenderDesc _GetRenderDesc}. For monoscopic rendering, use a vector that is the
 	 *                           average of the two vectors for both eyes.
-	 * @param outEyePoses        if {@code outEyePoses} are used for rendering, they should be passed to {@link OVR#ovrHmd_SubmitFrame Hmd_SubmitFrame} in {@link OVRLayerEyeFov}{@code ::RenderPose} or
+	 * @param outEyePoses        if {@code outEyePoses} are used for rendering, they should be passed to {@link OVR#ovr_SubmitFrame _SubmitFrame} in {@link OVRLayerEyeFov}{@code ::RenderPose} or
 	 *                           {@link OVRLayerEyeFovDepth}{@code ::RenderPose}
 	 */
 	public static void ovr_CalcEyePoses(ByteBuffer headPose, ByteBuffer hmdToEyeViewOffset, ByteBuffer outEyePoses) {
@@ -141,11 +141,11 @@ public final class OVRUtil {
 		novr_CalcEyePoses(memAddress(headPose), memAddress(hmdToEyeViewOffset), memAddress(outEyePoses));
 	}
 
-	// --- [ ovrHmd_GetEyePoses ] ---
+	// --- [ ovr_GetEyePoses ] ---
 
-	/** JNI method for {@link #ovrHmd_GetEyePoses Hmd_GetEyePoses} */
+	/** JNI method for {@link #ovr_GetEyePoses _GetEyePoses} */
 	@JavadocExclude
-	public static native void novrHmd_GetEyePoses(long hmd, int frameIndex, long hmdToEyeViewOffset, long outEyePoses, long outHmdTrackingState);
+	public static native void novr_GetEyePoses(long hmd, int frameIndex, long hmdToEyeViewOffset, long outEyePoses, long outHmdTrackingState);
 
 	/**
 	 * Returns the predicted head pose in {@code outHmdTrackingState} and offset eye poses in {@code outEyePoses}.
@@ -154,21 +154,21 @@ public final class OVRUtil {
 	 * called on the rendering thread. Assuming {@code outEyePoses} are used for rendering, it should be passed as a part of {@link OVRLayerEyeFov}. The caller does
 	 * not need to worry about applying {@code hmdToEyeViewOffset} to the returned {@code outEyePoses} variables.</p>
 	 *
-	 * @param hmd                 an {@code ovrHmd} previously returned by {@link OVR#ovrHmd_Create Hmd_Create}
-	 * @param frameIndex          the targeted frame index, or 0 to refer to one frame after the last time {@link OVR#ovrHmd_SubmitFrame Hmd_SubmitFrame} was called
-	 * @param hmdToEyeViewOffset  can be {@link OVREyeRenderDesc}{@code .HmdToEyeViewOffset} returned from {@link OVR#ovrHmd_GetRenderDesc Hmd_GetRenderDesc}. For monoscopic rendering, use a vector that is the
+	 * @param hmd                 an {@code ovrHmd} previously returned by {@link OVR#ovr_Create _Create}
+	 * @param frameIndex          the targeted frame index, or 0 to refer to one frame after the last time {@link OVR#ovr_SubmitFrame _SubmitFrame} was called
+	 * @param hmdToEyeViewOffset  can be {@link OVREyeRenderDesc}{@code .HmdToEyeViewOffset} returned from {@link OVR#ovr_GetRenderDesc _GetRenderDesc}. For monoscopic rendering, use a vector that is the
 	 *                            average of the two vectors for both eyes.
 	 * @param outEyePoses         the predicted eye poses
 	 * @param outHmdTrackingState the predicted {@link OVRTrackingState}. May be {@code NULL}, in which case it is ignored.
 	 */
-	public static void ovrHmd_GetEyePoses(long hmd, int frameIndex, ByteBuffer hmdToEyeViewOffset, ByteBuffer outEyePoses, ByteBuffer outHmdTrackingState) {
+	public static void ovr_GetEyePoses(long hmd, int frameIndex, ByteBuffer hmdToEyeViewOffset, ByteBuffer outEyePoses, ByteBuffer outHmdTrackingState) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(hmd);
 			checkBuffer(hmdToEyeViewOffset, 2 * OVRVector3f.SIZEOF);
 			checkBuffer(outEyePoses, 2 * OVRPosef.SIZEOF);
 			if ( outHmdTrackingState != null ) checkBuffer(outHmdTrackingState, OVRTrackingState.SIZEOF);
 		}
-		novrHmd_GetEyePoses(hmd, frameIndex, memAddress(hmdToEyeViewOffset), memAddress(outEyePoses), memAddressSafe(outHmdTrackingState));
+		novr_GetEyePoses(hmd, frameIndex, memAddress(hmdToEyeViewOffset), memAddress(outEyePoses), memAddressSafe(outHmdTrackingState));
 	}
 
 }

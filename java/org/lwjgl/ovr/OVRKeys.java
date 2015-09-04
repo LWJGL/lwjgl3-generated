@@ -41,6 +41,17 @@ public final class OVRKeys {
 	/**  */
 	public static final int[] OVR_DEFAULT_CAMERA_POSITION = { 0, 0, 0, 1, 0, 0, 0 };
 
+	/**  */
+	public static final String OVR_PERF_HUDE_MODE = "PerfHudMode";
+
+	/**  */
+	public static final String
+		OVR_DEBUG_HUD_STEREO_MODE               = "DebugHudStereoMode",
+		OVR_DEBUG_HUD_STEREO_GUIDE_SIZE         = "DebugHudStereoGuideSize2f",
+		OVR_DEBUG_HUD_STEREO_GUIDE_POSITION     = "DebugHudStereoGuidePosition3f",
+		OVR_DEBUG_HUD_STEREO_GUIDE_YAWPITCHROLL = "DebugHudStereoGuideYawPitchRoll3f",
+		OVR_DEBUG_HUD_STEREO_GUIDE_COLOR        = "DebugHudStereoGuideColor4f";
+
 	private OVRKeys() {}
 
 }

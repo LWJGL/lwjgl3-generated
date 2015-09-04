@@ -443,10 +443,8 @@ public final class STBVorbis {
 	public static native int nstb_vorbis_seek_frame(long f, int sample_number);
 
 	/**
-	 * <h3>NOT WORKING YET</h3>
-	 * 
-	 * <p>Seeks in the Vorbis file to (approximately) {@code sample_number}. After calling seek_frame(), the next call to {@code get_frame_*()} will include the
-	 * specified sample.</p>
+	 * Seeks in the Vorbis file to (approximately) {@code sample_number}. After calling seek_frame(), the next call to {@code get_frame_*()} will include the
+	 * specified sample.
 	 *
 	 * @param f             an ogg vorbis file decoder
 	 * @param sample_number the sample index
@@ -464,10 +462,8 @@ public final class STBVorbis {
 	public static native int nstb_vorbis_seek(long f, int sample_number);
 
 	/**
-	 * <h3>NOT WORKING YET</h3>
-	 * 
-	 * <p>Seeks in the Vorbis file to (approximately) {@code sample_number}. After calling stb_vorbis_seek(), the next call to {@code stb_vorbis_get_samples_*}
-	 * will start with the specified sample.</p>
+	 * Seeks in the Vorbis file to (approximately) {@code sample_number}. After calling stb_vorbis_seek(), the next call to {@code stb_vorbis_get_samples_*}
+	 * will start with the specified sample.
 	 *
 	 * @param f             an ogg vorbis file decoder
 	 * @param sample_number the sample index

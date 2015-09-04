@@ -19,7 +19,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRInitParams_offsets(JNIEnv *__env, j
 	buffer[0] = (jint)offsetof(ovrInitParams, Flags);
 	buffer[1] = (jint)offsetof(ovrInitParams, RequestedMinorVersion);
 	buffer[2] = (jint)offsetof(ovrInitParams, LogCallback);
-	buffer[3] = (jint)offsetof(ovrInitParams, ConnectionTimeoutMS);
+	buffer[3] = (jint)offsetof(ovrInitParams, UserData);
+	buffer[4] = (jint)offsetof(ovrInitParams, ConnectionTimeoutMS);
 
 	return sizeof(ovrInitParams);
 }

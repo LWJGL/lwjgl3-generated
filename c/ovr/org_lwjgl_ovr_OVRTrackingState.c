@@ -19,9 +19,10 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRTrackingState_offsets(JNIEnv *__env
 	buffer[0] = (jint)offsetof(ovrTrackingState, HeadPose);
 	buffer[1] = (jint)offsetof(ovrTrackingState, CameraPose);
 	buffer[2] = (jint)offsetof(ovrTrackingState, LeveledCameraPose);
-	buffer[3] = (jint)offsetof(ovrTrackingState, RawSensorData);
-	buffer[4] = (jint)offsetof(ovrTrackingState, StatusFlags);
-	buffer[5] = (jint)offsetof(ovrTrackingState, LastCameraFrameCounter);
+	buffer[3] = (jint)offsetof(ovrTrackingState, HandPoses);
+	buffer[4] = (jint)offsetof(ovrTrackingState, RawSensorData);
+	buffer[5] = (jint)offsetof(ovrTrackingState, StatusFlags);
+	buffer[6] = (jint)offsetof(ovrTrackingState, LastCameraFrameCounter);
 
 	return sizeof(ovrTrackingState);
 }

@@ -37,13 +37,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1CalcEyePoses(JNIEnv *__e
 	ovr_CalcEyePoses(*headPose, hmdToEyeViewOffset, outEyePoses);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novrHmd_1GetEyePoses(JNIEnv *__env, jclass clazz, jlong hmdAddress, jint frameIndex, jlong hmdToEyeViewOffsetAddress, jlong outEyePosesAddress, jlong outHmdTrackingStateAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1GetEyePoses(JNIEnv *__env, jclass clazz, jlong hmdAddress, jint frameIndex, jlong hmdToEyeViewOffsetAddress, jlong outEyePosesAddress, jlong outHmdTrackingStateAddress) {
 	ovrHmd hmd = (ovrHmd)(intptr_t)hmdAddress;
 	const ovrVector3f *hmdToEyeViewOffset = (const ovrVector3f *)(intptr_t)hmdToEyeViewOffsetAddress;
 	ovrPosef *outEyePoses = (ovrPosef *)(intptr_t)outEyePosesAddress;
 	ovrTrackingState *outHmdTrackingState = (ovrTrackingState *)(intptr_t)outHmdTrackingStateAddress;
 	UNUSED_PARAMS(__env, clazz)
-	ovrHmd_GetEyePoses(hmd, frameIndex, hmdToEyeViewOffset, outEyePoses, outHmdTrackingState);
+	ovr_GetEyePoses(hmd, frameIndex, hmdToEyeViewOffset, outEyePoses, outHmdTrackingState);
 }
 
 EXTERN_C_EXIT

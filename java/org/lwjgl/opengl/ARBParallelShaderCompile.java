@@ -22,7 +22,7 @@ import static org.lwjgl.system.JNI.*;
  */
 public final class ARBParallelShaderCompile {
 
-	/** Accepted as part of the {@code pname} parameter to GetIntegerv(). */
+	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
 	public static final int GL_MAX_SHADER_COMPILER_THREADS_ARB = 0x91B0;
 
 	/** Accepted as part of the {@code pname} parameter to GetShaderiv() and accepted as part of the {@code pname} parameter to GetProgramiv(). */

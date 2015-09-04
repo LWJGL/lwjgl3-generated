@@ -31,15 +31,17 @@ public final class OVRHmdDesc implements Pointer {
 		CAMERAFRUSTUMVFOVINRADIANS,
 		CAMERAFRUSTUMNEARZINMETERS,
 		CAMERAFRUSTUMFARZINMETERS,
-		HMDCAPS,
-		TRACKINGCAPS,
+		AVAILABLEHMDCAPS,
+		DEFAULTHMDCAPS,
+		AVAILABLETRACKINGCAPS,
+		DEFAULTTRACKINGCAPS,
 		DEFAULTEYEFOV,
 		MAXEYEFOV,
-		EYERENDERORDER,
-		RESOLUTION;
+		RESOLUTION,
+		DISPLAYREFRESHRATE;
 
 	static {
-		IntBuffer offsets = memAllocInt(18);
+		IntBuffer offsets = memAllocInt(20);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -55,12 +57,14 @@ public final class OVRHmdDesc implements Pointer {
 		CAMERAFRUSTUMVFOVINRADIANS = offsets.get(9);
 		CAMERAFRUSTUMNEARZINMETERS = offsets.get(10);
 		CAMERAFRUSTUMFARZINMETERS = offsets.get(11);
-		HMDCAPS = offsets.get(12);
-		TRACKINGCAPS = offsets.get(13);
-		DEFAULTEYEFOV = offsets.get(14);
-		MAXEYEFOV = offsets.get(15);
-		EYERENDERORDER = offsets.get(16);
-		RESOLUTION = offsets.get(17);
+		AVAILABLEHMDCAPS = offsets.get(12);
+		DEFAULTHMDCAPS = offsets.get(13);
+		AVAILABLETRACKINGCAPS = offsets.get(14);
+		DEFAULTTRACKINGCAPS = offsets.get(15);
+		DEFAULTEYEFOV = offsets.get(16);
+		MAXEYEFOV = offsets.get(17);
+		RESOLUTION = offsets.get(18);
+		DISPLAYREFRESHRATE = offsets.get(19);
 
 		memFree(offsets);
 	}
@@ -88,10 +92,10 @@ public final class OVRHmdDesc implements Pointer {
 	}
 
 	public OVRHmdDesc setType(int Type) { Type(struct, Type); return this; }
-	public OVRHmdDesc setProductName(long ProductName) { ProductName(struct, ProductName); return this; }
-	public OVRHmdDesc setProductName(ByteBuffer ProductName) { ProductName(struct, ProductName); return this; }
-	public OVRHmdDesc setManufacturer(long Manufacturer) { Manufacturer(struct, Manufacturer); return this; }
-	public OVRHmdDesc setManufacturer(ByteBuffer Manufacturer) { Manufacturer(struct, Manufacturer); return this; }
+	public OVRHmdDesc setProductName(ByteBuffer ProductName) { ProductNameSet(struct, ProductName); return this; }
+	public OVRHmdDesc setProductName(CharSequence ProductName) { ProductName(struct, ProductName); return this; }
+	public OVRHmdDesc setManufacturer(ByteBuffer Manufacturer) { ManufacturerSet(struct, Manufacturer); return this; }
+	public OVRHmdDesc setManufacturer(CharSequence Manufacturer) { Manufacturer(struct, Manufacturer); return this; }
 	public OVRHmdDesc setVendorId(int VendorId) { VendorId(struct, VendorId); return this; }
 	public OVRHmdDesc setProductId(int ProductId) { ProductId(struct, ProductId); return this; }
 	public OVRHmdDesc setSerialNumber(ByteBuffer SerialNumber) { SerialNumberSet(struct, SerialNumber); return this; }
@@ -102,25 +106,26 @@ public final class OVRHmdDesc implements Pointer {
 	public OVRHmdDesc setCameraFrustumVFovInRadians(float CameraFrustumVFovInRadians) { CameraFrustumVFovInRadians(struct, CameraFrustumVFovInRadians); return this; }
 	public OVRHmdDesc setCameraFrustumNearZInMeters(float CameraFrustumNearZInMeters) { CameraFrustumNearZInMeters(struct, CameraFrustumNearZInMeters); return this; }
 	public OVRHmdDesc setCameraFrustumFarZInMeters(float CameraFrustumFarZInMeters) { CameraFrustumFarZInMeters(struct, CameraFrustumFarZInMeters); return this; }
-	public OVRHmdDesc setHmdCaps(int HmdCaps) { HmdCaps(struct, HmdCaps); return this; }
-	public OVRHmdDesc setTrackingCaps(int TrackingCaps) { TrackingCaps(struct, TrackingCaps); return this; }
+	public OVRHmdDesc setAvailableHmdCaps(int AvailableHmdCaps) { AvailableHmdCaps(struct, AvailableHmdCaps); return this; }
+	public OVRHmdDesc setDefaultHmdCaps(int DefaultHmdCaps) { DefaultHmdCaps(struct, DefaultHmdCaps); return this; }
+	public OVRHmdDesc setAvailableTrackingCaps(int AvailableTrackingCaps) { AvailableTrackingCaps(struct, AvailableTrackingCaps); return this; }
+	public OVRHmdDesc setDefaultTrackingCaps(int DefaultTrackingCaps) { DefaultTrackingCaps(struct, DefaultTrackingCaps); return this; }
 	public OVRHmdDesc setDefaultEyeFov(ByteBuffer DefaultEyeFov) { DefaultEyeFovSet(struct, DefaultEyeFov); return this; }
 	public OVRHmdDesc setDefaultEyeFov(ByteBuffer DefaultEyeFov, int index) { DefaultEyeFovSet(struct, DefaultEyeFov, index); return this; }
 	public OVRHmdDesc setMaxEyeFov(ByteBuffer MaxEyeFov) { MaxEyeFovSet(struct, MaxEyeFov); return this; }
 	public OVRHmdDesc setMaxEyeFov(ByteBuffer MaxEyeFov, int index) { MaxEyeFovSet(struct, MaxEyeFov, index); return this; }
-	public OVRHmdDesc setEyeRenderOrder(ByteBuffer EyeRenderOrder) { EyeRenderOrderSet(struct, EyeRenderOrder); return this; }
-	public OVRHmdDesc setEyeRenderOrder(int index, int EyeRenderOrder) { EyeRenderOrder(struct, index, EyeRenderOrder); return this; }
 	public OVRHmdDesc setResolution(ByteBuffer Resolution) { ResolutionSet(struct, Resolution); return this; }
 	public OVRHmdDesc setResolutionW(int w) { ResolutionW(struct, w); return this; }
 	public OVRHmdDesc setResolutionH(int h) { ResolutionH(struct, h); return this; }
+	public OVRHmdDesc setDisplayRefreshRate(float DisplayRefreshRate) { DisplayRefreshRate(struct, DisplayRefreshRate); return this; }
 
 	public int getType() { return Type(struct); }
-	public long getProductName() { return ProductName(struct); }
-	public ByteBuffer getProductNameBuffer() { return ProductNameBuffer(struct); }
+	public void getProductName(ByteBuffer ProductName) { ProductNameGet(struct, ProductName); }
 	public String getProductNameString() { return ProductNameString(struct); }
-	public long getManufacturer() { return Manufacturer(struct); }
-	public ByteBuffer getManufacturerBuffer() { return ManufacturerBuffer(struct); }
+	public String getProductNameString(int byteLen) { return ProductNameString(struct, byteLen); }
+	public void getManufacturer(ByteBuffer Manufacturer) { ManufacturerGet(struct, Manufacturer); }
 	public String getManufacturerString() { return ManufacturerString(struct); }
+	public String getManufacturerString(int byteLen) { return ManufacturerString(struct, byteLen); }
 	public int getVendorId() { return VendorId(struct); }
 	public int getProductId() { return ProductId(struct); }
 	public void getSerialNumber(ByteBuffer SerialNumber) { SerialNumberGet(struct, SerialNumber); }
@@ -132,16 +137,18 @@ public final class OVRHmdDesc implements Pointer {
 	public float getCameraFrustumVFovInRadians() { return CameraFrustumVFovInRadians(struct); }
 	public float getCameraFrustumNearZInMeters() { return CameraFrustumNearZInMeters(struct); }
 	public float getCameraFrustumFarZInMeters() { return CameraFrustumFarZInMeters(struct); }
-	public int getHmdCaps() { return HmdCaps(struct); }
-	public int getTrackingCaps() { return TrackingCaps(struct); }
+	public int getAvailableHmdCaps() { return AvailableHmdCaps(struct); }
+	public int getDefaultHmdCaps() { return DefaultHmdCaps(struct); }
+	public int getAvailableTrackingCaps() { return AvailableTrackingCaps(struct); }
+	public int getDefaultTrackingCaps() { return DefaultTrackingCaps(struct); }
 	public void getDefaultEyeFov(ByteBuffer DefaultEyeFov) { DefaultEyeFovGet(struct, DefaultEyeFov); }
 	public void getDefaultEyeFov(ByteBuffer DefaultEyeFov, int index) { DefaultEyeFovGet(struct, DefaultEyeFov, index); }
 	public void getMaxEyeFov(ByteBuffer MaxEyeFov) { MaxEyeFovGet(struct, MaxEyeFov); }
 	public void getMaxEyeFov(ByteBuffer MaxEyeFov, int index) { MaxEyeFovGet(struct, MaxEyeFov, index); }
-	public void getEyeRenderOrder(ByteBuffer EyeRenderOrder) { EyeRenderOrderGet(struct, EyeRenderOrder); }
 	public void getResolution(ByteBuffer Resolution) { ResolutionGet(struct, Resolution); }
 	public int getResolutionW() { return ResolutionW(struct); }
 	public int getResolutionH() { return ResolutionH(struct); }
+	public float getDisplayRefreshRate() { return DisplayRefreshRate(struct); }
 
 	// -----------------------------------
 
@@ -164,18 +171,20 @@ public final class OVRHmdDesc implements Pointer {
 		float CameraFrustumVFovInRadians,
 		float CameraFrustumNearZInMeters,
 		float CameraFrustumFarZInMeters,
-		int HmdCaps,
-		int TrackingCaps,
+		int AvailableHmdCaps,
+		int DefaultHmdCaps,
+		int AvailableTrackingCaps,
+		int DefaultTrackingCaps,
 		ByteBuffer DefaultEyeFov,
 		ByteBuffer MaxEyeFov,
-		ByteBuffer EyeRenderOrder,
-		ByteBuffer Resolution
+		ByteBuffer Resolution,
+		float DisplayRefreshRate
 	) {
 		ByteBuffer ovrhmddesc = malloc();
 
 		Type(ovrhmddesc, Type);
-		ProductName(ovrhmddesc, ProductName);
-		Manufacturer(ovrhmddesc, Manufacturer);
+		ProductNameSet(ovrhmddesc, ProductName);
+		ManufacturerSet(ovrhmddesc, Manufacturer);
 		VendorId(ovrhmddesc, VendorId);
 		ProductId(ovrhmddesc, ProductId);
 		SerialNumberSet(ovrhmddesc, SerialNumber);
@@ -185,12 +194,14 @@ public final class OVRHmdDesc implements Pointer {
 		CameraFrustumVFovInRadians(ovrhmddesc, CameraFrustumVFovInRadians);
 		CameraFrustumNearZInMeters(ovrhmddesc, CameraFrustumNearZInMeters);
 		CameraFrustumFarZInMeters(ovrhmddesc, CameraFrustumFarZInMeters);
-		HmdCaps(ovrhmddesc, HmdCaps);
-		TrackingCaps(ovrhmddesc, TrackingCaps);
+		AvailableHmdCaps(ovrhmddesc, AvailableHmdCaps);
+		DefaultHmdCaps(ovrhmddesc, DefaultHmdCaps);
+		AvailableTrackingCaps(ovrhmddesc, AvailableTrackingCaps);
+		DefaultTrackingCaps(ovrhmddesc, DefaultTrackingCaps);
 		DefaultEyeFovSet(ovrhmddesc, DefaultEyeFov);
 		MaxEyeFovSet(ovrhmddesc, MaxEyeFov);
-		EyeRenderOrderSet(ovrhmddesc, EyeRenderOrder);
 		ResolutionSet(ovrhmddesc, Resolution);
+		DisplayRefreshRate(ovrhmddesc, DisplayRefreshRate);
 
 		return ovrhmddesc;
 	}
@@ -198,8 +209,8 @@ public final class OVRHmdDesc implements Pointer {
 	/** Alternative virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
 	public static ByteBuffer malloc(
 		int Type,
-		ByteBuffer ProductName,
-		ByteBuffer Manufacturer,
+		CharSequence ProductName,
+		CharSequence Manufacturer,
 		int VendorId,
 		int ProductId,
 		CharSequence SerialNumber,
@@ -209,12 +220,14 @@ public final class OVRHmdDesc implements Pointer {
 		float CameraFrustumVFovInRadians,
 		float CameraFrustumNearZInMeters,
 		float CameraFrustumFarZInMeters,
-		int HmdCaps,
-		int TrackingCaps,
+		int AvailableHmdCaps,
+		int DefaultHmdCaps,
+		int AvailableTrackingCaps,
+		int DefaultTrackingCaps,
 		ByteBuffer DefaultEyeFov,
 		ByteBuffer MaxEyeFov,
-		ByteBuffer EyeRenderOrder,
-		ByteBuffer Resolution
+		ByteBuffer Resolution,
+		float DisplayRefreshRate
 	) {
 		ByteBuffer ovrhmddesc = malloc();
 
@@ -230,21 +243,35 @@ public final class OVRHmdDesc implements Pointer {
 		CameraFrustumVFovInRadians(ovrhmddesc, CameraFrustumVFovInRadians);
 		CameraFrustumNearZInMeters(ovrhmddesc, CameraFrustumNearZInMeters);
 		CameraFrustumFarZInMeters(ovrhmddesc, CameraFrustumFarZInMeters);
-		HmdCaps(ovrhmddesc, HmdCaps);
-		TrackingCaps(ovrhmddesc, TrackingCaps);
+		AvailableHmdCaps(ovrhmddesc, AvailableHmdCaps);
+		DefaultHmdCaps(ovrhmddesc, DefaultHmdCaps);
+		AvailableTrackingCaps(ovrhmddesc, AvailableTrackingCaps);
+		DefaultTrackingCaps(ovrhmddesc, DefaultTrackingCaps);
 		DefaultEyeFovSet(ovrhmddesc, DefaultEyeFov);
 		MaxEyeFovSet(ovrhmddesc, MaxEyeFov);
-		EyeRenderOrderSet(ovrhmddesc, EyeRenderOrder);
 		ResolutionSet(ovrhmddesc, Resolution);
+		DisplayRefreshRate(ovrhmddesc, DisplayRefreshRate);
 
 		return ovrhmddesc;
 	}
 
 	public static void Type(ByteBuffer ovrhmddesc, int Type) { ovrhmddesc.putInt(ovrhmddesc.position() + TYPE, Type); }
-	public static void ProductName(ByteBuffer ovrhmddesc, long ProductName) { PointerBuffer.put(ovrhmddesc, ovrhmddesc.position() + PRODUCTNAME, ProductName); }
-	public static void ProductName(ByteBuffer ovrhmddesc, ByteBuffer ProductName) { if ( LWJGLUtil.CHECKS && ProductName != null ) checkNT1(ProductName); ProductName(ovrhmddesc, memAddressSafe(ProductName)); }
-	public static void Manufacturer(ByteBuffer ovrhmddesc, long Manufacturer) { PointerBuffer.put(ovrhmddesc, ovrhmddesc.position() + MANUFACTURER, Manufacturer); }
-	public static void Manufacturer(ByteBuffer ovrhmddesc, ByteBuffer Manufacturer) { if ( LWJGLUtil.CHECKS && Manufacturer != null ) checkNT1(Manufacturer); Manufacturer(ovrhmddesc, memAddressSafe(Manufacturer)); }
+	public static void ProductNameSet(ByteBuffer ovrhmddesc, ByteBuffer ProductName) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkNT1(ProductName);
+			checkBufferGT(ProductName, 64 * 1);
+		}
+		memCopy(memAddress(ProductName), memAddress(ovrhmddesc) + PRODUCTNAME, ProductName.remaining());
+	}
+	public static void ProductName(ByteBuffer ovrhmddesc, CharSequence ProductName) { memEncodeUTF8(ProductName, true, ovrhmddesc, PRODUCTNAME); }
+	public static void ManufacturerSet(ByteBuffer ovrhmddesc, ByteBuffer Manufacturer) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkNT1(Manufacturer);
+			checkBufferGT(Manufacturer, 64 * 1);
+		}
+		memCopy(memAddress(Manufacturer), memAddress(ovrhmddesc) + MANUFACTURER, Manufacturer.remaining());
+	}
+	public static void Manufacturer(ByteBuffer ovrhmddesc, CharSequence Manufacturer) { memEncodeUTF8(Manufacturer, true, ovrhmddesc, MANUFACTURER); }
 	public static void VendorId(ByteBuffer ovrhmddesc, int VendorId) { ovrhmddesc.putShort(ovrhmddesc.position() + VENDORID, (short)VendorId); }
 	public static void ProductId(ByteBuffer ovrhmddesc, int ProductId) { ovrhmddesc.putShort(ovrhmddesc.position() + PRODUCTID, (short)ProductId); }
 	public static void SerialNumberSet(ByteBuffer ovrhmddesc, ByteBuffer SerialNumber) {
@@ -261,8 +288,10 @@ public final class OVRHmdDesc implements Pointer {
 	public static void CameraFrustumVFovInRadians(ByteBuffer ovrhmddesc, float CameraFrustumVFovInRadians) { ovrhmddesc.putFloat(ovrhmddesc.position() + CAMERAFRUSTUMVFOVINRADIANS, CameraFrustumVFovInRadians); }
 	public static void CameraFrustumNearZInMeters(ByteBuffer ovrhmddesc, float CameraFrustumNearZInMeters) { ovrhmddesc.putFloat(ovrhmddesc.position() + CAMERAFRUSTUMNEARZINMETERS, CameraFrustumNearZInMeters); }
 	public static void CameraFrustumFarZInMeters(ByteBuffer ovrhmddesc, float CameraFrustumFarZInMeters) { ovrhmddesc.putFloat(ovrhmddesc.position() + CAMERAFRUSTUMFARZINMETERS, CameraFrustumFarZInMeters); }
-	public static void HmdCaps(ByteBuffer ovrhmddesc, int HmdCaps) { ovrhmddesc.putInt(ovrhmddesc.position() + HMDCAPS, HmdCaps); }
-	public static void TrackingCaps(ByteBuffer ovrhmddesc, int TrackingCaps) { ovrhmddesc.putInt(ovrhmddesc.position() + TRACKINGCAPS, TrackingCaps); }
+	public static void AvailableHmdCaps(ByteBuffer ovrhmddesc, int AvailableHmdCaps) { ovrhmddesc.putInt(ovrhmddesc.position() + AVAILABLEHMDCAPS, AvailableHmdCaps); }
+	public static void DefaultHmdCaps(ByteBuffer ovrhmddesc, int DefaultHmdCaps) { ovrhmddesc.putInt(ovrhmddesc.position() + DEFAULTHMDCAPS, DefaultHmdCaps); }
+	public static void AvailableTrackingCaps(ByteBuffer ovrhmddesc, int AvailableTrackingCaps) { ovrhmddesc.putInt(ovrhmddesc.position() + AVAILABLETRACKINGCAPS, AvailableTrackingCaps); }
+	public static void DefaultTrackingCaps(ByteBuffer ovrhmddesc, int DefaultTrackingCaps) { ovrhmddesc.putInt(ovrhmddesc.position() + DEFAULTTRACKINGCAPS, DefaultTrackingCaps); }
 	public static void DefaultEyeFovSet(ByteBuffer ovrhmddesc, ByteBuffer DefaultEyeFov) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(DefaultEyeFov, 2 * OVRFovPort.SIZEOF);
 		memCopy(memAddress(DefaultEyeFov), memAddress(ovrhmddesc) + DEFAULTEYEFOV, DefaultEyeFov.remaining());
@@ -279,24 +308,24 @@ public final class OVRHmdDesc implements Pointer {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(MaxEyeFov, OVRFovPort.SIZEOF);
 		memCopy(memAddress(MaxEyeFov), memAddress(ovrhmddesc) + MAXEYEFOV + index * OVRFovPort.SIZEOF, MaxEyeFov.remaining());
 	}
-	public static void EyeRenderOrderSet(ByteBuffer ovrhmddesc, ByteBuffer EyeRenderOrder) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBufferGT(EyeRenderOrder, 2 * 4);
-		}
-		memCopy(memAddress(EyeRenderOrder), memAddress(ovrhmddesc) + EYERENDERORDER, EyeRenderOrder.remaining());
-	}
-	public static void EyeRenderOrder(ByteBuffer ovrhmddesc, int index, int EyeRenderOrder) { ovrhmddesc.putInt(EYERENDERORDER + index * 4, EyeRenderOrder); }
 	public static void ResolutionSet(ByteBuffer ovrhmddesc, ByteBuffer Resolution) { if ( Resolution != null ) memCopy(memAddress(Resolution), memAddress(ovrhmddesc) + RESOLUTION, OVRSizei.SIZEOF); }
 	public static void ResolutionW(ByteBuffer ovrhmddesc, int w) { ovrhmddesc.putInt(ovrhmddesc.position() + RESOLUTION + OVRSizei.W, w); }
 	public static void ResolutionH(ByteBuffer ovrhmddesc, int h) { ovrhmddesc.putInt(ovrhmddesc.position() + RESOLUTION + OVRSizei.H, h); }
+	public static void DisplayRefreshRate(ByteBuffer ovrhmddesc, float DisplayRefreshRate) { ovrhmddesc.putFloat(ovrhmddesc.position() + DISPLAYREFRESHRATE, DisplayRefreshRate); }
 
 	public static int Type(ByteBuffer ovrhmddesc) { return ovrhmddesc.getInt(ovrhmddesc.position() + TYPE); }
-	public static long ProductName(ByteBuffer ovrhmddesc) { return PointerBuffer.get(ovrhmddesc, ovrhmddesc.position() + PRODUCTNAME); }
-	public static ByteBuffer ProductNameBuffer(ByteBuffer ovrhmddesc) { return memByteBufferNT1(ProductName(ovrhmddesc)); }
-	public static String ProductNameString(ByteBuffer ovrhmddesc) { return memDecodeUTF8(ProductName(ovrhmddesc)); }
-	public static long Manufacturer(ByteBuffer ovrhmddesc) { return PointerBuffer.get(ovrhmddesc, ovrhmddesc.position() + MANUFACTURER); }
-	public static ByteBuffer ManufacturerBuffer(ByteBuffer ovrhmddesc) { return memByteBufferNT1(Manufacturer(ovrhmddesc)); }
-	public static String ManufacturerString(ByteBuffer ovrhmddesc) { return memDecodeUTF8(Manufacturer(ovrhmddesc)); }
+	public static void ProductNameGet(ByteBuffer ovrhmddesc, ByteBuffer ProductName) {
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(ProductName, 64 * 1);
+		memCopy(memAddress(ovrhmddesc) + PRODUCTNAME, memAddress(ProductName), ProductName.remaining());
+	}
+	public static String ProductNameString(ByteBuffer ovrhmddesc) { return memDecodeUTF8(ovrhmddesc, memStrLen1(ovrhmddesc, PRODUCTNAME), PRODUCTNAME); }
+	public static String ProductNameString(ByteBuffer ovrhmddesc, int byteLen) { return memDecodeUTF8(ovrhmddesc, byteLen, PRODUCTNAME); }
+	public static void ManufacturerGet(ByteBuffer ovrhmddesc, ByteBuffer Manufacturer) {
+		if ( LWJGLUtil.CHECKS ) checkBufferGT(Manufacturer, 64 * 1);
+		memCopy(memAddress(ovrhmddesc) + MANUFACTURER, memAddress(Manufacturer), Manufacturer.remaining());
+	}
+	public static String ManufacturerString(ByteBuffer ovrhmddesc) { return memDecodeUTF8(ovrhmddesc, memStrLen1(ovrhmddesc, MANUFACTURER), MANUFACTURER); }
+	public static String ManufacturerString(ByteBuffer ovrhmddesc, int byteLen) { return memDecodeUTF8(ovrhmddesc, byteLen, MANUFACTURER); }
 	public static int VendorId(ByteBuffer ovrhmddesc) { return ovrhmddesc.getShort(ovrhmddesc.position() + VENDORID); }
 	public static int ProductId(ByteBuffer ovrhmddesc) { return ovrhmddesc.getShort(ovrhmddesc.position() + PRODUCTID); }
 	public static void SerialNumberGet(ByteBuffer ovrhmddesc, ByteBuffer SerialNumber) {
@@ -311,8 +340,10 @@ public final class OVRHmdDesc implements Pointer {
 	public static float CameraFrustumVFovInRadians(ByteBuffer ovrhmddesc) { return ovrhmddesc.getFloat(ovrhmddesc.position() + CAMERAFRUSTUMVFOVINRADIANS); }
 	public static float CameraFrustumNearZInMeters(ByteBuffer ovrhmddesc) { return ovrhmddesc.getFloat(ovrhmddesc.position() + CAMERAFRUSTUMNEARZINMETERS); }
 	public static float CameraFrustumFarZInMeters(ByteBuffer ovrhmddesc) { return ovrhmddesc.getFloat(ovrhmddesc.position() + CAMERAFRUSTUMFARZINMETERS); }
-	public static int HmdCaps(ByteBuffer ovrhmddesc) { return ovrhmddesc.getInt(ovrhmddesc.position() + HMDCAPS); }
-	public static int TrackingCaps(ByteBuffer ovrhmddesc) { return ovrhmddesc.getInt(ovrhmddesc.position() + TRACKINGCAPS); }
+	public static int AvailableHmdCaps(ByteBuffer ovrhmddesc) { return ovrhmddesc.getInt(ovrhmddesc.position() + AVAILABLEHMDCAPS); }
+	public static int DefaultHmdCaps(ByteBuffer ovrhmddesc) { return ovrhmddesc.getInt(ovrhmddesc.position() + DEFAULTHMDCAPS); }
+	public static int AvailableTrackingCaps(ByteBuffer ovrhmddesc) { return ovrhmddesc.getInt(ovrhmddesc.position() + AVAILABLETRACKINGCAPS); }
+	public static int DefaultTrackingCaps(ByteBuffer ovrhmddesc) { return ovrhmddesc.getInt(ovrhmddesc.position() + DEFAULTTRACKINGCAPS); }
 	public static void DefaultEyeFovGet(ByteBuffer ovrhmddesc, ByteBuffer DefaultEyeFov) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(DefaultEyeFov, 2 * OVRFovPort.SIZEOF);
 		memCopy(memAddress(ovrhmddesc) + DEFAULTEYEFOV, memAddress(DefaultEyeFov), DefaultEyeFov.remaining());
@@ -329,15 +360,9 @@ public final class OVRHmdDesc implements Pointer {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(MaxEyeFov, OVRFovPort.SIZEOF);
 		memCopy(memAddress(ovrhmddesc) + MAXEYEFOV + index * OVRFovPort.SIZEOF, memAddress(MaxEyeFov), MaxEyeFov.remaining());
 	}
-	public static void EyeRenderOrderGet(ByteBuffer ovrhmddesc, ByteBuffer EyeRenderOrder) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(EyeRenderOrder, 2 * 4);
-		memCopy(memAddress(ovrhmddesc) + EYERENDERORDER, memAddress(EyeRenderOrder), EyeRenderOrder.remaining());
-	}
-	public static int EyeRenderOrder(ByteBuffer ovrhmddesc, int index) {
-		return ovrhmddesc.getInt(EYERENDERORDER + index * 4);
-	}
 	public static void ResolutionGet(ByteBuffer ovrhmddesc, ByteBuffer Resolution) { if ( LWJGLUtil.CHECKS ) checkBuffer(Resolution, OVRSizei.SIZEOF); memCopy(memAddress(ovrhmddesc) + RESOLUTION, memAddress(Resolution), OVRSizei.SIZEOF); }
 	public static int ResolutionW(ByteBuffer ovrhmddesc) { return ovrhmddesc.getInt(ovrhmddesc.position() + RESOLUTION + OVRSizei.W); }
 	public static int ResolutionH(ByteBuffer ovrhmddesc) { return ovrhmddesc.getInt(ovrhmddesc.position() + RESOLUTION + OVRSizei.H); }
+	public static float DisplayRefreshRate(ByteBuffer ovrhmddesc) { return ovrhmddesc.getFloat(ovrhmddesc.position() + DISPLAYREFRESHRATE); }
 
 }
