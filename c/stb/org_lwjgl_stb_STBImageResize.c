@@ -10,6 +10,7 @@ DISABLE_WARNINGS()
 #endif
 #define STB_IMAGE_RESIZE_IMPLEMENTATION
 #define STB_IMAGE_RESIZE_STATIC
+#define STBIR_ASSERT(x)
 #include "stb_image_resize.h"
 ENABLE_WARNINGS()
 

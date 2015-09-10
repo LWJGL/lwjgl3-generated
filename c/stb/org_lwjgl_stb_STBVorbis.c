@@ -8,6 +8,10 @@ DISABLE_WARNINGS()
 #ifdef LWJGL_WINDOWS
 	__pragma(warning(disable : 4242 4244 4701 4702 4711 4738 4996))
 #endif
+#ifdef LWJGL_LINUX
+	#include <alloca.h>
+#endif
+#define NDEBUG
 #include "stb_vorbis.c"
 ENABLE_WARNINGS()
 

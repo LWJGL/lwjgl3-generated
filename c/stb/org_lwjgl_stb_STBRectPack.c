@@ -9,6 +9,7 @@ DISABLE_WARNINGS()
 	__pragma(warning(disable : 4242 4244 4701 4702 4711 4738 4996))
 #endif
 #define STB_RECT_PACK_IMPLEMENTATION
+#define STBRP_ASSERT
 #include "stb_rect_pack.h"
 ENABLE_WARNINGS()
 

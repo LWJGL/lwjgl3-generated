@@ -6,6 +6,7 @@
 #ifdef LWJGL_WINDOWS
 	#define _NO_CRT_STDIO_INLINE
 #endif
+#define STBIW_ASSERT(x)
 #include "common_tools.h"
 DISABLE_WARNINGS()
 #ifdef LWJGL_WINDOWS
