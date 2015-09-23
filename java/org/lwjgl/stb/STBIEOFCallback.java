@@ -16,15 +16,16 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** Instances of this interface may be set to the {@code eof} field of the {@link STBIIOCallbacks} struct. */
 public abstract class STBIEOFCallback extends Closure.Int {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(1);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(1);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_sint32, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare STBIEOFCallback callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"STBIEOFCallback",
+			CALL_CONVENTION_DEFAULT,
+			CIF, ffi_type_sint32,
+			ARGS, ffi_type_pointer
+		);
 	}
 
 	protected STBIEOFCallback() {
@@ -42,6 +43,7 @@ public abstract class STBIEOFCallback extends Closure.Int {
 			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args))
 		);
 	}
+
 	/**
 	 * The {@code stbi_io_callbacks.eof} callback.
 	 *
@@ -54,6 +56,22 @@ public abstract class STBIEOFCallback extends Closure.Int {
 	/** A functional interface for {@link STBIEOFCallback}. */
 	public interface SAM {
 		int invoke(long user);
+	}
+
+	/**
+	 * Creates a {@link STBIEOFCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link STBIEOFCallback} instance
+	 */
+	public static STBIEOFCallback create(final SAM sam) {
+		return new STBIEOFCallback() {
+			@Override
+			public int invoke(long user) {
+				return sam.invoke(user);
+			}
+		};
 	}
 
 }

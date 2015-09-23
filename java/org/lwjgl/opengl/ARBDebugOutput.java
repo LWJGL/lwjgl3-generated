@@ -207,12 +207,21 @@ public final class ARBDebugOutput {
 	 * @param enabled  whether to enable or disable the references subset of messages
 	 */
 	public static void glDebugMessageControlARB(int source, int type, int severity, int count, ByteBuffer ids, boolean enabled) {
+		if ( LWJGLUtil.CHECKS )
+			if ( ids != null ) checkBuffer(ids, count << 2);
 		nglDebugMessageControlARB(source, type, severity, count, memAddressSafe(ids), enabled);
 	}
 
 	/** Alternative version of: {@link #glDebugMessageControlARB DebugMessageControlARB} */
-	public static void glDebugMessageControlARB(int source, int type, int severity, int count, IntBuffer ids, boolean enabled) {
-		nglDebugMessageControlARB(source, type, severity, count, memAddressSafe(ids), enabled);
+	public static void glDebugMessageControlARB(int source, int type, int severity, IntBuffer ids, boolean enabled) {
+		nglDebugMessageControlARB(source, type, severity, ids == null ? 0 : ids.remaining(), memAddressSafe(ids), enabled);
+	}
+
+	/** Single value version of: {@link #glDebugMessageControlARB DebugMessageControlARB} */
+	public static void glDebugMessageControlARB(int source, int type, int severity, int id, boolean enabled) {
+		APIBuffer __buffer = apiBuffer();
+		int ids = __buffer.intParam(id);
+		nglDebugMessageControlARB(source, type, severity, 1, __buffer.address(ids), enabled);
 	}
 
 	// --- [ glDebugMessageInsertARB ] ---
@@ -363,22 +372,6 @@ public final class ARBDebugOutput {
 			if ( lengths != null ) checkBuffer(lengths, count);
 		}
 		return nglGetDebugMessageLogARB(count, messageLog == null ? 0 : messageLog.remaining(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
-	}
-
-     /**
-	 * Creates a {@link GLDebugMessageARBCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLDebugMessageARBCallback} instance
-	 */
-	public static GLDebugMessageARBCallback GLDebugMessageARBCallback(final GLDebugMessageARBCallback.SAM sam) {
-		return new GLDebugMessageARBCallback() {
-			@Override
-			public void invoke(int source, int type, int id, int severity, int length, long message, long userParam) {
-				sam.invoke(source, type, id, severity, length, message, userParam);
-			}
-		};
 	}
 
 }

@@ -16,20 +16,16 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** Instances of this interface may be passed to the {@link AMDDebugOutput#glDebugMessageCallbackAMD} method. */
 public abstract class GLDebugMessageAMDCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(6);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(6);
 
 	static {
-		ARGS.put(0, ffi_type_uint32);
-		ARGS.put(1, ffi_type_uint32);
-		ARGS.put(2, ffi_type_uint32);
-		ARGS.put(3, ffi_type_sint32);
-		ARGS.put(4, ffi_type_pointer);
-		ARGS.put(5, ffi_type_pointer);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_SYSTEM, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare GLDebugMessageAMDCallback callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"GLDebugMessageAMDCallback",
+			CALL_CONVENTION_SYSTEM,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_uint32, ffi_type_uint32, ffi_type_uint32, ffi_type_sint32, ffi_type_pointer, ffi_type_pointer
+		);
 	}
 
 	protected GLDebugMessageAMDCallback() {
@@ -52,6 +48,7 @@ public abstract class GLDebugMessageAMDCallback extends Closure.Void {
 			memGetAddress(memGetAddress(POINTER_SIZE * 5 + args))
 		);
 	}
+
 	/**
 	 * Will be called when a debug message is generated.
 	 *
@@ -69,4 +66,41 @@ public abstract class GLDebugMessageAMDCallback extends Closure.Void {
 		void invoke(int id, int category, int severity, int length, long message, long userParam);
 	}
 
+	/**
+	 * Creates a {@link GLDebugMessageAMDCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link GLDebugMessageAMDCallback} instance
+	 */
+	public static GLDebugMessageAMDCallback create(final SAM sam) {
+		return new GLDebugMessageAMDCallback() {
+			@Override
+			public void invoke(int id, int category, int severity, int length, long message, long userParam) {
+				sam.invoke(id, category, severity, length, message, userParam);
+			}
+		};
+	}
+
+	/** A functional interface for {@link GLDebugMessageAMDCallback}. */
+	public interface SAMString {
+		void invoke(int id, int category, int severity, String message, long userParam);
+	}
+
+	/**
+	 * Creates a {@link GLDebugMessageAMDCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link GLDebugMessageAMDCallback} instance
+	 */
+	public static GLDebugMessageAMDCallback createString(final SAMString sam) {
+		return new GLDebugMessageAMDCallback() {
+			@Override
+			public void invoke(int id, int category, int severity, int length, long message, long userParam) {
+				sam.invoke(id, category, severity, memDecodeUTF8(memByteBuffer(message, length)), userParam);
+			}
+		};
+	}
+	
 }

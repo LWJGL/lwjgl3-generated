@@ -13,20 +13,21 @@ import org.lwjgl.system.libffi.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
+import static org.lwjgl.glfw.GLFW.*;
+
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetFramebufferSizeCallback} method. */
 public abstract class GLFWFramebufferSizeCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(3);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(3);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-		ARGS.put(1, ffi_type_sint32);
-		ARGS.put(2, ffi_type_sint32);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare GLFWFramebufferSizeCallback callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"GLFWFramebufferSizeCallback",
+			CALL_CONVENTION_DEFAULT,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_pointer, ffi_type_sint32, ffi_type_sint32
+		);
 	}
 
 	protected GLFWFramebufferSizeCallback() {
@@ -46,6 +47,7 @@ public abstract class GLFWFramebufferSizeCallback extends Closure.Void {
 			memGetInt(memGetAddress(POINTER_SIZE * 2 + args))
 		);
 	}
+
 	/**
 	 * Will be called when the framebuffer of the specified window is resized.
 	 *
@@ -60,4 +62,26 @@ public abstract class GLFWFramebufferSizeCallback extends Closure.Void {
 		void invoke(long window, int width, int height);
 	}
 
+	/**
+	 * Creates a {@link GLFWFramebufferSizeCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link GLFWFramebufferSizeCallback} instance
+	 */
+	public static GLFWFramebufferSizeCallback create(final SAM sam) {
+		return new GLFWFramebufferSizeCallback() {
+			@Override
+			public void invoke(long window, int width, int height) {
+				sam.invoke(window, width, height);
+			}
+		};
+	}
+
+	/** See {@link GLFW#glfwSetFramebufferSizeCallback SetFramebufferSizeCallback}. */
+	public GLFWFramebufferSizeCallback set(long window) {
+		glfwSetFramebufferSizeCallback(window, this);
+		return this;
+	}
+	
 }

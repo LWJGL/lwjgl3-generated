@@ -160,6 +160,13 @@ public final class AMDDebugOutput {
 		nglDebugMessageEnableAMD(category, severity, ids == null ? 0 : ids.remaining(), memAddressSafe(ids), enabled);
 	}
 
+	/** Single value version of: {@link #glDebugMessageEnableAMD DebugMessageEnableAMD} */
+	public static void glDebugMessageEnableAMD(int category, int severity, int id, boolean enabled) {
+		APIBuffer __buffer = apiBuffer();
+		int ids = __buffer.intParam(id);
+		nglDebugMessageEnableAMD(category, severity, 1, __buffer.address(ids), enabled);
+	}
+
 	// --- [ glDebugMessageInsertAMD ] ---
 
 	/** Unsafe version of {@link #glDebugMessageInsertAMD DebugMessageInsertAMD} */
@@ -293,22 +300,6 @@ public final class AMDDebugOutput {
 			if ( lengths != null ) checkBuffer(lengths, count);
 		}
 		return nglGetDebugMessageLogAMD(count, messageLog == null ? 0 : messageLog.remaining(), memAddressSafe(categories), memAddressSafe(severities), memAddressSafe(ids), memAddressSafe(lengths), memAddressSafe(messageLog));
-	}
-
-     /**
-	 * Creates a {@link GLDebugMessageAMDCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLDebugMessageAMDCallback} instance
-	 */
-	public static GLDebugMessageAMDCallback GLDebugMessageAMDCallback(final GLDebugMessageAMDCallback.SAM sam) {
-		return new GLDebugMessageAMDCallback() {
-			@Override
-			public void invoke(int id, int category, int severity, int length, long message, long userParam) {
-				sam.invoke(id, category, severity, length, message, userParam);
-			}
-		};
 	}
 
 }

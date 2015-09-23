@@ -31,6 +31,7 @@ public final class JEmalloc {
 	/** Function address. */
 	@JavadocExclude
 	public final long
+		malloc_message,
 		malloc,
 		calloc,
 		posix_memalign,
@@ -52,24 +53,25 @@ public final class JEmalloc {
 
 	@JavadocExclude
 	public JEmalloc(FunctionProvider provider) {
-		malloc = provider.getFunctionAddress("je_malloc");
-		calloc = provider.getFunctionAddress("je_calloc");
-		posix_memalign = provider.getFunctionAddress("je_posix_memalign");
-		aligned_alloc = provider.getFunctionAddress("je_aligned_alloc");
-		realloc = provider.getFunctionAddress("je_realloc");
-		free = provider.getFunctionAddress("je_free");
-		mallocx = provider.getFunctionAddress("je_mallocx");
-		rallocx = provider.getFunctionAddress("je_rallocx");
-		xallocx = provider.getFunctionAddress("je_xallocx");
-		sallocx = provider.getFunctionAddress("je_sallocx");
-		dallocx = provider.getFunctionAddress("je_dallocx");
-		sdallocx = provider.getFunctionAddress("je_sdallocx");
-		nallocx = provider.getFunctionAddress("je_nallocx");
-		mallctl = provider.getFunctionAddress("je_mallctl");
-		mallctlnametomib = provider.getFunctionAddress("je_mallctlnametomib");
-		mallctlbymib = provider.getFunctionAddress("je_mallctlbymib");
-		malloc_stats_print = provider.getFunctionAddress("je_malloc_stats_print");
-		malloc_usable_size = provider.getFunctionAddress("je_malloc_usable_size");
+		malloc_message = checkFunctionAddress(provider.getFunctionAddress("je_malloc_message"));
+		malloc = checkFunctionAddress(provider.getFunctionAddress("je_malloc"));
+		calloc = checkFunctionAddress(provider.getFunctionAddress("je_calloc"));
+		posix_memalign = checkFunctionAddress(provider.getFunctionAddress("je_posix_memalign"));
+		aligned_alloc = checkFunctionAddress(provider.getFunctionAddress("je_aligned_alloc"));
+		realloc = checkFunctionAddress(provider.getFunctionAddress("je_realloc"));
+		free = checkFunctionAddress(provider.getFunctionAddress("je_free"));
+		mallocx = checkFunctionAddress(provider.getFunctionAddress("je_mallocx"));
+		rallocx = checkFunctionAddress(provider.getFunctionAddress("je_rallocx"));
+		xallocx = checkFunctionAddress(provider.getFunctionAddress("je_xallocx"));
+		sallocx = checkFunctionAddress(provider.getFunctionAddress("je_sallocx"));
+		dallocx = checkFunctionAddress(provider.getFunctionAddress("je_dallocx"));
+		sdallocx = checkFunctionAddress(provider.getFunctionAddress("je_sdallocx"));
+		nallocx = checkFunctionAddress(provider.getFunctionAddress("je_nallocx"));
+		mallctl = checkFunctionAddress(provider.getFunctionAddress("je_mallctl"));
+		mallctlnametomib = checkFunctionAddress(provider.getFunctionAddress("je_mallctlnametomib"));
+		mallctlbymib = checkFunctionAddress(provider.getFunctionAddress("je_mallctlbymib"));
+		malloc_stats_print = checkFunctionAddress(provider.getFunctionAddress("je_malloc_stats_print"));
+		malloc_usable_size = checkFunctionAddress(provider.getFunctionAddress("je_malloc_usable_size"));
 	}
 
 	// --- [ Function Addresses ] ---
@@ -77,6 +79,14 @@ public final class JEmalloc {
 	/** Returns the {@link JEmalloc} instance. */
 	public static JEmalloc getInstance() {
 		return LibJEmalloc.__JEmalloc;
+	}
+
+	// --- [ je_malloc_message ] ---
+
+	/** Returns the {@code je_malloc_message} variable. */
+	public static PointerBuffer je_malloc_message() {
+		long __result = getInstance().malloc_message;
+		return memPointerBuffer(__result, 1);
 	}
 
 	// --- [ je_malloc ] ---
@@ -565,134 +575,6 @@ public final class JEmalloc {
 	 */
 	public static long je_malloc_usable_size(ByteBuffer ptr) {
 		return nje_malloc_usable_size(memAddress(ptr));
-	}
-
-     /**
-	 * Creates a {@link MallocMessageCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link MallocMessageCallback} instance
-	 */
-	public static MallocMessageCallback MallocMessageCallback(final MallocMessageCallback.SAM sam) {
-		return new MallocMessageCallback() {
-			@Override
-			public void invoke(long cbopaque, long s) {
-				sam.invoke(cbopaque, s);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link ChunkAlloc} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link ChunkAlloc} instance
-	 */
-	public static ChunkAlloc ChunkAlloc(final ChunkAlloc.SAM sam) {
-		return new ChunkAlloc() {
-			@Override
-			public long invoke(long new_addr, long size, long alignment, long zero, long commit, int arena_ind) {
-				return sam.invoke(new_addr, size, alignment, zero, commit, arena_ind);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link ChunkDalloc} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link ChunkDalloc} instance
-	 */
-	public static ChunkDalloc ChunkDalloc(final ChunkDalloc.SAM sam) {
-		return new ChunkDalloc() {
-			@Override
-			public byte invoke(long chunk, long size, byte committed, int arena_ind) {
-				return sam.invoke(chunk, size, committed, arena_ind);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link ChunkCommit} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link ChunkCommit} instance
-	 */
-	public static ChunkCommit ChunkCommit(final ChunkCommit.SAM sam) {
-		return new ChunkCommit() {
-			@Override
-			public byte invoke(long chunk, long size, long offset, long length, int arena_ind) {
-				return sam.invoke(chunk, size, offset, length, arena_ind);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link ChunkDecommit} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link ChunkDecommit} instance
-	 */
-	public static ChunkDecommit ChunkDecommit(final ChunkDecommit.SAM sam) {
-		return new ChunkDecommit() {
-			@Override
-			public byte invoke(long chunk, long size, long offset, long length, int arena_ind) {
-				return sam.invoke(chunk, size, offset, length, arena_ind);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link ChunkPurge} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link ChunkPurge} instance
-	 */
-	public static ChunkPurge ChunkPurge(final ChunkPurge.SAM sam) {
-		return new ChunkPurge() {
-			@Override
-			public byte invoke(long chunk, long size, long offset, long length, int arena_ind) {
-				return sam.invoke(chunk, size, offset, length, arena_ind);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link ChunkSplit} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link ChunkSplit} instance
-	 */
-	public static ChunkSplit ChunkSplit(final ChunkSplit.SAM sam) {
-		return new ChunkSplit() {
-			@Override
-			public byte invoke(long chunk, long size, long size_a, long size_b, byte committed, int arena_ind) {
-				return sam.invoke(chunk, size, size_a, size_b, committed, arena_ind);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link ChunkMerge} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link ChunkMerge} instance
-	 */
-	public static ChunkMerge ChunkMerge(final ChunkMerge.SAM sam) {
-		return new ChunkMerge() {
-			@Override
-			public byte invoke(long chunk_a, long size_a, long chunk_b, long size_b, byte committed, int arena_ind) {
-				return sam.invoke(chunk_a, size_a, chunk_b, size_b, committed, arena_ind);
-			}
-		};
 	}
 
 }

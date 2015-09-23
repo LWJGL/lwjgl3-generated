@@ -16,15 +16,16 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** Instances of this interface may be passed to the {@link CL10#clEnqueueNativeKernel} method. */
 public abstract class CLNativeKernel extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(1);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(1);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_SYSTEM, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare CLNativeKernel callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"CLNativeKernel",
+			CALL_CONVENTION_SYSTEM,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_pointer
+		);
 	}
 
 	protected CLNativeKernel() {
@@ -42,6 +43,7 @@ public abstract class CLNativeKernel extends Closure.Void {
 			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args))
 		);
 	}
+
 	/**
 	 * Will be called by the OpenCL using CL10##clEnqueueNativeKernel().
 	 *
@@ -52,6 +54,22 @@ public abstract class CLNativeKernel extends Closure.Void {
 	/** A functional interface for {@link CLNativeKernel}. */
 	public interface SAM {
 		void invoke(long args);
+	}
+
+	/**
+	 * Creates a {@link CLNativeKernel} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link CLNativeKernel} instance
+	 */
+	public static CLNativeKernel create(final SAM sam) {
+		return new CLNativeKernel() {
+			@Override
+			public void invoke(long args) {
+				sam.invoke(args);
+			}
+		};
 	}
 
 }

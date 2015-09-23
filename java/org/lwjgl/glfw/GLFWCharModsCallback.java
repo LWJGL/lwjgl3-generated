@@ -13,20 +13,21 @@ import org.lwjgl.system.libffi.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
+import static org.lwjgl.glfw.GLFW.*;
+
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetCharModsCallback} method. */
 public abstract class GLFWCharModsCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(3);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(3);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-		ARGS.put(1, ffi_type_uint32);
-		ARGS.put(2, ffi_type_sint32);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare GLFWCharModsCallback callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"GLFWCharModsCallback",
+			CALL_CONVENTION_DEFAULT,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_pointer, ffi_type_uint32, ffi_type_sint32
+		);
 	}
 
 	protected GLFWCharModsCallback() {
@@ -46,6 +47,7 @@ public abstract class GLFWCharModsCallback extends Closure.Void {
 			memGetInt(memGetAddress(POINTER_SIZE * 2 + args))
 		);
 	}
+
 	/**
 	 * Will be called when a Unicode character is input regardless of what modifier keys are used.
 	 *
@@ -60,4 +62,26 @@ public abstract class GLFWCharModsCallback extends Closure.Void {
 		void invoke(long window, int codepoint, int mods);
 	}
 
+	/**
+	 * Creates a {@link GLFWCharModsCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link GLFWCharModsCallback} instance
+	 */
+	public static GLFWCharModsCallback create(final SAM sam) {
+		return new GLFWCharModsCallback() {
+			@Override
+			public void invoke(long window, int codepoint, int mods) {
+				sam.invoke(window, codepoint, mods);
+			}
+		};
+	}
+
+	/** See {@link GLFW#glfwSetCharModsCallback SetCharModsCallback}. */
+	public GLFWCharModsCallback set(long window) {
+		glfwSetCharModsCallback(window, this);
+		return this;
+	}
+	
 }

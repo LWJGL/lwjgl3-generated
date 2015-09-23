@@ -13,22 +13,21 @@ import org.lwjgl.system.libffi.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
+import static org.lwjgl.glfw.GLFW.*;
+
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetKeyCallback} method. */
 public abstract class GLFWKeyCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(5);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(5);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-		ARGS.put(1, ffi_type_sint32);
-		ARGS.put(2, ffi_type_sint32);
-		ARGS.put(3, ffi_type_sint32);
-		ARGS.put(4, ffi_type_sint32);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare GLFWKeyCallback callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"GLFWKeyCallback",
+			CALL_CONVENTION_DEFAULT,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_pointer, ffi_type_sint32, ffi_type_sint32, ffi_type_sint32, ffi_type_sint32
+		);
 	}
 
 	protected GLFWKeyCallback() {
@@ -50,6 +49,7 @@ public abstract class GLFWKeyCallback extends Closure.Void {
 			memGetInt(memGetAddress(POINTER_SIZE * 4 + args))
 		);
 	}
+
 	/**
 	 * Will be called when a key is pressed, repeated or released.
 	 *
@@ -66,4 +66,26 @@ public abstract class GLFWKeyCallback extends Closure.Void {
 		void invoke(long window, int key, int scancode, int action, int mods);
 	}
 
+	/**
+	 * Creates a {@link GLFWKeyCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link GLFWKeyCallback} instance
+	 */
+	public static GLFWKeyCallback create(final SAM sam) {
+		return new GLFWKeyCallback() {
+			@Override
+			public void invoke(long window, int key, int scancode, int action, int mods) {
+				sam.invoke(window, key, scancode, action, mods);
+			}
+		};
+	}
+
+	/** See {@link GLFW#glfwSetKeyCallback SetKeyCallback}. */
+	public GLFWKeyCallback set(long window) {
+		glfwSetKeyCallback(window, this);
+		return this;
+	}
+	
 }

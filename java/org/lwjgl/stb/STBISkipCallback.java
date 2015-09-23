@@ -16,16 +16,16 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** Instances of this interface may be set to the {@code skip} field of the {@link STBIIOCallbacks} struct. */
 public abstract class STBISkipCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(2);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(2);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-		ARGS.put(1, ffi_type_sint32);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare STBISkipCallback callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"STBISkipCallback",
+			CALL_CONVENTION_DEFAULT,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_pointer, ffi_type_sint32
+		);
 	}
 
 	protected STBISkipCallback() {
@@ -44,6 +44,7 @@ public abstract class STBISkipCallback extends Closure.Void {
 			memGetInt(memGetAddress(POINTER_SIZE * 1 + args))
 		);
 	}
+
 	/**
 	 * The {@code stbi_io_callbacks.skip} callback.
 	 *
@@ -55,6 +56,22 @@ public abstract class STBISkipCallback extends Closure.Void {
 	/** A functional interface for {@link STBISkipCallback}. */
 	public interface SAM {
 		void invoke(long user, int n);
+	}
+
+	/**
+	 * Creates a {@link STBISkipCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link STBISkipCallback} instance
+	 */
+	public static STBISkipCallback create(final SAM sam) {
+		return new STBISkipCallback() {
+			@Override
+			public void invoke(long user, int n) {
+				sam.invoke(user, n);
+			}
+		};
 	}
 
 }

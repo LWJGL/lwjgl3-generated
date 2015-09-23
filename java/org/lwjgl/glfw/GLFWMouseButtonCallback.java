@@ -13,21 +13,21 @@ import org.lwjgl.system.libffi.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
+import static org.lwjgl.glfw.GLFW.*;
+
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetMouseButtonCallback} method. */
 public abstract class GLFWMouseButtonCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(4);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(4);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-		ARGS.put(1, ffi_type_sint32);
-		ARGS.put(2, ffi_type_sint32);
-		ARGS.put(3, ffi_type_sint32);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare GLFWMouseButtonCallback callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"GLFWMouseButtonCallback",
+			CALL_CONVENTION_DEFAULT,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_pointer, ffi_type_sint32, ffi_type_sint32, ffi_type_sint32
+		);
 	}
 
 	protected GLFWMouseButtonCallback() {
@@ -48,6 +48,7 @@ public abstract class GLFWMouseButtonCallback extends Closure.Void {
 			memGetInt(memGetAddress(POINTER_SIZE * 3 + args))
 		);
 	}
+
 	/**
 	 * Will be called when a mouse button is pressed or released.
 	 *
@@ -63,4 +64,26 @@ public abstract class GLFWMouseButtonCallback extends Closure.Void {
 		void invoke(long window, int button, int action, int mods);
 	}
 
+	/**
+	 * Creates a {@link GLFWMouseButtonCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link GLFWMouseButtonCallback} instance
+	 */
+	public static GLFWMouseButtonCallback create(final SAM sam) {
+		return new GLFWMouseButtonCallback() {
+			@Override
+			public void invoke(long window, int button, int action, int mods) {
+				sam.invoke(window, button, action, mods);
+			}
+		};
+	}
+
+	/** See {@link GLFW#glfwSetMouseButtonCallback SetMouseButtonCallback}. */
+	public GLFWMouseButtonCallback set(long window) {
+		glfwSetMouseButtonCallback(window, this);
+		return this;
+	}
+	
 }

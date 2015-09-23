@@ -18,6 +18,8 @@ public final class STBTTFontinfo implements Pointer {
 	public static final int SIZEOF;
 
 	static {
+		LWJGLUtil.initialize();
+
 		SIZEOF = offsets();
 	}
 

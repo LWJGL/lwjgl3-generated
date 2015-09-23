@@ -16,21 +16,16 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** Instances of this interface may be passed to the {@link KHRDebug#glDebugMessageCallbackKHR} method. */
 public abstract class GLDebugMessageKHRCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(7);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(7);
 
 	static {
-		ARGS.put(0, ffi_type_uint32);
-		ARGS.put(1, ffi_type_uint32);
-		ARGS.put(2, ffi_type_uint32);
-		ARGS.put(3, ffi_type_uint32);
-		ARGS.put(4, ffi_type_sint32);
-		ARGS.put(5, ffi_type_pointer);
-		ARGS.put(6, ffi_type_pointer);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_SYSTEM, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare GLDebugMessageKHRCallback callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"GLDebugMessageKHRCallback",
+			CALL_CONVENTION_SYSTEM,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_uint32, ffi_type_uint32, ffi_type_uint32, ffi_type_uint32, ffi_type_sint32, ffi_type_pointer, ffi_type_pointer
+		);
 	}
 
 	protected GLDebugMessageKHRCallback() {
@@ -54,6 +49,7 @@ public abstract class GLDebugMessageKHRCallback extends Closure.Void {
 			memGetAddress(memGetAddress(POINTER_SIZE * 6 + args))
 		);
 	}
+
 	/**
 	 * Will be called when a debug message is generated.
 	 *
@@ -72,4 +68,41 @@ public abstract class GLDebugMessageKHRCallback extends Closure.Void {
 		void invoke(int source, int type, int id, int severity, int length, long message, long userParam);
 	}
 
+	/**
+	 * Creates a {@link GLDebugMessageKHRCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link GLDebugMessageKHRCallback} instance
+	 */
+	public static GLDebugMessageKHRCallback create(final SAM sam) {
+		return new GLDebugMessageKHRCallback() {
+			@Override
+			public void invoke(int source, int type, int id, int severity, int length, long message, long userParam) {
+				sam.invoke(source, type, id, severity, length, message, userParam);
+			}
+		};
+	}
+
+	/** A functional interface for {@link GLDebugMessageKHRCallback}. */
+	public interface SAMString {
+		void invoke(int source, int type, int id, int severity, String message, long userParam);
+	}
+
+	/**
+	 * Creates a {@link GLDebugMessageKHRCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link GLDebugMessageKHRCallback} instance
+	 */
+	public static GLDebugMessageKHRCallback createString(final SAMString sam) {
+		return new GLDebugMessageKHRCallback() {
+			@Override
+			public void invoke(int source, int type, int id, int severity, int length, long message, long userParam) {
+				sam.invoke(source, type, id, severity, memDecodeUTF8(memByteBuffer(message, length)), userParam);
+			}
+		};
+	}
+	
 }

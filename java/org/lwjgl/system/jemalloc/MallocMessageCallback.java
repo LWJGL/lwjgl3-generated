@@ -16,16 +16,16 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** Instances of this interface may be passed to the {@link JEmalloc#je_malloc_usable_size} method. */
 public abstract class MallocMessageCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(2);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(2);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-		ARGS.put(1, ffi_type_pointer);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare MallocMessageCallback callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"MallocMessageCallback",
+			CALL_CONVENTION_DEFAULT,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_pointer, ffi_type_pointer
+		);
 	}
 
 	protected MallocMessageCallback() {
@@ -44,6 +44,7 @@ public abstract class MallocMessageCallback extends Closure.Void {
 			memGetAddress(memGetAddress(POINTER_SIZE * 1 + args))
 		);
 	}
+
 	/**
 	 * Will be called by the JEmalloc##je_malloc_usable_size() method.
 	 *
@@ -57,4 +58,41 @@ public abstract class MallocMessageCallback extends Closure.Void {
 		void invoke(long cbopaque, long s);
 	}
 
+	/**
+	 * Creates a {@link MallocMessageCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link MallocMessageCallback} instance
+	 */
+	public static MallocMessageCallback create(final SAM sam) {
+		return new MallocMessageCallback() {
+			@Override
+			public void invoke(long cbopaque, long s) {
+				sam.invoke(cbopaque, s);
+			}
+		};
+	}
+
+	/** A functional interface for {@link MallocMessageCallback}. */
+	public interface SAMString {
+		void invoke(long cbopaque, String s);
+	}
+
+	/**
+	 * Creates a {@link MallocMessageCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link MallocMessageCallback} instance
+	 */
+	public static MallocMessageCallback createString(final SAMString sam) {
+		return new MallocMessageCallback() {
+			@Override
+			public void invoke(long cbopaque, long s) {
+				sam.invoke(cbopaque, memDecodeASCII(s));
+			}
+		};
+	}
+	
 }

@@ -15,19 +15,21 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 
 import org.lwjgl.opengl.GL11;
 
+import static org.lwjgl.glfw.GLFW.*;
+
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowIconifyCallback} method. */
 public abstract class GLFWWindowIconifyCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(2);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(2);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-		ARGS.put(1, ffi_type_sint32);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare GLFWWindowIconifyCallback callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"GLFWWindowIconifyCallback",
+			CALL_CONVENTION_DEFAULT,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_pointer, ffi_type_sint32
+		);
 	}
 
 	protected GLFWWindowIconifyCallback() {
@@ -46,6 +48,7 @@ public abstract class GLFWWindowIconifyCallback extends Closure.Void {
 			memGetInt(memGetAddress(POINTER_SIZE * 1 + args))
 		);
 	}
+
 	/**
 	 * Will be called when the specified window is iconified or restored.
 	 *
@@ -59,4 +62,26 @@ public abstract class GLFWWindowIconifyCallback extends Closure.Void {
 		void invoke(long window, int iconified);
 	}
 
+	/**
+	 * Creates a {@link GLFWWindowIconifyCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link GLFWWindowIconifyCallback} instance
+	 */
+	public static GLFWWindowIconifyCallback create(final SAM sam) {
+		return new GLFWWindowIconifyCallback() {
+			@Override
+			public void invoke(long window, int iconified) {
+				sam.invoke(window, iconified);
+			}
+		};
+	}
+
+	/** See {@link GLFW#glfwSetWindowIconifyCallback SetWindowIconifyCallback}. */
+	public GLFWWindowIconifyCallback set(long window) {
+		glfwSetWindowIconifyCallback(window, this);
+		return this;
+	}
+	
 }

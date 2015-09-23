@@ -16,15 +16,16 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** A mutation handler. */
 public abstract class EnumerationMutationHandler extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(1);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(1);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare EnumerationMutationHandler callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"EnumerationMutationHandler",
+			CALL_CONVENTION_DEFAULT,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_pointer
+		);
 	}
 
 	protected EnumerationMutationHandler() {
@@ -42,6 +43,7 @@ public abstract class EnumerationMutationHandler extends Closure.Void {
 			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args))
 		);
 	}
+
 	/**
 	 * Will be called when an object is mutated during a foreach iteration.
 	 *
@@ -52,6 +54,22 @@ public abstract class EnumerationMutationHandler extends Closure.Void {
 	/** A functional interface for {@link EnumerationMutationHandler}. */
 	public interface SAM {
 		void invoke(long id);
+	}
+
+	/**
+	 * Creates a {@link EnumerationMutationHandler} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link EnumerationMutationHandler} instance
+	 */
+	public static EnumerationMutationHandler create(final SAM sam) {
+		return new EnumerationMutationHandler() {
+			@Override
+			public void invoke(long id) {
+				sam.invoke(id);
+			}
+		};
 	}
 
 }

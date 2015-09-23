@@ -163,24 +163,7 @@ public final class ARBGPUShaderFP64 {
 		boolean supported = checkFunctions(
 			funcs.Uniform1d, funcs.Uniform2d, funcs.Uniform3d, funcs.Uniform4d, funcs.Uniform1dv, funcs.Uniform2dv, funcs.Uniform3dv, funcs.Uniform4dv, 
 			funcs.UniformMatrix2dv, funcs.UniformMatrix3dv, funcs.UniformMatrix4dv, funcs.UniformMatrix2x3dv, funcs.UniformMatrix2x4dv, 
-			funcs.UniformMatrix3x2dv, funcs.UniformMatrix3x4dv, funcs.UniformMatrix4x2dv, funcs.UniformMatrix4x3dv, funcs.GetUniformdv, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.ProgramUniform1dEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.ProgramUniform2dEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.ProgramUniform3dEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.ProgramUniform4dEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.ProgramUniform1dvEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.ProgramUniform2dvEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.ProgramUniform3dvEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.ProgramUniform4dvEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.ProgramUniformMatrix2dvEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.ProgramUniformMatrix3dvEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.ProgramUniformMatrix4dvEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.ProgramUniformMatrix2x3dvEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.ProgramUniformMatrix2x4dvEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.ProgramUniformMatrix3x2dvEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.ProgramUniformMatrix3x4dvEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.ProgramUniformMatrix4x2dvEXT : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? funcs.ProgramUniformMatrix4x3dvEXT : -1L
+			funcs.UniformMatrix3x2dv, funcs.UniformMatrix3x4dv, funcs.UniformMatrix4x2dv, funcs.UniformMatrix4x3dv, funcs.GetUniformdv
 		);
 
 		return GL.checkExtension("GL_ARB_gpu_shader_fp64", funcs, supported);

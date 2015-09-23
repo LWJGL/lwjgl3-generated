@@ -32,6 +32,16 @@ import static org.lwjgl.system.APIUtil.*;
  * int stbi_write_bmp(char const *filename, int w, int h, int comp, const void *data);
  * int stbi_write_tga(char const *filename, int w, int h, int comp, const void *data);
  * int stbi_write_hdr(char const *filename, int w, int h, int comp, const void *data);</code></pre>
+ * There are also four equivalent functions that use an arbitrary write function. You are expected to open/close your file-equivalent before and after
+ * calling these:
+ * <pre><code style="font-family: monospace">
+ * int stbi_write_png_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data, int stride_in_bytes);
+ * int stbi_write_bmp_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data);
+ * int stbi_write_tga_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data);
+ * int stbi_write_hdr_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const float *data);</code></pre>
+ * where the callback is:
+ * <pre><code style="font-family: monospace">
+ * void stbi_write_func(void *context, void *data, int size);</code></pre>
  * The functions create an image file defined by the parameters. The image is a rectangle of pixels stored from left-to-right, top-to-bottom. Each pixel
  * contains {@code comp} channels of data stored interleaved with 8-bits per channel, in the following order: 1=Y, 2=YA, 3=RGB, 4=RGBA. (Y is monochrome
  * color.) The rectangle is {@code w} pixels wide and {@code h} pixels tall. The {@code *data} pointer points to the first byte of the top-left-most
@@ -100,6 +110,8 @@ public final class STBImageWrite {
 	 * @param h        the image height, in pixels
 	 * @param comp     the number of channels in each pixel
 	 * @param data     the image data
+	 *
+	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbi_write_bmp(ByteBuffer filename, int w, int h, int comp, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -127,14 +139,16 @@ public final class STBImageWrite {
 	/**
 	 * Writes a TGA image file.
 	 * 
-	 * <p>TGA supports RLE or non-RLE compressed data. To use non-RLE-compressed data, set the global variable {@code stbi_write_tga_with_rle} to 0 by calling
-	 * {@link #stbi_write_tga_with_rle write_tga_with_rle}.</p>
+	 * <p>TGA supports RLE or non-RLE compressed data. To use non-RLE-compressed data, set the global variable {@code stbi_write_tga_with_rle} to 0. The variable
+	 * can be accessed with {@link #stbi_write_tga_with_rle write_tga_with_rle}.</p>
 	 *
 	 * @param filename the image file path
 	 * @param w        the image width, in pixels
 	 * @param h        the image height, in pixels
 	 * @param comp     the number of channels in each pixel
 	 * @param data     the image data
+	 *
+	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbi_write_tga(ByteBuffer filename, int w, int h, int comp, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -155,12 +169,15 @@ public final class STBImageWrite {
 
 	// --- [ stbi_write_tga_with_rle ] ---
 
-	/**
-	 * Sets the global variable {@code stbi_write_tga_with_rle}.
-	 *
-	 * @param value the variable value
-	 */
-	public static native void stbi_write_tga_with_rle(int value);
+	/** JNI method for {@link #stbi_write_tga_with_rle write_tga_with_rle} */
+	@JavadocExclude
+	public static native long nstbi_write_tga_with_rle();
+
+	/** Returns the address of the global variable {@code stbi_write_tga_with_rle}. */
+	public static IntBuffer stbi_write_tga_with_rle() {
+		long __result = nstbi_write_tga_with_rle();
+		return memIntBuffer(__result, 1);
+	}
 
 	// --- [ stbi_write_hdr ] ---
 
@@ -179,6 +196,8 @@ public final class STBImageWrite {
 	 * @param h        the image height, in pixels
 	 * @param comp     the number of channels in each pixel
 	 * @param data     the image data
+	 *
+	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbi_write_hdr(ByteBuffer filename, int w, int h, int comp, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS ) {
@@ -202,6 +221,110 @@ public final class STBImageWrite {
 		APIBuffer __buffer = apiBuffer();
 		int filenameEncoded = __buffer.stringParamASCII(filename, true);
 		return nstbi_write_hdr(__buffer.address(filenameEncoded), w, h, comp, memAddress(data));
+	}
+
+	// --- [ stbi_write_png_to_func ] ---
+
+	/** JNI method for {@link #stbi_write_png_to_func write_png_to_func} */
+	@JavadocExclude
+	public static native int nstbi_write_png_to_func(long func, long context, int w, int h, int comp, long data, int stride_in_bytes);
+
+	/**
+	 * Callback version of {@link #stbi_write_png write_png}.
+	 *
+	 * @param func            the callback function
+	 * @param context         a context that will be passed to {@code func}
+	 * @param w               the image width, in pixels
+	 * @param h               the image height, in pixels
+	 * @param comp            the number of channels in each pixel
+	 * @param data            the image data
+	 * @param stride_in_bytes the distance in bytes from the first byte of a row of pixels to the first byte of the next row of pixels
+	 *
+	 * @return 1 on success, 0 on failure
+	 */
+	public static int stbi_write_png_to_func(STBIWriteCallback func, ByteBuffer context, int w, int h, int comp, ByteBuffer data, int stride_in_bytes) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(data, w * h * comp);
+		return nstbi_write_png_to_func(func.getPointer(), memAddressSafe(context), w, h, comp, memAddress(data), stride_in_bytes);
+	}
+
+	// --- [ stbi_write_bmp_to_func ] ---
+
+	/** JNI method for {@link #stbi_write_bmp_to_func write_bmp_to_func} */
+	@JavadocExclude
+	public static native int nstbi_write_bmp_to_func(long func, long context, int w, int h, int comp, long data);
+
+	/**
+	 * Callback version of {@link #stbi_write_bmp write_bmp}.
+	 *
+	 * @param func    the callback function
+	 * @param context a context that will be passed to {@code func}
+	 * @param w       the image width, in pixels
+	 * @param h       the image height, in pixels
+	 * @param comp    the number of channels in each pixel
+	 * @param data    the image data
+	 *
+	 * @return 1 on success, 0 on failure
+	 */
+	public static int stbi_write_bmp_to_func(STBIWriteCallback func, ByteBuffer context, int w, int h, int comp, ByteBuffer data) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(data, w * h * comp);
+		return nstbi_write_bmp_to_func(func.getPointer(), memAddressSafe(context), w, h, comp, memAddress(data));
+	}
+
+	// --- [ stbi_write_tga_to_func ] ---
+
+	/** JNI method for {@link #stbi_write_tga_to_func write_tga_to_func} */
+	@JavadocExclude
+	public static native int nstbi_write_tga_to_func(long func, long context, int w, int h, int comp, long data);
+
+	/**
+	 * Callback version of {@link #stbi_write_tga write_tga}.
+	 *
+	 * @param func    the callback function
+	 * @param context a context that will be passed to {@code func}
+	 * @param w       the image width, in pixels
+	 * @param h       the image height, in pixels
+	 * @param comp    the number of channels in each pixel
+	 * @param data    the image data
+	 *
+	 * @return 1 on success, 0 on failure
+	 */
+	public static int stbi_write_tga_to_func(STBIWriteCallback func, ByteBuffer context, int w, int h, int comp, ByteBuffer data) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(data, w * h * comp);
+		return nstbi_write_tga_to_func(func.getPointer(), memAddressSafe(context), w, h, comp, memAddress(data));
+	}
+
+	// --- [ stbi_write_hdr_to_func ] ---
+
+	/** JNI method for {@link #stbi_write_hdr_to_func write_hdr_to_func} */
+	@JavadocExclude
+	public static native int nstbi_write_hdr_to_func(long func, long context, int w, int h, int comp, long data);
+
+	/**
+	 * Callback version of {@link #stbi_write_hdr write_hdr}.
+	 *
+	 * @param func    the callback function
+	 * @param context a context that will be passed to {@code func}
+	 * @param w       the image width, in pixels
+	 * @param h       the image height, in pixels
+	 * @param comp    the number of channels in each pixel
+	 * @param data    the image data
+	 *
+	 * @return 1 on success, 0 on failure
+	 */
+	public static int stbi_write_hdr_to_func(STBIWriteCallback func, ByteBuffer context, int w, int h, int comp, ByteBuffer data) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(data, (w * h * comp) << 2);
+		return nstbi_write_hdr_to_func(func.getPointer(), memAddressSafe(context), w, h, comp, memAddress(data));
+	}
+
+	/** Alternative version of: {@link #stbi_write_hdr_to_func write_hdr_to_func} */
+	public static int stbi_write_hdr_to_func(STBIWriteCallback func, ByteBuffer context, int w, int h, int comp, FloatBuffer data) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(data, w * h * comp);
+		return nstbi_write_hdr_to_func(func.getPointer(), memAddressSafe(context), w, h, comp, memAddress(data));
 	}
 
 }

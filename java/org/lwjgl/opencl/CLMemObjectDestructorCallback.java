@@ -16,16 +16,16 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** Instances of this interface may be passed to the {@link CL11#clSetMemObjectDestructorCallback} method. */
 public abstract class CLMemObjectDestructorCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(2);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(2);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-		ARGS.put(1, ffi_type_pointer);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_SYSTEM, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare CLMemObjectDestructorCallback callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"CLMemObjectDestructorCallback",
+			CALL_CONVENTION_SYSTEM,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_pointer, ffi_type_pointer
+		);
 	}
 
 	protected CLMemObjectDestructorCallback() {
@@ -44,6 +44,7 @@ public abstract class CLMemObjectDestructorCallback extends Closure.Void {
 			memGetAddress(memGetAddress(POINTER_SIZE * 1 + args))
 		);
 	}
+
 	/**
 	 * Will be called when a memory object is deleted.
 	 *
@@ -55,6 +56,22 @@ public abstract class CLMemObjectDestructorCallback extends Closure.Void {
 	/** A functional interface for {@link CLMemObjectDestructorCallback}. */
 	public interface SAM {
 		void invoke(long memobj, long user_data);
+	}
+
+	/**
+	 * Creates a {@link CLMemObjectDestructorCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link CLMemObjectDestructorCallback} instance
+	 */
+	public static CLMemObjectDestructorCallback create(final SAM sam) {
+		return new CLMemObjectDestructorCallback() {
+			@Override
+			public void invoke(long memobj, long user_data) {
+				sam.invoke(memobj, user_data);
+			}
+		};
 	}
 
 }

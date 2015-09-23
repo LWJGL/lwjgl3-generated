@@ -16,18 +16,16 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** Instances of this interface may be passed to the {@link CL20#clEnqueueSVMFree} method. */
 public abstract class CLSVMFreeCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(4);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(4);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-		ARGS.put(1, ffi_type_uint32);
-		ARGS.put(2, ffi_type_pointer);
-		ARGS.put(3, ffi_type_pointer);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_SYSTEM, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare CLSVMFreeCallback callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"CLSVMFreeCallback",
+			CALL_CONVENTION_SYSTEM,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_pointer, ffi_type_uint32, ffi_type_pointer, ffi_type_pointer
+		);
 	}
 
 	protected CLSVMFreeCallback() {
@@ -48,6 +46,7 @@ public abstract class CLSVMFreeCallback extends Closure.Void {
 			memGetAddress(memGetAddress(POINTER_SIZE * 3 + args))
 		);
 	}
+
 	/**
 	 * Will be called to free shared virtual memory pointers.
 	 *
@@ -63,4 +62,41 @@ public abstract class CLSVMFreeCallback extends Closure.Void {
 		void invoke(long queue, int num_svm_pointers, long svm_pointers, long user_data);
 	}
 
+	/**
+	 * Creates a {@link CLSVMFreeCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link CLSVMFreeCallback} instance
+	 */
+	public static CLSVMFreeCallback create(final SAM sam) {
+		return new CLSVMFreeCallback() {
+			@Override
+			public void invoke(long queue, int num_svm_pointers, long svm_pointers, long user_data) {
+				sam.invoke(queue, num_svm_pointers, svm_pointers, user_data);
+			}
+		};
+	}
+
+	/** A functional interface for {@link CLSVMFreeCallback}. */
+	public interface SAMBuffer {
+		void invoke(long queue, PointerBuffer svm_pointers, long user_data);
+	}
+
+	/**
+	 * Creates a {@link CLSVMFreeCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link CLSVMFreeCallback} instance
+	 */
+	public static CLSVMFreeCallback createBuffer(final SAMBuffer sam) {
+		return new CLSVMFreeCallback() {
+			@Override
+			public void invoke(long queue, int num_svm_pointers, long svm_pointers, long user_data) {
+				sam.invoke(queue, memPointerBuffer(svm_pointers, num_svm_pointers), user_data);
+			}
+		};
+	}
+	
 }

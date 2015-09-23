@@ -13,18 +13,21 @@ import org.lwjgl.system.libffi.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
+import static org.lwjgl.glfw.GLFW.*;
+
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowRefreshCallback} method. */
 public abstract class GLFWWindowRefreshCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(1);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(1);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare GLFWWindowRefreshCallback callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"GLFWWindowRefreshCallback",
+			CALL_CONVENTION_DEFAULT,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_pointer
+		);
 	}
 
 	protected GLFWWindowRefreshCallback() {
@@ -42,6 +45,7 @@ public abstract class GLFWWindowRefreshCallback extends Closure.Void {
 			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args))
 		);
 	}
+
 	/**
 	 * Will be called when the client area of the specified window needs to be redrawn, for example if the window has been exposed after having been covered by
 	 * another window.
@@ -55,4 +59,26 @@ public abstract class GLFWWindowRefreshCallback extends Closure.Void {
 		void invoke(long window);
 	}
 
+	/**
+	 * Creates a {@link GLFWWindowRefreshCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link GLFWWindowRefreshCallback} instance
+	 */
+	public static GLFWWindowRefreshCallback create(final SAM sam) {
+		return new GLFWWindowRefreshCallback() {
+			@Override
+			public void invoke(long window) {
+				sam.invoke(window);
+			}
+		};
+	}
+
+	/** See {@link GLFW#glfwSetWindowRefreshCallback SetWindowRefreshCallback}. */
+	public GLFWWindowRefreshCallback set(long window) {
+		glfwSetWindowRefreshCallback(window, this);
+		return this;
+	}
+	
 }

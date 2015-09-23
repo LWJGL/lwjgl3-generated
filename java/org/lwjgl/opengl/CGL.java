@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
@@ -219,20 +220,145 @@ public final class CGL {
 		kCGLSupersampleBit = 0x1,
 		kCGLMultisampleBit = 0x2;
 
-	static { LWJGLUtil.initialize(); }
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		GetCurrentContext,
+		SetCurrentContext,
+		GetShareGroup,
+		ChoosePixelFormat,
+		DestroyPixelFormat,
+		DescribePixelFormat,
+		ReleasePixelFormat,
+		RetainPixelFormat,
+		GetPixelFormatRetainCount,
+		QueryRendererInfo,
+		DestroyRendererInfo,
+		DescribeRenderer,
+		CreateContext,
+		DestroyContext,
+		CopyContext,
+		RetainContext,
+		ReleaseContext,
+		GetContextRetainCount,
+		GetPixelFormat,
+		CreatePBuffer,
+		DestroyPBuffer,
+		DescribePBuffer,
+		TexImagePBuffer,
+		RetainPBuffer,
+		ReleasePBuffer,
+		GetPBufferRetainCount,
+		SetOffScreen,
+		GetOffScreen,
+		SetFullScreen,
+		SetFullScreenOnDisplay,
+		SetPBuffer,
+		GetPBuffer,
+		ClearDrawable,
+		FlushDrawable,
+		Enable,
+		Disable,
+		IsEnabled,
+		SetParameter,
+		GetParameter,
+		SetVirtualScreen,
+		GetVirtualScreen,
+		UpdateContext,
+		SetGlobalOption,
+		GetGlobalOption,
+		LockContext,
+		UnlockContext,
+		GetVersion,
+		ErrorString;
 
-	private CGL() {}
+	@JavadocExclude
+	public CGL(FunctionProvider provider) {
+		GetCurrentContext = provider.getFunctionAddress("CGLGetCurrentContext");
+		SetCurrentContext = provider.getFunctionAddress("CGLSetCurrentContext");
+		GetShareGroup = provider.getFunctionAddress("CGLGetShareGroup");
+		ChoosePixelFormat = provider.getFunctionAddress("CGLChoosePixelFormat");
+		DestroyPixelFormat = provider.getFunctionAddress("CGLDestroyPixelFormat");
+		DescribePixelFormat = provider.getFunctionAddress("CGLDescribePixelFormat");
+		ReleasePixelFormat = provider.getFunctionAddress("CGLReleasePixelFormat");
+		RetainPixelFormat = provider.getFunctionAddress("CGLRetainPixelFormat");
+		GetPixelFormatRetainCount = provider.getFunctionAddress("CGLGetPixelFormatRetainCount");
+		QueryRendererInfo = provider.getFunctionAddress("CGLQueryRendererInfo");
+		DestroyRendererInfo = provider.getFunctionAddress("CGLDestroyRendererInfo");
+		DescribeRenderer = provider.getFunctionAddress("CGLDescribeRenderer");
+		CreateContext = provider.getFunctionAddress("CGLCreateContext");
+		DestroyContext = provider.getFunctionAddress("CGLDestroyContext");
+		CopyContext = provider.getFunctionAddress("CGLCopyContext");
+		RetainContext = provider.getFunctionAddress("CGLRetainContext");
+		ReleaseContext = provider.getFunctionAddress("CGLReleaseContext");
+		GetContextRetainCount = provider.getFunctionAddress("CGLGetContextRetainCount");
+		GetPixelFormat = provider.getFunctionAddress("CGLGetPixelFormat");
+		CreatePBuffer = provider.getFunctionAddress("CGLCreatePBuffer");
+		DestroyPBuffer = provider.getFunctionAddress("CGLDestroyPBuffer");
+		DescribePBuffer = provider.getFunctionAddress("CGLDescribePBuffer");
+		TexImagePBuffer = provider.getFunctionAddress("CGLTexImagePBuffer");
+		RetainPBuffer = provider.getFunctionAddress("CGLRetainPBuffer");
+		ReleasePBuffer = provider.getFunctionAddress("CGLReleasePBuffer");
+		GetPBufferRetainCount = provider.getFunctionAddress("CGLGetPBufferRetainCount");
+		SetOffScreen = provider.getFunctionAddress("CGLSetOffScreen");
+		GetOffScreen = provider.getFunctionAddress("CGLGetOffScreen");
+		SetFullScreen = provider.getFunctionAddress("CGLSetFullScreen");
+		SetFullScreenOnDisplay = provider.getFunctionAddress("CGLSetFullScreenOnDisplay");
+		SetPBuffer = provider.getFunctionAddress("CGLSetPBuffer");
+		GetPBuffer = provider.getFunctionAddress("CGLGetPBuffer");
+		ClearDrawable = provider.getFunctionAddress("CGLClearDrawable");
+		FlushDrawable = provider.getFunctionAddress("CGLFlushDrawable");
+		Enable = provider.getFunctionAddress("CGLEnable");
+		Disable = provider.getFunctionAddress("CGLDisable");
+		IsEnabled = provider.getFunctionAddress("CGLIsEnabled");
+		SetParameter = provider.getFunctionAddress("CGLSetParameter");
+		GetParameter = provider.getFunctionAddress("CGLGetParameter");
+		SetVirtualScreen = provider.getFunctionAddress("CGLSetVirtualScreen");
+		GetVirtualScreen = provider.getFunctionAddress("CGLGetVirtualScreen");
+		UpdateContext = provider.getFunctionAddress("CGLUpdateContext");
+		SetGlobalOption = provider.getFunctionAddress("CGLSetGlobalOption");
+		GetGlobalOption = provider.getFunctionAddress("CGLGetGlobalOption");
+		LockContext = provider.getFunctionAddress("CGLLockContext");
+		UnlockContext = provider.getFunctionAddress("CGLUnlockContext");
+		GetVersion = provider.getFunctionAddress("CGLGetVersion");
+		ErrorString = provider.getFunctionAddress("CGLErrorString");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link CGL} instance for the current context. */
+	public static CGL getInstance() {
+		return checkFunctionality(GL.getCapabilities().__CGL);
+	}
+
+	static CGL create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("CGL") ) return null;
+
+		CGL funcs = new CGL(provider);
+
+		boolean supported = checkFunctions(
+			funcs.GetCurrentContext, funcs.SetCurrentContext, funcs.GetShareGroup, funcs.ChoosePixelFormat, funcs.DestroyPixelFormat, funcs.DescribePixelFormat, 
+			funcs.ReleasePixelFormat, funcs.RetainPixelFormat, funcs.GetPixelFormatRetainCount, funcs.QueryRendererInfo, funcs.DestroyRendererInfo, 
+			funcs.DescribeRenderer, funcs.CreateContext, funcs.DestroyContext, funcs.CopyContext, funcs.RetainContext, funcs.ReleaseContext, 
+			funcs.GetContextRetainCount, funcs.GetPixelFormat, funcs.CreatePBuffer, funcs.DestroyPBuffer, funcs.DescribePBuffer, funcs.TexImagePBuffer, 
+			funcs.RetainPBuffer, funcs.ReleasePBuffer, funcs.GetPBufferRetainCount, funcs.SetOffScreen, funcs.GetOffScreen, funcs.SetFullScreen, 
+			funcs.SetFullScreenOnDisplay, funcs.SetPBuffer, funcs.GetPBuffer, funcs.ClearDrawable, funcs.FlushDrawable, funcs.Enable, funcs.Disable, 
+			funcs.IsEnabled, funcs.SetParameter, funcs.GetParameter, funcs.SetVirtualScreen, funcs.GetVirtualScreen, funcs.UpdateContext, funcs.SetGlobalOption, 
+			funcs.GetGlobalOption, funcs.LockContext, funcs.UnlockContext, funcs.GetVersion, funcs.ErrorString
+		);
+
+		return GL.checkExtension("CGL", funcs, supported);
+	}
 
 	// --- [ CGLGetCurrentContext ] ---
 
 	/** Returns the current rendering context. If there is none, returns {@code NULL}. */
-	public static native long CGLGetCurrentContext();
+	public static long CGLGetCurrentContext() {
+		long __functionAddress = getInstance().GetCurrentContext;
+		return callP(__functionAddress);
+	}
 
 	// --- [ CGLSetCurrentContext ] ---
-
-	/** JNI method for {@link #CGLSetCurrentContext SetCurrentContext} */
-	@JavadocExclude
-	public static native int nCGLSetCurrentContext(long context);
 
 	/**
 	 * Sets the specified rendering context as the current rendering context.
@@ -247,16 +373,13 @@ public final class CGL {
 	 * @param context the rendering context to set as the current rendering context. Pass {@code NULL} to release the current rendering context without assigning a new one.
 	 */
 	public static int CGLSetCurrentContext(long context) {
+		long __functionAddress = getInstance().SetCurrentContext;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nCGLSetCurrentContext(context);
+		return callPI(__functionAddress, context);
 	}
 
 	// --- [ CGLGetShareGroup ] ---
-
-	/** JNI method for {@link #CGLGetShareGroup GetShareGroup} */
-	@JavadocExclude
-	public static native long nCGLGetShareGroup(long ctx);
 
 	/**
 	 * Returns the sharegroup of the specified rendering context.
@@ -264,16 +387,20 @@ public final class CGL {
 	 * @param ctx a rendering context
 	 */
 	public static long CGLGetShareGroup(long ctx) {
+		long __functionAddress = getInstance().GetShareGroup;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		return nCGLGetShareGroup(ctx);
+		return callPP(__functionAddress, ctx);
 	}
 
 	// --- [ CGLChoosePixelFormat ] ---
 
-	/** JNI method for {@link #CGLChoosePixelFormat ChoosePixelFormat} */
+	/** Unsafe version of {@link #CGLChoosePixelFormat ChoosePixelFormat} */
 	@JavadocExclude
-	public static native int nCGLChoosePixelFormat(long attribs, long pix, long npix);
+	public static int nCGLChoosePixelFormat(long attribs, long pix, long npix) {
+		long __functionAddress = getInstance().ChoosePixelFormat;
+		return callPPPI(__functionAddress, attribs, pix, npix);
+	}
 
 	/**
 	 * Creates a pixel format object that satisfies the constraints of the specified buffer and renderer attributes.
@@ -305,26 +432,28 @@ public final class CGL {
 
 	// --- [ CGLDestroyPixelFormat ] ---
 
-	/** JNI method for {@link #CGLDestroyPixelFormat DestroyPixelFormat} */
-	@JavadocExclude
-	public static native int nCGLDestroyPixelFormat(long pix);
-
 	/**
 	 * Frees the memory associated with a pixel format object. Calling this function is equivalent to calling {@link #CGLReleasePixelFormat ReleasePixelFormat}.
 	 *
 	 * @param pix the pixel format object to destroy
 	 */
 	public static int CGLDestroyPixelFormat(long pix) {
+		long __functionAddress = getInstance().DestroyPixelFormat;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(pix);
-		return nCGLDestroyPixelFormat(pix);
+		return callPI(__functionAddress, pix);
 	}
 
 	// --- [ CGLDescribePixelFormat ] ---
 
-	/** JNI method for {@link #CGLDescribePixelFormat DescribePixelFormat} */
+	/** Unsafe version of {@link #CGLDescribePixelFormat DescribePixelFormat} */
 	@JavadocExclude
-	public static native int nCGLDescribePixelFormat(long pix, int pix_num, int attrib, long value);
+	public static int nCGLDescribePixelFormat(long pix, int pix_num, int attrib, long value) {
+		long __functionAddress = getInstance().DescribePixelFormat;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(pix);
+		return callPIIPI(__functionAddress, pix, pix_num, attrib, value);
+	}
 
 	/**
 	 * Retrieves the values of an attribute associated with a pixel format object.
@@ -335,27 +464,19 @@ public final class CGL {
 	 * @param value   on return, points to the value of the attribute
 	 */
 	public static int CGLDescribePixelFormat(long pix, int pix_num, int attrib, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(pix);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		}
 		return nCGLDescribePixelFormat(pix, pix_num, attrib, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #CGLDescribePixelFormat DescribePixelFormat} */
 	public static int CGLDescribePixelFormat(long pix, int pix_num, int attrib, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(pix);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		}
 		return nCGLDescribePixelFormat(pix, pix_num, attrib, memAddress(value));
 	}
 
 	// --- [ CGLReleasePixelFormat ] ---
-
-	/** JNI method for {@link #CGLReleasePixelFormat ReleasePixelFormat} */
-	@JavadocExclude
-	public static native void nCGLReleasePixelFormat(long pix);
 
 	/**
 	 * Decrements the reference count of a pixel format object.
@@ -368,16 +489,13 @@ public final class CGL {
 	 * @param pix the pixel format object whose reference count should be decremented
 	 */
 	public static void CGLReleasePixelFormat(long pix) {
+		long __functionAddress = getInstance().ReleasePixelFormat;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(pix);
-		nCGLReleasePixelFormat(pix);
+		callPV(__functionAddress, pix);
 	}
 
 	// --- [ CGLRetainPixelFormat ] ---
-
-	/** JNI method for {@link #CGLRetainPixelFormat RetainPixelFormat} */
-	@JavadocExclude
-	public static native long nCGLRetainPixelFormat(long pix);
 
 	/**
 	 * Increments the receiver's reference count.
@@ -388,16 +506,13 @@ public final class CGL {
 	 * @param pix the pixel format object whose reference count should be incremented
 	 */
 	public static long CGLRetainPixelFormat(long pix) {
+		long __functionAddress = getInstance().RetainPixelFormat;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(pix);
-		return nCGLRetainPixelFormat(pix);
+		return callPP(__functionAddress, pix);
 	}
 
 	// --- [ CGLGetPixelFormatRetainCount ] ---
-
-	/** JNI method for {@link #CGLGetPixelFormatRetainCount GetPixelFormatRetainCount} */
-	@JavadocExclude
-	public static native int nCGLGetPixelFormatRetainCount(long pix);
 
 	/**
 	 * Returns the retain count of a pixel format object.
@@ -405,16 +520,20 @@ public final class CGL {
 	 * @param pix a pixel format object
 	 */
 	public static int CGLGetPixelFormatRetainCount(long pix) {
+		long __functionAddress = getInstance().GetPixelFormatRetainCount;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(pix);
-		return nCGLGetPixelFormatRetainCount(pix);
+		return callPI(__functionAddress, pix);
 	}
 
 	// --- [ CGLQueryRendererInfo ] ---
 
-	/** JNI method for {@link #CGLQueryRendererInfo QueryRendererInfo} */
+	/** Unsafe version of {@link #CGLQueryRendererInfo QueryRendererInfo} */
 	@JavadocExclude
-	public static native int nCGLQueryRendererInfo(int display_mask, long rend, long nrend);
+	public static int nCGLQueryRendererInfo(int display_mask, long rend, long nrend) {
+		long __functionAddress = getInstance().QueryRendererInfo;
+		return callIPPI(__functionAddress, display_mask, rend, nrend);
+	}
 
 	/**
 	 * Creates a renderer information object that contains properties and values for renderers able to drive all the specified displays in a given display
@@ -447,26 +566,28 @@ public final class CGL {
 
 	// --- [ CGLDestroyRendererInfo ] ---
 
-	/** JNI method for {@link #CGLDestroyRendererInfo DestroyRendererInfo} */
-	@JavadocExclude
-	public static native int nCGLDestroyRendererInfo(long rend);
-
 	/**
 	 * Frees resources associated with a renderer information object.
 	 *
 	 * @param rend the renderer information object to destroy
 	 */
 	public static int CGLDestroyRendererInfo(long rend) {
+		long __functionAddress = getInstance().DestroyRendererInfo;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(rend);
-		return nCGLDestroyRendererInfo(rend);
+		return callPI(__functionAddress, rend);
 	}
 
 	// --- [ CGLDescribeRenderer ] ---
 
-	/** JNI method for {@link #CGLDescribeRenderer DescribeRenderer} */
+	/** Unsafe version of {@link #CGLDescribeRenderer DescribeRenderer} */
 	@JavadocExclude
-	public static native int nCGLDescribeRenderer(long rend, int rend_num, int prop, long value);
+	public static int nCGLDescribeRenderer(long rend, int rend_num, int prop, long value) {
+		long __functionAddress = getInstance().DescribeRenderer;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(rend);
+		return callPIIPI(__functionAddress, rend, rend_num, prop, value);
+	}
 
 	/**
 	 * Obtains the value associated with a renderer property.
@@ -481,27 +602,30 @@ public final class CGL {
 	 * @param value    on return, points to the value of the requested property
 	 */
 	public static int CGLDescribeRenderer(long rend, int rend_num, int prop, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(rend);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		}
 		return nCGLDescribeRenderer(rend, rend_num, prop, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #CGLDescribeRenderer DescribeRenderer} */
 	public static int CGLDescribeRenderer(long rend, int rend_num, int prop, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(rend);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		}
 		return nCGLDescribeRenderer(rend, rend_num, prop, memAddress(value));
 	}
 
 	// --- [ CGLCreateContext ] ---
 
-	/** JNI method for {@link #CGLCreateContext CreateContext} */
+	/** Unsafe version of {@link #CGLCreateContext CreateContext} */
 	@JavadocExclude
-	public static native int nCGLCreateContext(long pix, long share, long ctx);
+	public static int nCGLCreateContext(long pix, long share, long ctx) {
+		long __functionAddress = getInstance().CreateContext;
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(pix);
+			checkPointer(share);
+		}
+		return callPPPI(__functionAddress, pix, share, ctx);
+	}
 
 	/**
 	 * Creates a CGL rendering context.
@@ -514,29 +638,19 @@ public final class CGL {
 	 *              parameter. If the context can not be created as specified, the value of {@code ctx} is set to {@code NULL}.
 	 */
 	public static int CGLCreateContext(long pix, long share, ByteBuffer ctx) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(pix);
-			checkPointer(share);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(ctx, 1 << POINTER_SHIFT);
-		}
 		return nCGLCreateContext(pix, share, memAddress(ctx));
 	}
 
 	/** Alternative version of: {@link #CGLCreateContext CreateContext} */
 	public static int CGLCreateContext(long pix, long share, PointerBuffer ctx) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(pix);
-			checkPointer(share);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(ctx, 1);
-		}
 		return nCGLCreateContext(pix, share, memAddress(ctx));
 	}
 
 	// --- [ CGLDestroyContext ] ---
-
-	/** JNI method for {@link #CGLDestroyContext DestroyContext} */
-	@JavadocExclude
-	public static native int nCGLDestroyContext(long ctx);
 
 	/**
 	 * Frees the resources associated with a rendering context.
@@ -548,16 +662,13 @@ public final class CGL {
 	 * @param ctx the rendering context to destroy
 	 */
 	public static int CGLDestroyContext(long ctx) {
+		long __functionAddress = getInstance().DestroyContext;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		return nCGLDestroyContext(ctx);
+		return callPI(__functionAddress, ctx);
 	}
 
 	// --- [ CGLCopyContext ] ---
-
-	/** JNI method for {@link #CGLCopyContext CopyContext} */
-	@JavadocExclude
-	public static native int nCGLCopyContext(long src, long dst, int mask);
 
 	/**
 	 * Copies the specified state variables from one rendering context to another.
@@ -569,18 +680,15 @@ public final class CGL {
 	 *             as possible, supply the constant {@link GL11#GL_ALL_ATTRIB_BITS}.
 	 */
 	public static int CGLCopyContext(long src, long dst, int mask) {
+		long __functionAddress = getInstance().CopyContext;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(src);
 			checkPointer(dst);
 		}
-		return nCGLCopyContext(src, dst, mask);
+		return callPPII(__functionAddress, src, dst, mask);
 	}
 
 	// --- [ CGLRetainContext ] ---
-
-	/** JNI method for {@link #CGLRetainContext RetainContext} */
-	@JavadocExclude
-	public static native long nCGLRetainContext(long ctx);
 
 	/**
 	 * Increments the retain count on a CGL rendering context.
@@ -593,16 +701,13 @@ public final class CGL {
 	 * @return the same context that was passed into the function.
 	 */
 	public static long CGLRetainContext(long ctx) {
+		long __functionAddress = getInstance().RetainContext;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		return nCGLRetainContext(ctx);
+		return callPP(__functionAddress, ctx);
 	}
 
 	// --- [ CGLReleaseContext ] ---
-
-	/** JNI method for {@link #CGLReleaseContext ReleaseContext} */
-	@JavadocExclude
-	public static native void nCGLReleaseContext(long ctx);
 
 	/**
 	 * Decrements the retain count on a CGL rendering context.
@@ -617,16 +722,13 @@ public final class CGL {
 	 * @param ctx the rendering context to be released
 	 */
 	public static void CGLReleaseContext(long ctx) {
+		long __functionAddress = getInstance().ReleaseContext;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		nCGLReleaseContext(ctx);
+		callPV(__functionAddress, ctx);
 	}
 
 	// --- [ CGLGetContextRetainCount ] ---
-
-	/** JNI method for {@link #CGLGetContextRetainCount GetContextRetainCount} */
-	@JavadocExclude
-	public static native int nCGLGetContextRetainCount(long ctx);
 
 	/**
 	 * Returns the current retain count of a CGL rendering context.
@@ -634,16 +736,13 @@ public final class CGL {
 	 * @param ctx the CGL rendering context whose retain count you wish to discover
 	 */
 	public static int CGLGetContextRetainCount(long ctx) {
+		long __functionAddress = getInstance().GetContextRetainCount;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		return nCGLGetContextRetainCount(ctx);
+		return callPI(__functionAddress, ctx);
 	}
 
 	// --- [ CGLGetPixelFormat ] ---
-
-	/** JNI method for {@link #CGLGetPixelFormat GetPixelFormat} */
-	@JavadocExclude
-	public static native long nCGLGetPixelFormat(long ctx);
 
 	/**
 	 * Retrieves the current pixel format associated with a CGL rendering context.
@@ -654,16 +753,20 @@ public final class CGL {
 	 * @param ctx the CGL rendering context whose format you want to receive
 	 */
 	public static long CGLGetPixelFormat(long ctx) {
+		long __functionAddress = getInstance().GetPixelFormat;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		return nCGLGetPixelFormat(ctx);
+		return callPP(__functionAddress, ctx);
 	}
 
 	// --- [ CGLCreatePBuffer ] ---
 
-	/** JNI method for {@link #CGLCreatePBuffer CreatePBuffer} */
+	/** Unsafe version of {@link #CGLCreatePBuffer CreatePBuffer} */
 	@JavadocExclude
-	public static native int nCGLCreatePBuffer(int width, int height, int target, int internalFormat, int max_level, long pbuffer);
+	public static int nCGLCreatePBuffer(int width, int height, int target, int internalFormat, int max_level, long pbuffer) {
+		long __functionAddress = getInstance().CreatePBuffer;
+		return callIIIIIPI(__functionAddress, width, height, target, internalFormat, max_level, pbuffer);
+	}
 
 	/**
 	 * Creates a pixel buffer of the specified size, compatible with the specified texture target.
@@ -708,10 +811,6 @@ public final class CGL {
 
 	// --- [ CGLDestroyPBuffer ] ---
 
-	/** JNI method for {@link #CGLDestroyPBuffer DestroyPBuffer} */
-	@JavadocExclude
-	public static native int nCGLDestroyPBuffer(long pbuffer);
-
 	/**
 	 * Releases the resources associated with a pixel buffer object.
 	 * 
@@ -722,16 +821,22 @@ public final class CGL {
 	 * @param pbuffer the pixel buffer object whose resources you want to release
 	 */
 	public static int CGLDestroyPBuffer(long pbuffer) {
+		long __functionAddress = getInstance().DestroyPBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(pbuffer);
-		return nCGLDestroyPBuffer(pbuffer);
+		return callPI(__functionAddress, pbuffer);
 	}
 
 	// --- [ CGLDescribePBuffer ] ---
 
-	/** JNI method for {@link #CGLDescribePBuffer DescribePBuffer} */
+	/** Unsafe version of {@link #CGLDescribePBuffer DescribePBuffer} */
 	@JavadocExclude
-	public static native int nCGLDescribePBuffer(long obj, long width, long height, long target, long internalFormat, long mipmap);
+	public static int nCGLDescribePBuffer(long obj, long width, long height, long target, long internalFormat, long mipmap) {
+		long __functionAddress = getInstance().DescribePBuffer;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(obj);
+		return callPPPPPPI(__functionAddress, obj, width, height, target, internalFormat, mipmap);
+	}
 
 	/**
 	 * Retrieves information that describes the specified pixel buffer object.
@@ -751,7 +856,6 @@ public final class CGL {
 	 */
 	public static int CGLDescribePBuffer(long obj, ByteBuffer width, ByteBuffer height, ByteBuffer target, ByteBuffer internalFormat, ByteBuffer mipmap) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(obj);
 			checkBuffer(width, 1 << 2);
 			checkBuffer(height, 1 << 2);
 			checkBuffer(target, 1 << 2);
@@ -764,7 +868,6 @@ public final class CGL {
 	/** Alternative version of: {@link #CGLDescribePBuffer DescribePBuffer} */
 	public static int CGLDescribePBuffer(long obj, IntBuffer width, IntBuffer height, IntBuffer target, IntBuffer internalFormat, IntBuffer mipmap) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(obj);
 			checkBuffer(width, 1);
 			checkBuffer(height, 1);
 			checkBuffer(target, 1);
@@ -775,10 +878,6 @@ public final class CGL {
 	}
 
 	// --- [ CGLTexImagePBuffer ] ---
-
-	/** JNI method for {@link #CGLTexImagePBuffer TexImagePBuffer} */
-	@JavadocExclude
-	public static native int nCGLTexImagePBuffer(long ctx, long pbuffer, int source);
 
 	/**
 	 * Binds the contents of a pixel buffer to a data source for a texture object.
@@ -812,18 +911,15 @@ public final class CGL {
 	 *                possess the buffer in question for the texturing operation to succeed.
 	 */
 	public static int CGLTexImagePBuffer(long ctx, long pbuffer, int source) {
+		long __functionAddress = getInstance().TexImagePBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(ctx);
 			checkPointer(pbuffer);
 		}
-		return nCGLTexImagePBuffer(ctx, pbuffer, source);
+		return callPPII(__functionAddress, ctx, pbuffer, source);
 	}
 
 	// --- [ CGLRetainPBuffer ] ---
-
-	/** JNI method for {@link #CGLRetainPBuffer RetainPBuffer} */
-	@JavadocExclude
-	public static native long nCGLRetainPBuffer(long pbuffer);
 
 	/**
 	 * Increments the retain count on a pixel buffer object.
@@ -836,16 +932,13 @@ public final class CGL {
 	 * @param pbuffer the pixel buffer object whose retain count you wish to increment
 	 */
 	public static long CGLRetainPBuffer(long pbuffer) {
+		long __functionAddress = getInstance().RetainPBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(pbuffer);
-		return nCGLRetainPBuffer(pbuffer);
+		return callPP(__functionAddress, pbuffer);
 	}
 
 	// --- [ CGLReleasePBuffer ] ---
-
-	/** JNI method for {@link #CGLReleasePBuffer ReleasePBuffer} */
-	@JavadocExclude
-	public static native void nCGLReleasePBuffer(long pbuffer);
 
 	/**
 	 * Releases the resources associated with a pixel buffer object.
@@ -857,16 +950,13 @@ public final class CGL {
 	 * @param pbuffer the pixel buffer object whose resources you want to release
 	 */
 	public static void CGLReleasePBuffer(long pbuffer) {
+		long __functionAddress = getInstance().ReleasePBuffer;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(pbuffer);
-		nCGLReleasePBuffer(pbuffer);
+		callPV(__functionAddress, pbuffer);
 	}
 
 	// --- [ CGLGetPBufferRetainCount ] ---
-
-	/** JNI method for {@link #CGLGetPBufferRetainCount GetPBufferRetainCount} */
-	@JavadocExclude
-	public static native int nCGLGetPBufferRetainCount(long pbuffer);
 
 	/**
 	 * Returns the retain count of a pixel buffer object.
@@ -876,16 +966,22 @@ public final class CGL {
 	 * @param pbuffer the pixel buffer object whose retain count you wish to retrieve
 	 */
 	public static int CGLGetPBufferRetainCount(long pbuffer) {
+		long __functionAddress = getInstance().GetPBufferRetainCount;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(pbuffer);
-		return nCGLGetPBufferRetainCount(pbuffer);
+		return callPI(__functionAddress, pbuffer);
 	}
 
 	// --- [ CGLSetOffScreen ] ---
 
-	/** JNI method for {@link #CGLSetOffScreen SetOffScreen} */
+	/** Unsafe version of {@link #CGLSetOffScreen SetOffScreen} */
 	@JavadocExclude
-	public static native int nCGLSetOffScreen(long ctx, int width, int height, int rowbytes, long baseaddr);
+	public static int nCGLSetOffScreen(long ctx, int width, int height, int rowbytes, long baseaddr) {
+		long __functionAddress = getInstance().SetOffScreen;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(ctx);
+		return callPIIIPI(__functionAddress, ctx, width, height, rowbytes, baseaddr);
+	}
 
 	/**
 	 * Attaches a rendering context to an offscreen buffer.
@@ -910,18 +1006,21 @@ public final class CGL {
 	 * @param baseaddr a pointer to a block of memory to use as the offscreen buffer. The size of the memory must be at least {@code rowbytes*height} bytes.
 	 */
 	public static int CGLSetOffScreen(long ctx, int width, int height, int rowbytes, ByteBuffer baseaddr) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(ctx);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(baseaddr, rowbytes * height);
-		}
 		return nCGLSetOffScreen(ctx, width, height, rowbytes, memAddress(baseaddr));
 	}
 
 	// --- [ CGLGetOffScreen ] ---
 
-	/** JNI method for {@link #CGLGetOffScreen GetOffScreen} */
+	/** Unsafe version of {@link #CGLGetOffScreen GetOffScreen} */
 	@JavadocExclude
-	public static native int nCGLGetOffScreen(long ctx, long width, long height, long rowbytes, long baseaddr);
+	public static int nCGLGetOffScreen(long ctx, long width, long height, long rowbytes, long baseaddr) {
+		long __functionAddress = getInstance().GetOffScreen;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(ctx);
+		return callPPPPPI(__functionAddress, ctx, width, height, rowbytes, baseaddr);
+	}
 
 	/**
 	 * Retrieves an offscreen buffer and its parameters for a specified rendering context.
@@ -940,7 +1039,6 @@ public final class CGL {
 	 */
 	public static int CGLGetOffScreen(long ctx, ByteBuffer width, ByteBuffer height, ByteBuffer rowbytes, ByteBuffer baseaddr) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(ctx);
 			checkBuffer(width, 1 << 2);
 			checkBuffer(height, 1 << 2);
 			checkBuffer(rowbytes, 1 << 2);
@@ -952,7 +1050,6 @@ public final class CGL {
 	/** Alternative version of: {@link #CGLGetOffScreen GetOffScreen} */
 	public static int CGLGetOffScreen(long ctx, IntBuffer width, IntBuffer height, IntBuffer rowbytes, PointerBuffer baseaddr) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(ctx);
 			checkBuffer(width, 1);
 			checkBuffer(height, 1);
 			checkBuffer(rowbytes, 1);
@@ -962,10 +1059,6 @@ public final class CGL {
 	}
 
 	// --- [ CGLSetFullScreen ] ---
-
-	/** JNI method for {@link #CGLSetFullScreen SetFullScreen} */
-	@JavadocExclude
-	public static native int nCGLSetFullScreen(long ctx);
 
 	/**
 	 * Attaches a rendering context to its full-screen drawable object.
@@ -985,16 +1078,13 @@ public final class CGL {
 	 * @param ctx a rendering context
 	 */
 	public static int CGLSetFullScreen(long ctx) {
+		long __functionAddress = getInstance().SetFullScreen;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		return nCGLSetFullScreen(ctx);
+		return callPI(__functionAddress, ctx);
 	}
 
 	// --- [ CGLSetFullScreenOnDisplay ] ---
-
-	/** JNI method for {@link #CGLSetFullScreenOnDisplay SetFullScreenOnDisplay} */
-	@JavadocExclude
-	public static native int nCGLSetFullScreenOnDisplay(long ctx, int display_mask);
 
 	/**
 	 * Attaches a rendering context to a full-screen drawable object." +
@@ -1020,16 +1110,13 @@ public final class CGL {
 	 * @param display_mask a bit field that contains the OpenGL display mask for the screen you wish the context to cover
 	 */
 	public static int CGLSetFullScreenOnDisplay(long ctx, int display_mask) {
+		long __functionAddress = getInstance().SetFullScreenOnDisplay;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		return nCGLSetFullScreenOnDisplay(ctx, display_mask);
+		return callPII(__functionAddress, ctx, display_mask);
 	}
 
 	// --- [ CGLSetPBuffer ] ---
-
-	/** JNI method for {@link #CGLSetPBuffer SetPBuffer} */
-	@JavadocExclude
-	public static native int nCGLSetPBuffer(long ctx, long pbuffer, int face, int level, int screen);
 
 	/**
 	 * Attaches a pixel buffer object to a rendering context.
@@ -1063,18 +1150,24 @@ public final class CGL {
 	 *                that's the texturing target.
 	 */
 	public static int CGLSetPBuffer(long ctx, long pbuffer, int face, int level, int screen) {
+		long __functionAddress = getInstance().SetPBuffer;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(ctx);
 			checkPointer(pbuffer);
 		}
-		return nCGLSetPBuffer(ctx, pbuffer, face, level, screen);
+		return callPPIIII(__functionAddress, ctx, pbuffer, face, level, screen);
 	}
 
 	// --- [ CGLGetPBuffer ] ---
 
-	/** JNI method for {@link #CGLGetPBuffer GetPBuffer} */
+	/** Unsafe version of {@link #CGLGetPBuffer GetPBuffer} */
 	@JavadocExclude
-	public static native int nCGLGetPBuffer(long ctx, long pbuffer, long face, long level, long screen);
+	public static int nCGLGetPBuffer(long ctx, long pbuffer, long face, long level, long screen) {
+		long __functionAddress = getInstance().GetPBuffer;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(ctx);
+		return callPPPPPI(__functionAddress, ctx, pbuffer, face, level, screen);
+	}
 
 	/**
 	 * Retrieves a pixel buffer and its parameters for a specified rendering context.
@@ -1090,7 +1183,6 @@ public final class CGL {
 	 */
 	public static int CGLGetPBuffer(long ctx, ByteBuffer pbuffer, ByteBuffer face, ByteBuffer level, ByteBuffer screen) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(ctx);
 			checkBuffer(pbuffer, 1 << POINTER_SHIFT);
 			checkBuffer(face, 1 << 2);
 			checkBuffer(level, 1 << 2);
@@ -1102,7 +1194,6 @@ public final class CGL {
 	/** Alternative version of: {@link #CGLGetPBuffer GetPBuffer} */
 	public static int CGLGetPBuffer(long ctx, PointerBuffer pbuffer, IntBuffer face, IntBuffer level, IntBuffer screen) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(ctx);
 			checkBuffer(pbuffer, 1);
 			checkBuffer(face, 1);
 			checkBuffer(level, 1);
@@ -1113,26 +1204,19 @@ public final class CGL {
 
 	// --- [ CGLClearDrawable ] ---
 
-	/** JNI method for {@link #CGLClearDrawable ClearDrawable} */
-	@JavadocExclude
-	public static native int nCGLClearDrawable(long ctx);
-
 	/**
 	 * Disassociates a rendering context from any drawable objects attached to it.
 	 *
 	 * @param ctx a rendering context
 	 */
 	public static int CGLClearDrawable(long ctx) {
+		long __functionAddress = getInstance().ClearDrawable;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		return nCGLClearDrawable(ctx);
+		return callPI(__functionAddress, ctx);
 	}
 
 	// --- [ CGLFlushDrawable ] ---
-
-	/** JNI method for {@link #CGLFlushDrawable FlushDrawable} */
-	@JavadocExclude
-	public static native int nCGLFlushDrawable(long ctx);
 
 	/**
 	 * Copies the back buffer of a double-buffered context to the front buffer.
@@ -1149,16 +1233,13 @@ public final class CGL {
 	 * @param ctx the context object
 	 */
 	public static int CGLFlushDrawable(long ctx) {
+		long __functionAddress = getInstance().FlushDrawable;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		return nCGLFlushDrawable(ctx);
+		return callPI(__functionAddress, ctx);
 	}
 
 	// --- [ CGLEnable ] ---
-
-	/** JNI method for {@link #CGLEnable Enable} */
-	@JavadocExclude
-	public static native int nCGLEnable(long ctx, int pname);
 
 	/**
 	 * Enables an option for a rendering context.
@@ -1167,16 +1248,13 @@ public final class CGL {
 	 * @param pname the option to enable. One of:<br>{@link #kCGLCESwapRectangle CESwapRectangle}, {@link #kCGLCESwapLimit CESwapLimit}, {@link #kCGLCERasterization CERasterization}, {@link #kCGLCEStateValidation CEStateValidation}, {@link #kCGLCESurfaceBackingSize CESurfaceBackingSize}, {@link #kCGLCEDisplayListOptimization CEDisplayListOptimization}, {@link #kCGLCEMPEngine CEMPEngine}
 	 */
 	public static int CGLEnable(long ctx, int pname) {
+		long __functionAddress = getInstance().Enable;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		return nCGLEnable(ctx, pname);
+		return callPII(__functionAddress, ctx, pname);
 	}
 
 	// --- [ CGLDisable ] ---
-
-	/** JNI method for {@link #CGLDisable Disable} */
-	@JavadocExclude
-	public static native int nCGLDisable(long ctx, int pname);
 
 	/**
 	 * Disables an option for a rendering context.
@@ -1185,16 +1263,22 @@ public final class CGL {
 	 * @param pname the option to disable. One of:<br>{@link #kCGLCESwapRectangle CESwapRectangle}, {@link #kCGLCESwapLimit CESwapLimit}, {@link #kCGLCERasterization CERasterization}, {@link #kCGLCEStateValidation CEStateValidation}, {@link #kCGLCESurfaceBackingSize CESurfaceBackingSize}, {@link #kCGLCEDisplayListOptimization CEDisplayListOptimization}, {@link #kCGLCEMPEngine CEMPEngine}
 	 */
 	public static int CGLDisable(long ctx, int pname) {
+		long __functionAddress = getInstance().Disable;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		return nCGLDisable(ctx, pname);
+		return callPII(__functionAddress, ctx, pname);
 	}
 
 	// --- [ CGLIsEnabled ] ---
 
-	/** JNI method for {@link #CGLIsEnabled IsEnabled} */
+	/** Unsafe version of {@link #CGLIsEnabled IsEnabled} */
 	@JavadocExclude
-	public static native int nCGLIsEnabled(long ctx, int pname, long enable);
+	public static int nCGLIsEnabled(long ctx, int pname, long enable) {
+		long __functionAddress = getInstance().IsEnabled;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(ctx);
+		return callPIPI(__functionAddress, ctx, pname, enable);
+	}
 
 	/**
 	 * Reports whether an option is enabled for a rendering context.
@@ -1204,27 +1288,28 @@ public final class CGL {
 	 * @param enable on return, enable is set to true if the option is enabled
 	 */
 	public static int CGLIsEnabled(long ctx, int pname, ByteBuffer enable) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(ctx);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(enable, 1 << 2);
-		}
 		return nCGLIsEnabled(ctx, pname, memAddress(enable));
 	}
 
 	/** Alternative version of: {@link #CGLIsEnabled IsEnabled} */
 	public static int CGLIsEnabled(long ctx, int pname, IntBuffer enable) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(ctx);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(enable, 1);
-		}
 		return nCGLIsEnabled(ctx, pname, memAddress(enable));
 	}
 
 	// --- [ CGLSetParameter ] ---
 
-	/** JNI method for {@link #CGLSetParameter SetParameter} */
+	/** Unsafe version of {@link #CGLSetParameter SetParameter} */
 	@JavadocExclude
-	public static native int nCGLSetParameter(long ctx, int pname, long params);
+	public static int nCGLSetParameter(long ctx, int pname, long params) {
+		long __functionAddress = getInstance().SetParameter;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(ctx);
+		return callPIPI(__functionAddress, ctx, pname, params);
+	}
 
 	/**
 	 * Sets the value of a rendering context parameter.
@@ -1234,26 +1319,20 @@ public final class CGL {
 	 * @param params a pointer to the value to set the parameter to
 	 */
 	public static int CGLSetParameter(long ctx, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(ctx);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		}
 		return nCGLSetParameter(ctx, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #CGLSetParameter SetParameter} */
 	public static int CGLSetParameter(long ctx, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(ctx);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		}
 		return nCGLSetParameter(ctx, pname, memAddress(params));
 	}
 
 	/** Single value version of: {@link #CGLSetParameter SetParameter} */
 	public static int CGLSetParameter(long ctx, int pname, int param) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(ctx);
 		APIBuffer __buffer = apiBuffer();
 		int params = __buffer.intParam(param);
 		return nCGLSetParameter(ctx, pname, __buffer.address(params));
@@ -1261,9 +1340,14 @@ public final class CGL {
 
 	// --- [ CGLGetParameter ] ---
 
-	/** JNI method for {@link #CGLGetParameter GetParameter} */
+	/** Unsafe version of {@link #CGLGetParameter GetParameter} */
 	@JavadocExclude
-	public static native int nCGLGetParameter(long ctx, int pname, long params);
+	public static int nCGLGetParameter(long ctx, int pname, long params) {
+		long __functionAddress = getInstance().GetParameter;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(ctx);
+		return callPIPI(__functionAddress, ctx, pname, params);
+	}
 
 	/**
 	 * Retrieves the value of a rendering context parameter.
@@ -1273,27 +1357,19 @@ public final class CGL {
 	 * @param params on return, points to the value of the parameter
 	 */
 	public static int CGLGetParameter(long ctx, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(ctx);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1 << 2);
-		}
 		return nCGLGetParameter(ctx, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #CGLGetParameter GetParameter} */
 	public static int CGLGetParameter(long ctx, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(ctx);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(params, 1);
-		}
 		return nCGLGetParameter(ctx, pname, memAddress(params));
 	}
 
 	// --- [ CGLSetVirtualScreen ] ---
-
-	/** JNI method for {@link #CGLSetVirtualScreen SetVirtualScreen} */
-	@JavadocExclude
-	public static native int nCGLSetVirtualScreen(long ctx, int screen);
 
 	/**
 	 * Forces subsequent OpenGL commands to the specified virtual screen.
@@ -1309,16 +1385,22 @@ public final class CGL {
 	 *               context, 0 for the virtual screen number ({@code pix_num} parameter), and the attribute constant {@link #kCGLPFAVirtualScreenCount PFAVirtualScreenCount}.
 	 */
 	public static int CGLSetVirtualScreen(long ctx, int screen) {
+		long __functionAddress = getInstance().SetVirtualScreen;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		return nCGLSetVirtualScreen(ctx, screen);
+		return callPII(__functionAddress, ctx, screen);
 	}
 
 	// --- [ CGLGetVirtualScreen ] ---
 
-	/** JNI method for {@link #CGLGetVirtualScreen GetVirtualScreen} */
+	/** Unsafe version of {@link #CGLGetVirtualScreen GetVirtualScreen} */
 	@JavadocExclude
-	public static native int nCGLGetVirtualScreen(long ctx, long screen);
+	public static int nCGLGetVirtualScreen(long ctx, long screen) {
+		long __functionAddress = getInstance().GetVirtualScreen;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(ctx);
+		return callPPI(__functionAddress, ctx, screen);
+	}
 
 	/**
 	 * Gets the current virtual screen number associated with a rendering context.
@@ -1331,27 +1413,19 @@ public final class CGL {
 	 *               for any reason.
 	 */
 	public static int CGLGetVirtualScreen(long ctx, ByteBuffer screen) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(ctx);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(screen, 1 << 2);
-		}
 		return nCGLGetVirtualScreen(ctx, memAddress(screen));
 	}
 
 	/** Alternative version of: {@link #CGLGetVirtualScreen GetVirtualScreen} */
 	public static int CGLGetVirtualScreen(long ctx, IntBuffer screen) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(ctx);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(screen, 1);
-		}
 		return nCGLGetVirtualScreen(ctx, memAddress(screen));
 	}
 
 	// --- [ CGLUpdateContext ] ---
-
-	/** JNI method for {@link #CGLUpdateContext UpdateContext} */
-	@JavadocExclude
-	public static native int nCGLUpdateContext(long ctx);
 
 	/**
 	 * Synchronizes new renderer state to that of the application context
@@ -1359,16 +1433,20 @@ public final class CGL {
 	 * @param ctx a rendering context
 	 */
 	public static int CGLUpdateContext(long ctx) {
+		long __functionAddress = getInstance().UpdateContext;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ctx);
-		return nCGLUpdateContext(ctx);
+		return callPI(__functionAddress, ctx);
 	}
 
 	// --- [ CGLSetGlobalOption ] ---
 
-	/** JNI method for {@link #CGLSetGlobalOption SetGlobalOption} */
+	/** Unsafe version of {@link #CGLSetGlobalOption SetGlobalOption} */
 	@JavadocExclude
-	public static native int nCGLSetGlobalOption(int pname, long params);
+	public static int nCGLSetGlobalOption(int pname, long params) {
+		long __functionAddress = getInstance().SetGlobalOption;
+		return callIPI(__functionAddress, pname, params);
+	}
 
 	/**
 	 * Sets the value of a global option.
@@ -1398,9 +1476,12 @@ public final class CGL {
 
 	// --- [ CGLGetGlobalOption ] ---
 
-	/** JNI method for {@link #CGLGetGlobalOption GetGlobalOption} */
+	/** Unsafe version of {@link #CGLGetGlobalOption GetGlobalOption} */
 	@JavadocExclude
-	public static native int nCGLGetGlobalOption(int pname, long params);
+	public static int nCGLGetGlobalOption(int pname, long params) {
+		long __functionAddress = getInstance().GetGlobalOption;
+		return callIPI(__functionAddress, pname, params);
+	}
 
 	/**
 	 * Retrieves the value of a global option.
@@ -1423,10 +1504,6 @@ public final class CGL {
 
 	// --- [ CGLLockContext ] ---
 
-	/** JNI method for {@link #CGLLockContext LockContext} */
-	@JavadocExclude
-	public static native int nCGLLockContext(long context);
-
 	/**
 	 * Locks a CGL rendering context.
 	 * 
@@ -1442,16 +1519,13 @@ public final class CGL {
 	 * @param context a rendering context
 	 */
 	public static int CGLLockContext(long context) {
+		long __functionAddress = getInstance().LockContext;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nCGLLockContext(context);
+		return callPI(__functionAddress, context);
 	}
 
 	// --- [ CGLUnlockContext ] ---
-
-	/** JNI method for {@link #CGLUnlockContext UnlockContext} */
-	@JavadocExclude
-	public static native int nCGLUnlockContext(long context);
 
 	/**
 	 * Unlocks a CGL rendering context.
@@ -1459,16 +1533,20 @@ public final class CGL {
 	 * @param context the CGL context to unlock
 	 */
 	public static int CGLUnlockContext(long context) {
+		long __functionAddress = getInstance().UnlockContext;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(context);
-		return nCGLUnlockContext(context);
+		return callPI(__functionAddress, context);
 	}
 
 	// --- [ CGLGetVersion ] ---
 
-	/** JNI method for {@link #CGLGetVersion GetVersion} */
+	/** Unsafe version of {@link #CGLGetVersion GetVersion} */
 	@JavadocExclude
-	public static native void nCGLGetVersion(long majorvers, long minorvers);
+	public static void nCGLGetVersion(long majorvers, long minorvers) {
+		long __functionAddress = getInstance().GetVersion;
+		callPPV(__functionAddress, majorvers, minorvers);
+	}
 
 	/**
 	 * Gets the major and minor version numbers of the CGL library.
@@ -1495,9 +1573,12 @@ public final class CGL {
 
 	// --- [ CGLErrorString ] ---
 
-	/** JNI method for {@link #CGLErrorString ErrorString} */
+	/** Unsafe version of {@link #CGLErrorString ErrorString} */
 	@JavadocExclude
-	public static native long nCGLErrorString(int error);
+	public static long nCGLErrorString(int error) {
+		long __functionAddress = getInstance().ErrorString;
+		return callIP(__functionAddress, error);
+	}
 
 	/**
 	 * Returns a string that describes the specified result code.

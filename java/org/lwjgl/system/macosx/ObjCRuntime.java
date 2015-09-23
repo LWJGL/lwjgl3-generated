@@ -2583,20 +2583,4 @@ public final class ObjCRuntime {
 		nobjc_removeAssociatedObjects(object);
 	}
 
-     /**
-	 * Creates a {@link EnumerationMutationHandler} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link EnumerationMutationHandler} instance
-	 */
-	public static EnumerationMutationHandler EnumerationMutationHandler(final EnumerationMutationHandler.SAM sam) {
-		return new EnumerationMutationHandler() {
-			@Override
-			public void invoke(long id) {
-				sam.invoke(id);
-			}
-		};
-	}
-
 }

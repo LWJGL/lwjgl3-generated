@@ -13,19 +13,21 @@ import org.lwjgl.system.libffi.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
+import static org.lwjgl.glfw.GLFW.*;
+
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetCharCallback} method. */
 public abstract class GLFWCharCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(2);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(2);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-		ARGS.put(1, ffi_type_uint32);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare GLFWCharCallback callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"GLFWCharCallback",
+			CALL_CONVENTION_DEFAULT,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_pointer, ffi_type_uint32
+		);
 	}
 
 	protected GLFWCharCallback() {
@@ -44,6 +46,7 @@ public abstract class GLFWCharCallback extends Closure.Void {
 			memGetInt(memGetAddress(POINTER_SIZE * 1 + args))
 		);
 	}
+
 	/**
 	 * Will be called when a Unicode character is input.
 	 *
@@ -57,4 +60,26 @@ public abstract class GLFWCharCallback extends Closure.Void {
 		void invoke(long window, int codepoint);
 	}
 
+	/**
+	 * Creates a {@link GLFWCharCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link GLFWCharCallback} instance
+	 */
+	public static GLFWCharCallback create(final SAM sam) {
+		return new GLFWCharCallback() {
+			@Override
+			public void invoke(long window, int codepoint) {
+				sam.invoke(window, codepoint);
+			}
+		};
+	}
+
+	/** See {@link GLFW#glfwSetCharCallback SetCharCallback}. */
+	public GLFWCharCallback set(long window) {
+		glfwSetCharCallback(window, this);
+		return this;
+	}
+	
 }

@@ -13,19 +13,21 @@ import org.lwjgl.system.libffi.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
+import static org.lwjgl.glfw.GLFW.*;
+
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetMonitorCallback} method. */
 public abstract class GLFWMonitorCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(2);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(2);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-		ARGS.put(1, ffi_type_sint32);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare GLFWMonitorCallback callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"GLFWMonitorCallback",
+			CALL_CONVENTION_DEFAULT,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_pointer, ffi_type_sint32
+		);
 	}
 
 	protected GLFWMonitorCallback() {
@@ -44,6 +46,7 @@ public abstract class GLFWMonitorCallback extends Closure.Void {
 			memGetInt(memGetAddress(POINTER_SIZE * 1 + args))
 		);
 	}
+
 	/**
 	 * Will be called when a monitor is connected to or disconnected from the system.
 	 *
@@ -57,4 +60,26 @@ public abstract class GLFWMonitorCallback extends Closure.Void {
 		void invoke(long monitor, int event);
 	}
 
+	/**
+	 * Creates a {@link GLFWMonitorCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link GLFWMonitorCallback} instance
+	 */
+	public static GLFWMonitorCallback create(final SAM sam) {
+		return new GLFWMonitorCallback() {
+			@Override
+			public void invoke(long monitor, int event) {
+				sam.invoke(monitor, event);
+			}
+		};
+	}
+
+	/** See {@link GLFW#glfwSetMonitorCallback SetMonitorCallback}. */
+	public GLFWMonitorCallback set() {
+		glfwSetMonitorCallback(this);
+		return this;
+	}
+	
 }

@@ -15,19 +15,21 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 
 import org.lwjgl.opengl.GL11;
 
+import static org.lwjgl.glfw.GLFW.*;
+
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetCursorEnterCallback} method. */
 public abstract class GLFWCursorEnterCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(2);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(2);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-		ARGS.put(1, ffi_type_sint32);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare GLFWCursorEnterCallback callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"GLFWCursorEnterCallback",
+			CALL_CONVENTION_DEFAULT,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_pointer, ffi_type_sint32
+		);
 	}
 
 	protected GLFWCursorEnterCallback() {
@@ -46,6 +48,7 @@ public abstract class GLFWCursorEnterCallback extends Closure.Void {
 			memGetInt(memGetAddress(POINTER_SIZE * 1 + args))
 		);
 	}
+
 	/**
 	 * Will be called when the cursor enters or leaves the client area of the window.
 	 *
@@ -59,4 +62,26 @@ public abstract class GLFWCursorEnterCallback extends Closure.Void {
 		void invoke(long window, int entered);
 	}
 
+	/**
+	 * Creates a {@link GLFWCursorEnterCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link GLFWCursorEnterCallback} instance
+	 */
+	public static GLFWCursorEnterCallback create(final SAM sam) {
+		return new GLFWCursorEnterCallback() {
+			@Override
+			public void invoke(long window, int entered) {
+				sam.invoke(window, entered);
+			}
+		};
+	}
+
+	/** See {@link GLFW#glfwSetCursorEnterCallback SetCursorEnterCallback}. */
+	public GLFWCursorEnterCallback set(long window) {
+		glfwSetCursorEnterCallback(window, this);
+		return this;
+	}
+	
 }

@@ -13,20 +13,21 @@ import org.lwjgl.system.libffi.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
+import static org.lwjgl.glfw.GLFW.*;
+
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowSizeCallback} method. */
 public abstract class GLFWWindowSizeCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(3);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(3);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-		ARGS.put(1, ffi_type_sint32);
-		ARGS.put(2, ffi_type_sint32);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare GLFWWindowSizeCallback callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"GLFWWindowSizeCallback",
+			CALL_CONVENTION_DEFAULT,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_pointer, ffi_type_sint32, ffi_type_sint32
+		);
 	}
 
 	protected GLFWWindowSizeCallback() {
@@ -46,6 +47,7 @@ public abstract class GLFWWindowSizeCallback extends Closure.Void {
 			memGetInt(memGetAddress(POINTER_SIZE * 2 + args))
 		);
 	}
+
 	/**
 	 * Will be called when the specified window is resized.
 	 *
@@ -60,4 +62,26 @@ public abstract class GLFWWindowSizeCallback extends Closure.Void {
 		void invoke(long window, int width, int height);
 	}
 
+	/**
+	 * Creates a {@link GLFWWindowSizeCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link GLFWWindowSizeCallback} instance
+	 */
+	public static GLFWWindowSizeCallback create(final SAM sam) {
+		return new GLFWWindowSizeCallback() {
+			@Override
+			public void invoke(long window, int width, int height) {
+				sam.invoke(window, width, height);
+			}
+		};
+	}
+
+	/** See {@link GLFW#glfwSetWindowSizeCallback SetWindowSizeCallback}. */
+	public GLFWWindowSizeCallback set(long window) {
+		glfwSetWindowSizeCallback(window, this);
+		return this;
+	}
+	
 }

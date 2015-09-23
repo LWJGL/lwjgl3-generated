@@ -28,6 +28,7 @@ public final class GLCapabilities {
 	final GL43                             __GL43;
 	final GL44                             __GL44;
 	final GL45                             __GL45;
+	final GLX                              __GLX;
 	final GLX11                            __GLX11;
 	final GLX12                            __GLX12;
 	final GLX13                            __GLX13;
@@ -145,6 +146,7 @@ public final class GLCapabilities {
 	final ARBVertexType2_10_10_10_REV      __ARBVertexType2_10_10_10_REV;
 	final ARBViewportArray                 __ARBViewportArray;
 	final ARBWindowPos                     __ARBWindowPos;
+	final CGL                              __CGL;
 	final EXTBindableUniform               __EXTBindableUniform;
 	final EXTBlendColor                    __EXTBlendColor;
 	final EXTBlendEquationSeparate         __EXTBlendEquationSeparate;
@@ -219,6 +221,7 @@ public final class GLCapabilities {
 	final NVVertexBufferUnifiedMemory      __NVVertexBufferUnifiedMemory;
 	final NVXConditionalRender             __NVXConditionalRender;
 	final OVRMultiview                     __OVRMultiview;
+	final WGL                              __WGL;
 	final WGLAMDGPUAssociation             __WGLAMDGPUAssociation;
 	final WGLARBBufferRegion               __WGLARBBufferRegion;
 	final WGLARBCreateContext              __WGLARBCreateContext;
@@ -270,6 +273,8 @@ public final class GLCapabilities {
 	public final boolean OpenGL44;
 	/** When true, {@link GL45} is supported. */
 	public final boolean OpenGL45;
+	/** When true, {@link GLX} is supported. */
+	public final boolean GLX;
 	/** When true, {@link GLX11} is supported. */
 	public final boolean GLX_11;
 	/** When true, {@link GLX12} is supported. */
@@ -1380,6 +1385,8 @@ public final class GLCapabilities {
 	public final boolean GL_ATI_shader_texture_lod;
 	/** When true, {@link ATITextureCompression3DC} is supported. */
 	public final boolean GL_ATI_texture_compression_3dc;
+	/** When true, {@link CGL} is supported. */
+	public final boolean CGL;
 	/** When true, {@link EXT422Pixels} is supported. */
 	public final boolean GL_EXT_422_pixels;
 	/** When true, {@link EXTABGR} is supported. */
@@ -1888,6 +1895,8 @@ public final class GLCapabilities {
 	 * <p>Requires {@link GL30 OpenGL 3.0} and {@link OVRMultiview OVR_multiview}.</p>
 	 */
 	public final boolean GL_OVR_multiview2;
+	/** When true, {@link WGL} is supported. */
+	public final boolean WGL;
 	/** When true, {@link WGLAMDGPUAssociation} is supported. */
 	public final boolean WGL_AMD_gpu_association;
 	/** When true, {@link WGLARBBufferRegion} is supported. */
@@ -2006,6 +2015,7 @@ public final class GLCapabilities {
 		OpenGL43 = (__GL43 = GL43.create(ext, provider)) != null;
 		OpenGL44 = (__GL44 = GL44.create(ext, provider)) != null;
 		OpenGL45 = (__GL45 = GL45.create(ext, provider)) != null;
+		GLX = (__GLX = org.lwjgl.opengl.GLX.create(ext, provider)) != null;
 		GLX_11 = (__GLX11 = GLX11.create(ext, provider)) != null;
 		GLX_12 = (__GLX12 = GLX12.create(ext, provider)) != null;
 		GLX_13 = (__GLX13 = GLX13.create(ext, provider)) != null;
@@ -2243,6 +2253,7 @@ public final class GLCapabilities {
 		GL_ATI_meminfo = ext.contains("GL_ATI_meminfo");
 		GL_ATI_shader_texture_lod = ext.contains("GL_ATI_shader_texture_lod");
 		GL_ATI_texture_compression_3dc = ext.contains("GL_ATI_texture_compression_3dc");
+		CGL = (__CGL = org.lwjgl.opengl.CGL.create(ext, provider)) != null;
 		GL_EXT_422_pixels = ext.contains("GL_EXT_422_pixels");
 		GL_EXT_abgr = ext.contains("GL_EXT_abgr");
 		GL_EXT_bgra = ext.contains("GL_EXT_bgra");
@@ -2385,6 +2396,7 @@ public final class GLCapabilities {
 		GL_NVX_gpu_memory_info = ext.contains("GL_NVX_gpu_memory_info");
 		GL_OVR_multiview = (__OVRMultiview = OVRMultiview.create(ext, provider)) != null;
 		GL_OVR_multiview2 = ext.contains("GL_OVR_multiview2");
+		WGL = (__WGL = org.lwjgl.opengl.WGL.create(ext, provider)) != null;
 		WGL_AMD_gpu_association = (__WGLAMDGPUAssociation = WGLAMDGPUAssociation.create(ext, provider)) != null;
 		WGL_ARB_buffer_region = (__WGLARBBufferRegion = WGLARBBufferRegion.create(ext, provider)) != null;
 		WGL_ARB_context_flush_control = ext.contains("WGL_ARB_context_flush_control");

@@ -1185,20 +1185,4 @@ public final class OVR {
 		return novr_SetString(hmddesc, __buffer.address(propertyNameEncoded), __buffer.address(valueEncoded));
 	}
 
-     /**
-	 * Creates a {@link OVRLogCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link OVRLogCallback} instance
-	 */
-	public static OVRLogCallback OVRLogCallback(final OVRLogCallback.SAM sam) {
-		return new OVRLogCallback() {
-			@Override
-			public void invoke(long userData, int level, long message) {
-				sam.invoke(userData, level, message);
-			}
-		};
-	}
-
 }

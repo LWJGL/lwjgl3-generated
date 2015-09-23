@@ -16,20 +16,16 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** Instances of this interface may be set to the {@link ChunkHooks} struct. */
 public abstract class ChunkAlloc extends Closure.Ptr {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(6);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(6);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-		ARGS.put(1, ffi_type_pointer);
-		ARGS.put(2, ffi_type_pointer);
-		ARGS.put(3, ffi_type_pointer);
-		ARGS.put(4, ffi_type_pointer);
-		ARGS.put(5, ffi_type_uint32);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_pointer, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare ChunkAlloc callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"ChunkAlloc",
+			CALL_CONVENTION_DEFAULT,
+			CIF, ffi_type_pointer,
+			ARGS, ffi_type_pointer, ffi_type_pointer, ffi_type_pointer, ffi_type_pointer, ffi_type_pointer, ffi_type_uint32
+		);
 	}
 
 	protected ChunkAlloc() {
@@ -52,6 +48,7 @@ public abstract class ChunkAlloc extends Closure.Ptr {
 			memGetInt(memGetAddress(POINTER_SIZE * 5 + args))
 		);
 	}
+
 	/**
 	 * Chunk allocation hook.
 	 *
@@ -67,6 +64,22 @@ public abstract class ChunkAlloc extends Closure.Ptr {
 	/** A functional interface for {@link ChunkAlloc}. */
 	public interface SAM {
 		long invoke(long new_addr, long size, long alignment, long zero, long commit, int arena_ind);
+	}
+
+	/**
+	 * Creates a {@link ChunkAlloc} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link ChunkAlloc} instance
+	 */
+	public static ChunkAlloc create(final SAM sam) {
+		return new ChunkAlloc() {
+			@Override
+			public long invoke(long new_addr, long size, long alignment, long zero, long commit, int arena_ind) {
+				return sam.invoke(new_addr, size, alignment, zero, commit, arena_ind);
+			}
+		};
 	}
 
 }

@@ -16,20 +16,16 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** Instances of this interface may be set to the {@link ChunkHooks} struct. */
 public abstract class ChunkSplit extends Closure.Byte {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(6);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(6);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-		ARGS.put(1, ffi_type_pointer);
-		ARGS.put(2, ffi_type_pointer);
-		ARGS.put(3, ffi_type_pointer);
-		ARGS.put(4, ffi_type_uint8);
-		ARGS.put(5, ffi_type_uint32);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_uint8, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare ChunkSplit callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"ChunkSplit",
+			CALL_CONVENTION_DEFAULT,
+			CIF, ffi_type_uint8,
+			ARGS, ffi_type_pointer, ffi_type_pointer, ffi_type_pointer, ffi_type_pointer, ffi_type_uint8, ffi_type_uint32
+		);
 	}
 
 	protected ChunkSplit() {
@@ -52,6 +48,7 @@ public abstract class ChunkSplit extends Closure.Byte {
 			memGetInt(memGetAddress(POINTER_SIZE * 5 + args))
 		);
 	}
+
 	/**
 	 * Chunk split hook.
 	 *
@@ -67,6 +64,22 @@ public abstract class ChunkSplit extends Closure.Byte {
 	/** A functional interface for {@link ChunkSplit}. */
 	public interface SAM {
 		byte invoke(long chunk, long size, long size_a, long size_b, byte committed, int arena_ind);
+	}
+
+	/**
+	 * Creates a {@link ChunkSplit} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link ChunkSplit} instance
+	 */
+	public static ChunkSplit create(final SAM sam) {
+		return new ChunkSplit() {
+			@Override
+			public byte invoke(long chunk, long size, long size_a, long size_b, byte committed, int arena_ind) {
+				return sam.invoke(chunk, size, size_a, size_b, committed, arena_ind);
+			}
+		};
 	}
 
 }

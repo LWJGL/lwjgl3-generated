@@ -16,16 +16,16 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** Instances of this interface may be passed to the {@link CL10#clBuildProgram}, {@link CL12#clCompileProgram} and {@link CL12#clLinkProgram} methods. */
 public abstract class CLProgramCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(2);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(2);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-		ARGS.put(1, ffi_type_pointer);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_SYSTEM, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare CLProgramCallback callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"CLProgramCallback",
+			CALL_CONVENTION_SYSTEM,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_pointer, ffi_type_pointer
+		);
 	}
 
 	protected CLProgramCallback() {
@@ -44,6 +44,7 @@ public abstract class CLProgramCallback extends Closure.Void {
 			memGetAddress(memGetAddress(POINTER_SIZE * 1 + args))
 		);
 	}
+
 	/**
 	 * Will be called when the program is built, compiled or linked.
 	 *
@@ -55,6 +56,22 @@ public abstract class CLProgramCallback extends Closure.Void {
 	/** A functional interface for {@link CLProgramCallback}. */
 	public interface SAM {
 		void invoke(long program, long user_data);
+	}
+
+	/**
+	 * Creates a {@link CLProgramCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link CLProgramCallback} instance
+	 */
+	public static CLProgramCallback create(final SAM sam) {
+		return new CLProgramCallback() {
+			@Override
+			public void invoke(long program, long user_data) {
+				sam.invoke(program, user_data);
+			}
+		};
 	}
 
 }

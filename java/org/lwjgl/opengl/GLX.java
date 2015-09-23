@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 import org.lwjgl.system.linux.*;
@@ -64,15 +65,79 @@ public final class GLX {
 		GLX_BAD_VALUE     = 0x6,
 		GLX_BAD_ENUM      = 0x7;
 
-	static { LWJGLUtil.initialize(); }
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		QueryExtension,
+		QueryVersion,
+		GetConfig,
+		ChooseVisual,
+		CreateContext,
+		MakeCurrent,
+		CopyContext,
+		IsDirect,
+		DestroyContext,
+		GetCurrentContext,
+		GetCurrentDrawable,
+		WaitGL,
+		WaitX,
+		SwapBuffers,
+		UseXFont,
+		CreateGLXPixmap,
+		DestroyGLXPixmap;
 
-	private GLX() {}
+	@JavadocExclude
+	public GLX(FunctionProvider provider) {
+		QueryExtension = provider.getFunctionAddress("glXQueryExtension");
+		QueryVersion = provider.getFunctionAddress("glXQueryVersion");
+		GetConfig = provider.getFunctionAddress("glXGetConfig");
+		ChooseVisual = provider.getFunctionAddress("glXChooseVisual");
+		CreateContext = provider.getFunctionAddress("glXCreateContext");
+		MakeCurrent = provider.getFunctionAddress("glXMakeCurrent");
+		CopyContext = provider.getFunctionAddress("glXCopyContext");
+		IsDirect = provider.getFunctionAddress("glXIsDirect");
+		DestroyContext = provider.getFunctionAddress("glXDestroyContext");
+		GetCurrentContext = provider.getFunctionAddress("glXGetCurrentContext");
+		GetCurrentDrawable = provider.getFunctionAddress("glXGetCurrentDrawable");
+		WaitGL = provider.getFunctionAddress("glXWaitGL");
+		WaitX = provider.getFunctionAddress("glXWaitX");
+		SwapBuffers = provider.getFunctionAddress("glXSwapBuffers");
+		UseXFont = provider.getFunctionAddress("glXUseXFont");
+		CreateGLXPixmap = provider.getFunctionAddress("glXCreateGLXPixmap");
+		DestroyGLXPixmap = provider.getFunctionAddress("glXDestroyGLXPixmap");
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GLX} instance for the current context. */
+	public static GLX getInstance() {
+		return checkFunctionality(GL.getCapabilities().__GLX);
+	}
+
+	static GLX create(java.util.Set<String> ext, FunctionProvider provider) {
+		if ( !ext.contains("GLX") ) return null;
+
+		GLX funcs = new GLX(provider);
+
+		boolean supported = checkFunctions(
+			funcs.QueryExtension, funcs.QueryVersion, funcs.GetConfig, funcs.ChooseVisual, funcs.CreateContext, funcs.MakeCurrent, funcs.CopyContext, 
+			funcs.IsDirect, funcs.DestroyContext, funcs.GetCurrentContext, funcs.GetCurrentDrawable, funcs.WaitGL, funcs.WaitX, funcs.SwapBuffers, 
+			funcs.UseXFont, funcs.CreateGLXPixmap, funcs.DestroyGLXPixmap
+		);
+
+		return GL.checkExtension("GLX", funcs, supported);
+	}
 
 	// --- [ glXQueryExtension ] ---
 
-	/** JNI method for {@link #glXQueryExtension QueryExtension} */
+	/** Unsafe version of {@link #glXQueryExtension QueryExtension} */
 	@JavadocExclude
-	public static native int nglXQueryExtension(long display, long error_base, long event_base);
+	public static int nglXQueryExtension(long display, long error_base, long event_base) {
+		long __functionAddress = getInstance().QueryExtension;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(display);
+		return callPPPI(__functionAddress, display, error_base, event_base);
+	}
 
 	/**
 	 * Ascertains if the GLX extension is defined for an X server.
@@ -83,7 +148,6 @@ public final class GLX {
 	 */
 	public static int glXQueryExtension(long display, ByteBuffer error_base, ByteBuffer event_base) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(display);
 			checkBuffer(error_base, 1 << 2);
 			checkBuffer(event_base, 1 << 2);
 		}
@@ -93,7 +157,6 @@ public final class GLX {
 	/** Alternative version of: {@link #glXQueryExtension QueryExtension} */
 	public static int glXQueryExtension(long display, IntBuffer error_base, IntBuffer event_base) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(display);
 			checkBuffer(error_base, 1);
 			checkBuffer(event_base, 1);
 		}
@@ -102,9 +165,14 @@ public final class GLX {
 
 	// --- [ glXQueryVersion ] ---
 
-	/** JNI method for {@link #glXQueryVersion QueryVersion} */
+	/** Unsafe version of {@link #glXQueryVersion QueryVersion} */
 	@JavadocExclude
-	public static native int nglXQueryVersion(long display, long major, long minor);
+	public static int nglXQueryVersion(long display, long major, long minor) {
+		long __functionAddress = getInstance().QueryVersion;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(display);
+		return callPPPI(__functionAddress, display, major, minor);
+	}
 
 	/**
 	 * Queries the GLX version supported.
@@ -115,7 +183,6 @@ public final class GLX {
 	 */
 	public static int glXQueryVersion(long display, ByteBuffer major, ByteBuffer minor) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(display);
 			checkBuffer(major, 1 << 2);
 			checkBuffer(minor, 1 << 2);
 		}
@@ -125,7 +192,6 @@ public final class GLX {
 	/** Alternative version of: {@link #glXQueryVersion QueryVersion} */
 	public static int glXQueryVersion(long display, IntBuffer major, IntBuffer minor) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(display);
 			checkBuffer(major, 1);
 			checkBuffer(minor, 1);
 		}
@@ -134,9 +200,14 @@ public final class GLX {
 
 	// --- [ glXGetConfig ] ---
 
-	/** JNI method for {@link #glXGetConfig GetConfig} */
+	/** Unsafe version of {@link #glXGetConfig GetConfig} */
 	@JavadocExclude
-	public static native int nglXGetConfig(long display, long visual, int attribute, long value);
+	public static int nglXGetConfig(long display, long visual, int attribute, long value) {
+		long __functionAddress = getInstance().GetConfig;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(display);
+		return callPPIPI(__functionAddress, display, visual, attribute, value);
+	}
 
 	/**
 	 * Returns a description of an OpenGL attribute exported by a Visual.
@@ -148,7 +219,6 @@ public final class GLX {
 	 */
 	public static int glXGetConfig(long display, ByteBuffer visual, int attribute, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(display);
 			checkBuffer(visual, XVisualInfo.SIZEOF);
 			checkBuffer(value, 1 << 2);
 		}
@@ -158,7 +228,6 @@ public final class GLX {
 	/** Alternative version of: {@link #glXGetConfig GetConfig} */
 	public static int glXGetConfig(long display, ByteBuffer visual, int attribute, IntBuffer value) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(display);
 			checkBuffer(visual, XVisualInfo.SIZEOF);
 			checkBuffer(value, 1);
 		}
@@ -167,9 +236,14 @@ public final class GLX {
 
 	// --- [ glXChooseVisual ] ---
 
-	/** JNI method for {@link #glXChooseVisual ChooseVisual} */
+	/** Unsafe version of {@link #glXChooseVisual ChooseVisual} */
 	@JavadocExclude
-	public static native long nglXChooseVisual(long display, int screen, long attrib_list);
+	public static long nglXChooseVisual(long display, int screen, long attrib_list) {
+		long __functionAddress = getInstance().ChooseVisual;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(display);
+		return callPIPP(__functionAddress, display, screen, attrib_list);
+	}
 
 	/**
 	 * Finds a visual that matches the client’s specified attributes.
@@ -182,29 +256,30 @@ public final class GLX {
 	 *         returned.
 	 */
 	public static ByteBuffer glXChooseVisual(long display, int screen, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(display);
+		if ( LWJGLUtil.CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list);
-		}
 		long __result = nglXChooseVisual(display, screen, memAddressSafe(attrib_list));
 		return memByteBuffer(__result, XVisualInfo.SIZEOF);
 	}
 
 	/** Alternative version of: {@link #glXChooseVisual ChooseVisual} */
 	public static ByteBuffer glXChooseVisual(long display, int screen, IntBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(display);
+		if ( LWJGLUtil.CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);
-		}
 		long __result = nglXChooseVisual(display, screen, memAddressSafe(attrib_list));
 		return memByteBuffer(__result, XVisualInfo.SIZEOF);
 	}
 
 	// --- [ glXCreateContext ] ---
 
-	/** JNI method for {@link #glXCreateContext CreateContext} */
+	/** Unsafe version of {@link #glXCreateContext CreateContext} */
 	@JavadocExclude
-	public static native long nglXCreateContext(long display, long visual, long share_list, int direct);
+	public static long nglXCreateContext(long display, long visual, long share_list, int direct) {
+		long __functionAddress = getInstance().CreateContext;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(display);
+		return callPPPIP(__functionAddress, display, visual, share_list, direct);
+	}
 
 	/**
 	 * Creates an OpenGL context.
@@ -215,18 +290,12 @@ public final class GLX {
 	 * @param direct     whether direct rendering is requested
 	 */
 	public static long glXCreateContext(long display, ByteBuffer visual, long share_list, int direct) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(display);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(visual, XVisualInfo.SIZEOF);
-		}
 		return nglXCreateContext(display, memAddress(visual), share_list, direct);
 	}
 
 	// --- [ glXMakeCurrent ] ---
-
-	/** JNI method for {@link #glXMakeCurrent MakeCurrent} */
-	@JavadocExclude
-	public static native int nglXMakeCurrent(long display, long draw, long ctx);
 
 	/**
 	 * Makes a context current in the current thread
@@ -236,16 +305,13 @@ public final class GLX {
 	 * @param ctx     the GLXContext to make current
 	 */
 	public static int glXMakeCurrent(long display, long draw, long ctx) {
+		long __functionAddress = getInstance().MakeCurrent;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(display);
-		return nglXMakeCurrent(display, draw, ctx);
+		return callPPPI(__functionAddress, display, draw, ctx);
 	}
 
 	// --- [ glXCopyContext ] ---
-
-	/** JNI method for {@link #glXCopyContext CopyContext} */
-	@JavadocExclude
-	public static native void nglXCopyContext(long display, long source, long dest, long mask);
 
 	/**
 	 * Copies OpenGL rendering state from one context to another.
@@ -256,19 +322,16 @@ public final class GLX {
 	 * @param mask    indicates which groups of state variables are to be copied; it contains the bitwise OR of the symbolic names for the attribute groups
 	 */
 	public static void glXCopyContext(long display, long source, long dest, long mask) {
+		long __functionAddress = getInstance().CopyContext;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
 			checkPointer(source);
 			checkPointer(dest);
 		}
-		nglXCopyContext(display, source, dest, mask);
+		callPPPPV(__functionAddress, display, source, dest, mask);
 	}
 
 	// --- [ glXIsDirect ] ---
-
-	/** JNI method for {@link #glXIsDirect IsDirect} */
-	@JavadocExclude
-	public static native int nglXIsDirect(long display, long ctx);
 
 	/**
 	 * Determines if an OpenGL rendering context is direct.
@@ -277,18 +340,15 @@ public final class GLX {
 	 * @param ctx     the GLXContext to query
 	 */
 	public static int glXIsDirect(long display, long ctx) {
+		long __functionAddress = getInstance().IsDirect;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
 			checkPointer(ctx);
 		}
-		return nglXIsDirect(display, ctx);
+		return callPPI(__functionAddress, display, ctx);
 	}
 
 	// --- [ glXDestroyContext ] ---
-
-	/** JNI method for {@link #glXDestroyContext DestroyContext} */
-	@JavadocExclude
-	public static native void nglXDestroyContext(long display, long ctx);
 
 	/**
 	 * Destroys an OpenGL context.
@@ -300,22 +360,29 @@ public final class GLX {
 	 * @param ctx     the GLXContext to destroy
 	 */
 	public static void glXDestroyContext(long display, long ctx) {
+		long __functionAddress = getInstance().DestroyContext;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
 			checkPointer(ctx);
 		}
-		nglXDestroyContext(display, ctx);
+		callPPV(__functionAddress, display, ctx);
 	}
 
 	// --- [ glXGetCurrentContext ] ---
 
 	/** Returns the GLXContext that is current in the current thread. */
-	public static native long glXGetCurrentContext();
+	public static long glXGetCurrentContext() {
+		long __functionAddress = getInstance().GetCurrentContext;
+		return callP(__functionAddress);
+	}
 
 	// --- [ glXGetCurrentDrawable ] ---
 
 	/** Returns the XID of the current drawable used for rendering. */
-	public static native long glXGetCurrentDrawable();
+	public static long glXGetCurrentDrawable() {
+		long __functionAddress = getInstance().GetCurrentDrawable;
+		return callP(__functionAddress);
+	}
 
 	// --- [ glXWaitGL ] ---
 
@@ -326,7 +393,10 @@ public final class GLX {
 	 * can be achieved using {@link GL11#glFinish}, {@code glXWaitGL} does not require a round trip to the server, and is therefore more efficient in cases
 	 * where the client and server are on separate machines.</p>
 	 */
-	public static native void glXWaitGL();
+	public static void glXWaitGL() {
+		long __functionAddress = getInstance().WaitGL;
+		callV(__functionAddress);
+	}
 
 	// --- [ glXWaitX ] ---
 
@@ -336,13 +406,12 @@ public final class GLX {
 	 * <p>X rendering calls made prior to {@code glXWaitX} are guaranteed to be executed before OpenGL rendering calls made after {@code glXWaitX}. While the same
 	 * result can be achieved using {@link Xlib#XSync}, {@code glXWaitX} does not require a round trip to the server, and may therefore be more efficient.</p>
 	 */
-	public static native void glXWaitX();
+	public static void glXWaitX() {
+		long __functionAddress = getInstance().WaitX;
+		callV(__functionAddress);
+	}
 
 	// --- [ glXSwapBuffers ] ---
-
-	/** JNI method for {@link #glXSwapBuffers SwapBuffers} */
-	@JavadocExclude
-	public static native void nglXSwapBuffers(long display, long draw);
 
 	/**
 	 * For drawables that are double buffered, makes the contexts of the back buffer potentially visible (i.e., become the contents of the front buffer).
@@ -354,11 +423,12 @@ public final class GLX {
 	 * @param draw    a double buffered GLXDrawable
 	 */
 	public static void glXSwapBuffers(long display, long draw) {
+		long __functionAddress = getInstance().SwapBuffers;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
 			checkPointer(draw);
 		}
-		nglXSwapBuffers(display, draw);
+		callPPV(__functionAddress, display, draw);
 	}
 
 	// --- [ glXUseXFont ] ---
@@ -371,13 +441,21 @@ public final class GLX {
 	 * @param count     the number of display lists to define
 	 * @param list_base the base list number
 	 */
-	public static native void glXUseXFont(long font, int first, int count, int list_base);
+	public static void glXUseXFont(long font, int first, int count, int list_base) {
+		long __functionAddress = getInstance().UseXFont;
+		callPIIIV(__functionAddress, font, first, count, list_base);
+	}
 
 	// --- [ glXCreateGLXPixmap ] ---
 
-	/** JNI method for {@link #glXCreateGLXPixmap CreateGLXPixmap} */
+	/** Unsafe version of {@link #glXCreateGLXPixmap CreateGLXPixmap} */
 	@JavadocExclude
-	public static native long nglXCreateGLXPixmap(long display, long visual, long pixmap);
+	public static long nglXCreateGLXPixmap(long display, long visual, long pixmap) {
+		long __functionAddress = getInstance().CreateGLXPixmap;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(display);
+		return callPPPP(__functionAddress, display, visual, pixmap);
+	}
 
 	/**
 	 * Creates a GLXPixmap from a Pixmap.
@@ -387,18 +465,12 @@ public final class GLX {
 	 * @param pixmap  the Pixmap
 	 */
 	public static long glXCreateGLXPixmap(long display, ByteBuffer visual, long pixmap) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(display);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(visual, XVisualInfo.SIZEOF);
-		}
 		return nglXCreateGLXPixmap(display, memAddress(visual), pixmap);
 	}
 
 	// --- [ glXDestroyGLXPixmap ] ---
-
-	/** JNI method for {@link #glXDestroyGLXPixmap DestroyGLXPixmap} */
-	@JavadocExclude
-	public static native void nglXDestroyGLXPixmap(long display, long pixmap);
 
 	/**
 	 * Destroys a GLXPixmap.
@@ -407,11 +479,12 @@ public final class GLX {
 	 * @param pixmap  the GLXPixmap to destroy.
 	 */
 	public static void glXDestroyGLXPixmap(long display, long pixmap) {
+		long __functionAddress = getInstance().DestroyGLXPixmap;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(display);
 			checkPointer(pixmap);
 		}
-		nglXDestroyGLXPixmap(display, pixmap);
+		callPPV(__functionAddress, display, pixmap);
 	}
 
 }

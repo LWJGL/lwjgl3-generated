@@ -762,36 +762,4 @@ public final class CL11 {
 		return callPIPPI(__functionAddress, event, command_exec_callback_type, pfn_notify.getPointer(), user_data);
 	}
 
-     /**
-	 * Creates a {@link CLMemObjectDestructorCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link CLMemObjectDestructorCallback} instance
-	 */
-	public static CLMemObjectDestructorCallback CLMemObjectDestructorCallback(final CLMemObjectDestructorCallback.SAM sam) {
-		return new CLMemObjectDestructorCallback() {
-			@Override
-			public void invoke(long memobj, long user_data) {
-				sam.invoke(memobj, user_data);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link CLEventCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link CLEventCallback} instance
-	 */
-	public static CLEventCallback CLEventCallback(final CLEventCallback.SAM sam) {
-		return new CLEventCallback() {
-			@Override
-			public void invoke(long event, int event_command_exec_status, long user_data) {
-				sam.invoke(event, event_command_exec_status, user_data);
-			}
-		};
-	}
-
 }

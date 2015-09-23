@@ -16,17 +16,16 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** Instances of this interface may be passed to the {@code LogCallback} member of the {@link OVRInitParams} struct. */
 public abstract class OVRLogCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(3);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(3);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-		ARGS.put(1, ffi_type_sint32);
-		ARGS.put(2, ffi_type_pointer);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare OVRLogCallback callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"OVRLogCallback",
+			CALL_CONVENTION_DEFAULT,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_pointer, ffi_type_sint32, ffi_type_pointer
+		);
 	}
 
 	protected OVRLogCallback() {
@@ -46,6 +45,7 @@ public abstract class OVRLogCallback extends Closure.Void {
 			memGetAddress(memGetAddress(POINTER_SIZE * 2 + args))
 		);
 	}
+
 	/**
 	 * The logging callback.
 	 *
@@ -60,4 +60,41 @@ public abstract class OVRLogCallback extends Closure.Void {
 		void invoke(long userData, int level, long message);
 	}
 
+	/**
+	 * Creates a {@link OVRLogCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link OVRLogCallback} instance
+	 */
+	public static OVRLogCallback create(final SAM sam) {
+		return new OVRLogCallback() {
+			@Override
+			public void invoke(long userData, int level, long message) {
+				sam.invoke(userData, level, message);
+			}
+		};
+	}
+
+	/** A functional interface for {@link OVRLogCallback}. */
+	public interface SAMString {
+		void invoke(long userData, int level, String message);
+	}
+
+	/**
+	 * Creates a {@link OVRLogCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link OVRLogCallback} instance
+	 */
+	public static OVRLogCallback createString(final SAMString sam) {
+		return new OVRLogCallback() {
+			@Override
+			public void invoke(long userData, int level, long message) {
+				sam.invoke(userData, level, memDecodeUTF8(message));
+			}
+		};
+	}
+	
 }

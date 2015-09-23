@@ -887,20 +887,4 @@ public final class CL20 {
 		return nclCreateSamplerWithProperties(context, memAddressSafe(sampler_properties), memAddressSafe(errcode_ret));
 	}
 
-     /**
-	 * Creates a {@link CLSVMFreeCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link CLSVMFreeCallback} instance
-	 */
-	public static CLSVMFreeCallback CLSVMFreeCallback(final CLSVMFreeCallback.SAM sam) {
-		return new CLSVMFreeCallback() {
-			@Override
-			public void invoke(long queue, int num_svm_pointers, long svm_pointers, long user_data) {
-				sam.invoke(queue, num_svm_pointers, svm_pointers, user_data);
-			}
-		};
-	}
-
 }

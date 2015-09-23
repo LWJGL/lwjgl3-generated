@@ -16,18 +16,16 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** Instances of this interface may be passed to the {@link ANDROIDBlobCache#eglSetBlobCacheFuncsANDROID} method. */
 public abstract class EGLSetBlobFuncANDROID extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(4);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(4);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-		ARGS.put(1, ffi_type_pointer);
-		ARGS.put(2, ffi_type_pointer);
-		ARGS.put(3, ffi_type_pointer);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare EGLSetBlobFuncANDROID callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"EGLSetBlobFuncANDROID",
+			CALL_CONVENTION_DEFAULT,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_pointer, ffi_type_pointer, ffi_type_pointer, ffi_type_pointer
+		);
 	}
 
 	protected EGLSetBlobFuncANDROID() {
@@ -49,6 +47,7 @@ public abstract class EGLSetBlobFuncANDROID extends Closure.Void {
 		);
 	}
 
+
 	public abstract void invoke(long key, long keySize, long value, long valueSize);
 
 	/** A functional interface for {@link EGLSetBlobFuncANDROID}. */
@@ -56,4 +55,41 @@ public abstract class EGLSetBlobFuncANDROID extends Closure.Void {
 		void invoke(long key, long keySize, long value, long valueSize);
 	}
 
+	/**
+	 * Creates a {@link EGLSetBlobFuncANDROID} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link EGLSetBlobFuncANDROID} instance
+	 */
+	public static EGLSetBlobFuncANDROID create(final SAM sam) {
+		return new EGLSetBlobFuncANDROID() {
+			@Override
+			public void invoke(long key, long keySize, long value, long valueSize) {
+				sam.invoke(key, keySize, value, valueSize);
+			}
+		};
+	}
+
+	/** A functional interface for {@link EGLSetBlobFuncANDROID}. */
+	public interface SAMBuffer {
+		void invoke(ByteBuffer key, ByteBuffer value);
+	}
+
+	/**
+	 * Creates a {@link EGLSetBlobFuncANDROID} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link EGLSetBlobFuncANDROID} instance
+	 */
+	public static EGLSetBlobFuncANDROID createBuffer(final SAMBuffer sam) {
+		return new EGLSetBlobFuncANDROID() {
+			@Override
+			public void invoke(long key, long keySize, long value, long valueSize) {
+				sam.invoke(memByteBuffer(key, (int)keySize), memByteBuffer(value, (int)valueSize));
+			}
+		};
+	}
+	
 }

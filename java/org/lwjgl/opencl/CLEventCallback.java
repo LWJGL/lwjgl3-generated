@@ -16,17 +16,16 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** Instances of this interface may be passed to the {@link CL11#clSetEventCallback} method. */
 public abstract class CLEventCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(3);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(3);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-		ARGS.put(1, ffi_type_sint32);
-		ARGS.put(2, ffi_type_pointer);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_SYSTEM, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare CLEventCallback callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"CLEventCallback",
+			CALL_CONVENTION_SYSTEM,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_pointer, ffi_type_sint32, ffi_type_pointer
+		);
 	}
 
 	protected CLEventCallback() {
@@ -46,6 +45,7 @@ public abstract class CLEventCallback extends Closure.Void {
 			memGetAddress(memGetAddress(POINTER_SIZE * 2 + args))
 		);
 	}
+
 	/**
 	 * Will be called when the execution status of the command associated with {@code event} changes to an execution status equal or past the status specified by
 	 * {@code command_exec_status}."
@@ -61,6 +61,22 @@ public abstract class CLEventCallback extends Closure.Void {
 	/** A functional interface for {@link CLEventCallback}. */
 	public interface SAM {
 		void invoke(long event, int event_command_exec_status, long user_data);
+	}
+
+	/**
+	 * Creates a {@link CLEventCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link CLEventCallback} instance
+	 */
+	public static CLEventCallback create(final SAM sam) {
+		return new CLEventCallback() {
+			@Override
+			public void invoke(long event, int event_command_exec_status, long user_data) {
+				sam.invoke(event, event_command_exec_status, user_data);
+			}
+		};
 	}
 
 }

@@ -13,19 +13,26 @@ import org.lwjgl.system.libffi.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
+import java.io.PrintStream;
+import java.lang.reflect.Field;
+import java.util.Map;
+import org.lwjgl.LWJGLUtil.TokenFilter;
+
+import static org.lwjgl.glfw.GLFW.*;
+
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetErrorCallback} method. */
 public abstract class GLFWErrorCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(2);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(2);
 
 	static {
-		ARGS.put(0, ffi_type_sint32);
-		ARGS.put(1, ffi_type_pointer);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_void, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare GLFWErrorCallback callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"GLFWErrorCallback",
+			CALL_CONVENTION_DEFAULT,
+			CIF, ffi_type_void,
+			ARGS, ffi_type_sint32, ffi_type_pointer
+		);
 	}
 
 	protected GLFWErrorCallback() {
@@ -44,6 +51,7 @@ public abstract class GLFWErrorCallback extends Closure.Void {
 			memGetAddress(memGetAddress(POINTER_SIZE * 1 + args))
 		);
 	}
+
 	/**
 	 * Will be called with an error code and a human-readable description when a GLFW error occurs.
 	 *
@@ -55,6 +63,104 @@ public abstract class GLFWErrorCallback extends Closure.Void {
 	/** A functional interface for {@link GLFWErrorCallback}. */
 	public interface SAM {
 		void invoke(int error, long description);
+	}
+
+	/**
+	 * Creates a {@link GLFWErrorCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link GLFWErrorCallback} instance
+	 */
+	public static GLFWErrorCallback create(final SAM sam) {
+		return new GLFWErrorCallback() {
+			@Override
+			public void invoke(int error, long description) {
+				sam.invoke(error, description);
+			}
+		};
+	}
+
+	/** A functional interface for {@link GLFWErrorCallback}. */
+	public interface SAMString {
+		void invoke(int error, String description);
+	}
+
+	/**
+	 * Creates a {@link GLFWErrorCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link GLFWErrorCallback} instance
+	 */
+	public static GLFWErrorCallback createString(final SAMString sam) {
+		return new GLFWErrorCallback() {
+			@Override
+			public void invoke(int error, long description) {
+				sam.invoke(error, memDecodeUTF8(description));
+			}
+		};
+	}
+
+	/**
+	 * Returns a {@link GLFWErrorCallback} instance that prints the error in the standard error stream.
+	 *
+	 * @return the GLFWerrorCallback
+	 */
+	public static GLFWErrorCallback createPrint() {
+		return createPrint(System.err);
+	}
+
+	/**
+	 * Returns a {@link GLFWErrorCallback} instance that prints the error in the specified {@link PrintStream}.
+	 *
+	 * @param stream the PrintStream to use
+	 *
+	 * @return the GLFWerrorCallback
+	 */
+	public static GLFWErrorCallback createPrint(final PrintStream stream) {
+		return new GLFWErrorCallback() {
+			private final Map<Integer, String> ERROR_CODES = LWJGLUtil.getClassTokens(new TokenFilter() {
+				@Override
+				public boolean accept(Field field, int value) {
+					return 0x10000 < value && value < 0x20000;
+				}
+			}, null, GLFW.class);
+
+			@Override
+			public void invoke(int error, long description) {
+				String msg = memDecodeUTF8(description);
+
+				stream.printf("[LWJGL] %s error\n", ERROR_CODES.get(error));
+				stream.println("\tDescription : " + msg);
+				stream.println("\tStacktrace  :");
+				StackTraceElement[] stack = Thread.currentThread().getStackTrace();
+				for ( int i = 4; i < stack.length; i++ ) {
+					stream.print("\t\t");
+					stream.println(stack[i].toString());
+				}
+			}
+		};
+	}
+
+	/**
+	 * Returns a {@link GLFWErrorCallback} instance that throws an {@link IllegalStateException} when an error occurs.
+	 *
+	 * @return the GLFWerrorCallback
+	 */
+	public static GLFWErrorCallback createThrow() {
+		return new GLFWErrorCallback() {
+			@Override
+			public void invoke(int error, long description) {
+				throw new IllegalStateException(String.format("GLFW error [0x%X]: %s", error, memDecodeUTF8(description)));
+			}
+		};
+	}
+
+	/** See {@link GLFW#glfwSetErrorCallback SetErrorCallback}. */
+	public GLFWErrorCallback set() {
+		glfwSetErrorCallback(this);
+		return this;
 	}
 
 }

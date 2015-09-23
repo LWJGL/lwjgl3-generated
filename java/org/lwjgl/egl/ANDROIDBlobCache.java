@@ -56,36 +56,4 @@ public final class ANDROIDBlobCache {
 		callPPPV(__functionAddress, dpy, set.getPointer(), get.getPointer());
 	}
 
-     /**
-	 * Creates a {@link EGLSetBlobFuncANDROID} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link EGLSetBlobFuncANDROID} instance
-	 */
-	public static EGLSetBlobFuncANDROID EGLSetBlobFuncANDROID(final EGLSetBlobFuncANDROID.SAM sam) {
-		return new EGLSetBlobFuncANDROID() {
-			@Override
-			public void invoke(long key, long keySize, long value, long valueSize) {
-				sam.invoke(key, keySize, value, valueSize);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link EGLGetBlobFuncANDROID} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link EGLGetBlobFuncANDROID} instance
-	 */
-	public static EGLGetBlobFuncANDROID EGLGetBlobFuncANDROID(final EGLGetBlobFuncANDROID.SAM sam) {
-		return new EGLGetBlobFuncANDROID() {
-			@Override
-			public long invoke(long key, long keySize, long value, long valueSize) {
-				return sam.invoke(key, keySize, value, valueSize);
-			}
-		};
-	}
-
 }

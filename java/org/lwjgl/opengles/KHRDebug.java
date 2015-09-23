@@ -252,13 +252,13 @@ public final class KHRDebug {
 	 */
 	public static void glDebugMessageControlKHR(int source, int type, int severity, int count, ByteBuffer ids, boolean enabled) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(ids, count << 2);
-		nglDebugMessageControlKHR(source, type, severity, count, memAddress(ids), enabled);
+			if ( ids != null ) checkBuffer(ids, count << 2);
+		nglDebugMessageControlKHR(source, type, severity, count, memAddressSafe(ids), enabled);
 	}
 
 	/** Alternative version of: {@link #glDebugMessageControlKHR DebugMessageControlKHR} */
 	public static void glDebugMessageControlKHR(int source, int type, int severity, IntBuffer ids, boolean enabled) {
-		nglDebugMessageControlKHR(source, type, severity, ids.remaining(), memAddress(ids), enabled);
+		nglDebugMessageControlKHR(source, type, severity, ids == null ? 0 : ids.remaining(), memAddressSafe(ids), enabled);
 	}
 
 	/** Single value version of: {@link #glDebugMessageControlKHR DebugMessageControlKHR} */
@@ -688,22 +688,6 @@ public final class KHRDebug {
 		int label = __buffer.bufferParam(bufSize);
 		nglGetObjectPtrLabelKHR(ptr, bufSize, __buffer.address(length), __buffer.address(label));
 		return memDecodeUTF8(__buffer.buffer(), __buffer.intValue(length), label);
-	}
-
-     /**
-	 * Creates a {@link GLDebugMessageKHRCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLDebugMessageKHRCallback} instance
-	 */
-	public static GLDebugMessageKHRCallback GLDebugMessageKHRCallback(final GLDebugMessageKHRCallback.SAM sam) {
-		return new GLDebugMessageKHRCallback() {
-			@Override
-			public void invoke(int source, int type, int id, int severity, int length, long message, long userParam) {
-				sam.invoke(source, type, id, severity, length, message, userParam);
-			}
-		};
 	}
 
 }

@@ -1691,20 +1691,4 @@ public final class GLES32 {
 		callIIIIIIZV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
-     /**
-	 * Creates a {@link GLDebugMessageCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLDebugMessageCallback} instance
-	 */
-	public static GLDebugMessageCallback GLDebugMessageCallback(final GLDebugMessageCallback.SAM sam) {
-		return new GLDebugMessageCallback() {
-			@Override
-			public void invoke(int source, int type, int id, int severity, int length, long message, long userParam) {
-				sam.invoke(source, type, id, severity, length, message, userParam);
-			}
-		};
-	}
-
 }

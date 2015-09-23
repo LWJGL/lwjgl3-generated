@@ -16,17 +16,16 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** Instances of this interface may be set to the {@code read} field of the {@link STBIIOCallbacks} struct. */
 public abstract class STBIReadCallback extends Closure.Int {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(3);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(3);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-		ARGS.put(1, ffi_type_pointer);
-		ARGS.put(2, ffi_type_sint32);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_sint32, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare STBIReadCallback callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"STBIReadCallback",
+			CALL_CONVENTION_DEFAULT,
+			CIF, ffi_type_sint32,
+			ARGS, ffi_type_pointer, ffi_type_pointer, ffi_type_sint32
+		);
 	}
 
 	protected STBIReadCallback() {
@@ -46,6 +45,7 @@ public abstract class STBIReadCallback extends Closure.Int {
 			memGetInt(memGetAddress(POINTER_SIZE * 2 + args))
 		);
 	}
+
 	/**
 	 * The {@code stbi_io_callbacks.read} callback.
 	 *
@@ -62,4 +62,41 @@ public abstract class STBIReadCallback extends Closure.Int {
 		int invoke(long user, long data, int size);
 	}
 
+	/**
+	 * Creates a {@link STBIReadCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link STBIReadCallback} instance
+	 */
+	public static STBIReadCallback create(final SAM sam) {
+		return new STBIReadCallback() {
+			@Override
+			public int invoke(long user, long data, int size) {
+				return sam.invoke(user, data, size);
+			}
+		};
+	}
+
+	/** A functional interface for {@link STBIReadCallback}. */
+	public interface SAMBuffer {
+		int invoke(long user, ByteBuffer data);
+	}
+
+	/**
+	 * Creates a {@link STBIReadCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link STBIReadCallback} instance
+	 */
+	public static STBIReadCallback createBuffer(final SAMBuffer sam) {
+		return new STBIReadCallback() {
+			@Override
+			public int invoke(long user, long data, int size) {
+				return sam.invoke(user, memByteBuffer(data, size));
+			}
+		};
+	}
+	
 }

@@ -11,6 +11,7 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
@@ -392,9 +393,178 @@ public final class GLFW {
 		GLFW_RELEASE_BEHAVIOR_FLUSH = 0x35001,
 		GLFW_RELEASE_BEHAVIOR_NONE  = 0x35002;
 
-	static { LWJGLUtil.initialize(); }
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		Init,
+		Terminate,
+		GetVersion,
+		GetVersionString,
+		SetErrorCallback,
+		GetMonitors,
+		GetPrimaryMonitor,
+		GetMonitorPos,
+		GetMonitorPhysicalSize,
+		GetMonitorName,
+		SetMonitorCallback,
+		GetVideoModes,
+		GetVideoMode,
+		SetGamma,
+		GetGammaRamp,
+		SetGammaRamp,
+		DefaultWindowHints,
+		WindowHint,
+		CreateWindow,
+		DestroyWindow,
+		WindowShouldClose,
+		SetWindowShouldClose,
+		SetWindowTitle,
+		GetWindowPos,
+		SetWindowPos,
+		GetWindowSize,
+		SetWindowSize,
+		GetFramebufferSize,
+		GetWindowFrameSize,
+		IconifyWindow,
+		RestoreWindow,
+		ShowWindow,
+		HideWindow,
+		GetWindowMonitor,
+		GetWindowAttrib,
+		SetWindowUserPointer,
+		GetWindowUserPointer,
+		SetWindowPosCallback,
+		SetWindowSizeCallback,
+		SetWindowCloseCallback,
+		SetWindowRefreshCallback,
+		SetWindowFocusCallback,
+		SetWindowIconifyCallback,
+		SetFramebufferSizeCallback,
+		PollEvents,
+		WaitEvents,
+		PostEmptyEvent,
+		GetInputMode,
+		SetInputMode,
+		GetKey,
+		GetMouseButton,
+		GetCursorPos,
+		SetCursorPos,
+		CreateCursor,
+		CreateStandardCursor,
+		DestroyCursor,
+		SetCursor,
+		SetKeyCallback,
+		SetCharCallback,
+		SetCharModsCallback,
+		SetMouseButtonCallback,
+		SetCursorPosCallback,
+		SetCursorEnterCallback,
+		SetScrollCallback,
+		SetDropCallback,
+		JoystickPresent,
+		GetJoystickAxes,
+		GetJoystickButtons,
+		GetJoystickName,
+		SetClipboardString,
+		GetClipboardString,
+		GetTime,
+		SetTime,
+		MakeContextCurrent,
+		GetCurrentContext,
+		SwapBuffers,
+		SwapInterval,
+		ExtensionSupported,
+		GetProcAddress;
 
-	private GLFW() {}
+	@JavadocExclude
+	public GLFW(FunctionProvider provider) {
+		Init = checkFunctionAddress(provider.getFunctionAddress("glfwInit"));
+		Terminate = checkFunctionAddress(provider.getFunctionAddress("glfwTerminate"));
+		GetVersion = checkFunctionAddress(provider.getFunctionAddress("glfwGetVersion"));
+		GetVersionString = checkFunctionAddress(provider.getFunctionAddress("glfwGetVersionString"));
+		SetErrorCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetErrorCallback"));
+		GetMonitors = checkFunctionAddress(provider.getFunctionAddress("glfwGetMonitors"));
+		GetPrimaryMonitor = checkFunctionAddress(provider.getFunctionAddress("glfwGetPrimaryMonitor"));
+		GetMonitorPos = checkFunctionAddress(provider.getFunctionAddress("glfwGetMonitorPos"));
+		GetMonitorPhysicalSize = checkFunctionAddress(provider.getFunctionAddress("glfwGetMonitorPhysicalSize"));
+		GetMonitorName = checkFunctionAddress(provider.getFunctionAddress("glfwGetMonitorName"));
+		SetMonitorCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetMonitorCallback"));
+		GetVideoModes = checkFunctionAddress(provider.getFunctionAddress("glfwGetVideoModes"));
+		GetVideoMode = checkFunctionAddress(provider.getFunctionAddress("glfwGetVideoMode"));
+		SetGamma = checkFunctionAddress(provider.getFunctionAddress("glfwSetGamma"));
+		GetGammaRamp = checkFunctionAddress(provider.getFunctionAddress("glfwGetGammaRamp"));
+		SetGammaRamp = checkFunctionAddress(provider.getFunctionAddress("glfwSetGammaRamp"));
+		DefaultWindowHints = checkFunctionAddress(provider.getFunctionAddress("glfwDefaultWindowHints"));
+		WindowHint = checkFunctionAddress(provider.getFunctionAddress("glfwWindowHint"));
+		CreateWindow = checkFunctionAddress(provider.getFunctionAddress("glfwCreateWindow"));
+		DestroyWindow = checkFunctionAddress(provider.getFunctionAddress("glfwDestroyWindow"));
+		WindowShouldClose = checkFunctionAddress(provider.getFunctionAddress("glfwWindowShouldClose"));
+		SetWindowShouldClose = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowShouldClose"));
+		SetWindowTitle = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowTitle"));
+		GetWindowPos = checkFunctionAddress(provider.getFunctionAddress("glfwGetWindowPos"));
+		SetWindowPos = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowPos"));
+		GetWindowSize = checkFunctionAddress(provider.getFunctionAddress("glfwGetWindowSize"));
+		SetWindowSize = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowSize"));
+		GetFramebufferSize = checkFunctionAddress(provider.getFunctionAddress("glfwGetFramebufferSize"));
+		GetWindowFrameSize = checkFunctionAddress(provider.getFunctionAddress("glfwGetWindowFrameSize"));
+		IconifyWindow = checkFunctionAddress(provider.getFunctionAddress("glfwIconifyWindow"));
+		RestoreWindow = checkFunctionAddress(provider.getFunctionAddress("glfwRestoreWindow"));
+		ShowWindow = checkFunctionAddress(provider.getFunctionAddress("glfwShowWindow"));
+		HideWindow = checkFunctionAddress(provider.getFunctionAddress("glfwHideWindow"));
+		GetWindowMonitor = checkFunctionAddress(provider.getFunctionAddress("glfwGetWindowMonitor"));
+		GetWindowAttrib = checkFunctionAddress(provider.getFunctionAddress("glfwGetWindowAttrib"));
+		SetWindowUserPointer = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowUserPointer"));
+		GetWindowUserPointer = checkFunctionAddress(provider.getFunctionAddress("glfwGetWindowUserPointer"));
+		SetWindowPosCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowPosCallback"));
+		SetWindowSizeCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowSizeCallback"));
+		SetWindowCloseCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowCloseCallback"));
+		SetWindowRefreshCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowRefreshCallback"));
+		SetWindowFocusCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowFocusCallback"));
+		SetWindowIconifyCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowIconifyCallback"));
+		SetFramebufferSizeCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetFramebufferSizeCallback"));
+		PollEvents = checkFunctionAddress(provider.getFunctionAddress("glfwPollEvents"));
+		WaitEvents = checkFunctionAddress(provider.getFunctionAddress("glfwWaitEvents"));
+		PostEmptyEvent = checkFunctionAddress(provider.getFunctionAddress("glfwPostEmptyEvent"));
+		GetInputMode = checkFunctionAddress(provider.getFunctionAddress("glfwGetInputMode"));
+		SetInputMode = checkFunctionAddress(provider.getFunctionAddress("glfwSetInputMode"));
+		GetKey = checkFunctionAddress(provider.getFunctionAddress("glfwGetKey"));
+		GetMouseButton = checkFunctionAddress(provider.getFunctionAddress("glfwGetMouseButton"));
+		GetCursorPos = checkFunctionAddress(provider.getFunctionAddress("glfwGetCursorPos"));
+		SetCursorPos = checkFunctionAddress(provider.getFunctionAddress("glfwSetCursorPos"));
+		CreateCursor = checkFunctionAddress(provider.getFunctionAddress("glfwCreateCursor"));
+		CreateStandardCursor = checkFunctionAddress(provider.getFunctionAddress("glfwCreateStandardCursor"));
+		DestroyCursor = checkFunctionAddress(provider.getFunctionAddress("glfwDestroyCursor"));
+		SetCursor = checkFunctionAddress(provider.getFunctionAddress("glfwSetCursor"));
+		SetKeyCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetKeyCallback"));
+		SetCharCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetCharCallback"));
+		SetCharModsCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetCharModsCallback"));
+		SetMouseButtonCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetMouseButtonCallback"));
+		SetCursorPosCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetCursorPosCallback"));
+		SetCursorEnterCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetCursorEnterCallback"));
+		SetScrollCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetScrollCallback"));
+		SetDropCallback = checkFunctionAddress(provider.getFunctionAddress("glfwSetDropCallback"));
+		JoystickPresent = checkFunctionAddress(provider.getFunctionAddress("glfwJoystickPresent"));
+		GetJoystickAxes = checkFunctionAddress(provider.getFunctionAddress("glfwGetJoystickAxes"));
+		GetJoystickButtons = checkFunctionAddress(provider.getFunctionAddress("glfwGetJoystickButtons"));
+		GetJoystickName = checkFunctionAddress(provider.getFunctionAddress("glfwGetJoystickName"));
+		SetClipboardString = checkFunctionAddress(provider.getFunctionAddress("glfwSetClipboardString"));
+		GetClipboardString = checkFunctionAddress(provider.getFunctionAddress("glfwGetClipboardString"));
+		GetTime = checkFunctionAddress(provider.getFunctionAddress("glfwGetTime"));
+		SetTime = checkFunctionAddress(provider.getFunctionAddress("glfwSetTime"));
+		MakeContextCurrent = checkFunctionAddress(provider.getFunctionAddress("glfwMakeContextCurrent"));
+		GetCurrentContext = checkFunctionAddress(provider.getFunctionAddress("glfwGetCurrentContext"));
+		SwapBuffers = checkFunctionAddress(provider.getFunctionAddress("glfwSwapBuffers"));
+		SwapInterval = checkFunctionAddress(provider.getFunctionAddress("glfwSwapInterval"));
+		ExtensionSupported = checkFunctionAddress(provider.getFunctionAddress("glfwExtensionSupported"));
+		GetProcAddress = checkFunctionAddress(provider.getFunctionAddress("glfwGetProcAddress"));
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GLFW} instance. */
+	public static GLFW getInstance() {
+		return LibGLFW.__GLFW;
+	}
 
 	// --- [ glfwInit ] ---
 
@@ -420,7 +590,10 @@ public final class GLFW {
 	 *
 	 * @since GLFW 1.0
 	 */
-	public static native int glfwInit();
+	public static int glfwInit() {
+		long __functionAddress = getInstance().Init;
+		return invokeI(__functionAddress);
+	}
 
 	// --- [ glfwTerminate ] ---
 
@@ -439,13 +612,19 @@ public final class GLFW {
 	 * <li>No window's context may be current on another thread when this function is called.</li>
 	 * </ul></p>
 	 */
-	public static native void glfwTerminate();
+	public static void glfwTerminate() {
+		long __functionAddress = getInstance().Terminate;
+		invokeV(__functionAddress);
+	}
 
 	// --- [ glfwGetVersion ] ---
 
-	/** JNI method for {@link #glfwGetVersion GetVersion} */
+	/** Unsafe version of {@link #glfwGetVersion GetVersion} */
 	@JavadocExclude
-	public static native void nglfwGetVersion(long major, long minor, long rev);
+	public static void nglfwGetVersion(long major, long minor, long rev) {
+		long __functionAddress = getInstance().GetVersion;
+		invokePPPV(__functionAddress, major, minor, rev);
+	}
 
 	/**
 	 * Retrieves the major, minor and revision numbers of the GLFW library. It is intended for when you are using GLFW as a shared library and want to ensure
@@ -486,9 +665,12 @@ public final class GLFW {
 
 	// --- [ glfwGetVersionString ] ---
 
-	/** JNI method for {@link #glfwGetVersionString GetVersionString} */
+	/** Unsafe version of {@link #glfwGetVersionString GetVersionString} */
 	@JavadocExclude
-	public static native long nglfwGetVersionString();
+	public static long nglfwGetVersionString() {
+		long __functionAddress = getInstance().GetVersionString;
+		return invokeP(__functionAddress);
+	}
 
 	/**
 	 * Returns the compile-time generated version string of the GLFW library binary. It describes the version, platform, compiler and any platform-specific
@@ -516,10 +698,6 @@ public final class GLFW {
 
 	// --- [ glfwSetErrorCallback ] ---
 
-	/** JNI method for {@link #glfwSetErrorCallback SetErrorCallback} */
-	@JavadocExclude
-	public static native long nglfwSetErrorCallback(long cbfun);
-
 	/**
 	 * Sets the error callback, which is called with an error code and a human-readable description each time a GLFW error occurs.
 	 * 
@@ -544,24 +722,29 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static GLFWErrorCallback glfwSetErrorCallback(GLFWErrorCallback cbfun) {
-		return GLFWErrorCallback.create(nglfwSetErrorCallback(cbfun == null ? NULL : cbfun.getPointer()));
+		long __functionAddress = getInstance().SetErrorCallback;
+		return GLFWErrorCallback.create(invokePP(__functionAddress, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwGetMonitors ] ---
 
-	/** JNI method for {@link #glfwGetMonitors GetMonitors} */
+	/** Unsafe version of {@link #glfwGetMonitors GetMonitors} */
 	@JavadocExclude
-	public static native long nglfwGetMonitors(long count);
+	public static long nglfwGetMonitors(long count) {
+		long __functionAddress = getInstance().GetMonitors;
+		return invokePP(__functionAddress, count);
+	}
 
 	/**
-	 * Returns an array of handles for all currently connected monitors.
+	 * Returns an array of handles for all currently connected monitors. The primary monitor is always first in the returned array. If no monitors were found,
+	 * this function returns {@code NULL}.
 	 * 
 	 * <p>The returned array is allocated and freed by GLFW. You should not free it yourself. It is guaranteed to be valid only until the monitor configuration
 	 * changes or the library is terminated.</p>
 	 * 
 	 * <p>This function may only be called from the main thread.</p>
 	 *
-	 * @return an array of monitor handlers, or {@code NULL} if an error occured
+	 * @return an array of monitor handlers, or {@code NULL} if no monitors were found or if an error occured
 	 *
 	 * @since GLFW 3.0
 	 */
@@ -575,21 +758,31 @@ public final class GLFW {
 	// --- [ glfwGetPrimaryMonitor ] ---
 
 	/**
-	 * Returns the primary monitor. This is usually the monitor where elements like the Windows task bar or the OS X menu bar is located.
+	 * Returns the primary monitor. This is usually the monitor where elements like the task bar or global menu bar are located.
 	 * 
 	 * <p>This function may only be called from the main thread.</p>
+	 * 
+	 * <p>The primary monitor is always first in the array returned by {@link #glfwGetMonitors GetMonitors}.</p>
 	 *
-	 * @return the primary monitor, or {@code NULL} if an error occured
+	 * @return the primary monitor, or {@code NULL} if no monitors were found or if an error occured
 	 *
 	 * @since GLFW 3.0
 	 */
-	public static native long glfwGetPrimaryMonitor();
+	public static long glfwGetPrimaryMonitor() {
+		long __functionAddress = getInstance().GetPrimaryMonitor;
+		return invokeP(__functionAddress);
+	}
 
 	// --- [ glfwGetMonitorPos ] ---
 
-	/** JNI method for {@link #glfwGetMonitorPos GetMonitorPos} */
+	/** Unsafe version of {@link #glfwGetMonitorPos GetMonitorPos} */
 	@JavadocExclude
-	public static native void nglfwGetMonitorPos(long monitor, long xpos, long ypos);
+	public static void nglfwGetMonitorPos(long monitor, long xpos, long ypos) {
+		long __functionAddress = getInstance().GetMonitorPos;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(monitor);
+		invokePPPV(__functionAddress, monitor, xpos, ypos);
+	}
 
 	/**
 	 * Returns the position, in screen coordinates, of the upper-left corner of the specified monitor.
@@ -606,7 +799,6 @@ public final class GLFW {
 	 */
 	public static void glfwGetMonitorPos(long monitor, ByteBuffer xpos, ByteBuffer ypos) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(monitor);
 			if ( xpos != null ) checkBuffer(xpos, 1 << 2);
 			if ( ypos != null ) checkBuffer(ypos, 1 << 2);
 		}
@@ -616,7 +808,6 @@ public final class GLFW {
 	/** Alternative version of: {@link #glfwGetMonitorPos GetMonitorPos} */
 	public static void glfwGetMonitorPos(long monitor, IntBuffer xpos, IntBuffer ypos) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(monitor);
 			if ( xpos != null ) checkBuffer(xpos, 1);
 			if ( ypos != null ) checkBuffer(ypos, 1);
 		}
@@ -625,9 +816,14 @@ public final class GLFW {
 
 	// --- [ glfwGetMonitorPhysicalSize ] ---
 
-	/** JNI method for {@link #glfwGetMonitorPhysicalSize GetMonitorPhysicalSize} */
+	/** Unsafe version of {@link #glfwGetMonitorPhysicalSize GetMonitorPhysicalSize} */
 	@JavadocExclude
-	public static native void nglfwGetMonitorPhysicalSize(long monitor, long widthMM, long heightMM);
+	public static void nglfwGetMonitorPhysicalSize(long monitor, long widthMM, long heightMM) {
+		long __functionAddress = getInstance().GetMonitorPhysicalSize;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(monitor);
+		invokePPPV(__functionAddress, monitor, widthMM, heightMM);
+	}
 
 	/**
 	 * Returns the size, in millimetres, of the display area of the specified monitor.
@@ -652,7 +848,6 @@ public final class GLFW {
 	 */
 	public static void glfwGetMonitorPhysicalSize(long monitor, ByteBuffer widthMM, ByteBuffer heightMM) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(monitor);
 			if ( widthMM != null ) checkBuffer(widthMM, 1 << 2);
 			if ( heightMM != null ) checkBuffer(heightMM, 1 << 2);
 		}
@@ -662,7 +857,6 @@ public final class GLFW {
 	/** Alternative version of: {@link #glfwGetMonitorPhysicalSize GetMonitorPhysicalSize} */
 	public static void glfwGetMonitorPhysicalSize(long monitor, IntBuffer widthMM, IntBuffer heightMM) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(monitor);
 			if ( widthMM != null ) checkBuffer(widthMM, 1);
 			if ( heightMM != null ) checkBuffer(heightMM, 1);
 		}
@@ -671,9 +865,14 @@ public final class GLFW {
 
 	// --- [ glfwGetMonitorName ] ---
 
-	/** JNI method for {@link #glfwGetMonitorName GetMonitorName} */
+	/** Unsafe version of {@link #glfwGetMonitorName GetMonitorName} */
 	@JavadocExclude
-	public static native long nglfwGetMonitorName(long monitor);
+	public static long nglfwGetMonitorName(long monitor) {
+		long __functionAddress = getInstance().GetMonitorName;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(monitor);
+		return invokePP(__functionAddress, monitor);
+	}
 
 	/**
 	 * Returns a human-readable name, encoded as UTF-8, of the specified monitor. The name typically reflects the make and model of the monitor and is not
@@ -691,17 +890,11 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static String glfwGetMonitorName(long monitor) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(monitor);
 		long __result = nglfwGetMonitorName(monitor);
 		return memDecodeUTF8(__result);
 	}
 
 	// --- [ glfwSetMonitorCallback ] ---
-
-	/** JNI method for {@link #glfwSetMonitorCallback SetMonitorCallback} */
-	@JavadocExclude
-	public static native long nglfwSetMonitorCallback(long cbfun);
 
 	/**
 	 * Sets the monitor configuration callback, or removes the currently set callback. This is called when a monitor is connected to or disconnected from the
@@ -720,14 +913,20 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static GLFWMonitorCallback glfwSetMonitorCallback(GLFWMonitorCallback cbfun) {
-		return GLFWMonitorCallback.create(nglfwSetMonitorCallback(cbfun == null ? NULL : cbfun.getPointer()));
+		long __functionAddress = getInstance().SetMonitorCallback;
+		return GLFWMonitorCallback.create(invokePP(__functionAddress, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwGetVideoModes ] ---
 
-	/** JNI method for {@link #glfwGetVideoModes GetVideoModes} */
+	/** Unsafe version of {@link #glfwGetVideoModes GetVideoModes} */
 	@JavadocExclude
-	public static native long nglfwGetVideoModes(long monitor, long count);
+	public static long nglfwGetVideoModes(long monitor, long count) {
+		long __functionAddress = getInstance().GetVideoModes;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(monitor);
+		return invokePPP(__functionAddress, monitor, count);
+	}
 
 	/**
 	 * Returns an array of all video modes supported by the specified monitor. The returned array is sorted in ascending order, first by color bit depth (the
@@ -746,29 +945,30 @@ public final class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static ByteBuffer glfwGetVideoModes(long monitor, ByteBuffer count) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(monitor);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(count, 1 << 2);
-		}
 		long __result = nglfwGetVideoModes(monitor, memAddress(count));
 		return memByteBuffer(__result, count.getInt(count.position()) * GLFWvidmode.SIZEOF);
 	}
 
 	/** Alternative version of: {@link #glfwGetVideoModes GetVideoModes} */
 	public static ByteBuffer glfwGetVideoModes(long monitor, IntBuffer count) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(monitor);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(count, 1);
-		}
 		long __result = nglfwGetVideoModes(monitor, memAddress(count));
 		return memByteBuffer(__result, count.get(count.position()) * GLFWvidmode.SIZEOF);
 	}
 
 	// --- [ glfwGetVideoMode ] ---
 
-	/** JNI method for {@link #glfwGetVideoMode GetVideoMode} */
+	/** Unsafe version of {@link #glfwGetVideoMode GetVideoMode} */
 	@JavadocExclude
-	public static native long nglfwGetVideoMode(long monitor);
+	public static long nglfwGetVideoMode(long monitor) {
+		long __functionAddress = getInstance().GetVideoMode;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(monitor);
+		return invokePP(__functionAddress, monitor);
+	}
 
 	/**
 	 * Returns the current video mode of the specified monitor. If you have created a full screen window for that monitor, the return value will depend on
@@ -786,17 +986,11 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static ByteBuffer glfwGetVideoMode(long monitor) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(monitor);
 		long __result = nglfwGetVideoMode(monitor);
 		return memByteBuffer(__result, GLFWvidmode.SIZEOF);
 	}
 
 	// --- [ glfwSetGamma ] ---
-
-	/** JNI method for {@link #glfwSetGamma SetGamma} */
-	@JavadocExclude
-	public static native void nglfwSetGamma(long monitor, float gamma);
 
 	/**
 	 * Generates a 256-element gamma ramp from the specified exponent and then calls {@link #glfwSetGammaRamp SetGammaRamp} with it. The value must be a finite number greater than
@@ -810,16 +1004,22 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static void glfwSetGamma(long monitor, float gamma) {
+		long __functionAddress = getInstance().SetGamma;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(monitor);
-		nglfwSetGamma(monitor, gamma);
+		invokePFV(__functionAddress, monitor, gamma);
 	}
 
 	// --- [ glfwGetGammaRamp ] ---
 
-	/** JNI method for {@link #glfwGetGammaRamp GetGammaRamp} */
+	/** Unsafe version of {@link #glfwGetGammaRamp GetGammaRamp} */
 	@JavadocExclude
-	public static native long nglfwGetGammaRamp(long monitor);
+	public static long nglfwGetGammaRamp(long monitor) {
+		long __functionAddress = getInstance().GetGammaRamp;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(monitor);
+		return invokePP(__functionAddress, monitor);
+	}
 
 	/**
 	 * Returns the current gamma ramp of the specified monitor.
@@ -836,17 +1036,20 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static ByteBuffer glfwGetGammaRamp(long monitor) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(monitor);
 		long __result = nglfwGetGammaRamp(monitor);
 		return memByteBuffer(__result, GLFWgammaramp.SIZEOF);
 	}
 
 	// --- [ glfwSetGammaRamp ] ---
 
-	/** JNI method for {@link #glfwSetGammaRamp SetGammaRamp} */
+	/** Unsafe version of {@link #glfwSetGammaRamp SetGammaRamp} */
 	@JavadocExclude
-	public static native void nglfwSetGammaRamp(long monitor, long ramp);
+	public static void nglfwSetGammaRamp(long monitor, long ramp) {
+		long __functionAddress = getInstance().SetGammaRamp;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(monitor);
+		invokePPV(__functionAddress, monitor, ramp);
+	}
 
 	/**
 	 * Sets the current gamma ramp for the specified monitor. The original gamma ramp for that monitor is saved by GLFW the first time this function is called
@@ -866,10 +1069,8 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static void glfwSetGammaRamp(long monitor, ByteBuffer ramp) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(monitor);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(ramp, GLFWgammaramp.SIZEOF);
-		}
 		nglfwSetGammaRamp(monitor, memAddress(ramp));
 	}
 
@@ -880,7 +1081,10 @@ public final class GLFW {
 	 * 
 	 * <p>This function may only be called from the main thread.</p>
 	 */
-	public static native void glfwDefaultWindowHints();
+	public static void glfwDefaultWindowHints() {
+		long __functionAddress = getInstance().DefaultWindowHints;
+		invokeV(__functionAddress);
+	}
 
 	// --- [ glfwWindowHint ] ---
 
@@ -928,13 +1132,19 @@ public final class GLFW {
 	 *
 	 * @since GLFW 2.2
 	 */
-	public static native void glfwWindowHint(int target, int hint);
+	public static void glfwWindowHint(int target, int hint) {
+		long __functionAddress = getInstance().WindowHint;
+		invokeIIV(__functionAddress, target, hint);
+	}
 
 	// --- [ glfwCreateWindow ] ---
 
-	/** JNI method for {@link #glfwCreateWindow CreateWindow} */
+	/** Unsafe version of {@link #glfwCreateWindow CreateWindow} */
 	@JavadocExclude
-	public static native long nglfwCreateWindow(int width, int height, long title, long monitor, long share);
+	public static long nglfwCreateWindow(int width, int height, long title, long monitor, long share) {
+		long __functionAddress = getInstance().CreateWindow;
+		return invokeIIPPPP(__functionAddress, width, height, title, monitor, share);
+	}
 
 	/**
 	 * Creates a window and its associated OpenGL or OpenGL ES context. Most of the options controlling how the window and its context should be created are
@@ -945,7 +1155,7 @@ public final class GLFW {
 	 * 
 	 * <p>The created window, framebuffer and context may differ from what you requested, as not all parameters and hints are hard constraints. This includes the
 	 * size of the window, especially for full screen windows. To query the actual attributes of the created window, framebuffer and context, use queries like
-	 * {@link #glfwGetWindowAttrib GetWindowAttrib} and {@link #glfwGetWindowSize GetWindowSize}.</p>
+	 * {@link #glfwGetWindowAttrib GetWindowAttrib} and {@link #glfwGetWindowSize GetWindowSize} and {@link #glfwGetFramebufferSize GetFramebufferSize}.</p>
 	 * 
 	 * <p>To create a full screen window, you need to specify the monitor the window will cover. If no monitor is specified, windowed mode will be used. Unless
 	 * you have a way for the user to choose a specific monitor, it is recommended that you pick the primary monitor. For more information on how to query
@@ -990,6 +1200,8 @@ public final class GLFW {
 	 * Resolution Guidelines for OS X</a> in the Mac Developer Library.</li>
 	 * <li><b>X11</b>: There is no mechanism for setting the window icon yet.</li>
 	 * <li><b>X11</b>: Some window managers will not respect the placement of initially hidden windows.</li>
+	 * <li><b>X11</b>: Due to the asynchronous nature of X11, it may take a moment for a window to reach its requested state. This means you may not be able
+	 * to query the final size, position or other attributes directly after window creation.</li>
 	 * </ul></p>
 	 *
 	 * @param width   the desired width, in screen coordinates, of the window
@@ -1017,10 +1229,6 @@ public final class GLFW {
 
 	// --- [ glfwDestroyWindow ] ---
 
-	/** JNI method for {@link #glfwDestroyWindow DestroyWindow} */
-	@JavadocExclude
-	public static native void nglfwDestroyWindow(long window);
-
 	/**
 	 * Destroys the specified window and its context. On calling this function, no further callbacks will be called for that window.
 	 * 
@@ -1038,16 +1246,13 @@ public final class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static void glfwDestroyWindow(long window) {
+		long __functionAddress = getInstance().DestroyWindow;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwDestroyWindow(window);
+		invokePV(__functionAddress, window);
 	}
 
 	// --- [ glfwWindowShouldClose ] ---
-
-	/** JNI method for {@link #glfwWindowShouldClose WindowShouldClose} */
-	@JavadocExclude
-	public static native int nglfwWindowShouldClose(long window);
 
 	/**
 	 * Returns the value of the close flag of the specified window.
@@ -1061,16 +1266,13 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static int glfwWindowShouldClose(long window) {
+		long __functionAddress = getInstance().WindowShouldClose;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return nglfwWindowShouldClose(window);
+		return invokePI(__functionAddress, window);
 	}
 
 	// --- [ glfwSetWindowShouldClose ] ---
-
-	/** JNI method for {@link #glfwSetWindowShouldClose SetWindowShouldClose} */
-	@JavadocExclude
-	public static native void nglfwSetWindowShouldClose(long window, int value);
 
 	/**
 	 * Sets the value of the close flag of the specified window. This can be used to override the user's attempt to close the window, or to signal that it
@@ -1084,21 +1286,29 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static void glfwSetWindowShouldClose(long window, int value) {
+		long __functionAddress = getInstance().SetWindowShouldClose;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwSetWindowShouldClose(window, value);
+		invokePIV(__functionAddress, window, value);
 	}
 
 	// --- [ glfwSetWindowTitle ] ---
 
-	/** JNI method for {@link #glfwSetWindowTitle SetWindowTitle} */
+	/** Unsafe version of {@link #glfwSetWindowTitle SetWindowTitle} */
 	@JavadocExclude
-	public static native void nglfwSetWindowTitle(long window, long title);
+	public static void nglfwSetWindowTitle(long window, long title) {
+		long __functionAddress = getInstance().SetWindowTitle;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(window);
+		invokePPV(__functionAddress, window, title);
+	}
 
 	/**
 	 * Sets the window title, encoded as UTF-8, of the specified window.
 	 * 
 	 * <p>This function may only be called from the main thread.</p>
+	 * 
+	 * <p><b>OS X</b>: The window title will not be updated until the next time you process events.</p>
 	 *
 	 * @param window the window whose title to change
 	 * @param title  the UTF-8 encoded window title
@@ -1106,17 +1316,13 @@ public final class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static void glfwSetWindowTitle(long window, ByteBuffer title) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(window);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(title);
-		}
 		nglfwSetWindowTitle(window, memAddress(title));
 	}
 
 	/** CharSequence version of: {@link #glfwSetWindowTitle SetWindowTitle} */
 	public static void glfwSetWindowTitle(long window, CharSequence title) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(window);
 		APIBuffer __buffer = apiBuffer();
 		int titleEncoded = __buffer.stringParamUTF8(title, true);
 		nglfwSetWindowTitle(window, __buffer.address(titleEncoded));
@@ -1124,9 +1330,14 @@ public final class GLFW {
 
 	// --- [ glfwGetWindowPos ] ---
 
-	/** JNI method for {@link #glfwGetWindowPos GetWindowPos} */
+	/** Unsafe version of {@link #glfwGetWindowPos GetWindowPos} */
 	@JavadocExclude
-	public static native void nglfwGetWindowPos(long window, long xpos, long ypos);
+	public static void nglfwGetWindowPos(long window, long xpos, long ypos) {
+		long __functionAddress = getInstance().GetWindowPos;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(window);
+		invokePPPV(__functionAddress, window, xpos, ypos);
+	}
 
 	/**
 	 * Retrieves the position, in screen coordinates, of the upper-left corner of the client area of the specified window.
@@ -1143,7 +1354,6 @@ public final class GLFW {
 	 */
 	public static void glfwGetWindowPos(long window, ByteBuffer xpos, ByteBuffer ypos) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(window);
 			if ( xpos != null ) checkBuffer(xpos, 1 << 2);
 			if ( ypos != null ) checkBuffer(ypos, 1 << 2);
 		}
@@ -1153,7 +1363,6 @@ public final class GLFW {
 	/** Alternative version of: {@link #glfwGetWindowPos GetWindowPos} */
 	public static void glfwGetWindowPos(long window, IntBuffer xpos, IntBuffer ypos) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(window);
 			if ( xpos != null ) checkBuffer(xpos, 1);
 			if ( ypos != null ) checkBuffer(ypos, 1);
 		}
@@ -1161,10 +1370,6 @@ public final class GLFW {
 	}
 
 	// --- [ glfwSetWindowPos ] ---
-
-	/** JNI method for {@link #glfwSetWindowPos SetWindowPos} */
-	@JavadocExclude
-	public static native void nglfwSetWindowPos(long window, int xpos, int ypos);
 
 	/**
 	 * Sets the position, in screen coordinates, of the upper-left corner of the client area of the specified windowed mode window. If the window is a full
@@ -1184,16 +1389,22 @@ public final class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static void glfwSetWindowPos(long window, int xpos, int ypos) {
+		long __functionAddress = getInstance().SetWindowPos;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwSetWindowPos(window, xpos, ypos);
+		invokePIIV(__functionAddress, window, xpos, ypos);
 	}
 
 	// --- [ glfwGetWindowSize ] ---
 
-	/** JNI method for {@link #glfwGetWindowSize GetWindowSize} */
+	/** Unsafe version of {@link #glfwGetWindowSize GetWindowSize} */
 	@JavadocExclude
-	public static native void nglfwGetWindowSize(long window, long width, long height);
+	public static void nglfwGetWindowSize(long window, long width, long height) {
+		long __functionAddress = getInstance().GetWindowSize;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(window);
+		invokePPPV(__functionAddress, window, width, height);
+	}
 
 	/**
 	 * Retrieves the size, in screen coordinates, of the client area of the specified window. If you wish to retrieve the size of the framebuffer of the
@@ -1211,7 +1422,6 @@ public final class GLFW {
 	 */
 	public static void glfwGetWindowSize(long window, ByteBuffer width, ByteBuffer height) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(window);
 			if ( width != null ) checkBuffer(width, 1 << 2);
 			if ( height != null ) checkBuffer(height, 1 << 2);
 		}
@@ -1221,7 +1431,6 @@ public final class GLFW {
 	/** Alternative version of: {@link #glfwGetWindowSize GetWindowSize} */
 	public static void glfwGetWindowSize(long window, IntBuffer width, IntBuffer height) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(window);
 			if ( width != null ) checkBuffer(width, 1);
 			if ( height != null ) checkBuffer(height, 1);
 		}
@@ -1229,10 +1438,6 @@ public final class GLFW {
 	}
 
 	// --- [ glfwSetWindowSize ] ---
-
-	/** JNI method for {@link #glfwSetWindowSize SetWindowSize} */
-	@JavadocExclude
-	public static native void nglfwSetWindowSize(long window, int width, int height);
 
 	/**
 	 * Sets the size, in pixels, of the client area of the specified window.
@@ -1251,16 +1456,22 @@ public final class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static void glfwSetWindowSize(long window, int width, int height) {
+		long __functionAddress = getInstance().SetWindowSize;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwSetWindowSize(window, width, height);
+		invokePIIV(__functionAddress, window, width, height);
 	}
 
 	// --- [ glfwGetFramebufferSize ] ---
 
-	/** JNI method for {@link #glfwGetFramebufferSize GetFramebufferSize} */
+	/** Unsafe version of {@link #glfwGetFramebufferSize GetFramebufferSize} */
 	@JavadocExclude
-	public static native void nglfwGetFramebufferSize(long window, long width, long height);
+	public static void nglfwGetFramebufferSize(long window, long width, long height) {
+		long __functionAddress = getInstance().GetFramebufferSize;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(window);
+		invokePPPV(__functionAddress, window, width, height);
+	}
 
 	/**
 	 * Retrieves the size, in pixels, of the framebuffer of the specified window. If you wish to retrieve the size of the window in screen coordinates, see
@@ -1278,7 +1489,6 @@ public final class GLFW {
 	 */
 	public static void glfwGetFramebufferSize(long window, ByteBuffer width, ByteBuffer height) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(window);
 			if ( width != null ) checkBuffer(width, 1 << 2);
 			if ( height != null ) checkBuffer(height, 1 << 2);
 		}
@@ -1288,7 +1498,6 @@ public final class GLFW {
 	/** Alternative version of: {@link #glfwGetFramebufferSize GetFramebufferSize} */
 	public static void glfwGetFramebufferSize(long window, IntBuffer width, IntBuffer height) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(window);
 			if ( width != null ) checkBuffer(width, 1);
 			if ( height != null ) checkBuffer(height, 1);
 		}
@@ -1297,9 +1506,14 @@ public final class GLFW {
 
 	// --- [ glfwGetWindowFrameSize ] ---
 
-	/** JNI method for {@link #glfwGetWindowFrameSize GetWindowFrameSize} */
+	/** Unsafe version of {@link #glfwGetWindowFrameSize GetWindowFrameSize} */
 	@JavadocExclude
-	public static native void nglfwGetWindowFrameSize(long window, long left, long top, long right, long bottom);
+	public static void nglfwGetWindowFrameSize(long window, long left, long top, long right, long bottom) {
+		long __functionAddress = getInstance().GetWindowFrameSize;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(window);
+		invokePPPPPV(__functionAddress, window, left, top, right, bottom);
+	}
 
 	/**
 	 * Retrieves the size, in screen coordinates, of each edge of the frame of the specified window. This size includes the title bar, if the window has one.
@@ -1323,7 +1537,6 @@ public final class GLFW {
 	 */
 	public static void glfwGetWindowFrameSize(long window, ByteBuffer left, ByteBuffer top, ByteBuffer right, ByteBuffer bottom) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(window);
 			if ( left != null ) checkBuffer(left, 1 << 2);
 			if ( top != null ) checkBuffer(top, 1 << 2);
 			if ( right != null ) checkBuffer(right, 1 << 2);
@@ -1335,7 +1548,6 @@ public final class GLFW {
 	/** Alternative version of: {@link #glfwGetWindowFrameSize GetWindowFrameSize} */
 	public static void glfwGetWindowFrameSize(long window, IntBuffer left, IntBuffer top, IntBuffer right, IntBuffer bottom) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(window);
 			if ( left != null ) checkBuffer(left, 1);
 			if ( top != null ) checkBuffer(top, 1);
 			if ( right != null ) checkBuffer(right, 1);
@@ -1345,10 +1557,6 @@ public final class GLFW {
 	}
 
 	// --- [ glfwIconifyWindow ] ---
-
-	/** JNI method for {@link #glfwIconifyWindow IconifyWindow} */
-	@JavadocExclude
-	public static native void nglfwIconifyWindow(long window);
 
 	/**
 	 * Iconifies (minimizes) the specified window if it was previously restored. If the window is already iconified, this function does nothing.
@@ -1362,16 +1570,13 @@ public final class GLFW {
 	 * @since GLFW 2.1
 	 */
 	public static void glfwIconifyWindow(long window) {
+		long __functionAddress = getInstance().IconifyWindow;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwIconifyWindow(window);
+		invokePV(__functionAddress, window);
 	}
 
 	// --- [ glfwRestoreWindow ] ---
-
-	/** JNI method for {@link #glfwRestoreWindow RestoreWindow} */
-	@JavadocExclude
-	public static native void nglfwRestoreWindow(long window);
 
 	/**
 	 * Restores the specified window if it was previously iconified (minimized). If the window is already restored, this function does nothing.
@@ -1385,16 +1590,13 @@ public final class GLFW {
 	 * @since GLFW 2.1
 	 */
 	public static void glfwRestoreWindow(long window) {
+		long __functionAddress = getInstance().RestoreWindow;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwRestoreWindow(window);
+		invokePV(__functionAddress, window);
 	}
 
 	// --- [ glfwShowWindow ] ---
-
-	/** JNI method for {@link #glfwShowWindow ShowWindow} */
-	@JavadocExclude
-	public static native void nglfwShowWindow(long window);
 
 	/**
 	 * Makes the specified window visible if it was previously hidden. If the window is already visible or is in full screen mode, this function does nothing.
@@ -1406,17 +1608,14 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static void glfwShowWindow(long window) {
+		long __functionAddress = getInstance().ShowWindow;
 		org.lwjgl.system.macosx.EventLoop.checkFirstThread();
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwShowWindow(window);
+		invokePV(__functionAddress, window);
 	}
 
 	// --- [ glfwHideWindow ] ---
-
-	/** JNI method for {@link #glfwHideWindow HideWindow} */
-	@JavadocExclude
-	public static native void nglfwHideWindow(long window);
 
 	/**
 	 * Hides the specified window, if it was previously visible. If the window is already hidden or is in full screen mode, this function does nothing.
@@ -1428,16 +1627,13 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static void glfwHideWindow(long window) {
+		long __functionAddress = getInstance().HideWindow;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwHideWindow(window);
+		invokePV(__functionAddress, window);
 	}
 
 	// --- [ glfwGetWindowMonitor ] ---
-
-	/** JNI method for {@link #glfwGetWindowMonitor GetWindowMonitor} */
-	@JavadocExclude
-	public static native long nglfwGetWindowMonitor(long window);
 
 	/**
 	 * Returns the handle of the monitor that the specified window is in full screen on.
@@ -1451,21 +1647,23 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static long glfwGetWindowMonitor(long window) {
+		long __functionAddress = getInstance().GetWindowMonitor;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return nglfwGetWindowMonitor(window);
+		return invokePP(__functionAddress, window);
 	}
 
 	// --- [ glfwGetWindowAttrib ] ---
-
-	/** JNI method for {@link #glfwGetWindowAttrib GetWindowAttrib} */
-	@JavadocExclude
-	public static native int nglfwGetWindowAttrib(long window, int attrib);
 
 	/**
 	 * Returns the value of an attribute of the specified window or its OpenGL or OpenGL ES context.
 	 * 
 	 * <p>This function may only be called from the main thread.</p>
+	 * 
+	 * <p>Framebuffer related hints are not window attributes.</p>
+	 * 
+	 * <p>Zero is a valid value for many window and context related attributes so you cannot use a return value of zero as an indication of errors. However, this
+	 * function should not fail as long as it is passed valid arguments and the library has been initialized.</p>
 	 *
 	 * @param window the window to query
 	 * @param attrib the <a href="http://www.glfw.org/docs/latest/window.html#window_attribs">window attribute</a> whose value to return. One of:<br>{@link #GLFW_FOCUSED FOCUSED}, {@link #GLFW_ICONIFIED ICONIFIED}, {@link #GLFW_RESIZABLE RESIZABLE}, {@link #GLFW_VISIBLE VISIBLE}, {@link #GLFW_DECORATED DECORATED}, {@link #GLFW_AUTO_ICONIFY AUTO_ICONIFY}, {@link #GLFW_FLOATING FLOATING}
@@ -1475,16 +1673,13 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static int glfwGetWindowAttrib(long window, int attrib) {
+		long __functionAddress = getInstance().GetWindowAttrib;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return nglfwGetWindowAttrib(window, attrib);
+		return invokePII(__functionAddress, window, attrib);
 	}
 
 	// --- [ glfwSetWindowUserPointer ] ---
-
-	/** JNI method for {@link #glfwSetWindowUserPointer SetWindowUserPointer} */
-	@JavadocExclude
-	public static native void nglfwSetWindowUserPointer(long window, long pointer);
 
 	/**
 	 * Sets the user-defined pointer of the specified window. The current value is retained until the window is destroyed. The initial value is {@code NULL}.
@@ -1497,16 +1692,13 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static void glfwSetWindowUserPointer(long window, long pointer) {
+		long __functionAddress = getInstance().SetWindowUserPointer;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwSetWindowUserPointer(window, pointer);
+		invokePPV(__functionAddress, window, pointer);
 	}
 
 	// --- [ glfwGetWindowUserPointer ] ---
-
-	/** JNI method for {@link #glfwGetWindowUserPointer GetWindowUserPointer} */
-	@JavadocExclude
-	public static native long nglfwGetWindowUserPointer(long window);
 
 	/**
 	 * Returns the current value of the user-defined pointer of the specified window. The initial value is {@code NULL}.
@@ -1518,16 +1710,13 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static long glfwGetWindowUserPointer(long window) {
+		long __functionAddress = getInstance().GetWindowUserPointer;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return nglfwGetWindowUserPointer(window);
+		return invokePP(__functionAddress, window);
 	}
 
 	// --- [ glfwSetWindowPosCallback ] ---
-
-	/** JNI method for {@link #glfwSetWindowPosCallback SetWindowPosCallback} */
-	@JavadocExclude
-	public static native long nglfwSetWindowPosCallback(long window, long cbfun);
 
 	/**
 	 * Sets the position callback of the specified window, which is called when the window is moved. The callback is provided with the screen position of the
@@ -1544,16 +1733,13 @@ public final class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static GLFWWindowPosCallback glfwSetWindowPosCallback(long window, GLFWWindowPosCallback cbfun) {
+		long __functionAddress = getInstance().SetWindowPosCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWWindowPosCallback.create(nglfwSetWindowPosCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWWindowPosCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetWindowSizeCallback ] ---
-
-	/** JNI method for {@link #glfwSetWindowSizeCallback SetWindowSizeCallback} */
-	@JavadocExclude
-	public static native long nglfwSetWindowSizeCallback(long window, long cbfun);
 
 	/**
 	 * Sets the size callback of the specified window, which is called when the window is resized. The callback is provided with the size, in screen
@@ -1570,16 +1756,13 @@ public final class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static GLFWWindowSizeCallback glfwSetWindowSizeCallback(long window, GLFWWindowSizeCallback cbfun) {
+		long __functionAddress = getInstance().SetWindowSizeCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWWindowSizeCallback.create(nglfwSetWindowSizeCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWWindowSizeCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetWindowCloseCallback ] ---
-
-	/** JNI method for {@link #glfwSetWindowCloseCallback SetWindowCloseCallback} */
-	@JavadocExclude
-	public static native long nglfwSetWindowCloseCallback(long window, long cbfun);
 
 	/**
 	 * Sets the close callback of the specified window, which is called when the user attempts to close the window, for example by clicking the close widget in
@@ -1604,16 +1787,13 @@ public final class GLFW {
 	 * @since GLFW 2.5
 	 */
 	public static GLFWWindowCloseCallback glfwSetWindowCloseCallback(long window, GLFWWindowCloseCallback cbfun) {
+		long __functionAddress = getInstance().SetWindowCloseCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWWindowCloseCallback.create(nglfwSetWindowCloseCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWWindowCloseCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetWindowRefreshCallback ] ---
-
-	/** JNI method for {@link #glfwSetWindowRefreshCallback SetWindowRefreshCallback} */
-	@JavadocExclude
-	public static native long nglfwSetWindowRefreshCallback(long window, long cbfun);
 
 	/**
 	 * Sets the refresh callback of the specified window, which is called when the client area of the window needs to be redrawn, for example if the window has
@@ -1633,16 +1813,13 @@ public final class GLFW {
 	 * @since GLFW 2.5
 	 */
 	public static GLFWWindowRefreshCallback glfwSetWindowRefreshCallback(long window, GLFWWindowRefreshCallback cbfun) {
+		long __functionAddress = getInstance().SetWindowRefreshCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWWindowRefreshCallback.create(nglfwSetWindowRefreshCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWWindowRefreshCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetWindowFocusCallback ] ---
-
-	/** JNI method for {@link #glfwSetWindowFocusCallback SetWindowFocusCallback} */
-	@JavadocExclude
-	public static native long nglfwSetWindowFocusCallback(long window, long cbfun);
 
 	/**
 	 * Sets the focus callback of the specified window, which is called when the window gains or loses input focus.
@@ -1661,16 +1838,13 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static GLFWWindowFocusCallback glfwSetWindowFocusCallback(long window, GLFWWindowFocusCallback cbfun) {
+		long __functionAddress = getInstance().SetWindowFocusCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWWindowFocusCallback.create(nglfwSetWindowFocusCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWWindowFocusCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetWindowIconifyCallback ] ---
-
-	/** JNI method for {@link #glfwSetWindowIconifyCallback SetWindowIconifyCallback} */
-	@JavadocExclude
-	public static native long nglfwSetWindowIconifyCallback(long window, long cbfun);
 
 	/**
 	 * Sets the iconification callback of the specified window, which is called when the window is iconified or restored.
@@ -1686,16 +1860,13 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static GLFWWindowIconifyCallback glfwSetWindowIconifyCallback(long window, GLFWWindowIconifyCallback cbfun) {
+		long __functionAddress = getInstance().SetWindowIconifyCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWWindowIconifyCallback.create(nglfwSetWindowIconifyCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWWindowIconifyCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetFramebufferSizeCallback ] ---
-
-	/** JNI method for {@link #glfwSetFramebufferSizeCallback SetFramebufferSizeCallback} */
-	@JavadocExclude
-	public static native long nglfwSetFramebufferSizeCallback(long window, long cbfun);
 
 	/**
 	 * Sets the framebuffer resize callback of the specified window, which is called when the framebuffer of the specified window is resized.
@@ -1711,16 +1882,13 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static GLFWFramebufferSizeCallback glfwSetFramebufferSizeCallback(long window, GLFWFramebufferSizeCallback cbfun) {
+		long __functionAddress = getInstance().SetFramebufferSizeCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWFramebufferSizeCallback.create(nglfwSetFramebufferSizeCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWFramebufferSizeCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwPollEvents ] ---
-
-	/** JNI method for {@link #glfwPollEvents PollEvents} */
-	@JavadocExclude
-	public static native void nglfwPollEvents();
 
 	/**
 	 * Processes all pending events.
@@ -1744,15 +1912,12 @@ public final class GLFW {
 	 * </ul></p>
 	 */
 	public static void glfwPollEvents() {
+		long __functionAddress = getInstance().PollEvents;
 		org.lwjgl.system.macosx.EventLoop.checkFirstThread();
-		nglfwPollEvents();
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glfwWaitEvents ] ---
-
-	/** JNI method for {@link #glfwWaitEvents WaitEvents} */
-	@JavadocExclude
-	public static native void nglfwWaitEvents();
 
 	/**
 	 * Waits until events are queued and processes them.
@@ -1783,8 +1948,9 @@ public final class GLFW {
 	 * </ul></p>
 	 */
 	public static void glfwWaitEvents() {
+		long __functionAddress = getInstance().WaitEvents;
 		org.lwjgl.system.macosx.EventLoop.checkFirstThread();
-		nglfwWaitEvents();
+		invokeV(__functionAddress);
 	}
 
 	// --- [ glfwPostEmptyEvent ] ---
@@ -1797,13 +1963,12 @@ public final class GLFW {
 	 * 
 	 * <p>This function may be called from any thread.</p>
 	 */
-	public static native void glfwPostEmptyEvent();
+	public static void glfwPostEmptyEvent() {
+		long __functionAddress = getInstance().PostEmptyEvent;
+		invokeV(__functionAddress);
+	}
 
 	// --- [ glfwGetInputMode ] ---
-
-	/** JNI method for {@link #glfwGetInputMode GetInputMode} */
-	@JavadocExclude
-	public static native int nglfwGetInputMode(long window, int mode);
 
 	/**
 	 * Returns the value of an input option for the specified window.
@@ -1818,16 +1983,13 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static int glfwGetInputMode(long window, int mode) {
+		long __functionAddress = getInstance().GetInputMode;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return nglfwGetInputMode(window, mode);
+		return invokePII(__functionAddress, window, mode);
 	}
 
 	// --- [ glfwSetInputMode ] ---
-
-	/** JNI method for {@link #glfwSetInputMode SetInputMode} */
-	@JavadocExclude
-	public static native void nglfwSetInputMode(long window, int mode, int value);
 
 	/**
 	 * Sets an input option for the specified window.
@@ -1858,16 +2020,13 @@ public final class GLFW {
 	 * @since GFLW 3.0
 	 */
 	public static void glfwSetInputMode(long window, int mode, int value) {
+		long __functionAddress = getInstance().SetInputMode;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwSetInputMode(window, mode, value);
+		invokePIIV(__functionAddress, window, mode, value);
 	}
 
 	// --- [ glfwGetKey ] ---
-
-	/** JNI method for {@link #glfwGetKey GetKey} */
-	@JavadocExclude
-	public static native int nglfwGetKey(long window, int key);
 
 	/**
 	 * Returns the last state reported for the specified key to the specified window. The returned state is one of {@link #GLFW_PRESS PRESS} or {@link #GLFW_RELEASE RELEASE}. The higher-level action
@@ -1895,16 +2054,13 @@ public final class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static int glfwGetKey(long window, int key) {
+		long __functionAddress = getInstance().GetKey;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return nglfwGetKey(window, key);
+		return invokePII(__functionAddress, window, key);
 	}
 
 	// --- [ glfwGetMouseButton ] ---
-
-	/** JNI method for {@link #glfwGetMouseButton GetMouseButton} */
-	@JavadocExclude
-	public static native int nglfwGetMouseButton(long window, int button);
 
 	/**
 	 * Returns the last state reported for the specified mouse button to the specified window. The returned state is one of {@link #GLFW_PRESS PRESS} or {@link #GLFW_RELEASE RELEASE}. The
@@ -1923,16 +2079,22 @@ public final class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static int glfwGetMouseButton(long window, int button) {
+		long __functionAddress = getInstance().GetMouseButton;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return nglfwGetMouseButton(window, button);
+		return invokePII(__functionAddress, window, button);
 	}
 
 	// --- [ glfwGetCursorPos ] ---
 
-	/** JNI method for {@link #glfwGetCursorPos GetCursorPos} */
+	/** Unsafe version of {@link #glfwGetCursorPos GetCursorPos} */
 	@JavadocExclude
-	public static native void nglfwGetCursorPos(long window, long xpos, long ypos);
+	public static void nglfwGetCursorPos(long window, long xpos, long ypos) {
+		long __functionAddress = getInstance().GetCursorPos;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(window);
+		invokePPPV(__functionAddress, window, xpos, ypos);
+	}
 
 	/**
 	 * Returns the position of the cursor, in screen coordinates, relative to the upper-left corner of the client area of the specified window.
@@ -1955,7 +2117,6 @@ public final class GLFW {
 	 */
 	public static void glfwGetCursorPos(long window, ByteBuffer xpos, ByteBuffer ypos) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(window);
 			if ( xpos != null ) checkBuffer(xpos, 1 << 3);
 			if ( ypos != null ) checkBuffer(ypos, 1 << 3);
 		}
@@ -1965,7 +2126,6 @@ public final class GLFW {
 	/** Alternative version of: {@link #glfwGetCursorPos GetCursorPos} */
 	public static void glfwGetCursorPos(long window, DoubleBuffer xpos, DoubleBuffer ypos) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(window);
 			if ( xpos != null ) checkBuffer(xpos, 1);
 			if ( ypos != null ) checkBuffer(ypos, 1);
 		}
@@ -1973,10 +2133,6 @@ public final class GLFW {
 	}
 
 	// --- [ glfwSetCursorPos ] ---
-
-	/** JNI method for {@link #glfwSetCursorPos SetCursorPos} */
-	@JavadocExclude
-	public static native void nglfwSetCursorPos(long window, double xpos, double ypos);
 
 	/**
 	 * Sets the position, in screen coordinates, of the cursor relative to the upper-left corner of the client area of the specified window. The window must
@@ -1990,8 +2146,8 @@ public final class GLFW {
 	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
-	 * <li><b>X11:</b> Due to the asynchronous nature of a modern X desktop, it may take a moment for the window focus event to arrive. This means you will not
-	 * be able to set the cursor position directly after window creation.</li>
+	 * <li><b>X11:</b> Due to the asynchronous nature of X11, it may take a moment for the window focus event to arrive. This means you may not be able to set
+	 * the cursor position directly after window creation.</li>
 	 * </ul></p>
 	 *
 	 * @param window the desired window
@@ -2001,23 +2157,27 @@ public final class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static void glfwSetCursorPos(long window, double xpos, double ypos) {
+		long __functionAddress = getInstance().SetCursorPos;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwSetCursorPos(window, xpos, ypos);
+		invokePDDV(__functionAddress, window, xpos, ypos);
 	}
 
 	// --- [ glfwCreateCursor ] ---
 
-	/** JNI method for {@link #glfwCreateCursor CreateCursor} */
+	/** Unsafe version of {@link #glfwCreateCursor CreateCursor} */
 	@JavadocExclude
-	public static native long nglfwCreateCursor(long image, int xhot, int yhot);
+	public static long nglfwCreateCursor(long image, int xhot, int yhot) {
+		long __functionAddress = getInstance().CreateCursor;
+		return invokePIIP(__functionAddress, image, xhot, yhot);
+	}
 
 	/**
 	 * Creates a new custom cursor image that can be set for a window with {@link #glfwSetCursor SetCursor}. The cursor can be destroyed with {@link #glfwDestroyCursor DestroyCursor}. Any remaining
 	 * cursors are destroyed by {@link #glfwTerminate Terminate}.
 	 * 
-	 * <p>The pixels are 32-bit little-endian RGBA, i.e. eight bits per channel. They are arranged canonically as packed sequential rows, starting from the
-	 * top-left corner.</p>
+	 * <p>The pixels are 32-bit, little-endian, non-premultiplied RGBA, i.e. eight bits per channel. They are arranged canonically as packed sequential rows,
+	 * starting from the top-left corner.</p>
 	 * 
 	 * <p>The cursor hotspot is specified in pixels, relative to the upper-left corner of the cursor image. Like all other coordinate systems in GLFW, the X-axis
 	 * points to the right and the Y-axis points down.</p>
@@ -2061,13 +2221,12 @@ public final class GLFW {
 	 *
 	 * @since GLFW 3.1
 	 */
-	public static native long glfwCreateStandardCursor(int shape);
+	public static long glfwCreateStandardCursor(int shape) {
+		long __functionAddress = getInstance().CreateStandardCursor;
+		return invokeIP(__functionAddress, shape);
+	}
 
 	// --- [ glfwDestroyCursor ] ---
-
-	/** JNI method for {@link #glfwDestroyCursor DestroyCursor} */
-	@JavadocExclude
-	public static native void nglfwDestroyCursor(long cursor);
 
 	/**
 	 * Destroys a cursor previously created with {@link #glfwCreateCursor CreateCursor}. Any remaining cursors will be destroyed by {@link #glfwTerminate Terminate}.
@@ -2083,16 +2242,13 @@ public final class GLFW {
 	 * @since GLFW 3.1
 	 */
 	public static void glfwDestroyCursor(long cursor) {
+		long __functionAddress = getInstance().DestroyCursor;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(cursor);
-		nglfwDestroyCursor(cursor);
+		invokePV(__functionAddress, cursor);
 	}
 
 	// --- [ glfwSetCursor ] ---
-
-	/** JNI method for {@link #glfwSetCursor SetCursor} */
-	@JavadocExclude
-	public static native void nglfwSetCursor(long window, long cursor);
 
 	/**
 	 * Sets the cursor image to be used when the cursor is over the client area of the specified window. The set cursor will only be visible when the
@@ -2108,16 +2264,13 @@ public final class GLFW {
 	 * @since GLFW 3.1
 	 */
 	public static void glfwSetCursor(long window, long cursor) {
+		long __functionAddress = getInstance().SetCursor;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwSetCursor(window, cursor);
+		invokePPV(__functionAddress, window, cursor);
 	}
 
 	// --- [ glfwSetKeyCallback ] ---
-
-	/** JNI method for {@link #glfwSetKeyCallback SetKeyCallback} */
-	@JavadocExclude
-	public static native long nglfwSetKeyCallback(long window, long cbfun);
 
 	/**
 	 * Sets the key callback of the specified window, which is called when a key is pressed, repeated or released.
@@ -2144,16 +2297,13 @@ public final class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static GLFWKeyCallback glfwSetKeyCallback(long window, GLFWKeyCallback cbfun) {
+		long __functionAddress = getInstance().SetKeyCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWKeyCallback.create(nglfwSetKeyCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWKeyCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetCharCallback ] ---
-
-	/** JNI method for {@link #glfwSetCharCallback SetCharCallback} */
-	@JavadocExclude
-	public static native long nglfwSetCharCallback(long window, long cbfun);
 
 	/**
 	 * Sets the character callback of the specified window, which is called when a Unicode character is input.
@@ -2175,16 +2325,13 @@ public final class GLFW {
 	 * @since GLFW 2.4
 	 */
 	public static GLFWCharCallback glfwSetCharCallback(long window, GLFWCharCallback cbfun) {
+		long __functionAddress = getInstance().SetCharCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWCharCallback.create(nglfwSetCharCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWCharCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetCharModsCallback ] ---
-
-	/** JNI method for {@link #glfwSetCharModsCallback SetCharModsCallback} */
-	@JavadocExclude
-	public static native long nglfwSetCharModsCallback(long window, long cbfun);
 
 	/**
 	 * Sets the character with modifiers callback of the specified window, which is called when a Unicode character is input regardless of what modifier keys
@@ -2205,16 +2352,13 @@ public final class GLFW {
 	 * @since GLFW 3.1
 	 */
 	public static GLFWCharModsCallback glfwSetCharModsCallback(long window, GLFWCharModsCallback cbfun) {
+		long __functionAddress = getInstance().SetCharModsCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWCharModsCallback.create(nglfwSetCharModsCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWCharModsCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetMouseButtonCallback ] ---
-
-	/** JNI method for {@link #glfwSetMouseButtonCallback SetMouseButtonCallback} */
-	@JavadocExclude
-	public static native long nglfwSetMouseButtonCallback(long window, long cbfun);
 
 	/**
 	 * Sets the mouse button callback of the specified window, which is called when a mouse button is pressed or released.
@@ -2233,16 +2377,13 @@ public final class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static GLFWMouseButtonCallback glfwSetMouseButtonCallback(long window, GLFWMouseButtonCallback cbfun) {
+		long __functionAddress = getInstance().SetMouseButtonCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWMouseButtonCallback.create(nglfwSetMouseButtonCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWMouseButtonCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetCursorPosCallback ] ---
-
-	/** JNI method for {@link #glfwSetCursorPosCallback SetCursorPosCallback} */
-	@JavadocExclude
-	public static native long nglfwSetCursorPosCallback(long window, long cbfun);
 
 	/**
 	 * Sets the cursor position callback of the specified window, which is called when the cursor is moved. The callback is provided with the position, in
@@ -2258,16 +2399,13 @@ public final class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static GLFWCursorPosCallback glfwSetCursorPosCallback(long window, GLFWCursorPosCallback cbfun) {
+		long __functionAddress = getInstance().SetCursorPosCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWCursorPosCallback.create(nglfwSetCursorPosCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWCursorPosCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetCursorEnterCallback ] ---
-
-	/** JNI method for {@link #glfwSetCursorEnterCallback SetCursorEnterCallback} */
-	@JavadocExclude
-	public static native long nglfwSetCursorEnterCallback(long window, long cbfun);
 
 	/**
 	 * Sets the cursor boundary crossing callback of the specified window, which is called when the cursor enters or leaves the client area of the window.
@@ -2282,16 +2420,13 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static GLFWCursorEnterCallback glfwSetCursorEnterCallback(long window, GLFWCursorEnterCallback cbfun) {
+		long __functionAddress = getInstance().SetCursorEnterCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWCursorEnterCallback.create(nglfwSetCursorEnterCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWCursorEnterCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetScrollCallback ] ---
-
-	/** JNI method for {@link #glfwSetScrollCallback SetScrollCallback} */
-	@JavadocExclude
-	public static native long nglfwSetScrollCallback(long window, long cbfun);
 
 	/**
 	 * Sets the scroll callback of the specified window, which is called when a scrolling device is used.
@@ -2308,16 +2443,13 @@ public final class GLFW {
 	 * @since GLFW 2.1
 	 */
 	public static GLFWScrollCallback glfwSetScrollCallback(long window, GLFWScrollCallback cbfun) {
+		long __functionAddress = getInstance().SetScrollCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWScrollCallback.create(nglfwSetScrollCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWScrollCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwSetDropCallback ] ---
-
-	/** JNI method for {@link #glfwSetDropCallback SetDropCallback} */
-	@JavadocExclude
-	public static native long nglfwSetDropCallback(long window, long cbfun);
 
 	/**
 	 * Sets the file drop callback of the specified window, which is called when one or more dragged files are dropped on the window.
@@ -2335,9 +2467,10 @@ public final class GLFW {
 	 * @since GLFW 3.1
 	 */
 	public static GLFWDropCallback glfwSetDropCallback(long window, GLFWDropCallback cbfun) {
+		long __functionAddress = getInstance().SetDropCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return GLFWDropCallback.create(nglfwSetDropCallback(window, cbfun == null ? NULL : cbfun.getPointer()));
+		return GLFWDropCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.getPointer()));
 	}
 
 	// --- [ glfwJoystickPresent ] ---
@@ -2353,13 +2486,19 @@ public final class GLFW {
 	 *
 	 * @since GLFW 3.0
 	 */
-	public static native int glfwJoystickPresent(int joy);
+	public static int glfwJoystickPresent(int joy) {
+		long __functionAddress = getInstance().JoystickPresent;
+		return invokeII(__functionAddress, joy);
+	}
 
 	// --- [ glfwGetJoystickAxes ] ---
 
-	/** JNI method for {@link #glfwGetJoystickAxes GetJoystickAxes} */
+	/** Unsafe version of {@link #glfwGetJoystickAxes GetJoystickAxes} */
 	@JavadocExclude
-	public static native long nglfwGetJoystickAxes(int joy, long count);
+	public static long nglfwGetJoystickAxes(int joy, long count) {
+		long __functionAddress = getInstance().GetJoystickAxes;
+		return invokeIPP(__functionAddress, joy, count);
+	}
 
 	/**
 	 * Returns the values of all axes of the specified joystick. Each element in the array is a value between -1.0 and 1.0.
@@ -2384,9 +2523,12 @@ public final class GLFW {
 
 	// --- [ glfwGetJoystickButtons ] ---
 
-	/** JNI method for {@link #glfwGetJoystickButtons GetJoystickButtons} */
+	/** Unsafe version of {@link #glfwGetJoystickButtons GetJoystickButtons} */
 	@JavadocExclude
-	public static native long nglfwGetJoystickButtons(int joy, long count);
+	public static long nglfwGetJoystickButtons(int joy, long count) {
+		long __functionAddress = getInstance().GetJoystickButtons;
+		return invokeIPP(__functionAddress, joy, count);
+	}
 
 	/**
 	 * Returns the state of all buttons of the specified joystick. Each element in the array is either {@link #GLFW_PRESS PRESS} or {@link #GLFW_RELEASE RELEASE}.
@@ -2411,9 +2553,12 @@ public final class GLFW {
 
 	// --- [ glfwGetJoystickName ] ---
 
-	/** JNI method for {@link #glfwGetJoystickName GetJoystickName} */
+	/** Unsafe version of {@link #glfwGetJoystickName GetJoystickName} */
 	@JavadocExclude
-	public static native long nglfwGetJoystickName(int joy);
+	public static long nglfwGetJoystickName(int joy) {
+		long __functionAddress = getInstance().GetJoystickName;
+		return invokeIP(__functionAddress, joy);
+	}
 
 	/**
 	 * Returns the name, encoded as UTF-8, of the specified joystick.
@@ -2436,9 +2581,14 @@ public final class GLFW {
 
 	// --- [ glfwSetClipboardString ] ---
 
-	/** JNI method for {@link #glfwSetClipboardString SetClipboardString} */
+	/** Unsafe version of {@link #glfwSetClipboardString SetClipboardString} */
 	@JavadocExclude
-	public static native void nglfwSetClipboardString(long window, long string);
+	public static void nglfwSetClipboardString(long window, long string) {
+		long __functionAddress = getInstance().SetClipboardString;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(window);
+		invokePPV(__functionAddress, window, string);
+	}
 
 	/**
 	 * Sets the system clipboard to the specified, UTF-8 encoded string.
@@ -2453,17 +2603,13 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static void glfwSetClipboardString(long window, ByteBuffer string) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(window);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(string);
-		}
 		nglfwSetClipboardString(window, memAddress(string));
 	}
 
 	/** CharSequence version of: {@link #glfwSetClipboardString SetClipboardString} */
 	public static void glfwSetClipboardString(long window, CharSequence string) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(window);
 		APIBuffer __buffer = apiBuffer();
 		int stringEncoded = __buffer.stringParamUTF8(string, true);
 		nglfwSetClipboardString(window, __buffer.address(stringEncoded));
@@ -2471,12 +2617,18 @@ public final class GLFW {
 
 	// --- [ glfwGetClipboardString ] ---
 
-	/** JNI method for {@link #glfwGetClipboardString GetClipboardString} */
+	/** Unsafe version of {@link #glfwGetClipboardString GetClipboardString} */
 	@JavadocExclude
-	public static native long nglfwGetClipboardString(long window);
+	public static long nglfwGetClipboardString(long window) {
+		long __functionAddress = getInstance().GetClipboardString;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(window);
+		return invokePP(__functionAddress, window);
+	}
 
 	/**
-	 * Returns the contents of the system clipboard, if it contains or is convertible to a UTF-8 encoded string.
+	 * Returns the contents of the system clipboard, if it contains or is convertible to a UTF-8 encoded string. If the clipboard is empty or if its contents
+	 * cannot be converted, {@code NULL} is returned and a {@link #GLFW_FORMAT_UNAVAILABLE FORMAT_UNAVAILABLE} error is generated.
 	 * 
 	 * <p>The returned string is allocated and freed by GLFW. You should not free it yourself. It is valid until the next call to {@link #glfwGetClipboardString GetClipboardString} or
 	 * {@link #glfwSetClipboardString SetClipboardString}, or until the library is terminated.</p>
@@ -2495,8 +2647,6 @@ public final class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static String glfwGetClipboardString(long window) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(window);
 		long __result = nglfwGetClipboardString(window);
 		return memDecodeUTF8(__result);
 	}
@@ -2515,7 +2665,10 @@ public final class GLFW {
 	 *
 	 * @since GLFW 1.0
 	 */
-	public static native double glfwGetTime();
+	public static double glfwGetTime() {
+		long __functionAddress = getInstance().GetTime;
+		return invokeD(__functionAddress);
+	}
 
 	// --- [ glfwSetTime ] ---
 
@@ -2532,7 +2685,10 @@ public final class GLFW {
 	 *
 	 * @since GLFW 2.2
 	 */
-	public static native void glfwSetTime(double time);
+	public static void glfwSetTime(double time) {
+		long __functionAddress = getInstance().SetTime;
+		invokeDV(__functionAddress, time);
+	}
 
 	// --- [ glfwMakeContextCurrent ] ---
 
@@ -2550,7 +2706,10 @@ public final class GLFW {
 	 *
 	 * @since GLFW 3.0
 	 */
-	public static native void glfwMakeContextCurrent(long window);
+	public static void glfwMakeContextCurrent(long window) {
+		long __functionAddress = getInstance().MakeContextCurrent;
+		invokePV(__functionAddress, window);
+	}
 
 	// --- [ glfwGetCurrentContext ] ---
 
@@ -2563,13 +2722,12 @@ public final class GLFW {
 	 *
 	 * @since GLFW 3.0
 	 */
-	public static native long glfwGetCurrentContext();
+	public static long glfwGetCurrentContext() {
+		long __functionAddress = getInstance().GetCurrentContext;
+		return invokeP(__functionAddress);
+	}
 
 	// --- [ glfwSwapBuffers ] ---
-
-	/** JNI method for {@link #glfwSwapBuffers SwapBuffers} */
-	@JavadocExclude
-	public static native void nglfwSwapBuffers(long window);
 
 	/**
 	 * Swaps the front and back buffers of the specified window. If the swap interval is greater than zero, the GPU driver waits the specified number of screen
@@ -2582,9 +2740,10 @@ public final class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static void glfwSwapBuffers(long window) {
+		long __functionAddress = getInstance().SwapBuffers;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		nglfwSwapBuffers(window);
+		invokePV(__functionAddress, window);
 	}
 
 	// --- [ glfwSwapInterval ] ---
@@ -2613,13 +2772,19 @@ public final class GLFW {
 	 *
 	 * @since GLFW 1.0
 	 */
-	public static native void glfwSwapInterval(int interval);
+	public static void glfwSwapInterval(int interval) {
+		long __functionAddress = getInstance().SwapInterval;
+		invokeIV(__functionAddress, interval);
+	}
 
 	// --- [ glfwExtensionSupported ] ---
 
-	/** JNI method for {@link #glfwExtensionSupported ExtensionSupported} */
+	/** Unsafe version of {@link #glfwExtensionSupported ExtensionSupported} */
 	@JavadocExclude
-	public static native int nglfwExtensionSupported(long extension);
+	public static int nglfwExtensionSupported(long extension) {
+		long __functionAddress = getInstance().ExtensionSupported;
+		return invokePI(__functionAddress, extension);
+	}
 
 	/**
 	 * Returns whether the specified <a href="http://www.glfw.org/docs/latest/context.html#context_glext">API extension</a> is supported by the current
@@ -2653,28 +2818,31 @@ public final class GLFW {
 
 	// --- [ glfwGetProcAddress ] ---
 
-	/** JNI method for {@link #glfwGetProcAddress GetProcAddress} */
+	/** Unsafe version of {@link #glfwGetProcAddress GetProcAddress} */
 	@JavadocExclude
-	public static native long nglfwGetProcAddress(long procname);
+	public static long nglfwGetProcAddress(long procname) {
+		long __functionAddress = getInstance().GetProcAddress;
+		return invokePP(__functionAddress, procname);
+	}
 
 	/**
 	 * Returns the address of the specified <a href="http://www.glfw.org/docs/latest/context.html#context_glext">core or extension function</a>, if it is
 	 * supported by the current context.
 	 * 
-	 * <p>A context must be current on the calling thread.  Calling this function without a current context will cause a `GLFW_NO_CURRENT_CONTEXT` error.</p>
+	 * <p>A context must be current on the calling thread.  Calling this function without a current context will cause a {@link #GLFW_NO_CURRENT_CONTEXT NO_CURRENT_CONTEXT} error.</p>
 	 * 
 	 * <p>Notes:
 	 * <ul>
-	 * <li>The addresses of a given function is not guaranteed to be the same between contexts.</li>
+	 * <li>The address of a given function is not guaranteed to be the same between contexts.</li>
 	 * <li>This function may return a non-{@code NULL} address despite the associated version or extension not being available. Always check the context version or
-	 * extension string presence first.</li>
+	 * extension string first.</li>
 	 * <li>The returned function pointer is valid until the context is destroyed or the library is terminated.</li>
 	 * <li>This function may be called from any thread.</li>
 	 * </ul></p>
 	 *
 	 * @param procname the ASCII encoded name of the function
 	 *
-	 * @return the address of the function, or {@code NULL} if the function is unavailable
+	 * @return the address of the function, or {@code NULL} if an error occured
 	 *
 	 * @since GLFW 1.0
 	 */
@@ -2689,278 +2857,6 @@ public final class GLFW {
 		APIBuffer __buffer = apiBuffer();
 		int procnameEncoded = __buffer.stringParamASCII(procname, true);
 		return nglfwGetProcAddress(__buffer.address(procnameEncoded));
-	}
-
-     /**
-	 * Creates a {@link GLFWErrorCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWErrorCallback} instance
-	 */
-	public static GLFWErrorCallback GLFWErrorCallback(final GLFWErrorCallback.SAM sam) {
-		return new GLFWErrorCallback() {
-			@Override
-			public void invoke(int error, long description) {
-				sam.invoke(error, description);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link GLFWMonitorCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWMonitorCallback} instance
-	 */
-	public static GLFWMonitorCallback GLFWMonitorCallback(final GLFWMonitorCallback.SAM sam) {
-		return new GLFWMonitorCallback() {
-			@Override
-			public void invoke(long monitor, int event) {
-				sam.invoke(monitor, event);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link GLFWWindowPosCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWWindowPosCallback} instance
-	 */
-	public static GLFWWindowPosCallback GLFWWindowPosCallback(final GLFWWindowPosCallback.SAM sam) {
-		return new GLFWWindowPosCallback() {
-			@Override
-			public void invoke(long window, int xpos, int ypos) {
-				sam.invoke(window, xpos, ypos);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link GLFWWindowSizeCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWWindowSizeCallback} instance
-	 */
-	public static GLFWWindowSizeCallback GLFWWindowSizeCallback(final GLFWWindowSizeCallback.SAM sam) {
-		return new GLFWWindowSizeCallback() {
-			@Override
-			public void invoke(long window, int width, int height) {
-				sam.invoke(window, width, height);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link GLFWWindowCloseCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWWindowCloseCallback} instance
-	 */
-	public static GLFWWindowCloseCallback GLFWWindowCloseCallback(final GLFWWindowCloseCallback.SAM sam) {
-		return new GLFWWindowCloseCallback() {
-			@Override
-			public void invoke(long window) {
-				sam.invoke(window);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link GLFWWindowRefreshCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWWindowRefreshCallback} instance
-	 */
-	public static GLFWWindowRefreshCallback GLFWWindowRefreshCallback(final GLFWWindowRefreshCallback.SAM sam) {
-		return new GLFWWindowRefreshCallback() {
-			@Override
-			public void invoke(long window) {
-				sam.invoke(window);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link GLFWWindowFocusCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWWindowFocusCallback} instance
-	 */
-	public static GLFWWindowFocusCallback GLFWWindowFocusCallback(final GLFWWindowFocusCallback.SAM sam) {
-		return new GLFWWindowFocusCallback() {
-			@Override
-			public void invoke(long window, int focused) {
-				sam.invoke(window, focused);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link GLFWWindowIconifyCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWWindowIconifyCallback} instance
-	 */
-	public static GLFWWindowIconifyCallback GLFWWindowIconifyCallback(final GLFWWindowIconifyCallback.SAM sam) {
-		return new GLFWWindowIconifyCallback() {
-			@Override
-			public void invoke(long window, int iconified) {
-				sam.invoke(window, iconified);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link GLFWFramebufferSizeCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWFramebufferSizeCallback} instance
-	 */
-	public static GLFWFramebufferSizeCallback GLFWFramebufferSizeCallback(final GLFWFramebufferSizeCallback.SAM sam) {
-		return new GLFWFramebufferSizeCallback() {
-			@Override
-			public void invoke(long window, int width, int height) {
-				sam.invoke(window, width, height);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link GLFWKeyCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWKeyCallback} instance
-	 */
-	public static GLFWKeyCallback GLFWKeyCallback(final GLFWKeyCallback.SAM sam) {
-		return new GLFWKeyCallback() {
-			@Override
-			public void invoke(long window, int key, int scancode, int action, int mods) {
-				sam.invoke(window, key, scancode, action, mods);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link GLFWCharCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWCharCallback} instance
-	 */
-	public static GLFWCharCallback GLFWCharCallback(final GLFWCharCallback.SAM sam) {
-		return new GLFWCharCallback() {
-			@Override
-			public void invoke(long window, int codepoint) {
-				sam.invoke(window, codepoint);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link GLFWCharModsCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWCharModsCallback} instance
-	 */
-	public static GLFWCharModsCallback GLFWCharModsCallback(final GLFWCharModsCallback.SAM sam) {
-		return new GLFWCharModsCallback() {
-			@Override
-			public void invoke(long window, int codepoint, int mods) {
-				sam.invoke(window, codepoint, mods);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link GLFWMouseButtonCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWMouseButtonCallback} instance
-	 */
-	public static GLFWMouseButtonCallback GLFWMouseButtonCallback(final GLFWMouseButtonCallback.SAM sam) {
-		return new GLFWMouseButtonCallback() {
-			@Override
-			public void invoke(long window, int button, int action, int mods) {
-				sam.invoke(window, button, action, mods);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link GLFWCursorPosCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWCursorPosCallback} instance
-	 */
-	public static GLFWCursorPosCallback GLFWCursorPosCallback(final GLFWCursorPosCallback.SAM sam) {
-		return new GLFWCursorPosCallback() {
-			@Override
-			public void invoke(long window, double xpos, double ypos) {
-				sam.invoke(window, xpos, ypos);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link GLFWCursorEnterCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWCursorEnterCallback} instance
-	 */
-	public static GLFWCursorEnterCallback GLFWCursorEnterCallback(final GLFWCursorEnterCallback.SAM sam) {
-		return new GLFWCursorEnterCallback() {
-			@Override
-			public void invoke(long window, int entered) {
-				sam.invoke(window, entered);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link GLFWScrollCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWScrollCallback} instance
-	 */
-	public static GLFWScrollCallback GLFWScrollCallback(final GLFWScrollCallback.SAM sam) {
-		return new GLFWScrollCallback() {
-			@Override
-			public void invoke(long window, double xoffset, double yoffset) {
-				sam.invoke(window, xoffset, yoffset);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link GLFWDropCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWDropCallback} instance
-	 */
-	public static GLFWDropCallback GLFWDropCallback(final GLFWDropCallback.SAM sam) {
-		return new GLFWDropCallback() {
-			@Override
-			public void invoke(long window, int count, long names) {
-				sam.invoke(window, count, names);
-			}
-		};
 	}
 
 }

@@ -16,19 +16,16 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** Instances of this interface may be set to the {@link ChunkHooks} struct. */
 public abstract class ChunkPurge extends Closure.Byte {
 
-	private static final ByteBuffer    CIF  = memAlloc(FFICIF.SIZEOF);
-	private static final PointerBuffer ARGS = memAllocPointer(5);
+	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final PointerBuffer ARGS = staticAllocPointer(5);
 
 	static {
-		ARGS.put(0, ffi_type_pointer);
-		ARGS.put(1, ffi_type_pointer);
-		ARGS.put(2, ffi_type_pointer);
-		ARGS.put(3, ffi_type_pointer);
-		ARGS.put(4, ffi_type_uint32);
-
-		int status = ffi_prep_cif(CIF, CALL_CONVENTION_DEFAULT, ffi_type_uint8, ARGS);
-		if ( status != FFI_OK )
-			throw new IllegalStateException(String.format("Failed to prepare ChunkPurge callback interface. Status: 0x%X", status));
+		prepareCIF(
+			"ChunkPurge",
+			CALL_CONVENTION_DEFAULT,
+			CIF, ffi_type_uint8,
+			ARGS, ffi_type_pointer, ffi_type_pointer, ffi_type_pointer, ffi_type_pointer, ffi_type_uint32
+		);
 	}
 
 	protected ChunkPurge() {
@@ -50,6 +47,7 @@ public abstract class ChunkPurge extends Closure.Byte {
 			memGetInt(memGetAddress(POINTER_SIZE * 4 + args))
 		);
 	}
+
 	/**
 	 * Chunk purge hook.
 	 *
@@ -64,6 +62,22 @@ public abstract class ChunkPurge extends Closure.Byte {
 	/** A functional interface for {@link ChunkPurge}. */
 	public interface SAM {
 		byte invoke(long chunk, long size, long offset, long length, int arena_ind);
+	}
+
+	/**
+	 * Creates a {@link ChunkPurge} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link ChunkPurge} instance
+	 */
+	public static ChunkPurge create(final SAM sam) {
+		return new ChunkPurge() {
+			@Override
+			public byte invoke(long chunk, long size, long offset, long length, int arena_ind) {
+				return sam.invoke(chunk, size, offset, length, arena_ind);
+			}
+		};
 	}
 
 }
