@@ -22,7 +22,6 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <h3>Limitations</h3>
  * <ul>
- * <li>seeking not supported except manually via PUSHDATA api</li>
  * <li>floor 0 not supported (used in old ogg vorbis files pre-2004)</li>
  * <li>lossless sample-truncation at beginning ignored</li>
  * <li>cannot concatenate multiple vorbis streams</li>
@@ -50,26 +49,26 @@ public final class STBVorbis {
 
 	/** Error code. */
 	public static final int
-		VORBIS_no_error                        = 0x0,
-		VORBISneed_more_data                   = 0x1,
-		VORBISinvalid_api_mixing               = 0x2,
-		VORBISoutofmem                         = 0x3,
-		VORBISfeature_not_supported            = 0x4,
-		VORBIStoo_many_channels                = 0x5,
-		VORBISfile_open_failure                = 0x6,
-		VORBISseek_without_length              = 0x7,
-		VORBISunexpected_eof                   = 0xA,
-		VORBISseek_invalid                     = 0xB,
-		VORBISinvalid_setup                    = 0x14,
-		VORBISinvalid_stream                   = 0x15,
-		VORBISmissing_capture_pattern          = 0x1E,
-		VORBISinvalid_stream_structure_version = 0x1F,
-		VORBIScontinued_packet_flag_invalid    = 0x20,
-		VORBISincorrect_stream_serial_number   = 0x21,
-		VORBISinvalid_first_page               = 0x22,
-		VORBISbad_packet_type                  = 0x23,
-		VORBIScant_find_last_page              = 0x24,
-		VORBISseek_failed                      = 0x25;
+		VORBIS__no_error                        = 0x0,
+		VORBIS_need_more_data                   = 0x1,
+		VORBIS_invalid_api_mixing               = 0x2,
+		VORBIS_outofmem                         = 0x3,
+		VORBIS_feature_not_supported            = 0x4,
+		VORBIS_too_many_channels                = 0x5,
+		VORBIS_file_open_failure                = 0x6,
+		VORBIS_seek_without_length              = 0x7,
+		VORBIS_unexpected_eof                   = 0xA,
+		VORBIS_seek_invalid                     = 0xB,
+		VORBIS_invalid_setup                    = 0x14,
+		VORBIS_invalid_stream                   = 0x15,
+		VORBIS_missing_capture_pattern          = 0x1E,
+		VORBIS_invalid_stream_structure_version = 0x1F,
+		VORBIS_continued_packet_flag_invalid    = 0x20,
+		VORBIS_incorrect_stream_serial_number   = 0x21,
+		VORBIS_invalid_first_page               = 0x22,
+		VORBIS_bad_packet_type                  = 0x23,
+		VORBIS_cant_find_last_page              = 0x24,
+		VORBIS_seek_failed                      = 0x25;
 
 	static { LWJGLUtil.initialize(); }
 
@@ -181,7 +180,7 @@ public final class STBVorbis {
 	 *
 	 * @return On success, returns an {@code stb_vorbis *}, does not set error, returns the amount of data parsed/consumed on this call in
 	 *         {@code *datablock_memory_consumed_in_bytes}; On failure, returns {@code NULL} on error and sets {@code *error}, does not change
-	 *         {@code *datablock_memory_consumed}. If it returns {@code NULL} and {@code *error} is {@link #VORBISneed_more_data need_more_data}, then the input block was incomplete and you need to pass
+	 *         {@code *datablock_memory_consumed}. If it returns {@code NULL} and {@code *error} is {@link #VORBIS_need_more_data need_more_data}, then the input block was incomplete and you need to pass
 	 *         in a larger block from the start of the file.
 	 */
 	public static long stb_vorbis_open_pushdata(ByteBuffer datablock, int datablock_length_in_bytes, ByteBuffer datablock_memory_consumed_in_bytes, ByteBuffer error, ByteBuffer alloc_buffer) {
@@ -481,7 +480,7 @@ public final class STBVorbis {
 	public static native void nstb_vorbis_seek_start(long f);
 
 	/**
-	 * This function is equivalent to {@link #stb_vorbis_seek seek}(f,0), but it actually works.
+	 * This function is equivalent to {@link #stb_vorbis_seek seek}(f,0).
 	 *
 	 * @param f an ogg vorbis file decoder
 	 */

@@ -8,7 +8,6 @@ DISABLE_WARNINGS()
 #ifdef LWJGL_WINDOWS
 	__pragma(warning(disable : 4242 4244 4701 4702 4711 4738 4996))
 #endif
-#include <math.h>
 #include "stb_easy_font.h"
 ENABLE_WARNINGS()
 

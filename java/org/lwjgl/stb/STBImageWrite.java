@@ -126,6 +126,9 @@ public final class STBImageWrite {
 
 	/**
 	 * Writes a TGA image file.
+	 * 
+	 * <p>TGA supports RLE or non-RLE compressed data. To use non-RLE-compressed data, set the global variable {@code stbi_write_tga_with_rle} to 0 by calling
+	 * {@link #stbi_write_tga_with_rle write_tga_with_rle}.</p>
 	 *
 	 * @param filename the image file path
 	 * @param w        the image width, in pixels
@@ -149,6 +152,15 @@ public final class STBImageWrite {
 		int filenameEncoded = __buffer.stringParamASCII(filename, true);
 		return nstbi_write_tga(__buffer.address(filenameEncoded), w, h, comp, memAddress(data));
 	}
+
+	// --- [ stbi_write_tga_with_rle ] ---
+
+	/**
+	 * Sets the global variable {@code stbi_write_tga_with_rle}.
+	 *
+	 * @param value the variable value
+	 */
+	public static native void stbi_write_tga_with_rle(int value);
 
 	// --- [ stbi_write_hdr ] ---
 

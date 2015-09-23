@@ -25,13 +25,16 @@ import static org.lwjgl.system.APIUtil.*;
  * <li>PNG 1/2/4/8-bit-per-channel (16 bpc not supported)</li>
  * <li>TGA (not sure what subset, if a subset)</li>
  * <li>BMP non-1bpp, non-RLE</li>
- * <li>PSD (composited view only, no extra channels)</li>
+ * <li>PSD (composited view only, no extra channels, 8/16 bit-per-channel)</li>
  * <li>GIF (*comp always reports as 4-channel)</li>
  * <li>HDR (radiance rgbE format)</li>
  * <li>PIC (Softimage PIC)</li>
  * <li>PNM (PPM and PGM binary only)</li>
- * </ul>
- * Features:
+ * </ul></p>
+ * 
+ * <p>Animated GIF still needs a proper API, but <a href="http://gist.github.com/urraka/685d9a6340b26b830d49">here</a>'s one way to do it.</p>
+ * 
+ * <p>Features:
  * <ul>
  * <li>decode from memory <s>or through FILE (define STBI_NO_STDIO to remove code)</s></li>
  * <li>decode from arbitrary I/O callbacks</li>
@@ -820,54 +823,6 @@ public final class STBImage {
 	/** Alternative version of: {@link #stbi_zlib_decode_noheader_buffer zlib_decode_noheader_buffer} */
 	public static int stbi_zlib_decode_noheader_buffer(ByteBuffer obuffer, ByteBuffer ibuffer) {
 		return nstbi_zlib_decode_noheader_buffer(memAddress(obuffer), obuffer.remaining(), memAddress(ibuffer), ibuffer.remaining());
-	}
-
-     /**
-	 * Creates a {@link STBIReadCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link STBIReadCallback} instance
-	 */
-	public static STBIReadCallback STBIReadCallback(final STBIReadCallback.SAM sam) {
-		return new STBIReadCallback() {
-			@Override
-			public int invoke(long user, long data, int size) {
-				return sam.invoke(user, data, size);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link STBISkipCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link STBISkipCallback} instance
-	 */
-	public static STBISkipCallback STBISkipCallback(final STBISkipCallback.SAM sam) {
-		return new STBISkipCallback() {
-			@Override
-			public void invoke(long user, int n) {
-				sam.invoke(user, n);
-			}
-		};
-	}
-
-     /**
-	 * Creates a {@link STBIEOFCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link STBIEOFCallback} instance
-	 */
-	public static STBIEOFCallback STBIEOFCallback(final STBIEOFCallback.SAM sam) {
-		return new STBIEOFCallback() {
-			@Override
-			public int invoke(long user) {
-				return sam.invoke(user);
-			}
-		};
 	}
 
 }
