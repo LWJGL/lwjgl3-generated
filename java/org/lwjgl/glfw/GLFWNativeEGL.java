@@ -9,15 +9,33 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
 import org.lwjgl.egl.EGL10;
 
 /** Native bindings to the GLFW library's EGL native access functions. */
-public final class GLFWEGL {
+public final class GLFWNativeEGL {
 
-	static { LWJGLUtil.initialize(); }
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		GetEGLDisplay,
+		GetEGLContext,
+		GetEGLSurface;
 
-	private GLFWEGL() {}
+	@JavadocExclude
+	public GLFWNativeEGL(FunctionProvider provider) {
+		GetEGLDisplay = checkFunctionAddress(provider.getFunctionAddress("glfwGetEGLDisplay"));
+		GetEGLContext = checkFunctionAddress(provider.getFunctionAddress("glfwGetEGLContext"));
+		GetEGLSurface = checkFunctionAddress(provider.getFunctionAddress("glfwGetEGLSurface"));
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GLFWNativeEGL} instance. */
+	public static GLFWNativeEGL getInstance() {
+		return checkFunctionality(LibGLFW.__GLFWNativeEGL);
+	}
 
 	// --- [ glfwGetEGLDisplay ] ---
 
@@ -28,13 +46,12 @@ public final class GLFWEGL {
 	 *
 	 * @return the {@code EGLDisplay} used by GLFW, or {@link EGL10#EGL_NO_DISPLAY} if an error occured
 	 */
-	public static native long glfwGetEGLDisplay();
+	public static long glfwGetEGLDisplay() {
+		long __functionAddress = getInstance().GetEGLDisplay;
+		return invokeP(__functionAddress);
+	}
 
 	// --- [ glfwGetEGLContext ] ---
-
-	/** JNI method for {@link #glfwGetEGLContext GetEGLContext} */
-	@JavadocExclude
-	public static native long nglfwGetEGLContext(long window);
 
 	/**
 	 * Returns the {@code EGLContext} of the specified window.
@@ -46,16 +63,13 @@ public final class GLFWEGL {
 	 * @return the {@code EGLContext} of the specified window, or {@link EGL10#EGL_NO_CONTEXT} if an error occurred
 	 */
 	public static long glfwGetEGLContext(long window) {
+		long __functionAddress = getInstance().GetEGLContext;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return nglfwGetEGLContext(window);
+		return invokePP(__functionAddress, window);
 	}
 
 	// --- [ glfwGetEGLSurface ] ---
-
-	/** JNI method for {@link #glfwGetEGLSurface GetEGLSurface} */
-	@JavadocExclude
-	public static native long nglfwGetEGLSurface(long window);
 
 	/**
 	 * Returns the {@code EGLSurface} of the specified window.
@@ -67,9 +81,10 @@ public final class GLFWEGL {
 	 * @return the {@code EGLSurface} of the specified window, or {@link EGL10#EGL_NO_SURFACE} if an error occurred
 	 */
 	public static long glfwGetEGLSurface(long window) {
+		long __functionAddress = getInstance().GetEGLSurface;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return nglfwGetEGLSurface(window);
+		return invokePP(__functionAddress, window);
 	}
 
 }

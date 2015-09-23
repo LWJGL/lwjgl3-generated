@@ -9,19 +9,31 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
-/** Native bindings to the GLFW library's MacOS X native access functions. */
-public final class GLFWMacOSX {
+/** Native bindings to the GLFW library's Cocoa native access functions. */
+public final class GLFWNativeCocoa {
 
-	static { LWJGLUtil.initialize(); }
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		GetCocoaMonitor,
+		GetCocoaWindow;
 
-	private GLFWMacOSX() {}
+	@JavadocExclude
+	public GLFWNativeCocoa(FunctionProvider provider) {
+		GetCocoaMonitor = checkFunctionAddress(provider.getFunctionAddress("glfwGetCocoaMonitor"));
+		GetCocoaWindow = checkFunctionAddress(provider.getFunctionAddress("glfwGetCocoaWindow"));
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GLFWNativeCocoa} instance. */
+	public static GLFWNativeCocoa getInstance() {
+		return checkFunctionality(LibGLFW.__GLFWNativeCocoa);
+	}
 
 	// --- [ glfwGetCocoaMonitor ] ---
-
-	/** JNI method for {@link #glfwGetCocoaMonitor GetCocoaMonitor} */
-	@JavadocExclude
-	public static native long nglfwGetCocoaMonitor(long monitor);
 
 	/**
 	 * Returns the <code style="font-family: monospace">CGDirectDisplayID</code> of the specified monitor.
@@ -35,16 +47,13 @@ public final class GLFWMacOSX {
 	 * @since GLFW 3.1
 	 */
 	public static long glfwGetCocoaMonitor(long monitor) {
+		long __functionAddress = getInstance().GetCocoaMonitor;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(monitor);
-		return nglfwGetCocoaMonitor(monitor);
+		return invokePP(__functionAddress, monitor);
 	}
 
 	// --- [ glfwGetCocoaWindow ] ---
-
-	/** JNI method for {@link #glfwGetCocoaWindow GetCocoaWindow} */
-	@JavadocExclude
-	public static native long nglfwGetCocoaWindow(long window);
 
 	/**
 	 * Returns the <code style="font-family: monospace">NSWindow</code> of the specified GLFW window.
@@ -58,32 +67,10 @@ public final class GLFWMacOSX {
 	 * @since GLFW 3.0
 	 */
 	public static long glfwGetCocoaWindow(long window) {
+		long __functionAddress = getInstance().GetCocoaWindow;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return nglfwGetCocoaWindow(window);
-	}
-
-	// --- [ glfwGetNSGLContext ] ---
-
-	/** JNI method for {@link #glfwGetNSGLContext GetNSGLContext} */
-	@JavadocExclude
-	public static native long nglfwGetNSGLContext(long window);
-
-	/**
-	 * Returns the <code style="font-family: monospace">NSOpenGLContext</code> of the specified GLFW window.
-	 * 
-	 * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
-	 *
-	 * @param window the GLFW window
-	 *
-	 * @return The <code style="font-family: monospace">NSOpenGLContext</code> of the specified window, or nil if an error occurred.
-	 *
-	 * @since GLFW 3.0
-	 */
-	public static long glfwGetNSGLContext(long window) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(window);
-		return nglfwGetNSGLContext(window);
+		return invokePP(__functionAddress, window);
 	}
 
 }

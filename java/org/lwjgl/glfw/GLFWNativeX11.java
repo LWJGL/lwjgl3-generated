@@ -9,13 +9,33 @@ import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 
-/** Native bindings to the GLFW library's Linux native access functions. */
-public final class GLFWLinux {
+/** Native bindings to the GLFW library's X11 native access functions. */
+public final class GLFWNativeX11 {
 
-	static { LWJGLUtil.initialize(); }
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		GetX11Display,
+		GetX11Adapter,
+		GetX11Monitor,
+		GetX11Window;
 
-	private GLFWLinux() {}
+	@JavadocExclude
+	public GLFWNativeX11(FunctionProvider provider) {
+		GetX11Display = checkFunctionAddress(provider.getFunctionAddress("glfwGetX11Display"));
+		GetX11Adapter = checkFunctionAddress(provider.getFunctionAddress("glfwGetX11Adapter"));
+		GetX11Monitor = checkFunctionAddress(provider.getFunctionAddress("glfwGetX11Monitor"));
+		GetX11Window = checkFunctionAddress(provider.getFunctionAddress("glfwGetX11Window"));
+	}
+
+	// --- [ Function Addresses ] ---
+
+	/** Returns the {@link GLFWNativeX11} instance. */
+	public static GLFWNativeX11 getInstance() {
+		return checkFunctionality(LibGLFW.__GLFWNativeX11);
+	}
 
 	// --- [ glfwGetX11Display ] ---
 
@@ -28,13 +48,12 @@ public final class GLFWLinux {
 	 *
 	 * @since GLFW 3.0
 	 */
-	public static native long glfwGetX11Display();
+	public static long glfwGetX11Display() {
+		long __functionAddress = getInstance().GetX11Display;
+		return invokeP(__functionAddress);
+	}
 
 	// --- [ glfwGetX11Adapter ] ---
-
-	/** JNI method for {@link #glfwGetX11Adapter GetX11Adapter} */
-	@JavadocExclude
-	public static native long nglfwGetX11Adapter(long monitor);
 
 	/**
 	 * Returns the <code style="font-family: monospace">RRCrtc</code> of the specified monitor.
@@ -48,16 +67,13 @@ public final class GLFWLinux {
 	 * @since GLFW 3.1
 	 */
 	public static long glfwGetX11Adapter(long monitor) {
+		long __functionAddress = getInstance().GetX11Adapter;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(monitor);
-		return nglfwGetX11Adapter(monitor);
+		return invokePP(__functionAddress, monitor);
 	}
 
 	// --- [ glfwGetX11Monitor ] ---
-
-	/** JNI method for {@link #glfwGetX11Monitor GetX11Monitor} */
-	@JavadocExclude
-	public static native long nglfwGetX11Monitor(long monitor);
 
 	/**
 	 * Returns the <code style="font-family: monospace">RROutput</code> of the specified monitor.
@@ -71,16 +87,13 @@ public final class GLFWLinux {
 	 * @since GLFW 3.1
 	 */
 	public static long glfwGetX11Monitor(long monitor) {
+		long __functionAddress = getInstance().GetX11Monitor;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(monitor);
-		return nglfwGetX11Monitor(monitor);
+		return invokePP(__functionAddress, monitor);
 	}
 
 	// --- [ glfwGetX11Window ] ---
-
-	/** JNI method for {@link #glfwGetX11Window GetX11Window} */
-	@JavadocExclude
-	public static native long nglfwGetX11Window(long window);
 
 	/**
 	 * Returns the <code style="font-family: monospace">Window</code> of the specified window.
@@ -94,32 +107,10 @@ public final class GLFWLinux {
 	 * @since GLFW 3.0
 	 */
 	public static long glfwGetX11Window(long window) {
+		long __functionAddress = getInstance().GetX11Window;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
-		return nglfwGetX11Window(window);
-	}
-
-	// --- [ glfwGetGLXContext ] ---
-
-	/** JNI method for {@link #glfwGetGLXContext GetGLXContext} */
-	@JavadocExclude
-	public static native long nglfwGetGLXContext(long window);
-
-	/**
-	 * Returns the <code style="font-family: monospace">GLXContext</code> of the specified window.
-	 * 
-	 * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
-	 *
-	 * @param window a GLFW window
-	 *
-	 * @return The <code style="font-family: monospace">GLXContext</code> of the specified window, or {@code NULL} if an error occurred.
-	 *
-	 * @since GLFW 3.0
-	 */
-	public static long glfwGetGLXContext(long window) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(window);
-		return nglfwGetGLXContext(window);
+		return invokePP(__functionAddress, window);
 	}
 
 }
