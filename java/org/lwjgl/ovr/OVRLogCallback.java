@@ -76,6 +76,19 @@ public abstract class OVRLogCallback extends Closure.Void {
 		};
 	}
 
+	/**
+	 * Converts the specified {@link OVRLogCallback} argument to a String.
+	 *
+	 * <p>This method may only be used inside a OVRLogCallback invocation.</p>
+	 *
+	 * @param message the the OVRLogCallback {@code message} argument
+	 *
+	 * @return the message as a String
+	 */
+	public static String getMessage(long message) {
+		return memDecodeUTF8(message);
+	}
+
 	/** A functional interface for {@link OVRLogCallback}. */
 	public interface SAMString {
 		void invoke(long userData, int level, String message);
@@ -92,7 +105,7 @@ public abstract class OVRLogCallback extends Closure.Void {
 		return new OVRLogCallback() {
 			@Override
 			public void invoke(long userData, int level, long message) {
-				sam.invoke(userData, level, memDecodeUTF8(message));
+				sam.invoke(userData, level, getMessage(message));
 			}
 		};
 	}

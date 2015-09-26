@@ -76,4 +76,39 @@ public abstract class STBIWriteCallback extends Closure.Void {
 		};
 	}
 
+	/**
+	 * Converts the specified {@link STBIWriteCallback} arguments to a ByteBuffer.
+	 *
+	 * <p>This method may only be used inside a STBIWriteCallback invocation.</p>
+	 *
+	 * @param data the the STBIWriteCallback {@code data} argument
+	 * @param size the STBIWriteCallback {@code size} argument
+	 *
+	 * @return the data as a ByteBuffer
+	 */
+	public static ByteBuffer getData(long data, int size) {
+		return memByteBuffer(data, size);
+	}
+
+	/** A functional interface for {@link STBIWriteCallback}. */
+	public interface SAMBuffer {
+		int invoke(long context, ByteBuffer data);
+	}
+
+	/**
+	 * Creates a {@link STBIWriteCallback} that delegates the callback to the specified functional interface.
+	 *
+	 * @param sam the delegation target
+	 *
+	 * @return the {@link STBIWriteCallback} instance
+	 */
+	public static STBIWriteCallback createBuffer(final SAMBuffer sam) {
+		return new STBIWriteCallback() {
+			@Override
+			public void invoke(long context, long data, int size) {
+				sam.invoke(context, getData(data, size));
+			}
+		};
+	}
+	
 }

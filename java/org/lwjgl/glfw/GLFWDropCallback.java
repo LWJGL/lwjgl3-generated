@@ -164,7 +164,7 @@ public abstract class GLFWDropCallback extends Closure.Void {
 		void accept(int index, ByteBuffer name);
 	}
 
-	/** A functional interface that can be used with {@link #apply(int, long, Consumer) apply}. */
+	/** A functional interface that can be used with {@link #apply(int, long, ConsumerString) apply}. */
 	public interface ConsumerString {
 		void accept(int index, String name);
 	}

@@ -81,6 +81,19 @@ public abstract class GLFWErrorCallback extends Closure.Void {
 		};
 	}
 
+	/**
+	 * Converts the specified {@link GLFWErrorCallback} argument to a String.
+	 *
+	 * <p>This method may only be used inside a GLFWErrorCallback invocation.</p>
+	 *
+	 * @param description pointer to the UTF-8 encoded description string
+	 *
+	 * @return the description as a String
+	 */
+	public static String getDescription(long description) {
+		return memDecodeUTF8(description);
+	}
+
 	/** A functional interface for {@link GLFWErrorCallback}. */
 	public interface SAMString {
 		void invoke(int error, String description);
@@ -97,18 +110,18 @@ public abstract class GLFWErrorCallback extends Closure.Void {
 		return new GLFWErrorCallback() {
 			@Override
 			public void invoke(int error, long description) {
-				sam.invoke(error, memDecodeUTF8(description));
+				sam.invoke(error, getDescription(description));
 			}
 		};
 	}
 
 	/**
-	 * Returns a {@link GLFWErrorCallback} instance that prints the error in the standard error stream.
+	 * Returns a {@link GLFWErrorCallback} instance that prints the error to the {@link LWJGLUtil#DEBUG_STREAM}.
 	 *
 	 * @return the GLFWerrorCallback
 	 */
 	public static GLFWErrorCallback createPrint() {
-		return createPrint(System.err);
+		return createPrint(LWJGLUtil.DEBUG_STREAM);
 	}
 
 	/**

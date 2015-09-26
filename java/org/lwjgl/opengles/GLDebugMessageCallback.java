@@ -84,6 +84,20 @@ public abstract class GLDebugMessageCallback extends Closure.Void {
 		};
 	}
 
+	/**
+	 * Converts the specified {@link GLDebugMessageCallback} arguments to a String.
+	 *
+	 * <p>This method may only be used inside a GLDebugMessageCallback invocation.</p>
+	 *
+	 * @param length  the GLDebugMessageCallback {@code length} argument
+	 * @param message the the GLDebugMessageCallback {@code message} argument
+	 *
+	 * @return the message as a String
+	 */
+	public static String getMessage(int length, long message) {
+		return memDecodeUTF8(memByteBuffer(message, length));
+	}
+
 	/** A functional interface for {@link GLDebugMessageCallback}. */
 	public interface SAMString {
 		void invoke(int source, int type, int id, int severity, String message, long userParam);
@@ -100,7 +114,7 @@ public abstract class GLDebugMessageCallback extends Closure.Void {
 		return new GLDebugMessageCallback() {
 			@Override
 			public void invoke(int source, int type, int id, int severity, int length, long message, long userParam) {
-				sam.invoke(source, type, id, severity, memDecodeUTF8(memByteBuffer(message, length)), userParam);
+				sam.invoke(source, type, id, severity, getMessage(length, message), userParam);
 			}
 		};
 	}
