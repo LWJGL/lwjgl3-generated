@@ -74,56 +74,6 @@ public final class GLFWvidmode extends Struct {
 	public int getBlueBits() { return ngetBlueBits(address()); }
 	public int getRefreshRate() { return ngetRefreshRate(address()); }
 
-	public GLFWvidmode setWidth(int width) { nsetWidth(address(), width); return this; }
-	public GLFWvidmode setHeight(int height) { nsetHeight(address(), height); return this; }
-	public GLFWvidmode setRedBits(int redBits) { nsetRedBits(address(), redBits); return this; }
-	public GLFWvidmode setGreenBits(int greenBits) { nsetGreenBits(address(), greenBits); return this; }
-	public GLFWvidmode setBlueBits(int blueBits) { nsetBlueBits(address(), blueBits); return this; }
-	public GLFWvidmode setRefreshRate(int refreshRate) { nsetRefreshRate(address(), refreshRate); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public GLFWvidmode set(
-		int width,
-		int height,
-		int redBits,
-		int greenBits,
-		int blueBits,
-		int refreshRate
-	) {
-		setWidth(width);
-		setHeight(height);
-		setRedBits(redBits);
-		setGreenBits(greenBits);
-		setBlueBits(blueBits);
-		setRefreshRate(refreshRate);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set}. */
-	public GLFWvidmode nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @returns this struct
-	 */
-	public GLFWvidmode set(GLFWvidmode src) {
-		return nset(address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set}. */
-	public GLFWvidmode set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link GLFWvidmode} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
@@ -180,19 +130,6 @@ public final class GLFWvidmode extends Struct {
 	public static int getBlueBits(ByteBuffer struct) { return ngetBlueBits(memAddress(struct)); }
 	public static int ngetRefreshRate(long struct) { return memGetInt(struct + REFRESHRATE); }
 	public static int getRefreshRate(ByteBuffer struct) { return ngetRefreshRate(memAddress(struct)); }
-
-	public static void nsetWidth(long struct, int width) { memPutInt(struct + WIDTH, width); }
-	public static void setWidth(ByteBuffer struct, int width) { nsetWidth(memAddress(struct), width); }
-	public static void nsetHeight(long struct, int height) { memPutInt(struct + HEIGHT, height); }
-	public static void setHeight(ByteBuffer struct, int height) { nsetHeight(memAddress(struct), height); }
-	public static void nsetRedBits(long struct, int redBits) { memPutInt(struct + REDBITS, redBits); }
-	public static void setRedBits(ByteBuffer struct, int redBits) { nsetRedBits(memAddress(struct), redBits); }
-	public static void nsetGreenBits(long struct, int greenBits) { memPutInt(struct + GREENBITS, greenBits); }
-	public static void setGreenBits(ByteBuffer struct, int greenBits) { nsetGreenBits(memAddress(struct), greenBits); }
-	public static void nsetBlueBits(long struct, int blueBits) { memPutInt(struct + BLUEBITS, blueBits); }
-	public static void setBlueBits(ByteBuffer struct, int blueBits) { nsetBlueBits(memAddress(struct), blueBits); }
-	public static void nsetRefreshRate(long struct, int refreshRate) { memPutInt(struct + REFRESHRATE, refreshRate); }
-	public static void setRefreshRate(ByteBuffer struct, int refreshRate) { nsetRefreshRate(memAddress(struct), refreshRate); }
 
 	// -----------------------------------
 

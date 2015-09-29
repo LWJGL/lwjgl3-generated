@@ -84,76 +84,6 @@ public final class GPU_DEVICE extends Struct {
 	public int getVirtualScreenRight() { return ngetVirtualScreenRight(address()); }
 	public int getVirtualScreenBottom() { return ngetVirtualScreenBottom(address()); }
 
-	public GPU_DEVICE setCb(int cb) { nsetCb(address(), cb); return this; }
-	public GPU_DEVICE setDeviceName(ByteBuffer DeviceName) { nsetDeviceName(address(), DeviceName); return this; }
-	public GPU_DEVICE setDeviceName(CharSequence DeviceName) { nsetDeviceName(address(), DeviceName); return this; }
-	public GPU_DEVICE setDeviceString(ByteBuffer DeviceString) { nsetDeviceString(address(), DeviceString); return this; }
-	public GPU_DEVICE setDeviceString(CharSequence DeviceString) { nsetDeviceString(address(), DeviceString); return this; }
-	public GPU_DEVICE setFlags(int Flags) { nsetFlags(address(), Flags); return this; }
-	public GPU_DEVICE setVirtualScreen(RECT virtualScreen) { nsetVirtualScreen(address(), virtualScreen); return this; }
-	public GPU_DEVICE setVirtualScreenLeft(int left) { nsetVirtualScreenLeft(address(), left); return this; }
-	public GPU_DEVICE setVirtualScreenTop(int top) { nsetVirtualScreenTop(address(), top); return this; }
-	public GPU_DEVICE setVirtualScreenRight(int right) { nsetVirtualScreenRight(address(), right); return this; }
-	public GPU_DEVICE setVirtualScreenBottom(int bottom) { nsetVirtualScreenBottom(address(), bottom); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public GPU_DEVICE set(
-		int cb,
-		ByteBuffer DeviceName,
-		ByteBuffer DeviceString,
-		int Flags,
-		RECT virtualScreen
-	) {
-		setCb(cb);
-		setDeviceName(DeviceName);
-		setDeviceString(DeviceString);
-		setFlags(Flags);
-		setVirtualScreen(virtualScreen);
-
-		return this;
-	}
-
-	/** Initializes this struct with the specified values. */
-	public GPU_DEVICE set(
-		int cb,
-		CharSequence DeviceName,
-		CharSequence DeviceString,
-		int Flags,
-		RECT virtualScreen
-	) {
-		setCb(cb);
-		setDeviceName(DeviceName);
-		setDeviceString(DeviceString);
-		setFlags(Flags);
-		setVirtualScreen(virtualScreen);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set}. */
-	public GPU_DEVICE nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @returns this struct
-	 */
-	public GPU_DEVICE set(GPU_DEVICE src) {
-		return nset(address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set}. */
-	public GPU_DEVICE set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link GPU_DEVICE} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
@@ -231,42 +161,6 @@ public final class GPU_DEVICE extends Struct {
 	public static int getVirtualScreenRight(ByteBuffer struct) { return ngetVirtualScreenRight(memAddress(struct)); }
 	public static int ngetVirtualScreenBottom(long struct) { return memGetInt(struct + VIRTUALSCREEN + RECT.BOTTOM); }
 	public static int getVirtualScreenBottom(ByteBuffer struct) { return ngetVirtualScreenBottom(memAddress(struct)); }
-
-	public static void nsetCb(long struct, int cb) { memPutInt(struct + CB, cb); }
-	public static void setCb(ByteBuffer struct, int cb) { nsetCb(memAddress(struct), cb); }
-	public static void nsetDeviceName(long struct, ByteBuffer DeviceName) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkNT2(DeviceName);
-			checkBufferGT(DeviceName, 32 * 2);
-		}
-		memCopy(memAddress(DeviceName), struct + DEVICENAME, DeviceName.remaining());
-	}
-	public static void setDeviceName(ByteBuffer struct, ByteBuffer DeviceName) { nsetDeviceName(memAddress(struct), DeviceName); }
-	public static void nsetDeviceName(long struct, CharSequence DeviceName) { memEncodeUTF16(DeviceName, true, memByteBuffer(struct + DEVICENAME, 32)); }
-	public static void setDeviceName(ByteBuffer struct, CharSequence DeviceName) { memEncodeUTF16(DeviceName, true, struct, DEVICENAME); }
-	public static void nsetDeviceString(long struct, ByteBuffer DeviceString) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkNT2(DeviceString);
-			checkBufferGT(DeviceString, 128 * 2);
-		}
-		memCopy(memAddress(DeviceString), struct + DEVICESTRING, DeviceString.remaining());
-	}
-	public static void setDeviceString(ByteBuffer struct, ByteBuffer DeviceString) { nsetDeviceString(memAddress(struct), DeviceString); }
-	public static void nsetDeviceString(long struct, CharSequence DeviceString) { memEncodeUTF16(DeviceString, true, memByteBuffer(struct + DEVICESTRING, 128)); }
-	public static void setDeviceString(ByteBuffer struct, CharSequence DeviceString) { memEncodeUTF16(DeviceString, true, struct, DEVICESTRING); }
-	public static void nsetFlags(long struct, int Flags) { memPutInt(struct + FLAGS, Flags); }
-	public static void setFlags(ByteBuffer struct, int Flags) { nsetFlags(memAddress(struct), Flags); }
-	public static void nsetVirtualScreen(long struct, RECT virtualScreen) { memCopy(virtualScreen.address(), struct + VIRTUALSCREEN, RECT.SIZEOF); }
-	/** Copies the specified {@link RECT} struct to the nested {@code virtualScreen} struct. */
-	public static void setVirtualScreen(ByteBuffer struct, RECT virtualScreen) { nsetVirtualScreen(memAddress(struct), virtualScreen); }
-	public static void nsetVirtualScreenLeft(long struct, int left) { memPutInt(struct + VIRTUALSCREEN + RECT.LEFT, left); }
-	public static void setVirtualScreenLeft(ByteBuffer struct, int left) { nsetVirtualScreenLeft(memAddress(struct), left); }
-	public static void nsetVirtualScreenTop(long struct, int top) { memPutInt(struct + VIRTUALSCREEN + RECT.TOP, top); }
-	public static void setVirtualScreenTop(ByteBuffer struct, int top) { nsetVirtualScreenTop(memAddress(struct), top); }
-	public static void nsetVirtualScreenRight(long struct, int right) { memPutInt(struct + VIRTUALSCREEN + RECT.RIGHT, right); }
-	public static void setVirtualScreenRight(ByteBuffer struct, int right) { nsetVirtualScreenRight(memAddress(struct), right); }
-	public static void nsetVirtualScreenBottom(long struct, int bottom) { memPutInt(struct + VIRTUALSCREEN + RECT.BOTTOM, bottom); }
-	public static void setVirtualScreenBottom(ByteBuffer struct, int bottom) { nsetVirtualScreenBottom(memAddress(struct), bottom); }
 
 	// -----------------------------------
 

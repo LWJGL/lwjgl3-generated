@@ -74,56 +74,6 @@ public final class STBVorbisInfo extends Struct {
 	public int getTempMemoryRequired() { return ngetTempMemoryRequired(address()); }
 	public int getMaxFrameSize() { return ngetMaxFrameSize(address()); }
 
-	public STBVorbisInfo setSampleRate(int sample_rate) { nsetSampleRate(address(), sample_rate); return this; }
-	public STBVorbisInfo setChannels(int channels) { nsetChannels(address(), channels); return this; }
-	public STBVorbisInfo setSetupMemoryRequired(int setup_memory_required) { nsetSetupMemoryRequired(address(), setup_memory_required); return this; }
-	public STBVorbisInfo setSetupTempMemoryRequired(int setup_temp_memory_required) { nsetSetupTempMemoryRequired(address(), setup_temp_memory_required); return this; }
-	public STBVorbisInfo setTempMemoryRequired(int temp_memory_required) { nsetTempMemoryRequired(address(), temp_memory_required); return this; }
-	public STBVorbisInfo setMaxFrameSize(int max_frame_size) { nsetMaxFrameSize(address(), max_frame_size); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public STBVorbisInfo set(
-		int sample_rate,
-		int channels,
-		int setup_memory_required,
-		int setup_temp_memory_required,
-		int temp_memory_required,
-		int max_frame_size
-	) {
-		setSampleRate(sample_rate);
-		setChannels(channels);
-		setSetupMemoryRequired(setup_memory_required);
-		setSetupTempMemoryRequired(setup_temp_memory_required);
-		setTempMemoryRequired(temp_memory_required);
-		setMaxFrameSize(max_frame_size);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set}. */
-	public STBVorbisInfo nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @returns this struct
-	 */
-	public STBVorbisInfo set(STBVorbisInfo src) {
-		return nset(address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set}. */
-	public STBVorbisInfo set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link STBVorbisInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
@@ -180,19 +130,6 @@ public final class STBVorbisInfo extends Struct {
 	public static int getTempMemoryRequired(ByteBuffer struct) { return ngetTempMemoryRequired(memAddress(struct)); }
 	public static int ngetMaxFrameSize(long struct) { return memGetInt(struct + MAX_FRAME_SIZE); }
 	public static int getMaxFrameSize(ByteBuffer struct) { return ngetMaxFrameSize(memAddress(struct)); }
-
-	public static void nsetSampleRate(long struct, int sample_rate) { memPutInt(struct + SAMPLE_RATE, sample_rate); }
-	public static void setSampleRate(ByteBuffer struct, int sample_rate) { nsetSampleRate(memAddress(struct), sample_rate); }
-	public static void nsetChannels(long struct, int channels) { memPutInt(struct + CHANNELS, channels); }
-	public static void setChannels(ByteBuffer struct, int channels) { nsetChannels(memAddress(struct), channels); }
-	public static void nsetSetupMemoryRequired(long struct, int setup_memory_required) { memPutInt(struct + SETUP_MEMORY_REQUIRED, setup_memory_required); }
-	public static void setSetupMemoryRequired(ByteBuffer struct, int setup_memory_required) { nsetSetupMemoryRequired(memAddress(struct), setup_memory_required); }
-	public static void nsetSetupTempMemoryRequired(long struct, int setup_temp_memory_required) { memPutInt(struct + SETUP_TEMP_MEMORY_REQUIRED, setup_temp_memory_required); }
-	public static void setSetupTempMemoryRequired(ByteBuffer struct, int setup_temp_memory_required) { nsetSetupTempMemoryRequired(memAddress(struct), setup_temp_memory_required); }
-	public static void nsetTempMemoryRequired(long struct, int temp_memory_required) { memPutInt(struct + TEMP_MEMORY_REQUIRED, temp_memory_required); }
-	public static void setTempMemoryRequired(ByteBuffer struct, int temp_memory_required) { nsetTempMemoryRequired(memAddress(struct), temp_memory_required); }
-	public static void nsetMaxFrameSize(long struct, int max_frame_size) { memPutInt(struct + MAX_FRAME_SIZE, max_frame_size); }
-	public static void setMaxFrameSize(ByteBuffer struct, int max_frame_size) { nsetMaxFrameSize(memAddress(struct), max_frame_size); }
 
 	// -----------------------------------
 

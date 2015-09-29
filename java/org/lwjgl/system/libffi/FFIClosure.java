@@ -64,6 +64,51 @@ public final class FFIClosure extends Struct {
 	public FFICIF getCif() { return ngetCifStruct(address()); }
 	public long getFun() { return ngetFun(address()); }
 	public long getUserData() { return ngetUserData(address()); }
+
+	// -----------------------------------
+
+	/** Returns a new {@link FFIClosure} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	public static FFIClosure malloc() {
+		return new FFIClosure(nmemAlloc(SIZEOF));
+	}
+
+	/** Returns a new {@link FFIClosure} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	public static FFIClosure calloc() {
+		return new FFIClosure(nmemCalloc(1, SIZEOF));
+	}
+
+	/** Returns a new {@link FFIClosure} instance allocated with {@link BufferUtils}. */
+	public static FFIClosure create() {
+		return new FFIClosure(BufferUtils.createByteBuffer(SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link FFIClosure.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocBuffer(int capacity) {
+		return new Buffer(memAlloc(capacity * SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link FFIClosure.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocBuffer(int capacity) {
+		return new Buffer(memCalloc(capacity, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link FFIClosure.Buffer} instance allocated with {@link BufferUtils}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	}
+
 	public static long ngetCif(long struct) { return memGetAddress(struct + CIF); }
 	public static FFICIF ngetCifStruct(long struct) { return new FFICIF(ngetCif(struct)); }
 	public static FFICIF getCif(ByteBuffer struct) { return ngetCifStruct(memAddress(struct)); }

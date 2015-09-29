@@ -63,45 +63,6 @@ public final class ObjCMethodDescription extends Struct {
 	public ByteBuffer getTypesBuffer() { return ngetTypesBuffer(address()); }
 	public String getTypesString() { return ngetTypesString(address()); }
 
-	public ObjCMethodDescription setName(long name) { nsetName(address(), name); return this; }
-	public ObjCMethodDescription setTypes(ByteBuffer types) { nsetTypes(address(), types); return this; }
-	public ObjCMethodDescription setTypes(CharSequence types) { nsetTypes(address(), types); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public ObjCMethodDescription set(
-		long name,
-		ByteBuffer types
-	) {
-		setName(name);
-		setTypes(types);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set}. */
-	public ObjCMethodDescription nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @returns this struct
-	 */
-	public ObjCMethodDescription set(ObjCMethodDescription src) {
-		return nset(address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set}. */
-	public ObjCMethodDescription set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link ObjCMethodDescription} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
@@ -153,15 +114,6 @@ public final class ObjCMethodDescription extends Struct {
 	public static ByteBuffer getTypesBuffer(ByteBuffer struct) { return ngetTypesBuffer(memAddress(struct)); }
 	public static String ngetTypesString(long struct) { return memDecodeUTF8(ngetTypes(struct)); }
 	public static String getTypesString(ByteBuffer struct) { return ngetTypesString(memAddress(struct)); }
-
-	public static void nsetName(long struct, long name) { memPutAddress(struct + NAME, name); }
-	public static void setName(ByteBuffer struct, long name) { nsetName(memAddress(struct), name); }
-	public static void nsetTypes(long struct, long types) { memPutAddress(struct + TYPES, types); }
-	public static void nsetTypes(long struct, ByteBuffer types) { if ( LWJGLUtil.CHECKS && types != null ) checkNT1(types); nsetTypes(struct, memAddressSafe(types)); }
-	public static void setTypes(ByteBuffer struct, ByteBuffer types) { nsetTypes(memAddress(struct), types); }
-	public static void nsetTypes(long struct, CharSequence types) { nsetTypes(struct, memEncodeUTF8(types, BufferAllocator.MALLOC)); }
-	/** Encodes the specified {@link CharSequence} to a newly allocated buffer and sets its address to the {@code types} field. The allocated buffer must be explicitly freed. */
-	public static void setTypes(ByteBuffer struct, CharSequence types) { nsetTypes(memAddress(struct), types); }
 
 	// -----------------------------------
 

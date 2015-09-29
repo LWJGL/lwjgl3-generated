@@ -78,57 +78,6 @@ public final class CLDeviceTopologyAMD extends Struct {
 	public int getPcieDevice() { return ngetPcieDevice(address()); }
 	public int getPcieFunction() { return ngetPcieFunction(address()); }
 
-	public CLDeviceTopologyAMD setRawType(int type) { nsetRawType(address(), type); return this; }
-	public CLDeviceTopologyAMD setRawData(ByteBuffer data) { nsetRawData(address(), data); return this; }
-	public CLDeviceTopologyAMD setRawData(int index, int data) { nsetRawData(address(), index, data); return this; }
-	public CLDeviceTopologyAMD setPcieType(int type) { nsetPcieType(address(), type); return this; }
-	public CLDeviceTopologyAMD setPcieBus(int bus) { nsetPcieBus(address(), bus); return this; }
-	public CLDeviceTopologyAMD setPcieDevice(int device) { nsetPcieDevice(address(), device); return this; }
-	public CLDeviceTopologyAMD setPcieFunction(int function) { nsetPcieFunction(address(), function); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public CLDeviceTopologyAMD set(
-		int Raw_type,
-		ByteBuffer Raw_data,
-		int Pcie_type,
-		int Pcie_bus,
-		int Pcie_device,
-		int Pcie_function
-	) {
-		setRawType(Raw_type);
-		setRawData(Raw_data);
-		setPcieType(Pcie_type);
-		setPcieBus(Pcie_bus);
-		setPcieDevice(Pcie_device);
-		setPcieFunction(Pcie_function);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set}. */
-	public CLDeviceTopologyAMD nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @returns this struct
-	 */
-	public CLDeviceTopologyAMD set(CLDeviceTopologyAMD src) {
-		return nset(address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set}. */
-	public CLDeviceTopologyAMD set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link CLDeviceTopologyAMD} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
@@ -190,26 +139,6 @@ public final class CLDeviceTopologyAMD extends Struct {
 	public static int getPcieDevice(ByteBuffer struct) { return ngetPcieDevice(memAddress(struct)); }
 	public static int ngetPcieFunction(long struct) { return memGetByte(struct + PCIE_FUNCTION); }
 	public static int getPcieFunction(ByteBuffer struct) { return ngetPcieFunction(memAddress(struct)); }
-
-	public static void nsetRawType(long struct, int type) { memPutInt(struct + RAW_TYPE, type); }
-	public static void setRawType(ByteBuffer struct, int type) { nsetRawType(memAddress(struct), type); }
-	public static void nsetRawData(long struct, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBufferGT(data, 5 * 4);
-		}
-		memCopy(memAddress(data), struct + RAW_DATA, data.remaining());
-	}
-	public static void setRawData(ByteBuffer struct, ByteBuffer data) { nsetRawData(memAddress(struct), data); }
-	public static void nsetRawData(long struct, int index, int data) { memPutInt(struct + RAW_DATA + index * 4, data); }
-	public static void setRawData(ByteBuffer struct, int index, int data) { nsetRawData(memAddress(struct), index, data); }
-	public static void nsetPcieType(long struct, int type) { memPutInt(struct + PCIE_TYPE, type); }
-	public static void setPcieType(ByteBuffer struct, int type) { nsetPcieType(memAddress(struct), type); }
-	public static void nsetPcieBus(long struct, int bus) { memPutByte(struct + PCIE_BUS, (byte)bus); }
-	public static void setPcieBus(ByteBuffer struct, int bus) { nsetPcieBus(memAddress(struct), bus); }
-	public static void nsetPcieDevice(long struct, int device) { memPutByte(struct + PCIE_DEVICE, (byte)device); }
-	public static void setPcieDevice(ByteBuffer struct, int device) { nsetPcieDevice(memAddress(struct), device); }
-	public static void nsetPcieFunction(long struct, int function) { memPutByte(struct + PCIE_FUNCTION, (byte)function); }
-	public static void setPcieFunction(ByteBuffer struct, int function) { nsetPcieFunction(memAddress(struct), function); }
 
 	// -----------------------------------
 

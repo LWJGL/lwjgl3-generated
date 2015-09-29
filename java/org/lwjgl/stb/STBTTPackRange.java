@@ -71,53 +71,6 @@ public final class STBTTPackRange extends Struct {
 	public int getNumChars() { return ngetNumChars(address()); }
 	public STBTTPackedchar getChardataForRange() { return ngetChardataForRangeStruct(address()); }
 
-	public STBTTPackRange setFontSize(float font_size) { nsetFontSize(address(), font_size); return this; }
-	public STBTTPackRange setFirstUnicodeCodepointInRange(int first_unicode_codepoint_in_range) { nsetFirstUnicodeCodepointInRange(address(), first_unicode_codepoint_in_range); return this; }
-	public STBTTPackRange setArrayOfUnicodeCodepoints(ByteBuffer array_of_unicode_codepoints) { nsetArrayOfUnicodeCodepoints(address(), array_of_unicode_codepoints); return this; }
-	public STBTTPackRange setNumChars(int num_chars) { nsetNumChars(address(), num_chars); return this; }
-	public STBTTPackRange setChardataForRange(STBTTPackedchar chardata_for_range) { nsetChardataForRange(address(), chardata_for_range); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public STBTTPackRange set(
-		float font_size,
-		int first_unicode_codepoint_in_range,
-		ByteBuffer array_of_unicode_codepoints,
-		int num_chars,
-		STBTTPackedchar chardata_for_range
-	) {
-		setFontSize(font_size);
-		setFirstUnicodeCodepointInRange(first_unicode_codepoint_in_range);
-		setArrayOfUnicodeCodepoints(array_of_unicode_codepoints);
-		setNumChars(num_chars);
-		setChardataForRange(chardata_for_range);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set}. */
-	public STBTTPackRange nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @returns this struct
-	 */
-	public STBTTPackRange set(STBTTPackRange src) {
-		return nset(address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set}. */
-	public STBTTPackRange set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link STBTTPackRange} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
@@ -174,19 +127,6 @@ public final class STBTTPackRange extends Struct {
 	public static long ngetChardataForRange(long struct) { return memGetAddress(struct + CHARDATA_FOR_RANGE); }
 	public static STBTTPackedchar ngetChardataForRangeStruct(long struct) { return new STBTTPackedchar(ngetChardataForRange(struct)); }
 	public static STBTTPackedchar getChardataForRange(ByteBuffer struct) { return ngetChardataForRangeStruct(memAddress(struct)); }
-
-	public static void nsetFontSize(long struct, float font_size) { memPutFloat(struct + FONT_SIZE, font_size); }
-	public static void setFontSize(ByteBuffer struct, float font_size) { nsetFontSize(memAddress(struct), font_size); }
-	public static void nsetFirstUnicodeCodepointInRange(long struct, int first_unicode_codepoint_in_range) { memPutInt(struct + FIRST_UNICODE_CODEPOINT_IN_RANGE, first_unicode_codepoint_in_range); }
-	public static void setFirstUnicodeCodepointInRange(ByteBuffer struct, int first_unicode_codepoint_in_range) { nsetFirstUnicodeCodepointInRange(memAddress(struct), first_unicode_codepoint_in_range); }
-	public static void nsetArrayOfUnicodeCodepoints(long struct, long array_of_unicode_codepoints) { memPutAddress(struct + ARRAY_OF_UNICODE_CODEPOINTS, array_of_unicode_codepoints); }
-	public static void nsetArrayOfUnicodeCodepoints(long struct, ByteBuffer array_of_unicode_codepoints) { nsetArrayOfUnicodeCodepoints(struct, memAddressSafe(array_of_unicode_codepoints)); }
-	public static void setArrayOfUnicodeCodepoints(ByteBuffer struct, ByteBuffer array_of_unicode_codepoints) { nsetArrayOfUnicodeCodepoints(memAddress(struct), array_of_unicode_codepoints); }
-	public static void nsetNumChars(long struct, int num_chars) { memPutInt(struct + NUM_CHARS, num_chars); }
-	public static void setNumChars(ByteBuffer struct, int num_chars) { nsetNumChars(memAddress(struct), num_chars); }
-	public static void nsetChardataForRange(long struct, long chardata_for_range) { memPutAddress(struct + CHARDATA_FOR_RANGE, chardata_for_range); }
-	public static void nsetChardataForRange(long struct, STBTTPackedchar chardata_for_range) { nsetChardataForRange(struct, chardata_for_range.address()); }
-	public static void setChardataForRange(ByteBuffer struct, STBTTPackedchar chardata_for_range) { nsetChardataForRange(memAddress(struct), chardata_for_range); }
 
 	// -----------------------------------
 

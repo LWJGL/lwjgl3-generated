@@ -77,59 +77,6 @@ public final class STBTTBakedChar extends Struct {
 	public float getYoff() { return ngetYoff(address()); }
 	public float getXadvance() { return ngetXadvance(address()); }
 
-	public STBTTBakedChar setX0(int x0) { nsetX0(address(), x0); return this; }
-	public STBTTBakedChar setY0(int y0) { nsetY0(address(), y0); return this; }
-	public STBTTBakedChar setX1(int x1) { nsetX1(address(), x1); return this; }
-	public STBTTBakedChar setY1(int y1) { nsetY1(address(), y1); return this; }
-	public STBTTBakedChar setXoff(float xoff) { nsetXoff(address(), xoff); return this; }
-	public STBTTBakedChar setYoff(float yoff) { nsetYoff(address(), yoff); return this; }
-	public STBTTBakedChar setXadvance(float xadvance) { nsetXadvance(address(), xadvance); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public STBTTBakedChar set(
-		int x0,
-		int y0,
-		int x1,
-		int y1,
-		float xoff,
-		float yoff,
-		float xadvance
-	) {
-		setX0(x0);
-		setY0(y0);
-		setX1(x1);
-		setY1(y1);
-		setXoff(xoff);
-		setYoff(yoff);
-		setXadvance(xadvance);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set}. */
-	public STBTTBakedChar nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @returns this struct
-	 */
-	public STBTTBakedChar set(STBTTBakedChar src) {
-		return nset(address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set}. */
-	public STBTTBakedChar set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link STBTTBakedChar} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
@@ -188,21 +135,6 @@ public final class STBTTBakedChar extends Struct {
 	public static float getYoff(ByteBuffer struct) { return ngetYoff(memAddress(struct)); }
 	public static float ngetXadvance(long struct) { return memGetFloat(struct + XADVANCE); }
 	public static float getXadvance(ByteBuffer struct) { return ngetXadvance(memAddress(struct)); }
-
-	public static void nsetX0(long struct, int x0) { memPutShort(struct + X0, (short)x0); }
-	public static void setX0(ByteBuffer struct, int x0) { nsetX0(memAddress(struct), x0); }
-	public static void nsetY0(long struct, int y0) { memPutShort(struct + Y0, (short)y0); }
-	public static void setY0(ByteBuffer struct, int y0) { nsetY0(memAddress(struct), y0); }
-	public static void nsetX1(long struct, int x1) { memPutShort(struct + X1, (short)x1); }
-	public static void setX1(ByteBuffer struct, int x1) { nsetX1(memAddress(struct), x1); }
-	public static void nsetY1(long struct, int y1) { memPutShort(struct + Y1, (short)y1); }
-	public static void setY1(ByteBuffer struct, int y1) { nsetY1(memAddress(struct), y1); }
-	public static void nsetXoff(long struct, float xoff) { memPutFloat(struct + XOFF, xoff); }
-	public static void setXoff(ByteBuffer struct, float xoff) { nsetXoff(memAddress(struct), xoff); }
-	public static void nsetYoff(long struct, float yoff) { memPutFloat(struct + YOFF, yoff); }
-	public static void setYoff(ByteBuffer struct, float yoff) { nsetYoff(memAddress(struct), yoff); }
-	public static void nsetXadvance(long struct, float xadvance) { memPutFloat(struct + XADVANCE, xadvance); }
-	public static void setXadvance(ByteBuffer struct, float xadvance) { nsetXadvance(memAddress(struct), xadvance); }
 
 	// -----------------------------------
 

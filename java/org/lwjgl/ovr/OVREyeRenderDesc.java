@@ -89,68 +89,6 @@ public final class OVREyeRenderDesc extends Struct {
 	public float getHmdToEyeViewOffsetY() { return ngetHmdToEyeViewOffsetY(address()); }
 	public float getHmdToEyeViewOffsetZ() { return ngetHmdToEyeViewOffsetZ(address()); }
 
-	public OVREyeRenderDesc setEye(int Eye) { nsetEye(address(), Eye); return this; }
-	public OVREyeRenderDesc setFov(OVRFovPort Fov) { nsetFov(address(), Fov); return this; }
-	public OVREyeRenderDesc setFovUpTan(float UpTan) { nsetFovUpTan(address(), UpTan); return this; }
-	public OVREyeRenderDesc setFovDownTan(float DownTan) { nsetFovDownTan(address(), DownTan); return this; }
-	public OVREyeRenderDesc setFovLeftTan(float LeftTan) { nsetFovLeftTan(address(), LeftTan); return this; }
-	public OVREyeRenderDesc setFovRightTan(float RightTan) { nsetFovRightTan(address(), RightTan); return this; }
-	public OVREyeRenderDesc setDistortedViewport(OVRRecti DistortedViewport) { nsetDistortedViewport(address(), DistortedViewport); return this; }
-	public OVREyeRenderDesc setDistortedViewportPos(OVRVector2i Pos) { nsetDistortedViewportPos(address(), Pos); return this; }
-	public OVREyeRenderDesc setDistortedViewportPosX(int x) { nsetDistortedViewportPosX(address(), x); return this; }
-	public OVREyeRenderDesc setDistortedViewportPosY(int y) { nsetDistortedViewportPosY(address(), y); return this; }
-	public OVREyeRenderDesc setDistortedViewportSize(OVRSizei Size) { nsetDistortedViewportSize(address(), Size); return this; }
-	public OVREyeRenderDesc setDistortedViewportSizeW(int w) { nsetDistortedViewportSizeW(address(), w); return this; }
-	public OVREyeRenderDesc setDistortedViewportSizeH(int h) { nsetDistortedViewportSizeH(address(), h); return this; }
-	public OVREyeRenderDesc setPixelsPerTanAngleAtCenter(OVRVector2f PixelsPerTanAngleAtCenter) { nsetPixelsPerTanAngleAtCenter(address(), PixelsPerTanAngleAtCenter); return this; }
-	public OVREyeRenderDesc setPixelsPerTanAngleAtCenterX(float x) { nsetPixelsPerTanAngleAtCenterX(address(), x); return this; }
-	public OVREyeRenderDesc setPixelsPerTanAngleAtCenterY(float y) { nsetPixelsPerTanAngleAtCenterY(address(), y); return this; }
-	public OVREyeRenderDesc setHmdToEyeViewOffset(OVRVector3f HmdToEyeViewOffset) { nsetHmdToEyeViewOffset(address(), HmdToEyeViewOffset); return this; }
-	public OVREyeRenderDesc setHmdToEyeViewOffsetX(float x) { nsetHmdToEyeViewOffsetX(address(), x); return this; }
-	public OVREyeRenderDesc setHmdToEyeViewOffsetY(float y) { nsetHmdToEyeViewOffsetY(address(), y); return this; }
-	public OVREyeRenderDesc setHmdToEyeViewOffsetZ(float z) { nsetHmdToEyeViewOffsetZ(address(), z); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public OVREyeRenderDesc set(
-		int Eye,
-		OVRFovPort Fov,
-		OVRRecti DistortedViewport,
-		OVRVector2f PixelsPerTanAngleAtCenter,
-		OVRVector3f HmdToEyeViewOffset
-	) {
-		setEye(Eye);
-		setFov(Fov);
-		setDistortedViewport(DistortedViewport);
-		setPixelsPerTanAngleAtCenter(PixelsPerTanAngleAtCenter);
-		setHmdToEyeViewOffset(HmdToEyeViewOffset);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set}. */
-	public OVREyeRenderDesc nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @returns this struct
-	 */
-	public OVREyeRenderDesc set(OVREyeRenderDesc src) {
-		return nset(address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set}. */
-	public OVREyeRenderDesc set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link OVREyeRenderDesc} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
@@ -241,53 +179,6 @@ public final class OVREyeRenderDesc extends Struct {
 	public static float getHmdToEyeViewOffsetY(ByteBuffer struct) { return ngetHmdToEyeViewOffsetY(memAddress(struct)); }
 	public static float ngetHmdToEyeViewOffsetZ(long struct) { return memGetFloat(struct + HMDTOEYEVIEWOFFSET + OVRVector3f.Z); }
 	public static float getHmdToEyeViewOffsetZ(ByteBuffer struct) { return ngetHmdToEyeViewOffsetZ(memAddress(struct)); }
-
-	public static void nsetEye(long struct, int Eye) { memPutInt(struct + EYE, Eye); }
-	public static void setEye(ByteBuffer struct, int Eye) { nsetEye(memAddress(struct), Eye); }
-	public static void nsetFov(long struct, OVRFovPort Fov) { memCopy(Fov.address(), struct + FOV, OVRFovPort.SIZEOF); }
-	/** Copies the specified {@link OVRFovPort} struct to the nested {@code Fov} struct. */
-	public static void setFov(ByteBuffer struct, OVRFovPort Fov) { nsetFov(memAddress(struct), Fov); }
-	public static void nsetFovUpTan(long struct, float UpTan) { memPutFloat(struct + FOV + OVRFovPort.UPTAN, UpTan); }
-	public static void setFovUpTan(ByteBuffer struct, float UpTan) { nsetFovUpTan(memAddress(struct), UpTan); }
-	public static void nsetFovDownTan(long struct, float DownTan) { memPutFloat(struct + FOV + OVRFovPort.DOWNTAN, DownTan); }
-	public static void setFovDownTan(ByteBuffer struct, float DownTan) { nsetFovDownTan(memAddress(struct), DownTan); }
-	public static void nsetFovLeftTan(long struct, float LeftTan) { memPutFloat(struct + FOV + OVRFovPort.LEFTTAN, LeftTan); }
-	public static void setFovLeftTan(ByteBuffer struct, float LeftTan) { nsetFovLeftTan(memAddress(struct), LeftTan); }
-	public static void nsetFovRightTan(long struct, float RightTan) { memPutFloat(struct + FOV + OVRFovPort.RIGHTTAN, RightTan); }
-	public static void setFovRightTan(ByteBuffer struct, float RightTan) { nsetFovRightTan(memAddress(struct), RightTan); }
-	public static void nsetDistortedViewport(long struct, OVRRecti DistortedViewport) { memCopy(DistortedViewport.address(), struct + DISTORTEDVIEWPORT, OVRRecti.SIZEOF); }
-	/** Copies the specified {@link OVRRecti} struct to the nested {@code DistortedViewport} struct. */
-	public static void setDistortedViewport(ByteBuffer struct, OVRRecti DistortedViewport) { nsetDistortedViewport(memAddress(struct), DistortedViewport); }
-	public static void nsetDistortedViewportPos(long struct, OVRVector2i Pos) { memCopy(Pos.address(), struct + DISTORTEDVIEWPORT + OVRRecti.POS, OVRVector2i.SIZEOF); }
-	/** Copies the specified {@link OVRVector2i} struct to the nested {@code Pos} struct. */
-	public static void setDistortedViewportPos(ByteBuffer struct, OVRVector2i Pos) { nsetDistortedViewportPos(memAddress(struct), Pos); }
-	public static void nsetDistortedViewportPosX(long struct, int x) { memPutInt(struct + DISTORTEDVIEWPORT + OVRRecti.POS + OVRVector2i.X, x); }
-	public static void setDistortedViewportPosX(ByteBuffer struct, int x) { nsetDistortedViewportPosX(memAddress(struct), x); }
-	public static void nsetDistortedViewportPosY(long struct, int y) { memPutInt(struct + DISTORTEDVIEWPORT + OVRRecti.POS + OVRVector2i.Y, y); }
-	public static void setDistortedViewportPosY(ByteBuffer struct, int y) { nsetDistortedViewportPosY(memAddress(struct), y); }
-	public static void nsetDistortedViewportSize(long struct, OVRSizei Size) { memCopy(Size.address(), struct + DISTORTEDVIEWPORT + OVRRecti.SIZE, OVRSizei.SIZEOF); }
-	/** Copies the specified {@link OVRSizei} struct to the nested {@code Size} struct. */
-	public static void setDistortedViewportSize(ByteBuffer struct, OVRSizei Size) { nsetDistortedViewportSize(memAddress(struct), Size); }
-	public static void nsetDistortedViewportSizeW(long struct, int w) { memPutInt(struct + DISTORTEDVIEWPORT + OVRRecti.SIZE + OVRSizei.W, w); }
-	public static void setDistortedViewportSizeW(ByteBuffer struct, int w) { nsetDistortedViewportSizeW(memAddress(struct), w); }
-	public static void nsetDistortedViewportSizeH(long struct, int h) { memPutInt(struct + DISTORTEDVIEWPORT + OVRRecti.SIZE + OVRSizei.H, h); }
-	public static void setDistortedViewportSizeH(ByteBuffer struct, int h) { nsetDistortedViewportSizeH(memAddress(struct), h); }
-	public static void nsetPixelsPerTanAngleAtCenter(long struct, OVRVector2f PixelsPerTanAngleAtCenter) { memCopy(PixelsPerTanAngleAtCenter.address(), struct + PIXELSPERTANANGLEATCENTER, OVRVector2f.SIZEOF); }
-	/** Copies the specified {@link OVRVector2f} struct to the nested {@code PixelsPerTanAngleAtCenter} struct. */
-	public static void setPixelsPerTanAngleAtCenter(ByteBuffer struct, OVRVector2f PixelsPerTanAngleAtCenter) { nsetPixelsPerTanAngleAtCenter(memAddress(struct), PixelsPerTanAngleAtCenter); }
-	public static void nsetPixelsPerTanAngleAtCenterX(long struct, float x) { memPutFloat(struct + PIXELSPERTANANGLEATCENTER + OVRVector2f.X, x); }
-	public static void setPixelsPerTanAngleAtCenterX(ByteBuffer struct, float x) { nsetPixelsPerTanAngleAtCenterX(memAddress(struct), x); }
-	public static void nsetPixelsPerTanAngleAtCenterY(long struct, float y) { memPutFloat(struct + PIXELSPERTANANGLEATCENTER + OVRVector2f.Y, y); }
-	public static void setPixelsPerTanAngleAtCenterY(ByteBuffer struct, float y) { nsetPixelsPerTanAngleAtCenterY(memAddress(struct), y); }
-	public static void nsetHmdToEyeViewOffset(long struct, OVRVector3f HmdToEyeViewOffset) { memCopy(HmdToEyeViewOffset.address(), struct + HMDTOEYEVIEWOFFSET, OVRVector3f.SIZEOF); }
-	/** Copies the specified {@link OVRVector3f} struct to the nested {@code HmdToEyeViewOffset} struct. */
-	public static void setHmdToEyeViewOffset(ByteBuffer struct, OVRVector3f HmdToEyeViewOffset) { nsetHmdToEyeViewOffset(memAddress(struct), HmdToEyeViewOffset); }
-	public static void nsetHmdToEyeViewOffsetX(long struct, float x) { memPutFloat(struct + HMDTOEYEVIEWOFFSET + OVRVector3f.X, x); }
-	public static void setHmdToEyeViewOffsetX(ByteBuffer struct, float x) { nsetHmdToEyeViewOffsetX(memAddress(struct), x); }
-	public static void nsetHmdToEyeViewOffsetY(long struct, float y) { memPutFloat(struct + HMDTOEYEVIEWOFFSET + OVRVector3f.Y, y); }
-	public static void setHmdToEyeViewOffsetY(ByteBuffer struct, float y) { nsetHmdToEyeViewOffsetY(memAddress(struct), y); }
-	public static void nsetHmdToEyeViewOffsetZ(long struct, float z) { memPutFloat(struct + HMDTOEYEVIEWOFFSET + OVRVector3f.Z, z); }
-	public static void setHmdToEyeViewOffsetZ(ByteBuffer struct, float z) { nsetHmdToEyeViewOffsetZ(memAddress(struct), z); }
 
 	// -----------------------------------
 

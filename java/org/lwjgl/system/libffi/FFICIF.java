@@ -74,56 +74,6 @@ public final class FFICIF extends Struct {
 	public int getBytes() { return ngetBytes(address()); }
 	public int getFlags() { return ngetFlags(address()); }
 
-	public FFICIF setAbi(int abi) { nsetAbi(address(), abi); return this; }
-	public FFICIF setNargs(int nargs) { nsetNargs(address(), nargs); return this; }
-	public FFICIF setArgTypes(ByteBuffer arg_types) { nsetArgTypes(address(), arg_types); return this; }
-	public FFICIF setRtype(long rtype) { nsetRtype(address(), rtype); return this; }
-	public FFICIF setBytes(int bytes) { nsetBytes(address(), bytes); return this; }
-	public FFICIF setFlags(int flags) { nsetFlags(address(), flags); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public FFICIF set(
-		int abi,
-		int nargs,
-		ByteBuffer arg_types,
-		long rtype,
-		int bytes,
-		int flags
-	) {
-		setAbi(abi);
-		setNargs(nargs);
-		setArgTypes(arg_types);
-		setRtype(rtype);
-		setBytes(bytes);
-		setFlags(flags);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set}. */
-	public FFICIF nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @returns this struct
-	 */
-	public FFICIF set(FFICIF src) {
-		return nset(address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set}. */
-	public FFICIF set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link FFICIF} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
@@ -181,20 +131,6 @@ public final class FFICIF extends Struct {
 	public static int getBytes(ByteBuffer struct) { return ngetBytes(memAddress(struct)); }
 	public static int ngetFlags(long struct) { return memGetInt(struct + FLAGS); }
 	public static int getFlags(ByteBuffer struct) { return ngetFlags(memAddress(struct)); }
-
-	public static void nsetAbi(long struct, int abi) { memPutInt(struct + ABI, abi); }
-	public static void setAbi(ByteBuffer struct, int abi) { nsetAbi(memAddress(struct), abi); }
-	public static void nsetNargs(long struct, int nargs) { memPutInt(struct + NARGS, nargs); }
-	public static void setNargs(ByteBuffer struct, int nargs) { nsetNargs(memAddress(struct), nargs); }
-	public static void nsetArgTypes(long struct, long arg_types) { memPutAddress(struct + ARG_TYPES, arg_types); }
-	public static void nsetArgTypes(long struct, ByteBuffer arg_types) { nsetArgTypes(struct, memAddressSafe(arg_types)); }
-	public static void setArgTypes(ByteBuffer struct, ByteBuffer arg_types) { nsetArgTypes(memAddress(struct), arg_types); }
-	public static void nsetRtype(long struct, long rtype) { memPutAddress(struct + RTYPE, rtype); }
-	public static void setRtype(ByteBuffer struct, long rtype) { nsetRtype(memAddress(struct), rtype); }
-	public static void nsetBytes(long struct, int bytes) { memPutInt(struct + BYTES, bytes); }
-	public static void setBytes(ByteBuffer struct, int bytes) { nsetBytes(memAddress(struct), bytes); }
-	public static void nsetFlags(long struct, int flags) { memPutInt(struct + FLAGS, flags); }
-	public static void setFlags(ByteBuffer struct, int flags) { nsetFlags(memAddress(struct), flags); }
 
 	// -----------------------------------
 

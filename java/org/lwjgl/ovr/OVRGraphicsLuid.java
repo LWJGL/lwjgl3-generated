@@ -59,9 +59,6 @@ public final class OVRGraphicsLuid extends Struct {
 
 	public void getReserved(ByteBuffer Reserved) { ngetReserved(address(), Reserved); }
 
-	public OVRGraphicsLuid setReserved(ByteBuffer Reserved) { nsetReserved(address(), Reserved); return this; }
-	public OVRGraphicsLuid setReserved(int index, byte Reserved) { nsetReserved(address(), index, Reserved); return this; }
-
 	// -----------------------------------
 
 	/** Returns a new {@link OVRGraphicsLuid} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
@@ -113,16 +110,6 @@ public final class OVRGraphicsLuid extends Struct {
 	public static void getReserved(ByteBuffer struct, ByteBuffer Reserved) { ngetReserved(memAddress(struct), Reserved); }
 	public static byte ngetReserved(long struct, int index) { return memGetByte(struct + RESERVED + index * 1); }
 	public static byte getReserved(ByteBuffer struct, int index) { return ngetReserved(memAddress(struct), index); }
-
-	public static void nsetReserved(long struct, ByteBuffer Reserved) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBufferGT(Reserved, 8 * 1);
-		}
-		memCopy(memAddress(Reserved), struct + RESERVED, Reserved.remaining());
-	}
-	public static void setReserved(ByteBuffer struct, ByteBuffer Reserved) { nsetReserved(memAddress(struct), Reserved); }
-	public static void nsetReserved(long struct, int index, byte Reserved) { memPutByte(struct + RESERVED + index * 1, Reserved); }
-	public static void setReserved(ByteBuffer struct, int index, byte Reserved) { nsetReserved(memAddress(struct), index, Reserved); }
 
 	// -----------------------------------
 

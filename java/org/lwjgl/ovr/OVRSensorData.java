@@ -80,62 +80,6 @@ public final class OVRSensorData extends Struct {
 	public float getTemperature() { return ngetTemperature(address()); }
 	public float getTimeInSeconds() { return ngetTimeInSeconds(address()); }
 
-	public OVRSensorData setAccelerometer(OVRVector3f Accelerometer) { nsetAccelerometer(address(), Accelerometer); return this; }
-	public OVRSensorData setAccelerometerX(float x) { nsetAccelerometerX(address(), x); return this; }
-	public OVRSensorData setAccelerometerY(float y) { nsetAccelerometerY(address(), y); return this; }
-	public OVRSensorData setAccelerometerZ(float z) { nsetAccelerometerZ(address(), z); return this; }
-	public OVRSensorData setGyro(OVRVector3f Gyro) { nsetGyro(address(), Gyro); return this; }
-	public OVRSensorData setGyroX(float x) { nsetGyroX(address(), x); return this; }
-	public OVRSensorData setGyroY(float y) { nsetGyroY(address(), y); return this; }
-	public OVRSensorData setGyroZ(float z) { nsetGyroZ(address(), z); return this; }
-	public OVRSensorData setMagnetometer(OVRVector3f Magnetometer) { nsetMagnetometer(address(), Magnetometer); return this; }
-	public OVRSensorData setMagnetometerX(float x) { nsetMagnetometerX(address(), x); return this; }
-	public OVRSensorData setMagnetometerY(float y) { nsetMagnetometerY(address(), y); return this; }
-	public OVRSensorData setMagnetometerZ(float z) { nsetMagnetometerZ(address(), z); return this; }
-	public OVRSensorData setTemperature(float Temperature) { nsetTemperature(address(), Temperature); return this; }
-	public OVRSensorData setTimeInSeconds(float TimeInSeconds) { nsetTimeInSeconds(address(), TimeInSeconds); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public OVRSensorData set(
-		OVRVector3f Accelerometer,
-		OVRVector3f Gyro,
-		OVRVector3f Magnetometer,
-		float Temperature,
-		float TimeInSeconds
-	) {
-		setAccelerometer(Accelerometer);
-		setGyro(Gyro);
-		setMagnetometer(Magnetometer);
-		setTemperature(Temperature);
-		setTimeInSeconds(TimeInSeconds);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set}. */
-	public OVRSensorData nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @returns this struct
-	 */
-	public OVRSensorData set(OVRSensorData src) {
-		return nset(address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set}. */
-	public OVRSensorData set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link OVRSensorData} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
@@ -211,38 +155,6 @@ public final class OVRSensorData extends Struct {
 	public static float getTemperature(ByteBuffer struct) { return ngetTemperature(memAddress(struct)); }
 	public static float ngetTimeInSeconds(long struct) { return memGetFloat(struct + TIMEINSECONDS); }
 	public static float getTimeInSeconds(ByteBuffer struct) { return ngetTimeInSeconds(memAddress(struct)); }
-
-	public static void nsetAccelerometer(long struct, OVRVector3f Accelerometer) { memCopy(Accelerometer.address(), struct + ACCELEROMETER, OVRVector3f.SIZEOF); }
-	/** Copies the specified {@link OVRVector3f} struct to the nested {@code Accelerometer} struct. */
-	public static void setAccelerometer(ByteBuffer struct, OVRVector3f Accelerometer) { nsetAccelerometer(memAddress(struct), Accelerometer); }
-	public static void nsetAccelerometerX(long struct, float x) { memPutFloat(struct + ACCELEROMETER + OVRVector3f.X, x); }
-	public static void setAccelerometerX(ByteBuffer struct, float x) { nsetAccelerometerX(memAddress(struct), x); }
-	public static void nsetAccelerometerY(long struct, float y) { memPutFloat(struct + ACCELEROMETER + OVRVector3f.Y, y); }
-	public static void setAccelerometerY(ByteBuffer struct, float y) { nsetAccelerometerY(memAddress(struct), y); }
-	public static void nsetAccelerometerZ(long struct, float z) { memPutFloat(struct + ACCELEROMETER + OVRVector3f.Z, z); }
-	public static void setAccelerometerZ(ByteBuffer struct, float z) { nsetAccelerometerZ(memAddress(struct), z); }
-	public static void nsetGyro(long struct, OVRVector3f Gyro) { memCopy(Gyro.address(), struct + GYRO, OVRVector3f.SIZEOF); }
-	/** Copies the specified {@link OVRVector3f} struct to the nested {@code Gyro} struct. */
-	public static void setGyro(ByteBuffer struct, OVRVector3f Gyro) { nsetGyro(memAddress(struct), Gyro); }
-	public static void nsetGyroX(long struct, float x) { memPutFloat(struct + GYRO + OVRVector3f.X, x); }
-	public static void setGyroX(ByteBuffer struct, float x) { nsetGyroX(memAddress(struct), x); }
-	public static void nsetGyroY(long struct, float y) { memPutFloat(struct + GYRO + OVRVector3f.Y, y); }
-	public static void setGyroY(ByteBuffer struct, float y) { nsetGyroY(memAddress(struct), y); }
-	public static void nsetGyroZ(long struct, float z) { memPutFloat(struct + GYRO + OVRVector3f.Z, z); }
-	public static void setGyroZ(ByteBuffer struct, float z) { nsetGyroZ(memAddress(struct), z); }
-	public static void nsetMagnetometer(long struct, OVRVector3f Magnetometer) { memCopy(Magnetometer.address(), struct + MAGNETOMETER, OVRVector3f.SIZEOF); }
-	/** Copies the specified {@link OVRVector3f} struct to the nested {@code Magnetometer} struct. */
-	public static void setMagnetometer(ByteBuffer struct, OVRVector3f Magnetometer) { nsetMagnetometer(memAddress(struct), Magnetometer); }
-	public static void nsetMagnetometerX(long struct, float x) { memPutFloat(struct + MAGNETOMETER + OVRVector3f.X, x); }
-	public static void setMagnetometerX(ByteBuffer struct, float x) { nsetMagnetometerX(memAddress(struct), x); }
-	public static void nsetMagnetometerY(long struct, float y) { memPutFloat(struct + MAGNETOMETER + OVRVector3f.Y, y); }
-	public static void setMagnetometerY(ByteBuffer struct, float y) { nsetMagnetometerY(memAddress(struct), y); }
-	public static void nsetMagnetometerZ(long struct, float z) { memPutFloat(struct + MAGNETOMETER + OVRVector3f.Z, z); }
-	public static void setMagnetometerZ(ByteBuffer struct, float z) { nsetMagnetometerZ(memAddress(struct), z); }
-	public static void nsetTemperature(long struct, float Temperature) { memPutFloat(struct + TEMPERATURE, Temperature); }
-	public static void setTemperature(ByteBuffer struct, float Temperature) { nsetTemperature(memAddress(struct), Temperature); }
-	public static void nsetTimeInSeconds(long struct, float TimeInSeconds) { memPutFloat(struct + TIMEINSECONDS, TimeInSeconds); }
-	public static void setTimeInSeconds(ByteBuffer struct, float TimeInSeconds) { nsetTimeInSeconds(memAddress(struct), TimeInSeconds); }
 
 	// -----------------------------------
 

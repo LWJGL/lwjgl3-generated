@@ -79,62 +79,6 @@ public final class GLXStereoNotifyEventEXT extends Struct {
 	public long getWindow() { return ngetWindow(address()); }
 	public int getStereoTree() { return ngetStereoTree(address()); }
 
-	public GLXStereoNotifyEventEXT setType(int type) { nsetType(address(), type); return this; }
-	public GLXStereoNotifyEventEXT setSerial(long serial) { nsetSerial(address(), serial); return this; }
-	public GLXStereoNotifyEventEXT setSendEvent(int send_event) { nsetSendEvent(address(), send_event); return this; }
-	public GLXStereoNotifyEventEXT setDisplay(long display) { nsetDisplay(address(), display); return this; }
-	public GLXStereoNotifyEventEXT setExtension(int extension) { nsetExtension(address(), extension); return this; }
-	public GLXStereoNotifyEventEXT setEvtype(int evtype) { nsetEvtype(address(), evtype); return this; }
-	public GLXStereoNotifyEventEXT setWindow(long window) { nsetWindow(address(), window); return this; }
-	public GLXStereoNotifyEventEXT setStereoTree(int stereo_tree) { nsetStereoTree(address(), stereo_tree); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public GLXStereoNotifyEventEXT set(
-		int type,
-		long serial,
-		int send_event,
-		long display,
-		int extension,
-		int evtype,
-		long window,
-		int stereo_tree
-	) {
-		setType(type);
-		setSerial(serial);
-		setSendEvent(send_event);
-		setDisplay(display);
-		setExtension(extension);
-		setEvtype(evtype);
-		setWindow(window);
-		setStereoTree(stereo_tree);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set}. */
-	public GLXStereoNotifyEventEXT nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @returns this struct
-	 */
-	public GLXStereoNotifyEventEXT set(GLXStereoNotifyEventEXT src) {
-		return nset(address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set}. */
-	public GLXStereoNotifyEventEXT set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link GLXStereoNotifyEventEXT} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
@@ -195,23 +139,6 @@ public final class GLXStereoNotifyEventEXT extends Struct {
 	public static long getWindow(ByteBuffer struct) { return ngetWindow(memAddress(struct)); }
 	public static int ngetStereoTree(long struct) { return memGetInt(struct + STEREO_TREE); }
 	public static int getStereoTree(ByteBuffer struct) { return ngetStereoTree(memAddress(struct)); }
-
-	public static void nsetType(long struct, int type) { memPutInt(struct + TYPE, type); }
-	public static void setType(ByteBuffer struct, int type) { nsetType(memAddress(struct), type); }
-	public static void nsetSerial(long struct, long serial) { memPutAddress(struct + SERIAL, serial); }
-	public static void setSerial(ByteBuffer struct, long serial) { nsetSerial(memAddress(struct), serial); }
-	public static void nsetSendEvent(long struct, int send_event) { memPutInt(struct + SEND_EVENT, send_event); }
-	public static void setSendEvent(ByteBuffer struct, int send_event) { nsetSendEvent(memAddress(struct), send_event); }
-	public static void nsetDisplay(long struct, long display) { memPutAddress(struct + DISPLAY, display); }
-	public static void setDisplay(ByteBuffer struct, long display) { nsetDisplay(memAddress(struct), display); }
-	public static void nsetExtension(long struct, int extension) { memPutInt(struct + EXTENSION, extension); }
-	public static void setExtension(ByteBuffer struct, int extension) { nsetExtension(memAddress(struct), extension); }
-	public static void nsetEvtype(long struct, int evtype) { memPutInt(struct + EVTYPE, evtype); }
-	public static void setEvtype(ByteBuffer struct, int evtype) { nsetEvtype(memAddress(struct), evtype); }
-	public static void nsetWindow(long struct, long window) { memPutAddress(struct + WINDOW, window); }
-	public static void setWindow(ByteBuffer struct, long window) { nsetWindow(memAddress(struct), window); }
-	public static void nsetStereoTree(long struct, int stereo_tree) { memPutInt(struct + STEREO_TREE, stereo_tree); }
-	public static void setStereoTree(ByteBuffer struct, int stereo_tree) { nsetStereoTree(memAddress(struct), stereo_tree); }
 
 	// -----------------------------------
 

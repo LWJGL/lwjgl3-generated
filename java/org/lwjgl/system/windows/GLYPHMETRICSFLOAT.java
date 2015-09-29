@@ -73,55 +73,6 @@ public final class GLYPHMETRICSFLOAT extends Struct {
 	public float getCellIncX() { return ngetCellIncX(address()); }
 	public float getCellIncY() { return ngetCellIncY(address()); }
 
-	public GLYPHMETRICSFLOAT setBlackBoxX(float blackBoxX) { nsetBlackBoxX(address(), blackBoxX); return this; }
-	public GLYPHMETRICSFLOAT setBlockBoxY(float blockBoxY) { nsetBlockBoxY(address(), blockBoxY); return this; }
-	public GLYPHMETRICSFLOAT setGlyphOrigin(POINTFLOAT glyphOrigin) { nsetGlyphOrigin(address(), glyphOrigin); return this; }
-	public GLYPHMETRICSFLOAT setGlyphOriginX(float x) { nsetGlyphOriginX(address(), x); return this; }
-	public GLYPHMETRICSFLOAT setGlyphOriginY(float y) { nsetGlyphOriginY(address(), y); return this; }
-	public GLYPHMETRICSFLOAT setCellIncX(float cellIncX) { nsetCellIncX(address(), cellIncX); return this; }
-	public GLYPHMETRICSFLOAT setCellIncY(float cellIncY) { nsetCellIncY(address(), cellIncY); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public GLYPHMETRICSFLOAT set(
-		float blackBoxX,
-		float blockBoxY,
-		POINTFLOAT glyphOrigin,
-		float cellIncX,
-		float cellIncY
-	) {
-		setBlackBoxX(blackBoxX);
-		setBlockBoxY(blockBoxY);
-		setGlyphOrigin(glyphOrigin);
-		setCellIncX(cellIncX);
-		setCellIncY(cellIncY);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set}. */
-	public GLYPHMETRICSFLOAT nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @returns this struct
-	 */
-	public GLYPHMETRICSFLOAT set(GLYPHMETRICSFLOAT src) {
-		return nset(address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set}. */
-	public GLYPHMETRICSFLOAT set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link GLYPHMETRICSFLOAT} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
@@ -181,22 +132,6 @@ public final class GLYPHMETRICSFLOAT extends Struct {
 	public static float getCellIncX(ByteBuffer struct) { return ngetCellIncX(memAddress(struct)); }
 	public static float ngetCellIncY(long struct) { return memGetFloat(struct + CELLINCY); }
 	public static float getCellIncY(ByteBuffer struct) { return ngetCellIncY(memAddress(struct)); }
-
-	public static void nsetBlackBoxX(long struct, float blackBoxX) { memPutFloat(struct + BLACKBOXX, blackBoxX); }
-	public static void setBlackBoxX(ByteBuffer struct, float blackBoxX) { nsetBlackBoxX(memAddress(struct), blackBoxX); }
-	public static void nsetBlockBoxY(long struct, float blockBoxY) { memPutFloat(struct + BLOCKBOXY, blockBoxY); }
-	public static void setBlockBoxY(ByteBuffer struct, float blockBoxY) { nsetBlockBoxY(memAddress(struct), blockBoxY); }
-	public static void nsetGlyphOrigin(long struct, POINTFLOAT glyphOrigin) { memCopy(glyphOrigin.address(), struct + GLYPHORIGIN, POINTFLOAT.SIZEOF); }
-	/** Copies the specified {@link POINTFLOAT} struct to the nested {@code glyphOrigin} struct. */
-	public static void setGlyphOrigin(ByteBuffer struct, POINTFLOAT glyphOrigin) { nsetGlyphOrigin(memAddress(struct), glyphOrigin); }
-	public static void nsetGlyphOriginX(long struct, float x) { memPutFloat(struct + GLYPHORIGIN + POINTFLOAT.X, x); }
-	public static void setGlyphOriginX(ByteBuffer struct, float x) { nsetGlyphOriginX(memAddress(struct), x); }
-	public static void nsetGlyphOriginY(long struct, float y) { memPutFloat(struct + GLYPHORIGIN + POINTFLOAT.Y, y); }
-	public static void setGlyphOriginY(ByteBuffer struct, float y) { nsetGlyphOriginY(memAddress(struct), y); }
-	public static void nsetCellIncX(long struct, float cellIncX) { memPutFloat(struct + CELLINCX, cellIncX); }
-	public static void setCellIncX(ByteBuffer struct, float cellIncX) { nsetCellIncX(memAddress(struct), cellIncX); }
-	public static void nsetCellIncY(long struct, float cellIncY) { memPutFloat(struct + CELLINCY, cellIncY); }
-	public static void setCellIncY(ByteBuffer struct, float cellIncY) { nsetCellIncY(memAddress(struct), cellIncY); }
 
 	// -----------------------------------
 

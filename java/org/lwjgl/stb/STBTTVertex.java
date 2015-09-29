@@ -71,53 +71,6 @@ public final class STBTTVertex extends Struct {
 	public int getCy() { return ngetCy(address()); }
 	public int getType() { return ngetType(address()); }
 
-	public STBTTVertex setX(int x) { nsetX(address(), x); return this; }
-	public STBTTVertex setY(int y) { nsetY(address(), y); return this; }
-	public STBTTVertex setCx(int cx) { nsetCx(address(), cx); return this; }
-	public STBTTVertex setCy(int cy) { nsetCy(address(), cy); return this; }
-	public STBTTVertex setType(int type) { nsetType(address(), type); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public STBTTVertex set(
-		int x,
-		int y,
-		int cx,
-		int cy,
-		int type
-	) {
-		setX(x);
-		setY(y);
-		setCx(cx);
-		setCy(cy);
-		setType(type);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set}. */
-	public STBTTVertex nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @returns this struct
-	 */
-	public STBTTVertex set(STBTTVertex src) {
-		return nset(address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set}. */
-	public STBTTVertex set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link STBTTVertex} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
@@ -172,17 +125,6 @@ public final class STBTTVertex extends Struct {
 	public static int getCy(ByteBuffer struct) { return ngetCy(memAddress(struct)); }
 	public static int ngetType(long struct) { return memGetByte(struct + TYPE) & 0xFF; }
 	public static int getType(ByteBuffer struct) { return ngetType(memAddress(struct)); }
-
-	public static void nsetX(long struct, int x) { memPutShort(struct + X, (short)x); }
-	public static void setX(ByteBuffer struct, int x) { nsetX(memAddress(struct), x); }
-	public static void nsetY(long struct, int y) { memPutShort(struct + Y, (short)y); }
-	public static void setY(ByteBuffer struct, int y) { nsetY(memAddress(struct), y); }
-	public static void nsetCx(long struct, int cx) { memPutShort(struct + CX, (short)cx); }
-	public static void setCx(ByteBuffer struct, int cx) { nsetCx(memAddress(struct), cx); }
-	public static void nsetCy(long struct, int cy) { memPutShort(struct + CY, (short)cy); }
-	public static void setCy(ByteBuffer struct, int cy) { nsetCy(memAddress(struct), cy); }
-	public static void nsetType(long struct, int type) { memPutByte(struct + TYPE, (byte)type); }
-	public static void setType(ByteBuffer struct, int type) { nsetType(memAddress(struct), type); }
 
 	// -----------------------------------
 

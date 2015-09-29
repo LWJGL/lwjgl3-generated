@@ -68,50 +68,6 @@ public final class OVRFrameTiming extends Struct {
 	public double getAppFrameIndex() { return ngetAppFrameIndex(address()); }
 	public double getDisplayFrameIndex() { return ngetDisplayFrameIndex(address()); }
 
-	public OVRFrameTiming setDisplayMidpointSeconds(double DisplayMidpointSeconds) { nsetDisplayMidpointSeconds(address(), DisplayMidpointSeconds); return this; }
-	public OVRFrameTiming setFrameIntervalSeconds(double FrameIntervalSeconds) { nsetFrameIntervalSeconds(address(), FrameIntervalSeconds); return this; }
-	public OVRFrameTiming setAppFrameIndex(double AppFrameIndex) { nsetAppFrameIndex(address(), AppFrameIndex); return this; }
-	public OVRFrameTiming setDisplayFrameIndex(double DisplayFrameIndex) { nsetDisplayFrameIndex(address(), DisplayFrameIndex); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public OVRFrameTiming set(
-		double DisplayMidpointSeconds,
-		double FrameIntervalSeconds,
-		double AppFrameIndex,
-		double DisplayFrameIndex
-	) {
-		setDisplayMidpointSeconds(DisplayMidpointSeconds);
-		setFrameIntervalSeconds(FrameIntervalSeconds);
-		setAppFrameIndex(AppFrameIndex);
-		setDisplayFrameIndex(DisplayFrameIndex);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set}. */
-	public OVRFrameTiming nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @returns this struct
-	 */
-	public OVRFrameTiming set(OVRFrameTiming src) {
-		return nset(address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set}. */
-	public OVRFrameTiming set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link OVRFrameTiming} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
@@ -164,15 +120,6 @@ public final class OVRFrameTiming extends Struct {
 	public static double getAppFrameIndex(ByteBuffer struct) { return ngetAppFrameIndex(memAddress(struct)); }
 	public static double ngetDisplayFrameIndex(long struct) { return memGetDouble(struct + DISPLAYFRAMEINDEX); }
 	public static double getDisplayFrameIndex(ByteBuffer struct) { return ngetDisplayFrameIndex(memAddress(struct)); }
-
-	public static void nsetDisplayMidpointSeconds(long struct, double DisplayMidpointSeconds) { memPutDouble(struct + DISPLAYMIDPOINTSECONDS, DisplayMidpointSeconds); }
-	public static void setDisplayMidpointSeconds(ByteBuffer struct, double DisplayMidpointSeconds) { nsetDisplayMidpointSeconds(memAddress(struct), DisplayMidpointSeconds); }
-	public static void nsetFrameIntervalSeconds(long struct, double FrameIntervalSeconds) { memPutDouble(struct + FRAMEINTERVALSECONDS, FrameIntervalSeconds); }
-	public static void setFrameIntervalSeconds(ByteBuffer struct, double FrameIntervalSeconds) { nsetFrameIntervalSeconds(memAddress(struct), FrameIntervalSeconds); }
-	public static void nsetAppFrameIndex(long struct, double AppFrameIndex) { memPutDouble(struct + APPFRAMEINDEX, AppFrameIndex); }
-	public static void setAppFrameIndex(ByteBuffer struct, double AppFrameIndex) { nsetAppFrameIndex(memAddress(struct), AppFrameIndex); }
-	public static void nsetDisplayFrameIndex(long struct, double DisplayFrameIndex) { memPutDouble(struct + DISPLAYFRAMEINDEX, DisplayFrameIndex); }
-	public static void setDisplayFrameIndex(ByteBuffer struct, double DisplayFrameIndex) { nsetDisplayFrameIndex(memAddress(struct), DisplayFrameIndex); }
 
 	// -----------------------------------
 

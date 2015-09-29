@@ -62,45 +62,6 @@ public final class OVRErrorInfo extends Struct {
 	public int getResult() { return ngetResult(address()); }
 	public void getErrorString(ByteBuffer ErrorString) { ngetErrorString(address(), ErrorString); }
 
-	public OVRErrorInfo setResult(int Result) { nsetResult(address(), Result); return this; }
-	public OVRErrorInfo setErrorString(ByteBuffer ErrorString) { nsetErrorString(address(), ErrorString); return this; }
-	public OVRErrorInfo setErrorString(int index, byte ErrorString) { nsetErrorString(address(), index, ErrorString); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public OVRErrorInfo set(
-		int Result,
-		ByteBuffer ErrorString
-	) {
-		setResult(Result);
-		setErrorString(ErrorString);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set}. */
-	public OVRErrorInfo nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @returns this struct
-	 */
-	public OVRErrorInfo set(OVRErrorInfo src) {
-		return nset(address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set}. */
-	public OVRErrorInfo set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link OVRErrorInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
@@ -154,18 +115,6 @@ public final class OVRErrorInfo extends Struct {
 	public static void getErrorString(ByteBuffer struct, ByteBuffer ErrorString) { ngetErrorString(memAddress(struct), ErrorString); }
 	public static byte ngetErrorString(long struct, int index) { return memGetByte(struct + ERRORSTRING + index * 1); }
 	public static byte getErrorString(ByteBuffer struct, int index) { return ngetErrorString(memAddress(struct), index); }
-
-	public static void nsetResult(long struct, int Result) { memPutInt(struct + RESULT, Result); }
-	public static void setResult(ByteBuffer struct, int Result) { nsetResult(memAddress(struct), Result); }
-	public static void nsetErrorString(long struct, ByteBuffer ErrorString) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBufferGT(ErrorString, 512 * 1);
-		}
-		memCopy(memAddress(ErrorString), struct + ERRORSTRING, ErrorString.remaining());
-	}
-	public static void setErrorString(ByteBuffer struct, ByteBuffer ErrorString) { nsetErrorString(memAddress(struct), ErrorString); }
-	public static void nsetErrorString(long struct, int index, byte ErrorString) { memPutByte(struct + ERRORSTRING + index * 1, ErrorString); }
-	public static void setErrorString(ByteBuffer struct, int index, byte ErrorString) { nsetErrorString(memAddress(struct), index, ErrorString); }
 
 	// -----------------------------------
 

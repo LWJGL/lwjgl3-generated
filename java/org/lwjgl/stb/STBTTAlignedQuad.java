@@ -80,62 +80,6 @@ public final class STBTTAlignedQuad extends Struct {
 	public float getS1() { return ngetS1(address()); }
 	public float getT1() { return ngetT1(address()); }
 
-	public STBTTAlignedQuad setX0(float x0) { nsetX0(address(), x0); return this; }
-	public STBTTAlignedQuad setY0(float y0) { nsetY0(address(), y0); return this; }
-	public STBTTAlignedQuad setS0(float s0) { nsetS0(address(), s0); return this; }
-	public STBTTAlignedQuad setT0(float t0) { nsetT0(address(), t0); return this; }
-	public STBTTAlignedQuad setX1(float x1) { nsetX1(address(), x1); return this; }
-	public STBTTAlignedQuad setY1(float y1) { nsetY1(address(), y1); return this; }
-	public STBTTAlignedQuad setS1(float s1) { nsetS1(address(), s1); return this; }
-	public STBTTAlignedQuad setT1(float t1) { nsetT1(address(), t1); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public STBTTAlignedQuad set(
-		float x0,
-		float y0,
-		float s0,
-		float t0,
-		float x1,
-		float y1,
-		float s1,
-		float t1
-	) {
-		setX0(x0);
-		setY0(y0);
-		setS0(s0);
-		setT0(t0);
-		setX1(x1);
-		setY1(y1);
-		setS1(s1);
-		setT1(t1);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set}. */
-	public STBTTAlignedQuad nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @returns this struct
-	 */
-	public STBTTAlignedQuad set(STBTTAlignedQuad src) {
-		return nset(address());
-	}
-
-	/** {@link ByteBuffer} version of {@link #set}. */
-	public STBTTAlignedQuad set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-		return nset(memAddress(struct));
-	}
-
 	// -----------------------------------
 
 	/** Returns a new {@link STBTTAlignedQuad} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
@@ -196,23 +140,6 @@ public final class STBTTAlignedQuad extends Struct {
 	public static float getS1(ByteBuffer struct) { return ngetS1(memAddress(struct)); }
 	public static float ngetT1(long struct) { return memGetFloat(struct + T1); }
 	public static float getT1(ByteBuffer struct) { return ngetT1(memAddress(struct)); }
-
-	public static void nsetX0(long struct, float x0) { memPutFloat(struct + X0, x0); }
-	public static void setX0(ByteBuffer struct, float x0) { nsetX0(memAddress(struct), x0); }
-	public static void nsetY0(long struct, float y0) { memPutFloat(struct + Y0, y0); }
-	public static void setY0(ByteBuffer struct, float y0) { nsetY0(memAddress(struct), y0); }
-	public static void nsetS0(long struct, float s0) { memPutFloat(struct + S0, s0); }
-	public static void setS0(ByteBuffer struct, float s0) { nsetS0(memAddress(struct), s0); }
-	public static void nsetT0(long struct, float t0) { memPutFloat(struct + T0, t0); }
-	public static void setT0(ByteBuffer struct, float t0) { nsetT0(memAddress(struct), t0); }
-	public static void nsetX1(long struct, float x1) { memPutFloat(struct + X1, x1); }
-	public static void setX1(ByteBuffer struct, float x1) { nsetX1(memAddress(struct), x1); }
-	public static void nsetY1(long struct, float y1) { memPutFloat(struct + Y1, y1); }
-	public static void setY1(ByteBuffer struct, float y1) { nsetY1(memAddress(struct), y1); }
-	public static void nsetS1(long struct, float s1) { memPutFloat(struct + S1, s1); }
-	public static void setS1(ByteBuffer struct, float s1) { nsetS1(memAddress(struct), s1); }
-	public static void nsetT1(long struct, float t1) { memPutFloat(struct + T1, t1); }
-	public static void setT1(ByteBuffer struct, float t1) { nsetT1(memAddress(struct), t1); }
 
 	// -----------------------------------
 
