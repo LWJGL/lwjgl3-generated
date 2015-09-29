@@ -174,6 +174,13 @@ public final class FFICIF extends Struct {
 			return SIZEOF;
 		}
 
+		public int getAbi() { return ngetAbi(address()); }
+		public int getNargs() { return ngetNargs(address()); }
+		public ByteBuffer getArgTypes(int byteLen) { return ngetArgTypes(address(), byteLen); }
+		public long getRtype() { return ngetRtype(address()); }
+		public int getBytes() { return ngetBytes(address()); }
+		public int getFlags() { return ngetFlags(address()); }
+
 	}
 
 }

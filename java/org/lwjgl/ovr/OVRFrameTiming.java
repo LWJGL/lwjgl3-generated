@@ -163,6 +163,11 @@ public final class OVRFrameTiming extends Struct {
 			return SIZEOF;
 		}
 
+		public double getDisplayMidpointSeconds() { return ngetDisplayMidpointSeconds(address()); }
+		public double getFrameIntervalSeconds() { return ngetFrameIntervalSeconds(address()); }
+		public double getAppFrameIndex() { return ngetAppFrameIndex(address()); }
+		public double getDisplayFrameIndex() { return ngetDisplayFrameIndex(address()); }
+
 	}
 
 }

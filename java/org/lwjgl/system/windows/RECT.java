@@ -216,6 +216,16 @@ public final class RECT extends Struct {
 			return SIZEOF;
 		}
 
+		public int getLeft() { return ngetLeft(address()); }
+		public int getTop() { return ngetTop(address()); }
+		public int getRight() { return ngetRight(address()); }
+		public int getBottom() { return ngetBottom(address()); }
+
+		public RECT.Buffer setLeft(int left) { nsetLeft(address(), left); return this; }
+		public RECT.Buffer setTop(int top) { nsetTop(address(), top); return this; }
+		public RECT.Buffer setRight(int right) { nsetRight(address(), right); return this; }
+		public RECT.Buffer setBottom(int bottom) { nsetBottom(address(), bottom); return this; }
+
 	}
 
 }

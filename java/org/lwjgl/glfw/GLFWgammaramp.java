@@ -222,6 +222,16 @@ public final class GLFWgammaramp extends Struct {
 			return SIZEOF;
 		}
 
+		public ByteBuffer getRed(int byteLen) { return ngetRed(address(), byteLen); }
+		public ByteBuffer getGreen(int byteLen) { return ngetGreen(address(), byteLen); }
+		public ByteBuffer getBlue(int byteLen) { return ngetBlue(address(), byteLen); }
+		public int getSize() { return ngetSize(address()); }
+
+		public GLFWgammaramp.Buffer setRed(ByteBuffer red) { nsetRed(address(), red); return this; }
+		public GLFWgammaramp.Buffer setGreen(ByteBuffer green) { nsetGreen(address(), green); return this; }
+		public GLFWgammaramp.Buffer setBlue(ByteBuffer blue) { nsetBlue(address(), blue); return this; }
+		public GLFWgammaramp.Buffer setSize(int size) { nsetSize(address(), size); return this; }
+
 	}
 
 }

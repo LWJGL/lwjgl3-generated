@@ -158,6 +158,9 @@ public final class OVRErrorInfo extends Struct {
 			return SIZEOF;
 		}
 
+		public int getResult() { return ngetResult(address()); }
+		public void getErrorString(ByteBuffer ErrorString) { ngetErrorString(address(), ErrorString); }
+
 	}
 
 }

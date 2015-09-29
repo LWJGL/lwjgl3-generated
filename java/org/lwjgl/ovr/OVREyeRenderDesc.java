@@ -222,6 +222,27 @@ public final class OVREyeRenderDesc extends Struct {
 			return SIZEOF;
 		}
 
+		public int getEye() { return ngetEye(address()); }
+		public OVRFovPort getFov() { return ngetFov(address()); }
+		public float getFovUpTan() { return ngetFovUpTan(address()); }
+		public float getFovDownTan() { return ngetFovDownTan(address()); }
+		public float getFovLeftTan() { return ngetFovLeftTan(address()); }
+		public float getFovRightTan() { return ngetFovRightTan(address()); }
+		public OVRRecti getDistortedViewport() { return ngetDistortedViewport(address()); }
+		public OVRVector2i getDistortedViewportPos() { return ngetDistortedViewportPos(address()); }
+		public int getDistortedViewportPosX() { return ngetDistortedViewportPosX(address()); }
+		public int getDistortedViewportPosY() { return ngetDistortedViewportPosY(address()); }
+		public OVRSizei getDistortedViewportSize() { return ngetDistortedViewportSize(address()); }
+		public int getDistortedViewportSizeW() { return ngetDistortedViewportSizeW(address()); }
+		public int getDistortedViewportSizeH() { return ngetDistortedViewportSizeH(address()); }
+		public OVRVector2f getPixelsPerTanAngleAtCenter() { return ngetPixelsPerTanAngleAtCenter(address()); }
+		public float getPixelsPerTanAngleAtCenterX() { return ngetPixelsPerTanAngleAtCenterX(address()); }
+		public float getPixelsPerTanAngleAtCenterY() { return ngetPixelsPerTanAngleAtCenterY(address()); }
+		public OVRVector3f getHmdToEyeViewOffset() { return ngetHmdToEyeViewOffset(address()); }
+		public float getHmdToEyeViewOffsetX() { return ngetHmdToEyeViewOffsetX(address()); }
+		public float getHmdToEyeViewOffsetY() { return ngetHmdToEyeViewOffsetY(address()); }
+		public float getHmdToEyeViewOffsetZ() { return ngetHmdToEyeViewOffsetZ(address()); }
+
 	}
 
 }

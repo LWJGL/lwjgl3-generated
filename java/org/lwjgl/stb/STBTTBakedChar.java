@@ -178,6 +178,14 @@ public final class STBTTBakedChar extends Struct {
 			return SIZEOF;
 		}
 
+		public int getX0() { return ngetX0(address()); }
+		public int getY0() { return ngetY0(address()); }
+		public int getX1() { return ngetX1(address()); }
+		public int getY1() { return ngetY1(address()); }
+		public float getXoff() { return ngetXoff(address()); }
+		public float getYoff() { return ngetYoff(address()); }
+		public float getXadvance() { return ngetXadvance(address()); }
+
 	}
 
 }

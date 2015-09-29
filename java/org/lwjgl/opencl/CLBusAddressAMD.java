@@ -196,6 +196,12 @@ public final class CLBusAddressAMD extends Struct {
 			return SIZEOF;
 		}
 
+		public long getSurfaceBusAddress() { return ngetSurfaceBusAddress(address()); }
+		public long getMarkerBusAddress() { return ngetMarkerBusAddress(address()); }
+
+		public CLBusAddressAMD.Buffer setSurfaceBusAddress(long surface_bus_address) { nsetSurfaceBusAddress(address(), surface_bus_address); return this; }
+		public CLBusAddressAMD.Buffer setMarkerBusAddress(long marker_bus_address) { nsetMarkerBusAddress(address(), marker_bus_address); return this; }
+
 	}
 
 }

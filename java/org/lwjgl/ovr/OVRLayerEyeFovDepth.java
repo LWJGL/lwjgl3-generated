@@ -363,6 +363,42 @@ public final class OVRLayerEyeFovDepth extends Struct {
 			return SIZEOF;
 		}
 
+		public OVRLayerHeader getHeader() { return ngetHeader(address()); }
+		public int getHeaderType() { return ngetHeaderType(address()); }
+		public int getHeaderFlags() { return ngetHeaderFlags(address()); }
+		public void getColorTexture(PointerBuffer ColorTexture) { ngetColorTexture(address(), ColorTexture); }
+		public OVRSwapTextureSet getColorTexture(int index) { return ngetColorTexture(address(), index); }
+		public void getViewport(ByteBuffer Viewport) { ngetViewport(address(), Viewport); }
+		public OVRRecti getViewport(int index) { return ngetViewport(address(), index); }
+		public void getFov(ByteBuffer Fov) { ngetFov(address(), Fov); }
+		public OVRFovPort getFov(int index) { return ngetFov(address(), index); }
+		public void getRenderPose(ByteBuffer RenderPose) { ngetRenderPose(address(), RenderPose); }
+		public OVRPosef getRenderPose(int index) { return ngetRenderPose(address(), index); }
+		public void getDepthTexture(PointerBuffer DepthTexture) { ngetDepthTexture(address(), DepthTexture); }
+		public OVRSwapTextureSet getDepthTexture(int index) { return ngetDepthTexture(address(), index); }
+		public OVRTimewarpProjectionDesc getProjectionDesc() { return ngetProjectionDesc(address()); }
+		public float getProjectionDescProjection22() { return ngetProjectionDescProjection22(address()); }
+		public float getProjectionDescProjection23() { return ngetProjectionDescProjection23(address()); }
+		public float getProjectionDescProjection32() { return ngetProjectionDescProjection32(address()); }
+
+		public OVRLayerEyeFovDepth.Buffer setHeader(OVRLayerHeader Header) { nsetHeader(address(), Header); return this; }
+		public OVRLayerEyeFovDepth.Buffer setHeaderType(int Type) { nsetHeaderType(address(), Type); return this; }
+		public OVRLayerEyeFovDepth.Buffer setHeaderFlags(int Flags) { nsetHeaderFlags(address(), Flags); return this; }
+		public OVRLayerEyeFovDepth.Buffer setColorTexture(PointerBuffer ColorTexture) { nsetColorTexture(address(), ColorTexture); return this; }
+		public OVRLayerEyeFovDepth.Buffer setColorTexture(int index, OVRSwapTextureSet ColorTexture) { nsetColorTexture(address(), index, ColorTexture); return this; }
+		public OVRLayerEyeFovDepth.Buffer setViewport(ByteBuffer Viewport) { nsetViewport(address(), Viewport); return this; }
+		public OVRLayerEyeFovDepth.Buffer setViewport(int index, OVRRecti Viewport) { nsetViewport(address(), index, Viewport); return this; }
+		public OVRLayerEyeFovDepth.Buffer setFov(ByteBuffer Fov) { nsetFov(address(), Fov); return this; }
+		public OVRLayerEyeFovDepth.Buffer setFov(int index, OVRFovPort Fov) { nsetFov(address(), index, Fov); return this; }
+		public OVRLayerEyeFovDepth.Buffer setRenderPose(ByteBuffer RenderPose) { nsetRenderPose(address(), RenderPose); return this; }
+		public OVRLayerEyeFovDepth.Buffer setRenderPose(int index, OVRPosef RenderPose) { nsetRenderPose(address(), index, RenderPose); return this; }
+		public OVRLayerEyeFovDepth.Buffer setDepthTexture(PointerBuffer DepthTexture) { nsetDepthTexture(address(), DepthTexture); return this; }
+		public OVRLayerEyeFovDepth.Buffer setDepthTexture(int index, OVRSwapTextureSet DepthTexture) { nsetDepthTexture(address(), index, DepthTexture); return this; }
+		public OVRLayerEyeFovDepth.Buffer setProjectionDesc(OVRTimewarpProjectionDesc ProjectionDesc) { nsetProjectionDesc(address(), ProjectionDesc); return this; }
+		public OVRLayerEyeFovDepth.Buffer setProjectionDescProjection22(float Projection22) { nsetProjectionDescProjection22(address(), Projection22); return this; }
+		public OVRLayerEyeFovDepth.Buffer setProjectionDescProjection23(float Projection23) { nsetProjectionDescProjection23(address(), Projection23); return this; }
+		public OVRLayerEyeFovDepth.Buffer setProjectionDescProjection32(float Projection32) { nsetProjectionDescProjection32(address(), Projection32); return this; }
+
 	}
 
 }

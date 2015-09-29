@@ -216,6 +216,16 @@ public final class CLMotionEstimationDescINTEL extends Struct {
 			return SIZEOF;
 		}
 
+		public int getMbBlockType() { return ngetMbBlockType(address()); }
+		public int getSubpixelMode() { return ngetSubpixelMode(address()); }
+		public int getSadAdjustMode() { return ngetSadAdjustMode(address()); }
+		public int getSearchPathType() { return ngetSearchPathType(address()); }
+
+		public CLMotionEstimationDescINTEL.Buffer setMbBlockType(int mb_block_type) { nsetMbBlockType(address(), mb_block_type); return this; }
+		public CLMotionEstimationDescINTEL.Buffer setSubpixelMode(int subpixel_mode) { nsetSubpixelMode(address(), subpixel_mode); return this; }
+		public CLMotionEstimationDescINTEL.Buffer setSadAdjustMode(int sad_adjust_mode) { nsetSadAdjustMode(address(), sad_adjust_mode); return this; }
+		public CLMotionEstimationDescINTEL.Buffer setSearchPathType(int search_path_type) { nsetSearchPathType(address(), search_path_type); return this; }
+
 	}
 
 }

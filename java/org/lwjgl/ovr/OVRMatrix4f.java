@@ -166,6 +166,11 @@ public final class OVRMatrix4f extends Struct {
 			return SIZEOF;
 		}
 
+		public void getM(ByteBuffer m) { ngetM(address(), m); }
+
+		public OVRMatrix4f.Buffer setM(ByteBuffer m) { nsetM(address(), m); return this; }
+		public OVRMatrix4f.Buffer setM(int index, float m) { nsetM(address(), index, m); return this; }
+
 	}
 
 }

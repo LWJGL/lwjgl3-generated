@@ -216,6 +216,16 @@ public final class OVRQuatf extends Struct {
 			return SIZEOF;
 		}
 
+		public float getX() { return ngetX(address()); }
+		public float getY() { return ngetY(address()); }
+		public float getZ() { return ngetZ(address()); }
+		public float getW() { return ngetW(address()); }
+
+		public OVRQuatf.Buffer setX(float x) { nsetX(address(), x); return this; }
+		public OVRQuatf.Buffer setY(float y) { nsetY(address(), y); return this; }
+		public OVRQuatf.Buffer setZ(float z) { nsetZ(address(), z); return this; }
+		public OVRQuatf.Buffer setW(float w) { nsetW(address(), w); return this; }
+
 	}
 
 }

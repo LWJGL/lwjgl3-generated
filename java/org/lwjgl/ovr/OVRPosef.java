@@ -242,6 +242,26 @@ public final class OVRPosef extends Struct {
 			return SIZEOF;
 		}
 
+		public OVRQuatf getOrientation() { return ngetOrientation(address()); }
+		public float getOrientationX() { return ngetOrientationX(address()); }
+		public float getOrientationY() { return ngetOrientationY(address()); }
+		public float getOrientationZ() { return ngetOrientationZ(address()); }
+		public float getOrientationW() { return ngetOrientationW(address()); }
+		public OVRVector3f getPosition() { return ngetPosition(address()); }
+		public float getPositionX() { return ngetPositionX(address()); }
+		public float getPositionY() { return ngetPositionY(address()); }
+		public float getPositionZ() { return ngetPositionZ(address()); }
+
+		public OVRPosef.Buffer setOrientation(OVRQuatf Orientation) { nsetOrientation(address(), Orientation); return this; }
+		public OVRPosef.Buffer setOrientationX(float x) { nsetOrientationX(address(), x); return this; }
+		public OVRPosef.Buffer setOrientationY(float y) { nsetOrientationY(address(), y); return this; }
+		public OVRPosef.Buffer setOrientationZ(float z) { nsetOrientationZ(address(), z); return this; }
+		public OVRPosef.Buffer setOrientationW(float w) { nsetOrientationW(address(), w); return this; }
+		public OVRPosef.Buffer setPosition(OVRVector3f Position) { nsetPosition(address(), Position); return this; }
+		public OVRPosef.Buffer setPositionX(float x) { nsetPositionX(address(), x); return this; }
+		public OVRPosef.Buffer setPositionY(float y) { nsetPositionY(address(), y); return this; }
+		public OVRPosef.Buffer setPositionZ(float z) { nsetPositionZ(address(), z); return this; }
+
 	}
 
 }

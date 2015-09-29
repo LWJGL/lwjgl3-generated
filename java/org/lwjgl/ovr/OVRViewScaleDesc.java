@@ -221,6 +221,14 @@ public final class OVRViewScaleDesc extends Struct {
 			return SIZEOF;
 		}
 
+		public void getHmdToEyeViewOffset(ByteBuffer HmdToEyeViewOffset) { ngetHmdToEyeViewOffset(address(), HmdToEyeViewOffset); }
+		public OVRVector3f getHmdToEyeViewOffset(int index) { return ngetHmdToEyeViewOffset(address(), index); }
+		public float getHmdSpaceToWorldScaleInMeters() { return ngetHmdSpaceToWorldScaleInMeters(address()); }
+
+		public OVRViewScaleDesc.Buffer setHmdToEyeViewOffset(ByteBuffer HmdToEyeViewOffset) { nsetHmdToEyeViewOffset(address(), HmdToEyeViewOffset); return this; }
+		public OVRViewScaleDesc.Buffer setHmdToEyeViewOffset(int index, OVRVector3f HmdToEyeViewOffset) { nsetHmdToEyeViewOffset(address(), index, HmdToEyeViewOffset); return this; }
+		public OVRViewScaleDesc.Buffer setHmdSpaceToWorldScaleInMeters(float HmdSpaceToWorldScaleInMeters) { nsetHmdSpaceToWorldScaleInMeters(address(), HmdSpaceToWorldScaleInMeters); return this; }
+
 	}
 
 }

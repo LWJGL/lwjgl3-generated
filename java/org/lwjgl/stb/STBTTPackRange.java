@@ -170,6 +170,12 @@ public final class STBTTPackRange extends Struct {
 			return SIZEOF;
 		}
 
+		public float getFontSize() { return ngetFontSize(address()); }
+		public int getFirstUnicodeCodepointInRange() { return ngetFirstUnicodeCodepointInRange(address()); }
+		public ByteBuffer getArrayOfUnicodeCodepoints(int byteLen) { return ngetArrayOfUnicodeCodepoints(address(), byteLen); }
+		public int getNumChars() { return ngetNumChars(address()); }
+		public STBTTPackedchar getChardataForRange() { return ngetChardataForRangeStruct(address()); }
+
 	}
 
 }

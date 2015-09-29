@@ -175,6 +175,14 @@ public final class GLYPHMETRICSFLOAT extends Struct {
 			return SIZEOF;
 		}
 
+		public float getBlackBoxX() { return ngetBlackBoxX(address()); }
+		public float getBlockBoxY() { return ngetBlockBoxY(address()); }
+		public POINTFLOAT getGlyphOrigin() { return ngetGlyphOrigin(address()); }
+		public float getGlyphOriginX() { return ngetGlyphOriginX(address()); }
+		public float getGlyphOriginY() { return ngetGlyphOriginY(address()); }
+		public float getCellIncX() { return ngetCellIncX(address()); }
+		public float getCellIncY() { return ngetCellIncY(address()); }
+
 	}
 
 }

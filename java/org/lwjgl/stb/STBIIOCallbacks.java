@@ -206,6 +206,14 @@ public final class STBIIOCallbacks extends Struct {
 			return SIZEOF;
 		}
 
+		public long getRead() { return ngetRead(address()); }
+		public long getSkip() { return ngetSkip(address()); }
+		public long getEof() { return ngetEof(address()); }
+
+		public STBIIOCallbacks.Buffer setRead(long read) { nsetRead(address(), read); return this; }
+		public STBIIOCallbacks.Buffer setSkip(long skip) { nsetSkip(address(), skip); return this; }
+		public STBIIOCallbacks.Buffer setEof(long eof) { nsetEof(address(), eof); return this; }
+
 	}
 
 }

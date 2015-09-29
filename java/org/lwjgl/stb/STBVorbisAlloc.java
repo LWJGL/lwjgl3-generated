@@ -198,6 +198,12 @@ public final class STBVorbisAlloc extends Struct {
 			return SIZEOF;
 		}
 
+		public ByteBuffer getAllocBuffer(int byteLen) { return ngetAllocBuffer(address(), byteLen); }
+		public int getAllocBufferLengthInBytes() { return ngetAllocBufferLengthInBytes(address()); }
+
+		public STBVorbisAlloc.Buffer setAllocBuffer(ByteBuffer alloc_buffer) { nsetAllocBuffer(address(), alloc_buffer); return this; }
+		public STBVorbisAlloc.Buffer setAllocBufferLengthInBytes(int alloc_buffer_length_in_bytes) { nsetAllocBufferLengthInBytes(address(), alloc_buffer_length_in_bytes); return this; }
+
 	}
 
 }

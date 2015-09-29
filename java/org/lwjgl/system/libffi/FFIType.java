@@ -218,6 +218,16 @@ public final class FFIType extends Struct {
 			return SIZEOF;
 		}
 
+		public long getSize() { return ngetSize(address()); }
+		public int getAlignment() { return ngetAlignment(address()); }
+		public int getType() { return ngetType(address()); }
+		public ByteBuffer getElements(int byteLen) { return ngetElements(address(), byteLen); }
+
+		public FFIType.Buffer setSize(long size) { nsetSize(address(), size); return this; }
+		public FFIType.Buffer setAlignment(int alignment) { nsetAlignment(address(), alignment); return this; }
+		public FFIType.Buffer setType(int type) { nsetType(address(), type); return this; }
+		public FFIType.Buffer setElements(ByteBuffer elements) { nsetElements(address(), elements); return this; }
+
 	}
 
 }

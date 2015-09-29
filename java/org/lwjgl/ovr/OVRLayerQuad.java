@@ -369,6 +369,56 @@ public final class OVRLayerQuad extends Struct {
 			return SIZEOF;
 		}
 
+		public OVRLayerHeader getHeader() { return ngetHeader(address()); }
+		public int getHeaderType() { return ngetHeaderType(address()); }
+		public int getHeaderFlags() { return ngetHeaderFlags(address()); }
+		public OVRSwapTextureSet getColorTexture() { return ngetColorTextureStruct(address()); }
+		public OVRRecti getViewport() { return ngetViewport(address()); }
+		public OVRVector2i getViewportPos() { return ngetViewportPos(address()); }
+		public int getViewportPosX() { return ngetViewportPosX(address()); }
+		public int getViewportPosY() { return ngetViewportPosY(address()); }
+		public OVRSizei getViewportSize() { return ngetViewportSize(address()); }
+		public int getViewportSizeW() { return ngetViewportSizeW(address()); }
+		public int getViewportSizeH() { return ngetViewportSizeH(address()); }
+		public OVRPosef getQuadPoseCenter() { return ngetQuadPoseCenter(address()); }
+		public OVRQuatf getQuadPoseCenterOrientation() { return ngetQuadPoseCenterOrientation(address()); }
+		public float getQuadPoseCenterOrientationX() { return ngetQuadPoseCenterOrientationX(address()); }
+		public float getQuadPoseCenterOrientationY() { return ngetQuadPoseCenterOrientationY(address()); }
+		public float getQuadPoseCenterOrientationZ() { return ngetQuadPoseCenterOrientationZ(address()); }
+		public float getQuadPoseCenterOrientationW() { return ngetQuadPoseCenterOrientationW(address()); }
+		public OVRVector3f getQuadPoseCenterPosition() { return ngetQuadPoseCenterPosition(address()); }
+		public float getQuadPoseCenterPositionX() { return ngetQuadPoseCenterPositionX(address()); }
+		public float getQuadPoseCenterPositionY() { return ngetQuadPoseCenterPositionY(address()); }
+		public float getQuadPoseCenterPositionZ() { return ngetQuadPoseCenterPositionZ(address()); }
+		public OVRVector2f getQuadSize() { return ngetQuadSize(address()); }
+		public float getQuadSizeX() { return ngetQuadSizeX(address()); }
+		public float getQuadSizeY() { return ngetQuadSizeY(address()); }
+
+		public OVRLayerQuad.Buffer setHeader(OVRLayerHeader Header) { nsetHeader(address(), Header); return this; }
+		public OVRLayerQuad.Buffer setHeaderType(int Type) { nsetHeaderType(address(), Type); return this; }
+		public OVRLayerQuad.Buffer setHeaderFlags(int Flags) { nsetHeaderFlags(address(), Flags); return this; }
+		public OVRLayerQuad.Buffer setColorTexture(OVRSwapTextureSet ColorTexture) { nsetColorTexture(address(), ColorTexture); return this; }
+		public OVRLayerQuad.Buffer setViewport(OVRRecti Viewport) { nsetViewport(address(), Viewport); return this; }
+		public OVRLayerQuad.Buffer setViewportPos(OVRVector2i Pos) { nsetViewportPos(address(), Pos); return this; }
+		public OVRLayerQuad.Buffer setViewportPosX(int x) { nsetViewportPosX(address(), x); return this; }
+		public OVRLayerQuad.Buffer setViewportPosY(int y) { nsetViewportPosY(address(), y); return this; }
+		public OVRLayerQuad.Buffer setViewportSize(OVRSizei Size) { nsetViewportSize(address(), Size); return this; }
+		public OVRLayerQuad.Buffer setViewportSizeW(int w) { nsetViewportSizeW(address(), w); return this; }
+		public OVRLayerQuad.Buffer setViewportSizeH(int h) { nsetViewportSizeH(address(), h); return this; }
+		public OVRLayerQuad.Buffer setQuadPoseCenter(OVRPosef QuadPoseCenter) { nsetQuadPoseCenter(address(), QuadPoseCenter); return this; }
+		public OVRLayerQuad.Buffer setQuadPoseCenterOrientation(OVRQuatf Orientation) { nsetQuadPoseCenterOrientation(address(), Orientation); return this; }
+		public OVRLayerQuad.Buffer setQuadPoseCenterOrientationX(float x) { nsetQuadPoseCenterOrientationX(address(), x); return this; }
+		public OVRLayerQuad.Buffer setQuadPoseCenterOrientationY(float y) { nsetQuadPoseCenterOrientationY(address(), y); return this; }
+		public OVRLayerQuad.Buffer setQuadPoseCenterOrientationZ(float z) { nsetQuadPoseCenterOrientationZ(address(), z); return this; }
+		public OVRLayerQuad.Buffer setQuadPoseCenterOrientationW(float w) { nsetQuadPoseCenterOrientationW(address(), w); return this; }
+		public OVRLayerQuad.Buffer setQuadPoseCenterPosition(OVRVector3f Position) { nsetQuadPoseCenterPosition(address(), Position); return this; }
+		public OVRLayerQuad.Buffer setQuadPoseCenterPositionX(float x) { nsetQuadPoseCenterPositionX(address(), x); return this; }
+		public OVRLayerQuad.Buffer setQuadPoseCenterPositionY(float y) { nsetQuadPoseCenterPositionY(address(), y); return this; }
+		public OVRLayerQuad.Buffer setQuadPoseCenterPositionZ(float z) { nsetQuadPoseCenterPositionZ(address(), z); return this; }
+		public OVRLayerQuad.Buffer setQuadSize(OVRVector2f QuadSize) { nsetQuadSize(address(), QuadSize); return this; }
+		public OVRLayerQuad.Buffer setQuadSizeX(float x) { nsetQuadSizeX(address(), x); return this; }
+		public OVRLayerQuad.Buffer setQuadSizeY(float y) { nsetQuadSizeY(address(), y); return this; }
+
 	}
 
 }

@@ -224,6 +224,20 @@ public final class OVRGLTextureData extends Struct {
 			return SIZEOF;
 		}
 
+		public OVRTextureHeader getHeader() { return ngetHeader(address()); }
+		public int getHeaderAPI() { return ngetHeaderAPI(address()); }
+		public OVRSizei getHeaderTextureSize() { return ngetHeaderTextureSize(address()); }
+		public int getHeaderTextureSizeW() { return ngetHeaderTextureSizeW(address()); }
+		public int getHeaderTextureSizeH() { return ngetHeaderTextureSizeH(address()); }
+		public int getTexId() { return ngetTexId(address()); }
+
+		public OVRGLTextureData.Buffer setHeader(OVRTextureHeader Header) { nsetHeader(address(), Header); return this; }
+		public OVRGLTextureData.Buffer setHeaderAPI(int API) { nsetHeaderAPI(address(), API); return this; }
+		public OVRGLTextureData.Buffer setHeaderTextureSize(OVRSizei TextureSize) { nsetHeaderTextureSize(address(), TextureSize); return this; }
+		public OVRGLTextureData.Buffer setHeaderTextureSizeW(int w) { nsetHeaderTextureSizeW(address(), w); return this; }
+		public OVRGLTextureData.Buffer setHeaderTextureSizeH(int h) { nsetHeaderTextureSizeH(address(), h); return this; }
+		public OVRGLTextureData.Buffer setTexId(int TexId) { nsetTexId(address(), TexId); return this; }
+
 	}
 
 }

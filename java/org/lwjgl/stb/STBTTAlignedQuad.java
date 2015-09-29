@@ -183,6 +183,15 @@ public final class STBTTAlignedQuad extends Struct {
 			return SIZEOF;
 		}
 
+		public float getX0() { return ngetX0(address()); }
+		public float getY0() { return ngetY0(address()); }
+		public float getS0() { return ngetS0(address()); }
+		public float getT0() { return ngetT0(address()); }
+		public float getX1() { return ngetX1(address()); }
+		public float getY1() { return ngetY1(address()); }
+		public float getS1() { return ngetS1(address()); }
+		public float getT1() { return ngetT1(address()); }
+
 	}
 
 }

@@ -153,6 +153,8 @@ public final class OVRGraphicsLuid extends Struct {
 			return SIZEOF;
 		}
 
+		public void getReserved(ByteBuffer Reserved) { ngetReserved(address(), Reserved); }
+
 	}
 
 }

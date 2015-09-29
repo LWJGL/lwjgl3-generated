@@ -243,6 +243,34 @@ public final class OVRPoseStatef extends Struct {
 			return SIZEOF;
 		}
 
+		public OVRPosef getThePose() { return ngetThePose(address()); }
+		public OVRQuatf getThePoseOrientation() { return ngetThePoseOrientation(address()); }
+		public float getThePoseOrientationX() { return ngetThePoseOrientationX(address()); }
+		public float getThePoseOrientationY() { return ngetThePoseOrientationY(address()); }
+		public float getThePoseOrientationZ() { return ngetThePoseOrientationZ(address()); }
+		public float getThePoseOrientationW() { return ngetThePoseOrientationW(address()); }
+		public OVRVector3f getThePosePosition() { return ngetThePosePosition(address()); }
+		public float getThePosePositionX() { return ngetThePosePositionX(address()); }
+		public float getThePosePositionY() { return ngetThePosePositionY(address()); }
+		public float getThePosePositionZ() { return ngetThePosePositionZ(address()); }
+		public OVRVector3f getAngularVelocity() { return ngetAngularVelocity(address()); }
+		public float getAngularVelocityX() { return ngetAngularVelocityX(address()); }
+		public float getAngularVelocityY() { return ngetAngularVelocityY(address()); }
+		public float getAngularVelocityZ() { return ngetAngularVelocityZ(address()); }
+		public OVRVector3f getLinearVelocity() { return ngetLinearVelocity(address()); }
+		public float getLinearVelocityX() { return ngetLinearVelocityX(address()); }
+		public float getLinearVelocityY() { return ngetLinearVelocityY(address()); }
+		public float getLinearVelocityZ() { return ngetLinearVelocityZ(address()); }
+		public OVRVector3f getAngularAcceleration() { return ngetAngularAcceleration(address()); }
+		public float getAngularAccelerationX() { return ngetAngularAccelerationX(address()); }
+		public float getAngularAccelerationY() { return ngetAngularAccelerationY(address()); }
+		public float getAngularAccelerationZ() { return ngetAngularAccelerationZ(address()); }
+		public OVRVector3f getLinearAcceleration() { return ngetLinearAcceleration(address()); }
+		public float getLinearAccelerationX() { return ngetLinearAccelerationX(address()); }
+		public float getLinearAccelerationY() { return ngetLinearAccelerationY(address()); }
+		public float getLinearAccelerationZ() { return ngetLinearAccelerationZ(address()); }
+		public double getTimeInSeconds() { return ngetTimeInSeconds(address()); }
+
 	}
 
 }

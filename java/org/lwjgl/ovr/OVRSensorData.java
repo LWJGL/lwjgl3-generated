@@ -198,6 +198,21 @@ public final class OVRSensorData extends Struct {
 			return SIZEOF;
 		}
 
+		public OVRVector3f getAccelerometer() { return ngetAccelerometer(address()); }
+		public float getAccelerometerX() { return ngetAccelerometerX(address()); }
+		public float getAccelerometerY() { return ngetAccelerometerY(address()); }
+		public float getAccelerometerZ() { return ngetAccelerometerZ(address()); }
+		public OVRVector3f getGyro() { return ngetGyro(address()); }
+		public float getGyroX() { return ngetGyroX(address()); }
+		public float getGyroY() { return ngetGyroY(address()); }
+		public float getGyroZ() { return ngetGyroZ(address()); }
+		public OVRVector3f getMagnetometer() { return ngetMagnetometer(address()); }
+		public float getMagnetometerX() { return ngetMagnetometerX(address()); }
+		public float getMagnetometerY() { return ngetMagnetometerY(address()); }
+		public float getMagnetometerZ() { return ngetMagnetometerZ(address()); }
+		public float getTemperature() { return ngetTemperature(address()); }
+		public float getTimeInSeconds() { return ngetTimeInSeconds(address()); }
+
 	}
 
 }

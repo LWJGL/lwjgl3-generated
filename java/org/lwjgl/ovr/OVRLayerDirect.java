@@ -256,6 +256,22 @@ public final class OVRLayerDirect extends Struct {
 			return SIZEOF;
 		}
 
+		public OVRLayerHeader getHeader() { return ngetHeader(address()); }
+		public int getHeaderType() { return ngetHeaderType(address()); }
+		public int getHeaderFlags() { return ngetHeaderFlags(address()); }
+		public void getColorTexture(PointerBuffer ColorTexture) { ngetColorTexture(address(), ColorTexture); }
+		public OVRSwapTextureSet getColorTexture(int index) { return ngetColorTexture(address(), index); }
+		public void getViewport(ByteBuffer Viewport) { ngetViewport(address(), Viewport); }
+		public OVRRecti getViewport(int index) { return ngetViewport(address(), index); }
+
+		public OVRLayerDirect.Buffer setHeader(OVRLayerHeader Header) { nsetHeader(address(), Header); return this; }
+		public OVRLayerDirect.Buffer setHeaderType(int Type) { nsetHeaderType(address(), Type); return this; }
+		public OVRLayerDirect.Buffer setHeaderFlags(int Flags) { nsetHeaderFlags(address(), Flags); return this; }
+		public OVRLayerDirect.Buffer setColorTexture(PointerBuffer ColorTexture) { nsetColorTexture(address(), ColorTexture); return this; }
+		public OVRLayerDirect.Buffer setColorTexture(int index, OVRSwapTextureSet ColorTexture) { nsetColorTexture(address(), index, ColorTexture); return this; }
+		public OVRLayerDirect.Buffer setViewport(ByteBuffer Viewport) { nsetViewport(address(), Viewport); return this; }
+		public OVRLayerDirect.Buffer setViewport(int index, OVRRecti Viewport) { nsetViewport(address(), index, Viewport); return this; }
+
 	}
 
 }

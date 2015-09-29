@@ -236,6 +236,20 @@ public final class STBRPRect extends Struct {
 			return SIZEOF;
 		}
 
+		public int getId() { return ngetId(address()); }
+		public int getW() { return ngetW(address()); }
+		public int getH() { return ngetH(address()); }
+		public int getX() { return ngetX(address()); }
+		public int getY() { return ngetY(address()); }
+		public int getWasPacked() { return ngetWasPacked(address()); }
+
+		public STBRPRect.Buffer setId(int id) { nsetId(address(), id); return this; }
+		public STBRPRect.Buffer setW(int w) { nsetW(address(), w); return this; }
+		public STBRPRect.Buffer setH(int h) { nsetH(address(), h); return this; }
+		public STBRPRect.Buffer setX(int x) { nsetX(address(), x); return this; }
+		public STBRPRect.Buffer setY(int y) { nsetY(address(), y); return this; }
+		public STBRPRect.Buffer setWasPacked(int was_packed) { nsetWasPacked(address(), was_packed); return this; }
+
 	}
 
 }

@@ -278,6 +278,28 @@ public final class XVisualInfo extends Struct {
 			return SIZEOF;
 		}
 
+		public Visual getVisual() { return ngetVisualStruct(address()); }
+		public long getVisualid() { return ngetVisualid(address()); }
+		public int getScreen() { return ngetScreen(address()); }
+		public int getDepth() { return ngetDepth(address()); }
+		public int getClazz() { return ngetClazz(address()); }
+		public long getRedMask() { return ngetRedMask(address()); }
+		public long getGreenMask() { return ngetGreenMask(address()); }
+		public long getBlueMask() { return ngetBlueMask(address()); }
+		public int getColormapSize() { return ngetColormapSize(address()); }
+		public int getBitsPerRgb() { return ngetBitsPerRgb(address()); }
+
+		public XVisualInfo.Buffer setVisual(Visual visual) { nsetVisual(address(), visual); return this; }
+		public XVisualInfo.Buffer setVisualid(long visualid) { nsetVisualid(address(), visualid); return this; }
+		public XVisualInfo.Buffer setScreen(int screen) { nsetScreen(address(), screen); return this; }
+		public XVisualInfo.Buffer setDepth(int depth) { nsetDepth(address(), depth); return this; }
+		public XVisualInfo.Buffer setClazz(int clazz) { nsetClazz(address(), clazz); return this; }
+		public XVisualInfo.Buffer setRedMask(long red_mask) { nsetRedMask(address(), red_mask); return this; }
+		public XVisualInfo.Buffer setGreenMask(long green_mask) { nsetGreenMask(address(), green_mask); return this; }
+		public XVisualInfo.Buffer setBlueMask(long blue_mask) { nsetBlueMask(address(), blue_mask); return this; }
+		public XVisualInfo.Buffer setColormapSize(int colormap_size) { nsetColormapSize(address(), colormap_size); return this; }
+		public XVisualInfo.Buffer setBitsPerRgb(int bits_per_rgb) { nsetBitsPerRgb(address(), bits_per_rgb); return this; }
+
 	}
 
 }

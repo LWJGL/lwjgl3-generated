@@ -204,6 +204,20 @@ public final class GPU_DEVICE extends Struct {
 			return SIZEOF;
 		}
 
+		public int getCb() { return ngetCb(address()); }
+		public void getDeviceName(ByteBuffer DeviceName) { ngetDeviceName(address(), DeviceName); }
+		public String getDeviceNameString() { return ngetDeviceNameString(address()); }
+		public String getDeviceNameString(int byteLen) { return ngetDeviceNameString(address(), byteLen); }
+		public void getDeviceString(ByteBuffer DeviceString) { ngetDeviceString(address(), DeviceString); }
+		public String getDeviceStringString() { return ngetDeviceStringString(address()); }
+		public String getDeviceStringString(int byteLen) { return ngetDeviceStringString(address(), byteLen); }
+		public int getFlags() { return ngetFlags(address()); }
+		public RECT getVirtualScreen() { return ngetVirtualScreen(address()); }
+		public int getVirtualScreenLeft() { return ngetVirtualScreenLeft(address()); }
+		public int getVirtualScreenTop() { return ngetVirtualScreenTop(address()); }
+		public int getVirtualScreenRight() { return ngetVirtualScreenRight(address()); }
+		public int getVirtualScreenBottom() { return ngetVirtualScreenBottom(address()); }
+
 	}
 
 }

@@ -196,6 +196,12 @@ public final class OVRSizei extends Struct {
 			return SIZEOF;
 		}
 
+		public int getW() { return ngetW(address()); }
+		public int getH() { return ngetH(address()); }
+
+		public OVRSizei.Buffer setW(int w) { nsetW(address(), w); return this; }
+		public OVRSizei.Buffer setH(int h) { nsetH(address(), h); return this; }
+
 	}
 
 }

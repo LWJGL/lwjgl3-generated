@@ -307,6 +307,30 @@ public final class OVRLayerEyeFov extends Struct {
 			return SIZEOF;
 		}
 
+		public OVRLayerHeader getHeader() { return ngetHeader(address()); }
+		public int getHeaderType() { return ngetHeaderType(address()); }
+		public int getHeaderFlags() { return ngetHeaderFlags(address()); }
+		public void getColorTexture(PointerBuffer ColorTexture) { ngetColorTexture(address(), ColorTexture); }
+		public OVRSwapTextureSet getColorTexture(int index) { return ngetColorTexture(address(), index); }
+		public void getViewport(ByteBuffer Viewport) { ngetViewport(address(), Viewport); }
+		public OVRRecti getViewport(int index) { return ngetViewport(address(), index); }
+		public void getFov(ByteBuffer Fov) { ngetFov(address(), Fov); }
+		public OVRFovPort getFov(int index) { return ngetFov(address(), index); }
+		public void getRenderPose(ByteBuffer RenderPose) { ngetRenderPose(address(), RenderPose); }
+		public OVRPosef getRenderPose(int index) { return ngetRenderPose(address(), index); }
+
+		public OVRLayerEyeFov.Buffer setHeader(OVRLayerHeader Header) { nsetHeader(address(), Header); return this; }
+		public OVRLayerEyeFov.Buffer setHeaderType(int Type) { nsetHeaderType(address(), Type); return this; }
+		public OVRLayerEyeFov.Buffer setHeaderFlags(int Flags) { nsetHeaderFlags(address(), Flags); return this; }
+		public OVRLayerEyeFov.Buffer setColorTexture(PointerBuffer ColorTexture) { nsetColorTexture(address(), ColorTexture); return this; }
+		public OVRLayerEyeFov.Buffer setColorTexture(int index, OVRSwapTextureSet ColorTexture) { nsetColorTexture(address(), index, ColorTexture); return this; }
+		public OVRLayerEyeFov.Buffer setViewport(ByteBuffer Viewport) { nsetViewport(address(), Viewport); return this; }
+		public OVRLayerEyeFov.Buffer setViewport(int index, OVRRecti Viewport) { nsetViewport(address(), index, Viewport); return this; }
+		public OVRLayerEyeFov.Buffer setFov(ByteBuffer Fov) { nsetFov(address(), Fov); return this; }
+		public OVRLayerEyeFov.Buffer setFov(int index, OVRFovPort Fov) { nsetFov(address(), index, Fov); return this; }
+		public OVRLayerEyeFov.Buffer setRenderPose(ByteBuffer RenderPose) { nsetRenderPose(address(), RenderPose); return this; }
+		public OVRLayerEyeFov.Buffer setRenderPose(int index, OVRPosef RenderPose) { nsetRenderPose(address(), index, RenderPose); return this; }
+
 	}
 
 }

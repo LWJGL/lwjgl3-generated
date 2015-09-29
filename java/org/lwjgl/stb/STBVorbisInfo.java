@@ -173,6 +173,13 @@ public final class STBVorbisInfo extends Struct {
 			return SIZEOF;
 		}
 
+		public int getSampleRate() { return ngetSampleRate(address()); }
+		public int getChannels() { return ngetChannels(address()); }
+		public int getSetupMemoryRequired() { return ngetSetupMemoryRequired(address()); }
+		public int getSetupTempMemoryRequired() { return ngetSetupTempMemoryRequired(address()); }
+		public int getTempMemoryRequired() { return ngetTempMemoryRequired(address()); }
+		public int getMaxFrameSize() { return ngetMaxFrameSize(address()); }
+
 	}
 
 }

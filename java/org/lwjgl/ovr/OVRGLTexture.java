@@ -293,6 +293,37 @@ public final class OVRGLTexture extends Struct {
 			return SIZEOF;
 		}
 
+		public OVRTexture getTexture() { return ngetTexture(address()); }
+		public OVRTextureHeader getTextureHeader() { return ngetTextureHeader(address()); }
+		public int getTextureHeaderAPI() { return ngetTextureHeaderAPI(address()); }
+		public OVRSizei getTextureHeaderTextureSize() { return ngetTextureHeaderTextureSize(address()); }
+		public int getTextureHeaderTextureSizeW() { return ngetTextureHeaderTextureSizeW(address()); }
+		public int getTextureHeaderTextureSizeH() { return ngetTextureHeaderTextureSizeH(address()); }
+		public void getTexturePlatformData(ByteBuffer PlatformData) { ngetTexturePlatformData(address(), PlatformData); }
+		public OVRGLTextureData getOGL() { return ngetOGL(address()); }
+		public OVRTextureHeader getOGLHeader() { return ngetOGLHeader(address()); }
+		public int getOGLHeaderAPI() { return ngetOGLHeaderAPI(address()); }
+		public OVRSizei getOGLHeaderTextureSize() { return ngetOGLHeaderTextureSize(address()); }
+		public int getOGLHeaderTextureSizeW() { return ngetOGLHeaderTextureSizeW(address()); }
+		public int getOGLHeaderTextureSizeH() { return ngetOGLHeaderTextureSizeH(address()); }
+		public int getOGLTexId() { return ngetOGLTexId(address()); }
+
+		public OVRGLTexture.Buffer setTexture(OVRTexture Texture) { nsetTexture(address(), Texture); return this; }
+		public OVRGLTexture.Buffer setTextureHeader(OVRTextureHeader Header) { nsetTextureHeader(address(), Header); return this; }
+		public OVRGLTexture.Buffer setTextureHeaderAPI(int API) { nsetTextureHeaderAPI(address(), API); return this; }
+		public OVRGLTexture.Buffer setTextureHeaderTextureSize(OVRSizei TextureSize) { nsetTextureHeaderTextureSize(address(), TextureSize); return this; }
+		public OVRGLTexture.Buffer setTextureHeaderTextureSizeW(int w) { nsetTextureHeaderTextureSizeW(address(), w); return this; }
+		public OVRGLTexture.Buffer setTextureHeaderTextureSizeH(int h) { nsetTextureHeaderTextureSizeH(address(), h); return this; }
+		public OVRGLTexture.Buffer setTexturePlatformData(ByteBuffer PlatformData) { nsetTexturePlatformData(address(), PlatformData); return this; }
+		public OVRGLTexture.Buffer setTexturePlatformData(int index, long PlatformData) { nsetTexturePlatformData(address(), index, PlatformData); return this; }
+		public OVRGLTexture.Buffer setOGL(OVRGLTextureData ogl) { nsetOGL(address(), ogl); return this; }
+		public OVRGLTexture.Buffer setOGLHeader(OVRTextureHeader Header) { nsetOGLHeader(address(), Header); return this; }
+		public OVRGLTexture.Buffer setOGLHeaderAPI(int API) { nsetOGLHeaderAPI(address(), API); return this; }
+		public OVRGLTexture.Buffer setOGLHeaderTextureSize(OVRSizei TextureSize) { nsetOGLHeaderTextureSize(address(), TextureSize); return this; }
+		public OVRGLTexture.Buffer setOGLHeaderTextureSizeW(int w) { nsetOGLHeaderTextureSizeW(address(), w); return this; }
+		public OVRGLTexture.Buffer setOGLHeaderTextureSizeH(int h) { nsetOGLHeaderTextureSizeH(address(), h); return this; }
+		public OVRGLTexture.Buffer setOGLTexId(int TexId) { nsetOGLTexId(address(), TexId); return this; }
+
 	}
 
 }

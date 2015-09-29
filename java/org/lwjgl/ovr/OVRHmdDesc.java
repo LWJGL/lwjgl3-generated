@@ -293,6 +293,37 @@ public final class OVRHmdDesc extends Struct {
 			return SIZEOF;
 		}
 
+		public int getType() { return ngetType(address()); }
+		public void getProductName(ByteBuffer ProductName) { ngetProductName(address(), ProductName); }
+		public String getProductNameString() { return ngetProductNameString(address()); }
+		public String getProductNameString(int byteLen) { return ngetProductNameString(address(), byteLen); }
+		public void getManufacturer(ByteBuffer Manufacturer) { ngetManufacturer(address(), Manufacturer); }
+		public String getManufacturerString() { return ngetManufacturerString(address()); }
+		public String getManufacturerString(int byteLen) { return ngetManufacturerString(address(), byteLen); }
+		public int getVendorId() { return ngetVendorId(address()); }
+		public int getProductId() { return ngetProductId(address()); }
+		public void getSerialNumber(ByteBuffer SerialNumber) { ngetSerialNumber(address(), SerialNumber); }
+		public String getSerialNumberString() { return ngetSerialNumberString(address()); }
+		public String getSerialNumberString(int byteLen) { return ngetSerialNumberString(address(), byteLen); }
+		public int getFirmwareMajor() { return ngetFirmwareMajor(address()); }
+		public int getFirmwareMinor() { return ngetFirmwareMinor(address()); }
+		public float getCameraFrustumHFovInRadians() { return ngetCameraFrustumHFovInRadians(address()); }
+		public float getCameraFrustumVFovInRadians() { return ngetCameraFrustumVFovInRadians(address()); }
+		public float getCameraFrustumNearZInMeters() { return ngetCameraFrustumNearZInMeters(address()); }
+		public float getCameraFrustumFarZInMeters() { return ngetCameraFrustumFarZInMeters(address()); }
+		public int getAvailableHmdCaps() { return ngetAvailableHmdCaps(address()); }
+		public int getDefaultHmdCaps() { return ngetDefaultHmdCaps(address()); }
+		public int getAvailableTrackingCaps() { return ngetAvailableTrackingCaps(address()); }
+		public int getDefaultTrackingCaps() { return ngetDefaultTrackingCaps(address()); }
+		public void getDefaultEyeFov(ByteBuffer DefaultEyeFov) { ngetDefaultEyeFov(address(), DefaultEyeFov); }
+		public OVRFovPort getDefaultEyeFov(int index) { return ngetDefaultEyeFov(address(), index); }
+		public void getMaxEyeFov(ByteBuffer MaxEyeFov) { ngetMaxEyeFov(address(), MaxEyeFov); }
+		public OVRFovPort getMaxEyeFov(int index) { return ngetMaxEyeFov(address(), index); }
+		public OVRSizei getResolution() { return ngetResolution(address()); }
+		public int getResolutionW() { return ngetResolutionW(address()); }
+		public int getResolutionH() { return ngetResolutionH(address()); }
+		public float getDisplayRefreshRate() { return ngetDisplayRefreshRate(address()); }
+
 	}
 
 }

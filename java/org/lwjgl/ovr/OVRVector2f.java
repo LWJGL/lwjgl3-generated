@@ -196,6 +196,12 @@ public final class OVRVector2f extends Struct {
 			return SIZEOF;
 		}
 
+		public float getX() { return ngetX(address()); }
+		public float getY() { return ngetY(address()); }
+
+		public OVRVector2f.Buffer setX(float x) { nsetX(address(), x); return this; }
+		public OVRVector2f.Buffer setY(float y) { nsetY(address(), y); return this; }
+
 	}
 
 }

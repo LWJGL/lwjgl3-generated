@@ -168,6 +168,12 @@ public final class STBTTVertex extends Struct {
 			return SIZEOF;
 		}
 
+		public int getX() { return ngetX(address()); }
+		public int getY() { return ngetY(address()); }
+		public int getCx() { return ngetCx(address()); }
+		public int getCy() { return ngetCy(address()); }
+		public int getType() { return ngetType(address()); }
+
 	}
 
 }

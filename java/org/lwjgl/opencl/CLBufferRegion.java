@@ -196,6 +196,12 @@ public final class CLBufferRegion extends Struct {
 			return SIZEOF;
 		}
 
+		public long getOrigin() { return ngetOrigin(address()); }
+		public long getSize() { return ngetSize(address()); }
+
+		public CLBufferRegion.Buffer setOrigin(long origin) { nsetOrigin(address(), origin); return this; }
+		public CLBufferRegion.Buffer setSize(long size) { nsetSize(address(), size); return this; }
+
 	}
 
 }

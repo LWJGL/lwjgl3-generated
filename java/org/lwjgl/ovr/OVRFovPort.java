@@ -220,6 +220,16 @@ public final class OVRFovPort extends Struct {
 			return SIZEOF;
 		}
 
+		public float getUpTan() { return ngetUpTan(address()); }
+		public float getDownTan() { return ngetDownTan(address()); }
+		public float getLeftTan() { return ngetLeftTan(address()); }
+		public float getRightTan() { return ngetRightTan(address()); }
+
+		public OVRFovPort.Buffer setUpTan(float UpTan) { nsetUpTan(address(), UpTan); return this; }
+		public OVRFovPort.Buffer setDownTan(float DownTan) { nsetDownTan(address(), DownTan); return this; }
+		public OVRFovPort.Buffer setLeftTan(float LeftTan) { nsetLeftTan(address(), LeftTan); return this; }
+		public OVRFovPort.Buffer setRightTan(float RightTan) { nsetRightTan(address(), RightTan); return this; }
+
 	}
 
 }

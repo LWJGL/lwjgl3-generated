@@ -196,6 +196,12 @@ public final class CLImageFormat extends Struct {
 			return SIZEOF;
 		}
 
+		public int getImageChannelOrder() { return ngetImageChannelOrder(address()); }
+		public int getImageChannelDataType() { return ngetImageChannelDataType(address()); }
+
+		public CLImageFormat.Buffer setImageChannelOrder(int image_channel_order) { nsetImageChannelOrder(address(), image_channel_order); return this; }
+		public CLImageFormat.Buffer setImageChannelDataType(int image_channel_data_type) { nsetImageChannelDataType(address(), image_channel_data_type); return this; }
+
 	}
 
 }

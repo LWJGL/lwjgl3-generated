@@ -246,6 +246,22 @@ public final class Visual extends Struct {
 			return SIZEOF;
 		}
 
+		public long getVisualid() { return ngetVisualid(address()); }
+		public int getClazz() { return ngetClazz(address()); }
+		public long getRedMask() { return ngetRedMask(address()); }
+		public long getGreenMask() { return ngetGreenMask(address()); }
+		public long getBlueMask() { return ngetBlueMask(address()); }
+		public int getBitsPerRgb() { return ngetBitsPerRgb(address()); }
+		public int getMapEntries() { return ngetMapEntries(address()); }
+
+		public Visual.Buffer setVisualid(long visualid) { nsetVisualid(address(), visualid); return this; }
+		public Visual.Buffer setClazz(int clazz) { nsetClazz(address(), clazz); return this; }
+		public Visual.Buffer setRedMask(long red_mask) { nsetRedMask(address(), red_mask); return this; }
+		public Visual.Buffer setGreenMask(long green_mask) { nsetGreenMask(address(), green_mask); return this; }
+		public Visual.Buffer setBlueMask(long blue_mask) { nsetBlueMask(address(), blue_mask); return this; }
+		public Visual.Buffer setBitsPerRgb(int bits_per_rgb) { nsetBitsPerRgb(address(), bits_per_rgb); return this; }
+		public Visual.Buffer setMapEntries(int map_entries) { nsetMapEntries(address(), map_entries); return this; }
+
 	}
 
 }

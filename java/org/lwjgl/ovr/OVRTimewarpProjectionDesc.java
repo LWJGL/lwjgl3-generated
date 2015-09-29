@@ -210,6 +210,14 @@ public final class OVRTimewarpProjectionDesc extends Struct {
 			return SIZEOF;
 		}
 
+		public float getProjection22() { return ngetProjection22(address()); }
+		public float getProjection23() { return ngetProjection23(address()); }
+		public float getProjection32() { return ngetProjection32(address()); }
+
+		public OVRTimewarpProjectionDesc.Buffer setProjection22(float Projection22) { nsetProjection22(address(), Projection22); return this; }
+		public OVRTimewarpProjectionDesc.Buffer setProjection23(float Projection23) { nsetProjection23(address(), Projection23); return this; }
+		public OVRTimewarpProjectionDesc.Buffer setProjection32(float Projection32) { nsetProjection32(address(), Projection32); return this; }
+
 	}
 
 }

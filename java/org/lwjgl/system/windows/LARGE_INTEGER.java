@@ -152,6 +152,10 @@ public final class LARGE_INTEGER extends Struct {
 			return SIZEOF;
 		}
 
+		public long getQuadPart() { return ngetQuadPart(address()); }
+
+		public LARGE_INTEGER.Buffer setQuadPart(long QuadPart) { nsetQuadPart(address(), QuadPart); return this; }
+
 	}
 
 }

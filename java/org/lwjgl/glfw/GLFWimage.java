@@ -208,6 +208,14 @@ public final class GLFWimage extends Struct {
 			return SIZEOF;
 		}
 
+		public int getWidth() { return ngetWidth(address()); }
+		public int getHeight() { return ngetHeight(address()); }
+		public ByteBuffer getPixels(int byteLen) { return ngetPixels(address(), byteLen); }
+
+		public GLFWimage.Buffer setWidth(int width) { nsetWidth(address(), width); return this; }
+		public GLFWimage.Buffer setHeight(int height) { nsetHeight(address(), height); return this; }
+		public GLFWimage.Buffer setPixels(ByteBuffer pixels) { nsetPixels(address(), pixels); return this; }
+
 	}
 
 }

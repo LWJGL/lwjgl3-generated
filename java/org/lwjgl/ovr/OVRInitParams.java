@@ -226,6 +226,18 @@ public final class OVRInitParams extends Struct {
 			return SIZEOF;
 		}
 
+		public int getFlags() { return ngetFlags(address()); }
+		public int getRequestedMinorVersion() { return ngetRequestedMinorVersion(address()); }
+		public long getLogCallback() { return ngetLogCallback(address()); }
+		public long getUserData() { return ngetUserData(address()); }
+		public int getConnectionTimeoutMS() { return ngetConnectionTimeoutMS(address()); }
+
+		public OVRInitParams.Buffer setFlags(int Flags) { nsetFlags(address(), Flags); return this; }
+		public OVRInitParams.Buffer setRequestedMinorVersion(int RequestedMinorVersion) { nsetRequestedMinorVersion(address(), RequestedMinorVersion); return this; }
+		public OVRInitParams.Buffer setLogCallback(long LogCallback) { nsetLogCallback(address(), LogCallback); return this; }
+		public OVRInitParams.Buffer setUserData(long UserData) { nsetUserData(address(), UserData); return this; }
+		public OVRInitParams.Buffer setConnectionTimeoutMS(int ConnectionTimeoutMS) { nsetConnectionTimeoutMS(address(), ConnectionTimeoutMS); return this; }
+
 	}
 
 }

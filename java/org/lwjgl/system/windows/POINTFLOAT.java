@@ -195,6 +195,12 @@ public final class POINTFLOAT extends Struct {
 			return SIZEOF;
 		}
 
+		public float getX() { return ngetX(address()); }
+		public float getY() { return ngetY(address()); }
+
+		public POINTFLOAT.Buffer setX(float x) { nsetX(address(), x); return this; }
+		public POINTFLOAT.Buffer setY(float y) { nsetY(address(), y); return this; }
+
 	}
 
 }

@@ -159,6 +159,10 @@ public final class FFIClosure extends Struct {
 			return SIZEOF;
 		}
 
+		public FFICIF getCif() { return ngetCifStruct(address()); }
+		public long getFun() { return ngetFun(address()); }
+		public long getUserData() { return ngetUserData(address()); }
+
 	}
 
 }

@@ -218,6 +218,16 @@ public final class EGLClientPixmapHI extends Struct {
 			return SIZEOF;
 		}
 
+		public ByteBuffer getPData(int byteLen) { return ngetPData(address(), byteLen); }
+		public int getIWidth() { return ngetIWidth(address()); }
+		public int getIHeight() { return ngetIHeight(address()); }
+		public int getIStride() { return ngetIStride(address()); }
+
+		public EGLClientPixmapHI.Buffer setPData(ByteBuffer pData) { nsetPData(address(), pData); return this; }
+		public EGLClientPixmapHI.Buffer setIWidth(int iWidth) { nsetIWidth(address(), iWidth); return this; }
+		public EGLClientPixmapHI.Buffer setIHeight(int iHeight) { nsetIHeight(address(), iHeight); return this; }
+		public EGLClientPixmapHI.Buffer setIStride(int iStride) { nsetIStride(address(), iStride); return this; }
+
 	}
 
 }

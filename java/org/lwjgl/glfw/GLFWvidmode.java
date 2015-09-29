@@ -173,6 +173,13 @@ public final class GLFWvidmode extends Struct {
 			return SIZEOF;
 		}
 
+		public int getWidth() { return ngetWidth(address()); }
+		public int getHeight() { return ngetHeight(address()); }
+		public int getRedBits() { return ngetRedBits(address()); }
+		public int getGreenBits() { return ngetGreenBits(address()); }
+		public int getBlueBits() { return ngetBlueBits(address()); }
+		public int getRefreshRate() { return ngetRefreshRate(address()); }
+
 	}
 
 }

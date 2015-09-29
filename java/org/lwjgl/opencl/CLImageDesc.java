@@ -276,6 +276,28 @@ public final class CLImageDesc extends Struct {
 			return SIZEOF;
 		}
 
+		public int getImageType() { return ngetImageType(address()); }
+		public long getImageWidth() { return ngetImageWidth(address()); }
+		public long getImageHeight() { return ngetImageHeight(address()); }
+		public long getImageDepth() { return ngetImageDepth(address()); }
+		public long getImageArraySize() { return ngetImageArraySize(address()); }
+		public long getImageRowPitch() { return ngetImageRowPitch(address()); }
+		public long getImageSlicePitch() { return ngetImageSlicePitch(address()); }
+		public int getNumMipLevels() { return ngetNumMipLevels(address()); }
+		public int getNumSamples() { return ngetNumSamples(address()); }
+		public long getBuffer() { return ngetBuffer(address()); }
+
+		public CLImageDesc.Buffer setImageType(int image_type) { nsetImageType(address(), image_type); return this; }
+		public CLImageDesc.Buffer setImageWidth(long image_width) { nsetImageWidth(address(), image_width); return this; }
+		public CLImageDesc.Buffer setImageHeight(long image_height) { nsetImageHeight(address(), image_height); return this; }
+		public CLImageDesc.Buffer setImageDepth(long image_depth) { nsetImageDepth(address(), image_depth); return this; }
+		public CLImageDesc.Buffer setImageArraySize(long image_array_size) { nsetImageArraySize(address(), image_array_size); return this; }
+		public CLImageDesc.Buffer setImageRowPitch(long image_row_pitch) { nsetImageRowPitch(address(), image_row_pitch); return this; }
+		public CLImageDesc.Buffer setImageSlicePitch(long image_slice_pitch) { nsetImageSlicePitch(address(), image_slice_pitch); return this; }
+		public CLImageDesc.Buffer setNumMipLevels(int num_mip_levels) { nsetNumMipLevels(address(), num_mip_levels); return this; }
+		public CLImageDesc.Buffer setNumSamples(int num_samples) { nsetNumSamples(address(), num_samples); return this; }
+		public CLImageDesc.Buffer setBuffer(long buffer) { nsetBuffer(address(), buffer); return this; }
+
 	}
 
 }

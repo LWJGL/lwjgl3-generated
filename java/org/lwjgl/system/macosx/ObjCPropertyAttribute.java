@@ -214,6 +214,16 @@ public final class ObjCPropertyAttribute extends Struct {
 			return SIZEOF;
 		}
 
+		public ByteBuffer getNameBuffer() { return ngetNameBuffer(address()); }
+		public String getNameString() { return ngetNameString(address()); }
+		public ByteBuffer getValueBuffer() { return ngetValueBuffer(address()); }
+		public String getValueString() { return ngetValueString(address()); }
+
+		public ObjCPropertyAttribute.Buffer setName(ByteBuffer name) { nsetName(address(), name); return this; }
+		public ObjCPropertyAttribute.Buffer setName(CharSequence name) { nsetName(address(), name); return this; }
+		public ObjCPropertyAttribute.Buffer setValue(ByteBuffer value) { nsetValue(address(), value); return this; }
+		public ObjCPropertyAttribute.Buffer setValue(CharSequence value) { nsetValue(address(), value); return this; }
+
 	}
 
 }

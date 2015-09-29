@@ -216,6 +216,14 @@ public final class OVRSwapTextureSet extends Struct {
 			return SIZEOF;
 		}
 
+		public OVRTexture getTextures() { return ngetTexturesStruct(address()); }
+		public int getTextureCount() { return ngetTextureCount(address()); }
+		public int getCurrentIndex() { return ngetCurrentIndex(address()); }
+
+		public OVRSwapTextureSet.Buffer setTextures(OVRTexture Textures) { nsetTextures(address(), Textures); return this; }
+		public OVRSwapTextureSet.Buffer setTextureCount(int TextureCount) { nsetTextureCount(address(), TextureCount); return this; }
+		public OVRSwapTextureSet.Buffer setCurrentIndex(int CurrentIndex) { nsetCurrentIndex(address(), CurrentIndex); return this; }
+
 	}
 
 }

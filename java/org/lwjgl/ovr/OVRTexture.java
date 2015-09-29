@@ -237,6 +237,21 @@ public final class OVRTexture extends Struct {
 			return SIZEOF;
 		}
 
+		public OVRTextureHeader getHeader() { return ngetHeader(address()); }
+		public int getHeaderAPI() { return ngetHeaderAPI(address()); }
+		public OVRSizei getHeaderTextureSize() { return ngetHeaderTextureSize(address()); }
+		public int getHeaderTextureSizeW() { return ngetHeaderTextureSizeW(address()); }
+		public int getHeaderTextureSizeH() { return ngetHeaderTextureSizeH(address()); }
+		public void getPlatformData(ByteBuffer PlatformData) { ngetPlatformData(address(), PlatformData); }
+
+		public OVRTexture.Buffer setHeader(OVRTextureHeader Header) { nsetHeader(address(), Header); return this; }
+		public OVRTexture.Buffer setHeaderAPI(int API) { nsetHeaderAPI(address(), API); return this; }
+		public OVRTexture.Buffer setHeaderTextureSize(OVRSizei TextureSize) { nsetHeaderTextureSize(address(), TextureSize); return this; }
+		public OVRTexture.Buffer setHeaderTextureSizeW(int w) { nsetHeaderTextureSizeW(address(), w); return this; }
+		public OVRTexture.Buffer setHeaderTextureSizeH(int h) { nsetHeaderTextureSizeH(address(), h); return this; }
+		public OVRTexture.Buffer setPlatformData(ByteBuffer PlatformData) { nsetPlatformData(address(), PlatformData); return this; }
+		public OVRTexture.Buffer setPlatformData(int index, long PlatformData) { nsetPlatformData(address(), index, PlatformData); return this; }
+
 	}
 
 }

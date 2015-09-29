@@ -157,6 +157,10 @@ public final class ObjCMethodDescription extends Struct {
 			return SIZEOF;
 		}
 
+		public long getName() { return ngetName(address()); }
+		public ByteBuffer getTypesBuffer() { return ngetTypesBuffer(address()); }
+		public String getTypesString() { return ngetTypesString(address()); }
+
 	}
 
 }

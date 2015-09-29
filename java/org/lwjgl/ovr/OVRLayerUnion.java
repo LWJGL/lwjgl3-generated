@@ -738,6 +738,140 @@ public final class OVRLayerUnion extends Struct {
 			return SIZEOF;
 		}
 
+		public OVRLayerHeader getHeader() { return ngetHeader(address()); }
+		public int getHeaderType() { return ngetHeaderType(address()); }
+		public int getHeaderFlags() { return ngetHeaderFlags(address()); }
+		public OVRLayerEyeFov getEyeFov() { return ngetEyeFov(address()); }
+		public OVRLayerHeader getEyeFovHeader() { return ngetEyeFovHeader(address()); }
+		public int getEyeFovHeaderType() { return ngetEyeFovHeaderType(address()); }
+		public int getEyeFovHeaderFlags() { return ngetEyeFovHeaderFlags(address()); }
+		public void getEyeFovColorTexture(PointerBuffer ColorTexture) { ngetEyeFovColorTexture(address(), ColorTexture); }
+		public OVRSwapTextureSet getEyeFovColorTexture(int index) { return ngetEyeFovColorTexture(address(), index); }
+		public void getEyeFovViewport(ByteBuffer Viewport) { ngetEyeFovViewport(address(), Viewport); }
+		public OVRRecti getEyeFovViewport(int index) { return ngetEyeFovViewport(address(), index); }
+		public void getEyeFovFov(ByteBuffer Fov) { ngetEyeFovFov(address(), Fov); }
+		public OVRFovPort getEyeFovFov(int index) { return ngetEyeFovFov(address(), index); }
+		public void getEyeFovRenderPose(ByteBuffer RenderPose) { ngetEyeFovRenderPose(address(), RenderPose); }
+		public OVRPosef getEyeFovRenderPose(int index) { return ngetEyeFovRenderPose(address(), index); }
+		public OVRLayerEyeFovDepth getEyeFovDepth() { return ngetEyeFovDepth(address()); }
+		public OVRLayerHeader getEyeFovDepthHeader() { return ngetEyeFovDepthHeader(address()); }
+		public int getEyeFovDepthHeaderType() { return ngetEyeFovDepthHeaderType(address()); }
+		public int getEyeFovDepthHeaderFlags() { return ngetEyeFovDepthHeaderFlags(address()); }
+		public void getEyeFovDepthColorTexture(PointerBuffer ColorTexture) { ngetEyeFovDepthColorTexture(address(), ColorTexture); }
+		public OVRSwapTextureSet getEyeFovDepthColorTexture(int index) { return ngetEyeFovDepthColorTexture(address(), index); }
+		public void getEyeFovDepthViewport(ByteBuffer Viewport) { ngetEyeFovDepthViewport(address(), Viewport); }
+		public OVRRecti getEyeFovDepthViewport(int index) { return ngetEyeFovDepthViewport(address(), index); }
+		public void getEyeFovDepthFov(ByteBuffer Fov) { ngetEyeFovDepthFov(address(), Fov); }
+		public OVRFovPort getEyeFovDepthFov(int index) { return ngetEyeFovDepthFov(address(), index); }
+		public void getEyeFovDepthRenderPose(ByteBuffer RenderPose) { ngetEyeFovDepthRenderPose(address(), RenderPose); }
+		public OVRPosef getEyeFovDepthRenderPose(int index) { return ngetEyeFovDepthRenderPose(address(), index); }
+		public void getEyeFovDepthDepthTexture(PointerBuffer DepthTexture) { ngetEyeFovDepthDepthTexture(address(), DepthTexture); }
+		public OVRSwapTextureSet getEyeFovDepthDepthTexture(int index) { return ngetEyeFovDepthDepthTexture(address(), index); }
+		public OVRTimewarpProjectionDesc getEyeFovDepthProjectionDesc() { return ngetEyeFovDepthProjectionDesc(address()); }
+		public float getEyeFovDepthProjectionDescProjection22() { return ngetEyeFovDepthProjectionDescProjection22(address()); }
+		public float getEyeFovDepthProjectionDescProjection23() { return ngetEyeFovDepthProjectionDescProjection23(address()); }
+		public float getEyeFovDepthProjectionDescProjection32() { return ngetEyeFovDepthProjectionDescProjection32(address()); }
+		public OVRLayerQuad getQuad() { return ngetQuad(address()); }
+		public OVRLayerHeader getQuadHeader() { return ngetQuadHeader(address()); }
+		public int getQuadHeaderType() { return ngetQuadHeaderType(address()); }
+		public int getQuadHeaderFlags() { return ngetQuadHeaderFlags(address()); }
+		public OVRSwapTextureSet getQuadColorTexture() { return ngetQuadColorTextureStruct(address()); }
+		public OVRRecti getQuadViewport() { return ngetQuadViewport(address()); }
+		public OVRVector2i getQuadViewportPos() { return ngetQuadViewportPos(address()); }
+		public int getQuadViewportPosX() { return ngetQuadViewportPosX(address()); }
+		public int getQuadViewportPosY() { return ngetQuadViewportPosY(address()); }
+		public OVRSizei getQuadViewportSize() { return ngetQuadViewportSize(address()); }
+		public int getQuadViewportSizeW() { return ngetQuadViewportSizeW(address()); }
+		public int getQuadViewportSizeH() { return ngetQuadViewportSizeH(address()); }
+		public OVRPosef getQuadQuadPoseCenter() { return ngetQuadQuadPoseCenter(address()); }
+		public OVRQuatf getQuadQuadPoseCenterOrientation() { return ngetQuadQuadPoseCenterOrientation(address()); }
+		public float getQuadQuadPoseCenterOrientationX() { return ngetQuadQuadPoseCenterOrientationX(address()); }
+		public float getQuadQuadPoseCenterOrientationY() { return ngetQuadQuadPoseCenterOrientationY(address()); }
+		public float getQuadQuadPoseCenterOrientationZ() { return ngetQuadQuadPoseCenterOrientationZ(address()); }
+		public float getQuadQuadPoseCenterOrientationW() { return ngetQuadQuadPoseCenterOrientationW(address()); }
+		public OVRVector3f getQuadQuadPoseCenterPosition() { return ngetQuadQuadPoseCenterPosition(address()); }
+		public float getQuadQuadPoseCenterPositionX() { return ngetQuadQuadPoseCenterPositionX(address()); }
+		public float getQuadQuadPoseCenterPositionY() { return ngetQuadQuadPoseCenterPositionY(address()); }
+		public float getQuadQuadPoseCenterPositionZ() { return ngetQuadQuadPoseCenterPositionZ(address()); }
+		public OVRVector2f getQuadQuadSize() { return ngetQuadQuadSize(address()); }
+		public float getQuadQuadSizeX() { return ngetQuadQuadSizeX(address()); }
+		public float getQuadQuadSizeY() { return ngetQuadQuadSizeY(address()); }
+		public OVRLayerDirect getDirect() { return ngetDirect(address()); }
+		public OVRLayerHeader getDirectHeader() { return ngetDirectHeader(address()); }
+		public int getDirectHeaderType() { return ngetDirectHeaderType(address()); }
+		public int getDirectHeaderFlags() { return ngetDirectHeaderFlags(address()); }
+		public void getDirectColorTexture(PointerBuffer ColorTexture) { ngetDirectColorTexture(address(), ColorTexture); }
+		public OVRSwapTextureSet getDirectColorTexture(int index) { return ngetDirectColorTexture(address(), index); }
+		public void getDirectViewport(ByteBuffer Viewport) { ngetDirectViewport(address(), Viewport); }
+		public OVRRecti getDirectViewport(int index) { return ngetDirectViewport(address(), index); }
+
+		public OVRLayerUnion.Buffer setHeader(OVRLayerHeader Header) { nsetHeader(address(), Header); return this; }
+		public OVRLayerUnion.Buffer setHeaderType(int Type) { nsetHeaderType(address(), Type); return this; }
+		public OVRLayerUnion.Buffer setHeaderFlags(int Flags) { nsetHeaderFlags(address(), Flags); return this; }
+		public OVRLayerUnion.Buffer setEyeFov(OVRLayerEyeFov EyeFov) { nsetEyeFov(address(), EyeFov); return this; }
+		public OVRLayerUnion.Buffer setEyeFovHeader(OVRLayerHeader Header) { nsetEyeFovHeader(address(), Header); return this; }
+		public OVRLayerUnion.Buffer setEyeFovHeaderType(int Type) { nsetEyeFovHeaderType(address(), Type); return this; }
+		public OVRLayerUnion.Buffer setEyeFovHeaderFlags(int Flags) { nsetEyeFovHeaderFlags(address(), Flags); return this; }
+		public OVRLayerUnion.Buffer setEyeFovColorTexture(PointerBuffer ColorTexture) { nsetEyeFovColorTexture(address(), ColorTexture); return this; }
+		public OVRLayerUnion.Buffer setEyeFovColorTexture(int index, OVRSwapTextureSet ColorTexture) { nsetEyeFovColorTexture(address(), index, ColorTexture); return this; }
+		public OVRLayerUnion.Buffer setEyeFovViewport(ByteBuffer Viewport) { nsetEyeFovViewport(address(), Viewport); return this; }
+		public OVRLayerUnion.Buffer setEyeFovViewport(int index, OVRRecti Viewport) { nsetEyeFovViewport(address(), index, Viewport); return this; }
+		public OVRLayerUnion.Buffer setEyeFovFov(ByteBuffer Fov) { nsetEyeFovFov(address(), Fov); return this; }
+		public OVRLayerUnion.Buffer setEyeFovFov(int index, OVRFovPort Fov) { nsetEyeFovFov(address(), index, Fov); return this; }
+		public OVRLayerUnion.Buffer setEyeFovRenderPose(ByteBuffer RenderPose) { nsetEyeFovRenderPose(address(), RenderPose); return this; }
+		public OVRLayerUnion.Buffer setEyeFovRenderPose(int index, OVRPosef RenderPose) { nsetEyeFovRenderPose(address(), index, RenderPose); return this; }
+		public OVRLayerUnion.Buffer setEyeFovDepth(OVRLayerEyeFovDepth EyeFovDepth) { nsetEyeFovDepth(address(), EyeFovDepth); return this; }
+		public OVRLayerUnion.Buffer setEyeFovDepthHeader(OVRLayerHeader Header) { nsetEyeFovDepthHeader(address(), Header); return this; }
+		public OVRLayerUnion.Buffer setEyeFovDepthHeaderType(int Type) { nsetEyeFovDepthHeaderType(address(), Type); return this; }
+		public OVRLayerUnion.Buffer setEyeFovDepthHeaderFlags(int Flags) { nsetEyeFovDepthHeaderFlags(address(), Flags); return this; }
+		public OVRLayerUnion.Buffer setEyeFovDepthColorTexture(PointerBuffer ColorTexture) { nsetEyeFovDepthColorTexture(address(), ColorTexture); return this; }
+		public OVRLayerUnion.Buffer setEyeFovDepthColorTexture(int index, OVRSwapTextureSet ColorTexture) { nsetEyeFovDepthColorTexture(address(), index, ColorTexture); return this; }
+		public OVRLayerUnion.Buffer setEyeFovDepthViewport(ByteBuffer Viewport) { nsetEyeFovDepthViewport(address(), Viewport); return this; }
+		public OVRLayerUnion.Buffer setEyeFovDepthViewport(int index, OVRRecti Viewport) { nsetEyeFovDepthViewport(address(), index, Viewport); return this; }
+		public OVRLayerUnion.Buffer setEyeFovDepthFov(ByteBuffer Fov) { nsetEyeFovDepthFov(address(), Fov); return this; }
+		public OVRLayerUnion.Buffer setEyeFovDepthFov(int index, OVRFovPort Fov) { nsetEyeFovDepthFov(address(), index, Fov); return this; }
+		public OVRLayerUnion.Buffer setEyeFovDepthRenderPose(ByteBuffer RenderPose) { nsetEyeFovDepthRenderPose(address(), RenderPose); return this; }
+		public OVRLayerUnion.Buffer setEyeFovDepthRenderPose(int index, OVRPosef RenderPose) { nsetEyeFovDepthRenderPose(address(), index, RenderPose); return this; }
+		public OVRLayerUnion.Buffer setEyeFovDepthDepthTexture(PointerBuffer DepthTexture) { nsetEyeFovDepthDepthTexture(address(), DepthTexture); return this; }
+		public OVRLayerUnion.Buffer setEyeFovDepthDepthTexture(int index, OVRSwapTextureSet DepthTexture) { nsetEyeFovDepthDepthTexture(address(), index, DepthTexture); return this; }
+		public OVRLayerUnion.Buffer setEyeFovDepthProjectionDesc(OVRTimewarpProjectionDesc ProjectionDesc) { nsetEyeFovDepthProjectionDesc(address(), ProjectionDesc); return this; }
+		public OVRLayerUnion.Buffer setEyeFovDepthProjectionDescProjection22(float Projection22) { nsetEyeFovDepthProjectionDescProjection22(address(), Projection22); return this; }
+		public OVRLayerUnion.Buffer setEyeFovDepthProjectionDescProjection23(float Projection23) { nsetEyeFovDepthProjectionDescProjection23(address(), Projection23); return this; }
+		public OVRLayerUnion.Buffer setEyeFovDepthProjectionDescProjection32(float Projection32) { nsetEyeFovDepthProjectionDescProjection32(address(), Projection32); return this; }
+		public OVRLayerUnion.Buffer setQuad(OVRLayerQuad Quad) { nsetQuad(address(), Quad); return this; }
+		public OVRLayerUnion.Buffer setQuadHeader(OVRLayerHeader Header) { nsetQuadHeader(address(), Header); return this; }
+		public OVRLayerUnion.Buffer setQuadHeaderType(int Type) { nsetQuadHeaderType(address(), Type); return this; }
+		public OVRLayerUnion.Buffer setQuadHeaderFlags(int Flags) { nsetQuadHeaderFlags(address(), Flags); return this; }
+		public OVRLayerUnion.Buffer setQuadColorTexture(OVRSwapTextureSet ColorTexture) { nsetQuadColorTexture(address(), ColorTexture); return this; }
+		public OVRLayerUnion.Buffer setQuadViewport(OVRRecti Viewport) { nsetQuadViewport(address(), Viewport); return this; }
+		public OVRLayerUnion.Buffer setQuadViewportPos(OVRVector2i Pos) { nsetQuadViewportPos(address(), Pos); return this; }
+		public OVRLayerUnion.Buffer setQuadViewportPosX(int x) { nsetQuadViewportPosX(address(), x); return this; }
+		public OVRLayerUnion.Buffer setQuadViewportPosY(int y) { nsetQuadViewportPosY(address(), y); return this; }
+		public OVRLayerUnion.Buffer setQuadViewportSize(OVRSizei Size) { nsetQuadViewportSize(address(), Size); return this; }
+		public OVRLayerUnion.Buffer setQuadViewportSizeW(int w) { nsetQuadViewportSizeW(address(), w); return this; }
+		public OVRLayerUnion.Buffer setQuadViewportSizeH(int h) { nsetQuadViewportSizeH(address(), h); return this; }
+		public OVRLayerUnion.Buffer setQuadQuadPoseCenter(OVRPosef QuadPoseCenter) { nsetQuadQuadPoseCenter(address(), QuadPoseCenter); return this; }
+		public OVRLayerUnion.Buffer setQuadQuadPoseCenterOrientation(OVRQuatf Orientation) { nsetQuadQuadPoseCenterOrientation(address(), Orientation); return this; }
+		public OVRLayerUnion.Buffer setQuadQuadPoseCenterOrientationX(float x) { nsetQuadQuadPoseCenterOrientationX(address(), x); return this; }
+		public OVRLayerUnion.Buffer setQuadQuadPoseCenterOrientationY(float y) { nsetQuadQuadPoseCenterOrientationY(address(), y); return this; }
+		public OVRLayerUnion.Buffer setQuadQuadPoseCenterOrientationZ(float z) { nsetQuadQuadPoseCenterOrientationZ(address(), z); return this; }
+		public OVRLayerUnion.Buffer setQuadQuadPoseCenterOrientationW(float w) { nsetQuadQuadPoseCenterOrientationW(address(), w); return this; }
+		public OVRLayerUnion.Buffer setQuadQuadPoseCenterPosition(OVRVector3f Position) { nsetQuadQuadPoseCenterPosition(address(), Position); return this; }
+		public OVRLayerUnion.Buffer setQuadQuadPoseCenterPositionX(float x) { nsetQuadQuadPoseCenterPositionX(address(), x); return this; }
+		public OVRLayerUnion.Buffer setQuadQuadPoseCenterPositionY(float y) { nsetQuadQuadPoseCenterPositionY(address(), y); return this; }
+		public OVRLayerUnion.Buffer setQuadQuadPoseCenterPositionZ(float z) { nsetQuadQuadPoseCenterPositionZ(address(), z); return this; }
+		public OVRLayerUnion.Buffer setQuadQuadSize(OVRVector2f QuadSize) { nsetQuadQuadSize(address(), QuadSize); return this; }
+		public OVRLayerUnion.Buffer setQuadQuadSizeX(float x) { nsetQuadQuadSizeX(address(), x); return this; }
+		public OVRLayerUnion.Buffer setQuadQuadSizeY(float y) { nsetQuadQuadSizeY(address(), y); return this; }
+		public OVRLayerUnion.Buffer setDirect(OVRLayerDirect Direct) { nsetDirect(address(), Direct); return this; }
+		public OVRLayerUnion.Buffer setDirectHeader(OVRLayerHeader Header) { nsetDirectHeader(address(), Header); return this; }
+		public OVRLayerUnion.Buffer setDirectHeaderType(int Type) { nsetDirectHeaderType(address(), Type); return this; }
+		public OVRLayerUnion.Buffer setDirectHeaderFlags(int Flags) { nsetDirectHeaderFlags(address(), Flags); return this; }
+		public OVRLayerUnion.Buffer setDirectColorTexture(PointerBuffer ColorTexture) { nsetDirectColorTexture(address(), ColorTexture); return this; }
+		public OVRLayerUnion.Buffer setDirectColorTexture(int index, OVRSwapTextureSet ColorTexture) { nsetDirectColorTexture(address(), index, ColorTexture); return this; }
+		public OVRLayerUnion.Buffer setDirectViewport(ByteBuffer Viewport) { nsetDirectViewport(address(), Viewport); return this; }
+		public OVRLayerUnion.Buffer setDirectViewport(int index, OVRRecti Viewport) { nsetDirectViewport(address(), index, Viewport); return this; }
+
 	}
 
 }

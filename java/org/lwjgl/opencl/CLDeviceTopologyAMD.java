@@ -182,6 +182,13 @@ public final class CLDeviceTopologyAMD extends Struct {
 			return SIZEOF;
 		}
 
+		public int getRawType() { return ngetRawType(address()); }
+		public void getRawData(ByteBuffer data) { ngetRawData(address(), data); }
+		public int getPcieType() { return ngetPcieType(address()); }
+		public int getPcieBus() { return ngetPcieBus(address()); }
+		public int getPcieDevice() { return ngetPcieDevice(address()); }
+		public int getPcieFunction() { return ngetPcieFunction(address()); }
+
 	}
 
 }

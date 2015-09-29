@@ -206,6 +206,14 @@ public final class OVRVector3f extends Struct {
 			return SIZEOF;
 		}
 
+		public float getX() { return ngetX(address()); }
+		public float getY() { return ngetY(address()); }
+		public float getZ() { return ngetZ(address()); }
+
+		public OVRVector3f.Buffer setX(float x) { nsetX(address(), x); return this; }
+		public OVRVector3f.Buffer setY(float y) { nsetY(address(), y); return this; }
+		public OVRVector3f.Buffer setZ(float z) { nsetZ(address(), z); return this; }
+
 	}
 
 }

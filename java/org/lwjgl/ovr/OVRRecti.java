@@ -224,6 +224,20 @@ public final class OVRRecti extends Struct {
 			return SIZEOF;
 		}
 
+		public OVRVector2i getPos() { return ngetPos(address()); }
+		public int getPosX() { return ngetPosX(address()); }
+		public int getPosY() { return ngetPosY(address()); }
+		public OVRSizei getSize() { return ngetSize(address()); }
+		public int getSizeW() { return ngetSizeW(address()); }
+		public int getSizeH() { return ngetSizeH(address()); }
+
+		public OVRRecti.Buffer setPos(OVRVector2i Pos) { nsetPos(address(), Pos); return this; }
+		public OVRRecti.Buffer setPosX(int x) { nsetPosX(address(), x); return this; }
+		public OVRRecti.Buffer setPosY(int y) { nsetPosY(address(), y); return this; }
+		public OVRRecti.Buffer setSize(OVRSizei Size) { nsetSize(address(), Size); return this; }
+		public OVRRecti.Buffer setSizeW(int w) { nsetSizeW(address(), w); return this; }
+		public OVRRecti.Buffer setSizeH(int h) { nsetSizeH(address(), h); return this; }
+
 	}
 
 }

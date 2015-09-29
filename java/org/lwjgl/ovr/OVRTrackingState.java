@@ -381,6 +381,74 @@ public final class OVRTrackingState extends Struct {
 			return SIZEOF;
 		}
 
+		public OVRPoseStatef getHeadPose() { return ngetHeadPose(address()); }
+		public OVRPosef getHeadPoseThePose() { return ngetHeadPoseThePose(address()); }
+		public OVRQuatf getHeadPoseThePoseOrientation() { return ngetHeadPoseThePoseOrientation(address()); }
+		public float getHeadPoseThePoseOrientationX() { return ngetHeadPoseThePoseOrientationX(address()); }
+		public float getHeadPoseThePoseOrientationY() { return ngetHeadPoseThePoseOrientationY(address()); }
+		public float getHeadPoseThePoseOrientationZ() { return ngetHeadPoseThePoseOrientationZ(address()); }
+		public float getHeadPoseThePoseOrientationW() { return ngetHeadPoseThePoseOrientationW(address()); }
+		public OVRVector3f getHeadPoseThePosePosition() { return ngetHeadPoseThePosePosition(address()); }
+		public float getHeadPoseThePosePositionX() { return ngetHeadPoseThePosePositionX(address()); }
+		public float getHeadPoseThePosePositionY() { return ngetHeadPoseThePosePositionY(address()); }
+		public float getHeadPoseThePosePositionZ() { return ngetHeadPoseThePosePositionZ(address()); }
+		public OVRVector3f getHeadPoseAngularVelocity() { return ngetHeadPoseAngularVelocity(address()); }
+		public float getHeadPoseAngularVelocityX() { return ngetHeadPoseAngularVelocityX(address()); }
+		public float getHeadPoseAngularVelocityY() { return ngetHeadPoseAngularVelocityY(address()); }
+		public float getHeadPoseAngularVelocityZ() { return ngetHeadPoseAngularVelocityZ(address()); }
+		public OVRVector3f getHeadPoseLinearVelocity() { return ngetHeadPoseLinearVelocity(address()); }
+		public float getHeadPoseLinearVelocityX() { return ngetHeadPoseLinearVelocityX(address()); }
+		public float getHeadPoseLinearVelocityY() { return ngetHeadPoseLinearVelocityY(address()); }
+		public float getHeadPoseLinearVelocityZ() { return ngetHeadPoseLinearVelocityZ(address()); }
+		public OVRVector3f getHeadPoseAngularAcceleration() { return ngetHeadPoseAngularAcceleration(address()); }
+		public float getHeadPoseAngularAccelerationX() { return ngetHeadPoseAngularAccelerationX(address()); }
+		public float getHeadPoseAngularAccelerationY() { return ngetHeadPoseAngularAccelerationY(address()); }
+		public float getHeadPoseAngularAccelerationZ() { return ngetHeadPoseAngularAccelerationZ(address()); }
+		public OVRVector3f getHeadPoseLinearAcceleration() { return ngetHeadPoseLinearAcceleration(address()); }
+		public float getHeadPoseLinearAccelerationX() { return ngetHeadPoseLinearAccelerationX(address()); }
+		public float getHeadPoseLinearAccelerationY() { return ngetHeadPoseLinearAccelerationY(address()); }
+		public float getHeadPoseLinearAccelerationZ() { return ngetHeadPoseLinearAccelerationZ(address()); }
+		public double getHeadPoseTimeInSeconds() { return ngetHeadPoseTimeInSeconds(address()); }
+		public OVRPosef getCameraPose() { return ngetCameraPose(address()); }
+		public OVRQuatf getCameraPoseOrientation() { return ngetCameraPoseOrientation(address()); }
+		public float getCameraPoseOrientationX() { return ngetCameraPoseOrientationX(address()); }
+		public float getCameraPoseOrientationY() { return ngetCameraPoseOrientationY(address()); }
+		public float getCameraPoseOrientationZ() { return ngetCameraPoseOrientationZ(address()); }
+		public float getCameraPoseOrientationW() { return ngetCameraPoseOrientationW(address()); }
+		public OVRVector3f getCameraPosePosition() { return ngetCameraPosePosition(address()); }
+		public float getCameraPosePositionX() { return ngetCameraPosePositionX(address()); }
+		public float getCameraPosePositionY() { return ngetCameraPosePositionY(address()); }
+		public float getCameraPosePositionZ() { return ngetCameraPosePositionZ(address()); }
+		public OVRPosef getLeveledCameraPose() { return ngetLeveledCameraPose(address()); }
+		public OVRQuatf getLeveledCameraPoseOrientation() { return ngetLeveledCameraPoseOrientation(address()); }
+		public float getLeveledCameraPoseOrientationX() { return ngetLeveledCameraPoseOrientationX(address()); }
+		public float getLeveledCameraPoseOrientationY() { return ngetLeveledCameraPoseOrientationY(address()); }
+		public float getLeveledCameraPoseOrientationZ() { return ngetLeveledCameraPoseOrientationZ(address()); }
+		public float getLeveledCameraPoseOrientationW() { return ngetLeveledCameraPoseOrientationW(address()); }
+		public OVRVector3f getLeveledCameraPosePosition() { return ngetLeveledCameraPosePosition(address()); }
+		public float getLeveledCameraPosePositionX() { return ngetLeveledCameraPosePositionX(address()); }
+		public float getLeveledCameraPosePositionY() { return ngetLeveledCameraPosePositionY(address()); }
+		public float getLeveledCameraPosePositionZ() { return ngetLeveledCameraPosePositionZ(address()); }
+		public void getHandPoses(ByteBuffer HandPoses) { ngetHandPoses(address(), HandPoses); }
+		public OVRPoseStatef getHandPoses(int index) { return ngetHandPoses(address(), index); }
+		public OVRSensorData getRawSensorData() { return ngetRawSensorData(address()); }
+		public OVRVector3f getRawSensorDataAccelerometer() { return ngetRawSensorDataAccelerometer(address()); }
+		public float getRawSensorDataAccelerometerX() { return ngetRawSensorDataAccelerometerX(address()); }
+		public float getRawSensorDataAccelerometerY() { return ngetRawSensorDataAccelerometerY(address()); }
+		public float getRawSensorDataAccelerometerZ() { return ngetRawSensorDataAccelerometerZ(address()); }
+		public OVRVector3f getRawSensorDataGyro() { return ngetRawSensorDataGyro(address()); }
+		public float getRawSensorDataGyroX() { return ngetRawSensorDataGyroX(address()); }
+		public float getRawSensorDataGyroY() { return ngetRawSensorDataGyroY(address()); }
+		public float getRawSensorDataGyroZ() { return ngetRawSensorDataGyroZ(address()); }
+		public OVRVector3f getRawSensorDataMagnetometer() { return ngetRawSensorDataMagnetometer(address()); }
+		public float getRawSensorDataMagnetometerX() { return ngetRawSensorDataMagnetometerX(address()); }
+		public float getRawSensorDataMagnetometerY() { return ngetRawSensorDataMagnetometerY(address()); }
+		public float getRawSensorDataMagnetometerZ() { return ngetRawSensorDataMagnetometerZ(address()); }
+		public float getRawSensorDataTemperature() { return ngetRawSensorDataTemperature(address()); }
+		public float getRawSensorDataTimeInSeconds() { return ngetRawSensorDataTimeInSeconds(address()); }
+		public int getStatusFlags() { return ngetStatusFlags(address()); }
+		public int getLastCameraFrameCounter() { return ngetLastCameraFrameCounter(address()); }
+
 	}
 
 }

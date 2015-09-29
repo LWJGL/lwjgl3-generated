@@ -196,6 +196,12 @@ public final class OVRLayerHeader extends Struct {
 			return SIZEOF;
 		}
 
+		public int getType() { return ngetType(address()); }
+		public int getFlags() { return ngetFlags(address()); }
+
+		public OVRLayerHeader.Buffer setType(int Type) { nsetType(address(), Type); return this; }
+		public OVRLayerHeader.Buffer setFlags(int Flags) { nsetFlags(address(), Flags); return this; }
+
 	}
 
 }

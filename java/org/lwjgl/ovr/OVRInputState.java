@@ -291,6 +291,26 @@ public final class OVRInputState extends Struct {
 			return SIZEOF;
 		}
 
+		public double getTimeInSeconds() { return ngetTimeInSeconds(address()); }
+		public int getConnectedControllerTypes() { return ngetConnectedControllerTypes(address()); }
+		public int getButtons() { return ngetButtons(address()); }
+		public int getTouches() { return ngetTouches(address()); }
+		public void getIndexTrigger(ByteBuffer IndexTrigger) { ngetIndexTrigger(address(), IndexTrigger); }
+		public void getHandTrigger(ByteBuffer HandTrigger) { ngetHandTrigger(address(), HandTrigger); }
+		public void getThumbstick(ByteBuffer Thumbstick) { ngetThumbstick(address(), Thumbstick); }
+		public OVRVector2f getThumbstick(int index) { return ngetThumbstick(address(), index); }
+
+		public OVRInputState.Buffer setTimeInSeconds(double TimeInSeconds) { nsetTimeInSeconds(address(), TimeInSeconds); return this; }
+		public OVRInputState.Buffer setConnectedControllerTypes(int ConnectedControllerTypes) { nsetConnectedControllerTypes(address(), ConnectedControllerTypes); return this; }
+		public OVRInputState.Buffer setButtons(int Buttons) { nsetButtons(address(), Buttons); return this; }
+		public OVRInputState.Buffer setTouches(int Touches) { nsetTouches(address(), Touches); return this; }
+		public OVRInputState.Buffer setIndexTrigger(ByteBuffer IndexTrigger) { nsetIndexTrigger(address(), IndexTrigger); return this; }
+		public OVRInputState.Buffer setIndexTrigger(int index, float IndexTrigger) { nsetIndexTrigger(address(), index, IndexTrigger); return this; }
+		public OVRInputState.Buffer setHandTrigger(ByteBuffer HandTrigger) { nsetHandTrigger(address(), HandTrigger); return this; }
+		public OVRInputState.Buffer setHandTrigger(int index, float HandTrigger) { nsetHandTrigger(address(), index, HandTrigger); return this; }
+		public OVRInputState.Buffer setThumbstick(ByteBuffer Thumbstick) { nsetThumbstick(address(), Thumbstick); return this; }
+		public OVRInputState.Buffer setThumbstick(int index, OVRVector2f Thumbstick) { nsetThumbstick(address(), index, Thumbstick); return this; }
+
 	}
 
 }

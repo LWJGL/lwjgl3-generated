@@ -246,6 +246,22 @@ public final class ChunkHooks extends Struct {
 			return SIZEOF;
 		}
 
+		public long getAlloc() { return ngetAlloc(address()); }
+		public long getDalloc() { return ngetDalloc(address()); }
+		public long getCommit() { return ngetCommit(address()); }
+		public long getDecommit() { return ngetDecommit(address()); }
+		public long getPurge() { return ngetPurge(address()); }
+		public long getSplit() { return ngetSplit(address()); }
+		public long getMerge() { return ngetMerge(address()); }
+
+		public ChunkHooks.Buffer setAlloc(long alloc) { nsetAlloc(address(), alloc); return this; }
+		public ChunkHooks.Buffer setDalloc(long dalloc) { nsetDalloc(address(), dalloc); return this; }
+		public ChunkHooks.Buffer setCommit(long commit) { nsetCommit(address(), commit); return this; }
+		public ChunkHooks.Buffer setDecommit(long decommit) { nsetDecommit(address(), decommit); return this; }
+		public ChunkHooks.Buffer setPurge(long purge) { nsetPurge(address(), purge); return this; }
+		public ChunkHooks.Buffer setSplit(long split) { nsetSplit(address(), split); return this; }
+		public ChunkHooks.Buffer setMerge(long merge) { nsetMerge(address(), merge); return this; }
+
 	}
 
 }

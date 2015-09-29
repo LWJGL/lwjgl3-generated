@@ -182,6 +182,15 @@ public final class GLXStereoNotifyEventEXT extends Struct {
 			return SIZEOF;
 		}
 
+		public int getType() { return ngetType(address()); }
+		public long getSerial() { return ngetSerial(address()); }
+		public int getSendEvent() { return ngetSendEvent(address()); }
+		public long getDisplay() { return ngetDisplay(address()); }
+		public int getExtension() { return ngetExtension(address()); }
+		public int getEvtype() { return ngetEvtype(address()); }
+		public long getWindow() { return ngetWindow(address()); }
+		public int getStereoTree() { return ngetStereoTree(address()); }
+
 	}
 
 }
