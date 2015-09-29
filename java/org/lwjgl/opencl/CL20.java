@@ -460,14 +460,14 @@ public final class CL20 {
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
 			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
-		return nclEnqueueSVMFree(command_queue, num_svm_pointers, memAddress(svm_pointers), pfn_free_func == null ? NULL : pfn_free_func.getPointer(), memAddressSafe(user_data), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueSVMFree(command_queue, num_svm_pointers, memAddress(svm_pointers), pfn_free_func == null ? NULL : pfn_free_func.address(), memAddressSafe(user_data), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Alternative version of: {@link #clEnqueueSVMFree EnqueueSVMFree} */
 	public static int clEnqueueSVMFree(long command_queue, PointerBuffer svm_pointers, CLSVMFreeCallback pfn_free_func, ByteBuffer user_data, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( LWJGLUtil.CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
-		return nclEnqueueSVMFree(command_queue, svm_pointers.remaining(), memAddress(svm_pointers), pfn_free_func == null ? NULL : pfn_free_func.getPointer(), memAddressSafe(user_data), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueSVMFree(command_queue, svm_pointers.remaining(), memAddress(svm_pointers), pfn_free_func == null ? NULL : pfn_free_func.address(), memAddressSafe(user_data), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueSVMMemcpy ] ---

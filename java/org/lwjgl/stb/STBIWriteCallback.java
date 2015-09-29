@@ -16,7 +16,7 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** Instances of this interface may be used with the {@link STBImageWrite} {@code write_type_to_func} functions. */
 public abstract class STBIWriteCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(3);
 
 	static {

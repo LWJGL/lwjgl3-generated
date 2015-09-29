@@ -67,10 +67,8 @@ public final class OVRUtil {
 	 * @param projectionModFlags a combination of the {@code ovrProjectionModifier} flags. One or more of:<br>{@link #ovrProjection_None Projection_None}, {@link #ovrProjection_FarLessThanNear Projection_FarLessThanNear}, {@link #ovrProjection_FarClipAtInfinity Projection_FarClipAtInfinity}, {@link #ovrProjection_ClipRangeOpenGL Projection_ClipRangeOpenGL}
 	 * @param __result           the calculated projection matrix
 	 */
-	public static void ovrMatrix4f_Projection(ByteBuffer fov, float znear, float zfar, int projectionModFlags, ByteBuffer __result) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(fov, OVRFovPort.SIZEOF);
-		novrMatrix4f_Projection(memAddress(fov), znear, zfar, projectionModFlags, memAddress(__result));
+	public static void ovrMatrix4f_Projection(OVRFovPort fov, float znear, float zfar, int projectionModFlags, OVRMatrix4f __result) {
+		novrMatrix4f_Projection(fov.address(), znear, zfar, projectionModFlags, __result.address());
 	}
 
 	// --- [ ovrTimewarpProjectionDesc_FromProjection ] ---
@@ -86,10 +84,8 @@ public final class OVRUtil {
 	 * @param projectionModFlags a combination of the ovrProjectionModifier flags. One or more of:<br>{@link #ovrProjection_None Projection_None}, {@link #ovrProjection_RightHanded Projection_RightHanded}, {@link #ovrProjection_FarLessThanNear Projection_FarLessThanNear}, {@link #ovrProjection_FarClipAtInfinity Projection_FarClipAtInfinity}, {@link #ovrProjection_ClipRangeOpenGL Projection_ClipRangeOpenGL}
 	 * @param __result           the extracted ovrTimewarpProjectionDesc
 	 */
-	public static void ovrTimewarpProjectionDesc_FromProjection(ByteBuffer projection, int projectionModFlags, ByteBuffer __result) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(projection, OVRMatrix4f.SIZEOF);
-		novrTimewarpProjectionDesc_FromProjection(memAddress(projection), projectionModFlags, memAddress(__result));
+	public static void ovrTimewarpProjectionDesc_FromProjection(OVRMatrix4f projection, int projectionModFlags, OVRTimewarpProjectionDesc __result) {
+		novrTimewarpProjectionDesc_FromProjection(projection.address(), projectionModFlags, __result.address());
 	}
 
 	// --- [ ovrMatrix4f_OrthoSubProjection ] ---
@@ -109,12 +105,8 @@ public final class OVRUtil {
 	 * @param hmdToEyeViewOffsetX the offset of the eye from the center
 	 * @param __result            the calculated projection matrix
 	 */
-	public static void ovrMatrix4f_OrthoSubProjection(ByteBuffer projection, ByteBuffer orthoScale, float orthoDistance, float hmdToEyeViewOffsetX, ByteBuffer __result) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(projection, OVRMatrix4f.SIZEOF);
-			checkBuffer(orthoScale, OVRVector2f.SIZEOF);
-		}
-		novrMatrix4f_OrthoSubProjection(memAddress(projection), memAddress(orthoScale), orthoDistance, hmdToEyeViewOffsetX, memAddress(__result));
+	public static void ovrMatrix4f_OrthoSubProjection(OVRMatrix4f projection, OVRVector2f orthoScale, float orthoDistance, float hmdToEyeViewOffsetX, OVRMatrix4f __result) {
+		novrMatrix4f_OrthoSubProjection(projection.address(), orthoScale.address(), orthoDistance, hmdToEyeViewOffsetX, __result.address());
 	}
 
 	// --- [ ovr_CalcEyePoses ] ---
@@ -132,13 +124,12 @@ public final class OVRUtil {
 	 * @param outEyePoses        if {@code outEyePoses} are used for rendering, they should be passed to {@link OVR#ovr_SubmitFrame _SubmitFrame} in {@link OVRLayerEyeFov}{@code ::RenderPose} or
 	 *                           {@link OVRLayerEyeFovDepth}{@code ::RenderPose}
 	 */
-	public static void ovr_CalcEyePoses(ByteBuffer headPose, ByteBuffer hmdToEyeViewOffset, ByteBuffer outEyePoses) {
+	public static void ovr_CalcEyePoses(OVRPosef headPose, OVRVector3f.Buffer hmdToEyeViewOffset, OVRPosef.Buffer outEyePoses) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(headPose, OVRPosef.SIZEOF);
-			checkBuffer(hmdToEyeViewOffset, 2 * OVRVector3f.SIZEOF);
-			checkBuffer(outEyePoses, 2 * OVRPosef.SIZEOF);
+			checkBuffer(hmdToEyeViewOffset, 2);
+			checkBuffer(outEyePoses, 2);
 		}
-		novr_CalcEyePoses(memAddress(headPose), memAddress(hmdToEyeViewOffset), memAddress(outEyePoses));
+		novr_CalcEyePoses(headPose.address(), hmdToEyeViewOffset.address(), outEyePoses.address());
 	}
 
 	// --- [ ovr_GetEyePoses ] ---
@@ -161,14 +152,13 @@ public final class OVRUtil {
 	 * @param outEyePoses         the predicted eye poses
 	 * @param outHmdTrackingState the predicted {@link OVRTrackingState}. May be {@code NULL}, in which case it is ignored.
 	 */
-	public static void ovr_GetEyePoses(long hmd, int frameIndex, ByteBuffer hmdToEyeViewOffset, ByteBuffer outEyePoses, ByteBuffer outHmdTrackingState) {
+	public static void ovr_GetEyePoses(long hmd, int frameIndex, OVRVector3f.Buffer hmdToEyeViewOffset, OVRPosef.Buffer outEyePoses, OVRTrackingState outHmdTrackingState) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(hmd);
-			checkBuffer(hmdToEyeViewOffset, 2 * OVRVector3f.SIZEOF);
-			checkBuffer(outEyePoses, 2 * OVRPosef.SIZEOF);
-			if ( outHmdTrackingState != null ) checkBuffer(outHmdTrackingState, OVRTrackingState.SIZEOF);
+			checkBuffer(hmdToEyeViewOffset, 2);
+			checkBuffer(outEyePoses, 2);
 		}
-		novr_GetEyePoses(hmd, frameIndex, memAddress(hmdToEyeViewOffset), memAddress(outEyePoses), memAddressSafe(outHmdTrackingState));
+		novr_GetEyePoses(hmd, frameIndex, hmdToEyeViewOffset.address(), outEyePoses.address(), outHmdTrackingState == null ? NULL : outHmdTrackingState.address());
 	}
 
 }

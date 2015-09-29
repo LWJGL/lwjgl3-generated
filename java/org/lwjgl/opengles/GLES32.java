@@ -691,7 +691,7 @@ public final class GLES32 {
 	 */
 	public static void glDebugMessageCallback(GLDebugMessageCallback callback, long userParam) {
 		long __functionAddress = getInstance().DebugMessageCallback;
-		callPPV(__functionAddress, callback == null ? NULL : callback.getPointer(), userParam);
+		callPPV(__functionAddress, callback == null ? NULL : callback.address(), userParam);
 	}
 
 	// --- [ glGetDebugMessageLog ] ---

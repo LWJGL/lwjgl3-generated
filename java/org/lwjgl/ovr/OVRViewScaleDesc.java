@@ -8,6 +8,8 @@ package org.lwjgl.ovr;
 import java.nio.*;
 
 import org.lwjgl.*;
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -21,7 +23,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * {@code HmdSpaceToWorldScaleInMeters} would be 0.0254. Note that if you are scaling the player in size, this must also scale. So if your application
  * units are inches, but you're shrinking the player to half their normal size, then {@code HmdSpaceToWorldScaleInMeters} would be {@code 0.0254*2.0}.
  */
-public final class OVRViewScaleDesc implements Pointer {
+public final class OVRViewScaleDesc extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -42,74 +44,183 @@ public final class OVRViewScaleDesc implements Pointer {
 		memFree(offsets);
 	}
 
-	private final ByteBuffer struct;
+	private static native int offsets(long buffer);
 
-	public OVRViewScaleDesc() {
-		this(malloc());
+	OVRViewScaleDesc(long address, ByteBuffer container) {
+		super(address, container, SIZEOF);
 	}
 
-	public OVRViewScaleDesc(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-
-		this.struct = struct;
+	/** Creates a {@link OVRViewScaleDesc} instance at the specified memory address. */
+	public OVRViewScaleDesc(long struct) {
+		this(struct, null);
 	}
 
-	public ByteBuffer buffer() {
-		return struct;
+	/**
+	 * Creates a {@link OVRViewScaleDesc} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+	 * visible to the struct instance and vice versa.
+	 *
+	 * <p>The created instance holds a strong reference to the container object.</p>
+	 */
+	public OVRViewScaleDesc(ByteBuffer container) {
+		this(memAddress(container), container);
 	}
 
 	@Override
-	public long getPointer() {
-		return memAddress(struct);
-	}
+	public int sizeof() { return SIZEOF; }
 
-	public OVRViewScaleDesc setHmdToEyeViewOffset(ByteBuffer HmdToEyeViewOffset) { HmdToEyeViewOffsetSet(struct, HmdToEyeViewOffset); return this; }
-	public OVRViewScaleDesc setHmdToEyeViewOffset(ByteBuffer HmdToEyeViewOffset, int index) { HmdToEyeViewOffsetSet(struct, HmdToEyeViewOffset, index); return this; }
-	public OVRViewScaleDesc setHmdSpaceToWorldScaleInMeters(float HmdSpaceToWorldScaleInMeters) { HmdSpaceToWorldScaleInMeters(struct, HmdSpaceToWorldScaleInMeters); return this; }
+	public void getHmdToEyeViewOffset(ByteBuffer HmdToEyeViewOffset) { ngetHmdToEyeViewOffset(address(), HmdToEyeViewOffset); }
+	public OVRVector3f getHmdToEyeViewOffset(int index) { return ngetHmdToEyeViewOffset(address(), index); }
+	public float getHmdSpaceToWorldScaleInMeters() { return ngetHmdSpaceToWorldScaleInMeters(address()); }
 
-	public void getHmdToEyeViewOffset(ByteBuffer HmdToEyeViewOffset) { HmdToEyeViewOffsetGet(struct, HmdToEyeViewOffset); }
-	public void getHmdToEyeViewOffset(ByteBuffer HmdToEyeViewOffset, int index) { HmdToEyeViewOffsetGet(struct, HmdToEyeViewOffset, index); }
-	public float getHmdSpaceToWorldScaleInMeters() { return HmdSpaceToWorldScaleInMeters(struct); }
+	public OVRViewScaleDesc setHmdToEyeViewOffset(ByteBuffer HmdToEyeViewOffset) { nsetHmdToEyeViewOffset(address(), HmdToEyeViewOffset); return this; }
+	public OVRViewScaleDesc setHmdToEyeViewOffset(int index, OVRVector3f HmdToEyeViewOffset) { nsetHmdToEyeViewOffset(address(), index, HmdToEyeViewOffset); return this; }
+	public OVRViewScaleDesc setHmdSpaceToWorldScaleInMeters(float HmdSpaceToWorldScaleInMeters) { nsetHmdSpaceToWorldScaleInMeters(address(), HmdSpaceToWorldScaleInMeters); return this; }
 
-	// -----------------------------------
-
-	private static native int offsets(long buffer);
-
-	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
-	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
-
-	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
-	public static ByteBuffer malloc(
+	/** Initializes this struct with the specified values. */
+	public OVRViewScaleDesc set(
 		ByteBuffer HmdToEyeViewOffset,
 		float HmdSpaceToWorldScaleInMeters
 	) {
-		ByteBuffer ovrviewscaledesc = malloc();
+		setHmdToEyeViewOffset(HmdToEyeViewOffset);
+		setHmdSpaceToWorldScaleInMeters(HmdSpaceToWorldScaleInMeters);
 
-		HmdToEyeViewOffsetSet(ovrviewscaledesc, HmdToEyeViewOffset);
-		HmdSpaceToWorldScaleInMeters(ovrviewscaledesc, HmdSpaceToWorldScaleInMeters);
-
-		return ovrviewscaledesc;
+		return this;
 	}
 
-	public static void HmdToEyeViewOffsetSet(ByteBuffer ovrviewscaledesc, ByteBuffer HmdToEyeViewOffset) {
+	/** Unsafe version of {@link #set}. */
+	public OVRViewScaleDesc nset(long struct) {
+		memCopy(struct, address(), SIZEOF);
+		return this;
+	}
+
+	/**
+	 * Copies the specified struct data to this struct.
+	 *
+	 * @param src the source struct
+	 *
+	 * @returns this struct
+	 */
+	public OVRViewScaleDesc set(OVRViewScaleDesc src) {
+		return nset(address());
+	}
+
+	/** {@link ByteBuffer} version of {@link #set}. */
+	public OVRViewScaleDesc set(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+		return nset(memAddress(struct));
+	}
+
+	// -----------------------------------
+
+	/** Returns a new {@link OVRViewScaleDesc} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	public static OVRViewScaleDesc malloc() {
+		return new OVRViewScaleDesc(nmemAlloc(SIZEOF));
+	}
+
+	/** Returns a new {@link OVRViewScaleDesc} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	public static OVRViewScaleDesc calloc() {
+		return new OVRViewScaleDesc(nmemCalloc(1, SIZEOF));
+	}
+
+	/** Returns a new {@link OVRViewScaleDesc} instance allocated with {@link BufferUtils}. */
+	public static OVRViewScaleDesc create() {
+		return new OVRViewScaleDesc(BufferUtils.createByteBuffer(SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRViewScaleDesc.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocBuffer(int capacity) {
+		return new Buffer(memAlloc(capacity * SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRViewScaleDesc.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocBuffer(int capacity) {
+		return new Buffer(memCalloc(capacity, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRViewScaleDesc.Buffer} instance allocated with {@link BufferUtils}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	}
+
+	public static void ngetHmdToEyeViewOffset(long struct, ByteBuffer HmdToEyeViewOffset) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(HmdToEyeViewOffset, 2 * OVRVector3f.SIZEOF);
-		memCopy(memAddress(HmdToEyeViewOffset), memAddress(ovrviewscaledesc) + HMDTOEYEVIEWOFFSET, HmdToEyeViewOffset.remaining());
+		memCopy(struct + HMDTOEYEVIEWOFFSET, memAddress(HmdToEyeViewOffset), HmdToEyeViewOffset.remaining());
 	}
-	public static void HmdToEyeViewOffsetSet(ByteBuffer ovrviewscaledesc, ByteBuffer HmdToEyeViewOffset, int index) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(HmdToEyeViewOffset, OVRVector3f.SIZEOF);
-		memCopy(memAddress(HmdToEyeViewOffset), memAddress(ovrviewscaledesc) + HMDTOEYEVIEWOFFSET + index * OVRVector3f.SIZEOF, HmdToEyeViewOffset.remaining());
+	public static void getHmdToEyeViewOffset(ByteBuffer struct, ByteBuffer HmdToEyeViewOffset) { ngetHmdToEyeViewOffset(memAddress(struct), HmdToEyeViewOffset); }
+	public static OVRVector3f ngetHmdToEyeViewOffset(long struct, int index) {
+		return OVRVector3f.malloc().nset(struct + HMDTOEYEVIEWOFFSET + index * OVRVector3f.SIZEOF);
 	}
-	public static void HmdSpaceToWorldScaleInMeters(ByteBuffer ovrviewscaledesc, float HmdSpaceToWorldScaleInMeters) { ovrviewscaledesc.putFloat(ovrviewscaledesc.position() + HMDSPACETOWORLDSCALEINMETERS, HmdSpaceToWorldScaleInMeters); }
+	public static OVRVector3f getHmdToEyeViewOffset(ByteBuffer struct, int index) { return ngetHmdToEyeViewOffset(memAddress(struct), index); }
+	public static float ngetHmdSpaceToWorldScaleInMeters(long struct) { return memGetFloat(struct + HMDSPACETOWORLDSCALEINMETERS); }
+	public static float getHmdSpaceToWorldScaleInMeters(ByteBuffer struct) { return ngetHmdSpaceToWorldScaleInMeters(memAddress(struct)); }
 
-	public static void HmdToEyeViewOffsetGet(ByteBuffer ovrviewscaledesc, ByteBuffer HmdToEyeViewOffset) {
+	public static void nsetHmdToEyeViewOffset(long struct, ByteBuffer HmdToEyeViewOffset) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(HmdToEyeViewOffset, 2 * OVRVector3f.SIZEOF);
-		memCopy(memAddress(ovrviewscaledesc) + HMDTOEYEVIEWOFFSET, memAddress(HmdToEyeViewOffset), HmdToEyeViewOffset.remaining());
+		memCopy(memAddress(HmdToEyeViewOffset), struct + HMDTOEYEVIEWOFFSET, HmdToEyeViewOffset.remaining());
 	}
-	public static void HmdToEyeViewOffsetGet(ByteBuffer ovrviewscaledesc, ByteBuffer HmdToEyeViewOffset, int index) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(HmdToEyeViewOffset, OVRVector3f.SIZEOF);
-		memCopy(memAddress(ovrviewscaledesc) + HMDTOEYEVIEWOFFSET + index * OVRVector3f.SIZEOF, memAddress(HmdToEyeViewOffset), HmdToEyeViewOffset.remaining());
+	public static void setHmdToEyeViewOffset(ByteBuffer struct, ByteBuffer HmdToEyeViewOffset) { nsetHmdToEyeViewOffset(memAddress(struct), HmdToEyeViewOffset); }
+	public static void nsetHmdToEyeViewOffset(long struct, int index, OVRVector3f HmdToEyeViewOffset) {
+		memCopy(HmdToEyeViewOffset.address(), struct + HMDTOEYEVIEWOFFSET + index * OVRVector3f.SIZEOF, OVRVector3f.SIZEOF);
 	}
-	public static float HmdSpaceToWorldScaleInMeters(ByteBuffer ovrviewscaledesc) { return ovrviewscaledesc.getFloat(ovrviewscaledesc.position() + HMDSPACETOWORLDSCALEINMETERS); }
+	public static void setHmdToEyeViewOffset(ByteBuffer struct, int index, OVRVector3f HmdToEyeViewOffset) { nsetHmdToEyeViewOffset(memAddress(struct), index, HmdToEyeViewOffset); }
+	public static void nsetHmdSpaceToWorldScaleInMeters(long struct, float HmdSpaceToWorldScaleInMeters) { memPutFloat(struct + HMDSPACETOWORLDSCALEINMETERS, HmdSpaceToWorldScaleInMeters); }
+	public static void setHmdSpaceToWorldScaleInMeters(ByteBuffer struct, float HmdSpaceToWorldScaleInMeters) { nsetHmdSpaceToWorldScaleInMeters(memAddress(struct), HmdSpaceToWorldScaleInMeters); }
+
+	// -----------------------------------
+
+	/** An array of {@link OVRViewScaleDesc} structs. */
+	public static final class Buffer extends StructBuffer<OVRViewScaleDesc, Buffer> {
+
+		/**
+		 * Creates a new {@link OVRViewScaleDesc.Buffer} instance backed by the specified container.
+		 *
+		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+		 * by {@link OVRViewScaleDesc#SIZEOF}, and its mark will be undefined.
+		 *
+		 * <p>The created buffer instance holds a strong reference to the container object.</p>
+		 */
+		public Buffer(ByteBuffer container) {
+			this(container.slice(), SIZEOF);
+		}
+
+		Buffer(ByteBuffer container, int SIZEOF) {
+			super(container, SIZEOF);
+		}
+
+		@Override
+		protected Buffer self() {
+			return this;
+		}
+
+		@Override
+		protected Buffer newBufferInstance(ByteBuffer buffer) {
+			return new Buffer(buffer);
+		}
+
+		@Override
+		protected OVRViewScaleDesc newInstance(long address) {
+			return new OVRViewScaleDesc(address, container);
+		}
+
+		@Override
+		protected int sizeof() {
+			return SIZEOF;
+		}
+
+	}
 
 }

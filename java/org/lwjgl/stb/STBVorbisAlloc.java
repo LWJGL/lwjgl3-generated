@@ -8,11 +8,13 @@ package org.lwjgl.stb;
 import java.nio.*;
 
 import org.lwjgl.*;
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** A buffer to use for allocations by {@link STBVorbis} */
-public final class STBVorbisAlloc implements Pointer {
+public final class STBVorbisAlloc extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -33,62 +35,169 @@ public final class STBVorbisAlloc implements Pointer {
 		memFree(offsets);
 	}
 
-	private final ByteBuffer struct;
+	private static native int offsets(long buffer);
 
-	public STBVorbisAlloc() {
-		this(malloc());
+	STBVorbisAlloc(long address, ByteBuffer container) {
+		super(address, container, SIZEOF);
 	}
 
-	public STBVorbisAlloc(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-
-		this.struct = struct;
+	/** Creates a {@link STBVorbisAlloc} instance at the specified memory address. */
+	public STBVorbisAlloc(long struct) {
+		this(struct, null);
 	}
 
-	public ByteBuffer buffer() {
-		return struct;
+	/**
+	 * Creates a {@link STBVorbisAlloc} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+	 * visible to the struct instance and vice versa.
+	 *
+	 * <p>The created instance holds a strong reference to the container object.</p>
+	 */
+	public STBVorbisAlloc(ByteBuffer container) {
+		this(memAddress(container), container);
 	}
 
 	@Override
-	public long getPointer() {
-		return memAddress(struct);
-	}
+	public int sizeof() { return SIZEOF; }
 
-	public STBVorbisAlloc setAllocBuffer(long alloc_buffer) { alloc_buffer(struct, alloc_buffer); return this; }
-	public STBVorbisAlloc setAllocBuffer(ByteBuffer alloc_buffer) { alloc_buffer(struct, alloc_buffer); return this; }
-	public STBVorbisAlloc setAllocBufferLengthInBytes(int alloc_buffer_length_in_bytes) { alloc_buffer_length_in_bytes(struct, alloc_buffer_length_in_bytes); return this; }
+	public ByteBuffer getAllocBuffer(int byteLen) { return ngetAllocBuffer(address(), byteLen); }
+	public int getAllocBufferLengthInBytes() { return ngetAllocBufferLengthInBytes(address()); }
 
-	public long getAllocBuffer() { return alloc_buffer(struct); }
-	public ByteBuffer getAllocBuffer(int byteLen) { return alloc_buffer(struct, byteLen); }
-	public int getAllocBufferLengthInBytes() { return alloc_buffer_length_in_bytes(struct); }
+	public STBVorbisAlloc setAllocBuffer(ByteBuffer alloc_buffer) { nsetAllocBuffer(address(), alloc_buffer); return this; }
+	public STBVorbisAlloc setAllocBufferLengthInBytes(int alloc_buffer_length_in_bytes) { nsetAllocBufferLengthInBytes(address(), alloc_buffer_length_in_bytes); return this; }
 
-	// -----------------------------------
-
-	private static native int offsets(long buffer);
-
-	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
-	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
-
-	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
-	public static ByteBuffer malloc(
+	/** Initializes this struct with the specified values. */
+	public STBVorbisAlloc set(
 		ByteBuffer alloc_buffer,
 		int alloc_buffer_length_in_bytes
 	) {
-		ByteBuffer stb_vorbis_alloc = malloc();
+		setAllocBuffer(alloc_buffer);
+		setAllocBufferLengthInBytes(alloc_buffer_length_in_bytes);
 
-		alloc_buffer(stb_vorbis_alloc, alloc_buffer);
-		alloc_buffer_length_in_bytes(stb_vorbis_alloc, alloc_buffer_length_in_bytes);
-
-		return stb_vorbis_alloc;
+		return this;
 	}
 
-	public static void alloc_buffer(ByteBuffer stb_vorbis_alloc, long alloc_buffer) { PointerBuffer.put(stb_vorbis_alloc, stb_vorbis_alloc.position() + ALLOC_BUFFER, alloc_buffer); }
-	public static void alloc_buffer(ByteBuffer stb_vorbis_alloc, ByteBuffer alloc_buffer) { alloc_buffer(stb_vorbis_alloc, memAddressSafe(alloc_buffer)); }
-	public static void alloc_buffer_length_in_bytes(ByteBuffer stb_vorbis_alloc, int alloc_buffer_length_in_bytes) { stb_vorbis_alloc.putInt(stb_vorbis_alloc.position() + ALLOC_BUFFER_LENGTH_IN_BYTES, alloc_buffer_length_in_bytes); }
+	/** Unsafe version of {@link #set}. */
+	public STBVorbisAlloc nset(long struct) {
+		memCopy(struct, address(), SIZEOF);
+		return this;
+	}
 
-	public static long alloc_buffer(ByteBuffer stb_vorbis_alloc) { return PointerBuffer.get(stb_vorbis_alloc, stb_vorbis_alloc.position() + ALLOC_BUFFER); }
-	public static ByteBuffer alloc_buffer(ByteBuffer stb_vorbis_alloc, int byteLen) { return memByteBuffer(alloc_buffer(stb_vorbis_alloc), byteLen); }
-	public static int alloc_buffer_length_in_bytes(ByteBuffer stb_vorbis_alloc) { return stb_vorbis_alloc.getInt(stb_vorbis_alloc.position() + ALLOC_BUFFER_LENGTH_IN_BYTES); }
+	/**
+	 * Copies the specified struct data to this struct.
+	 *
+	 * @param src the source struct
+	 *
+	 * @returns this struct
+	 */
+	public STBVorbisAlloc set(STBVorbisAlloc src) {
+		return nset(address());
+	}
+
+	/** {@link ByteBuffer} version of {@link #set}. */
+	public STBVorbisAlloc set(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+		return nset(memAddress(struct));
+	}
+
+	// -----------------------------------
+
+	/** Returns a new {@link STBVorbisAlloc} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	public static STBVorbisAlloc malloc() {
+		return new STBVorbisAlloc(nmemAlloc(SIZEOF));
+	}
+
+	/** Returns a new {@link STBVorbisAlloc} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	public static STBVorbisAlloc calloc() {
+		return new STBVorbisAlloc(nmemCalloc(1, SIZEOF));
+	}
+
+	/** Returns a new {@link STBVorbisAlloc} instance allocated with {@link BufferUtils}. */
+	public static STBVorbisAlloc create() {
+		return new STBVorbisAlloc(BufferUtils.createByteBuffer(SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link STBVorbisAlloc.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocBuffer(int capacity) {
+		return new Buffer(memAlloc(capacity * SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link STBVorbisAlloc.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocBuffer(int capacity) {
+		return new Buffer(memCalloc(capacity, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link STBVorbisAlloc.Buffer} instance allocated with {@link BufferUtils}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	}
+
+	public static long ngetAllocBuffer(long struct) { return memGetAddress(struct + ALLOC_BUFFER); }
+	public static ByteBuffer ngetAllocBuffer(long struct, int byteLen) { return memByteBuffer(ngetAllocBuffer(struct), byteLen); }
+	public static ByteBuffer getAllocBuffer(ByteBuffer struct, int byteLen) { return ngetAllocBuffer(memAddress(struct), byteLen); }
+	public static int ngetAllocBufferLengthInBytes(long struct) { return memGetInt(struct + ALLOC_BUFFER_LENGTH_IN_BYTES); }
+	public static int getAllocBufferLengthInBytes(ByteBuffer struct) { return ngetAllocBufferLengthInBytes(memAddress(struct)); }
+
+	public static void nsetAllocBuffer(long struct, long alloc_buffer) { memPutAddress(struct + ALLOC_BUFFER, alloc_buffer); }
+	public static void nsetAllocBuffer(long struct, ByteBuffer alloc_buffer) { nsetAllocBuffer(struct, memAddressSafe(alloc_buffer)); }
+	public static void setAllocBuffer(ByteBuffer struct, ByteBuffer alloc_buffer) { nsetAllocBuffer(memAddress(struct), alloc_buffer); }
+	public static void nsetAllocBufferLengthInBytes(long struct, int alloc_buffer_length_in_bytes) { memPutInt(struct + ALLOC_BUFFER_LENGTH_IN_BYTES, alloc_buffer_length_in_bytes); }
+	public static void setAllocBufferLengthInBytes(ByteBuffer struct, int alloc_buffer_length_in_bytes) { nsetAllocBufferLengthInBytes(memAddress(struct), alloc_buffer_length_in_bytes); }
+
+	// -----------------------------------
+
+	/** An array of {@link STBVorbisAlloc} structs. */
+	public static final class Buffer extends StructBuffer<STBVorbisAlloc, Buffer> {
+
+		/**
+		 * Creates a new {@link STBVorbisAlloc.Buffer} instance backed by the specified container.
+		 *
+		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+		 * by {@link STBVorbisAlloc#SIZEOF}, and its mark will be undefined.
+		 *
+		 * <p>The created buffer instance holds a strong reference to the container object.</p>
+		 */
+		public Buffer(ByteBuffer container) {
+			this(container.slice(), SIZEOF);
+		}
+
+		Buffer(ByteBuffer container, int SIZEOF) {
+			super(container, SIZEOF);
+		}
+
+		@Override
+		protected Buffer self() {
+			return this;
+		}
+
+		@Override
+		protected Buffer newBufferInstance(ByteBuffer buffer) {
+			return new Buffer(buffer);
+		}
+
+		@Override
+		protected STBVorbisAlloc newInstance(long address) {
+			return new STBVorbisAlloc(address, container);
+		}
+
+		@Override
+		protected int sizeof() {
+			return SIZEOF;
+		}
+
+	}
 
 }

@@ -213,7 +213,7 @@ public final class CL11 {
 		long __functionAddress = getInstance().SetMemObjectDestructorCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(memobj);
-		return callPPPI(__functionAddress, memobj, pfn_notify.getPointer(), user_data);
+		return callPPPI(__functionAddress, memobj, pfn_notify.address(), user_data);
 	}
 
 	// --- [ clEnqueueReadBufferRect ] ---
@@ -759,7 +759,7 @@ public final class CL11 {
 		long __functionAddress = getInstance().SetEventCallback;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(event);
-		return callPIPPI(__functionAddress, event, command_exec_callback_type, pfn_notify.getPointer(), user_data);
+		return callPIPPI(__functionAddress, event, command_exec_callback_type, pfn_notify.address(), user_data);
 	}
 
 }

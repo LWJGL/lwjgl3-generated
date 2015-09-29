@@ -255,9 +255,9 @@ public final class GLX13 {
 	 * @param display the connection to the X server
 	 * @param config  the GLXFBConfig
 	 */
-	public static ByteBuffer glXGetVisualFromFBConfig(long display, long config) {
+	public static XVisualInfo glXGetVisualFromFBConfig(long display, long config) {
 		long __result = nglXGetVisualFromFBConfig(display, config);
-		return memByteBuffer(__result, XVisualInfo.SIZEOF);
+		return new XVisualInfo(__result);
 	}
 
 	// --- [ glXCreateWindow ] ---

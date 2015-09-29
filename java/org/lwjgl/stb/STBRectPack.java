@@ -58,19 +58,15 @@ public final class STBRectPack {
 	 * @param rects     an array of {@link STBRPRect} structs
 	 * @param num_rects the number of structs in {@code rects}
 	 */
-	public static void stbrp_pack_rects(ByteBuffer context, ByteBuffer rects, int num_rects) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(context, STBRPContext.SIZEOF);
-			checkBuffer(rects, num_rects * STBRPRect.SIZEOF);
-		}
-		nstbrp_pack_rects(memAddress(context), memAddress(rects), num_rects);
+	public static void stbrp_pack_rects(STBRPContext context, STBRPRect.Buffer rects, int num_rects) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(rects, num_rects);
+		nstbrp_pack_rects(context.address(), rects.address(), num_rects);
 	}
 
 	/** Alternative version of: {@link #stbrp_pack_rects pack_rects} */
-	public static void stbrp_pack_rects(ByteBuffer context, ByteBuffer rects) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(context, STBRPContext.SIZEOF);
-		nstbrp_pack_rects(memAddress(context), memAddress(rects), rects.remaining() / STBRPRect.SIZEOF);
+	public static void stbrp_pack_rects(STBRPContext context, STBRPRect.Buffer rects) {
+		nstbrp_pack_rects(context.address(), rects.address(), rects.remaining());
 	}
 
 	// --- [ stbrp_init_target ] ---
@@ -104,19 +100,15 @@ public final class STBRectPack {
 	 * @param nodes     an array of {@link STBRPNode} structs
 	 * @param num_nodes the number of structs in {@code nodes}
 	 */
-	public static void stbrp_init_target(ByteBuffer context, int width, int height, ByteBuffer nodes, int num_nodes) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(context, STBRPContext.SIZEOF);
-			checkBuffer(nodes, num_nodes * STBRPNode.SIZEOF);
-		}
-		nstbrp_init_target(memAddress(context), width, height, memAddress(nodes), num_nodes);
+	public static void stbrp_init_target(STBRPContext context, int width, int height, STBRPNode.Buffer nodes, int num_nodes) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(nodes, num_nodes);
+		nstbrp_init_target(context.address(), width, height, nodes.address(), num_nodes);
 	}
 
 	/** Alternative version of: {@link #stbrp_init_target init_target} */
-	public static void stbrp_init_target(ByteBuffer context, int width, int height, ByteBuffer nodes) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(context, STBRPContext.SIZEOF);
-		nstbrp_init_target(memAddress(context), width, height, memAddress(nodes), nodes.remaining() / STBRPNode.SIZEOF);
+	public static void stbrp_init_target(STBRPContext context, int width, int height, STBRPNode.Buffer nodes) {
+		nstbrp_init_target(context.address(), width, height, nodes.address(), nodes.remaining());
 	}
 
 	// --- [ stbrp_setup_allow_out_of_mem ] ---
@@ -132,10 +124,8 @@ public final class STBRectPack {
 	 * @param context          an {@link STBRPContext} struct
 	 * @param allow_out_of_mem 1 to allow running out of temporary storage
 	 */
-	public static void stbrp_setup_allow_out_of_mem(ByteBuffer context, int allow_out_of_mem) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(context, STBRPContext.SIZEOF);
-		nstbrp_setup_allow_out_of_mem(memAddress(context), allow_out_of_mem);
+	public static void stbrp_setup_allow_out_of_mem(STBRPContext context, int allow_out_of_mem) {
+		nstbrp_setup_allow_out_of_mem(context.address(), allow_out_of_mem);
 	}
 
 	// --- [ stbrp_setup_heuristic ] ---
@@ -151,10 +141,8 @@ public final class STBRectPack {
 	 * @param context   an {@link STBRPContext} struct
 	 * @param heuristic the packing heuristic
 	 */
-	public static void stbrp_setup_heuristic(ByteBuffer context, int heuristic) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(context, STBRPContext.SIZEOF);
-		nstbrp_setup_heuristic(memAddress(context), heuristic);
+	public static void stbrp_setup_heuristic(STBRPContext context, int heuristic) {
+		nstbrp_setup_heuristic(context.address(), heuristic);
 	}
 
 }

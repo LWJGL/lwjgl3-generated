@@ -8,11 +8,13 @@ package org.lwjgl.glfw;
 import java.nio.*;
 
 import org.lwjgl.*;
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Video mode. */
-public final class GLFWvidmode implements Pointer {
+public final class GLFWvidmode extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -41,51 +43,46 @@ public final class GLFWvidmode implements Pointer {
 		memFree(offsets);
 	}
 
-	private final ByteBuffer struct;
+	private static native int offsets(long buffer);
 
-	public GLFWvidmode() {
-		this(malloc());
+	GLFWvidmode(long address, ByteBuffer container) {
+		super(address, container, SIZEOF);
 	}
 
-	public GLFWvidmode(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-
-		this.struct = struct;
+	/** Creates a {@link GLFWvidmode} instance at the specified memory address. */
+	public GLFWvidmode(long struct) {
+		this(struct, null);
 	}
 
-	public ByteBuffer buffer() {
-		return struct;
+	/**
+	 * Creates a {@link GLFWvidmode} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+	 * visible to the struct instance and vice versa.
+	 *
+	 * <p>The created instance holds a strong reference to the container object.</p>
+	 */
+	public GLFWvidmode(ByteBuffer container) {
+		this(memAddress(container), container);
 	}
 
 	@Override
-	public long getPointer() {
-		return memAddress(struct);
-	}
+	public int sizeof() { return SIZEOF; }
 
-	public GLFWvidmode setWidth(int width) { width(struct, width); return this; }
-	public GLFWvidmode setHeight(int height) { height(struct, height); return this; }
-	public GLFWvidmode setRedBits(int redBits) { redBits(struct, redBits); return this; }
-	public GLFWvidmode setGreenBits(int greenBits) { greenBits(struct, greenBits); return this; }
-	public GLFWvidmode setBlueBits(int blueBits) { blueBits(struct, blueBits); return this; }
-	public GLFWvidmode setRefreshRate(int refreshRate) { refreshRate(struct, refreshRate); return this; }
+	public int getWidth() { return ngetWidth(address()); }
+	public int getHeight() { return ngetHeight(address()); }
+	public int getRedBits() { return ngetRedBits(address()); }
+	public int getGreenBits() { return ngetGreenBits(address()); }
+	public int getBlueBits() { return ngetBlueBits(address()); }
+	public int getRefreshRate() { return ngetRefreshRate(address()); }
 
-	public int getWidth() { return width(struct); }
-	public int getHeight() { return height(struct); }
-	public int getRedBits() { return redBits(struct); }
-	public int getGreenBits() { return greenBits(struct); }
-	public int getBlueBits() { return blueBits(struct); }
-	public int getRefreshRate() { return refreshRate(struct); }
+	public GLFWvidmode setWidth(int width) { nsetWidth(address(), width); return this; }
+	public GLFWvidmode setHeight(int height) { nsetHeight(address(), height); return this; }
+	public GLFWvidmode setRedBits(int redBits) { nsetRedBits(address(), redBits); return this; }
+	public GLFWvidmode setGreenBits(int greenBits) { nsetGreenBits(address(), greenBits); return this; }
+	public GLFWvidmode setBlueBits(int blueBits) { nsetBlueBits(address(), blueBits); return this; }
+	public GLFWvidmode setRefreshRate(int refreshRate) { nsetRefreshRate(address(), refreshRate); return this; }
 
-	// -----------------------------------
-
-	private static native int offsets(long buffer);
-
-	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
-	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
-
-	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
-	public static ByteBuffer malloc(
+	/** Initializes this struct with the specified values. */
+	public GLFWvidmode set(
 		int width,
 		int height,
 		int redBits,
@@ -93,30 +90,152 @@ public final class GLFWvidmode implements Pointer {
 		int blueBits,
 		int refreshRate
 	) {
-		ByteBuffer glfwvidmode = malloc();
+		setWidth(width);
+		setHeight(height);
+		setRedBits(redBits);
+		setGreenBits(greenBits);
+		setBlueBits(blueBits);
+		setRefreshRate(refreshRate);
 
-		width(glfwvidmode, width);
-		height(glfwvidmode, height);
-		redBits(glfwvidmode, redBits);
-		greenBits(glfwvidmode, greenBits);
-		blueBits(glfwvidmode, blueBits);
-		refreshRate(glfwvidmode, refreshRate);
-
-		return glfwvidmode;
+		return this;
 	}
 
-	public static void width(ByteBuffer glfwvidmode, int width) { glfwvidmode.putInt(glfwvidmode.position() + WIDTH, width); }
-	public static void height(ByteBuffer glfwvidmode, int height) { glfwvidmode.putInt(glfwvidmode.position() + HEIGHT, height); }
-	public static void redBits(ByteBuffer glfwvidmode, int redBits) { glfwvidmode.putInt(glfwvidmode.position() + REDBITS, redBits); }
-	public static void greenBits(ByteBuffer glfwvidmode, int greenBits) { glfwvidmode.putInt(glfwvidmode.position() + GREENBITS, greenBits); }
-	public static void blueBits(ByteBuffer glfwvidmode, int blueBits) { glfwvidmode.putInt(glfwvidmode.position() + BLUEBITS, blueBits); }
-	public static void refreshRate(ByteBuffer glfwvidmode, int refreshRate) { glfwvidmode.putInt(glfwvidmode.position() + REFRESHRATE, refreshRate); }
+	/** Unsafe version of {@link #set}. */
+	public GLFWvidmode nset(long struct) {
+		memCopy(struct, address(), SIZEOF);
+		return this;
+	}
 
-	public static int width(ByteBuffer glfwvidmode) { return glfwvidmode.getInt(glfwvidmode.position() + WIDTH); }
-	public static int height(ByteBuffer glfwvidmode) { return glfwvidmode.getInt(glfwvidmode.position() + HEIGHT); }
-	public static int redBits(ByteBuffer glfwvidmode) { return glfwvidmode.getInt(glfwvidmode.position() + REDBITS); }
-	public static int greenBits(ByteBuffer glfwvidmode) { return glfwvidmode.getInt(glfwvidmode.position() + GREENBITS); }
-	public static int blueBits(ByteBuffer glfwvidmode) { return glfwvidmode.getInt(glfwvidmode.position() + BLUEBITS); }
-	public static int refreshRate(ByteBuffer glfwvidmode) { return glfwvidmode.getInt(glfwvidmode.position() + REFRESHRATE); }
+	/**
+	 * Copies the specified struct data to this struct.
+	 *
+	 * @param src the source struct
+	 *
+	 * @returns this struct
+	 */
+	public GLFWvidmode set(GLFWvidmode src) {
+		return nset(address());
+	}
+
+	/** {@link ByteBuffer} version of {@link #set}. */
+	public GLFWvidmode set(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+		return nset(memAddress(struct));
+	}
+
+	// -----------------------------------
+
+	/** Returns a new {@link GLFWvidmode} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	public static GLFWvidmode malloc() {
+		return new GLFWvidmode(nmemAlloc(SIZEOF));
+	}
+
+	/** Returns a new {@link GLFWvidmode} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	public static GLFWvidmode calloc() {
+		return new GLFWvidmode(nmemCalloc(1, SIZEOF));
+	}
+
+	/** Returns a new {@link GLFWvidmode} instance allocated with {@link BufferUtils}. */
+	public static GLFWvidmode create() {
+		return new GLFWvidmode(BufferUtils.createByteBuffer(SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link GLFWvidmode.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocBuffer(int capacity) {
+		return new Buffer(memAlloc(capacity * SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link GLFWvidmode.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocBuffer(int capacity) {
+		return new Buffer(memCalloc(capacity, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link GLFWvidmode.Buffer} instance allocated with {@link BufferUtils}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	}
+
+	public static int ngetWidth(long struct) { return memGetInt(struct + WIDTH); }
+	public static int getWidth(ByteBuffer struct) { return ngetWidth(memAddress(struct)); }
+	public static int ngetHeight(long struct) { return memGetInt(struct + HEIGHT); }
+	public static int getHeight(ByteBuffer struct) { return ngetHeight(memAddress(struct)); }
+	public static int ngetRedBits(long struct) { return memGetInt(struct + REDBITS); }
+	public static int getRedBits(ByteBuffer struct) { return ngetRedBits(memAddress(struct)); }
+	public static int ngetGreenBits(long struct) { return memGetInt(struct + GREENBITS); }
+	public static int getGreenBits(ByteBuffer struct) { return ngetGreenBits(memAddress(struct)); }
+	public static int ngetBlueBits(long struct) { return memGetInt(struct + BLUEBITS); }
+	public static int getBlueBits(ByteBuffer struct) { return ngetBlueBits(memAddress(struct)); }
+	public static int ngetRefreshRate(long struct) { return memGetInt(struct + REFRESHRATE); }
+	public static int getRefreshRate(ByteBuffer struct) { return ngetRefreshRate(memAddress(struct)); }
+
+	public static void nsetWidth(long struct, int width) { memPutInt(struct + WIDTH, width); }
+	public static void setWidth(ByteBuffer struct, int width) { nsetWidth(memAddress(struct), width); }
+	public static void nsetHeight(long struct, int height) { memPutInt(struct + HEIGHT, height); }
+	public static void setHeight(ByteBuffer struct, int height) { nsetHeight(memAddress(struct), height); }
+	public static void nsetRedBits(long struct, int redBits) { memPutInt(struct + REDBITS, redBits); }
+	public static void setRedBits(ByteBuffer struct, int redBits) { nsetRedBits(memAddress(struct), redBits); }
+	public static void nsetGreenBits(long struct, int greenBits) { memPutInt(struct + GREENBITS, greenBits); }
+	public static void setGreenBits(ByteBuffer struct, int greenBits) { nsetGreenBits(memAddress(struct), greenBits); }
+	public static void nsetBlueBits(long struct, int blueBits) { memPutInt(struct + BLUEBITS, blueBits); }
+	public static void setBlueBits(ByteBuffer struct, int blueBits) { nsetBlueBits(memAddress(struct), blueBits); }
+	public static void nsetRefreshRate(long struct, int refreshRate) { memPutInt(struct + REFRESHRATE, refreshRate); }
+	public static void setRefreshRate(ByteBuffer struct, int refreshRate) { nsetRefreshRate(memAddress(struct), refreshRate); }
+
+	// -----------------------------------
+
+	/** An array of {@link GLFWvidmode} structs. */
+	public static final class Buffer extends StructBuffer<GLFWvidmode, Buffer> {
+
+		/**
+		 * Creates a new {@link GLFWvidmode.Buffer} instance backed by the specified container.
+		 *
+		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+		 * by {@link GLFWvidmode#SIZEOF}, and its mark will be undefined.
+		 *
+		 * <p>The created buffer instance holds a strong reference to the container object.</p>
+		 */
+		public Buffer(ByteBuffer container) {
+			this(container.slice(), SIZEOF);
+		}
+
+		Buffer(ByteBuffer container, int SIZEOF) {
+			super(container, SIZEOF);
+		}
+
+		@Override
+		protected Buffer self() {
+			return this;
+		}
+
+		@Override
+		protected Buffer newBufferInstance(ByteBuffer buffer) {
+			return new Buffer(buffer);
+		}
+
+		@Override
+		protected GLFWvidmode newInstance(long address) {
+			return new GLFWvidmode(address, container);
+		}
+
+		@Override
+		protected int sizeof() {
+			return SIZEOF;
+		}
+
+	}
 
 }

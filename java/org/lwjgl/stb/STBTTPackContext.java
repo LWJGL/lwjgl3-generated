@@ -8,11 +8,13 @@ package org.lwjgl.stb;
 import java.nio.*;
 
 import org.lwjgl.*;
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** An opaque structure which holds all the context needed from {@link STBTruetype#stbtt_PackBegin} to {@link STBTruetype#stbtt_PackEnd}. */
-public final class STBTTPackContext implements Pointer {
+public final class STBTTPackContext extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -23,33 +25,116 @@ public final class STBTTPackContext implements Pointer {
 		SIZEOF = offsets();
 	}
 
-	private final ByteBuffer struct;
+	private static native int offsets();
 
-	public STBTTPackContext() {
-		this(malloc());
+	STBTTPackContext(long address, ByteBuffer container) {
+		super(address, container, SIZEOF);
 	}
 
-	public STBTTPackContext(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-
-		this.struct = struct;
+	/** Creates a {@link STBTTPackContext} instance at the specified memory address. */
+	public STBTTPackContext(long struct) {
+		this(struct, null);
 	}
 
-	public ByteBuffer buffer() {
-		return struct;
+	/**
+	 * Creates a {@link STBTTPackContext} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+	 * visible to the struct instance and vice versa.
+	 *
+	 * <p>The created instance holds a strong reference to the container object.</p>
+	 */
+	public STBTTPackContext(ByteBuffer container) {
+		this(memAddress(container), container);
 	}
 
 	@Override
-	public long getPointer() {
-		return memAddress(struct);
+	public int sizeof() { return SIZEOF; }
+
+	// -----------------------------------
+
+	/** Returns a new {@link STBTTPackContext} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	public static STBTTPackContext malloc() {
+		return new STBTTPackContext(nmemAlloc(SIZEOF));
+	}
+
+	/** Returns a new {@link STBTTPackContext} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	public static STBTTPackContext calloc() {
+		return new STBTTPackContext(nmemCalloc(1, SIZEOF));
+	}
+
+	/** Returns a new {@link STBTTPackContext} instance allocated with {@link BufferUtils}. */
+	public static STBTTPackContext create() {
+		return new STBTTPackContext(BufferUtils.createByteBuffer(SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link STBTTPackContext.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocBuffer(int capacity) {
+		return new Buffer(memAlloc(capacity * SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link STBTTPackContext.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocBuffer(int capacity) {
+		return new Buffer(memCalloc(capacity, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link STBTTPackContext.Buffer} instance allocated with {@link BufferUtils}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
 	// -----------------------------------
 
-	private static native int offsets();
+	/** An array of {@link STBTTPackContext} structs. */
+	public static final class Buffer extends StructBuffer<STBTTPackContext, Buffer> {
 
-	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
-	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
+		/**
+		 * Creates a new {@link STBTTPackContext.Buffer} instance backed by the specified container.
+		 *
+		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+		 * by {@link STBTTPackContext#SIZEOF}, and its mark will be undefined.
+		 *
+		 * <p>The created buffer instance holds a strong reference to the container object.</p>
+		 */
+		public Buffer(ByteBuffer container) {
+			this(container.slice(), SIZEOF);
+		}
+
+		Buffer(ByteBuffer container, int SIZEOF) {
+			super(container, SIZEOF);
+		}
+
+		@Override
+		protected Buffer self() {
+			return this;
+		}
+
+		@Override
+		protected Buffer newBufferInstance(ByteBuffer buffer) {
+			return new Buffer(buffer);
+		}
+
+		@Override
+		protected STBTTPackContext newInstance(long address) {
+			return new STBTTPackContext(address, container);
+		}
+
+		@Override
+		protected int sizeof() {
+			return SIZEOF;
+		}
+
+	}
 
 }

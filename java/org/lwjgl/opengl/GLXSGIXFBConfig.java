@@ -228,9 +228,9 @@ public final class GLXSGIXFBConfig {
 	 * @param display the connection to the X server
 	 * @param config  the {@code GLXFBConfigSGIX}
 	 */
-	public static ByteBuffer glXGetVisualFromFBConfigSGIX(long display, long config) {
+	public static XVisualInfo glXGetVisualFromFBConfigSGIX(long display, long config) {
 		long __result = nglXGetVisualFromFBConfigSGIX(display, config);
-		return memByteBuffer(__result, XVisualInfo.SIZEOF);
+		return new XVisualInfo(__result);
 	}
 
 	// --- [ glXGetFBConfigFromVisualSGIX ] ---
@@ -250,10 +250,8 @@ public final class GLXSGIXFBConfig {
 	 * @param display the connection to the X server
 	 * @param vis     the visual
 	 */
-	public static long glXGetFBConfigFromVisualSGIX(long display, ByteBuffer vis) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(vis, XVisualInfo.SIZEOF);
-		return nglXGetFBConfigFromVisualSGIX(display, memAddress(vis));
+	public static long glXGetFBConfigFromVisualSGIX(long display, XVisualInfo vis) {
+		return nglXGetFBConfigFromVisualSGIX(display, vis.address());
 	}
 
 }

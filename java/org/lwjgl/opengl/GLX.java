@@ -217,21 +217,17 @@ public final class GLX {
 	 * @param attribute the attribute to query
 	 * @param value     returns the attribute value
 	 */
-	public static int glXGetConfig(long display, ByteBuffer visual, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(visual, XVisualInfo.SIZEOF);
+	public static int glXGetConfig(long display, XVisualInfo visual, int attribute, ByteBuffer value) {
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1 << 2);
-		}
-		return nglXGetConfig(display, memAddress(visual), attribute, memAddress(value));
+		return nglXGetConfig(display, visual.address(), attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glXGetConfig GetConfig} */
-	public static int glXGetConfig(long display, ByteBuffer visual, int attribute, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(visual, XVisualInfo.SIZEOF);
+	public static int glXGetConfig(long display, XVisualInfo visual, int attribute, IntBuffer value) {
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(value, 1);
-		}
-		return nglXGetConfig(display, memAddress(visual), attribute, memAddress(value));
+		return nglXGetConfig(display, visual.address(), attribute, memAddress(value));
 	}
 
 	// --- [ glXChooseVisual ] ---
@@ -255,19 +251,19 @@ public final class GLX {
 	 * @return a pointer to an {@code XVisualInfo} structure describing the visual that best matches the specified attributes. If no matching visual exists, {@code NULL} is
 	 *         returned.
 	 */
-	public static ByteBuffer glXChooseVisual(long display, int screen, ByteBuffer attrib_list) {
+	public static XVisualInfo glXChooseVisual(long display, int screen, ByteBuffer attrib_list) {
 		if ( LWJGLUtil.CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list);
 		long __result = nglXChooseVisual(display, screen, memAddressSafe(attrib_list));
-		return memByteBuffer(__result, XVisualInfo.SIZEOF);
+		return new XVisualInfo(__result);
 	}
 
 	/** Alternative version of: {@link #glXChooseVisual ChooseVisual} */
-	public static ByteBuffer glXChooseVisual(long display, int screen, IntBuffer attrib_list) {
+	public static XVisualInfo glXChooseVisual(long display, int screen, IntBuffer attrib_list) {
 		if ( LWJGLUtil.CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);
 		long __result = nglXChooseVisual(display, screen, memAddressSafe(attrib_list));
-		return memByteBuffer(__result, XVisualInfo.SIZEOF);
+		return new XVisualInfo(__result);
 	}
 
 	// --- [ glXCreateContext ] ---
@@ -289,10 +285,8 @@ public final class GLX {
 	 * @param share_list the GLXContext to share objects with
 	 * @param direct     whether direct rendering is requested
 	 */
-	public static long glXCreateContext(long display, ByteBuffer visual, long share_list, int direct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(visual, XVisualInfo.SIZEOF);
-		return nglXCreateContext(display, memAddress(visual), share_list, direct);
+	public static long glXCreateContext(long display, XVisualInfo visual, long share_list, int direct) {
+		return nglXCreateContext(display, visual.address(), share_list, direct);
 	}
 
 	// --- [ glXMakeCurrent ] ---
@@ -464,10 +458,8 @@ public final class GLX {
 	 * @param visual  a pointer to a {@link XVisualInfo} structure
 	 * @param pixmap  the Pixmap
 	 */
-	public static long glXCreateGLXPixmap(long display, ByteBuffer visual, long pixmap) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(visual, XVisualInfo.SIZEOF);
-		return nglXCreateGLXPixmap(display, memAddress(visual), pixmap);
+	public static long glXCreateGLXPixmap(long display, XVisualInfo visual, long pixmap) {
+		return nglXCreateGLXPixmap(display, visual.address(), pixmap);
 	}
 
 	// --- [ glXDestroyGLXPixmap ] ---

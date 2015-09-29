@@ -16,7 +16,7 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** Instances of this interface may be set to the {@link ChunkHooks} struct. */
 public abstract class ChunkDecommit extends Closure.Byte {
 
-	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(5);
 
 	static {

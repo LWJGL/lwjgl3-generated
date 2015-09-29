@@ -8,11 +8,13 @@ package org.lwjgl.ovr;
 import java.nio.*;
 
 import org.lwjgl.*;
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Frame timing data reported by {@link OVR#ovrHmd_GetFrameTiming}. */
-public final class OVRFrameTiming implements Pointer {
+public final class OVRFrameTiming extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -37,70 +39,183 @@ public final class OVRFrameTiming implements Pointer {
 		memFree(offsets);
 	}
 
-	private final ByteBuffer struct;
+	private static native int offsets(long buffer);
 
-	public OVRFrameTiming() {
-		this(malloc());
+	OVRFrameTiming(long address, ByteBuffer container) {
+		super(address, container, SIZEOF);
 	}
 
-	public OVRFrameTiming(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-
-		this.struct = struct;
+	/** Creates a {@link OVRFrameTiming} instance at the specified memory address. */
+	public OVRFrameTiming(long struct) {
+		this(struct, null);
 	}
 
-	public ByteBuffer buffer() {
-		return struct;
+	/**
+	 * Creates a {@link OVRFrameTiming} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+	 * visible to the struct instance and vice versa.
+	 *
+	 * <p>The created instance holds a strong reference to the container object.</p>
+	 */
+	public OVRFrameTiming(ByteBuffer container) {
+		this(memAddress(container), container);
 	}
 
 	@Override
-	public long getPointer() {
-		return memAddress(struct);
-	}
+	public int sizeof() { return SIZEOF; }
 
-	public OVRFrameTiming setDisplayMidpointSeconds(double DisplayMidpointSeconds) { DisplayMidpointSeconds(struct, DisplayMidpointSeconds); return this; }
-	public OVRFrameTiming setFrameIntervalSeconds(double FrameIntervalSeconds) { FrameIntervalSeconds(struct, FrameIntervalSeconds); return this; }
-	public OVRFrameTiming setAppFrameIndex(double AppFrameIndex) { AppFrameIndex(struct, AppFrameIndex); return this; }
-	public OVRFrameTiming setDisplayFrameIndex(double DisplayFrameIndex) { DisplayFrameIndex(struct, DisplayFrameIndex); return this; }
+	public double getDisplayMidpointSeconds() { return ngetDisplayMidpointSeconds(address()); }
+	public double getFrameIntervalSeconds() { return ngetFrameIntervalSeconds(address()); }
+	public double getAppFrameIndex() { return ngetAppFrameIndex(address()); }
+	public double getDisplayFrameIndex() { return ngetDisplayFrameIndex(address()); }
 
-	public double getDisplayMidpointSeconds() { return DisplayMidpointSeconds(struct); }
-	public double getFrameIntervalSeconds() { return FrameIntervalSeconds(struct); }
-	public double getAppFrameIndex() { return AppFrameIndex(struct); }
-	public double getDisplayFrameIndex() { return DisplayFrameIndex(struct); }
+	public OVRFrameTiming setDisplayMidpointSeconds(double DisplayMidpointSeconds) { nsetDisplayMidpointSeconds(address(), DisplayMidpointSeconds); return this; }
+	public OVRFrameTiming setFrameIntervalSeconds(double FrameIntervalSeconds) { nsetFrameIntervalSeconds(address(), FrameIntervalSeconds); return this; }
+	public OVRFrameTiming setAppFrameIndex(double AppFrameIndex) { nsetAppFrameIndex(address(), AppFrameIndex); return this; }
+	public OVRFrameTiming setDisplayFrameIndex(double DisplayFrameIndex) { nsetDisplayFrameIndex(address(), DisplayFrameIndex); return this; }
 
-	// -----------------------------------
-
-	private static native int offsets(long buffer);
-
-	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
-	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
-
-	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
-	public static ByteBuffer malloc(
+	/** Initializes this struct with the specified values. */
+	public OVRFrameTiming set(
 		double DisplayMidpointSeconds,
 		double FrameIntervalSeconds,
 		double AppFrameIndex,
 		double DisplayFrameIndex
 	) {
-		ByteBuffer ovrframetiming = malloc();
+		setDisplayMidpointSeconds(DisplayMidpointSeconds);
+		setFrameIntervalSeconds(FrameIntervalSeconds);
+		setAppFrameIndex(AppFrameIndex);
+		setDisplayFrameIndex(DisplayFrameIndex);
 
-		DisplayMidpointSeconds(ovrframetiming, DisplayMidpointSeconds);
-		FrameIntervalSeconds(ovrframetiming, FrameIntervalSeconds);
-		AppFrameIndex(ovrframetiming, AppFrameIndex);
-		DisplayFrameIndex(ovrframetiming, DisplayFrameIndex);
-
-		return ovrframetiming;
+		return this;
 	}
 
-	public static void DisplayMidpointSeconds(ByteBuffer ovrframetiming, double DisplayMidpointSeconds) { ovrframetiming.putDouble(ovrframetiming.position() + DISPLAYMIDPOINTSECONDS, DisplayMidpointSeconds); }
-	public static void FrameIntervalSeconds(ByteBuffer ovrframetiming, double FrameIntervalSeconds) { ovrframetiming.putDouble(ovrframetiming.position() + FRAMEINTERVALSECONDS, FrameIntervalSeconds); }
-	public static void AppFrameIndex(ByteBuffer ovrframetiming, double AppFrameIndex) { ovrframetiming.putDouble(ovrframetiming.position() + APPFRAMEINDEX, AppFrameIndex); }
-	public static void DisplayFrameIndex(ByteBuffer ovrframetiming, double DisplayFrameIndex) { ovrframetiming.putDouble(ovrframetiming.position() + DISPLAYFRAMEINDEX, DisplayFrameIndex); }
+	/** Unsafe version of {@link #set}. */
+	public OVRFrameTiming nset(long struct) {
+		memCopy(struct, address(), SIZEOF);
+		return this;
+	}
 
-	public static double DisplayMidpointSeconds(ByteBuffer ovrframetiming) { return ovrframetiming.getDouble(ovrframetiming.position() + DISPLAYMIDPOINTSECONDS); }
-	public static double FrameIntervalSeconds(ByteBuffer ovrframetiming) { return ovrframetiming.getDouble(ovrframetiming.position() + FRAMEINTERVALSECONDS); }
-	public static double AppFrameIndex(ByteBuffer ovrframetiming) { return ovrframetiming.getDouble(ovrframetiming.position() + APPFRAMEINDEX); }
-	public static double DisplayFrameIndex(ByteBuffer ovrframetiming) { return ovrframetiming.getDouble(ovrframetiming.position() + DISPLAYFRAMEINDEX); }
+	/**
+	 * Copies the specified struct data to this struct.
+	 *
+	 * @param src the source struct
+	 *
+	 * @returns this struct
+	 */
+	public OVRFrameTiming set(OVRFrameTiming src) {
+		return nset(address());
+	}
+
+	/** {@link ByteBuffer} version of {@link #set}. */
+	public OVRFrameTiming set(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+		return nset(memAddress(struct));
+	}
+
+	// -----------------------------------
+
+	/** Returns a new {@link OVRFrameTiming} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	public static OVRFrameTiming malloc() {
+		return new OVRFrameTiming(nmemAlloc(SIZEOF));
+	}
+
+	/** Returns a new {@link OVRFrameTiming} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	public static OVRFrameTiming calloc() {
+		return new OVRFrameTiming(nmemCalloc(1, SIZEOF));
+	}
+
+	/** Returns a new {@link OVRFrameTiming} instance allocated with {@link BufferUtils}. */
+	public static OVRFrameTiming create() {
+		return new OVRFrameTiming(BufferUtils.createByteBuffer(SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRFrameTiming.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocBuffer(int capacity) {
+		return new Buffer(memAlloc(capacity * SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRFrameTiming.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocBuffer(int capacity) {
+		return new Buffer(memCalloc(capacity, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRFrameTiming.Buffer} instance allocated with {@link BufferUtils}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	}
+
+	public static double ngetDisplayMidpointSeconds(long struct) { return memGetDouble(struct + DISPLAYMIDPOINTSECONDS); }
+	public static double getDisplayMidpointSeconds(ByteBuffer struct) { return ngetDisplayMidpointSeconds(memAddress(struct)); }
+	public static double ngetFrameIntervalSeconds(long struct) { return memGetDouble(struct + FRAMEINTERVALSECONDS); }
+	public static double getFrameIntervalSeconds(ByteBuffer struct) { return ngetFrameIntervalSeconds(memAddress(struct)); }
+	public static double ngetAppFrameIndex(long struct) { return memGetDouble(struct + APPFRAMEINDEX); }
+	public static double getAppFrameIndex(ByteBuffer struct) { return ngetAppFrameIndex(memAddress(struct)); }
+	public static double ngetDisplayFrameIndex(long struct) { return memGetDouble(struct + DISPLAYFRAMEINDEX); }
+	public static double getDisplayFrameIndex(ByteBuffer struct) { return ngetDisplayFrameIndex(memAddress(struct)); }
+
+	public static void nsetDisplayMidpointSeconds(long struct, double DisplayMidpointSeconds) { memPutDouble(struct + DISPLAYMIDPOINTSECONDS, DisplayMidpointSeconds); }
+	public static void setDisplayMidpointSeconds(ByteBuffer struct, double DisplayMidpointSeconds) { nsetDisplayMidpointSeconds(memAddress(struct), DisplayMidpointSeconds); }
+	public static void nsetFrameIntervalSeconds(long struct, double FrameIntervalSeconds) { memPutDouble(struct + FRAMEINTERVALSECONDS, FrameIntervalSeconds); }
+	public static void setFrameIntervalSeconds(ByteBuffer struct, double FrameIntervalSeconds) { nsetFrameIntervalSeconds(memAddress(struct), FrameIntervalSeconds); }
+	public static void nsetAppFrameIndex(long struct, double AppFrameIndex) { memPutDouble(struct + APPFRAMEINDEX, AppFrameIndex); }
+	public static void setAppFrameIndex(ByteBuffer struct, double AppFrameIndex) { nsetAppFrameIndex(memAddress(struct), AppFrameIndex); }
+	public static void nsetDisplayFrameIndex(long struct, double DisplayFrameIndex) { memPutDouble(struct + DISPLAYFRAMEINDEX, DisplayFrameIndex); }
+	public static void setDisplayFrameIndex(ByteBuffer struct, double DisplayFrameIndex) { nsetDisplayFrameIndex(memAddress(struct), DisplayFrameIndex); }
+
+	// -----------------------------------
+
+	/** An array of {@link OVRFrameTiming} structs. */
+	public static final class Buffer extends StructBuffer<OVRFrameTiming, Buffer> {
+
+		/**
+		 * Creates a new {@link OVRFrameTiming.Buffer} instance backed by the specified container.
+		 *
+		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+		 * by {@link OVRFrameTiming#SIZEOF}, and its mark will be undefined.
+		 *
+		 * <p>The created buffer instance holds a strong reference to the container object.</p>
+		 */
+		public Buffer(ByteBuffer container) {
+			this(container.slice(), SIZEOF);
+		}
+
+		Buffer(ByteBuffer container, int SIZEOF) {
+			super(container, SIZEOF);
+		}
+
+		@Override
+		protected Buffer self() {
+			return this;
+		}
+
+		@Override
+		protected Buffer newBufferInstance(ByteBuffer buffer) {
+			return new Buffer(buffer);
+		}
+
+		@Override
+		protected OVRFrameTiming newInstance(long address) {
+			return new OVRFrameTiming(address, container);
+		}
+
+		@Override
+		protected int sizeof() {
+			return SIZEOF;
+		}
+
+	}
 
 }

@@ -114,22 +114,19 @@ public final class LibFFI {
 	 * @return Upon successful completion, {@code ffi_prep_cif} returns {@link #FFI_OK OK}. It will return {@link #FFI_BAD_TYPEDEF BAD_TYPEDEF} if {@code cif} is {@code NULL} or
 	 *         {@code atypes} or {@code rtype} is malformed. If {@code abi} does not refer to a valid ABI, {@link #FFI_BAD_ABI BAD_ABI} will be returned.
 	 */
-	public static int ffi_prep_cif(ByteBuffer cif, int abi, int nargs, long rtype, ByteBuffer atypes) {
+	public static int ffi_prep_cif(FFICIF cif, int abi, int nargs, long rtype, ByteBuffer atypes) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(cif, FFICIF.SIZEOF);
 			if ( atypes != null ) checkBuffer(atypes, nargs << POINTER_SHIFT);
 			checkPointer(rtype);
 		}
-		return nffi_prep_cif(memAddress(cif), abi, nargs, rtype, memAddressSafe(atypes));
+		return nffi_prep_cif(cif.address(), abi, nargs, rtype, memAddressSafe(atypes));
 	}
 
 	/** Alternative version of: {@link #ffi_prep_cif prep_cif} */
-	public static int ffi_prep_cif(ByteBuffer cif, int abi, long rtype, PointerBuffer atypes) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(cif, FFICIF.SIZEOF);
+	public static int ffi_prep_cif(FFICIF cif, int abi, long rtype, PointerBuffer atypes) {
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(rtype);
-		}
-		return nffi_prep_cif(memAddress(cif), abi, atypes == null ? 0 : atypes.remaining(), rtype, memAddressSafe(atypes));
+		return nffi_prep_cif(cif.address(), abi, atypes == null ? 0 : atypes.remaining(), rtype, memAddressSafe(atypes));
 	}
 
 	// --- [ ffi_prep_cif_var ] ---
@@ -151,22 +148,19 @@ public final class LibFFI {
 	 * @return Upon successful completion, {@code ffi_prep_cif} returns {@link #FFI_OK OK}. It will return {@link #FFI_BAD_TYPEDEF BAD_TYPEDEF} if {@code cif} is {@code NULL} or
 	 *         {@code atypes} or {@code rtype} is malformed. If {@code abi} does not refer to a valid ABI, {@link #FFI_BAD_ABI BAD_ABI} will be returned.
 	 */
-	public static int ffi_prep_cif_var(ByteBuffer cif, int abi, int nfixedargs, int ntotalargs, long rtype, ByteBuffer atypes) {
+	public static int ffi_prep_cif_var(FFICIF cif, int abi, int nfixedargs, int ntotalargs, long rtype, ByteBuffer atypes) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(cif, FFICIF.SIZEOF);
 			checkBuffer(atypes, ntotalargs << POINTER_SHIFT);
 			checkPointer(rtype);
 		}
-		return nffi_prep_cif_var(memAddress(cif), abi, nfixedargs, ntotalargs, rtype, memAddress(atypes));
+		return nffi_prep_cif_var(cif.address(), abi, nfixedargs, ntotalargs, rtype, memAddress(atypes));
 	}
 
 	/** Alternative version of: {@link #ffi_prep_cif_var prep_cif_var} */
-	public static int ffi_prep_cif_var(ByteBuffer cif, int abi, int nfixedargs, long rtype, PointerBuffer atypes) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(cif, FFICIF.SIZEOF);
+	public static int ffi_prep_cif_var(FFICIF cif, int abi, int nfixedargs, long rtype, PointerBuffer atypes) {
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(rtype);
-		}
-		return nffi_prep_cif_var(memAddress(cif), abi, nfixedargs, atypes.remaining(), rtype, memAddress(atypes));
+		return nffi_prep_cif_var(cif.address(), abi, nfixedargs, atypes.remaining(), rtype, memAddress(atypes));
 	}
 
 	// --- [ ffi_call ] ---
@@ -184,21 +178,17 @@ public final class LibFFI {
 	 *               smaller-sized return value types, the ffi_arg or ffi_sarg integral type must be used to hold the return value.
 	 * @param avalue an array of pointers from which the argument values are retrieved
 	 */
-	public static void ffi_call(ByteBuffer cif, long fn, ByteBuffer rvalue, ByteBuffer avalue) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(cif, FFICIF.SIZEOF);
+	public static void ffi_call(FFICIF cif, long fn, ByteBuffer rvalue, ByteBuffer avalue) {
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(fn);
-		}
-		nffi_call(memAddress(cif), fn, memAddressSafe(rvalue), memAddressSafe(avalue));
+		nffi_call(cif.address(), fn, memAddressSafe(rvalue), memAddressSafe(avalue));
 	}
 
 	/** Alternative version of: {@link #ffi_call call} */
-	public static void ffi_call(ByteBuffer cif, long fn, ByteBuffer rvalue, PointerBuffer avalue) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(cif, FFICIF.SIZEOF);
+	public static void ffi_call(FFICIF cif, long fn, ByteBuffer rvalue, PointerBuffer avalue) {
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(fn);
-		}
-		nffi_call(memAddress(cif), fn, memAddressSafe(rvalue), memAddressSafe(avalue));
+		nffi_call(cif.address(), fn, memAddressSafe(rvalue), memAddressSafe(avalue));
 	}
 
 	// --- [ ffi_closure_alloc ] ---
@@ -260,14 +250,12 @@ public final class LibFFI {
 	 * @param user_data an arbitrary datum that is passed, uninterpreted, to your closure function
 	 * @param codeloc   the executable address returned by {@link #ffi_closure_alloc closure_alloc}.
 	 */
-	public static int ffi_prep_closure_loc(ByteBuffer closure, ByteBuffer cif, long fun, long user_data, long codeloc) {
+	public static int ffi_prep_closure_loc(FFIClosure closure, FFICIF cif, long fun, long user_data, long codeloc) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(closure, FFIClosure.SIZEOF);
-			checkBuffer(cif, FFICIF.SIZEOF);
 			checkPointer(fun);
 			checkPointer(codeloc);
 		}
-		return nffi_prep_closure_loc(memAddress(closure), memAddress(cif), fun, user_data, codeloc);
+		return nffi_prep_closure_loc(closure.address(), cif.address(), fun, user_data, codeloc);
 	}
 
 }

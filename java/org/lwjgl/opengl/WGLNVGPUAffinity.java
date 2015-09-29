@@ -118,10 +118,8 @@ public final class WGLNVGPUAffinity {
 	 * @param deviceIndex an index value that specifies a display device, supported by {@code gpu}, to query. The first display device will be index 0.
 	 * @param gpuDevice   a {@link GPU_DEVICE} structure which will receive information about the display device at index {@code deviceIndex}.
 	 */
-	public static int wglEnumGpuDevicesNV(long gpu, int deviceIndex, ByteBuffer gpuDevice) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(gpuDevice, GPU_DEVICE.SIZEOF);
-		return nwglEnumGpuDevicesNV(gpu, deviceIndex, memAddress(gpuDevice));
+	public static int wglEnumGpuDevicesNV(long gpu, int deviceIndex, GPU_DEVICE gpuDevice) {
+		return nwglEnumGpuDevicesNV(gpu, deviceIndex, gpuDevice.address());
 	}
 
 	// --- [ wglCreateAffinityDCNV ] ---

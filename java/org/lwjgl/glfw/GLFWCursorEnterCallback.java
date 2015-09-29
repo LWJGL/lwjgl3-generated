@@ -20,7 +20,7 @@ import static org.lwjgl.glfw.GLFW.*;
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetCursorEnterCallback} method. */
 public abstract class GLFWCursorEnterCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(2);
 
 	static {

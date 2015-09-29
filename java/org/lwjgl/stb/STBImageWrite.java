@@ -245,7 +245,7 @@ public final class STBImageWrite {
 	public static int stbi_write_png_to_func(STBIWriteCallback func, ByteBuffer context, int w, int h, int comp, ByteBuffer data, int stride_in_bytes) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, w * h * comp);
-		return nstbi_write_png_to_func(func.getPointer(), memAddressSafe(context), w, h, comp, memAddress(data), stride_in_bytes);
+		return nstbi_write_png_to_func(func.address(), memAddressSafe(context), w, h, comp, memAddress(data), stride_in_bytes);
 	}
 
 	// --- [ stbi_write_bmp_to_func ] ---
@@ -269,7 +269,7 @@ public final class STBImageWrite {
 	public static int stbi_write_bmp_to_func(STBIWriteCallback func, ByteBuffer context, int w, int h, int comp, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, w * h * comp);
-		return nstbi_write_bmp_to_func(func.getPointer(), memAddressSafe(context), w, h, comp, memAddress(data));
+		return nstbi_write_bmp_to_func(func.address(), memAddressSafe(context), w, h, comp, memAddress(data));
 	}
 
 	// --- [ stbi_write_tga_to_func ] ---
@@ -293,7 +293,7 @@ public final class STBImageWrite {
 	public static int stbi_write_tga_to_func(STBIWriteCallback func, ByteBuffer context, int w, int h, int comp, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, w * h * comp);
-		return nstbi_write_tga_to_func(func.getPointer(), memAddressSafe(context), w, h, comp, memAddress(data));
+		return nstbi_write_tga_to_func(func.address(), memAddressSafe(context), w, h, comp, memAddress(data));
 	}
 
 	// --- [ stbi_write_hdr_to_func ] ---
@@ -317,14 +317,14 @@ public final class STBImageWrite {
 	public static int stbi_write_hdr_to_func(STBIWriteCallback func, ByteBuffer context, int w, int h, int comp, ByteBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, (w * h * comp) << 2);
-		return nstbi_write_hdr_to_func(func.getPointer(), memAddressSafe(context), w, h, comp, memAddress(data));
+		return nstbi_write_hdr_to_func(func.address(), memAddressSafe(context), w, h, comp, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #stbi_write_hdr_to_func write_hdr_to_func} */
 	public static int stbi_write_hdr_to_func(STBIWriteCallback func, ByteBuffer context, int w, int h, int comp, FloatBuffer data) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(data, w * h * comp);
-		return nstbi_write_hdr_to_func(func.getPointer(), memAddressSafe(context), w, h, comp, memAddress(data));
+		return nstbi_write_hdr_to_func(func.address(), memAddressSafe(context), w, h, comp, memAddress(data));
 	}
 
 }

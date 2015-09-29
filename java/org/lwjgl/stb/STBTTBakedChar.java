@@ -8,11 +8,13 @@ package org.lwjgl.stb;
 import java.nio.*;
 
 import org.lwjgl.*;
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Baked character data, returned by {@link STBTruetype#stbtt_BakeFontBitmap}. */
-public final class STBTTBakedChar implements Pointer {
+public final class STBTTBakedChar extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -43,53 +45,48 @@ public final class STBTTBakedChar implements Pointer {
 		memFree(offsets);
 	}
 
-	private final ByteBuffer struct;
+	private static native int offsets(long buffer);
 
-	public STBTTBakedChar() {
-		this(malloc());
+	STBTTBakedChar(long address, ByteBuffer container) {
+		super(address, container, SIZEOF);
 	}
 
-	public STBTTBakedChar(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-
-		this.struct = struct;
+	/** Creates a {@link STBTTBakedChar} instance at the specified memory address. */
+	public STBTTBakedChar(long struct) {
+		this(struct, null);
 	}
 
-	public ByteBuffer buffer() {
-		return struct;
+	/**
+	 * Creates a {@link STBTTBakedChar} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+	 * visible to the struct instance and vice versa.
+	 *
+	 * <p>The created instance holds a strong reference to the container object.</p>
+	 */
+	public STBTTBakedChar(ByteBuffer container) {
+		this(memAddress(container), container);
 	}
 
 	@Override
-	public long getPointer() {
-		return memAddress(struct);
-	}
+	public int sizeof() { return SIZEOF; }
 
-	public STBTTBakedChar setX0(int x0) { x0(struct, x0); return this; }
-	public STBTTBakedChar setY0(int y0) { y0(struct, y0); return this; }
-	public STBTTBakedChar setX1(int x1) { x1(struct, x1); return this; }
-	public STBTTBakedChar setY1(int y1) { y1(struct, y1); return this; }
-	public STBTTBakedChar setXoff(float xoff) { xoff(struct, xoff); return this; }
-	public STBTTBakedChar setYoff(float yoff) { yoff(struct, yoff); return this; }
-	public STBTTBakedChar setXadvance(float xadvance) { xadvance(struct, xadvance); return this; }
+	public int getX0() { return ngetX0(address()); }
+	public int getY0() { return ngetY0(address()); }
+	public int getX1() { return ngetX1(address()); }
+	public int getY1() { return ngetY1(address()); }
+	public float getXoff() { return ngetXoff(address()); }
+	public float getYoff() { return ngetYoff(address()); }
+	public float getXadvance() { return ngetXadvance(address()); }
 
-	public int getX0() { return x0(struct); }
-	public int getY0() { return y0(struct); }
-	public int getX1() { return x1(struct); }
-	public int getY1() { return y1(struct); }
-	public float getXoff() { return xoff(struct); }
-	public float getYoff() { return yoff(struct); }
-	public float getXadvance() { return xadvance(struct); }
+	public STBTTBakedChar setX0(int x0) { nsetX0(address(), x0); return this; }
+	public STBTTBakedChar setY0(int y0) { nsetY0(address(), y0); return this; }
+	public STBTTBakedChar setX1(int x1) { nsetX1(address(), x1); return this; }
+	public STBTTBakedChar setY1(int y1) { nsetY1(address(), y1); return this; }
+	public STBTTBakedChar setXoff(float xoff) { nsetXoff(address(), xoff); return this; }
+	public STBTTBakedChar setYoff(float yoff) { nsetYoff(address(), yoff); return this; }
+	public STBTTBakedChar setXadvance(float xadvance) { nsetXadvance(address(), xadvance); return this; }
 
-	// -----------------------------------
-
-	private static native int offsets(long buffer);
-
-	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
-	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
-
-	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
-	public static ByteBuffer malloc(
+	/** Initializes this struct with the specified values. */
+	public STBTTBakedChar set(
 		int x0,
 		int y0,
 		int x1,
@@ -98,33 +95,157 @@ public final class STBTTBakedChar implements Pointer {
 		float yoff,
 		float xadvance
 	) {
-		ByteBuffer stbtt_bakedchar = malloc();
+		setX0(x0);
+		setY0(y0);
+		setX1(x1);
+		setY1(y1);
+		setXoff(xoff);
+		setYoff(yoff);
+		setXadvance(xadvance);
 
-		x0(stbtt_bakedchar, x0);
-		y0(stbtt_bakedchar, y0);
-		x1(stbtt_bakedchar, x1);
-		y1(stbtt_bakedchar, y1);
-		xoff(stbtt_bakedchar, xoff);
-		yoff(stbtt_bakedchar, yoff);
-		xadvance(stbtt_bakedchar, xadvance);
-
-		return stbtt_bakedchar;
+		return this;
 	}
 
-	public static void x0(ByteBuffer stbtt_bakedchar, int x0) { stbtt_bakedchar.putShort(stbtt_bakedchar.position() + X0, (short)x0); }
-	public static void y0(ByteBuffer stbtt_bakedchar, int y0) { stbtt_bakedchar.putShort(stbtt_bakedchar.position() + Y0, (short)y0); }
-	public static void x1(ByteBuffer stbtt_bakedchar, int x1) { stbtt_bakedchar.putShort(stbtt_bakedchar.position() + X1, (short)x1); }
-	public static void y1(ByteBuffer stbtt_bakedchar, int y1) { stbtt_bakedchar.putShort(stbtt_bakedchar.position() + Y1, (short)y1); }
-	public static void xoff(ByteBuffer stbtt_bakedchar, float xoff) { stbtt_bakedchar.putFloat(stbtt_bakedchar.position() + XOFF, xoff); }
-	public static void yoff(ByteBuffer stbtt_bakedchar, float yoff) { stbtt_bakedchar.putFloat(stbtt_bakedchar.position() + YOFF, yoff); }
-	public static void xadvance(ByteBuffer stbtt_bakedchar, float xadvance) { stbtt_bakedchar.putFloat(stbtt_bakedchar.position() + XADVANCE, xadvance); }
+	/** Unsafe version of {@link #set}. */
+	public STBTTBakedChar nset(long struct) {
+		memCopy(struct, address(), SIZEOF);
+		return this;
+	}
 
-	public static int x0(ByteBuffer stbtt_bakedchar) { return stbtt_bakedchar.getShort(stbtt_bakedchar.position() + X0) & 0xFFFF; }
-	public static int y0(ByteBuffer stbtt_bakedchar) { return stbtt_bakedchar.getShort(stbtt_bakedchar.position() + Y0) & 0xFFFF; }
-	public static int x1(ByteBuffer stbtt_bakedchar) { return stbtt_bakedchar.getShort(stbtt_bakedchar.position() + X1) & 0xFFFF; }
-	public static int y1(ByteBuffer stbtt_bakedchar) { return stbtt_bakedchar.getShort(stbtt_bakedchar.position() + Y1) & 0xFFFF; }
-	public static float xoff(ByteBuffer stbtt_bakedchar) { return stbtt_bakedchar.getFloat(stbtt_bakedchar.position() + XOFF); }
-	public static float yoff(ByteBuffer stbtt_bakedchar) { return stbtt_bakedchar.getFloat(stbtt_bakedchar.position() + YOFF); }
-	public static float xadvance(ByteBuffer stbtt_bakedchar) { return stbtt_bakedchar.getFloat(stbtt_bakedchar.position() + XADVANCE); }
+	/**
+	 * Copies the specified struct data to this struct.
+	 *
+	 * @param src the source struct
+	 *
+	 * @returns this struct
+	 */
+	public STBTTBakedChar set(STBTTBakedChar src) {
+		return nset(address());
+	}
+
+	/** {@link ByteBuffer} version of {@link #set}. */
+	public STBTTBakedChar set(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+		return nset(memAddress(struct));
+	}
+
+	// -----------------------------------
+
+	/** Returns a new {@link STBTTBakedChar} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	public static STBTTBakedChar malloc() {
+		return new STBTTBakedChar(nmemAlloc(SIZEOF));
+	}
+
+	/** Returns a new {@link STBTTBakedChar} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	public static STBTTBakedChar calloc() {
+		return new STBTTBakedChar(nmemCalloc(1, SIZEOF));
+	}
+
+	/** Returns a new {@link STBTTBakedChar} instance allocated with {@link BufferUtils}. */
+	public static STBTTBakedChar create() {
+		return new STBTTBakedChar(BufferUtils.createByteBuffer(SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link STBTTBakedChar.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocBuffer(int capacity) {
+		return new Buffer(memAlloc(capacity * SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link STBTTBakedChar.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocBuffer(int capacity) {
+		return new Buffer(memCalloc(capacity, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link STBTTBakedChar.Buffer} instance allocated with {@link BufferUtils}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	}
+
+	public static int ngetX0(long struct) { return memGetShort(struct + X0) & 0xFFFF; }
+	public static int getX0(ByteBuffer struct) { return ngetX0(memAddress(struct)); }
+	public static int ngetY0(long struct) { return memGetShort(struct + Y0) & 0xFFFF; }
+	public static int getY0(ByteBuffer struct) { return ngetY0(memAddress(struct)); }
+	public static int ngetX1(long struct) { return memGetShort(struct + X1) & 0xFFFF; }
+	public static int getX1(ByteBuffer struct) { return ngetX1(memAddress(struct)); }
+	public static int ngetY1(long struct) { return memGetShort(struct + Y1) & 0xFFFF; }
+	public static int getY1(ByteBuffer struct) { return ngetY1(memAddress(struct)); }
+	public static float ngetXoff(long struct) { return memGetFloat(struct + XOFF); }
+	public static float getXoff(ByteBuffer struct) { return ngetXoff(memAddress(struct)); }
+	public static float ngetYoff(long struct) { return memGetFloat(struct + YOFF); }
+	public static float getYoff(ByteBuffer struct) { return ngetYoff(memAddress(struct)); }
+	public static float ngetXadvance(long struct) { return memGetFloat(struct + XADVANCE); }
+	public static float getXadvance(ByteBuffer struct) { return ngetXadvance(memAddress(struct)); }
+
+	public static void nsetX0(long struct, int x0) { memPutShort(struct + X0, (short)x0); }
+	public static void setX0(ByteBuffer struct, int x0) { nsetX0(memAddress(struct), x0); }
+	public static void nsetY0(long struct, int y0) { memPutShort(struct + Y0, (short)y0); }
+	public static void setY0(ByteBuffer struct, int y0) { nsetY0(memAddress(struct), y0); }
+	public static void nsetX1(long struct, int x1) { memPutShort(struct + X1, (short)x1); }
+	public static void setX1(ByteBuffer struct, int x1) { nsetX1(memAddress(struct), x1); }
+	public static void nsetY1(long struct, int y1) { memPutShort(struct + Y1, (short)y1); }
+	public static void setY1(ByteBuffer struct, int y1) { nsetY1(memAddress(struct), y1); }
+	public static void nsetXoff(long struct, float xoff) { memPutFloat(struct + XOFF, xoff); }
+	public static void setXoff(ByteBuffer struct, float xoff) { nsetXoff(memAddress(struct), xoff); }
+	public static void nsetYoff(long struct, float yoff) { memPutFloat(struct + YOFF, yoff); }
+	public static void setYoff(ByteBuffer struct, float yoff) { nsetYoff(memAddress(struct), yoff); }
+	public static void nsetXadvance(long struct, float xadvance) { memPutFloat(struct + XADVANCE, xadvance); }
+	public static void setXadvance(ByteBuffer struct, float xadvance) { nsetXadvance(memAddress(struct), xadvance); }
+
+	// -----------------------------------
+
+	/** An array of {@link STBTTBakedChar} structs. */
+	public static final class Buffer extends StructBuffer<STBTTBakedChar, Buffer> {
+
+		/**
+		 * Creates a new {@link STBTTBakedChar.Buffer} instance backed by the specified container.
+		 *
+		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+		 * by {@link STBTTBakedChar#SIZEOF}, and its mark will be undefined.
+		 *
+		 * <p>The created buffer instance holds a strong reference to the container object.</p>
+		 */
+		public Buffer(ByteBuffer container) {
+			this(container.slice(), SIZEOF);
+		}
+
+		Buffer(ByteBuffer container, int SIZEOF) {
+			super(container, SIZEOF);
+		}
+
+		@Override
+		protected Buffer self() {
+			return this;
+		}
+
+		@Override
+		protected Buffer newBufferInstance(ByteBuffer buffer) {
+			return new Buffer(buffer);
+		}
+
+		@Override
+		protected STBTTBakedChar newInstance(long address) {
+			return new STBTTBakedChar(address, container);
+		}
+
+		@Override
+		protected int sizeof() {
+			return SIZEOF;
+		}
+
+	}
 
 }

@@ -18,7 +18,7 @@ import static org.lwjgl.glfw.GLFW.*;
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowCloseCallback} method. */
 public abstract class GLFWWindowCloseCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(1);
 
 	static {

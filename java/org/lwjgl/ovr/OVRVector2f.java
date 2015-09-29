@@ -8,11 +8,13 @@ package org.lwjgl.ovr;
 import java.nio.*;
 
 import org.lwjgl.*;
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** A 2D vector with float components. */
-public final class OVRVector2f implements Pointer {
+public final class OVRVector2f extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -33,58 +35,167 @@ public final class OVRVector2f implements Pointer {
 		memFree(offsets);
 	}
 
-	private final ByteBuffer struct;
+	private static native int offsets(long buffer);
 
-	public OVRVector2f() {
-		this(malloc());
+	OVRVector2f(long address, ByteBuffer container) {
+		super(address, container, SIZEOF);
 	}
 
-	public OVRVector2f(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-
-		this.struct = struct;
+	/** Creates a {@link OVRVector2f} instance at the specified memory address. */
+	public OVRVector2f(long struct) {
+		this(struct, null);
 	}
 
-	public ByteBuffer buffer() {
-		return struct;
+	/**
+	 * Creates a {@link OVRVector2f} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+	 * visible to the struct instance and vice versa.
+	 *
+	 * <p>The created instance holds a strong reference to the container object.</p>
+	 */
+	public OVRVector2f(ByteBuffer container) {
+		this(memAddress(container), container);
 	}
 
 	@Override
-	public long getPointer() {
-		return memAddress(struct);
-	}
+	public int sizeof() { return SIZEOF; }
 
-	public OVRVector2f setX(float x) { x(struct, x); return this; }
-	public OVRVector2f setY(float y) { y(struct, y); return this; }
+	public float getX() { return ngetX(address()); }
+	public float getY() { return ngetY(address()); }
 
-	public float getX() { return x(struct); }
-	public float getY() { return y(struct); }
+	public OVRVector2f setX(float x) { nsetX(address(), x); return this; }
+	public OVRVector2f setY(float y) { nsetY(address(), y); return this; }
 
-	// -----------------------------------
-
-	private static native int offsets(long buffer);
-
-	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
-	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
-
-	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
-	public static ByteBuffer malloc(
+	/** Initializes this struct with the specified values. */
+	public OVRVector2f set(
 		float x,
 		float y
 	) {
-		ByteBuffer ovrvector2f = malloc();
+		setX(x);
+		setY(y);
 
-		x(ovrvector2f, x);
-		y(ovrvector2f, y);
-
-		return ovrvector2f;
+		return this;
 	}
 
-	public static void x(ByteBuffer ovrvector2f, float x) { ovrvector2f.putFloat(ovrvector2f.position() + X, x); }
-	public static void y(ByteBuffer ovrvector2f, float y) { ovrvector2f.putFloat(ovrvector2f.position() + Y, y); }
+	/** Unsafe version of {@link #set}. */
+	public OVRVector2f nset(long struct) {
+		memCopy(struct, address(), SIZEOF);
+		return this;
+	}
 
-	public static float x(ByteBuffer ovrvector2f) { return ovrvector2f.getFloat(ovrvector2f.position() + X); }
-	public static float y(ByteBuffer ovrvector2f) { return ovrvector2f.getFloat(ovrvector2f.position() + Y); }
+	/**
+	 * Copies the specified struct data to this struct.
+	 *
+	 * @param src the source struct
+	 *
+	 * @returns this struct
+	 */
+	public OVRVector2f set(OVRVector2f src) {
+		return nset(address());
+	}
+
+	/** {@link ByteBuffer} version of {@link #set}. */
+	public OVRVector2f set(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+		return nset(memAddress(struct));
+	}
+
+	// -----------------------------------
+
+	/** Returns a new {@link OVRVector2f} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	public static OVRVector2f malloc() {
+		return new OVRVector2f(nmemAlloc(SIZEOF));
+	}
+
+	/** Returns a new {@link OVRVector2f} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	public static OVRVector2f calloc() {
+		return new OVRVector2f(nmemCalloc(1, SIZEOF));
+	}
+
+	/** Returns a new {@link OVRVector2f} instance allocated with {@link BufferUtils}. */
+	public static OVRVector2f create() {
+		return new OVRVector2f(BufferUtils.createByteBuffer(SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRVector2f.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocBuffer(int capacity) {
+		return new Buffer(memAlloc(capacity * SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRVector2f.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocBuffer(int capacity) {
+		return new Buffer(memCalloc(capacity, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRVector2f.Buffer} instance allocated with {@link BufferUtils}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	}
+
+	public static float ngetX(long struct) { return memGetFloat(struct + X); }
+	public static float getX(ByteBuffer struct) { return ngetX(memAddress(struct)); }
+	public static float ngetY(long struct) { return memGetFloat(struct + Y); }
+	public static float getY(ByteBuffer struct) { return ngetY(memAddress(struct)); }
+
+	public static void nsetX(long struct, float x) { memPutFloat(struct + X, x); }
+	public static void setX(ByteBuffer struct, float x) { nsetX(memAddress(struct), x); }
+	public static void nsetY(long struct, float y) { memPutFloat(struct + Y, y); }
+	public static void setY(ByteBuffer struct, float y) { nsetY(memAddress(struct), y); }
+
+	// -----------------------------------
+
+	/** An array of {@link OVRVector2f} structs. */
+	public static final class Buffer extends StructBuffer<OVRVector2f, Buffer> {
+
+		/**
+		 * Creates a new {@link OVRVector2f.Buffer} instance backed by the specified container.
+		 *
+		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+		 * by {@link OVRVector2f#SIZEOF}, and its mark will be undefined.
+		 *
+		 * <p>The created buffer instance holds a strong reference to the container object.</p>
+		 */
+		public Buffer(ByteBuffer container) {
+			this(container.slice(), SIZEOF);
+		}
+
+		Buffer(ByteBuffer container, int SIZEOF) {
+			super(container, SIZEOF);
+		}
+
+		@Override
+		protected Buffer self() {
+			return this;
+		}
+
+		@Override
+		protected Buffer newBufferInstance(ByteBuffer buffer) {
+			return new Buffer(buffer);
+		}
+
+		@Override
+		protected OVRVector2f newInstance(long address) {
+			return new OVRVector2f(address, container);
+		}
+
+		@Override
+		protected int sizeof() {
+			return SIZEOF;
+		}
+
+	}
 
 }

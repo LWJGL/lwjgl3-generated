@@ -16,7 +16,7 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** Instances of this interface may be passed to the {@code LogCallback} member of the {@link OVRInitParams} struct. */
 public abstract class OVRLogCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(3);
 
 	static {

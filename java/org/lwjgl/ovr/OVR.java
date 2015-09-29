@@ -265,10 +265,8 @@ public final class OVR {
 	 *         <li>{@link OVRErrorCode#ovrError_Reinitialization Error_Reinitialization}: Attempted to re-initialize with a different version.</li>
 	 *         </ul>
 	 */
-	public static int ovr_Initialize(ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
-			if ( params != null ) checkBuffer(params, OVRInitParams.SIZEOF);
-		return novr_Initialize(memAddressSafe(params));
+	public static int ovr_Initialize(OVRInitParams params) {
+		return novr_Initialize(params == null ? NULL : params.address());
 	}
 
 	// --- [ ovr_Shutdown ] ---
@@ -298,10 +296,8 @@ public final class OVR {
 	 *
 	 * @param errorInfo The last {@link OVRErrorInfo} for the current thread
 	 */
-	public static void ovr_GetLastErrorInfo(ByteBuffer errorInfo) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(errorInfo, OVRErrorInfo.SIZEOF);
-		novr_GetLastErrorInfo(memAddress(errorInfo));
+	public static void ovr_GetLastErrorInfo(OVRErrorInfo errorInfo) {
+		novr_GetLastErrorInfo(errorInfo.address());
 	}
 
 	// --- [ ovr_GetVersionString ] ---
@@ -380,8 +376,8 @@ public final class OVR {
 	 *                 so.
 	 * @param __result an {@link OVRHmdDesc}. If the {@code hmd} is {@code NULL} and ovrHmdDesc::Type is {@link #ovrHmd_None Hmd_None} then no HMD is present.
 	 */
-	public static void ovr_GetHmdDesc(long hmd, ByteBuffer __result) {
-		novr_GetHmdDesc(hmd, memAddress(__result));
+	public static void ovr_GetHmdDesc(long hmd, OVRHmdDesc __result) {
+		novr_GetHmdDesc(hmd, __result.address());
 	}
 
 	// --- [ ovr_Create ] ---
@@ -403,21 +399,17 @@ public final class OVR {
 	 *
 	 * @return an {@code ovrResult} indicating success or failure. Upon failure the returned {@code pHmd} will be {@code NULL}.
 	 */
-	public static int ovr_Create(ByteBuffer pHmd, ByteBuffer luid) {
-		if ( LWJGLUtil.CHECKS ) {
+	public static int ovr_Create(ByteBuffer pHmd, OVRGraphicsLuid luid) {
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(pHmd, 1 << POINTER_SHIFT);
-			checkBuffer(luid, 1 * OVRGraphicsLuid.SIZEOF);
-		}
-		return novr_Create(memAddress(pHmd), memAddress(luid));
+		return novr_Create(memAddress(pHmd), luid.address());
 	}
 
 	/** Alternative version of: {@link #ovr_Create Create} */
-	public static int ovr_Create(PointerBuffer pHmd, ByteBuffer luid) {
-		if ( LWJGLUtil.CHECKS ) {
+	public static int ovr_Create(PointerBuffer pHmd, OVRGraphicsLuid luid) {
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(pHmd, 1);
-			checkBuffer(luid, 1 * OVRGraphicsLuid.SIZEOF);
-		}
-		return novr_Create(memAddress(pHmd), memAddress(luid));
+		return novr_Create(memAddress(pHmd), luid.address());
 	}
 
 	// --- [ ovr_Destroy ] ---
@@ -540,10 +532,10 @@ public final class OVR {
 	 * @param absTime  the absolute future time to predict the return {@link OVRTrackingState} value. Use 0 to request the most recent tracking state.
 	 * @param __result the {@link OVRTrackingState} that is predicted for the given {@code absTime}
 	 */
-	public static void ovr_GetTrackingState(long hmd, double absTime, ByteBuffer __result) {
+	public static void ovr_GetTrackingState(long hmd, double absTime, OVRTrackingState __result) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hmd);
-		novr_GetTrackingState(hmd, absTime, memAddress(__result));
+		novr_GetTrackingState(hmd, absTime, __result.address());
 	}
 
 	// --- [ ovr_GetInputState ] ---
@@ -562,12 +554,10 @@ public final class OVR {
 	 *
 	 * @return {@link OVRErrorCode#ovrSuccess Success} if the new state was successfully obtained
 	 */
-	public static int ovr_GetInputState(long hmd, int controllerTypeMask, ByteBuffer inputState) {
-		if ( LWJGLUtil.CHECKS ) {
+	public static int ovr_GetInputState(long hmd, int controllerTypeMask, OVRInputState inputState) {
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(hmd);
-			checkBuffer(inputState, OVRInputState.SIZEOF);
-		}
-		return novr_GetInputState(hmd, controllerTypeMask, memAddress(inputState));
+		return novr_GetInputState(hmd, controllerTypeMask, inputState.address());
 	}
 
 	// --- [ ovr_SetControllerVibration ] ---
@@ -608,12 +598,10 @@ public final class OVR {
 	 * @param hmd        an {@code ovrHmd} previously returned by {@link #ovr_Create Create}
 	 * @param textureSet the {@link OVRSwapTextureSet} to destroy. If it is {@code NULL} then this function has no effect.
 	 */
-	public static void ovr_DestroySwapTextureSet(long hmd, ByteBuffer textureSet) {
-		if ( LWJGLUtil.CHECKS ) {
+	public static void ovr_DestroySwapTextureSet(long hmd, OVRSwapTextureSet textureSet) {
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(hmd);
-			if ( textureSet != null ) checkBuffer(textureSet, OVRSwapTextureSet.SIZEOF);
-		}
-		novr_DestroySwapTextureSet(hmd, memAddressSafe(textureSet));
+		novr_DestroySwapTextureSet(hmd, textureSet == null ? NULL : textureSet.address());
 	}
 
 	// --- [ ovr_DestroyMirrorTexture ] ---
@@ -628,12 +616,10 @@ public final class OVR {
 	 * @param hmd           an {@code ovrHmd} previously returned by {@link #ovr_Create Create}
 	 * @param mirrorTexture the {@link OVRTexture} to destroy. If it is {@code NULL} then this function has no effect.
 	 */
-	public static void ovr_DestroyMirrorTexture(long hmd, ByteBuffer mirrorTexture) {
-		if ( LWJGLUtil.CHECKS ) {
+	public static void ovr_DestroyMirrorTexture(long hmd, OVRTexture mirrorTexture) {
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(hmd);
-			if ( mirrorTexture != null ) checkBuffer(mirrorTexture, OVRTexture.SIZEOF);
-		}
-		novr_DestroyMirrorTexture(hmd, memAddressSafe(mirrorTexture));
+		novr_DestroyMirrorTexture(hmd, mirrorTexture == null ? NULL : mirrorTexture.address());
 	}
 
 	// --- [ ovr_GetFovTextureSize ] ---
@@ -655,12 +641,10 @@ public final class OVR {
 	 *                              performance, higher values give improved quality.
 	 * @param __result              the texture width and height size
 	 */
-	public static void ovr_GetFovTextureSize(long hmd, int eye, ByteBuffer fov, float pixelsPerDisplayPixel, ByteBuffer __result) {
-		if ( LWJGLUtil.CHECKS ) {
+	public static void ovr_GetFovTextureSize(long hmd, int eye, OVRFovPort fov, float pixelsPerDisplayPixel, OVRSizei __result) {
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(hmd);
-			checkBuffer(fov, OVRFovPort.SIZEOF);
-		}
-		novr_GetFovTextureSize(hmd, eye, memAddress(fov), pixelsPerDisplayPixel, memAddress(__result));
+		novr_GetFovTextureSize(hmd, eye, fov.address(), pixelsPerDisplayPixel, __result.address());
 	}
 
 	// --- [ ovr_GetRenderDesc ] ---
@@ -677,12 +661,10 @@ public final class OVR {
 	 * @param fov      the {@link OVRFovPort} to use.
 	 * @param __result the computed {@link OVREyeRenderDesc} for the given {@code eyeType} and field of view
 	 */
-	public static void ovr_GetRenderDesc(long hmd, int eyeType, ByteBuffer fov, ByteBuffer __result) {
-		if ( LWJGLUtil.CHECKS ) {
+	public static void ovr_GetRenderDesc(long hmd, int eyeType, OVRFovPort fov, OVREyeRenderDesc __result) {
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(hmd);
-			checkBuffer(fov, OVRFovPort.SIZEOF);
-		}
-		novr_GetRenderDesc(hmd, eyeType, memAddress(fov), memAddress(__result));
+		novr_GetRenderDesc(hmd, eyeType, fov.address(), __result.address());
 	}
 
 	// --- [ ovr_SubmitFrame ] ---
@@ -736,22 +718,19 @@ public final class OVR {
 	 *         call returns a different {@code GraphicsLuid}.</li>
 	 *         </ul>
 	 */
-	public static int ovr_SubmitFrame(long hmd, int frameIndex, ByteBuffer viewScaleDesc, ByteBuffer layerPtrList, int layerCount) {
+	public static int ovr_SubmitFrame(long hmd, int frameIndex, OVRViewScaleDesc viewScaleDesc, ByteBuffer layerPtrList, int layerCount) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(hmd);
-			if ( viewScaleDesc != null ) checkBuffer(viewScaleDesc, OVRViewScaleDesc.SIZEOF);
 			checkBuffer(layerPtrList, layerCount << POINTER_SHIFT);
 		}
-		return novr_SubmitFrame(hmd, frameIndex, memAddressSafe(viewScaleDesc), memAddress(layerPtrList), layerCount);
+		return novr_SubmitFrame(hmd, frameIndex, viewScaleDesc == null ? NULL : viewScaleDesc.address(), memAddress(layerPtrList), layerCount);
 	}
 
 	/** Alternative version of: {@link #ovr_SubmitFrame SubmitFrame} */
-	public static int ovr_SubmitFrame(long hmd, int frameIndex, ByteBuffer viewScaleDesc, PointerBuffer layerPtrList) {
-		if ( LWJGLUtil.CHECKS ) {
+	public static int ovr_SubmitFrame(long hmd, int frameIndex, OVRViewScaleDesc viewScaleDesc, PointerBuffer layerPtrList) {
+		if ( LWJGLUtil.CHECKS )
 			checkPointer(hmd);
-			if ( viewScaleDesc != null ) checkBuffer(viewScaleDesc, OVRViewScaleDesc.SIZEOF);
-		}
-		return novr_SubmitFrame(hmd, frameIndex, memAddressSafe(viewScaleDesc), memAddress(layerPtrList), layerPtrList.remaining());
+		return novr_SubmitFrame(hmd, frameIndex, viewScaleDesc == null ? NULL : viewScaleDesc.address(), memAddress(layerPtrList), layerPtrList.remaining());
 	}
 
 	// --- [ ovr_GetFrameTiming ] ---
@@ -771,10 +750,10 @@ public final class OVR {
 	 * @param hmd        an {@code ovrHmd} previously returned by {@link #ovr_Create Create}
 	 * @param frameIndex the frame the caller wishes to target
 	 */
-	public static void ovr_GetFrameTiming(long hmd, int frameIndex, ByteBuffer __result) {
+	public static void ovr_GetFrameTiming(long hmd, int frameIndex, OVRFrameTiming __result) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(hmd);
-		novr_GetFrameTiming(hmd, frameIndex, memAddress(__result));
+		novr_GetFrameTiming(hmd, frameIndex, __result.address());
 	}
 
 	// --- [ ovr_GetTimeInSeconds ] ---

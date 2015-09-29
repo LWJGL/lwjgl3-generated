@@ -8,11 +8,13 @@ package org.lwjgl.stb;
 import java.nio.*;
 
 import org.lwjgl.*;
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** A packed rectangle. */
-public final class STBRPRect implements Pointer {
+public final class STBRPRect extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -41,51 +43,46 @@ public final class STBRPRect implements Pointer {
 		memFree(offsets);
 	}
 
-	private final ByteBuffer struct;
+	private static native int offsets(long buffer);
 
-	public STBRPRect() {
-		this(malloc());
+	STBRPRect(long address, ByteBuffer container) {
+		super(address, container, SIZEOF);
 	}
 
-	public STBRPRect(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-
-		this.struct = struct;
+	/** Creates a {@link STBRPRect} instance at the specified memory address. */
+	public STBRPRect(long struct) {
+		this(struct, null);
 	}
 
-	public ByteBuffer buffer() {
-		return struct;
+	/**
+	 * Creates a {@link STBRPRect} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+	 * visible to the struct instance and vice versa.
+	 *
+	 * <p>The created instance holds a strong reference to the container object.</p>
+	 */
+	public STBRPRect(ByteBuffer container) {
+		this(memAddress(container), container);
 	}
 
 	@Override
-	public long getPointer() {
-		return memAddress(struct);
-	}
+	public int sizeof() { return SIZEOF; }
 
-	public STBRPRect setId(int id) { id(struct, id); return this; }
-	public STBRPRect setW(int w) { w(struct, w); return this; }
-	public STBRPRect setH(int h) { h(struct, h); return this; }
-	public STBRPRect setX(int x) { x(struct, x); return this; }
-	public STBRPRect setY(int y) { y(struct, y); return this; }
-	public STBRPRect setWasPacked(int was_packed) { was_packed(struct, was_packed); return this; }
+	public int getId() { return ngetId(address()); }
+	public int getW() { return ngetW(address()); }
+	public int getH() { return ngetH(address()); }
+	public int getX() { return ngetX(address()); }
+	public int getY() { return ngetY(address()); }
+	public int getWasPacked() { return ngetWasPacked(address()); }
 
-	public int getId() { return id(struct); }
-	public int getW() { return w(struct); }
-	public int getH() { return h(struct); }
-	public int getX() { return x(struct); }
-	public int getY() { return y(struct); }
-	public int getWasPacked() { return was_packed(struct); }
+	public STBRPRect setId(int id) { nsetId(address(), id); return this; }
+	public STBRPRect setW(int w) { nsetW(address(), w); return this; }
+	public STBRPRect setH(int h) { nsetH(address(), h); return this; }
+	public STBRPRect setX(int x) { nsetX(address(), x); return this; }
+	public STBRPRect setY(int y) { nsetY(address(), y); return this; }
+	public STBRPRect setWasPacked(int was_packed) { nsetWasPacked(address(), was_packed); return this; }
 
-	// -----------------------------------
-
-	private static native int offsets(long buffer);
-
-	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
-	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
-
-	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
-	public static ByteBuffer malloc(
+	/** Initializes this struct with the specified values. */
+	public STBRPRect set(
 		int id,
 		int w,
 		int h,
@@ -93,30 +90,152 @@ public final class STBRPRect implements Pointer {
 		int y,
 		int was_packed
 	) {
-		ByteBuffer stbrp_rect = malloc();
+		setId(id);
+		setW(w);
+		setH(h);
+		setX(x);
+		setY(y);
+		setWasPacked(was_packed);
 
-		id(stbrp_rect, id);
-		w(stbrp_rect, w);
-		h(stbrp_rect, h);
-		x(stbrp_rect, x);
-		y(stbrp_rect, y);
-		was_packed(stbrp_rect, was_packed);
-
-		return stbrp_rect;
+		return this;
 	}
 
-	public static void id(ByteBuffer stbrp_rect, int id) { stbrp_rect.putInt(stbrp_rect.position() + ID, id); }
-	public static void w(ByteBuffer stbrp_rect, int w) { stbrp_rect.putShort(stbrp_rect.position() + W, (short)w); }
-	public static void h(ByteBuffer stbrp_rect, int h) { stbrp_rect.putShort(stbrp_rect.position() + H, (short)h); }
-	public static void x(ByteBuffer stbrp_rect, int x) { stbrp_rect.putShort(stbrp_rect.position() + X, (short)x); }
-	public static void y(ByteBuffer stbrp_rect, int y) { stbrp_rect.putShort(stbrp_rect.position() + Y, (short)y); }
-	public static void was_packed(ByteBuffer stbrp_rect, int was_packed) { stbrp_rect.putInt(stbrp_rect.position() + WAS_PACKED, was_packed); }
+	/** Unsafe version of {@link #set}. */
+	public STBRPRect nset(long struct) {
+		memCopy(struct, address(), SIZEOF);
+		return this;
+	}
 
-	public static int id(ByteBuffer stbrp_rect) { return stbrp_rect.getInt(stbrp_rect.position() + ID); }
-	public static int w(ByteBuffer stbrp_rect) { return stbrp_rect.getShort(stbrp_rect.position() + W) & 0xFFFF; }
-	public static int h(ByteBuffer stbrp_rect) { return stbrp_rect.getShort(stbrp_rect.position() + H) & 0xFFFF; }
-	public static int x(ByteBuffer stbrp_rect) { return stbrp_rect.getShort(stbrp_rect.position() + X) & 0xFFFF; }
-	public static int y(ByteBuffer stbrp_rect) { return stbrp_rect.getShort(stbrp_rect.position() + Y) & 0xFFFF; }
-	public static int was_packed(ByteBuffer stbrp_rect) { return stbrp_rect.getInt(stbrp_rect.position() + WAS_PACKED); }
+	/**
+	 * Copies the specified struct data to this struct.
+	 *
+	 * @param src the source struct
+	 *
+	 * @returns this struct
+	 */
+	public STBRPRect set(STBRPRect src) {
+		return nset(address());
+	}
+
+	/** {@link ByteBuffer} version of {@link #set}. */
+	public STBRPRect set(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+		return nset(memAddress(struct));
+	}
+
+	// -----------------------------------
+
+	/** Returns a new {@link STBRPRect} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	public static STBRPRect malloc() {
+		return new STBRPRect(nmemAlloc(SIZEOF));
+	}
+
+	/** Returns a new {@link STBRPRect} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	public static STBRPRect calloc() {
+		return new STBRPRect(nmemCalloc(1, SIZEOF));
+	}
+
+	/** Returns a new {@link STBRPRect} instance allocated with {@link BufferUtils}. */
+	public static STBRPRect create() {
+		return new STBRPRect(BufferUtils.createByteBuffer(SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link STBRPRect.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocBuffer(int capacity) {
+		return new Buffer(memAlloc(capacity * SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link STBRPRect.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocBuffer(int capacity) {
+		return new Buffer(memCalloc(capacity, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link STBRPRect.Buffer} instance allocated with {@link BufferUtils}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	}
+
+	public static int ngetId(long struct) { return memGetInt(struct + ID); }
+	public static int getId(ByteBuffer struct) { return ngetId(memAddress(struct)); }
+	public static int ngetW(long struct) { return memGetShort(struct + W) & 0xFFFF; }
+	public static int getW(ByteBuffer struct) { return ngetW(memAddress(struct)); }
+	public static int ngetH(long struct) { return memGetShort(struct + H) & 0xFFFF; }
+	public static int getH(ByteBuffer struct) { return ngetH(memAddress(struct)); }
+	public static int ngetX(long struct) { return memGetShort(struct + X) & 0xFFFF; }
+	public static int getX(ByteBuffer struct) { return ngetX(memAddress(struct)); }
+	public static int ngetY(long struct) { return memGetShort(struct + Y) & 0xFFFF; }
+	public static int getY(ByteBuffer struct) { return ngetY(memAddress(struct)); }
+	public static int ngetWasPacked(long struct) { return memGetInt(struct + WAS_PACKED); }
+	public static int getWasPacked(ByteBuffer struct) { return ngetWasPacked(memAddress(struct)); }
+
+	public static void nsetId(long struct, int id) { memPutInt(struct + ID, id); }
+	public static void setId(ByteBuffer struct, int id) { nsetId(memAddress(struct), id); }
+	public static void nsetW(long struct, int w) { memPutShort(struct + W, (short)w); }
+	public static void setW(ByteBuffer struct, int w) { nsetW(memAddress(struct), w); }
+	public static void nsetH(long struct, int h) { memPutShort(struct + H, (short)h); }
+	public static void setH(ByteBuffer struct, int h) { nsetH(memAddress(struct), h); }
+	public static void nsetX(long struct, int x) { memPutShort(struct + X, (short)x); }
+	public static void setX(ByteBuffer struct, int x) { nsetX(memAddress(struct), x); }
+	public static void nsetY(long struct, int y) { memPutShort(struct + Y, (short)y); }
+	public static void setY(ByteBuffer struct, int y) { nsetY(memAddress(struct), y); }
+	public static void nsetWasPacked(long struct, int was_packed) { memPutInt(struct + WAS_PACKED, was_packed); }
+	public static void setWasPacked(ByteBuffer struct, int was_packed) { nsetWasPacked(memAddress(struct), was_packed); }
+
+	// -----------------------------------
+
+	/** An array of {@link STBRPRect} structs. */
+	public static final class Buffer extends StructBuffer<STBRPRect, Buffer> {
+
+		/**
+		 * Creates a new {@link STBRPRect.Buffer} instance backed by the specified container.
+		 *
+		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+		 * by {@link STBRPRect#SIZEOF}, and its mark will be undefined.
+		 *
+		 * <p>The created buffer instance holds a strong reference to the container object.</p>
+		 */
+		public Buffer(ByteBuffer container) {
+			this(container.slice(), SIZEOF);
+		}
+
+		Buffer(ByteBuffer container, int SIZEOF) {
+			super(container, SIZEOF);
+		}
+
+		@Override
+		protected Buffer self() {
+			return this;
+		}
+
+		@Override
+		protected Buffer newBufferInstance(ByteBuffer buffer) {
+			return new Buffer(buffer);
+		}
+
+		@Override
+		protected STBRPRect newInstance(long address) {
+			return new STBRPRect(address, container);
+		}
+
+		@Override
+		protected int sizeof() {
+			return SIZEOF;
+		}
+
+	}
 
 }

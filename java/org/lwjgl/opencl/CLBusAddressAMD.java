@@ -8,11 +8,13 @@ package org.lwjgl.opencl;
 import java.nio.*;
 
 import org.lwjgl.*;
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Used in {@link AMDBusAddressableMemory#clEnqueueMakeBuffersResidentAMD}. */
-public final class CLBusAddressAMD implements Pointer {
+public final class CLBusAddressAMD extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -33,58 +35,167 @@ public final class CLBusAddressAMD implements Pointer {
 		memFree(offsets);
 	}
 
-	private final ByteBuffer struct;
+	private static native int offsets(long buffer);
 
-	public CLBusAddressAMD() {
-		this(malloc());
+	CLBusAddressAMD(long address, ByteBuffer container) {
+		super(address, container, SIZEOF);
 	}
 
-	public CLBusAddressAMD(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-
-		this.struct = struct;
+	/** Creates a {@link CLBusAddressAMD} instance at the specified memory address. */
+	public CLBusAddressAMD(long struct) {
+		this(struct, null);
 	}
 
-	public ByteBuffer buffer() {
-		return struct;
+	/**
+	 * Creates a {@link CLBusAddressAMD} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+	 * visible to the struct instance and vice versa.
+	 *
+	 * <p>The created instance holds a strong reference to the container object.</p>
+	 */
+	public CLBusAddressAMD(ByteBuffer container) {
+		this(memAddress(container), container);
 	}
 
 	@Override
-	public long getPointer() {
-		return memAddress(struct);
-	}
+	public int sizeof() { return SIZEOF; }
 
-	public CLBusAddressAMD setSurfaceBusAddress(long surface_bus_address) { surface_bus_address(struct, surface_bus_address); return this; }
-	public CLBusAddressAMD setMarkerBusAddress(long marker_bus_address) { marker_bus_address(struct, marker_bus_address); return this; }
+	public long getSurfaceBusAddress() { return ngetSurfaceBusAddress(address()); }
+	public long getMarkerBusAddress() { return ngetMarkerBusAddress(address()); }
 
-	public long getSurfaceBusAddress() { return surface_bus_address(struct); }
-	public long getMarkerBusAddress() { return marker_bus_address(struct); }
+	public CLBusAddressAMD setSurfaceBusAddress(long surface_bus_address) { nsetSurfaceBusAddress(address(), surface_bus_address); return this; }
+	public CLBusAddressAMD setMarkerBusAddress(long marker_bus_address) { nsetMarkerBusAddress(address(), marker_bus_address); return this; }
 
-	// -----------------------------------
-
-	private static native int offsets(long buffer);
-
-	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
-	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
-
-	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
-	public static ByteBuffer malloc(
+	/** Initializes this struct with the specified values. */
+	public CLBusAddressAMD set(
 		long surface_bus_address,
 		long marker_bus_address
 	) {
-		ByteBuffer cl_bus_address_amd = malloc();
+		setSurfaceBusAddress(surface_bus_address);
+		setMarkerBusAddress(marker_bus_address);
 
-		surface_bus_address(cl_bus_address_amd, surface_bus_address);
-		marker_bus_address(cl_bus_address_amd, marker_bus_address);
-
-		return cl_bus_address_amd;
+		return this;
 	}
 
-	public static void surface_bus_address(ByteBuffer cl_bus_address_amd, long surface_bus_address) { cl_bus_address_amd.putLong(cl_bus_address_amd.position() + SURFACE_BUS_ADDRESS, surface_bus_address); }
-	public static void marker_bus_address(ByteBuffer cl_bus_address_amd, long marker_bus_address) { cl_bus_address_amd.putLong(cl_bus_address_amd.position() + MARKER_BUS_ADDRESS, marker_bus_address); }
+	/** Unsafe version of {@link #set}. */
+	public CLBusAddressAMD nset(long struct) {
+		memCopy(struct, address(), SIZEOF);
+		return this;
+	}
 
-	public static long surface_bus_address(ByteBuffer cl_bus_address_amd) { return cl_bus_address_amd.getLong(cl_bus_address_amd.position() + SURFACE_BUS_ADDRESS); }
-	public static long marker_bus_address(ByteBuffer cl_bus_address_amd) { return cl_bus_address_amd.getLong(cl_bus_address_amd.position() + MARKER_BUS_ADDRESS); }
+	/**
+	 * Copies the specified struct data to this struct.
+	 *
+	 * @param src the source struct
+	 *
+	 * @returns this struct
+	 */
+	public CLBusAddressAMD set(CLBusAddressAMD src) {
+		return nset(address());
+	}
+
+	/** {@link ByteBuffer} version of {@link #set}. */
+	public CLBusAddressAMD set(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+		return nset(memAddress(struct));
+	}
+
+	// -----------------------------------
+
+	/** Returns a new {@link CLBusAddressAMD} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	public static CLBusAddressAMD malloc() {
+		return new CLBusAddressAMD(nmemAlloc(SIZEOF));
+	}
+
+	/** Returns a new {@link CLBusAddressAMD} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	public static CLBusAddressAMD calloc() {
+		return new CLBusAddressAMD(nmemCalloc(1, SIZEOF));
+	}
+
+	/** Returns a new {@link CLBusAddressAMD} instance allocated with {@link BufferUtils}. */
+	public static CLBusAddressAMD create() {
+		return new CLBusAddressAMD(BufferUtils.createByteBuffer(SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link CLBusAddressAMD.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocBuffer(int capacity) {
+		return new Buffer(memAlloc(capacity * SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link CLBusAddressAMD.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocBuffer(int capacity) {
+		return new Buffer(memCalloc(capacity, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link CLBusAddressAMD.Buffer} instance allocated with {@link BufferUtils}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	}
+
+	public static long ngetSurfaceBusAddress(long struct) { return memGetLong(struct + SURFACE_BUS_ADDRESS); }
+	public static long getSurfaceBusAddress(ByteBuffer struct) { return ngetSurfaceBusAddress(memAddress(struct)); }
+	public static long ngetMarkerBusAddress(long struct) { return memGetLong(struct + MARKER_BUS_ADDRESS); }
+	public static long getMarkerBusAddress(ByteBuffer struct) { return ngetMarkerBusAddress(memAddress(struct)); }
+
+	public static void nsetSurfaceBusAddress(long struct, long surface_bus_address) { memPutLong(struct + SURFACE_BUS_ADDRESS, surface_bus_address); }
+	public static void setSurfaceBusAddress(ByteBuffer struct, long surface_bus_address) { nsetSurfaceBusAddress(memAddress(struct), surface_bus_address); }
+	public static void nsetMarkerBusAddress(long struct, long marker_bus_address) { memPutLong(struct + MARKER_BUS_ADDRESS, marker_bus_address); }
+	public static void setMarkerBusAddress(ByteBuffer struct, long marker_bus_address) { nsetMarkerBusAddress(memAddress(struct), marker_bus_address); }
+
+	// -----------------------------------
+
+	/** An array of {@link CLBusAddressAMD} structs. */
+	public static final class Buffer extends StructBuffer<CLBusAddressAMD, Buffer> {
+
+		/**
+		 * Creates a new {@link CLBusAddressAMD.Buffer} instance backed by the specified container.
+		 *
+		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+		 * by {@link CLBusAddressAMD#SIZEOF}, and its mark will be undefined.
+		 *
+		 * <p>The created buffer instance holds a strong reference to the container object.</p>
+		 */
+		public Buffer(ByteBuffer container) {
+			this(container.slice(), SIZEOF);
+		}
+
+		Buffer(ByteBuffer container, int SIZEOF) {
+			super(container, SIZEOF);
+		}
+
+		@Override
+		protected Buffer self() {
+			return this;
+		}
+
+		@Override
+		protected Buffer newBufferInstance(ByteBuffer buffer) {
+			return new Buffer(buffer);
+		}
+
+		@Override
+		protected CLBusAddressAMD newInstance(long address) {
+			return new CLBusAddressAMD(address, container);
+		}
+
+		@Override
+		protected int sizeof() {
+			return SIZEOF;
+		}
+
+	}
 
 }

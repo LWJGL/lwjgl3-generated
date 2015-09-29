@@ -350,7 +350,7 @@ public final class KHRDebug {
 	 */
 	public static void glDebugMessageCallbackKHR(GLDebugMessageKHRCallback callback, long userParam) {
 		long __functionAddress = getInstance().DebugMessageCallbackKHR;
-		callPPV(__functionAddress, callback == null ? NULL : callback.getPointer(), userParam);
+		callPPV(__functionAddress, callback == null ? NULL : callback.address(), userParam);
 	}
 
 	// --- [ glGetDebugMessageLogKHR ] ---

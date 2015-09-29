@@ -308,7 +308,7 @@ public final class ARBDebugOutput {
 	 */
 	public static void glDebugMessageCallbackARB(GLDebugMessageARBCallback callback, long userParam) {
 		long __functionAddress = getInstance().DebugMessageCallbackARB;
-		callPPV(__functionAddress, callback == null ? NULL : callback.getPointer(), userParam);
+		callPPV(__functionAddress, callback == null ? NULL : callback.address(), userParam);
 	}
 
 	// --- [ glGetDebugMessageLogARB ] ---

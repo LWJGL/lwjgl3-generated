@@ -243,7 +243,7 @@ public final class AMDDebugOutput {
 	 */
 	public static void glDebugMessageCallbackAMD(GLDebugMessageAMDCallback callback, long userParam) {
 		long __functionAddress = getInstance().DebugMessageCallbackAMD;
-		callPPV(__functionAddress, callback == null ? NULL : callback.getPointer(), userParam);
+		callPPV(__functionAddress, callback == null ? NULL : callback.address(), userParam);
 	}
 
 	// --- [ glGetDebugMessageLogAMD ] ---

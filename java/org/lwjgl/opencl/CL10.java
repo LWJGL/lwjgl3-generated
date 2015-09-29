@@ -773,7 +773,7 @@ public final class CL10 {
 			checkBuffer(devices, num_devices << POINTER_SHIFT);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
-		return nclCreateContext(memAddress(properties), num_devices, memAddress(devices), pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data, memAddressSafe(errcode_ret));
+		return nclCreateContext(memAddress(properties), num_devices, memAddress(devices), pfn_notify == null ? NULL : pfn_notify.address(), user_data, memAddressSafe(errcode_ret));
 	}
 
 	/** Alternative version of: {@link #clCreateContext CreateContext} */
@@ -782,7 +782,7 @@ public final class CL10 {
 			checkBuffer(properties, 3);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		return nclCreateContext(memAddress(properties), devices.remaining(), memAddress(devices), pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data, memAddressSafe(errcode_ret));
+		return nclCreateContext(memAddress(properties), devices.remaining(), memAddress(devices), pfn_notify == null ? NULL : pfn_notify.address(), user_data, memAddressSafe(errcode_ret));
 	}
 
 	/** Single value version of: {@link #clCreateContext CreateContext} */
@@ -793,7 +793,7 @@ public final class CL10 {
 		}
 		APIBuffer __buffer = apiBuffer();
 		int devices = __buffer.pointerParam(device);
-		return nclCreateContext(memAddress(properties), 1, __buffer.address(devices), pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data, memAddressSafe(errcode_ret));
+		return nclCreateContext(memAddress(properties), 1, __buffer.address(devices), pfn_notify == null ? NULL : pfn_notify.address(), user_data, memAddressSafe(errcode_ret));
 	}
 
 	// --- [ clCreateContextFromType ] ---
@@ -820,7 +820,7 @@ public final class CL10 {
 			checkBuffer(properties, 3 << POINTER_SHIFT);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
-		return nclCreateContextFromType(memAddress(properties), device_type, pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data, memAddressSafe(errcode_ret));
+		return nclCreateContextFromType(memAddress(properties), device_type, pfn_notify == null ? NULL : pfn_notify.address(), user_data, memAddressSafe(errcode_ret));
 	}
 
 	/** Alternative version of: {@link #clCreateContextFromType CreateContextFromType} */
@@ -829,7 +829,7 @@ public final class CL10 {
 			checkBuffer(properties, 3);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
-		return nclCreateContextFromType(memAddress(properties), device_type, pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data, memAddressSafe(errcode_ret));
+		return nclCreateContextFromType(memAddress(properties), device_type, pfn_notify == null ? NULL : pfn_notify.address(), user_data, memAddressSafe(errcode_ret));
 	}
 
 	// --- [ clRetainContext ] ---
@@ -1634,48 +1634,38 @@ public final class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static long clCreateImage2D(long context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_row_pitch, ByteBuffer host_ptr, ByteBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, CLImageFormat.SIZEOF);
+	public static long clCreateImage2D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_row_pitch, ByteBuffer host_ptr, ByteBuffer errcode_ret) {
+		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
-		}
-		return nclCreateImage2D(context, flags, memAddress(image_format), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
+		return nclCreateImage2D(context, flags, image_format.address(), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
 	/** Alternative version of: {@link #clCreateImage2D CreateImage2D} */
-	public static long clCreateImage2D(long context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_row_pitch, ByteBuffer host_ptr, IntBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, CLImageFormat.SIZEOF);
+	public static long clCreateImage2D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_row_pitch, ByteBuffer host_ptr, IntBuffer errcode_ret) {
+		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		}
-		return nclCreateImage2D(context, flags, memAddress(image_format), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
+		return nclCreateImage2D(context, flags, image_format.address(), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
 	/** ShortBuffer version of: {@link #clCreateImage2D CreateImage2D} */
-	public static long clCreateImage2D(long context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_row_pitch, ShortBuffer host_ptr, IntBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, CLImageFormat.SIZEOF);
+	public static long clCreateImage2D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_row_pitch, ShortBuffer host_ptr, IntBuffer errcode_ret) {
+		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		}
-		return nclCreateImage2D(context, flags, memAddress(image_format), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
+		return nclCreateImage2D(context, flags, image_format.address(), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
 	/** IntBuffer version of: {@link #clCreateImage2D CreateImage2D} */
-	public static long clCreateImage2D(long context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_row_pitch, IntBuffer host_ptr, IntBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, CLImageFormat.SIZEOF);
+	public static long clCreateImage2D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_row_pitch, IntBuffer host_ptr, IntBuffer errcode_ret) {
+		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		}
-		return nclCreateImage2D(context, flags, memAddress(image_format), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
+		return nclCreateImage2D(context, flags, image_format.address(), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
 	/** FloatBuffer version of: {@link #clCreateImage2D CreateImage2D} */
-	public static long clCreateImage2D(long context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_row_pitch, FloatBuffer host_ptr, IntBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, CLImageFormat.SIZEOF);
+	public static long clCreateImage2D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_row_pitch, FloatBuffer host_ptr, IntBuffer errcode_ret) {
+		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		}
-		return nclCreateImage2D(context, flags, memAddress(image_format), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
+		return nclCreateImage2D(context, flags, image_format.address(), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
 	// --- [ clCreateImage3D ] ---
@@ -1731,48 +1721,38 @@ public final class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static long clCreateImage3D(long context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, ByteBuffer host_ptr, ByteBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, CLImageFormat.SIZEOF);
+	public static long clCreateImage3D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, ByteBuffer host_ptr, ByteBuffer errcode_ret) {
+		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
-		}
-		return nclCreateImage3D(context, flags, memAddress(image_format), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
+		return nclCreateImage3D(context, flags, image_format.address(), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
 	/** Alternative version of: {@link #clCreateImage3D CreateImage3D} */
-	public static long clCreateImage3D(long context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, ByteBuffer host_ptr, IntBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, CLImageFormat.SIZEOF);
+	public static long clCreateImage3D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, ByteBuffer host_ptr, IntBuffer errcode_ret) {
+		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		}
-		return nclCreateImage3D(context, flags, memAddress(image_format), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
+		return nclCreateImage3D(context, flags, image_format.address(), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
 	/** ShortBuffer version of: {@link #clCreateImage3D CreateImage3D} */
-	public static long clCreateImage3D(long context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, ShortBuffer host_ptr, IntBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, CLImageFormat.SIZEOF);
+	public static long clCreateImage3D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, ShortBuffer host_ptr, IntBuffer errcode_ret) {
+		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		}
-		return nclCreateImage3D(context, flags, memAddress(image_format), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
+		return nclCreateImage3D(context, flags, image_format.address(), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
 	/** IntBuffer version of: {@link #clCreateImage3D CreateImage3D} */
-	public static long clCreateImage3D(long context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, IntBuffer host_ptr, IntBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, CLImageFormat.SIZEOF);
+	public static long clCreateImage3D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, IntBuffer host_ptr, IntBuffer errcode_ret) {
+		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		}
-		return nclCreateImage3D(context, flags, memAddress(image_format), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
+		return nclCreateImage3D(context, flags, image_format.address(), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
 	/** FloatBuffer version of: {@link #clCreateImage3D CreateImage3D} */
-	public static long clCreateImage3D(long context, long flags, ByteBuffer image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, FloatBuffer host_ptr, IntBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(image_format, CLImageFormat.SIZEOF);
+	public static long clCreateImage3D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, FloatBuffer host_ptr, IntBuffer errcode_ret) {
+		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		}
-		return nclCreateImage3D(context, flags, memAddress(image_format), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
+		return nclCreateImage3D(context, flags, image_format.address(), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
 	// --- [ clGetSupportedImageFormats ] ---
@@ -1814,19 +1794,19 @@ public final class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clGetSupportedImageFormats(long context, long flags, int image_type, int num_entries, ByteBuffer image_formats, ByteBuffer num_image_formats) {
+	public static int clGetSupportedImageFormats(long context, long flags, int image_type, int num_entries, CLImageFormat.Buffer image_formats, ByteBuffer num_image_formats) {
 		if ( LWJGLUtil.CHECKS ) {
-			if ( image_formats != null ) checkBuffer(image_formats, num_entries * CLImageFormat.SIZEOF);
+			if ( image_formats != null ) checkBuffer(image_formats, num_entries);
 			if ( num_image_formats != null ) checkBuffer(num_image_formats, 1 << 2);
 		}
-		return nclGetSupportedImageFormats(context, flags, image_type, num_entries, memAddressSafe(image_formats), memAddressSafe(num_image_formats));
+		return nclGetSupportedImageFormats(context, flags, image_type, num_entries, image_formats == null ? NULL : image_formats.address(), memAddressSafe(num_image_formats));
 	}
 
 	/** Alternative version of: {@link #clGetSupportedImageFormats GetSupportedImageFormats} */
-	public static int clGetSupportedImageFormats(long context, long flags, int image_type, ByteBuffer image_formats, IntBuffer num_image_formats) {
+	public static int clGetSupportedImageFormats(long context, long flags, int image_type, CLImageFormat.Buffer image_formats, IntBuffer num_image_formats) {
 		if ( LWJGLUtil.CHECKS )
 			if ( num_image_formats != null ) checkBuffer(num_image_formats, 1);
-		return nclGetSupportedImageFormats(context, flags, image_type, image_formats == null ? 0 : image_formats.remaining() / CLImageFormat.SIZEOF, memAddressSafe(image_formats), memAddressSafe(num_image_formats));
+		return nclGetSupportedImageFormats(context, flags, image_type, image_formats == null ? 0 : image_formats.remaining(), image_formats == null ? NULL : image_formats.address(), memAddressSafe(num_image_formats));
 	}
 
 	// --- [ clEnqueueReadImage ] ---
@@ -3221,19 +3201,19 @@ public final class CL10 {
 			if ( device_list != null ) checkBuffer(device_list, num_devices << POINTER_SHIFT);
 			checkNT1(options);
 		}
-		return nclBuildProgram(program, num_devices, memAddressSafe(device_list), memAddress(options), pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
+		return nclBuildProgram(program, num_devices, memAddressSafe(device_list), memAddress(options), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
 	}
 
 	/** Alternative version of: {@link #clBuildProgram BuildProgram} */
 	public static int clBuildProgram(long program, PointerBuffer device_list, ByteBuffer options, CLProgramCallback pfn_notify, long user_data) {
-		return nclBuildProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(options), pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
+		return nclBuildProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(options), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
 	}
 
 	/** CharSequence version of: {@link #clBuildProgram BuildProgram} */
 	public static int clBuildProgram(long program, PointerBuffer device_list, CharSequence options, CLProgramCallback pfn_notify, long user_data) {
 		APIBuffer __buffer = apiBuffer();
 		int optionsEncoded = __buffer.stringParamASCII(options, true);
-		return nclBuildProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), __buffer.address(optionsEncoded), pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
+		return nclBuildProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), __buffer.address(optionsEncoded), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
 	}
 
 	/** Single value version of: {@link #clBuildProgram BuildProgram} */
@@ -3241,7 +3221,7 @@ public final class CL10 {
 		APIBuffer __buffer = apiBuffer();
 		int optionsEncoded = __buffer.stringParamASCII(options, true);
 		int device_list = __buffer.pointerParam(device);
-		return nclBuildProgram(program, 1, __buffer.address(device_list), __buffer.address(optionsEncoded), pfn_notify == null ? NULL : pfn_notify.getPointer(), user_data);
+		return nclBuildProgram(program, 1, __buffer.address(device_list), __buffer.address(optionsEncoded), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
 	}
 
 	// --- [ clUnloadCompiler ] ---
@@ -4262,7 +4242,7 @@ public final class CL10 {
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
 			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
-		return nclEnqueueNativeKernel(command_queue, user_func.getPointer(), memAddressSafe(args), cb_args, num_mem_objects, memAddressSafe(mem_list), memAddressSafe(args_mem_loc), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueNativeKernel(command_queue, user_func.address(), memAddressSafe(args), cb_args, num_mem_objects, memAddressSafe(mem_list), memAddressSafe(args_mem_loc), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Alternative version of: {@link #clEnqueueNativeKernel EnqueueNativeKernel} */
@@ -4271,7 +4251,7 @@ public final class CL10 {
 			if ( args_mem_loc != null ) checkBuffer(args_mem_loc, mem_list.remaining());
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueNativeKernel(command_queue, user_func.getPointer(), memAddressSafe(args), args == null ? 0 : args.remaining(), mem_list == null ? 0 : mem_list.remaining(), memAddressSafe(mem_list), memAddressSafe(args_mem_loc), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueNativeKernel(command_queue, user_func.address(), memAddressSafe(args), args == null ? 0 : args.remaining(), mem_list == null ? 0 : mem_list.remaining(), memAddressSafe(mem_list), memAddressSafe(args_mem_loc), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Single value version of: {@link #clEnqueueNativeKernel EnqueueNativeKernel} */
@@ -4281,7 +4261,7 @@ public final class CL10 {
 		APIBuffer __buffer = apiBuffer();
 		int mem_list = __buffer.pointerParam(memobj);
 		int args_mem_loc = __buffer.pointerParam(memobj_loc);
-		return nclEnqueueNativeKernel(command_queue, user_func.getPointer(), memAddressSafe(args), args == null ? 0 : args.remaining(), 1, __buffer.address(mem_list), __buffer.address(args_mem_loc), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueNativeKernel(command_queue, user_func.address(), memAddressSafe(args), args == null ? 0 : args.remaining(), 1, __buffer.address(mem_list), __buffer.address(args_mem_loc), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clWaitForEvents ] ---

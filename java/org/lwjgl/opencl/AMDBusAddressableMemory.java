@@ -233,23 +233,23 @@ public final class AMDBusAddressableMemory {
 	 *         or signal bus addresses will be returned as 0.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueMakeBuffersResidentAMD(long command_queue, int num_mem_objs, ByteBuffer mem_objects, int blocking_make_resident, ByteBuffer bus_addresses, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
+	public static int clEnqueueMakeBuffersResidentAMD(long command_queue, int num_mem_objs, ByteBuffer mem_objects, int blocking_make_resident, CLBusAddressAMD.Buffer bus_addresses, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(mem_objects, num_mem_objs << POINTER_SHIFT);
-			checkBuffer(bus_addresses, num_mem_objs * CLBusAddressAMD.SIZEOF);
+			checkBuffer(bus_addresses, num_mem_objs);
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
 			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
-		return nclEnqueueMakeBuffersResidentAMD(command_queue, num_mem_objs, memAddress(mem_objects), blocking_make_resident, memAddress(bus_addresses), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueMakeBuffersResidentAMD(command_queue, num_mem_objs, memAddress(mem_objects), blocking_make_resident, bus_addresses.address(), num_events_in_wait_list, memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Alternative version of: {@link #clEnqueueMakeBuffersResidentAMD EnqueueMakeBuffersResidentAMD} */
-	public static int clEnqueueMakeBuffersResidentAMD(long command_queue, PointerBuffer mem_objects, int blocking_make_resident, ByteBuffer bus_addresses, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueMakeBuffersResidentAMD(long command_queue, PointerBuffer mem_objects, int blocking_make_resident, CLBusAddressAMD.Buffer bus_addresses, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(bus_addresses, mem_objects.remaining() * CLBusAddressAMD.SIZEOF);
+			checkBuffer(bus_addresses, mem_objects.remaining());
 			if ( event != null ) checkBuffer(event, 1);
 		}
-		return nclEnqueueMakeBuffersResidentAMD(command_queue, mem_objects.remaining(), memAddress(mem_objects), blocking_make_resident, memAddress(bus_addresses), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueMakeBuffersResidentAMD(command_queue, mem_objects.remaining(), memAddress(mem_objects), blocking_make_resident, bus_addresses.address(), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 }

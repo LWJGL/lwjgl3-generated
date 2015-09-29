@@ -85,10 +85,10 @@ public final class STBVorbis {
 	 *
 	 * @param f an ogg vorbis file decoder
 	 */
-	public static void stb_vorbis_get_info(long f, ByteBuffer __result) {
+	public static void stb_vorbis_get_info(long f, STBVorbisInfo __result) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(f);
-		nstb_vorbis_get_info(f, memAddress(__result));
+		nstb_vorbis_get_info(f, __result.address());
 	}
 
 	// --- [ stb_vorbis_get_error ] ---
@@ -183,19 +183,15 @@ public final class STBVorbis {
 	 *         {@code *datablock_memory_consumed}. If it returns {@code NULL} and {@code *error} is {@link #VORBIS_need_more_data need_more_data}, then the input block was incomplete and you need to pass
 	 *         in a larger block from the start of the file.
 	 */
-	public static long stb_vorbis_open_pushdata(ByteBuffer datablock, int datablock_length_in_bytes, ByteBuffer datablock_memory_consumed_in_bytes, ByteBuffer error, ByteBuffer alloc_buffer) {
-		if ( LWJGLUtil.CHECKS ) {
+	public static long stb_vorbis_open_pushdata(ByteBuffer datablock, int datablock_length_in_bytes, ByteBuffer datablock_memory_consumed_in_bytes, ByteBuffer error, STBVorbisAlloc alloc_buffer) {
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(datablock, datablock_length_in_bytes);
-			if ( alloc_buffer != null ) checkBuffer(alloc_buffer, STBVorbisAlloc.SIZEOF);
-		}
-		return nstb_vorbis_open_pushdata(memAddress(datablock), datablock_length_in_bytes, memAddress(datablock_memory_consumed_in_bytes), memAddress(error), memAddressSafe(alloc_buffer));
+		return nstb_vorbis_open_pushdata(memAddress(datablock), datablock_length_in_bytes, memAddress(datablock_memory_consumed_in_bytes), memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());
 	}
 
 	/** Alternative version of: {@link #stb_vorbis_open_pushdata open_pushdata} */
-	public static long stb_vorbis_open_pushdata(ByteBuffer datablock, IntBuffer datablock_memory_consumed_in_bytes, IntBuffer error, ByteBuffer alloc_buffer) {
-		if ( LWJGLUtil.CHECKS )
-			if ( alloc_buffer != null ) checkBuffer(alloc_buffer, STBVorbisAlloc.SIZEOF);
-		return nstb_vorbis_open_pushdata(memAddress(datablock), datablock.remaining(), memAddress(datablock_memory_consumed_in_bytes), memAddress(error), memAddressSafe(alloc_buffer));
+	public static long stb_vorbis_open_pushdata(ByteBuffer datablock, IntBuffer datablock_memory_consumed_in_bytes, IntBuffer error, STBVorbisAlloc alloc_buffer) {
+		return nstb_vorbis_open_pushdata(memAddress(datablock), datablock.remaining(), memAddress(datablock_memory_consumed_in_bytes), memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());
 	}
 
 	// --- [ stb_vorbis_decode_frame_pushdata ] ---
@@ -373,22 +369,19 @@ public final class STBVorbis {
 	 *
 	 * @return the ogg vorbis decoder. On failure, returns {@code NULL} and sets {@code *error}.
 	 */
-	public static long stb_vorbis_open_memory(ByteBuffer mem, int len, ByteBuffer error, ByteBuffer alloc_buffer) {
+	public static long stb_vorbis_open_memory(ByteBuffer mem, int len, ByteBuffer error, STBVorbisAlloc alloc_buffer) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkBuffer(mem, len);
 			checkBuffer(error, 1 << 2);
-			if ( alloc_buffer != null ) checkBuffer(alloc_buffer, STBVorbisAlloc.SIZEOF);
 		}
-		return nstb_vorbis_open_memory(memAddress(mem), len, memAddress(error), memAddressSafe(alloc_buffer));
+		return nstb_vorbis_open_memory(memAddress(mem), len, memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());
 	}
 
 	/** Alternative version of: {@link #stb_vorbis_open_memory open_memory} */
-	public static long stb_vorbis_open_memory(ByteBuffer mem, IntBuffer error, ByteBuffer alloc_buffer) {
-		if ( LWJGLUtil.CHECKS ) {
+	public static long stb_vorbis_open_memory(ByteBuffer mem, IntBuffer error, STBVorbisAlloc alloc_buffer) {
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(error, 1);
-			if ( alloc_buffer != null ) checkBuffer(alloc_buffer, STBVorbisAlloc.SIZEOF);
-		}
-		return nstb_vorbis_open_memory(memAddress(mem), mem.remaining(), memAddress(error), memAddressSafe(alloc_buffer));
+		return nstb_vorbis_open_memory(memAddress(mem), mem.remaining(), memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());
 	}
 
 	// --- [ stb_vorbis_open_filename ] ---
@@ -406,33 +399,28 @@ public final class STBVorbis {
 	 *
 	 * @return the ogg vorbis decoder. On failure, returns {@code NULL} and sets {@code *error}.
 	 */
-	public static long stb_vorbis_open_filename(ByteBuffer filename, ByteBuffer error, ByteBuffer alloc_buffer) {
+	public static long stb_vorbis_open_filename(ByteBuffer filename, ByteBuffer error, STBVorbisAlloc alloc_buffer) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkNT1(filename);
 			checkBuffer(error, 1 << 2);
-			if ( alloc_buffer != null ) checkBuffer(alloc_buffer, STBVorbisAlloc.SIZEOF);
 		}
-		return nstb_vorbis_open_filename(memAddress(filename), memAddress(error), memAddressSafe(alloc_buffer));
+		return nstb_vorbis_open_filename(memAddress(filename), memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());
 	}
 
 	/** Alternative version of: {@link #stb_vorbis_open_filename open_filename} */
-	public static long stb_vorbis_open_filename(ByteBuffer filename, IntBuffer error, ByteBuffer alloc_buffer) {
-		if ( LWJGLUtil.CHECKS ) {
+	public static long stb_vorbis_open_filename(ByteBuffer filename, IntBuffer error, STBVorbisAlloc alloc_buffer) {
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(error, 1);
-			if ( alloc_buffer != null ) checkBuffer(alloc_buffer, STBVorbisAlloc.SIZEOF);
-		}
-		return nstb_vorbis_open_filename(memAddress(filename), memAddress(error), memAddressSafe(alloc_buffer));
+		return nstb_vorbis_open_filename(memAddress(filename), memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());
 	}
 
 	/** CharSequence version of: {@link #stb_vorbis_open_filename open_filename} */
-	public static long stb_vorbis_open_filename(CharSequence filename, IntBuffer error, ByteBuffer alloc_buffer) {
-		if ( LWJGLUtil.CHECKS ) {
+	public static long stb_vorbis_open_filename(CharSequence filename, IntBuffer error, STBVorbisAlloc alloc_buffer) {
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(error, 1);
-			if ( alloc_buffer != null ) checkBuffer(alloc_buffer, STBVorbisAlloc.SIZEOF);
-		}
 		APIBuffer __buffer = apiBuffer();
 		int filenameEncoded = __buffer.stringParamASCII(filename, true);
-		return nstb_vorbis_open_filename(__buffer.address(filenameEncoded), memAddress(error), memAddressSafe(alloc_buffer));
+		return nstb_vorbis_open_filename(__buffer.address(filenameEncoded), memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());
 	}
 
 	// --- [ stb_vorbis_seek_frame ] ---

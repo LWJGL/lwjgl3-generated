@@ -8,10 +8,12 @@ package org.lwjgl.system.windows;
 import java.nio.*;
 
 import org.lwjgl.*;
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-public final class LARGE_INTEGER implements Pointer {
+public final class LARGE_INTEGER extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -30,52 +32,126 @@ public final class LARGE_INTEGER implements Pointer {
 		memFree(offsets);
 	}
 
-	private final ByteBuffer struct;
+	private static native int offsets(long buffer);
 
-	public LARGE_INTEGER() {
-		this(malloc());
+	LARGE_INTEGER(long address, ByteBuffer container) {
+		super(address, container, SIZEOF);
 	}
 
-	public LARGE_INTEGER(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-
-		this.struct = struct;
+	/** Creates a {@link LARGE_INTEGER} instance at the specified memory address. */
+	public LARGE_INTEGER(long struct) {
+		this(struct, null);
 	}
 
-	public ByteBuffer buffer() {
-		return struct;
+	/**
+	 * Creates a {@link LARGE_INTEGER} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+	 * visible to the struct instance and vice versa.
+	 *
+	 * <p>The created instance holds a strong reference to the container object.</p>
+	 */
+	public LARGE_INTEGER(ByteBuffer container) {
+		this(memAddress(container), container);
 	}
 
 	@Override
-	public long getPointer() {
-		return memAddress(struct);
-	}
+	public int sizeof() { return SIZEOF; }
 
-	public LARGE_INTEGER setQuadPart(long QuadPart) { QuadPart(struct, QuadPart); return this; }
+	public long getQuadPart() { return ngetQuadPart(address()); }
 
-	public long getQuadPart() { return QuadPart(struct); }
+	public LARGE_INTEGER setQuadPart(long QuadPart) { nsetQuadPart(address(), QuadPart); return this; }
 
 	// -----------------------------------
 
-	private static native int offsets(long buffer);
-
-	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
-	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
-
-	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
-	public static ByteBuffer malloc(
-		long QuadPart
-	) {
-		ByteBuffer large_integer = malloc();
-
-		QuadPart(large_integer, QuadPart);
-
-		return large_integer;
+	/** Returns a new {@link LARGE_INTEGER} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	public static LARGE_INTEGER malloc() {
+		return new LARGE_INTEGER(nmemAlloc(SIZEOF));
 	}
 
-	public static void QuadPart(ByteBuffer large_integer, long QuadPart) { large_integer.putLong(large_integer.position() + QUADPART, QuadPart); }
+	/** Returns a new {@link LARGE_INTEGER} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	public static LARGE_INTEGER calloc() {
+		return new LARGE_INTEGER(nmemCalloc(1, SIZEOF));
+	}
 
-	public static long QuadPart(ByteBuffer large_integer) { return large_integer.getLong(large_integer.position() + QUADPART); }
+	/** Returns a new {@link LARGE_INTEGER} instance allocated with {@link BufferUtils}. */
+	public static LARGE_INTEGER create() {
+		return new LARGE_INTEGER(BufferUtils.createByteBuffer(SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link LARGE_INTEGER.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocBuffer(int capacity) {
+		return new Buffer(memAlloc(capacity * SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link LARGE_INTEGER.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocBuffer(int capacity) {
+		return new Buffer(memCalloc(capacity, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link LARGE_INTEGER.Buffer} instance allocated with {@link BufferUtils}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	}
+
+	public static long ngetQuadPart(long struct) { return memGetLong(struct + QUADPART); }
+	public static long getQuadPart(ByteBuffer struct) { return ngetQuadPart(memAddress(struct)); }
+
+	public static void nsetQuadPart(long struct, long QuadPart) { memPutLong(struct + QUADPART, QuadPart); }
+	public static void setQuadPart(ByteBuffer struct, long QuadPart) { nsetQuadPart(memAddress(struct), QuadPart); }
+
+	// -----------------------------------
+
+	/** An array of {@link LARGE_INTEGER} structs. */
+	public static final class Buffer extends StructBuffer<LARGE_INTEGER, Buffer> {
+
+		/**
+		 * Creates a new {@link LARGE_INTEGER.Buffer} instance backed by the specified container.
+		 *
+		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+		 * by {@link LARGE_INTEGER#SIZEOF}, and its mark will be undefined.
+		 *
+		 * <p>The created buffer instance holds a strong reference to the container object.</p>
+		 */
+		public Buffer(ByteBuffer container) {
+			this(container.slice(), SIZEOF);
+		}
+
+		Buffer(ByteBuffer container, int SIZEOF) {
+			super(container, SIZEOF);
+		}
+
+		@Override
+		protected Buffer self() {
+			return this;
+		}
+
+		@Override
+		protected Buffer newBufferInstance(ByteBuffer buffer) {
+			return new Buffer(buffer);
+		}
+
+		@Override
+		protected LARGE_INTEGER newInstance(long address) {
+			return new LARGE_INTEGER(address, container);
+		}
+
+		@Override
+		protected int sizeof() {
+			return SIZEOF;
+		}
+
+	}
 
 }

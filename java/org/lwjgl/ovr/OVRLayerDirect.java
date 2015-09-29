@@ -8,6 +8,8 @@ package org.lwjgl.ovr;
 import java.nio.*;
 
 import org.lwjgl.*;
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -16,7 +18,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * to the HMD. The application can, however implement these kinds of effects itself before submitting the layer. This layer can be used for
  * application-based distortion rendering and can also be used for implementing a debug HUD that's viewed on the mirror texture.
  */
-public final class OVRLayerDirect implements Pointer {
+public final class OVRLayerDirect extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -39,102 +41,221 @@ public final class OVRLayerDirect implements Pointer {
 		memFree(offsets);
 	}
 
-	private final ByteBuffer struct;
+	private static native int offsets(long buffer);
 
-	public OVRLayerDirect() {
-		this(malloc());
+	OVRLayerDirect(long address, ByteBuffer container) {
+		super(address, container, SIZEOF);
 	}
 
-	public OVRLayerDirect(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-
-		this.struct = struct;
+	/** Creates a {@link OVRLayerDirect} instance at the specified memory address. */
+	public OVRLayerDirect(long struct) {
+		this(struct, null);
 	}
 
-	public ByteBuffer buffer() {
-		return struct;
+	/**
+	 * Creates a {@link OVRLayerDirect} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+	 * visible to the struct instance and vice versa.
+	 *
+	 * <p>The created instance holds a strong reference to the container object.</p>
+	 */
+	public OVRLayerDirect(ByteBuffer container) {
+		this(memAddress(container), container);
 	}
 
 	@Override
-	public long getPointer() {
-		return memAddress(struct);
-	}
+	public int sizeof() { return SIZEOF; }
 
-	public OVRLayerDirect setHeader(ByteBuffer Header) { HeaderSet(struct, Header); return this; }
-	public OVRLayerDirect setHeaderType(int Type) { HeaderType(struct, Type); return this; }
-	public OVRLayerDirect setHeaderFlags(int Flags) { HeaderFlags(struct, Flags); return this; }
-	public OVRLayerDirect setColorTexture(PointerBuffer ColorTexture) { ColorTextureSet(struct, ColorTexture); return this; }
-	public OVRLayerDirect setColorTexture(ByteBuffer ColorTexture, int index) { ColorTextureSet(struct, ColorTexture, index); return this; }
-	public OVRLayerDirect setViewport(ByteBuffer Viewport) { ViewportSet(struct, Viewport); return this; }
-	public OVRLayerDirect setViewport(ByteBuffer Viewport, int index) { ViewportSet(struct, Viewport, index); return this; }
+	public OVRLayerHeader getHeader() { return ngetHeader(address()); }
+	public int getHeaderType() { return ngetHeaderType(address()); }
+	public int getHeaderFlags() { return ngetHeaderFlags(address()); }
+	public void getColorTexture(PointerBuffer ColorTexture) { ngetColorTexture(address(), ColorTexture); }
+	public OVRSwapTextureSet getColorTexture(int index) { return ngetColorTexture(address(), index); }
+	public void getViewport(ByteBuffer Viewport) { ngetViewport(address(), Viewport); }
+	public OVRRecti getViewport(int index) { return ngetViewport(address(), index); }
 
-	public void getHeader(ByteBuffer Header) { HeaderGet(struct, Header); }
-	public int getHeaderType() { return HeaderType(struct); }
-	public int getHeaderFlags() { return HeaderFlags(struct); }
-	public void getColorTexture(PointerBuffer ColorTexture) { ColorTextureGet(struct, ColorTexture); }
-	public long getColorTexture(int index) { return ColorTextureGet(struct, index); }
-	public void getViewport(ByteBuffer Viewport) { ViewportGet(struct, Viewport); }
-	public void getViewport(ByteBuffer Viewport, int index) { ViewportGet(struct, Viewport, index); }
+	public OVRLayerDirect setHeader(OVRLayerHeader Header) { nsetHeader(address(), Header); return this; }
+	public OVRLayerDirect setHeaderType(int Type) { nsetHeaderType(address(), Type); return this; }
+	public OVRLayerDirect setHeaderFlags(int Flags) { nsetHeaderFlags(address(), Flags); return this; }
+	public OVRLayerDirect setColorTexture(PointerBuffer ColorTexture) { nsetColorTexture(address(), ColorTexture); return this; }
+	public OVRLayerDirect setColorTexture(int index, OVRSwapTextureSet ColorTexture) { nsetColorTexture(address(), index, ColorTexture); return this; }
+	public OVRLayerDirect setViewport(ByteBuffer Viewport) { nsetViewport(address(), Viewport); return this; }
+	public OVRLayerDirect setViewport(int index, OVRRecti Viewport) { nsetViewport(address(), index, Viewport); return this; }
 
-	// -----------------------------------
-
-	private static native int offsets(long buffer);
-
-	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
-	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
-
-	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
-	public static ByteBuffer malloc(
-		ByteBuffer Header,
+	/** Initializes this struct with the specified values. */
+	public OVRLayerDirect set(
+		OVRLayerHeader Header,
 		PointerBuffer ColorTexture,
 		ByteBuffer Viewport
 	) {
-		ByteBuffer ovrlayerdirect = malloc();
+		setHeader(Header);
+		setColorTexture(ColorTexture);
+		setViewport(Viewport);
 
-		HeaderSet(ovrlayerdirect, Header);
-		ColorTextureSet(ovrlayerdirect, ColorTexture);
-		ViewportSet(ovrlayerdirect, Viewport);
-
-		return ovrlayerdirect;
+		return this;
 	}
 
-	public static void HeaderSet(ByteBuffer ovrlayerdirect, ByteBuffer Header) { if ( Header != null ) memCopy(memAddress(Header), memAddress(ovrlayerdirect) + HEADER, OVRLayerHeader.SIZEOF); }
-	public static void HeaderType(ByteBuffer ovrlayerdirect, int Type) { ovrlayerdirect.putInt(ovrlayerdirect.position() + HEADER + OVRLayerHeader.TYPE, Type); }
-	public static void HeaderFlags(ByteBuffer ovrlayerdirect, int Flags) { ovrlayerdirect.putInt(ovrlayerdirect.position() + HEADER + OVRLayerHeader.FLAGS, Flags); }
-	public static void ColorTextureSet(ByteBuffer ovrlayerdirect, PointerBuffer ColorTexture) {
+	/** Unsafe version of {@link #set}. */
+	public OVRLayerDirect nset(long struct) {
+		memCopy(struct, address(), SIZEOF);
+		return this;
+	}
+
+	/**
+	 * Copies the specified struct data to this struct.
+	 *
+	 * @param src the source struct
+	 *
+	 * @returns this struct
+	 */
+	public OVRLayerDirect set(OVRLayerDirect src) {
+		return nset(address());
+	}
+
+	/** {@link ByteBuffer} version of {@link #set}. */
+	public OVRLayerDirect set(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+		return nset(memAddress(struct));
+	}
+
+	// -----------------------------------
+
+	/** Returns a new {@link OVRLayerDirect} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	public static OVRLayerDirect malloc() {
+		return new OVRLayerDirect(nmemAlloc(SIZEOF));
+	}
+
+	/** Returns a new {@link OVRLayerDirect} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	public static OVRLayerDirect calloc() {
+		return new OVRLayerDirect(nmemCalloc(1, SIZEOF));
+	}
+
+	/** Returns a new {@link OVRLayerDirect} instance allocated with {@link BufferUtils}. */
+	public static OVRLayerDirect create() {
+		return new OVRLayerDirect(BufferUtils.createByteBuffer(SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRLayerDirect.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocBuffer(int capacity) {
+		return new Buffer(memAlloc(capacity * SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRLayerDirect.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocBuffer(int capacity) {
+		return new Buffer(memCalloc(capacity, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRLayerDirect.Buffer} instance allocated with {@link BufferUtils}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	}
+
+	public static OVRLayerHeader ngetHeader(long struct) { return OVRLayerHeader.malloc().nset(struct + HEADER); }
+	/** Returns a copy of the {@code Header} {@link OVRLayerHeader} struct. */
+	public static OVRLayerHeader getHeader(ByteBuffer struct) { return ngetHeader(memAddress(struct)); }
+	public static int ngetHeaderType(long struct) { return memGetInt(struct + HEADER + OVRLayerHeader.TYPE); }
+	public static int getHeaderType(ByteBuffer struct) { return ngetHeaderType(memAddress(struct)); }
+	public static int ngetHeaderFlags(long struct) { return memGetInt(struct + HEADER + OVRLayerHeader.FLAGS); }
+	public static int getHeaderFlags(ByteBuffer struct) { return ngetHeaderFlags(memAddress(struct)); }
+	public static void ngetColorTexture(long struct, PointerBuffer ColorTexture) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2);
-		memCopy(memAddress(ColorTexture), memAddress(ovrlayerdirect) + COLORTEXTURE, ColorTexture.remaining() * POINTER_SIZE);
+		memCopy(struct + COLORTEXTURE, memAddress(ColorTexture), ColorTexture.remaining() * POINTER_SIZE);
 	}
-	public static void ColorTextureSet(ByteBuffer ovrlayerdirect, ByteBuffer ColorTexture, int index) {
-		PointerBuffer.put(ovrlayerdirect, COLORTEXTURE + index * POINTER_SIZE, memAddress(ColorTexture));
+	public static void getColorTexture(ByteBuffer struct, PointerBuffer ColorTexture) { ngetColorTexture(memAddress(struct), ColorTexture); }
+	public static OVRSwapTextureSet ngetColorTexture(long struct, int index) {
+		return new OVRSwapTextureSet(struct + COLORTEXTURE + index * POINTER_SIZE);
 	}
-	public static void ViewportSet(ByteBuffer ovrlayerdirect, ByteBuffer Viewport) {
+	public static OVRSwapTextureSet getColorTexture(ByteBuffer struct, int index) { return ngetColorTexture(memAddress(struct), index); }
+	public static void ngetViewport(long struct, ByteBuffer Viewport) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(Viewport, 2 * OVRRecti.SIZEOF);
-		memCopy(memAddress(Viewport), memAddress(ovrlayerdirect) + VIEWPORT, Viewport.remaining());
+		memCopy(struct + VIEWPORT, memAddress(Viewport), Viewport.remaining());
 	}
-	public static void ViewportSet(ByteBuffer ovrlayerdirect, ByteBuffer Viewport, int index) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(Viewport, OVRRecti.SIZEOF);
-		memCopy(memAddress(Viewport), memAddress(ovrlayerdirect) + VIEWPORT + index * OVRRecti.SIZEOF, Viewport.remaining());
+	public static void getViewport(ByteBuffer struct, ByteBuffer Viewport) { ngetViewport(memAddress(struct), Viewport); }
+	public static OVRRecti ngetViewport(long struct, int index) {
+		return OVRRecti.malloc().nset(struct + VIEWPORT + index * OVRRecti.SIZEOF);
 	}
+	public static OVRRecti getViewport(ByteBuffer struct, int index) { return ngetViewport(memAddress(struct), index); }
 
-	public static void HeaderGet(ByteBuffer ovrlayerdirect, ByteBuffer Header) { if ( LWJGLUtil.CHECKS ) checkBuffer(Header, OVRLayerHeader.SIZEOF); memCopy(memAddress(ovrlayerdirect) + HEADER, memAddress(Header), OVRLayerHeader.SIZEOF); }
-	public static int HeaderType(ByteBuffer ovrlayerdirect) { return ovrlayerdirect.getInt(ovrlayerdirect.position() + HEADER + OVRLayerHeader.TYPE); }
-	public static int HeaderFlags(ByteBuffer ovrlayerdirect) { return ovrlayerdirect.getInt(ovrlayerdirect.position() + HEADER + OVRLayerHeader.FLAGS); }
-	public static void ColorTextureGet(ByteBuffer ovrlayerdirect, PointerBuffer ColorTexture) {
+	public static void nsetHeader(long struct, OVRLayerHeader Header) { memCopy(Header.address(), struct + HEADER, OVRLayerHeader.SIZEOF); }
+	/** Copies the specified {@link OVRLayerHeader} struct to the nested {@code Header} struct. */
+	public static void setHeader(ByteBuffer struct, OVRLayerHeader Header) { nsetHeader(memAddress(struct), Header); }
+	public static void nsetHeaderType(long struct, int Type) { memPutInt(struct + HEADER + OVRLayerHeader.TYPE, Type); }
+	public static void setHeaderType(ByteBuffer struct, int Type) { nsetHeaderType(memAddress(struct), Type); }
+	public static void nsetHeaderFlags(long struct, int Flags) { memPutInt(struct + HEADER + OVRLayerHeader.FLAGS, Flags); }
+	public static void setHeaderFlags(ByteBuffer struct, int Flags) { nsetHeaderFlags(memAddress(struct), Flags); }
+	public static void nsetColorTexture(long struct, PointerBuffer ColorTexture) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2);
-		memCopy(memAddress(ovrlayerdirect) + COLORTEXTURE, memAddress(ColorTexture), ColorTexture.remaining() * POINTER_SIZE);
+		memCopy(memAddress(ColorTexture), struct + COLORTEXTURE, ColorTexture.remaining() * POINTER_SIZE);
 	}
-	public static long ColorTextureGet(ByteBuffer ovrlayerdirect, int index) {
-		return PointerBuffer.get(ovrlayerdirect, COLORTEXTURE + index * POINTER_SIZE);
+	public static void setColorTexture(ByteBuffer struct, PointerBuffer ColorTexture) { nsetColorTexture(memAddress(struct), ColorTexture); }
+	public static void nsetColorTexture(long struct, int index, OVRSwapTextureSet ColorTexture) {
+		memPutAddress(struct + COLORTEXTURE + index * POINTER_SIZE, ColorTexture.address());
 	}
-	public static void ViewportGet(ByteBuffer ovrlayerdirect, ByteBuffer Viewport) {
+	public static void setColorTexture(ByteBuffer struct, int index, OVRSwapTextureSet ColorTexture) { nsetColorTexture(memAddress(struct), index, ColorTexture); }
+	public static void nsetViewport(long struct, ByteBuffer Viewport) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(Viewport, 2 * OVRRecti.SIZEOF);
-		memCopy(memAddress(ovrlayerdirect) + VIEWPORT, memAddress(Viewport), Viewport.remaining());
+		memCopy(memAddress(Viewport), struct + VIEWPORT, Viewport.remaining());
 	}
-	public static void ViewportGet(ByteBuffer ovrlayerdirect, ByteBuffer Viewport, int index) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(Viewport, OVRRecti.SIZEOF);
-		memCopy(memAddress(ovrlayerdirect) + VIEWPORT + index * OVRRecti.SIZEOF, memAddress(Viewport), Viewport.remaining());
+	public static void setViewport(ByteBuffer struct, ByteBuffer Viewport) { nsetViewport(memAddress(struct), Viewport); }
+	public static void nsetViewport(long struct, int index, OVRRecti Viewport) {
+		memCopy(Viewport.address(), struct + VIEWPORT + index * OVRRecti.SIZEOF, OVRRecti.SIZEOF);
+	}
+	public static void setViewport(ByteBuffer struct, int index, OVRRecti Viewport) { nsetViewport(memAddress(struct), index, Viewport); }
+
+	// -----------------------------------
+
+	/** An array of {@link OVRLayerDirect} structs. */
+	public static final class Buffer extends StructBuffer<OVRLayerDirect, Buffer> {
+
+		/**
+		 * Creates a new {@link OVRLayerDirect.Buffer} instance backed by the specified container.
+		 *
+		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+		 * by {@link OVRLayerDirect#SIZEOF}, and its mark will be undefined.
+		 *
+		 * <p>The created buffer instance holds a strong reference to the container object.</p>
+		 */
+		public Buffer(ByteBuffer container) {
+			this(container.slice(), SIZEOF);
+		}
+
+		Buffer(ByteBuffer container, int SIZEOF) {
+			super(container, SIZEOF);
+		}
+
+		@Override
+		protected Buffer self() {
+			return this;
+		}
+
+		@Override
+		protected Buffer newBufferInstance(ByteBuffer buffer) {
+			return new Buffer(buffer);
+		}
+
+		@Override
+		protected OVRLayerDirect newInstance(long address) {
+			return new OVRLayerDirect(address, container);
+		}
+
+		@Override
+		protected int sizeof() {
+			return SIZEOF;
+		}
+
 	}
 
 }

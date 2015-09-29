@@ -16,7 +16,7 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** A mutation handler. */
 public abstract class EnumerationMutationHandler extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(1);
 
 	static {

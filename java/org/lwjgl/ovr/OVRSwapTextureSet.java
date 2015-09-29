@@ -8,6 +8,8 @@ package org.lwjgl.ovr;
 import java.nio.*;
 
 import org.lwjgl.*;
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -20,7 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>ovrSwapTextureSets must be created by either the ovrHmd_CreateSwapTextureSetD3D11 or {@link OVRGL#ovrHmd_CreateSwapTextureSetGL} factory function, and must
  * be destroyed by {@link OVR#ovrHmd_DestroySwapTextureSet}.</p>
  */
-public final class OVRSwapTextureSet implements Pointer {
+public final class OVRSwapTextureSet extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -43,68 +45,177 @@ public final class OVRSwapTextureSet implements Pointer {
 		memFree(offsets);
 	}
 
-	private final ByteBuffer struct;
+	private static native int offsets(long buffer);
 
-	public OVRSwapTextureSet() {
-		this(malloc());
+	OVRSwapTextureSet(long address, ByteBuffer container) {
+		super(address, container, SIZEOF);
 	}
 
-	public OVRSwapTextureSet(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-
-		this.struct = struct;
+	/** Creates a {@link OVRSwapTextureSet} instance at the specified memory address. */
+	public OVRSwapTextureSet(long struct) {
+		this(struct, null);
 	}
 
-	public ByteBuffer buffer() {
-		return struct;
+	/**
+	 * Creates a {@link OVRSwapTextureSet} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+	 * visible to the struct instance and vice versa.
+	 *
+	 * <p>The created instance holds a strong reference to the container object.</p>
+	 */
+	public OVRSwapTextureSet(ByteBuffer container) {
+		this(memAddress(container), container);
 	}
 
 	@Override
-	public long getPointer() {
-		return memAddress(struct);
-	}
+	public int sizeof() { return SIZEOF; }
 
-	public OVRSwapTextureSet setTextures(long Textures) { Textures(struct, Textures); return this; }
-	public OVRSwapTextureSet setTextures(ByteBuffer Textures) { Textures(struct, Textures); return this; }
-	public OVRSwapTextureSet setTextureCount(int TextureCount) { TextureCount(struct, TextureCount); return this; }
-	public OVRSwapTextureSet setCurrentIndex(int CurrentIndex) { CurrentIndex(struct, CurrentIndex); return this; }
+	public OVRTexture getTextures() { return ngetTexturesStruct(address()); }
+	public int getTextureCount() { return ngetTextureCount(address()); }
+	public int getCurrentIndex() { return ngetCurrentIndex(address()); }
 
-	public long getTextures() { return Textures(struct); }
-	public ByteBuffer getTexturesBuffer() { return TexturesBuffer(struct); }
-	public int getTextureCount() { return TextureCount(struct); }
-	public int getCurrentIndex() { return CurrentIndex(struct); }
+	public OVRSwapTextureSet setTextures(OVRTexture Textures) { nsetTextures(address(), Textures); return this; }
+	public OVRSwapTextureSet setTextureCount(int TextureCount) { nsetTextureCount(address(), TextureCount); return this; }
+	public OVRSwapTextureSet setCurrentIndex(int CurrentIndex) { nsetCurrentIndex(address(), CurrentIndex); return this; }
 
-	// -----------------------------------
-
-	private static native int offsets(long buffer);
-
-	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
-	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
-
-	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
-	public static ByteBuffer malloc(
-		ByteBuffer Textures,
+	/** Initializes this struct with the specified values. */
+	public OVRSwapTextureSet set(
+		OVRTexture Textures,
 		int TextureCount,
 		int CurrentIndex
 	) {
-		ByteBuffer ovrswaptextureset = malloc();
+		setTextures(Textures);
+		setTextureCount(TextureCount);
+		setCurrentIndex(CurrentIndex);
 
-		Textures(ovrswaptextureset, Textures);
-		TextureCount(ovrswaptextureset, TextureCount);
-		CurrentIndex(ovrswaptextureset, CurrentIndex);
-
-		return ovrswaptextureset;
+		return this;
 	}
 
-	public static void Textures(ByteBuffer ovrswaptextureset, long Textures) { PointerBuffer.put(ovrswaptextureset, ovrswaptextureset.position() + TEXTURES, Textures); }
-	public static void Textures(ByteBuffer ovrswaptextureset, ByteBuffer Textures) { Textures(ovrswaptextureset, memAddressSafe(Textures)); }
-	public static void TextureCount(ByteBuffer ovrswaptextureset, int TextureCount) { ovrswaptextureset.putInt(ovrswaptextureset.position() + TEXTURECOUNT, TextureCount); }
-	public static void CurrentIndex(ByteBuffer ovrswaptextureset, int CurrentIndex) { ovrswaptextureset.putInt(ovrswaptextureset.position() + CURRENTINDEX, CurrentIndex); }
+	/** Unsafe version of {@link #set}. */
+	public OVRSwapTextureSet nset(long struct) {
+		memCopy(struct, address(), SIZEOF);
+		return this;
+	}
 
-	public static long Textures(ByteBuffer ovrswaptextureset) { return PointerBuffer.get(ovrswaptextureset, ovrswaptextureset.position() + TEXTURES); }
-	public static ByteBuffer TexturesBuffer(ByteBuffer ovrswaptextureset) { return memByteBuffer(Textures(ovrswaptextureset), OVRTexture.SIZEOF); }
-	public static int TextureCount(ByteBuffer ovrswaptextureset) { return ovrswaptextureset.getInt(ovrswaptextureset.position() + TEXTURECOUNT); }
-	public static int CurrentIndex(ByteBuffer ovrswaptextureset) { return ovrswaptextureset.getInt(ovrswaptextureset.position() + CURRENTINDEX); }
+	/**
+	 * Copies the specified struct data to this struct.
+	 *
+	 * @param src the source struct
+	 *
+	 * @returns this struct
+	 */
+	public OVRSwapTextureSet set(OVRSwapTextureSet src) {
+		return nset(address());
+	}
+
+	/** {@link ByteBuffer} version of {@link #set}. */
+	public OVRSwapTextureSet set(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+		return nset(memAddress(struct));
+	}
+
+	// -----------------------------------
+
+	/** Returns a new {@link OVRSwapTextureSet} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	public static OVRSwapTextureSet malloc() {
+		return new OVRSwapTextureSet(nmemAlloc(SIZEOF));
+	}
+
+	/** Returns a new {@link OVRSwapTextureSet} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	public static OVRSwapTextureSet calloc() {
+		return new OVRSwapTextureSet(nmemCalloc(1, SIZEOF));
+	}
+
+	/** Returns a new {@link OVRSwapTextureSet} instance allocated with {@link BufferUtils}. */
+	public static OVRSwapTextureSet create() {
+		return new OVRSwapTextureSet(BufferUtils.createByteBuffer(SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRSwapTextureSet.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocBuffer(int capacity) {
+		return new Buffer(memAlloc(capacity * SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRSwapTextureSet.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocBuffer(int capacity) {
+		return new Buffer(memCalloc(capacity, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRSwapTextureSet.Buffer} instance allocated with {@link BufferUtils}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	}
+
+	public static long ngetTextures(long struct) { return memGetAddress(struct + TEXTURES); }
+	public static OVRTexture ngetTexturesStruct(long struct) { return new OVRTexture(ngetTextures(struct)); }
+	public static OVRTexture getTextures(ByteBuffer struct) { return ngetTexturesStruct(memAddress(struct)); }
+	public static int ngetTextureCount(long struct) { return memGetInt(struct + TEXTURECOUNT); }
+	public static int getTextureCount(ByteBuffer struct) { return ngetTextureCount(memAddress(struct)); }
+	public static int ngetCurrentIndex(long struct) { return memGetInt(struct + CURRENTINDEX); }
+	public static int getCurrentIndex(ByteBuffer struct) { return ngetCurrentIndex(memAddress(struct)); }
+
+	public static void nsetTextures(long struct, long Textures) { memPutAddress(struct + TEXTURES, Textures); }
+	public static void nsetTextures(long struct, OVRTexture Textures) { nsetTextures(struct, Textures.address()); }
+	public static void setTextures(ByteBuffer struct, OVRTexture Textures) { nsetTextures(memAddress(struct), Textures); }
+	public static void nsetTextureCount(long struct, int TextureCount) { memPutInt(struct + TEXTURECOUNT, TextureCount); }
+	public static void setTextureCount(ByteBuffer struct, int TextureCount) { nsetTextureCount(memAddress(struct), TextureCount); }
+	public static void nsetCurrentIndex(long struct, int CurrentIndex) { memPutInt(struct + CURRENTINDEX, CurrentIndex); }
+	public static void setCurrentIndex(ByteBuffer struct, int CurrentIndex) { nsetCurrentIndex(memAddress(struct), CurrentIndex); }
+
+	// -----------------------------------
+
+	/** An array of {@link OVRSwapTextureSet} structs. */
+	public static final class Buffer extends StructBuffer<OVRSwapTextureSet, Buffer> {
+
+		/**
+		 * Creates a new {@link OVRSwapTextureSet.Buffer} instance backed by the specified container.
+		 *
+		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+		 * by {@link OVRSwapTextureSet#SIZEOF}, and its mark will be undefined.
+		 *
+		 * <p>The created buffer instance holds a strong reference to the container object.</p>
+		 */
+		public Buffer(ByteBuffer container) {
+			this(container.slice(), SIZEOF);
+		}
+
+		Buffer(ByteBuffer container, int SIZEOF) {
+			super(container, SIZEOF);
+		}
+
+		@Override
+		protected Buffer self() {
+			return this;
+		}
+
+		@Override
+		protected Buffer newBufferInstance(ByteBuffer buffer) {
+			return new Buffer(buffer);
+		}
+
+		@Override
+		protected OVRSwapTextureSet newInstance(long address) {
+			return new OVRSwapTextureSet(address, container);
+		}
+
+		@Override
+		protected int sizeof() {
+			return SIZEOF;
+		}
+
+	}
 
 }

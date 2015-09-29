@@ -53,10 +53,8 @@ public final class HIClientpixmap {
 		return callPPPP(__functionAddress, dpy, config, pixmap);
 	}
 
-	public static long eglCreatePixmapSurfaceHI(long dpy, long config, ByteBuffer pixmap) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(pixmap, EGLClientPixmapHI.SIZEOF);
-		return neglCreatePixmapSurfaceHI(dpy, config, memAddress(pixmap));
+	public static long eglCreatePixmapSurfaceHI(long dpy, long config, EGLClientPixmapHI pixmap) {
+		return neglCreatePixmapSurfaceHI(dpy, config, pixmap.address());
 	}
 
 }

@@ -8,11 +8,13 @@ package org.lwjgl.system.windows;
 import java.nio.*;
 
 import org.lwjgl.*;
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Defines the coordinates of the upper-left and lower-right corners of a rectangle. */
-public final class RECT implements Pointer {
+public final class RECT extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -37,70 +39,183 @@ public final class RECT implements Pointer {
 		memFree(offsets);
 	}
 
-	private final ByteBuffer struct;
+	private static native int offsets(long buffer);
 
-	public RECT() {
-		this(malloc());
+	RECT(long address, ByteBuffer container) {
+		super(address, container, SIZEOF);
 	}
 
-	public RECT(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-
-		this.struct = struct;
+	/** Creates a {@link RECT} instance at the specified memory address. */
+	public RECT(long struct) {
+		this(struct, null);
 	}
 
-	public ByteBuffer buffer() {
-		return struct;
+	/**
+	 * Creates a {@link RECT} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+	 * visible to the struct instance and vice versa.
+	 *
+	 * <p>The created instance holds a strong reference to the container object.</p>
+	 */
+	public RECT(ByteBuffer container) {
+		this(memAddress(container), container);
 	}
 
 	@Override
-	public long getPointer() {
-		return memAddress(struct);
-	}
+	public int sizeof() { return SIZEOF; }
 
-	public RECT setLeft(int left) { left(struct, left); return this; }
-	public RECT setTop(int top) { top(struct, top); return this; }
-	public RECT setRight(int right) { right(struct, right); return this; }
-	public RECT setBottom(int bottom) { bottom(struct, bottom); return this; }
+	public int getLeft() { return ngetLeft(address()); }
+	public int getTop() { return ngetTop(address()); }
+	public int getRight() { return ngetRight(address()); }
+	public int getBottom() { return ngetBottom(address()); }
 
-	public int getLeft() { return left(struct); }
-	public int getTop() { return top(struct); }
-	public int getRight() { return right(struct); }
-	public int getBottom() { return bottom(struct); }
+	public RECT setLeft(int left) { nsetLeft(address(), left); return this; }
+	public RECT setTop(int top) { nsetTop(address(), top); return this; }
+	public RECT setRight(int right) { nsetRight(address(), right); return this; }
+	public RECT setBottom(int bottom) { nsetBottom(address(), bottom); return this; }
 
-	// -----------------------------------
-
-	private static native int offsets(long buffer);
-
-	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
-	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
-
-	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
-	public static ByteBuffer malloc(
+	/** Initializes this struct with the specified values. */
+	public RECT set(
 		int left,
 		int top,
 		int right,
 		int bottom
 	) {
-		ByteBuffer rect = malloc();
+		setLeft(left);
+		setTop(top);
+		setRight(right);
+		setBottom(bottom);
 
-		left(rect, left);
-		top(rect, top);
-		right(rect, right);
-		bottom(rect, bottom);
-
-		return rect;
+		return this;
 	}
 
-	public static void left(ByteBuffer rect, int left) { rect.putInt(rect.position() + LEFT, left); }
-	public static void top(ByteBuffer rect, int top) { rect.putInt(rect.position() + TOP, top); }
-	public static void right(ByteBuffer rect, int right) { rect.putInt(rect.position() + RIGHT, right); }
-	public static void bottom(ByteBuffer rect, int bottom) { rect.putInt(rect.position() + BOTTOM, bottom); }
+	/** Unsafe version of {@link #set}. */
+	public RECT nset(long struct) {
+		memCopy(struct, address(), SIZEOF);
+		return this;
+	}
 
-	public static int left(ByteBuffer rect) { return rect.getInt(rect.position() + LEFT); }
-	public static int top(ByteBuffer rect) { return rect.getInt(rect.position() + TOP); }
-	public static int right(ByteBuffer rect) { return rect.getInt(rect.position() + RIGHT); }
-	public static int bottom(ByteBuffer rect) { return rect.getInt(rect.position() + BOTTOM); }
+	/**
+	 * Copies the specified struct data to this struct.
+	 *
+	 * @param src the source struct
+	 *
+	 * @returns this struct
+	 */
+	public RECT set(RECT src) {
+		return nset(address());
+	}
+
+	/** {@link ByteBuffer} version of {@link #set}. */
+	public RECT set(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+		return nset(memAddress(struct));
+	}
+
+	// -----------------------------------
+
+	/** Returns a new {@link RECT} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	public static RECT malloc() {
+		return new RECT(nmemAlloc(SIZEOF));
+	}
+
+	/** Returns a new {@link RECT} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	public static RECT calloc() {
+		return new RECT(nmemCalloc(1, SIZEOF));
+	}
+
+	/** Returns a new {@link RECT} instance allocated with {@link BufferUtils}. */
+	public static RECT create() {
+		return new RECT(BufferUtils.createByteBuffer(SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link RECT.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocBuffer(int capacity) {
+		return new Buffer(memAlloc(capacity * SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link RECT.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocBuffer(int capacity) {
+		return new Buffer(memCalloc(capacity, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link RECT.Buffer} instance allocated with {@link BufferUtils}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	}
+
+	public static int ngetLeft(long struct) { return memGetInt(struct + LEFT); }
+	public static int getLeft(ByteBuffer struct) { return ngetLeft(memAddress(struct)); }
+	public static int ngetTop(long struct) { return memGetInt(struct + TOP); }
+	public static int getTop(ByteBuffer struct) { return ngetTop(memAddress(struct)); }
+	public static int ngetRight(long struct) { return memGetInt(struct + RIGHT); }
+	public static int getRight(ByteBuffer struct) { return ngetRight(memAddress(struct)); }
+	public static int ngetBottom(long struct) { return memGetInt(struct + BOTTOM); }
+	public static int getBottom(ByteBuffer struct) { return ngetBottom(memAddress(struct)); }
+
+	public static void nsetLeft(long struct, int left) { memPutInt(struct + LEFT, left); }
+	public static void setLeft(ByteBuffer struct, int left) { nsetLeft(memAddress(struct), left); }
+	public static void nsetTop(long struct, int top) { memPutInt(struct + TOP, top); }
+	public static void setTop(ByteBuffer struct, int top) { nsetTop(memAddress(struct), top); }
+	public static void nsetRight(long struct, int right) { memPutInt(struct + RIGHT, right); }
+	public static void setRight(ByteBuffer struct, int right) { nsetRight(memAddress(struct), right); }
+	public static void nsetBottom(long struct, int bottom) { memPutInt(struct + BOTTOM, bottom); }
+	public static void setBottom(ByteBuffer struct, int bottom) { nsetBottom(memAddress(struct), bottom); }
+
+	// -----------------------------------
+
+	/** An array of {@link RECT} structs. */
+	public static final class Buffer extends StructBuffer<RECT, Buffer> {
+
+		/**
+		 * Creates a new {@link RECT.Buffer} instance backed by the specified container.
+		 *
+		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+		 * by {@link RECT#SIZEOF}, and its mark will be undefined.
+		 *
+		 * <p>The created buffer instance holds a strong reference to the container object.</p>
+		 */
+		public Buffer(ByteBuffer container) {
+			this(container.slice(), SIZEOF);
+		}
+
+		Buffer(ByteBuffer container, int SIZEOF) {
+			super(container, SIZEOF);
+		}
+
+		@Override
+		protected Buffer self() {
+			return this;
+		}
+
+		@Override
+		protected Buffer newBufferInstance(ByteBuffer buffer) {
+			return new Buffer(buffer);
+		}
+
+		@Override
+		protected RECT newInstance(long address) {
+			return new RECT(address, container);
+		}
+
+		@Override
+		protected int sizeof() {
+			return SIZEOF;
+		}
+
+	}
 
 }

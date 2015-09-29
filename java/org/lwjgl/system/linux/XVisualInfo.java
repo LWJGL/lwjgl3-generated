@@ -8,11 +8,13 @@ package org.lwjgl.system.linux;
 import java.nio.*;
 
 import org.lwjgl.*;
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Information used by the visual utility routines to find desired visual type from the many visuals a display may support. */
-public final class XVisualInfo implements Pointer {
+public final class XVisualInfo extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -49,62 +51,55 @@ public final class XVisualInfo implements Pointer {
 		memFree(offsets);
 	}
 
-	private final ByteBuffer struct;
+	private static native int offsets(long buffer);
 
-	public XVisualInfo() {
-		this(malloc());
+	XVisualInfo(long address, ByteBuffer container) {
+		super(address, container, SIZEOF);
 	}
 
-	public XVisualInfo(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-
-		this.struct = struct;
+	/** Creates a {@link XVisualInfo} instance at the specified memory address. */
+	public XVisualInfo(long struct) {
+		this(struct, null);
 	}
 
-	public ByteBuffer buffer() {
-		return struct;
+	/**
+	 * Creates a {@link XVisualInfo} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+	 * visible to the struct instance and vice versa.
+	 *
+	 * <p>The created instance holds a strong reference to the container object.</p>
+	 */
+	public XVisualInfo(ByteBuffer container) {
+		this(memAddress(container), container);
 	}
 
 	@Override
-	public long getPointer() {
-		return memAddress(struct);
-	}
+	public int sizeof() { return SIZEOF; }
 
-	public XVisualInfo setVisual(long visual) { visual(struct, visual); return this; }
-	public XVisualInfo setVisual(ByteBuffer visual) { visual(struct, visual); return this; }
-	public XVisualInfo setVisualid(long visualid) { visualid(struct, visualid); return this; }
-	public XVisualInfo setScreen(int screen) { screen(struct, screen); return this; }
-	public XVisualInfo setDepth(int depth) { depth(struct, depth); return this; }
-	public XVisualInfo setClazz(int clazz) { clazz(struct, clazz); return this; }
-	public XVisualInfo setRedMask(long red_mask) { red_mask(struct, red_mask); return this; }
-	public XVisualInfo setGreenMask(long green_mask) { green_mask(struct, green_mask); return this; }
-	public XVisualInfo setBlueMask(long blue_mask) { blue_mask(struct, blue_mask); return this; }
-	public XVisualInfo setColormapSize(int colormap_size) { colormap_size(struct, colormap_size); return this; }
-	public XVisualInfo setBitsPerRgb(int bits_per_rgb) { bits_per_rgb(struct, bits_per_rgb); return this; }
+	public Visual getVisual() { return ngetVisualStruct(address()); }
+	public long getVisualid() { return ngetVisualid(address()); }
+	public int getScreen() { return ngetScreen(address()); }
+	public int getDepth() { return ngetDepth(address()); }
+	public int getClazz() { return ngetClazz(address()); }
+	public long getRedMask() { return ngetRedMask(address()); }
+	public long getGreenMask() { return ngetGreenMask(address()); }
+	public long getBlueMask() { return ngetBlueMask(address()); }
+	public int getColormapSize() { return ngetColormapSize(address()); }
+	public int getBitsPerRgb() { return ngetBitsPerRgb(address()); }
 
-	public long getVisual() { return visual(struct); }
-	public ByteBuffer getVisualBuffer() { return visualBuffer(struct); }
-	public long getVisualid() { return visualid(struct); }
-	public int getScreen() { return screen(struct); }
-	public int getDepth() { return depth(struct); }
-	public int getClazz() { return clazz(struct); }
-	public long getRedMask() { return red_mask(struct); }
-	public long getGreenMask() { return green_mask(struct); }
-	public long getBlueMask() { return blue_mask(struct); }
-	public int getColormapSize() { return colormap_size(struct); }
-	public int getBitsPerRgb() { return bits_per_rgb(struct); }
+	public XVisualInfo setVisual(Visual visual) { nsetVisual(address(), visual); return this; }
+	public XVisualInfo setVisualid(long visualid) { nsetVisualid(address(), visualid); return this; }
+	public XVisualInfo setScreen(int screen) { nsetScreen(address(), screen); return this; }
+	public XVisualInfo setDepth(int depth) { nsetDepth(address(), depth); return this; }
+	public XVisualInfo setClazz(int clazz) { nsetClazz(address(), clazz); return this; }
+	public XVisualInfo setRedMask(long red_mask) { nsetRedMask(address(), red_mask); return this; }
+	public XVisualInfo setGreenMask(long green_mask) { nsetGreenMask(address(), green_mask); return this; }
+	public XVisualInfo setBlueMask(long blue_mask) { nsetBlueMask(address(), blue_mask); return this; }
+	public XVisualInfo setColormapSize(int colormap_size) { nsetColormapSize(address(), colormap_size); return this; }
+	public XVisualInfo setBitsPerRgb(int bits_per_rgb) { nsetBitsPerRgb(address(), bits_per_rgb); return this; }
 
-	// -----------------------------------
-
-	private static native int offsets(long buffer);
-
-	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
-	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
-
-	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
-	public static ByteBuffer malloc(
-		ByteBuffer visual,
+	/** Initializes this struct with the specified values. */
+	public XVisualInfo set(
+		Visual visual,
 		long visualid,
 		int screen,
 		int depth,
@@ -115,44 +110,174 @@ public final class XVisualInfo implements Pointer {
 		int colormap_size,
 		int bits_per_rgb
 	) {
-		ByteBuffer xvisualinfo = malloc();
+		setVisual(visual);
+		setVisualid(visualid);
+		setScreen(screen);
+		setDepth(depth);
+		setClazz(clazz);
+		setRedMask(red_mask);
+		setGreenMask(green_mask);
+		setBlueMask(blue_mask);
+		setColormapSize(colormap_size);
+		setBitsPerRgb(bits_per_rgb);
 
-		visual(xvisualinfo, visual);
-		visualid(xvisualinfo, visualid);
-		screen(xvisualinfo, screen);
-		depth(xvisualinfo, depth);
-		clazz(xvisualinfo, clazz);
-		red_mask(xvisualinfo, red_mask);
-		green_mask(xvisualinfo, green_mask);
-		blue_mask(xvisualinfo, blue_mask);
-		colormap_size(xvisualinfo, colormap_size);
-		bits_per_rgb(xvisualinfo, bits_per_rgb);
-
-		return xvisualinfo;
+		return this;
 	}
 
-	public static void visual(ByteBuffer xvisualinfo, long visual) { PointerBuffer.put(xvisualinfo, xvisualinfo.position() + VISUAL, visual); }
-	public static void visual(ByteBuffer xvisualinfo, ByteBuffer visual) { visual(xvisualinfo, memAddressSafe(visual)); }
-	public static void visualid(ByteBuffer xvisualinfo, long visualid) { PointerBuffer.put(xvisualinfo, xvisualinfo.position() + VISUALID, visualid); }
-	public static void screen(ByteBuffer xvisualinfo, int screen) { xvisualinfo.putInt(xvisualinfo.position() + SCREEN, screen); }
-	public static void depth(ByteBuffer xvisualinfo, int depth) { xvisualinfo.putInt(xvisualinfo.position() + DEPTH, depth); }
-	public static void clazz(ByteBuffer xvisualinfo, int clazz) { xvisualinfo.putInt(xvisualinfo.position() + CLAZZ, clazz); }
-	public static void red_mask(ByteBuffer xvisualinfo, long red_mask) { PointerBuffer.put(xvisualinfo, xvisualinfo.position() + RED_MASK, red_mask); }
-	public static void green_mask(ByteBuffer xvisualinfo, long green_mask) { PointerBuffer.put(xvisualinfo, xvisualinfo.position() + GREEN_MASK, green_mask); }
-	public static void blue_mask(ByteBuffer xvisualinfo, long blue_mask) { PointerBuffer.put(xvisualinfo, xvisualinfo.position() + BLUE_MASK, blue_mask); }
-	public static void colormap_size(ByteBuffer xvisualinfo, int colormap_size) { xvisualinfo.putInt(xvisualinfo.position() + COLORMAP_SIZE, colormap_size); }
-	public static void bits_per_rgb(ByteBuffer xvisualinfo, int bits_per_rgb) { xvisualinfo.putInt(xvisualinfo.position() + BITS_PER_RGB, bits_per_rgb); }
+	/** Unsafe version of {@link #set}. */
+	public XVisualInfo nset(long struct) {
+		memCopy(struct, address(), SIZEOF);
+		return this;
+	}
 
-	public static long visual(ByteBuffer xvisualinfo) { return PointerBuffer.get(xvisualinfo, xvisualinfo.position() + VISUAL); }
-	public static ByteBuffer visualBuffer(ByteBuffer xvisualinfo) { return memByteBuffer(visual(xvisualinfo), Visual.SIZEOF); }
-	public static long visualid(ByteBuffer xvisualinfo) { return PointerBuffer.get(xvisualinfo, xvisualinfo.position() + VISUALID); }
-	public static int screen(ByteBuffer xvisualinfo) { return xvisualinfo.getInt(xvisualinfo.position() + SCREEN); }
-	public static int depth(ByteBuffer xvisualinfo) { return xvisualinfo.getInt(xvisualinfo.position() + DEPTH); }
-	public static int clazz(ByteBuffer xvisualinfo) { return xvisualinfo.getInt(xvisualinfo.position() + CLAZZ); }
-	public static long red_mask(ByteBuffer xvisualinfo) { return PointerBuffer.get(xvisualinfo, xvisualinfo.position() + RED_MASK); }
-	public static long green_mask(ByteBuffer xvisualinfo) { return PointerBuffer.get(xvisualinfo, xvisualinfo.position() + GREEN_MASK); }
-	public static long blue_mask(ByteBuffer xvisualinfo) { return PointerBuffer.get(xvisualinfo, xvisualinfo.position() + BLUE_MASK); }
-	public static int colormap_size(ByteBuffer xvisualinfo) { return xvisualinfo.getInt(xvisualinfo.position() + COLORMAP_SIZE); }
-	public static int bits_per_rgb(ByteBuffer xvisualinfo) { return xvisualinfo.getInt(xvisualinfo.position() + BITS_PER_RGB); }
+	/**
+	 * Copies the specified struct data to this struct.
+	 *
+	 * @param src the source struct
+	 *
+	 * @returns this struct
+	 */
+	public XVisualInfo set(XVisualInfo src) {
+		return nset(address());
+	}
+
+	/** {@link ByteBuffer} version of {@link #set}. */
+	public XVisualInfo set(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+		return nset(memAddress(struct));
+	}
+
+	// -----------------------------------
+
+	/** Returns a new {@link XVisualInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	public static XVisualInfo malloc() {
+		return new XVisualInfo(nmemAlloc(SIZEOF));
+	}
+
+	/** Returns a new {@link XVisualInfo} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	public static XVisualInfo calloc() {
+		return new XVisualInfo(nmemCalloc(1, SIZEOF));
+	}
+
+	/** Returns a new {@link XVisualInfo} instance allocated with {@link BufferUtils}. */
+	public static XVisualInfo create() {
+		return new XVisualInfo(BufferUtils.createByteBuffer(SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link XVisualInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocBuffer(int capacity) {
+		return new Buffer(memAlloc(capacity * SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link XVisualInfo.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocBuffer(int capacity) {
+		return new Buffer(memCalloc(capacity, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link XVisualInfo.Buffer} instance allocated with {@link BufferUtils}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	}
+
+	public static long ngetVisual(long struct) { return memGetAddress(struct + VISUAL); }
+	public static Visual ngetVisualStruct(long struct) { return new Visual(ngetVisual(struct)); }
+	public static Visual getVisual(ByteBuffer struct) { return ngetVisualStruct(memAddress(struct)); }
+	public static long ngetVisualid(long struct) { return memGetAddress(struct + VISUALID); }
+	public static long getVisualid(ByteBuffer struct) { return ngetVisualid(memAddress(struct)); }
+	public static int ngetScreen(long struct) { return memGetInt(struct + SCREEN); }
+	public static int getScreen(ByteBuffer struct) { return ngetScreen(memAddress(struct)); }
+	public static int ngetDepth(long struct) { return memGetInt(struct + DEPTH); }
+	public static int getDepth(ByteBuffer struct) { return ngetDepth(memAddress(struct)); }
+	public static int ngetClazz(long struct) { return memGetInt(struct + CLAZZ); }
+	public static int getClazz(ByteBuffer struct) { return ngetClazz(memAddress(struct)); }
+	public static long ngetRedMask(long struct) { return memGetAddress(struct + RED_MASK); }
+	public static long getRedMask(ByteBuffer struct) { return ngetRedMask(memAddress(struct)); }
+	public static long ngetGreenMask(long struct) { return memGetAddress(struct + GREEN_MASK); }
+	public static long getGreenMask(ByteBuffer struct) { return ngetGreenMask(memAddress(struct)); }
+	public static long ngetBlueMask(long struct) { return memGetAddress(struct + BLUE_MASK); }
+	public static long getBlueMask(ByteBuffer struct) { return ngetBlueMask(memAddress(struct)); }
+	public static int ngetColormapSize(long struct) { return memGetInt(struct + COLORMAP_SIZE); }
+	public static int getColormapSize(ByteBuffer struct) { return ngetColormapSize(memAddress(struct)); }
+	public static int ngetBitsPerRgb(long struct) { return memGetInt(struct + BITS_PER_RGB); }
+	public static int getBitsPerRgb(ByteBuffer struct) { return ngetBitsPerRgb(memAddress(struct)); }
+
+	public static void nsetVisual(long struct, long visual) { memPutAddress(struct + VISUAL, visual); }
+	public static void nsetVisual(long struct, Visual visual) { nsetVisual(struct, visual.address()); }
+	public static void setVisual(ByteBuffer struct, Visual visual) { nsetVisual(memAddress(struct), visual); }
+	public static void nsetVisualid(long struct, long visualid) { memPutAddress(struct + VISUALID, visualid); }
+	public static void setVisualid(ByteBuffer struct, long visualid) { nsetVisualid(memAddress(struct), visualid); }
+	public static void nsetScreen(long struct, int screen) { memPutInt(struct + SCREEN, screen); }
+	public static void setScreen(ByteBuffer struct, int screen) { nsetScreen(memAddress(struct), screen); }
+	public static void nsetDepth(long struct, int depth) { memPutInt(struct + DEPTH, depth); }
+	public static void setDepth(ByteBuffer struct, int depth) { nsetDepth(memAddress(struct), depth); }
+	public static void nsetClazz(long struct, int clazz) { memPutInt(struct + CLAZZ, clazz); }
+	public static void setClazz(ByteBuffer struct, int clazz) { nsetClazz(memAddress(struct), clazz); }
+	public static void nsetRedMask(long struct, long red_mask) { memPutAddress(struct + RED_MASK, red_mask); }
+	public static void setRedMask(ByteBuffer struct, long red_mask) { nsetRedMask(memAddress(struct), red_mask); }
+	public static void nsetGreenMask(long struct, long green_mask) { memPutAddress(struct + GREEN_MASK, green_mask); }
+	public static void setGreenMask(ByteBuffer struct, long green_mask) { nsetGreenMask(memAddress(struct), green_mask); }
+	public static void nsetBlueMask(long struct, long blue_mask) { memPutAddress(struct + BLUE_MASK, blue_mask); }
+	public static void setBlueMask(ByteBuffer struct, long blue_mask) { nsetBlueMask(memAddress(struct), blue_mask); }
+	public static void nsetColormapSize(long struct, int colormap_size) { memPutInt(struct + COLORMAP_SIZE, colormap_size); }
+	public static void setColormapSize(ByteBuffer struct, int colormap_size) { nsetColormapSize(memAddress(struct), colormap_size); }
+	public static void nsetBitsPerRgb(long struct, int bits_per_rgb) { memPutInt(struct + BITS_PER_RGB, bits_per_rgb); }
+	public static void setBitsPerRgb(ByteBuffer struct, int bits_per_rgb) { nsetBitsPerRgb(memAddress(struct), bits_per_rgb); }
+
+	// -----------------------------------
+
+	/** An array of {@link XVisualInfo} structs. */
+	public static final class Buffer extends StructBuffer<XVisualInfo, Buffer> {
+
+		/**
+		 * Creates a new {@link XVisualInfo.Buffer} instance backed by the specified container.
+		 *
+		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+		 * by {@link XVisualInfo#SIZEOF}, and its mark will be undefined.
+		 *
+		 * <p>The created buffer instance holds a strong reference to the container object.</p>
+		 */
+		public Buffer(ByteBuffer container) {
+			this(container.slice(), SIZEOF);
+		}
+
+		Buffer(ByteBuffer container, int SIZEOF) {
+			super(container, SIZEOF);
+		}
+
+		@Override
+		protected Buffer self() {
+			return this;
+		}
+
+		@Override
+		protected Buffer newBufferInstance(ByteBuffer buffer) {
+			return new Buffer(buffer);
+		}
+
+		@Override
+		protected XVisualInfo newInstance(long address) {
+			return new XVisualInfo(address, container);
+		}
+
+		@Override
+		protected int sizeof() {
+			return SIZEOF;
+		}
+
+	}
 
 }

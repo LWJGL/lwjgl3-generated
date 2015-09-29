@@ -8,11 +8,13 @@ package org.lwjgl.system.libffi;
 import java.nio.*;
 
 import org.lwjgl.*;
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** The libffi closure structure. */
-public final class FFIClosure implements Pointer {
+public final class FFIClosure extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -35,45 +37,83 @@ public final class FFIClosure implements Pointer {
 		memFree(offsets);
 	}
 
-	private final ByteBuffer struct;
+	private static native int offsets(long buffer);
 
-	public FFIClosure(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-
-		this.struct = struct;
+	FFIClosure(long address, ByteBuffer container) {
+		super(address, container, SIZEOF);
 	}
 
-	public ByteBuffer buffer() {
-		return struct;
+	/** Creates a {@link FFIClosure} instance at the specified memory address. */
+	public FFIClosure(long struct) {
+		this(struct, null);
+	}
+
+	/**
+	 * Creates a {@link FFIClosure} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+	 * visible to the struct instance and vice versa.
+	 *
+	 * <p>The created instance holds a strong reference to the container object.</p>
+	 */
+	public FFIClosure(ByteBuffer container) {
+		this(memAddress(container), container);
 	}
 
 	@Override
-	public long getPointer() {
-		return memAddress(struct);
-	}
+	public int sizeof() { return SIZEOF; }
 
-	public FFIClosure setCif(long cif) { cif(struct, cif); return this; }
-	public FFIClosure setCif(ByteBuffer cif) { cif(struct, cif); return this; }
-	public FFIClosure setFun(long fun) { fun(struct, fun); return this; }
-	public FFIClosure setUserData(long user_data) { user_data(struct, user_data); return this; }
-
-	public long getCif() { return cif(struct); }
-	public ByteBuffer getCifBuffer() { return cifBuffer(struct); }
-	public long getFun() { return fun(struct); }
-	public long getUserData() { return user_data(struct); }
+	public FFICIF getCif() { return ngetCifStruct(address()); }
+	public long getFun() { return ngetFun(address()); }
+	public long getUserData() { return ngetUserData(address()); }
+	public static long ngetCif(long struct) { return memGetAddress(struct + CIF); }
+	public static FFICIF ngetCifStruct(long struct) { return new FFICIF(ngetCif(struct)); }
+	public static FFICIF getCif(ByteBuffer struct) { return ngetCifStruct(memAddress(struct)); }
+	public static long ngetFun(long struct) { return memGetAddress(struct + FUN); }
+	public static long getFun(ByteBuffer struct) { return ngetFun(memAddress(struct)); }
+	public static long ngetUserData(long struct) { return memGetAddress(struct + USER_DATA); }
+	public static long getUserData(ByteBuffer struct) { return ngetUserData(memAddress(struct)); }
 
 	// -----------------------------------
 
-	private static native int offsets(long buffer);
-	public static void cif(ByteBuffer ffi_closure, long cif) { PointerBuffer.put(ffi_closure, ffi_closure.position() + CIF, cif); }
-	public static void cif(ByteBuffer ffi_closure, ByteBuffer cif) { cif(ffi_closure, memAddressSafe(cif)); }
-	public static void fun(ByteBuffer ffi_closure, long fun) { PointerBuffer.put(ffi_closure, ffi_closure.position() + FUN, fun); }
-	public static void user_data(ByteBuffer ffi_closure, long user_data) { PointerBuffer.put(ffi_closure, ffi_closure.position() + USER_DATA, user_data); }
+	/** An array of {@link FFIClosure} structs. */
+	public static final class Buffer extends StructBuffer<FFIClosure, Buffer> {
 
-	public static long cif(ByteBuffer ffi_closure) { return PointerBuffer.get(ffi_closure, ffi_closure.position() + CIF); }
-	public static ByteBuffer cifBuffer(ByteBuffer ffi_closure) { return memByteBuffer(cif(ffi_closure), FFICIF.SIZEOF); }
-	public static long fun(ByteBuffer ffi_closure) { return PointerBuffer.get(ffi_closure, ffi_closure.position() + FUN); }
-	public static long user_data(ByteBuffer ffi_closure) { return PointerBuffer.get(ffi_closure, ffi_closure.position() + USER_DATA); }
+		/**
+		 * Creates a new {@link FFIClosure.Buffer} instance backed by the specified container.
+		 *
+		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+		 * by {@link FFIClosure#SIZEOF}, and its mark will be undefined.
+		 *
+		 * <p>The created buffer instance holds a strong reference to the container object.</p>
+		 */
+		public Buffer(ByteBuffer container) {
+			this(container.slice(), SIZEOF);
+		}
+
+		Buffer(ByteBuffer container, int SIZEOF) {
+			super(container, SIZEOF);
+		}
+
+		@Override
+		protected Buffer self() {
+			return this;
+		}
+
+		@Override
+		protected Buffer newBufferInstance(ByteBuffer buffer) {
+			return new Buffer(buffer);
+		}
+
+		@Override
+		protected FFIClosure newInstance(long address) {
+			return new FFIClosure(address, container);
+		}
+
+		@Override
+		protected int sizeof() {
+			return SIZEOF;
+		}
+
+	}
 
 }

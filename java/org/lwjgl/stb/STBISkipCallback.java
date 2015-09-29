@@ -16,7 +16,7 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 /** Instances of this interface may be set to the {@code skip} field of the {@link STBIIOCallbacks} struct. */
 public abstract class STBISkipCallback extends Closure.Void {
 
-	private static final ByteBuffer    CIF  = staticAlloc(FFICIF.SIZEOF);
+	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(2);
 
 	static {

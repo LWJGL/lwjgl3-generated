@@ -53,7 +53,7 @@ public final class ANDROIDBlobCache {
 		long __functionAddress = getInstance().SetBlobCacheFuncsANDROID;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(dpy);
-		callPPPV(__functionAddress, dpy, set.getPointer(), get.getPointer());
+		callPPPV(__functionAddress, dpy, set.address(), get.address());
 	}
 
 }

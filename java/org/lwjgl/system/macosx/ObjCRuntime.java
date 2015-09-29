@@ -936,7 +936,7 @@ public final class ObjCRuntime {
 	 * <pre><code style="font-family: monospace">
 	 * void myMethodIMP(id self, SEL _cmd)
 	 * {
-	 *     // implementation ....
+	 * 	// implementation ....
 	 * }</code></pre>
 	 * you can dynamically add it to a class as a method (called {@code resolveThisMethodDynamically}) like this:
 	 * <pre><code style="font-family: monospace">
@@ -1104,29 +1104,29 @@ public final class ObjCRuntime {
 	 *
 	 * @return {@link #YES} if the property was added successfully; otherwise {@link #NO} (for example, this function returns {@link #NO} if the class already has that property)
 	 */
-	public static byte class_addProperty(long cls, ByteBuffer name, ByteBuffer attributes, int attributeCount) {
+	public static byte class_addProperty(long cls, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes, int attributeCount) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(cls);
 			checkNT1(name);
-			checkBuffer(attributes, attributeCount * ObjCPropertyAttribute.SIZEOF);
+			checkBuffer(attributes, attributeCount);
 		}
-		return nclass_addProperty(cls, memAddress(name), memAddress(attributes), attributeCount);
+		return nclass_addProperty(cls, memAddress(name), attributes.address(), attributeCount);
 	}
 
 	/** Alternative version of: {@link #class_addProperty} */
-	public static byte class_addProperty(long cls, ByteBuffer name, ByteBuffer attributes) {
+	public static byte class_addProperty(long cls, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(cls);
-		return nclass_addProperty(cls, memAddress(name), memAddress(attributes), attributes.remaining() / ObjCPropertyAttribute.SIZEOF);
+		return nclass_addProperty(cls, memAddress(name), attributes.address(), attributes.remaining());
 	}
 
 	/** CharSequence version of: {@link #class_addProperty} */
-	public static byte class_addProperty(long cls, CharSequence name, ByteBuffer attributes) {
+	public static byte class_addProperty(long cls, CharSequence name, ObjCPropertyAttribute.Buffer attributes) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(cls);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		return nclass_addProperty(cls, __buffer.address(nameEncoded), memAddress(attributes), attributes.remaining() / ObjCPropertyAttribute.SIZEOF);
+		return nclass_addProperty(cls, __buffer.address(nameEncoded), attributes.address(), attributes.remaining());
 	}
 
 	// --- [ class_replaceProperty ] ---
@@ -1143,29 +1143,29 @@ public final class ObjCRuntime {
 	 * @param attributes     an array of property attributes
 	 * @param attributeCount the number of attributes in {@code attributes}
 	 */
-	public static void class_replaceProperty(long cls, ByteBuffer name, ByteBuffer attributes, int attributeCount) {
+	public static void class_replaceProperty(long cls, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes, int attributeCount) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(cls);
 			checkNT1(name);
-			checkBuffer(attributes, attributeCount * ObjCPropertyAttribute.SIZEOF);
+			checkBuffer(attributes, attributeCount);
 		}
-		nclass_replaceProperty(cls, memAddress(name), memAddress(attributes), attributeCount);
+		nclass_replaceProperty(cls, memAddress(name), attributes.address(), attributeCount);
 	}
 
 	/** Alternative version of: {@link #class_replaceProperty} */
-	public static void class_replaceProperty(long cls, ByteBuffer name, ByteBuffer attributes) {
+	public static void class_replaceProperty(long cls, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(cls);
-		nclass_replaceProperty(cls, memAddress(name), memAddress(attributes), attributes.remaining() / ObjCPropertyAttribute.SIZEOF);
+		nclass_replaceProperty(cls, memAddress(name), attributes.address(), attributes.remaining());
 	}
 
 	/** CharSequence version of: {@link #class_replaceProperty} */
-	public static void class_replaceProperty(long cls, CharSequence name, ByteBuffer attributes) {
+	public static void class_replaceProperty(long cls, CharSequence name, ObjCPropertyAttribute.Buffer attributes) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(cls);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		nclass_replaceProperty(cls, __buffer.address(nameEncoded), memAddress(attributes), attributes.remaining() / ObjCPropertyAttribute.SIZEOF);
+		nclass_replaceProperty(cls, __buffer.address(nameEncoded), attributes.address(), attributes.remaining());
 	}
 
 	// --- [ class_setIvarLayout ] ---
@@ -1721,19 +1721,19 @@ public final class ObjCRuntime {
 	 *
 	 * @return an array of property attributes. You must free the array with free().
 	 */
-	public static ByteBuffer property_copyAttributeList(long property, ByteBuffer outCount) {
+	public static ObjCPropertyAttribute.Buffer property_copyAttributeList(long property, ByteBuffer outCount) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(property);
 		long __result = nproperty_copyAttributeList(property, memAddress(outCount));
-		return memByteBuffer(__result, outCount.getInt(outCount.position()) * ObjCPropertyAttribute.SIZEOF);
+		return new ObjCPropertyAttribute.Buffer(memByteBuffer(__result, outCount.getInt(outCount.position()) * ObjCPropertyAttribute.SIZEOF));
 	}
 
 	/** Alternative version of: {@link #property_copyAttributeList} */
-	public static ByteBuffer property_copyAttributeList(long property, IntBuffer outCount) {
+	public static ObjCPropertyAttribute.Buffer property_copyAttributeList(long property, IntBuffer outCount) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(property);
 		long __result = nproperty_copyAttributeList(property, memAddress(outCount));
-		return memByteBuffer(__result, outCount.get(outCount.position()) * ObjCPropertyAttribute.SIZEOF);
+		return new ObjCPropertyAttribute.Buffer(memByteBuffer(__result, outCount.get(outCount.position()) * ObjCPropertyAttribute.SIZEOF));
 	}
 
 	// --- [ property_copyAttributeValue ] ---
@@ -1912,12 +1912,12 @@ public final class ObjCRuntime {
 	 *                         
 	 *                         <p>If the protocol does not contain the specified method, returns an objc_method_description structure with the value <code style="font-family: monospace">{NULL, NULL}</code>.</p>
 	 */
-	public static void protocol_getMethodDescription(long p, long aSel, byte isRequiredMethod, byte isInstanceMethod, ByteBuffer __result) {
+	public static void protocol_getMethodDescription(long p, long aSel, byte isRequiredMethod, byte isInstanceMethod, ObjCMethodDescription __result) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(p);
 			checkPointer(aSel);
 		}
-		nprotocol_getMethodDescription(p, aSel, isRequiredMethod, isInstanceMethod, memAddress(__result));
+		nprotocol_getMethodDescription(p, aSel, isRequiredMethod, isInstanceMethod, __result.address());
 	}
 
 	// --- [ protocol_copyMethodDescriptionList ] ---
@@ -1941,19 +1941,19 @@ public final class ObjCRuntime {
 	 *         
 	 *         <p>If the protocol declares no methods that meet the specification, {@code NULL} is returned and {@code *outCount} is 0.</p>
 	 */
-	public static ByteBuffer protocol_copyMethodDescriptionList(long p, byte isRequiredMethod, byte isInstanceMethod, ByteBuffer outCount) {
+	public static ObjCMethodDescription.Buffer protocol_copyMethodDescriptionList(long p, byte isRequiredMethod, byte isInstanceMethod, ByteBuffer outCount) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(p);
 		long __result = nprotocol_copyMethodDescriptionList(p, isRequiredMethod, isInstanceMethod, memAddress(outCount));
-		return memByteBuffer(__result, outCount.getInt(outCount.position()) * ObjCMethodDescription.SIZEOF);
+		return new ObjCMethodDescription.Buffer(memByteBuffer(__result, outCount.getInt(outCount.position()) * ObjCMethodDescription.SIZEOF));
 	}
 
 	/** Alternative version of: {@link #protocol_copyMethodDescriptionList} */
-	public static ByteBuffer protocol_copyMethodDescriptionList(long p, byte isRequiredMethod, byte isInstanceMethod, IntBuffer outCount) {
+	public static ObjCMethodDescription.Buffer protocol_copyMethodDescriptionList(long p, byte isRequiredMethod, byte isInstanceMethod, IntBuffer outCount) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(p);
 		long __result = nprotocol_copyMethodDescriptionList(p, isRequiredMethod, isInstanceMethod, memAddress(outCount));
-		return memByteBuffer(__result, outCount.get(outCount.position()) * ObjCMethodDescription.SIZEOF);
+		return new ObjCMethodDescription.Buffer(memByteBuffer(__result, outCount.get(outCount.position()) * ObjCMethodDescription.SIZEOF));
 	}
 
 	// --- [ protocol_getProperty ] ---
@@ -2173,29 +2173,29 @@ public final class ObjCRuntime {
 	 * @param isInstanceProperty a Boolean indicating whether the property's accessor methods are instance methods. If {@link #YES}, the property's accessor methods are instance methods.
 	 *                           {@link #YES} is the only value allowed for a property. As a result, if you set this value to {@link #NO}, the property will not be added to the protocol.
 	 */
-	public static void protocol_addProperty(long proto, ByteBuffer name, ByteBuffer attributes, int attributeCount, byte isRequiredProperty, byte isInstanceProperty) {
+	public static void protocol_addProperty(long proto, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes, int attributeCount, byte isRequiredProperty, byte isInstanceProperty) {
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(proto);
 			checkNT1(name);
-			checkBuffer(attributes, attributeCount * ObjCPropertyAttribute.SIZEOF);
+			checkBuffer(attributes, attributeCount);
 		}
-		nprotocol_addProperty(proto, memAddress(name), memAddress(attributes), attributeCount, isRequiredProperty, isInstanceProperty);
+		nprotocol_addProperty(proto, memAddress(name), attributes.address(), attributeCount, isRequiredProperty, isInstanceProperty);
 	}
 
 	/** Alternative version of: {@link #protocol_addProperty} */
-	public static void protocol_addProperty(long proto, ByteBuffer name, ByteBuffer attributes, byte isRequiredProperty, byte isInstanceProperty) {
+	public static void protocol_addProperty(long proto, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes, byte isRequiredProperty, byte isInstanceProperty) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(proto);
-		nprotocol_addProperty(proto, memAddress(name), memAddress(attributes), attributes.remaining() / ObjCPropertyAttribute.SIZEOF, isRequiredProperty, isInstanceProperty);
+		nprotocol_addProperty(proto, memAddress(name), attributes.address(), attributes.remaining(), isRequiredProperty, isInstanceProperty);
 	}
 
 	/** CharSequence version of: {@link #protocol_addProperty} */
-	public static void protocol_addProperty(long proto, CharSequence name, ByteBuffer attributes, byte isRequiredProperty, byte isInstanceProperty) {
+	public static void protocol_addProperty(long proto, CharSequence name, ObjCPropertyAttribute.Buffer attributes, byte isRequiredProperty, byte isInstanceProperty) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(proto);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
-		nprotocol_addProperty(proto, __buffer.address(nameEncoded), memAddress(attributes), attributes.remaining() / ObjCPropertyAttribute.SIZEOF, isRequiredProperty, isInstanceProperty);
+		nprotocol_addProperty(proto, __buffer.address(nameEncoded), attributes.address(), attributes.remaining(), isRequiredProperty, isInstanceProperty);
 	}
 
 	// --- [ objc_copyImageNames ] ---
@@ -2401,7 +2401,7 @@ public final class ObjCRuntime {
 	 * @param handler a function pointer to the new mutation handler
 	 */
 	public static void objc_setEnumerationMutationHandler(EnumerationMutationHandler handler) {
-		nobjc_setEnumerationMutationHandler(handler.getPointer());
+		nobjc_setEnumerationMutationHandler(handler.address());
 	}
 
 	// --- [ imp_implementationWithBlock ] ---

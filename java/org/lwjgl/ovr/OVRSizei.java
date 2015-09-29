@@ -8,11 +8,13 @@ package org.lwjgl.ovr;
 import java.nio.*;
 
 import org.lwjgl.*;
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** A 2D size with integer components. */
-public final class OVRSizei implements Pointer {
+public final class OVRSizei extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -33,58 +35,167 @@ public final class OVRSizei implements Pointer {
 		memFree(offsets);
 	}
 
-	private final ByteBuffer struct;
+	private static native int offsets(long buffer);
 
-	public OVRSizei() {
-		this(malloc());
+	OVRSizei(long address, ByteBuffer container) {
+		super(address, container, SIZEOF);
 	}
 
-	public OVRSizei(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-
-		this.struct = struct;
+	/** Creates a {@link OVRSizei} instance at the specified memory address. */
+	public OVRSizei(long struct) {
+		this(struct, null);
 	}
 
-	public ByteBuffer buffer() {
-		return struct;
+	/**
+	 * Creates a {@link OVRSizei} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+	 * visible to the struct instance and vice versa.
+	 *
+	 * <p>The created instance holds a strong reference to the container object.</p>
+	 */
+	public OVRSizei(ByteBuffer container) {
+		this(memAddress(container), container);
 	}
 
 	@Override
-	public long getPointer() {
-		return memAddress(struct);
-	}
+	public int sizeof() { return SIZEOF; }
 
-	public OVRSizei setW(int w) { w(struct, w); return this; }
-	public OVRSizei setH(int h) { h(struct, h); return this; }
+	public int getW() { return ngetW(address()); }
+	public int getH() { return ngetH(address()); }
 
-	public int getW() { return w(struct); }
-	public int getH() { return h(struct); }
+	public OVRSizei setW(int w) { nsetW(address(), w); return this; }
+	public OVRSizei setH(int h) { nsetH(address(), h); return this; }
 
-	// -----------------------------------
-
-	private static native int offsets(long buffer);
-
-	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
-	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
-
-	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
-	public static ByteBuffer malloc(
+	/** Initializes this struct with the specified values. */
+	public OVRSizei set(
 		int w,
 		int h
 	) {
-		ByteBuffer ovrsizei = malloc();
+		setW(w);
+		setH(h);
 
-		w(ovrsizei, w);
-		h(ovrsizei, h);
-
-		return ovrsizei;
+		return this;
 	}
 
-	public static void w(ByteBuffer ovrsizei, int w) { ovrsizei.putInt(ovrsizei.position() + W, w); }
-	public static void h(ByteBuffer ovrsizei, int h) { ovrsizei.putInt(ovrsizei.position() + H, h); }
+	/** Unsafe version of {@link #set}. */
+	public OVRSizei nset(long struct) {
+		memCopy(struct, address(), SIZEOF);
+		return this;
+	}
 
-	public static int w(ByteBuffer ovrsizei) { return ovrsizei.getInt(ovrsizei.position() + W); }
-	public static int h(ByteBuffer ovrsizei) { return ovrsizei.getInt(ovrsizei.position() + H); }
+	/**
+	 * Copies the specified struct data to this struct.
+	 *
+	 * @param src the source struct
+	 *
+	 * @returns this struct
+	 */
+	public OVRSizei set(OVRSizei src) {
+		return nset(address());
+	}
+
+	/** {@link ByteBuffer} version of {@link #set}. */
+	public OVRSizei set(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+		return nset(memAddress(struct));
+	}
+
+	// -----------------------------------
+
+	/** Returns a new {@link OVRSizei} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	public static OVRSizei malloc() {
+		return new OVRSizei(nmemAlloc(SIZEOF));
+	}
+
+	/** Returns a new {@link OVRSizei} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	public static OVRSizei calloc() {
+		return new OVRSizei(nmemCalloc(1, SIZEOF));
+	}
+
+	/** Returns a new {@link OVRSizei} instance allocated with {@link BufferUtils}. */
+	public static OVRSizei create() {
+		return new OVRSizei(BufferUtils.createByteBuffer(SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRSizei.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocBuffer(int capacity) {
+		return new Buffer(memAlloc(capacity * SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRSizei.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocBuffer(int capacity) {
+		return new Buffer(memCalloc(capacity, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRSizei.Buffer} instance allocated with {@link BufferUtils}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	}
+
+	public static int ngetW(long struct) { return memGetInt(struct + W); }
+	public static int getW(ByteBuffer struct) { return ngetW(memAddress(struct)); }
+	public static int ngetH(long struct) { return memGetInt(struct + H); }
+	public static int getH(ByteBuffer struct) { return ngetH(memAddress(struct)); }
+
+	public static void nsetW(long struct, int w) { memPutInt(struct + W, w); }
+	public static void setW(ByteBuffer struct, int w) { nsetW(memAddress(struct), w); }
+	public static void nsetH(long struct, int h) { memPutInt(struct + H, h); }
+	public static void setH(ByteBuffer struct, int h) { nsetH(memAddress(struct), h); }
+
+	// -----------------------------------
+
+	/** An array of {@link OVRSizei} structs. */
+	public static final class Buffer extends StructBuffer<OVRSizei, Buffer> {
+
+		/**
+		 * Creates a new {@link OVRSizei.Buffer} instance backed by the specified container.
+		 *
+		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+		 * by {@link OVRSizei#SIZEOF}, and its mark will be undefined.
+		 *
+		 * <p>The created buffer instance holds a strong reference to the container object.</p>
+		 */
+		public Buffer(ByteBuffer container) {
+			this(container.slice(), SIZEOF);
+		}
+
+		Buffer(ByteBuffer container, int SIZEOF) {
+			super(container, SIZEOF);
+		}
+
+		@Override
+		protected Buffer self() {
+			return this;
+		}
+
+		@Override
+		protected Buffer newBufferInstance(ByteBuffer buffer) {
+			return new Buffer(buffer);
+		}
+
+		@Override
+		protected OVRSizei newInstance(long address) {
+			return new OVRSizei(address, container);
+		}
+
+		@Override
+		protected int sizeof() {
+			return SIZEOF;
+		}
+
+	}
 
 }

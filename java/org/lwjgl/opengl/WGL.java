@@ -312,10 +312,15 @@ public final class WGL {
 	 * @param glyphMetrics an array of {@code count} {@link GLYPHMETRICSFLOAT} structures that is to receive the metrics of the glyphs. When {@code glyphMetrics} is {@code NULL}, no
 	 *                     glyph metrics are returned.
 	 */
-	public static int wglUseFontOutlines(long hdc, int first, int count, int listBase, float deviation, float extrusion, int format, ByteBuffer glyphMetrics) {
+	public static int wglUseFontOutlines(long hdc, int first, int count, int listBase, float deviation, float extrusion, int format, GLYPHMETRICSFLOAT.Buffer glyphMetrics) {
 		if ( LWJGLUtil.CHECKS )
-			if ( glyphMetrics != null ) checkBuffer(glyphMetrics, count * GLYPHMETRICSFLOAT.SIZEOF * GLYPHMETRICSFLOAT.SIZEOF);
-		return nwglUseFontOutlines(hdc, first, count, listBase, deviation, extrusion, format, memAddressSafe(glyphMetrics));
+			if ( glyphMetrics != null ) checkBuffer(glyphMetrics, count);
+		return nwglUseFontOutlines(hdc, first, count, listBase, deviation, extrusion, format, glyphMetrics == null ? NULL : glyphMetrics.address());
+	}
+
+	/** Alternative version of: {@link #wglUseFontOutlines UseFontOutlines} */
+	public static int wglUseFontOutlines(long hdc, int first, int listBase, float deviation, float extrusion, int format, GLYPHMETRICSFLOAT.Buffer glyphMetrics) {
+		return nwglUseFontOutlines(hdc, first, glyphMetrics == null ? 0 : glyphMetrics.remaining(), listBase, deviation, extrusion, format, glyphMetrics == null ? NULL : glyphMetrics.address());
 	}
 
 }

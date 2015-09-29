@@ -172,10 +172,8 @@ public final class WinBase {
 	 * @param frequency a pointer to a variable that receives the current performance-counter frequency, in counts per second. If the installed hardware does not support a
 	 *                  high-resolution performance counter, this parameter can be zero.
 	 */
-	public static int QueryPerformanceFrequency(ByteBuffer frequency) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(frequency, LARGE_INTEGER.SIZEOF);
-		return nQueryPerformanceFrequency(memAddress(frequency));
+	public static int QueryPerformanceFrequency(LARGE_INTEGER frequency) {
+		return nQueryPerformanceFrequency(frequency.address());
 	}
 
 	// --- [ QueryPerformanceCounter ] ---
@@ -193,10 +191,8 @@ public final class WinBase {
 	 *
 	 * @param frequency a pointer to a variable that receives the current performance-counter value, in counts.
 	 */
-	public static int QueryPerformanceCounter(ByteBuffer frequency) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(frequency, LARGE_INTEGER.SIZEOF);
-		return nQueryPerformanceCounter(memAddress(frequency));
+	public static int QueryPerformanceCounter(LARGE_INTEGER frequency) {
+		return nQueryPerformanceCounter(frequency.address());
 	}
 
 }

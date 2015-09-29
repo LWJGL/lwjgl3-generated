@@ -546,14 +546,14 @@ public final class JEmalloc {
 	public static void je_malloc_stats_print(MallocMessageCallback write_cb, ByteBuffer je_cbopaque, ByteBuffer opts) {
 		if ( LWJGLUtil.CHECKS )
 			if ( opts != null ) checkNT1(opts);
-		nje_malloc_stats_print(write_cb == null ? NULL : write_cb.getPointer(), memAddressSafe(je_cbopaque), memAddressSafe(opts));
+		nje_malloc_stats_print(write_cb == null ? NULL : write_cb.address(), memAddressSafe(je_cbopaque), memAddressSafe(opts));
 	}
 
 	/** CharSequence version of: {@link #je_malloc_stats_print malloc_stats_print} */
 	public static void je_malloc_stats_print(MallocMessageCallback write_cb, ByteBuffer je_cbopaque, CharSequence opts) {
 		APIBuffer __buffer = apiBuffer();
 		int optsEncoded = __buffer.stringParamASCII(opts, true);
-		nje_malloc_stats_print(write_cb == null ? NULL : write_cb.getPointer(), memAddressSafe(je_cbopaque), __buffer.addressSafe(opts, optsEncoded));
+		nje_malloc_stats_print(write_cb == null ? NULL : write_cb.address(), memAddressSafe(je_cbopaque), __buffer.addressSafe(opts, optsEncoded));
 	}
 
 	// --- [ je_malloc_usable_size ] ---

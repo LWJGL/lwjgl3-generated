@@ -8,11 +8,13 @@ package org.lwjgl.ovr;
 import java.nio.*;
 
 import org.lwjgl.*;
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Specifies a reading we can query from the sensor. */
-public final class OVRSensorData implements Pointer {
+public final class OVRSensorData extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -39,112 +41,251 @@ public final class OVRSensorData implements Pointer {
 		memFree(offsets);
 	}
 
-	private final ByteBuffer struct;
+	private static native int offsets(long buffer);
 
-	public OVRSensorData() {
-		this(malloc());
+	OVRSensorData(long address, ByteBuffer container) {
+		super(address, container, SIZEOF);
 	}
 
-	public OVRSensorData(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-
-		this.struct = struct;
+	/** Creates a {@link OVRSensorData} instance at the specified memory address. */
+	public OVRSensorData(long struct) {
+		this(struct, null);
 	}
 
-	public ByteBuffer buffer() {
-		return struct;
+	/**
+	 * Creates a {@link OVRSensorData} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+	 * visible to the struct instance and vice versa.
+	 *
+	 * <p>The created instance holds a strong reference to the container object.</p>
+	 */
+	public OVRSensorData(ByteBuffer container) {
+		this(memAddress(container), container);
 	}
 
 	@Override
-	public long getPointer() {
-		return memAddress(struct);
-	}
+	public int sizeof() { return SIZEOF; }
 
-	public OVRSensorData setAccelerometer(ByteBuffer Accelerometer) { AccelerometerSet(struct, Accelerometer); return this; }
-	public OVRSensorData setAccelerometerX(float x) { AccelerometerX(struct, x); return this; }
-	public OVRSensorData setAccelerometerY(float y) { AccelerometerY(struct, y); return this; }
-	public OVRSensorData setAccelerometerZ(float z) { AccelerometerZ(struct, z); return this; }
-	public OVRSensorData setGyro(ByteBuffer Gyro) { GyroSet(struct, Gyro); return this; }
-	public OVRSensorData setGyroX(float x) { GyroX(struct, x); return this; }
-	public OVRSensorData setGyroY(float y) { GyroY(struct, y); return this; }
-	public OVRSensorData setGyroZ(float z) { GyroZ(struct, z); return this; }
-	public OVRSensorData setMagnetometer(ByteBuffer Magnetometer) { MagnetometerSet(struct, Magnetometer); return this; }
-	public OVRSensorData setMagnetometerX(float x) { MagnetometerX(struct, x); return this; }
-	public OVRSensorData setMagnetometerY(float y) { MagnetometerY(struct, y); return this; }
-	public OVRSensorData setMagnetometerZ(float z) { MagnetometerZ(struct, z); return this; }
-	public OVRSensorData setTemperature(float Temperature) { Temperature(struct, Temperature); return this; }
-	public OVRSensorData setTimeInSeconds(float TimeInSeconds) { TimeInSeconds(struct, TimeInSeconds); return this; }
+	public OVRVector3f getAccelerometer() { return ngetAccelerometer(address()); }
+	public float getAccelerometerX() { return ngetAccelerometerX(address()); }
+	public float getAccelerometerY() { return ngetAccelerometerY(address()); }
+	public float getAccelerometerZ() { return ngetAccelerometerZ(address()); }
+	public OVRVector3f getGyro() { return ngetGyro(address()); }
+	public float getGyroX() { return ngetGyroX(address()); }
+	public float getGyroY() { return ngetGyroY(address()); }
+	public float getGyroZ() { return ngetGyroZ(address()); }
+	public OVRVector3f getMagnetometer() { return ngetMagnetometer(address()); }
+	public float getMagnetometerX() { return ngetMagnetometerX(address()); }
+	public float getMagnetometerY() { return ngetMagnetometerY(address()); }
+	public float getMagnetometerZ() { return ngetMagnetometerZ(address()); }
+	public float getTemperature() { return ngetTemperature(address()); }
+	public float getTimeInSeconds() { return ngetTimeInSeconds(address()); }
 
-	public void getAccelerometer(ByteBuffer Accelerometer) { AccelerometerGet(struct, Accelerometer); }
-	public float getAccelerometerX() { return AccelerometerX(struct); }
-	public float getAccelerometerY() { return AccelerometerY(struct); }
-	public float getAccelerometerZ() { return AccelerometerZ(struct); }
-	public void getGyro(ByteBuffer Gyro) { GyroGet(struct, Gyro); }
-	public float getGyroX() { return GyroX(struct); }
-	public float getGyroY() { return GyroY(struct); }
-	public float getGyroZ() { return GyroZ(struct); }
-	public void getMagnetometer(ByteBuffer Magnetometer) { MagnetometerGet(struct, Magnetometer); }
-	public float getMagnetometerX() { return MagnetometerX(struct); }
-	public float getMagnetometerY() { return MagnetometerY(struct); }
-	public float getMagnetometerZ() { return MagnetometerZ(struct); }
-	public float getTemperature() { return Temperature(struct); }
-	public float getTimeInSeconds() { return TimeInSeconds(struct); }
+	public OVRSensorData setAccelerometer(OVRVector3f Accelerometer) { nsetAccelerometer(address(), Accelerometer); return this; }
+	public OVRSensorData setAccelerometerX(float x) { nsetAccelerometerX(address(), x); return this; }
+	public OVRSensorData setAccelerometerY(float y) { nsetAccelerometerY(address(), y); return this; }
+	public OVRSensorData setAccelerometerZ(float z) { nsetAccelerometerZ(address(), z); return this; }
+	public OVRSensorData setGyro(OVRVector3f Gyro) { nsetGyro(address(), Gyro); return this; }
+	public OVRSensorData setGyroX(float x) { nsetGyroX(address(), x); return this; }
+	public OVRSensorData setGyroY(float y) { nsetGyroY(address(), y); return this; }
+	public OVRSensorData setGyroZ(float z) { nsetGyroZ(address(), z); return this; }
+	public OVRSensorData setMagnetometer(OVRVector3f Magnetometer) { nsetMagnetometer(address(), Magnetometer); return this; }
+	public OVRSensorData setMagnetometerX(float x) { nsetMagnetometerX(address(), x); return this; }
+	public OVRSensorData setMagnetometerY(float y) { nsetMagnetometerY(address(), y); return this; }
+	public OVRSensorData setMagnetometerZ(float z) { nsetMagnetometerZ(address(), z); return this; }
+	public OVRSensorData setTemperature(float Temperature) { nsetTemperature(address(), Temperature); return this; }
+	public OVRSensorData setTimeInSeconds(float TimeInSeconds) { nsetTimeInSeconds(address(), TimeInSeconds); return this; }
 
-	// -----------------------------------
-
-	private static native int offsets(long buffer);
-
-	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
-	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
-
-	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
-	public static ByteBuffer malloc(
-		ByteBuffer Accelerometer,
-		ByteBuffer Gyro,
-		ByteBuffer Magnetometer,
+	/** Initializes this struct with the specified values. */
+	public OVRSensorData set(
+		OVRVector3f Accelerometer,
+		OVRVector3f Gyro,
+		OVRVector3f Magnetometer,
 		float Temperature,
 		float TimeInSeconds
 	) {
-		ByteBuffer ovrsensordata = malloc();
+		setAccelerometer(Accelerometer);
+		setGyro(Gyro);
+		setMagnetometer(Magnetometer);
+		setTemperature(Temperature);
+		setTimeInSeconds(TimeInSeconds);
 
-		AccelerometerSet(ovrsensordata, Accelerometer);
-		GyroSet(ovrsensordata, Gyro);
-		MagnetometerSet(ovrsensordata, Magnetometer);
-		Temperature(ovrsensordata, Temperature);
-		TimeInSeconds(ovrsensordata, TimeInSeconds);
-
-		return ovrsensordata;
+		return this;
 	}
 
-	public static void AccelerometerSet(ByteBuffer ovrsensordata, ByteBuffer Accelerometer) { if ( Accelerometer != null ) memCopy(memAddress(Accelerometer), memAddress(ovrsensordata) + ACCELEROMETER, OVRVector3f.SIZEOF); }
-	public static void AccelerometerX(ByteBuffer ovrsensordata, float x) { ovrsensordata.putFloat(ovrsensordata.position() + ACCELEROMETER + OVRVector3f.X, x); }
-	public static void AccelerometerY(ByteBuffer ovrsensordata, float y) { ovrsensordata.putFloat(ovrsensordata.position() + ACCELEROMETER + OVRVector3f.Y, y); }
-	public static void AccelerometerZ(ByteBuffer ovrsensordata, float z) { ovrsensordata.putFloat(ovrsensordata.position() + ACCELEROMETER + OVRVector3f.Z, z); }
-	public static void GyroSet(ByteBuffer ovrsensordata, ByteBuffer Gyro) { if ( Gyro != null ) memCopy(memAddress(Gyro), memAddress(ovrsensordata) + GYRO, OVRVector3f.SIZEOF); }
-	public static void GyroX(ByteBuffer ovrsensordata, float x) { ovrsensordata.putFloat(ovrsensordata.position() + GYRO + OVRVector3f.X, x); }
-	public static void GyroY(ByteBuffer ovrsensordata, float y) { ovrsensordata.putFloat(ovrsensordata.position() + GYRO + OVRVector3f.Y, y); }
-	public static void GyroZ(ByteBuffer ovrsensordata, float z) { ovrsensordata.putFloat(ovrsensordata.position() + GYRO + OVRVector3f.Z, z); }
-	public static void MagnetometerSet(ByteBuffer ovrsensordata, ByteBuffer Magnetometer) { if ( Magnetometer != null ) memCopy(memAddress(Magnetometer), memAddress(ovrsensordata) + MAGNETOMETER, OVRVector3f.SIZEOF); }
-	public static void MagnetometerX(ByteBuffer ovrsensordata, float x) { ovrsensordata.putFloat(ovrsensordata.position() + MAGNETOMETER + OVRVector3f.X, x); }
-	public static void MagnetometerY(ByteBuffer ovrsensordata, float y) { ovrsensordata.putFloat(ovrsensordata.position() + MAGNETOMETER + OVRVector3f.Y, y); }
-	public static void MagnetometerZ(ByteBuffer ovrsensordata, float z) { ovrsensordata.putFloat(ovrsensordata.position() + MAGNETOMETER + OVRVector3f.Z, z); }
-	public static void Temperature(ByteBuffer ovrsensordata, float Temperature) { ovrsensordata.putFloat(ovrsensordata.position() + TEMPERATURE, Temperature); }
-	public static void TimeInSeconds(ByteBuffer ovrsensordata, float TimeInSeconds) { ovrsensordata.putFloat(ovrsensordata.position() + TIMEINSECONDS, TimeInSeconds); }
+	/** Unsafe version of {@link #set}. */
+	public OVRSensorData nset(long struct) {
+		memCopy(struct, address(), SIZEOF);
+		return this;
+	}
 
-	public static void AccelerometerGet(ByteBuffer ovrsensordata, ByteBuffer Accelerometer) { if ( LWJGLUtil.CHECKS ) checkBuffer(Accelerometer, OVRVector3f.SIZEOF); memCopy(memAddress(ovrsensordata) + ACCELEROMETER, memAddress(Accelerometer), OVRVector3f.SIZEOF); }
-	public static float AccelerometerX(ByteBuffer ovrsensordata) { return ovrsensordata.getFloat(ovrsensordata.position() + ACCELEROMETER + OVRVector3f.X); }
-	public static float AccelerometerY(ByteBuffer ovrsensordata) { return ovrsensordata.getFloat(ovrsensordata.position() + ACCELEROMETER + OVRVector3f.Y); }
-	public static float AccelerometerZ(ByteBuffer ovrsensordata) { return ovrsensordata.getFloat(ovrsensordata.position() + ACCELEROMETER + OVRVector3f.Z); }
-	public static void GyroGet(ByteBuffer ovrsensordata, ByteBuffer Gyro) { if ( LWJGLUtil.CHECKS ) checkBuffer(Gyro, OVRVector3f.SIZEOF); memCopy(memAddress(ovrsensordata) + GYRO, memAddress(Gyro), OVRVector3f.SIZEOF); }
-	public static float GyroX(ByteBuffer ovrsensordata) { return ovrsensordata.getFloat(ovrsensordata.position() + GYRO + OVRVector3f.X); }
-	public static float GyroY(ByteBuffer ovrsensordata) { return ovrsensordata.getFloat(ovrsensordata.position() + GYRO + OVRVector3f.Y); }
-	public static float GyroZ(ByteBuffer ovrsensordata) { return ovrsensordata.getFloat(ovrsensordata.position() + GYRO + OVRVector3f.Z); }
-	public static void MagnetometerGet(ByteBuffer ovrsensordata, ByteBuffer Magnetometer) { if ( LWJGLUtil.CHECKS ) checkBuffer(Magnetometer, OVRVector3f.SIZEOF); memCopy(memAddress(ovrsensordata) + MAGNETOMETER, memAddress(Magnetometer), OVRVector3f.SIZEOF); }
-	public static float MagnetometerX(ByteBuffer ovrsensordata) { return ovrsensordata.getFloat(ovrsensordata.position() + MAGNETOMETER + OVRVector3f.X); }
-	public static float MagnetometerY(ByteBuffer ovrsensordata) { return ovrsensordata.getFloat(ovrsensordata.position() + MAGNETOMETER + OVRVector3f.Y); }
-	public static float MagnetometerZ(ByteBuffer ovrsensordata) { return ovrsensordata.getFloat(ovrsensordata.position() + MAGNETOMETER + OVRVector3f.Z); }
-	public static float Temperature(ByteBuffer ovrsensordata) { return ovrsensordata.getFloat(ovrsensordata.position() + TEMPERATURE); }
-	public static float TimeInSeconds(ByteBuffer ovrsensordata) { return ovrsensordata.getFloat(ovrsensordata.position() + TIMEINSECONDS); }
+	/**
+	 * Copies the specified struct data to this struct.
+	 *
+	 * @param src the source struct
+	 *
+	 * @returns this struct
+	 */
+	public OVRSensorData set(OVRSensorData src) {
+		return nset(address());
+	}
+
+	/** {@link ByteBuffer} version of {@link #set}. */
+	public OVRSensorData set(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+		return nset(memAddress(struct));
+	}
+
+	// -----------------------------------
+
+	/** Returns a new {@link OVRSensorData} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	public static OVRSensorData malloc() {
+		return new OVRSensorData(nmemAlloc(SIZEOF));
+	}
+
+	/** Returns a new {@link OVRSensorData} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	public static OVRSensorData calloc() {
+		return new OVRSensorData(nmemCalloc(1, SIZEOF));
+	}
+
+	/** Returns a new {@link OVRSensorData} instance allocated with {@link BufferUtils}. */
+	public static OVRSensorData create() {
+		return new OVRSensorData(BufferUtils.createByteBuffer(SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRSensorData.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocBuffer(int capacity) {
+		return new Buffer(memAlloc(capacity * SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRSensorData.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocBuffer(int capacity) {
+		return new Buffer(memCalloc(capacity, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRSensorData.Buffer} instance allocated with {@link BufferUtils}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	}
+
+	public static OVRVector3f ngetAccelerometer(long struct) { return OVRVector3f.malloc().nset(struct + ACCELEROMETER); }
+	/** Returns a copy of the {@code Accelerometer} {@link OVRVector3f} struct. */
+	public static OVRVector3f getAccelerometer(ByteBuffer struct) { return ngetAccelerometer(memAddress(struct)); }
+	public static float ngetAccelerometerX(long struct) { return memGetFloat(struct + ACCELEROMETER + OVRVector3f.X); }
+	public static float getAccelerometerX(ByteBuffer struct) { return ngetAccelerometerX(memAddress(struct)); }
+	public static float ngetAccelerometerY(long struct) { return memGetFloat(struct + ACCELEROMETER + OVRVector3f.Y); }
+	public static float getAccelerometerY(ByteBuffer struct) { return ngetAccelerometerY(memAddress(struct)); }
+	public static float ngetAccelerometerZ(long struct) { return memGetFloat(struct + ACCELEROMETER + OVRVector3f.Z); }
+	public static float getAccelerometerZ(ByteBuffer struct) { return ngetAccelerometerZ(memAddress(struct)); }
+	public static OVRVector3f ngetGyro(long struct) { return OVRVector3f.malloc().nset(struct + GYRO); }
+	/** Returns a copy of the {@code Gyro} {@link OVRVector3f} struct. */
+	public static OVRVector3f getGyro(ByteBuffer struct) { return ngetGyro(memAddress(struct)); }
+	public static float ngetGyroX(long struct) { return memGetFloat(struct + GYRO + OVRVector3f.X); }
+	public static float getGyroX(ByteBuffer struct) { return ngetGyroX(memAddress(struct)); }
+	public static float ngetGyroY(long struct) { return memGetFloat(struct + GYRO + OVRVector3f.Y); }
+	public static float getGyroY(ByteBuffer struct) { return ngetGyroY(memAddress(struct)); }
+	public static float ngetGyroZ(long struct) { return memGetFloat(struct + GYRO + OVRVector3f.Z); }
+	public static float getGyroZ(ByteBuffer struct) { return ngetGyroZ(memAddress(struct)); }
+	public static OVRVector3f ngetMagnetometer(long struct) { return OVRVector3f.malloc().nset(struct + MAGNETOMETER); }
+	/** Returns a copy of the {@code Magnetometer} {@link OVRVector3f} struct. */
+	public static OVRVector3f getMagnetometer(ByteBuffer struct) { return ngetMagnetometer(memAddress(struct)); }
+	public static float ngetMagnetometerX(long struct) { return memGetFloat(struct + MAGNETOMETER + OVRVector3f.X); }
+	public static float getMagnetometerX(ByteBuffer struct) { return ngetMagnetometerX(memAddress(struct)); }
+	public static float ngetMagnetometerY(long struct) { return memGetFloat(struct + MAGNETOMETER + OVRVector3f.Y); }
+	public static float getMagnetometerY(ByteBuffer struct) { return ngetMagnetometerY(memAddress(struct)); }
+	public static float ngetMagnetometerZ(long struct) { return memGetFloat(struct + MAGNETOMETER + OVRVector3f.Z); }
+	public static float getMagnetometerZ(ByteBuffer struct) { return ngetMagnetometerZ(memAddress(struct)); }
+	public static float ngetTemperature(long struct) { return memGetFloat(struct + TEMPERATURE); }
+	public static float getTemperature(ByteBuffer struct) { return ngetTemperature(memAddress(struct)); }
+	public static float ngetTimeInSeconds(long struct) { return memGetFloat(struct + TIMEINSECONDS); }
+	public static float getTimeInSeconds(ByteBuffer struct) { return ngetTimeInSeconds(memAddress(struct)); }
+
+	public static void nsetAccelerometer(long struct, OVRVector3f Accelerometer) { memCopy(Accelerometer.address(), struct + ACCELEROMETER, OVRVector3f.SIZEOF); }
+	/** Copies the specified {@link OVRVector3f} struct to the nested {@code Accelerometer} struct. */
+	public static void setAccelerometer(ByteBuffer struct, OVRVector3f Accelerometer) { nsetAccelerometer(memAddress(struct), Accelerometer); }
+	public static void nsetAccelerometerX(long struct, float x) { memPutFloat(struct + ACCELEROMETER + OVRVector3f.X, x); }
+	public static void setAccelerometerX(ByteBuffer struct, float x) { nsetAccelerometerX(memAddress(struct), x); }
+	public static void nsetAccelerometerY(long struct, float y) { memPutFloat(struct + ACCELEROMETER + OVRVector3f.Y, y); }
+	public static void setAccelerometerY(ByteBuffer struct, float y) { nsetAccelerometerY(memAddress(struct), y); }
+	public static void nsetAccelerometerZ(long struct, float z) { memPutFloat(struct + ACCELEROMETER + OVRVector3f.Z, z); }
+	public static void setAccelerometerZ(ByteBuffer struct, float z) { nsetAccelerometerZ(memAddress(struct), z); }
+	public static void nsetGyro(long struct, OVRVector3f Gyro) { memCopy(Gyro.address(), struct + GYRO, OVRVector3f.SIZEOF); }
+	/** Copies the specified {@link OVRVector3f} struct to the nested {@code Gyro} struct. */
+	public static void setGyro(ByteBuffer struct, OVRVector3f Gyro) { nsetGyro(memAddress(struct), Gyro); }
+	public static void nsetGyroX(long struct, float x) { memPutFloat(struct + GYRO + OVRVector3f.X, x); }
+	public static void setGyroX(ByteBuffer struct, float x) { nsetGyroX(memAddress(struct), x); }
+	public static void nsetGyroY(long struct, float y) { memPutFloat(struct + GYRO + OVRVector3f.Y, y); }
+	public static void setGyroY(ByteBuffer struct, float y) { nsetGyroY(memAddress(struct), y); }
+	public static void nsetGyroZ(long struct, float z) { memPutFloat(struct + GYRO + OVRVector3f.Z, z); }
+	public static void setGyroZ(ByteBuffer struct, float z) { nsetGyroZ(memAddress(struct), z); }
+	public static void nsetMagnetometer(long struct, OVRVector3f Magnetometer) { memCopy(Magnetometer.address(), struct + MAGNETOMETER, OVRVector3f.SIZEOF); }
+	/** Copies the specified {@link OVRVector3f} struct to the nested {@code Magnetometer} struct. */
+	public static void setMagnetometer(ByteBuffer struct, OVRVector3f Magnetometer) { nsetMagnetometer(memAddress(struct), Magnetometer); }
+	public static void nsetMagnetometerX(long struct, float x) { memPutFloat(struct + MAGNETOMETER + OVRVector3f.X, x); }
+	public static void setMagnetometerX(ByteBuffer struct, float x) { nsetMagnetometerX(memAddress(struct), x); }
+	public static void nsetMagnetometerY(long struct, float y) { memPutFloat(struct + MAGNETOMETER + OVRVector3f.Y, y); }
+	public static void setMagnetometerY(ByteBuffer struct, float y) { nsetMagnetometerY(memAddress(struct), y); }
+	public static void nsetMagnetometerZ(long struct, float z) { memPutFloat(struct + MAGNETOMETER + OVRVector3f.Z, z); }
+	public static void setMagnetometerZ(ByteBuffer struct, float z) { nsetMagnetometerZ(memAddress(struct), z); }
+	public static void nsetTemperature(long struct, float Temperature) { memPutFloat(struct + TEMPERATURE, Temperature); }
+	public static void setTemperature(ByteBuffer struct, float Temperature) { nsetTemperature(memAddress(struct), Temperature); }
+	public static void nsetTimeInSeconds(long struct, float TimeInSeconds) { memPutFloat(struct + TIMEINSECONDS, TimeInSeconds); }
+	public static void setTimeInSeconds(ByteBuffer struct, float TimeInSeconds) { nsetTimeInSeconds(memAddress(struct), TimeInSeconds); }
+
+	// -----------------------------------
+
+	/** An array of {@link OVRSensorData} structs. */
+	public static final class Buffer extends StructBuffer<OVRSensorData, Buffer> {
+
+		/**
+		 * Creates a new {@link OVRSensorData.Buffer} instance backed by the specified container.
+		 *
+		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+		 * by {@link OVRSensorData#SIZEOF}, and its mark will be undefined.
+		 *
+		 * <p>The created buffer instance holds a strong reference to the container object.</p>
+		 */
+		public Buffer(ByteBuffer container) {
+			this(container.slice(), SIZEOF);
+		}
+
+		Buffer(ByteBuffer container, int SIZEOF) {
+			super(container, SIZEOF);
+		}
+
+		@Override
+		protected Buffer self() {
+			return this;
+		}
+
+		@Override
+		protected Buffer newBufferInstance(ByteBuffer buffer) {
+			return new Buffer(buffer);
+		}
+
+		@Override
+		protected OVRSensorData newInstance(long address) {
+			return new OVRSensorData(address, container);
+		}
+
+		@Override
+		protected int sizeof() {
+			return SIZEOF;
+		}
+
+	}
 
 }

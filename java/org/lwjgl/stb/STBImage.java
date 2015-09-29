@@ -225,26 +225,24 @@ public final class STBImage {
 	 * @param comp     outputs number of components in image
 	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
 	 */
-	public static ByteBuffer stbi_load_from_callbacks(ByteBuffer clbk, ByteBuffer user, ByteBuffer x, ByteBuffer y, ByteBuffer comp, int req_comp) {
+	public static ByteBuffer stbi_load_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, ByteBuffer x, ByteBuffer y, ByteBuffer comp, int req_comp) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(clbk, STBIIOCallbacks.SIZEOF);
 			checkBuffer(x, 1 << 2);
 			checkBuffer(y, 1 << 2);
 			checkBuffer(comp, 1 << 2);
 		}
-		long __result = nstbi_load_from_callbacks(memAddress(clbk), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp), req_comp);
+		long __result = nstbi_load_from_callbacks(clbk.address(), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp), req_comp);
 		return memByteBuffer(__result, x.getInt(x.position()) * y.getInt(y.position()) * comp.getInt(comp.position()));
 	}
 
 	/** Alternative version of: {@link #stbi_load_from_callbacks load_from_callbacks} */
-	public static ByteBuffer stbi_load_from_callbacks(ByteBuffer clbk, ByteBuffer user, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
+	public static ByteBuffer stbi_load_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(clbk, STBIIOCallbacks.SIZEOF);
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
 		}
-		long __result = nstbi_load_from_callbacks(memAddress(clbk), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp), req_comp);
+		long __result = nstbi_load_from_callbacks(clbk.address(), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp), req_comp);
 		return memByteBuffer(__result, x.get(x.position()) * y.get(y.position()) * comp.get(comp.position()));
 	}
 
@@ -352,26 +350,24 @@ public final class STBImage {
 	 * @param comp     outputs number of components in image
 	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
 	 */
-	public static FloatBuffer stbi_loadf_from_callbacks(ByteBuffer clbk, ByteBuffer user, ByteBuffer x, ByteBuffer y, ByteBuffer comp, int req_comp) {
+	public static FloatBuffer stbi_loadf_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, ByteBuffer x, ByteBuffer y, ByteBuffer comp, int req_comp) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(clbk, STBIIOCallbacks.SIZEOF);
 			checkBuffer(x, 1 << 2);
 			checkBuffer(y, 1 << 2);
 			checkBuffer(comp, 1 << 2);
 		}
-		long __result = nstbi_loadf_from_callbacks(memAddress(clbk), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp), req_comp);
+		long __result = nstbi_loadf_from_callbacks(clbk.address(), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp), req_comp);
 		return memFloatBuffer(__result, x.getInt(x.position()) * y.getInt(y.position()) * comp.getInt(comp.position()));
 	}
 
 	/** Alternative version of: {@link #stbi_loadf_from_callbacks loadf_from_callbacks} */
-	public static FloatBuffer stbi_loadf_from_callbacks(ByteBuffer clbk, ByteBuffer user, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
+	public static FloatBuffer stbi_loadf_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(clbk, STBIIOCallbacks.SIZEOF);
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
 		}
-		long __result = nstbi_loadf_from_callbacks(memAddress(clbk), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp), req_comp);
+		long __result = nstbi_loadf_from_callbacks(clbk.address(), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp), req_comp);
 		return memFloatBuffer(__result, x.get(x.position()) * y.get(y.position()) * comp.get(comp.position()));
 	}
 
@@ -472,10 +468,8 @@ public final class STBImage {
 	 * @param clbk an {@link STBIIOCallbacks} struct
 	 * @param user a pointer to user data
 	 */
-	public static int stbi_is_hdr_from_callbacks(ByteBuffer clbk, ByteBuffer user) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(clbk, STBIIOCallbacks.SIZEOF);
-		return nstbi_is_hdr_from_callbacks(memAddress(clbk), memAddressSafe(user));
+	public static int stbi_is_hdr_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user) {
+		return nstbi_is_hdr_from_callbacks(clbk.address(), memAddressSafe(user));
 	}
 
 	// --- [ stbi_failure_reason ] ---
@@ -603,25 +597,23 @@ public final class STBImage {
 	 * @param y    outputs the image height in pixels
 	 * @param comp outputs number of components in image
 	 */
-	public static int stbi_info_from_callbacks(ByteBuffer clbk, ByteBuffer user, ByteBuffer x, ByteBuffer y, ByteBuffer comp) {
+	public static int stbi_info_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, ByteBuffer x, ByteBuffer y, ByteBuffer comp) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(clbk, STBIIOCallbacks.SIZEOF);
 			checkBuffer(x, 1 << 2);
 			checkBuffer(y, 1 << 2);
 			checkBuffer(comp, 1 << 2);
 		}
-		return nstbi_info_from_callbacks(memAddress(clbk), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp));
+		return nstbi_info_from_callbacks(clbk.address(), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp));
 	}
 
 	/** Alternative version of: {@link #stbi_info_from_callbacks info_from_callbacks} */
-	public static int stbi_info_from_callbacks(ByteBuffer clbk, ByteBuffer user, IntBuffer x, IntBuffer y, IntBuffer comp) {
+	public static int stbi_info_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, IntBuffer x, IntBuffer y, IntBuffer comp) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkBuffer(clbk, STBIIOCallbacks.SIZEOF);
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
 		}
-		return nstbi_info_from_callbacks(memAddress(clbk), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp));
+		return nstbi_info_from_callbacks(clbk.address(), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp));
 	}
 
 	// --- [ stbi_set_unpremultiply_on_load ] ---

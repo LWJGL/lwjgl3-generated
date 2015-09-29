@@ -8,6 +8,8 @@ package org.lwjgl.ovr;
 import java.nio.*;
 
 import org.lwjgl.*;
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -16,7 +18,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <pre><code style="font-family: monospace">
  * { UpTan = tan(90 degrees / 2), DownTan = tan(90 degrees / 2) }</code></pre>.
  */
-public final class OVRFovPort implements Pointer {
+public final class OVRFovPort extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -41,70 +43,183 @@ public final class OVRFovPort implements Pointer {
 		memFree(offsets);
 	}
 
-	private final ByteBuffer struct;
+	private static native int offsets(long buffer);
 
-	public OVRFovPort() {
-		this(malloc());
+	OVRFovPort(long address, ByteBuffer container) {
+		super(address, container, SIZEOF);
 	}
 
-	public OVRFovPort(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(struct, SIZEOF);
-
-		this.struct = struct;
+	/** Creates a {@link OVRFovPort} instance at the specified memory address. */
+	public OVRFovPort(long struct) {
+		this(struct, null);
 	}
 
-	public ByteBuffer buffer() {
-		return struct;
+	/**
+	 * Creates a {@link OVRFovPort} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+	 * visible to the struct instance and vice versa.
+	 *
+	 * <p>The created instance holds a strong reference to the container object.</p>
+	 */
+	public OVRFovPort(ByteBuffer container) {
+		this(memAddress(container), container);
 	}
 
 	@Override
-	public long getPointer() {
-		return memAddress(struct);
-	}
+	public int sizeof() { return SIZEOF; }
 
-	public OVRFovPort setUpTan(float UpTan) { UpTan(struct, UpTan); return this; }
-	public OVRFovPort setDownTan(float DownTan) { DownTan(struct, DownTan); return this; }
-	public OVRFovPort setLeftTan(float LeftTan) { LeftTan(struct, LeftTan); return this; }
-	public OVRFovPort setRightTan(float RightTan) { RightTan(struct, RightTan); return this; }
+	public float getUpTan() { return ngetUpTan(address()); }
+	public float getDownTan() { return ngetDownTan(address()); }
+	public float getLeftTan() { return ngetLeftTan(address()); }
+	public float getRightTan() { return ngetRightTan(address()); }
 
-	public float getUpTan() { return UpTan(struct); }
-	public float getDownTan() { return DownTan(struct); }
-	public float getLeftTan() { return LeftTan(struct); }
-	public float getRightTan() { return RightTan(struct); }
+	public OVRFovPort setUpTan(float UpTan) { nsetUpTan(address(), UpTan); return this; }
+	public OVRFovPort setDownTan(float DownTan) { nsetDownTan(address(), DownTan); return this; }
+	public OVRFovPort setLeftTan(float LeftTan) { nsetLeftTan(address(), LeftTan); return this; }
+	public OVRFovPort setRightTan(float RightTan) { nsetRightTan(address(), RightTan); return this; }
 
-	// -----------------------------------
-
-	private static native int offsets(long buffer);
-
-	/** Returns a new {@link ByteBuffer} instance with a capacity equal to {@link #SIZEOF}. */
-	public static ByteBuffer malloc() { return BufferUtils.createByteBuffer(SIZEOF); }
-
-	/** Virtual constructor. Calls {@link #malloc} and initializes the returned {@link ByteBuffer} instance with the specified values. */
-	public static ByteBuffer malloc(
+	/** Initializes this struct with the specified values. */
+	public OVRFovPort set(
 		float UpTan,
 		float DownTan,
 		float LeftTan,
 		float RightTan
 	) {
-		ByteBuffer ovrfovport = malloc();
+		setUpTan(UpTan);
+		setDownTan(DownTan);
+		setLeftTan(LeftTan);
+		setRightTan(RightTan);
 
-		UpTan(ovrfovport, UpTan);
-		DownTan(ovrfovport, DownTan);
-		LeftTan(ovrfovport, LeftTan);
-		RightTan(ovrfovport, RightTan);
-
-		return ovrfovport;
+		return this;
 	}
 
-	public static void UpTan(ByteBuffer ovrfovport, float UpTan) { ovrfovport.putFloat(ovrfovport.position() + UPTAN, UpTan); }
-	public static void DownTan(ByteBuffer ovrfovport, float DownTan) { ovrfovport.putFloat(ovrfovport.position() + DOWNTAN, DownTan); }
-	public static void LeftTan(ByteBuffer ovrfovport, float LeftTan) { ovrfovport.putFloat(ovrfovport.position() + LEFTTAN, LeftTan); }
-	public static void RightTan(ByteBuffer ovrfovport, float RightTan) { ovrfovport.putFloat(ovrfovport.position() + RIGHTTAN, RightTan); }
+	/** Unsafe version of {@link #set}. */
+	public OVRFovPort nset(long struct) {
+		memCopy(struct, address(), SIZEOF);
+		return this;
+	}
 
-	public static float UpTan(ByteBuffer ovrfovport) { return ovrfovport.getFloat(ovrfovport.position() + UPTAN); }
-	public static float DownTan(ByteBuffer ovrfovport) { return ovrfovport.getFloat(ovrfovport.position() + DOWNTAN); }
-	public static float LeftTan(ByteBuffer ovrfovport) { return ovrfovport.getFloat(ovrfovport.position() + LEFTTAN); }
-	public static float RightTan(ByteBuffer ovrfovport) { return ovrfovport.getFloat(ovrfovport.position() + RIGHTTAN); }
+	/**
+	 * Copies the specified struct data to this struct.
+	 *
+	 * @param src the source struct
+	 *
+	 * @returns this struct
+	 */
+	public OVRFovPort set(OVRFovPort src) {
+		return nset(address());
+	}
+
+	/** {@link ByteBuffer} version of {@link #set}. */
+	public OVRFovPort set(ByteBuffer struct) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(struct, SIZEOF);
+		return nset(memAddress(struct));
+	}
+
+	// -----------------------------------
+
+	/** Returns a new {@link OVRFovPort} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	public static OVRFovPort malloc() {
+		return new OVRFovPort(nmemAlloc(SIZEOF));
+	}
+
+	/** Returns a new {@link OVRFovPort} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	public static OVRFovPort calloc() {
+		return new OVRFovPort(nmemCalloc(1, SIZEOF));
+	}
+
+	/** Returns a new {@link OVRFovPort} instance allocated with {@link BufferUtils}. */
+	public static OVRFovPort create() {
+		return new OVRFovPort(BufferUtils.createByteBuffer(SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRFovPort.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocBuffer(int capacity) {
+		return new Buffer(memAlloc(capacity * SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRFovPort.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocBuffer(int capacity) {
+		return new Buffer(memCalloc(capacity, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link OVRFovPort.Buffer} instance allocated with {@link BufferUtils}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	}
+
+	public static float ngetUpTan(long struct) { return memGetFloat(struct + UPTAN); }
+	public static float getUpTan(ByteBuffer struct) { return ngetUpTan(memAddress(struct)); }
+	public static float ngetDownTan(long struct) { return memGetFloat(struct + DOWNTAN); }
+	public static float getDownTan(ByteBuffer struct) { return ngetDownTan(memAddress(struct)); }
+	public static float ngetLeftTan(long struct) { return memGetFloat(struct + LEFTTAN); }
+	public static float getLeftTan(ByteBuffer struct) { return ngetLeftTan(memAddress(struct)); }
+	public static float ngetRightTan(long struct) { return memGetFloat(struct + RIGHTTAN); }
+	public static float getRightTan(ByteBuffer struct) { return ngetRightTan(memAddress(struct)); }
+
+	public static void nsetUpTan(long struct, float UpTan) { memPutFloat(struct + UPTAN, UpTan); }
+	public static void setUpTan(ByteBuffer struct, float UpTan) { nsetUpTan(memAddress(struct), UpTan); }
+	public static void nsetDownTan(long struct, float DownTan) { memPutFloat(struct + DOWNTAN, DownTan); }
+	public static void setDownTan(ByteBuffer struct, float DownTan) { nsetDownTan(memAddress(struct), DownTan); }
+	public static void nsetLeftTan(long struct, float LeftTan) { memPutFloat(struct + LEFTTAN, LeftTan); }
+	public static void setLeftTan(ByteBuffer struct, float LeftTan) { nsetLeftTan(memAddress(struct), LeftTan); }
+	public static void nsetRightTan(long struct, float RightTan) { memPutFloat(struct + RIGHTTAN, RightTan); }
+	public static void setRightTan(ByteBuffer struct, float RightTan) { nsetRightTan(memAddress(struct), RightTan); }
+
+	// -----------------------------------
+
+	/** An array of {@link OVRFovPort} structs. */
+	public static final class Buffer extends StructBuffer<OVRFovPort, Buffer> {
+
+		/**
+		 * Creates a new {@link OVRFovPort.Buffer} instance backed by the specified container.
+		 *
+		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
+		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
+		 * by {@link OVRFovPort#SIZEOF}, and its mark will be undefined.
+		 *
+		 * <p>The created buffer instance holds a strong reference to the container object.</p>
+		 */
+		public Buffer(ByteBuffer container) {
+			this(container.slice(), SIZEOF);
+		}
+
+		Buffer(ByteBuffer container, int SIZEOF) {
+			super(container, SIZEOF);
+		}
+
+		@Override
+		protected Buffer self() {
+			return this;
+		}
+
+		@Override
+		protected Buffer newBufferInstance(ByteBuffer buffer) {
+			return new Buffer(buffer);
+		}
+
+		@Override
+		protected OVRFovPort newInstance(long address) {
+			return new OVRFovPort(address, container);
+		}
+
+		@Override
+		protected int sizeof() {
+			return SIZEOF;
+		}
+
+	}
 
 }
