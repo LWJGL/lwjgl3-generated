@@ -17,7 +17,7 @@ import static org.lwjgl.system.JNI.*;
  * <p>This extension provides support for a new type of immutable texture, two-dimensional multisample array textures. It depends on functionality introduced
  * in OpenGL ES 3.1 to support two-dimensional multisample (non-array) textures.</p>
  */
-public final class OESTextureStorageMultisample2dArray {
+public final class OESTextureStorageMultisample2DArray {
 
 	/**
 	 * Accepted by the {@code target} parameter of BindTexture, TexStorage3DMultisampleOES, GetInternalformativ, TexParameter{if}*, GetTexParameter{if}v and
@@ -40,21 +40,21 @@ public final class OESTextureStorageMultisample2dArray {
 	public final long TexStorage3DMultisampleOES;
 
 	@JavadocExclude
-	public OESTextureStorageMultisample2dArray(FunctionProvider provider) {
+	public OESTextureStorageMultisample2DArray(FunctionProvider provider) {
 		TexStorage3DMultisampleOES = provider.getFunctionAddress("glTexStorage3DMultisampleOES");
 	}
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link OESTextureStorageMultisample2dArray} instance for the current context. */
-	public static OESTextureStorageMultisample2dArray getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__OESTextureStorageMultisample2dArray);
+	/** Returns the {@link OESTextureStorageMultisample2DArray} instance for the current context. */
+	public static OESTextureStorageMultisample2DArray getInstance() {
+		return checkFunctionality(GLES.getCapabilities().__OESTextureStorageMultisample2DArray);
 	}
 
-	static OESTextureStorageMultisample2dArray create(java.util.Set<String> ext, FunctionProvider provider) {
+	static OESTextureStorageMultisample2DArray create(java.util.Set<String> ext, FunctionProvider provider) {
 		if ( !ext.contains("GL_OES_texture_storage_multisample_2d_array") ) return null;
 
-		OESTextureStorageMultisample2dArray funcs = new OESTextureStorageMultisample2dArray(provider);
+		OESTextureStorageMultisample2DArray funcs = new OESTextureStorageMultisample2DArray(provider);
 		boolean supported = checkFunctions(
 			funcs.TexStorage3DMultisampleOES
 		);

@@ -36,7 +36,7 @@ package org.lwjgl.opengles;
  * 
  * <p>ASTC has a variable block size, and this is specified as part of the name of the token passed to CompressedImage2D and its related functions.</p>
  */
-public final class OESTextureCompressionAstc {
+public final class OESTextureCompressionASTC {
 
 	/**
 	 * Accepted by the {@code internalformat} parameter of CompressedTexImage2D, CompressedTexSubImage2D, TexStorage2D, TextureStorage2D, TexStorage3D, and
@@ -95,6 +95,6 @@ public final class OESTextureCompressionAstc {
 		GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x5_OES = 0x93E8,
 		GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x6_OES = 0x93E9;
 
-	private OESTextureCompressionAstc() {}
+	private OESTextureCompressionASTC() {}
 
 }

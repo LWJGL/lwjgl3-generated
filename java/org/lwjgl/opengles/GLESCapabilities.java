@@ -95,7 +95,7 @@ public final class GLESCapabilities {
 	final OESTexture3D                        __OESTexture3D;
 	final OESTextureBorderClamp               __OESTextureBorderClamp;
 	final OESTextureBuffer                    __OESTextureBuffer;
-	final OESTextureStorageMultisample2dArray __OESTextureStorageMultisample2dArray;
+	final OESTextureStorageMultisample2DArray __OESTextureStorageMultisample2DArray;
 	final OESTextureView                      __OESTextureView;
 	final OESVertexArrayObject                __OESVertexArrayObject;
 	final OVRMultiview                        __OVRMultiview;
@@ -1003,7 +1003,7 @@ public final class GLESCapabilities {
 	public final boolean GL_OES_texture_border_clamp;
 	/** When true, {@link OESTextureBuffer} is supported. */
 	public final boolean GL_OES_texture_buffer;
-	/** When true, {@link OESTextureCompressionAstc} is supported. */
+	/** When true, {@link OESTextureCompressionASTC} is supported. */
 	public final boolean GL_OES_texture_compression_astc;
 	/** When true, {@link OESTextureCubeMapArray} is supported. */
 	public final boolean GL_OES_texture_cube_map_array;
@@ -1067,7 +1067,7 @@ public final class GLESCapabilities {
 	 * to use renderbuffers if a stencil-only format is desired.</p>
 	 */
 	public final boolean GL_OES_texture_stencil8;
-	/** When true, {@link OESTextureStorageMultisample2dArray} is supported. */
+	/** When true, {@link OESTextureStorageMultisample2DArray} is supported. */
 	public final boolean GL_OES_texture_storage_multisample_2d_array;
 	/** When true, {@link OESTextureView} is supported. */
 	public final boolean GL_OES_texture_view;
@@ -1320,7 +1320,7 @@ public final class GLESCapabilities {
 		GL_OES_texture_half_float_linear = ext.contains("GL_OES_texture_half_float_linear");
 		GL_OES_texture_npot = ext.contains("GL_OES_texture_npot");
 		GL_OES_texture_stencil8 = ext.contains("GL_OES_texture_stencil8");
-		GL_OES_texture_storage_multisample_2d_array = (__OESTextureStorageMultisample2dArray = OESTextureStorageMultisample2dArray.create(ext, provider)) != null;
+		GL_OES_texture_storage_multisample_2d_array = (__OESTextureStorageMultisample2DArray = OESTextureStorageMultisample2DArray.create(ext, provider)) != null;
 		GL_OES_texture_view = (__OESTextureView = OESTextureView.create(ext, provider)) != null;
 		GL_OES_vertex_array_object = (__OESVertexArrayObject = OESVertexArrayObject.create(ext, provider)) != null;
 		GL_OES_vertex_half_float = ext.contains("GL_OES_vertex_half_float");
