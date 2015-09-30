@@ -944,19 +944,11 @@ public final class GLFW {
 	 *
 	 * @since GLFW 1.0
 	 */
-	public static GLFWvidmode.Buffer glfwGetVideoModes(long monitor, ByteBuffer count) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(count, 1 << 2);
-		long __result = nglfwGetVideoModes(monitor, memAddress(count));
-		return new GLFWvidmode.Buffer(memByteBuffer(__result, count.getInt(count.position()) * GLFWvidmode.SIZEOF));
-	}
-
-	/** Alternative version of: {@link #glfwGetVideoModes GetVideoModes} */
-	public static GLFWvidmode.Buffer glfwGetVideoModes(long monitor, IntBuffer count) {
-		if ( LWJGLUtil.CHECKS )
-			checkBuffer(count, 1);
-		long __result = nglfwGetVideoModes(monitor, memAddress(count));
-		return new GLFWvidmode.Buffer(memByteBuffer(__result, count.get(count.position()) * GLFWvidmode.SIZEOF));
+	public static GLFWvidmode.Buffer glfwGetVideoModes(long monitor) {
+		APIBuffer __buffer = apiBuffer();
+		int count = __buffer.intParam();
+		long __result = nglfwGetVideoModes(monitor, __buffer.address(count));
+		return new GLFWvidmode.Buffer(memByteBuffer(__result, __buffer.intValue(count) * GLFWvidmode.SIZEOF));
 	}
 
 	// --- [ glfwGetVideoMode ] ---

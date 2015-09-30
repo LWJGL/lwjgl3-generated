@@ -1721,19 +1721,13 @@ public final class ObjCRuntime {
 	 *
 	 * @return an array of property attributes. You must free the array with free().
 	 */
-	public static ObjCPropertyAttribute.Buffer property_copyAttributeList(long property, ByteBuffer outCount) {
+	public static ObjCPropertyAttribute.Buffer property_copyAttributeList(long property) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(property);
-		long __result = nproperty_copyAttributeList(property, memAddress(outCount));
-		return new ObjCPropertyAttribute.Buffer(memByteBuffer(__result, outCount.getInt(outCount.position()) * ObjCPropertyAttribute.SIZEOF));
-	}
-
-	/** Alternative version of: {@link #property_copyAttributeList} */
-	public static ObjCPropertyAttribute.Buffer property_copyAttributeList(long property, IntBuffer outCount) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(property);
-		long __result = nproperty_copyAttributeList(property, memAddress(outCount));
-		return new ObjCPropertyAttribute.Buffer(memByteBuffer(__result, outCount.get(outCount.position()) * ObjCPropertyAttribute.SIZEOF));
+		APIBuffer __buffer = apiBuffer();
+		int outCount = __buffer.intParam();
+		long __result = nproperty_copyAttributeList(property, __buffer.address(outCount));
+		return new ObjCPropertyAttribute.Buffer(memByteBuffer(__result, __buffer.intValue(outCount) * ObjCPropertyAttribute.SIZEOF));
 	}
 
 	// --- [ property_copyAttributeValue ] ---
@@ -1941,19 +1935,13 @@ public final class ObjCRuntime {
 	 *         
 	 *         <p>If the protocol declares no methods that meet the specification, {@code NULL} is returned and {@code *outCount} is 0.</p>
 	 */
-	public static ObjCMethodDescription.Buffer protocol_copyMethodDescriptionList(long p, byte isRequiredMethod, byte isInstanceMethod, ByteBuffer outCount) {
+	public static ObjCMethodDescription.Buffer protocol_copyMethodDescriptionList(long p, byte isRequiredMethod, byte isInstanceMethod) {
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(p);
-		long __result = nprotocol_copyMethodDescriptionList(p, isRequiredMethod, isInstanceMethod, memAddress(outCount));
-		return new ObjCMethodDescription.Buffer(memByteBuffer(__result, outCount.getInt(outCount.position()) * ObjCMethodDescription.SIZEOF));
-	}
-
-	/** Alternative version of: {@link #protocol_copyMethodDescriptionList} */
-	public static ObjCMethodDescription.Buffer protocol_copyMethodDescriptionList(long p, byte isRequiredMethod, byte isInstanceMethod, IntBuffer outCount) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(p);
-		long __result = nprotocol_copyMethodDescriptionList(p, isRequiredMethod, isInstanceMethod, memAddress(outCount));
-		return new ObjCMethodDescription.Buffer(memByteBuffer(__result, outCount.get(outCount.position()) * ObjCMethodDescription.SIZEOF));
+		APIBuffer __buffer = apiBuffer();
+		int outCount = __buffer.intParam();
+		long __result = nprotocol_copyMethodDescriptionList(p, isRequiredMethod, isInstanceMethod, __buffer.address(outCount));
+		return new ObjCMethodDescription.Buffer(memByteBuffer(__result, __buffer.intValue(outCount) * ObjCMethodDescription.SIZEOF));
 	}
 
 	// --- [ protocol_getProperty ] ---
