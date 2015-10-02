@@ -27,7 +27,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Promoted to core in {@link GL30 OpenGL 3.0}.</p>
  */
-public final class ARBVertexArrayObject {
+public class ARBVertexArrayObject {
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_VERTEX_ARRAY_BINDING = 0x85B5;
@@ -39,6 +39,11 @@ public final class ARBVertexArrayObject {
 		DeleteVertexArrays,
 		GenVertexArrays,
 		IsVertexArray;
+
+	@JavadocExclude
+	protected ARBVertexArrayObject() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBVertexArrayObject(FunctionProvider provider) {

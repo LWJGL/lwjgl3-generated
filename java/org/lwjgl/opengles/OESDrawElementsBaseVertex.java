@@ -61,7 +61,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 		DrawElementsBaseVertexOES(TRIANGLES, 6, UNSIGNED_BYTE, &indices, 100)</code></pre>
  * Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class OESDrawElementsBaseVertex {
+public class OESDrawElementsBaseVertex {
 
 	/** Function address. */
 	@JavadocExclude
@@ -70,6 +70,11 @@ public final class OESDrawElementsBaseVertex {
 		DrawRangeElementsBaseVertexOES,
 		DrawElementsInstancedBaseVertexOES,
 		MultiDrawElementsBaseVertexOES;
+
+	@JavadocExclude
+	protected OESDrawElementsBaseVertex() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public OESDrawElementsBaseVertex(FunctionProvider provider) {

@@ -32,7 +32,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL15 OpenGL 1.5}.</p>
  */
-public final class EXTTimerQuery {
+public class EXTTimerQuery {
 
 	/** Accepted by the {@code target} parameter of BeginQuery, EndQuery, and GetQueryiv. */
 	public static final int GL_TIME_ELAPSED_EXT = 0x88BF;
@@ -42,6 +42,11 @@ public final class EXTTimerQuery {
 	public final long
 		GetQueryObjecti64vEXT,
 		GetQueryObjectui64vEXT;
+
+	@JavadocExclude
+	protected EXTTimerQuery() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTTimerQuery(FunctionProvider provider) {

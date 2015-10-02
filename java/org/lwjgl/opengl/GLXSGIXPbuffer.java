@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>This extension defines pixel buffers (GLXPbuffers, or pbuffer for short). GLXPbuffers are additional non-visible rendering buffers for an OpenGL
  * renderer.</p>
  */
-public final class GLXSGIXPbuffer {
+public class GLXSGIXPbuffer {
 
 	/** Accepted by the {@code attribute} parameter of {@link GLXSGIXFBConfig#glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX}. */
 	public static final int
@@ -82,6 +82,11 @@ public final class GLXSGIXPbuffer {
 		QueryGLXPbufferSGIX,
 		SelectEventSGIX,
 		GetSelectedEventSGIX;
+
+	@JavadocExclude
+	protected GLXSGIXPbuffer() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLXSGIXPbuffer(FunctionProvider provider) {

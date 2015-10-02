@@ -58,7 +58,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class NVBlendEquationAdvanced {
+public class NVBlendEquationAdvanced {
 
 	/**
 	 * The BLEND_ADVANCED_COHERENT_NV enable is provided if and only if the NV_blend_equation_advanced_coherent extension is supported. On implementations
@@ -127,6 +127,11 @@ public final class NVBlendEquationAdvanced {
 	public final long
 		BlendParameteriNV,
 		BlendBarrierNV;
+
+	@JavadocExclude
+	protected NVBlendEquationAdvanced() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVBlendEquationAdvanced(FunctionProvider provider) {

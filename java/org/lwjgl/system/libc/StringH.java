@@ -14,11 +14,14 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to string.h. */
-public final class StringH {
+public class StringH {
 
 	static { LWJGLUtil.initialize(); }
 
-	private StringH() {}
+	@JavadocExclude
+	protected StringH() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ strerror ] ---
 

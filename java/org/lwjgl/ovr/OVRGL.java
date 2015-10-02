@@ -19,11 +19,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>This class contains OpenGL specific functionality.</p>
  */
-public final class OVRGL {
+public class OVRGL {
 
 	static { LWJGLUtil.initialize(); }
 
-	private OVRGL() {}
+	@JavadocExclude
+	protected OVRGL() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ ovr_CreateSwapTextureSetGL ] ---
 

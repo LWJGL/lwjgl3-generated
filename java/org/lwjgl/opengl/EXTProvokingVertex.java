@@ -32,7 +32,7 @@ import static org.lwjgl.system.JNI.*;
  * <p>The motivation for this extension is to allow applications developed for APIs with a "first vertex of the primitive" provoking vertex to be easily
  * converted to OpenGL.</p>
  */
-public final class EXTProvokingVertex {
+public class EXTProvokingVertex {
 
 	/** Accepted by the {@code mode} parameter of ProvokingVertexEXT. */
 	public static final int
@@ -47,6 +47,11 @@ public final class EXTProvokingVertex {
 	/** Function address. */
 	@JavadocExclude
 	public final long ProvokingVertexEXT;
+
+	@JavadocExclude
+	protected EXTProvokingVertex() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTProvokingVertex(FunctionProvider provider) {

@@ -84,7 +84,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Promoted to core in {@link GL43 OpenGL 4.3}.</p>
  */
-public final class KHRDebug {
+public class KHRDebug {
 
 	/** Tokens accepted by the {@code target} parameters of Enable, Disable, and IsEnabled. */
 	public static final int
@@ -172,6 +172,11 @@ public final class KHRDebug {
 		GetObjectLabel,
 		ObjectPtrLabel,
 		GetObjectPtrLabel;
+
+	@JavadocExclude
+	protected KHRDebug() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public KHRDebug(FunctionProvider provider) {

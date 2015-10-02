@@ -48,7 +48,7 @@ import static org.lwjgl.system.APIUtil.*;
  * the entire set of existing vertex programs defined by existing OpenGL per-vertex computation extensions can be implemented using the extension's vertex
  * programming model.</p>
  */
-public final class ARBVertexProgram {
+public class ARBVertexProgram {
 
 	/**
 	 * Accepted by the {@code cap} parameter of Disable, Enable, and IsEnabled, by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
@@ -226,6 +226,11 @@ public final class ARBVertexProgram {
 		GetVertexAttribivARB,
 		GetVertexAttribPointervARB,
 		IsProgramARB;
+
+	@JavadocExclude
+	protected ARBVertexProgram() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBVertexProgram(FunctionProvider provider) {

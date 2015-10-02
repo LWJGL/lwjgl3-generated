@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link EGL12 EGL L.1}.</p>
  */
-public final class KHRImageBase {
+public class KHRImageBase {
 
 	/**  */
 	public static final int EGL_IMAGE_PRESERVED_KHR = 0x30D2;
@@ -36,6 +36,11 @@ public final class KHRImageBase {
 	public final long
 		CreateImageKHR,
 		DestroyImageKHR;
+
+	@JavadocExclude
+	protected KHRImageBase() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public KHRImageBase(FunctionProvider provider) {

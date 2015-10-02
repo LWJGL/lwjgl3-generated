@@ -34,7 +34,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL20 OpenGL 2.0} and <a href="http://www.opengl.org/registry/specs/NV/gpu_program4.txt">NV_gpu_program4</a> or <a href="http://www.opengl.org/registry/specs/EXT/gpu_shader4.txt">EXT_gpu_shader4</a>. Promoted to core in {@link GL31 OpenGL 3.1}.</p>
  */
-public final class ARBTextureBufferObject {
+public class ARBTextureBufferObject {
 
 	/**
 	 * Accepted by the {@code target} parameter of BindBuffer, BufferData, BufferSubData, MapBuffer, MapBufferRangeARB, BindTexture, UnmapBuffer,
@@ -53,6 +53,11 @@ public final class ARBTextureBufferObject {
 	/** Function address. */
 	@JavadocExclude
 	public final long TexBufferARB;
+
+	@JavadocExclude
+	protected ARBTextureBufferObject() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBTextureBufferObject(FunctionProvider provider) {

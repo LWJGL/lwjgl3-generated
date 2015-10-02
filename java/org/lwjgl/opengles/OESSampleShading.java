@@ -27,7 +27,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES30 GLES E.S}.</p>
  */
-public final class OESSampleShading {
+public class OESSampleShading {
 
 	/**
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
@@ -41,6 +41,11 @@ public final class OESSampleShading {
 	/** Function address. */
 	@JavadocExclude
 	public final long MinSampleShadingOES;
+
+	@JavadocExclude
+	protected OESSampleShading() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public OESSampleShading(FunctionProvider provider) {

@@ -24,7 +24,7 @@ import org.lwjgl.system.linux.*;
  * and size of ancillary buffers), removes the "similarity" requirement when making a context current to a drawable, and supports  RGBA rendering to
  * one-and two-component Windows and GLX Pixmaps.</p>
  */
-public final class GLXSGIXFBConfig {
+public class GLXSGIXFBConfig {
 
 	/** Accepted by the {@code attribute} parameter of {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX}, and by the {@code attrib_list} parameter of {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX}. */
 	public static final int
@@ -72,6 +72,11 @@ public final class GLXSGIXFBConfig {
 		CreateContextWithConfigSGIX,
 		GetVisualFromFBConfigSGIX,
 		GetFBConfigFromVisualSGIX;
+
+	@JavadocExclude
+	protected GLXSGIXFBConfig() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLXSGIXFBConfig(FunctionProvider provider) {

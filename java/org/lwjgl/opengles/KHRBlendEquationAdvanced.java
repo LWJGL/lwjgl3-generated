@@ -50,7 +50,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S} and {@link EXTBlendMinmax EXT_blend_minmax}.</p>
  */
-public final class KHRBlendEquationAdvanced {
+public class KHRBlendEquationAdvanced {
 
 	/** Accepted by the {@code mode} parameter of BlendEquation and BlendEquationi. */
 	public static final int
@@ -73,6 +73,11 @@ public final class KHRBlendEquationAdvanced {
 	/** Function address. */
 	@JavadocExclude
 	public final long BlendBarrierKHR;
+
+	@JavadocExclude
+	protected KHRBlendEquationAdvanced() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public KHRBlendEquationAdvanced(FunctionProvider provider) {

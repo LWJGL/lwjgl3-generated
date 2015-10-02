@@ -195,7 +195,7 @@ import org.lwjgl.system.linux.*;
  * </ul>
  * Promoted to core in {@link GL30 OpenGL 3.0}.</p>
  */
-public final class ARBFramebufferObject {
+public class ARBFramebufferObject {
 
 	/**
 	 * Accepted by the {@code target} parameter of BindFramebuffer, CheckFramebufferStatus, FramebufferTexture{1D|2D|3D}, FramebufferRenderbuffer, and
@@ -347,6 +347,11 @@ public final class ARBFramebufferObject {
 		GetFramebufferAttachmentParameteriv,
 		BlitFramebuffer,
 		GenerateMipmap;
+
+	@JavadocExclude
+	protected ARBFramebufferObject() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBFramebufferObject(FunctionProvider provider) {

@@ -18,13 +18,18 @@ import static org.lwjgl.system.JNI.*;
  * hardware to go into a low-power mode. On a mobile device, for instance, apps may want to silence output and not waste battery life with unneeded
  * processing when in the background.</p>
  */
-public final class SOFTPauseDevice {
+public class SOFTPauseDevice {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		DevicePauseSOFT,
 		DeviceResumeSOFT;
+
+	@JavadocExclude
+	protected SOFTPauseDevice() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public SOFTPauseDevice(FunctionProviderLocal provider, long device) {

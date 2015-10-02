@@ -15,7 +15,7 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** The core EGL 1.2 functionality. */
-public final class EGL12 {
+public class EGL12 {
 
 	/**  */
 	public static final int
@@ -57,6 +57,11 @@ public final class EGL12 {
 		CreatePbufferFromClientBuffer,
 		ReleaseThread,
 		WaitClient;
+
+	@JavadocExclude
+	protected EGL12() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EGL12(FunctionProvider provider) {

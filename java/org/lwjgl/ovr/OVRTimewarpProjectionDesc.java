@@ -18,7 +18,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Use the utility function {@link OVRUtil#ovrTimewarpProjectionDesc_FromProjection} to generate this structure from the application's projection matrix.</p>
  */
-public final class OVRTimewarpProjectionDesc extends Struct {
+public class OVRTimewarpProjectionDesc extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

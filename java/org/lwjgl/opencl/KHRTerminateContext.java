@@ -25,7 +25,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>This extension implements a new query to check whether a device can terminate an OpenCL context and adds an API to terminate a context.</p>
  */
-public final class KHRTerminateContext {
+public class KHRTerminateContext {
 
 	/**
 	 * Describes the termination capability of the OpenCL device. This is a bitfield where a value of {@code CL_DEVICE_TERMINATE_CAPABILITY_CONTEXT_KHR}
@@ -39,6 +39,11 @@ public final class KHRTerminateContext {
 	/** Function address. */
 	@JavadocExclude
 	public final long TerminateContextKHR;
+
+	@JavadocExclude
+	protected KHRTerminateContext() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public KHRTerminateContext(FunctionProvider provider) {

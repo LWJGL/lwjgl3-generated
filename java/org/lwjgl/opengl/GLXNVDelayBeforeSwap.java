@@ -22,11 +22,16 @@ import org.lwjgl.system.linux.*;
  * 
  * <p>Requires {@link GLX11 GLX_11} and {@link GLXEXTSwapControl GLX_EXT_swap_control}.</p>
  */
-public final class GLXNVDelayBeforeSwap {
+public class GLXNVDelayBeforeSwap {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long DelayBeforeSwapNV;
+
+	@JavadocExclude
+	protected GLXNVDelayBeforeSwap() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLXNVDelayBeforeSwap(FunctionProvider provider) {

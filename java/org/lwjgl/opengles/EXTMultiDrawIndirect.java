@@ -26,13 +26,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GLES31 GLES E.S}.</p>
  */
-public final class EXTMultiDrawIndirect {
+public class EXTMultiDrawIndirect {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		MultiDrawArraysIndirectEXT,
 		MultiDrawElementsIndirectEXT;
+
+	@JavadocExclude
+	protected EXTMultiDrawIndirect() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTMultiDrawIndirect(FunctionProvider provider) {

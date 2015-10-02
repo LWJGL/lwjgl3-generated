@@ -16,11 +16,14 @@ import static org.lwjgl.system.Checks.*;
  * <p>Features must be detected on a function-by-function basis. A function pointer will have a {@code NULL} (0L) value when the corresponding
  * function is not supported in the Windows version we're running.</p>
  */
-public final class Kernel32 {
+public class Kernel32 {
 
 	static { LWJGLUtil.initialize(); }
 
-	private Kernel32() {}
+	@JavadocExclude
+	protected Kernel32() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ SetThreadAffinityMask ] ---
 

@@ -24,7 +24,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class OESTexture3D {
+public class OESTexture3D {
 
 	/**
 	 * Accepted by the {@code target} parameter of TexImage3DOES, TexSubImage3DOES, CopyTexSubImage3DOES, CompressedTexImage3DOES and
@@ -49,6 +49,11 @@ public final class OESTexture3D {
 		CompressedTexImage3DOES,
 		CompressedTexSubImage3DOES,
 		FramebufferTexture3DOES;
+
+	@JavadocExclude
+	protected OESTexture3D() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public OESTexture3D(FunctionProvider provider) {

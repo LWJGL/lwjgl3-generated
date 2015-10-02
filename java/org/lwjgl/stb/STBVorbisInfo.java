@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Information about a Vorbis stream. */
-public final class STBVorbisInfo extends Struct {
+public class STBVorbisInfo extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

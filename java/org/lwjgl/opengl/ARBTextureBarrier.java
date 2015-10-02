@@ -18,11 +18,16 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Promoted to core in {@link GL45 OpenGL 4.5}.</p>
  */
-public final class ARBTextureBarrier {
+public class ARBTextureBarrier {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long TextureBarrier;
+
+	@JavadocExclude
+	protected ARBTextureBarrier() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBTextureBarrier(FunctionProvider provider) {

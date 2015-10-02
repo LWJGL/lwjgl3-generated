@@ -33,7 +33,7 @@ import static org.lwjgl.system.APIUtil.*;
  * to the ES 1.00 shading language rather than introduce more complex features for user-defined fragment outputs. Because such built-in variable are
  * deprecated in ES 3.0, these variables are NOT available in the OpenGL ES 3.xx shading language verisons.</p>
  */
-public final class EXTBlendFuncExtended {
+public class EXTBlendFuncExtended {
 
 	/**
 	 * Accepted by the {@code src} and {@code dst} parameters of BlendFunc and BlendFunciEXT, and by the {@code srcRGB}, {@code dstRGB}, {@code srcAlpha} and
@@ -59,6 +59,11 @@ public final class EXTBlendFuncExtended {
 		GetFragDataIndexEXT,
 		BindFragDataLocationEXT,
 		GetProgramResourceLocationIndexEXT;
+
+	@JavadocExclude
+	protected EXTBlendFuncExtended() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTBlendFuncExtended(FunctionProvider provider) {

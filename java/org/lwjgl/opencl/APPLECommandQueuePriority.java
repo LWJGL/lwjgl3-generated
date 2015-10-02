@@ -16,7 +16,7 @@ import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to the <strong>APPLE_command_queue_priority</strong> extension. */
-public final class APPLECommandQueuePriority {
+public class APPLECommandQueuePriority {
 
 	/**  */
 	public static final int
@@ -27,6 +27,11 @@ public final class APPLECommandQueuePriority {
 	/** Function address. */
 	@JavadocExclude
 	public final long CreateCommandQueueWithPropertiesAPPLE;
+
+	@JavadocExclude
+	protected APPLECommandQueuePriority() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public APPLECommandQueuePriority(FunctionProvider provider) {

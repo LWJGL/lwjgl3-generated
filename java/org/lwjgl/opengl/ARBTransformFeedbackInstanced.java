@@ -23,13 +23,18 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL40 OpenGL 4.0} or {@link ARBTransformFeedback2 ARB_transform_feedback2}. Requires {@link GL31 OpenGL 3.1} or {@link ARBDrawInstanced ARB_draw_instanced}. Promoted to core in {@link GL42 OpenGL 4.2}.</p>
  */
-public final class ARBTransformFeedbackInstanced {
+public class ARBTransformFeedbackInstanced {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		DrawTransformFeedbackInstanced,
 		DrawTransformFeedbackStreamInstanced;
+
+	@JavadocExclude
+	protected ARBTransformFeedbackInstanced() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBTransformFeedbackInstanced(FunctionProvider provider) {

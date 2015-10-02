@@ -32,7 +32,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Promoted to core in {@link GL32 OpenGL 3.2}.</p>
  */
-public final class ARBProvokingVertex {
+public class ARBProvokingVertex {
 
 	/** Accepted by the {@code mode} parameter of ProvokingVertex. */
 	public static final int
@@ -47,6 +47,11 @@ public final class ARBProvokingVertex {
 	/** Function address. */
 	@JavadocExclude
 	public final long ProvokingVertex;
+
+	@JavadocExclude
+	protected ARBProvokingVertex() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBProvokingVertex(FunctionProvider provider) {

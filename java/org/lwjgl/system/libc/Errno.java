@@ -11,11 +11,14 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 
 /** Native bindings to errno.h. */
-public final class Errno {
+public class Errno {
 
 	static { LWJGLUtil.initialize(); }
 
-	private Errno() {}
+	@JavadocExclude
+	protected Errno() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ errno ] ---
 

@@ -19,7 +19,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string}.</p>
  */
-public final class WGLARBMakeCurrentRead {
+public class WGLARBMakeCurrentRead {
 
 	/** New errors returned by {@link org.lwjgl.system.windows.WinBase#GetLastError}. */
 	public static final int
@@ -31,6 +31,11 @@ public final class WGLARBMakeCurrentRead {
 	public final long
 		MakeContextCurrentARB,
 		GetCurrentReadDCARB;
+
+	@JavadocExclude
+	protected WGLARBMakeCurrentRead() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public WGLARBMakeCurrentRead(FunctionProvider provider) {

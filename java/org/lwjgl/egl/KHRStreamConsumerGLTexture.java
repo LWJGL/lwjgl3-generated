@@ -20,7 +20,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link EGL12 EGL L.1}.</p>
  */
-public final class KHRStreamConsumerGLTexture {
+public class KHRStreamConsumerGLTexture {
 
 	/**  */
 	public static final int EGL_CONSUMER_ACQUIRE_TIMEOUT_USEC_KHR = 0x321E;
@@ -31,6 +31,11 @@ public final class KHRStreamConsumerGLTexture {
 		StreamConsumerGLTextureExternalKHR,
 		StreamConsumerAcquireKHR,
 		StreamConsumerReleaseKHR;
+
+	@JavadocExclude
+	protected KHRStreamConsumerGLTexture() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public KHRStreamConsumerGLTexture(FunctionProvider provider) {

@@ -23,13 +23,18 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL15 OpenGL 1.5} or {@link ARBOcclusionQuery ARB_occlusion_query}</p>
  */
-public final class NVXConditionalRender {
+public class NVXConditionalRender {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		BeginConditionalRenderNVX,
 		EndConditionalRenderNVX;
+
+	@JavadocExclude
+	protected NVXConditionalRender() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVXConditionalRender(FunctionProvider provider) {

@@ -56,7 +56,7 @@ import org.lwjgl.opengl.GL31;
  * behavior. Similarly, attempting to access a shared CL/GL object from OpenCL before it has been acquired by the OpenCL command queue, or after it has
  * been released, will result in undefined behavior.</p>
  */
-public final class CL10GL {
+public class CL10GL {
 
 	/** Error Codes */
 	public static final int
@@ -86,6 +86,11 @@ public final class CL10GL {
 		GetGLTextureInfo,
 		EnqueueAcquireGLObjects,
 		EnqueueReleaseGLObjects;
+
+	@JavadocExclude
+	protected CL10GL() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public CL10GL(FunctionProvider provider) {

@@ -20,11 +20,16 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>This extension allows querying pointer-sized surface attributes, thus avoiding problems with coercing 64-bit pointers into a 32-bit integer.</p>
  */
-public final class ANGLEQuerySurfacePointer {
+public class ANGLEQuerySurfacePointer {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long QuerySurfacePointerANGLE;
+
+	@JavadocExclude
+	protected ANGLEQuerySurfacePointer() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ANGLEQuerySurfacePointer(FunctionProvider provider) {

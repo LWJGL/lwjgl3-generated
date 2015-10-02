@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Specifies a reading we can query from the sensor. */
-public final class OVRSensorData extends Struct {
+public class OVRSensorData extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

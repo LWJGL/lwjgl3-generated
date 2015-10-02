@@ -42,7 +42,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL30 OpenGL 3.0}.</p>
  */
-public final class INTELPerformanceQuery {
+public class INTELPerformanceQuery {
 
 	/** Returned by the capsMask parameter of GetPerfQueryInfoINTEL. */
 	public static final int
@@ -94,6 +94,11 @@ public final class INTELPerformanceQuery {
 		GetPerfQueryDataINTEL,
 		GetPerfQueryIdByNameINTEL,
 		GetPerfQueryInfoINTEL;
+
+	@JavadocExclude
+	protected INTELPerformanceQuery() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public INTELPerformanceQuery(FunctionProvider provider) {

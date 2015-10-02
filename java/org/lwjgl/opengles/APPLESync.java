@@ -32,7 +32,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class APPLESync {
+public class APPLESync {
 
 	/** Accepted as the {@code pname} parameter of GetInteger64vAPPLE. */
 	public static final int GL_MAX_SERVER_WAIT_TIMEOUT_APPLE = 0x9111;
@@ -81,6 +81,11 @@ public final class APPLESync {
 		WaitSyncAPPLE,
 		GetInteger64vAPPLE,
 		GetSyncivAPPLE;
+
+	@JavadocExclude
+	protected APPLESync() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public APPLESync(FunctionProvider provider) {

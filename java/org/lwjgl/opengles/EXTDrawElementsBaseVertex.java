@@ -62,7 +62,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class EXTDrawElementsBaseVertex {
+public class EXTDrawElementsBaseVertex {
 
 	/** Function address. */
 	@JavadocExclude
@@ -71,6 +71,11 @@ public final class EXTDrawElementsBaseVertex {
 		DrawRangeElementsBaseVertexEXT,
 		DrawElementsInstancedBaseVertexEXT,
 		MultiDrawElementsBaseVertexEXT;
+
+	@JavadocExclude
+	protected EXTDrawElementsBaseVertex() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTDrawElementsBaseVertex(FunctionProvider provider) {

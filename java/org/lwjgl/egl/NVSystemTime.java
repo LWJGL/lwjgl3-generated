@@ -18,13 +18,18 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link EGL12 EGL L.1}.</p>
  */
-public final class NVSystemTime {
+public class NVSystemTime {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		GetSystemTimeFrequencyNV,
 		GetSystemTimeNV;
+
+	@JavadocExclude
+	protected NVSystemTime() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVSystemTime(FunctionProvider provider) {

@@ -18,11 +18,16 @@ import static org.lwjgl.system.JNI.*;
  * otherwise configure the rendering pipeline. The WGL version allows copying between images in different contexts, even if those contexts are in
  * different sharelists or even on different physical devices.</p>
  */
-public final class WGLNVCopyImage {
+public class WGLNVCopyImage {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long CopyImageSubDataNV;
+
+	@JavadocExclude
+	protected WGLNVCopyImage() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public WGLNVCopyImage(FunctionProvider provider) {

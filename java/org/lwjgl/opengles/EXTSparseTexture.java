@@ -26,7 +26,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES31 GLES E.S}.</p>
  */
-public final class EXTSparseTexture {
+public class EXTSparseTexture {
 
 	/**
 	 * Accepted by the {@code pname} parameter to TexParameter{if}{v}, GetTexParameter{if}v, TexParameterI{u}ivOES, GetTexParameterI{u}ivOES
@@ -64,6 +64,11 @@ public final class EXTSparseTexture {
 	/** Function address. */
 	@JavadocExclude
 	public final long TexPageCommitmentARB;
+
+	@JavadocExclude
+	protected EXTSparseTexture() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTSparseTexture(FunctionProvider provider) {

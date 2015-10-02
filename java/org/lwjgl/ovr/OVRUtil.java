@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to the libOVR utility functions. */
-public final class OVRUtil {
+public class OVRUtil {
 
 	/**
 	 * Use for generating a default projection matrix that is:
@@ -50,7 +50,10 @@ public final class OVRUtil {
 
 	static { LWJGLUtil.initialize(); }
 
-	private OVRUtil() {}
+	@JavadocExclude
+	protected OVRUtil() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ ovrMatrix4f_Projection ] ---
 

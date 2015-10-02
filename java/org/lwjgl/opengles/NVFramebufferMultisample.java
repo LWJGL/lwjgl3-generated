@@ -30,7 +30,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S} and {@link NVFramebufferBlit NV_framebuffer_blit}.</p>
  */
-public final class NVFramebufferMultisample {
+public class NVFramebufferMultisample {
 
 	/** Accepted by the {@code pname} parameter of GetRenderbufferParameteriv. */
 	public static final int GL_RENDERBUFFER_SAMPLES_NV = 0x8CAB;
@@ -44,6 +44,11 @@ public final class NVFramebufferMultisample {
 	/** Function address. */
 	@JavadocExclude
 	public final long RenderbufferStorageMultisampleNV;
+
+	@JavadocExclude
+	protected NVFramebufferMultisample() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVFramebufferMultisample(FunctionProvider provider) {

@@ -16,7 +16,7 @@ import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** The core OpenCL 1.1 functionality. */
-public final class CL11 {
+public class CL11 {
 
 	/** Error Codes. */
 	public static final int
@@ -89,6 +89,11 @@ public final class CL11 {
 		CreateUserEvent,
 		SetUserEventStatus,
 		SetEventCallback;
+
+	@JavadocExclude
+	protected CL11() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public CL11(FunctionProvider provider) {

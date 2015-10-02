@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Union that combines ovrLayer types in a way that allows them to be used in a polymorphic way. */
-public final class OVRLayerUnion extends Struct {
+public class OVRLayerUnion extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

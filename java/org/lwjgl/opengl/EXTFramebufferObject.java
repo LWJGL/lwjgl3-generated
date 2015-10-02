@@ -59,7 +59,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Promoted to core in {@link GL30 OpenGL 3.0}.</p>
  */
-public final class EXTFramebufferObject {
+public class EXTFramebufferObject {
 
 	/**
 	 * Accepted by the {@code target} parameter of BindFramebufferEXT, CheckFramebufferStatusEXT, FramebufferTexture{1D|2D|3D}EXT, FramebufferRenderbufferEXT,
@@ -162,6 +162,11 @@ public final class EXTFramebufferObject {
 		FramebufferRenderbufferEXT,
 		GetFramebufferAttachmentParameterivEXT,
 		GenerateMipmapEXT;
+
+	@JavadocExclude
+	protected EXTFramebufferObject() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTFramebufferObject(FunctionProvider provider) {

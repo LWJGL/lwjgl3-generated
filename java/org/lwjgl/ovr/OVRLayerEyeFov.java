@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Describes a layer that specifies a monoscopic or stereoscopic view. This is the kind of layer that's typically used as layer 0 to
  * {@link OVR#ovrHmd_SubmitFrame}, as it is the kind of layer used to render a 3D stereoscopic view.
  */
-public final class OVRLayerEyeFov extends Struct {
+public class OVRLayerEyeFov extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

@@ -21,7 +21,7 @@ import org.lwjgl.opengl.GL30;
 import org.lwjgl.opengl.GL31;
 
 /** The OpenCL 1.2 OpenGL interoperability functionality. */
-public final class CL12GL {
+public class CL12GL {
 
 	/** cl_gl_object_type */
 	public static final int
@@ -33,6 +33,11 @@ public final class CL12GL {
 	/** Function address. */
 	@JavadocExclude
 	public final long CreateFromGLTexture;
+
+	@JavadocExclude
+	protected CL12GL() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public CL12GL(FunctionProvider provider) {

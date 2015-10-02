@@ -81,7 +81,7 @@ import static org.lwjgl.system.APIUtil.*;
  * debuggers. This extension typically improves OpenGL programmers efficiency by allowing them to instantly detect issues and the reason for these issues
  * giving him more time to focus on adding new features to an OpenGL application.</p>
  */
-public final class KHRDebug {
+public class KHRDebug {
 
 	/** Tokens accepted by the {@code target} parameters of Enable, Disable, and  IsEnabled. */
 	public static final int
@@ -174,6 +174,11 @@ public final class KHRDebug {
 		GetObjectLabelKHR,
 		ObjectPtrLabelKHR,
 		GetObjectPtrLabelKHR;
+
+	@JavadocExclude
+	protected KHRDebug() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public KHRDebug(FunctionProvider provider) {

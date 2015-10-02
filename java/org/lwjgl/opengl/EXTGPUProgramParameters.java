@@ -24,13 +24,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * NV_vertex_program extension provides a set of similar functions that can be used to load program environment parameters (which are equivalent to
  * "program parameters" in NV_vertex_program), no such function exists for program local parameters.</p>
  */
-public final class EXTGPUProgramParameters {
+public class EXTGPUProgramParameters {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		ProgramEnvParameters4fvEXT,
 		ProgramLocalParameters4fvEXT;
+
+	@JavadocExclude
+	protected EXTGPUProgramParameters() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTGPUProgramParameters(FunctionProvider provider) {

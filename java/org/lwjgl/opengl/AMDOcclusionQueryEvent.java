@@ -20,7 +20,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL15 OpenGL 1.5}.</p>
  */
-public final class AMDOcclusionQueryEvent {
+public class AMDOcclusionQueryEvent {
 
 	/**
 	 * Accepted by the {@code pname} argument to {@link #glQueryObjectParameteruiAMD QueryObjectParameteruiAMD}, {@link GL15#glGetQueryObjectiv GetQueryObjectiv}, {@link GL15#glGetQueryObjectuiv GetQueryObjectuiv},
@@ -39,6 +39,11 @@ public final class AMDOcclusionQueryEvent {
 	/** Function address. */
 	@JavadocExclude
 	public final long QueryObjectParameteruiAMD;
+
+	@JavadocExclude
+	protected AMDOcclusionQueryEvent() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public AMDOcclusionQueryEvent(FunctionProvider provider) {

@@ -17,7 +17,7 @@ import static org.lwjgl.system.JNI.*;
  * <p>This extension provides a mechanism to do an accelerated copy from one buffer object to another. This may be useful to load buffer objects in a
  * "loading thread" while minimizing cost and synchronization effort in the "rendering thread."</p>
  */
-public final class NVCopyBuffer {
+public class NVCopyBuffer {
 
 	/**
 	 * Accepted by the target parameters of BindBuffer, BufferData, BufferSubData, MapBufferOES, UnmapBufferOES, GetBufferPointervOES, GetBufferParameteriv and
@@ -30,6 +30,11 @@ public final class NVCopyBuffer {
 	/** Function address. */
 	@JavadocExclude
 	public final long CopyBufferSubDataNV;
+
+	@JavadocExclude
+	protected NVCopyBuffer() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVCopyBuffer(FunctionProvider provider) {

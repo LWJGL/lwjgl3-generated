@@ -40,7 +40,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <li><a href="http://www.opengl.org/registry/specs/EXT/framebuffer_sRGB.txt">EXT_framebuffer_sRGB</a></li>
  * </ul></p>
  */
-public final class GL30 {
+public class GL30 {
 
 	/** GetTarget */
 	public static final int
@@ -561,6 +561,11 @@ public final class GL30 {
 		DeleteVertexArrays,
 		GenVertexArrays,
 		IsVertexArray;
+
+	@JavadocExclude
+	protected GL30() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GL30(FunctionProvider provider) {

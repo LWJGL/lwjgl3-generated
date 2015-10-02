@@ -55,7 +55,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GL32 GL32} and GLSL 1.50. Promoted to core in {@link GL40 OpenGL 4.0}.</p>
  */
-public final class ARBTessellationShader {
+public class ARBTessellationShader {
 
 	/** Accepted by the {@code mode} parameter of Begin and all vertex array functions that implicitly call Begin. */
 	public static final int GL_PATCHES = 0xE;
@@ -118,6 +118,11 @@ public final class ARBTessellationShader {
 	public final long
 		PatchParameteri,
 		PatchParameterfv;
+
+	@JavadocExclude
+	protected ARBTessellationShader() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBTessellationShader(FunctionProvider provider) {

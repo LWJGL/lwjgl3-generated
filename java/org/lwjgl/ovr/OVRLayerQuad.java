@@ -25,7 +25,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Quad layers are visible from both sides; they are not back-face culled.</p>
  */
-public final class OVRLayerQuad extends Struct {
+public class OVRLayerQuad extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

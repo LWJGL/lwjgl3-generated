@@ -20,11 +20,16 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>This extension provides a way for applications to determine which WGL extensions are supported by a device. This is the foundation upon which other WGL
  * extensions are built.</p>
  */
-public final class WGLARBExtensionsString {
+public class WGLARBExtensionsString {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long GetExtensionsStringARB;
+
+	@JavadocExclude
+	protected WGLARBExtensionsString() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public WGLARBExtensionsString(FunctionProvider provider) {

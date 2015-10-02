@@ -30,7 +30,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <li><a href="http://www.opengl.org/registry/specs/ATI/separate_stencil.txt">ATI_separate_stencil</a> and <a href="http://www.opengl.org/registry/specs/EXT/stencil_two_side.txt">EXT_stencil_two_side</a></li>
  * </ul></p>
  */
-public final class GL20 {
+public class GL20 {
 
 	/** Accepted by the {@code name} parameter of GetString. */
 	public static final int GL_SHADING_LANGUAGE_VERSION = 0x8B8C;
@@ -268,6 +268,11 @@ public final class GL20 {
 		StencilOpSeparate,
 		StencilFuncSeparate,
 		StencilMaskSeparate;
+
+	@JavadocExclude
+	protected GL20() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GL20(FunctionProvider provider) {

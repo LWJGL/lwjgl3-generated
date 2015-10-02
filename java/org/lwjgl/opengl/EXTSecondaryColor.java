@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>This extension allows specifying the RGB components of the secondary color used in the Color Sum stage, instead of using the default (0,0,0,0) color.
  * It applies only in RGBA mode and when LIGHTING is disabled.</p>
  */
-public final class EXTSecondaryColor {
+public class EXTSecondaryColor {
 
 	/**
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
@@ -61,6 +61,11 @@ public final class EXTSecondaryColor {
 		SecondaryColor3usvEXT,
 		SecondaryColor3uivEXT,
 		SecondaryColorPointerEXT;
+
+	@JavadocExclude
+	protected EXTSecondaryColor() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTSecondaryColor(FunctionProvider provider) {

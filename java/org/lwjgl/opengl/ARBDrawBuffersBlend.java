@@ -22,7 +22,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL20 OpenGL 2.0} and <a href="http://www.opengl.org/registry/specs/EXT/draw_buffers2.txt">EXT_draw_buffers2</a>. Promoted to core in {@link GL40 OpenGL 4.0}.</p>
  */
-public final class ARBDrawBuffersBlend {
+public class ARBDrawBuffersBlend {
 
 	/** Function address. */
 	@JavadocExclude
@@ -31,6 +31,11 @@ public final class ARBDrawBuffersBlend {
 		BlendEquationSeparateiARB,
 		BlendFunciARB,
 		BlendFuncSeparateiARB;
+
+	@JavadocExclude
+	protected ARBDrawBuffersBlend() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBDrawBuffersBlend(FunctionProvider provider) {

@@ -27,7 +27,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <p>The extension is general enough to allow the implementation to choose which controls to expose and to provide a textual description of those controls
  * to developers.</p>
  */
-public final class QCOMDriverControl {
+public class QCOMDriverControl {
 
 	/** Function address. */
 	@JavadocExclude
@@ -36,6 +36,11 @@ public final class QCOMDriverControl {
 		GetDriverControlStringQCOM,
 		EnableDriverControlQCOM,
 		DisableDriverControlQCOM;
+
+	@JavadocExclude
+	protected QCOMDriverControl() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public QCOMDriverControl(FunctionProvider provider) {

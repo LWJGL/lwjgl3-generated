@@ -58,7 +58,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES31 GLES E.S}, {@link  OES_shader_io_blocks} or {@link  EXT_shader_io_blocks} and {@link  OES_gpu_shader5} or {@link  EXT_gpu_shader5}.</p>
  */
-public final class OESTessellationShader {
+public class OESTessellationShader {
 
 	/** Accepted by the {@code mode} parameter of DrawArrays, DrawElements, and other commands which draw primitives. */
 	public static final int GL_PATCHES_OES = 0xE;
@@ -134,6 +134,11 @@ public final class OESTessellationShader {
 	/** Function address. */
 	@JavadocExclude
 	public final long PatchParameteriOES;
+
+	@JavadocExclude
+	protected OESTessellationShader() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public OESTessellationShader(FunctionProvider provider) {

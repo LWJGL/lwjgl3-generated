@@ -19,7 +19,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>This extension provides a mechanism for using memory allocated by the application as a color-buffer.</p>
  */
-public final class HIClientpixmap {
+public class HIClientpixmap {
 
 	/**  */
 	public static final int EGL_CLIENT_PIXMAP_POINTER_HI = 0x8F74;
@@ -27,6 +27,11 @@ public final class HIClientpixmap {
 	/** Function address. */
 	@JavadocExclude
 	public final long CreatePixmapSurfaceHI;
+
+	@JavadocExclude
+	protected HIClientpixmap() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public HIClientpixmap(FunctionProvider provider) {

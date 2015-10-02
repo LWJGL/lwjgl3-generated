@@ -49,7 +49,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>The application may synchronize with the hardware in one of two ways: by flushing the pixel data range (or causing an implicit flush) or by using the
  * NV_fence extension to insert fences in the command stream.</p>
  */
-public final class NVPixelDataRange {
+public class NVPixelDataRange {
 
 	/**
 	 * Accepted by the {@code target} parameter of PixelDataRangeNV and FlushPixelDataRangeNV, and by the {@code cap} parameter of EnableClientState,
@@ -74,6 +74,11 @@ public final class NVPixelDataRange {
 	public final long
 		PixelDataRangeNV,
 		FlushPixelDataRangeNV;
+
+	@JavadocExclude
+	protected NVPixelDataRange() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVPixelDataRange(FunctionProvider provider) {

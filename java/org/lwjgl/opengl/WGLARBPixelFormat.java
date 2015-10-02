@@ -25,7 +25,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string}.</p>
  */
-public final class WGLARBPixelFormat {
+public class WGLARBPixelFormat {
 
 	/**
 	 * Accepted in the {@code attributes} parameter array of {@link #wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB}, and {@link #wglGetPixelFormatAttribfvARB GetPixelFormatAttribfvARB}, and as a type in
@@ -94,6 +94,11 @@ public final class WGLARBPixelFormat {
 		GetPixelFormatAttribivARB,
 		GetPixelFormatAttribfvARB,
 		ChoosePixelFormatARB;
+
+	@JavadocExclude
+	protected WGLARBPixelFormat() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public WGLARBPixelFormat(FunctionProvider provider) {

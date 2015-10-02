@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /** The core EGL 1.1 functionality. */
-public final class EGL11 {
+public class EGL11 {
 
 	/**  */
 	public static final int
@@ -38,6 +38,11 @@ public final class EGL11 {
 		ReleaseTexImage,
 		SurfaceAttrib,
 		SwapInterval;
+
+	@JavadocExclude
+	protected EGL11() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EGL11(FunctionProvider provider) {

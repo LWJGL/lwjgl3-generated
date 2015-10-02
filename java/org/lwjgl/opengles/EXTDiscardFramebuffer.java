@@ -34,7 +34,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}</p>
  */
-public final class EXTDiscardFramebuffer {
+public class EXTDiscardFramebuffer {
 
 	/** Accepted in the {@code attachments} parameter of DiscardFramebufferEXT when the default framebuffer is bound to {@code target}. */
 	public static final int
@@ -45,6 +45,11 @@ public final class EXTDiscardFramebuffer {
 	/** Function address. */
 	@JavadocExclude
 	public final long DiscardFramebufferEXT;
+
+	@JavadocExclude
+	protected EXTDiscardFramebuffer() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTDiscardFramebuffer(FunctionProvider provider) {

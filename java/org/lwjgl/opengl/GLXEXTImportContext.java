@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Additional convenience procedures to get the current Display* bound to a context as well as other context information are also added.</p>
  */
-public final class GLXEXTImportContext {
+public class GLXEXTImportContext {
 
 	/** Accepted by the {@code attribute} parameter of {@link #glXQueryContextInfoEXT QueryContextInfoEXT}. */
 	public static final int
@@ -37,6 +37,11 @@ public final class GLXEXTImportContext {
 		GetContextIDEXT,
 		ImportContextEXT,
 		FreeContextEXT;
+
+	@JavadocExclude
+	protected GLXEXTImportContext() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLXEXTImportContext(FunctionProvider provider) {

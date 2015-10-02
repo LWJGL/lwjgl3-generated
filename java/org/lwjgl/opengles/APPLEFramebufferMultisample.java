@@ -32,7 +32,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class APPLEFramebufferMultisample {
+public class APPLEFramebufferMultisample {
 
 	/** Accepted by the {@code pname} parameter of GetRenderbufferParameteriv. */
 	public static final int GL_RENDERBUFFER_SAMPLES_APPLE = 0x8CAB;
@@ -61,6 +61,11 @@ public final class APPLEFramebufferMultisample {
 	public final long
 		RenderbufferStorageMultisampleAPPLE,
 		ResolveMultisampleFramebufferAPPLE;
+
+	@JavadocExclude
+	protected APPLEFramebufferMultisample() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public APPLEFramebufferMultisample(FunctionProvider provider) {

@@ -31,7 +31,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES31 GLES E.S}.</p>
  */
-public final class OESPrimitiveBoundingBox {
+public class OESPrimitiveBoundingBox {
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetFloatv, GetIntegerv, and GetInteger64v. */
 	public static final int GL_PRIMITIVE_BOUNDING_BOX_OES = 0x92BE;
@@ -39,6 +39,11 @@ public final class OESPrimitiveBoundingBox {
 	/** Function address. */
 	@JavadocExclude
 	public final long PrimitiveBoundingBoxOES;
+
+	@JavadocExclude
+	protected OESPrimitiveBoundingBox() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public OESPrimitiveBoundingBox(FunctionProvider provider) {

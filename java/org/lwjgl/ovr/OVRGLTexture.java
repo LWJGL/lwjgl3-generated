@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Contains OpenGL-specific texture information. */
-public final class OVRGLTexture extends Struct {
+public class OVRGLTexture extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

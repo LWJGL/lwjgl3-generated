@@ -22,13 +22,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link NVBindlessMultiDrawIndirect NV_bindless_multi_draw_indirect}, {@link ARBIndirectParameters ARB_indirect_parameters}.</p>
  */
-public final class NVBindlessMultiDrawIndirectCount {
+public class NVBindlessMultiDrawIndirectCount {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		MultiDrawArraysIndirectBindlessCountNV,
 		MultiDrawElementsIndirectBindlessCountNV;
+
+	@JavadocExclude
+	protected NVBindlessMultiDrawIndirectCount() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVBindlessMultiDrawIndirectCount(FunctionProvider provider) {

@@ -62,7 +62,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Promoted to core in {@link GL32 OpenGL 3.2}.</p>
  */
-public final class ARBDrawElementsBaseVertex {
+public class ARBDrawElementsBaseVertex {
 
 	/** Function address. */
 	@JavadocExclude
@@ -71,6 +71,11 @@ public final class ARBDrawElementsBaseVertex {
 		DrawRangeElementsBaseVertex,
 		DrawElementsInstancedBaseVertex,
 		MultiDrawElementsBaseVertex;
+
+	@JavadocExclude
+	protected ARBDrawElementsBaseVertex() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBDrawElementsBaseVertex(FunctionProvider provider) {

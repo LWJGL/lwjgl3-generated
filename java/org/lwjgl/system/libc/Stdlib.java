@@ -14,11 +14,14 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to stdlib.h. */
-public final class Stdlib {
+public class Stdlib {
 
 	static { LWJGLUtil.initialize(); }
 
-	private Stdlib() {}
+	@JavadocExclude
+	protected Stdlib() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ malloc ] ---
 

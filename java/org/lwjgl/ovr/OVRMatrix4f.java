@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** A 4x4 matrix with float components. */
-public final class OVRMatrix4f extends Struct {
+public class OVRMatrix4f extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

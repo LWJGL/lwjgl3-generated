@@ -31,7 +31,7 @@ import static org.lwjgl.system.JNI.*;
  * <p>In order to allow the use of multisampled depth and stencil buffers when performing multisampled rendering to a texture, the extension also adds the
  * command RenderbufferStorageMultisampleIMG.</p>
  */
-public final class IMGMultisampledRenderToTexture {
+public class IMGMultisampledRenderToTexture {
 
 	/** Accepted by the {@code pname} parameter of GetRenderbufferParameteriv. */
 	public static final int GL_RENDERBUFFER_SAMPLES_IMG = 0x9133;
@@ -50,6 +50,11 @@ public final class IMGMultisampledRenderToTexture {
 	public final long
 		RenderbufferStorageMultisampleIMG,
 		FramebufferTexture2DMultisampleIMG;
+
+	@JavadocExclude
+	protected IMGMultisampledRenderToTexture() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public IMGMultisampledRenderToTexture(FunctionProvider provider) {

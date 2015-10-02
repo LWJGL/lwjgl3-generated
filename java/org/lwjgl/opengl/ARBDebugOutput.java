@@ -58,7 +58,7 @@ import static org.lwjgl.system.APIUtil.*;
  * debug flag as provided by {@link WGLARBCreateContext WGL_ARB_create_context} or {@link GLXARBCreateContext GLX_ARB_create_context}. This extension places no limits on any other functionality
  * provided by debug contexts through other extensions.</p>
  */
-public final class ARBDebugOutput {
+public class ARBDebugOutput {
 
 	/**
 	 * Tokens accepted by the {@code target} parameters of Enable, Disable, and IsEnabled.
@@ -143,6 +143,11 @@ public final class ARBDebugOutput {
 		DebugMessageInsertARB,
 		DebugMessageCallbackARB,
 		GetDebugMessageLogARB;
+
+	@JavadocExclude
+	protected ARBDebugOutput() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBDebugOutput(FunctionProvider provider) {

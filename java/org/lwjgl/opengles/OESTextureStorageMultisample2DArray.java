@@ -17,7 +17,7 @@ import static org.lwjgl.system.JNI.*;
  * <p>This extension provides support for a new type of immutable texture, two-dimensional multisample array textures. It depends on functionality introduced
  * in OpenGL ES 3.1 to support two-dimensional multisample (non-array) textures.</p>
  */
-public final class OESTextureStorageMultisample2DArray {
+public class OESTextureStorageMultisample2DArray {
 
 	/**
 	 * Accepted by the {@code target} parameter of BindTexture, TexStorage3DMultisampleOES, GetInternalformativ, TexParameter{if}*, GetTexParameter{if}v and
@@ -38,6 +38,11 @@ public final class OESTextureStorageMultisample2DArray {
 	/** Function address. */
 	@JavadocExclude
 	public final long TexStorage3DMultisampleOES;
+
+	@JavadocExclude
+	protected OESTextureStorageMultisample2DArray() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public OESTextureStorageMultisample2DArray(FunctionProvider provider) {

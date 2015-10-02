@@ -32,7 +32,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires <a href="http://www.opengl.org/registry/specs/EXT/point_parameters.txt">EXT_point_parameters</a></p>
  */
-public final class NVPointSprite {
+public class NVPointSprite {
 
 	/**
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
@@ -57,6 +57,11 @@ public final class NVPointSprite {
 	public final long
 		PointParameteriNV,
 		PointParameterivNV;
+
+	@JavadocExclude
+	protected NVPointSprite() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVPointSprite(FunctionProvider provider) {

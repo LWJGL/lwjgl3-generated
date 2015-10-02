@@ -39,7 +39,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li><a href="http://www.opengl.org/registry/specs/EXT/blend_minmax.txt">EXT_blend_minmax</a> and <a href="http://www.opengl.org/registry/specs/EXT/EXT_blend_subtract.txt">EXT_EXT_blend_subtract</a></li>
  * </ul></p>
  */
-public final class GL12 {
+public class GL12 {
 
 	/** Aliases for smooth points and lines. */
 	public static final int
@@ -142,6 +142,11 @@ public final class GL12 {
 		TexSubImage3D,
 		CopyTexSubImage3D,
 		DrawRangeElements;
+
+	@JavadocExclude
+	protected GL12() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GL12(FunctionProvider provider) {

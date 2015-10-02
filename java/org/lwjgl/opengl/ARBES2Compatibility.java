@@ -23,7 +23,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Promoted to core in {@link GL41 OpenGL 4.1}.</p>
  */
-public final class ARBES2Compatibility {
+public class ARBES2Compatibility {
 
 	/** Accepted by the {@code value} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
 	public static final int
@@ -59,6 +59,11 @@ public final class ARBES2Compatibility {
 		GetShaderPrecisionFormat,
 		DepthRangef,
 		ClearDepthf;
+
+	@JavadocExclude
+	protected ARBES2Compatibility() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBES2Compatibility(FunctionProvider provider) {

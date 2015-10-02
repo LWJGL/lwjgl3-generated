@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Chunk management hooks. */
-public final class ChunkHooks extends Struct {
+public class ChunkHooks extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

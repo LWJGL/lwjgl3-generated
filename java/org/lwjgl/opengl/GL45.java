@@ -34,7 +34,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_barrier.txt">ARB_texture_barrier</a></li>
  * </ul></p>
  */
-public final class GL45 {
+public class GL45 {
 
 	/** Accepted by the {@code depth} parameter of {@link #glClipControl ClipControl}. */
 	public static final int
@@ -215,6 +215,11 @@ public final class GL45 {
 		GetnUniformdv,
 		GetnUniformiv,
 		GetnUniformuiv;
+
+	@JavadocExclude
+	protected GL45() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GL45(FunctionProvider provider) {

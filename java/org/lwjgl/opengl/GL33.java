@@ -32,7 +32,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <li><a href="http://www.opengl.org/registry/specs/ARB/vertex_type_2_10_10_10_rev.txt">ARB_vertex_type_2_10_10_10_rev</a></li>
  * </ul></p>
  */
-public final class GL33 {
+public class GL33 {
 
 	/**
 	 * Accepted by the {@code src} and {@code dst} parameters of BlendFunc and BlendFunci, and by the {@code srcRGB}, {@code dstRGB}, {@code srcAlpha} and
@@ -147,6 +147,11 @@ public final class GL33 {
 		VertexAttribP2uiv,
 		VertexAttribP3uiv,
 		VertexAttribP4uiv;
+
+	@JavadocExclude
+	protected GL33() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GL33(FunctionProvider provider, boolean fc) {

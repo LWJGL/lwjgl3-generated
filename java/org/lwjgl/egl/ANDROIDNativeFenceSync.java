@@ -24,7 +24,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link EGL11 EGL L.1} and {@link KHRFenceSync KHR_fence_sync}.</p>
  */
-public final class ANDROIDNativeFenceSync {
+public class ANDROIDNativeFenceSync {
 
 	/**  */
 	public static final int
@@ -36,6 +36,11 @@ public final class ANDROIDNativeFenceSync {
 	/** Function address. */
 	@JavadocExclude
 	public final long DupNativeFenceFDANDROID;
+
+	@JavadocExclude
+	protected ANDROIDNativeFenceSync() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ANDROIDNativeFenceSync(FunctionProvider provider) {

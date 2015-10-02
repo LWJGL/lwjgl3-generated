@@ -22,7 +22,7 @@ import static org.lwjgl.system.JNI.*;
  * minification and magnification filter parameters. The filter parameters are used to identify the set of texels used to produce a final filtered value;
  * the reduction mode identifies how these texels are combined.</p>
  */
-public final class EXTTextureFilterMinmax {
+public class EXTTextureFilterMinmax {
 
 	/**
 	 * Accepted by the {@code pname} parameter to SamplerParameter{i f}{v}, SamplerParameterI{u}iv, GetSamplerParameter{i f}v, GetSamplerParameterI{u}iv,
@@ -42,6 +42,11 @@ public final class EXTTextureFilterMinmax {
 	/** Function address. */
 	@JavadocExclude
 	public final long RasterSamplesEXT;
+
+	@JavadocExclude
+	protected EXTTextureFilterMinmax() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTTextureFilterMinmax(FunctionProvider provider) {

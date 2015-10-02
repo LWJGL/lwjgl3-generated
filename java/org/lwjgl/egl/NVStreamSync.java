@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link EGL12 EGL L.1}, {@link KHRStream KHR_stream} and {@link KHRReusableSync KHR_reusable_sync}.</p>
  */
-public final class NVStreamSync {
+public class NVStreamSync {
 
 	/**  */
 	public static final int
@@ -32,6 +32,11 @@ public final class NVStreamSync {
 	/** Function address. */
 	@JavadocExclude
 	public final long CreateStreamSyncNV;
+
+	@JavadocExclude
+	protected NVStreamSync() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVStreamSync(FunctionProvider provider) {

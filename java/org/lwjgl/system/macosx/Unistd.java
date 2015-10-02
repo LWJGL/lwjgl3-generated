@@ -11,11 +11,14 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 
 /** Native bindings to <unistd.h>. */
-public final class Unistd {
+public class Unistd {
 
 	static { LWJGLUtil.initialize(); }
 
-	private Unistd() {}
+	@JavadocExclude
+	protected Unistd() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ getpid ] ---
 

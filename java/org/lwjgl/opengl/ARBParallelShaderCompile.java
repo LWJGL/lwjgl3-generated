@@ -20,7 +20,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL30 OpenGL 3.0}.</p>
  */
-public final class ARBParallelShaderCompile {
+public class ARBParallelShaderCompile {
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
 	public static final int GL_MAX_SHADER_COMPILER_THREADS_ARB = 0x91B0;
@@ -31,6 +31,11 @@ public final class ARBParallelShaderCompile {
 	/** Function address. */
 	@JavadocExclude
 	public final long MaxShaderCompilerThreadsARB;
+
+	@JavadocExclude
+	protected ARBParallelShaderCompile() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBParallelShaderCompile(FunctionProvider provider) {

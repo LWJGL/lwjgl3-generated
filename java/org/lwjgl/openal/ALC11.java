@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to ALC 1.1 functionality. */
-public final class ALC11 {
+public class ALC11 {
 
 	/** Context creation attributes. */
 	public static final int
@@ -41,6 +41,11 @@ public final class ALC11 {
 		CaptureStart,
 		CaptureStop,
 		CaptureSamples;
+
+	@JavadocExclude
+	protected ALC11() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ALC11(FunctionProviderLocal provider) {

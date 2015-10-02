@@ -37,7 +37,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link EGL14 EGL L.1} and <a href="https://www.khronos.org/registry/egl/extensions/EXT/EGL_EXT_client_extensions.txt">EXT_platform_base</a> to query its existence without a display.</p>
  */
-public final class EXTPlatformBase {
+public class EXTPlatformBase {
 
 	/** Function address. */
 	@JavadocExclude
@@ -45,6 +45,11 @@ public final class EXTPlatformBase {
 		GetPlatformDisplayEXT,
 		CreatePlatformWindowSurfaceEXT,
 		CreatePlatformPixmapSurfaceEXT;
+
+	@JavadocExclude
+	protected EXTPlatformBase() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTPlatformBase(FunctionProvider provider) {

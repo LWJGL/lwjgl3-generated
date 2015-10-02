@@ -44,7 +44,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL30 OpenGL 3.0} or {@link ARBFramebufferObject ARB_framebuffer_object}. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
  */
-public final class ARBFramebufferNoAttachments {
+public class ARBFramebufferNoAttachments {
 
 	/**
 	 * Accepted by the {@code pname} parameter of FramebufferParameteri, GetFramebufferParameteriv, NamedFramebufferParameteriEXT, and
@@ -71,6 +71,11 @@ public final class ARBFramebufferNoAttachments {
 		GetFramebufferParameteriv,
 		NamedFramebufferParameteriEXT,
 		GetNamedFramebufferParameterivEXT;
+
+	@JavadocExclude
+	protected ARBFramebufferNoAttachments() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBFramebufferNoAttachments(FunctionProvider provider) {

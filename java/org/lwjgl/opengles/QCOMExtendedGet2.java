@@ -20,7 +20,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>This extension enables instrumenting the driver for debugging of OpenGL ES applications.</p>
  */
-public final class QCOMExtendedGet2 {
+public class QCOMExtendedGet2 {
 
 	/** Function address. */
 	@JavadocExclude
@@ -29,6 +29,11 @@ public final class QCOMExtendedGet2 {
 		ExtGetProgramsQCOM,
 		ExtIsProgramBinaryQCOM,
 		ExtGetProgramBinarySourceQCOM;
+
+	@JavadocExclude
+	protected QCOMExtendedGet2() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public QCOMExtendedGet2(FunctionProvider provider) {

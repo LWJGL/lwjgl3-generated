@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
 /** bindings to ALC_EXT_EFX extension. */
-public final class EXTEfx {
+public class EXTEfx {
 
 	/** ALC tokens. */
 	public static final int
@@ -678,6 +678,11 @@ public final class EXTEfx {
 		GetAuxiliaryEffectSlotiv,
 		GetAuxiliaryEffectSlotf,
 		GetAuxiliaryEffectSlotfv;
+
+	@JavadocExclude
+	protected EXTEfx() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTEfx(FunctionProvider provider) {

@@ -26,7 +26,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>A similar procedure is followed for normals. Normals, however, are transformed by the inverse transpose of the modelview matrix.</p>
  */
-public final class ARBMatrixPalette {
+public class ARBMatrixPalette {
 
 	/**
 	 * Accepted by the {@code pname} parameters of GetFloatv, GetDoublev, and IsEnabled, by the {@code mode} parameter of MatrixMode, and by the {@code cap}
@@ -63,6 +63,11 @@ public final class ARBMatrixPalette {
 		MatrixIndexubvARB,
 		MatrixIndexusvARB,
 		MatrixIndexPointerARB;
+
+	@JavadocExclude
+	protected ARBMatrixPalette() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBMatrixPalette(FunctionProvider provider) {

@@ -31,7 +31,7 @@ import static org.lwjgl.system.libffi.LibFFIConstants.*;
  * 
  * <p><strong>LWJGL note</strong>: The closure and raw APIs are not exposed.</p>
  */
-public final class LibFFI {
+public class LibFFI {
 
 	/** Types used to create custom {@link FFICIF}. */
 	public static final short
@@ -94,7 +94,10 @@ public final class LibFFI {
 
 	static { LWJGLUtil.initialize(); }
 
-	private LibFFI() {}
+	@JavadocExclude
+	protected LibFFI() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ ffi_prep_cif ] ---
 

@@ -53,7 +53,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Promoted to core in {@link GL15 OpenGL 1.5}.</p>
  */
-public final class ARBVertexBufferObject {
+public class ARBVertexBufferObject {
 
 	/**
 	 * Accepted by the {@code target} parameters of BindBufferARB, BufferDataARB, BufferSubDataARB, MapBufferARB, UnmapBufferARB, GetBufferSubDataARB,
@@ -122,6 +122,11 @@ public final class ARBVertexBufferObject {
 		UnmapBufferARB,
 		GetBufferParameterivARB,
 		GetBufferPointervARB;
+
+	@JavadocExclude
+	protected ARBVertexBufferObject() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBVertexBufferObject(FunctionProvider provider) {

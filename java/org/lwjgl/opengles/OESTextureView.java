@@ -34,7 +34,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES31 GLES E.S}.</p>
  */
-public final class OESTextureView {
+public class OESTextureView {
 
 	/** Accepted by the {@code pname} parameters of GetTexParameterfv and GetTexParameteriv. */
 	public static final int
@@ -47,6 +47,11 @@ public final class OESTextureView {
 	/** Function address. */
 	@JavadocExclude
 	public final long TextureViewOES;
+
+	@JavadocExclude
+	protected OESTextureView() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public OESTextureView(FunctionProvider provider) {

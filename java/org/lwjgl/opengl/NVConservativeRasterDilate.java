@@ -23,7 +23,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link NVConservativeRaster NV_conservative_raster}.</p>
  */
-public final class NVConservativeRasterDilate {
+public class NVConservativeRasterDilate {
 
 	/** Accepted by the {@code pname} parameter of ConservativeRasterParameterfNV, GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
 	public static final int
@@ -34,6 +34,11 @@ public final class NVConservativeRasterDilate {
 	/** Function address. */
 	@JavadocExclude
 	public final long ConservativeRasterParameterfNV;
+
+	@JavadocExclude
+	protected NVConservativeRasterDilate() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVConservativeRasterDilate(FunctionProvider provider) {

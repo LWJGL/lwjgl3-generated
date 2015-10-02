@@ -45,7 +45,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * corresponding to the number of associated raster/depth/stencil samples covered.</li>
  * </ul></p>
  */
-public final class NVFramebufferMixedSamples {
+public class NVFramebufferMixedSamples {
 
 	/** Accepted by the {@code cap} parameter of Enable, Disable, IsEnabled. */
 	public static final int
@@ -74,6 +74,11 @@ public final class NVFramebufferMixedSamples {
 		CoverageModulationTableNV,
 		GetCoverageModulationTableNV,
 		CoverageModulationNV;
+
+	@JavadocExclude
+	protected NVFramebufferMixedSamples() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVFramebufferMixedSamples(FunctionProvider provider) {

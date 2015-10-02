@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** The libffi closure structure. */
-public final class FFIClosure extends Struct {
+public class FFIClosure extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

@@ -33,7 +33,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL32 OpenGL 3.2} or <a href="http://www.opengl.org/registry/specs/EXT/geometry_shader4.txt">EXT_geometry_shader4</a> or {@link ARBGeometryShader4 ARB_geometry_shader4}. Promoted to core in {@link GL41 OpenGL 4.1}.</p>
  */
-public final class ARBViewportArray {
+public class ARBViewportArray {
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, GetDoublev and GetInteger64v. */
 	public static final int
@@ -59,6 +59,11 @@ public final class ARBViewportArray {
 		DepthRangeIndexed,
 		GetFloati_v,
 		GetDoublei_v;
+
+	@JavadocExclude
+	protected ARBViewportArray() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBViewportArray(FunctionProvider provider) {

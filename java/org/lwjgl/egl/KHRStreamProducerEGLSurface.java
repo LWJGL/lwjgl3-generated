@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link EGL12 EGL L.1}.</p>
  */
-public final class KHRStreamProducerEGLSurface {
+public class KHRStreamProducerEGLSurface {
 
 	/**  */
 	public static final int EGL_STREAM_BIT_KHR = 0x800;
@@ -30,6 +30,11 @@ public final class KHRStreamProducerEGLSurface {
 	/** Function address. */
 	@JavadocExclude
 	public final long CreateStreamProducerSurfaceKHR;
+
+	@JavadocExclude
+	protected KHRStreamProducerEGLSurface() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public KHRStreamProducerEGLSurface(FunctionProvider provider) {

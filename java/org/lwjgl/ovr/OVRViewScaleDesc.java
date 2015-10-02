@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * {@code HmdSpaceToWorldScaleInMeters} would be 0.0254. Note that if you are scaling the player in size, this must also scale. So if your application
  * units are inches, but you're shrinking the player to half their normal size, then {@code HmdSpaceToWorldScaleInMeters} would be {@code 0.0254*2.0}.
  */
-public final class OVRViewScaleDesc extends Struct {
+public class OVRViewScaleDesc extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

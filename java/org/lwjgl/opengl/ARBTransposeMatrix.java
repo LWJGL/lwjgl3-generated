@@ -27,7 +27,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Promoted to core in {@link GL13 OpenGL 1.3}.</p>
  */
-public final class ARBTransposeMatrix {
+public class ARBTransposeMatrix {
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int
@@ -43,6 +43,11 @@ public final class ARBTransposeMatrix {
 		LoadTransposeMatrixdARB,
 		MultTransposeMatrixfARB,
 		MultTransposeMatrixdARB;
+
+	@JavadocExclude
+	protected ARBTransposeMatrix() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBTransposeMatrix(FunctionProvider provider) {

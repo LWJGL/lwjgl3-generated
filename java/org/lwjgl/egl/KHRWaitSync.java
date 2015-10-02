@@ -21,11 +21,16 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link EGL11 EGL L.1} and {@link KHRFenceSync KHR_fence_sync}.</p>
  */
-public final class KHRWaitSync {
+public class KHRWaitSync {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long WaitSyncKHR;
+
+	@JavadocExclude
+	protected KHRWaitSync() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public KHRWaitSync(FunctionProvider provider) {

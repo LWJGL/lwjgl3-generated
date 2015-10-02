@@ -20,7 +20,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Promoted to core in {@link GL30 OpenGL 3.0}.</p>
  */
-public final class EXTFramebufferBlit {
+public class EXTFramebufferBlit {
 
 	/**
 	 * Accepted by the {@code target} parameter of BindFramebufferEXT, CheckFramebufferStatusEXT, FramebufferTexture{1D|2D|3D}EXT, FramebufferRenderbufferEXT,
@@ -38,6 +38,11 @@ public final class EXTFramebufferBlit {
 	/** Function address. */
 	@JavadocExclude
 	public final long BlitFramebufferEXT;
+
+	@JavadocExclude
+	protected EXTFramebufferBlit() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTFramebufferBlit(FunctionProvider provider) {

@@ -26,7 +26,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL30 OpenGL 3.0} or {@link ARBFramebufferObject ARB_framebuffer_object}. Promoted to core in {@link GL42 OpenGL 4.2}.</p>
  */
-public final class ARBInternalformatQuery {
+public class ARBInternalformatQuery {
 
 	/** Accepted by the {@code pname} parameter of GetInternalformativ. */
 	public static final int GL_NUM_SAMPLE_COUNTS = 0x9380;
@@ -34,6 +34,11 @@ public final class ARBInternalformatQuery {
 	/** Function address. */
 	@JavadocExclude
 	public final long GetInternalformativ;
+
+	@JavadocExclude
+	protected ARBInternalformatQuery() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBInternalformatQuery(FunctionProvider provider) {

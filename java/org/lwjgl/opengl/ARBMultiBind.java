@@ -33,7 +33,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GL30 OpenGL 3.0}. Promoted to core in {@link GL44 OpenGL 4.4}.</p>
  */
-public final class ARBMultiBind {
+public class ARBMultiBind {
 
 	/** Function address. */
 	@JavadocExclude
@@ -44,6 +44,11 @@ public final class ARBMultiBind {
 		BindSamplers,
 		BindImageTextures,
 		BindVertexBuffers;
+
+	@JavadocExclude
+	protected ARBMultiBind() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBMultiBind(FunctionProvider provider) {

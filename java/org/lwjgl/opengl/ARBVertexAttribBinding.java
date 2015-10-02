@@ -39,7 +39,7 @@ import static org.lwjgl.system.JNI.*;
  * </ul>
  * Promoted to core in {@link GL43 OpenGL 4.3}.</p>
  */
-public final class ARBVertexAttribBinding {
+public class ARBVertexAttribBinding {
 
 	/** Accepted by the {@code pname} parameter of GetVertexAttrib*v. */
 	public static final int
@@ -73,6 +73,11 @@ public final class ARBVertexAttribBinding {
 		VertexArrayVertexAttribLFormatEXT,
 		VertexArrayVertexAttribBindingEXT,
 		VertexArrayVertexBindingDivisorEXT;
+
+	@JavadocExclude
+	protected ARBVertexAttribBinding() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBVertexAttribBinding(FunctionProvider provider) {

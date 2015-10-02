@@ -35,7 +35,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL20 OpenGL 2.0} and {@link EXTGPUShader4 EXT_gpu_shader4} or <a href="http://www.opengl.org/registry/specs/NV/gpu_program4.txt">EXT_texture_buffer_object</a>.</p>
  */
-public final class EXTTextureBufferObject {
+public class EXTTextureBufferObject {
 
 	/**
 	 * Accepted by the {@code target} parameter of BindBuffer, BufferData, BufferSubData, MapBuffer, BindTexture, UnmapBuffer, GetBufferSubData,
@@ -53,6 +53,11 @@ public final class EXTTextureBufferObject {
 	/** Function address. */
 	@JavadocExclude
 	public final long TexBufferEXT;
+
+	@JavadocExclude
+	protected EXTTextureBufferObject() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTTextureBufferObject(FunctionProvider provider) {

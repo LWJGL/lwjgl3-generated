@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Promoted to core in {@link GL44 OpenGL 4.4}.</p>
  */
-public final class ARBBufferStorage {
+public class ARBBufferStorage {
 
 	/** Accepted in the {@code flags} parameter of {@link #glBufferStorage BufferStorage} and {@link #glNamedBufferStorageEXT NamedBufferStorageEXT}. */
 	public static final int
@@ -53,6 +53,11 @@ public final class ARBBufferStorage {
 	public final long
 		BufferStorage,
 		NamedBufferStorageEXT;
+
+	@JavadocExclude
+	protected ARBBufferStorage() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBBufferStorage(FunctionProvider provider) {

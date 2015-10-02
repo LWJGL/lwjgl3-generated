@@ -17,7 +17,7 @@ import static org.lwjgl.system.JNI.*;
  * <p>This extension reintroduces the alpha test per-fragment operation from OpenGL ES 1.x. Some hardware has a dedicated unit capable of performing this
  * operation, and it can save ALU operations in the fragment shader by avoiding the conditional discard.</p>
  */
-public final class QCOMAlphaTest {
+public class QCOMAlphaTest {
 
 	/**
 	 * Accepted by the {@code cap} parameter of Enable and Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, and
@@ -33,6 +33,11 @@ public final class QCOMAlphaTest {
 	/** Function address. */
 	@JavadocExclude
 	public final long AlphaFuncQCOM;
+
+	@JavadocExclude
+	protected QCOMAlphaTest() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public QCOMAlphaTest(FunctionProvider provider) {

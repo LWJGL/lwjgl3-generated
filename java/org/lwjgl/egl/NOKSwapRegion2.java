@@ -30,11 +30,16 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link EGL14 EGL L.1}.</p>
  */
-public final class NOKSwapRegion2 {
+public class NOKSwapRegion2 {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long SwapBuffersRegion2NOK;
+
+	@JavadocExclude
+	protected NOKSwapRegion2() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NOKSwapRegion2(FunctionProvider provider) {

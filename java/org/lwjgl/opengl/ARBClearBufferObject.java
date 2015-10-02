@@ -27,7 +27,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GL15 OpenGL 1.5}. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
  */
-public final class ARBClearBufferObject {
+public class ARBClearBufferObject {
 
 	/** Function address. */
 	@JavadocExclude
@@ -36,6 +36,11 @@ public final class ARBClearBufferObject {
 		ClearBufferSubData,
 		ClearNamedBufferDataEXT,
 		ClearNamedBufferSubDataEXT;
+
+	@JavadocExclude
+	protected ARBClearBufferObject() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBClearBufferObject(FunctionProvider provider) {

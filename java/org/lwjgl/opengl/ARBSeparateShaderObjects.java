@@ -64,7 +64,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL20 OpenGL 2.0} or {@link ARBShaderObjects ARB_shader_objects}. Promoted to core in {@link GL41 OpenGL 4.1}.</p>
  */
-public final class ARBSeparateShaderObjects {
+public class ARBSeparateShaderObjects {
 
 	/** Accepted by {@code stages} parameter to UseProgramStages. */
 	public static final int
@@ -148,6 +148,11 @@ public final class ARBSeparateShaderObjects {
 		ProgramUniformMatrix4x3dv,
 		ValidateProgramPipeline,
 		GetProgramPipelineInfoLog;
+
+	@JavadocExclude
+	protected ARBSeparateShaderObjects() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBSeparateShaderObjects(FunctionProvider provider) {

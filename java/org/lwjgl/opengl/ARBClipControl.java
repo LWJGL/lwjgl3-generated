@@ -19,7 +19,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Promoted to core in {@link GL45 OpenGL 4.5}.</p>
  */
-public final class ARBClipControl {
+public class ARBClipControl {
 
 	/** Accepted by the {@code origin} parameter of {@link #glClipControl ClipControl}. */
 	public static final int
@@ -39,6 +39,11 @@ public final class ARBClipControl {
 	/** Function address. */
 	@JavadocExclude
 	public final long ClipControl;
+
+	@JavadocExclude
+	protected ARBClipControl() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBClipControl(FunctionProvider provider) {

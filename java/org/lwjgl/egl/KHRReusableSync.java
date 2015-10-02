@@ -27,7 +27,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link EGL11 EGL L.1}.</p>
  */
-public final class KHRReusableSync {
+public class KHRReusableSync {
 
 	/**  */
 	public static final int
@@ -53,6 +53,11 @@ public final class KHRReusableSync {
 		ClientWaitSyncKHR,
 		SignalSyncKHR,
 		GetSyncAttribKHR;
+
+	@JavadocExclude
+	protected KHRReusableSync() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public KHRReusableSync(FunctionProvider provider) {

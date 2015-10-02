@@ -16,7 +16,7 @@ import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** The core OpenCL 2.0 functionality. */
-public final class CL20 {
+public class CL20 {
 
 	/** OpenCL Version. */
 	public static final int CL_VERSION_2_0 = 0x1;
@@ -128,6 +128,11 @@ public final class CL20 {
 		SetKernelArgSVMPointer,
 		SetKernelExecInfo,
 		CreateSamplerWithProperties;
+
+	@JavadocExclude
+	protected CL20() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public CL20(FunctionProvider provider) {

@@ -59,7 +59,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * never want to apply the colorspace. (For example, graphics hardware does not apply sRGB conversion to the alpha channel.)</li>
  * </ol></p>
  */
-public final class STBImageResize {
+public class STBImageResize {
 
 	/** Set this flag if you have no alpha channel, or otherwise provide the index of the alpha channel. */
 	public static final int STBIR_ALPHA_CHANNEL_NONE = 0xFFFFFFFF;
@@ -112,7 +112,10 @@ public final class STBImageResize {
 
 	static { LWJGLUtil.initialize(); }
 
-	private STBImageResize() {}
+	@JavadocExclude
+	protected STBImageResize() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ stbir_resize_uint8 ] ---
 

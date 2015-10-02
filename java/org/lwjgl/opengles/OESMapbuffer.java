@@ -22,7 +22,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <p>This extension adds to the vertex buffer object functionality supported by OpenGL ES 1.1 or ES 2.0 by allowing the entire data storage of a buffer
  * object to be mapped into the client's address space.</p>
  */
-public final class OESMapbuffer {
+public class OESMapbuffer {
 
 	/** Accepted by the {@code access} parameter of MapBufferOES. */
 	public static final int GL_WRITE_ONLY_OES = 0x88B9;
@@ -41,6 +41,11 @@ public final class OESMapbuffer {
 		MapBufferOES,
 		UnmapBufferOES,
 		GetBufferPointervOES;
+
+	@JavadocExclude
+	protected OESMapbuffer() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public OESMapbuffer(FunctionProvider provider) {

@@ -24,7 +24,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link ARBGPUShader5 ARB_gpu_shader5}. Promoted to core in {@link GL40 OpenGL 4.0}.</p>
  */
-public final class ARBShaderSubroutine {
+public class ARBShaderSubroutine {
 
 	/** Accepted by the {@code pname} parameter of GetProgramStageiv. */
 	public static final int
@@ -55,6 +55,11 @@ public final class ARBShaderSubroutine {
 		UniformSubroutinesuiv,
 		GetUniformSubroutineuiv,
 		GetProgramStageiv;
+
+	@JavadocExclude
+	protected ARBShaderSubroutine() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBShaderSubroutine(FunctionProvider provider) {

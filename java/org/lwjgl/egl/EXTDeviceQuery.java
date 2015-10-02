@@ -25,7 +25,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link EGL15 EGL L.1} or an earlier verison of EGL with the <a href="https://www.khronos.org/registry/egl/extensions/EXT/EGL_EXT_client_extensions.txt">EXT_device_query</a> extension.</p>
  */
-public final class EXTDeviceQuery {
+public class EXTDeviceQuery {
 
 	/**  */
 	public static final int
@@ -41,6 +41,11 @@ public final class EXTDeviceQuery {
 		QueryDeviceAttribEXT,
 		QueryDeviceStringEXT,
 		QueryDisplayAttribEXT;
+
+	@JavadocExclude
+	protected EXTDeviceQuery() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTDeviceQuery(FunctionProvider provider) {

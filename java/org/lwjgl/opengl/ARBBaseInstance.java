@@ -29,7 +29,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GL31 OpenGL 3.1} or {@link ARBDrawInstanced ARB_draw_instanced}. Promoted to core in {@link GL42 OpenGL 4.2}.</p>
  */
-public final class ARBBaseInstance {
+public class ARBBaseInstance {
 
 	/** Function address. */
 	@JavadocExclude
@@ -37,6 +37,11 @@ public final class ARBBaseInstance {
 		DrawArraysInstancedBaseInstance,
 		DrawElementsInstancedBaseInstance,
 		DrawElementsInstancedBaseVertexBaseInstance;
+
+	@JavadocExclude
+	protected ARBBaseInstance() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBBaseInstance(FunctionProvider provider) {

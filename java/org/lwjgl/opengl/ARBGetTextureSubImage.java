@@ -21,13 +21,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GL20 OpenGL 2.0}. Promoted to core in {@link GL45 OpenGL 4.5}.</p>
  */
-public final class ARBGetTextureSubImage {
+public class ARBGetTextureSubImage {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		GetTextureSubImage,
 		GetCompressedTextureSubImage;
+
+	@JavadocExclude
+	protected ARBGetTextureSubImage() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBGetTextureSubImage(FunctionProvider provider) {

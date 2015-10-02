@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Baked character data, returned by {@link STBTruetype#stbtt_BakeFontBitmap}. */
-public final class STBTTBakedChar extends Struct {
+public class STBTTBakedChar extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

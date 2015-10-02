@@ -37,7 +37,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link EGL12 EGL L.1} and {@link KHRStream KHR_stream}.</p>
  */
-public final class KHRStreamFIFO {
+public class KHRStreamFIFO {
 
 	/**  */
 	public static final int
@@ -49,6 +49,11 @@ public final class KHRStreamFIFO {
 	/** Function address. */
 	@JavadocExclude
 	public final long QueryStreamTimeKHR;
+
+	@JavadocExclude
+	protected KHRStreamFIFO() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public KHRStreamFIFO(FunctionProvider provider) {

@@ -33,7 +33,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Promoted to core in {@link GL30 OpenGL 3.0}.</p>
  */
-public final class ARBColorBufferFloat {
+public class ARBColorBufferFloat {
 
 	/** Accepted by the {@code pname} parameters of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_RGBA_FLOAT_MODE_ARB = 0x8820;
@@ -50,6 +50,11 @@ public final class ARBColorBufferFloat {
 	/** Function address. */
 	@JavadocExclude
 	public final long ClampColorARB;
+
+	@JavadocExclude
+	protected ARBColorBufferFloat() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBColorBufferFloat(FunctionProvider provider) {

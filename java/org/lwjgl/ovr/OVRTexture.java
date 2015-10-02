@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Contains platform-specific information about a texture. Aliases to one of ovrD3D11Texture or {@link OVRGLTexture}. */
-public final class OVRTexture extends Struct {
+public class OVRTexture extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

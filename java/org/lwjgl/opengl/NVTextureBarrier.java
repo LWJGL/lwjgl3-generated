@@ -17,11 +17,16 @@ import static org.lwjgl.system.JNI.*;
  * <p>This extension relaxes the restrictions on rendering to a currently bound texture and provides a mechanism to avoid
  * read-after-write hazards.</p>
  */
-public final class NVTextureBarrier {
+public class NVTextureBarrier {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long TextureBarrierNV;
+
+	@JavadocExclude
+	protected NVTextureBarrier() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVTextureBarrier(FunctionProvider provider) {

@@ -28,11 +28,16 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Promoted to core in {@link GL43 OpenGL 4.3}.</p>
  */
-public final class ARBCopyImage {
+public class ARBCopyImage {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long CopyImageSubData;
+
+	@JavadocExclude
+	protected ARBCopyImage() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBCopyImage(FunctionProvider provider) {

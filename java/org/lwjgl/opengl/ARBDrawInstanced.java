@@ -32,13 +32,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GL30 OpenGL 3.0} or <a href="http://www.opengl.org/registry/specs/EXT/gpu_shader4.txt">EXT_gpu_shader4</a> or <a href="http://www.opengl.org/registry/specs/NV/vertex_program4.txt">NV_vertex_program4</a>. Promoted to core in {@link GL31 OpenGL 3.1}.</p>
  */
-public final class ARBDrawInstanced {
+public class ARBDrawInstanced {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		DrawArraysInstancedARB,
 		DrawElementsInstancedARB;
+
+	@JavadocExclude
+	protected ARBDrawInstanced() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBDrawInstanced(FunctionProvider provider) {

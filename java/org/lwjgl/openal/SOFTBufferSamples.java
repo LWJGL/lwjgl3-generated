@@ -32,7 +32,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>In addition, unextended OpenAL does not have any methods for updating only a portion of a buffer, nor a method to retrieve the data from a buffer.</p>
  */
-public final class SOFTBufferSamples {
+public class SOFTBufferSamples {
 
 	/** Accepted by the {@code internalformat} parameter of alBufferSamplesSOFT (values are shared with standard OpenAL, AL_EXT_FLOAT32, and AL_EXT_MCFORMATS). */
 	public static final int
@@ -102,6 +102,11 @@ public final class SOFTBufferSamples {
 		IsBufferFormatSupportedSOFT,
 		BufferSubSamplesSOFT,
 		GetBufferSamplesSOFT;
+
+	@JavadocExclude
+	protected SOFTBufferSamples() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public SOFTBufferSamples(FunctionProvider provider) {

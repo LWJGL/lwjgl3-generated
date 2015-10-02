@@ -29,7 +29,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class EXTTextureStorage {
+public class EXTTextureStorage {
 
 	/** Accepted by the {@code value} parameter of GetTexParameter{if}v. */
 	public static final int GL_TEXTURE_IMMUTABLE_FORMAT_EXT = 0x912F;
@@ -69,6 +69,11 @@ public final class EXTTextureStorage {
 		TextureStorage1DEXT,
 		TextureStorage2DEXT,
 		TextureStorage3DEXT;
+
+	@JavadocExclude
+	protected EXTTextureStorage() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTTextureStorage(FunctionProvider provider) {

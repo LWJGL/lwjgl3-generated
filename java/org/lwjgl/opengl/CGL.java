@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to CGL. */
-public final class CGL {
+public class CGL {
 
 	/** Attribute names for {@link #CGLChoosePixelFormat ChoosePixelFormat} and {@link #CGLDescribePixelFormat DescribePixelFormat}. */
 	public static final int
@@ -271,6 +271,11 @@ public final class CGL {
 		UnlockContext,
 		GetVersion,
 		ErrorString;
+
+	@JavadocExclude
+	protected CGL() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public CGL(FunctionProvider provider) {

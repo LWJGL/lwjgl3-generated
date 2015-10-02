@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to <dlfcn.h>. */
-public final class DynamicLinkLoader {
+public class DynamicLinkLoader {
 
 	/** The {@code mode} argument to {@link #dlopen} contains one of the following. */
 	public static final int
@@ -42,7 +42,10 @@ public final class DynamicLinkLoader {
 
 	static { LWJGLUtil.initialize(); }
 
-	private DynamicLinkLoader() {}
+	@JavadocExclude
+	protected DynamicLinkLoader() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ dlopen ] ---
 

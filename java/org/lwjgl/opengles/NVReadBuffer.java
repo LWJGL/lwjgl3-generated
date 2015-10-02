@@ -23,7 +23,7 @@ import static org.lwjgl.system.JNI.*;
  * accepts value BACK. If a user-created FBO is bound, then ReadBufferNV accepts COLOR_ATTACHMENT0. Additionally, if the NV_draw_buffers extension is
  * supported, ReadBufferNV accepts COLOR_ATTACHMENTn_NV (n is 0 to 15).</p>
  */
-public final class NVReadBuffer {
+public class NVReadBuffer {
 
 	/** Accepted by the {@code pname} parameter of GetIntegerv. */
 	public static final int GL_READ_BUFFER_NV = 0xC02;
@@ -31,6 +31,11 @@ public final class NVReadBuffer {
 	/** Function address. */
 	@JavadocExclude
 	public final long ReadBufferNV;
+
+	@JavadocExclude
+	protected NVReadBuffer() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVReadBuffer(FunctionProvider provider) {

@@ -19,7 +19,7 @@ import static org.lwjgl.system.APIUtil.*;
 import org.lwjgl.system.linux.*;
 
 /** Native bindings to GLX 1.3. */
-public final class GLX13 {
+public class GLX13 {
 
 	/** Added in GLX 1.3. */
 	public static final int
@@ -99,6 +99,11 @@ public final class GLX13 {
 		QueryContext,
 		SelectEvent,
 		GetSelectedEvent;
+
+	@JavadocExclude
+	protected GLX13() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLX13(FunctionProvider provider) {

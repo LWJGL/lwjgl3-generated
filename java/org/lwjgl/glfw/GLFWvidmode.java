@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Video mode. */
-public final class GLFWvidmode extends Struct {
+public class GLFWvidmode extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

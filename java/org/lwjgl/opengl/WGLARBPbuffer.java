@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string} and {@link WGLARBPixelFormat WGL_ARB_pixel_format}.</p>
  */
-public final class WGLARBPbuffer {
+public class WGLARBPbuffer {
 
 	/**
 	 * Accepted by the {@code attribIList} parameter of {@link WGLARBPixelFormat#wglChoosePixelFormatARB ChoosePixelFormatARB} and the {@code attributes} parameter of
@@ -66,6 +66,11 @@ public final class WGLARBPbuffer {
 		ReleasePbufferDCARB,
 		DestroyPbufferARB,
 		QueryPbufferARB;
+
+	@JavadocExclude
+	protected WGLARBPbuffer() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public WGLARBPbuffer(FunctionProvider provider) {

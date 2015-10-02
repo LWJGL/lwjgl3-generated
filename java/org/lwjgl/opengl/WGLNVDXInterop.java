@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GL21 OpenGL 2.1}.</p>
  */
-public final class WGLNVDXInterop {
+public class WGLNVDXInterop {
 
 	/** Accepted by the {@code access} parameters of {@link #wglDXRegisterObjectNV DXRegisterObjectNV} and {@link #wglDXObjectAccessNV DXObjectAccessNV}. */
 	public static final int
@@ -42,6 +42,11 @@ public final class WGLNVDXInterop {
 		DXObjectAccessNV,
 		DXLockObjectsNV,
 		DXUnlockObjectsNV;
+
+	@JavadocExclude
+	protected WGLNVDXInterop() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public WGLNVDXInterop(FunctionProvider provider) {

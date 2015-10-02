@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link EXTDeviceBase EXT_device_base}.</p>
  */
-public final class EXTOutputBase {
+public class EXTOutputBase {
 
 	/**  */
 	public static final int
@@ -55,6 +55,11 @@ public final class EXTOutputBase {
 		OutputPortAttribEXT,
 		QueryOutputPortAttribEXT,
 		QueryOutputPortStringEXT;
+
+	@JavadocExclude
+	protected EXTOutputBase() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTOutputBase(FunctionProvider provider) {

@@ -39,7 +39,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL30 OpenGL 3.0} and GLSL 1.30. Promoted to core in {@link GL42 OpenGL 4.2}.</p>
  */
-public final class ARBShaderImageLoadStore {
+public class ARBShaderImageLoadStore {
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, GetDoublev, and GetInteger64v. */
 	public static final int
@@ -130,6 +130,11 @@ public final class ARBShaderImageLoadStore {
 	public final long
 		BindImageTexture,
 		MemoryBarrier;
+
+	@JavadocExclude
+	protected ARBShaderImageLoadStore() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBShaderImageLoadStore(FunctionProvider provider) {

@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GLX13 GLX 1.3}.</p>
  */
-public final class GLXEXTTextureFromPixmap {
+public class GLXEXTTextureFromPixmap {
 
 	/** Accepted by the {@code attribute} parameter of {@link GLX13#glXGetFBConfigAttrib GetFBConfigAttrib} and the {@code attrib_list} parameter of {@link GLX13#glXChooseFBConfig ChooseFBConfig}. */
 	public static final int
@@ -85,6 +85,11 @@ public final class GLXEXTTextureFromPixmap {
 	public final long
 		BindTexImageEXT,
 		ReleaseTexImageEXT;
+
+	@JavadocExclude
+	protected GLXEXTTextureFromPixmap() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLXEXTTextureFromPixmap(FunctionProvider provider) {

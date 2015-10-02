@@ -54,7 +54,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class EXTSeparateShaderObjects {
+public class EXTSeparateShaderObjects {
 
 	/** Accepted by {@code stages} parameter to UseProgramStagesEXT. */
 	public static final int
@@ -118,6 +118,11 @@ public final class EXTSeparateShaderObjects {
 		ProgramUniformMatrix4x2fvEXT,
 		ProgramUniformMatrix3x4fvEXT,
 		ProgramUniformMatrix4x3fvEXT;
+
+	@JavadocExclude
+	protected EXTSeparateShaderObjects() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTSeparateShaderObjects(FunctionProvider provider) {

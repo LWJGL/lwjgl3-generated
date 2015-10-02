@@ -29,7 +29,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requres {@link GLES30 GLES E.S} or {@link EXTDrawBuffers EXT_draw_buffers}.</p>
  */
-public final class EXTDrawBuffersIndexed {
+public class EXTDrawBuffersIndexed {
 
 	/** Function address. */
 	@JavadocExclude
@@ -42,6 +42,11 @@ public final class EXTDrawBuffersIndexed {
 		BlendFuncSeparateiEXT,
 		ColorMaskiEXT,
 		IsEnablediEXT;
+
+	@JavadocExclude
+	protected EXTDrawBuffersIndexed() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTDrawBuffersIndexed(FunctionProvider provider) {

@@ -23,7 +23,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL42 OpenGL 4.2} or {@link ARBTextureStorage ARB_texture_storage}. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
  */
-public final class ARBTextureStorageMultisample {
+public class ARBTextureStorageMultisample {
 
 	/** Function address. */
 	@JavadocExclude
@@ -32,6 +32,11 @@ public final class ARBTextureStorageMultisample {
 		TexStorage3DMultisample,
 		TextureStorage2DMultisampleEXT,
 		TextureStorage3DMultisampleEXT;
+
+	@JavadocExclude
+	protected ARBTextureStorageMultisample() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBTextureStorageMultisample(FunctionProvider provider) {

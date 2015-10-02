@@ -40,7 +40,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL30 OpenGL 3.0}.</p>
  */
-public final class EXTShaderImageLoadStore {
+public class EXTShaderImageLoadStore {
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int
@@ -114,6 +114,11 @@ public final class EXTShaderImageLoadStore {
 	public final long
 		BindImageTextureEXT,
 		MemoryBarrierEXT;
+
+	@JavadocExclude
+	protected EXTShaderImageLoadStore() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTShaderImageLoadStore(FunctionProvider provider) {

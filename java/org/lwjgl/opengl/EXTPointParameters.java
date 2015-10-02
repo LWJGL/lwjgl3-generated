@@ -54,7 +54,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>The new point size derivation method applies to all points, while the threshold applies to multisample points only.</p>
  */
-public final class EXTPointParameters {
+public class EXTPointParameters {
 
 	/** Accepted by the {@code pname} parameter of glPointParameterfvEXT, and the {@code pname} of glGet. */
 	public static final int
@@ -68,6 +68,11 @@ public final class EXTPointParameters {
 	public final long
 		PointParameterfEXT,
 		PointParameterfvEXT;
+
+	@JavadocExclude
+	protected EXTPointParameters() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTPointParameters(FunctionProvider provider) {

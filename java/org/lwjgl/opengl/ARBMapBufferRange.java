@@ -32,7 +32,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GL21 OpenGL 2.1}. Promoted to core in {@link GL30 OpenGL 3.0}.</p>
  */
-public final class ARBMapBufferRange {
+public class ARBMapBufferRange {
 
 	/** Accepted by the {@code access} parameter of MapBufferRange. */
 	public static final int
@@ -48,6 +48,11 @@ public final class ARBMapBufferRange {
 	public final long
 		MapBufferRange,
 		FlushMappedBufferRange;
+
+	@JavadocExclude
+	protected ARBMapBufferRange() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBMapBufferRange(FunctionProvider provider) {

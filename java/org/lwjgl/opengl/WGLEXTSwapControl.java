@@ -18,13 +18,18 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link WGLEXTExtensionsString WGL_EXT_extensions_string}.</p>
  */
-public final class WGLEXTSwapControl {
+public class WGLEXTSwapControl {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		SwapIntervalEXT,
 		GetSwapIntervalEXT;
+
+	@JavadocExclude
+	protected WGLEXTSwapControl() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public WGLEXTSwapControl(FunctionProvider provider) {

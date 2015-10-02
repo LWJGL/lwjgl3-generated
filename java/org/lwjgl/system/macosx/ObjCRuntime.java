@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to Objective-C Runtime. */
-public final class ObjCRuntime {
+public class ObjCRuntime {
 
 	/** Nil value. */
 	public static final long nil = 0x0L;
@@ -69,7 +69,10 @@ public final class ObjCRuntime {
 
 	static { LWJGLUtil.initialize(); }
 
-	private ObjCRuntime() {}
+	@JavadocExclude
+	protected ObjCRuntime() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ object_copy ] ---
 

@@ -21,13 +21,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>These functions behave identically to the standard OpenGL 1.1 functions glDrawArrays() and glDrawElements() except they handle multiple lists of
  * vertices in one call. Their main purpose is to allow one function call to render more than one primitive such as triangle strip, triangle fan, etc.</p>
  */
-public final class EXTMultiDrawArrays {
+public class EXTMultiDrawArrays {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		MultiDrawArraysEXT,
 		MultiDrawElementsEXT;
+
+	@JavadocExclude
+	protected EXTMultiDrawArrays() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTMultiDrawArrays(FunctionProvider provider) {

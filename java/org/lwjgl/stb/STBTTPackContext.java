@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** An opaque structure which holds all the context needed from {@link STBTruetype#stbtt_PackBegin} to {@link STBTruetype#stbtt_PackEnd}. */
-public final class STBTTPackContext extends Struct {
+public class STBTTPackContext extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

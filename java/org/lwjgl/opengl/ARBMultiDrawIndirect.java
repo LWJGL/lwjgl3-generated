@@ -27,13 +27,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GL40 OpenGL 4.0} or {@link ARBDrawIndirect ARB_draw_indirect}. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
  */
-public final class ARBMultiDrawIndirect {
+public class ARBMultiDrawIndirect {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		MultiDrawArraysIndirect,
 		MultiDrawElementsIndirect;
+
+	@JavadocExclude
+	protected ARBMultiDrawIndirect() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBMultiDrawIndirect(FunctionProvider provider) {

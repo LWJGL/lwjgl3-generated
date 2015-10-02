@@ -35,7 +35,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <p>Requires {@link GL20 GL20} or {@link ARBShaderObjects ARB_shader_objects} and <a href="http://www.opengl.org/registry/specs/NV/transform_feedback.txt">NV_transform_feedback</a> or <a href="http://www.opengl.org/registry/specs/EXT/transform_feedback.txt">EXT_transform_feedback</a>.
  * Promoted to core in {@link GL40 OpenGL 4.0}.</p>
  */
-public final class ARBTransformFeedback2 {
+public class ARBTransformFeedback2 {
 
 	/** Accepted by the {@code target} parameter of BindTransformFeedback. */
 	public static final int GL_TRANSFORM_FEEDBACK = 0x8E22;
@@ -56,6 +56,11 @@ public final class ARBTransformFeedback2 {
 		PauseTransformFeedback,
 		ResumeTransformFeedback,
 		DrawTransformFeedback;
+
+	@JavadocExclude
+	protected ARBTransformFeedback2() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBTransformFeedback2(FunctionProvider provider) {

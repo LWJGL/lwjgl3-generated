@@ -31,7 +31,7 @@ import static org.lwjgl.system.JNI.*;
  * enables the use-case described above and many more. The swizzle parameter is also applied to vertex indices passed to shaders, and updates to the
  * definition of base vertex parameters and primitive restart are applied.</p>
  */
-public final class AMDInterleavedElements {
+public class AMDInterleavedElements {
 
 	/** Accepted by the {@code pname} parameter of VertexAttribParameteriAMD and GetVertexAttrib{iv|dv|fv|Iiv|Iuiv|Ldv}. */
 	public static final int GL_VERTEX_ELEMENT_SWIZZLE_AMD = 0x91A4;
@@ -42,6 +42,11 @@ public final class AMDInterleavedElements {
 	/** Function address. */
 	@JavadocExclude
 	public final long VertexAttribParameteriAMD;
+
+	@JavadocExclude
+	protected AMDInterleavedElements() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public AMDInterleavedElements(FunctionProvider provider) {

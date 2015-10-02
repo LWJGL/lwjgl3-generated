@@ -26,7 +26,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>This storage format is also used to represent 16-bit components in the floating-point frame buffers, as defined in the NV_float_buffer extension.</p>
  */
-public final class NVHalfFloat {
+public class NVHalfFloat {
 
 	/**
 	 * Accepted by the {@code type} argument of VertexPointer, NormalPointer, ColorPointer, TexCoordPointer, FogCoordPointerEXT, SecondaryColorPointerEXT,
@@ -84,6 +84,11 @@ public final class NVHalfFloat {
 		VertexAttribs2hvNV,
 		VertexAttribs3hvNV,
 		VertexAttribs4hvNV;
+
+	@JavadocExclude
+	protected NVHalfFloat() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVHalfFloat(FunctionProvider provider) {

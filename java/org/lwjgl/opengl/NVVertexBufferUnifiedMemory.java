@@ -24,7 +24,7 @@ import static org.lwjgl.system.APIUtil.*;
  * objects described in the Overview of {@link NVShaderBufferLoad NV_shader_buffer_load}. The intent of this extension is to enable a way for the application to specify
  * vertex attrib state that alleviates the overhead of object binds and driver memory management.</p>
  */
-public final class NVVertexBufferUnifiedMemory {
+public class NVVertexBufferUnifiedMemory {
 
 	/** Accepted by the {@code cap} parameter of DisableClientState, EnableClientState, IsEnabled. */
 	public static final int
@@ -78,6 +78,11 @@ public final class NVVertexBufferUnifiedMemory {
 		VertexAttribFormatNV,
 		VertexAttribIFormatNV,
 		GetIntegerui64i_vNV;
+
+	@JavadocExclude
+	protected NVVertexBufferUnifiedMemory() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVVertexBufferUnifiedMemory(FunctionProvider provider) {

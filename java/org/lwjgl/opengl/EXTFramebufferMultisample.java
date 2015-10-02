@@ -54,7 +54,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Promoted to core in {@link GL30 OpenGL 3.0}.</p>
  */
-public final class EXTFramebufferMultisample {
+public class EXTFramebufferMultisample {
 
 	/** Accepted by the {@code pname} parameter of GetRenderbufferParameterivEXT. */
 	public static final int GL_RENDERBUFFER_SAMPLES_EXT = 0x8CAB;
@@ -68,6 +68,11 @@ public final class EXTFramebufferMultisample {
 	/** Function address. */
 	@JavadocExclude
 	public final long RenderbufferStorageMultisampleEXT;
+
+	@JavadocExclude
+	protected EXTFramebufferMultisample() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTFramebufferMultisample(FunctionProvider provider) {

@@ -32,13 +32,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class NVDrawInstanced {
+public class NVDrawInstanced {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		DrawArraysInstancedNV,
 		DrawElementsInstancedNV;
+
+	@JavadocExclude
+	protected NVDrawInstanced() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVDrawInstanced(FunctionProvider provider) {

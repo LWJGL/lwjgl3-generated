@@ -26,7 +26,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL20 OpenGL 2.0}.</p>
  */
-public final class EXTDrawBuffers2 {
+public class EXTDrawBuffers2 {
 
 	/** Function address. */
 	@JavadocExclude
@@ -37,6 +37,11 @@ public final class EXTDrawBuffers2 {
 		EnableIndexedEXT,
 		DisableIndexedEXT,
 		IsEnabledIndexedEXT;
+
+	@JavadocExclude
+	protected EXTDrawBuffers2() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTDrawBuffers2(FunctionProvider provider) {

@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Contains information about a libffi call interface. */
-public final class FFICIF extends Struct {
+public class FFICIF extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

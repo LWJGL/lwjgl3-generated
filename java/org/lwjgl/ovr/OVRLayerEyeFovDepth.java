@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Describes a layer that specifies a monoscopic or stereoscopic view, with depth textures in addition to color textures. This is typically used to
  * support positional time warp. This struct is the same as {@link OVRLayerEyeFov}, but with the addition of {@code DepthTexture} and {@code ProjectionDesc}.
  */
-public final class OVRLayerEyeFovDepth extends Struct {
+public class OVRLayerEyeFovDepth extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

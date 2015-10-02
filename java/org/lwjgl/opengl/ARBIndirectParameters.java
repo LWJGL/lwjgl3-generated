@@ -30,7 +30,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GL42 OpenGL 4.2}.</p>
  */
-public final class ARBIndirectParameters {
+public class ARBIndirectParameters {
 
 	/**
 	 * Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, GetBufferPointerv,
@@ -46,6 +46,11 @@ public final class ARBIndirectParameters {
 	public final long
 		MultiDrawArraysIndirectCountARB,
 		MultiDrawElementsIndirectCountARB;
+
+	@JavadocExclude
+	protected ARBIndirectParameters() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBIndirectParameters(FunctionProvider provider) {

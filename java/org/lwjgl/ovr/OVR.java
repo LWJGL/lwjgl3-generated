@@ -46,7 +46,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <li>{@link #ovr_Shutdown Shutdown}</li>
  * </ul>
  */
-public final class OVR {
+public class OVR {
 
 	/** Boolean values */
 	public static final int
@@ -226,7 +226,10 @@ public final class OVR {
 
 	static { LWJGLUtil.initialize(); }
 
-	private OVR() {}
+	@JavadocExclude
+	protected OVR() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ ovr_Initialize ] ---
 

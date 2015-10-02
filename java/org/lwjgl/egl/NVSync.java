@@ -27,7 +27,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link EGL11 EGL L.1}.</p>
  */
-public final class NVSync {
+public class NVSync {
 
 	/**  */
 	public static final int
@@ -57,6 +57,11 @@ public final class NVSync {
 		ClientWaitSyncNV,
 		SignalSyncNV,
 		GetSyncAttribNV;
+
+	@JavadocExclude
+	protected NVSync() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVSync(FunctionProvider provider) {

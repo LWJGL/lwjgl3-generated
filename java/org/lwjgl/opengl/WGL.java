@@ -18,7 +18,7 @@ import static org.lwjgl.system.APIUtil.*;
 import org.lwjgl.system.windows.*;
 
 /** Native bindings to WGL functionality. */
-public final class WGL {
+public class WGL {
 
 	/** UseFontOutlines format. */
 	public static final int
@@ -73,6 +73,11 @@ public final class WGL {
 		ShareLists,
 		UseFontBitmaps,
 		UseFontOutlines;
+
+	@JavadocExclude
+	protected WGL() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public WGL(FunctionProvider provider) {

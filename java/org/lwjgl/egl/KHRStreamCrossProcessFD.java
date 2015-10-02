@@ -36,7 +36,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link EGL12 EGL L.1} and {@link KHRStream KHR_stream}.</p>
  */
-public final class KHRStreamCrossProcessFD {
+public class KHRStreamCrossProcessFD {
 
 	/**  */
 	public static final int EGL_NO_FILE_DESCRIPTOR_KHR = -1;
@@ -46,6 +46,11 @@ public final class KHRStreamCrossProcessFD {
 	public final long
 		GetStreamFileDescriptorKHR,
 		CreateStreamFromFileDescriptorKHR;
+
+	@JavadocExclude
+	protected KHRStreamCrossProcessFD() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public KHRStreamCrossProcessFD(FunctionProvider provider) {

@@ -49,7 +49,7 @@ import static org.lwjgl.system.APIUtil.*;
  * reads of uniforms or parameters from buffers.</li>
  * </ul></p>
  */
-public final class EXTRobustness {
+public class EXTRobustness {
 
 	/** Returned by GetGraphicsResetStatusEXT. */
 	public static final int
@@ -74,6 +74,11 @@ public final class EXTRobustness {
 		ReadnPixelsEXT,
 		GetnUniformfvEXT,
 		GetnUniformivEXT;
+
+	@JavadocExclude
+	protected EXTRobustness() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTRobustness(FunctionProvider provider) {

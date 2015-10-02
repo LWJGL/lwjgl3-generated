@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to AL 1.0 functionality. */
-public final class AL10 {
+public class AL10 {
 
 	/** General tokens. */
 	public static final int
@@ -177,6 +177,11 @@ public final class AL10 {
 		GetEnumValue,
 		GetProcAddress,
 		IsExtensionPresent;
+
+	@JavadocExclude
+	protected AL10() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public AL10(FunctionProvider provider) {

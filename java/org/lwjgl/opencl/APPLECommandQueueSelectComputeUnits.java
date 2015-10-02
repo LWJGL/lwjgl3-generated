@@ -16,7 +16,7 @@ import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to the <strong>APPLE_command_queue_select_compute_units</strong> extension. */
-public final class APPLECommandQueueSelectComputeUnits {
+public class APPLECommandQueueSelectComputeUnits {
 
 	/**  */
 	public static final int CL_QUEUE_NUM_COMPUTE_UNITS_APPLE = 0x10000014;
@@ -24,6 +24,11 @@ public final class APPLECommandQueueSelectComputeUnits {
 	/** Function address. */
 	@JavadocExclude
 	public final long CreateCommandQueueWithPropertiesAPPLE;
+
+	@JavadocExclude
+	protected APPLECommandQueueSelectComputeUnits() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public APPLECommandQueueSelectComputeUnits(FunctionProvider provider) {

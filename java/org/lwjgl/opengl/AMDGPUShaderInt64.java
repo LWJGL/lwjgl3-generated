@@ -35,7 +35,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL40 OpenGL 4.0} and GLSL 4.00.</p>
  */
-public final class AMDGPUShaderInt64 {
+public class AMDGPUShaderInt64 {
 
 	/** Returned by the {@code type} parameter of GetActiveAttrib, GetActiveUniform, and GetTransformFeedbackVarying. */
 	public static final int
@@ -105,6 +105,11 @@ public final class AMDGPUShaderInt64 {
 		ProgramUniform2ui64vNV,
 		ProgramUniform3ui64vNV,
 		ProgramUniform4ui64vNV;
+
+	@JavadocExclude
+	protected AMDGPUShaderInt64() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public AMDGPUShaderInt64(FunctionProvider provider) {

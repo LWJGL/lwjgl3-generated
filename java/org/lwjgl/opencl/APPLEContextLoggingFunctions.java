@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * environment variable to one of stdout, stderr, or console. Pass your own do-nothing context logging function to disable the {@code CL_LOG_ERRORS}
  * override.</p>
  */
-public final class APPLEContextLoggingFunctions {
+public class APPLEContextLoggingFunctions {
 
 	/** Function address. */
 	@JavadocExclude
@@ -31,6 +31,11 @@ public final class APPLEContextLoggingFunctions {
 		LogMessagesToSystemLogAPPLE,
 		LogMessagesToStdoutAPPLE,
 		LogMessagesToStderrAPPLE;
+
+	@JavadocExclude
+	protected APPLEContextLoggingFunctions() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public APPLEContextLoggingFunctions(FunctionProvider provider) {

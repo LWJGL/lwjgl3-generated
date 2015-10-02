@@ -19,7 +19,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Promoted to core in {@link GL14 OpenGL 1.4}.</p>
  */
-public final class EXTBlendColor {
+public class EXTBlendColor {
 
 	/** Accepted by the {@code sfactor} and {@code dfactor} parameters of BlendFunc. */
 	public static final int
@@ -34,6 +34,11 @@ public final class EXTBlendColor {
 	/** Function address. */
 	@JavadocExclude
 	public final long BlendColorEXT;
+
+	@JavadocExclude
+	protected EXTBlendColor() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTBlendColor(FunctionProvider provider) {

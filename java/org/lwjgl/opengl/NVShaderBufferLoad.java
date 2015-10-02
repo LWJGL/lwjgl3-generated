@@ -85,7 +85,7 @@ import static org.lwjgl.system.APIUtil.*;
  * This allows simultaneous access to more buffers than <a href="http://www.opengl.org/registry/specs/EXT/bindable_uniform.txt">EXT_bindable_uniform</a> (MAX_VERTEX_BINDABLE_UNIFORMS, etc.) and each can be
  * larger than MAX_BINDABLE_UNIFORM_SIZE.</p>
  */
-public final class NVShaderBufferLoad {
+public class NVShaderBufferLoad {
 
 	/** Accepted by the {@code pname} parameter of GetBufferParameterui64vNV, GetNamedBufferParameterui64vNV. */
 	public static final int GL_BUFFER_GPU_ADDRESS_NV = 0x8F1D;
@@ -113,6 +113,11 @@ public final class NVShaderBufferLoad {
 		GetUniformui64vNV,
 		ProgramUniformui64NV,
 		ProgramUniformui64vNV;
+
+	@JavadocExclude
+	protected NVShaderBufferLoad() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVShaderBufferLoad(FunctionProvider provider) {

@@ -43,7 +43,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES31 GLES E.S}.</p>
  */
-public final class EXTGeometryShader {
+public class EXTGeometryShader {
 
 	/**
 	 * Accepted by the {@code type} parameter of CreateShader and CreateShaderProgramv, by the {@code pname} parameter of GetProgramPipelineiv and returned in
@@ -112,6 +112,11 @@ public final class EXTGeometryShader {
 	/** Function address. */
 	@JavadocExclude
 	public final long FramebufferTextureEXT;
+
+	@JavadocExclude
+	protected EXTGeometryShader() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTGeometryShader(FunctionProvider provider) {

@@ -48,7 +48,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL20 OpenGL 2.0} and {@link ARBInternalformatQuery ARB_internalformat_query}. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
  */
-public final class ARBInternalformatQuery2 {
+public class ARBInternalformatQuery2 {
 
 	/** Accepted by the {@code target} parameter of GetInternalformativ and GetInternalformati64v. */
 	public static final int
@@ -177,6 +177,11 @@ public final class ARBInternalformatQuery2 {
 	/** Function address. */
 	@JavadocExclude
 	public final long GetInternalformati64v;
+
+	@JavadocExclude
+	protected ARBInternalformatQuery2() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBInternalformatQuery2(FunctionProvider provider) {

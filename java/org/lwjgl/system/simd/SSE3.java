@@ -11,7 +11,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 
 /** Bindings to SSE3 macros. */
-public final class SSE3 {
+public class SSE3 {
 
 	/** Denormals are zero mode. */
 	public static final int
@@ -21,7 +21,10 @@ public final class SSE3 {
 
 	static { LWJGLUtil.initialize(); }
 
-	private SSE3() {}
+	@JavadocExclude
+	protected SSE3() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ _MM_SET_DENORMALS_ZERO_MODE ] ---
 

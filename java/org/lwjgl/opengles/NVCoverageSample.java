@@ -37,7 +37,7 @@ import static org.lwjgl.system.JNI.*;
  * or extruded volume rendering for stencil shadow volumes), coverage buffer updates may be masked by the application, analagous to masking the depth
  * buffer.</p>
  */
-public final class NVCoverageSample {
+public class NVCoverageSample {
 
 	/** Accepted by the {@code internalformat} parameter of RenderbufferStorageEXT and the {@code format} parameter of ReadPixels. */
 	public static final int GL_COVERAGE_COMPONENT_NV = 0x8ED0;
@@ -67,6 +67,11 @@ public final class NVCoverageSample {
 	public final long
 		CoverageMaskNV,
 		CoverageOperationNV;
+
+	@JavadocExclude
+	protected NVCoverageSample() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVCoverageSample(FunctionProvider provider) {

@@ -42,7 +42,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GL42 OpenGL 4.2} or {@link ARBInternalformatQuery ARB_internalformat_query}.</p>
  */
-public final class NVInternalformatSampleQuery {
+public class NVInternalformatSampleQuery {
 
 	/** Accepted by the {@code pname} parameter of GetInternalformatSampleivNV */
 	public static final int
@@ -54,6 +54,11 @@ public final class NVInternalformatSampleQuery {
 	/** Function address. */
 	@JavadocExclude
 	public final long GetInternalformatSampleivNV;
+
+	@JavadocExclude
+	protected NVInternalformatSampleQuery() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVInternalformatSampleQuery(FunctionProvider provider) {

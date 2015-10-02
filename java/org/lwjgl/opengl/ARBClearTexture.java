@@ -34,7 +34,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GL13 OpenGL 1.3}. Promoted to core in {@link GL44 OpenGL 4.4}.</p>
  */
-public final class ARBClearTexture {
+public class ARBClearTexture {
 
 	/** Accepted by the {@code pname} parameter for {@link GL42#glGetInternalformati GetInternalformati} and {@link GL43#glGetInternalformati64 GetInternalformati64}. */
 	public static final int GL_CLEAR_TEXTURE = 0x9365;
@@ -44,6 +44,11 @@ public final class ARBClearTexture {
 	public final long
 		ClearTexSubImage,
 		ClearTexImage;
+
+	@JavadocExclude
+	protected ARBClearTexture() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBClearTexture(FunctionProvider provider) {

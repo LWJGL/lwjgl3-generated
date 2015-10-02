@@ -23,7 +23,7 @@ import static org.lwjgl.system.JNI.*;
  * extension separates the value used as the source for stencil operations from the reference value, allowing different values to be used in the stencil
  * test, and in the update of the stencil buffer.</p>
  */
-public final class AMDStencilOperationExtended {
+public class AMDStencilOperationExtended {
 
 	/** Accepted by the {@code sfail}, {@code dpfail} and {@code dppass} parameters of StencilOp and StencilOpSeparate. */
 	public static final int
@@ -38,6 +38,11 @@ public final class AMDStencilOperationExtended {
 	/** Function address. */
 	@JavadocExclude
 	public final long StencilOpValueAMD;
+
+	@JavadocExclude
+	protected AMDStencilOperationExtended() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public AMDStencilOperationExtended(FunctionProvider provider) {

@@ -30,13 +30,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GL43 OpenGL 4.3}, {@link NVVertexBufferUnifiedMemory NV_vertex_buffer_unified_memory},</p>
  */
-public final class NVBindlessMultiDrawIndirect {
+public class NVBindlessMultiDrawIndirect {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		MultiDrawArraysIndirectBindlessNV,
 		MultiDrawElementsIndirectBindlessNV;
+
+	@JavadocExclude
+	protected NVBindlessMultiDrawIndirect() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVBindlessMultiDrawIndirect(FunctionProvider provider) {

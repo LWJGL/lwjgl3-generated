@@ -27,7 +27,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>The intended purpose of this is purely to improve the user experience within OpenGL and OpenGL ES development tools.</p>
  */
-public final class EXTDebugLabel {
+public class EXTDebugLabel {
 
 	/** Accepted by the {@code type} parameter of LabelObjectEXT and GetObjectLabelEXT. */
 	public static final int
@@ -43,6 +43,11 @@ public final class EXTDebugLabel {
 	public final long
 		LabelObjectEXT,
 		GetObjectLabelEXT;
+
+	@JavadocExclude
+	protected EXTDebugLabel() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTDebugLabel(FunctionProvider provider) {

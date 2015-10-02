@@ -29,7 +29,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GL20 OpenGL 2.0} and {@link ARBMultisample ARB_multisample}.</p>
  */
-public final class NVExplicitMultisample {
+public class NVExplicitMultisample {
 
 	/** Accepted by the {@code pname} parameter of GetMultisamplefvNV. */
 	public static final int GL_SAMPLE_POSITION_NV = 0x8E50;
@@ -64,6 +64,11 @@ public final class NVExplicitMultisample {
 		GetMultisamplefvNV,
 		SampleMaskIndexedNV,
 		TexRenderbufferNV;
+
+	@JavadocExclude
+	protected NVExplicitMultisample() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVExplicitMultisample(FunctionProvider provider) {

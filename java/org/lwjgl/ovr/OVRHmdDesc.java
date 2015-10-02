@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** A complete descriptor of the HMD. */
-public final class OVRHmdDesc extends Struct {
+public class OVRHmdDesc extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

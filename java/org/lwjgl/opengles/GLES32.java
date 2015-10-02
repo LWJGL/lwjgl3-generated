@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
 /** The core OpenGL ES 3.2 functionality. */
-public final class GLES32 {
+public class GLES32 {
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetFloatv, GetIntegerv, and GetInteger64v. */
 	public static final int
@@ -454,6 +454,11 @@ public final class GLES32 {
 		TexBuffer,
 		TexBufferRange,
 		TexStorage3DMultisample;
+
+	@JavadocExclude
+	protected GLES32() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLES32(FunctionProvider provider) {

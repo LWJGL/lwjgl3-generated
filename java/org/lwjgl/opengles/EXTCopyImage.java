@@ -28,11 +28,16 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES30 GLES E.S}.</p>
  */
-public final class EXTCopyImage {
+public class EXTCopyImage {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long CopyImageSubDataEXT;
+
+	@JavadocExclude
+	protected EXTCopyImage() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTCopyImage(FunctionProvider provider) {

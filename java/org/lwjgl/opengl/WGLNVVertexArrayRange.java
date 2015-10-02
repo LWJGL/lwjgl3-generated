@@ -14,13 +14,18 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-public final class WGLNVVertexArrayRange {
+public class WGLNVVertexArrayRange {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		AllocateMemoryNV,
 		FreeMemoryNV;
+
+	@JavadocExclude
+	protected WGLNVVertexArrayRange() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public WGLNVVertexArrayRange(FunctionProvider provider) {

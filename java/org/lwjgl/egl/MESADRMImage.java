@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link EGL14 EGL L.1} and {@link KHRImageBase KHR_image_base}.</p>
  */
-public final class MESADRMImage {
+public class MESADRMImage {
 
 	/**  */
 	public static final int
@@ -39,6 +39,11 @@ public final class MESADRMImage {
 	public final long
 		CreateDRMImageMESA,
 		ExportDRMImageMESA;
+
+	@JavadocExclude
+	protected MESADRMImage() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public MESADRMImage(FunctionProvider provider) {

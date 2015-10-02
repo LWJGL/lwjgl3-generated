@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * by the weights for the respective units and then summed to create the eye-space vertex. A similar procedure is followed for the normals, except they are
  * transformed by the inverse transpose of the modelview matrices.</p>
  */
-public final class ARBVertexBlend {
+public class ARBVertexBlend {
 
 	/** Accepted by the {@code value} parameters of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int
@@ -104,6 +104,11 @@ public final class ARBVertexBlend {
 		WeightdvARB,
 		WeightPointerARB,
 		VertexBlendARB;
+
+	@JavadocExclude
+	protected ARBVertexBlend() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBVertexBlend(FunctionProvider provider) {

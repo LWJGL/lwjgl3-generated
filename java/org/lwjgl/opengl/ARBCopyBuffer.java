@@ -19,7 +19,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Promoted to core in {@link GL31 OpenGL 3.1}.</p>
  */
-public final class ARBCopyBuffer {
+public class ARBCopyBuffer {
 
 	/**
 	 * Accepted by the target parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, GetBufferPointerv, MapBufferRange,
@@ -32,6 +32,11 @@ public final class ARBCopyBuffer {
 	/** Function address. */
 	@JavadocExclude
 	public final long CopyBufferSubData;
+
+	@JavadocExclude
+	protected ARBCopyBuffer() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBCopyBuffer(FunctionProvider provider) {

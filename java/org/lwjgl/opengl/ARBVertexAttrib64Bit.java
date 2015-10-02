@@ -43,7 +43,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GL30 OpenGL 3.0}, GLSL 1.30 and {@link ARBGPUShaderFP64 ARB_gpu_shader_fp64}. Promoted to core in {@link GL41 OpenGL 4.1}.</p>
  */
-public final class ARBVertexAttrib64Bit {
+public class ARBVertexAttrib64Bit {
 
 	/** Returned in the {@code type} parameter of GetActiveAttrib. */
 	public static final int
@@ -74,6 +74,11 @@ public final class ARBVertexAttrib64Bit {
 		VertexAttribLPointer,
 		GetVertexAttribLdv,
 		VertexArrayVertexAttribLOffsetEXT;
+
+	@JavadocExclude
+	protected ARBVertexAttrib64Bit() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBVertexAttrib64Bit(FunctionProvider provider) {

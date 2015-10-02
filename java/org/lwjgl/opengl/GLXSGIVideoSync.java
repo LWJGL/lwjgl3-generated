@@ -19,13 +19,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>This extension provides a means for synchronization with the video frame rate of a monitor.</p>
  */
-public final class GLXSGIVideoSync {
+public class GLXSGIVideoSync {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		GetVideoSyncSGI,
 		WaitVideoSyncSGI;
+
+	@JavadocExclude
+	protected GLXSGIVideoSync() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLXSGIVideoSync(FunctionProvider provider) {

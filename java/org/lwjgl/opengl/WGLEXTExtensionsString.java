@@ -15,11 +15,16 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/wgl_extensions_string.txt">WGL_EXT_extensions_string</a> extension. */
-public final class WGLEXTExtensionsString {
+public class WGLEXTExtensionsString {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long GetExtensionsStringEXT;
+
+	@JavadocExclude
+	protected WGLEXTExtensionsString() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public WGLEXTExtensionsString(FunctionProvider provider) {

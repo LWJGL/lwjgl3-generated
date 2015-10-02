@@ -22,7 +22,7 @@ import static org.lwjgl.system.JNI.*;
  * <p>This functionality may be useful for deferred rendering algorithms, where the second pass needs to know which samples belong to which original
  * fragments.</p>
  */
-public final class NVFragmentCoverageToColor {
+public class NVFragmentCoverageToColor {
 
 	/** Accepted by the {@code cap} parameter of Enable, Disable, IsEnabled. */
 	public static final int GL_FRAGMENT_COVERAGE_TO_COLOR_NV = 0x92DD;
@@ -33,6 +33,11 @@ public final class NVFragmentCoverageToColor {
 	/** Function address. */
 	@JavadocExclude
 	public final long FragmentCoverageColorNV;
+
+	@JavadocExclude
+	protected NVFragmentCoverageToColor() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVFragmentCoverageToColor(FunctionProvider provider) {

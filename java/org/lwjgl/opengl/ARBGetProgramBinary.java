@@ -32,7 +32,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL30 OpenGL 3.0}. Promoted to core in {@link GL41 OpenGL 4.1}.</p>
  */
-public final class ARBGetProgramBinary {
+public class ARBGetProgramBinary {
 
 	/** Accepted by the {@code pname} parameter of ProgramParameteri and GetProgramiv. */
 	public static final int GL_PROGRAM_BINARY_RETRIEVABLE_HINT = 0x8257;
@@ -51,6 +51,11 @@ public final class ARBGetProgramBinary {
 		GetProgramBinary,
 		ProgramBinary,
 		ProgramParameteri;
+
+	@JavadocExclude
+	protected ARBGetProgramBinary() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBGetProgramBinary(FunctionProvider provider) {

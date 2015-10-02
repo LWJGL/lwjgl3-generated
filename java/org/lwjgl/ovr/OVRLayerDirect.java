@@ -18,7 +18,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * to the HMD. The application can, however implement these kinds of effects itself before submitting the layer. This layer can be used for
  * application-based distortion rendering and can also be used for implementing a debug HUD that's viewed on the mirror texture.
  */
-public final class OVRLayerDirect extends Struct {
+public class OVRLayerDirect extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

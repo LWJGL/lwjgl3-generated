@@ -28,7 +28,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class EXTTextureBorderClamp {
+public class EXTTextureBorderClamp {
 
 	/**
 	 * Accepted by the {@code pname} parameter of TexParameteriv, TexParameterfv, SamplerParameteriv, SamplerParameterfv, TexParameterIivEXT,
@@ -57,6 +57,11 @@ public final class EXTTextureBorderClamp {
 		SamplerParameterIuivEXT,
 		GetSamplerParameterIivEXT,
 		GetSamplerParameterIuivEXT;
+
+	@JavadocExclude
+	protected EXTTextureBorderClamp() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTTextureBorderClamp(FunctionProvider provider) {

@@ -23,7 +23,7 @@ import static org.lwjgl.system.APIUtil.*;
  * implementation to choose which counters to expose and pick the data type and range of the counters. The extension also allows counting to start and end
  * on arbitrary boundaries during rendering.</p>
  */
-public final class AMDPerformanceMonitor {
+public class AMDPerformanceMonitor {
 
 	/** Accepted by the {@code pame} parameter of GetPerfMonitorCounterInfoAMD. */
 	public static final int
@@ -55,6 +55,11 @@ public final class AMDPerformanceMonitor {
 		BeginPerfMonitorAMD,
 		EndPerfMonitorAMD,
 		GetPerfMonitorCounterDataAMD;
+
+	@JavadocExclude
+	protected AMDPerformanceMonitor() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public AMDPerformanceMonitor(FunctionProvider provider) {

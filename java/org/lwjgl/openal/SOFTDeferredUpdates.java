@@ -19,7 +19,7 @@ import static org.lwjgl.system.JNI.*;
  * (where one change is heard without the other). This extension provides a way to prevent state updates from occuring until they've all been done, where
  * they will all apply at once.</p>
  */
-public final class SOFTDeferredUpdates {
+public class SOFTDeferredUpdates {
 
 	/** Accepted by the {@code paramName} parameter of alGetBoolean, alGetBooleanv (as well as the Integer, Float, and Double variants). */
 	public static final int AL_DEFERRED_UPDATES_SOFT = 0xC002;
@@ -29,6 +29,11 @@ public final class SOFTDeferredUpdates {
 	public final long
 		DeferUpdatesSOFT,
 		ProcessUpdatesSOFT;
+
+	@JavadocExclude
+	protected SOFTDeferredUpdates() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public SOFTDeferredUpdates(FunctionProvider provider) {

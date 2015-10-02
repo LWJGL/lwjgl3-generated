@@ -32,7 +32,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S} and {@link OESMapbuffer OES_mapbuffer}.</p>
  */
-public final class EXTMapBufferRange {
+public class EXTMapBufferRange {
 
 	/** Accepted by the {@code access} parameter of MapBufferRangeEXT. */
 	public static final int
@@ -48,6 +48,11 @@ public final class EXTMapBufferRange {
 	public final long
 		MapBufferRangeEXT,
 		FlushMappedBufferRangeEXT;
+
+	@JavadocExclude
+	protected EXTMapBufferRange() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTMapBufferRange(FunctionProvider provider) {

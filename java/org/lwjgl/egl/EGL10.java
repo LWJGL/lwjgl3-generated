@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
 /** The core EGL 1.0 functionality. */
-public final class EGL10 {
+public class EGL10 {
 
 	/**  */
 	public static final int
@@ -111,6 +111,11 @@ public final class EGL10 {
 		Terminate,
 		WaitGL,
 		WaitNative;
+
+	@JavadocExclude
+	protected EGL10() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EGL10(FunctionProvider provider) {

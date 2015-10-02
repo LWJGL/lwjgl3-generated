@@ -23,7 +23,7 @@ import org.lwjgl.opengl.GL11;
  * <p>GLFW is a free, Open Source, multi-platform library for opening a window, creating an OpenGL context and managing input. It is easy to integrate into
  * existing applications and does not lay claim to the main loop.</p>
  */
-public final class GLFW {
+public class GLFW {
 
 	/** The major version number of the GLFW library. This is incremented when the API is changed in non-compatible ways. */
 	public static final int GLFW_VERSION_MAJOR = 0x3;
@@ -475,6 +475,11 @@ public final class GLFW {
 		SwapInterval,
 		ExtensionSupported,
 		GetProcAddress;
+
+	@JavadocExclude
+	protected GLFW() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLFW(FunctionProvider provider) {

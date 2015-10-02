@@ -22,7 +22,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL20 OpenGL 2.0}.</p>
  */
-public final class NVBlendEquationAdvanced {
+public class NVBlendEquationAdvanced {
 
 	/** Accepted by the {@code pname} parameter of BlendParameteriNV, GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
 	public static final int
@@ -87,6 +87,11 @@ public final class NVBlendEquationAdvanced {
 	public final long
 		BlendParameteriNV,
 		BlendBarrierNV;
+
+	@JavadocExclude
+	protected NVBlendEquationAdvanced() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVBlendEquationAdvanced(FunctionProvider provider) {

@@ -21,13 +21,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GLXSGIXSwapGroup GLX_SGIX_swap_group}.</p>
  */
-public final class GLXSGIXSwapBarrier {
+public class GLXSGIXSwapBarrier {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		BindSwapBarrierSGIX,
 		QueryMaxSwapBarriersSGIX;
+
+	@JavadocExclude
+	protected GLXSGIXSwapBarrier() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLXSGIXSwapBarrier(FunctionProvider provider) {

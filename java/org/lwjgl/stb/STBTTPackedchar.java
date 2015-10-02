@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Packed character data, returned by {@link STBTruetype#stbtt_PackFontRange} */
-public final class STBTTPackedchar extends Struct {
+public class STBTTPackedchar extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

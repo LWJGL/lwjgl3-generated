@@ -30,7 +30,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL40 GL40} and GLSL 4.00.</p>
  */
-public final class ARBGPUShaderInt64 {
+public class ARBGPUShaderInt64 {
 
 	/** Returned by the {@code type} parameter of GetActiveAttrib, GetActiveUniform, and GetTransformFeedbackVarying. */
 	public static final int
@@ -82,6 +82,11 @@ public final class ARBGPUShaderInt64 {
 		GetUniformui64vARB,
 		GetnUniformi64vARB,
 		GetnUniformui64vARB;
+
+	@JavadocExclude
+	protected ARBGPUShaderInt64() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBGPUShaderInt64(FunctionProvider provider) {

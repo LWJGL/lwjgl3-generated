@@ -28,7 +28,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class OESTextureBorderClamp {
+public class OESTextureBorderClamp {
 
 	/**
 	 * Accepted by the {@code pname} parameter of TexParameteriv, TexParameterfv, SamplerParameteriv, SamplerParameterfv, TexParameterIivOES,
@@ -57,6 +57,11 @@ public final class OESTextureBorderClamp {
 		SamplerParameterIuivOES,
 		GetSamplerParameterIivOES,
 		GetSamplerParameterIuivOES;
+
+	@JavadocExclude
+	protected OESTextureBorderClamp() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public OESTextureBorderClamp(FunctionProvider provider) {

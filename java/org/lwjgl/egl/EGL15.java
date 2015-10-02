@@ -16,7 +16,7 @@ import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** The core EGL 1.5 functionality. */
-public final class EGL15 {
+public class EGL15 {
 
 	/**  */
 	public static final int
@@ -80,6 +80,11 @@ public final class EGL15 {
 		CreatePlatformWindowSurface,
 		CreatePlatformPixmapSurface,
 		WaitSync;
+
+	@JavadocExclude
+	protected EGL15() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EGL15(FunctionProvider provider) {

@@ -26,7 +26,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>This extension defines the first step of this bootstrapping process: Device enumeration.</p>
  */
-public final class EXTDeviceBase {
+public class EXTDeviceBase {
 
 	/**  */
 	public static final int
@@ -43,6 +43,11 @@ public final class EXTDeviceBase {
 		QueryDeviceStringEXT,
 		QueryDisplayAttribEXT,
 		QueryDevicesEXT;
+
+	@JavadocExclude
+	protected EXTDeviceBase() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTDeviceBase(FunctionProvider provider) {

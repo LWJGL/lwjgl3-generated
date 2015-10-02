@@ -28,11 +28,16 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES30 GLES E.S}.</p>
  */
-public final class OESCopyImage {
+public class OESCopyImage {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long CopyImageSubDataOES;
+
+	@JavadocExclude
+	protected OESCopyImage() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public OESCopyImage(FunctionProvider provider) {

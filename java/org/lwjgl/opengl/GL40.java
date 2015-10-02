@@ -35,7 +35,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <li><a href="http://www.opengl.org/registry/specs/ARB/transform_feedback3.txt">ARB_transform_feedback3</a></li>
  * </ul></p>
  */
-public final class GL40 {
+public class GL40 {
 
 	/**
 	 * Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, GetBufferPointerv,
@@ -238,6 +238,11 @@ public final class GL40 {
 		BeginQueryIndexed,
 		EndQueryIndexed,
 		GetQueryIndexediv;
+
+	@JavadocExclude
+	protected GL40() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GL40(FunctionProvider provider) {

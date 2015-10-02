@@ -50,7 +50,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL20 OpenGL 2.0} or {@link ARBShaderObjects ARB_shader_objects}.</p>
  */
-public final class EXTSeparateShaderObjects {
+public class EXTSeparateShaderObjects {
 
 	/** Accepted by {@code type} parameter to GetIntegerv and GetFloatv. */
 	public static final int GL_ACTIVE_PROGRAM_EXT = 0x8B8D;
@@ -61,6 +61,11 @@ public final class EXTSeparateShaderObjects {
 		UseShaderProgramEXT,
 		ActiveProgramEXT,
 		CreateShaderProgramEXT;
+
+	@JavadocExclude
+	protected EXTSeparateShaderObjects() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTSeparateShaderObjects(FunctionProvider provider) {

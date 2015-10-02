@@ -16,7 +16,7 @@ import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to the <a href="http://www.khronos.org/registry/cl/extensions/khr/cl_khr_gl_sharing.txt">khr_gl_sharing</a> extension. */
-public final class KHRGLSharing {
+public class KHRGLSharing {
 
 	/**
 	 * Returned by {@link CL10#clCreateContext CreateContext}, {@link CL10#clCreateContextFromType CreateContextFromType}, and {@link #clGetGLContextInfoKHR GetGLContextInfoKHR} when an invalid OpenGL context or
@@ -47,6 +47,11 @@ public final class KHRGLSharing {
 	/** Function address. */
 	@JavadocExclude
 	public final long GetGLContextInfoKHR;
+
+	@JavadocExclude
+	protected KHRGLSharing() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public KHRGLSharing(FunctionProvider provider) {

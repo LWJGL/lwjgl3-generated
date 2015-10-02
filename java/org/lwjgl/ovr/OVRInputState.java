@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Describes the complete controller input state, including Oculus Touch, and XBox gamepad. If multiple inputs are connected and used at the same time,
  * their inputs are combined.
  */
-public final class OVRInputState extends Struct {
+public class OVRInputState extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

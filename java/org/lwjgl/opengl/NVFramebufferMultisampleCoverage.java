@@ -27,7 +27,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link EXTFramebufferObject EXT_framebuffer_object}, {@link EXTFramebufferBlit EXT_framebuffer_blit} and {@link EXTFramebufferMultisample EXT_framebuffer_multisample}.</p>
  */
-public final class NVFramebufferMultisampleCoverage {
+public class NVFramebufferMultisampleCoverage {
 
 	/** Accepted by the {@code pname} parameter of GetRenderbufferParameterivEXT. */
 	public static final int
@@ -42,6 +42,11 @@ public final class NVFramebufferMultisampleCoverage {
 	/** Function address. */
 	@JavadocExclude
 	public final long RenderbufferStorageMultisampleCoverageNV;
+
+	@JavadocExclude
+	protected NVFramebufferMultisampleCoverage() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVFramebufferMultisampleCoverage(FunctionProvider provider) {

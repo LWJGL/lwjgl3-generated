@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * single depth buffer is used at different times with different sample locations, the depth functions may be interpreted using the current sample
  * locations.</p>
  */
-public final class NVSampleLocations {
+public class NVSampleLocations {
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
 	public static final int
@@ -60,6 +60,11 @@ public final class NVSampleLocations {
 		FramebufferSampleLocationsfvNV,
 		NamedFramebufferSampleLocationsfvNV,
 		ResolveDepthValuesNV;
+
+	@JavadocExclude
+	protected NVSampleLocations() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVSampleLocations(FunctionProvider provider) {

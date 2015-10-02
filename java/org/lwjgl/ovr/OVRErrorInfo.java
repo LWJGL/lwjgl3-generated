@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Provides information about the last error. */
-public final class OVRErrorInfo extends Struct {
+public class OVRErrorInfo extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

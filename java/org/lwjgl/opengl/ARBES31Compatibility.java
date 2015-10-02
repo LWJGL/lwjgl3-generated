@@ -36,11 +36,16 @@ import static org.lwjgl.system.JNI.*;
  * </ul>
  * Requires {@link GL44 OpenGL 4.4}, <a href="http://www.opengl.org/registry/specs/ARB/ES2_compatibility.txt">ARB_ES2_compatibility</a>, <a href="http://www.opengl.org/registry/specs/ARB/ES3_compatibility.txt">ARB_ES3_compatibility</a>. Promoted to core in {@link GL45 OpenGL 4.5}.</p>
  */
-public final class ARBES31Compatibility {
+public class ARBES31Compatibility {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long MemoryBarrierByRegion;
+
+	@JavadocExclude
+	protected ARBES31Compatibility() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBES31Compatibility(FunctionProvider provider) {

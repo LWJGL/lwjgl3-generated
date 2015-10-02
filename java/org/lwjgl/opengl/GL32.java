@@ -32,7 +32,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <li><a href="http://www.opengl.org/registry/specs/ARB/sync.txt">ARB_sync</a></li>
  * </ul></p>
  */
-public final class GL32 {
+public class GL32 {
 
 	/** Accepted by the {@code pname} parameter of GetIntegerv. */
 	public static final int GL_CONTEXT_PROFILE_MASK = 0x9126;
@@ -209,6 +209,11 @@ public final class GL32 {
 		GetInteger64v,
 		GetInteger64i_v,
 		GetSynciv;
+
+	@JavadocExclude
+	protected GL32() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GL32(FunctionProvider provider) {

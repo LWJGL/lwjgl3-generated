@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** A full pose (rigid body) configuration with first and second derivatives. */
-public final class OVRPoseStatef extends Struct {
+public class OVRPoseStatef extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

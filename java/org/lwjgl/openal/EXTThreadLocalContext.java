@@ -17,13 +17,18 @@ import static org.lwjgl.system.JNI.*;
  * <p>This extension introduces the concept of a current thread-local context, with each thread able to have its own current context. The current context is
  * what the al- functions work on, effectively allowing multiple threads to independently drive separate OpenAL playback contexts.</p>
  */
-public final class EXTThreadLocalContext {
+public class EXTThreadLocalContext {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		SetThreadContext,
 		GetThreadContext;
+
+	@JavadocExclude
+	protected EXTThreadLocalContext() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTThreadLocalContext(FunctionProviderLocal provider, long device) {

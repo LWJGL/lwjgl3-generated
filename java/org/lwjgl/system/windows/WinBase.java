@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to WinBase.h. */
-public final class WinBase {
+public class WinBase {
 
 	/** BOOL return values. */
 	public static final int
@@ -24,7 +24,10 @@ public final class WinBase {
 
 	static { LWJGLUtil.initialize(); }
 
-	private WinBase() {}
+	@JavadocExclude
+	protected WinBase() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ GetLastError ] ---
 

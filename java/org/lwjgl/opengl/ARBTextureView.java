@@ -35,7 +35,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL42 OpenGL 4.2} or {@link ARBTextureStorage ARB_texture_storage}. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
  */
-public final class ARBTextureView {
+public class ARBTextureView {
 
 	/** Accepted by the {@code pname} parameters of GetTexParameterfv and GetTexParameteriv. */
 	public static final int
@@ -48,6 +48,11 @@ public final class ARBTextureView {
 	/** Function address. */
 	@JavadocExclude
 	public final long TextureView;
+
+	@JavadocExclude
+	protected ARBTextureView() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBTextureView(FunctionProvider provider) {

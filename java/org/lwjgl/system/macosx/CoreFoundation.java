@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to &lt;CoreFoundation.h&gt;. */
-public final class CoreFoundation {
+public class CoreFoundation {
 
 	/** Boolean values. */
 	public static final byte
@@ -46,7 +46,10 @@ public final class CoreFoundation {
 
 	static { LWJGLUtil.initialize(); }
 
-	private CoreFoundation() {}
+	@JavadocExclude
+	protected CoreFoundation() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ kCFAllocatorDefault ] ---
 

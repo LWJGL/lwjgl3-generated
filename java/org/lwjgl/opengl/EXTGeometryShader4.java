@@ -31,7 +31,7 @@ import static org.lwjgl.system.JNI.*;
  * <p>Since geometry shaders expect a specific input primitive type, an error will occur if the application presents primitives of a different type. For
  * example, if a geometry shader expects points, an error will occur at Begin() time, if a primitive mode of TRIANGLES is specified.</p>
  */
-public final class EXTGeometryShader4 {
+public class EXTGeometryShader4 {
 
 	/** Accepted by the {@code type} parameter of CreateShader and returned by the {@code params} parameter of GetShaderiv. */
 	public static final int GL_GEOMETRY_SHADER_EXT = 0x8DD9;
@@ -82,6 +82,11 @@ public final class EXTGeometryShader4 {
 		FramebufferTextureEXT,
 		FramebufferTextureLayerEXT,
 		FramebufferTextureFaceEXT;
+
+	@JavadocExclude
+	protected EXTGeometryShader4() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTGeometryShader4(FunctionProvider provider) {

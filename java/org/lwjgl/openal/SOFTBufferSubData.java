@@ -15,7 +15,7 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** bindings to AL_SOFT_buffer_sub_data extension. */
-public final class SOFTBufferSubData {
+public class SOFTBufferSubData {
 
 	/** Accepted by the {@code paramName} parameter of alGetSourceiv and alGetSourcefv. */
 	public static final int
@@ -25,6 +25,11 @@ public final class SOFTBufferSubData {
 	/** Function address. */
 	@JavadocExclude
 	public final long BufferSubDataSOFT;
+
+	@JavadocExclude
+	protected SOFTBufferSubData() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public SOFTBufferSubData(FunctionProvider provider) {

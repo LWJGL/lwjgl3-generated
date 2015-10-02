@@ -20,7 +20,7 @@ import static org.lwjgl.system.JNI.*;
  * <p>A buffer region can be created for the front color, back color, depth, and/or stencil buffer.  Multiple buffer regions for the same buffer type can
  * exist.</p>
  */
-public final class WGLARBBufferRegion {
+public class WGLARBBufferRegion {
 
 	/** Accepted by the {@code type} parameter of {@link #wglCreateBufferRegionARB CreateBufferRegionARB}. */
 	public static final int
@@ -36,6 +36,11 @@ public final class WGLARBBufferRegion {
 		DeleteBufferRegionARB,
 		SaveBufferRegionARB,
 		RestoreBufferRegionARB;
+
+	@JavadocExclude
+	protected WGLARBBufferRegion() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public WGLARBBufferRegion(FunctionProvider provider) {

@@ -22,11 +22,16 @@ import org.lwjgl.system.windows.WinBase;
  * 
  * <p>Requires {@link GL21 OpenGL 2.1}.</p>
  */
-public final class WGLNVDelayBeforeSwap {
+public class WGLNVDelayBeforeSwap {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long DelayBeforeSwapNV;
+
+	@JavadocExclude
+	protected WGLNVDelayBeforeSwap() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public WGLNVDelayBeforeSwap(FunctionProvider provider) {

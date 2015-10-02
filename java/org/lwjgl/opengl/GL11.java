@@ -30,7 +30,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <li><a href="http://www.opengl.org/registry/specs/EXT/texture_object.txt">EXT_texture_object</a></li>
  * </ul></p>
  */
-public final class GL11 {
+public class GL11 {
 
 	/** AccumOp */
 	public static final int
@@ -1041,6 +1041,11 @@ public final class GL11 {
 		Vertex4dv,
 		VertexPointer,
 		Viewport;
+
+	@JavadocExclude
+	protected GL11() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GL11(FunctionProvider provider, boolean fc) {

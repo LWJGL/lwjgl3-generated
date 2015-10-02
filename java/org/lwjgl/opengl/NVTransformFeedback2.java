@@ -33,7 +33,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL15 OpenGL 1.5} and {@link NVTransformFeedback NV_transform_feedback} or {@link EXTTransformFeedback EXT_transform_feedback}.</p>
  */
-public final class NVTransformFeedback2 {
+public class NVTransformFeedback2 {
 
 	/** Accepted by the {@code target} parameter of BindTransformFeedbackNV. */
 	public static final int GL_TRANSFORM_FEEDBACK_NV = 0x8E22;
@@ -54,6 +54,11 @@ public final class NVTransformFeedback2 {
 		PauseTransformFeedbackNV,
 		ResumeTransformFeedbackNV,
 		DrawTransformFeedbackNV;
+
+	@JavadocExclude
+	protected NVTransformFeedback2() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVTransformFeedback2(FunctionProvider provider) {

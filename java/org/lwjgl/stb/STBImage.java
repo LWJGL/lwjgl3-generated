@@ -90,11 +90,24 @@ import static org.lwjgl.system.APIUtil.*;
  * <p>Call {@link #stbi_set_unpremultiply_on_load set_unpremultiply_on_load}(1) as well to force a divide per pixel to remove any premultiplied alpha *only* if the image file explicitly says
  * there's premultiplied data (currently only happens in iPhone images, and only if iPhone convert-to-rgb processing is on).</p>
  */
-public final class STBImage {
+public class STBImage {
+
+	/** Default component count, used as an argument to {@code req_comp}. */
+	public static final int STBI_default = 0x0;
+
+	/** Component count. */
+	public static final int
+		STBI_grey       = 0x1,
+		STBI_grey_alpha = 0x2,
+		STBI_rgb        = 0x3,
+		STBI_rgb_alpha  = 0x4;
 
 	static { LWJGLUtil.initialize(); }
 
-	private STBImage() {}
+	@JavadocExclude
+	protected STBImage() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ stbi_load ] ---
 

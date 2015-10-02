@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Image format struct. */
-public final class CLImageFormat extends Struct {
+public class CLImageFormat extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

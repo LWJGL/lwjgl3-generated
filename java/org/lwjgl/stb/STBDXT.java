@@ -18,7 +18,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>DXT1/DXT5 compressor.</p>
  */
-public final class STBDXT {
+public class STBDXT {
 
 	/**  */
 	public static final int STB_DXT_NORMAL = 0x0;
@@ -31,7 +31,10 @@ public final class STBDXT {
 
 	static { LWJGLUtil.initialize(); }
 
-	private STBDXT() {}
+	@JavadocExclude
+	protected STBDXT() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ stb_compress_dxt_block ] ---
 

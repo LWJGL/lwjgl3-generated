@@ -32,7 +32,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Promoted to core in {@link GL33 OpenGL 3.3}.</p>
  */
-public final class ARBTimerQuery {
+public class ARBTimerQuery {
 
 	/** Accepted by the {@code target} parameter of BeginQuery, EndQuery, and GetQueryiv. */
 	public static final int GL_TIME_ELAPSED = 0x88BF;
@@ -49,6 +49,11 @@ public final class ARBTimerQuery {
 		QueryCounter,
 		GetQueryObjecti64v,
 		GetQueryObjectui64v;
+
+	@JavadocExclude
+	protected ARBTimerQuery() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBTimerQuery(FunctionProvider provider) {

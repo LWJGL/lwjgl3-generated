@@ -15,11 +15,14 @@ import static org.lwjgl.system.Checks.*;
  * 
  * <p>Revised Perlin noise (3D input, 1D output).</p>
  */
-public final class STBPerlin {
+public class STBPerlin {
 
 	static { LWJGLUtil.initialize(); }
 
-	private STBPerlin() {}
+	@JavadocExclude
+	protected STBPerlin() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ stb_perlin_noise3 ] ---
 

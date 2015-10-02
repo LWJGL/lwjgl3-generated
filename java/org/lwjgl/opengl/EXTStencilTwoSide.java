@@ -18,7 +18,7 @@ import static org.lwjgl.system.JNI.*;
  * may be different for front- and back-facing polygons. Two-sided stencil testing may improve the performance of stenciled shadow volume and Constructive
  * Solid Geometry (CSG) rendering algorithms.</p>
  */
-public final class EXTStencilTwoSide {
+public class EXTStencilTwoSide {
 
 	/**
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
@@ -32,6 +32,11 @@ public final class EXTStencilTwoSide {
 	/** Function address. */
 	@JavadocExclude
 	public final long ActiveStencilFaceEXT;
+
+	@JavadocExclude
+	protected EXTStencilTwoSide() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTStencilTwoSide(FunctionProvider provider) {

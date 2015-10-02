@@ -35,7 +35,7 @@ import static org.lwjgl.system.APIUtil.*;
  * rendering to each accordingly, but is also dynamic enough to handle an arbitrary number of color buffer targets all using the same shader. This grants
  * the user maximum flexibility as well as a familiar interface.</p>
  */
-public final class EXTMultiviewDrawBuffers {
+public class EXTMultiviewDrawBuffers {
 
 	/** Accepted by the {@code location} parameter of DrawBuffersIndexedEXT. */
 	public static final int
@@ -56,6 +56,11 @@ public final class EXTMultiviewDrawBuffers {
 		ReadBufferIndexedEXT,
 		DrawBuffersIndexedEXT,
 		GetIntegeri_vEXT;
+
+	@JavadocExclude
+	protected EXTMultiviewDrawBuffers() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTMultiviewDrawBuffers(FunctionProvider provider) {

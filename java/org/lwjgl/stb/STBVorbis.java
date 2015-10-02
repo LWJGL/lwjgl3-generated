@@ -45,7 +45,7 @@ import static org.lwjgl.system.APIUtil.*;
  * you or it create, or possibly some other reading mechanism if you go modify the source to replace the FILE * case with some kind of callback to your
  * code. (But if you don't support seeking, you may just want to go ahead and use pushdata.)</p>
  */
-public final class STBVorbis {
+public class STBVorbis {
 
 	/** Error code. */
 	public static final int
@@ -72,7 +72,10 @@ public final class STBVorbis {
 
 	static { LWJGLUtil.initialize(); }
 
-	private STBVorbis() {}
+	@JavadocExclude
+	protected STBVorbis() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ stb_vorbis_get_info ] ---
 

@@ -44,7 +44,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL40 OpenGL 4.0}.</p>
  */
-public final class ARBBindlessTexture {
+public class ARBBindlessTexture {
 
 	/** Accepted by the {@code type} parameter of VertexAttribLPointer. */
 	public static final int GL_UNSIGNED_INT64_ARB = 0x140F;
@@ -68,6 +68,11 @@ public final class ARBBindlessTexture {
 		VertexAttribL1ui64ARB,
 		VertexAttribL1ui64vARB,
 		GetVertexAttribLui64vARB;
+
+	@JavadocExclude
+	protected ARBBindlessTexture() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBBindlessTexture(FunctionProvider provider) {

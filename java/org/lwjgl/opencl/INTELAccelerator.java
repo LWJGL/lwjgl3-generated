@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link CL12 CL12}.</p>
  */
-public final class INTELAccelerator {
+public class INTELAccelerator {
 
 	/** Possible values for cl_accelerator_info_intel. */
 	public static final int
@@ -58,6 +58,11 @@ public final class INTELAccelerator {
 		RetainAcceleratorINTEL,
 		ReleaseAcceleratorINTEL,
 		GetAcceleratorInfoINTEL;
+
+	@JavadocExclude
+	protected INTELAccelerator() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public INTELAccelerator(FunctionProvider provider) {

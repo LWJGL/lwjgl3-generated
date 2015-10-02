@@ -36,7 +36,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL42 OpenGL 4.2}. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
  */
-public final class ARBComputeShader {
+public class ARBComputeShader {
 
 	/** Accepted by the {@code type} parameter of CreateShader and returned in the {@code params} parameter by GetShaderiv. */
 	public static final int GL_COMPUTE_SHADER = 0x91B9;
@@ -81,6 +81,11 @@ public final class ARBComputeShader {
 	public final long
 		DispatchCompute,
 		DispatchComputeIndirect;
+
+	@JavadocExclude
+	protected ARBComputeShader() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBComputeShader(FunctionProvider provider) {

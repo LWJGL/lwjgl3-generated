@@ -29,7 +29,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL12 OpenGL 1.2}. Promoted to core in {@link GL42 OpenGL 4.2}.</p>
  */
-public final class ARBTextureStorage {
+public class ARBTextureStorage {
 
 	/** Accepted by the {@code value} parameter of GetTexParameter{if}v. */
 	public static final int GL_TEXTURE_IMMUTABLE_FORMAT = 0x912F;
@@ -43,6 +43,11 @@ public final class ARBTextureStorage {
 		TextureStorage1DEXT,
 		TextureStorage2DEXT,
 		TextureStorage3DEXT;
+
+	@JavadocExclude
+	protected ARBTextureStorage() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBTextureStorage(FunctionProvider provider) {

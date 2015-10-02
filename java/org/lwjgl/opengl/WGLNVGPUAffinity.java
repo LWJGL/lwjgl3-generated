@@ -27,7 +27,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string}.</p>
  */
-public final class WGLNVGPUAffinity {
+public class WGLNVGPUAffinity {
 
 	/** New error code set by wglShareLists, wglMakeCurrent and {@link WGLARBMakeCurrentRead#wglMakeContextCurrentARB MakeContextCurrentARB}. */
 	public static final int ERROR_INCOMPATIBLE_AFFINITY_MASKS_NV = 0x20D0;
@@ -43,6 +43,11 @@ public final class WGLNVGPUAffinity {
 		CreateAffinityDCNV,
 		EnumGpusFromAffinityDCNV,
 		DeleteDCNV;
+
+	@JavadocExclude
+	protected WGLNVGPUAffinity() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public WGLNVGPUAffinity(FunctionProvider provider) {

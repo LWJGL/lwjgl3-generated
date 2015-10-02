@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /** Native bindings to the GLFW library's X11 native access functions. */
-public final class GLFWNativeX11 {
+public class GLFWNativeX11 {
 
 	/** Function address. */
 	@JavadocExclude
@@ -21,6 +21,11 @@ public final class GLFWNativeX11 {
 		GetX11Adapter,
 		GetX11Monitor,
 		GetX11Window;
+
+	@JavadocExclude
+	protected GLFWNativeX11() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLFWNativeX11(FunctionProvider provider) {

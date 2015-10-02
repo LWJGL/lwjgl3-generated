@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to AL 1.1 functionality. */
-public final class AL11 {
+public class AL11 {
 
 	/** General tokens. */
 	public static final int
@@ -52,6 +52,11 @@ public final class AL11 {
 		GetBufferf,
 		GetBufferfv,
 		SpeedOfSound;
+
+	@JavadocExclude
+	protected AL11() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public AL11(FunctionProvider provider) {

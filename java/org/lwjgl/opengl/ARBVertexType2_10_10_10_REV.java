@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Promoted to core in {@link GL33 OpenGL 3.3}.</p>
  */
-public final class ARBVertexType2_10_10_10_REV {
+public class ARBVertexType2_10_10_10_REV {
 
 	/**
 	 * Accepted by the {@code type} parameter of VertexAttribPointer, VertexPointer, NormalPointer, ColorPointer, SecondaryColorPointer, TexCoordPointer,
@@ -72,6 +72,11 @@ public final class ARBVertexType2_10_10_10_REV {
 		VertexAttribP2uiv,
 		VertexAttribP3uiv,
 		VertexAttribP4uiv;
+
+	@JavadocExclude
+	protected ARBVertexType2_10_10_10_REV() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBVertexType2_10_10_10_REV(FunctionProvider provider, boolean fc) {

@@ -38,7 +38,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Promoted to core in {@link GL20 OpenGL 2.0}.</p>
  */
-public final class ARBShaderObjects {
+public class ARBShaderObjects {
 
 	/** Accepted by the {@code pname} argument of GetHandleARB. */
 	public static final int GL_PROGRAM_OBJECT_ARB = 0x8B40;
@@ -126,6 +126,11 @@ public final class ARBShaderObjects {
 		GetUniformfvARB,
 		GetUniformivARB,
 		GetShaderSourceARB;
+
+	@JavadocExclude
+	protected ARBShaderObjects() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBShaderObjects(FunctionProvider provider) {

@@ -37,7 +37,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Promoted to core in {@link GL13 OpenGL 1.3}.</p>
  */
-public final class ARBTextureCompression {
+public class ARBTextureCompression {
 
 	/** Accepted by the {@code internalformat} parameter of TexImage1D, TexImage2D, TexImage3D, CopyTexImage1D, and CopyTexImage2D. */
 	public static final int
@@ -71,6 +71,11 @@ public final class ARBTextureCompression {
 		CompressedTexSubImage2DARB,
 		CompressedTexSubImage1DARB,
 		GetCompressedTexImageARB;
+
+	@JavadocExclude
+	protected ARBTextureCompression() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBTextureCompression(FunctionProvider provider) {

@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** A 3D vector with float components. */
-public final class OVRVector3f extends Struct {
+public class OVRVector3f extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

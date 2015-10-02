@@ -29,7 +29,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL20 OpenGL 2.0}, {@link ARBColorBufferFloat ARB_color_buffer_float}, {@link EXTPackedDepthStencil EXT_packed_depth_stencil} and {@link EXTFramebufferObject EXT_framebuffer_object}.</p>
  */
-public final class NVDepthBufferFloat {
+public class NVDepthBufferFloat {
 
 	/**
 	 * Accepted by the {@code internalformat} parameter of TexImage1D, TexImage2D, TexImage3D, CopyTexImage1D, CopyTexImage2D, and RenderbufferStorageEXT, and
@@ -54,6 +54,11 @@ public final class NVDepthBufferFloat {
 		DepthRangedNV,
 		ClearDepthdNV,
 		DepthBoundsdNV;
+
+	@JavadocExclude
+	protected NVDepthBufferFloat() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVDepthBufferFloat(FunctionProvider provider) {

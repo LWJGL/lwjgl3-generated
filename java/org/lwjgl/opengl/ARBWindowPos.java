@@ -29,7 +29,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Promoted to core in {@link GL14 OpenGL 1.4}.</p>
  */
-public final class ARBWindowPos {
+public class ARBWindowPos {
 
 	/** Function address. */
 	@JavadocExclude
@@ -50,6 +50,11 @@ public final class ARBWindowPos {
 		WindowPos3svARB,
 		WindowPos3fvARB,
 		WindowPos3dvARB;
+
+	@JavadocExclude
+	protected ARBWindowPos() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBWindowPos(FunctionProvider provider) {

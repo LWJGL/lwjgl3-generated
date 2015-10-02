@@ -83,7 +83,7 @@ import static org.lwjgl.system.APIUtil.*;
  * </ol>
  * Requires {@link GL20 OpenGL 2.0} or {@link ARBShaderObjects ARB_shader_objects} and {@link GL15 OpenGL 1.5} or {@link ARBVertexBufferObject ARB_vertex_buffer_object}. Promoted to core in {@link GL31 OpenGL 3.1}.</p>
  */
-public final class ARBUniformBufferObject {
+public class ARBUniformBufferObject {
 
 	/** Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, and GetBufferPointerv. */
 	public static final int GL_UNIFORM_BUFFER = 0x8A11;
@@ -152,6 +152,11 @@ public final class ARBUniformBufferObject {
 		BindBufferBase,
 		GetIntegeri_v,
 		UniformBlockBinding;
+
+	@JavadocExclude
+	protected ARBUniformBufferObject() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBUniformBufferObject(FunctionProvider provider) {

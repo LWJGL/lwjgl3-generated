@@ -78,7 +78,7 @@ import static org.lwjgl.opengl.GL11.*;
  * this second step written pixels typically have their stencil value reset (so there's no need for clearing the stencil buffer between rendering each
  * path).</p>
  */
-public final class NVPathRendering {
+public class NVPathRendering {
 
 	/** Accepted in elements of the {@code commands} array parameter of PathCommandsNV and PathSubCommandsNV. */
 	public static final byte
@@ -413,6 +413,11 @@ public final class NVPathRendering {
 		MatrixMult3x3fNV,
 		MatrixMultTranspose3x3fNV,
 		GetProgramResourcefvNV;
+
+	@JavadocExclude
+	protected NVPathRendering() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVPathRendering(FunctionProvider provider) {

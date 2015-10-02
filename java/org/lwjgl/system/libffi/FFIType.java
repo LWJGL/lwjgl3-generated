@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Contains information about a libffi type. */
-public final class FFIType extends Struct {
+public class FFIType extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

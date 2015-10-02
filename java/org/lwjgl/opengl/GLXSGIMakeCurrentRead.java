@@ -18,13 +18,18 @@ import static org.lwjgl.system.JNI.*;
  * preprocessing of image data in an "off screen" window which is then read into the visible window for final display.  Similarly it sets the frame-work
  * for direct transfer of video to the GL, by treating the video as a special kind of read drawable (a.k.a, readable).</p>
  */
-public final class GLXSGIMakeCurrentRead {
+public class GLXSGIMakeCurrentRead {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		MakeCurrentReadSGI,
 		GetCurrentReadDrawableSGI;
+
+	@JavadocExclude
+	protected GLXSGIMakeCurrentRead() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLXSGIMakeCurrentRead(FunctionProvider provider) {

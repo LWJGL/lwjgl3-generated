@@ -38,7 +38,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES31 GLES E.S}.</p>
  */
-public final class OESTextureBuffer {
+public class OESTextureBuffer {
 
 	/**
 	 * Accepted by the {@code target} parameter of BindBuffer, BufferData, BufferSubData, MapBufferRange, BindTexture, UnmapBuffer, GetBufferParameteriv,
@@ -74,6 +74,11 @@ public final class OESTextureBuffer {
 	public final long
 		TexBufferOES,
 		TexBufferRangeOES;
+
+	@JavadocExclude
+	protected OESTextureBuffer() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public OESTextureBuffer(FunctionProvider provider) {

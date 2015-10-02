@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Buffer region struct. */
-public final class CLBufferRegion extends Struct {
+public class CLBufferRegion extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

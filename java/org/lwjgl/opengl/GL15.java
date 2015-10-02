@@ -26,7 +26,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <li><a href="http://www.opengl.org/registry/specs/EXT/shadow_funcs.txt">EXT_shadow_funcs</a></li>
  * </ul></p>
  */
-public final class GL15 {
+public class GL15 {
 
 	/** New token names. */
 	public static final int
@@ -133,6 +133,11 @@ public final class GL15 {
 		GetQueryiv,
 		GetQueryObjectiv,
 		GetQueryObjectuiv;
+
+	@JavadocExclude
+	protected GL15() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GL15(FunctionProvider provider) {

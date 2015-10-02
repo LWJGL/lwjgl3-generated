@@ -13,7 +13,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-public final class LARGE_INTEGER extends Struct {
+public class LARGE_INTEGER extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

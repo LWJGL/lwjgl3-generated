@@ -55,7 +55,7 @@ import static org.lwjgl.system.JNI.*;
  * obtain optimal performance, e.g. when the application knows that every pixel in a tile will be completely rendered or when the resulting contents of
  * the depth/stencil buffers do not need to be preserved.</p>
  */
-public final class QCOMTiledRendering {
+public class QCOMTiledRendering {
 
 	/** Accepted by the {@code preserveMask} parameter of StartTilingQCOM and EndTilingQCOM. */
 	public static final int
@@ -97,6 +97,11 @@ public final class QCOMTiledRendering {
 	public final long
 		StartTilingQCOM,
 		EndTilingQCOM;
+
+	@JavadocExclude
+	protected QCOMTiledRendering() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public QCOMTiledRendering(FunctionProvider provider) {

@@ -29,7 +29,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL32 OpenGL 3.2} or {@link ARBSync ARB_sync}.</p>
  */
-public final class EXTX11SyncObject {
+public class EXTX11SyncObject {
 
 	/** Accepted by the {@code external_sync_type} parameter of ImportSyncEXT. */
 	public static final int GL_SYNC_X11_FENCE_EXT = 0x90E1;
@@ -37,6 +37,11 @@ public final class EXTX11SyncObject {
 	/** Function address. */
 	@JavadocExclude
 	public final long ImportSyncEXT;
+
+	@JavadocExclude
+	protected EXTX11SyncObject() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTX11SyncObject(FunctionProvider provider) {

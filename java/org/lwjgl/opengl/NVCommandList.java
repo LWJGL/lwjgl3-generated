@@ -152,7 +152,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Tight packing is used for all structures.</p>
  */
-public final class NVCommandList {
+public class NVCommandList {
 
 	/** Used in DrawCommandsStates buffer formats, in GetCommandHeaderNV to return the header. */
 	public static final int
@@ -196,6 +196,11 @@ public final class NVCommandList {
 		CommandListSegmentsNV,
 		CompileCommandListNV,
 		CallCommandListNV;
+
+	@JavadocExclude
+	protected NVCommandList() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVCommandList(FunctionProvider provider) {

@@ -21,7 +21,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL33 OpenGL 3.3}.</p>
  */
-public final class EXTPolygonOffsetClamp {
+public class EXTPolygonOffsetClamp {
 
 	/** Accepted by the {@code pname} parameters of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
 	public static final int GL_POLYGON_OFFSET_CLAMP_EXT = 0x8E1B;
@@ -29,6 +29,11 @@ public final class EXTPolygonOffsetClamp {
 	/** Function address. */
 	@JavadocExclude
 	public final long PolygonOffsetClampEXT;
+
+	@JavadocExclude
+	protected EXTPolygonOffsetClamp() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTPolygonOffsetClamp(FunctionProvider provider) {

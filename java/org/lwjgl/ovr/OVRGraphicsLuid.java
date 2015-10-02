@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** A system specific graphics adapter identifier. */
-public final class OVRGraphicsLuid extends Struct {
+public class OVRGraphicsLuid extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

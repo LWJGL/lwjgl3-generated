@@ -62,7 +62,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GL40 OpenGL 4.0}.</p>
  */
-public final class NVBindlessTexture {
+public class NVBindlessTexture {
 
 	/** Function address. */
 	@JavadocExclude
@@ -80,6 +80,11 @@ public final class NVBindlessTexture {
 		ProgramUniformHandleui64vNV,
 		IsTextureHandleResidentNV,
 		IsImageHandleResidentNV;
+
+	@JavadocExclude
+	protected NVBindlessTexture() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVBindlessTexture(FunctionProvider provider) {

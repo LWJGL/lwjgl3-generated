@@ -47,11 +47,14 @@ import static org.lwjgl.system.APIUtil.*;
  * color.) The rectangle is {@code w} pixels wide and {@code h} pixels tall. The {@code *data} pointer points to the first byte of the top-left-most
  * pixel.</p>
  */
-public final class STBImageWrite {
+public class STBImageWrite {
 
 	static { LWJGLUtil.initialize(); }
 
-	private STBImageWrite() {}
+	@JavadocExclude
+	protected STBImageWrite() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ stbi_write_png ] ---
 

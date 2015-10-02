@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
 /** The core OpenGL ES 3.0 functionality. */
-public final class GLES30 {
+public class GLES30 {
 
 	/**  */
 	public static final int
@@ -452,6 +452,11 @@ public final class GLES30 {
 		TexStorage2D,
 		TexStorage3D,
 		GetInternalformativ;
+
+	@JavadocExclude
+	protected GLES30() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLES30(FunctionProvider provider) {

@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** The opaque {@code stbrp_context} struct. */
-public final class STBRPContext extends Struct {
+public class STBRPContext extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

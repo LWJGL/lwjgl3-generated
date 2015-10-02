@@ -31,7 +31,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Promoted to core in {@link GL33 OpenGL 3.3}.</p>
  */
-public final class ARBInstancedArrays {
+public class ARBInstancedArrays {
 
 	/** Accepted by the {@code pname} parameters of GetVertexAttribdv, GetVertexAttribfv, and GetVertexAttribiv. */
 	public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ARB = 0x88FE;
@@ -41,6 +41,11 @@ public final class ARBInstancedArrays {
 	public final long
 		VertexAttribDivisorARB,
 		VertexArrayVertexAttribDivisorEXT;
+
+	@JavadocExclude
+	protected ARBInstancedArrays() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBInstancedArrays(FunctionProvider provider) {

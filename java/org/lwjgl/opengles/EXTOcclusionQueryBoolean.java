@@ -25,7 +25,7 @@ import static org.lwjgl.system.APIUtil.*;
  * application will render the major occluders in the scene, then perform an occlusion query for each detail object in the scene. On subsequent frames,
  * the previous results of the occlusion queries can be used to decide whether to draw an object or not.</p>
  */
-public final class EXTOcclusionQueryBoolean {
+public class EXTOcclusionQueryBoolean {
 
 	/** Accepted by the {@code target} parameter of BeginQueryEXT, EndQueryEXT, and GetQueryivEXT. */
 	public static final int
@@ -50,6 +50,11 @@ public final class EXTOcclusionQueryBoolean {
 		EndQueryEXT,
 		GetQueryivEXT,
 		GetQueryObjectuivEXT;
+
+	@JavadocExclude
+	protected EXTOcclusionQueryBoolean() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTOcclusionQueryBoolean(FunctionProvider provider) {

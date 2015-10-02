@@ -47,7 +47,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>If zero stencil clear tag bits are assigned to the stencil tag encoding, then the stencil buffer operates in the conventional manner.</p>
  */
-public final class EXTStencilClearTag {
+public class EXTStencilClearTag {
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int
@@ -57,6 +57,11 @@ public final class EXTStencilClearTag {
 	/** Function address. */
 	@JavadocExclude
 	public final long StencilClearTagEXT;
+
+	@JavadocExclude
+	protected EXTStencilClearTag() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTStencilClearTag(FunctionProvider provider) {

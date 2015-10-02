@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link EGL12 EGL L.1}.</p>
  */
-public final class KHRImage {
+public class KHRImage {
 
 	/**  */
 	public static final int EGL_NATIVE_PIXMAP_KHR = 0x30B0;
@@ -35,6 +35,11 @@ public final class KHRImage {
 	public final long
 		CreateImageKHR,
 		DestroyImageKHR;
+
+	@JavadocExclude
+	protected KHRImage() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public KHRImage(FunctionProvider provider) {

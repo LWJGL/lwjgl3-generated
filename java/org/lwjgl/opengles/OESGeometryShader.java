@@ -43,7 +43,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES31 GLES E.S} and {@link  OES_shader_io_blocks} or {@link  EXT_shader_io_blocks}.</p>
  */
-public final class OESGeometryShader {
+public class OESGeometryShader {
 
 	/**
 	 * Accepted by the {@code type} parameter of CreateShader and CreateShaderProgramv, by the {@code pname} parameter of GetProgramPipelineiv and returned in
@@ -112,6 +112,11 @@ public final class OESGeometryShader {
 	/** Function address. */
 	@JavadocExclude
 	public final long FramebufferTextureOES;
+
+	@JavadocExclude
+	protected OESGeometryShader() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public OESGeometryShader(FunctionProvider provider) {

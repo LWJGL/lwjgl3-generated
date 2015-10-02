@@ -33,7 +33,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class OESGetProgramBinary {
+public class OESGetProgramBinary {
 
 	/** ccepted by the {@code pname} parameter of GetProgramiv. */
 	public static final int GL_PROGRAM_BINARY_LENGTH_OES = 0x8741;
@@ -48,6 +48,11 @@ public final class OESGetProgramBinary {
 	public final long
 		GetProgramBinaryOES,
 		ProgramBinaryOES;
+
+	@JavadocExclude
+	protected OESGetProgramBinary() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public OESGetProgramBinary(FunctionProvider provider) {

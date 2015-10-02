@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** A packed rectangle. */
-public final class STBRPRect extends Struct {
+public class STBRPRect extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

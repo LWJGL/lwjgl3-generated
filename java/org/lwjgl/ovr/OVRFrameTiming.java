@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Frame timing data reported by {@link OVR#ovrHmd_GetFrameTiming}. */
-public final class OVRFrameTiming extends Struct {
+public class OVRFrameTiming extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

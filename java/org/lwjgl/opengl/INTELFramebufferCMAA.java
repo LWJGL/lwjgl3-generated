@@ -28,11 +28,16 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL30 OpenGL 3.0}.</p>
  */
-public final class INTELFramebufferCMAA {
+public class INTELFramebufferCMAA {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long ApplyFramebufferAttachmentCMAAINTEL;
+
+	@JavadocExclude
+	protected INTELFramebufferCMAA() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public INTELFramebufferCMAA(FunctionProvider provider) {

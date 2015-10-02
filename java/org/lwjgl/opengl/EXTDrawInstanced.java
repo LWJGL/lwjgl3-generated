@@ -22,13 +22,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GL20 OpenGL 2.0}.</p>
  */
-public final class EXTDrawInstanced {
+public class EXTDrawInstanced {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		DrawArraysInstancedEXT,
 		DrawElementsInstancedEXT;
+
+	@JavadocExclude
+	protected EXTDrawInstanced() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTDrawInstanced(FunctionProvider provider) {

@@ -30,7 +30,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li><a href="http://www.opengl.org/registry/specs/ARB/transpose_matrix.txt">ARB_transpose_matrix</a></li>
  * </ul></p>
  */
-public final class GL13 {
+public class GL13 {
 
 	/** Accepted by the {@code internalformat} parameter of TexImage1D, TexImage2D, TexImage3D, CopyTexImage1D, and CopyTexImage2D. */
 	public static final int
@@ -255,6 +255,11 @@ public final class GL13 {
 		LoadTransposeMatrixd,
 		MultTransposeMatrixf,
 		MultTransposeMatrixd;
+
+	@JavadocExclude
+	protected GL13() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GL13(FunctionProvider provider, boolean fc) {

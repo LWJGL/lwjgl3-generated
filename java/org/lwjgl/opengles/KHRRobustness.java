@@ -51,7 +51,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class KHRRobustness {
+public class KHRRobustness {
 
 	/** Returned by {@link #glGetGraphicsResetStatusKHR GetGraphicsResetStatusKHR}. */
 	public static final int
@@ -80,6 +80,11 @@ public final class KHRRobustness {
 		GetnUniformfvKHR,
 		GetnUniformivKHR,
 		GetnUniformuivKHR;
+
+	@JavadocExclude
+	protected KHRRobustness() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public KHRRobustness(FunctionProvider provider) {

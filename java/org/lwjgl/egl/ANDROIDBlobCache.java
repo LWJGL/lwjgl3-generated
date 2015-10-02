@@ -29,11 +29,16 @@ import static org.lwjgl.system.JNI.*;
  * the Android EGL module. This extension is not exposed to applications on Android, but will be used automatically in every application that uses EGL if
  * it is supported by the underlying device-specific EGL implementation.</p>
  */
-public final class ANDROIDBlobCache {
+public class ANDROIDBlobCache {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long SetBlobCacheFuncsANDROID;
+
+	@JavadocExclude
+	protected ANDROIDBlobCache() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ANDROIDBlobCache(FunctionProvider provider) {

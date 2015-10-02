@@ -26,7 +26,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string} and <a href="http://www.opengl.org/registry/specs/EXT/framebuffer_object.txt">EXT_framebuffer_object</a>.</p>
  */
-public final class WGLAMDGPUAssociation {
+public class WGLAMDGPUAssociation {
 
 	/** Accepted by the {@code property} parameter of {@link #wglGetGPUInfoAMD GetGPUInfoAMD}. */
 	public static final int
@@ -53,6 +53,11 @@ public final class WGLAMDGPUAssociation {
 		MakeAssociatedContextCurrentAMD,
 		GetCurrentAssociatedContextAMD,
 		BlitContextFramebufferAMD;
+
+	@JavadocExclude
+	protected WGLAMDGPUAssociation() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public WGLAMDGPUAssociation(FunctionProvider provider) {

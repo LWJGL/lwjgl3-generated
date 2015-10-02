@@ -25,13 +25,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Requires {@link EGL14 EGL L.1} and {@link KHRImageBase KHR_image_base}. The EGL implementation must be running on a Linux kernel supporting the dma_buf buffer sharing
  * mechanism.</p>
  */
-public final class MESAImageDMABufExport {
+public class MESAImageDMABufExport {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		ExportDMABUFImageQueryMESA,
 		ExportDMABUFImageMESA;
+
+	@JavadocExclude
+	protected MESAImageDMABufExport() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public MESAImageDMABufExport(FunctionProvider provider) {

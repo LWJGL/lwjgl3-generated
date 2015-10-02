@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** A 2D size with integer components. */
-public final class OVRSizei extends Struct {
+public class OVRSizei extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

@@ -22,7 +22,7 @@ import static org.lwjgl.system.APIUtil.*;
  * keep pointers to vertex data and to provide names for different sets of vertex data. Therefore applications are allowed to rapidly switch between
  * different sets of vertex array state, and to easily return to the default vertex array state.</p>
  */
-public final class OESVertexArrayObject {
+public class OESVertexArrayObject {
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv. */
 	public static final int GL_VERTEX_ARRAY_BINDING_OES = 0x85B5;
@@ -34,6 +34,11 @@ public final class OESVertexArrayObject {
 		DeleteVertexArraysOES,
 		GenVertexArraysOES,
 		IsVertexArrayOES;
+
+	@JavadocExclude
+	protected OESVertexArrayObject() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public OESVertexArrayObject(FunctionProvider provider) {

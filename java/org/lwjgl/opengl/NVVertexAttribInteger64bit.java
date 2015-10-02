@@ -26,7 +26,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL30 OpenGL 3.0}, GLSL 1.30, {@link NVGPUShader5 NV_gpu_shader5} or equivalent functionality and {@link EXTVertexAttrib64bit EXT_vertex_attrib_64bit}.</p>
  */
-public final class NVVertexAttribInteger64bit {
+public class NVVertexAttribInteger64bit {
 
 	/** Accepted by the {@code type} parameter of VertexAttribLPointerEXT, VertexArrayVertexAttribLOffsetEXT, and VertexAttribLFormatNV. */
 	public static final int
@@ -55,6 +55,11 @@ public final class NVVertexAttribInteger64bit {
 		GetVertexAttribLi64vNV,
 		GetVertexAttribLui64vNV,
 		VertexAttribLFormatNV;
+
+	@JavadocExclude
+	protected NVVertexAttribInteger64bit() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVVertexAttribInteger64bit(FunctionProvider provider) {

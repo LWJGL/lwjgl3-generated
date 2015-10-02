@@ -20,7 +20,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class ANGLEFramebufferBlit {
+public class ANGLEFramebufferBlit {
 
 	/**
 	 * Accepted by the {@code target} parameter of BindFramebuffer, CheckFramebufferStatus, FramebufferTexture2D, FramebufferTexture3DOES,
@@ -38,6 +38,11 @@ public final class ANGLEFramebufferBlit {
 	/** Function address. */
 	@JavadocExclude
 	public final long BlitFramebufferANGLE;
+
+	@JavadocExclude
+	protected ANGLEFramebufferBlit() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ANGLEFramebufferBlit(FunctionProvider provider) {

@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Contains information about the placement and orientation of a glyph in a character cell. */
-public final class GLYPHMETRICSFLOAT extends Struct {
+public class GLYPHMETRICSFLOAT extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

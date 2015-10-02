@@ -22,7 +22,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Promoted to core in {@link GL14 OpenGL 1.4}.</p>
  */
-public final class EXTBlendMinmax {
+public class EXTBlendMinmax {
 
 	/** Accepted by the {@code mode} parameter of BlendEquationEXT. */
 	public static final int
@@ -36,6 +36,11 @@ public final class EXTBlendMinmax {
 	/** Function address. */
 	@JavadocExclude
 	public final long BlendEquationEXT;
+
+	@JavadocExclude
+	protected EXTBlendMinmax() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTBlendMinmax(FunctionProvider provider) {

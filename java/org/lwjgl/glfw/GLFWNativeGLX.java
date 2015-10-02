@@ -12,11 +12,16 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /** Native bindings to the GLFW library's GLX native access functions. */
-public final class GLFWNativeGLX {
+public class GLFWNativeGLX {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long GetGLXContext;
+
+	@JavadocExclude
+	protected GLFWNativeGLX() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLFWNativeGLX(FunctionProvider provider) {

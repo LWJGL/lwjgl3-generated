@@ -29,7 +29,7 @@ import static org.lwjgl.system.JNI.*;
  * mechanism provided by the base GL may result in a higher quality image. This extension is designed to allow multisample and smooth antialiasing
  * techniques to be alternated during the rendering of a single scene.</p>
  */
-public final class ARBMultisample {
+public class ARBMultisample {
 
 	/**
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
@@ -54,6 +54,11 @@ public final class ARBMultisample {
 	/** Function address. */
 	@JavadocExclude
 	public final long SampleCoverageARB;
+
+	@JavadocExclude
+	protected ARBMultisample() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBMultisample(FunctionProvider provider) {

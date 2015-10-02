@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
 /** The core OpenGL ES 3.1 functionality. */
-public final class GLES31 {
+public class GLES31 {
 
 	/**  */
 	public static final int
@@ -266,6 +266,11 @@ public final class GLES31 {
 		VertexAttribIFormat,
 		VertexAttribBinding,
 		VertexBindingDivisor;
+
+	@JavadocExclude
+	protected GLES31() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLES31(FunctionProvider provider) {
@@ -1137,13 +1142,13 @@ public final class GLES31 {
 
 	public static void glProgramUniformMatrix3fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
 		if ( LWJGLUtil.CHECKS )
-			checkBuffer(value, (count * 8) << 2);
+			checkBuffer(value, (count * 9) << 2);
 		nglProgramUniformMatrix3fv(program, location, count, transpose, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniformMatrix3fv ProgramUniformMatrix3fv} */
 	public static void glProgramUniformMatrix3fv(int program, int location, boolean transpose, FloatBuffer value) {
-		nglProgramUniformMatrix3fv(program, location, value.remaining() / 8, transpose, memAddress(value));
+		nglProgramUniformMatrix3fv(program, location, value.remaining() / 9, transpose, memAddress(value));
 	}
 
 	// --- [ glProgramUniformMatrix4fv ] ---

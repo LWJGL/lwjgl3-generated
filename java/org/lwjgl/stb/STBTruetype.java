@@ -211,7 +211,7 @@ import static org.lwjgl.system.APIUtil.*;
  * {@link #stbtt_InitFont InitFont} first.</li>
  * </ul></p>
  */
-public final class STBTruetype {
+public class STBTruetype {
 
 	/** Vertex type. */
 	public static final byte
@@ -294,7 +294,10 @@ public final class STBTruetype {
 
 	static { LWJGLUtil.initialize(); }
 
-	private STBTruetype() {}
+	@JavadocExclude
+	protected STBTruetype() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ stbtt_BakeFontBitmap ] ---
 

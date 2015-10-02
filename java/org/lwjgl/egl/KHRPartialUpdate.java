@@ -33,7 +33,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link EGL14 EGL L.1}.</p>
  */
-public final class KHRPartialUpdate {
+public class KHRPartialUpdate {
 
 	/**  */
 	public static final int EGL_BUFFER_AGE_KHR = 0x313D;
@@ -41,6 +41,11 @@ public final class KHRPartialUpdate {
 	/** Function address. */
 	@JavadocExclude
 	public final long SetDamageRegionKHR;
+
+	@JavadocExclude
+	protected KHRPartialUpdate() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public KHRPartialUpdate(FunctionProvider provider) {

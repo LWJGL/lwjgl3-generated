@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Defines properties shared by all ovrLayer structs, such as {@link OVRLayerEyeFov}. */
-public final class OVRLayerHeader extends Struct {
+public class OVRLayerHeader extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

@@ -29,7 +29,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link ARBFragmentShader ARB_fragment_shader} and <a href="http://www.opengl.org/registry/specs/EXT/gpu_shader4.txt">EXT_gpu_shader4</a>. Promoted to core in {@link GL33 OpenGL 3.3}.</p>
  */
-public final class ARBBlendFuncExtended {
+public class ARBBlendFuncExtended {
 
 	/**
 	 * Accepted by the {@code src} and {@code dst} parameters of BlendFunc and BlendFunci, and by the {@code srcRGB}, {@code dstRGB}, {@code srcAlpha} and
@@ -48,6 +48,11 @@ public final class ARBBlendFuncExtended {
 	public final long
 		BindFragDataLocationIndexed,
 		GetFragDataIndex;
+
+	@JavadocExclude
+	protected ARBBlendFuncExtended() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBBlendFuncExtended(FunctionProvider provider) {

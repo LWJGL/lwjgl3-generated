@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to the OpenGL 1.2 optional imaging subset. */
-public final class ARBImaging {
+public class ARBImaging {
 
 	/**
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
@@ -237,6 +237,11 @@ public final class ARBImaging {
 		GetMinmaxParameterfv,
 		BlendColor,
 		BlendEquation;
+
+	@JavadocExclude
+	protected ARBImaging() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBImaging(FunctionProvider provider, boolean fc) {

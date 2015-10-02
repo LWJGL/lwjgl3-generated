@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** A buffer to use for allocations by {@link STBVorbis} */
-public final class STBVorbisAlloc extends Struct {
+public class STBVorbisAlloc extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

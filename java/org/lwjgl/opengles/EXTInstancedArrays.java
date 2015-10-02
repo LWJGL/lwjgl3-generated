@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class EXTInstancedArrays {
+public class EXTInstancedArrays {
 
 	/** Accepted by the {@code pname} parameters of GetVertexAttribfv and GetVertexAttribiv. */
 	public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_EXT = 0x88FE;
@@ -42,6 +42,11 @@ public final class EXTInstancedArrays {
 		DrawArraysInstancedEXT,
 		DrawElementsInstancedEXT,
 		VertexAttribDivisorEXT;
+
+	@JavadocExclude
+	protected EXTInstancedArrays() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTInstancedArrays(FunctionProvider provider) {

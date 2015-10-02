@@ -19,11 +19,16 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>This extension extends the set of conditions that must be met before a buffer swap can take place.</p>
  */
-public final class GLXSGIXSwapGroup {
+public class GLXSGIXSwapGroup {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long JoinSwapGroupSGIX;
+
+	@JavadocExclude
+	protected GLXSGIXSwapGroup() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLXSGIXSwapGroup(FunctionProvider provider) {

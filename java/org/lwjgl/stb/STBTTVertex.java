@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Vertex data. */
-public final class STBTTVertex extends Struct {
+public class STBTTVertex extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

@@ -54,7 +54,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Promoted to core in {@link GL15 OpenGL 1.5}.</p>
  */
-public final class ARBOcclusionQuery {
+public class ARBOcclusionQuery {
 
 	/** Accepted by the {@code target} parameter of BeginQueryARB, EndQueryARB, and GetQueryivARB. */
 	public static final int GL_SAMPLES_PASSED_ARB = 0x8914;
@@ -80,6 +80,11 @@ public final class ARBOcclusionQuery {
 		GetQueryivARB,
 		GetQueryObjectivARB,
 		GetQueryObjectuivARB;
+
+	@JavadocExclude
+	protected ARBOcclusionQuery() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBOcclusionQuery(FunctionProvider provider) {

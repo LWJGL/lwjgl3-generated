@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Parameters for {@link OVR#ovr_Initialize}. */
-public final class OVRInitParams extends Struct {
+public class OVRInitParams extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

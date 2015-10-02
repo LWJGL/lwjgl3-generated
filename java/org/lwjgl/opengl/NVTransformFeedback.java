@@ -38,7 +38,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL15 OpenGL 1.5}.</p>
  */
-public final class NVTransformFeedback {
+public class NVTransformFeedback {
 
 	/**
 	 * Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, GetBufferPointerv,
@@ -117,6 +117,11 @@ public final class NVTransformFeedback {
 		GetActiveVaryingNV,
 		GetTransformFeedbackVaryingNV,
 		TransformFeedbackStreamAttribsNV;
+
+	@JavadocExclude
+	protected NVTransformFeedback() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVTransformFeedback(FunctionProvider provider) {

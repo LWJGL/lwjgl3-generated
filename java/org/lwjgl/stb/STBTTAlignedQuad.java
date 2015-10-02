@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Quad used for drawing a baked character, returned by {@link STBTruetype#stbtt_GetBakedQuad}. */
-public final class STBTTAlignedQuad extends Struct {
+public class STBTTAlignedQuad extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

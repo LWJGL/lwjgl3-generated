@@ -42,7 +42,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GL30 OpenGL 3.0} and {@link ARBGPUShaderFP64 ARB_gpu_shader_fp64} (or equivalent functionality).</p>
  */
-public final class EXTVertexAttrib64bit {
+public class EXTVertexAttrib64bit {
 
 	/** Returned in the {@code type} parameter of GetActiveAttrib. */
 	public static final int
@@ -73,6 +73,11 @@ public final class EXTVertexAttrib64bit {
 		VertexAttribLPointerEXT,
 		GetVertexAttribLdvEXT,
 		VertexArrayVertexAttribLOffsetEXT;
+
+	@JavadocExclude
+	protected EXTVertexAttrib64bit() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTVertexAttrib64bit(FunctionProvider provider) {

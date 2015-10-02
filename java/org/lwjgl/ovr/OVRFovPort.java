@@ -18,7 +18,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <pre><code style="font-family: monospace">
  * { UpTan = tan(90 degrees / 2), DownTan = tan(90 degrees / 2) }</code></pre>.
  */
-public final class OVRFovPort extends Struct {
+public class OVRFovPort extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

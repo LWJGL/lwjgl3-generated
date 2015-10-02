@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import org.lwjgl.system.linux.*;
 
 /** Native bindings to GLX 1.4. */
-public final class GLX14 {
+public class GLX14 {
 
 	/** Added in GLX 1.4. */
 	public static final int
@@ -27,6 +27,11 @@ public final class GLX14 {
 	/** Function address. */
 	@JavadocExclude
 	public final long GetProcAddress;
+
+	@JavadocExclude
+	protected GLX14() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLX14(FunctionProvider provider) {

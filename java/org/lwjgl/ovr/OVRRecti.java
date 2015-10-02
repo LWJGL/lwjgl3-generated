@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** A 2D rectangle with a position and size. All components are integers. */
-public final class OVRRecti extends Struct {
+public class OVRRecti extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

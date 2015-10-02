@@ -49,7 +49,7 @@ import static org.lwjgl.system.APIUtil.*;
  * </ul>
  * Requires {@link GL20 OpenGL 2.0} and <a href="http://www.opengl.org/registry/specs/NV/gpu_program4.txt">NV_gpu_program4</a> or <a href="http://www.opengl.org/registry/specs/EXT/gpu_shader4.txt">EXT_gpu_shader4</a>. Promoted to core in {@link GL30 OpenGL 3.0}.</p>
  */
-public final class EXTTextureInteger {
+public class EXTTextureInteger {
 
 	/** Accepted by the {@code pname} parameters of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_RGBA_INTEGER_MODE_EXT = 0x8D9E;
@@ -115,6 +115,11 @@ public final class EXTTextureInteger {
 		TexParameterIuivEXT,
 		GetTexParameterIivEXT,
 		GetTexParameterIuivEXT;
+
+	@JavadocExclude
+	protected EXTTextureInteger() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTTextureInteger(FunctionProvider provider) {

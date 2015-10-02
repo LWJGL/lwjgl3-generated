@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Position and orientation together. */
-public final class OVRPosef extends Struct {
+public class OVRPosef extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

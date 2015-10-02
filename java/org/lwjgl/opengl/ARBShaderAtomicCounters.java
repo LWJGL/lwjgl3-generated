@@ -44,7 +44,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL30 OpenGL 3.0}. Promoted to core in {@link GL42 OpenGL 4.2}.</p>
  */
-public final class ARBShaderAtomicCounters {
+public class ARBShaderAtomicCounters {
 
 	/** Accepted by the {@code target} parameter of BindBufferBase and BindBufferRange. */
 	public static final int GL_ATOMIC_COUNTER_BUFFER = 0x92C0;
@@ -100,6 +100,11 @@ public final class ARBShaderAtomicCounters {
 	/** Function address. */
 	@JavadocExclude
 	public final long GetActiveAtomicCounterBufferiv;
+
+	@JavadocExclude
+	protected ARBShaderAtomicCounters() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBShaderAtomicCounters(FunctionProvider provider) {

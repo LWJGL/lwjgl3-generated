@@ -36,7 +36,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link EGL11 EGL L.1}.</p>
  */
-public final class KHRFenceSync {
+public class KHRFenceSync {
 
 	/**  */
 	public static final int
@@ -51,6 +51,11 @@ public final class KHRFenceSync {
 		DestroySyncKHR,
 		ClientWaitSyncKHR,
 		GetSyncAttribKHR;
+
+	@JavadocExclude
+	protected KHRFenceSync() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public KHRFenceSync(FunctionProvider provider) {

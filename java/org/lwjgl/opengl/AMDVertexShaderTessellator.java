@@ -66,7 +66,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL20 OpenGL 2.0}.</p>
  */
-public final class AMDVertexShaderTessellator {
+public class AMDVertexShaderTessellator {
 
 	/** Returned by the {@code type} parameter of GetActiveUniform. */
 	public static final int
@@ -90,6 +90,11 @@ public final class AMDVertexShaderTessellator {
 	public final long
 		TessellationFactorAMD,
 		TessellationModeAMD;
+
+	@JavadocExclude
+	protected AMDVertexShaderTessellator() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public AMDVertexShaderTessellator(FunctionProvider provider) {

@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * the necessary data movement bandwidth to keep up with the rate
  * at which the vertex engine can consume vertices.</p>
  */
-public final class NVVertexArrayRange {
+public class NVVertexArrayRange {
 
 	/** Accepted by the {@code cap} parameter of EnableClientState, DisableClientState, and IsEnabled. */
 	public static final int GL_VERTEX_ARRAY_RANGE_NV = 0x851D;
@@ -41,6 +41,11 @@ public final class NVVertexArrayRange {
 	public final long
 		VertexArrayRangeNV,
 		FlushVertexArrayRangeNV;
+
+	@JavadocExclude
+	protected NVVertexArrayRange() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVVertexArrayRange(FunctionProvider provider) {

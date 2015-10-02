@@ -33,7 +33,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GLES31 GLES E.S} and {@link EXTGeometryShader EXT_geometry_shader}.</p>
  */
-public final class NVViewportArray {
+public class NVViewportArray {
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetInteger64v. */
 	public static final int
@@ -57,6 +57,11 @@ public final class NVViewportArray {
 		EnableiNV,
 		DisableiNV,
 		IsEnablediNV;
+
+	@JavadocExclude
+	protected NVViewportArray() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVViewportArray(FunctionProvider provider) {

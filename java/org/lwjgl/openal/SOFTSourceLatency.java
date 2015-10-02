@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * By providing this information through the AL, an application can more accurately tell what a user is hearing and thus synchronize better with the audio
  * output.</p>
  */
-public final class SOFTSourceLatency {
+public class SOFTSourceLatency {
 
 	/** Can be used to retrieve a high-precision source offset and playback latency. */
 	public static final int
@@ -53,6 +53,11 @@ public final class SOFTSourceLatency {
 		GetSourcei64SOFT,
 		GetSource3i64SOFT,
 		GetSourcei64vSOFT;
+
+	@JavadocExclude
+	protected SOFTSourceLatency() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public SOFTSourceLatency(FunctionProvider provider) {

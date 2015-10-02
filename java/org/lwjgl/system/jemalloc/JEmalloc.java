@@ -26,7 +26,7 @@ import static org.lwjgl.system.APIUtil.*;
  * development efforts trend toward making jemalloc among the best allocators for a broad range of demanding applications, and eliminating/mitigating
  * weaknesses that have practical repercussions for real world applications.</p>
  */
-public final class JEmalloc {
+public class JEmalloc {
 
 	/** Function address. */
 	@JavadocExclude
@@ -50,6 +50,11 @@ public final class JEmalloc {
 		mallctlbymib,
 		malloc_stats_print,
 		malloc_usable_size;
+
+	@JavadocExclude
+	protected JEmalloc() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public JEmalloc(FunctionProvider provider) {

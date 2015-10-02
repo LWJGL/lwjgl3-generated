@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Promoted to core in {@link GL13 OpenGL 1.3}.</p>
  */
-public final class ARBMultitexture {
+public class ARBMultitexture {
 
 	/** Accepted by the {@code texture} parameter of ActiveTexture and MultiTexCoord. */
 	public static final int
@@ -101,6 +101,11 @@ public final class ARBMultitexture {
 		MultiTexCoord4svARB,
 		MultiTexCoord4ivARB,
 		MultiTexCoord4dvARB;
+
+	@JavadocExclude
+	protected ARBMultitexture() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBMultitexture(FunctionProvider provider) {

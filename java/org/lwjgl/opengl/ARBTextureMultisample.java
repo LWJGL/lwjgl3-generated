@@ -29,7 +29,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Promoted to core in {@link GL32 OpenGL 3.2}.</p>
  */
-public final class ARBTextureMultisample {
+public class ARBTextureMultisample {
 
 	/** Accepted by the {@code pname} parameter of GetMultisamplefv. */
 	public static final int GL_SAMPLE_POSITION = 0x8E50;
@@ -85,6 +85,11 @@ public final class ARBTextureMultisample {
 		TexImage3DMultisample,
 		GetMultisamplefv,
 		SampleMaski;
+
+	@JavadocExclude
+	protected ARBTextureMultisample() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBTextureMultisample(FunctionProvider provider) {

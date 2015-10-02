@@ -27,7 +27,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Promoted to core in {@link GL20 OpenGL 2.0}.</p>
  */
-public final class ARBVertexShader {
+public class ARBVertexShader {
 
 	/** Accepted by the {@code shaderType} argument of CreateShaderObjectARB and returned by the {@code params} parameter of GetObjectParameter{if}vARB. */
 	public static final int GL_VERTEX_SHADER_ARB = 0x8B31;
@@ -125,6 +125,11 @@ public final class ARBVertexShader {
 		GetVertexAttribfvARB,
 		GetVertexAttribdvARB,
 		GetVertexAttribPointervARB;
+
+	@JavadocExclude
+	protected ARBVertexShader() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBVertexShader(FunctionProvider provider) {

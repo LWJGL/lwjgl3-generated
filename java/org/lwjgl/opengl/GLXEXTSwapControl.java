@@ -19,7 +19,7 @@ import org.lwjgl.system.linux.*;
  * <p>This extension allows an application to specify a minimum periodicity of color buffer swaps, measured in video frame periods, for a particular drawable.
  * It also allows an application to query the swap interval and the implementation-dependent maximum swap interval of a drawable.</p>
  */
-public final class GLXEXTSwapControl {
+public class GLXEXTSwapControl {
 
 	/** The current swap interval and implementation-dependent max swap interval for a particular drawable. */
 	public static final int
@@ -29,6 +29,11 @@ public final class GLXEXTSwapControl {
 	/** Function address. */
 	@JavadocExclude
 	public final long SwapIntervalEXT;
+
+	@JavadocExclude
+	protected GLXEXTSwapControl() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLXEXTSwapControl(FunctionProvider provider) {

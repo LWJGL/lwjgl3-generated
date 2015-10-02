@@ -19,7 +19,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL20 OpenGL 2.0}, {@link ARBTextureMultisample ARB_texture_multisample}.</p>
  */
-public final class NVTextureMultisample {
+public class NVTextureMultisample {
 
 	/** Accepted by the {@code pname} parameter of GetTexLevelParameter. */
 	public static final int
@@ -35,6 +35,11 @@ public final class NVTextureMultisample {
 		TextureImage3DMultisampleNV,
 		TextureImage2DMultisampleCoverageNV,
 		TextureImage3DMultisampleCoverageNV;
+
+	@JavadocExclude
+	protected NVTextureMultisample() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVTextureMultisample(FunctionProvider provider) {

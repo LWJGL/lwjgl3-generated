@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import org.lwjgl.system.linux.*;
 
 /** Native bindings to GLX. */
-public final class GLX {
+public class GLX {
 
 	/** Errors. */
 	public static final int
@@ -85,6 +85,11 @@ public final class GLX {
 		UseXFont,
 		CreateGLXPixmap,
 		DestroyGLXPixmap;
+
+	@JavadocExclude
+	protected GLX() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLX(FunctionProvider provider) {

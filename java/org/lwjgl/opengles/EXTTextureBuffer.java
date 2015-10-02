@@ -36,7 +36,7 @@ import static org.lwjgl.system.JNI.*;
  * textures to be backed by independent sub-ranges of the same buffer object, or for different sub-ranges of a single buffer object to be used for
  * different purposes.</p>
  */
-public final class EXTTextureBuffer {
+public class EXTTextureBuffer {
 
 	/**
 	 * Accepted by the {@code target} parameter of BindBuffer, BufferData, BufferSubData, MapBufferRange, BindTexture, UnmapBuffer, GetBufferParameteriv,
@@ -74,6 +74,11 @@ public final class EXTTextureBuffer {
 	public final long
 		TexBufferEXT,
 		TexBufferRangeEXT;
+
+	@JavadocExclude
+	protected EXTTextureBuffer() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTTextureBuffer(FunctionProvider provider) {

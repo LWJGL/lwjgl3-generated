@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GLES31 GLES E.S}.</p>
  */
-public final class EXTBufferStorage {
+public class EXTBufferStorage {
 
 	/** Accepted in the {@code flags} parameter of BufferStorageEXT and NamedBufferStorageEXT. */
 	public static final int
@@ -51,6 +51,11 @@ public final class EXTBufferStorage {
 	/** Function address. */
 	@JavadocExclude
 	public final long BufferStorageEXT;
+
+	@JavadocExclude
+	protected EXTBufferStorage() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTBufferStorage(FunctionProvider provider) {

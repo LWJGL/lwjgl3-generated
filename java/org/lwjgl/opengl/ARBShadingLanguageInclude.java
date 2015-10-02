@@ -68,7 +68,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires GLSL 1.10.</p>
  */
-public final class ARBShadingLanguageInclude {
+public class ARBShadingLanguageInclude {
 
 	/** Accepted by the {@code type} parameter of NamedStringARB. */
 	public static final int GL_SHADER_INCLUDE_ARB = 0x8DAE;
@@ -87,6 +87,11 @@ public final class ARBShadingLanguageInclude {
 		IsNamedStringARB,
 		GetNamedStringARB,
 		GetNamedStringivARB;
+
+	@JavadocExclude
+	protected ARBShadingLanguageInclude() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBShadingLanguageInclude(FunctionProvider provider) {

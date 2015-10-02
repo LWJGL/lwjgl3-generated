@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link EGL14 EGL L.1}.</p>
  */
-public final class KHRLockSurface3 {
+public class KHRLockSurface3 {
 
 	/**  */
 	public static final int
@@ -56,6 +56,11 @@ public final class KHRLockSurface3 {
 		LockSurfaceKHR,
 		UnlockSurfaceKHR,
 		QuerySurface64KHR;
+
+	@JavadocExclude
+	protected KHRLockSurface3() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public KHRLockSurface3(FunctionProvider provider) {

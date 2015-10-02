@@ -14,7 +14,7 @@ import static org.lwjgl.system.JNI.*;
 import org.lwjgl.egl.EGL10;
 
 /** Native bindings to the GLFW library's EGL native access functions. */
-public final class GLFWNativeEGL {
+public class GLFWNativeEGL {
 
 	/** Function address. */
 	@JavadocExclude
@@ -22,6 +22,11 @@ public final class GLFWNativeEGL {
 		GetEGLDisplay,
 		GetEGLContext,
 		GetEGLSurface;
+
+	@JavadocExclude
+	protected GLFWNativeEGL() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLFWNativeEGL(FunctionProvider provider) {

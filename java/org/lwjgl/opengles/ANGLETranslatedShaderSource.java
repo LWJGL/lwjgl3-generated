@@ -26,7 +26,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class ANGLETranslatedShaderSource {
+public class ANGLETranslatedShaderSource {
 
 	/** Accepted by the {@code pname} parameter of GetShaderiv. */
 	public static final int GL_TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE = 0x93A0;
@@ -34,6 +34,11 @@ public final class ANGLETranslatedShaderSource {
 	/** Function address. */
 	@JavadocExclude
 	public final long GetTranslatedShaderSourceANGLE;
+
+	@JavadocExclude
+	protected ANGLETranslatedShaderSource() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ANGLETranslatedShaderSource(FunctionProvider provider) {

@@ -53,7 +53,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL32 GL32} and GLSL 1.50. Promoted to core in {@link GL40 OpenGL 4.0}.</p>
  */
-public final class ARBGPUShaderFP64 {
+public class ARBGPUShaderFP64 {
 
 	/** Returned in the {@code type} parameter of GetActiveUniform, and GetTransformFeedbackVarying. */
 	public static final int
@@ -108,6 +108,11 @@ public final class ARBGPUShaderFP64 {
 		ProgramUniformMatrix3x4dvEXT,
 		ProgramUniformMatrix4x2dvEXT,
 		ProgramUniformMatrix4x3dvEXT;
+
+	@JavadocExclude
+	protected ARBGPUShaderFP64() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBGPUShaderFP64(FunctionProvider provider) {

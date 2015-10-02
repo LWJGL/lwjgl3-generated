@@ -26,7 +26,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class NVConservativeRaster {
+public class NVConservativeRaster {
 
 	/** Accepted by the {@code cap} parameter of Enable, Disable, IsEnabled. */
 	public static final int GL_CONSERVATIVE_RASTERIZATION_NV = 0x9346;
@@ -40,6 +40,11 @@ public final class NVConservativeRaster {
 	/** Function address. */
 	@JavadocExclude
 	public final long SubpixelPrecisionBiasNV;
+
+	@JavadocExclude
+	protected NVConservativeRaster() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVConservativeRaster(FunctionProvider provider) {

@@ -12,11 +12,16 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /** Native bindings to GLX 1.2. */
-public final class GLX12 {
+public class GLX12 {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long GetCurrentDisplay;
+
+	@JavadocExclude
+	protected GLX12() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLX12(FunctionProvider provider) {

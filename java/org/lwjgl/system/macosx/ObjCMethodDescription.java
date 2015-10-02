@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Defines a method. */
-public final class ObjCMethodDescription extends Struct {
+public class ObjCMethodDescription extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

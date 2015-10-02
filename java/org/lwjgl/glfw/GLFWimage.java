@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Image data. */
-public final class GLFWimage extends Struct {
+public class GLFWimage extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** An opaque structure that contains font information. */
-public final class STBTTFontinfo extends Struct {
+public class STBTTFontinfo extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

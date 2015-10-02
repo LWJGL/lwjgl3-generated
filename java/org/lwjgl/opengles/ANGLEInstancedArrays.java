@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class ANGLEInstancedArrays {
+public class ANGLEInstancedArrays {
 
 	/** Accepted by the {@code pname} parameters of GetVertexAttribfv and GetVertexAttribiv. */
 	public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE = 0x88FE;
@@ -42,6 +42,11 @@ public final class ANGLEInstancedArrays {
 		DrawArraysInstancedANGLE,
 		DrawElementsInstancedANGLE,
 		VertexAttribDivisorANGLE;
+
+	@JavadocExclude
+	protected ANGLEInstancedArrays() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ANGLEInstancedArrays(FunctionProvider provider) {

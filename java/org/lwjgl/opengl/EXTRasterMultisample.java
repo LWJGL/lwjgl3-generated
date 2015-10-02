@@ -25,7 +25,7 @@ import static org.lwjgl.system.JNI.*;
  * sample) through the fragment shader, in the sample mask output, through the multisample fragment operations and occlusion query, until the coverage is
  * finally "reduced" to a single bit in a new "Coverage Reduction" stage that occurs before blending.</p>
  */
-public final class EXTRasterMultisample {
+public class EXTRasterMultisample {
 
 	/** Accepted by the {@code cap} parameter of Enable, Disable, IsEnabled. */
 	public static final int GL_RASTER_MULTISAMPLE_EXT = 0x9327;
@@ -41,6 +41,11 @@ public final class EXTRasterMultisample {
 	/** Function address. */
 	@JavadocExclude
 	public final long RasterSamplesEXT;
+
+	@JavadocExclude
+	protected EXTRasterMultisample() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTRasterMultisample(FunctionProvider provider) {

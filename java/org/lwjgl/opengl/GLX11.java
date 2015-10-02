@@ -15,7 +15,7 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to GLX 1.1. */
-public final class GLX11 {
+public class GLX11 {
 
 	/** Names for attributes to {@link #glXGetClientString GetClientString}. */
 	public static final int
@@ -29,6 +29,11 @@ public final class GLX11 {
 		QueryExtensionsString,
 		GetClientString,
 		QueryServerString;
+
+	@JavadocExclude
+	protected GLX11() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLX11(FunctionProvider provider) {

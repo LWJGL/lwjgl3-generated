@@ -71,7 +71,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <p>The intent of this extension is NOT to deprecate any existing API and thereby introduce compatibility issues and coding burdens on existing code, but
  * rather to provide new APIs to ensure a level of robustness commensurate with the expectations of modern applications of OpenGL.</p>
  */
-public final class ARBRobustness {
+public class ARBRobustness {
 
 	/** Returned by GetGraphicsResetStatusARB. */
 	public static final int
@@ -113,6 +113,11 @@ public final class ARBRobustness {
 		GetnUniformivARB,
 		GetnUniformuivARB,
 		GetnUniformdvARB;
+
+	@JavadocExclude
+	protected ARBRobustness() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBRobustness(FunctionProvider provider) {

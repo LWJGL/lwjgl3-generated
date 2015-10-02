@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GL31 OpenGL 3.1}. Promoted to core in {@link GL40 OpenGL 4.0}.</p>
  */
-public final class ARBDrawIndirect {
+public class ARBDrawIndirect {
 
 	/**
 	 * Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, GetBufferPointerv,
@@ -47,6 +47,11 @@ public final class ARBDrawIndirect {
 	public final long
 		DrawArraysIndirect,
 		DrawElementsIndirect;
+
+	@JavadocExclude
+	protected ARBDrawIndirect() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBDrawIndirect(FunctionProvider provider) {

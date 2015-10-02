@@ -47,11 +47,14 @@ import static org.lwjgl.system.APIUtil.*;
  * 	glDisableClientState(GL_VERTEX_ARRAY);
  * }</code></pre></p>
  */
-public final class STBEasyFont {
+public class STBEasyFont {
 
 	static { LWJGLUtil.initialize(); }
 
-	private STBEasyFont() {}
+	@JavadocExclude
+	protected STBEasyFont() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ stb_easy_font_width ] ---
 

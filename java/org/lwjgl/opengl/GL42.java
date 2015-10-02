@@ -32,7 +32,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <li><a href="http://www.opengl.org/registry/specs/ARB/map_buffer_alignment.txt">ARB_map_buffer_alignment</a></li>
  * </ul></p>
  */
-public final class GL42 {
+public class GL42 {
 
 	/** Renamed tokens. */
 	public static final int
@@ -221,6 +221,11 @@ public final class GL42 {
 		BindImageTexture,
 		MemoryBarrier,
 		GetInternalformativ;
+
+	@JavadocExclude
+	protected GL42() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GL42(FunctionProvider provider) {

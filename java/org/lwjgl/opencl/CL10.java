@@ -19,7 +19,7 @@ import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.opencl.Info.*;
 
 /** The core OpenCL 1.0 functionality. */
-public final class CL10 {
+public class CL10 {
 
 	/** Error Codes */
 	public static final int
@@ -429,6 +429,11 @@ public final class CL10 {
 		Flush,
 		Finish,
 		GetExtensionFunctionAddress;
+
+	@JavadocExclude
+	protected CL10() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public CL10(FunctionProvider provider) {

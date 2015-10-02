@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
 /** The core OpenGL ES 2.0 functionality. */
-public final class GLES20 {
+public class GLES20 {
 
 	/**  */
 	public static final int
@@ -468,6 +468,11 @@ public final class GLES20 {
 		VertexAttrib4fv,
 		VertexAttribPointer,
 		Viewport;
+
+	@JavadocExclude
+	protected GLES20() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLES20(FunctionProvider provider) {

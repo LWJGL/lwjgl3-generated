@@ -18,11 +18,16 @@ import org.lwjgl.system.linux.*;
  * 
  * <p>This extension allows an application to specify a minimum periodicity of color buffer swaps, measured in video frame periods.</p>
  */
-public final class GLXSGISwapControl {
+public class GLXSGISwapControl {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long SwapIntervalSGI;
+
+	@JavadocExclude
+	protected GLXSGISwapControl() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLXSGISwapControl(FunctionProvider provider) {

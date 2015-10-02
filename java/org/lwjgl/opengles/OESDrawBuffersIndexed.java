@@ -28,7 +28,7 @@ import static org.lwjgl.system.JNI.*;
  * <p>This extension introduces indexed versions of the enable, blend equation, blend function, and color mask commands, as well as associated indexed
  * queries in order to control and query these states independently on a per-color output basis.</p>
  */
-public final class OESDrawBuffersIndexed {
+public class OESDrawBuffersIndexed {
 
 	/** Function address. */
 	@JavadocExclude
@@ -41,6 +41,11 @@ public final class OESDrawBuffersIndexed {
 		BlendFuncSeparateiOES,
 		ColorMaskiOES,
 		IsEnablediOES;
+
+	@JavadocExclude
+	protected OESDrawBuffersIndexed() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public OESDrawBuffersIndexed(FunctionProvider provider) {

@@ -24,7 +24,7 @@ import static org.lwjgl.system.JNI.*;
  * backed (commitment). This exposes a limited form of virtualization for textures. Use cases include sparse (or partially resident) textures, texture
  * paging, on-demand and delayed loading of texture assets and application controlled level of detail.</p>
  */
-public final class ARBSparseTexture {
+public class ARBSparseTexture {
 
 	/** Accepted by the {@code pname} parameter to TexParameter{i f}{v}, TexParameterI{u}v, GetTexParameter{if}v and GetTexParameterIi{u}v. */
 	public static final int
@@ -53,6 +53,11 @@ public final class ARBSparseTexture {
 	public final long
 		TexPageCommitmentARB,
 		TexturePageCommitmentEXT;
+
+	@JavadocExclude
+	protected ARBSparseTexture() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBSparseTexture(FunctionProvider provider) {

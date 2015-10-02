@@ -30,7 +30,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li><a href="http://www.opengl.org/registry/specs/ARB/vertex_type_10f_11f_11f_rev.txt">ARB_vertex_type_10f_11f_11f_rev</a></li>
  * </ul></p>
  */
-public final class GL44 {
+public class GL44 {
 
 	/** Implementation-dependent state which constrains the maximum value of stride parameters to vertex array pointer-setting commands. */
 	public static final int GL_MAX_VERTEX_ATTRIB_STRIDE = 0x82E5;
@@ -108,6 +108,11 @@ public final class GL44 {
 		BindSamplers,
 		BindImageTextures,
 		BindVertexBuffers;
+
+	@JavadocExclude
+	protected GL44() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GL44(FunctionProvider provider) {

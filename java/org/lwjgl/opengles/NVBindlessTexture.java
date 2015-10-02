@@ -42,7 +42,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GLES30 GLES E.S}.</p>
  */
-public final class NVBindlessTexture {
+public class NVBindlessTexture {
 
 	/** Function address. */
 	@JavadocExclude
@@ -60,6 +60,11 @@ public final class NVBindlessTexture {
 		ProgramUniformHandleui64vNV,
 		IsTextureHandleResidentNV,
 		IsImageHandleResidentNV;
+
+	@JavadocExclude
+	protected NVBindlessTexture() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVBindlessTexture(FunctionProvider provider) {

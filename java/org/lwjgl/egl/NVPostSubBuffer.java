@@ -21,7 +21,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link EGL11 EGL L.1}.</p>
  */
-public final class NVPostSubBuffer {
+public class NVPostSubBuffer {
 
 	/**  */
 	public static final int EGL_POST_SUB_BUFFER_SUPPORTED_NV = 0x30BE;
@@ -29,6 +29,11 @@ public final class NVPostSubBuffer {
 	/** Function address. */
 	@JavadocExclude
 	public final long PostSubBufferNV;
+
+	@JavadocExclude
+	protected NVPostSubBuffer() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVPostSubBuffer(FunctionProvider provider) {

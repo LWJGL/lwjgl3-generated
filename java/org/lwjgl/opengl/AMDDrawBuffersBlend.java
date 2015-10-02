@@ -22,7 +22,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL20 OpenGL 2.0} and <a href="http://www.opengl.org/registry/specs/EXT/draw_buffers2.txt">AMD_draw_buffers_blend</a>.</p>
  */
-public final class AMDDrawBuffersBlend {
+public class AMDDrawBuffersBlend {
 
 	/** Function address. */
 	@JavadocExclude
@@ -31,6 +31,11 @@ public final class AMDDrawBuffersBlend {
 		BlendFuncSeparateIndexedAMD,
 		BlendEquationIndexedAMD,
 		BlendEquationSeparateIndexedAMD;
+
+	@JavadocExclude
+	protected AMDDrawBuffersBlend() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public AMDDrawBuffersBlend(FunctionProvider provider) {

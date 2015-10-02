@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
 /** The core OpenCL 1.2 functionality. */
-public final class CL12 {
+public class CL12 {
 
 	/** Error Codes. */
 	public static final int
@@ -213,6 +213,11 @@ public final class CL12 {
 		EnqueueMigrateMemObjects,
 		EnqueueMarkerWithWaitList,
 		EnqueueBarrierWithWaitList;
+
+	@JavadocExclude
+	protected CL12() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public CL12(FunctionProvider provider) {

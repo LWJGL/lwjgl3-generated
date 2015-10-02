@@ -26,7 +26,7 @@ import org.lwjgl.system.linux.*;
  * 
  * <p>Requires {@link GLX14 GLX 1.4}.</p>
  */
-public final class GLXARBCreateContext {
+public class GLXARBCreateContext {
 
 	/** Accepted as an attribute name in {@code attrib_list}. */
 	public static final int
@@ -42,6 +42,11 @@ public final class GLXARBCreateContext {
 	/** Function address. */
 	@JavadocExclude
 	public final long CreateContextAttribsARB;
+
+	@JavadocExclude
+	protected GLXARBCreateContext() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLXARBCreateContext(FunctionProvider provider) {

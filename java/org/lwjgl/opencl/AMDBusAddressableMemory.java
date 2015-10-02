@@ -25,7 +25,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>It also offers the reverse operation of specifying a buffer allocated on another device to be used for write access by the GPU.</p>
  */
-public final class AMDBusAddressableMemory {
+public class AMDBusAddressableMemory {
 
 	/**
 	 * Accepted by the {@code flags} parameter of {@link CL10#clCreateBuffer CreateBuffer}.
@@ -59,6 +59,11 @@ public final class AMDBusAddressableMemory {
 		EnqueueWaitSignalAMD,
 		EnqueueWriteSignalAMD,
 		EnqueueMakeBuffersResidentAMD;
+
+	@JavadocExclude
+	protected AMDBusAddressableMemory() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public AMDBusAddressableMemory(FunctionProvider provider) {

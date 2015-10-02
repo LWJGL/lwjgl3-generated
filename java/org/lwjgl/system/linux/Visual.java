@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Visual structure; contains information about colormapping possible. */
-public final class Visual extends Struct {
+public class Visual extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

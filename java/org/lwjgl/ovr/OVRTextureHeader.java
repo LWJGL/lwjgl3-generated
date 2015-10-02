@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** API-independent part of a texture descriptor. */
-public final class OVRTextureHeader extends Struct {
+public class OVRTextureHeader extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

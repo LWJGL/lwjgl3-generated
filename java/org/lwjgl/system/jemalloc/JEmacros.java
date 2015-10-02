@@ -14,11 +14,14 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Macros for jemalloc. */
-public final class JEmacros {
+public class JEmacros {
 
 	static { LWJGLUtil.initialize(); }
 
-	private JEmacros() {}
+	@JavadocExclude
+	protected JEmacros() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ JEMALLOC_VERSION ] ---
 

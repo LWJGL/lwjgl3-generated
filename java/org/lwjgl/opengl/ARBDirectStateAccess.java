@@ -31,7 +31,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL20 OpenGL 2.0}. Promoted to core in {@link GL45 OpenGL 4.5}.</p>
  */
-public final class ARBDirectStateAccess {
+public class ARBDirectStateAccess {
 
 	/** Accepted by the {@code pname} parameter of GetTextureParameter{if}v and GetTextureParameterI{i ui}v. */
 	public static final int GL_TEXTURE_TARGET = 0x1006;
@@ -139,6 +139,11 @@ public final class ARBDirectStateAccess {
 		GetQueryBufferObjectiv,
 		GetQueryBufferObjectui64v,
 		GetQueryBufferObjectuiv;
+
+	@JavadocExclude
+	protected ARBDirectStateAccess() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBDirectStateAccess(FunctionProvider provider) {

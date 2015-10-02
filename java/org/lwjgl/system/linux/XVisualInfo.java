@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Information used by the visual utility routines to find desired visual type from the many visuals a display may support. */
-public final class XVisualInfo extends Struct {
+public class XVisualInfo extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

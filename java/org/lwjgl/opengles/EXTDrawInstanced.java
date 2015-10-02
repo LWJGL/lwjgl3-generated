@@ -20,13 +20,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>This extension provides the means to render multiple instances of an object with a single draw call, and an "instance ID" variable which can be used by
  * the vertex program to compute per-instance values, typically an object's transform.</p>
  */
-public final class EXTDrawInstanced {
+public class EXTDrawInstanced {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		DrawArraysInstancedEXT,
 		DrawElementsInstancedEXT;
+
+	@JavadocExclude
+	protected EXTDrawInstanced() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTDrawInstanced(FunctionProvider provider) {

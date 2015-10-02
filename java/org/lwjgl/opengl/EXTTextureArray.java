@@ -34,7 +34,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Promoted to core in {@link GL30 OpenGL 3.0}.</p>
  */
-public final class EXTTextureArray {
+public class EXTTextureArray {
 
 	/** Accepted by the {@code target} parameter of TexParameteri, TexParameteriv, TexParameterf, TexParameterfv, GenerateMipmapEXT, and BindTexture. */
 	public static final int
@@ -82,6 +82,11 @@ public final class EXTTextureArray {
 	/** Function address. */
 	@JavadocExclude
 	public final long FramebufferTextureLayerEXT;
+
+	@JavadocExclude
+	protected EXTTextureArray() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTTextureArray(FunctionProvider provider) {

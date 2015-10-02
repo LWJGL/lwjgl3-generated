@@ -26,7 +26,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL20 OpenGL 2.0} or {@link ARBFragmentShader ARB_fragment_shader}.</p>
  */
-public final class AMDSparseTexture {
+public class AMDSparseTexture {
 
 	/** Accepted by the {@code flags} parameter to TexStorageSparseAMD and TextureStorageSparseAMD. */
 	public static final int GL_TEXTURE_STORAGE_SPARSE_BIT_AMD = 0x1;
@@ -54,6 +54,11 @@ public final class AMDSparseTexture {
 	public final long
 		TexStorageSparseAMD,
 		TextureStorageSparseAMD;
+
+	@JavadocExclude
+	protected AMDSparseTexture() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public AMDSparseTexture(FunctionProvider provider) {

@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** A quaternion rotation. */
-public final class OVRQuatf extends Struct {
+public class OVRQuatf extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

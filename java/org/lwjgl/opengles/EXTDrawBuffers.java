@@ -26,7 +26,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class EXTDrawBuffers {
+public class EXTDrawBuffers {
 
 	/** Accepted by the {@code pname} parameter of GetIntegerv. */
 	public static final int GL_MAX_COLOR_ATTACHMENTS_EXT = 0x8CDF;
@@ -76,6 +76,11 @@ public final class EXTDrawBuffers {
 	/** Function address. */
 	@JavadocExclude
 	public final long DrawBuffersEXT;
+
+	@JavadocExclude
+	protected EXTDrawBuffers() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTDrawBuffers(FunctionProvider provider) {

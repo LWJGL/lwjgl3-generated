@@ -65,7 +65,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL20 OpenGL 2.0}.</p>
  */
-public final class EXTGPUShader4 {
+public class EXTGPUShader4 {
 
 	/** Accepted by the {@code pname} parameters of GetVertexAttribdv, GetVertexAttribfv, GetVertexAttribiv, GetVertexAttribIuivEXT and GetVertexAttribIivEXT. */
 	public static final int GL_VERTEX_ATTRIB_ARRAY_INTEGER_EXT = 0x88FD;
@@ -140,6 +140,11 @@ public final class EXTGPUShader4 {
 		Uniform2uivEXT,
 		Uniform3uivEXT,
 		Uniform4uivEXT;
+
+	@JavadocExclude
+	protected EXTGPUShader4() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTGPUShader4(FunctionProvider provider) {

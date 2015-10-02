@@ -33,7 +33,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL30 OpenGL 3.0}.</p>
  */
-public final class OVRMultiview {
+public class OVRMultiview {
 
 	/** Accepted by the {@code pname} parameter of GetFramebufferAttachmentParameteriv. */
 	public static final int
@@ -49,6 +49,11 @@ public final class OVRMultiview {
 	/** Function address. */
 	@JavadocExclude
 	public final long FramebufferTextureMultiviewOVR;
+
+	@JavadocExclude
+	protected OVRMultiview() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public OVRMultiview(FunctionProvider provider) {

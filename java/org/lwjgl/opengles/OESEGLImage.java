@@ -23,13 +23,18 @@ import static org.lwjgl.system.JNI.*;
  * EGL_KHR_gl_renderbuffer_image, and EGL_KHR_vg_parent_image, define the related functionality of creating EGLImage objects from "EGLImage sources" such
  * as OpenGL ES texture or renderbuffers or OpenVG VGImage objects.</p>
  */
-public final class OESEGLImage {
+public class OESEGLImage {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		EGLImageTargetTexture2DOES,
 		EGLImageTargetRenderbufferStorageOES;
+
+	@JavadocExclude
+	protected OESEGLImage() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public OESEGLImage(FunctionProvider provider) {

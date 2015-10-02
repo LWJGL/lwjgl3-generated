@@ -44,7 +44,7 @@ import static org.lwjgl.system.APIUtil.*;
  * </ul>
  * Requires {@link GL20 OpenGL 2.0}. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
  */
-public final class ARBInvalidateSubdata {
+public class ARBInvalidateSubdata {
 
 	/** Function address. */
 	@JavadocExclude
@@ -55,6 +55,11 @@ public final class ARBInvalidateSubdata {
 		InvalidateBufferData,
 		InvalidateFramebuffer,
 		InvalidateSubFramebuffer;
+
+	@JavadocExclude
+	protected ARBInvalidateSubdata() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBInvalidateSubdata(FunctionProvider provider) {

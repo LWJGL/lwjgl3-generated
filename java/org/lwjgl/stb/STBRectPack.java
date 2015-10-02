@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>This library currently uses the Skyline Bottom-Left algorithm. Not necessarily the awesomest packing method, but better than the totally naive one in
  * stb_truetype (which is primarily what this is meant to replace).</p>
  */
-public final class STBRectPack {
+public class STBRectPack {
 
 	/** Packing heuristics */
 	public static final int
@@ -31,7 +31,10 @@ public final class STBRectPack {
 
 	static { LWJGLUtil.initialize(); }
 
-	private STBRectPack() {}
+	@JavadocExclude
+	protected STBRectPack() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ stbrp_pack_rects ] ---
 

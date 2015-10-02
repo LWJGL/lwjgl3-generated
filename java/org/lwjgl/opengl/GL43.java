@@ -47,7 +47,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <li><a href="http://www.opengl.org/registry/specs/ARB/vertex_attrib_binding.txt">ARB_vertex_attrib_binding</a></li>
  * </ul></p>
  */
-public final class GL43 {
+public class GL43 {
 
 	/** No. of supported Shading Language Versions. Accepted by the {@code pname} parameter of GetIntegerv. */
 	public static final int GL_NUM_SHADING_LANGUAGE_VERSIONS = 0x82E9;
@@ -489,6 +489,11 @@ public final class GL43 {
 		VertexAttribLFormat,
 		VertexAttribBinding,
 		VertexBindingDivisor;
+
+	@JavadocExclude
+	protected GL43() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GL43(FunctionProvider provider) {

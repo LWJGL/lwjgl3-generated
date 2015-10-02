@@ -21,7 +21,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <p>This extension allows an application to read back OpenAL's rendered audio instead of having it output to an audio device on the system. Unextended
  * OpenAL will output audio to an audio device, with no mechanism to allow an application to divert the audio somewhere else.</p>
  */
-public final class SOFTLoopback {
+public class SOFTLoopback {
 
 	/** Accepted by the {@code type} parameter of alcIsRenderFormatSupportedSOFT. */
 	public static final int
@@ -53,6 +53,11 @@ public final class SOFTLoopback {
 		LoopbackOpenDeviceSOFT,
 		IsRenderFormatSupportedSOFT,
 		RenderSamplesSOFT;
+
+	@JavadocExclude
+	protected SOFTLoopback() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public SOFTLoopback(FunctionProviderLocal provider, long device) {

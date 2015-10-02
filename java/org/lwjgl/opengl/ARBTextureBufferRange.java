@@ -21,7 +21,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL15 OpenGL 1.5}. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
  */
-public final class ARBTextureBufferRange {
+public class ARBTextureBufferRange {
 
 	/** Accepted by the {@code pname} parameter of GetTexLevelParameter. */
 	public static final int
@@ -36,6 +36,11 @@ public final class ARBTextureBufferRange {
 	public final long
 		TexBufferRange,
 		TextureBufferRangeEXT;
+
+	@JavadocExclude
+	protected ARBTextureBufferRange() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBTextureBufferRange(FunctionProvider provider) {

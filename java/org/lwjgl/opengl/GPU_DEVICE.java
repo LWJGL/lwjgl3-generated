@@ -19,7 +19,7 @@ import org.lwjgl.system.windows.*;
  * Receives information about the display device specified by the {@code deviceIndex} parameter of the {@link WGLNVGPUAffinity#wglEnumGpuDevicesNV}
  * function.
  */
-public final class GPU_DEVICE extends Struct {
+public class GPU_DEVICE extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

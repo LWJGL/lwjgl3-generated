@@ -34,7 +34,7 @@ import static org.lwjgl.system.APIUtil.*;
  * memory corresponding to the issued vertex indices can be safely modified (assuming no other outstanding vertex indices are issued subsequent to the
  * fence).</p>
  */
-public final class NVFence {
+public class NVFence {
 
 	/** Accepted by the {@code condition} parameter of SetFenceNV. */
 	public static final int GL_ALL_COMPLETED_NV = 0x84F2;
@@ -54,6 +54,11 @@ public final class NVFence {
 		GetFenceivNV,
 		FinishFenceNV,
 		SetFenceNV;
+
+	@JavadocExclude
+	protected NVFence() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVFence(FunctionProvider provider) {

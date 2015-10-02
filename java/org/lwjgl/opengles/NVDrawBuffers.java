@@ -24,7 +24,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>When OpenGL ES 3.0 is present, this extension relaxes the order restriction on color attachments to draw framebuffer objects.</p>
  */
-public final class NVDrawBuffers {
+public class NVDrawBuffers {
 
 	/** Accepted by the {@code pname} parameters of GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int
@@ -68,6 +68,11 @@ public final class NVDrawBuffers {
 	/** Function address. */
 	@JavadocExclude
 	public final long DrawBuffersNV;
+
+	@JavadocExclude
+	protected NVDrawBuffers() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVDrawBuffers(FunctionProvider provider) {

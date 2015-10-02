@@ -16,7 +16,7 @@ import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to the <strong>APPLE_gl_sharing</strong> extension. */
-public final class APPLEGLSharing {
+public class APPLEGLSharing {
 
 	/** Error code returned by {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE} if an invalid {@code platform_gl_ctx} is provided. */
 	public static final int CL_INVALID_GL_CONTEXT_APPLE = 0xFFFFFC18;
@@ -43,6 +43,11 @@ public final class APPLEGLSharing {
 	/** Function address. */
 	@JavadocExclude
 	public final long GetGLContextInfoAPPLE;
+
+	@JavadocExclude
+	protected APPLEGLSharing() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public APPLEGLSharing(FunctionProvider provider) {

@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GL13 OpenGL 1.3}. Promoted to core in {@link GL20 OpenGL 2.0}.</p>
  */
-public final class ARBDrawBuffers {
+public class ARBDrawBuffers {
 
 	/** Accepted by the {@code pname} parameters of GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int
@@ -47,6 +47,11 @@ public final class ARBDrawBuffers {
 	/** Function address. */
 	@JavadocExclude
 	public final long DrawBuffersARB;
+
+	@JavadocExclude
+	protected ARBDrawBuffers() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBDrawBuffers(FunctionProvider provider) {

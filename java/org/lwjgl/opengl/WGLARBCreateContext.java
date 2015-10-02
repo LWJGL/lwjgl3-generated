@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string}.</p>
  */
-public final class WGLARBCreateContext {
+public class WGLARBCreateContext {
 
 	/** Accepted as an attribute name in {@code attribList}. */
 	public static final int
@@ -43,6 +43,11 @@ public final class WGLARBCreateContext {
 	/** Function address. */
 	@JavadocExclude
 	public final long CreateContextAttribsARB;
+
+	@JavadocExclude
+	protected WGLARBCreateContext() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public WGLARBCreateContext(FunctionProvider provider) {

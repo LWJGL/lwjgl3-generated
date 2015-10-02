@@ -33,7 +33,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Promoted to core in {@link GL32 OpenGL 3.2}.</p>
  */
-public final class ARBGeometryShader4 {
+public class ARBGeometryShader4 {
 
 	/** Accepted by the {@code type} parameter of CreateShader and returned by the {@code params} parameter of GetShaderiv. */
 	public static final int GL_GEOMETRY_SHADER_ARB = 0x8DD9;
@@ -83,6 +83,11 @@ public final class ARBGeometryShader4 {
 		FramebufferTextureARB,
 		FramebufferTextureLayerARB,
 		FramebufferTextureFaceARB;
+
+	@JavadocExclude
+	protected ARBGeometryShader4() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBGeometryShader4(FunctionProvider provider) {

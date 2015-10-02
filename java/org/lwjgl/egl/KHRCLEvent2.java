@@ -29,7 +29,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link EGL14 EGL L.1} and {@link KHRFenceSync KHR_fence_sync}.</p>
  */
-public final class KHRCLEvent2 {
+public class KHRCLEvent2 {
 
 	/**  */
 	public static final int
@@ -40,6 +40,11 @@ public final class KHRCLEvent2 {
 	/** Function address. */
 	@JavadocExclude
 	public final long CreateSync64KHR;
+
+	@JavadocExclude
+	protected KHRCLEvent2() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public KHRCLEvent2(FunctionProvider provider) {

@@ -29,7 +29,7 @@ import static org.lwjgl.system.JNI.*;
  * the conditional query test on a region-by-region basis without checking the query results from other regions. Such a mode is useful for cases like
  * split-frame SLI, where a frame is divided between multiple GPUs, each of which has its own occlusion query hardware.</p>
  */
-public final class NVConditionalRender {
+public class NVConditionalRender {
 
 	/** Accepted by the {@code mode} parameter of BeginConditionalRenderNV. */
 	public static final int
@@ -43,6 +43,11 @@ public final class NVConditionalRender {
 	public final long
 		BeginConditionalRenderNV,
 		EndConditionalRenderNV;
+
+	@JavadocExclude
+	protected NVConditionalRender() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVConditionalRender(FunctionProvider provider) {

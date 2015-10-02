@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class NVNonSquareMatrices {
+public class NVNonSquareMatrices {
 
 	/** Returned by GetActiveAttrib and GetActiveUniform. */
 	public static final int
@@ -41,6 +41,11 @@ public final class NVNonSquareMatrices {
 		UniformMatrix4x2fvNV,
 		UniformMatrix3x4fvNV,
 		UniformMatrix4x3fvNV;
+
+	@JavadocExclude
+	protected NVNonSquareMatrices() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVNonSquareMatrices(FunctionProvider provider) {

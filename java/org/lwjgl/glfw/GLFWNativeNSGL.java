@@ -12,11 +12,16 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /** Native bindings to the GLFW library's NSGL native access functions. */
-public final class GLFWNativeNSGL {
+public class GLFWNativeNSGL {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long GetNSGLContext;
+
+	@JavadocExclude
+	protected GLFWNativeNSGL() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLFWNativeNSGL(FunctionProvider provider) {

@@ -149,7 +149,7 @@ import static org.lwjgl.system.APIUtil.*;
  * Now loadTexture does not have to worry about inappropriately configured pixel store state or a non-zero pixel unpack buffer binding. And loadTexture has
  * no unintended side-effects for selector or latched state (assuming the client attrib state does not overflow).</p>
  */
-public final class EXTDirectStateAccess {
+public class EXTDirectStateAccess {
 
 	/** GetBooleani_v, GetIntegeri_v, GetFloati_vEXT, GetDoublei_vEXT. */
 	public static final int
@@ -377,6 +377,11 @@ public final class EXTDirectStateAccess {
 		GetVertexArrayPointeri_vEXT,
 		MapNamedBufferRangeEXT,
 		FlushMappedNamedBufferRangeEXT;
+
+	@JavadocExclude
+	protected EXTDirectStateAccess() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTDirectStateAccess(FunctionProvider provider) {

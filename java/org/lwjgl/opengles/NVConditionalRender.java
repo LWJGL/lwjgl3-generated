@@ -31,7 +31,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES30 GLES E.S} or {@link EXTOcclusionQueryBoolean EXT_occlusion_query_boolean}.</p>
  */
-public final class NVConditionalRender {
+public class NVConditionalRender {
 
 	/** Accepted by the {@code mode} parameter of BeginConditionalRenderNV. */
 	public static final int
@@ -45,6 +45,11 @@ public final class NVConditionalRender {
 	public final long
 		BeginConditionalRenderNV,
 		EndConditionalRenderNV;
+
+	@JavadocExclude
+	protected NVConditionalRender() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVConditionalRender(FunctionProvider provider) {

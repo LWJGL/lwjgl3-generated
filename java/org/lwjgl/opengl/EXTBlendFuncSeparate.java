@@ -19,7 +19,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Promoted to core in {@link GL14 OpenGL 1.4}.</p>
  */
-public final class EXTBlendFuncSeparate {
+public class EXTBlendFuncSeparate {
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int
@@ -31,6 +31,11 @@ public final class EXTBlendFuncSeparate {
 	/** Function address. */
 	@JavadocExclude
 	public final long BlendFuncSeparateEXT;
+
+	@JavadocExclude
+	protected EXTBlendFuncSeparate() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTBlendFuncSeparate(FunctionProvider provider) {

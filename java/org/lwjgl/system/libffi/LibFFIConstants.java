@@ -11,11 +11,14 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 
 /** Defines methods that return platform-specific constant values that are used by {@link LibFFI}. */
-final class LibFFIConstants {
+class LibFFIConstants {
 
 	static { LWJGLUtil.initialize(); }
 
-	private LibFFIConstants() {}
+	@JavadocExclude
+	protected LibFFIConstants() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ FFI_TYPE_DOUBLE ] ---
 

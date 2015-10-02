@@ -20,7 +20,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>This introduces a level of support for PolygonMode comparable with the OpenGL 4.3 core profile.</p>
  */
-public final class NVPolygonMode {
+public class NVPolygonMode {
 
 	/** Accepted by the {@code pname} parameter to GetIntegerv. */
 	public static final int GL_POLYGON_MODE_NV = 0xB40;
@@ -39,6 +39,11 @@ public final class NVPolygonMode {
 	/** Function address. */
 	@JavadocExclude
 	public final long PolygonModeNV;
+
+	@JavadocExclude
+	protected NVPolygonMode() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVPolygonMode(FunctionProvider provider) {

@@ -28,7 +28,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Single layers of array textures can be rendered to by binding them to a framebuffer object using the FramebufferTextureLayerNV function.</p>
  */
-public final class NVTextureArray {
+public class NVTextureArray {
 
 	/**
 	 * Accepted by the {@code target} parameter of TexImage3DNV, TexSubImage3DNV, CopyTexSubImage3DNV, CompressedTexImage3DNV, CompressedTexSubImage3DNV,
@@ -61,6 +61,11 @@ public final class NVTextureArray {
 		CompressedTexImage3DNV,
 		CompressedTexSubImage3DNV,
 		FramebufferTextureLayerNV;
+
+	@JavadocExclude
+	protected NVTextureArray() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVTextureArray(FunctionProvider provider) {

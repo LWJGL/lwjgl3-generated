@@ -32,7 +32,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL31 OpenGL 3.1}. Promoted to core in {@link GL32 OpenGL 3.2}.</p>
  */
-public final class ARBSync {
+public class ARBSync {
 
 	/** Accepted as the {@code pname} parameter of GetInteger64v. */
 	public static final int GL_MAX_SERVER_WAIT_TIMEOUT = 0x9111;
@@ -78,6 +78,11 @@ public final class ARBSync {
 		WaitSync,
 		GetInteger64v,
 		GetSynciv;
+
+	@JavadocExclude
+	protected ARBSync() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBSync(FunctionProvider provider) {

@@ -30,7 +30,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL20 OpenGL 2.0} and GLSL 1.30. Promoted to core in {@link GL30 OpenGL 3.0}.</p>
  */
-public final class ARBSampleShading {
+public class ARBSampleShading {
 
 	/**
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
@@ -44,6 +44,11 @@ public final class ARBSampleShading {
 	/** Function address. */
 	@JavadocExclude
 	public final long MinSampleShadingARB;
+
+	@JavadocExclude
+	protected ARBSampleShading() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBSampleShading(FunctionProvider provider) {

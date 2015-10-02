@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li><a href="http://www.opengl.org/registry/specs/EXT/texture_sRGB.txt">EXT_texture_sRGB</a></li>
  * </ul></p>
  */
-public final class GL21 {
+public class GL21 {
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int GL_CURRENT_RASTER_SECONDARY_COLOR = 0x845F;
@@ -74,6 +74,11 @@ public final class GL21 {
 		UniformMatrix4x2fv,
 		UniformMatrix3x4fv,
 		UniformMatrix4x3fv;
+
+	@JavadocExclude
+	protected GL21() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GL21(FunctionProvider provider) {

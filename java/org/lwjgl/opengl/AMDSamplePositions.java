@@ -24,7 +24,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GL32 OpenGL 3.2} or {@link EXTFramebufferMultisample EXT_framebuffer_multisample}.</p>
  */
-public final class AMDSamplePositions {
+public class AMDSamplePositions {
 
 	/** Accepted by the {@code pname} parameter of GetFloatv. */
 	public static final int GL_SUBSAMPLE_DISTANCE_AMD = 0x883F;
@@ -32,6 +32,11 @@ public final class AMDSamplePositions {
 	/** Function address. */
 	@JavadocExclude
 	public final long SetMultisamplefvAMD;
+
+	@JavadocExclude
+	protected AMDSamplePositions() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public AMDSamplePositions(FunctionProvider provider) {

@@ -23,11 +23,16 @@ import org.lwjgl.system.linux.*;
  * heterogenous implementations where hardware drivers may implement extension functions not known to the link library; a similar situation on Windows
  * implementations resulted in the {@code wglGetProcAddress} function.</p>
  */
-public final class GLXARBGetProcAddress {
+public class GLXARBGetProcAddress {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long GetProcAddressARB;
+
+	@JavadocExclude
+	protected GLXARBGetProcAddress() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLXARBGetProcAddress(FunctionProvider provider) {

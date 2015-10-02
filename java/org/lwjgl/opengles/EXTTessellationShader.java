@@ -58,7 +58,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES31 GLES E.S}.</p>
  */
-public final class EXTTessellationShader {
+public class EXTTessellationShader {
 
 	/** Accepted by the {@code mode} parameter of DrawArrays, DrawElements, and other commands which draw primitives. */
 	public static final int GL_PATCHES_EXT = 0xE;
@@ -134,6 +134,11 @@ public final class EXTTessellationShader {
 	/** Function address. */
 	@JavadocExclude
 	public final long PatchParameteriEXT;
+
+	@JavadocExclude
+	protected EXTTessellationShader() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTTessellationShader(FunctionProvider provider) {

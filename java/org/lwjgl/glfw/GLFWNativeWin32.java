@@ -15,7 +15,7 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to the GLFW library's Win32 native access functions. */
-public final class GLFWNativeWin32 {
+public class GLFWNativeWin32 {
 
 	/** Function address. */
 	@JavadocExclude
@@ -23,6 +23,11 @@ public final class GLFWNativeWin32 {
 		GetWin32Adapter,
 		GetWin32Monitor,
 		GetWin32Window;
+
+	@JavadocExclude
+	protected GLFWNativeWin32() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLFWNativeWin32(FunctionProvider provider) {

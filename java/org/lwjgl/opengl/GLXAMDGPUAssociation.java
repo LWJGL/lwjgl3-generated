@@ -28,7 +28,7 @@ import org.lwjgl.system.linux.*;
  * 
  * <p>Requires {@link GL15 OpenGL 1.5}, {@link GLX13 GLX 1.3}, <a href="http://www.opengl.org/registry/specs/EXT/framebuffer_object.txt">EXT_framebuffer_object</a> and {@link GLXARBGetProcAddress GLX_ARB_get_proc_address}.</p>
  */
-public final class GLXAMDGPUAssociation {
+public class GLXAMDGPUAssociation {
 
 	/** Accepted by the {@code property} parameter of {@link #glXGetGPUInfoAMD GetGPUInfoAMD}. */
 	public static final int
@@ -55,6 +55,11 @@ public final class GLXAMDGPUAssociation {
 		GetGPUIDsAMD,
 		GetGPUInfoAMD,
 		MakeAssociatedContextCurrentAMD;
+
+	@JavadocExclude
+	protected GLXAMDGPUAssociation() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLXAMDGPUAssociation(FunctionProvider provider) {

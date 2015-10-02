@@ -31,7 +31,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class NVInstancedArrays {
+public class NVInstancedArrays {
 
 	/** Accepted by the {@code pname} parameters of GetVertexAttribfv, and GetVertexAttribiv. */
 	public static final int GL_VERTEX_ATTRIB_ARRAY_DIVISOR_NV = 0x88FE;
@@ -39,6 +39,11 @@ public final class NVInstancedArrays {
 	/** Function address. */
 	@JavadocExclude
 	public final long VertexAttribDivisorNV;
+
+	@JavadocExclude
+	protected NVInstancedArrays() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVInstancedArrays(FunctionProvider provider) {

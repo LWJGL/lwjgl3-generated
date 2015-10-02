@@ -39,7 +39,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL20 OpenGL 2.0}. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
  */
-public final class ARBProgramInterfaceQuery {
+public class ARBProgramInterfaceQuery {
 
 	/**
 	 * Accepted by the {@code programInterface} parameter of GetProgramInterfaceiv, GetProgramResourceIndex, GetProgramResourceName, GetProgramResourceiv,
@@ -109,6 +109,11 @@ public final class ARBProgramInterfaceQuery {
 		GetProgramResourceiv,
 		GetProgramResourceLocation,
 		GetProgramResourceLocationIndex;
+
+	@JavadocExclude
+	protected ARBProgramInterfaceQuery() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBProgramInterfaceQuery(FunctionProvider provider) {

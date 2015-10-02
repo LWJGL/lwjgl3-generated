@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Describes the configuration of the motion estimation algorithm. */
-public final class CLMotionEstimationDescINTEL extends Struct {
+public class CLMotionEstimationDescINTEL extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

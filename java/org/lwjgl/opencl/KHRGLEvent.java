@@ -24,7 +24,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>In addition, this extension modifies the behavior of {@link CL10GL#clEnqueueAcquireGLObjects EnqueueAcquireGLObjects} and {@link CL10GL#clEnqueueReleaseGLObjects EnqueueReleaseGLObjects} to implicitly
  * guarantee synchronization with an OpenGL context bound in the same thread as the OpenCL context.</p>
  */
-public final class KHRGLEvent {
+public class KHRGLEvent {
 
 	/** Returned by {@link CL10#clGetEventInfo GetEventInfo} when {@code param_name} is {@link CL10#CL_EVENT_COMMAND_TYPE EVENT_COMMAND_TYPE}. */
 	public static final int CL_COMMAND_GL_FENCE_SYNC_OBJECT_KHR = 0x200D;
@@ -32,6 +32,11 @@ public final class KHRGLEvent {
 	/** Function address. */
 	@JavadocExclude
 	public final long CreateEventFromGLsyncKHR;
+
+	@JavadocExclude
+	protected KHRGLEvent() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public KHRGLEvent(FunctionProvider provider) {

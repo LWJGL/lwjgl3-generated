@@ -24,7 +24,7 @@ import static org.lwjgl.system.JNI.*;
  * that snapping occurs to the same effective grid as when rendering to the sparse texture. Then triangles should cover (at least) the same pixels in the
  * low-res framebuffer as they do tiles in the sparse texture.</p>
  */
-public final class NVConservativeRaster {
+public class NVConservativeRaster {
 
 	/** Accepted by the {@code cap} parameter of Enable, Disable, IsEnabled. */
 	public static final int GL_CONSERVATIVE_RASTERIZATION_NV = 0x9346;
@@ -38,6 +38,11 @@ public final class NVConservativeRaster {
 	/** Function address. */
 	@JavadocExclude
 	public final long SubpixelPrecisionBiasNV;
+
+	@JavadocExclude
+	protected NVConservativeRaster() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVConservativeRaster(FunctionProvider provider) {

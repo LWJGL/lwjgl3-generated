@@ -54,7 +54,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL32 OpenGL 3.2}, GLSL 1.50 and {@link ARBGPUShader5 ARB_gpu_shader5}.</p>
  */
-public final class NVGPUShader5 {
+public class NVGPUShader5 {
 
 	/** Returned by the {@code type} parameter of GetActiveAttrib, GetActiveUniform, and GetTransformFeedbackVarying. */
 	public static final int
@@ -124,6 +124,11 @@ public final class NVGPUShader5 {
 		ProgramUniform2ui64vNV,
 		ProgramUniform3ui64vNV,
 		ProgramUniform4ui64vNV;
+
+	@JavadocExclude
+	protected NVGPUShader5() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVGPUShader5(FunctionProvider provider) {

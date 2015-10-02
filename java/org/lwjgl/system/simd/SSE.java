@@ -11,7 +11,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 
 /** Bindings to SSE macros. */
-public final class SSE {
+public class SSE {
 
 	/** Exception state. */
 	public static final int
@@ -49,7 +49,10 @@ public final class SSE {
 
 	static { LWJGLUtil.initialize(); }
 
-	private SSE() {}
+	@JavadocExclude
+	protected SSE() {
+		throw new UnsupportedOperationException();
+	}
 
 	// --- [ _MM_SET_EXCEPTION_STATE ] ---
 

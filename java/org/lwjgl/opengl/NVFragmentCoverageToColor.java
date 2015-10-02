@@ -23,7 +23,7 @@ import static org.lwjgl.system.JNI.*;
  * as well as after the multisample fragment operations such as
  * alpha-to-coverage.</p>
  */
-public final class NVFragmentCoverageToColor {
+public class NVFragmentCoverageToColor {
 
 	/** Accepted by the {@code cap} parameter of Enable, Disable, IsEnabled. */
 	public static final int GL_FRAGMENT_COVERAGE_TO_COLOR_NV = 0x92DD;
@@ -34,6 +34,11 @@ public final class NVFragmentCoverageToColor {
 	/** Function address. */
 	@JavadocExclude
 	public final long FragmentCoverageColorNV;
+
+	@JavadocExclude
+	protected NVFragmentCoverageToColor() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVFragmentCoverageToColor(FunctionProvider provider) {

@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Defines a property attribute. */
-public final class ObjCPropertyAttribute extends Struct {
+public class ObjCPropertyAttribute extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

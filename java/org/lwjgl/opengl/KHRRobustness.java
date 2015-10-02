@@ -51,7 +51,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL32 OpenGL 3.2}.</p>
  */
-public final class KHRRobustness {
+public class KHRRobustness {
 
 	/** Returned by {@link #glGetGraphicsResetStatus GetGraphicsResetStatus}. */
 	public static final int
@@ -81,6 +81,11 @@ public final class KHRRobustness {
 		GetnUniformfv,
 		GetnUniformiv,
 		GetnUniformuiv;
+
+	@JavadocExclude
+	protected KHRRobustness() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public KHRRobustness(FunctionProvider provider) {

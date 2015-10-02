@@ -28,7 +28,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL45 OpenGL 4.5}, {@link ARBES2Compatibility ARB_ES2_compatibility}, {@link ARBES3Compatibility ARB_ES3_compatibility} and {@link ARBES31Compatibility ARB_ES3_1_compatibility}.</p>
  */
-public final class ARBES32Compatibility {
+public class ARBES32Compatibility {
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetFloatv, GetIntegerv, and GetInteger64v. */
 	public static final int
@@ -39,6 +39,11 @@ public final class ARBES32Compatibility {
 	/** Function address. */
 	@JavadocExclude
 	public final long PrimitiveBoundingBoxARB;
+
+	@JavadocExclude
+	protected ARBES32Compatibility() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBES32Compatibility(FunctionProvider provider) {

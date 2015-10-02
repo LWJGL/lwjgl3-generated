@@ -29,7 +29,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GL30 OpenGL 3.0}.</p>
  */
-public final class INTELMapTexture {
+public class INTELMapTexture {
 
 	/** Accepted by the {@code pname} parameter of TexParameteri, for target TEXTURE_2D. */
 	public static final int GL_TEXTURE_MEMORY_LAYOUT_INTEL = 0x83FF;
@@ -46,6 +46,11 @@ public final class INTELMapTexture {
 		SyncTextureINTEL,
 		UnmapTexture2DINTEL,
 		MapTexture2DINTEL;
+
+	@JavadocExclude
+	protected INTELMapTexture() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public INTELMapTexture(FunctionProvider provider) {

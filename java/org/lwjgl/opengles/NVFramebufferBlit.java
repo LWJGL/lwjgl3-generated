@@ -20,7 +20,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class NVFramebufferBlit {
+public class NVFramebufferBlit {
 
 	/**
 	 * Accepted by the {@code target} parameter of BindFramebuffer, CheckFramebufferStatus, FramebufferTexture2D, FramebufferRenderbuffer, and
@@ -38,6 +38,11 @@ public final class NVFramebufferBlit {
 	/** Function address. */
 	@JavadocExclude
 	public final long BlitFramebufferNV;
+
+	@JavadocExclude
+	protected NVFramebufferBlit() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVFramebufferBlit(FunctionProvider provider) {

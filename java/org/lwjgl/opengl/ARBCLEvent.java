@@ -22,7 +22,7 @@ import org.lwjgl.opencl.*;
  * 
  * <p>Requires {@link GL32 OpenGL 3.2} or {@link ARBSync ARB_sync}. Requires an OpenCL implementation supporting sharing event objects with OpenGL.</p>
  */
-public final class ARBCLEvent {
+public class ARBCLEvent {
 
 	/** Returned in {@code values} for {@link GL32#glGetSynciv GetSynciv} {@code pname} {@link GL32#GL_OBJECT_TYPE OBJECT_TYPE}. */
 	public static final int GL_SYNC_CL_EVENT_ARB = 0x8240;
@@ -33,6 +33,11 @@ public final class ARBCLEvent {
 	/** Function address. */
 	@JavadocExclude
 	public final long CreateSyncFromCLeventARB;
+
+	@JavadocExclude
+	protected ARBCLEvent() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBCLEvent(FunctionProvider provider) {

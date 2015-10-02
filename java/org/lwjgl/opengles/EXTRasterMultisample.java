@@ -27,7 +27,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES30 GLES E.S}.</p>
  */
-public final class EXTRasterMultisample {
+public class EXTRasterMultisample {
 
 	/** Accepted by the {@code cap} parameter of Enable, Disable, IsEnabled. */
 	public static final int GL_RASTER_MULTISAMPLE_EXT = 0x9327;
@@ -43,6 +43,11 @@ public final class EXTRasterMultisample {
 	/** Function address. */
 	@JavadocExclude
 	public final long RasterSamplesEXT;
+
+	@JavadocExclude
+	protected EXTRasterMultisample() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTRasterMultisample(FunctionProvider provider) {

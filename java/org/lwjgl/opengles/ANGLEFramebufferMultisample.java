@@ -30,7 +30,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S} and {@link ANGLEFramebufferBlit ANGLE_framebuffer_blit}.</p>
  */
-public final class ANGLEFramebufferMultisample {
+public class ANGLEFramebufferMultisample {
 
 	/** Accepted by the {@code pname} parameter of GetRenderbufferParameteriv. */
 	public static final int GL_RENDERBUFFER_SAMPLES_ANGLE = 0x8CAB;
@@ -44,6 +44,11 @@ public final class ANGLEFramebufferMultisample {
 	/** Function address. */
 	@JavadocExclude
 	public final long RenderbufferStorageMultisampleANGLE;
+
+	@JavadocExclude
+	protected ANGLEFramebufferMultisample() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ANGLEFramebufferMultisample(FunctionProvider provider) {

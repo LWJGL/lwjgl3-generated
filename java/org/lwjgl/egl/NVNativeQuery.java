@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>This extension allows an application to query which native display, pixmap and surface corresponds to a EGL object.</p>
  */
-public final class NVNativeQuery {
+public class NVNativeQuery {
 
 	/** Function address. */
 	@JavadocExclude
@@ -28,6 +28,11 @@ public final class NVNativeQuery {
 		QueryNativeDisplayNV,
 		QueryNativeWindowNV,
 		QueryNativePixmapNV;
+
+	@JavadocExclude
+	protected NVNativeQuery() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVNativeQuery(FunctionProvider provider) {

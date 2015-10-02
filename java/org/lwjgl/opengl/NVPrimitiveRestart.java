@@ -28,7 +28,7 @@ import static org.lwjgl.system.JNI.*;
  * increase performance in any significant fashion, but providing it greatly simplifies the specification and implementation of display list compilation
  * and indirect rendering.</p>
  */
-public final class NVPrimitiveRestart {
+public class NVPrimitiveRestart {
 
 	/**
 	 * Accepted by the {@code array} parameter of EnableClientState and DisableClientState, by the {@code cap} parameter of IsEnabled, and by the {@code pname}
@@ -44,6 +44,11 @@ public final class NVPrimitiveRestart {
 	public final long
 		PrimitiveRestartNV,
 		PrimitiveRestartIndexNV;
+
+	@JavadocExclude
+	protected NVPrimitiveRestart() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public NVPrimitiveRestart(FunctionProvider provider) {

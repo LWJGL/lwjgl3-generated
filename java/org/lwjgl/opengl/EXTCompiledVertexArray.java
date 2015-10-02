@@ -23,7 +23,7 @@ import static org.lwjgl.system.JNI.*;
  * preceding DrawElements command. If the vertex array data is locked while the DrawElements commands are executed, then OpenGL may be able to transform
  * each of these shared vertexes just once.</p>
  */
-public final class EXTCompiledVertexArray {
+public class EXTCompiledVertexArray {
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int
@@ -35,6 +35,11 @@ public final class EXTCompiledVertexArray {
 	public final long
 		LockArraysEXT,
 		UnlockArraysEXT;
+
+	@JavadocExclude
+	protected EXTCompiledVertexArray() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTCompiledVertexArray(FunctionProvider provider) {

@@ -26,7 +26,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>The intended purpose of this is purely to improve the user experience within OpenGL and OpenGL ES development tools.</p>
  */
-public final class EXTDebugMarker {
+public class EXTDebugMarker {
 
 	/** Function address. */
 	@JavadocExclude
@@ -34,6 +34,11 @@ public final class EXTDebugMarker {
 		InsertEventMarkerEXT,
 		PushGroupMarkerEXT,
 		PopGroupMarkerEXT;
+
+	@JavadocExclude
+	protected EXTDebugMarker() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTDebugMarker(FunctionProvider provider) {

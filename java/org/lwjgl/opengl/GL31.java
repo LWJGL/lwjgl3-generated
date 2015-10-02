@@ -29,7 +29,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <li><a href="http://www.opengl.org/registry/specs/ARB/uniform_buffer_object.txt">ARB_uniform_buffer_object</a></li>
  * </ul></p>
  */
-public final class GL31 {
+public class GL31 {
 
 	/** Accepted by the {@code internalFormat} parameter of TexImage1D, TexImage2D, and TexImage3D. */
 	public static final int
@@ -174,6 +174,11 @@ public final class GL31 {
 		GetActiveUniformBlockiv,
 		GetActiveUniformBlockName,
 		UniformBlockBinding;
+
+	@JavadocExclude
+	protected GL31() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GL31(FunctionProvider provider) {

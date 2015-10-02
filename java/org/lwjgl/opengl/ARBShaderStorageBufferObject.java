@@ -36,7 +36,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL40 OpenGL 4.0} and {@link GL43 OpenGL 4.3} or {@link ARBProgramInterfaceQuery ARB_program_interface_query}. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
  */
-public final class ARBShaderStorageBufferObject {
+public class ARBShaderStorageBufferObject {
 
 	/** Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, and GetBufferPointerv. */
 	public static final int GL_SHADER_STORAGE_BUFFER = 0x90D2;
@@ -74,6 +74,11 @@ public final class ARBShaderStorageBufferObject {
 	/** Function address. */
 	@JavadocExclude
 	public final long ShaderStorageBlockBinding;
+
+	@JavadocExclude
+	protected ARBShaderStorageBufferObject() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBShaderStorageBufferObject(FunctionProvider provider) {

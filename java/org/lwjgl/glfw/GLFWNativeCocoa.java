@@ -12,13 +12,18 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /** Native bindings to the GLFW library's Cocoa native access functions. */
-public final class GLFWNativeCocoa {
+public class GLFWNativeCocoa {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long
 		GetCocoaMonitor,
 		GetCocoaWindow;
+
+	@JavadocExclude
+	protected GLFWNativeCocoa() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLFWNativeCocoa(FunctionProvider provider) {

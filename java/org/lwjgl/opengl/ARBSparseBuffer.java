@@ -20,7 +20,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL15 OpenGL 1.5} or {@link ARBVertexBufferObject ARB_vertex_buffer_object}.</p>
  */
-public final class ARBSparseBuffer {
+public class ARBSparseBuffer {
 
 	/** Accepted as part of the the {@code flags} parameter to {@link GL44#glBufferStorage BufferStorage}. */
 	public static final int GL_SPARSE_STORAGE_BIT_ARB = 0x400;
@@ -34,6 +34,11 @@ public final class ARBSparseBuffer {
 		BufferPageCommitmentARB,
 		NamedBufferPageCommitmentEXT,
 		NamedBufferPageCommitmentARB;
+
+	@JavadocExclude
+	protected ARBSparseBuffer() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBSparseBuffer(FunctionProvider provider) {

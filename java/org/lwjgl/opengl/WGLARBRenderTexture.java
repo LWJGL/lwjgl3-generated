@@ -38,7 +38,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * </ul>
  * Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string}, {@link WGLARBPixelFormat WGL_ARB_pixel_format}, {@link WGLARBPbuffer WGL_ARB_pbuffer}.</p>
  */
-public final class WGLARBRenderTexture {
+public class WGLARBRenderTexture {
 
 	/**
 	 * Accepted by the {@code attributes} parameter of {@link WGLARBPixelFormat#wglGetPixelFormatAttribiARB GetPixelFormatAttribiARB}, and the {@code attribIList} parameters of
@@ -112,6 +112,11 @@ public final class WGLARBRenderTexture {
 		BindTexImageARB,
 		ReleaseTexImageARB,
 		SetPbufferAttribARB;
+
+	@JavadocExclude
+	protected WGLARBRenderTexture() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public WGLARBRenderTexture(FunctionProvider provider) {

@@ -46,7 +46,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link WGLARBCreateContext WGL_ARB_create_context} or {@link GLXARBCreateContext GLX_ARB_create_context}.</p>
  */
-public final class AMDDebugOutput {
+public class AMDDebugOutput {
 
 	/** Tokens accepted by GetIntegerv. */
 	public static final int
@@ -78,6 +78,11 @@ public final class AMDDebugOutput {
 		DebugMessageInsertAMD,
 		DebugMessageCallbackAMD,
 		GetDebugMessageLogAMD;
+
+	@JavadocExclude
+	protected AMDDebugOutput() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public AMDDebugOutput(FunctionProvider provider) {

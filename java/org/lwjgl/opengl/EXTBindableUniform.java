@@ -25,7 +25,7 @@ import static org.lwjgl.system.JNI.*;
  * bindable uniform in program object A will result in the same data if the same access is made in program object B. This provides a mechanism for
  * 'environment uniforms', uniform values that can be shared among multiple program objects.</p>
  */
-public final class EXTBindableUniform {
+public class EXTBindableUniform {
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int
@@ -44,6 +44,11 @@ public final class EXTBindableUniform {
 		UniformBufferEXT,
 		GetUniformBufferSizeEXT,
 		GetUniformOffsetEXT;
+
+	@JavadocExclude
+	protected EXTBindableUniform() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTBindableUniform(FunctionProvider provider) {

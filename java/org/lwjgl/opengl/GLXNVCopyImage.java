@@ -20,11 +20,16 @@ import org.lwjgl.system.linux.*;
  * otherwise configure the rendering pipeline. The GLX version allows copying between images in different contexts, even if those contexts are in different
  * sharelists or even on different physical devices.</p>
  */
-public final class GLXNVCopyImage {
+public class GLXNVCopyImage {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long CopyImageSubDataNV;
+
+	@JavadocExclude
+	protected GLXNVCopyImage() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GLXNVCopyImage(FunctionProvider provider) {

@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * a single depth buffer is used at different times with different sample locations, the depth functions may be interpreted using the current sample
  * locations.</p>
  */
-public final class ARBSampleLocations {
+public class ARBSampleLocations {
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
 	public static final int
@@ -58,6 +58,11 @@ public final class ARBSampleLocations {
 		FramebufferSampleLocationsfvARB,
 		NamedFramebufferSampleLocationsfvARB,
 		EvaluateDepthValuesARB;
+
+	@JavadocExclude
+	protected ARBSampleLocations() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBSampleLocations(FunctionProvider provider) {

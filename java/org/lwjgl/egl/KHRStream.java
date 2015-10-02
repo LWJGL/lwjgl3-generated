@@ -48,7 +48,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>This extension does not cover the details of how a producer or a consumer works or is "connected" to an EGLStream. Different kinds of producers and
  * consumers work differently and are described in additional extension specifications.</p>
  */
-public final class KHRStream {
+public class KHRStream {
 
 	/**  */
 	public static final long EGL_NO_STREAM_KHR = 0x0L;
@@ -76,6 +76,11 @@ public final class KHRStream {
 		StreamAttribKHR,
 		QueryStreamKHR,
 		QueryStreamu64KHR;
+
+	@JavadocExclude
+	protected KHRStream() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public KHRStream(FunctionProvider provider) {

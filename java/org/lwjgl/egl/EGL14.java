@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /** The core EGL 1.4 functionality. */
-public final class EGL14 {
+public class EGL14 {
 
 	/**  */
 	public static final int
@@ -30,6 +30,11 @@ public final class EGL14 {
 	/** Function address. */
 	@JavadocExclude
 	public final long GetCurrentContext;
+
+	@JavadocExclude
+	protected EGL14() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EGL14(FunctionProvider provider) {

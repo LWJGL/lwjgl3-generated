@@ -32,7 +32,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class EXTDisjointTimerQuery {
+public class EXTDisjointTimerQuery {
 
 	/** Accepted by the {@code pname} parameter of GetQueryivEXT. */
 	public static final int
@@ -70,6 +70,11 @@ public final class EXTDisjointTimerQuery {
 		GetQueryObjectuivEXT,
 		GetQueryObjecti64vEXT,
 		GetQueryObjectui64vEXT;
+
+	@JavadocExclude
+	protected EXTDisjointTimerQuery() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTDisjointTimerQuery(FunctionProvider provider) {

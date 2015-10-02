@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to ALC 1.0 functionality. */
-public final class ALC10 {
+public class ALC10 {
 
 	/** General tokens. */
 	public static final int
@@ -70,6 +70,11 @@ public final class ALC10 {
 		GetError,
 		GetString,
 		GetIntegerv;
+
+	@JavadocExclude
+	protected ALC10() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ALC10(FunctionProviderLocal provider) {

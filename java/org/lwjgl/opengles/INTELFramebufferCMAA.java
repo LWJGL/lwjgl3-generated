@@ -26,11 +26,16 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>For more information on CMAA refer to <a href="http://software.intel.com">http://software.intel.com</a>.</p>
  */
-public final class INTELFramebufferCMAA {
+public class INTELFramebufferCMAA {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long ApplyFramebufferAttachmentCMAAINTEL;
+
+	@JavadocExclude
+	protected INTELFramebufferCMAA() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public INTELFramebufferCMAA(FunctionProvider provider) {

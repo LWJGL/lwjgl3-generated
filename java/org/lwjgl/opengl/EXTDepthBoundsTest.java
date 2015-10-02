@@ -37,7 +37,7 @@ import static org.lwjgl.system.JNI.*;
  * pixel. Said another way, the pixel being illuminated is either far enough in front of or behind the attenuated light source so that the light source's
  * illumination for the pixel is fully attenuated. The depth bounds test can perform this test.</p>
  */
-public final class EXTDepthBoundsTest {
+public class EXTDepthBoundsTest {
 
 	/**
 	 * Accepted by the {@code cap} parameter of Enable, Disable, and IsEnabled, and by the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and
@@ -51,6 +51,11 @@ public final class EXTDepthBoundsTest {
 	/** Function address. */
 	@JavadocExclude
 	public final long DepthBoundsEXT;
+
+	@JavadocExclude
+	protected EXTDepthBoundsTest() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTDepthBoundsTest(FunctionProvider provider) {

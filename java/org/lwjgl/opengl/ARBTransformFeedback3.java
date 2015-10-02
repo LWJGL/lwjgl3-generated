@@ -48,7 +48,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL30 OpenGL 3.0} or <a href="http://www.opengl.org/registry/specs/EXT/transform_feedback.txt">EXT_transform_feedback</a> or <a href="http://www.opengl.org/registry/specs/NV/transform_feedback.txt">NV_transform_feedback</a>. Promoted to core in {@link GL40 OpenGL 4.0}.</p>
  */
-public final class ARBTransformFeedback3 {
+public class ARBTransformFeedback3 {
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetIntegerv, and GetFloatv. */
 	public static final int
@@ -62,6 +62,11 @@ public final class ARBTransformFeedback3 {
 		BeginQueryIndexed,
 		EndQueryIndexed,
 		GetQueryIndexediv;
+
+	@JavadocExclude
+	protected ARBTransformFeedback3() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBTransformFeedback3(FunctionProvider provider) {

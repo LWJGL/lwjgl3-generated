@@ -29,7 +29,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link GLES30 GLES E.S}.</p>
  */
-public final class EXTBaseInstance {
+public class EXTBaseInstance {
 
 	/** Function address. */
 	@JavadocExclude
@@ -37,6 +37,11 @@ public final class EXTBaseInstance {
 		DrawArraysInstancedBaseInstanceEXT,
 		DrawElementsInstancedBaseInstanceEXT,
 		DrawElementsInstancedBaseVertexBaseInstanceEXT;
+
+	@JavadocExclude
+	protected EXTBaseInstance() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTBaseInstance(FunctionProvider provider) {

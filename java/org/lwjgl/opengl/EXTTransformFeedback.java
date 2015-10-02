@@ -38,7 +38,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>Requires {@link GL20 OpenGL 2.0} or {@link ARBShaderObjects ARB_shader_objects}. Promoted to core in {@link GL30 OpenGL 3.0}.</p>
  */
-public final class EXTTransformFeedback {
+public class EXTTransformFeedback {
 
 	/**
 	 * Accepted by the {@code target} parameters of BindBuffer, BufferData, BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, GetBufferPointerv,
@@ -97,6 +97,11 @@ public final class EXTTransformFeedback {
 		GetTransformFeedbackVaryingEXT,
 		GetIntegerIndexedvEXT,
 		GetBooleanIndexedvEXT;
+
+	@JavadocExclude
+	protected EXTTransformFeedback() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTTransformFeedback(FunctionProvider provider) {

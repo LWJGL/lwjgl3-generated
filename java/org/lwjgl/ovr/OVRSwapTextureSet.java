@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>ovrSwapTextureSets must be created by either the ovrHmd_CreateSwapTextureSetD3D11 or {@link OVRGL#ovrHmd_CreateSwapTextureSetGL} factory function, and must
  * be destroyed by {@link OVR#ovrHmd_DestroySwapTextureSet}.</p>
  */
-public final class OVRSwapTextureSet extends Struct {
+public class OVRSwapTextureSet extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

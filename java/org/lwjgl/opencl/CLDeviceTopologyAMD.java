@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** The struct returned by {@link CL10#clGetDeviceInfo} with {@code param_name} set to {@link AMDDeviceTopology#CL_DEVICE_TOPOLOGY_AMD}. */
-public final class CLDeviceTopologyAMD extends Struct {
+public class CLDeviceTopologyAMD extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

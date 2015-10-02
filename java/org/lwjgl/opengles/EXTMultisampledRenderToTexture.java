@@ -33,7 +33,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES20 GLES E.S}.</p>
  */
-public final class EXTMultisampledRenderToTexture {
+public class EXTMultisampledRenderToTexture {
 
 	/** Accepted by the {@code pname} parameter of GetRenderbufferParameteriv. */
 	public static final int GL_RENDERBUFFER_SAMPLES_EXT = 0x8CAB;
@@ -52,6 +52,11 @@ public final class EXTMultisampledRenderToTexture {
 	public final long
 		RenderbufferStorageMultisampleEXT,
 		FramebufferTexture2DMultisampleEXT;
+
+	@JavadocExclude
+	protected EXTMultisampledRenderToTexture() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTMultisampledRenderToTexture(FunctionProvider provider) {

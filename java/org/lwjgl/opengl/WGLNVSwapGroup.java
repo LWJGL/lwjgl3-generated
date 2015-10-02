@@ -25,7 +25,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>This extension extends the set of conditions that must be met before a buffer swap can take place.</p>
  */
-public final class WGLNVSwapGroup {
+public class WGLNVSwapGroup {
 
 	/** Function address. */
 	@JavadocExclude
@@ -36,6 +36,11 @@ public final class WGLNVSwapGroup {
 		QueryMaxSwapGroupsNV,
 		QueryFrameCountNV,
 		ResetFrameCountNV;
+
+	@JavadocExclude
+	protected WGLNVSwapGroup() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public WGLNVSwapGroup(FunctionProvider provider) {

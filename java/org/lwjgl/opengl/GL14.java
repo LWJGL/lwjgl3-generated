@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li><a href="http://www.opengl.org/registry/specs/ARB/window_pos.txt">ARB_window_pos</a></li>
  * </ul></p>
  */
-public final class GL14 {
+public class GL14 {
 
 	/** Accepted by the {@code pname} parameter of TexParameteri, TexParameterf, TexParameteriv, TexParameterfv, GetTexParameteriv, and GetTexParameterfv. */
 	public static final int GL_GENERATE_MIPMAP = 0x8191;
@@ -210,6 +210,11 @@ public final class GL14 {
 		WindowPos3sv,
 		WindowPos3fv,
 		WindowPos3dv;
+
+	@JavadocExclude
+	protected GL14() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GL14(FunctionProvider provider, boolean fc) {

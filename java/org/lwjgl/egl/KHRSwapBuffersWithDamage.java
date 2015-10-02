@@ -25,11 +25,16 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Requires {@link EGL14 EGL L.1}.</p>
  */
-public final class KHRSwapBuffersWithDamage {
+public class KHRSwapBuffersWithDamage {
 
 	/** Function address. */
 	@JavadocExclude
 	public final long SwapBuffersWithDamageKHR;
+
+	@JavadocExclude
+	protected KHRSwapBuffersWithDamage() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public KHRSwapBuffersWithDamage(FunctionProvider provider) {

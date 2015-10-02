@@ -33,7 +33,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Promoted to core in {@link GL14 OpenGL 1.4}.</p>
  */
-public final class ARBPointParameters {
+public class ARBPointParameters {
 
 	/** Accepted by the {@code pname} parameter of PointParameterfvARB, and the {@code pname} of Get. */
 	public static final int
@@ -47,6 +47,11 @@ public final class ARBPointParameters {
 	public final long
 		PointParameterfARB,
 		PointParameterfvARB;
+
+	@JavadocExclude
+	protected ARBPointParameters() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBPointParameters(FunctionProvider provider) {

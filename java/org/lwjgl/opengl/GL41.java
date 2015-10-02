@@ -29,7 +29,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <li><a href="http://www.opengl.org/registry/specs/ARB/viewport_array.txt">ARB_viewport_array</a></li>
  * </ul></p>
  */
-public final class GL41 {
+public class GL41 {
 
 	/** Accepted by the {@code value} parameter of GetBooleanv, GetIntegerv, GetInteger64v, GetFloatv, and GetDoublev. */
 	public static final int
@@ -188,6 +188,11 @@ public final class GL41 {
 		DepthRangeIndexed,
 		GetFloati_v,
 		GetDoublei_v;
+
+	@JavadocExclude
+	protected GL41() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public GL41(FunctionProvider provider) {

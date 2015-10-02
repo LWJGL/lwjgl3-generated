@@ -20,7 +20,7 @@ import static org.lwjgl.system.APIUtil.*;
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/QCOM/QCOM_extended_get.txt">QCOM_extended_get</a> extension.
  * This extension enables instrumenting the driver for debugging of OpenGL ES applications.
  */
-public final class QCOMExtendedGet {
+public class QCOMExtendedGet {
 
 	/** Accepted by the {@code pname} parameter of ExtGetTexLevelParameterivQCOM. */
 	public static final int
@@ -49,6 +49,11 @@ public final class QCOMExtendedGet {
 		ExtTexObjectStateOverrideiQCOM,
 		ExtGetTexSubImageQCOM,
 		ExtGetBufferPointervQCOM;
+
+	@JavadocExclude
+	protected QCOMExtendedGet() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public QCOMExtendedGet(FunctionProvider provider) {

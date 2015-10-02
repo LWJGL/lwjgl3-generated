@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>This extension defines a mechanism for assigning which device an OpenCL memory object resides.</p>
  */
-public final class EXTMigrateMemobject {
+public class EXTMigrateMemobject {
 
 	/** This flag specifies that the specified set of memory objects are to be migrated to the host, regardless of the target command queue. */
 	public static final int CL_MIGRATE_MEM_OBJECT_HOST_EXT = 0x1;
@@ -31,6 +31,11 @@ public final class EXTMigrateMemobject {
 	/** Function address. */
 	@JavadocExclude
 	public final long EnqueueMigrateMemObjectEXT;
+
+	@JavadocExclude
+	protected EXTMigrateMemobject() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTMigrateMemobject(FunctionProvider provider) {

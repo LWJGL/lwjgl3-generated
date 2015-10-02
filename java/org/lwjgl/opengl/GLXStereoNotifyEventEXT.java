@@ -13,7 +13,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-public final class GLXStereoNotifyEventEXT extends Struct {
+public class GLXStereoNotifyEventEXT extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;

@@ -34,7 +34,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GLES30 GLES E.S}.</p>
  */
-public final class EXTTextureView {
+public class EXTTextureView {
 
 	/** Accepted by the {@code pname} parameters of GetTexParameterfv and GetTexParameteriv. */
 	public static final int
@@ -47,6 +47,11 @@ public final class EXTTextureView {
 	/** Function address. */
 	@JavadocExclude
 	public final long TextureViewEXT;
+
+	@JavadocExclude
+	protected EXTTextureView() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public EXTTextureView(FunctionProvider provider) {

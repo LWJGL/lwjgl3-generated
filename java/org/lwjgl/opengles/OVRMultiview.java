@@ -31,7 +31,7 @@ import static org.lwjgl.system.JNI.*;
  * that the sample density can become unacceptably low in the view direction. By rendering two inset eye views per eye, we can get the required sample
  * density in the center of projection without wasting samples, memory, and time by oversampling in the periphery.</p>
  */
-public final class OVRMultiview {
+public class OVRMultiview {
 
 	/** Accepted by the {@code pname} parameter of GetFramebufferAttachmentParameteriv. */
 	public static final int
@@ -47,6 +47,11 @@ public final class OVRMultiview {
 	/** Function address. */
 	@JavadocExclude
 	public final long FramebufferTextureMultiviewOVR;
+
+	@JavadocExclude
+	protected OVRMultiview() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public OVRMultiview(FunctionProvider provider) {

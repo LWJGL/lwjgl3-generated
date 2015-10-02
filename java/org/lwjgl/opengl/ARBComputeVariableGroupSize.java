@@ -25,7 +25,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Requires {@link GL43 OpenGL 4.3} or {@link ARBComputeShader ARB_compute_shader}.</p>
  */
-public final class ARBComputeVariableGroupSize {
+public class ARBComputeVariableGroupSize {
 
 	/** Accepted by the {@code pname} parameter of GetIntegerv, GetBooleanv, GetFloatv, GetDoublev and GetInteger64v. */
 	public static final int
@@ -40,6 +40,11 @@ public final class ARBComputeVariableGroupSize {
 	/** Function address. */
 	@JavadocExclude
 	public final long DispatchComputeGroupSizeARB;
+
+	@JavadocExclude
+	protected ARBComputeVariableGroupSize() {
+		throw new UnsupportedOperationException();
+	}
 
 	@JavadocExclude
 	public ARBComputeVariableGroupSize(FunctionProvider provider) {
