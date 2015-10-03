@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Image data. */
-public class GLFWimage extends Struct {
+public class GLFWImage extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -39,22 +39,22 @@ public class GLFWimage extends Struct {
 
 	private static native int offsets(long buffer);
 
-	GLFWimage(long address, ByteBuffer container) {
+	GLFWImage(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);
 	}
 
-	/** Creates a {@link GLFWimage} instance at the specified memory address. */
-	public GLFWimage(long struct) {
+	/** Creates a {@link GLFWImage} instance at the specified memory address. */
+	public GLFWImage(long struct) {
 		this(struct, null);
 	}
 
 	/**
-	 * Creates a {@link GLFWimage} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+	 * Creates a {@link GLFWImage} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
 	 * visible to the struct instance and vice versa.
 	 *
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
-	public GLFWimage(ByteBuffer container) {
+	public GLFWImage(ByteBuffer container) {
 		this(memAddress(container), container);
 	}
 
@@ -65,12 +65,12 @@ public class GLFWimage extends Struct {
 	public int getHeight() { return ngetHeight(address()); }
 	public ByteBuffer getPixels(int byteLen) { return ngetPixels(address(), byteLen); }
 
-	public GLFWimage setWidth(int width) { nsetWidth(address(), width); return this; }
-	public GLFWimage setHeight(int height) { nsetHeight(address(), height); return this; }
-	public GLFWimage setPixels(ByteBuffer pixels) { nsetPixels(address(), pixels); return this; }
+	public GLFWImage setWidth(int width) { nsetWidth(address(), width); return this; }
+	public GLFWImage setHeight(int height) { nsetHeight(address(), height); return this; }
+	public GLFWImage setPixels(ByteBuffer pixels) { nsetPixels(address(), pixels); return this; }
 
 	/** Initializes this struct with the specified values. */
-	public GLFWimage set(
+	public GLFWImage set(
 		int width,
 		int height,
 		ByteBuffer pixels
@@ -83,7 +83,7 @@ public class GLFWimage extends Struct {
 	}
 
 	/** Unsafe version of {@link #set}. */
-	public GLFWimage nset(long struct) {
+	public GLFWImage nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
 	}
@@ -95,12 +95,12 @@ public class GLFWimage extends Struct {
 	 *
 	 * @returns this struct
 	 */
-	public GLFWimage set(GLFWimage src) {
+	public GLFWImage set(GLFWImage src) {
 		return nset(address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */
-	public GLFWimage set(ByteBuffer struct) {
+	public GLFWImage set(ByteBuffer struct) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
@@ -108,23 +108,23 @@ public class GLFWimage extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link GLFWimage} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
-	public static GLFWimage malloc() {
-		return new GLFWimage(nmemAlloc(SIZEOF));
+	/** Returns a new {@link GLFWImage} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	public static GLFWImage malloc() {
+		return new GLFWImage(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link GLFWimage} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
-	public static GLFWimage calloc() {
-		return new GLFWimage(nmemCalloc(1, SIZEOF));
+	/** Returns a new {@link GLFWImage} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	public static GLFWImage calloc() {
+		return new GLFWImage(nmemCalloc(1, SIZEOF));
 	}
 
-	/** Returns a new {@link GLFWimage} instance allocated with {@link BufferUtils}. */
-	public static GLFWimage create() {
-		return new GLFWimage(BufferUtils.createByteBuffer(SIZEOF));
+	/** Returns a new {@link GLFWImage} instance allocated with {@link BufferUtils}. */
+	public static GLFWImage create() {
+		return new GLFWImage(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
 	/**
-	 * Returns a new {@link GLFWimage.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link GLFWImage.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -133,7 +133,7 @@ public class GLFWimage extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link GLFWimage.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link GLFWImage.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -142,7 +142,7 @@ public class GLFWimage extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link GLFWimage.Buffer} instance allocated with {@link BufferUtils}.
+	 * Returns a new {@link GLFWImage.Buffer} instance allocated with {@link BufferUtils}.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -168,15 +168,15 @@ public class GLFWimage extends Struct {
 
 	// -----------------------------------
 
-	/** An array of {@link GLFWimage} structs. */
-	public static final class Buffer extends StructBuffer<GLFWimage, Buffer> {
+	/** An array of {@link GLFWImage} structs. */
+	public static final class Buffer extends StructBuffer<GLFWImage, Buffer> {
 
 		/**
-		 * Creates a new {@link GLFWimage.Buffer} instance backed by the specified container.
+		 * Creates a new {@link GLFWImage.Buffer} instance backed by the specified container.
 		 *
 		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
 		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
-		 * by {@link GLFWimage#SIZEOF}, and its mark will be undefined.
+		 * by {@link GLFWImage#SIZEOF}, and its mark will be undefined.
 		 *
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
@@ -199,8 +199,8 @@ public class GLFWimage extends Struct {
 		}
 
 		@Override
-		protected GLFWimage newInstance(long address) {
-			return new GLFWimage(address, container);
+		protected GLFWImage newInstance(long address) {
+			return new GLFWImage(address, container);
 		}
 
 		@Override
@@ -212,9 +212,9 @@ public class GLFWimage extends Struct {
 		public int getHeight() { return ngetHeight(address()); }
 		public ByteBuffer getPixels(int byteLen) { return ngetPixels(address(), byteLen); }
 
-		public GLFWimage.Buffer setWidth(int width) { nsetWidth(address(), width); return this; }
-		public GLFWimage.Buffer setHeight(int height) { nsetHeight(address(), height); return this; }
-		public GLFWimage.Buffer setPixels(ByteBuffer pixels) { nsetPixels(address(), pixels); return this; }
+		public GLFWImage.Buffer setWidth(int width) { nsetWidth(address(), width); return this; }
+		public GLFWImage.Buffer setHeight(int height) { nsetHeight(address(), height); return this; }
+		public GLFWImage.Buffer setPixels(ByteBuffer pixels) { nsetPixels(address(), pixels); return this; }
 
 	}
 

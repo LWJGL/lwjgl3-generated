@@ -9,7 +9,7 @@
 
 EXTERN_C_EXIT
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_glfw_GLFWgammaramp_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_glfw_GLFWGammaRamp_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
 	jint *buffer = (jint *)(intptr_t)bufferAddress;
 
 	UNUSED_PARAMS(__env, clazz)

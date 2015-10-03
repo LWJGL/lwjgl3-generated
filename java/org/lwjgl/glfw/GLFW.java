@@ -949,11 +949,11 @@ public class GLFW {
 	 *
 	 * @since GLFW 1.0
 	 */
-	public static GLFWvidmode.Buffer glfwGetVideoModes(long monitor) {
+	public static GLFWVidMode.Buffer glfwGetVideoModes(long monitor) {
 		APIBuffer __buffer = apiBuffer();
 		int count = __buffer.intParam();
 		long __result = nglfwGetVideoModes(monitor, __buffer.address(count));
-		return new GLFWvidmode.Buffer(memByteBuffer(__result, __buffer.intValue(count) * GLFWvidmode.SIZEOF));
+		return new GLFWVidMode.Buffer(memByteBuffer(__result, __buffer.intValue(count) * GLFWVidMode.SIZEOF));
 	}
 
 	// --- [ glfwGetVideoMode ] ---
@@ -982,9 +982,9 @@ public class GLFW {
 	 *
 	 * @since GLFW 3.0
 	 */
-	public static GLFWvidmode glfwGetVideoMode(long monitor) {
+	public static GLFWVidMode glfwGetVideoMode(long monitor) {
 		long __result = nglfwGetVideoMode(monitor);
-		return new GLFWvidmode(__result);
+		return new GLFWVidMode(__result);
 	}
 
 	// --- [ glfwSetGamma ] ---
@@ -1032,9 +1032,9 @@ public class GLFW {
 	 *
 	 * @since GLFW 3.0
 	 */
-	public static GLFWgammaramp glfwGetGammaRamp(long monitor) {
+	public static GLFWGammaRamp glfwGetGammaRamp(long monitor) {
 		long __result = nglfwGetGammaRamp(monitor);
-		return new GLFWgammaramp(__result);
+		return new GLFWGammaRamp(__result);
 	}
 
 	// --- [ glfwSetGammaRamp ] ---
@@ -1065,7 +1065,7 @@ public class GLFW {
 	 *
 	 * @since GLFW 3.0
 	 */
-	public static void glfwSetGammaRamp(long monitor, GLFWgammaramp ramp) {
+	public static void glfwSetGammaRamp(long monitor, GLFWGammaRamp ramp) {
 		nglfwSetGammaRamp(monitor, ramp.address());
 	}
 
@@ -2192,7 +2192,7 @@ public class GLFW {
 	 *
 	 * @since GLFW 3.1
 	 */
-	public static long glfwCreateCursor(GLFWimage image, int xhot, int yhot) {
+	public static long glfwCreateCursor(GLFWImage image, int xhot, int yhot) {
 		return nglfwCreateCursor(image.address(), xhot, yhot);
 	}
 

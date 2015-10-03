@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Gamma ramp. */
-public class GLFWgammaramp extends Struct {
+public class GLFWGammaRamp extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -41,22 +41,22 @@ public class GLFWgammaramp extends Struct {
 
 	private static native int offsets(long buffer);
 
-	GLFWgammaramp(long address, ByteBuffer container) {
+	GLFWGammaRamp(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);
 	}
 
-	/** Creates a {@link GLFWgammaramp} instance at the specified memory address. */
-	public GLFWgammaramp(long struct) {
+	/** Creates a {@link GLFWGammaRamp} instance at the specified memory address. */
+	public GLFWGammaRamp(long struct) {
 		this(struct, null);
 	}
 
 	/**
-	 * Creates a {@link GLFWgammaramp} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+	 * Creates a {@link GLFWGammaRamp} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
 	 * visible to the struct instance and vice versa.
 	 *
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
-	public GLFWgammaramp(ByteBuffer container) {
+	public GLFWGammaRamp(ByteBuffer container) {
 		this(memAddress(container), container);
 	}
 
@@ -68,13 +68,13 @@ public class GLFWgammaramp extends Struct {
 	public ByteBuffer getBlue(int byteLen) { return ngetBlue(address(), byteLen); }
 	public int getSize() { return ngetSize(address()); }
 
-	public GLFWgammaramp setRed(ByteBuffer red) { nsetRed(address(), red); return this; }
-	public GLFWgammaramp setGreen(ByteBuffer green) { nsetGreen(address(), green); return this; }
-	public GLFWgammaramp setBlue(ByteBuffer blue) { nsetBlue(address(), blue); return this; }
-	public GLFWgammaramp setSize(int size) { nsetSize(address(), size); return this; }
+	public GLFWGammaRamp setRed(ByteBuffer red) { nsetRed(address(), red); return this; }
+	public GLFWGammaRamp setGreen(ByteBuffer green) { nsetGreen(address(), green); return this; }
+	public GLFWGammaRamp setBlue(ByteBuffer blue) { nsetBlue(address(), blue); return this; }
+	public GLFWGammaRamp setSize(int size) { nsetSize(address(), size); return this; }
 
 	/** Initializes this struct with the specified values. */
-	public GLFWgammaramp set(
+	public GLFWGammaRamp set(
 		ByteBuffer red,
 		ByteBuffer green,
 		ByteBuffer blue,
@@ -89,7 +89,7 @@ public class GLFWgammaramp extends Struct {
 	}
 
 	/** Unsafe version of {@link #set}. */
-	public GLFWgammaramp nset(long struct) {
+	public GLFWGammaRamp nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
 	}
@@ -101,12 +101,12 @@ public class GLFWgammaramp extends Struct {
 	 *
 	 * @returns this struct
 	 */
-	public GLFWgammaramp set(GLFWgammaramp src) {
+	public GLFWGammaRamp set(GLFWGammaRamp src) {
 		return nset(address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */
-	public GLFWgammaramp set(ByteBuffer struct) {
+	public GLFWGammaRamp set(ByteBuffer struct) {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
@@ -114,23 +114,23 @@ public class GLFWgammaramp extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link GLFWgammaramp} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
-	public static GLFWgammaramp malloc() {
-		return new GLFWgammaramp(nmemAlloc(SIZEOF));
+	/** Returns a new {@link GLFWGammaRamp} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	public static GLFWGammaRamp malloc() {
+		return new GLFWGammaRamp(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link GLFWgammaramp} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
-	public static GLFWgammaramp calloc() {
-		return new GLFWgammaramp(nmemCalloc(1, SIZEOF));
+	/** Returns a new {@link GLFWGammaRamp} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	public static GLFWGammaRamp calloc() {
+		return new GLFWGammaRamp(nmemCalloc(1, SIZEOF));
 	}
 
-	/** Returns a new {@link GLFWgammaramp} instance allocated with {@link BufferUtils}. */
-	public static GLFWgammaramp create() {
-		return new GLFWgammaramp(BufferUtils.createByteBuffer(SIZEOF));
+	/** Returns a new {@link GLFWGammaRamp} instance allocated with {@link BufferUtils}. */
+	public static GLFWGammaRamp create() {
+		return new GLFWGammaRamp(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
 	/**
-	 * Returns a new {@link GLFWgammaramp.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link GLFWGammaRamp.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -139,7 +139,7 @@ public class GLFWgammaramp extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link GLFWgammaramp.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link GLFWGammaRamp.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -148,7 +148,7 @@ public class GLFWgammaramp extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link GLFWgammaramp.Buffer} instance allocated with {@link BufferUtils}.
+	 * Returns a new {@link GLFWGammaRamp.Buffer} instance allocated with {@link BufferUtils}.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -182,15 +182,15 @@ public class GLFWgammaramp extends Struct {
 
 	// -----------------------------------
 
-	/** An array of {@link GLFWgammaramp} structs. */
-	public static final class Buffer extends StructBuffer<GLFWgammaramp, Buffer> {
+	/** An array of {@link GLFWGammaRamp} structs. */
+	public static final class Buffer extends StructBuffer<GLFWGammaRamp, Buffer> {
 
 		/**
-		 * Creates a new {@link GLFWgammaramp.Buffer} instance backed by the specified container.
+		 * Creates a new {@link GLFWGammaRamp.Buffer} instance backed by the specified container.
 		 *
 		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
 		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
-		 * by {@link GLFWgammaramp#SIZEOF}, and its mark will be undefined.
+		 * by {@link GLFWGammaRamp#SIZEOF}, and its mark will be undefined.
 		 *
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
@@ -213,8 +213,8 @@ public class GLFWgammaramp extends Struct {
 		}
 
 		@Override
-		protected GLFWgammaramp newInstance(long address) {
-			return new GLFWgammaramp(address, container);
+		protected GLFWGammaRamp newInstance(long address) {
+			return new GLFWGammaRamp(address, container);
 		}
 
 		@Override
@@ -227,10 +227,10 @@ public class GLFWgammaramp extends Struct {
 		public ByteBuffer getBlue(int byteLen) { return ngetBlue(address(), byteLen); }
 		public int getSize() { return ngetSize(address()); }
 
-		public GLFWgammaramp.Buffer setRed(ByteBuffer red) { nsetRed(address(), red); return this; }
-		public GLFWgammaramp.Buffer setGreen(ByteBuffer green) { nsetGreen(address(), green); return this; }
-		public GLFWgammaramp.Buffer setBlue(ByteBuffer blue) { nsetBlue(address(), blue); return this; }
-		public GLFWgammaramp.Buffer setSize(int size) { nsetSize(address(), size); return this; }
+		public GLFWGammaRamp.Buffer setRed(ByteBuffer red) { nsetRed(address(), red); return this; }
+		public GLFWGammaRamp.Buffer setGreen(ByteBuffer green) { nsetGreen(address(), green); return this; }
+		public GLFWGammaRamp.Buffer setBlue(ByteBuffer blue) { nsetBlue(address(), blue); return this; }
+		public GLFWGammaRamp.Buffer setSize(int size) { nsetSize(address(), size); return this; }
 
 	}
 

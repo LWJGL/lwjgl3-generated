@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Video mode. */
-public class GLFWvidmode extends Struct {
+public class GLFWVidMode extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -45,22 +45,22 @@ public class GLFWvidmode extends Struct {
 
 	private static native int offsets(long buffer);
 
-	GLFWvidmode(long address, ByteBuffer container) {
+	GLFWVidMode(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);
 	}
 
-	/** Creates a {@link GLFWvidmode} instance at the specified memory address. */
-	public GLFWvidmode(long struct) {
+	/** Creates a {@link GLFWVidMode} instance at the specified memory address. */
+	public GLFWVidMode(long struct) {
 		this(struct, null);
 	}
 
 	/**
-	 * Creates a {@link GLFWvidmode} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+	 * Creates a {@link GLFWVidMode} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
 	 * visible to the struct instance and vice versa.
 	 *
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
-	public GLFWvidmode(ByteBuffer container) {
+	public GLFWVidMode(ByteBuffer container) {
 		this(memAddress(container), container);
 	}
 
@@ -76,23 +76,23 @@ public class GLFWvidmode extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link GLFWvidmode} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
-	public static GLFWvidmode malloc() {
-		return new GLFWvidmode(nmemAlloc(SIZEOF));
+	/** Returns a new {@link GLFWVidMode} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
+	public static GLFWVidMode malloc() {
+		return new GLFWVidMode(nmemAlloc(SIZEOF));
 	}
 
-	/** Returns a new {@link GLFWvidmode} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
-	public static GLFWvidmode calloc() {
-		return new GLFWvidmode(nmemCalloc(1, SIZEOF));
+	/** Returns a new {@link GLFWVidMode} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
+	public static GLFWVidMode calloc() {
+		return new GLFWVidMode(nmemCalloc(1, SIZEOF));
 	}
 
-	/** Returns a new {@link GLFWvidmode} instance allocated with {@link BufferUtils}. */
-	public static GLFWvidmode create() {
-		return new GLFWvidmode(BufferUtils.createByteBuffer(SIZEOF));
+	/** Returns a new {@link GLFWVidMode} instance allocated with {@link BufferUtils}. */
+	public static GLFWVidMode create() {
+		return new GLFWVidMode(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
 	/**
-	 * Returns a new {@link GLFWvidmode.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
+	 * Returns a new {@link GLFWVidMode.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -101,7 +101,7 @@ public class GLFWvidmode extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link GLFWvidmode.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
+	 * Returns a new {@link GLFWVidMode.Buffer} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -110,7 +110,7 @@ public class GLFWvidmode extends Struct {
 	}
 
 	/**
-	 * Returns a new {@link GLFWvidmode.Buffer} instance allocated with {@link BufferUtils}.
+	 * Returns a new {@link GLFWVidMode.Buffer} instance allocated with {@link BufferUtils}.
 	 *
 	 * @param capacity the buffer capacity
 	 */
@@ -133,15 +133,15 @@ public class GLFWvidmode extends Struct {
 
 	// -----------------------------------
 
-	/** An array of {@link GLFWvidmode} structs. */
-	public static final class Buffer extends StructBuffer<GLFWvidmode, Buffer> {
+	/** An array of {@link GLFWVidMode} structs. */
+	public static final class Buffer extends StructBuffer<GLFWVidMode, Buffer> {
 
 		/**
-		 * Creates a new {@link GLFWvidmode.Buffer} instance backed by the specified container.
+		 * Creates a new {@link GLFWVidMode.Buffer} instance backed by the specified container.
 		 *
 		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
 		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
-		 * by {@link GLFWvidmode#SIZEOF}, and its mark will be undefined.
+		 * by {@link GLFWVidMode#SIZEOF}, and its mark will be undefined.
 		 *
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
@@ -164,8 +164,8 @@ public class GLFWvidmode extends Struct {
 		}
 
 		@Override
-		protected GLFWvidmode newInstance(long address) {
-			return new GLFWvidmode(address, container);
+		protected GLFWVidMode newInstance(long address) {
+			return new GLFWVidMode(address, container);
 		}
 
 		@Override
