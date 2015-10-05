@@ -572,7 +572,7 @@ Creates a program object.
 	/** Array version of: {@link #glShaderSource ShaderSource} */
 	public static void glShaderSource(int shader, CharSequence... strings) {
 		APIBuffer __buffer = apiBuffer();
-		int stringsAddress = __buffer.pointerArrayParami(APIBuffer.stringArrayUTF8(false, strings));
+		int stringsAddress = __buffer.pointerArrayParamUTF8i(strings);
 		try {
 			nglShaderSource(shader, strings.length, __buffer.address(stringsAddress), __buffer.address(stringsAddress + (strings.length << POINTER_SHIFT)));
 		} finally {
@@ -583,7 +583,7 @@ Creates a program object.
 	/** Single string version of: {@link #glShaderSource ShaderSource} */
 	public static void glShaderSource(int shader, CharSequence string) {
 		APIBuffer __buffer = apiBuffer();
-		int stringsAddress = __buffer.pointerArrayParami(APIBuffer.stringArrayUTF8(false, string));
+		int stringsAddress = __buffer.pointerArrayParamUTF8i(string);
 		try {
 			nglShaderSource(shader, 1, __buffer.address(stringsAddress), __buffer.address(stringsAddress + POINTER_SIZE));
 		} finally {

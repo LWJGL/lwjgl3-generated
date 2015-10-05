@@ -2639,7 +2639,7 @@ Ends transform feedback operation.
 	/** Array version of: {@link #glTransformFeedbackVaryings TransformFeedbackVaryings} */
 	public static void glTransformFeedbackVaryings(int program, CharSequence[] varyings, int bufferMode) {
 		APIBuffer __buffer = apiBuffer();
-		int varyingsAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayASCII(true, varyings));
+		int varyingsAddress = __buffer.pointerArrayParamASCII(varyings);
 		try {
 			nglTransformFeedbackVaryings(program, varyings.length, __buffer.address(varyingsAddress), bufferMode);
 		} finally {
@@ -2650,7 +2650,7 @@ Ends transform feedback operation.
 	/** Single varying version of: {@link #glTransformFeedbackVaryings TransformFeedbackVaryings} */
 	public static void glTransformFeedbackVaryings(int program, CharSequence varying, int bufferMode) {
 		APIBuffer __buffer = apiBuffer();
-		int varyingsAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayASCII(true, varying));
+		int varyingsAddress = __buffer.pointerArrayParamASCII(varying);
 		try {
 			nglTransformFeedbackVaryings(program, 1, __buffer.address(varyingsAddress), bufferMode);
 		} finally {

@@ -691,7 +691,7 @@ public class CL12 {
 		APIBuffer __buffer = apiBuffer();
 		int optionsEncoded = __buffer.stringParamASCII(options, true);
 		int input_headersAddress = __buffer.pointerArrayParam(input_headers);
-		int header_include_namesAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayASCII(true, header_include_names));
+		int header_include_namesAddress = __buffer.pointerArrayParamASCII(header_include_names);
 		try {
 			return nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), __buffer.address(optionsEncoded), input_headers.length, __buffer.address(input_headersAddress), __buffer.address(header_include_namesAddress), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
 		} finally {
@@ -704,7 +704,7 @@ public class CL12 {
 		APIBuffer __buffer = apiBuffer();
 		int optionsEncoded = __buffer.stringParamASCII(options, true);
 		int input_headersAddress = __buffer.pointerArrayParam(input_header);
-		int header_include_namesAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayASCII(true, header_include_name));
+		int header_include_namesAddress = __buffer.pointerArrayParamASCII(header_include_name);
 		try {
 			return nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), __buffer.address(optionsEncoded), 1, __buffer.address(input_headersAddress), __buffer.address(header_include_namesAddress), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
 		} finally {

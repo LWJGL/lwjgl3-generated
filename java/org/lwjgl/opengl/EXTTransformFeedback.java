@@ -194,7 +194,7 @@ public class EXTTransformFeedback {
 	/** Array version of: {@link #glTransformFeedbackVaryingsEXT TransformFeedbackVaryingsEXT} */
 	public static void glTransformFeedbackVaryingsEXT(int program, CharSequence[] varyings, int bufferMode) {
 		APIBuffer __buffer = apiBuffer();
-		int varyingsAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayASCII(true, varyings));
+		int varyingsAddress = __buffer.pointerArrayParamASCII(varyings);
 		try {
 			nglTransformFeedbackVaryingsEXT(program, varyings.length, __buffer.address(varyingsAddress), bufferMode);
 		} finally {
@@ -205,7 +205,7 @@ public class EXTTransformFeedback {
 	/** Single varying version of: {@link #glTransformFeedbackVaryingsEXT TransformFeedbackVaryingsEXT} */
 	public static void glTransformFeedbackVaryingsEXT(int program, CharSequence varying, int bufferMode) {
 		APIBuffer __buffer = apiBuffer();
-		int varyingsAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayASCII(true, varying));
+		int varyingsAddress = __buffer.pointerArrayParamASCII(varying);
 		try {
 			nglTransformFeedbackVaryingsEXT(program, 1, __buffer.address(varyingsAddress), bufferMode);
 		} finally {

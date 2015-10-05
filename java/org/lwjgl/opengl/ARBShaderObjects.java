@@ -300,7 +300,7 @@ public class ARBShaderObjects {
 	/** Array version of: {@link #glShaderSourceARB ShaderSourceARB} */
 	public static void glShaderSourceARB(int shaderObj, CharSequence... string) {
 		APIBuffer __buffer = apiBuffer();
-		int stringAddress = __buffer.pointerArrayParami(APIBuffer.stringArrayUTF8(false, string));
+		int stringAddress = __buffer.pointerArrayParamUTF8i(string);
 		try {
 			nglShaderSourceARB(shaderObj, string.length, __buffer.address(stringAddress), __buffer.address(stringAddress + (string.length << POINTER_SHIFT)));
 		} finally {
@@ -311,7 +311,7 @@ public class ARBShaderObjects {
 	/** Single string version of: {@link #glShaderSourceARB ShaderSourceARB} */
 	public static void glShaderSourceARB(int shaderObj, CharSequence string) {
 		APIBuffer __buffer = apiBuffer();
-		int stringAddress = __buffer.pointerArrayParami(APIBuffer.stringArrayUTF8(false, string));
+		int stringAddress = __buffer.pointerArrayParamUTF8i(string);
 		try {
 			nglShaderSourceARB(shaderObj, 1, __buffer.address(stringAddress), __buffer.address(stringAddress + POINTER_SIZE));
 		} finally {

@@ -229,7 +229,7 @@ public class ARBUniformBufferObject {
 		if ( LWJGLUtil.CHECKS )
 			checkBuffer(uniformIndices, uniformNames.length);
 		APIBuffer __buffer = apiBuffer();
-		int uniformNamesAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayASCII(true, uniformNames));
+		int uniformNamesAddress = __buffer.pointerArrayParamASCII(uniformNames);
 		try {
 			nglGetUniformIndices(program, uniformNames.length, __buffer.address(uniformNamesAddress), memAddress(uniformIndices));
 		} finally {
@@ -240,7 +240,7 @@ public class ARBUniformBufferObject {
 	/** Single uniformName version of: {@link #glGetUniformIndices GetUniformIndices} */
 	public static int glGetUniformIndices(int program, CharSequence uniformName) {
 		APIBuffer __buffer = apiBuffer();
-		int uniformNamesAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayASCII(true, uniformName));
+		int uniformNamesAddress = __buffer.pointerArrayParamASCII(uniformName);
 		int uniformIndices = __buffer.intParam();
 		try {
 			nglGetUniformIndices(program, 1, __buffer.address(uniformNamesAddress), __buffer.address(uniformIndices));

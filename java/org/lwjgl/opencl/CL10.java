@@ -2978,7 +2978,7 @@ public class CL10 {
 		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		APIBuffer __buffer = apiBuffer();
-		int stringsAddress = __buffer.pointerArrayParamp(APIBuffer.stringArrayUTF8(false, strings));
+		int stringsAddress = __buffer.pointerArrayParamUTF8p(strings);
 		try {
 			return nclCreateProgramWithSource(context, strings.length, __buffer.address(stringsAddress), __buffer.address(stringsAddress + (strings.length << POINTER_SHIFT)), memAddressSafe(errcode_ret));
 		} finally {
@@ -2991,7 +2991,7 @@ public class CL10 {
 		if ( LWJGLUtil.CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		APIBuffer __buffer = apiBuffer();
-		int stringsAddress = __buffer.pointerArrayParamp(APIBuffer.stringArrayUTF8(false, string));
+		int stringsAddress = __buffer.pointerArrayParamUTF8p(string);
 		try {
 			return nclCreateProgramWithSource(context, 1, __buffer.address(stringsAddress), __buffer.address(stringsAddress + POINTER_SIZE), memAddressSafe(errcode_ret));
 		} finally {

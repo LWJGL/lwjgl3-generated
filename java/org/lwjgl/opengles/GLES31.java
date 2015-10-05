@@ -669,7 +669,7 @@ public class GLES31 {
 	/** Array version of: {@link #glCreateShaderProgramv CreateShaderProgramv} */
 	public static int glCreateShaderProgramv(int type, CharSequence... strings) {
 		APIBuffer __buffer = apiBuffer();
-		int stringsAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayUTF8(true, strings));
+		int stringsAddress = __buffer.pointerArrayParamUTF8(strings);
 		try {
 			return nglCreateShaderProgramv(type, strings.length, __buffer.address(stringsAddress));
 		} finally {
@@ -680,7 +680,7 @@ public class GLES31 {
 	/** Single string version of: {@link #glCreateShaderProgramv CreateShaderProgramv} */
 	public static int glCreateShaderProgramv(int type, CharSequence string) {
 		APIBuffer __buffer = apiBuffer();
-		int stringsAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayUTF8(true, string));
+		int stringsAddress = __buffer.pointerArrayParamUTF8(string);
 		try {
 			return nglCreateShaderProgramv(type, 1, __buffer.address(stringsAddress));
 		} finally {

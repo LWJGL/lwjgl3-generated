@@ -236,7 +236,7 @@ public class EXTSeparateShaderObjects {
 	/** Array version of: {@link #glCreateShaderProgramvEXT CreateShaderProgramvEXT} */
 	public static int glCreateShaderProgramvEXT(int type, CharSequence... strings) {
 		APIBuffer __buffer = apiBuffer();
-		int stringsAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayUTF8(true, strings));
+		int stringsAddress = __buffer.pointerArrayParamUTF8(strings);
 		try {
 			return nglCreateShaderProgramvEXT(type, strings.length, __buffer.address(stringsAddress));
 		} finally {
@@ -247,7 +247,7 @@ public class EXTSeparateShaderObjects {
 	/** Single string version of: {@link #glCreateShaderProgramvEXT CreateShaderProgramvEXT} */
 	public static int glCreateShaderProgramvEXT(int type, CharSequence string) {
 		APIBuffer __buffer = apiBuffer();
-		int stringsAddress = __buffer.pointerArrayParam(APIBuffer.stringArrayUTF8(true, string));
+		int stringsAddress = __buffer.pointerArrayParamUTF8(string);
 		try {
 			return nglCreateShaderProgramvEXT(type, 1, __buffer.address(stringsAddress));
 		} finally {
