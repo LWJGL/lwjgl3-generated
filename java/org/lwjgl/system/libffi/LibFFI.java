@@ -54,12 +54,12 @@ public class LibFFI {
 	/** ABI enumeration. */
 	public static final int
 		FFI_SYSV        = 0x1,
-		FFI_STDCALL     = 0x2,
+		FFI_WIN64       = 0x1,
+		FFI_UNIX64      = 0x2,
+		FFI_STDCALL     = LWJGLUtil.getPlatform() == LWJGLUtil.Platform.WINDOWS ? 0x2 : 0x5,
 		FFI_THISCALL    = 0x3,
 		FFI_FASTCALL    = 0x4,
 		FFI_MS_CDECL    = 0x5,
-		FFI_WIN64       = 0x1,
-		FFI_UNIX64      = 0x2,
 		FFI_DEFAULT_ABI = FFI_DEFAULT_ABI();
 
 	/** Status codes. */
@@ -109,7 +109,7 @@ public class LibFFI {
 	 * Prepares an {@link FFICIF} structure for use with {@link #ffi_call call}.
 	 *
 	 * @param cif    the {@link FFICIF} structure to prepare
-	 * @param abi    the calling convention to use. One of:<br>{@link #FFI_SYSV SYSV}, {@link #FFI_STDCALL STDCALL}, {@link #FFI_THISCALL THISCALL}, {@link #FFI_FASTCALL FASTCALL}, {@link #FFI_MS_CDECL MS_CDECL}, {@link #FFI_WIN64 WIN64}, {@link #FFI_UNIX64 UNIX64}, {@link #FFI_DEFAULT_ABI DEFAULT_ABI}
+	 * @param abi    the calling convention to use. One of:<br>{@link #FFI_SYSV SYSV}, {@link #FFI_WIN64 WIN64}, {@link #FFI_UNIX64 UNIX64}, {@link #FFI_STDCALL STDCALL}, {@link #FFI_THISCALL THISCALL}, {@link #FFI_FASTCALL FASTCALL}, {@link #FFI_MS_CDECL MS_CDECL}, {@link #FFI_DEFAULT_ABI DEFAULT_ABI}
 	 * @param nargs  the number of arguments
 	 * @param rtype  points to an {@link FFIType} that describes the data type, size and alignment of the return value
 	 * @param atypes an array of {@code nargs} pointers to {@link FFIType} structs that describe the data type, size and alignment of each argument
@@ -142,7 +142,7 @@ public class LibFFI {
 	 * Prepares an {@link FFICIF} structure for use with {@link #ffi_call call} for variadic functions.
 	 *
 	 * @param cif        the {@link FFICIF} structure to prepare
-	 * @param abi        the calling convention to use. One of:<br>{@link #FFI_SYSV SYSV}, {@link #FFI_STDCALL STDCALL}, {@link #FFI_THISCALL THISCALL}, {@link #FFI_FASTCALL FASTCALL}, {@link #FFI_MS_CDECL MS_CDECL}, {@link #FFI_WIN64 WIN64}, {@link #FFI_UNIX64 UNIX64}, {@link #FFI_DEFAULT_ABI DEFAULT_ABI}
+	 * @param abi        the calling convention to use. One of:<br>{@link #FFI_SYSV SYSV}, {@link #FFI_WIN64 WIN64}, {@link #FFI_UNIX64 UNIX64}, {@link #FFI_STDCALL STDCALL}, {@link #FFI_THISCALL THISCALL}, {@link #FFI_FASTCALL FASTCALL}, {@link #FFI_MS_CDECL MS_CDECL}, {@link #FFI_DEFAULT_ABI DEFAULT_ABI}
 	 * @param nfixedargs the number of fixed (non-variadic) arguments
 	 * @param ntotalargs the total number of arguments
 	 * @param rtype      points to an {@link FFIType} that describes the data type, size and alignment of the return value
