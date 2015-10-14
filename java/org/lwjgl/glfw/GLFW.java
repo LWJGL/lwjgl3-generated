@@ -26,13 +26,18 @@ import org.lwjgl.opengl.GL11;
 public class GLFW {
 
 	/** The major version number of the GLFW library. This is incremented when the API is changed in non-compatible ways. */
-	public static final int GLFW_VERSION_MAJOR = 0x3;
+	public static final int GLFW_VERSION_MAJOR = 3;
 
 	/** The minor version number of the GLFW library. This is incremented when features are added to the API but it remains backward-compatible. */
-	public static final int GLFW_VERSION_MINOR = 0x1;
+	public static final int GLFW_VERSION_MINOR = 2;
 
 	/** The revision number of the GLFW library. This is incremented when a bug fix release is made that does not contain any API changes. */
-	public static final int GLFW_VERSION_REVISION = 0x1;
+	public static final int GLFW_VERSION_REVISION = 0;
+
+	/** Boolean values. */
+	public static final int
+		GLFW_TRUE  = 0x1,
+		GLFW_FALSE = 0x0;
 
 	/** The key or button was released. */
 	public static final int GLFW_RELEASE = 0x0;
@@ -579,19 +584,16 @@ public class GLFW {
 	 * 
 	 * <p>If this function fails, it calls {@link #glfwTerminate Terminate} before returning. If it succeeds, you should call {@link #glfwTerminate Terminate} before the application exits.</p>
 	 * 
-	 * <p>Additional calls to this function after successful initialization but before termination will return {@link GL11#GL_TRUE} immediately.</p>
+	 * <p>Additional calls to this function after successful initialization but before termination will return {@link #GLFW_TRUE TRUE} immediately.</p>
 	 * 
 	 * <p>Notes:
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>Mac OS X</b>: This function will change the current directory of the application to the `Contents/Resources` subdirectory of the application's
 	 * bundle, if present.</li>
-	 * <li><b>X11</b>: If the {@code LC_CTYPE} category of the current locale is set to {@code "C"} then the environment's locale will be applied to that
-	 * category. This is done because character input will not function when {@code LC_CTYPE} is set to {@code "C"}. If another locale was set before this
-	 * function was called, it will be left untouched.</li>
 	 * </ul></p>
 	 *
-	 * @return {@link GL11#GL_TRUE} if successful, or {@link GL11#GL_FALSE} if an error occured.
+	 * @return {@link #GLFW_TRUE TRUE} if successful, or {@link #GLFW_FALSE FALSE} if an error occured.
 	 *
 	 * @since GLFW 1.0
 	 */
@@ -1090,11 +1092,11 @@ public class GLFW {
 	 * <h3>Supported and default values</h3>
 	 * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
 	 * <tr><th>Name</th><th>Default value</th><th>Supported values</th></tr>
-	 * <tr><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link GL11#GL_TRUE}</td><td>{@link GL11#GL_TRUE} or {@link GL11#GL_FALSE}</td></tr>
-	 * <tr><td>{@link #GLFW_VISIBLE VISIBLE}</td><td>{@link GL11#GL_TRUE}</td><td>{@link GL11#GL_TRUE} or {@link GL11#GL_FALSE}</td></tr>
-	 * <tr><td>{@link #GLFW_DECORATED DECORATED}</td><td>{@link GL11#GL_TRUE}</td><td>{@link GL11#GL_TRUE} or {@link GL11#GL_FALSE}</td></tr>
-	 * <tr><td>{@link #GLFW_AUTO_ICONIFY AUTO_ICONIFY}</td><td>{@link GL11#GL_TRUE}</td><td>{@link GL11#GL_TRUE} or {@link GL11#GL_FALSE}</td></tr>
-	 * <tr><td>{@link #GLFW_FLOATING FLOATING}</td><td>{@link GL11#GL_TRUE}</td><td>{@link GL11#GL_TRUE} or {@link GL11#GL_FALSE}</td></tr>
+	 * <tr><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
+	 * <tr><td>{@link #GLFW_VISIBLE VISIBLE}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
+	 * <tr><td>{@link #GLFW_DECORATED DECORATED}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
+	 * <tr><td>{@link #GLFW_AUTO_ICONIFY AUTO_ICONIFY}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
+	 * <tr><td>{@link #GLFW_FLOATING FLOATING}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_RED_BITS RED_BITS}</td><td>8</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
 	 * <tr><td>{@link #GLFW_GREEN_BITS GREEN_BITS}</td><td>8</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
 	 * <tr><td>{@link #GLFW_BLUE_BITS BLUE_BITS}</td><td>8</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
@@ -1108,15 +1110,15 @@ public class GLFW {
 	 * <tr><td>{@link #GLFW_AUX_BUFFERS AUX_BUFFERS}</td><td>0</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
 	 * <tr><td>{@link #GLFW_SAMPLES SAMPLES}</td><td>0</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
 	 * <tr><td>{@link #GLFW_REFRESH_RATE REFRESH_RATE}</td><td>0</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
-	 * <tr><td>{@link #GLFW_STEREO STEREO}</td><td>{@link GL11#GL_FALSE}</td><td>{@link GL11#GL_TRUE} or {@link GL11#GL_FALSE}</td></tr>
-	 * <tr><td>{@link #GLFW_SRGB_CAPABLE SRGB_CAPABLE}</td><td>{@link GL11#GL_FALSE}</td><td>{@link GL11#GL_TRUE} or {@link GL11#GL_FALSE}</td></tr>
+	 * <tr><td>{@link #GLFW_STEREO STEREO}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
+	 * <tr><td>{@link #GLFW_SRGB_CAPABLE SRGB_CAPABLE}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_CLIENT_API CLIENT_API}</td><td>{@link #GLFW_OPENGL_API OPENGL_API}</td><td>{@link #GLFW_OPENGL_API OPENGL_API} {@link #GLFW_OPENGL_ES_API OPENGL_ES_API}</td></tr>
 	 * <tr><td>{@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}</td><td>1</td><td>Any valid major version number of the chosen client API</td></tr>
 	 * <tr><td>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}</td><td>0</td><td>Any valid minor version number of the chosen client API</td></tr>
 	 * <tr><td>{@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}</td><td>{@link #GLFW_NO_ROBUSTNESS NO_ROBUSTNESS}</td><td>{@link #GLFW_NO_ROBUSTNESS NO_ROBUSTNESS} {@link #GLFW_NO_RESET_NOTIFICATION NO_RESET_NOTIFICATION} {@link #GLFW_LOSE_CONTEXT_ON_RESET LOSE_CONTEXT_ON_RESET}</td></tr>
 	 * <tr><td>{@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}</td><td>{@link #GLFW_ANY_RELEASE_BEHAVIOR ANY_RELEASE_BEHAVIOR}</td><td>{@link #GLFW_ANY_RELEASE_BEHAVIOR ANY_RELEASE_BEHAVIOR} {@link #GLFW_RELEASE_BEHAVIOR_FLUSH RELEASE_BEHAVIOR_FLUSH} {@link #GLFW_RELEASE_BEHAVIOR_NONE RELEASE_BEHAVIOR_NONE}</td></tr>
-	 * <tr><td>{@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}</td><td>{@link GL11#GL_FALSE}</td><td>{@link GL11#GL_TRUE} or {@link GL11#GL_FALSE}</td></tr>
-	 * <tr><td>{@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}</td><td>{@link GL11#GL_FALSE}</td><td>{@link GL11#GL_TRUE} or {@link GL11#GL_FALSE}</td></tr>
+	 * <tr><td>{@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
+	 * <tr><td>{@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}</td><td>{@link #GLFW_OPENGL_ANY_PROFILE OPENGL_ANY_PROFILE}</td><td>{@link #GLFW_OPENGL_ANY_PROFILE OPENGL_ANY_PROFILE} {@link #GLFW_OPENGL_CORE_PROFILE OPENGL_CORE_PROFILE} {@link #GLFW_OPENGL_COMPAT_PROFILE OPENGL_COMPAT_PROFILE}</td></tr>
 	 * </table>
 	 * 
@@ -1997,11 +1999,11 @@ public class GLFW {
 	 * controls.</li>
 	 * </ul></p>
 	 * 
-	 * <p>If {@code mode} is {@link #GLFW_STICKY_KEYS STICKY_KEYS}, the value must be either {@link GL11#GL_TRUE} to enable sticky keys, or {@link GL11#GL_FALSE} to disable it. If sticky keys are
+	 * <p>If {@code mode} is {@link #GLFW_STICKY_KEYS STICKY_KEYS}, the value must be either {@link #GLFW_TRUE TRUE} to enable sticky keys, or {@link #GLFW_FALSE FALSE} to disable it. If sticky keys are
 	 * enabled, a key press will ensure that {@link #glfwGetKey GetKey} returns {@link #GLFW_PRESS PRESS} the next time it is called even if the key had been released before the call. This is
 	 * useful when you are only interested in whether keys have been pressed but not when or in which order.</p>
 	 * 
-	 * <p>If {@code mode} is {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS}, the value must be either {@link GL11#GL_TRUE} to enable sticky mouse buttons, or {@link GL11#GL_FALSE} to
+	 * <p>If {@code mode} is {@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS}, the value must be either {@link #GLFW_TRUE TRUE} to enable sticky mouse buttons, or {@link #GLFW_FALSE FALSE} to
 	 * disable it. If sticky mouse buttons are enabled, a mouse button press will ensure that {@link #glfwGetMouseButton GetMouseButton} returns {@link #GLFW_PRESS PRESS} the next
 	 * time it is called even if the mouse button had been released before the call. This is useful when you are only interested in whether mouse buttons have
 	 * been pressed but not when or in which order.</p>
@@ -2475,7 +2477,7 @@ public class GLFW {
 	 *
 	 * @param joy joystick to query
 	 *
-	 * @return {@link GL11#GL_TRUE} if the joystick is present, or {@link GL11#GL_FALSE} otherwise
+	 * @return {@link #GLFW_TRUE TRUE} if the joystick is present, or {@link #GLFW_FALSE FALSE} otherwise
 	 *
 	 * @since GLFW 3.0
 	 */
@@ -2792,7 +2794,7 @@ public class GLFW {
 	 *
 	 * @param extension the ASCII encoded name of the extension
 	 *
-	 * @return {@link GL11#GL_TRUE} if the extension is available, or {@link GL11#GL_FALSE} otherwise
+	 * @return {@link #GLFW_TRUE TRUE} if the extension is available, or {@link #GLFW_FALSE FALSE} otherwise
 	 *
 	 * @since GLFW 1.0
 	 */
