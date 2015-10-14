@@ -81,7 +81,7 @@ public abstract class STBIWriteCallback extends Closure.Void {
 	 *
 	 * <p>This method may only be used inside a STBIWriteCallback invocation.</p>
 	 *
-	 * @param data the the STBIWriteCallback {@code data} argument
+	 * @param data the STBIWriteCallback {@code data} argument
 	 * @param size the STBIWriteCallback {@code size} argument
 	 *
 	 * @return the data as a ByteBuffer

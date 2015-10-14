@@ -13,7 +13,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_Kernel32_nSetThreadAffinit
 	jlong __result;
 	UNUSED_PARAMS(__env, clazz)
 	__result = (jlong)SetThreadAffinityMask(thread, (DWORD_PTR)threadAffinityMask);
-	setLastError((jint)GetLastError());
+	saveLastError();
 	return __result;
 }
 

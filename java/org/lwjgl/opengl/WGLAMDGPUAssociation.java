@@ -213,7 +213,7 @@ public class WGLAMDGPUAssociation {
 	 * <p>All capabilities and limitations of {@link WGLARBCreateContext#wglCreateContextAttribsARB CreateContextAttribsARB} apply to {@code CreateAssociatedContextAttribsAMD}.</p>
 	 *
 	 * @param id           a valid GPU id
-	 * @param shareContext must either be NULL or that of an associated context created with the the same GPU ID as {@code id}
+	 * @param shareContext must either be NULL or that of an associated context created with the same GPU ID as {@code id}
 	 * @param attribList   a 0-terminated list of attributes for the context
 	 */
 	public static long wglCreateAssociatedContextAttribsAMD(int id, long shareContext, ByteBuffer attribList) {

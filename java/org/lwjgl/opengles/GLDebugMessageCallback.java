@@ -90,7 +90,7 @@ public abstract class GLDebugMessageCallback extends Closure.Void {
 	 * <p>This method may only be used inside a GLDebugMessageCallback invocation.</p>
 	 *
 	 * @param length  the GLDebugMessageCallback {@code length} argument
-	 * @param message the the GLDebugMessageCallback {@code message} argument
+	 * @param message the GLDebugMessageCallback {@code message} argument
 	 *
 	 * @return the message as a String
 	 */

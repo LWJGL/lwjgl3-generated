@@ -11,99 +11,100 @@ import java.util.Set;
 /** Defines the capabilities of an OpenGL ES context. */
 public final class GLESCapabilities {
 
-	final GLES20                              __GLES20;
-	final GLES30                              __GLES30;
-	final GLES31                              __GLES31;
-	final GLES32                              __GLES32;
-	final AMDPerformanceMonitor               __AMDPerformanceMonitor;
-	final ANGLEFramebufferBlit                __ANGLEFramebufferBlit;
-	final ANGLEFramebufferMultisample         __ANGLEFramebufferMultisample;
-	final ANGLEInstancedArrays                __ANGLEInstancedArrays;
-	final ANGLETranslatedShaderSource         __ANGLETranslatedShaderSource;
-	final APPLECopyTextureLevels              __APPLECopyTextureLevels;
-	final APPLEFramebufferMultisample         __APPLEFramebufferMultisample;
-	final APPLESync                           __APPLESync;
-	final EXTBaseInstance                     __EXTBaseInstance;
-	final EXTBlendFuncExtended                __EXTBlendFuncExtended;
-	final EXTBufferStorage                    __EXTBufferStorage;
-	final EXTCopyImage                        __EXTCopyImage;
-	final EXTDebugLabel                       __EXTDebugLabel;
-	final EXTDebugMarker                      __EXTDebugMarker;
-	final EXTDiscardFramebuffer               __EXTDiscardFramebuffer;
-	final EXTDisjointTimerQuery               __EXTDisjointTimerQuery;
-	final EXTDrawBuffers                      __EXTDrawBuffers;
-	final EXTDrawBuffersIndexed               __EXTDrawBuffersIndexed;
-	final EXTDrawElementsBaseVertex           __EXTDrawElementsBaseVertex;
-	final EXTDrawInstanced                    __EXTDrawInstanced;
-	final EXTGeometryShader                   __EXTGeometryShader;
-	final EXTInstancedArrays                  __EXTInstancedArrays;
-	final EXTMapBufferRange                   __EXTMapBufferRange;
-	final EXTMultiDrawArrays                  __EXTMultiDrawArrays;
-	final EXTMultiDrawIndirect                __EXTMultiDrawIndirect;
-	final EXTMultisampledRenderToTexture      __EXTMultisampledRenderToTexture;
-	final EXTMultiviewDrawBuffers             __EXTMultiviewDrawBuffers;
-	final EXTOcclusionQueryBoolean            __EXTOcclusionQueryBoolean;
-	final EXTPrimitiveBoundingBox             __EXTPrimitiveBoundingBox;
-	final EXTRasterMultisample                __EXTRasterMultisample;
-	final EXTRobustness                       __EXTRobustness;
-	final EXTSeparateShaderObjects            __EXTSeparateShaderObjects;
-	final EXTSparseTexture                    __EXTSparseTexture;
-	final EXTTessellationShader               __EXTTessellationShader;
-	final EXTTextureBorderClamp               __EXTTextureBorderClamp;
-	final EXTTextureBuffer                    __EXTTextureBuffer;
-	final EXTTextureFilterMinmax              __EXTTextureFilterMinmax;
-	final EXTTextureStorage                   __EXTTextureStorage;
-	final EXTTextureView                      __EXTTextureView;
-	final IMGMultisampledRenderToTexture      __IMGMultisampledRenderToTexture;
-	final INTELFramebufferCMAA                __INTELFramebufferCMAA;
-	final INTELPerformanceQuery               __INTELPerformanceQuery;
-	final KHRBlendEquationAdvanced            __KHRBlendEquationAdvanced;
-	final KHRDebug                            __KHRDebug;
-	final KHRRobustness                       __KHRRobustness;
-	final NVBindlessTexture                   __NVBindlessTexture;
-	final NVBlendEquationAdvanced             __NVBlendEquationAdvanced;
-	final NVConditionalRender                 __NVConditionalRender;
-	final NVConservativeRaster                __NVConservativeRaster;
-	final NVCopyBuffer                        __NVCopyBuffer;
-	final NVCoverageSample                    __NVCoverageSample;
-	final NVDrawBuffers                       __NVDrawBuffers;
-	final NVDrawInstanced                     __NVDrawInstanced;
-	final NVFence                             __NVFence;
-	final NVFragmentCoverageToColor           __NVFragmentCoverageToColor;
-	final NVFramebufferBlit                   __NVFramebufferBlit;
-	final NVFramebufferMixedSamples           __NVFramebufferMixedSamples;
-	final NVFramebufferMultisample            __NVFramebufferMultisample;
-	final NVInstancedArrays                   __NVInstancedArrays;
-	final NVInternalformatSampleQuery         __NVInternalformatSampleQuery;
-	final NVNonSquareMatrices                 __NVNonSquareMatrices;
-	final NVPathRendering                     __NVPathRendering;
-	final NVPolygonMode                       __NVPolygonMode;
-	final NVReadBuffer                        __NVReadBuffer;
-	final NVSampleLocations                   __NVSampleLocations;
-	final NVTextureArray                      __NVTextureArray;
-	final NVViewportArray                     __NVViewportArray;
-	final OESCopyImage                        __OESCopyImage;
-	final OESDrawBuffersIndexed               __OESDrawBuffersIndexed;
-	final OESDrawElementsBaseVertex           __OESDrawElementsBaseVertex;
-	final OESEGLImage                         __OESEGLImage;
-	final OESGeometryShader                   __OESGeometryShader;
-	final OESGetProgramBinary                 __OESGetProgramBinary;
-	final OESMapbuffer                        __OESMapbuffer;
-	final OESPrimitiveBoundingBox             __OESPrimitiveBoundingBox;
-	final OESSampleShading                    __OESSampleShading;
-	final OESTessellationShader               __OESTessellationShader;
-	final OESTexture3D                        __OESTexture3D;
-	final OESTextureBorderClamp               __OESTextureBorderClamp;
-	final OESTextureBuffer                    __OESTextureBuffer;
-	final OESTextureStorageMultisample2DArray __OESTextureStorageMultisample2DArray;
-	final OESTextureView                      __OESTextureView;
-	final OESVertexArrayObject                __OESVertexArrayObject;
-	final OVRMultiview                        __OVRMultiview;
-	final QCOMAlphaTest                       __QCOMAlphaTest;
-	final QCOMDriverControl                   __QCOMDriverControl;
-	final QCOMExtendedGet                     __QCOMExtendedGet;
-	final QCOMExtendedGet2                    __QCOMExtendedGet2;
-	final QCOMTiledRendering                  __QCOMTiledRendering;
+	final GLES20                                  __GLES20;
+	final GLES30                                  __GLES30;
+	final GLES31                                  __GLES31;
+	final GLES32                                  __GLES32;
+	final AMDPerformanceMonitor                   __AMDPerformanceMonitor;
+	final ANGLEFramebufferBlit                    __ANGLEFramebufferBlit;
+	final ANGLEFramebufferMultisample             __ANGLEFramebufferMultisample;
+	final ANGLEInstancedArrays                    __ANGLEInstancedArrays;
+	final ANGLETranslatedShaderSource             __ANGLETranslatedShaderSource;
+	final APPLECopyTextureLevels                  __APPLECopyTextureLevels;
+	final APPLEFramebufferMultisample             __APPLEFramebufferMultisample;
+	final APPLESync                               __APPLESync;
+	final EXTBaseInstance                         __EXTBaseInstance;
+	final EXTBlendFuncExtended                    __EXTBlendFuncExtended;
+	final EXTBufferStorage                        __EXTBufferStorage;
+	final EXTCopyImage                            __EXTCopyImage;
+	final EXTDebugLabel                           __EXTDebugLabel;
+	final EXTDebugMarker                          __EXTDebugMarker;
+	final EXTDiscardFramebuffer                   __EXTDiscardFramebuffer;
+	final EXTDisjointTimerQuery                   __EXTDisjointTimerQuery;
+	final EXTDrawBuffers                          __EXTDrawBuffers;
+	final EXTDrawBuffersIndexed                   __EXTDrawBuffersIndexed;
+	final EXTDrawElementsBaseVertex               __EXTDrawElementsBaseVertex;
+	final EXTDrawInstanced                        __EXTDrawInstanced;
+	final EXTGeometryShader                       __EXTGeometryShader;
+	final EXTInstancedArrays                      __EXTInstancedArrays;
+	final EXTMapBufferRange                       __EXTMapBufferRange;
+	final EXTMultiDrawArrays                      __EXTMultiDrawArrays;
+	final EXTMultiDrawIndirect                    __EXTMultiDrawIndirect;
+	final EXTMultisampledRenderToTexture          __EXTMultisampledRenderToTexture;
+	final EXTMultiviewDrawBuffers                 __EXTMultiviewDrawBuffers;
+	final EXTOcclusionQueryBoolean                __EXTOcclusionQueryBoolean;
+	final EXTPrimitiveBoundingBox                 __EXTPrimitiveBoundingBox;
+	final EXTRasterMultisample                    __EXTRasterMultisample;
+	final EXTRobustness                           __EXTRobustness;
+	final EXTSeparateShaderObjects                __EXTSeparateShaderObjects;
+	final EXTSparseTexture                        __EXTSparseTexture;
+	final EXTTessellationShader                   __EXTTessellationShader;
+	final EXTTextureBorderClamp                   __EXTTextureBorderClamp;
+	final EXTTextureBuffer                        __EXTTextureBuffer;
+	final EXTTextureFilterMinmax                  __EXTTextureFilterMinmax;
+	final EXTTextureStorage                       __EXTTextureStorage;
+	final EXTTextureView                          __EXTTextureView;
+	final IMGMultisampledRenderToTexture          __IMGMultisampledRenderToTexture;
+	final INTELFramebufferCMAA                    __INTELFramebufferCMAA;
+	final INTELPerformanceQuery                   __INTELPerformanceQuery;
+	final KHRBlendEquationAdvanced                __KHRBlendEquationAdvanced;
+	final KHRDebug                                __KHRDebug;
+	final KHRRobustness                           __KHRRobustness;
+	final NVBindlessTexture                       __NVBindlessTexture;
+	final NVBlendEquationAdvanced                 __NVBlendEquationAdvanced;
+	final NVConditionalRender                     __NVConditionalRender;
+	final NVConservativeRaster                    __NVConservativeRaster;
+	final NVCopyBuffer                            __NVCopyBuffer;
+	final NVCoverageSample                        __NVCoverageSample;
+	final NVDrawBuffers                           __NVDrawBuffers;
+	final NVDrawInstanced                         __NVDrawInstanced;
+	final NVFence                                 __NVFence;
+	final NVFragmentCoverageToColor               __NVFragmentCoverageToColor;
+	final NVFramebufferBlit                       __NVFramebufferBlit;
+	final NVFramebufferMixedSamples               __NVFramebufferMixedSamples;
+	final NVFramebufferMultisample                __NVFramebufferMultisample;
+	final NVInstancedArrays                       __NVInstancedArrays;
+	final NVInternalformatSampleQuery             __NVInternalformatSampleQuery;
+	final NVNonSquareMatrices                     __NVNonSquareMatrices;
+	final NVPathRendering                         __NVPathRendering;
+	final NVPolygonMode                           __NVPolygonMode;
+	final NVReadBuffer                            __NVReadBuffer;
+	final NVSampleLocations                       __NVSampleLocations;
+	final NVTextureArray                          __NVTextureArray;
+	final NVViewportArray                         __NVViewportArray;
+	final OESCopyImage                            __OESCopyImage;
+	final OESDrawBuffersIndexed                   __OESDrawBuffersIndexed;
+	final OESDrawElementsBaseVertex               __OESDrawElementsBaseVertex;
+	final OESEGLImage                             __OESEGLImage;
+	final OESGeometryShader                       __OESGeometryShader;
+	final OESGetProgramBinary                     __OESGetProgramBinary;
+	final OESMapbuffer                            __OESMapbuffer;
+	final OESPrimitiveBoundingBox                 __OESPrimitiveBoundingBox;
+	final OESSampleShading                        __OESSampleShading;
+	final OESTessellationShader                   __OESTessellationShader;
+	final OESTexture3D                            __OESTexture3D;
+	final OESTextureBorderClamp                   __OESTextureBorderClamp;
+	final OESTextureBuffer                        __OESTextureBuffer;
+	final OESTextureStorageMultisample2DArray     __OESTextureStorageMultisample2DArray;
+	final OESTextureView                          __OESTextureView;
+	final OESVertexArrayObject                    __OESVertexArrayObject;
+	final OVRMultiview                            __OVRMultiview;
+	final OVRMultiviewMultisampledRenderToTexture __OVRMultiviewMultisampledRenderToTexture;
+	final QCOMAlphaTest                           __QCOMAlphaTest;
+	final QCOMDriverControl                       __QCOMDriverControl;
+	final QCOMExtendedGet                         __QCOMExtendedGet;
+	final QCOMExtendedGet2                        __QCOMExtendedGet2;
+	final QCOMTiledRendering                      __QCOMTiledRendering;
 
 	/** When true, {@link GLES20} is supported. */
 	public final boolean GLES20;
@@ -528,6 +529,19 @@ public final class GLESCapabilities {
 	public final boolean GL_KHR_texture_compression_astc_hdr;
 	/** When true, {@link KHRTextureCompressionASTCLDR} is supported. */
 	public final boolean GL_KHR_texture_compression_astc_ldr;
+	/**
+	 * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/KHR/texture_compression_astc_sliced_3d.txt">KHR_texture_compression_astc_sliced_3d</a> extension.
+	 * 
+	 * <p>Adaptive Scalable Texture Compression (ASTC) is a new texture compression technology that offers unprecendented flexibility, while producing better or
+	 * comparable results than existing texture compressions at all bit rates. It includes support for 2D and slice-based 3D textures, with low and high
+	 * dynamic range, at bitrates from below 1 bit/pixel up to 8 bits/pixel in fine steps.</p>
+	 * 
+	 * <p>This extension extends the functionality of {@link KHRTextureCompressionASTCLDR KHR_texture_compression_astc_ldr} to include slice-based 3D textures for textures using the LDR
+	 * profile in the same way as the HDR profile allows slice-based 3D textures.</p>
+	 * 
+	 * <p>Requires {@link KHRTextureCompressionASTCLDR KHR_texture_compression_astc_ldr}.</p>
+	 */
+	public final boolean GL_KHR_texture_compression_astc_sliced_3d;
 	/** When true, {@link NVBindlessTexture} is supported. */
 	public final boolean GL_NV_bindless_texture;
 	/** When true, {@link NVBlendEquationAdvanced} is supported. */
@@ -1088,6 +1102,8 @@ public final class GLESCapabilities {
 	 * <p>Requires {@link GLES30 GLES E.S} and {@link OVRMultiview OVR_multiview}.</p>
 	 */
 	public final boolean GL_OVR_multiview2;
+	/** When true, {@link OVRMultiviewMultisampledRenderToTexture} is supported. */
+	public final boolean GL_OVR_multiview_multisampled_render_to_texture;
 	/** When true, {@link QCOMAlphaTest} is supported. */
 	public final boolean GL_QCOM_alpha_test;
 	/** When true, {@link QCOMBinningControl} is supported. */
@@ -1227,6 +1243,7 @@ public final class GLESCapabilities {
 		GL_KHR_robustness = (__KHRRobustness = KHRRobustness.create(ext, provider)) != null;
 		GL_KHR_texture_compression_astc_hdr = ext.contains("GL_KHR_texture_compression_astc_hdr");
 		GL_KHR_texture_compression_astc_ldr = ext.contains("GL_KHR_texture_compression_astc_ldr");
+		GL_KHR_texture_compression_astc_sliced_3d = ext.contains("GL_KHR_texture_compression_astc_sliced_3d");
 		GL_NV_bindless_texture = (__NVBindlessTexture = NVBindlessTexture.create(ext, provider)) != null;
 		GL_NV_blend_equation_advanced = (__NVBlendEquationAdvanced = NVBlendEquationAdvanced.create(ext, provider)) != null;
 		GL_NV_blend_equation_advanced_coherent = ext.contains("GL_NV_blend_equation_advanced_coherent");
@@ -1327,6 +1344,7 @@ public final class GLESCapabilities {
 		GL_OES_vertex_type_10_10_10_2 = ext.contains("GL_OES_vertex_type_10_10_10_2");
 		GL_OVR_multiview = (__OVRMultiview = OVRMultiview.create(ext, provider)) != null;
 		GL_OVR_multiview2 = ext.contains("GL_OVR_multiview2");
+		GL_OVR_multiview_multisampled_render_to_texture = (__OVRMultiviewMultisampledRenderToTexture = OVRMultiviewMultisampledRenderToTexture.create(ext, provider)) != null;
 		GL_QCOM_alpha_test = (__QCOMAlphaTest = QCOMAlphaTest.create(ext, provider)) != null;
 		GL_QCOM_binning_control = ext.contains("GL_QCOM_binning_control");
 		GL_QCOM_driver_control = (__QCOMDriverControl = QCOMDriverControl.create(ext, provider)) != null;

@@ -22,7 +22,7 @@ import static org.lwjgl.system.JNI.*;
  */
 public class ARBSparseBuffer {
 
-	/** Accepted as part of the the {@code flags} parameter to {@link GL44#glBufferStorage BufferStorage}. */
+	/** Accepted as part of the {@code flags} parameter to {@link GL44#glBufferStorage BufferStorage}. */
 	public static final int GL_SPARSE_STORAGE_BIT_ARB = 0x400;
 
 	/** Accepted by the {@code pname} parameter of GetBooleanv, GetDoublev, GetFloatv, GetIntegerv, and GetInteger64v. */

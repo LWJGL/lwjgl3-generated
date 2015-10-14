@@ -21,7 +21,7 @@ import static org.lwjgl.system.APIUtil.*;
  * 
  * <p>This extension adds a few new features designed to provide very low overhead batching and replay of rendering commands and state changes:
  * <ul>
- * <li>A state object, which stores a pre-validated representation of the the state of (almost) the entire pipeline.</li>
+ * <li>A state object, which stores a pre-validated representation of the state of (almost) the entire pipeline.</li>
  * <li>A more flexible and extensible MultiDrawIndirect (MDI) type of mechanism, using a token-based command stream, allowing to setup binding state and
  * emit draw calls.</li>
  * <li>A set of functions to execute a list of the token-based command streams with state object changes interleaved with the streams.</li>

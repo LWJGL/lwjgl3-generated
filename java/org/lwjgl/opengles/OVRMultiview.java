@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /**
- * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/OVR/OVR_multiview.txt">OVR_multiview</a> extension.
+ * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/OVR/multiview.txt">OVR_multiview</a> extension.
  * 
  * <p>The method of stereo rendering supported in OpenGL is currently achieved by rendering to the two eye buffers sequentially. This typically incurs double
  * the application and driver overhead, despite the fact that the command streams and render states are almost identical.</p>

@@ -90,7 +90,7 @@ public abstract class GLDebugMessageARBCallback extends Closure.Void {
 	 * <p>This method may only be used inside a GLDebugMessageARBCallback invocation.</p>
 	 *
 	 * @param length  the GLDebugMessageARBCallback {@code length} argument
-	 * @param message the the GLDebugMessageARBCallback {@code message} argument
+	 * @param message the GLDebugMessageARBCallback {@code message} argument
 	 *
 	 * @return the message as a String
 	 */

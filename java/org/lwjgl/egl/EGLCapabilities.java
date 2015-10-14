@@ -11,44 +11,47 @@ import java.util.Set;
 /** Defines the capabilities of an EGLDisplay or the EGL client library. */
 public class EGLCapabilities {
 
-	final EGL10                       __EGL10;
-	final EGL11                       __EGL11;
-	final EGL12                       __EGL12;
-	final EGL14                       __EGL14;
-	final EGL15                       __EGL15;
-	final ANDROIDBlobCache            __ANDROIDBlobCache;
-	final ANDROIDNativeFenceSync      __ANDROIDNativeFenceSync;
-	final ANGLEQuerySurfacePointer    __ANGLEQuerySurfacePointer;
-	final EXTDeviceBase               __EXTDeviceBase;
-	final EXTDeviceEnumeration        __EXTDeviceEnumeration;
-	final EXTDeviceQuery              __EXTDeviceQuery;
-	final EXTOutputBase               __EXTOutputBase;
-	final EXTPlatformBase             __EXTPlatformBase;
-	final EXTStreamConsumerEGLOutput  __EXTStreamConsumerEGLOutput;
-	final EXTSwapBuffersWithDamage    __EXTSwapBuffersWithDamage;
-	final HIClientpixmap              __HIClientpixmap;
-	final KHRCLEvent2                 __KHRCLEvent2;
-	final KHRFenceSync                __KHRFenceSync;
-	final KHRImage                    __KHRImage;
-	final KHRImageBase                __KHRImageBase;
-	final KHRLockSurface3             __KHRLockSurface3;
-	final KHRPartialUpdate            __KHRPartialUpdate;
-	final KHRReusableSync             __KHRReusableSync;
-	final KHRStream                   __KHRStream;
-	final KHRStreamConsumerGLTexture  __KHRStreamConsumerGLTexture;
-	final KHRStreamCrossProcessFD     __KHRStreamCrossProcessFD;
-	final KHRStreamFIFO               __KHRStreamFIFO;
-	final KHRStreamProducerEGLSurface __KHRStreamProducerEGLSurface;
-	final KHRSwapBuffersWithDamage    __KHRSwapBuffersWithDamage;
-	final KHRWaitSync                 __KHRWaitSync;
-	final MESADRMImage                __MESADRMImage;
-	final MESAImageDMABufExport       __MESAImageDMABufExport;
-	final NOKSwapRegion2              __NOKSwapRegion2;
-	final NVNativeQuery               __NVNativeQuery;
-	final NVPostSubBuffer             __NVPostSubBuffer;
-	final NVStreamSync                __NVStreamSync;
-	final NVSync                      __NVSync;
-	final NVSystemTime                __NVSystemTime;
+	final EGL10                        __EGL10;
+	final EGL11                        __EGL11;
+	final EGL12                        __EGL12;
+	final EGL14                        __EGL14;
+	final EGL15                        __EGL15;
+	final ANDROIDBlobCache             __ANDROIDBlobCache;
+	final ANDROIDNativeFenceSync       __ANDROIDNativeFenceSync;
+	final ANGLEQuerySurfacePointer     __ANGLEQuerySurfacePointer;
+	final EXTDeviceBase                __EXTDeviceBase;
+	final EXTDeviceEnumeration         __EXTDeviceEnumeration;
+	final EXTDeviceQuery               __EXTDeviceQuery;
+	final EXTOutputBase                __EXTOutputBase;
+	final EXTPlatformBase              __EXTPlatformBase;
+	final EXTStreamConsumerEGLOutput   __EXTStreamConsumerEGLOutput;
+	final EXTSwapBuffersWithDamage     __EXTSwapBuffersWithDamage;
+	final HIClientpixmap               __HIClientpixmap;
+	final KHRCLEvent2                  __KHRCLEvent2;
+	final KHRDebug                     __KHRDebug;
+	final KHRFenceSync                 __KHRFenceSync;
+	final KHRImage                     __KHRImage;
+	final KHRImageBase                 __KHRImageBase;
+	final KHRLockSurface3              __KHRLockSurface3;
+	final KHRPartialUpdate             __KHRPartialUpdate;
+	final KHRReusableSync              __KHRReusableSync;
+	final KHRStream                    __KHRStream;
+	final KHRStreamConsumerGLTexture   __KHRStreamConsumerGLTexture;
+	final KHRStreamCrossProcessFD      __KHRStreamCrossProcessFD;
+	final KHRStreamFIFO                __KHRStreamFIFO;
+	final KHRStreamProducerEGLSurface  __KHRStreamProducerEGLSurface;
+	final KHRSwapBuffersWithDamage     __KHRSwapBuffersWithDamage;
+	final KHRWaitSync                  __KHRWaitSync;
+	final MESADRMImage                 __MESADRMImage;
+	final MESAImageDMABufExport        __MESAImageDMABufExport;
+	final NOKSwapRegion2               __NOKSwapRegion2;
+	final NVNativeQuery                __NVNativeQuery;
+	final NVPostSubBuffer              __NVPostSubBuffer;
+	final NVStreamConsumerGLTextureYUV __NVStreamConsumerGLTextureYUV;
+	final NVStreamMetadata             __NVStreamMetadata;
+	final NVStreamSync                 __NVStreamSync;
+	final NVSync                       __NVSync;
+	final NVSystemTime                 __NVSystemTime;
 
 	/** The EGL major version. */
 	public final int majorVersion;
@@ -194,6 +197,8 @@ public class EGLCapabilities {
 	public final boolean EGL_KHR_create_context;
 	/** When true, {@link KHRCreateContextNoError} is supported. */
 	public final boolean EGL_KHR_create_context_no_error;
+	/** When true, {@link KHRDebug} is supported. */
+	public final boolean EGL_KHR_debug;
 	/** When true, {@link KHRFenceSync} is supported. */
 	public final boolean EGL_KHR_fence_sync;
 	/**
@@ -326,6 +331,10 @@ public class EGLCapabilities {
 	public final boolean EGL_NV_post_convert_rounding;
 	/** When true, {@link NVPostSubBuffer} is supported. */
 	public final boolean EGL_NV_post_sub_buffer;
+	/** When true, {@link NVStreamConsumerGLTextureYUV} is supported. */
+	public final boolean EGL_NV_stream_consumer_gltexture_yuv;
+	/** When true, {@link NVStreamMetadata} is supported. */
+	public final boolean EGL_NV_stream_metadata;
 	/** When true, {@link NVStreamSync} is supported. */
 	public final boolean EGL_NV_stream_sync;
 	/** When true, {@link NVSync} is supported. */
@@ -371,6 +380,7 @@ public class EGLCapabilities {
 		__EXTSwapBuffersWithDamage = new EXTSwapBuffersWithDamage(provider);
 		__HIClientpixmap = new HIClientpixmap(provider);
 		__KHRCLEvent2 = new KHRCLEvent2(provider);
+		__KHRDebug = new KHRDebug(provider);
 		__KHRFenceSync = new KHRFenceSync(provider);
 		__KHRImage = new KHRImage(provider);
 		__KHRImageBase = new KHRImageBase(provider);
@@ -389,6 +399,8 @@ public class EGLCapabilities {
 		__NOKSwapRegion2 = new NOKSwapRegion2(provider);
 		__NVNativeQuery = new NVNativeQuery(provider);
 		__NVPostSubBuffer = new NVPostSubBuffer(provider);
+		__NVStreamConsumerGLTextureYUV = new NVStreamConsumerGLTextureYUV(provider);
+		__NVStreamMetadata = new NVStreamMetadata(provider);
 		__NVStreamSync = new NVStreamSync(provider);
 		__NVSync = new NVSync(provider);
 		__NVSystemTime = new NVSystemTime(provider);
@@ -439,6 +451,7 @@ public class EGLCapabilities {
 		EGL_KHR_config_attribs = ext.contains("EGL_KHR_config_attribs");
 		EGL_KHR_create_context = ext.contains("EGL_KHR_create_context");
 		EGL_KHR_create_context_no_error = ext.contains("EGL_KHR_create_context_no_error");
+		EGL_KHR_debug = EGL.checkCapability(ext, "EGL_KHR_debug", __KHRDebug) != null;
 		EGL_KHR_fence_sync = EGL.checkCapability(ext, "EGL_KHR_fence_sync", __KHRFenceSync) != null;
 		EGL_KHR_get_all_proc_addresses = ext.contains("EGL_KHR_get_all_proc_addresses");
 		EGL_KHR_gl_colorspace = ext.contains("EGL_KHR_gl_colorspace");
@@ -480,6 +493,8 @@ public class EGLCapabilities {
 		EGL_NV_native_query = EGL.checkCapability(ext, "EGL_NV_native_query", __NVNativeQuery) != null;
 		EGL_NV_post_convert_rounding = ext.contains("EGL_NV_post_convert_rounding");
 		EGL_NV_post_sub_buffer = EGL.checkCapability(ext, "EGL_NV_post_sub_buffer", __NVPostSubBuffer) != null;
+		EGL_NV_stream_consumer_gltexture_yuv = EGL.checkCapability(ext, "EGL_NV_stream_consumer_gltexture_yuv", __NVStreamConsumerGLTextureYUV) != null;
+		EGL_NV_stream_metadata = EGL.checkCapability(ext, "EGL_NV_stream_metadata", __NVStreamMetadata) != null;
 		EGL_NV_stream_sync = EGL.checkCapability(ext, "EGL_NV_stream_sync", __NVStreamSync) != null;
 		EGL_NV_sync = EGL.checkCapability(ext, "EGL_NV_sync", __NVSync) != null;
 		EGL_NV_system_time = EGL.checkCapability(ext, "EGL_NV_system_time", __NVSystemTime) != null;
@@ -545,6 +560,7 @@ public class EGLCapabilities {
 		EGL_KHR_config_attribs = ext.contains("EGL_KHR_config_attribs");
 		EGL_KHR_create_context = ext.contains("EGL_KHR_create_context");
 		EGL_KHR_create_context_no_error = ext.contains("EGL_KHR_create_context_no_error");
+		EGL_KHR_debug = (__KHRDebug = EGL.checkCapability(ext, "EGL_KHR_debug", caps.__KHRDebug)) != null;
 		EGL_KHR_fence_sync = (__KHRFenceSync = EGL.checkCapability(ext, "EGL_KHR_fence_sync", caps.__KHRFenceSync)) != null;
 		EGL_KHR_get_all_proc_addresses = ext.contains("EGL_KHR_get_all_proc_addresses");
 		EGL_KHR_gl_colorspace = ext.contains("EGL_KHR_gl_colorspace");
@@ -586,6 +602,8 @@ public class EGLCapabilities {
 		EGL_NV_native_query = (__NVNativeQuery = EGL.checkCapability(ext, "EGL_NV_native_query", caps.__NVNativeQuery)) != null;
 		EGL_NV_post_convert_rounding = ext.contains("EGL_NV_post_convert_rounding");
 		EGL_NV_post_sub_buffer = (__NVPostSubBuffer = EGL.checkCapability(ext, "EGL_NV_post_sub_buffer", caps.__NVPostSubBuffer)) != null;
+		EGL_NV_stream_consumer_gltexture_yuv = (__NVStreamConsumerGLTextureYUV = EGL.checkCapability(ext, "EGL_NV_stream_consumer_gltexture_yuv", caps.__NVStreamConsumerGLTextureYUV)) != null;
+		EGL_NV_stream_metadata = (__NVStreamMetadata = EGL.checkCapability(ext, "EGL_NV_stream_metadata", caps.__NVStreamMetadata)) != null;
 		EGL_NV_stream_sync = (__NVStreamSync = EGL.checkCapability(ext, "EGL_NV_stream_sync", caps.__NVStreamSync)) != null;
 		EGL_NV_sync = (__NVSync = EGL.checkCapability(ext, "EGL_NV_sync", caps.__NVSync)) != null;
 		EGL_NV_system_time = (__NVSystemTime = EGL.checkCapability(ext, "EGL_NV_system_time", caps.__NVSystemTime)) != null;

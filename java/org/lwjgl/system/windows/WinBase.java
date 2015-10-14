@@ -163,39 +163,4 @@ public class WinBase {
 		return nFreeLibrary(handle);
 	}
 
-	// --- [ QueryPerformanceFrequency ] ---
-
-	/** JNI method for {@link #QueryPerformanceFrequency} */
-	@JavadocExclude
-	public static native int nQueryPerformanceFrequency(long frequency);
-
-	/**
-	 * Retrieves the frequency of the high-resolution performance counter, if one exists. The frequency cannot change while the system is running.
-	 *
-	 * @param frequency a pointer to a variable that receives the current performance-counter frequency, in counts per second. If the installed hardware does not support a
-	 *                  high-resolution performance counter, this parameter can be zero.
-	 */
-	public static int QueryPerformanceFrequency(LARGE_INTEGER frequency) {
-		return nQueryPerformanceFrequency(frequency.address());
-	}
-
-	// --- [ QueryPerformanceCounter ] ---
-
-	/** JNI method for {@link #QueryPerformanceCounter} */
-	@JavadocExclude
-	public static native int nQueryPerformanceCounter(long frequency);
-
-	/**
-	 * Retrieves the current value of the high-resolution performance counter.
-	 * 
-	 * <p>On a multiprocessor computer, it should not matter which processor is called. However, you can get different results on different processors due to bugs
-	 * in the basic input/output system (BIOS) or the hardware abstraction layer (HAL). To specify processor affinity for a thread, use the
-	 * {@link Kernel32#SetThreadAffinityMask} function.</p>
-	 *
-	 * @param frequency a pointer to a variable that receives the current performance-counter value, in counts.
-	 */
-	public static int QueryPerformanceCounter(LARGE_INTEGER frequency) {
-		return nQueryPerformanceCounter(frequency.address());
-	}
-
 }

@@ -231,7 +231,7 @@ public class AL11 {
 	// --- [ alBuffer3f ] ---
 
 	/**
-	 * Sets the the dimensional value of a buffer parameter.
+	 * Sets the dimensional value of a buffer parameter.
 	 *
 	 * @param buffer    the buffer to modify
 	 * @param paramName the parameter to modify

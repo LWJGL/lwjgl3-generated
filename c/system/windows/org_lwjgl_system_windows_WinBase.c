@@ -23,7 +23,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinBase_nGetModuleHandle(J
 	jlong __result;
 	UNUSED_PARAMS(__env, clazz)
 	__result = (jlong)(intptr_t)GetModuleHandle(moduleName);
-	setLastError((jint)GetLastError());
+	saveLastError();
 	return __result;
 }
 
@@ -32,7 +32,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinBase_nLoadLibrary(JNIEn
 	jlong __result;
 	UNUSED_PARAMS(__env, clazz)
 	__result = (jlong)(intptr_t)LoadLibrary(name);
-	setLastError((jint)GetLastError());
+	saveLastError();
 	return __result;
 }
 
@@ -42,7 +42,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_WinBase_nGetProcAddress(JN
 	jlong __result;
 	UNUSED_PARAMS(__env, clazz)
 	__result = (jlong)(intptr_t)GetProcAddress(handle, name);
-	setLastError((jint)GetLastError());
+	saveLastError();
 	return __result;
 }
 
@@ -51,20 +51,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinBase_nFreeLibrary(JNIEnv
 	jint __result;
 	UNUSED_PARAMS(__env, clazz)
 	__result = (jint)FreeLibrary(handle);
-	setLastError((jint)GetLastError());
+	saveLastError();
 	return __result;
-}
-
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinBase_nQueryPerformanceFrequency(JNIEnv *__env, jclass clazz, jlong frequencyAddress) {
-	LARGE_INTEGER *frequency = (LARGE_INTEGER *)(intptr_t)frequencyAddress;
-	UNUSED_PARAMS(__env, clazz)
-	return (jint)QueryPerformanceFrequency(frequency);
-}
-
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_WinBase_nQueryPerformanceCounter(JNIEnv *__env, jclass clazz, jlong frequencyAddress) {
-	LARGE_INTEGER *frequency = (LARGE_INTEGER *)(intptr_t)frequencyAddress;
-	UNUSED_PARAMS(__env, clazz)
-	return (jint)QueryPerformanceCounter(frequency);
 }
 
 EXTERN_C_EXIT

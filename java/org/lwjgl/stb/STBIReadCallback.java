@@ -83,7 +83,7 @@ public abstract class STBIReadCallback extends Closure.Int {
 	 *
 	 * <p>This method may only be used inside a STBIReadCallback invocation.</p>
 	 *
-	 * @param data the the STBIReadCallback {@code data} argument
+	 * @param data the STBIReadCallback {@code data} argument
 	 * @param size the STBIReadCallback {@code size} argument
 	 *
 	 * @return the data as a ByteBuffer

@@ -1007,7 +1007,7 @@ public final class GLCapabilities {
 	 * 
 	 * <p>This extension provides GLSL built-in functions allowing shaders to query the number of samples of a texture.</p>
 	 * 
-	 * <p>Requires {@link GL43 OpenGL 4.3}. Promoted to core in {@link GL45 OpenGL 4.5}.</p>
+	 * <p>Requires GLSL 1.50 or {@link ARBTextureMultisample ARB_texture_multisample}.</p>
 	 */
 	public final boolean GL_ARB_shader_texture_image_samples;
 	/**
@@ -1652,6 +1652,19 @@ public final class GLCapabilities {
 	public final boolean GL_KHR_texture_compression_astc_hdr;
 	/** When true, {@link KHRTextureCompressionASTCLDR} is supported. */
 	public final boolean GL_KHR_texture_compression_astc_ldr;
+	/**
+	 * Native bindings to the <a href="http://www.opengl.org/registry/specs/KHR/texture_compression_astc_sliced_3d.txt">KHR_texture_compression_astc_sliced_3d</a> extension.
+	 * 
+	 * <p>Adaptive Scalable Texture Compression (ASTC) is a new texture compression technology that offers unprecendented flexibility, while producing better or
+	 * comparable results than existing texture compressions at all bit rates. It includes support for 2D and slice-based 3D textures, with low and high
+	 * dynamic range, at bitrates from below 1 bit/pixel up to 8 bits/pixel in fine steps.</p>
+	 * 
+	 * <p>This extension extends the functionality of {@link KHRTextureCompressionASTCLDR KHR_texture_compression_astc_ldr} to include slice-based 3D textures for textures using the LDR
+	 * profile in the same way as the HDR profile allows slice-based 3D textures.</p>
+	 * 
+	 * <p>Requires {@link KHRTextureCompressionASTCLDR KHR_texture_compression_astc_ldr}.</p>
+	 */
+	public final boolean GL_KHR_texture_compression_astc_sliced_3d;
 	/** When true, {@link NVBindlessMultiDrawIndirect} is supported. */
 	public final boolean GL_NV_bindless_multi_draw_indirect;
 	/** When true, {@link NVBindlessMultiDrawIndirectCount} is supported. */
@@ -2330,6 +2343,7 @@ public final class GLCapabilities {
 		GL_KHR_robustness = (__KHRRobustness = KHRRobustness.create(ext, provider)) != null;
 		GL_KHR_texture_compression_astc_hdr = ext.contains("GL_KHR_texture_compression_astc_hdr");
 		GL_KHR_texture_compression_astc_ldr = ext.contains("GL_KHR_texture_compression_astc_ldr");
+		GL_KHR_texture_compression_astc_sliced_3d = ext.contains("GL_KHR_texture_compression_astc_sliced_3d");
 		GL_NV_bindless_multi_draw_indirect = (__NVBindlessMultiDrawIndirect = NVBindlessMultiDrawIndirect.create(ext, provider)) != null;
 		GL_NV_bindless_multi_draw_indirect_count = (__NVBindlessMultiDrawIndirectCount = NVBindlessMultiDrawIndirectCount.create(ext, provider)) != null;
 		GL_NV_bindless_texture = (__NVBindlessTexture = NVBindlessTexture.create(ext, provider)) != null;

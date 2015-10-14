@@ -88,7 +88,7 @@ public abstract class GLDebugMessageAMDCallback extends Closure.Void {
 	 * <p>This method may only be used inside a GLDebugMessageAMDCallback invocation.</p>
 	 *
 	 * @param length  the GLDebugMessageAMDCallback {@code length} argument
-	 * @param message the the GLDebugMessageAMDCallback {@code message} argument
+	 * @param message the GLDebugMessageAMDCallback {@code message} argument
 	 *
 	 * @return the message as a String
 	 */
