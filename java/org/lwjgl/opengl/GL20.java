@@ -1326,7 +1326,7 @@ Creates a program object.
 		IntBuffer shaders = BufferUtils.createIntBuffer(maxCount);
 		nglGetAttachedShaders(program, maxCount, __buffer.address(count), memAddress(shaders));
 		shaders.limit(__buffer.intValue(count));
-		return shaders;
+		return shaders.slice();
 	}
 
 	/** Buffer return (w/ implicit max length) version of: {@link #glGetAttachedShaders GetAttachedShaders} */
@@ -1337,7 +1337,7 @@ Creates a program object.
 		IntBuffer shaders = BufferUtils.createIntBuffer(maxCount);
 		nglGetAttachedShaders(program, maxCount, __buffer.address(count), memAddress(shaders));
 		shaders.limit(__buffer.intValue(count));
-		return shaders;
+		return shaders.slice();
 	}
 
 	// --- [ glGetUniformLocation ] ---

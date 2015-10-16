@@ -107,6 +107,16 @@ public class ObjCMethodDescription extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link ObjCMethodDescription.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static long ngetName(long struct) { return memGetAddress(struct + NAME); }
 	public static long getName(ByteBuffer struct) { return ngetName(memAddress(struct)); }
 	public static long ngetTypes(long struct) { return memGetAddress(struct + TYPES); }

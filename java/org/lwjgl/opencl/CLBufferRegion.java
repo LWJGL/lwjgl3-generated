@@ -144,6 +144,16 @@ public class CLBufferRegion extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link CLBufferRegion.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static long ngetOrigin(long struct) { return memGetAddress(struct + ORIGIN); }
 	public static long getOrigin(ByteBuffer struct) { return ngetOrigin(memAddress(struct)); }
 	public static long ngetSize(long struct) { return memGetAddress(struct + SIZE); }

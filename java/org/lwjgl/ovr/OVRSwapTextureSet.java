@@ -158,6 +158,16 @@ public class OVRSwapTextureSet extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link OVRSwapTextureSet.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static long ngetTextures(long struct) { return memGetAddress(struct + TEXTURES); }
 	public static OVRTexture ngetTexturesStruct(long struct) { return new OVRTexture(ngetTextures(struct)); }
 	public static OVRTexture getTextures(ByteBuffer struct) { return ngetTexturesStruct(memAddress(struct)); }

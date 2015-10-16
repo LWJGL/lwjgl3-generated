@@ -115,6 +115,16 @@ public class STBTTPackRange extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link STBTTPackRange.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static float ngetFontSize(long struct) { return memGetFloat(struct + FONT_SIZE); }
 	public static float getFontSize(ByteBuffer struct) { return ngetFontSize(memAddress(struct)); }
 	public static int ngetFirstUnicodeCodepointInRange(long struct) { return memGetInt(struct + FIRST_UNICODE_CODEPOINT_IN_RANGE); }

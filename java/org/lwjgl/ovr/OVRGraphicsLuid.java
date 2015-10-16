@@ -103,6 +103,16 @@ public class OVRGraphicsLuid extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link OVRGraphicsLuid.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static void ngetReserved(long struct, ByteBuffer Reserved) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(Reserved, 8 * 1);
 		memCopy(struct + RESERVED, memAddress(Reserved), Reserved.remaining());

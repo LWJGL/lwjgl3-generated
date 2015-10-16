@@ -156,6 +156,16 @@ public class EGLClientPixmapHI extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link EGLClientPixmapHI.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static long ngetPData(long struct) { return memGetAddress(struct + PDATA); }
 	public static ByteBuffer ngetPData(long struct, int byteLen) { return memByteBuffer(ngetPData(struct), byteLen); }
 	public static ByteBuffer getPData(ByteBuffer struct, int byteLen) { return ngetPData(memAddress(struct), byteLen); }

@@ -118,6 +118,16 @@ public class STBVorbisInfo extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link STBVorbisInfo.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static int ngetSampleRate(long struct) { return memGetInt(struct + SAMPLE_RATE); }
 	public static int getSampleRate(ByteBuffer struct) { return ngetSampleRate(memAddress(struct)); }
 	public static int ngetChannels(long struct) { return memGetInt(struct + CHANNELS); }

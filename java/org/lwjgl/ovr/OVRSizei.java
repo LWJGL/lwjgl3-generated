@@ -144,6 +144,16 @@ public class OVRSizei extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link OVRSizei.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static int ngetW(long struct) { return memGetInt(struct + W); }
 	public static int getW(ByteBuffer struct) { return ngetW(memAddress(struct)); }
 	public static int ngetH(long struct) { return memGetInt(struct + H); }

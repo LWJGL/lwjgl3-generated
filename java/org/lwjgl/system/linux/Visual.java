@@ -174,6 +174,16 @@ public class Visual extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link Visual.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static long ngetVisualid(long struct) { return memGetAddress(struct + VISUALID); }
 	public static long getVisualid(ByteBuffer struct) { return ngetVisualid(memAddress(struct)); }
 	public static int ngetClazz(long struct) { return memGetInt(struct + CLAZZ); }

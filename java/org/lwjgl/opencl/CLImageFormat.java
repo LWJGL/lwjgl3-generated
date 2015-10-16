@@ -144,6 +144,16 @@ public class CLImageFormat extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link CLImageFormat.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static int ngetImageChannelOrder(long struct) { return memGetInt(struct + IMAGE_CHANNEL_ORDER); }
 	public static int getImageChannelOrder(ByteBuffer struct) { return ngetImageChannelOrder(memAddress(struct)); }
 	public static int ngetImageChannelDataType(long struct) { return memGetInt(struct + IMAGE_CHANNEL_DATA_TYPE); }

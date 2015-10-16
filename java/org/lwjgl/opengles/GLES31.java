@@ -607,7 +607,7 @@ public class GLES31 {
 		IntBuffer params = BufferUtils.createIntBuffer(bufSize);
 		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), bufSize, __buffer.address(length), memAddress(params));
 		params.limit(__buffer.intValue(length));
-		return params;
+		return params.slice();
 	}
 
 	// --- [ glGetProgramResourceLocation ] ---

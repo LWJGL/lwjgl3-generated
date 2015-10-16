@@ -20,8 +20,6 @@ public class XXH64State extends Struct {
 	public static final int SIZEOF;
 
 	static {
-		LWJGLUtil.initialize();
-
 		SIZEOF = offsets();
 	}
 
@@ -91,6 +89,16 @@ public class XXH64State extends Struct {
 	 */
 	public static Buffer createBuffer(int capacity) {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	}
+
+	/**
+	 * Create a {@link XXH64State.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
 	// -----------------------------------

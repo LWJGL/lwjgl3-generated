@@ -156,6 +156,16 @@ public class GLFWGammaRamp extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link GLFWGammaRamp.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static long ngetRed(long struct) { return memGetAddress(struct + RED); }
 	public static ByteBuffer ngetRed(long struct, int byteLen) { return memByteBuffer(ngetRed(struct), byteLen); }
 	public static ByteBuffer getRed(ByteBuffer struct, int byteLen) { return ngetRed(memAddress(struct), byteLen); }

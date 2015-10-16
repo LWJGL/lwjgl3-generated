@@ -112,6 +112,16 @@ public class OVRFrameTiming extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link OVRFrameTiming.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static double ngetDisplayMidpointSeconds(long struct) { return memGetDouble(struct + DISPLAYMIDPOINTSECONDS); }
 	public static double getDisplayMidpointSeconds(ByteBuffer struct) { return ngetDisplayMidpointSeconds(memAddress(struct)); }
 	public static double ngetFrameIntervalSeconds(long struct) { return memGetDouble(struct + FRAMEINTERVALSECONDS); }

@@ -152,6 +152,16 @@ public class OVRGLTextureData extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link OVRGLTextureData.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static OVRTextureHeader ngetHeader(long struct) { return OVRTextureHeader.malloc().nset(struct + HEADER); }
 	/** Returns a copy of the {@code Header} {@link OVRTextureHeader} struct. */
 	public static OVRTextureHeader getHeader(ByteBuffer struct) { return ngetHeader(memAddress(struct)); }

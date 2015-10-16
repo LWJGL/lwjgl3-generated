@@ -156,6 +156,16 @@ public class RECT extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link RECT.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static int ngetLeft(long struct) { return memGetInt(struct + LEFT); }
 	public static int getLeft(ByteBuffer struct) { return ngetLeft(memAddress(struct)); }
 	public static int ngetTop(long struct) { return memGetInt(struct + TOP); }

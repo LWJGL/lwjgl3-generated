@@ -1023,7 +1023,7 @@ public class ARBShaderObjects {
 		IntBuffer obj = BufferUtils.createIntBuffer(maxCount);
 		nglGetAttachedObjectsARB(containerObj, maxCount, __buffer.address(count), memAddress(obj));
 		obj.limit(__buffer.intValue(count));
-		return obj;
+		return obj.slice();
 	}
 
 	/** Buffer return (w/ implicit max length) version of: {@link #glGetAttachedObjectsARB GetAttachedObjectsARB} */
@@ -1034,7 +1034,7 @@ public class ARBShaderObjects {
 		IntBuffer obj = BufferUtils.createIntBuffer(maxCount);
 		nglGetAttachedObjectsARB(containerObj, maxCount, __buffer.address(count), memAddress(obj));
 		obj.limit(__buffer.intValue(count));
-		return obj;
+		return obj.slice();
 	}
 
 	// --- [ glGetUniformLocationARB ] ---

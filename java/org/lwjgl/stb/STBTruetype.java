@@ -1042,6 +1042,14 @@ public class STBTruetype {
 		return nstbtt_GetCodepointShape(info.address(), unicode_codepoint, memAddress(vertices));
 	}
 
+	/** Buffer return version of: {@link #stbtt_GetCodepointShape GetCodepointShape} */
+	public static STBTTVertex.Buffer stbtt_GetCodepointShape(STBTTFontinfo info, int unicode_codepoint) {
+		APIBuffer __buffer = apiBuffer();
+		int vertices = __buffer.pointerParam();
+		int __result = nstbtt_GetCodepointShape(info.address(), unicode_codepoint, __buffer.address(vertices));
+		return STBTTVertex.createBuffer(__buffer.pointerValue(vertices), __result);
+	}
+
 	// --- [ stbtt_GetGlyphShape ] ---
 
 	/** JNI method for {@link #stbtt_GetGlyphShape GetGlyphShape} */
@@ -1056,12 +1064,24 @@ public class STBTruetype {
 	 * @param vertices    returns a pointer to an array of {@link STBTTVertex} structs
 	 */
 	public static int stbtt_GetGlyphShape(STBTTFontinfo info, int glyph_index, ByteBuffer vertices) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(vertices, 1 << POINTER_SHIFT);
 		return nstbtt_GetGlyphShape(info.address(), glyph_index, memAddress(vertices));
 	}
 
 	/** Alternative version of: {@link #stbtt_GetGlyphShape GetGlyphShape} */
 	public static int stbtt_GetGlyphShape(STBTTFontinfo info, int glyph_index, PointerBuffer vertices) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(vertices, 1);
 		return nstbtt_GetGlyphShape(info.address(), glyph_index, memAddress(vertices));
+	}
+
+	/** Buffer return version of: {@link #stbtt_GetGlyphShape GetGlyphShape} */
+	public static STBTTVertex.Buffer stbtt_GetGlyphShape(STBTTFontinfo info, int glyph_index) {
+		APIBuffer __buffer = apiBuffer();
+		int vertices = __buffer.pointerParam();
+		int __result = nstbtt_GetGlyphShape(info.address(), glyph_index, __buffer.address(vertices));
+		return STBTTVertex.createBuffer(__buffer.pointerValue(vertices), __result);
 	}
 
 	// --- [ stbtt_FreeShape ] ---
@@ -1076,7 +1096,7 @@ public class STBTruetype {
 	 * @param info     an {@link STBTTFontinfo} struct
 	 * @param vertices the array of {@link STBTTVertex} structs to free
 	 */
-	public static void stbtt_FreeShape(STBTTFontinfo info, STBTTVertex vertices) {
+	public static void stbtt_FreeShape(STBTTFontinfo info, STBTTVertex.Buffer vertices) {
 		nstbtt_FreeShape(info.address(), vertices.address());
 	}
 

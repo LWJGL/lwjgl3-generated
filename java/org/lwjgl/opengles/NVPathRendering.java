@@ -1886,7 +1886,7 @@ public class NVPathRendering {
 		FloatBuffer params = BufferUtils.createFloatBuffer(bufSize);
 		nglGetProgramResourcefvNV(program, programInterface, index, props.remaining(), memAddress(props), bufSize, __buffer.address(length), memAddress(params));
 		params.limit(__buffer.intValue(length));
-		return params;
+		return params.slice();
 	}
 
 	private static int charcodeTypeToBytes(int type) {

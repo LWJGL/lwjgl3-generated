@@ -128,7 +128,7 @@ public class ARBGetProgramBinary {
 		ByteBuffer binary = BufferUtils.createByteBuffer(bufSize);
 		nglGetProgramBinary(program, bufSize, __buffer.address(length), memAddress(binaryFormat), memAddress(binary));
 		binary.limit(__buffer.intValue(length));
-		return binary;
+		return binary.slice();
 	}
 
 	/** Buffer return (w/ implicit max length) version of: {@link #glGetProgramBinary GetProgramBinary} */
@@ -141,7 +141,7 @@ public class ARBGetProgramBinary {
 		ByteBuffer binary = BufferUtils.createByteBuffer(bufSize);
 		nglGetProgramBinary(program, bufSize, __buffer.address(length), memAddress(binaryFormat), memAddress(binary));
 		binary.limit(__buffer.intValue(length));
-		return binary;
+		return binary.slice();
 	}
 
 	// --- [ glProgramBinary ] ---

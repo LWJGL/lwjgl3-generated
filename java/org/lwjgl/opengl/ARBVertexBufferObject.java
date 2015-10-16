@@ -474,11 +474,15 @@ public class ARBVertexBufferObject {
 	 * @param params the requested parameter
 	 */
 	public static void glGetBufferParameterivARB(int target, int pname, ByteBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 1 << 2);
 		nglGetBufferParameterivARB(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetBufferParameterivARB GetBufferParameterivARB} */
 	public static void glGetBufferParameterivARB(int target, int pname, IntBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 1);
 		nglGetBufferParameterivARB(target, pname, memAddress(params));
 	}
 
@@ -507,11 +511,15 @@ public class ARBVertexBufferObject {
 	 * @param params the pointer value specified by {@code pname}
 	 */
 	public static void glGetBufferPointervARB(int target, int pname, ByteBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 1 << POINTER_SHIFT);
 		nglGetBufferPointervARB(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetBufferPointervARB GetBufferPointervARB} */
 	public static void glGetBufferPointervARB(int target, int pname, PointerBuffer params) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(params, 1);
 		nglGetBufferPointervARB(target, pname, memAddress(params));
 	}
 

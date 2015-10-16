@@ -156,6 +156,16 @@ public class OVRQuatf extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link OVRQuatf.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static float ngetX(long struct) { return memGetFloat(struct + X); }
 	public static float getX(ByteBuffer struct) { return ngetX(memAddress(struct)); }
 	public static float ngetY(long struct) { return memGetFloat(struct + Y); }

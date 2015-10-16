@@ -192,6 +192,16 @@ public class CLImageDesc extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link CLImageDesc.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static int ngetImageType(long struct) { return memGetInt(struct + IMAGE_TYPE); }
 	public static int getImageType(ByteBuffer struct) { return ngetImageType(memAddress(struct)); }
 	public static long ngetImageWidth(long struct) { return memGetAddress(struct + IMAGE_WIDTH); }

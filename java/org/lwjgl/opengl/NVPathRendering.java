@@ -1854,11 +1854,15 @@ public class NVPathRendering {
 	 * @param value       
 	 */
 	public static void glGetPathTexGenfvNV(int texCoordSet, int pname, ByteBuffer value) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(value, 1 << 2);
 		nglGetPathTexGenfvNV(texCoordSet, pname, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glGetPathTexGenfvNV GetPathTexGenfvNV} */
 	public static void glGetPathTexGenfvNV(int texCoordSet, int pname, FloatBuffer value) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(value, 1);
 		nglGetPathTexGenfvNV(texCoordSet, pname, memAddress(value));
 	}
 
@@ -2135,7 +2139,7 @@ public class NVPathRendering {
 		FloatBuffer params = BufferUtils.createFloatBuffer(bufSize);
 		nglGetProgramResourcefvNV(program, programInterface, index, props.remaining(), memAddress(props), bufSize, __buffer.address(length), memAddress(params));
 		params.limit(__buffer.intValue(length));
-		return params;
+		return params.slice();
 	}
 
 	private static int charcodeTypeToBytes(int type) {

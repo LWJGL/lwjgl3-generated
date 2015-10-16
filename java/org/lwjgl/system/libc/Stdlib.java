@@ -96,6 +96,36 @@ public class Stdlib {
 		nfree(memAddressSafe(ptr));
 	}
 
+	/** ShortBuffer version of: {@link #free} */
+	public static void free(ShortBuffer ptr) {
+		nfree(memAddressSafe(ptr));
+	}
+
+	/** IntBuffer version of: {@link #free} */
+	public static void free(IntBuffer ptr) {
+		nfree(memAddressSafe(ptr));
+	}
+
+	/** LongBuffer version of: {@link #free} */
+	public static void free(LongBuffer ptr) {
+		nfree(memAddressSafe(ptr));
+	}
+
+	/** FloatBuffer version of: {@link #free} */
+	public static void free(FloatBuffer ptr) {
+		nfree(memAddressSafe(ptr));
+	}
+
+	/** DoubleBuffer version of: {@link #free} */
+	public static void free(DoubleBuffer ptr) {
+		nfree(memAddressSafe(ptr));
+	}
+
+	/** PointerBuffer version of: {@link #free} */
+	public static void free(PointerBuffer ptr) {
+		nfree(memAddressSafe(ptr));
+	}
+
 	// --- [ aligned_alloc ] ---
 
 	/** JNI method for {@link #aligned_alloc} */
@@ -126,6 +156,36 @@ public class Stdlib {
 	 * @param ptr the aligned block of memory to free
 	 */
 	public static void aligned_free(ByteBuffer ptr) {
+		naligned_free(memAddressSafe(ptr));
+	}
+
+	/** ShortBuffer version of: {@link #aligned_free} */
+	public static void aligned_free(ShortBuffer ptr) {
+		naligned_free(memAddressSafe(ptr));
+	}
+
+	/** IntBuffer version of: {@link #aligned_free} */
+	public static void aligned_free(IntBuffer ptr) {
+		naligned_free(memAddressSafe(ptr));
+	}
+
+	/** LongBuffer version of: {@link #aligned_free} */
+	public static void aligned_free(LongBuffer ptr) {
+		naligned_free(memAddressSafe(ptr));
+	}
+
+	/** FloatBuffer version of: {@link #aligned_free} */
+	public static void aligned_free(FloatBuffer ptr) {
+		naligned_free(memAddressSafe(ptr));
+	}
+
+	/** DoubleBuffer version of: {@link #aligned_free} */
+	public static void aligned_free(DoubleBuffer ptr) {
+		naligned_free(memAddressSafe(ptr));
+	}
+
+	/** PointerBuffer version of: {@link #aligned_free} */
+	public static void aligned_free(PointerBuffer ptr) {
 		naligned_free(memAddressSafe(ptr));
 	}
 

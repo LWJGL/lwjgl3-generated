@@ -109,6 +109,16 @@ public class FFIClosure extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link FFIClosure.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static long ngetCif(long struct) { return memGetAddress(struct + CIF); }
 	public static FFICIF ngetCifStruct(long struct) { return new FFICIF(ngetCif(struct)); }
 	public static FFICIF getCif(ByteBuffer struct) { return ngetCifStruct(memAddress(struct)); }

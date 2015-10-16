@@ -15,6 +15,8 @@ import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
+import org.lwjgl.system.libc.Stdlib;
+
 /**
  * Native bindings to stb_vorbis.c from the <a href="https://github.com/nothings/stb">stb library</a>.
  * 
@@ -280,7 +282,7 @@ public class STBVorbis {
 
 	/**
 	 * Decode an entire file and output the data interleaved into a {@code malloc()ed} buffer stored in {@code *output}. When you're done with it, just
-	 * {@link MemoryUtil#memFree} the pointer returned in {@code *output}.
+	 * {@link Stdlib#free} the pointer returned in {@code *output}.
 	 *
 	 * @param filename    the file name
 	 * @param channels    returns the number of channels
@@ -321,6 +323,19 @@ public class STBVorbis {
 		return nstb_vorbis_decode_filename(__buffer.address(filenameEncoded), memAddress(channels), memAddress(sample_rate), memAddress(output));
 	}
 
+	/** Buffer return version of: {@link #stb_vorbis_decode_filename decode_filename} */
+	public static ShortBuffer stb_vorbis_decode_filename(CharSequence filename, IntBuffer channels, IntBuffer sample_rate) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkBuffer(channels, 1);
+			checkBuffer(sample_rate, 1);
+		}
+		APIBuffer __buffer = apiBuffer();
+		int filenameEncoded = __buffer.stringParamASCII(filename, true);
+		int output = __buffer.pointerParam();
+		int __result = nstb_vorbis_decode_filename(__buffer.address(filenameEncoded), memAddress(channels), memAddress(sample_rate), __buffer.address(output));
+		return memShortBuffer(__buffer.pointerValue(output), __result * channels.get(0));
+	}
+
 	// --- [ stb_vorbis_decode_memory ] ---
 
 	/** JNI method for {@link #stb_vorbis_decode_memory decode_memory} */
@@ -354,6 +369,18 @@ public class STBVorbis {
 			checkBuffer(output, 1);
 		}
 		return nstb_vorbis_decode_memory(memAddress(mem), mem.remaining(), memAddress(channels), memAddress(sample_rate), memAddress(output));
+	}
+
+	/** Buffer return version of: {@link #stb_vorbis_decode_memory decode_memory} */
+	public static ShortBuffer stb_vorbis_decode_memory(ByteBuffer mem, IntBuffer channels, IntBuffer sample_rate) {
+		if ( LWJGLUtil.CHECKS ) {
+			checkBuffer(channels, 1);
+			checkBuffer(sample_rate, 1);
+		}
+		APIBuffer __buffer = apiBuffer();
+		int output = __buffer.pointerParam();
+		int __result = nstb_vorbis_decode_memory(memAddress(mem), mem.remaining(), memAddress(channels), memAddress(sample_rate), __buffer.address(output));
+		return memShortBuffer(__buffer.pointerValue(output), __result * channels.get(0));
 	}
 
 	// --- [ stb_vorbis_open_memory ] ---

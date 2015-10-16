@@ -228,6 +228,36 @@ public class JEmalloc {
 		nje_free(memAddressSafe(ptr));
 	}
 
+	/** ShortBuffer version of: {@link #je_free free} */
+	public static void je_free(ShortBuffer ptr) {
+		nje_free(memAddressSafe(ptr));
+	}
+
+	/** IntBuffer version of: {@link #je_free free} */
+	public static void je_free(IntBuffer ptr) {
+		nje_free(memAddressSafe(ptr));
+	}
+
+	/** LongBuffer version of: {@link #je_free free} */
+	public static void je_free(LongBuffer ptr) {
+		nje_free(memAddressSafe(ptr));
+	}
+
+	/** FloatBuffer version of: {@link #je_free free} */
+	public static void je_free(FloatBuffer ptr) {
+		nje_free(memAddressSafe(ptr));
+	}
+
+	/** DoubleBuffer version of: {@link #je_free free} */
+	public static void je_free(DoubleBuffer ptr) {
+		nje_free(memAddressSafe(ptr));
+	}
+
+	/** PointerBuffer version of: {@link #je_free free} */
+	public static void je_free(PointerBuffer ptr) {
+		nje_free(memAddressSafe(ptr));
+	}
+
 	// --- [ je_mallocx ] ---
 
 	/** Unsafe version of {@link #je_mallocx mallocx} */
@@ -333,6 +363,36 @@ public class JEmalloc {
 		nje_dallocx(memAddress(ptr), flags);
 	}
 
+	/** ShortBuffer version of: {@link #je_dallocx dallocx} */
+	public static void je_dallocx(ShortBuffer ptr, int flags) {
+		nje_dallocx(memAddress(ptr), flags);
+	}
+
+	/** IntBuffer version of: {@link #je_dallocx dallocx} */
+	public static void je_dallocx(IntBuffer ptr, int flags) {
+		nje_dallocx(memAddress(ptr), flags);
+	}
+
+	/** LongBuffer version of: {@link #je_dallocx dallocx} */
+	public static void je_dallocx(LongBuffer ptr, int flags) {
+		nje_dallocx(memAddress(ptr), flags);
+	}
+
+	/** FloatBuffer version of: {@link #je_dallocx dallocx} */
+	public static void je_dallocx(FloatBuffer ptr, int flags) {
+		nje_dallocx(memAddress(ptr), flags);
+	}
+
+	/** DoubleBuffer version of: {@link #je_dallocx dallocx} */
+	public static void je_dallocx(DoubleBuffer ptr, int flags) {
+		nje_dallocx(memAddress(ptr), flags);
+	}
+
+	/** PointerBuffer version of: {@link #je_dallocx dallocx} */
+	public static void je_dallocx(PointerBuffer ptr, int flags) {
+		nje_dallocx(memAddress(ptr), flags);
+	}
+
 	// --- [ je_sdallocx ] ---
 
 	/** Unsafe version of {@link #je_sdallocx sdallocx} */
@@ -350,7 +410,44 @@ public class JEmalloc {
 	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
 	 */
 	public static void je_sdallocx(ByteBuffer ptr, long size, int flags) {
+		if ( LWJGLUtil.CHECKS )
+			checkBuffer(ptr, size);
 		nje_sdallocx(memAddress(ptr), size, flags);
+	}
+
+	/** Alternative version of: {@link #je_sdallocx sdallocx} */
+	public static void je_sdallocx(ByteBuffer ptr, int flags) {
+		nje_sdallocx(memAddress(ptr), ptr.remaining(), flags);
+	}
+
+	/** ShortBuffer version of: {@link #je_sdallocx sdallocx} */
+	public static void je_sdallocx(ShortBuffer ptr, int flags) {
+		nje_sdallocx(memAddress(ptr), ptr.remaining() << 1, flags);
+	}
+
+	/** IntBuffer version of: {@link #je_sdallocx sdallocx} */
+	public static void je_sdallocx(IntBuffer ptr, int flags) {
+		nje_sdallocx(memAddress(ptr), ptr.remaining() << 2, flags);
+	}
+
+	/** LongBuffer version of: {@link #je_sdallocx sdallocx} */
+	public static void je_sdallocx(LongBuffer ptr, int flags) {
+		nje_sdallocx(memAddress(ptr), ptr.remaining() << 3, flags);
+	}
+
+	/** FloatBuffer version of: {@link #je_sdallocx sdallocx} */
+	public static void je_sdallocx(FloatBuffer ptr, int flags) {
+		nje_sdallocx(memAddress(ptr), ptr.remaining() << 2, flags);
+	}
+
+	/** DoubleBuffer version of: {@link #je_sdallocx sdallocx} */
+	public static void je_sdallocx(DoubleBuffer ptr, int flags) {
+		nje_sdallocx(memAddress(ptr), ptr.remaining() << 3, flags);
+	}
+
+	/** PointerBuffer version of: {@link #je_sdallocx sdallocx} */
+	public static void je_sdallocx(PointerBuffer ptr, int flags) {
+		nje_sdallocx(memAddress(ptr), ptr.remaining() << POINTER_SHIFT, flags);
 	}
 
 	// --- [ je_nallocx ] ---

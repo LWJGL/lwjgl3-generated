@@ -144,6 +144,16 @@ public class OVRVector2i extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link OVRVector2i.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static int ngetX(long struct) { return memGetInt(struct + X); }
 	public static int getX(ByteBuffer struct) { return ngetX(memAddress(struct)); }
 	public static int ngetY(long struct) { return memGetInt(struct + Y); }

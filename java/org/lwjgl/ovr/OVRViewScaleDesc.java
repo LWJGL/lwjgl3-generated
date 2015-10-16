@@ -155,6 +155,16 @@ public class OVRViewScaleDesc extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link OVRViewScaleDesc.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static void ngetHmdToEyeViewOffset(long struct, ByteBuffer HmdToEyeViewOffset) {
 		if ( LWJGLUtil.CHECKS ) checkBufferGT(HmdToEyeViewOffset, 2 * OVRVector3f.SIZEOF);
 		memCopy(struct + HMDTOEYEVIEWOFFSET, memAddress(HmdToEyeViewOffset), HmdToEyeViewOffset.remaining());

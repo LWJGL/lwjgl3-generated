@@ -144,6 +144,16 @@ public class CLBusAddressAMD extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link CLBusAddressAMD.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static long ngetSurfaceBusAddress(long struct) { return memGetLong(struct + SURFACE_BUS_ADDRESS); }
 	public static long getSurfaceBusAddress(ByteBuffer struct) { return ngetSurfaceBusAddress(memAddress(struct)); }
 	public static long ngetMarkerBusAddress(long struct) { return memGetLong(struct + MARKER_BUS_ADDRESS); }

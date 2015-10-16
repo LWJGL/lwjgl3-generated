@@ -488,7 +488,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 		ByteBuffer binary = BufferUtils.createByteBuffer(bufSize);
 		nglGetProgramBinary(program, bufSize, __buffer.address(length), memAddress(binaryFormat), memAddress(binary));
 		binary.limit(__buffer.intValue(length));
-		return binary;
+		return binary.slice();
 	}
 
 	/** Buffer return (w/ implicit max length) version of: {@link #glGetProgramBinary GetProgramBinary} */
@@ -501,7 +501,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 		ByteBuffer binary = BufferUtils.createByteBuffer(bufSize);
 		nglGetProgramBinary(program, bufSize, __buffer.address(length), memAddress(binaryFormat), memAddress(binary));
 		binary.limit(__buffer.intValue(length));
-		return binary;
+		return binary.slice();
 	}
 
 	// --- [ glProgramBinary ] ---

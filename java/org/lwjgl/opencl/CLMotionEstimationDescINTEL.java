@@ -156,6 +156,16 @@ public class CLMotionEstimationDescINTEL extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link CLMotionEstimationDescINTEL.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static int ngetMbBlockType(long struct) { return memGetInt(struct + MB_BLOCK_TYPE); }
 	public static int getMbBlockType(ByteBuffer struct) { return ngetMbBlockType(memAddress(struct)); }
 	public static int ngetSubpixelMode(long struct) { return memGetInt(struct + SUBPIXEL_MODE); }

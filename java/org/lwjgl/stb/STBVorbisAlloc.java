@@ -144,6 +144,16 @@ public class STBVorbisAlloc extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link STBVorbisAlloc.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static long ngetAllocBuffer(long struct) { return memGetAddress(struct + ALLOC_BUFFER); }
 	public static ByteBuffer ngetAllocBuffer(long struct, int byteLen) { return memByteBuffer(ngetAllocBuffer(struct), byteLen); }
 	public static ByteBuffer getAllocBuffer(ByteBuffer struct, int byteLen) { return ngetAllocBuffer(memAddress(struct), byteLen); }

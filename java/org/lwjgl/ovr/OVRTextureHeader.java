@@ -148,6 +148,16 @@ public class OVRTextureHeader extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link OVRTextureHeader.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static int ngetAPI(long struct) { return memGetInt(struct + API); }
 	public static int getAPI(ByteBuffer struct) { return ngetAPI(memAddress(struct)); }
 	public static OVRSizei ngetTextureSize(long struct) { return OVRSizei.malloc().nset(struct + TEXTURESIZE); }

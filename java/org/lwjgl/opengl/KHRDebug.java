@@ -379,15 +379,16 @@ public class KHRDebug {
 	 * string in the array will also be null-terminated. The maximum size of {@code messageLog}, including the space used by all null terminators, is given by
 	 * {@code bufSize}. If {@code bufSize} is less than zero and {@code messageLog} is not {@code NULL}, an {@link GL11#GL_INVALID_VALUE INVALID_VALUE} error will be generated. If a message's
 	 * string, including its null terminator, can not fully fit within the {@code messageLog} array's remaining space, then that message and any subsequent
-	 * messages will not be fetched and will remain in the log. The string lengths stored in the array {@code lengths} include the space for the null terminator of each string.</p>
+	 * messages will not be fetched and will remain in the log. The string lengths stored in the array {@code lengths} include the space for the null
+	 * terminator of each string.</p>
 	 * 
 	 * <p>Any or all of the arrays {@code sources}, {@code types}, {@code ids}, {@code severities}, {@code lengths} and {@code messageLog} can also be null
 	 * pointers, which causes the attributes for such arrays to be discarded when messages are fetched, however those messages will still be removed from the
-	 * log. Thus to simply delete up to {@code count} messages from the message log while ignoring their attributes, the application can call the function with
-	 * null pointers for all attribute arrays.</p>
+	 * log. Thus to simply delete up to {@code count} messages from the message log while ignoring their attributes, the application can call the function
+	 * with null pointers for all attribute arrays.</p>
 	 * 
-	 * <p>If the context was created without the {@link #GL_CONTEXT_FLAG_DEBUG_BIT CONTEXT_FLAG_DEBUG_BIT} in the {@link GL30#GL_CONTEXT_FLAGS CONTEXT_FLAGS} state, then the GL can opt to never add messages to the message
-	 * log so GetDebugMessageLog will always return zero.</p>
+	 * <p>If the context was created without the {@link #GL_CONTEXT_FLAG_DEBUG_BIT CONTEXT_FLAG_DEBUG_BIT} in the {@link GL30#GL_CONTEXT_FLAGS CONTEXT_FLAGS} state, then the GL can opt to never add messages to the
+	 * message log so GetDebugMessageLog will always return zero.</p>
 	 *
 	 * @param count      the number of debug messages to retrieve from the log
 	 * @param bufsize    the size of the buffer whose address is given by {@code messageLog}

@@ -128,6 +128,16 @@ public class GPU_DEVICE extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link GPU_DEVICE.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static int ngetCb(long struct) { return memGetInt(struct + CB); }
 	public static int getCb(ByteBuffer struct) { return ngetCb(memAddress(struct)); }
 	public static void ngetDeviceName(long struct, ByteBuffer DeviceName) {

@@ -114,7 +114,7 @@ public class OESGetProgramBinary {
 		ByteBuffer binary = BufferUtils.createByteBuffer(bufSize);
 		nglGetProgramBinaryOES(program, bufSize, __buffer.address(length), memAddress(binaryFormat), memAddress(binary));
 		binary.limit(__buffer.intValue(length));
-		return binary;
+		return binary.slice();
 	}
 
 	/** Buffer return (w/ implicit max length) version of: {@link #glGetProgramBinaryOES GetProgramBinaryOES} */
@@ -127,7 +127,7 @@ public class OESGetProgramBinary {
 		ByteBuffer binary = BufferUtils.createByteBuffer(bufSize);
 		nglGetProgramBinaryOES(program, bufSize, __buffer.address(length), memAddress(binaryFormat), memAddress(binary));
 		binary.limit(__buffer.intValue(length));
-		return binary;
+		return binary.slice();
 	}
 
 	// --- [ glProgramBinaryOES ] ---

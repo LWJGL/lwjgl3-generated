@@ -124,6 +124,16 @@ public class OVRSensorData extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link OVRSensorData.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static OVRVector3f ngetAccelerometer(long struct) { return OVRVector3f.malloc().nset(struct + ACCELEROMETER); }
 	/** Returns a copy of the {@code Accelerometer} {@link OVRVector3f} struct. */
 	public static OVRVector3f getAccelerometer(ByteBuffer struct) { return ngetAccelerometer(memAddress(struct)); }

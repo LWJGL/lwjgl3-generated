@@ -152,6 +152,16 @@ public class OVRRecti extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link OVRRecti.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static OVRVector2i ngetPos(long struct) { return OVRVector2i.malloc().nset(struct + POS); }
 	/** Returns a copy of the {@code Pos} {@link OVRVector2i} struct. */
 	public static OVRVector2i getPos(ByteBuffer struct) { return ngetPos(memAddress(struct)); }

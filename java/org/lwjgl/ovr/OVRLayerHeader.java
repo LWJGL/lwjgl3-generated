@@ -144,6 +144,16 @@ public class OVRLayerHeader extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link OVRLayerHeader.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static int ngetType(long struct) { return memGetInt(struct + TYPE); }
 	public static int getType(ByteBuffer struct) { return ngetType(memAddress(struct)); }
 	public static int ngetFlags(long struct) { return memGetInt(struct + FLAGS); }

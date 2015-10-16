@@ -118,6 +118,16 @@ public class FFICIF extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link FFICIF.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static int ngetAbi(long struct) { return memGetInt(struct + ABI); }
 	public static int getAbi(ByteBuffer struct) { return ngetAbi(memAddress(struct)); }
 	public static int ngetNargs(long struct) { return memGetInt(struct + NARGS); }

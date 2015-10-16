@@ -124,6 +124,16 @@ public class STBTTAlignedQuad extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link STBTTAlignedQuad.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static float ngetX0(long struct) { return memGetFloat(struct + X0); }
 	public static float getX0(ByteBuffer struct) { return ngetX0(memAddress(struct)); }
 	public static float ngetY0(long struct) { return memGetFloat(struct + Y0); }

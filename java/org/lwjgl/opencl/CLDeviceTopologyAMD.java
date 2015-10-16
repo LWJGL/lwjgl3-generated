@@ -122,6 +122,16 @@ public class CLDeviceTopologyAMD extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link CLDeviceTopologyAMD.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static int ngetRawType(long struct) { return memGetInt(struct + RAW_TYPE); }
 	public static int getRawType(ByteBuffer struct) { return ngetRawType(memAddress(struct)); }
 	public static void ngetRawData(long struct, ByteBuffer data) {

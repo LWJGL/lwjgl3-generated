@@ -139,6 +139,16 @@ public class OVRPoseStatef extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link OVRPoseStatef.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static OVRPosef ngetThePose(long struct) { return OVRPosef.malloc().nset(struct + THEPOSE); }
 	/** Returns a copy of the {@code ThePose} {@link OVRPosef} struct. */
 	public static OVRPosef getThePose(ByteBuffer struct) { return ngetThePose(memAddress(struct)); }

@@ -168,6 +168,16 @@ public class STBRPRect extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link STBRPRect.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static int ngetId(long struct) { return memGetInt(struct + ID); }
 	public static int getId(ByteBuffer struct) { return ngetId(memAddress(struct)); }
 	public static int ngetW(long struct) { return memGetShort(struct + W) & 0xFFFF; }

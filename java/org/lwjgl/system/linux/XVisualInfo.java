@@ -192,6 +192,16 @@ public class XVisualInfo extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link XVisualInfo.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static long ngetVisual(long struct) { return memGetAddress(struct + VISUAL); }
 	public static Visual ngetVisualStruct(long struct) { return new Visual(ngetVisual(struct)); }
 	public static Visual getVisual(ByteBuffer struct) { return ngetVisualStruct(memAddress(struct)); }

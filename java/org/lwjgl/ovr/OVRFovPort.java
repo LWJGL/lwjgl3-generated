@@ -160,6 +160,16 @@ public class OVRFovPort extends Struct {
 		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
 	}
 
+	/**
+	 * Create a {@link OVRFovPort.Buffer} instance at the specified memory.
+	 *
+	 * @param address  the memory address
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer createBuffer(long address, int capacity) {
+		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	}
+
 	public static float ngetUpTan(long struct) { return memGetFloat(struct + UPTAN); }
 	public static float getUpTan(ByteBuffer struct) { return ngetUpTan(memAddress(struct)); }
 	public static float ngetDownTan(long struct) { return memGetFloat(struct + DOWNTAN); }
