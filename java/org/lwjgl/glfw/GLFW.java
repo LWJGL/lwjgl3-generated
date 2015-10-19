@@ -15,8 +15,6 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
-import org.lwjgl.opengl.GL11;
-
 /**
  * Native bindings to the <a href="http://www.glfw.org/docs/latest/">GLFW</a> library.
  * 
@@ -264,8 +262,8 @@ public class GLFW {
 	public static final int GLFW_OUT_OF_MEMORY = 0x10005;
 
 	/**
-	 * GLFW could not find support for the requested client API on the system. If emitted by functions other than @ref glfwCreateWindow, no supported client
-	 * API was found.
+	 * GLFW could not find support for the requested client API on the system. If emitted by functions other than {@link #glfwCreateWindow CreateWindow}, no supported client API was
+	 * found.
 	 * 
 	 * <p>The installed graphics driver does not support the requested client API, or does not support it via the chosen context creation backend. Below are a
 	 * few examples:</p>
@@ -427,6 +425,8 @@ public class GLFW {
 		GetWindowPos,
 		SetWindowPos,
 		GetWindowSize,
+		SetWindowSizeLimits,
+		SetWindowAspectRatio,
 		SetWindowSize,
 		GetFramebufferSize,
 		GetWindowFrameSize,
@@ -514,6 +514,8 @@ public class GLFW {
 		GetWindowPos = checkFunctionAddress(provider.getFunctionAddress("glfwGetWindowPos"));
 		SetWindowPos = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowPos"));
 		GetWindowSize = checkFunctionAddress(provider.getFunctionAddress("glfwGetWindowSize"));
+		SetWindowSizeLimits = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowSizeLimits"));
+		SetWindowAspectRatio = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowAspectRatio"));
 		SetWindowSize = checkFunctionAddress(provider.getFunctionAddress("glfwSetWindowSize"));
 		GetFramebufferSize = checkFunctionAddress(provider.getFunctionAddress("glfwGetFramebufferSize"));
 		GetWindowFrameSize = checkFunctionAddress(provider.getFunctionAddress("glfwGetWindowFrameSize"));
@@ -1212,6 +1214,7 @@ public class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static long glfwCreateWindow(int width, int height, ByteBuffer title, long monitor, long share) {
+		EventLoop.OffScreen.check();
 		if ( LWJGLUtil.CHECKS )
 			checkNT1(title);
 		return nglfwCreateWindow(width, height, memAddress(title), monitor, share);
@@ -1219,6 +1222,7 @@ public class GLFW {
 
 	/** CharSequence version of: {@link #glfwCreateWindow CreateWindow} */
 	public static long glfwCreateWindow(int width, int height, CharSequence title, long monitor, long share) {
+		EventLoop.OffScreen.check();
 		APIBuffer __buffer = apiBuffer();
 		int titleEncoded = __buffer.stringParamUTF8(title, true);
 		return nglfwCreateWindow(width, height, __buffer.address(titleEncoded), monitor, share);
@@ -1434,6 +1438,60 @@ public class GLFW {
 		nglfwGetWindowSize(window, memAddressSafe(width), memAddressSafe(height));
 	}
 
+	// --- [ glfwSetWindowSizeLimits ] ---
+
+	/**
+	 * Sets the size limits of the client area of the specified window. If the window is full screen or not resizable, this function does nothing.
+	 * 
+	 * <p>The size limits are applied immediately and may cause the window to be resized. If you set size limits and an aspect ratio that conflict, the results
+	 * are undefined.</p>
+	 * 
+	 * <p>This function may only be called from the main thread.</p>
+	 *
+	 * @param window    the window to set limits for
+	 * @param minwidth  the minimum width, in screen coordinates, of the client area, or {@link #GLFW_DONT_CARE DONT_CARE}
+	 * @param minheight the minimum height, in screen coordinates, of the client area, or {@link #GLFW_DONT_CARE DONT_CARE}
+	 * @param maxwidth  the maximum width, in screen coordinates, of the client area, or {@link #GLFW_DONT_CARE DONT_CARE}
+	 * @param maxheight the maximum height, in screen coordinates, of the client area, or {@link #GLFW_DONT_CARE DONT_CARE}
+	 *
+	 * @since GLFW 3.2
+	 */
+	public static void glfwSetWindowSizeLimits(long window, int minwidth, int minheight, int maxwidth, int maxheight) {
+		long __functionAddress = getInstance().SetWindowSizeLimits;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(window);
+		invokePIIIIV(__functionAddress, window, minwidth, minheight, maxwidth, maxheight);
+	}
+
+	// --- [ glfwSetWindowAspectRatio ] ---
+
+	/**
+	 * Sets the required aspect ratio of the client area of the specified window. If the window is full screen or not resizable, this function does nothing.
+	 * 
+	 * <p>The aspect ratio is specified as a numerator and a denominator. For  example, the common 16:9 aspect ratio is specified as 16 and 9, respectively. The
+	 * denominator may not be zero.</p>
+	 * 
+	 * <p>If the numerator and denominator is set to {@link #GLFW_DONT_CARE DONT_CARE} then the window may be resized to any aspect ratio permitted by the window system and any limits
+	 * set by {@link #glfwSetWindowSizeLimits SetWindowSizeLimits}.</p>
+	 * 
+	 * <p>The aspect ratio is applied immediately and may cause the window to be  resized. If you set size limits and an aspect ratio that conflict, the results
+	 * are undefined.</p>
+	 * 
+	 * <p>This function may only be called from the main thread.</p>
+	 *
+	 * @param window the window to set limits for
+	 * @param numer  the numerator of the desired aspect ratio, or {@link #GLFW_DONT_CARE DONT_CARE}
+	 * @param denom  the denominator of the desired aspect ratio, or {@link #GLFW_DONT_CARE DONT_CARE}
+	 *
+	 * @since GLFW 3.2
+	 */
+	public static void glfwSetWindowAspectRatio(long window, int numer, int denom) {
+		long __functionAddress = getInstance().SetWindowAspectRatio;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(window);
+		invokePIIV(__functionAddress, window, numer, denom);
+	}
+
 	// --- [ glfwSetWindowSize ] ---
 
 	/**
@@ -1606,7 +1664,7 @@ public class GLFW {
 	 */
 	public static void glfwShowWindow(long window) {
 		long __functionAddress = getInstance().ShowWindow;
-		org.lwjgl.system.macosx.EventLoop.checkFirstThread();
+		EventLoop.OnScreen.check();
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(window);
 		invokePV(__functionAddress, window);
@@ -1910,7 +1968,7 @@ public class GLFW {
 	 */
 	public static void glfwPollEvents() {
 		long __functionAddress = getInstance().PollEvents;
-		org.lwjgl.system.macosx.EventLoop.checkFirstThread();
+		EventLoop.OnScreen.check();
 		invokeV(__functionAddress);
 	}
 
@@ -1946,7 +2004,7 @@ public class GLFW {
 	 */
 	public static void glfwWaitEvents() {
 		long __functionAddress = getInstance().WaitEvents;
-		org.lwjgl.system.macosx.EventLoop.checkFirstThread();
+		EventLoop.OnScreen.check();
 		invokeV(__functionAddress);
 	}
 

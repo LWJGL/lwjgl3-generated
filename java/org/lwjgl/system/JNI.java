@@ -365,6 +365,7 @@ public final class JNI {
 	public static native void invokePFV(long __functionAddress, long param0, float param1);
 	public static native int invokePI(long __functionAddress, long param0);
 	public static native int invokePII(long __functionAddress, long param0, int param1);
+	public static native void invokePIIIIV(long __functionAddress, long param0, int param1, int param2, int param3, int param4);
 	public static native long invokePIIIP(long __functionAddress, long param0, int param1, int param2, int param3);
 	public static native boolean invokePIIIZ(long __functionAddress, long param0, int param1, int param2, int param3);
 	public static native long invokePIIP(long __functionAddress, long param0, int param1, int param2);
