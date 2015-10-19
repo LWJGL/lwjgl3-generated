@@ -81,9 +81,18 @@ public class JEmalloc {
 
 	// --- [ Function Addresses ] ---
 
+	private static final DynamicLinkLibrary JEMALLOC;
+
+	private static final JEmalloc instance;
+
+	static {
+		JEMALLOC = LWJGLUtil.loadLibraryNative(Configuration.LIBRARY_NAME_JEMALLOC.get(Pointer.BITS64 ? "jemalloc" : "jemalloc32"));
+		instance = new JEmalloc(JEMALLOC);
+	}
+
 	/** Returns the {@link JEmalloc} instance. */
 	public static JEmalloc getInstance() {
-		return LibJEmalloc.__JEmalloc;
+		return instance;
 	}
 
 	// --- [ je_malloc_message ] ---

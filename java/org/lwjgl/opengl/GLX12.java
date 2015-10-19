@@ -36,7 +36,7 @@ public class GLX12 {
 	}
 
 	static GLX12 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_12") ) return null;
+		if ( !ext.contains("GLX12") ) return null;
 
 		GLX12 funcs = new GLX12(provider);
 
@@ -44,7 +44,7 @@ public class GLX12 {
 			funcs.GetCurrentDisplay
 		);
 
-		return GL.checkExtension("GLX_12", funcs, supported);
+		return GL.checkExtension("GLX12", funcs, supported);
 	}
 
 	// --- [ glXGetCurrentDisplay ] ---

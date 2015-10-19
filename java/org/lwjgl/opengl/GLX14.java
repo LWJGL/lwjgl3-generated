@@ -46,7 +46,7 @@ public class GLX14 {
 	}
 
 	static GLX14 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_14") ) return null;
+		if ( !ext.contains("GLX14") ) return null;
 
 		GLX14 funcs = new GLX14(provider);
 
@@ -54,7 +54,7 @@ public class GLX14 {
 			funcs.GetProcAddress
 		);
 
-		return GL.checkExtension("GLX_14", funcs, supported);
+		return GL.checkExtension("GLX14", funcs, supported);
 	}
 
 	// --- [ glXGetProcAddress ] ---

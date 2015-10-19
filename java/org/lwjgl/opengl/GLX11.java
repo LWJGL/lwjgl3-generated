@@ -50,7 +50,7 @@ public class GLX11 {
 	}
 
 	static GLX11 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_11") ) return null;
+		if ( !ext.contains("GLX11") ) return null;
 
 		GLX11 funcs = new GLX11(provider);
 
@@ -58,7 +58,7 @@ public class GLX11 {
 			funcs.QueryExtensionsString, funcs.GetClientString, funcs.QueryServerString
 		);
 
-		return GL.checkExtension("GLX_11", funcs, supported);
+		return GL.checkExtension("GLX11", funcs, supported);
 	}
 
 	// --- [ glXQueryExtensionsString ] ---

@@ -276,13 +276,13 @@ public final class GLCapabilities {
 	/** When true, {@link GLX} is supported. */
 	public final boolean GLX;
 	/** When true, {@link GLX11} is supported. */
-	public final boolean GLX_11;
+	public final boolean GLX11;
 	/** When true, {@link GLX12} is supported. */
-	public final boolean GLX_12;
+	public final boolean GLX12;
 	/** When true, {@link GLX13} is supported. */
-	public final boolean GLX_13;
+	public final boolean GLX13;
 	/** When true, {@link GLX14} is supported. */
-	public final boolean GLX_14;
+	public final boolean GLX14;
 	/** When true, {@link GLXAMDGPUAssociation} is supported. */
 	public final boolean GLX_AMD_gpu_association;
 	/** When true, {@link GLXARBContextFlushControl} is supported. */
@@ -2029,10 +2029,10 @@ public final class GLCapabilities {
 		OpenGL44 = (__GL44 = GL44.create(ext, provider)) != null;
 		OpenGL45 = (__GL45 = GL45.create(ext, provider)) != null;
 		GLX = (__GLX = org.lwjgl.opengl.GLX.create(ext, provider)) != null;
-		GLX_11 = (__GLX11 = GLX11.create(ext, provider)) != null;
-		GLX_12 = (__GLX12 = GLX12.create(ext, provider)) != null;
-		GLX_13 = (__GLX13 = GLX13.create(ext, provider)) != null;
-		GLX_14 = (__GLX14 = GLX14.create(ext, provider)) != null;
+		GLX11 = (__GLX11 = org.lwjgl.opengl.GLX11.create(ext, provider)) != null;
+		GLX12 = (__GLX12 = org.lwjgl.opengl.GLX12.create(ext, provider)) != null;
+		GLX13 = (__GLX13 = org.lwjgl.opengl.GLX13.create(ext, provider)) != null;
+		GLX14 = (__GLX14 = org.lwjgl.opengl.GLX14.create(ext, provider)) != null;
 		GLX_AMD_gpu_association = (__GLXAMDGPUAssociation = GLXAMDGPUAssociation.create(ext, provider)) != null;
 		GLX_ARB_context_flush_control = ext.contains("GLX_ARB_context_flush_control");
 		GLX_ARB_create_context = (__GLXARBCreateContext = GLXARBCreateContext.create(ext, provider)) != null;

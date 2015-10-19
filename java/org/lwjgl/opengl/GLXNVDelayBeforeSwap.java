@@ -20,7 +20,7 @@ import org.lwjgl.system.linux.*;
  * applications may want to exchange performance for the ability to sample input closer to the final frame swap and adjust rendering accordingly. This
  * extension adds functionality to allow the application to wait until a specified time before a swapbuffers command would be able to execute.</p>
  * 
- * <p>Requires {@link GLX11 GLX_11} and {@link GLXEXTSwapControl GLX_EXT_swap_control}.</p>
+ * <p>Requires {@link GLX11 GLX11} and {@link GLXEXTSwapControl GLX_EXT_swap_control}.</p>
  */
 public class GLXNVDelayBeforeSwap {
 

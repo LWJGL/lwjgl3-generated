@@ -133,7 +133,7 @@ public class GLX13 {
 	}
 
 	static GLX13 create(java.util.Set<String> ext, FunctionProvider provider) {
-		if ( !ext.contains("GLX_13") ) return null;
+		if ( !ext.contains("GLX13") ) return null;
 
 		GLX13 funcs = new GLX13(provider);
 
@@ -143,7 +143,7 @@ public class GLX13 {
 			funcs.GetCurrentReadDrawable, funcs.QueryContext, funcs.SelectEvent, funcs.GetSelectedEvent
 		);
 
-		return GL.checkExtension("GLX_13", funcs, supported);
+		return GL.checkExtension("GLX13", funcs, supported);
 	}
 
 	// --- [ glXGetFBConfigs ] ---
