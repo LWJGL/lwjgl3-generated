@@ -494,6 +494,8 @@ public final class GLESCapabilities {
 	public final boolean GL_IMG_texture_compression_pvrtc;
 	/** When true, {@link IMGTextureCompressionPVRTC2} is supported. */
 	public final boolean GL_IMG_texture_compression_pvrtc2;
+	/** When true, {@link IMGTextureFilterCubic} is supported. */
+	public final boolean GL_IMG_texture_filter_cubic;
 	/** When true, {@link INTELFramebufferCMAA} is supported. */
 	public final boolean GL_INTEL_framebuffer_CMAA;
 	/** When true, {@link INTELPerformanceQuery} is supported. */
@@ -1232,6 +1234,7 @@ public final class GLESCapabilities {
 		GL_IMG_shader_binary = ext.contains("GL_IMG_shader_binary");
 		GL_IMG_texture_compression_pvrtc = ext.contains("GL_IMG_texture_compression_pvrtc");
 		GL_IMG_texture_compression_pvrtc2 = ext.contains("GL_IMG_texture_compression_pvrtc2");
+		GL_IMG_texture_filter_cubic = ext.contains("GL_IMG_texture_filter_cubic");
 		GL_INTEL_framebuffer_CMAA = (__INTELFramebufferCMAA = INTELFramebufferCMAA.create(ext, provider)) != null;
 		GL_INTEL_performance_query = (__INTELPerformanceQuery = INTELPerformanceQuery.create(ext, provider)) != null;
 		GL_KHR_blend_equation_advanced = (__KHRBlendEquationAdvanced = KHRBlendEquationAdvanced.create(ext, provider)) != null;
