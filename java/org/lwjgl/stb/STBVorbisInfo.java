@@ -125,7 +125,7 @@ public class STBVorbisInfo extends Struct {
 	 * @param capacity the buffer capacity
 	 */
 	public static Buffer createBuffer(long address, int capacity) {
-		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
 	public static int ngetSampleRate(long struct) { return memGetInt(struct + SAMPLE_RATE); }

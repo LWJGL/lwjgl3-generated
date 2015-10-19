@@ -140,7 +140,7 @@ public class OVREyeRenderDesc extends Struct {
 	 * @param capacity the buffer capacity
 	 */
 	public static Buffer createBuffer(long address, int capacity) {
-		return new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
 	public static int ngetEye(long struct) { return memGetInt(struct + EYE); }
