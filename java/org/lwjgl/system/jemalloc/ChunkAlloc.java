@@ -19,9 +19,10 @@ public abstract class ChunkAlloc extends Closure.Ptr {
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(6);
 
+	private static final long CLASSPATH = staticAllocText("org.lwjgl.system.jemalloc.ChunkAlloc");
+
 	static {
 		prepareCIF(
-			"ChunkAlloc",
 			CALL_CONVENTION_DEFAULT,
 			CIF, ffi_type_pointer,
 			ARGS, ffi_type_pointer, ffi_type_pointer, ffi_type_pointer, ffi_type_pointer, ffi_type_pointer, ffi_type_uint32
@@ -29,7 +30,7 @@ public abstract class ChunkAlloc extends Closure.Ptr {
 	}
 
 	protected ChunkAlloc() {
-		super(CIF);
+		super(CIF, CLASSPATH);
 	}
 
 	/**

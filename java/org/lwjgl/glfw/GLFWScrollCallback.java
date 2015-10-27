@@ -21,9 +21,10 @@ public abstract class GLFWScrollCallback extends Closure.Void {
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(3);
 
+	private static final long CLASSPATH = staticAllocText("org.lwjgl.glfw.GLFWScrollCallback");
+
 	static {
 		prepareCIF(
-			"GLFWScrollCallback",
 			CALL_CONVENTION_DEFAULT,
 			CIF, ffi_type_void,
 			ARGS, ffi_type_pointer, ffi_type_double, ffi_type_double
@@ -31,7 +32,7 @@ public abstract class GLFWScrollCallback extends Closure.Void {
 	}
 
 	protected GLFWScrollCallback() {
-		super(CIF);
+		super(CIF, CLASSPATH);
 	}
 
 	/**

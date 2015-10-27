@@ -19,9 +19,10 @@ public abstract class MallocMessageCallback extends Closure.Void {
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(2);
 
+	private static final long CLASSPATH = staticAllocText("org.lwjgl.system.jemalloc.MallocMessageCallback");
+
 	static {
 		prepareCIF(
-			"MallocMessageCallback",
 			CALL_CONVENTION_DEFAULT,
 			CIF, ffi_type_void,
 			ARGS, ffi_type_pointer, ffi_type_pointer
@@ -29,7 +30,7 @@ public abstract class MallocMessageCallback extends Closure.Void {
 	}
 
 	protected MallocMessageCallback() {
-		super(CIF);
+		super(CIF, CLASSPATH);
 	}
 
 	/**

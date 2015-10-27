@@ -19,9 +19,10 @@ public abstract class CLProgramCallback extends Closure.Void {
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(2);
 
+	private static final long CLASSPATH = staticAllocText("org.lwjgl.opencl.CLProgramCallback");
+
 	static {
 		prepareCIF(
-			"CLProgramCallback",
 			CALL_CONVENTION_SYSTEM,
 			CIF, ffi_type_void,
 			ARGS, ffi_type_pointer, ffi_type_pointer
@@ -29,7 +30,7 @@ public abstract class CLProgramCallback extends Closure.Void {
 	}
 
 	protected CLProgramCallback() {
-		super(CIF);
+		super(CIF, CLASSPATH);
 	}
 
 	/**

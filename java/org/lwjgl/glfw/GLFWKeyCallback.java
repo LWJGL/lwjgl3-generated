@@ -21,9 +21,10 @@ public abstract class GLFWKeyCallback extends Closure.Void {
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(5);
 
+	private static final long CLASSPATH = staticAllocText("org.lwjgl.glfw.GLFWKeyCallback");
+
 	static {
 		prepareCIF(
-			"GLFWKeyCallback",
 			CALL_CONVENTION_DEFAULT,
 			CIF, ffi_type_void,
 			ARGS, ffi_type_pointer, ffi_type_sint32, ffi_type_sint32, ffi_type_sint32, ffi_type_sint32
@@ -31,7 +32,7 @@ public abstract class GLFWKeyCallback extends Closure.Void {
 	}
 
 	protected GLFWKeyCallback() {
-		super(CIF);
+		super(CIF, CLASSPATH);
 	}
 
 	/**

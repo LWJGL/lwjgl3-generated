@@ -19,9 +19,10 @@ public abstract class GLDebugMessageCallback extends Closure.Void {
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(7);
 
+	private static final long CLASSPATH = staticAllocText("org.lwjgl.opengles.GLDebugMessageCallback");
+
 	static {
 		prepareCIF(
-			"GLDebugMessageCallback",
 			CALL_CONVENTION_SYSTEM,
 			CIF, ffi_type_void,
 			ARGS, ffi_type_uint32, ffi_type_uint32, ffi_type_uint32, ffi_type_uint32, ffi_type_sint32, ffi_type_pointer, ffi_type_pointer
@@ -29,7 +30,7 @@ public abstract class GLDebugMessageCallback extends Closure.Void {
 	}
 
 	protected GLDebugMessageCallback() {
-		super(CIF);
+		super(CIF, CLASSPATH);
 	}
 
 	/**

@@ -21,9 +21,10 @@ public abstract class GLFWCursorPosCallback extends Closure.Void {
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(3);
 
+	private static final long CLASSPATH = staticAllocText("org.lwjgl.glfw.GLFWCursorPosCallback");
+
 	static {
 		prepareCIF(
-			"GLFWCursorPosCallback",
 			CALL_CONVENTION_DEFAULT,
 			CIF, ffi_type_void,
 			ARGS, ffi_type_pointer, ffi_type_double, ffi_type_double
@@ -31,7 +32,7 @@ public abstract class GLFWCursorPosCallback extends Closure.Void {
 	}
 
 	protected GLFWCursorPosCallback() {
-		super(CIF);
+		super(CIF, CLASSPATH);
 	}
 
 	/**

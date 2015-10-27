@@ -19,9 +19,10 @@ public abstract class STBIEOFCallback extends Closure.Int {
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(1);
 
+	private static final long CLASSPATH = staticAllocText("org.lwjgl.stb.STBIEOFCallback");
+
 	static {
 		prepareCIF(
-			"STBIEOFCallback",
 			CALL_CONVENTION_DEFAULT,
 			CIF, ffi_type_sint32,
 			ARGS, ffi_type_pointer
@@ -29,7 +30,7 @@ public abstract class STBIEOFCallback extends Closure.Int {
 	}
 
 	protected STBIEOFCallback() {
-		super(CIF);
+		super(CIF, CLASSPATH);
 	}
 
 	/**

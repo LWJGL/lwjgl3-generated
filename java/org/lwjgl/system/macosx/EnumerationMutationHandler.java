@@ -19,9 +19,10 @@ public abstract class EnumerationMutationHandler extends Closure.Void {
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(1);
 
+	private static final long CLASSPATH = staticAllocText("org.lwjgl.system.macosx.EnumerationMutationHandler");
+
 	static {
 		prepareCIF(
-			"EnumerationMutationHandler",
 			CALL_CONVENTION_DEFAULT,
 			CIF, ffi_type_void,
 			ARGS, ffi_type_pointer
@@ -29,7 +30,7 @@ public abstract class EnumerationMutationHandler extends Closure.Void {
 	}
 
 	protected EnumerationMutationHandler() {
-		super(CIF);
+		super(CIF, CLASSPATH);
 	}
 
 	/**

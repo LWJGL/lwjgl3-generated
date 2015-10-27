@@ -621,8 +621,6 @@ public class CL10 {
 	@JavadocExclude
 	public static int nclGetDeviceIDs(long platform, long device_type, int num_entries, long devices, long num_devices) {
 		long __functionAddress = getInstance().GetDeviceIDs;
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(platform);
 		return callPJIPPI(__functionAddress, platform, device_type, num_entries, devices, num_devices);
 	}
 

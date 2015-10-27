@@ -21,9 +21,10 @@ public abstract class GLFWMonitorCallback extends Closure.Void {
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(2);
 
+	private static final long CLASSPATH = staticAllocText("org.lwjgl.glfw.GLFWMonitorCallback");
+
 	static {
 		prepareCIF(
-			"GLFWMonitorCallback",
 			CALL_CONVENTION_DEFAULT,
 			CIF, ffi_type_void,
 			ARGS, ffi_type_pointer, ffi_type_sint32
@@ -31,7 +32,7 @@ public abstract class GLFWMonitorCallback extends Closure.Void {
 	}
 
 	protected GLFWMonitorCallback() {
-		super(CIF);
+		super(CIF, CLASSPATH);
 	}
 
 	/**

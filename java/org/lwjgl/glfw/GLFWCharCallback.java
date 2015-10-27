@@ -21,9 +21,10 @@ public abstract class GLFWCharCallback extends Closure.Void {
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(2);
 
+	private static final long CLASSPATH = staticAllocText("org.lwjgl.glfw.GLFWCharCallback");
+
 	static {
 		prepareCIF(
-			"GLFWCharCallback",
 			CALL_CONVENTION_DEFAULT,
 			CIF, ffi_type_void,
 			ARGS, ffi_type_pointer, ffi_type_uint32
@@ -31,7 +32,7 @@ public abstract class GLFWCharCallback extends Closure.Void {
 	}
 
 	protected GLFWCharCallback() {
-		super(CIF);
+		super(CIF, CLASSPATH);
 	}
 
 	/**

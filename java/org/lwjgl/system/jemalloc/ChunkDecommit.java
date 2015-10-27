@@ -19,9 +19,10 @@ public abstract class ChunkDecommit extends Closure.Byte {
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(5);
 
+	private static final long CLASSPATH = staticAllocText("org.lwjgl.system.jemalloc.ChunkDecommit");
+
 	static {
 		prepareCIF(
-			"ChunkDecommit",
 			CALL_CONVENTION_DEFAULT,
 			CIF, ffi_type_uint8,
 			ARGS, ffi_type_pointer, ffi_type_pointer, ffi_type_pointer, ffi_type_pointer, ffi_type_uint32
@@ -29,7 +30,7 @@ public abstract class ChunkDecommit extends Closure.Byte {
 	}
 
 	protected ChunkDecommit() {
-		super(CIF);
+		super(CIF, CLASSPATH);
 	}
 
 	/**

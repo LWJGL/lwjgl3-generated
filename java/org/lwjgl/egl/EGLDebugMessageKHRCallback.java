@@ -19,9 +19,10 @@ public abstract class EGLDebugMessageKHRCallback extends Closure.Void {
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(6);
 
+	private static final long CLASSPATH = staticAllocText("org.lwjgl.egl.EGLDebugMessageKHRCallback");
+
 	static {
 		prepareCIF(
-			"EGLDebugMessageKHRCallback",
 			CALL_CONVENTION_SYSTEM,
 			CIF, ffi_type_void,
 			ARGS, ffi_type_uint32, ffi_type_pointer, ffi_type_sint32, ffi_type_pointer, ffi_type_pointer, ffi_type_pointer
@@ -29,7 +30,7 @@ public abstract class EGLDebugMessageKHRCallback extends Closure.Void {
 	}
 
 	protected EGLDebugMessageKHRCallback() {
-		super(CIF);
+		super(CIF, CLASSPATH);
 	}
 
 	/**

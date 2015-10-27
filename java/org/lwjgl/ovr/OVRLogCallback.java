@@ -19,9 +19,10 @@ public abstract class OVRLogCallback extends Closure.Void {
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(3);
 
+	private static final long CLASSPATH = staticAllocText("org.lwjgl.ovr.OVRLogCallback");
+
 	static {
 		prepareCIF(
-			"OVRLogCallback",
 			CALL_CONVENTION_DEFAULT,
 			CIF, ffi_type_void,
 			ARGS, ffi_type_pointer, ffi_type_sint32, ffi_type_pointer
@@ -29,7 +30,7 @@ public abstract class OVRLogCallback extends Closure.Void {
 	}
 
 	protected OVRLogCallback() {
-		super(CIF);
+		super(CIF, CLASSPATH);
 	}
 
 	/**

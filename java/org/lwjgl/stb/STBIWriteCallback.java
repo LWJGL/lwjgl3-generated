@@ -19,9 +19,10 @@ public abstract class STBIWriteCallback extends Closure.Void {
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(3);
 
+	private static final long CLASSPATH = staticAllocText("org.lwjgl.stb.STBIWriteCallback");
+
 	static {
 		prepareCIF(
-			"STBIWriteCallback",
 			CALL_CONVENTION_DEFAULT,
 			CIF, ffi_type_void,
 			ARGS, ffi_type_pointer, ffi_type_pointer, ffi_type_sint32
@@ -29,7 +30,7 @@ public abstract class STBIWriteCallback extends Closure.Void {
 	}
 
 	protected STBIWriteCallback() {
-		super(CIF);
+		super(CIF, CLASSPATH);
 	}
 
 	/**

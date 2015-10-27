@@ -19,9 +19,10 @@ public abstract class CLNativeKernel extends Closure.Void {
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(1);
 
+	private static final long CLASSPATH = staticAllocText("org.lwjgl.opencl.CLNativeKernel");
+
 	static {
 		prepareCIF(
-			"CLNativeKernel",
 			CALL_CONVENTION_SYSTEM,
 			CIF, ffi_type_void,
 			ARGS, ffi_type_pointer
@@ -29,7 +30,7 @@ public abstract class CLNativeKernel extends Closure.Void {
 	}
 
 	protected CLNativeKernel() {
-		super(CIF);
+		super(CIF, CLASSPATH);
 	}
 
 	/**

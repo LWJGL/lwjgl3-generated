@@ -21,9 +21,10 @@ public abstract class GLFWWindowCloseCallback extends Closure.Void {
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(1);
 
+	private static final long CLASSPATH = staticAllocText("org.lwjgl.glfw.GLFWWindowCloseCallback");
+
 	static {
 		prepareCIF(
-			"GLFWWindowCloseCallback",
 			CALL_CONVENTION_DEFAULT,
 			CIF, ffi_type_void,
 			ARGS, ffi_type_pointer
@@ -31,7 +32,7 @@ public abstract class GLFWWindowCloseCallback extends Closure.Void {
 	}
 
 	protected GLFWWindowCloseCallback() {
-		super(CIF);
+		super(CIF, CLASSPATH);
 	}
 
 	/**

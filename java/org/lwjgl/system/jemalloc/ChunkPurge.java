@@ -19,9 +19,10 @@ public abstract class ChunkPurge extends Closure.Byte {
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(5);
 
+	private static final long CLASSPATH = staticAllocText("org.lwjgl.system.jemalloc.ChunkPurge");
+
 	static {
 		prepareCIF(
-			"ChunkPurge",
 			CALL_CONVENTION_DEFAULT,
 			CIF, ffi_type_uint8,
 			ARGS, ffi_type_pointer, ffi_type_pointer, ffi_type_pointer, ffi_type_pointer, ffi_type_uint32
@@ -29,7 +30,7 @@ public abstract class ChunkPurge extends Closure.Byte {
 	}
 
 	protected ChunkPurge() {
-		super(CIF);
+		super(CIF, CLASSPATH);
 	}
 
 	/**

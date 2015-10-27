@@ -23,9 +23,10 @@ public abstract class GLFWWindowFocusCallback extends Closure.Void {
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(2);
 
+	private static final long CLASSPATH = staticAllocText("org.lwjgl.glfw.GLFWWindowFocusCallback");
+
 	static {
 		prepareCIF(
-			"GLFWWindowFocusCallback",
 			CALL_CONVENTION_DEFAULT,
 			CIF, ffi_type_void,
 			ARGS, ffi_type_pointer, ffi_type_sint32
@@ -33,7 +34,7 @@ public abstract class GLFWWindowFocusCallback extends Closure.Void {
 	}
 
 	protected GLFWWindowFocusCallback() {
-		super(CIF);
+		super(CIF, CLASSPATH);
 	}
 
 	/**
