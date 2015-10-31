@@ -62,9 +62,14 @@ public class OVRMultiview {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link OVRMultiview} instance for the current context. */
+	/** Returns the {@link OVRMultiview} instance of the current context. */
 	public static OVRMultiview getInstance() {
-		return checkFunctionality(GL.getCapabilities().__OVRMultiview);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link OVRMultiview} instance of the specified {@link GLCapabilities}. */
+	public static OVRMultiview getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__OVRMultiview);
 	}
 
 	static OVRMultiview create(java.util.Set<String> ext, FunctionProvider provider) {

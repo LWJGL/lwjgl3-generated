@@ -66,9 +66,14 @@ public class ARBGetProgramBinary {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBGetProgramBinary} instance for the current context. */
+	/** Returns the {@link ARBGetProgramBinary} instance of the current context. */
 	public static ARBGetProgramBinary getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBGetProgramBinary);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBGetProgramBinary} instance of the specified {@link GLCapabilities}. */
+	public static ARBGetProgramBinary getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBGetProgramBinary);
 	}
 
 	static ARBGetProgramBinary create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -53,9 +53,14 @@ public class ARBComputeVariableGroupSize {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBComputeVariableGroupSize} instance for the current context. */
+	/** Returns the {@link ARBComputeVariableGroupSize} instance of the current context. */
 	public static ARBComputeVariableGroupSize getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBComputeVariableGroupSize);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBComputeVariableGroupSize} instance of the specified {@link GLCapabilities}. */
+	public static ARBComputeVariableGroupSize getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBComputeVariableGroupSize);
 	}
 
 	static ARBComputeVariableGroupSize create(java.util.Set<String> ext, FunctionProvider provider) {

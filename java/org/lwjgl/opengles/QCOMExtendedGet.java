@@ -69,9 +69,14 @@ public class QCOMExtendedGet {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link QCOMExtendedGet} instance for the current context. */
+	/** Returns the {@link QCOMExtendedGet} instance of the current context. */
 	public static QCOMExtendedGet getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__QCOMExtendedGet);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link QCOMExtendedGet} instance of the specified {@link GLESCapabilities}. */
+	public static QCOMExtendedGet getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__QCOMExtendedGet);
 	}
 
 	static QCOMExtendedGet create(java.util.Set<String> ext, FunctionProvider provider) {

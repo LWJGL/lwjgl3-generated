@@ -58,9 +58,14 @@ public class ALC11 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ALC11} instance for the current context. */
+	/** Returns the {@link ALC11} instance of the current context. */
 	public static ALC11 getInstance() {
-		return checkFunctionality(ALC.getCapabilities().__ALC11);
+		return getInstance(ALC.getCapabilities());
+	}
+
+	/** Returns the {@link ALC11} instance of the specified {@link ALCCapabilities}. */
+	public static ALC11 getInstance(ALCCapabilities caps) {
+		return checkFunctionality(caps.__ALC11);
 	}
 
 	static ALC11 create(java.util.Set<String> ext, FunctionProviderLocal provider) {

@@ -151,9 +151,14 @@ public class AMDGPUShaderInt64 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link AMDGPUShaderInt64} instance for the current context. */
+	/** Returns the {@link AMDGPUShaderInt64} instance of the current context. */
 	public static AMDGPUShaderInt64 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__AMDGPUShaderInt64);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link AMDGPUShaderInt64} instance of the specified {@link GLCapabilities}. */
+	public static AMDGPUShaderInt64 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__AMDGPUShaderInt64);
 	}
 
 	static AMDGPUShaderInt64 create(java.util.Set<String> ext, FunctionProvider provider) {

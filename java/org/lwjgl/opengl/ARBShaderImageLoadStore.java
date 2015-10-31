@@ -144,9 +144,14 @@ public class ARBShaderImageLoadStore {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBShaderImageLoadStore} instance for the current context. */
+	/** Returns the {@link ARBShaderImageLoadStore} instance of the current context. */
 	public static ARBShaderImageLoadStore getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBShaderImageLoadStore);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBShaderImageLoadStore} instance of the specified {@link GLCapabilities}. */
+	public static ARBShaderImageLoadStore getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBShaderImageLoadStore);
 	}
 
 	static ARBShaderImageLoadStore create(java.util.Set<String> ext, FunctionProvider provider) {

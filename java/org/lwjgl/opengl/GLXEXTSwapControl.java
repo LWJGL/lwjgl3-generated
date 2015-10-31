@@ -42,9 +42,14 @@ public class GLXEXTSwapControl {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GLXEXTSwapControl} instance for the current context. */
+	/** Returns the {@link GLXEXTSwapControl} instance of the current context. */
 	public static GLXEXTSwapControl getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GLXEXTSwapControl);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GLXEXTSwapControl} instance of the specified {@link GLCapabilities}. */
+	public static GLXEXTSwapControl getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GLXEXTSwapControl);
 	}
 
 	static GLXEXTSwapControl create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -42,9 +42,14 @@ public class EXTMultiDrawArrays {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTMultiDrawArrays} instance for the current context. */
+	/** Returns the {@link EXTMultiDrawArrays} instance of the current context. */
 	public static EXTMultiDrawArrays getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTMultiDrawArrays);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTMultiDrawArrays} instance of the specified {@link GLESCapabilities}. */
+	public static EXTMultiDrawArrays getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTMultiDrawArrays);
 	}
 
 	static EXTMultiDrawArrays create(java.util.Set<String> ext, FunctionProvider provider) {

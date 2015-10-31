@@ -170,9 +170,14 @@ public class NVGPUShader5 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVGPUShader5} instance for the current context. */
+	/** Returns the {@link NVGPUShader5} instance of the current context. */
 	public static NVGPUShader5 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__NVGPUShader5);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link NVGPUShader5} instance of the specified {@link GLCapabilities}. */
+	public static NVGPUShader5 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__NVGPUShader5);
 	}
 
 	static NVGPUShader5 create(java.util.Set<String> ext, FunctionProvider provider) {

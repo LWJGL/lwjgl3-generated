@@ -66,9 +66,14 @@ public class EXTTextureBufferObject {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTTextureBufferObject} instance for the current context. */
+	/** Returns the {@link EXTTextureBufferObject} instance of the current context. */
 	public static EXTTextureBufferObject getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTTextureBufferObject);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTTextureBufferObject} instance of the specified {@link GLCapabilities}. */
+	public static EXTTextureBufferObject getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTTextureBufferObject);
 	}
 
 	static EXTTextureBufferObject create(java.util.Set<String> ext, FunctionProvider provider) {

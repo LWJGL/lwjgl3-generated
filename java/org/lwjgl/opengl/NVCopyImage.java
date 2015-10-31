@@ -36,9 +36,14 @@ public class NVCopyImage {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVCopyImage} instance for the current context. */
+	/** Returns the {@link NVCopyImage} instance of the current context. */
 	public static NVCopyImage getInstance() {
-		return checkFunctionality(GL.getCapabilities().__NVCopyImage);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link NVCopyImage} instance of the specified {@link GLCapabilities}. */
+	public static NVCopyImage getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__NVCopyImage);
 	}
 
 	static NVCopyImage create(java.util.Set<String> ext, FunctionProvider provider) {

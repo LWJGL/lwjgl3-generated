@@ -47,9 +47,14 @@ public class EXTMultiDrawIndirect {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTMultiDrawIndirect} instance for the current context. */
+	/** Returns the {@link EXTMultiDrawIndirect} instance of the current context. */
 	public static EXTMultiDrawIndirect getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTMultiDrawIndirect);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTMultiDrawIndirect} instance of the specified {@link GLESCapabilities}. */
+	public static EXTMultiDrawIndirect getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTMultiDrawIndirect);
 	}
 
 	static EXTMultiDrawIndirect create(java.util.Set<String> ext, FunctionProvider provider) {

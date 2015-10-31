@@ -45,9 +45,14 @@ public class AMDSamplePositions {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link AMDSamplePositions} instance for the current context. */
+	/** Returns the {@link AMDSamplePositions} instance of the current context. */
 	public static AMDSamplePositions getInstance() {
-		return checkFunctionality(GL.getCapabilities().__AMDSamplePositions);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link AMDSamplePositions} instance of the specified {@link GLCapabilities}. */
+	public static AMDSamplePositions getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__AMDSamplePositions);
 	}
 
 	static AMDSamplePositions create(java.util.Set<String> ext, FunctionProvider provider) {

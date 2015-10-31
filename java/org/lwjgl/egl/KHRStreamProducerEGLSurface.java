@@ -45,7 +45,12 @@ public class KHRStreamProducerEGLSurface {
 
 	/** Returns the {@link KHRStreamProducerEGLSurface} instance. */
 	public static KHRStreamProducerEGLSurface getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__KHRStreamProducerEGLSurface);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link KHRStreamProducerEGLSurface} instance of the specified {@link EGLCapabilities}. */
+	public static KHRStreamProducerEGLSurface getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__KHRStreamProducerEGLSurface);
 	}
 
 	// --- [ eglCreateStreamProducerSurfaceKHR ] ---

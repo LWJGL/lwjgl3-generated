@@ -174,9 +174,14 @@ public class ARBUniformBufferObject {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBUniformBufferObject} instance for the current context. */
+	/** Returns the {@link ARBUniformBufferObject} instance of the current context. */
 	public static ARBUniformBufferObject getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBUniformBufferObject);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBUniformBufferObject} instance of the specified {@link GLCapabilities}. */
+	public static ARBUniformBufferObject getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBUniformBufferObject);
 	}
 
 	static ARBUniformBufferObject create(java.util.Set<String> ext, FunctionProvider provider) {

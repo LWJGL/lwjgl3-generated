@@ -303,6 +303,15 @@ public class GLFW {
 	 */
 	public static final int GLFW_FORMAT_UNAVAILABLE = 0x10009;
 
+	/**
+	 * The specified window does not have an OpenGL or OpenGL ES context.
+	 * 
+	 * <p>A window that does not have an OpenGL or OpenGL ES context was passed to a function that requires it to have one.</p>
+	 * 
+	 * <p>Application programmer error. Fix the offending call.</p>
+	 */
+	public static final int GLFW_NO_WINDOW_CONTEXT = 0x1000A;
+
 	/** Window attributes. */
 	public static final int
 		GLFW_FOCUSED      = 0x20001,
@@ -371,10 +380,12 @@ public class GLFW {
 		GLFW_OPENGL_FORWARD_COMPAT    = 0x22006,
 		GLFW_OPENGL_DEBUG_CONTEXT     = 0x22007,
 		GLFW_OPENGL_PROFILE           = 0x22008,
-		GLFW_CONTEXT_RELEASE_BEHAVIOR = 0x22009;
+		GLFW_CONTEXT_RELEASE_BEHAVIOR = 0x22009,
+		GLFW_CONTEXT_NO_ERROR         = 0x2200A;
 
 	/** Values for the {@link #GLFW_CLIENT_API CLIENT_API} hint. */
 	public static final int
+		GLFW_NO_API        = 0x0,
 		GLFW_OPENGL_API    = 0x30001,
 		GLFW_OPENGL_ES_API = 0x30002;
 
@@ -909,11 +920,7 @@ public class GLFW {
 	 * Sets the monitor configuration callback, or removes the currently set callback. This is called when a monitor is connected to or disconnected from the
 	 * system.
 	 * 
-	 * <p>Notes:
-	 * <ul>
-	 * <li>This function may only be called from the main thread.</li>
-	 * <li><b>X11</b>: This callback is not yet called on monitor configuration changes.</li>
-	 * </ul></p>
+	 * <p>This function may only be called from the main thread.</p>
 	 *
 	 * @param cbfun the new callback, or {@code NULL} to remove the currently set callback
 	 *
@@ -1114,7 +1121,7 @@ public class GLFW {
 	 * <tr><td>{@link #GLFW_REFRESH_RATE REFRESH_RATE}</td><td>0</td><td>0 to {@link Integer#MAX_VALUE}</td></tr>
 	 * <tr><td>{@link #GLFW_STEREO STEREO}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_SRGB_CAPABLE SRGB_CAPABLE}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
-	 * <tr><td>{@link #GLFW_CLIENT_API CLIENT_API}</td><td>{@link #GLFW_OPENGL_API OPENGL_API}</td><td>{@link #GLFW_OPENGL_API OPENGL_API} {@link #GLFW_OPENGL_ES_API OPENGL_ES_API}</td></tr>
+	 * <tr><td>{@link #GLFW_CLIENT_API CLIENT_API}</td><td>{@link #GLFW_OPENGL_API OPENGL_API}</td><td>{@link #GLFW_NO_API NO_API} {@link #GLFW_OPENGL_API OPENGL_API} {@link #GLFW_OPENGL_ES_API OPENGL_ES_API}</td></tr>
 	 * <tr><td>{@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}</td><td>1</td><td>Any valid major version number of the chosen client API</td></tr>
 	 * <tr><td>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}</td><td>0</td><td>Any valid minor version number of the chosen client API</td></tr>
 	 * <tr><td>{@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}</td><td>{@link #GLFW_NO_ROBUSTNESS NO_ROBUSTNESS}</td><td>{@link #GLFW_NO_ROBUSTNESS NO_ROBUSTNESS} {@link #GLFW_NO_RESET_NOTIFICATION NO_RESET_NOTIFICATION} {@link #GLFW_LOSE_CONTEXT_ON_RESET LOSE_CONTEXT_ON_RESET}</td></tr>
@@ -1126,7 +1133,7 @@ public class GLFW {
 	 * 
 	 * <p>This function may only be called from the main thread.</p>
 	 *
-	 * @param target the window hint to set. One of:<br>{@link #GLFW_RESIZABLE RESIZABLE}, {@link #GLFW_VISIBLE VISIBLE}, {@link #GLFW_DECORATED DECORATED}, {@link #GLFW_CLIENT_API CLIENT_API}, {@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}, {@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}, {@link #GLFW_CONTEXT_REVISION CONTEXT_REVISION}, {@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}, {@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}, {@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}, {@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}, {@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}, {@link #GLFW_RED_BITS RED_BITS}, {@link #GLFW_GREEN_BITS GREEN_BITS}, {@link #GLFW_BLUE_BITS BLUE_BITS}, {@link #GLFW_ALPHA_BITS ALPHA_BITS}, {@link #GLFW_DEPTH_BITS DEPTH_BITS}, {@link #GLFW_STENCIL_BITS STENCIL_BITS}, {@link #GLFW_ACCUM_RED_BITS ACCUM_RED_BITS}, {@link #GLFW_ACCUM_GREEN_BITS ACCUM_GREEN_BITS}, {@link #GLFW_ACCUM_BLUE_BITS ACCUM_BLUE_BITS}, {@link #GLFW_ACCUM_ALPHA_BITS ACCUM_ALPHA_BITS}, {@link #GLFW_AUX_BUFFERS AUX_BUFFERS}, {@link #GLFW_STEREO STEREO}, {@link #GLFW_SAMPLES SAMPLES}, {@link #GLFW_SRGB_CAPABLE SRGB_CAPABLE}, {@link #GLFW_REFRESH_RATE REFRESH_RATE}, {@link #GLFW_DOUBLE_BUFFER DOUBLE_BUFFER}
+	 * @param target the window hint to set. One of:<br>{@link #GLFW_RESIZABLE RESIZABLE}, {@link #GLFW_VISIBLE VISIBLE}, {@link #GLFW_DECORATED DECORATED}, {@link #GLFW_CLIENT_API CLIENT_API}, {@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}, {@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}, {@link #GLFW_CONTEXT_REVISION CONTEXT_REVISION}, {@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}, {@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}, {@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}, {@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}, {@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}, {@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}, {@link #GLFW_RED_BITS RED_BITS}, {@link #GLFW_GREEN_BITS GREEN_BITS}, {@link #GLFW_BLUE_BITS BLUE_BITS}, {@link #GLFW_ALPHA_BITS ALPHA_BITS}, {@link #GLFW_DEPTH_BITS DEPTH_BITS}, {@link #GLFW_STENCIL_BITS STENCIL_BITS}, {@link #GLFW_ACCUM_RED_BITS ACCUM_RED_BITS}, {@link #GLFW_ACCUM_GREEN_BITS ACCUM_GREEN_BITS}, {@link #GLFW_ACCUM_BLUE_BITS ACCUM_BLUE_BITS}, {@link #GLFW_ACCUM_ALPHA_BITS ACCUM_ALPHA_BITS}, {@link #GLFW_AUX_BUFFERS AUX_BUFFERS}, {@link #GLFW_STEREO STEREO}, {@link #GLFW_SAMPLES SAMPLES}, {@link #GLFW_SRGB_CAPABLE SRGB_CAPABLE}, {@link #GLFW_REFRESH_RATE REFRESH_RATE}, {@link #GLFW_DOUBLE_BUFFER DOUBLE_BUFFER}
 	 * @param hint   the new value of the window hint
 	 *
 	 * @since GLFW 2.2
@@ -1468,11 +1475,10 @@ public class GLFW {
 	/**
 	 * Sets the required aspect ratio of the client area of the specified window. If the window is full screen or not resizable, this function does nothing.
 	 * 
-	 * <p>The aspect ratio is specified as a numerator and a denominator. For  example, the common 16:9 aspect ratio is specified as 16 and 9, respectively. The
-	 * denominator may not be zero.</p>
+	 * <p>The aspect ratio is specified as a numerator and a denominator and both values must be greater than zero. For example, the common 16:9 aspect ratio is
+	 * specified as 16 and 9, respectively.</p>
 	 * 
-	 * <p>If the numerator and denominator is set to {@link #GLFW_DONT_CARE DONT_CARE} then the window may be resized to any aspect ratio permitted by the window system and any limits
-	 * set by {@link #glfwSetWindowSizeLimits SetWindowSizeLimits}.</p>
+	 * <p>If the numerator and denominator is set to {@link #GLFW_DONT_CARE DONT_CARE} then the aspect ratio limit is disabled.</p>
 	 * 
 	 * <p>The aspect ratio is applied immediately and may cause the window to be  resized. If you set size limits and an aspect ratio that conflict, the results
 	 * are undefined.</p>

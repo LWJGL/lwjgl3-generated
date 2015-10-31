@@ -87,9 +87,14 @@ public class EXTDrawElementsBaseVertex {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTDrawElementsBaseVertex} instance for the current context. */
+	/** Returns the {@link EXTDrawElementsBaseVertex} instance of the current context. */
 	public static EXTDrawElementsBaseVertex getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTDrawElementsBaseVertex);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTDrawElementsBaseVertex} instance of the specified {@link GLESCapabilities}. */
+	public static EXTDrawElementsBaseVertex getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTDrawElementsBaseVertex);
 	}
 
 	static EXTDrawElementsBaseVertex create(java.util.Set<String> ext, FunctionProvider provider) {

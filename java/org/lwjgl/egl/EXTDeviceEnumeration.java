@@ -50,7 +50,12 @@ public class EXTDeviceEnumeration {
 
 	/** Returns the {@link EXTDeviceEnumeration} instance. */
 	public static EXTDeviceEnumeration getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__EXTDeviceEnumeration);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTDeviceEnumeration} instance of the specified {@link EGLCapabilities}. */
+	public static EXTDeviceEnumeration getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__EXTDeviceEnumeration);
 	}
 
 	// --- [ eglQueryDevicesEXT ] ---

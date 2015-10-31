@@ -72,7 +72,12 @@ public class KHRReusableSync {
 
 	/** Returns the {@link KHRReusableSync} instance. */
 	public static KHRReusableSync getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__KHRReusableSync);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link KHRReusableSync} instance of the specified {@link EGLCapabilities}. */
+	public static KHRReusableSync getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__KHRReusableSync);
 	}
 
 	// --- [ eglCreateSyncKHR ] ---

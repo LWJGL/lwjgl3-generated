@@ -60,9 +60,14 @@ public class OVRMultiview {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link OVRMultiview} instance for the current context. */
+	/** Returns the {@link OVRMultiview} instance of the current context. */
 	public static OVRMultiview getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__OVRMultiview);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link OVRMultiview} instance of the specified {@link GLESCapabilities}. */
+	public static OVRMultiview getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__OVRMultiview);
 	}
 
 	static OVRMultiview create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -51,7 +51,12 @@ public class KHRImage {
 
 	/** Returns the {@link KHRImage} instance. */
 	public static KHRImage getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__KHRImage);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link KHRImage} instance of the specified {@link EGLCapabilities}. */
+	public static KHRImage getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__KHRImage);
 	}
 
 	// --- [ eglCreateImageKHR ] ---

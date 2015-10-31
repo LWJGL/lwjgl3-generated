@@ -49,9 +49,14 @@ public class EXTDebugMarker {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTDebugMarker} instance for the current context. */
+	/** Returns the {@link EXTDebugMarker} instance of the current context. */
 	public static EXTDebugMarker getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTDebugMarker);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTDebugMarker} instance of the specified {@link GLCapabilities}. */
+	public static EXTDebugMarker getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTDebugMarker);
 	}
 
 	static EXTDebugMarker create(java.util.Set<String> ext, FunctionProvider provider) {

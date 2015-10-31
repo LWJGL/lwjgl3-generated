@@ -46,9 +46,14 @@ public class QCOMAlphaTest {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link QCOMAlphaTest} instance for the current context. */
+	/** Returns the {@link QCOMAlphaTest} instance of the current context. */
 	public static QCOMAlphaTest getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__QCOMAlphaTest);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link QCOMAlphaTest} instance of the specified {@link GLESCapabilities}. */
+	public static QCOMAlphaTest getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__QCOMAlphaTest);
 	}
 
 	static QCOMAlphaTest create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -40,9 +40,14 @@ public class WGLNVDelayBeforeSwap {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link WGLNVDelayBeforeSwap} instance for the current context. */
+	/** Returns the {@link WGLNVDelayBeforeSwap} instance of the current context. */
 	public static WGLNVDelayBeforeSwap getInstance() {
-		return checkFunctionality(GL.getCapabilities().__WGLNVDelayBeforeSwap);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link WGLNVDelayBeforeSwap} instance of the specified {@link GLCapabilities}. */
+	public static WGLNVDelayBeforeSwap getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__WGLNVDelayBeforeSwap);
 	}
 
 	static WGLNVDelayBeforeSwap create(java.util.Set<String> ext, FunctionProvider provider) {

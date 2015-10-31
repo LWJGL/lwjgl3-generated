@@ -78,9 +78,14 @@ public class AMDPerformanceMonitor {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link AMDPerformanceMonitor} instance for the current context. */
+	/** Returns the {@link AMDPerformanceMonitor} instance of the current context. */
 	public static AMDPerformanceMonitor getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__AMDPerformanceMonitor);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link AMDPerformanceMonitor} instance of the specified {@link GLESCapabilities}. */
+	public static AMDPerformanceMonitor getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__AMDPerformanceMonitor);
 	}
 
 	static AMDPerformanceMonitor create(java.util.Set<String> ext, FunctionProvider provider) {

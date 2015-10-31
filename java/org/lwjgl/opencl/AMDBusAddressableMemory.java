@@ -74,9 +74,14 @@ public class AMDBusAddressableMemory {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link AMDBusAddressableMemory} instance for the currently loaded ICD. */
+	/** Returns the {@link AMDBusAddressableMemory} instance of the currently loaded ICD. */
 	public static AMDBusAddressableMemory getInstance() {
-		return checkFunctionality(CL.getICD().__AMDBusAddressableMemory);
+		return getInstance(CL.getICD());
+	}
+
+	/** Returns the {@link AMDBusAddressableMemory} instance of the specified {@link CLCapabilities}. */
+	public static AMDBusAddressableMemory getInstance(CLCapabilities caps) {
+		return checkFunctionality(caps.__AMDBusAddressableMemory);
 	}
 
 	static AMDBusAddressableMemory create(FunctionProvider provider) {

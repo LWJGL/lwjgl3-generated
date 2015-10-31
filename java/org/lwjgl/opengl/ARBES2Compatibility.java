@@ -76,9 +76,14 @@ public class ARBES2Compatibility {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBES2Compatibility} instance for the current context. */
+	/** Returns the {@link ARBES2Compatibility} instance of the current context. */
 	public static ARBES2Compatibility getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBES2Compatibility);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBES2Compatibility} instance of the specified {@link GLCapabilities}. */
+	public static ARBES2Compatibility getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBES2Compatibility);
 	}
 
 	static ARBES2Compatibility create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -122,9 +122,14 @@ public class ARBVertexType2_10_10_10_REV {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBVertexType2_10_10_10_REV} instance for the current context. */
+	/** Returns the {@link ARBVertexType2_10_10_10_REV} instance of the current context. */
 	public static ARBVertexType2_10_10_10_REV getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBVertexType2_10_10_10_REV);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBVertexType2_10_10_10_REV} instance of the specified {@link GLCapabilities}. */
+	public static ARBVertexType2_10_10_10_REV getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBVertexType2_10_10_10_REV);
 	}
 
 	static ARBVertexType2_10_10_10_REV create(java.util.Set<String> ext, FunctionProvider provider, boolean fc) {

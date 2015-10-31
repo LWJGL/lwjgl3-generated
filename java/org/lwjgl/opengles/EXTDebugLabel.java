@@ -57,9 +57,14 @@ public class EXTDebugLabel {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTDebugLabel} instance for the current context. */
+	/** Returns the {@link EXTDebugLabel} instance of the current context. */
 	public static EXTDebugLabel getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTDebugLabel);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTDebugLabel} instance of the specified {@link GLESCapabilities}. */
+	public static EXTDebugLabel getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTDebugLabel);
 	}
 
 	static EXTDebugLabel create(java.util.Set<String> ext, FunctionProvider provider) {

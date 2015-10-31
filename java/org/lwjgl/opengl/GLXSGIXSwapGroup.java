@@ -37,9 +37,14 @@ public class GLXSGIXSwapGroup {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GLXSGIXSwapGroup} instance for the current context. */
+	/** Returns the {@link GLXSGIXSwapGroup} instance of the current context. */
 	public static GLXSGIXSwapGroup getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GLXSGIXSwapGroup);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GLXSGIXSwapGroup} instance of the specified {@link GLCapabilities}. */
+	public static GLXSGIXSwapGroup getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GLXSGIXSwapGroup);
 	}
 
 	static GLXSGIXSwapGroup create(java.util.Set<String> ext, FunctionProvider provider) {

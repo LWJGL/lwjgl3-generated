@@ -75,9 +75,14 @@ public class APPLEFramebufferMultisample {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link APPLEFramebufferMultisample} instance for the current context. */
+	/** Returns the {@link APPLEFramebufferMultisample} instance of the current context. */
 	public static APPLEFramebufferMultisample getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__APPLEFramebufferMultisample);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link APPLEFramebufferMultisample} instance of the specified {@link GLESCapabilities}. */
+	public static APPLEFramebufferMultisample getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__APPLEFramebufferMultisample);
 	}
 
 	static APPLEFramebufferMultisample create(java.util.Set<String> ext, FunctionProvider provider) {

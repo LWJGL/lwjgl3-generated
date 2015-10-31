@@ -60,9 +60,14 @@ public class ARBProvokingVertex {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBProvokingVertex} instance for the current context. */
+	/** Returns the {@link ARBProvokingVertex} instance of the current context. */
 	public static ARBProvokingVertex getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBProvokingVertex);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBProvokingVertex} instance of the specified {@link GLCapabilities}. */
+	public static ARBProvokingVertex getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBProvokingVertex);
 	}
 
 	static ARBProvokingVertex create(java.util.Set<String> ext, FunctionProvider provider) {

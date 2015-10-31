@@ -52,9 +52,14 @@ public class ARBES32Compatibility {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBES32Compatibility} instance for the current context. */
+	/** Returns the {@link ARBES32Compatibility} instance of the current context. */
 	public static ARBES32Compatibility getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBES32Compatibility);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBES32Compatibility} instance of the specified {@link GLCapabilities}. */
+	public static ARBES32Compatibility getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBES32Compatibility);
 	}
 
 	static ARBES32Compatibility create(java.util.Set<String> ext, FunctionProvider provider) {

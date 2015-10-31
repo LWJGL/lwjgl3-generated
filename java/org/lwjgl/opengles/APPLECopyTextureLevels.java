@@ -50,9 +50,14 @@ public class APPLECopyTextureLevels {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link APPLECopyTextureLevels} instance for the current context. */
+	/** Returns the {@link APPLECopyTextureLevels} instance of the current context. */
 	public static APPLECopyTextureLevels getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__APPLECopyTextureLevels);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link APPLECopyTextureLevels} instance of the specified {@link GLESCapabilities}. */
+	public static APPLECopyTextureLevels getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__APPLECopyTextureLevels);
 	}
 
 	static APPLECopyTextureLevels create(java.util.Set<String> ext, FunctionProvider provider) {

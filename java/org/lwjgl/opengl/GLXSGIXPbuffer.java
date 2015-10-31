@@ -99,9 +99,14 @@ public class GLXSGIXPbuffer {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GLXSGIXPbuffer} instance for the current context. */
+	/** Returns the {@link GLXSGIXPbuffer} instance of the current context. */
 	public static GLXSGIXPbuffer getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GLXSGIXPbuffer);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GLXSGIXPbuffer} instance of the specified {@link GLCapabilities}. */
+	public static GLXSGIXPbuffer getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GLXSGIXPbuffer);
 	}
 
 	static GLXSGIXPbuffer create(java.util.Set<String> ext, FunctionProvider provider) {

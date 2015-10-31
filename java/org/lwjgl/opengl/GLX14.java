@@ -40,9 +40,14 @@ public class GLX14 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GLX14} instance for the current context. */
+	/** Returns the {@link GLX14} instance of the current context. */
 	public static GLX14 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GLX14);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GLX14} instance of the specified {@link GLCapabilities}. */
+	public static GLX14 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GLX14);
 	}
 
 	static GLX14 create(java.util.Set<String> ext, FunctionProvider provider) {

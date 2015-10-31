@@ -127,9 +127,14 @@ public class ARBProgramInterfaceQuery {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBProgramInterfaceQuery} instance for the current context. */
+	/** Returns the {@link ARBProgramInterfaceQuery} instance of the current context. */
 	public static ARBProgramInterfaceQuery getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBProgramInterfaceQuery);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBProgramInterfaceQuery} instance of the specified {@link GLCapabilities}. */
+	public static ARBProgramInterfaceQuery getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBProgramInterfaceQuery);
 	}
 
 	static ARBProgramInterfaceQuery create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -98,9 +98,14 @@ public class EXTGeometryShader4 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTGeometryShader4} instance for the current context. */
+	/** Returns the {@link EXTGeometryShader4} instance of the current context. */
 	public static EXTGeometryShader4 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTGeometryShader4);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTGeometryShader4} instance of the specified {@link GLCapabilities}. */
+	public static EXTGeometryShader4 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTGeometryShader4);
 	}
 
 	static EXTGeometryShader4 create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -44,7 +44,12 @@ public class NVPostSubBuffer {
 
 	/** Returns the {@link NVPostSubBuffer} instance. */
 	public static NVPostSubBuffer getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__NVPostSubBuffer);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link NVPostSubBuffer} instance of the specified {@link EGLCapabilities}. */
+	public static NVPostSubBuffer getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__NVPostSubBuffer);
 	}
 
 	// --- [ eglPostSubBufferNV ] ---

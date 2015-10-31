@@ -127,9 +127,14 @@ public class WGLARBRenderTexture {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link WGLARBRenderTexture} instance for the current context. */
+	/** Returns the {@link WGLARBRenderTexture} instance of the current context. */
 	public static WGLARBRenderTexture getInstance() {
-		return checkFunctionality(GL.getCapabilities().__WGLARBRenderTexture);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link WGLARBRenderTexture} instance of the specified {@link GLCapabilities}. */
+	public static WGLARBRenderTexture getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__WGLARBRenderTexture);
 	}
 
 	static WGLARBRenderTexture create(java.util.Set<String> ext, FunctionProvider provider) {

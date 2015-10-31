@@ -50,9 +50,14 @@ public class OESVertexArrayObject {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link OESVertexArrayObject} instance for the current context. */
+	/** Returns the {@link OESVertexArrayObject} instance of the current context. */
 	public static OESVertexArrayObject getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__OESVertexArrayObject);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link OESVertexArrayObject} instance of the specified {@link GLESCapabilities}. */
+	public static OESVertexArrayObject getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__OESVertexArrayObject);
 	}
 
 	static OESVertexArrayObject create(java.util.Set<String> ext, FunctionProvider provider) {

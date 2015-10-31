@@ -113,9 +113,14 @@ public class ARBShaderAtomicCounters {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBShaderAtomicCounters} instance for the current context. */
+	/** Returns the {@link ARBShaderAtomicCounters} instance of the current context. */
 	public static ARBShaderAtomicCounters getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBShaderAtomicCounters);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBShaderAtomicCounters} instance of the specified {@link GLCapabilities}. */
+	public static ARBShaderAtomicCounters getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBShaderAtomicCounters);
 	}
 
 	static ARBShaderAtomicCounters create(java.util.Set<String> ext, FunctionProvider provider) {

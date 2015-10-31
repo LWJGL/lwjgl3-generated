@@ -55,9 +55,14 @@ public class NVFramebufferMultisampleCoverage {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVFramebufferMultisampleCoverage} instance for the current context. */
+	/** Returns the {@link NVFramebufferMultisampleCoverage} instance of the current context. */
 	public static NVFramebufferMultisampleCoverage getInstance() {
-		return checkFunctionality(GL.getCapabilities().__NVFramebufferMultisampleCoverage);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link NVFramebufferMultisampleCoverage} instance of the specified {@link GLCapabilities}. */
+	public static NVFramebufferMultisampleCoverage getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__NVFramebufferMultisampleCoverage);
 	}
 
 	static NVFramebufferMultisampleCoverage create(java.util.Set<String> ext, FunctionProvider provider) {

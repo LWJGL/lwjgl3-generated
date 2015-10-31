@@ -133,9 +133,14 @@ public class EXTTextureInteger {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTTextureInteger} instance for the current context. */
+	/** Returns the {@link EXTTextureInteger} instance of the current context. */
 	public static EXTTextureInteger getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTTextureInteger);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTTextureInteger} instance of the specified {@link GLCapabilities}. */
+	public static EXTTextureInteger getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTTextureInteger);
 	}
 
 	static EXTTextureInteger create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -36,9 +36,14 @@ public class WGLNVCopyImage {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link WGLNVCopyImage} instance for the current context. */
+	/** Returns the {@link WGLNVCopyImage} instance of the current context. */
 	public static WGLNVCopyImage getInstance() {
-		return checkFunctionality(GL.getCapabilities().__WGLNVCopyImage);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link WGLNVCopyImage} instance of the specified {@link GLCapabilities}. */
+	public static WGLNVCopyImage getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__WGLNVCopyImage);
 	}
 
 	static WGLNVCopyImage create(java.util.Set<String> ext, FunctionProvider provider) {

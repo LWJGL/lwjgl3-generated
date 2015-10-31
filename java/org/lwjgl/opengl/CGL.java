@@ -331,9 +331,14 @@ public class CGL {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link CGL} instance for the current context. */
+	/** Returns the {@link CGL} instance of the current context. */
 	public static CGL getInstance() {
-		return checkFunctionality(GL.getCapabilities().__CGL);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link CGL} instance of the specified {@link GLCapabilities}. */
+	public static CGL getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__CGL);
 	}
 
 	static CGL create(java.util.Set<String> ext, FunctionProvider provider) {

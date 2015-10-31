@@ -57,9 +57,14 @@ public class EXTInstancedArrays {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTInstancedArrays} instance for the current context. */
+	/** Returns the {@link EXTInstancedArrays} instance of the current context. */
 	public static EXTInstancedArrays getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTInstancedArrays);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTInstancedArrays} instance of the specified {@link GLESCapabilities}. */
+	public static EXTInstancedArrays getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTInstancedArrays);
 	}
 
 	static EXTInstancedArrays create(java.util.Set<String> ext, FunctionProvider provider) {

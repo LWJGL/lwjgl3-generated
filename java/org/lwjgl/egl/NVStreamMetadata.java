@@ -78,7 +78,12 @@ public class NVStreamMetadata {
 
 	/** Returns the {@link NVStreamMetadata} instance. */
 	public static NVStreamMetadata getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__NVStreamMetadata);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link NVStreamMetadata} instance of the specified {@link EGLCapabilities}. */
+	public static NVStreamMetadata getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__NVStreamMetadata);
 	}
 
 	// --- [ eglQueryDisplayAttribNV ] ---

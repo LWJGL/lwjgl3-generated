@@ -53,9 +53,14 @@ public class ARBDrawInstanced {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBDrawInstanced} instance for the current context. */
+	/** Returns the {@link ARBDrawInstanced} instance of the current context. */
 	public static ARBDrawInstanced getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBDrawInstanced);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBDrawInstanced} instance of the specified {@link GLCapabilities}. */
+	public static ARBDrawInstanced getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBDrawInstanced);
 	}
 
 	static ARBDrawInstanced create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -57,9 +57,14 @@ public class ANGLEFramebufferMultisample {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ANGLEFramebufferMultisample} instance for the current context. */
+	/** Returns the {@link ANGLEFramebufferMultisample} instance of the current context. */
 	public static ANGLEFramebufferMultisample getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__ANGLEFramebufferMultisample);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link ANGLEFramebufferMultisample} instance of the specified {@link GLESCapabilities}. */
+	public static ANGLEFramebufferMultisample getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__ANGLEFramebufferMultisample);
 	}
 
 	static ANGLEFramebufferMultisample create(java.util.Set<String> ext, FunctionProvider provider) {

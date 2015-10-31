@@ -45,9 +45,14 @@ public class ARBCopyBuffer {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBCopyBuffer} instance for the current context. */
+	/** Returns the {@link ARBCopyBuffer} instance of the current context. */
 	public static ARBCopyBuffer getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBCopyBuffer);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBCopyBuffer} instance of the specified {@link GLCapabilities}. */
+	public static ARBCopyBuffer getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBCopyBuffer);
 	}
 
 	static ARBCopyBuffer create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -81,9 +81,14 @@ public class ARBViewportArray {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBViewportArray} instance for the current context. */
+	/** Returns the {@link ARBViewportArray} instance of the current context. */
 	public static ARBViewportArray getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBViewportArray);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBViewportArray} instance of the specified {@link GLCapabilities}. */
+	public static ARBViewportArray getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBViewportArray);
 	}
 
 	static ARBViewportArray create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -45,9 +45,14 @@ public class KHRGLEvent {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link KHRGLEvent} instance for the currently loaded ICD. */
+	/** Returns the {@link KHRGLEvent} instance of the currently loaded ICD. */
 	public static KHRGLEvent getInstance() {
-		return checkFunctionality(CL.getICD().__KHRGLEvent);
+		return getInstance(CL.getICD());
+	}
+
+	/** Returns the {@link KHRGLEvent} instance of the specified {@link CLCapabilities}. */
+	public static KHRGLEvent getInstance(CLCapabilities caps) {
+		return checkFunctionality(caps.__KHRGLEvent);
 	}
 
 	static KHRGLEvent create(FunctionProvider provider) {

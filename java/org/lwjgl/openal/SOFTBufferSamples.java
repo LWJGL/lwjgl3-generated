@@ -118,7 +118,7 @@ public class SOFTBufferSamples {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link SOFTBufferSamples} instance for the current context. */
+	/** Returns the {@link SOFTBufferSamples} instance of the current context. */
 	public static SOFTBufferSamples getInstance() {
 		return checkFunctionality(AL.getCapabilities().__SOFTBufferSamples);
 	}

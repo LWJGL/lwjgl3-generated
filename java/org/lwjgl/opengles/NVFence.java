@@ -73,9 +73,14 @@ public class NVFence {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVFence} instance for the current context. */
+	/** Returns the {@link NVFence} instance of the current context. */
 	public static NVFence getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__NVFence);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link NVFence} instance of the specified {@link GLESCapabilities}. */
+	public static NVFence getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__NVFence);
 	}
 
 	static NVFence create(java.util.Set<String> ext, FunctionProvider provider) {

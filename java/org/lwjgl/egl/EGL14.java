@@ -45,7 +45,12 @@ public class EGL14 {
 
 	/** Returns the {@link EGL14} instance. */
 	public static EGL14 getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__EGL14);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link EGL14} instance of the specified {@link EGLCapabilities}. */
+	public static EGL14 getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__EGL14);
 	}
 
 	// --- [ eglGetCurrentContext ] ---

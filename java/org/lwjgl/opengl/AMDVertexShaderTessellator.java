@@ -104,9 +104,14 @@ public class AMDVertexShaderTessellator {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link AMDVertexShaderTessellator} instance for the current context. */
+	/** Returns the {@link AMDVertexShaderTessellator} instance of the current context. */
 	public static AMDVertexShaderTessellator getInstance() {
-		return checkFunctionality(GL.getCapabilities().__AMDVertexShaderTessellator);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link AMDVertexShaderTessellator} instance of the specified {@link GLCapabilities}. */
+	public static AMDVertexShaderTessellator getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__AMDVertexShaderTessellator);
 	}
 
 	static AMDVertexShaderTessellator create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -49,7 +49,12 @@ public class ANDROIDBlobCache {
 
 	/** Returns the {@link ANDROIDBlobCache} instance. */
 	public static ANDROIDBlobCache getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__ANDROIDBlobCache);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link ANDROIDBlobCache} instance of the specified {@link EGLCapabilities}. */
+	public static ANDROIDBlobCache getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__ANDROIDBlobCache);
 	}
 
 	// --- [ eglSetBlobCacheFuncsANDROID ] ---

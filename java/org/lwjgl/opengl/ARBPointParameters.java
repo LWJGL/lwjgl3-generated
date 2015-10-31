@@ -61,9 +61,14 @@ public class ARBPointParameters {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBPointParameters} instance for the current context. */
+	/** Returns the {@link ARBPointParameters} instance of the current context. */
 	public static ARBPointParameters getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBPointParameters);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBPointParameters} instance of the specified {@link GLCapabilities}. */
+	public static ARBPointParameters getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBPointParameters);
 	}
 
 	static ARBPointParameters create(java.util.Set<String> ext, FunctionProvider provider) {

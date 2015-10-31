@@ -105,9 +105,14 @@ public class ARBShadingLanguageInclude {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBShadingLanguageInclude} instance for the current context. */
+	/** Returns the {@link ARBShadingLanguageInclude} instance of the current context. */
 	public static ARBShadingLanguageInclude getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBShadingLanguageInclude);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBShadingLanguageInclude} instance of the specified {@link GLCapabilities}. */
+	public static ARBShadingLanguageInclude getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBShadingLanguageInclude);
 	}
 
 	static ARBShadingLanguageInclude create(java.util.Set<String> ext, FunctionProvider provider) {

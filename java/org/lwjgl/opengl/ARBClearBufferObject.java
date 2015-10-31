@@ -52,9 +52,14 @@ public class ARBClearBufferObject {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBClearBufferObject} instance for the current context. */
+	/** Returns the {@link ARBClearBufferObject} instance of the current context. */
 	public static ARBClearBufferObject getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBClearBufferObject);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBClearBufferObject} instance of the specified {@link GLCapabilities}. */
+	public static ARBClearBufferObject getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBClearBufferObject);
 	}
 
 	static ARBClearBufferObject create(java.util.Set<String> ext, FunctionProvider provider) {

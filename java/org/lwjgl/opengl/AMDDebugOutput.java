@@ -94,9 +94,14 @@ public class AMDDebugOutput {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link AMDDebugOutput} instance for the current context. */
+	/** Returns the {@link AMDDebugOutput} instance of the current context. */
 	public static AMDDebugOutput getInstance() {
-		return checkFunctionality(GL.getCapabilities().__AMDDebugOutput);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link AMDDebugOutput} instance of the specified {@link GLCapabilities}. */
+	public static AMDDebugOutput getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__AMDDebugOutput);
 	}
 
 	static AMDDebugOutput create(java.util.Set<String> ext, FunctionProvider provider) {

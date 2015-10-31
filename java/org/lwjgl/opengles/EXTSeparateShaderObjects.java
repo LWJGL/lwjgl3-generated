@@ -174,9 +174,14 @@ public class EXTSeparateShaderObjects {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTSeparateShaderObjects} instance for the current context. */
+	/** Returns the {@link EXTSeparateShaderObjects} instance of the current context. */
 	public static EXTSeparateShaderObjects getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTSeparateShaderObjects);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTSeparateShaderObjects} instance of the specified {@link GLESCapabilities}. */
+	public static EXTSeparateShaderObjects getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTSeparateShaderObjects);
 	}
 
 	static EXTSeparateShaderObjects create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -90,9 +90,14 @@ public class EXTRobustness {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTRobustness} instance for the current context. */
+	/** Returns the {@link EXTRobustness} instance of the current context. */
 	public static EXTRobustness getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTRobustness);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTRobustness} instance of the specified {@link GLESCapabilities}. */
+	public static EXTRobustness getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTRobustness);
 	}
 
 	static EXTRobustness create(java.util.Set<String> ext, FunctionProvider provider) {

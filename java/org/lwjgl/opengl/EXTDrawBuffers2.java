@@ -55,9 +55,14 @@ public class EXTDrawBuffers2 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTDrawBuffers2} instance for the current context. */
+	/** Returns the {@link EXTDrawBuffers2} instance of the current context. */
 	public static EXTDrawBuffers2 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTDrawBuffers2);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTDrawBuffers2} instance of the specified {@link GLCapabilities}. */
+	public static EXTDrawBuffers2 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTDrawBuffers2);
 	}
 
 	static EXTDrawBuffers2 create(java.util.Set<String> ext, FunctionProvider provider) {

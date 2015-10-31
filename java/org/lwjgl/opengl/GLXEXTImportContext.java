@@ -54,9 +54,14 @@ public class GLXEXTImportContext {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GLXEXTImportContext} instance for the current context. */
+	/** Returns the {@link GLXEXTImportContext} instance of the current context. */
 	public static GLXEXTImportContext getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GLXEXTImportContext);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GLXEXTImportContext} instance of the specified {@link GLCapabilities}. */
+	public static GLXEXTImportContext getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GLXEXTImportContext);
 	}
 
 	static GLXEXTImportContext create(java.util.Set<String> ext, FunctionProvider provider) {

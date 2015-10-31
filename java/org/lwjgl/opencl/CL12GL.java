@@ -46,9 +46,14 @@ public class CL12GL {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link CL12GL} instance for the currently loaded ICD. */
+	/** Returns the {@link CL12GL} instance of the currently loaded ICD. */
 	public static CL12GL getInstance() {
-		return checkFunctionality(CL.getICD().__CL12GL);
+		return getInstance(CL.getICD());
+	}
+
+	/** Returns the {@link CL12GL} instance of the specified {@link CLCapabilities}. */
+	public static CL12GL getInstance(CLCapabilities caps) {
+		return checkFunctionality(caps.__CL12GL);
 	}
 
 	static CL12GL create(FunctionProvider provider) {

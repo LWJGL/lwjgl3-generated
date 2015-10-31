@@ -41,7 +41,12 @@ public class NVSystemTime {
 
 	/** Returns the {@link NVSystemTime} instance. */
 	public static NVSystemTime getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__NVSystemTime);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link NVSystemTime} instance of the specified {@link EGLCapabilities}. */
+	public static NVSystemTime getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__NVSystemTime);
 	}
 
 	// --- [ eglGetSystemTimeFrequencyNV ] ---

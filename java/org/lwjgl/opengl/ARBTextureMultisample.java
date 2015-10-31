@@ -101,9 +101,14 @@ public class ARBTextureMultisample {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBTextureMultisample} instance for the current context. */
+	/** Returns the {@link ARBTextureMultisample} instance of the current context. */
 	public static ARBTextureMultisample getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBTextureMultisample);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBTextureMultisample} instance of the specified {@link GLCapabilities}. */
+	public static ARBTextureMultisample getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBTextureMultisample);
 	}
 
 	static ARBTextureMultisample create(java.util.Set<String> ext, FunctionProvider provider) {

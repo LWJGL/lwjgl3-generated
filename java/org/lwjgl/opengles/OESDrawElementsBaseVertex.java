@@ -86,9 +86,14 @@ public class OESDrawElementsBaseVertex {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link OESDrawElementsBaseVertex} instance for the current context. */
+	/** Returns the {@link OESDrawElementsBaseVertex} instance of the current context. */
 	public static OESDrawElementsBaseVertex getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__OESDrawElementsBaseVertex);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link OESDrawElementsBaseVertex} instance of the specified {@link GLESCapabilities}. */
+	public static OESDrawElementsBaseVertex getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__OESDrawElementsBaseVertex);
 	}
 
 	static OESDrawElementsBaseVertex create(java.util.Set<String> ext, FunctionProvider provider) {

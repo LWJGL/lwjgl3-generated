@@ -77,9 +77,14 @@ public class EXTTextureBorderClamp {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTTextureBorderClamp} instance for the current context. */
+	/** Returns the {@link EXTTextureBorderClamp} instance of the current context. */
 	public static EXTTextureBorderClamp getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTTextureBorderClamp);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTTextureBorderClamp} instance of the specified {@link GLESCapabilities}. */
+	public static EXTTextureBorderClamp getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTTextureBorderClamp);
 	}
 
 	static EXTTextureBorderClamp create(java.util.Set<String> ext, FunctionProvider provider) {

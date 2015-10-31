@@ -66,9 +66,14 @@ public class EXTMultisampledRenderToTexture {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTMultisampledRenderToTexture} instance for the current context. */
+	/** Returns the {@link EXTMultisampledRenderToTexture} instance of the current context. */
 	public static EXTMultisampledRenderToTexture getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTMultisampledRenderToTexture);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTMultisampledRenderToTexture} instance of the specified {@link GLESCapabilities}. */
+	public static EXTMultisampledRenderToTexture getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTMultisampledRenderToTexture);
 	}
 
 	static EXTMultisampledRenderToTexture create(java.util.Set<String> ext, FunctionProvider provider) {

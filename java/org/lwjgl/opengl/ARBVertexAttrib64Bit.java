@@ -97,9 +97,14 @@ public class ARBVertexAttrib64Bit {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBVertexAttrib64Bit} instance for the current context. */
+	/** Returns the {@link ARBVertexAttrib64Bit} instance of the current context. */
 	public static ARBVertexAttrib64Bit getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBVertexAttrib64Bit);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBVertexAttrib64Bit} instance of the specified {@link GLCapabilities}. */
+	public static ARBVertexAttrib64Bit getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBVertexAttrib64Bit);
 	}
 
 	static ARBVertexAttrib64Bit create(java.util.Set<String> ext, FunctionProvider provider) {

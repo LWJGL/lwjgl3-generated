@@ -46,9 +46,14 @@ public class EXTCopyImage {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTCopyImage} instance for the current context. */
+	/** Returns the {@link EXTCopyImage} instance of the current context. */
 	public static EXTCopyImage getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTCopyImage);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTCopyImage} instance of the specified {@link GLESCapabilities}. */
+	public static EXTCopyImage getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTCopyImage);
 	}
 
 	static EXTCopyImage create(java.util.Set<String> ext, FunctionProvider provider) {

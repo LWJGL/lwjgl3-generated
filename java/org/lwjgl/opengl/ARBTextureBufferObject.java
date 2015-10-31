@@ -66,9 +66,14 @@ public class ARBTextureBufferObject {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBTextureBufferObject} instance for the current context. */
+	/** Returns the {@link ARBTextureBufferObject} instance of the current context. */
 	public static ARBTextureBufferObject getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBTextureBufferObject);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBTextureBufferObject} instance of the specified {@link GLCapabilities}. */
+	public static ARBTextureBufferObject getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBTextureBufferObject);
 	}
 
 	static ARBTextureBufferObject create(java.util.Set<String> ext, FunctionProvider provider) {

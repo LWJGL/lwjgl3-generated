@@ -46,9 +46,14 @@ public class NVFragmentCoverageToColor {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVFragmentCoverageToColor} instance for the current context. */
+	/** Returns the {@link NVFragmentCoverageToColor} instance of the current context. */
 	public static NVFragmentCoverageToColor getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__NVFragmentCoverageToColor);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link NVFragmentCoverageToColor} instance of the specified {@link GLESCapabilities}. */
+	public static NVFragmentCoverageToColor getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__NVFragmentCoverageToColor);
 	}
 
 	static NVFragmentCoverageToColor create(java.util.Set<String> ext, FunctionProvider provider) {

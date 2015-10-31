@@ -33,9 +33,14 @@ public class WGLEXTExtensionsString {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link WGLEXTExtensionsString} instance for the current context. */
+	/** Returns the {@link WGLEXTExtensionsString} instance of the current context. */
 	public static WGLEXTExtensionsString getInstance() {
-		return checkFunctionality(GL.getCapabilities().__WGLEXTExtensionsString);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link WGLEXTExtensionsString} instance of the specified {@link GLCapabilities}. */
+	public static WGLEXTExtensionsString getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__WGLEXTExtensionsString);
 	}
 
 	static WGLEXTExtensionsString create(java.util.Set<String> ext, FunctionProvider provider) {

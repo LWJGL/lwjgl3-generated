@@ -62,9 +62,14 @@ public class ARBMapBufferRange {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBMapBufferRange} instance for the current context. */
+	/** Returns the {@link ARBMapBufferRange} instance of the current context. */
 	public static ARBMapBufferRange getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBMapBufferRange);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBMapBufferRange} instance of the specified {@link GLCapabilities}. */
+	public static ARBMapBufferRange getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBMapBufferRange);
 	}
 
 	static ARBMapBufferRange create(java.util.Set<String> ext, FunctionProvider provider) {

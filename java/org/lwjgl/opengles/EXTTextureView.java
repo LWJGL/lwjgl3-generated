@@ -60,9 +60,14 @@ public class EXTTextureView {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTTextureView} instance for the current context. */
+	/** Returns the {@link EXTTextureView} instance of the current context. */
 	public static EXTTextureView getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTTextureView);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTTextureView} instance of the specified {@link GLESCapabilities}. */
+	public static EXTTextureView getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTTextureView);
 	}
 
 	static EXTTextureView create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -127,9 +127,14 @@ public class GLX13 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GLX13} instance for the current context. */
+	/** Returns the {@link GLX13} instance of the current context. */
 	public static GLX13 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GLX13);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GLX13} instance of the specified {@link GLCapabilities}. */
+	public static GLX13 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GLX13);
 	}
 
 	static GLX13 create(java.util.Set<String> ext, FunctionProvider provider) {

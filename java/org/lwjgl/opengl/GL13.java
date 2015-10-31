@@ -313,9 +313,14 @@ public class GL13 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GL13} instance for the current context. */
+	/** Returns the {@link GL13} instance of the current context. */
 	public static GL13 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GL13);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GL13} instance of the specified {@link GLCapabilities}. */
+	public static GL13 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GL13);
 	}
 
 	static GL13 create(java.util.Set<String> ext, FunctionProvider provider, boolean fc) {

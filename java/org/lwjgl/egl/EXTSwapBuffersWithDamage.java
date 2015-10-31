@@ -45,7 +45,12 @@ public class EXTSwapBuffersWithDamage {
 
 	/** Returns the {@link EXTSwapBuffersWithDamage} instance. */
 	public static EXTSwapBuffersWithDamage getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__EXTSwapBuffersWithDamage);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTSwapBuffersWithDamage} instance of the specified {@link EGLCapabilities}. */
+	public static EXTSwapBuffersWithDamage getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__EXTSwapBuffersWithDamage);
 	}
 
 	// --- [ eglSwapBuffersWithDamageEXT ] ---

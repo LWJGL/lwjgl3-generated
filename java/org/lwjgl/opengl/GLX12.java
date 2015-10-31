@@ -30,9 +30,14 @@ public class GLX12 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GLX12} instance for the current context. */
+	/** Returns the {@link GLX12} instance of the current context. */
 	public static GLX12 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GLX12);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GLX12} instance of the specified {@link GLCapabilities}. */
+	public static GLX12 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GLX12);
 	}
 
 	static GLX12 create(java.util.Set<String> ext, FunctionProvider provider) {

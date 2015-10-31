@@ -70,9 +70,14 @@ public class EXTStencilClearTag {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTStencilClearTag} instance for the current context. */
+	/** Returns the {@link EXTStencilClearTag} instance of the current context. */
 	public static EXTStencilClearTag getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTStencilClearTag);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTStencilClearTag} instance of the specified {@link GLCapabilities}. */
+	public static EXTStencilClearTag getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTStencilClearTag);
 	}
 
 	static EXTStencilClearTag create(java.util.Set<String> ext, FunctionProvider provider) {

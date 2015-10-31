@@ -104,7 +104,12 @@ public class EGL15 {
 
 	/** Returns the {@link EGL15} instance. */
 	public static EGL15 getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__EGL15);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link EGL15} instance of the specified {@link EGLCapabilities}. */
+	public static EGL15 getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__EGL15);
 	}
 
 	// --- [ eglCreateSync ] ---

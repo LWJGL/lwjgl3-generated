@@ -79,9 +79,14 @@ public class NVExplicitMultisample {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVExplicitMultisample} instance for the current context. */
+	/** Returns the {@link NVExplicitMultisample} instance of the current context. */
 	public static NVExplicitMultisample getInstance() {
-		return checkFunctionality(GL.getCapabilities().__NVExplicitMultisample);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link NVExplicitMultisample} instance of the specified {@link GLCapabilities}. */
+	public static NVExplicitMultisample getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__NVExplicitMultisample);
 	}
 
 	static NVExplicitMultisample create(java.util.Set<String> ext, FunctionProvider provider) {

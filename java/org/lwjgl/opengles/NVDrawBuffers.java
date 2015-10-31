@@ -81,9 +81,14 @@ public class NVDrawBuffers {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVDrawBuffers} instance for the current context. */
+	/** Returns the {@link NVDrawBuffers} instance of the current context. */
 	public static NVDrawBuffers getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__NVDrawBuffers);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link NVDrawBuffers} instance of the specified {@link GLESCapabilities}. */
+	public static NVDrawBuffers getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__NVDrawBuffers);
 	}
 
 	static NVDrawBuffers create(java.util.Set<String> ext, FunctionProvider provider) {

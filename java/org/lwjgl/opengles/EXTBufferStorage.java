@@ -64,9 +64,14 @@ public class EXTBufferStorage {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTBufferStorage} instance for the current context. */
+	/** Returns the {@link EXTBufferStorage} instance of the current context. */
 	public static EXTBufferStorage getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTBufferStorage);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTBufferStorage} instance of the specified {@link GLESCapabilities}. */
+	public static EXTBufferStorage getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTBufferStorage);
 	}
 
 	static EXTBufferStorage create(java.util.Set<String> ext, FunctionProvider provider) {

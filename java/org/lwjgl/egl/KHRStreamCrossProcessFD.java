@@ -62,7 +62,12 @@ public class KHRStreamCrossProcessFD {
 
 	/** Returns the {@link KHRStreamCrossProcessFD} instance. */
 	public static KHRStreamCrossProcessFD getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__KHRStreamCrossProcessFD);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link KHRStreamCrossProcessFD} instance of the specified {@link EGLCapabilities}. */
+	public static KHRStreamCrossProcessFD getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__KHRStreamCrossProcessFD);
 	}
 
 	// --- [ eglGetStreamFileDescriptorKHR ] ---

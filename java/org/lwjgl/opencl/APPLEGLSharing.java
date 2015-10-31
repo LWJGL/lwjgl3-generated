@@ -56,9 +56,14 @@ public class APPLEGLSharing {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link APPLEGLSharing} instance for the currently loaded ICD. */
+	/** Returns the {@link APPLEGLSharing} instance of the currently loaded ICD. */
 	public static APPLEGLSharing getInstance() {
-		return checkFunctionality(CL.getICD().__APPLEGLSharing);
+		return getInstance(CL.getICD());
+	}
+
+	/** Returns the {@link APPLEGLSharing} instance of the specified {@link CLCapabilities}. */
+	public static APPLEGLSharing getInstance(CLCapabilities caps) {
+		return checkFunctionality(caps.__APPLEGLSharing);
 	}
 
 	static APPLEGLSharing create(FunctionProvider provider) {

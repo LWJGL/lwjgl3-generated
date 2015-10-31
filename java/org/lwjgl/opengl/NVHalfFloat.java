@@ -142,9 +142,14 @@ public class NVHalfFloat {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVHalfFloat} instance for the current context. */
+	/** Returns the {@link NVHalfFloat} instance of the current context. */
 	public static NVHalfFloat getInstance() {
-		return checkFunctionality(GL.getCapabilities().__NVHalfFloat);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link NVHalfFloat} instance of the specified {@link GLCapabilities}. */
+	public static NVHalfFloat getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__NVHalfFloat);
 	}
 
 	static NVHalfFloat create(java.util.Set<String> ext, FunctionProvider provider) {

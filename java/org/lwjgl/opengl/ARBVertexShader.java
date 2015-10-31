@@ -183,9 +183,14 @@ public class ARBVertexShader {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBVertexShader} instance for the current context. */
+	/** Returns the {@link ARBVertexShader} instance of the current context. */
 	public static ARBVertexShader getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBVertexShader);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBVertexShader} instance of the specified {@link GLCapabilities}. */
+	public static ARBVertexShader getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBVertexShader);
 	}
 
 	static ARBVertexShader create(java.util.Set<String> ext, FunctionProvider provider) {

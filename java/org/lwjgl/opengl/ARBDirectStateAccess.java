@@ -248,9 +248,14 @@ public class ARBDirectStateAccess {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBDirectStateAccess} instance for the current context. */
+	/** Returns the {@link ARBDirectStateAccess} instance of the current context. */
 	public static ARBDirectStateAccess getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBDirectStateAccess);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBDirectStateAccess} instance of the specified {@link GLCapabilities}. */
+	public static ARBDirectStateAccess getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBDirectStateAccess);
 	}
 
 	static ARBDirectStateAccess create(java.util.Set<String> ext, FunctionProvider provider) {

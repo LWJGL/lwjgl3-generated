@@ -49,9 +49,14 @@ public class ARBSparseBuffer {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBSparseBuffer} instance for the current context. */
+	/** Returns the {@link ARBSparseBuffer} instance of the current context. */
 	public static ARBSparseBuffer getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBSparseBuffer);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBSparseBuffer} instance of the specified {@link GLCapabilities}. */
+	public static ARBSparseBuffer getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBSparseBuffer);
 	}
 
 	static ARBSparseBuffer create(java.util.Set<String> ext, FunctionProvider provider) {

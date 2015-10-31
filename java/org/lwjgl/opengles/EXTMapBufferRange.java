@@ -62,9 +62,14 @@ public class EXTMapBufferRange {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTMapBufferRange} instance for the current context. */
+	/** Returns the {@link EXTMapBufferRange} instance of the current context. */
 	public static EXTMapBufferRange getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTMapBufferRange);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTMapBufferRange} instance of the specified {@link GLESCapabilities}. */
+	public static EXTMapBufferRange getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTMapBufferRange);
 	}
 
 	static EXTMapBufferRange create(java.util.Set<String> ext, FunctionProvider provider) {

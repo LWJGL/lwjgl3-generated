@@ -277,7 +277,7 @@ public class EXTEfx {
 		AL_REVERB_DEFAULT_REFLECTIONS_GAIN      = 0.05f,
 		AL_REVERB_MIN_REFLECTIONS_DELAY         = 0.0f,
 		AL_REVERB_MAX_REFLECTIONS_DELAY         = 0.3f,
-		AL_REVERB_DEFAULT_REFLECTIONS_DELAY     = 0.0070f,
+		AL_REVERB_DEFAULT_REFLECTIONS_DELAY     = 0.007f,
 		AL_REVERB_MIN_LATE_REVERB_GAIN          = 0.0f,
 		AL_REVERB_MAX_LATE_REVERB_GAIN          = 10.0f,
 		AL_REVERB_DEFAULT_LATE_REVERB_GAIN      = 1.26f,
@@ -328,7 +328,7 @@ public class EXTEfx {
 		AL_EAXREVERB_DEFAULT_REFLECTIONS_GAIN      = 0.05f,
 		AL_EAXREVERB_MIN_REFLECTIONS_DELAY         = 0.0f,
 		AL_EAXREVERB_MAX_REFLECTIONS_DELAY         = 0.3f,
-		AL_EAXREVERB_DEFAULT_REFLECTIONS_DELAY     = 0.0070f,
+		AL_EAXREVERB_DEFAULT_REFLECTIONS_DELAY     = 0.007f,
 		AL_EAXREVERB_DEFAULT_REFLECTIONS_PAN_XYZ   = 0.0f,
 		AL_EAXREVERB_MIN_LATE_REVERB_GAIN          = 0.0f,
 		AL_EAXREVERB_MAX_LATE_REVERB_GAIN          = 10.0f,
@@ -453,8 +453,8 @@ public class EXTEfx {
 		AL_FLANGER_MAX_FEEDBACK     = 1.0f,
 		AL_FLANGER_DEFAULT_FEEDBACK = -0.5f,
 		AL_FLANGER_MIN_DELAY        = 0.0f,
-		AL_FLANGER_MAX_DELAY        = 0.0040f,
-		AL_FLANGER_DEFAULT_DELAY    = 0.0020f;
+		AL_FLANGER_MAX_DELAY        = 0.004f,
+		AL_FLANGER_DEFAULT_DELAY    = 0.002f;
 
 	/** Frequency shifter effect parameter ranges and defaults */
 	public static final float
@@ -723,7 +723,7 @@ public class EXTEfx {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTEfx} instance for the current context. */
+	/** Returns the {@link EXTEfx} instance of the current context. */
 	public static EXTEfx getInstance() {
 		return checkFunctionality(AL.getCapabilities().__EXTEfx);
 	}

@@ -77,9 +77,14 @@ public class EXTSparseTexture {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTSparseTexture} instance for the current context. */
+	/** Returns the {@link EXTSparseTexture} instance of the current context. */
 	public static EXTSparseTexture getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTSparseTexture);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTSparseTexture} instance of the specified {@link GLESCapabilities}. */
+	public static EXTSparseTexture getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTSparseTexture);
 	}
 
 	static EXTSparseTexture create(java.util.Set<String> ext, FunctionProvider provider) {

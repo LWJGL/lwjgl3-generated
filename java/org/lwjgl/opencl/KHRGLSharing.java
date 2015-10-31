@@ -60,9 +60,14 @@ public class KHRGLSharing {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link KHRGLSharing} instance for the currently loaded ICD. */
+	/** Returns the {@link KHRGLSharing} instance of the currently loaded ICD. */
 	public static KHRGLSharing getInstance() {
-		return checkFunctionality(CL.getICD().__KHRGLSharing);
+		return getInstance(CL.getICD());
+	}
+
+	/** Returns the {@link KHRGLSharing} instance of the specified {@link CLCapabilities}. */
+	public static KHRGLSharing getInstance(CLCapabilities caps) {
+		return checkFunctionality(caps.__KHRGLSharing);
 	}
 
 	static KHRGLSharing create(FunctionProvider provider) {

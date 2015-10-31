@@ -198,9 +198,14 @@ public class GL31 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GL31} instance for the current context. */
+	/** Returns the {@link GL31} instance of the current context. */
 	public static GL31 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GL31);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GL31} instance of the specified {@link GLCapabilities}. */
+	public static GL31 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GL31);
 	}
 
 	static GL31 create(java.util.Set<String> ext, FunctionProvider provider) {

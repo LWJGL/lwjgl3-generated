@@ -77,7 +77,12 @@ public class NVSync {
 
 	/** Returns the {@link NVSync} instance. */
 	public static NVSync getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__NVSync);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link NVSync} instance of the specified {@link EGLCapabilities}. */
+	public static NVSync getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__NVSync);
 	}
 
 	// --- [ eglCreateFenceSyncNV ] ---

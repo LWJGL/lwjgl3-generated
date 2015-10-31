@@ -73,9 +73,14 @@ public class NVTransformFeedback2 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVTransformFeedback2} instance for the current context. */
+	/** Returns the {@link NVTransformFeedback2} instance of the current context. */
 	public static NVTransformFeedback2 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__NVTransformFeedback2);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link NVTransformFeedback2} instance of the specified {@link GLCapabilities}. */
+	public static NVTransformFeedback2 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__NVTransformFeedback2);
 	}
 
 	static NVTransformFeedback2 create(java.util.Set<String> ext, FunctionProvider provider) {

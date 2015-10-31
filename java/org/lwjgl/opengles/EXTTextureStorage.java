@@ -87,9 +87,14 @@ public class EXTTextureStorage {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTTextureStorage} instance for the current context. */
+	/** Returns the {@link EXTTextureStorage} instance of the current context. */
 	public static EXTTextureStorage getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTTextureStorage);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTTextureStorage} instance of the specified {@link GLESCapabilities}. */
+	public static EXTTextureStorage getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTTextureStorage);
 	}
 
 	static EXTTextureStorage create(java.util.Set<String> ext, FunctionProvider provider) {

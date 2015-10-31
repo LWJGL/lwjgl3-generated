@@ -60,9 +60,14 @@ public class ARBDrawBuffers {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBDrawBuffers} instance for the current context. */
+	/** Returns the {@link ARBDrawBuffers} instance of the current context. */
 	public static ARBDrawBuffers getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBDrawBuffers);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBDrawBuffers} instance of the specified {@link GLCapabilities}. */
+	public static ARBDrawBuffers getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBDrawBuffers);
 	}
 
 	static ARBDrawBuffers create(java.util.Set<String> ext, FunctionProvider provider) {

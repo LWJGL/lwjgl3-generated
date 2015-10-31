@@ -42,9 +42,14 @@ public class GLXSGIXSwapBarrier {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GLXSGIXSwapBarrier} instance for the current context. */
+	/** Returns the {@link GLXSGIXSwapBarrier} instance of the current context. */
 	public static GLXSGIXSwapBarrier getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GLXSGIXSwapBarrier);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GLXSGIXSwapBarrier} instance of the specified {@link GLCapabilities}. */
+	public static GLXSGIXSwapBarrier getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GLXSGIXSwapBarrier);
 	}
 
 	static GLXSGIXSwapBarrier create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -53,9 +53,14 @@ public class NVConservativeRaster {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVConservativeRaster} instance for the current context. */
+	/** Returns the {@link NVConservativeRaster} instance of the current context. */
 	public static NVConservativeRaster getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__NVConservativeRaster);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link NVConservativeRaster} instance of the specified {@link GLESCapabilities}. */
+	public static NVConservativeRaster getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__NVConservativeRaster);
 	}
 
 	static NVConservativeRaster create(java.util.Set<String> ext, FunctionProvider provider) {

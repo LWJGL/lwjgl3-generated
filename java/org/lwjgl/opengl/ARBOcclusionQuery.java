@@ -100,9 +100,14 @@ public class ARBOcclusionQuery {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBOcclusionQuery} instance for the current context. */
+	/** Returns the {@link ARBOcclusionQuery} instance of the current context. */
 	public static ARBOcclusionQuery getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBOcclusionQuery);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBOcclusionQuery} instance of the specified {@link GLCapabilities}. */
+	public static ARBOcclusionQuery getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBOcclusionQuery);
 	}
 
 	static ARBOcclusionQuery create(java.util.Set<String> ext, FunctionProvider provider) {

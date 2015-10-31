@@ -77,7 +77,12 @@ public class EXTOutputBase {
 
 	/** Returns the {@link EXTOutputBase} instance. */
 	public static EXTOutputBase getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__EXTOutputBase);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTOutputBase} instance of the specified {@link EGLCapabilities}. */
+	public static EXTOutputBase getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__EXTOutputBase);
 	}
 
 	// --- [ eglGetOutputLayersEXT ] ---

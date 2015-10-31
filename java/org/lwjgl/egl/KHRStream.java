@@ -95,7 +95,12 @@ public class KHRStream {
 
 	/** Returns the {@link KHRStream} instance. */
 	public static KHRStream getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__KHRStream);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link KHRStream} instance of the specified {@link EGLCapabilities}. */
+	public static KHRStream getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__KHRStream);
 	}
 
 	// --- [ eglCreateStreamKHR ] ---

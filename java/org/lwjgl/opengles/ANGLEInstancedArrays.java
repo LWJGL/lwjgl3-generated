@@ -57,9 +57,14 @@ public class ANGLEInstancedArrays {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ANGLEInstancedArrays} instance for the current context. */
+	/** Returns the {@link ANGLEInstancedArrays} instance of the current context. */
 	public static ANGLEInstancedArrays getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__ANGLEInstancedArrays);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link ANGLEInstancedArrays} instance of the specified {@link GLESCapabilities}. */
+	public static ANGLEInstancedArrays getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__ANGLEInstancedArrays);
 	}
 
 	static ANGLEInstancedArrays create(java.util.Set<String> ext, FunctionProvider provider) {

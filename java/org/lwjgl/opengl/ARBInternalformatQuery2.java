@@ -190,9 +190,14 @@ public class ARBInternalformatQuery2 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBInternalformatQuery2} instance for the current context. */
+	/** Returns the {@link ARBInternalformatQuery2} instance of the current context. */
 	public static ARBInternalformatQuery2 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBInternalformatQuery2);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBInternalformatQuery2} instance of the specified {@link GLCapabilities}. */
+	public static ARBInternalformatQuery2 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBInternalformatQuery2);
 	}
 
 	static ARBInternalformatQuery2 create(java.util.Set<String> ext, FunctionProvider provider) {

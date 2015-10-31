@@ -186,9 +186,14 @@ public class EXTGPUShader4 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTGPUShader4} instance for the current context. */
+	/** Returns the {@link EXTGPUShader4} instance of the current context. */
 	public static EXTGPUShader4 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTGPUShader4);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTGPUShader4} instance of the specified {@link GLCapabilities}. */
+	public static EXTGPUShader4 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTGPUShader4);
 	}
 
 	static EXTGPUShader4 create(java.util.Set<String> ext, FunctionProvider provider) {

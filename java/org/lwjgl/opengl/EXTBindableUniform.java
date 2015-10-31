@@ -59,9 +59,14 @@ public class EXTBindableUniform {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTBindableUniform} instance for the current context. */
+	/** Returns the {@link EXTBindableUniform} instance of the current context. */
 	public static EXTBindableUniform getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTBindableUniform);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTBindableUniform} instance of the specified {@link GLCapabilities}. */
+	public static EXTBindableUniform getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTBindableUniform);
 	}
 
 	static EXTBindableUniform create(java.util.Set<String> ext, FunctionProvider provider) {

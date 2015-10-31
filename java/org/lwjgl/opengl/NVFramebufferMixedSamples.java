@@ -72,9 +72,14 @@ public class NVFramebufferMixedSamples {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVFramebufferMixedSamples} instance for the current context. */
+	/** Returns the {@link NVFramebufferMixedSamples} instance of the current context. */
 	public static NVFramebufferMixedSamples getInstance() {
-		return checkFunctionality(GL.getCapabilities().__NVFramebufferMixedSamples);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link NVFramebufferMixedSamples} instance of the specified {@link GLCapabilities}. */
+	public static NVFramebufferMixedSamples getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__NVFramebufferMixedSamples);
 	}
 
 	static NVFramebufferMixedSamples create(java.util.Set<String> ext, FunctionProvider provider) {

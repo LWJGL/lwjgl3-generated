@@ -147,9 +147,14 @@ public class ARBMultitexture {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBMultitexture} instance for the current context. */
+	/** Returns the {@link ARBMultitexture} instance of the current context. */
 	public static ARBMultitexture getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBMultitexture);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBMultitexture} instance of the specified {@link GLCapabilities}. */
+	public static ARBMultitexture getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBMultitexture);
 	}
 
 	static ARBMultitexture create(java.util.Set<String> ext, FunctionProvider provider) {

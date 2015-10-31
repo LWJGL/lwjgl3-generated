@@ -60,9 +60,14 @@ public class WGLNVGPUAffinity {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link WGLNVGPUAffinity} instance for the current context. */
+	/** Returns the {@link WGLNVGPUAffinity} instance of the current context. */
 	public static WGLNVGPUAffinity getInstance() {
-		return checkFunctionality(GL.getCapabilities().__WGLNVGPUAffinity);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link WGLNVGPUAffinity} instance of the specified {@link GLCapabilities}. */
+	public static WGLNVGPUAffinity getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__WGLNVGPUAffinity);
 	}
 
 	static WGLNVGPUAffinity create(java.util.Set<String> ext, FunctionProvider provider) {

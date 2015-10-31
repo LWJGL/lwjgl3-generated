@@ -78,9 +78,14 @@ public class ARBWindowPos {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBWindowPos} instance for the current context. */
+	/** Returns the {@link ARBWindowPos} instance of the current context. */
 	public static ARBWindowPos getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBWindowPos);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBWindowPos} instance of the specified {@link GLCapabilities}. */
+	public static ARBWindowPos getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBWindowPos);
 	}
 
 	static ARBWindowPos create(java.util.Set<String> ext, FunctionProvider provider) {

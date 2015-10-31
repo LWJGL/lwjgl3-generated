@@ -118,9 +118,14 @@ public class EXTTransformFeedback {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTTransformFeedback} instance for the current context. */
+	/** Returns the {@link EXTTransformFeedback} instance of the current context. */
 	public static EXTTransformFeedback getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTTransformFeedback);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTTransformFeedback} instance of the specified {@link GLCapabilities}. */
+	public static EXTTransformFeedback getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTTransformFeedback);
 	}
 
 	static EXTTransformFeedback create(java.util.Set<String> ext, FunctionProvider provider) {

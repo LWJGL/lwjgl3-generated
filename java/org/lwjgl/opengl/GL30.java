@@ -657,9 +657,14 @@ public class GL30 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GL30} instance for the current context. */
+	/** Returns the {@link GL30} instance of the current context. */
 	public static GL30 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GL30);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GL30} instance of the specified {@link GLCapabilities}. */
+	public static GL30 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GL30);
 	}
 
 	static GL30 create(java.util.Set<String> ext, FunctionProvider provider) {

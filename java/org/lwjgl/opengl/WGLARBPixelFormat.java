@@ -109,9 +109,14 @@ public class WGLARBPixelFormat {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link WGLARBPixelFormat} instance for the current context. */
+	/** Returns the {@link WGLARBPixelFormat} instance of the current context. */
 	public static WGLARBPixelFormat getInstance() {
-		return checkFunctionality(GL.getCapabilities().__WGLARBPixelFormat);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link WGLARBPixelFormat} instance of the specified {@link GLCapabilities}. */
+	public static WGLARBPixelFormat getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__WGLARBPixelFormat);
 	}
 
 	static WGLARBPixelFormat create(java.util.Set<String> ext, FunctionProvider provider) {

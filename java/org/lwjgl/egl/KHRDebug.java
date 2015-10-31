@@ -90,7 +90,12 @@ public class KHRDebug {
 
 	/** Returns the {@link KHRDebug} instance. */
 	public static KHRDebug getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__KHRDebug);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link KHRDebug} instance of the specified {@link EGLCapabilities}. */
+	public static KHRDebug getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__KHRDebug);
 	}
 
 	// --- [ eglDebugMessageControlKHR ] ---

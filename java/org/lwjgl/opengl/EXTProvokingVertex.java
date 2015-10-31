@@ -60,9 +60,14 @@ public class EXTProvokingVertex {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTProvokingVertex} instance for the current context. */
+	/** Returns the {@link EXTProvokingVertex} instance of the current context. */
 	public static EXTProvokingVertex getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTProvokingVertex);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTProvokingVertex} instance of the specified {@link GLCapabilities}. */
+	public static EXTProvokingVertex getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTProvokingVertex);
 	}
 
 	static EXTProvokingVertex create(java.util.Set<String> ext, FunctionProvider provider) {

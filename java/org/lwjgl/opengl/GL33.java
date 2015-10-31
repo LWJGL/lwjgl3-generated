@@ -217,9 +217,14 @@ public class GL33 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GL33} instance for the current context. */
+	/** Returns the {@link GL33} instance of the current context. */
 	public static GL33 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GL33);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GL33} instance of the specified {@link GLCapabilities}. */
+	public static GL33 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GL33);
 	}
 
 	static GL33 create(java.util.Set<String> ext, FunctionProvider provider, boolean fc) {

@@ -245,9 +245,14 @@ public class GL42 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GL42} instance for the current context. */
+	/** Returns the {@link GL42} instance of the current context. */
 	public static GL42 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GL42);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GL42} instance of the specified {@link GLCapabilities}. */
+	public static GL42 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GL42);
 	}
 
 	static GL42 create(java.util.Set<String> ext, FunctionProvider provider) {

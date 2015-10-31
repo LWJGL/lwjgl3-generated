@@ -149,7 +149,12 @@ public class EGL10 {
 
 	/** Returns the {@link EGL10} instance. */
 	public static EGL10 getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__EGL10);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link EGL10} instance of the specified {@link EGLCapabilities}. */
+	public static EGL10 getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__EGL10);
 	}
 
 	// --- [ eglChooseConfig ] ---

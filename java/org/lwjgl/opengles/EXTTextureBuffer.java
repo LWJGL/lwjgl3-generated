@@ -88,9 +88,14 @@ public class EXTTextureBuffer {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTTextureBuffer} instance for the current context. */
+	/** Returns the {@link EXTTextureBuffer} instance of the current context. */
 	public static EXTTextureBuffer getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTTextureBuffer);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTTextureBuffer} instance of the specified {@link GLESCapabilities}. */
+	public static EXTTextureBuffer getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTTextureBuffer);
 	}
 
 	static EXTTextureBuffer create(java.util.Set<String> ext, FunctionProvider provider) {

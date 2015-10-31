@@ -57,9 +57,14 @@ public class NVFramebufferMultisample {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVFramebufferMultisample} instance for the current context. */
+	/** Returns the {@link NVFramebufferMultisample} instance of the current context. */
 	public static NVFramebufferMultisample getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__NVFramebufferMultisample);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link NVFramebufferMultisample} instance of the specified {@link GLESCapabilities}. */
+	public static NVFramebufferMultisample getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__NVFramebufferMultisample);
 	}
 
 	static NVFramebufferMultisample create(java.util.Set<String> ext, FunctionProvider provider) {

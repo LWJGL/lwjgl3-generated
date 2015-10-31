@@ -41,9 +41,14 @@ public class EXTDrawInstanced {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTDrawInstanced} instance for the current context. */
+	/** Returns the {@link EXTDrawInstanced} instance of the current context. */
 	public static EXTDrawInstanced getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTDrawInstanced);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTDrawInstanced} instance of the specified {@link GLESCapabilities}. */
+	public static EXTDrawInstanced getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTDrawInstanced);
 	}
 
 	static EXTDrawInstanced create(java.util.Set<String> ext, FunctionProvider provider) {

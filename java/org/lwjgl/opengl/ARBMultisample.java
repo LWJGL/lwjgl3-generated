@@ -67,9 +67,14 @@ public class ARBMultisample {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBMultisample} instance for the current context. */
+	/** Returns the {@link ARBMultisample} instance of the current context. */
 	public static ARBMultisample getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBMultisample);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBMultisample} instance of the specified {@link GLCapabilities}. */
+	public static ARBMultisample getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBMultisample);
 	}
 
 	static ARBMultisample create(java.util.Set<String> ext, FunctionProvider provider) {

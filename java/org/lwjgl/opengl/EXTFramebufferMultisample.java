@@ -81,9 +81,14 @@ public class EXTFramebufferMultisample {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTFramebufferMultisample} instance for the current context. */
+	/** Returns the {@link EXTFramebufferMultisample} instance of the current context. */
 	public static EXTFramebufferMultisample getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTFramebufferMultisample);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTFramebufferMultisample} instance of the specified {@link GLCapabilities}. */
+	public static EXTFramebufferMultisample getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTFramebufferMultisample);
 	}
 
 	static EXTFramebufferMultisample create(java.util.Set<String> ext, FunctionProvider provider) {

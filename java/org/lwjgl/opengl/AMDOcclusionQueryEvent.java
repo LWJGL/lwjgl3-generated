@@ -52,9 +52,14 @@ public class AMDOcclusionQueryEvent {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link AMDOcclusionQueryEvent} instance for the current context. */
+	/** Returns the {@link AMDOcclusionQueryEvent} instance of the current context. */
 	public static AMDOcclusionQueryEvent getInstance() {
-		return checkFunctionality(GL.getCapabilities().__AMDOcclusionQueryEvent);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link AMDOcclusionQueryEvent} instance of the specified {@link GLCapabilities}. */
+	public static AMDOcclusionQueryEvent getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__AMDOcclusionQueryEvent);
 	}
 
 	static AMDOcclusionQueryEvent create(java.util.Set<String> ext, FunctionProvider provider) {

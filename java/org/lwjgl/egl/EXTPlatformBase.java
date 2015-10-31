@@ -62,7 +62,12 @@ public class EXTPlatformBase {
 
 	/** Returns the {@link EXTPlatformBase} instance. */
 	public static EXTPlatformBase getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__EXTPlatformBase);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTPlatformBase} instance of the specified {@link EGLCapabilities}. */
+	public static EXTPlatformBase getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__EXTPlatformBase);
 	}
 
 	// --- [ eglGetPlatformDisplayEXT ] ---

@@ -52,9 +52,14 @@ public class EXTPrimitiveBoundingBox {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTPrimitiveBoundingBox} instance for the current context. */
+	/** Returns the {@link EXTPrimitiveBoundingBox} instance of the current context. */
 	public static EXTPrimitiveBoundingBox getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTPrimitiveBoundingBox);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTPrimitiveBoundingBox} instance of the specified {@link GLESCapabilities}. */
+	public static EXTPrimitiveBoundingBox getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTPrimitiveBoundingBox);
 	}
 
 	static EXTPrimitiveBoundingBox create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -52,9 +52,14 @@ public class NVInstancedArrays {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVInstancedArrays} instance for the current context. */
+	/** Returns the {@link NVInstancedArrays} instance of the current context. */
 	public static NVInstancedArrays getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__NVInstancedArrays);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link NVInstancedArrays} instance of the specified {@link GLESCapabilities}. */
+	public static NVInstancedArrays getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__NVInstancedArrays);
 	}
 
 	static NVInstancedArrays create(java.util.Set<String> ext, FunctionProvider provider) {

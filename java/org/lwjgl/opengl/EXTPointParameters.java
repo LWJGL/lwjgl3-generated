@@ -82,9 +82,14 @@ public class EXTPointParameters {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTPointParameters} instance for the current context. */
+	/** Returns the {@link EXTPointParameters} instance of the current context. */
 	public static EXTPointParameters getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTPointParameters);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTPointParameters} instance of the specified {@link GLCapabilities}. */
+	public static EXTPointParameters getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTPointParameters);
 	}
 
 	static EXTPointParameters create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -41,9 +41,14 @@ public class GLXARBGetProcAddress {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GLXARBGetProcAddress} instance for the current context. */
+	/** Returns the {@link GLXARBGetProcAddress} instance of the current context. */
 	public static GLXARBGetProcAddress getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GLXARBGetProcAddress);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GLXARBGetProcAddress} instance of the specified {@link GLCapabilities}. */
+	public static GLXARBGetProcAddress getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GLXARBGetProcAddress);
 	}
 
 	static GLXARBGetProcAddress create(java.util.Set<String> ext, FunctionProvider provider) {

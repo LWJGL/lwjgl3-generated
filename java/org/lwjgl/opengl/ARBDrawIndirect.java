@@ -61,9 +61,14 @@ public class ARBDrawIndirect {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBDrawIndirect} instance for the current context. */
+	/** Returns the {@link ARBDrawIndirect} instance of the current context. */
 	public static ARBDrawIndirect getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBDrawIndirect);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBDrawIndirect} instance of the specified {@link GLCapabilities}. */
+	public static ARBDrawIndirect getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBDrawIndirect);
 	}
 
 	static ARBDrawIndirect create(java.util.Set<String> ext, FunctionProvider provider) {

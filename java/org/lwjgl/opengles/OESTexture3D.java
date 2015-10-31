@@ -67,9 +67,14 @@ public class OESTexture3D {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link OESTexture3D} instance for the current context. */
+	/** Returns the {@link OESTexture3D} instance of the current context. */
 	public static OESTexture3D getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__OESTexture3D);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link OESTexture3D} instance of the specified {@link GLESCapabilities}. */
+	public static OESTexture3D getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__OESTexture3D);
 	}
 
 	static OESTexture3D create(java.util.Set<String> ext, FunctionProvider provider) {

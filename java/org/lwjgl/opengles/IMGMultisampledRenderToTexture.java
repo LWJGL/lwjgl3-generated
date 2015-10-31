@@ -64,9 +64,14 @@ public class IMGMultisampledRenderToTexture {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link IMGMultisampledRenderToTexture} instance for the current context. */
+	/** Returns the {@link IMGMultisampledRenderToTexture} instance of the current context. */
 	public static IMGMultisampledRenderToTexture getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__IMGMultisampledRenderToTexture);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link IMGMultisampledRenderToTexture} instance of the specified {@link GLESCapabilities}. */
+	public static IMGMultisampledRenderToTexture getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__IMGMultisampledRenderToTexture);
 	}
 
 	static IMGMultisampledRenderToTexture create(java.util.Set<String> ext, FunctionProvider provider) {

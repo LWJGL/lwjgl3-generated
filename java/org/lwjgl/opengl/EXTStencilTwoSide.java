@@ -45,9 +45,14 @@ public class EXTStencilTwoSide {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTStencilTwoSide} instance for the current context. */
+	/** Returns the {@link EXTStencilTwoSide} instance of the current context. */
 	public static EXTStencilTwoSide getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTStencilTwoSide);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTStencilTwoSide} instance of the specified {@link GLCapabilities}. */
+	public static EXTStencilTwoSide getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTStencilTwoSide);
 	}
 
 	static EXTStencilTwoSide create(java.util.Set<String> ext, FunctionProvider provider) {

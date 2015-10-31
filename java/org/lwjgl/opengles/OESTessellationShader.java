@@ -147,9 +147,14 @@ public class OESTessellationShader {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link OESTessellationShader} instance for the current context. */
+	/** Returns the {@link OESTessellationShader} instance of the current context. */
 	public static OESTessellationShader getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__OESTessellationShader);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link OESTessellationShader} instance of the specified {@link GLESCapabilities}. */
+	public static OESTessellationShader getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__OESTessellationShader);
 	}
 
 	static OESTessellationShader create(java.util.Set<String> ext, FunctionProvider provider) {

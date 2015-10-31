@@ -69,9 +69,14 @@ public class NVDepthBufferFloat {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVDepthBufferFloat} instance for the current context. */
+	/** Returns the {@link NVDepthBufferFloat} instance of the current context. */
 	public static NVDepthBufferFloat getInstance() {
-		return checkFunctionality(GL.getCapabilities().__NVDepthBufferFloat);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link NVDepthBufferFloat} instance of the specified {@link GLCapabilities}. */
+	public static NVDepthBufferFloat getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__NVDepthBufferFloat);
 	}
 
 	static NVDepthBufferFloat create(java.util.Set<String> ext, FunctionProvider provider) {

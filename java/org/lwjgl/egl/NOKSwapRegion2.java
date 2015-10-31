@@ -50,7 +50,12 @@ public class NOKSwapRegion2 {
 
 	/** Returns the {@link NOKSwapRegion2} instance. */
 	public static NOKSwapRegion2 getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__NOKSwapRegion2);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link NOKSwapRegion2} instance of the specified {@link EGLCapabilities}. */
+	public static NOKSwapRegion2 getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__NOKSwapRegion2);
 	}
 
 	// --- [ eglSwapBuffersRegion2NOK ] ---

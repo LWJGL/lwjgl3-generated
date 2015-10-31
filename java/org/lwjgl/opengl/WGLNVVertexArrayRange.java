@@ -35,9 +35,14 @@ public class WGLNVVertexArrayRange {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link WGLNVVertexArrayRange} instance for the current context. */
+	/** Returns the {@link WGLNVVertexArrayRange} instance of the current context. */
 	public static WGLNVVertexArrayRange getInstance() {
-		return checkFunctionality(GL.getCapabilities().__WGLNVVertexArrayRange);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link WGLNVVertexArrayRange} instance of the specified {@link GLCapabilities}. */
+	public static WGLNVVertexArrayRange getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__WGLNVVertexArrayRange);
 	}
 
 	static WGLNVVertexArrayRange create(java.util.Set<String> ext, FunctionProvider provider) {

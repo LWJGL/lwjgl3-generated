@@ -61,7 +61,12 @@ public class EXTDeviceBase {
 
 	/** Returns the {@link EXTDeviceBase} instance. */
 	public static EXTDeviceBase getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__EXTDeviceBase);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTDeviceBase} instance of the specified {@link EGLCapabilities}. */
+	public static EXTDeviceBase getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__EXTDeviceBase);
 	}
 
 	// --- [ eglQueryDeviceAttribEXT ] ---

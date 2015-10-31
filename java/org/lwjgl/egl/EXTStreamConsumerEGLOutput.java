@@ -45,7 +45,12 @@ public class EXTStreamConsumerEGLOutput {
 
 	/** Returns the {@link EXTStreamConsumerEGLOutput} instance. */
 	public static EXTStreamConsumerEGLOutput getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__EXTStreamConsumerEGLOutput);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTStreamConsumerEGLOutput} instance of the specified {@link EGLCapabilities}. */
+	public static EXTStreamConsumerEGLOutput getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__EXTStreamConsumerEGLOutput);
 	}
 
 	// --- [ eglStreamConsumerOutputEXT ] ---

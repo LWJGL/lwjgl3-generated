@@ -81,9 +81,14 @@ public class NVCoverageSample {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVCoverageSample} instance for the current context. */
+	/** Returns the {@link NVCoverageSample} instance of the current context. */
 	public static NVCoverageSample getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__NVCoverageSample);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link NVCoverageSample} instance of the specified {@link GLESCapabilities}. */
+	public static NVCoverageSample getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__NVCoverageSample);
 	}
 
 	static NVCoverageSample create(java.util.Set<String> ext, FunctionProvider provider) {

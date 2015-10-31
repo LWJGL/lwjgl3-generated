@@ -125,9 +125,14 @@ public class OESGeometryShader {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link OESGeometryShader} instance for the current context. */
+	/** Returns the {@link OESGeometryShader} instance of the current context. */
 	public static OESGeometryShader getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__OESGeometryShader);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link OESGeometryShader} instance of the specified {@link GLESCapabilities}. */
+	public static OESGeometryShader getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__OESGeometryShader);
 	}
 
 	static OESGeometryShader create(java.util.Set<String> ext, FunctionProvider provider) {

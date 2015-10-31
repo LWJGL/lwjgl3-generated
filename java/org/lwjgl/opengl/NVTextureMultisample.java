@@ -53,9 +53,14 @@ public class NVTextureMultisample {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVTextureMultisample} instance for the current context. */
+	/** Returns the {@link NVTextureMultisample} instance of the current context. */
 	public static NVTextureMultisample getInstance() {
-		return checkFunctionality(GL.getCapabilities().__NVTextureMultisample);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link NVTextureMultisample} instance of the specified {@link GLCapabilities}. */
+	public static NVTextureMultisample getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__NVTextureMultisample);
 	}
 
 	static NVTextureMultisample create(java.util.Set<String> ext, FunctionProvider provider) {

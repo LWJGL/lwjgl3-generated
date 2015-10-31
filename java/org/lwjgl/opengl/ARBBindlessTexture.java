@@ -96,9 +96,14 @@ public class ARBBindlessTexture {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBBindlessTexture} instance for the current context. */
+	/** Returns the {@link ARBBindlessTexture} instance of the current context. */
 	public static ARBBindlessTexture getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBBindlessTexture);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBBindlessTexture} instance of the specified {@link GLCapabilities}. */
+	public static ARBBindlessTexture getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBBindlessTexture);
 	}
 
 	static ARBBindlessTexture create(java.util.Set<String> ext, FunctionProvider provider) {

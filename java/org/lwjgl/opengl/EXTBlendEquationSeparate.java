@@ -49,9 +49,14 @@ public class EXTBlendEquationSeparate {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTBlendEquationSeparate} instance for the current context. */
+	/** Returns the {@link EXTBlendEquationSeparate} instance of the current context. */
 	public static EXTBlendEquationSeparate getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTBlendEquationSeparate);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTBlendEquationSeparate} instance of the specified {@link GLCapabilities}. */
+	public static EXTBlendEquationSeparate getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTBlendEquationSeparate);
 	}
 
 	static EXTBlendEquationSeparate create(java.util.Set<String> ext, FunctionProvider provider) {

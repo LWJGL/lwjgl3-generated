@@ -67,9 +67,14 @@ public class ARBBufferStorage {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBBufferStorage} instance for the current context. */
+	/** Returns the {@link ARBBufferStorage} instance of the current context. */
 	public static ARBBufferStorage getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBBufferStorage);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBBufferStorage} instance of the specified {@link GLCapabilities}. */
+	public static ARBBufferStorage getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBBufferStorage);
 	}
 
 	static ARBBufferStorage create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -35,9 +35,14 @@ public class OVRMultiviewMultisampledRenderToTexture {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link OVRMultiviewMultisampledRenderToTexture} instance for the current context. */
+	/** Returns the {@link OVRMultiviewMultisampledRenderToTexture} instance of the current context. */
 	public static OVRMultiviewMultisampledRenderToTexture getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__OVRMultiviewMultisampledRenderToTexture);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link OVRMultiviewMultisampledRenderToTexture} instance of the specified {@link GLESCapabilities}. */
+	public static OVRMultiviewMultisampledRenderToTexture getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__OVRMultiviewMultisampledRenderToTexture);
 	}
 
 	static OVRMultiviewMultisampledRenderToTexture create(java.util.Set<String> ext, FunctionProvider provider) {

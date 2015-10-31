@@ -75,9 +75,14 @@ public class ARBShaderSubroutine {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBShaderSubroutine} instance for the current context. */
+	/** Returns the {@link ARBShaderSubroutine} instance of the current context. */
 	public static ARBShaderSubroutine getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBShaderSubroutine);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBShaderSubroutine} instance of the specified {@link GLCapabilities}. */
+	public static ARBShaderSubroutine getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBShaderSubroutine);
 	}
 
 	static ARBShaderSubroutine create(java.util.Set<String> ext, FunctionProvider provider) {

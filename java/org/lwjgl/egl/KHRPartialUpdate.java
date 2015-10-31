@@ -56,7 +56,12 @@ public class KHRPartialUpdate {
 
 	/** Returns the {@link KHRPartialUpdate} instance. */
 	public static KHRPartialUpdate getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__KHRPartialUpdate);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link KHRPartialUpdate} instance of the specified {@link EGLCapabilities}. */
+	public static KHRPartialUpdate getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__KHRPartialUpdate);
 	}
 
 	// --- [ eglSetDamageRegionKHR ] ---

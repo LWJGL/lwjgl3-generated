@@ -44,9 +44,14 @@ public class ARBParallelShaderCompile {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBParallelShaderCompile} instance for the current context. */
+	/** Returns the {@link ARBParallelShaderCompile} instance of the current context. */
 	public static ARBParallelShaderCompile getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBParallelShaderCompile);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBParallelShaderCompile} instance of the specified {@link GLCapabilities}. */
+	public static ARBParallelShaderCompile getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBParallelShaderCompile);
 	}
 
 	static ARBParallelShaderCompile create(java.util.Set<String> ext, FunctionProvider provider) {

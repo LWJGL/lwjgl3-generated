@@ -61,9 +61,14 @@ public class ARBTextureView {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBTextureView} instance for the current context. */
+	/** Returns the {@link ARBTextureView} instance of the current context. */
 	public static ARBTextureView getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBTextureView);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBTextureView} instance of the specified {@link GLCapabilities}. */
+	public static ARBTextureView getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBTextureView);
 	}
 
 	static ARBTextureView create(java.util.Set<String> ext, FunctionProvider provider) {

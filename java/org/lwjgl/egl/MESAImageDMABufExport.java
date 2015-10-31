@@ -48,7 +48,12 @@ public class MESAImageDMABufExport {
 
 	/** Returns the {@link MESAImageDMABufExport} instance. */
 	public static MESAImageDMABufExport getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__MESAImageDMABufExport);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link MESAImageDMABufExport} instance of the specified {@link EGLCapabilities}. */
+	public static MESAImageDMABufExport getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__MESAImageDMABufExport);
 	}
 
 	// --- [ eglExportDMABUFImageQueryMESA ] ---

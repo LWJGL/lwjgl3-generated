@@ -73,7 +73,12 @@ public class KHRLockSurface3 {
 
 	/** Returns the {@link KHRLockSurface3} instance. */
 	public static KHRLockSurface3 getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__KHRLockSurface3);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link KHRLockSurface3} instance of the specified {@link EGLCapabilities}. */
+	public static KHRLockSurface3 getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__KHRLockSurface3);
 	}
 
 	// --- [ eglLockSurfaceKHR ] ---

@@ -55,7 +55,12 @@ public class KHRCLEvent2 {
 
 	/** Returns the {@link KHRCLEvent2} instance. */
 	public static KHRCLEvent2 getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__KHRCLEvent2);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link KHRCLEvent2} instance of the specified {@link EGLCapabilities}. */
+	public static KHRCLEvent2 getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__KHRCLEvent2);
 	}
 
 	// --- [ eglCreateSync64KHR ] ---

@@ -52,9 +52,14 @@ public class OESPrimitiveBoundingBox {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link OESPrimitiveBoundingBox} instance for the current context. */
+	/** Returns the {@link OESPrimitiveBoundingBox} instance of the current context. */
 	public static OESPrimitiveBoundingBox getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__OESPrimitiveBoundingBox);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link OESPrimitiveBoundingBox} instance of the specified {@link GLESCapabilities}. */
+	public static OESPrimitiveBoundingBox getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__OESPrimitiveBoundingBox);
 	}
 
 	static OESPrimitiveBoundingBox create(java.util.Set<String> ext, FunctionProvider provider) {

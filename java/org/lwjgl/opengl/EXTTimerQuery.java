@@ -56,9 +56,14 @@ public class EXTTimerQuery {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTTimerQuery} instance for the current context. */
+	/** Returns the {@link EXTTimerQuery} instance of the current context. */
 	public static EXTTimerQuery getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTTimerQuery);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTTimerQuery} instance of the specified {@link GLCapabilities}. */
+	public static EXTTimerQuery getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTTimerQuery);
 	}
 
 	static EXTTimerQuery create(java.util.Set<String> ext, FunctionProvider provider) {

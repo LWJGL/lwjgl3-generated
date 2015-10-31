@@ -71,9 +71,14 @@ public class EXTMultiviewDrawBuffers {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTMultiviewDrawBuffers} instance for the current context. */
+	/** Returns the {@link EXTMultiviewDrawBuffers} instance of the current context. */
 	public static EXTMultiviewDrawBuffers getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTMultiviewDrawBuffers);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTMultiviewDrawBuffers} instance of the specified {@link GLESCapabilities}. */
+	public static EXTMultiviewDrawBuffers getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTMultiviewDrawBuffers);
 	}
 
 	static EXTMultiviewDrawBuffers create(java.util.Set<String> ext, FunctionProvider provider) {

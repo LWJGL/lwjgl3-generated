@@ -132,9 +132,14 @@ public class ARBTessellationShader {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBTessellationShader} instance for the current context. */
+	/** Returns the {@link ARBTessellationShader} instance of the current context. */
 	public static ARBTessellationShader getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBTessellationShader);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBTessellationShader} instance of the specified {@link GLCapabilities}. */
+	public static ARBTessellationShader getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBTessellationShader);
 	}
 
 	static ARBTessellationShader create(java.util.Set<String> ext, FunctionProvider provider) {

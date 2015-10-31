@@ -45,7 +45,12 @@ public class NVNativeQuery {
 
 	/** Returns the {@link NVNativeQuery} instance. */
 	public static NVNativeQuery getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__NVNativeQuery);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link NVNativeQuery} instance of the specified {@link EGLCapabilities}. */
+	public static NVNativeQuery getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__NVNativeQuery);
 	}
 
 	// --- [ eglQueryNativeDisplayNV ] ---

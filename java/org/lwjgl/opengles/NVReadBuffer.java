@@ -44,9 +44,14 @@ public class NVReadBuffer {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVReadBuffer} instance for the current context. */
+	/** Returns the {@link NVReadBuffer} instance of the current context. */
 	public static NVReadBuffer getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__NVReadBuffer);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link NVReadBuffer} instance of the specified {@link GLESCapabilities}. */
+	public static NVReadBuffer getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__NVReadBuffer);
 	}
 
 	static NVReadBuffer create(java.util.Set<String> ext, FunctionProvider provider) {

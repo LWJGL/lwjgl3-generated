@@ -88,9 +88,14 @@ public class OESTextureBuffer {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link OESTextureBuffer} instance for the current context. */
+	/** Returns the {@link OESTextureBuffer} instance of the current context. */
 	public static OESTextureBuffer getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__OESTextureBuffer);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link OESTextureBuffer} instance of the specified {@link GLESCapabilities}. */
+	public static OESTextureBuffer getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__OESTextureBuffer);
 	}
 
 	static OESTextureBuffer create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -240,9 +240,14 @@ public class CL12 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link CL12} instance for the currently loaded ICD. */
+	/** Returns the {@link CL12} instance of the currently loaded ICD. */
 	public static CL12 getInstance() {
-		return checkFunctionality(CL.getICD().__CL12);
+		return getInstance(CL.getICD());
+	}
+
+	/** Returns the {@link CL12} instance of the specified {@link CLCapabilities}. */
+	public static CL12 getInstance(CLCapabilities caps) {
+		return checkFunctionality(caps.__CL12);
 	}
 
 	static CL12 create(FunctionProvider provider) {

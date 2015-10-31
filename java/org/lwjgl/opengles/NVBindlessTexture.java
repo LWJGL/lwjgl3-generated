@@ -85,9 +85,14 @@ public class NVBindlessTexture {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVBindlessTexture} instance for the current context. */
+	/** Returns the {@link NVBindlessTexture} instance of the current context. */
 	public static NVBindlessTexture getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__NVBindlessTexture);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link NVBindlessTexture} instance of the specified {@link GLESCapabilities}. */
+	public static NVBindlessTexture getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__NVBindlessTexture);
 	}
 
 	static NVBindlessTexture create(java.util.Set<String> ext, FunctionProvider provider) {

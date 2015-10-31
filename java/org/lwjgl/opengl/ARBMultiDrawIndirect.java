@@ -48,9 +48,14 @@ public class ARBMultiDrawIndirect {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBMultiDrawIndirect} instance for the current context. */
+	/** Returns the {@link ARBMultiDrawIndirect} instance of the current context. */
 	public static ARBMultiDrawIndirect getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBMultiDrawIndirect);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBMultiDrawIndirect} instance of the specified {@link GLCapabilities}. */
+	public static ARBMultiDrawIndirect getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBMultiDrawIndirect);
 	}
 
 	static ARBMultiDrawIndirect create(java.util.Set<String> ext, FunctionProvider provider) {

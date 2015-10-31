@@ -622,9 +622,14 @@ public class GLES20 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GLES20} instance for the current context. */
+	/** Returns the {@link GLES20} instance of the current context. */
 	public static GLES20 getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__GLES20);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link GLES20} instance of the specified {@link GLESCapabilities}. */
+	public static GLES20 getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__GLES20);
 	}
 
 	static GLES20 create(java.util.Set<String> ext, FunctionProvider provider) {

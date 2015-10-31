@@ -379,9 +379,14 @@ public class ARBFramebufferObject {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBFramebufferObject} instance for the current context. */
+	/** Returns the {@link ARBFramebufferObject} instance of the current context. */
 	public static ARBFramebufferObject getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBFramebufferObject);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBFramebufferObject} instance of the specified {@link GLCapabilities}. */
+	public static ARBFramebufferObject getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBFramebufferObject);
 	}
 
 	static ARBFramebufferObject create(java.util.Set<String> ext, FunctionProvider provider) {

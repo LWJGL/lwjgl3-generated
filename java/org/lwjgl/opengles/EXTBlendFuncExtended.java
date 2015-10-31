@@ -75,9 +75,14 @@ public class EXTBlendFuncExtended {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTBlendFuncExtended} instance for the current context. */
+	/** Returns the {@link EXTBlendFuncExtended} instance of the current context. */
 	public static EXTBlendFuncExtended getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTBlendFuncExtended);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTBlendFuncExtended} instance of the specified {@link GLESCapabilities}. */
+	public static EXTBlendFuncExtended getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTBlendFuncExtended);
 	}
 
 	static EXTBlendFuncExtended create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -93,9 +93,14 @@ public class EXTDisjointTimerQuery {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTDisjointTimerQuery} instance for the current context. */
+	/** Returns the {@link EXTDisjointTimerQuery} instance of the current context. */
 	public static EXTDisjointTimerQuery getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTDisjointTimerQuery);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTDisjointTimerQuery} instance of the specified {@link GLESCapabilities}. */
+	public static EXTDisjointTimerQuery getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTDisjointTimerQuery);
 	}
 
 	static EXTDisjointTimerQuery create(java.util.Set<String> ext, FunctionProvider provider) {

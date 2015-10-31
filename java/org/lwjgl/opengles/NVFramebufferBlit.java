@@ -51,9 +51,14 @@ public class NVFramebufferBlit {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVFramebufferBlit} instance for the current context. */
+	/** Returns the {@link NVFramebufferBlit} instance of the current context. */
 	public static NVFramebufferBlit getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__NVFramebufferBlit);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link NVFramebufferBlit} instance of the specified {@link GLESCapabilities}. */
+	public static NVFramebufferBlit getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__NVFramebufferBlit);
 	}
 
 	static NVFramebufferBlit create(java.util.Set<String> ext, FunctionProvider provider) {

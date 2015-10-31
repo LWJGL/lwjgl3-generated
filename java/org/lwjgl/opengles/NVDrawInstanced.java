@@ -53,9 +53,14 @@ public class NVDrawInstanced {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVDrawInstanced} instance for the current context. */
+	/** Returns the {@link NVDrawInstanced} instance of the current context. */
 	public static NVDrawInstanced getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__NVDrawInstanced);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link NVDrawInstanced} instance of the specified {@link GLESCapabilities}. */
+	public static NVDrawInstanced getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__NVDrawInstanced);
 	}
 
 	static NVDrawInstanced create(java.util.Set<String> ext, FunctionProvider provider) {

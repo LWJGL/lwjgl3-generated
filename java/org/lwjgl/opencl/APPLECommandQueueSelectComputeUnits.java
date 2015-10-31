@@ -37,9 +37,14 @@ public class APPLECommandQueueSelectComputeUnits {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link APPLECommandQueueSelectComputeUnits} instance for the currently loaded ICD. */
+	/** Returns the {@link APPLECommandQueueSelectComputeUnits} instance of the currently loaded ICD. */
 	public static APPLECommandQueueSelectComputeUnits getInstance() {
-		return checkFunctionality(CL.getICD().__APPLECommandQueueSelectComputeUnits);
+		return getInstance(CL.getICD());
+	}
+
+	/** Returns the {@link APPLECommandQueueSelectComputeUnits} instance of the specified {@link CLCapabilities}. */
+	public static APPLECommandQueueSelectComputeUnits getInstance(CLCapabilities caps) {
+		return checkFunctionality(caps.__APPLECommandQueueSelectComputeUnits);
 	}
 
 	static APPLECommandQueueSelectComputeUnits create(FunctionProvider provider) {

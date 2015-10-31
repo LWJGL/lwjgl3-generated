@@ -40,9 +40,14 @@ public class GLXSGIVideoSync {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GLXSGIVideoSync} instance for the current context. */
+	/** Returns the {@link GLXSGIVideoSync} instance of the current context. */
 	public static GLXSGIVideoSync getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GLXSGIVideoSync);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GLXSGIVideoSync} instance of the specified {@link GLCapabilities}. */
+	public static GLXSGIVideoSync getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GLXSGIVideoSync);
 	}
 
 	static GLXSGIVideoSync create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -42,7 +42,12 @@ public class HIClientpixmap {
 
 	/** Returns the {@link HIClientpixmap} instance. */
 	public static HIClientpixmap getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__HIClientpixmap);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link HIClientpixmap} instance of the specified {@link EGLCapabilities}. */
+	public static HIClientpixmap getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__HIClientpixmap);
 	}
 
 	// --- [ eglCreatePixmapSurfaceHI ] ---

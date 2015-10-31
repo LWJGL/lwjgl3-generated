@@ -83,9 +83,14 @@ public class WGLARBPbuffer {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link WGLARBPbuffer} instance for the current context. */
+	/** Returns the {@link WGLARBPbuffer} instance of the current context. */
 	public static WGLARBPbuffer getInstance() {
-		return checkFunctionality(GL.getCapabilities().__WGLARBPbuffer);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link WGLARBPbuffer} instance of the specified {@link GLCapabilities}. */
+	public static WGLARBPbuffer getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__WGLARBPbuffer);
 	}
 
 	static WGLARBPbuffer create(java.util.Set<String> ext, FunctionProvider provider) {

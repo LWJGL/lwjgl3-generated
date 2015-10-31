@@ -46,9 +46,14 @@ public class OESCopyImage {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link OESCopyImage} instance for the current context. */
+	/** Returns the {@link OESCopyImage} instance of the current context. */
 	public static OESCopyImage getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__OESCopyImage);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link OESCopyImage} instance of the specified {@link GLESCapabilities}. */
+	public static OESCopyImage getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__OESCopyImage);
 	}
 
 	static OESCopyImage create(java.util.Set<String> ext, FunctionProvider provider) {

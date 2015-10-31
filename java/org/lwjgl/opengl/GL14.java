@@ -269,9 +269,14 @@ public class GL14 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GL14} instance for the current context. */
+	/** Returns the {@link GL14} instance of the current context. */
 	public static GL14 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GL14);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GL14} instance of the specified {@link GLCapabilities}. */
+	public static GL14 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GL14);
 	}
 
 	static GL14 create(java.util.Set<String> ext, FunctionProvider provider, boolean fc) {

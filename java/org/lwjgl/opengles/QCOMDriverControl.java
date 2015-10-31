@@ -52,9 +52,14 @@ public class QCOMDriverControl {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link QCOMDriverControl} instance for the current context. */
+	/** Returns the {@link QCOMDriverControl} instance of the current context. */
 	public static QCOMDriverControl getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__QCOMDriverControl);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link QCOMDriverControl} instance of the specified {@link GLESCapabilities}. */
+	public static QCOMDriverControl getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__QCOMDriverControl);
 	}
 
 	static QCOMDriverControl create(java.util.Set<String> ext, FunctionProvider provider) {

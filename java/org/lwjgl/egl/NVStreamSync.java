@@ -47,7 +47,12 @@ public class NVStreamSync {
 
 	/** Returns the {@link NVStreamSync} instance. */
 	public static NVStreamSync getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__NVStreamSync);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link NVStreamSync} instance of the specified {@link EGLCapabilities}. */
+	public static NVStreamSync getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__NVStreamSync);
 	}
 
 	// --- [ eglCreateStreamSyncNV ] ---

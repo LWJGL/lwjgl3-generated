@@ -43,9 +43,14 @@ public class NVCopyBuffer {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVCopyBuffer} instance for the current context. */
+	/** Returns the {@link NVCopyBuffer} instance of the current context. */
 	public static NVCopyBuffer getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__NVCopyBuffer);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link NVCopyBuffer} instance of the specified {@link GLESCapabilities}. */
+	public static NVCopyBuffer getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__NVCopyBuffer);
 	}
 
 	static NVCopyBuffer create(java.util.Set<String> ext, FunctionProvider provider) {

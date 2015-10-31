@@ -77,7 +77,7 @@ public class SOFTSourceLatency {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link SOFTSourceLatency} instance for the current context. */
+	/** Returns the {@link SOFTSourceLatency} instance of the current context. */
 	public static SOFTSourceLatency getInstance() {
 		return checkFunctionality(AL.getCapabilities().__SOFTSourceLatency);
 	}

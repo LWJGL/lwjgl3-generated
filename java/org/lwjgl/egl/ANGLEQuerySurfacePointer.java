@@ -40,7 +40,12 @@ public class ANGLEQuerySurfacePointer {
 
 	/** Returns the {@link ANGLEQuerySurfacePointer} instance. */
 	public static ANGLEQuerySurfacePointer getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__ANGLEQuerySurfacePointer);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link ANGLEQuerySurfacePointer} instance of the specified {@link EGLCapabilities}. */
+	public static ANGLEQuerySurfacePointer getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__ANGLEQuerySurfacePointer);
 	}
 
 	// --- [ eglQuerySurfacePointerANGLE ] ---

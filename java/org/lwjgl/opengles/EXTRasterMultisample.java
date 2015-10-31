@@ -56,9 +56,14 @@ public class EXTRasterMultisample {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTRasterMultisample} instance for the current context. */
+	/** Returns the {@link EXTRasterMultisample} instance of the current context. */
 	public static EXTRasterMultisample getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTRasterMultisample);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTRasterMultisample} instance of the specified {@link GLESCapabilities}. */
+	public static EXTRasterMultisample getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTRasterMultisample);
 	}
 
 	static EXTRasterMultisample create(java.util.Set<String> ext, FunctionProvider provider) {

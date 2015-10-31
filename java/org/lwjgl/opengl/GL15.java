@@ -164,9 +164,14 @@ public class GL15 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GL15} instance for the current context. */
+	/** Returns the {@link GL15} instance of the current context. */
 	public static GL15 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GL15);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GL15} instance of the specified {@link GLCapabilities}. */
+	public static GL15 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GL15);
 	}
 
 	static GL15 create(java.util.Set<String> ext, FunctionProvider provider) {

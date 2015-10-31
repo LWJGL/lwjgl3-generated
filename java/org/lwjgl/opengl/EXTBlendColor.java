@@ -47,9 +47,14 @@ public class EXTBlendColor {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTBlendColor} instance for the current context. */
+	/** Returns the {@link EXTBlendColor} instance of the current context. */
 	public static EXTBlendColor getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTBlendColor);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTBlendColor} instance of the specified {@link GLCapabilities}. */
+	public static EXTBlendColor getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTBlendColor);
 	}
 
 	static EXTBlendColor create(java.util.Set<String> ext, FunctionProvider provider) {

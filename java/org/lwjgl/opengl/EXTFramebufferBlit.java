@@ -51,9 +51,14 @@ public class EXTFramebufferBlit {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTFramebufferBlit} instance for the current context. */
+	/** Returns the {@link EXTFramebufferBlit} instance of the current context. */
 	public static EXTFramebufferBlit getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTFramebufferBlit);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTFramebufferBlit} instance of the specified {@link GLCapabilities}. */
+	public static EXTFramebufferBlit getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTFramebufferBlit);
 	}
 
 	static EXTFramebufferBlit create(java.util.Set<String> ext, FunctionProvider provider) {

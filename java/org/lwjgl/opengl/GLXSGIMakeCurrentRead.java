@@ -39,9 +39,14 @@ public class GLXSGIMakeCurrentRead {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GLXSGIMakeCurrentRead} instance for the current context. */
+	/** Returns the {@link GLXSGIMakeCurrentRead} instance of the current context. */
 	public static GLXSGIMakeCurrentRead getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GLXSGIMakeCurrentRead);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GLXSGIMakeCurrentRead} instance of the specified {@link GLCapabilities}. */
+	public static GLXSGIMakeCurrentRead getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GLXSGIMakeCurrentRead);
 	}
 
 	static GLXSGIMakeCurrentRead create(java.util.Set<String> ext, FunctionProvider provider) {

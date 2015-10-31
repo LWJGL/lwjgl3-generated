@@ -62,9 +62,14 @@ public class WGLNVDXInterop {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link WGLNVDXInterop} instance for the current context. */
+	/** Returns the {@link WGLNVDXInterop} instance of the current context. */
 	public static WGLNVDXInterop getInstance() {
-		return checkFunctionality(GL.getCapabilities().__WGLNVDXInterop);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link WGLNVDXInterop} instance of the specified {@link GLCapabilities}. */
+	public static WGLNVDXInterop getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__WGLNVDXInterop);
 	}
 
 	static WGLNVDXInterop create(java.util.Set<String> ext, FunctionProvider provider) {

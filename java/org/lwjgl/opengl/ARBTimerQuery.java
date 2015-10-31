@@ -64,9 +64,14 @@ public class ARBTimerQuery {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBTimerQuery} instance for the current context. */
+	/** Returns the {@link ARBTimerQuery} instance of the current context. */
 	public static ARBTimerQuery getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBTimerQuery);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBTimerQuery} instance of the specified {@link GLCapabilities}. */
+	public static ARBTimerQuery getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBTimerQuery);
 	}
 
 	static ARBTimerQuery create(java.util.Set<String> ext, FunctionProvider provider) {

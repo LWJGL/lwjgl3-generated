@@ -145,9 +145,14 @@ public class ARBVertexBufferObject {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBVertexBufferObject} instance for the current context. */
+	/** Returns the {@link ARBVertexBufferObject} instance of the current context. */
 	public static ARBVertexBufferObject getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBVertexBufferObject);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBVertexBufferObject} instance of the specified {@link GLCapabilities}. */
+	public static ARBVertexBufferObject getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBVertexBufferObject);
 	}
 
 	static ARBVertexBufferObject create(java.util.Set<String> ext, FunctionProvider provider) {

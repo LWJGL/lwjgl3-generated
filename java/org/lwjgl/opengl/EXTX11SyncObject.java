@@ -50,9 +50,14 @@ public class EXTX11SyncObject {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTX11SyncObject} instance for the current context. */
+	/** Returns the {@link EXTX11SyncObject} instance of the current context. */
 	public static EXTX11SyncObject getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTX11SyncObject);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTX11SyncObject} instance of the specified {@link GLCapabilities}. */
+	public static EXTX11SyncObject getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTX11SyncObject);
 	}
 
 	static EXTX11SyncObject create(java.util.Set<String> ext, FunctionProvider provider) {

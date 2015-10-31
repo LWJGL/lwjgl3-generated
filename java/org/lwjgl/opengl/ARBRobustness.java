@@ -145,9 +145,14 @@ public class ARBRobustness {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBRobustness} instance for the current context. */
+	/** Returns the {@link ARBRobustness} instance of the current context. */
 	public static ARBRobustness getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBRobustness);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBRobustness} instance of the specified {@link GLCapabilities}. */
+	public static ARBRobustness getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBRobustness);
 	}
 
 	static ARBRobustness create(java.util.Set<String> ext, FunctionProvider provider) {

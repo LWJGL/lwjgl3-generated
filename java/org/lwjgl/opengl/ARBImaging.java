@@ -283,9 +283,14 @@ public class ARBImaging {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBImaging} instance for the current context. */
+	/** Returns the {@link ARBImaging} instance of the current context. */
 	public static ARBImaging getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBImaging);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBImaging} instance of the specified {@link GLCapabilities}. */
+	public static ARBImaging getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBImaging);
 	}
 
 	static ARBImaging create(java.util.Set<String> ext, FunctionProvider provider, boolean fc) {

@@ -54,9 +54,14 @@ public class GLXNVSwapGroup {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GLXNVSwapGroup} instance for the current context. */
+	/** Returns the {@link GLXNVSwapGroup} instance of the current context. */
 	public static GLXNVSwapGroup getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GLXNVSwapGroup);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GLXNVSwapGroup} instance of the specified {@link GLCapabilities}. */
+	public static GLXNVSwapGroup getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GLXNVSwapGroup);
 	}
 
 	static GLXNVSwapGroup create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -61,9 +61,14 @@ public class ARBTextureStorage {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBTextureStorage} instance for the current context. */
+	/** Returns the {@link ARBTextureStorage} instance of the current context. */
 	public static ARBTextureStorage getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBTextureStorage);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBTextureStorage} instance of the specified {@link GLCapabilities}. */
+	public static ARBTextureStorage getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBTextureStorage);
 	}
 
 	static ARBTextureStorage create(java.util.Set<String> ext, FunctionProvider provider) {

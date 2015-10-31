@@ -45,9 +45,14 @@ public class WGLARBMakeCurrentRead {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link WGLARBMakeCurrentRead} instance for the current context. */
+	/** Returns the {@link WGLARBMakeCurrentRead} instance of the current context. */
 	public static WGLARBMakeCurrentRead getInstance() {
-		return checkFunctionality(GL.getCapabilities().__WGLARBMakeCurrentRead);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link WGLARBMakeCurrentRead} instance of the specified {@link GLCapabilities}. */
+	public static WGLARBMakeCurrentRead getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__WGLARBMakeCurrentRead);
 	}
 
 	static WGLARBMakeCurrentRead create(java.util.Set<String> ext, FunctionProvider provider) {

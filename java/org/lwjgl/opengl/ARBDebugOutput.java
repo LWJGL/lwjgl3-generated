@@ -159,9 +159,14 @@ public class ARBDebugOutput {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBDebugOutput} instance for the current context. */
+	/** Returns the {@link ARBDebugOutput} instance of the current context. */
 	public static ARBDebugOutput getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBDebugOutput);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBDebugOutput} instance of the specified {@link GLCapabilities}. */
+	public static ARBDebugOutput getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBDebugOutput);
 	}
 
 	static ARBDebugOutput create(java.util.Set<String> ext, FunctionProvider provider) {

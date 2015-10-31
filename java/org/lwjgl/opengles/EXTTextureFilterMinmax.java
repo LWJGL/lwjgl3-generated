@@ -55,9 +55,14 @@ public class EXTTextureFilterMinmax {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTTextureFilterMinmax} instance for the current context. */
+	/** Returns the {@link EXTTextureFilterMinmax} instance of the current context. */
 	public static EXTTextureFilterMinmax getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTTextureFilterMinmax);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTTextureFilterMinmax} instance of the specified {@link GLESCapabilities}. */
+	public static EXTTextureFilterMinmax getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTTextureFilterMinmax);
 	}
 
 	static EXTTextureFilterMinmax create(java.util.Set<String> ext, FunctionProvider provider) {

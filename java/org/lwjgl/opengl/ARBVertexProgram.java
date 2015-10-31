@@ -300,9 +300,14 @@ public class ARBVertexProgram {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBVertexProgram} instance for the current context. */
+	/** Returns the {@link ARBVertexProgram} instance of the current context. */
 	public static ARBVertexProgram getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBVertexProgram);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBVertexProgram} instance of the specified {@link GLCapabilities}. */
+	public static ARBVertexProgram getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBVertexProgram);
 	}
 
 	static ARBVertexProgram create(java.util.Set<String> ext, FunctionProvider provider) {

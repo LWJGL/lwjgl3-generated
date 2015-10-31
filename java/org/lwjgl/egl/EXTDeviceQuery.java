@@ -58,7 +58,12 @@ public class EXTDeviceQuery {
 
 	/** Returns the {@link EXTDeviceQuery} instance. */
 	public static EXTDeviceQuery getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__EXTDeviceQuery);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTDeviceQuery} instance of the specified {@link EGLCapabilities}. */
+	public static EXTDeviceQuery getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__EXTDeviceQuery);
 	}
 
 	// --- [ eglQueryDeviceAttribEXT ] ---

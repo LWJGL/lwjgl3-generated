@@ -73,9 +73,14 @@ public class ARBInvalidateSubdata {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBInvalidateSubdata} instance for the current context. */
+	/** Returns the {@link ARBInvalidateSubdata} instance of the current context. */
 	public static ARBInvalidateSubdata getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBInvalidateSubdata);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBInvalidateSubdata} instance of the specified {@link GLCapabilities}. */
+	public static ARBInvalidateSubdata getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBInvalidateSubdata);
 	}
 
 	static ARBInvalidateSubdata create(java.util.Set<String> ext, FunctionProvider provider) {

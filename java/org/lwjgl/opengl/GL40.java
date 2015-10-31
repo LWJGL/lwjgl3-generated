@@ -296,9 +296,14 @@ public class GL40 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GL40} instance for the current context. */
+	/** Returns the {@link GL40} instance of the current context. */
 	public static GL40 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GL40);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GL40} instance of the specified {@link GLCapabilities}. */
+	public static GL40 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GL40);
 	}
 
 	static GL40 create(java.util.Set<String> ext, FunctionProvider provider) {

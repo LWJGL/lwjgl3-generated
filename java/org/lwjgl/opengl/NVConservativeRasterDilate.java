@@ -47,9 +47,14 @@ public class NVConservativeRasterDilate {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVConservativeRasterDilate} instance for the current context. */
+	/** Returns the {@link NVConservativeRasterDilate} instance of the current context. */
 	public static NVConservativeRasterDilate getInstance() {
-		return checkFunctionality(GL.getCapabilities().__NVConservativeRasterDilate);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link NVConservativeRasterDilate} instance of the specified {@link GLCapabilities}. */
+	public static NVConservativeRasterDilate getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__NVConservativeRasterDilate);
 	}
 
 	static NVConservativeRasterDilate create(java.util.Set<String> ext, FunctionProvider provider) {

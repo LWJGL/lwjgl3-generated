@@ -97,9 +97,14 @@ public class ARBSync {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBSync} instance for the current context. */
+	/** Returns the {@link ARBSync} instance of the current context. */
 	public static ARBSync getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBSync);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBSync} instance of the specified {@link GLCapabilities}. */
+	public static ARBSync getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBSync);
 	}
 
 	static ARBSync create(java.util.Set<String> ext, FunctionProvider provider) {

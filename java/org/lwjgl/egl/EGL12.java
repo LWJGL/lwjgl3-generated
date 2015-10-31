@@ -76,7 +76,12 @@ public class EGL12 {
 
 	/** Returns the {@link EGL12} instance. */
 	public static EGL12 getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__EGL12);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link EGL12} instance of the specified {@link EGLCapabilities}. */
+	public static EGL12 getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__EGL12);
 	}
 
 	// --- [ eglBindAPI ] ---

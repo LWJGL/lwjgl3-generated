@@ -55,9 +55,14 @@ public class AMDInterleavedElements {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link AMDInterleavedElements} instance for the current context. */
+	/** Returns the {@link AMDInterleavedElements} instance of the current context. */
 	public static AMDInterleavedElements getInstance() {
-		return checkFunctionality(GL.getCapabilities().__AMDInterleavedElements);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link AMDInterleavedElements} instance of the specified {@link GLCapabilities}. */
+	public static AMDInterleavedElements getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__AMDInterleavedElements);
 	}
 
 	static AMDInterleavedElements create(java.util.Set<String> ext, FunctionProvider provider) {

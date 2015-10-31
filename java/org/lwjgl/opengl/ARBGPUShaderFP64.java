@@ -155,9 +155,14 @@ public class ARBGPUShaderFP64 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBGPUShaderFP64} instance for the current context. */
+	/** Returns the {@link ARBGPUShaderFP64} instance of the current context. */
 	public static ARBGPUShaderFP64 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBGPUShaderFP64);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBGPUShaderFP64} instance of the specified {@link GLCapabilities}. */
+	public static ARBGPUShaderFP64 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBGPUShaderFP64);
 	}
 
 	static ARBGPUShaderFP64 create(java.util.Set<String> ext, FunctionProvider provider) {

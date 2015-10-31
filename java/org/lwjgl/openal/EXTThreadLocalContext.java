@@ -38,9 +38,14 @@ public class EXTThreadLocalContext {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTThreadLocalContext} instance for the current context. */
+	/** Returns the {@link EXTThreadLocalContext} instance of the current context. */
 	public static EXTThreadLocalContext getInstance() {
-		return checkFunctionality(ALC.getCapabilities().__EXTThreadLocalContext);
+		return getInstance(ALC.getCapabilities());
+	}
+
+	/** Returns the {@link EXTThreadLocalContext} instance of the specified {@link ALCCapabilities}. */
+	public static EXTThreadLocalContext getInstance(ALCCapabilities caps) {
+		return checkFunctionality(caps.__EXTThreadLocalContext);
 	}
 
 	static EXTThreadLocalContext create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {

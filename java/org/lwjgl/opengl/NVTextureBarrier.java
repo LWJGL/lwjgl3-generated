@@ -35,9 +35,14 @@ public class NVTextureBarrier {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVTextureBarrier} instance for the current context. */
+	/** Returns the {@link NVTextureBarrier} instance of the current context. */
 	public static NVTextureBarrier getInstance() {
-		return checkFunctionality(GL.getCapabilities().__NVTextureBarrier);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link NVTextureBarrier} instance of the specified {@link GLCapabilities}. */
+	public static NVTextureBarrier getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__NVTextureBarrier);
 	}
 
 	static NVTextureBarrier create(java.util.Set<String> ext, FunctionProvider provider) {

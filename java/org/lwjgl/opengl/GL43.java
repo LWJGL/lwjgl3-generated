@@ -544,9 +544,14 @@ public class GL43 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GL43} instance for the current context. */
+	/** Returns the {@link GL43} instance of the current context. */
 	public static GL43 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GL43);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GL43} instance of the specified {@link GLCapabilities}. */
+	public static GL43 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GL43);
 	}
 
 	static GL43 create(java.util.Set<String> ext, FunctionProvider provider) {

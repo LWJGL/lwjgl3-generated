@@ -52,9 +52,14 @@ public class NVPolygonMode {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVPolygonMode} instance for the current context. */
+	/** Returns the {@link NVPolygonMode} instance of the current context. */
 	public static NVPolygonMode getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__NVPolygonMode);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link NVPolygonMode} instance of the specified {@link GLESCapabilities}. */
+	public static NVPolygonMode getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__NVPolygonMode);
 	}
 
 	static NVPolygonMode create(java.util.Set<String> ext, FunctionProvider provider) {

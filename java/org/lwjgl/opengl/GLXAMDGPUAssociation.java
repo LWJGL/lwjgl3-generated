@@ -76,9 +76,14 @@ public class GLXAMDGPUAssociation {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GLXAMDGPUAssociation} instance for the current context. */
+	/** Returns the {@link GLXAMDGPUAssociation} instance of the current context. */
 	public static GLXAMDGPUAssociation getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GLXAMDGPUAssociation);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GLXAMDGPUAssociation} instance of the specified {@link GLCapabilities}. */
+	public static GLXAMDGPUAssociation getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GLXAMDGPUAssociation);
 	}
 
 	static GLXAMDGPUAssociation create(java.util.Set<String> ext, FunctionProvider provider) {

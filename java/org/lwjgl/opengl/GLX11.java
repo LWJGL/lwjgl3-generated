@@ -44,9 +44,14 @@ public class GLX11 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GLX11} instance for the current context. */
+	/** Returns the {@link GLX11} instance of the current context. */
 	public static GLX11 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GLX11);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GLX11} instance of the specified {@link GLCapabilities}. */
+	public static GLX11 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GLX11);
 	}
 
 	static GLX11 create(java.util.Set<String> ext, FunctionProvider provider) {

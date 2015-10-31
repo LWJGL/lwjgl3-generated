@@ -68,9 +68,14 @@ public class SOFTLoopback {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link SOFTLoopback} instance for the current context. */
+	/** Returns the {@link SOFTLoopback} instance of the current context. */
 	public static SOFTLoopback getInstance() {
-		return checkFunctionality(ALC.getCapabilities().__SOFTLoopback);
+		return getInstance(ALC.getCapabilities());
+	}
+
+	/** Returns the {@link SOFTLoopback} instance of the specified {@link ALCCapabilities}. */
+	public static SOFTLoopback getInstance(ALCCapabilities caps) {
+		return checkFunctionality(caps.__SOFTLoopback);
 	}
 
 	static SOFTLoopback create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {

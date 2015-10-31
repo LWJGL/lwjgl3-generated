@@ -56,9 +56,14 @@ public class OESMapbuffer {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link OESMapbuffer} instance for the current context. */
+	/** Returns the {@link OESMapbuffer} instance of the current context. */
 	public static OESMapbuffer getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__OESMapbuffer);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link OESMapbuffer} instance of the specified {@link GLESCapabilities}. */
+	public static OESMapbuffer getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__OESMapbuffer);
 	}
 
 	static OESMapbuffer create(java.util.Set<String> ext, FunctionProvider provider) {

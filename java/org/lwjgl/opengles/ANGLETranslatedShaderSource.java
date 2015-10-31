@@ -47,9 +47,14 @@ public class ANGLETranslatedShaderSource {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ANGLETranslatedShaderSource} instance for the current context. */
+	/** Returns the {@link ANGLETranslatedShaderSource} instance of the current context. */
 	public static ANGLETranslatedShaderSource getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__ANGLETranslatedShaderSource);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link ANGLETranslatedShaderSource} instance of the specified {@link GLESCapabilities}. */
+	public static ANGLETranslatedShaderSource getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__ANGLETranslatedShaderSource);
 	}
 
 	static ANGLETranslatedShaderSource create(java.util.Set<String> ext, FunctionProvider provider) {

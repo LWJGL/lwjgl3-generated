@@ -46,9 +46,14 @@ public class ARBCopyImage {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBCopyImage} instance for the current context. */
+	/** Returns the {@link ARBCopyImage} instance of the current context. */
 	public static ARBCopyImage getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBCopyImage);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBCopyImage} instance of the specified {@link GLCapabilities}. */
+	public static ARBCopyImage getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBCopyImage);
 	}
 
 	static ARBCopyImage create(java.util.Set<String> ext, FunctionProvider provider) {

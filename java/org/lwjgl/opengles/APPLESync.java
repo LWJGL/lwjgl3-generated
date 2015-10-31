@@ -100,9 +100,14 @@ public class APPLESync {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link APPLESync} instance for the current context. */
+	/** Returns the {@link APPLESync} instance of the current context. */
 	public static APPLESync getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__APPLESync);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link APPLESync} instance of the specified {@link GLESCapabilities}. */
+	public static APPLESync getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__APPLESync);
 	}
 
 	static APPLESync create(java.util.Set<String> ext, FunctionProvider provider) {

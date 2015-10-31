@@ -128,9 +128,14 @@ public class EXTShaderImageLoadStore {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTShaderImageLoadStore} instance for the current context. */
+	/** Returns the {@link EXTShaderImageLoadStore} instance of the current context. */
 	public static EXTShaderImageLoadStore getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTShaderImageLoadStore);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTShaderImageLoadStore} instance of the specified {@link GLCapabilities}. */
+	public static EXTShaderImageLoadStore getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTShaderImageLoadStore);
 	}
 
 	static EXTShaderImageLoadStore create(java.util.Set<String> ext, FunctionProvider provider) {

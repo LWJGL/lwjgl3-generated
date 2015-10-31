@@ -45,9 +45,14 @@ public class EXTGPUProgramParameters {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTGPUProgramParameters} instance for the current context. */
+	/** Returns the {@link EXTGPUProgramParameters} instance of the current context. */
 	public static EXTGPUProgramParameters getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTGPUProgramParameters);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTGPUProgramParameters} instance of the specified {@link GLCapabilities}. */
+	public static EXTGPUProgramParameters getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTGPUProgramParameters);
 	}
 
 	static EXTGPUProgramParameters create(java.util.Set<String> ext, FunctionProvider provider) {

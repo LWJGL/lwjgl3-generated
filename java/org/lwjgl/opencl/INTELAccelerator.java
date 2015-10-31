@@ -74,9 +74,14 @@ public class INTELAccelerator {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link INTELAccelerator} instance for the currently loaded ICD. */
+	/** Returns the {@link INTELAccelerator} instance of the currently loaded ICD. */
 	public static INTELAccelerator getInstance() {
-		return checkFunctionality(CL.getICD().__INTELAccelerator);
+		return getInstance(CL.getICD());
+	}
+
+	/** Returns the {@link INTELAccelerator} instance of the specified {@link CLCapabilities}. */
+	public static INTELAccelerator getInstance(CLCapabilities caps) {
+		return checkFunctionality(caps.__INTELAccelerator);
 	}
 
 	static INTELAccelerator create(FunctionProvider provider) {

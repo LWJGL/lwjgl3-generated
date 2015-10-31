@@ -64,7 +64,12 @@ public class KHRStreamFIFO {
 
 	/** Returns the {@link KHRStreamFIFO} instance. */
 	public static KHRStreamFIFO getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__KHRStreamFIFO);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link KHRStreamFIFO} instance of the specified {@link EGLCapabilities}. */
+	public static KHRStreamFIFO getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__KHRStreamFIFO);
 	}
 
 	// --- [ eglQueryStreamTimeKHR ] ---

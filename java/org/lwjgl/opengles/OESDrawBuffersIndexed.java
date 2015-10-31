@@ -61,9 +61,14 @@ public class OESDrawBuffersIndexed {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link OESDrawBuffersIndexed} instance for the current context. */
+	/** Returns the {@link OESDrawBuffersIndexed} instance of the current context. */
 	public static OESDrawBuffersIndexed getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__OESDrawBuffersIndexed);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link OESDrawBuffersIndexed} instance of the specified {@link GLESCapabilities}. */
+	public static OESDrawBuffersIndexed getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__OESDrawBuffersIndexed);
 	}
 
 	static OESDrawBuffersIndexed create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -99,9 +99,14 @@ public class GLXEXTTextureFromPixmap {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GLXEXTTextureFromPixmap} instance for the current context. */
+	/** Returns the {@link GLXEXTTextureFromPixmap} instance of the current context. */
 	public static GLXEXTTextureFromPixmap getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GLXEXTTextureFromPixmap);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GLXEXTTextureFromPixmap} instance of the specified {@link GLCapabilities}. */
+	public static GLXEXTTextureFromPixmap getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GLXEXTTextureFromPixmap);
 	}
 
 	static GLXEXTTextureFromPixmap create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -38,9 +38,14 @@ public class GLXNVCopyImage {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GLXNVCopyImage} instance for the current context. */
+	/** Returns the {@link GLXNVCopyImage} instance of the current context. */
 	public static GLXNVCopyImage getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GLXNVCopyImage);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GLXNVCopyImage} instance of the specified {@link GLCapabilities}. */
+	public static GLXNVCopyImage getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GLXNVCopyImage);
 	}
 
 	static GLXNVCopyImage create(java.util.Set<String> ext, FunctionProvider provider) {

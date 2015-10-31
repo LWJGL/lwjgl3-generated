@@ -90,9 +90,14 @@ public class ARBTextureCompression {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBTextureCompression} instance for the current context. */
+	/** Returns the {@link ARBTextureCompression} instance of the current context. */
 	public static ARBTextureCompression getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBTextureCompression);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBTextureCompression} instance of the specified {@link GLCapabilities}. */
+	public static ARBTextureCompression getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBTextureCompression);
 	}
 
 	static ARBTextureCompression create(java.util.Set<String> ext, FunctionProvider provider) {

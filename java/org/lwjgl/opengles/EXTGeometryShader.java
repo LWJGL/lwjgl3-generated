@@ -125,9 +125,14 @@ public class EXTGeometryShader {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTGeometryShader} instance for the current context. */
+	/** Returns the {@link EXTGeometryShader} instance of the current context. */
 	public static EXTGeometryShader getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTGeometryShader);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTGeometryShader} instance of the specified {@link GLESCapabilities}. */
+	public static EXTGeometryShader getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTGeometryShader);
 	}
 
 	static EXTGeometryShader create(java.util.Set<String> ext, FunctionProvider provider) {

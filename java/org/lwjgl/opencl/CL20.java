@@ -153,9 +153,14 @@ public class CL20 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link CL20} instance for the currently loaded ICD. */
+	/** Returns the {@link CL20} instance of the currently loaded ICD. */
 	public static CL20 getInstance() {
-		return checkFunctionality(CL.getICD().__CL20);
+		return getInstance(CL.getICD());
+	}
+
+	/** Returns the {@link CL20} instance of the specified {@link CLCapabilities}. */
+	public static CL20 getInstance(CLCapabilities caps) {
+		return checkFunctionality(caps.__CL20);
 	}
 
 	static CL20 create(FunctionProvider provider) {

@@ -101,9 +101,14 @@ public class NVBlendEquationAdvanced {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVBlendEquationAdvanced} instance for the current context. */
+	/** Returns the {@link NVBlendEquationAdvanced} instance of the current context. */
 	public static NVBlendEquationAdvanced getInstance() {
-		return checkFunctionality(GL.getCapabilities().__NVBlendEquationAdvanced);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link NVBlendEquationAdvanced} instance of the specified {@link GLCapabilities}. */
+	public static NVBlendEquationAdvanced getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__NVBlendEquationAdvanced);
 	}
 
 	static NVBlendEquationAdvanced create(java.util.Set<String> ext, FunctionProvider provider) {

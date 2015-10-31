@@ -60,9 +60,14 @@ public class OESTextureView {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link OESTextureView} instance for the current context. */
+	/** Returns the {@link OESTextureView} instance of the current context. */
 	public static OESTextureView getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__OESTextureView);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link OESTextureView} instance of the specified {@link GLESCapabilities}. */
+	public static OESTextureView getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__OESTextureView);
 	}
 
 	static OESTextureView create(java.util.Set<String> ext, FunctionProvider provider) {

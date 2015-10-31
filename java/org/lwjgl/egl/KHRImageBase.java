@@ -52,7 +52,12 @@ public class KHRImageBase {
 
 	/** Returns the {@link KHRImageBase} instance. */
 	public static KHRImageBase getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__KHRImageBase);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link KHRImageBase} instance of the specified {@link EGLCapabilities}. */
+	public static KHRImageBase getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__KHRImageBase);
 	}
 
 	// --- [ eglCreateImageKHR ] ---

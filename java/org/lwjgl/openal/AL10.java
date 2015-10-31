@@ -243,7 +243,7 @@ public class AL10 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link AL10} instance for the current context. */
+	/** Returns the {@link AL10} instance of the current context. */
 	public static AL10 getInstance() {
 		return checkFunctionality(AL.getCapabilities().__AL10);
 	}

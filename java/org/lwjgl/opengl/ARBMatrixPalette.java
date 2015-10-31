@@ -80,9 +80,14 @@ public class ARBMatrixPalette {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBMatrixPalette} instance for the current context. */
+	/** Returns the {@link ARBMatrixPalette} instance of the current context. */
 	public static ARBMatrixPalette getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBMatrixPalette);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBMatrixPalette} instance of the specified {@link GLCapabilities}. */
+	public static ARBMatrixPalette getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBMatrixPalette);
 	}
 
 	static ARBMatrixPalette create(java.util.Set<String> ext, FunctionProvider provider) {

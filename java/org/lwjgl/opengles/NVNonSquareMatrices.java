@@ -59,9 +59,14 @@ public class NVNonSquareMatrices {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVNonSquareMatrices} instance for the current context. */
+	/** Returns the {@link NVNonSquareMatrices} instance of the current context. */
 	public static NVNonSquareMatrices getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__NVNonSquareMatrices);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link NVNonSquareMatrices} instance of the specified {@link GLESCapabilities}. */
+	public static NVNonSquareMatrices getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__NVNonSquareMatrices);
 	}
 
 	static NVNonSquareMatrices create(java.util.Set<String> ext, FunctionProvider provider) {

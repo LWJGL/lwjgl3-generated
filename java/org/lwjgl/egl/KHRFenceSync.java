@@ -69,7 +69,12 @@ public class KHRFenceSync {
 
 	/** Returns the {@link KHRFenceSync} instance. */
 	public static KHRFenceSync getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__KHRFenceSync);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link KHRFenceSync} instance of the specified {@link EGLCapabilities}. */
+	public static KHRFenceSync getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__KHRFenceSync);
 	}
 
 	// --- [ eglCreateSyncKHR ] ---

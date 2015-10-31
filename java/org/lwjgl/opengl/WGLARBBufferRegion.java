@@ -52,9 +52,14 @@ public class WGLARBBufferRegion {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link WGLARBBufferRegion} instance for the current context. */
+	/** Returns the {@link WGLARBBufferRegion} instance of the current context. */
 	public static WGLARBBufferRegion getInstance() {
-		return checkFunctionality(GL.getCapabilities().__WGLARBBufferRegion);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link WGLARBBufferRegion} instance of the specified {@link GLCapabilities}. */
+	public static WGLARBBufferRegion getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__WGLARBBufferRegion);
 	}
 
 	static WGLARBBufferRegion create(java.util.Set<String> ext, FunctionProvider provider) {

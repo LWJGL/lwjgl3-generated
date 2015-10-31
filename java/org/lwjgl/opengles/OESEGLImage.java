@@ -44,9 +44,14 @@ public class OESEGLImage {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link OESEGLImage} instance for the current context. */
+	/** Returns the {@link OESEGLImage} instance of the current context. */
 	public static OESEGLImage getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__OESEGLImage);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link OESEGLImage} instance of the specified {@link GLESCapabilities}. */
+	public static OESEGLImage getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__OESEGLImage);
 	}
 
 	static OESEGLImage create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -63,9 +63,14 @@ public class ARBColorBufferFloat {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBColorBufferFloat} instance for the current context. */
+	/** Returns the {@link ARBColorBufferFloat} instance of the current context. */
 	public static ARBColorBufferFloat getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBColorBufferFloat);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBColorBufferFloat} instance of the specified {@link GLCapabilities}. */
+	public static ARBColorBufferFloat getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBColorBufferFloat);
 	}
 
 	static ARBColorBufferFloat create(java.util.Set<String> ext, FunctionProvider provider) {

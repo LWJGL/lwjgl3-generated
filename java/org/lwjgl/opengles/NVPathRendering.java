@@ -458,9 +458,14 @@ public class NVPathRendering {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVPathRendering} instance for the current context. */
+	/** Returns the {@link NVPathRendering} instance of the current context. */
 	public static NVPathRendering getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__NVPathRendering);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link NVPathRendering} instance of the specified {@link GLESCapabilities}. */
+	public static NVPathRendering getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__NVPathRendering);
 	}
 
 	static NVPathRendering create(java.util.Set<String> ext, FunctionProvider provider) {

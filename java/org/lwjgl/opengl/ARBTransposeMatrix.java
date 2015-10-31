@@ -59,9 +59,14 @@ public class ARBTransposeMatrix {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBTransposeMatrix} instance for the current context. */
+	/** Returns the {@link ARBTransposeMatrix} instance of the current context. */
 	public static ARBTransposeMatrix getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBTransposeMatrix);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBTransposeMatrix} instance of the specified {@link GLCapabilities}. */
+	public static ARBTransposeMatrix getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBTransposeMatrix);
 	}
 
 	static ARBTransposeMatrix create(java.util.Set<String> ext, FunctionProvider provider) {

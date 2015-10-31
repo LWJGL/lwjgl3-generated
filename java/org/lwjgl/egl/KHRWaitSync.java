@@ -41,7 +41,12 @@ public class KHRWaitSync {
 
 	/** Returns the {@link KHRWaitSync} instance. */
 	public static KHRWaitSync getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__KHRWaitSync);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link KHRWaitSync} instance of the specified {@link EGLCapabilities}. */
+	public static KHRWaitSync getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__KHRWaitSync);
 	}
 
 	// --- [ eglWaitSyncKHR ] ---

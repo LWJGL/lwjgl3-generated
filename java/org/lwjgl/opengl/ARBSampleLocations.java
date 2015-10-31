@@ -73,9 +73,14 @@ public class ARBSampleLocations {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBSampleLocations} instance for the current context. */
+	/** Returns the {@link ARBSampleLocations} instance of the current context. */
 	public static ARBSampleLocations getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBSampleLocations);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBSampleLocations} instance of the specified {@link GLCapabilities}. */
+	public static ARBSampleLocations getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBSampleLocations);
 	}
 
 	static ARBSampleLocations create(java.util.Set<String> ext, FunctionProvider provider) {

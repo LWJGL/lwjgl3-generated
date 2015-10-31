@@ -46,9 +46,14 @@ public class INTELFramebufferCMAA {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link INTELFramebufferCMAA} instance for the current context. */
+	/** Returns the {@link INTELFramebufferCMAA} instance of the current context. */
 	public static INTELFramebufferCMAA getInstance() {
-		return checkFunctionality(GL.getCapabilities().__INTELFramebufferCMAA);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link INTELFramebufferCMAA} instance of the specified {@link GLCapabilities}. */
+	public static INTELFramebufferCMAA getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__INTELFramebufferCMAA);
 	}
 
 	static INTELFramebufferCMAA create(java.util.Set<String> ext, FunctionProvider provider) {

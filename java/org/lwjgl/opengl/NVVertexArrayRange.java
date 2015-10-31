@@ -55,9 +55,14 @@ public class NVVertexArrayRange {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVVertexArrayRange} instance for the current context. */
+	/** Returns the {@link NVVertexArrayRange} instance of the current context. */
 	public static NVVertexArrayRange getInstance() {
-		return checkFunctionality(GL.getCapabilities().__NVVertexArrayRange);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link NVVertexArrayRange} instance of the specified {@link GLCapabilities}. */
+	public static NVVertexArrayRange getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__NVVertexArrayRange);
 	}
 
 	static NVVertexArrayRange create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -75,9 +75,14 @@ public class NVSampleLocations {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVSampleLocations} instance for the current context. */
+	/** Returns the {@link NVSampleLocations} instance of the current context. */
 	public static NVSampleLocations getInstance() {
-		return checkFunctionality(GL.getCapabilities().__NVSampleLocations);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link NVSampleLocations} instance of the specified {@link GLCapabilities}. */
+	public static NVSampleLocations getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__NVSampleLocations);
 	}
 
 	static NVSampleLocations create(java.util.Set<String> ext, FunctionProvider provider) {

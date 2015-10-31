@@ -52,9 +52,14 @@ public class EXTBaseInstance {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTBaseInstance} instance for the current context. */
+	/** Returns the {@link EXTBaseInstance} instance of the current context. */
 	public static EXTBaseInstance getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTBaseInstance);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTBaseInstance} instance of the specified {@link GLESCapabilities}. */
+	public static EXTBaseInstance getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTBaseInstance);
 	}
 
 	static EXTBaseInstance create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -51,9 +51,14 @@ public class NVConservativeRaster {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVConservativeRaster} instance for the current context. */
+	/** Returns the {@link NVConservativeRaster} instance of the current context. */
 	public static NVConservativeRaster getInstance() {
-		return checkFunctionality(GL.getCapabilities().__NVConservativeRaster);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link NVConservativeRaster} instance of the specified {@link GLCapabilities}. */
+	public static NVConservativeRaster getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__NVConservativeRaster);
 	}
 
 	static NVConservativeRaster create(java.util.Set<String> ext, FunctionProvider provider) {

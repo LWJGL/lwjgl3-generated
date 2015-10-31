@@ -55,7 +55,12 @@ public class MESADRMImage {
 
 	/** Returns the {@link MESADRMImage} instance. */
 	public static MESADRMImage getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__MESADRMImage);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link MESADRMImage} instance of the specified {@link EGLCapabilities}. */
+	public static MESADRMImage getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__MESADRMImage);
 	}
 
 	// --- [ eglCreateDRMImageMESA ] ---

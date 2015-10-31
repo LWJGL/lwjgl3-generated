@@ -43,7 +43,7 @@ public class SOFTDeferredUpdates {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link SOFTDeferredUpdates} instance for the current context. */
+	/** Returns the {@link SOFTDeferredUpdates} instance of the current context. */
 	public static SOFTDeferredUpdates getInstance() {
 		return checkFunctionality(AL.getCapabilities().__SOFTDeferredUpdates);
 	}

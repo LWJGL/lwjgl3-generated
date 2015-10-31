@@ -86,9 +86,14 @@ public class NVVertexAttribInteger64bit {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVVertexAttribInteger64bit} instance for the current context. */
+	/** Returns the {@link NVVertexAttribInteger64bit} instance of the current context. */
 	public static NVVertexAttribInteger64bit getInstance() {
-		return checkFunctionality(GL.getCapabilities().__NVVertexAttribInteger64bit);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link NVVertexAttribInteger64bit} instance of the specified {@link GLCapabilities}. */
+	public static NVVertexAttribInteger64bit getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__NVVertexAttribInteger64bit);
 	}
 
 	static NVVertexAttribInteger64bit create(java.util.Set<String> ext, FunctionProvider provider) {

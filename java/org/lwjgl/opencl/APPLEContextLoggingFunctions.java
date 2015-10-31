@@ -46,9 +46,14 @@ public class APPLEContextLoggingFunctions {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link APPLEContextLoggingFunctions} instance for the currently loaded ICD. */
+	/** Returns the {@link APPLEContextLoggingFunctions} instance of the currently loaded ICD. */
 	public static APPLEContextLoggingFunctions getInstance() {
-		return checkFunctionality(CL.getICD().__APPLEContextLoggingFunctions);
+		return getInstance(CL.getICD());
+	}
+
+	/** Returns the {@link APPLEContextLoggingFunctions} instance of the specified {@link CLCapabilities}. */
+	public static APPLEContextLoggingFunctions getInstance(CLCapabilities caps) {
+		return checkFunctionality(caps.__APPLEContextLoggingFunctions);
 	}
 
 	static APPLEContextLoggingFunctions create(FunctionProvider provider) {

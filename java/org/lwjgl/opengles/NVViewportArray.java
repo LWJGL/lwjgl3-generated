@@ -81,9 +81,14 @@ public class NVViewportArray {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVViewportArray} instance for the current context. */
+	/** Returns the {@link NVViewportArray} instance of the current context. */
 	public static NVViewportArray getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__NVViewportArray);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link NVViewportArray} instance of the specified {@link GLESCapabilities}. */
+	public static NVViewportArray getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__NVViewportArray);
 	}
 
 	static NVViewportArray create(java.util.Set<String> ext, FunctionProvider provider) {

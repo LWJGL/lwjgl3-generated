@@ -88,9 +88,14 @@ public class NVPixelDataRange {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVPixelDataRange} instance for the current context. */
+	/** Returns the {@link NVPixelDataRange} instance of the current context. */
 	public static NVPixelDataRange getInstance() {
-		return checkFunctionality(GL.getCapabilities().__NVPixelDataRange);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link NVPixelDataRange} instance of the specified {@link GLCapabilities}. */
+	public static NVPixelDataRange getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__NVPixelDataRange);
 	}
 
 	static NVPixelDataRange create(java.util.Set<String> ext, FunctionProvider provider) {

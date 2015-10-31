@@ -240,9 +240,14 @@ public class GL32 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GL32} instance for the current context. */
+	/** Returns the {@link GL32} instance of the current context. */
 	public static GL32 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GL32);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GL32} instance of the specified {@link GLCapabilities}. */
+	public static GL32 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GL32);
 	}
 
 	static GL32 create(java.util.Set<String> ext, FunctionProvider provider) {

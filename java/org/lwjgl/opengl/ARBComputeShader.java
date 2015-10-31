@@ -95,9 +95,14 @@ public class ARBComputeShader {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBComputeShader} instance for the current context. */
+	/** Returns the {@link ARBComputeShader} instance of the current context. */
 	public static ARBComputeShader getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBComputeShader);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBComputeShader} instance of the specified {@link GLCapabilities}. */
+	public static ARBComputeShader getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBComputeShader);
 	}
 
 	static ARBComputeShader create(java.util.Set<String> ext, FunctionProvider provider) {

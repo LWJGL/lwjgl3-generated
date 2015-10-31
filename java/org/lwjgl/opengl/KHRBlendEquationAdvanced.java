@@ -86,9 +86,14 @@ public class KHRBlendEquationAdvanced {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link KHRBlendEquationAdvanced} instance for the current context. */
+	/** Returns the {@link KHRBlendEquationAdvanced} instance of the current context. */
 	public static KHRBlendEquationAdvanced getInstance() {
-		return checkFunctionality(GL.getCapabilities().__KHRBlendEquationAdvanced);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link KHRBlendEquationAdvanced} instance of the specified {@link GLCapabilities}. */
+	public static KHRBlendEquationAdvanced getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__KHRBlendEquationAdvanced);
 	}
 
 	static KHRBlendEquationAdvanced create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -97,9 +97,14 @@ public class ARBVertexAttribBinding {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBVertexAttribBinding} instance for the current context. */
+	/** Returns the {@link ARBVertexAttribBinding} instance of the current context. */
 	public static ARBVertexAttribBinding getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBVertexAttribBinding);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBVertexAttribBinding} instance of the specified {@link GLCapabilities}. */
+	public static ARBVertexAttribBinding getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBVertexAttribBinding);
 	}
 
 	static ARBVertexAttribBinding create(java.util.Set<String> ext, FunctionProvider provider) {

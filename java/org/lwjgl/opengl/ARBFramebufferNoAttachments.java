@@ -87,9 +87,14 @@ public class ARBFramebufferNoAttachments {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBFramebufferNoAttachments} instance for the current context. */
+	/** Returns the {@link ARBFramebufferNoAttachments} instance of the current context. */
 	public static ARBFramebufferNoAttachments getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBFramebufferNoAttachments);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBFramebufferNoAttachments} instance of the specified {@link GLCapabilities}. */
+	public static ARBFramebufferNoAttachments getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBFramebufferNoAttachments);
 	}
 
 	static ARBFramebufferNoAttachments create(java.util.Set<String> ext, FunctionProvider provider) {

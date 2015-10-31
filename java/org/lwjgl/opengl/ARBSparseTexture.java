@@ -67,9 +67,14 @@ public class ARBSparseTexture {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBSparseTexture} instance for the current context. */
+	/** Returns the {@link ARBSparseTexture} instance of the current context. */
 	public static ARBSparseTexture getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBSparseTexture);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBSparseTexture} instance of the specified {@link GLCapabilities}. */
+	public static ARBSparseTexture getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBSparseTexture);
 	}
 
 	static ARBSparseTexture create(java.util.Set<String> ext, FunctionProvider provider) {

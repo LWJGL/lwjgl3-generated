@@ -51,9 +51,14 @@ public class OESTextureStorageMultisample2DArray {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link OESTextureStorageMultisample2DArray} instance for the current context. */
+	/** Returns the {@link OESTextureStorageMultisample2DArray} instance of the current context. */
 	public static OESTextureStorageMultisample2DArray getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__OESTextureStorageMultisample2DArray);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link OESTextureStorageMultisample2DArray} instance of the specified {@link GLESCapabilities}. */
+	public static OESTextureStorageMultisample2DArray getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__OESTextureStorageMultisample2DArray);
 	}
 
 	static OESTextureStorageMultisample2DArray create(java.util.Set<String> ext, FunctionProvider provider) {

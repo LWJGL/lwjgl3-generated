@@ -56,9 +56,14 @@ public class WGLARBCreateContext {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link WGLARBCreateContext} instance for the current context. */
+	/** Returns the {@link WGLARBCreateContext} instance of the current context. */
 	public static WGLARBCreateContext getInstance() {
-		return checkFunctionality(GL.getCapabilities().__WGLARBCreateContext);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link WGLARBCreateContext} instance of the specified {@link GLCapabilities}. */
+	public static WGLARBCreateContext getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__WGLARBCreateContext);
 	}
 
 	static WGLARBCreateContext create(java.util.Set<String> ext, FunctionProvider provider) {

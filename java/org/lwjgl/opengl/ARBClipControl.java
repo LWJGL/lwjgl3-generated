@@ -52,9 +52,14 @@ public class ARBClipControl {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBClipControl} instance for the current context. */
+	/** Returns the {@link ARBClipControl} instance of the current context. */
 	public static ARBClipControl getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBClipControl);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBClipControl} instance of the specified {@link GLCapabilities}. */
+	public static ARBClipControl getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBClipControl);
 	}
 
 	static ARBClipControl create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -147,9 +147,14 @@ public class EXTTessellationShader {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTTessellationShader} instance for the current context. */
+	/** Returns the {@link EXTTessellationShader} instance of the current context. */
 	public static EXTTessellationShader getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTTessellationShader);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTTessellationShader} instance of the specified {@link GLESCapabilities}. */
+	public static EXTTessellationShader getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTTessellationShader);
 	}
 
 	static EXTTessellationShader create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -51,9 +51,14 @@ public class AMDStencilOperationExtended {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link AMDStencilOperationExtended} instance for the current context. */
+	/** Returns the {@link AMDStencilOperationExtended} instance of the current context. */
 	public static AMDStencilOperationExtended getInstance() {
-		return checkFunctionality(GL.getCapabilities().__AMDStencilOperationExtended);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link AMDStencilOperationExtended} instance of the specified {@link GLCapabilities}. */
+	public static AMDStencilOperationExtended getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__AMDStencilOperationExtended);
 	}
 
 	static AMDStencilOperationExtended create(java.util.Set<String> ext, FunctionProvider provider) {

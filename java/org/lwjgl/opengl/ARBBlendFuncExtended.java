@@ -62,9 +62,14 @@ public class ARBBlendFuncExtended {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBBlendFuncExtended} instance for the current context. */
+	/** Returns the {@link ARBBlendFuncExtended} instance of the current context. */
 	public static ARBBlendFuncExtended getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBBlendFuncExtended);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBBlendFuncExtended} instance of the specified {@link GLCapabilities}. */
+	public static ARBBlendFuncExtended getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBBlendFuncExtended);
 	}
 
 	static ARBBlendFuncExtended create(java.util.Set<String> ext, FunctionProvider provider) {

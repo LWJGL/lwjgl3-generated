@@ -58,9 +58,14 @@ public class NVPrimitiveRestart {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVPrimitiveRestart} instance for the current context. */
+	/** Returns the {@link NVPrimitiveRestart} instance of the current context. */
 	public static NVPrimitiveRestart getInstance() {
-		return checkFunctionality(GL.getCapabilities().__NVPrimitiveRestart);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link NVPrimitiveRestart} instance of the specified {@link GLCapabilities}. */
+	public static NVPrimitiveRestart getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__NVPrimitiveRestart);
 	}
 
 	static NVPrimitiveRestart create(java.util.Set<String> ext, FunctionProvider provider) {

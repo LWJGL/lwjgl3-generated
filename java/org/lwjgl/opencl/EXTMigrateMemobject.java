@@ -44,9 +44,14 @@ public class EXTMigrateMemobject {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTMigrateMemobject} instance for the currently loaded ICD. */
+	/** Returns the {@link EXTMigrateMemobject} instance of the currently loaded ICD. */
 	public static EXTMigrateMemobject getInstance() {
-		return checkFunctionality(CL.getICD().__EXTMigrateMemobject);
+		return getInstance(CL.getICD());
+	}
+
+	/** Returns the {@link EXTMigrateMemobject} instance of the specified {@link CLCapabilities}. */
+	public static EXTMigrateMemobject getInstance(CLCapabilities caps) {
+		return checkFunctionality(caps.__EXTMigrateMemobject);
 	}
 
 	static EXTMigrateMemobject create(FunctionProvider provider) {

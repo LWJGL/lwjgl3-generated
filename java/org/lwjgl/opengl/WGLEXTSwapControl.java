@@ -39,9 +39,14 @@ public class WGLEXTSwapControl {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link WGLEXTSwapControl} instance for the current context. */
+	/** Returns the {@link WGLEXTSwapControl} instance of the current context. */
 	public static WGLEXTSwapControl getInstance() {
-		return checkFunctionality(GL.getCapabilities().__WGLEXTSwapControl);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link WGLEXTSwapControl} instance of the specified {@link GLCapabilities}. */
+	public static WGLEXTSwapControl getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__WGLEXTSwapControl);
 	}
 
 	static WGLEXTSwapControl create(java.util.Set<String> ext, FunctionProvider provider) {

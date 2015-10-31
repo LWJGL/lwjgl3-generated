@@ -61,9 +61,14 @@ public class INTELMapTexture {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link INTELMapTexture} instance for the current context. */
+	/** Returns the {@link INTELMapTexture} instance of the current context. */
 	public static INTELMapTexture getInstance() {
-		return checkFunctionality(GL.getCapabilities().__INTELMapTexture);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link INTELMapTexture} instance of the specified {@link GLCapabilities}. */
+	public static INTELMapTexture getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__INTELMapTexture);
 	}
 
 	static INTELMapTexture create(java.util.Set<String> ext, FunctionProvider provider) {

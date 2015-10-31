@@ -54,9 +54,14 @@ public class ARBES31Compatibility {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBES31Compatibility} instance for the current context. */
+	/** Returns the {@link ARBES31Compatibility} instance of the current context. */
 	public static ARBES31Compatibility getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBES31Compatibility);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBES31Compatibility} instance of the specified {@link GLCapabilities}. */
+	public static ARBES31Compatibility getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBES31Compatibility);
 	}
 
 	static ARBES31Compatibility create(java.util.Set<String> ext, FunctionProvider provider) {

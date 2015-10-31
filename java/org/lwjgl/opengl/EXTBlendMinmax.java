@@ -49,9 +49,14 @@ public class EXTBlendMinmax {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTBlendMinmax} instance for the current context. */
+	/** Returns the {@link EXTBlendMinmax} instance of the current context. */
 	public static EXTBlendMinmax getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTBlendMinmax);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTBlendMinmax} instance of the specified {@link GLCapabilities}. */
+	public static EXTBlendMinmax getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTBlendMinmax);
 	}
 
 	static EXTBlendMinmax create(java.util.Set<String> ext, FunctionProvider provider) {

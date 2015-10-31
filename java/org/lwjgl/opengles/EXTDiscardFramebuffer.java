@@ -58,9 +58,14 @@ public class EXTDiscardFramebuffer {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTDiscardFramebuffer} instance for the current context. */
+	/** Returns the {@link EXTDiscardFramebuffer} instance of the current context. */
 	public static EXTDiscardFramebuffer getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTDiscardFramebuffer);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTDiscardFramebuffer} instance of the specified {@link GLESCapabilities}. */
+	public static EXTDiscardFramebuffer getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTDiscardFramebuffer);
 	}
 
 	static EXTDiscardFramebuffer create(java.util.Set<String> ext, FunctionProvider provider) {

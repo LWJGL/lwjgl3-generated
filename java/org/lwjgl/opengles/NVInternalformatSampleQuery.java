@@ -62,9 +62,14 @@ public class NVInternalformatSampleQuery {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVInternalformatSampleQuery} instance for the current context. */
+	/** Returns the {@link NVInternalformatSampleQuery} instance of the current context. */
 	public static NVInternalformatSampleQuery getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__NVInternalformatSampleQuery);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link NVInternalformatSampleQuery} instance of the specified {@link GLESCapabilities}. */
+	public static NVInternalformatSampleQuery getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__NVInternalformatSampleQuery);
 	}
 
 	static NVInternalformatSampleQuery create(java.util.Set<String> ext, FunctionProvider provider) {

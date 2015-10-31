@@ -79,9 +79,14 @@ public class NVTextureArray {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVTextureArray} instance for the current context. */
+	/** Returns the {@link NVTextureArray} instance of the current context. */
 	public static NVTextureArray getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__NVTextureArray);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link NVTextureArray} instance of the specified {@link GLESCapabilities}. */
+	public static NVTextureArray getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__NVTextureArray);
 	}
 
 	static NVTextureArray create(java.util.Set<String> ext, FunctionProvider provider) {

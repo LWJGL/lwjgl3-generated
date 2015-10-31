@@ -48,7 +48,12 @@ public class KHRStreamConsumerGLTexture {
 
 	/** Returns the {@link KHRStreamConsumerGLTexture} instance. */
 	public static KHRStreamConsumerGLTexture getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__KHRStreamConsumerGLTexture);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link KHRStreamConsumerGLTexture} instance of the specified {@link EGLCapabilities}. */
+	public static KHRStreamConsumerGLTexture getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__KHRStreamConsumerGLTexture);
 	}
 
 	// --- [ eglStreamConsumerGLTextureExternalKHR ] ---

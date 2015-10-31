@@ -57,9 +57,14 @@ public class ARBSampleShading {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBSampleShading} instance for the current context. */
+	/** Returns the {@link ARBSampleShading} instance of the current context. */
 	public static ARBSampleShading getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBSampleShading);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBSampleShading} instance of the specified {@link GLCapabilities}. */
+	public static ARBSampleShading getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBSampleShading);
 	}
 
 	static ARBSampleShading create(java.util.Set<String> ext, FunctionProvider provider) {

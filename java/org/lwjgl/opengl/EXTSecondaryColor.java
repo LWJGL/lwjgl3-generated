@@ -90,9 +90,14 @@ public class EXTSecondaryColor {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTSecondaryColor} instance for the current context. */
+	/** Returns the {@link EXTSecondaryColor} instance of the current context. */
 	public static EXTSecondaryColor getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTSecondaryColor);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTSecondaryColor} instance of the specified {@link GLCapabilities}. */
+	public static EXTSecondaryColor getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTSecondaryColor);
 	}
 
 	static EXTSecondaryColor create(java.util.Set<String> ext, FunctionProvider provider) {

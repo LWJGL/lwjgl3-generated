@@ -54,9 +54,14 @@ public class WGLNVSwapGroup {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link WGLNVSwapGroup} instance for the current context. */
+	/** Returns the {@link WGLNVSwapGroup} instance of the current context. */
 	public static WGLNVSwapGroup getInstance() {
-		return checkFunctionality(GL.getCapabilities().__WGLNVSwapGroup);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link WGLNVSwapGroup} instance of the specified {@link GLCapabilities}. */
+	public static WGLNVSwapGroup getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__WGLNVSwapGroup);
 	}
 
 	static WGLNVSwapGroup create(java.util.Set<String> ext, FunctionProvider provider) {

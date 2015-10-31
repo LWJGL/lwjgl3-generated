@@ -51,9 +51,14 @@ public class ANGLEFramebufferBlit {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ANGLEFramebufferBlit} instance for the current context. */
+	/** Returns the {@link ANGLEFramebufferBlit} instance of the current context. */
 	public static ANGLEFramebufferBlit getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__ANGLEFramebufferBlit);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link ANGLEFramebufferBlit} instance of the specified {@link GLESCapabilities}. */
+	public static ANGLEFramebufferBlit getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__ANGLEFramebufferBlit);
 	}
 
 	static ANGLEFramebufferBlit create(java.util.Set<String> ext, FunctionProvider provider) {

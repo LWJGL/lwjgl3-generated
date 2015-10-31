@@ -77,9 +77,14 @@ public class OESTextureBorderClamp {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link OESTextureBorderClamp} instance for the current context. */
+	/** Returns the {@link OESTextureBorderClamp} instance of the current context. */
 	public static OESTextureBorderClamp getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__OESTextureBorderClamp);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link OESTextureBorderClamp} instance of the specified {@link GLESCapabilities}. */
+	public static OESTextureBorderClamp getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__OESTextureBorderClamp);
 	}
 
 	static OESTextureBorderClamp create(java.util.Set<String> ext, FunctionProvider provider) {

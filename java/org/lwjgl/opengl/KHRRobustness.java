@@ -98,9 +98,14 @@ public class KHRRobustness {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link KHRRobustness} instance for the current context. */
+	/** Returns the {@link KHRRobustness} instance of the current context. */
 	public static KHRRobustness getInstance() {
-		return checkFunctionality(GL.getCapabilities().__KHRRobustness);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link KHRRobustness} instance of the specified {@link GLCapabilities}. */
+	public static KHRRobustness getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__KHRRobustness);
 	}
 
 	static KHRRobustness create(java.util.Set<String> ext, FunctionProvider provider) {

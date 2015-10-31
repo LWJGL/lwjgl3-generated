@@ -346,9 +346,14 @@ public class GLES31 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GLES31} instance for the current context. */
+	/** Returns the {@link GLES31} instance of the current context. */
 	public static GLES31 getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__GLES31);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link GLES31} instance of the specified {@link GLESCapabilities}. */
+	public static GLES31 getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__GLES31);
 	}
 
 	static GLES31 create(java.util.Set<String> ext, FunctionProvider provider) {

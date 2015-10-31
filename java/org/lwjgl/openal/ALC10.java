@@ -97,9 +97,14 @@ public class ALC10 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ALC10} instance for the current context. */
+	/** Returns the {@link ALC10} instance of the current context. */
 	public static ALC10 getInstance() {
-		return checkFunctionality(ALC.getCapabilities().__ALC10);
+		return getInstance(ALC.getCapabilities());
+	}
+
+	/** Returns the {@link ALC10} instance of the specified {@link ALCCapabilities}. */
+	public static ALC10 getInstance(ALCCapabilities caps) {
+		return checkFunctionality(caps.__ALC10);
 	}
 
 	static ALC10 create(java.util.Set<String> ext, FunctionProviderLocal provider) {

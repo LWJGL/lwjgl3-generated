@@ -191,9 +191,14 @@ public class EXTFramebufferObject {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTFramebufferObject} instance for the current context. */
+	/** Returns the {@link EXTFramebufferObject} instance of the current context. */
 	public static EXTFramebufferObject getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTFramebufferObject);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTFramebufferObject} instance of the specified {@link GLCapabilities}. */
+	public static EXTFramebufferObject getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTFramebufferObject);
 	}
 
 	static EXTFramebufferObject create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -46,9 +46,14 @@ public class ARBCLEvent {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBCLEvent} instance for the current context. */
+	/** Returns the {@link ARBCLEvent} instance of the current context. */
 	public static ARBCLEvent getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBCLEvent);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBCLEvent} instance of the specified {@link GLCapabilities}. */
+	public static ARBCLEvent getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBCLEvent);
 	}
 
 	static ARBCLEvent create(java.util.Set<String> ext, FunctionProvider provider) {

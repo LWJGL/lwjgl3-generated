@@ -90,9 +90,14 @@ public class GLXSGIXFBConfig {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GLXSGIXFBConfig} instance for the current context. */
+	/** Returns the {@link GLXSGIXFBConfig} instance of the current context. */
 	public static GLXSGIXFBConfig getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GLXSGIXFBConfig);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GLXSGIXFBConfig} instance of the specified {@link GLCapabilities}. */
+	public static GLXSGIXFBConfig getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GLXSGIXFBConfig);
 	}
 
 	static GLXSGIXFBConfig create(java.util.Set<String> ext, FunctionProvider provider) {

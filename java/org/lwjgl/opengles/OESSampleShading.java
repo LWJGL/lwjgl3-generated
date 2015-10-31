@@ -54,9 +54,14 @@ public class OESSampleShading {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link OESSampleShading} instance for the current context. */
+	/** Returns the {@link OESSampleShading} instance of the current context. */
 	public static OESSampleShading getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__OESSampleShading);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link OESSampleShading} instance of the specified {@link GLESCapabilities}. */
+	public static OESSampleShading getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__OESSampleShading);
 	}
 
 	static OESSampleShading create(java.util.Set<String> ext, FunctionProvider provider) {

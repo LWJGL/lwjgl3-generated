@@ -52,9 +52,14 @@ public class ARBBaseInstance {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBBaseInstance} instance for the current context. */
+	/** Returns the {@link ARBBaseInstance} instance of the current context. */
 	public static ARBBaseInstance getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBBaseInstance);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBBaseInstance} instance of the specified {@link GLCapabilities}. */
+	public static ARBBaseInstance getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBBaseInstance);
 	}
 
 	static ARBBaseInstance create(java.util.Set<String> ext, FunctionProvider provider) {

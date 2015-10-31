@@ -64,9 +64,14 @@ public class EXTDepthBoundsTest {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTDepthBoundsTest} instance for the current context. */
+	/** Returns the {@link EXTDepthBoundsTest} instance of the current context. */
 	public static EXTDepthBoundsTest getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTDepthBoundsTest);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTDepthBoundsTest} instance of the specified {@link GLCapabilities}. */
+	public static EXTDepthBoundsTest getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTDepthBoundsTest);
 	}
 
 	static EXTDepthBoundsTest create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -69,9 +69,14 @@ public class EXTOcclusionQueryBoolean {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTOcclusionQueryBoolean} instance for the current context. */
+	/** Returns the {@link EXTOcclusionQueryBoolean} instance of the current context. */
 	public static EXTOcclusionQueryBoolean getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__EXTOcclusionQueryBoolean);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link EXTOcclusionQueryBoolean} instance of the specified {@link GLESCapabilities}. */
+	public static EXTOcclusionQueryBoolean getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__EXTOcclusionQueryBoolean);
 	}
 
 	static EXTOcclusionQueryBoolean create(java.util.Set<String> ext, FunctionProvider provider) {

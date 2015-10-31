@@ -62,9 +62,14 @@ public class OESGetProgramBinary {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link OESGetProgramBinary} instance for the current context. */
+	/** Returns the {@link OESGetProgramBinary} instance of the current context. */
 	public static OESGetProgramBinary getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__OESGetProgramBinary);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link OESGetProgramBinary} instance of the specified {@link GLESCapabilities}. */
+	public static OESGetProgramBinary getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__OESGetProgramBinary);
 	}
 
 	static OESGetProgramBinary create(java.util.Set<String> ext, FunctionProvider provider) {

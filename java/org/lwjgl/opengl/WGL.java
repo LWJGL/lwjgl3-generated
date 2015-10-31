@@ -96,9 +96,14 @@ public class WGL {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link WGL} instance for the current context. */
+	/** Returns the {@link WGL} instance of the current context. */
 	public static WGL getInstance() {
-		return checkFunctionality(GL.getCapabilities().__WGL);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link WGL} instance of the specified {@link GLCapabilities}. */
+	public static WGL getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__WGL);
 	}
 
 	static WGL create(java.util.Set<String> ext, FunctionProvider provider) {

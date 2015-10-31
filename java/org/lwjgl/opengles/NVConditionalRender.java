@@ -59,9 +59,14 @@ public class NVConditionalRender {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVConditionalRender} instance for the current context. */
+	/** Returns the {@link NVConditionalRender} instance of the current context. */
 	public static NVConditionalRender getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__NVConditionalRender);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link NVConditionalRender} instance of the specified {@link GLESCapabilities}. */
+	public static NVConditionalRender getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__NVConditionalRender);
 	}
 
 	static NVConditionalRender create(java.util.Set<String> ext, FunctionProvider provider) {

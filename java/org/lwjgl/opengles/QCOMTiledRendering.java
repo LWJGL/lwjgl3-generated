@@ -111,9 +111,14 @@ public class QCOMTiledRendering {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link QCOMTiledRendering} instance for the current context. */
+	/** Returns the {@link QCOMTiledRendering} instance of the current context. */
 	public static QCOMTiledRendering getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__QCOMTiledRendering);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link QCOMTiledRendering} instance of the specified {@link GLESCapabilities}. */
+	public static QCOMTiledRendering getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__QCOMTiledRendering);
 	}
 
 	static QCOMTiledRendering create(java.util.Set<String> ext, FunctionProvider provider) {

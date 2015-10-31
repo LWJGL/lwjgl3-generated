@@ -114,9 +114,14 @@ public class INTELPerformanceQuery {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link INTELPerformanceQuery} instance for the current context. */
+	/** Returns the {@link INTELPerformanceQuery} instance of the current context. */
 	public static INTELPerformanceQuery getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__INTELPerformanceQuery);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link INTELPerformanceQuery} instance of the specified {@link GLESCapabilities}. */
+	public static INTELPerformanceQuery getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__INTELPerformanceQuery);
 	}
 
 	static INTELPerformanceQuery create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -58,9 +58,14 @@ public class ARBClearTexture {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBClearTexture} instance for the current context. */
+	/** Returns the {@link ARBClearTexture} instance of the current context. */
 	public static ARBClearTexture getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBClearTexture);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBClearTexture} instance of the specified {@link GLCapabilities}. */
+	public static ARBClearTexture getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBClearTexture);
 	}
 
 	static ARBClearTexture create(java.util.Set<String> ext, FunctionProvider provider) {

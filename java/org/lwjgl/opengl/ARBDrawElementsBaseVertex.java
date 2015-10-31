@@ -87,9 +87,14 @@ public class ARBDrawElementsBaseVertex {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBDrawElementsBaseVertex} instance for the current context. */
+	/** Returns the {@link ARBDrawElementsBaseVertex} instance of the current context. */
 	public static ARBDrawElementsBaseVertex getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBDrawElementsBaseVertex);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBDrawElementsBaseVertex} instance of the specified {@link GLCapabilities}. */
+	public static ARBDrawElementsBaseVertex getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBDrawElementsBaseVertex);
 	}
 
 	static ARBDrawElementsBaseVertex create(java.util.Set<String> ext, FunctionProvider provider) {

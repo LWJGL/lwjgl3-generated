@@ -106,9 +106,14 @@ public class CL10GL {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link CL10GL} instance for the currently loaded ICD. */
+	/** Returns the {@link CL10GL} instance of the currently loaded ICD. */
 	public static CL10GL getInstance() {
-		return checkFunctionality(CL.getICD().__CL10GL);
+		return getInstance(CL.getICD());
+	}
+
+	/** Returns the {@link CL10GL} instance of the specified {@link CLCapabilities}. */
+	public static CL10GL getInstance(CLCapabilities caps) {
+		return checkFunctionality(caps.__CL10GL);
 	}
 
 	static CL10GL create(FunctionProvider provider) {

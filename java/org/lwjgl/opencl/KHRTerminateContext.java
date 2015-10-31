@@ -52,9 +52,14 @@ public class KHRTerminateContext {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link KHRTerminateContext} instance for the currently loaded ICD. */
+	/** Returns the {@link KHRTerminateContext} instance of the currently loaded ICD. */
 	public static KHRTerminateContext getInstance() {
-		return checkFunctionality(CL.getICD().__KHRTerminateContext);
+		return getInstance(CL.getICD());
+	}
+
+	/** Returns the {@link KHRTerminateContext} instance of the specified {@link CLCapabilities}. */
+	public static KHRTerminateContext getInstance(CLCapabilities caps) {
+		return checkFunctionality(caps.__KHRTerminateContext);
 	}
 
 	static KHRTerminateContext create(FunctionProvider provider) {

@@ -80,7 +80,7 @@ public class AL11 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link AL11} instance for the current context. */
+	/** Returns the {@link AL11} instance of the current context. */
 	public static AL11 getInstance() {
 		return checkFunctionality(AL.getCapabilities().__AL11);
 	}

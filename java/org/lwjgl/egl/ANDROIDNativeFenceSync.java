@@ -51,7 +51,12 @@ public class ANDROIDNativeFenceSync {
 
 	/** Returns the {@link ANDROIDNativeFenceSync} instance. */
 	public static ANDROIDNativeFenceSync getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__ANDROIDNativeFenceSync);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link ANDROIDNativeFenceSync} instance of the specified {@link EGLCapabilities}. */
+	public static ANDROIDNativeFenceSync getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__ANDROIDNativeFenceSync);
 	}
 
 	// --- [ eglDupNativeFenceFDANDROID ] ---

@@ -47,9 +47,14 @@ public class ARBInternalformatQuery {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBInternalformatQuery} instance for the current context. */
+	/** Returns the {@link ARBInternalformatQuery} instance of the current context. */
 	public static ARBInternalformatQuery getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBInternalformatQuery);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBInternalformatQuery} instance of the specified {@link GLCapabilities}. */
+	public static ARBInternalformatQuery getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBInternalformatQuery);
 	}
 
 	static ARBInternalformatQuery create(java.util.Set<String> ext, FunctionProvider provider) {

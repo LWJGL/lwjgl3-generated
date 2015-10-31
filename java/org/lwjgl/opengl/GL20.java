@@ -373,9 +373,14 @@ public class GL20 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GL20} instance for the current context. */
+	/** Returns the {@link GL20} instance of the current context. */
 	public static GL20 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GL20);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GL20} instance of the specified {@link GLCapabilities}. */
+	public static GL20 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GL20);
 	}
 
 	static GL20 create(java.util.Set<String> ext, FunctionProvider provider) {

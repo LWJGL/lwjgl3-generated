@@ -40,9 +40,14 @@ public class APPLECommandQueuePriority {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link APPLECommandQueuePriority} instance for the currently loaded ICD. */
+	/** Returns the {@link APPLECommandQueuePriority} instance of the currently loaded ICD. */
 	public static APPLECommandQueuePriority getInstance() {
-		return checkFunctionality(CL.getICD().__APPLECommandQueuePriority);
+		return getInstance(CL.getICD());
+	}
+
+	/** Returns the {@link APPLECommandQueuePriority} instance of the specified {@link CLCapabilities}. */
+	public static APPLECommandQueuePriority getInstance(CLCapabilities caps) {
+		return checkFunctionality(caps.__APPLECommandQueuePriority);
 	}
 
 	static APPLECommandQueuePriority create(FunctionProvider provider) {

@@ -56,7 +56,12 @@ public class EGL11 {
 
 	/** Returns the {@link EGL11} instance. */
 	public static EGL11 getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__EGL11);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link EGL11} instance of the specified {@link EGLCapabilities}. */
+	public static EGL11 getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__EGL11);
 	}
 
 	// --- [ eglBindTexImage ] ---

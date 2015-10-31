@@ -102,9 +102,14 @@ public class NVVertexBufferUnifiedMemory {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVVertexBufferUnifiedMemory} instance for the current context. */
+	/** Returns the {@link NVVertexBufferUnifiedMemory} instance of the current context. */
 	public static NVVertexBufferUnifiedMemory getInstance() {
-		return checkFunctionality(GL.getCapabilities().__NVVertexBufferUnifiedMemory);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link NVVertexBufferUnifiedMemory} instance of the specified {@link GLCapabilities}. */
+	public static NVVertexBufferUnifiedMemory getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__NVVertexBufferUnifiedMemory);
 	}
 
 	static NVVertexBufferUnifiedMemory create(java.util.Set<String> ext, FunctionProvider provider) {

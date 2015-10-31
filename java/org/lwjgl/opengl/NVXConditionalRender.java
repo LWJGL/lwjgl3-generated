@@ -44,9 +44,14 @@ public class NVXConditionalRender {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link NVXConditionalRender} instance for the current context. */
+	/** Returns the {@link NVXConditionalRender} instance of the current context. */
 	public static NVXConditionalRender getInstance() {
-		return checkFunctionality(GL.getCapabilities().__NVXConditionalRender);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link NVXConditionalRender} instance of the specified {@link GLCapabilities}. */
+	public static NVXConditionalRender getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__NVXConditionalRender);
 	}
 
 	static NVXConditionalRender create(java.util.Set<String> ext, FunctionProvider provider) {

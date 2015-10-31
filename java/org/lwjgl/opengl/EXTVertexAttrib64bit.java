@@ -96,9 +96,14 @@ public class EXTVertexAttrib64bit {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link EXTVertexAttrib64bit} instance for the current context. */
+	/** Returns the {@link EXTVertexAttrib64bit} instance of the current context. */
 	public static EXTVertexAttrib64bit getInstance() {
-		return checkFunctionality(GL.getCapabilities().__EXTVertexAttrib64bit);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link EXTVertexAttrib64bit} instance of the specified {@link GLCapabilities}. */
+	public static EXTVertexAttrib64bit getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__EXTVertexAttrib64bit);
 	}
 
 	static EXTVertexAttrib64bit create(java.util.Set<String> ext, FunctionProvider provider) {

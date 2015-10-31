@@ -109,9 +109,14 @@ public class CL11 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link CL11} instance for the currently loaded ICD. */
+	/** Returns the {@link CL11} instance of the currently loaded ICD. */
 	public static CL11 getInstance() {
-		return checkFunctionality(CL.getICD().__CL11);
+		return getInstance(CL.getICD());
+	}
+
+	/** Returns the {@link CL11} instance of the specified {@link CLCapabilities}. */
+	public static CL11 getInstance(CLCapabilities caps) {
+		return checkFunctionality(caps.__CL11);
 	}
 
 	static CL11 create(FunctionProvider provider) {

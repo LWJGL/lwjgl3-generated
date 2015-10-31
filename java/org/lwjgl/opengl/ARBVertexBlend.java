@@ -126,9 +126,14 @@ public class ARBVertexBlend {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBVertexBlend} instance for the current context. */
+	/** Returns the {@link ARBVertexBlend} instance of the current context. */
 	public static ARBVertexBlend getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBVertexBlend);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBVertexBlend} instance of the specified {@link GLCapabilities}. */
+	public static ARBVertexBlend getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBVertexBlend);
 	}
 
 	static ARBVertexBlend create(java.util.Set<String> ext, FunctionProvider provider) {

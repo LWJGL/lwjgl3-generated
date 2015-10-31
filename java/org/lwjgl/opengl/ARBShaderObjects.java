@@ -177,9 +177,14 @@ public class ARBShaderObjects {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBShaderObjects} instance for the current context. */
+	/** Returns the {@link ARBShaderObjects} instance of the current context. */
 	public static ARBShaderObjects getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBShaderObjects);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBShaderObjects} instance of the specified {@link GLCapabilities}. */
+	public static ARBShaderObjects getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBShaderObjects);
 	}
 
 	static ARBShaderObjects create(java.util.Set<String> ext, FunctionProvider provider) {

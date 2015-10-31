@@ -68,9 +68,14 @@ public class AMDSparseTexture {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link AMDSparseTexture} instance for the current context. */
+	/** Returns the {@link AMDSparseTexture} instance of the current context. */
 	public static AMDSparseTexture getInstance() {
-		return checkFunctionality(GL.getCapabilities().__AMDSparseTexture);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link AMDSparseTexture} instance of the specified {@link GLCapabilities}. */
+	public static AMDSparseTexture getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__AMDSparseTexture);
 	}
 
 	static AMDSparseTexture create(java.util.Set<String> ext, FunctionProvider provider) {

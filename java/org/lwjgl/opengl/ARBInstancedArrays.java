@@ -55,9 +55,14 @@ public class ARBInstancedArrays {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBInstancedArrays} instance for the current context. */
+	/** Returns the {@link ARBInstancedArrays} instance of the current context. */
 	public static ARBInstancedArrays getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBInstancedArrays);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBInstancedArrays} instance of the specified {@link GLCapabilities}. */
+	public static ARBInstancedArrays getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBInstancedArrays);
 	}
 
 	static ARBInstancedArrays create(java.util.Set<String> ext, FunctionProvider provider) {

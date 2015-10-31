@@ -42,9 +42,14 @@ public class ARBGetTextureSubImage {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBGetTextureSubImage} instance for the current context. */
+	/** Returns the {@link ARBGetTextureSubImage} instance of the current context. */
 	public static ARBGetTextureSubImage getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBGetTextureSubImage);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBGetTextureSubImage} instance of the specified {@link GLCapabilities}. */
+	public static ARBGetTextureSubImage getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBGetTextureSubImage);
 	}
 
 	static ARBGetTextureSubImage create(java.util.Set<String> ext, FunctionProvider provider) {

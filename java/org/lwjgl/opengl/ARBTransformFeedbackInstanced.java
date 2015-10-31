@@ -44,9 +44,14 @@ public class ARBTransformFeedbackInstanced {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBTransformFeedbackInstanced} instance for the current context. */
+	/** Returns the {@link ARBTransformFeedbackInstanced} instance of the current context. */
 	public static ARBTransformFeedbackInstanced getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBTransformFeedbackInstanced);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBTransformFeedbackInstanced} instance of the specified {@link GLCapabilities}. */
+	public static ARBTransformFeedbackInstanced getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBTransformFeedbackInstanced);
 	}
 
 	static ARBTransformFeedbackInstanced create(java.util.Set<String> ext, FunctionProvider provider) {

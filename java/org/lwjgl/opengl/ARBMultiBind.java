@@ -62,9 +62,14 @@ public class ARBMultiBind {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBMultiBind} instance for the current context. */
+	/** Returns the {@link ARBMultiBind} instance of the current context. */
 	public static ARBMultiBind getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBMultiBind);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBMultiBind} instance of the specified {@link GLCapabilities}. */
+	public static ARBMultiBind getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBMultiBind);
 	}
 
 	static ARBMultiBind create(java.util.Set<String> ext, FunctionProvider provider) {

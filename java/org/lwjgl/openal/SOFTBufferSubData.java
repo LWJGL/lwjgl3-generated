@@ -38,7 +38,7 @@ public class SOFTBufferSubData {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link SOFTBufferSubData} instance for the current context. */
+	/** Returns the {@link SOFTBufferSubData} instance of the current context. */
 	public static SOFTBufferSubData getInstance() {
 		return checkFunctionality(AL.getCapabilities().__SOFTBufferSubData);
 	}

@@ -39,9 +39,14 @@ public class SOFTPauseDevice {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link SOFTPauseDevice} instance for the current context. */
+	/** Returns the {@link SOFTPauseDevice} instance of the current context. */
 	public static SOFTPauseDevice getInstance() {
-		return checkFunctionality(ALC.getCapabilities().__SOFTPauseDevice);
+		return getInstance(ALC.getCapabilities());
+	}
+
+	/** Returns the {@link SOFTPauseDevice} instance of the specified {@link ALCCapabilities}. */
+	public static SOFTPauseDevice getInstance(ALCCapabilities caps) {
+		return checkFunctionality(caps.__SOFTPauseDevice);
 	}
 
 	static SOFTPauseDevice create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {

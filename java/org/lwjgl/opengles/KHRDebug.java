@@ -197,9 +197,14 @@ public class KHRDebug {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link KHRDebug} instance for the current context. */
+	/** Returns the {@link KHRDebug} instance of the current context. */
 	public static KHRDebug getInstance() {
-		return checkFunctionality(GLES.getCapabilities().__KHRDebug);
+		return getInstance(GLES.getCapabilities());
+	}
+
+	/** Returns the {@link KHRDebug} instance of the specified {@link GLESCapabilities}. */
+	public static KHRDebug getInstance(GLESCapabilities caps) {
+		return checkFunctionality(caps.__KHRDebug);
 	}
 
 	static KHRDebug create(java.util.Set<String> ext, FunctionProvider provider) {

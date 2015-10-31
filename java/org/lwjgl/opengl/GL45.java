@@ -349,9 +349,14 @@ public class GL45 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GL45} instance for the current context. */
+	/** Returns the {@link GL45} instance of the current context. */
 	public static GL45 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GL45);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GL45} instance of the specified {@link GLCapabilities}. */
+	public static GL45 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GL45);
 	}
 
 	static GL45 create(java.util.Set<String> ext, FunctionProvider provider) {

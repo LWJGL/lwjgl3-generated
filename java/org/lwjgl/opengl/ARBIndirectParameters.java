@@ -60,9 +60,14 @@ public class ARBIndirectParameters {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBIndirectParameters} instance for the current context. */
+	/** Returns the {@link ARBIndirectParameters} instance of the current context. */
 	public static ARBIndirectParameters getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBIndirectParameters);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBIndirectParameters} instance of the specified {@link GLCapabilities}. */
+	public static ARBIndirectParameters getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBIndirectParameters);
 	}
 
 	static ARBIndirectParameters create(java.util.Set<String> ext, FunctionProvider provider) {

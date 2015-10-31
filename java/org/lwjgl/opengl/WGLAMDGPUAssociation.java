@@ -74,9 +74,14 @@ public class WGLAMDGPUAssociation {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link WGLAMDGPUAssociation} instance for the current context. */
+	/** Returns the {@link WGLAMDGPUAssociation} instance of the current context. */
 	public static WGLAMDGPUAssociation getInstance() {
-		return checkFunctionality(GL.getCapabilities().__WGLAMDGPUAssociation);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link WGLAMDGPUAssociation} instance of the specified {@link GLCapabilities}. */
+	public static WGLAMDGPUAssociation getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__WGLAMDGPUAssociation);
 	}
 
 	static WGLAMDGPUAssociation create(java.util.Set<String> ext, FunctionProvider provider) {

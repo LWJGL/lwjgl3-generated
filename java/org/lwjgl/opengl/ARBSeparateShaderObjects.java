@@ -221,9 +221,14 @@ public class ARBSeparateShaderObjects {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBSeparateShaderObjects} instance for the current context. */
+	/** Returns the {@link ARBSeparateShaderObjects} instance of the current context. */
 	public static ARBSeparateShaderObjects getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBSeparateShaderObjects);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBSeparateShaderObjects} instance of the specified {@link GLCapabilities}. */
+	public static ARBSeparateShaderObjects getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBSeparateShaderObjects);
 	}
 
 	static ARBSeparateShaderObjects create(java.util.Set<String> ext, FunctionProvider provider) {

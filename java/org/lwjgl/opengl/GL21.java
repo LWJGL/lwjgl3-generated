@@ -92,9 +92,14 @@ public class GL21 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GL21} instance for the current context. */
+	/** Returns the {@link GL21} instance of the current context. */
 	public static GL21 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GL21);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GL21} instance of the specified {@link GLCapabilities}. */
+	public static GL21 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GL21);
 	}
 
 	static GL21 create(java.util.Set<String> ext, FunctionProvider provider) {

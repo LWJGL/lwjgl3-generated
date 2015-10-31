@@ -129,9 +129,14 @@ public class GL44 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GL44} instance for the current context. */
+	/** Returns the {@link GL44} instance of the current context. */
 	public static GL44 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GL44);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GL44} instance of the specified {@link GLCapabilities}. */
+	public static GL44 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GL44);
 	}
 
 	static GL44 create(java.util.Set<String> ext, FunctionProvider provider) {

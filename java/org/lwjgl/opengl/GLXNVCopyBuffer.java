@@ -37,9 +37,14 @@ public class GLXNVCopyBuffer {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GLXNVCopyBuffer} instance for the current context. */
+	/** Returns the {@link GLXNVCopyBuffer} instance of the current context. */
 	public static GLXNVCopyBuffer getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GLXNVCopyBuffer);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GLXNVCopyBuffer} instance of the specified {@link GLCapabilities}. */
+	public static GLXNVCopyBuffer getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GLXNVCopyBuffer);
 	}
 
 	static GLXNVCopyBuffer create(java.util.Set<String> ext, FunctionProvider provider) {

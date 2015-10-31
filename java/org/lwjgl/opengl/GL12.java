@@ -158,9 +158,14 @@ public class GL12 {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GL12} instance for the current context. */
+	/** Returns the {@link GL12} instance of the current context. */
 	public static GL12 getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GL12);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GL12} instance of the specified {@link GLCapabilities}. */
+	public static GL12 getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GL12);
 	}
 
 	static GL12 create(java.util.Set<String> ext, FunctionProvider provider) {

@@ -60,7 +60,12 @@ public class NVStreamConsumerGLTextureYUV {
 
 	/** Returns the {@link NVStreamConsumerGLTextureYUV} instance. */
 	public static NVStreamConsumerGLTextureYUV getInstance() {
-		return checkFunctionality(EGL.getCapabilities().__NVStreamConsumerGLTextureYUV);
+		return getInstance(EGL.getCapabilities());
+	}
+
+	/** Returns the {@link NVStreamConsumerGLTextureYUV} instance of the specified {@link EGLCapabilities}. */
+	public static NVStreamConsumerGLTextureYUV getInstance(EGLCapabilities caps) {
+		return checkFunctionality(caps.__NVStreamConsumerGLTextureYUV);
 	}
 
 	// --- [ eglStreamConsumerGLTextureExternalAttribsNV ] ---

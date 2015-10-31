@@ -55,9 +55,14 @@ public class GLXARBCreateContext {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link GLXARBCreateContext} instance for the current context. */
+	/** Returns the {@link GLXARBCreateContext} instance of the current context. */
 	public static GLXARBCreateContext getInstance() {
-		return checkFunctionality(GL.getCapabilities().__GLXARBCreateContext);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link GLXARBCreateContext} instance of the specified {@link GLCapabilities}. */
+	public static GLXARBCreateContext getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__GLXARBCreateContext);
 	}
 
 	static GLXARBCreateContext create(java.util.Set<String> ext, FunctionProvider provider) {

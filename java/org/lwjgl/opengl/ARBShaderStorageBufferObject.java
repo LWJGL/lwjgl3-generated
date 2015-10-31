@@ -87,9 +87,14 @@ public class ARBShaderStorageBufferObject {
 
 	// --- [ Function Addresses ] ---
 
-	/** Returns the {@link ARBShaderStorageBufferObject} instance for the current context. */
+	/** Returns the {@link ARBShaderStorageBufferObject} instance of the current context. */
 	public static ARBShaderStorageBufferObject getInstance() {
-		return checkFunctionality(GL.getCapabilities().__ARBShaderStorageBufferObject);
+		return getInstance(GL.getCapabilities());
+	}
+
+	/** Returns the {@link ARBShaderStorageBufferObject} instance of the specified {@link GLCapabilities}. */
+	public static ARBShaderStorageBufferObject getInstance(GLCapabilities caps) {
+		return checkFunctionality(caps.__ARBShaderStorageBufferObject);
 	}
 
 	static ARBShaderStorageBufferObject create(java.util.Set<String> ext, FunctionProvider provider) {
