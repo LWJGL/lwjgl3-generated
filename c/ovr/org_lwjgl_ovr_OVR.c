@@ -3,9 +3,15 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
+#ifdef LWJGL_WINDOWS
+	#define _NO_CRT_STDIO_INLINE
+#endif
 #include "common_tools.h"
 DISABLE_WARNINGS()
-#include "OVR_CAPI.h"
+#ifdef LWJGL_WINDOWS
+	__pragma(warning(disable : 4711))
+#endif
+#include "OVR_CAPIShim.c"
 ENABLE_WARNINGS()
 
 EXTERN_C_ENTER

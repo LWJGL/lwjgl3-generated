@@ -90,6 +90,11 @@ public class JEmalloc {
 		instance = new JEmalloc(JEMALLOC);
 	}
 
+	/** Returns the {@link DynamicLinkLibrary} that provides pointers for the functions in this class. */
+	public static DynamicLinkLibrary getLibrary() {
+		return JEMALLOC;
+	}
+
 	/** Returns the {@link JEmalloc} instance. */
 	public static JEmalloc getInstance() {
 		return instance;

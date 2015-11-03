@@ -11,11 +11,35 @@ import org.lwjgl.system.*;
 import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
 
-/** Native bindings to Objective-C Runtime. */
+/**
+ * Native bindings to the Objective-C Runtime.
+ * 
+ * <p>Due to the nature of the {@code objc_msgSend*} functions, they are not directly exposed in this binding. Advanced users with good understanding of
+ * the complexity involved with using these functions, may access them via the {@link #getLibrary} method:
+ * <pre><code style="font-family: monospace">
+ * DynamicLinkLibrary objc = ObjCRuntime.getLibrary();
+ * long objc_msgSend = objc.getFunctionAddress("objc_msgSend");
+ * 
+ * // example usage
+ * long NSThread = objc_getClass("NSThread");
+ * long currentThread = invokePPP(objc_msgSend, NSThread, sel_getUid("currentThread"));</code></pre>
+ * The safe way to use objc_msgSend in C code is to cast it to an appropriate function pointer. This is exactly what the
+ * {@link org.lwjgl.system.JNI JNI} class does. If a particular function signature is not available, {@link org.lwjgl.system.libffi.LibFFI LibFFI} may
+ * be used to invoke it.</p>
+ * 
+ * <p>The functions not exposed are:
+ * <ul>
+ * <li>objc_msgSend</li>
+ * <li>objc_msgSend_stret</li>
+ * <li>objc_msgSendSuper</li>
+ * <li>objc_msgSendSuper_stret</li>
+ * </ul></p>
+ */
 public class ObjCRuntime {
 
 	/** Nil value. */
@@ -69,16 +93,239 @@ public class ObjCRuntime {
 
 	static { LWJGLUtil.initialize(); }
 
+	/** Function address. */
+	@JavadocExclude
+	public final long
+		object_copy,
+		object_dispose,
+		object_getClass,
+		object_setClass,
+		object_getClassName,
+		object_getIndexedIvars,
+		object_getIvar,
+		object_setIvar,
+		object_setInstanceVariable,
+		object_getInstanceVariable,
+		objc_getClass,
+		objc_getMetaClass,
+		objc_lookUpClass,
+		objc_getRequiredClass,
+		objc_getClassList,
+		objc_copyClassList,
+		class_getName,
+		class_isMetaClass,
+		class_getSuperclass,
+		class_getVersion,
+		class_setVersion,
+		class_getInstanceSize,
+		class_getInstanceVariable,
+		class_getClassVariable,
+		class_copyIvarList,
+		class_getInstanceMethod,
+		class_getClassMethod,
+		class_getMethodImplementation,
+		class_respondsToSelector,
+		class_copyMethodList,
+		class_conformsToProtocol,
+		class_copyProtocolList,
+		class_getProperty,
+		class_copyPropertyList,
+		class_getIvarLayout,
+		class_getWeakIvarLayout,
+		class_addMethod,
+		class_replaceMethod,
+		class_addIvar,
+		class_addProtocol,
+		class_addProperty,
+		class_replaceProperty,
+		class_setIvarLayout,
+		class_setWeakIvarLayout,
+		class_createInstance,
+		objc_constructInstance,
+		objc_destructInstance,
+		objc_allocateClassPair,
+		objc_registerClassPair,
+		objc_disposeClassPair,
+		method_getName,
+		method_getImplementation,
+		method_getTypeEncoding,
+		method_getNumberOfArguments,
+		method_copyReturnType,
+		method_copyArgumentType,
+		method_getReturnType,
+		method_getArgumentType,
+		method_setImplementation,
+		method_exchangeImplementations,
+		ivar_getName,
+		ivar_getTypeEncoding,
+		ivar_getOffset,
+		property_getName,
+		property_getAttributes,
+		property_copyAttributeList,
+		property_copyAttributeValue,
+		objc_getProtocol,
+		objc_copyProtocolList,
+		protocol_conformsToProtocol,
+		protocol_isEqual,
+		protocol_getName,
+		protocol_getMethodDescription,
+		protocol_copyMethodDescriptionList,
+		protocol_getProperty,
+		protocol_copyPropertyList,
+		protocol_copyProtocolList,
+		objc_allocateProtocol,
+		objc_registerProtocol,
+		protocol_addMethodDescription,
+		protocol_addProtocol,
+		protocol_addProperty,
+		objc_copyImageNames,
+		class_getImageName,
+		objc_copyClassNamesForImage,
+		sel_getName,
+		sel_getUid,
+		sel_registerName,
+		sel_isEqual,
+		objc_enumerationMutation,
+		objc_setEnumerationMutationHandler,
+		imp_implementationWithBlock,
+		imp_getBlock,
+		imp_removeBlock,
+		objc_loadWeak,
+		objc_storeWeak,
+		objc_setAssociatedObject,
+		objc_getAssociatedObject,
+		objc_removeAssociatedObjects;
+
 	@JavadocExclude
 	protected ObjCRuntime() {
 		throw new UnsupportedOperationException();
 	}
 
-	// --- [ object_copy ] ---
-
-	/** JNI method for {@link #object_copy} */
 	@JavadocExclude
-	public static native long nobject_copy(long obj, long size);
+	public ObjCRuntime(FunctionProvider provider) {
+		object_copy = checkFunctionAddress(provider.getFunctionAddress("object_copy"));
+		object_dispose = checkFunctionAddress(provider.getFunctionAddress("object_dispose"));
+		object_getClass = checkFunctionAddress(provider.getFunctionAddress("object_getClass"));
+		object_setClass = checkFunctionAddress(provider.getFunctionAddress("object_setClass"));
+		object_getClassName = checkFunctionAddress(provider.getFunctionAddress("object_getClassName"));
+		object_getIndexedIvars = checkFunctionAddress(provider.getFunctionAddress("object_getIndexedIvars"));
+		object_getIvar = checkFunctionAddress(provider.getFunctionAddress("object_getIvar"));
+		object_setIvar = checkFunctionAddress(provider.getFunctionAddress("object_setIvar"));
+		object_setInstanceVariable = checkFunctionAddress(provider.getFunctionAddress("object_setInstanceVariable"));
+		object_getInstanceVariable = checkFunctionAddress(provider.getFunctionAddress("object_getInstanceVariable"));
+		objc_getClass = checkFunctionAddress(provider.getFunctionAddress("objc_getClass"));
+		objc_getMetaClass = checkFunctionAddress(provider.getFunctionAddress("objc_getMetaClass"));
+		objc_lookUpClass = checkFunctionAddress(provider.getFunctionAddress("objc_lookUpClass"));
+		objc_getRequiredClass = checkFunctionAddress(provider.getFunctionAddress("objc_getRequiredClass"));
+		objc_getClassList = checkFunctionAddress(provider.getFunctionAddress("objc_getClassList"));
+		objc_copyClassList = checkFunctionAddress(provider.getFunctionAddress("objc_copyClassList"));
+		class_getName = checkFunctionAddress(provider.getFunctionAddress("class_getName"));
+		class_isMetaClass = checkFunctionAddress(provider.getFunctionAddress("class_isMetaClass"));
+		class_getSuperclass = checkFunctionAddress(provider.getFunctionAddress("class_getSuperclass"));
+		class_getVersion = checkFunctionAddress(provider.getFunctionAddress("class_getVersion"));
+		class_setVersion = checkFunctionAddress(provider.getFunctionAddress("class_setVersion"));
+		class_getInstanceSize = checkFunctionAddress(provider.getFunctionAddress("class_getInstanceSize"));
+		class_getInstanceVariable = checkFunctionAddress(provider.getFunctionAddress("class_getInstanceVariable"));
+		class_getClassVariable = checkFunctionAddress(provider.getFunctionAddress("class_getClassVariable"));
+		class_copyIvarList = checkFunctionAddress(provider.getFunctionAddress("class_copyIvarList"));
+		class_getInstanceMethod = checkFunctionAddress(provider.getFunctionAddress("class_getInstanceMethod"));
+		class_getClassMethod = checkFunctionAddress(provider.getFunctionAddress("class_getClassMethod"));
+		class_getMethodImplementation = checkFunctionAddress(provider.getFunctionAddress("class_getMethodImplementation"));
+		class_respondsToSelector = checkFunctionAddress(provider.getFunctionAddress("class_respondsToSelector"));
+		class_copyMethodList = checkFunctionAddress(provider.getFunctionAddress("class_copyMethodList"));
+		class_conformsToProtocol = checkFunctionAddress(provider.getFunctionAddress("class_conformsToProtocol"));
+		class_copyProtocolList = checkFunctionAddress(provider.getFunctionAddress("class_copyProtocolList"));
+		class_getProperty = checkFunctionAddress(provider.getFunctionAddress("class_getProperty"));
+		class_copyPropertyList = checkFunctionAddress(provider.getFunctionAddress("class_copyPropertyList"));
+		class_getIvarLayout = checkFunctionAddress(provider.getFunctionAddress("class_getIvarLayout"));
+		class_getWeakIvarLayout = checkFunctionAddress(provider.getFunctionAddress("class_getWeakIvarLayout"));
+		class_addMethod = checkFunctionAddress(provider.getFunctionAddress("class_addMethod"));
+		class_replaceMethod = checkFunctionAddress(provider.getFunctionAddress("class_replaceMethod"));
+		class_addIvar = checkFunctionAddress(provider.getFunctionAddress("class_addIvar"));
+		class_addProtocol = checkFunctionAddress(provider.getFunctionAddress("class_addProtocol"));
+		class_addProperty = checkFunctionAddress(provider.getFunctionAddress("class_addProperty"));
+		class_replaceProperty = checkFunctionAddress(provider.getFunctionAddress("class_replaceProperty"));
+		class_setIvarLayout = checkFunctionAddress(provider.getFunctionAddress("class_setIvarLayout"));
+		class_setWeakIvarLayout = checkFunctionAddress(provider.getFunctionAddress("class_setWeakIvarLayout"));
+		class_createInstance = checkFunctionAddress(provider.getFunctionAddress("class_createInstance"));
+		objc_constructInstance = checkFunctionAddress(provider.getFunctionAddress("objc_constructInstance"));
+		objc_destructInstance = checkFunctionAddress(provider.getFunctionAddress("objc_destructInstance"));
+		objc_allocateClassPair = checkFunctionAddress(provider.getFunctionAddress("objc_allocateClassPair"));
+		objc_registerClassPair = checkFunctionAddress(provider.getFunctionAddress("objc_registerClassPair"));
+		objc_disposeClassPair = checkFunctionAddress(provider.getFunctionAddress("objc_disposeClassPair"));
+		method_getName = checkFunctionAddress(provider.getFunctionAddress("method_getName"));
+		method_getImplementation = checkFunctionAddress(provider.getFunctionAddress("method_getImplementation"));
+		method_getTypeEncoding = checkFunctionAddress(provider.getFunctionAddress("method_getTypeEncoding"));
+		method_getNumberOfArguments = checkFunctionAddress(provider.getFunctionAddress("method_getNumberOfArguments"));
+		method_copyReturnType = checkFunctionAddress(provider.getFunctionAddress("method_copyReturnType"));
+		method_copyArgumentType = checkFunctionAddress(provider.getFunctionAddress("method_copyArgumentType"));
+		method_getReturnType = checkFunctionAddress(provider.getFunctionAddress("method_getReturnType"));
+		method_getArgumentType = checkFunctionAddress(provider.getFunctionAddress("method_getArgumentType"));
+		method_setImplementation = checkFunctionAddress(provider.getFunctionAddress("method_setImplementation"));
+		method_exchangeImplementations = checkFunctionAddress(provider.getFunctionAddress("method_exchangeImplementations"));
+		ivar_getName = checkFunctionAddress(provider.getFunctionAddress("ivar_getName"));
+		ivar_getTypeEncoding = checkFunctionAddress(provider.getFunctionAddress("ivar_getTypeEncoding"));
+		ivar_getOffset = checkFunctionAddress(provider.getFunctionAddress("ivar_getOffset"));
+		property_getName = checkFunctionAddress(provider.getFunctionAddress("property_getName"));
+		property_getAttributes = checkFunctionAddress(provider.getFunctionAddress("property_getAttributes"));
+		property_copyAttributeList = checkFunctionAddress(provider.getFunctionAddress("property_copyAttributeList"));
+		property_copyAttributeValue = checkFunctionAddress(provider.getFunctionAddress("property_copyAttributeValue"));
+		objc_getProtocol = checkFunctionAddress(provider.getFunctionAddress("objc_getProtocol"));
+		objc_copyProtocolList = checkFunctionAddress(provider.getFunctionAddress("objc_copyProtocolList"));
+		protocol_conformsToProtocol = checkFunctionAddress(provider.getFunctionAddress("protocol_conformsToProtocol"));
+		protocol_isEqual = checkFunctionAddress(provider.getFunctionAddress("protocol_isEqual"));
+		protocol_getName = checkFunctionAddress(provider.getFunctionAddress("protocol_getName"));
+		protocol_getMethodDescription = checkFunctionAddress(provider.getFunctionAddress("protocol_getMethodDescription"));
+		protocol_copyMethodDescriptionList = checkFunctionAddress(provider.getFunctionAddress("protocol_copyMethodDescriptionList"));
+		protocol_getProperty = checkFunctionAddress(provider.getFunctionAddress("protocol_getProperty"));
+		protocol_copyPropertyList = checkFunctionAddress(provider.getFunctionAddress("protocol_copyPropertyList"));
+		protocol_copyProtocolList = checkFunctionAddress(provider.getFunctionAddress("protocol_copyProtocolList"));
+		objc_allocateProtocol = checkFunctionAddress(provider.getFunctionAddress("objc_allocateProtocol"));
+		objc_registerProtocol = checkFunctionAddress(provider.getFunctionAddress("objc_registerProtocol"));
+		protocol_addMethodDescription = checkFunctionAddress(provider.getFunctionAddress("protocol_addMethodDescription"));
+		protocol_addProtocol = checkFunctionAddress(provider.getFunctionAddress("protocol_addProtocol"));
+		protocol_addProperty = checkFunctionAddress(provider.getFunctionAddress("protocol_addProperty"));
+		objc_copyImageNames = checkFunctionAddress(provider.getFunctionAddress("objc_copyImageNames"));
+		class_getImageName = checkFunctionAddress(provider.getFunctionAddress("class_getImageName"));
+		objc_copyClassNamesForImage = checkFunctionAddress(provider.getFunctionAddress("objc_copyClassNamesForImage"));
+		sel_getName = checkFunctionAddress(provider.getFunctionAddress("sel_getName"));
+		sel_getUid = checkFunctionAddress(provider.getFunctionAddress("sel_getUid"));
+		sel_registerName = checkFunctionAddress(provider.getFunctionAddress("sel_registerName"));
+		sel_isEqual = checkFunctionAddress(provider.getFunctionAddress("sel_isEqual"));
+		objc_enumerationMutation = checkFunctionAddress(provider.getFunctionAddress("objc_enumerationMutation"));
+		objc_setEnumerationMutationHandler = checkFunctionAddress(provider.getFunctionAddress("objc_setEnumerationMutationHandler"));
+		imp_implementationWithBlock = checkFunctionAddress(provider.getFunctionAddress("imp_implementationWithBlock"));
+		imp_getBlock = checkFunctionAddress(provider.getFunctionAddress("imp_getBlock"));
+		imp_removeBlock = checkFunctionAddress(provider.getFunctionAddress("imp_removeBlock"));
+		objc_loadWeak = checkFunctionAddress(provider.getFunctionAddress("objc_loadWeak"));
+		objc_storeWeak = checkFunctionAddress(provider.getFunctionAddress("objc_storeWeak"));
+		objc_setAssociatedObject = checkFunctionAddress(provider.getFunctionAddress("objc_setAssociatedObject"));
+		objc_getAssociatedObject = checkFunctionAddress(provider.getFunctionAddress("objc_getAssociatedObject"));
+		objc_removeAssociatedObjects = checkFunctionAddress(provider.getFunctionAddress("objc_removeAssociatedObjects"));
+	}
+
+	// --- [ Function Addresses ] ---
+
+	private static final DynamicLinkLibrary OBJC;
+
+	private static final ObjCRuntime instance;
+
+	static {
+		OBJC = LWJGLUtil.loadLibraryNative("objc");
+		instance = new ObjCRuntime(OBJC);
+	}
+
+	/** Returns the {@link DynamicLinkLibrary} that provides pointers for the functions in this class. */
+	public static DynamicLinkLibrary getLibrary() {
+		return OBJC;
+	}
+
+	/** Returns the {@link ObjCRuntime} instance. */
+	public static ObjCRuntime getInstance() {
+		return instance;
+	}
+
+	// --- [ object_copy ] ---
 
 	/**
 	 * Returns a copy of a given object.
@@ -89,16 +336,13 @@ public class ObjCRuntime {
 	 * @return a copy of obj
 	 */
 	public static long object_copy(long obj, long size) {
+		long __functionAddress = getInstance().object_copy;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(obj);
-		return nobject_copy(obj, size);
+		return invokePPP(__functionAddress, obj, size);
 	}
 
 	// --- [ object_dispose ] ---
-
-	/** JNI method for {@link #object_dispose} */
-	@JavadocExclude
-	public static native long nobject_dispose(long obj);
 
 	/**
 	 * Frees the memory occupied by a given object.
@@ -108,9 +352,10 @@ public class ObjCRuntime {
 	 * @return {@link #nil}
 	 */
 	public static long object_dispose(long obj) {
+		long __functionAddress = getInstance().object_dispose;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(obj);
-		return nobject_dispose(obj);
+		return invokePP(__functionAddress, obj);
 	}
 
 	// --- [ object_getClass ] ---
@@ -122,13 +367,12 @@ public class ObjCRuntime {
 	 *
 	 * @return the class object of which object is an instance, or Nil if {@code obj} is {@link #nil}
 	 */
-	public static native long object_getClass(long obj);
+	public static long object_getClass(long obj) {
+		long __functionAddress = getInstance().object_getClass;
+		return invokePP(__functionAddress, obj);
+	}
 
 	// --- [ object_setClass ] ---
-
-	/** JNI method for {@link #object_setClass} */
-	@JavadocExclude
-	public static native long nobject_setClass(long obj, long cls);
 
 	/**
 	 * Sets the class of an object.
@@ -139,16 +383,20 @@ public class ObjCRuntime {
 	 * @return the previous value of object's class, or Nil if {@code obj} is {@link #nil}
 	 */
 	public static long object_setClass(long obj, long cls) {
+		long __functionAddress = getInstance().object_setClass;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(cls);
-		return nobject_setClass(obj, cls);
+		return invokePPP(__functionAddress, obj, cls);
 	}
 
 	// --- [ object_getClassName ] ---
 
-	/** JNI method for {@link #object_getClassName} */
+	/** Unsafe version of {@link #object_getClassName} */
 	@JavadocExclude
-	public static native long nobject_getClassName(long obj);
+	public static long nobject_getClassName(long obj) {
+		long __functionAddress = getInstance().object_getClassName;
+		return invokePP(__functionAddress, obj);
+	}
 
 	/**
 	 * Returns the class name of a given object.
@@ -163,10 +411,6 @@ public class ObjCRuntime {
 	}
 
 	// --- [ object_getIndexedIvars ] ---
-
-	/** JNI method for {@link #object_getIndexedIvars} */
-	@JavadocExclude
-	public static native long nobject_getIndexedIvars(long obj);
 
 	/**
 	 * This function returns a pointer to any extra bytes allocated with the instance (as specified by {@link #class_createInstance} with extraBytes&gt;0). This
@@ -183,16 +427,13 @@ public class ObjCRuntime {
 	 *         is undefined.
 	 */
 	public static long object_getIndexedIvars(long obj) {
+		long __functionAddress = getInstance().object_getIndexedIvars;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(obj);
-		return nobject_getIndexedIvars(obj);
+		return invokePP(__functionAddress, obj);
 	}
 
 	// --- [ object_getIvar ] ---
-
-	/** JNI method for {@link #object_getIvar} */
-	@JavadocExclude
-	public static native long nobject_getIvar(long obj, long ivar);
 
 	/**
 	 * Reads the value of an instance variable in an object.
@@ -203,16 +444,13 @@ public class ObjCRuntime {
 	 * @return the value of the instance variable specified by {@code ivar}, or {@link #nil} if {@code obj} is {@link #nil}
 	 */
 	public static long object_getIvar(long obj, long ivar) {
+		long __functionAddress = getInstance().object_getIvar;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(ivar);
-		return nobject_getIvar(obj, ivar);
+		return invokePPP(__functionAddress, obj, ivar);
 	}
 
 	// --- [ object_setIvar ] ---
-
-	/** JNI method for {@link #object_setIvar} */
-	@JavadocExclude
-	public static native void nobject_setIvar(long obj, long ivar, long value);
 
 	/**
 	 * Sets the value of an instance variable in an object.
@@ -224,19 +462,25 @@ public class ObjCRuntime {
 	 * @param value the new value for the instance variable
 	 */
 	public static void object_setIvar(long obj, long ivar, long value) {
+		long __functionAddress = getInstance().object_setIvar;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(obj);
 			checkPointer(ivar);
 			checkPointer(value);
 		}
-		nobject_setIvar(obj, ivar, value);
+		invokePPPV(__functionAddress, obj, ivar, value);
 	}
 
 	// --- [ object_setInstanceVariable ] ---
 
-	/** JNI method for {@link #object_setInstanceVariable} */
+	/** Unsafe version of {@link #object_setInstanceVariable} */
 	@JavadocExclude
-	public static native long nobject_setInstanceVariable(long obj, long name, long value);
+	public static long nobject_setInstanceVariable(long obj, long name, long value) {
+		long __functionAddress = getInstance().object_setInstanceVariable;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(obj);
+		return invokePPPP(__functionAddress, obj, name, value);
+	}
 
 	/**
 	 * Changes the value of an instance variable of a class instance.
@@ -248,17 +492,13 @@ public class ObjCRuntime {
 	 * @return a pointer to the Ivar data structure that defines the type and name of the instance variable specified by name
 	 */
 	public static long object_setInstanceVariable(long obj, ByteBuffer name, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(obj);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
-		}
 		return nobject_setInstanceVariable(obj, memAddress(name), memAddress(value));
 	}
 
 	/** CharSequence version of: {@link #object_setInstanceVariable} */
 	public static long object_setInstanceVariable(long obj, CharSequence name, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(obj);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
 		return nobject_setInstanceVariable(obj, __buffer.address(nameEncoded), memAddress(value));
@@ -266,9 +506,14 @@ public class ObjCRuntime {
 
 	// --- [ object_getInstanceVariable ] ---
 
-	/** JNI method for {@link #object_getInstanceVariable} */
+	/** Unsafe version of {@link #object_getInstanceVariable} */
 	@JavadocExclude
-	public static native long nobject_getInstanceVariable(long obj, long name, long outValue);
+	public static long nobject_getInstanceVariable(long obj, long name, long outValue) {
+		long __functionAddress = getInstance().object_getInstanceVariable;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(obj);
+		return invokePPPP(__functionAddress, obj, name, outValue);
+	}
 
 	/**
 	 * Obtains the value of an instance variable of a class instance.
@@ -280,24 +525,18 @@ public class ObjCRuntime {
 	 * @return a pointer to the Ivar data structure that defines the type and name of the instance variable specified by name
 	 */
 	public static long object_getInstanceVariable(long obj, ByteBuffer name, ByteBuffer outValue) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(obj);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
-		}
 		return nobject_getInstanceVariable(obj, memAddress(name), memAddress(outValue));
 	}
 
 	/** Alternative version of: {@link #object_getInstanceVariable} */
 	public static long object_getInstanceVariable(long obj, ByteBuffer name, PointerBuffer outValue) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(obj);
 		return nobject_getInstanceVariable(obj, memAddress(name), memAddress(outValue));
 	}
 
 	/** CharSequence version of: {@link #object_getInstanceVariable} */
 	public static long object_getInstanceVariable(long obj, CharSequence name, PointerBuffer outValue) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(obj);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
 		return nobject_getInstanceVariable(obj, __buffer.address(nameEncoded), memAddress(outValue));
@@ -305,9 +544,12 @@ public class ObjCRuntime {
 
 	// --- [ objc_getClass ] ---
 
-	/** JNI method for {@link #objc_getClass} */
+	/** Unsafe version of {@link #objc_getClass} */
 	@JavadocExclude
-	public static native long nobjc_getClass(long name);
+	public static long nobjc_getClass(long name) {
+		long __functionAddress = getInstance().objc_getClass;
+		return invokePP(__functionAddress, name);
+	}
 
 	/**
 	 * Returns the class definition of a specified class.
@@ -334,9 +576,12 @@ public class ObjCRuntime {
 
 	// --- [ objc_getMetaClass ] ---
 
-	/** JNI method for {@link #objc_getMetaClass} */
+	/** Unsafe version of {@link #objc_getMetaClass} */
 	@JavadocExclude
-	public static native long nobjc_getMetaClass(long name);
+	public static long nobjc_getMetaClass(long name) {
+		long __functionAddress = getInstance().objc_getMetaClass;
+		return invokePP(__functionAddress, name);
+	}
 
 	/**
 	 * Returns the metaclass definition of a specified class.
@@ -364,9 +609,12 @@ public class ObjCRuntime {
 
 	// --- [ objc_lookUpClass ] ---
 
-	/** JNI method for {@link #objc_lookUpClass} */
+	/** Unsafe version of {@link #objc_lookUpClass} */
 	@JavadocExclude
-	public static native long nobjc_lookUpClass(long name);
+	public static long nobjc_lookUpClass(long name) {
+		long __functionAddress = getInstance().objc_lookUpClass;
+		return invokePP(__functionAddress, name);
+	}
 
 	/**
 	 * Returns the class definition of a specified class.
@@ -393,9 +641,12 @@ public class ObjCRuntime {
 
 	// --- [ objc_getRequiredClass ] ---
 
-	/** JNI method for {@link #objc_getRequiredClass} */
+	/** Unsafe version of {@link #objc_getRequiredClass} */
 	@JavadocExclude
-	public static native long nobjc_getRequiredClass(long name);
+	public static long nobjc_getRequiredClass(long name) {
+		long __functionAddress = getInstance().objc_getRequiredClass;
+		return invokePP(__functionAddress, name);
+	}
 
 	/**
 	 * Returns the class definition of a specified class.
@@ -423,9 +674,12 @@ public class ObjCRuntime {
 
 	// --- [ objc_getClassList ] ---
 
-	/** JNI method for {@link #objc_getClassList} */
+	/** Unsafe version of {@link #objc_getClassList} */
 	@JavadocExclude
-	public static native int nobjc_getClassList(long buffer, int bufferCount);
+	public static int nobjc_getClassList(long buffer, int bufferCount) {
+		long __functionAddress = getInstance().objc_getClassList;
+		return invokePII(__functionAddress, buffer, bufferCount);
+	}
 
 	/**
 	 * Obtains the list of registered class definitions.
@@ -458,9 +712,12 @@ public class ObjCRuntime {
 
 	// --- [ objc_copyClassList ] ---
 
-	/** JNI method for {@link #objc_copyClassList} */
+	/** Unsafe version of {@link #objc_copyClassList} */
 	@JavadocExclude
-	public static native long nobjc_copyClassList(long outCount);
+	public static long nobjc_copyClassList(long outCount) {
+		long __functionAddress = getInstance().objc_copyClassList;
+		return invokePP(__functionAddress, outCount);
+	}
 
 	/**
 	 * Creates and returns a list of pointers to all registered class definitions.
@@ -476,9 +733,12 @@ public class ObjCRuntime {
 
 	// --- [ class_getName ] ---
 
-	/** JNI method for {@link #class_getName} */
+	/** Unsafe version of {@link #class_getName} */
 	@JavadocExclude
-	public static native long nclass_getName(long cls);
+	public static long nclass_getName(long cls) {
+		long __functionAddress = getInstance().class_getName;
+		return invokePP(__functionAddress, cls);
+	}
 
 	/**
 	 * Returns the name of a class.
@@ -501,7 +761,10 @@ public class ObjCRuntime {
 	 *
 	 * @return {@link #YES} if cls is a metaclass, {@link #NO} if cls is a non-meta class, {@link #NO} if cls is Nil
 	 */
-	public static native byte class_isMetaClass(long cls);
+	public static byte class_isMetaClass(long cls) {
+		long __functionAddress = getInstance().class_isMetaClass;
+		return invokePB(__functionAddress, cls);
+	}
 
 	// --- [ class_getSuperclass ] ---
 
@@ -512,13 +775,12 @@ public class ObjCRuntime {
 	 *
 	 * @return the superclass of the class, or Nil if cls is a root class, or Nil if cls is Nil
 	 */
-	public static native long class_getSuperclass(long cls);
+	public static long class_getSuperclass(long cls) {
+		long __functionAddress = getInstance().class_getSuperclass;
+		return invokePP(__functionAddress, cls);
+	}
 
 	// --- [ class_getVersion ] ---
-
-	/** JNI method for {@link #class_getVersion} */
-	@JavadocExclude
-	public static native int nclass_getVersion(long cls);
 
 	/**
 	 * Returns the version number of a class definition.
@@ -535,16 +797,13 @@ public class ObjCRuntime {
 	 * @return an integer indicating the version number of the class definition
 	 */
 	public static int class_getVersion(long cls) {
+		long __functionAddress = getInstance().class_getVersion;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(cls);
-		return nclass_getVersion(cls);
+		return invokePI(__functionAddress, cls);
 	}
 
 	// --- [ class_setVersion ] ---
-
-	/** JNI method for {@link #class_setVersion} */
-	@JavadocExclude
-	public static native void nclass_setVersion(long cls, int version);
 
 	/**
 	 * Sets the version number of a class definition.
@@ -560,9 +819,10 @@ public class ObjCRuntime {
 	 * @param version the new version number of the class definition
 	 */
 	public static void class_setVersion(long cls, int version) {
+		long __functionAddress = getInstance().class_setVersion;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(cls);
-		nclass_setVersion(cls, version);
+		invokePIV(__functionAddress, cls, version);
 	}
 
 	// --- [ class_getInstanceSize ] ---
@@ -574,13 +834,21 @@ public class ObjCRuntime {
 	 *
 	 * @return the size in bytes of instances of the class {@code cls}, or 0 if {@code cls} is Nil
 	 */
-	public static native long class_getInstanceSize(long cls);
+	public static long class_getInstanceSize(long cls) {
+		long __functionAddress = getInstance().class_getInstanceSize;
+		return invokePP(__functionAddress, cls);
+	}
 
 	// --- [ class_getInstanceVariable ] ---
 
-	/** JNI method for {@link #class_getInstanceVariable} */
+	/** Unsafe version of {@link #class_getInstanceVariable} */
 	@JavadocExclude
-	public static native long nclass_getInstanceVariable(long cls, long name);
+	public static long nclass_getInstanceVariable(long cls, long name) {
+		long __functionAddress = getInstance().class_getInstanceVariable;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(cls);
+		return invokePPP(__functionAddress, cls, name);
+	}
 
 	/**
 	 * Returns the Ivar for a specified instance variable of a given class.
@@ -591,17 +859,13 @@ public class ObjCRuntime {
 	 * @return a pointer to an Ivar data structure containing information about the instance variable specified by name
 	 */
 	public static long class_getInstanceVariable(long cls, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(cls);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
-		}
 		return nclass_getInstanceVariable(cls, memAddress(name));
 	}
 
 	/** CharSequence version of: {@link #class_getInstanceVariable} */
 	public static long class_getInstanceVariable(long cls, CharSequence name) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(cls);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
 		return nclass_getInstanceVariable(cls, __buffer.address(nameEncoded));
@@ -609,9 +873,14 @@ public class ObjCRuntime {
 
 	// --- [ class_getClassVariable ] ---
 
-	/** JNI method for {@link #class_getClassVariable} */
+	/** Unsafe version of {@link #class_getClassVariable} */
 	@JavadocExclude
-	public static native long nclass_getClassVariable(long cls, long name);
+	public static long nclass_getClassVariable(long cls, long name) {
+		long __functionAddress = getInstance().class_getClassVariable;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(cls);
+		return invokePPP(__functionAddress, cls, name);
+	}
 
 	/**
 	 * Returns the Ivar for a specified class variable of a given class.
@@ -622,17 +891,13 @@ public class ObjCRuntime {
 	 * @return a pointer to an Ivar data structure containing information about the class variable specified by name
 	 */
 	public static long class_getClassVariable(long cls, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(cls);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
-		}
 		return nclass_getClassVariable(cls, memAddress(name));
 	}
 
 	/** CharSequence version of: {@link #class_getClassVariable} */
 	public static long class_getClassVariable(long cls, CharSequence name) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(cls);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
 		return nclass_getClassVariable(cls, __buffer.address(nameEncoded));
@@ -640,9 +905,12 @@ public class ObjCRuntime {
 
 	// --- [ class_copyIvarList ] ---
 
-	/** JNI method for {@link #class_copyIvarList} */
+	/** Unsafe version of {@link #class_copyIvarList} */
 	@JavadocExclude
-	public static native long nclass_copyIvarList(long cls, long outCount);
+	public static long nclass_copyIvarList(long cls, long outCount) {
+		long __functionAddress = getInstance().class_copyIvarList;
+		return invokePPP(__functionAddress, cls, outCount);
+	}
 
 	/**
 	 * Describes the instance variables declared by a class.
@@ -663,10 +931,6 @@ public class ObjCRuntime {
 
 	// --- [ class_getInstanceMethod ] ---
 
-	/** JNI method for {@link #class_getInstanceMethod} */
-	@JavadocExclude
-	public static native long nclass_getInstanceMethod(long cls, long name);
-
 	/**
 	 * Returns a specified instance method for a given class.
 	 * 
@@ -679,18 +943,15 @@ public class ObjCRuntime {
 	 *         specified class or its superclasses do not contain an instance method with the specified selector.
 	 */
 	public static long class_getInstanceMethod(long cls, long name) {
+		long __functionAddress = getInstance().class_getInstanceMethod;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(cls);
 			checkPointer(name);
 		}
-		return nclass_getInstanceMethod(cls, name);
+		return invokePPP(__functionAddress, cls, name);
 	}
 
 	// --- [ class_getClassMethod ] ---
-
-	/** JNI method for {@link #class_getClassMethod} */
-	@JavadocExclude
-	public static native long nclass_getClassMethod(long cls, long name);
 
 	/**
 	 * Returns a pointer to the data structure describing a given class method for a given class.
@@ -704,18 +965,15 @@ public class ObjCRuntime {
 	 *         {@code cls}, or {@code NULL} if the specified class or its superclasses do not contain a class method with the specified selector.
 	 */
 	public static long class_getClassMethod(long cls, long name) {
+		long __functionAddress = getInstance().class_getClassMethod;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(cls);
 			checkPointer(name);
 		}
-		return nclass_getClassMethod(cls, name);
+		return invokePPP(__functionAddress, cls, name);
 	}
 
 	// --- [ class_getMethodImplementation ] ---
-
-	/** JNI method for {@link #class_getMethodImplementation} */
-	@JavadocExclude
-	public static native long nclass_getMethodImplementation(long cls, long name);
 
 	/**
 	 * Returns the function pointer that would be called if a particular message were sent to an instance of a class.
@@ -731,16 +989,13 @@ public class ObjCRuntime {
 	 * @return the function pointer that would be called if <code style="font-family: monospace">[object name]</code> were called with an instance of the class, or {@code NULL} if {@code cls} is Nil
 	 */
 	public static long class_getMethodImplementation(long cls, long name) {
+		long __functionAddress = getInstance().class_getMethodImplementation;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(name);
-		return nclass_getMethodImplementation(cls, name);
+		return invokePPP(__functionAddress, cls, name);
 	}
 
 	// --- [ class_respondsToSelector ] ---
-
-	/** JNI method for {@link #class_respondsToSelector} */
-	@JavadocExclude
-	public static native byte nclass_respondsToSelector(long cls, long name);
 
 	/**
 	 * Returns a Boolean value that indicates whether instances of a class respond to a particular selector.
@@ -753,18 +1008,22 @@ public class ObjCRuntime {
 	 * @return {@link #YES} if instances of the class respond to the selector, otherwise {@link #NO}
 	 */
 	public static byte class_respondsToSelector(long cls, long name) {
+		long __functionAddress = getInstance().class_respondsToSelector;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(cls);
 			checkPointer(name);
 		}
-		return nclass_respondsToSelector(cls, name);
+		return invokePPB(__functionAddress, cls, name);
 	}
 
 	// --- [ class_copyMethodList ] ---
 
-	/** JNI method for {@link #class_copyMethodList} */
+	/** Unsafe version of {@link #class_copyMethodList} */
 	@JavadocExclude
-	public static native long nclass_copyMethodList(long cls, long outCount);
+	public static long nclass_copyMethodList(long cls, long outCount) {
+		long __functionAddress = getInstance().class_copyMethodList;
+		return invokePPP(__functionAddress, cls, outCount);
+	}
 
 	/**
 	 * Describes the instance methods implemented by a class.
@@ -785,10 +1044,6 @@ public class ObjCRuntime {
 
 	// --- [ class_conformsToProtocol ] ---
 
-	/** JNI method for {@link #class_conformsToProtocol} */
-	@JavadocExclude
-	public static native byte nclass_conformsToProtocol(long cls, long protocol);
-
 	/**
 	 * Returns a Boolean value that indicates whether a class conforms to a given protocol.
 	 * 
@@ -800,18 +1055,22 @@ public class ObjCRuntime {
 	 * @return {@link #YES} if {@code cls} conforms to {@code protocol}, otherwise {@link #NO}
 	 */
 	public static byte class_conformsToProtocol(long cls, long protocol) {
+		long __functionAddress = getInstance().class_conformsToProtocol;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(cls);
 			checkPointer(protocol);
 		}
-		return nclass_conformsToProtocol(cls, protocol);
+		return invokePPB(__functionAddress, cls, protocol);
 	}
 
 	// --- [ class_copyProtocolList ] ---
 
-	/** JNI method for {@link #class_copyProtocolList} */
+	/** Unsafe version of {@link #class_copyProtocolList} */
 	@JavadocExclude
-	public static native long nclass_copyProtocolList(long cls, long outCount);
+	public static long nclass_copyProtocolList(long cls, long outCount) {
+		long __functionAddress = getInstance().class_copyProtocolList;
+		return invokePPP(__functionAddress, cls, outCount);
+	}
 
 	/**
 	 * Describes the protocols adopted by a class.
@@ -832,9 +1091,12 @@ public class ObjCRuntime {
 
 	// --- [ class_getProperty ] ---
 
-	/** JNI method for {@link #class_getProperty} */
+	/** Unsafe version of {@link #class_getProperty} */
 	@JavadocExclude
-	public static native long nclass_getProperty(long cls, long name);
+	public static long nclass_getProperty(long cls, long name) {
+		long __functionAddress = getInstance().class_getProperty;
+		return invokePPP(__functionAddress, cls, name);
+	}
 
 	/**
 	 * Returns a property with a given name of a given class.
@@ -860,9 +1122,12 @@ public class ObjCRuntime {
 
 	// --- [ class_copyPropertyList ] ---
 
-	/** JNI method for {@link #class_copyPropertyList} */
+	/** Unsafe version of {@link #class_copyPropertyList} */
 	@JavadocExclude
-	public static native long nclass_copyPropertyList(long cls, long outCount);
+	public static long nclass_copyPropertyList(long cls, long outCount) {
+		long __functionAddress = getInstance().class_copyPropertyList;
+		return invokePPP(__functionAddress, cls, outCount);
+	}
 
 	/**
 	 * Describes the properties declared by a class.
@@ -883,9 +1148,14 @@ public class ObjCRuntime {
 
 	// --- [ class_getIvarLayout ] ---
 
-	/** JNI method for {@link #class_getIvarLayout} */
+	/** Unsafe version of {@link #class_getIvarLayout} */
 	@JavadocExclude
-	public static native long nclass_getIvarLayout(long cls);
+	public static long nclass_getIvarLayout(long cls) {
+		long __functionAddress = getInstance().class_getIvarLayout;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(cls);
+		return invokePP(__functionAddress, cls);
+	}
 
 	/**
 	 * Returns a description of the Ivar layout for a given class.
@@ -895,17 +1165,20 @@ public class ObjCRuntime {
 	 * @return a description of the Ivar layout for {@code cls}
 	 */
 	public static String class_getIvarLayout(long cls) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(cls);
 		long __result = nclass_getIvarLayout(cls);
 		return memDecodeASCII(__result);
 	}
 
 	// --- [ class_getWeakIvarLayout ] ---
 
-	/** JNI method for {@link #class_getWeakIvarLayout} */
+	/** Unsafe version of {@link #class_getWeakIvarLayout} */
 	@JavadocExclude
-	public static native long nclass_getWeakIvarLayout(long cls);
+	public static long nclass_getWeakIvarLayout(long cls) {
+		long __functionAddress = getInstance().class_getWeakIvarLayout;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(cls);
+		return invokePP(__functionAddress, cls);
+	}
 
 	/**
 	 * Returns a description of the layout of weak Ivars for a given class.
@@ -915,17 +1188,23 @@ public class ObjCRuntime {
 	 * @return a description of the layout of the weak Ivars for {@code cls}
 	 */
 	public static String class_getWeakIvarLayout(long cls) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(cls);
 		long __result = nclass_getWeakIvarLayout(cls);
 		return memDecodeASCII(__result);
 	}
 
 	// --- [ class_addMethod ] ---
 
-	/** JNI method for {@link #class_addMethod} */
+	/** Unsafe version of {@link #class_addMethod} */
 	@JavadocExclude
-	public static native byte nclass_addMethod(long cls, long name, long imp, long types);
+	public static byte nclass_addMethod(long cls, long name, long imp, long types) {
+		long __functionAddress = getInstance().class_addMethod;
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(cls);
+			checkPointer(name);
+			checkPointer(imp);
+		}
+		return invokePPPPB(__functionAddress, cls, name, imp, types);
+	}
 
 	/**
 	 * Adds a new method to a class with a given name and implementation.
@@ -955,22 +1234,13 @@ public class ObjCRuntime {
 	 * @return {@link #YES} if the method was added successfully, otherwise {@link #NO} (for example, the class already contains a method implementation with that name)
 	 */
 	public static byte class_addMethod(long cls, long name, long imp, ByteBuffer types) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(cls);
-			checkPointer(name);
-			checkPointer(imp);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(types);
-		}
 		return nclass_addMethod(cls, name, imp, memAddress(types));
 	}
 
 	/** CharSequence version of: {@link #class_addMethod} */
 	public static byte class_addMethod(long cls, long name, long imp, CharSequence types) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(cls);
-			checkPointer(name);
-			checkPointer(imp);
-		}
 		APIBuffer __buffer = apiBuffer();
 		int typesEncoded = __buffer.stringParamUTF8(types, true);
 		return nclass_addMethod(cls, name, imp, __buffer.address(typesEncoded));
@@ -978,9 +1248,17 @@ public class ObjCRuntime {
 
 	// --- [ class_replaceMethod ] ---
 
-	/** JNI method for {@link #class_replaceMethod} */
+	/** Unsafe version of {@link #class_replaceMethod} */
 	@JavadocExclude
-	public static native long nclass_replaceMethod(long cls, long name, long imp, long types);
+	public static long nclass_replaceMethod(long cls, long name, long imp, long types) {
+		long __functionAddress = getInstance().class_replaceMethod;
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(cls);
+			checkPointer(name);
+			checkPointer(imp);
+		}
+		return invokePPPPP(__functionAddress, cls, name, imp, types);
+	}
 
 	/**
 	 * Replaces the implementation of a method for a given class.
@@ -1004,22 +1282,13 @@ public class ObjCRuntime {
 	 * @return the previous implementation of the method identified by {@code name} for the class identified by {@code cls}
 	 */
 	public static long class_replaceMethod(long cls, long name, long imp, ByteBuffer types) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(cls);
-			checkPointer(name);
-			checkPointer(imp);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(types);
-		}
 		return nclass_replaceMethod(cls, name, imp, memAddress(types));
 	}
 
 	/** CharSequence version of: {@link #class_replaceMethod} */
 	public static long class_replaceMethod(long cls, long name, long imp, CharSequence types) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(cls);
-			checkPointer(name);
-			checkPointer(imp);
-		}
 		APIBuffer __buffer = apiBuffer();
 		int typesEncoded = __buffer.stringParamUTF8(types, true);
 		return nclass_replaceMethod(cls, name, imp, __buffer.address(typesEncoded));
@@ -1027,9 +1296,14 @@ public class ObjCRuntime {
 
 	// --- [ class_addIvar ] ---
 
-	/** JNI method for {@link #class_addIvar} */
+	/** Unsafe version of {@link #class_addIvar} */
 	@JavadocExclude
-	public static native byte nclass_addIvar(long cls, long name, long size, byte alignment, long types);
+	public static byte nclass_addIvar(long cls, long name, long size, byte alignment, long types) {
+		long __functionAddress = getInstance().class_addIvar;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(cls);
+		return invokePPPBPB(__functionAddress, cls, name, size, alignment, types);
+	}
 
 	/**
 	 * Adds a new instance variable to a class.
@@ -1052,7 +1326,6 @@ public class ObjCRuntime {
 	 */
 	public static byte class_addIvar(long cls, ByteBuffer name, long size, byte alignment, ByteBuffer types) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(cls);
 			checkNT1(name);
 			checkNT1(types);
 		}
@@ -1061,8 +1334,6 @@ public class ObjCRuntime {
 
 	/** CharSequence version of: {@link #class_addIvar} */
 	public static byte class_addIvar(long cls, CharSequence name, long size, byte alignment, CharSequence types) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(cls);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
 		int typesEncoded = __buffer.stringParamUTF8(types, true);
@@ -1070,10 +1341,6 @@ public class ObjCRuntime {
 	}
 
 	// --- [ class_addProtocol ] ---
-
-	/** JNI method for {@link #class_addProtocol} */
-	@JavadocExclude
-	public static native byte nclass_addProtocol(long cls, long protocol);
 
 	/**
 	 * Adds a protocol to a class.
@@ -1084,18 +1351,24 @@ public class ObjCRuntime {
 	 * @return {@link #YES} if the protocol was added successfully, otherwise {@link #NO} (for example, the class already conforms to that protocol)
 	 */
 	public static byte class_addProtocol(long cls, long protocol) {
+		long __functionAddress = getInstance().class_addProtocol;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(cls);
 			checkPointer(protocol);
 		}
-		return nclass_addProtocol(cls, protocol);
+		return invokePPB(__functionAddress, cls, protocol);
 	}
 
 	// --- [ class_addProperty ] ---
 
-	/** JNI method for {@link #class_addProperty} */
+	/** Unsafe version of {@link #class_addProperty} */
 	@JavadocExclude
-	public static native byte nclass_addProperty(long cls, long name, long attributes, int attributeCount);
+	public static byte nclass_addProperty(long cls, long name, long attributes, int attributeCount) {
+		long __functionAddress = getInstance().class_addProperty;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(cls);
+		return invokePPPIB(__functionAddress, cls, name, attributes, attributeCount);
+	}
 
 	/**
 	 * Adds a property to a class.
@@ -1109,7 +1382,6 @@ public class ObjCRuntime {
 	 */
 	public static byte class_addProperty(long cls, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes, int attributeCount) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(cls);
 			checkNT1(name);
 			checkBuffer(attributes, attributeCount);
 		}
@@ -1118,15 +1390,11 @@ public class ObjCRuntime {
 
 	/** Alternative version of: {@link #class_addProperty} */
 	public static byte class_addProperty(long cls, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(cls);
 		return nclass_addProperty(cls, memAddress(name), attributes.address(), attributes.remaining());
 	}
 
 	/** CharSequence version of: {@link #class_addProperty} */
 	public static byte class_addProperty(long cls, CharSequence name, ObjCPropertyAttribute.Buffer attributes) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(cls);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
 		return nclass_addProperty(cls, __buffer.address(nameEncoded), attributes.address(), attributes.remaining());
@@ -1134,9 +1402,14 @@ public class ObjCRuntime {
 
 	// --- [ class_replaceProperty ] ---
 
-	/** JNI method for {@link #class_replaceProperty} */
+	/** Unsafe version of {@link #class_replaceProperty} */
 	@JavadocExclude
-	public static native void nclass_replaceProperty(long cls, long name, long attributes, int attributeCount);
+	public static void nclass_replaceProperty(long cls, long name, long attributes, int attributeCount) {
+		long __functionAddress = getInstance().class_replaceProperty;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(cls);
+		invokePPPIV(__functionAddress, cls, name, attributes, attributeCount);
+	}
 
 	/**
 	 * Replaces a property of a class.
@@ -1148,7 +1421,6 @@ public class ObjCRuntime {
 	 */
 	public static void class_replaceProperty(long cls, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes, int attributeCount) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(cls);
 			checkNT1(name);
 			checkBuffer(attributes, attributeCount);
 		}
@@ -1157,15 +1429,11 @@ public class ObjCRuntime {
 
 	/** Alternative version of: {@link #class_replaceProperty} */
 	public static void class_replaceProperty(long cls, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(cls);
 		nclass_replaceProperty(cls, memAddress(name), attributes.address(), attributes.remaining());
 	}
 
 	/** CharSequence version of: {@link #class_replaceProperty} */
 	public static void class_replaceProperty(long cls, CharSequence name, ObjCPropertyAttribute.Buffer attributes) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(cls);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
 		nclass_replaceProperty(cls, __buffer.address(nameEncoded), attributes.address(), attributes.remaining());
@@ -1173,9 +1441,14 @@ public class ObjCRuntime {
 
 	// --- [ class_setIvarLayout ] ---
 
-	/** JNI method for {@link #class_setIvarLayout} */
+	/** Unsafe version of {@link #class_setIvarLayout} */
 	@JavadocExclude
-	public static native void nclass_setIvarLayout(long cls, long layout);
+	public static void nclass_setIvarLayout(long cls, long layout) {
+		long __functionAddress = getInstance().class_setIvarLayout;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(cls);
+		invokePPV(__functionAddress, cls, layout);
+	}
 
 	/**
 	 * Sets the Ivar layout for a given class.
@@ -1184,17 +1457,13 @@ public class ObjCRuntime {
 	 * @param layout the layout of the Ivars for {@code cls}
 	 */
 	public static void class_setIvarLayout(long cls, ByteBuffer layout) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(cls);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(layout);
-		}
 		nclass_setIvarLayout(cls, memAddress(layout));
 	}
 
 	/** CharSequence version of: {@link #class_setIvarLayout} */
 	public static void class_setIvarLayout(long cls, CharSequence layout) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(cls);
 		APIBuffer __buffer = apiBuffer();
 		int layoutEncoded = __buffer.stringParamASCII(layout, true);
 		nclass_setIvarLayout(cls, __buffer.address(layoutEncoded));
@@ -1202,9 +1471,14 @@ public class ObjCRuntime {
 
 	// --- [ class_setWeakIvarLayout ] ---
 
-	/** JNI method for {@link #class_setWeakIvarLayout} */
+	/** Unsafe version of {@link #class_setWeakIvarLayout} */
 	@JavadocExclude
-	public static native void nclass_setWeakIvarLayout(long cls, long layout);
+	public static void nclass_setWeakIvarLayout(long cls, long layout) {
+		long __functionAddress = getInstance().class_setWeakIvarLayout;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(cls);
+		invokePPV(__functionAddress, cls, layout);
+	}
 
 	/**
 	 * Sets the layout for weak Ivars for a given class.
@@ -1213,27 +1487,19 @@ public class ObjCRuntime {
 	 * @param layout the layout of the weak Ivars for {@code cls}
 	 */
 	public static void class_setWeakIvarLayout(long cls, ByteBuffer layout) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(cls);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(layout);
-		}
 		nclass_setWeakIvarLayout(cls, memAddress(layout));
 	}
 
 	/** CharSequence version of: {@link #class_setWeakIvarLayout} */
 	public static void class_setWeakIvarLayout(long cls, CharSequence layout) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(cls);
 		APIBuffer __buffer = apiBuffer();
 		int layoutEncoded = __buffer.stringParamASCII(layout, true);
 		nclass_setWeakIvarLayout(cls, __buffer.address(layoutEncoded));
 	}
 
 	// --- [ class_createInstance ] ---
-
-	/** JNI method for {@link #class_createInstance} */
-	@JavadocExclude
-	public static native long nclass_createInstance(long cls, long extraBytes);
 
 	/**
 	 * Creates an instance of a class, allocating memory for the class in the default malloc memory zone.
@@ -1245,16 +1511,20 @@ public class ObjCRuntime {
 	 * @return an instance of the class {@code cls}
 	 */
 	public static long class_createInstance(long cls, long extraBytes) {
+		long __functionAddress = getInstance().class_createInstance;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(cls);
-		return nclass_createInstance(cls, extraBytes);
+		return invokePPP(__functionAddress, cls, extraBytes);
 	}
 
 	// --- [ objc_constructInstance ] ---
 
-	/** JNI method for {@link #objc_constructInstance} */
+	/** Unsafe version of {@link #objc_constructInstance} */
 	@JavadocExclude
-	public static native long nobjc_constructInstance(long cls, long bytes);
+	public static long nobjc_constructInstance(long cls, long bytes) {
+		long __functionAddress = getInstance().objc_constructInstance;
+		return invokePPP(__functionAddress, cls, bytes);
+	}
 
 	/**
 	 * Creates an instance of a class at the specified location.
@@ -1271,10 +1541,6 @@ public class ObjCRuntime {
 
 	// --- [ objc_destructInstance ] ---
 
-	/** JNI method for {@link #objc_destructInstance} */
-	@JavadocExclude
-	public static native long nobjc_destructInstance(long obj);
-
 	/**
 	 * Destroys an instance of a class without freeing memory and removes any of its associated references.
 	 * 
@@ -1287,16 +1553,20 @@ public class ObjCRuntime {
 	 * @param obj the instance to destroy
 	 */
 	public static long objc_destructInstance(long obj) {
+		long __functionAddress = getInstance().objc_destructInstance;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(obj);
-		return nobjc_destructInstance(obj);
+		return invokePP(__functionAddress, obj);
 	}
 
 	// --- [ objc_allocateClassPair ] ---
 
-	/** JNI method for {@link #objc_allocateClassPair} */
+	/** Unsafe version of {@link #objc_allocateClassPair} */
 	@JavadocExclude
-	public static native long nobjc_allocateClassPair(long superclass, long name, long extraBytes);
+	public static long nobjc_allocateClassPair(long superclass, long name, long extraBytes) {
+		long __functionAddress = getInstance().objc_allocateClassPair;
+		return invokePPPP(__functionAddress, superclass, name, extraBytes);
+	}
 
 	/**
 	 * Creates a new class and metaclass.
@@ -1329,26 +1599,19 @@ public class ObjCRuntime {
 
 	// --- [ objc_registerClassPair ] ---
 
-	/** JNI method for {@link #objc_registerClassPair} */
-	@JavadocExclude
-	public static native void nobjc_registerClassPair(long cls);
-
 	/**
 	 * Registers a class that was allocated using {@link #objc_allocateClassPair}.
 	 *
 	 * @param cls the class you want to register
 	 */
 	public static void objc_registerClassPair(long cls) {
+		long __functionAddress = getInstance().objc_registerClassPair;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(cls);
-		nobjc_registerClassPair(cls);
+		invokePV(__functionAddress, cls);
 	}
 
 	// --- [ objc_disposeClassPair ] ---
-
-	/** JNI method for {@link #objc_disposeClassPair} */
-	@JavadocExclude
-	public static native void nobjc_disposeClassPair(long cls);
 
 	/**
 	 * Destroys a class and its associated metaclass.
@@ -1358,16 +1621,13 @@ public class ObjCRuntime {
 	 * @param cls the class to be destroyed. This class must have been allocated using {@link #objc_allocateClassPair}.
 	 */
 	public static void objc_disposeClassPair(long cls) {
+		long __functionAddress = getInstance().objc_disposeClassPair;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(cls);
-		nobjc_disposeClassPair(cls);
+		invokePV(__functionAddress, cls);
 	}
 
 	// --- [ method_getName ] ---
-
-	/** JNI method for {@link #method_getName} */
-	@JavadocExclude
-	public static native long nmethod_getName(long m);
 
 	/**
 	 * Returns the name of a method.
@@ -1379,16 +1639,13 @@ public class ObjCRuntime {
 	 * @return a pointer of type SEL
 	 */
 	public static long method_getName(long m) {
+		long __functionAddress = getInstance().method_getName;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(m);
-		return nmethod_getName(m);
+		return invokePP(__functionAddress, m);
 	}
 
 	// --- [ method_getImplementation ] ---
-
-	/** JNI method for {@link #method_getImplementation} */
-	@JavadocExclude
-	public static native long nmethod_getImplementation(long m);
 
 	/**
 	 * Returns the implementation of a method.
@@ -1398,16 +1655,22 @@ public class ObjCRuntime {
 	 * @return a function pointer of type IMP
 	 */
 	public static long method_getImplementation(long m) {
+		long __functionAddress = getInstance().method_getImplementation;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(m);
-		return nmethod_getImplementation(m);
+		return invokePP(__functionAddress, m);
 	}
 
 	// --- [ method_getTypeEncoding ] ---
 
-	/** JNI method for {@link #method_getTypeEncoding} */
+	/** Unsafe version of {@link #method_getTypeEncoding} */
 	@JavadocExclude
-	public static native long nmethod_getTypeEncoding(long m);
+	public static long nmethod_getTypeEncoding(long m) {
+		long __functionAddress = getInstance().method_getTypeEncoding;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(m);
+		return invokePP(__functionAddress, m);
+	}
 
 	/**
 	 * Returns a string describing a method's parameter and return types.
@@ -1417,17 +1680,11 @@ public class ObjCRuntime {
 	 * @return a C string. The string may be {@code NULL}
 	 */
 	public static String method_getTypeEncoding(long m) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(m);
 		long __result = nmethod_getTypeEncoding(m);
 		return memDecodeUTF8(__result);
 	}
 
 	// --- [ method_getNumberOfArguments ] ---
-
-	/** JNI method for {@link #method_getNumberOfArguments} */
-	@JavadocExclude
-	public static native int nmethod_getNumberOfArguments(long m);
 
 	/**
 	 * Returns the number of arguments accepted by a method.
@@ -1437,16 +1694,22 @@ public class ObjCRuntime {
 	 * @return an integer containing the number of arguments accepted by the given method
 	 */
 	public static int method_getNumberOfArguments(long m) {
+		long __functionAddress = getInstance().method_getNumberOfArguments;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(m);
-		return nmethod_getNumberOfArguments(m);
+		return invokePI(__functionAddress, m);
 	}
 
 	// --- [ method_copyReturnType ] ---
 
-	/** JNI method for {@link #method_copyReturnType} */
+	/** Unsafe version of {@link #method_copyReturnType} */
 	@JavadocExclude
-	public static native long nmethod_copyReturnType(long m);
+	public static long nmethod_copyReturnType(long m) {
+		long __functionAddress = getInstance().method_copyReturnType;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(m);
+		return invokePP(__functionAddress, m);
+	}
 
 	/**
 	 * Returns a string describing a method's return type.
@@ -1456,17 +1719,20 @@ public class ObjCRuntime {
 	 * @return a C string describing the return type. You must free the string with free().
 	 */
 	public static String method_copyReturnType(long m) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(m);
 		long __result = nmethod_copyReturnType(m);
 		return memDecodeUTF8(__result);
 	}
 
 	// --- [ method_copyArgumentType ] ---
 
-	/** JNI method for {@link #method_copyArgumentType} */
+	/** Unsafe version of {@link #method_copyArgumentType} */
 	@JavadocExclude
-	public static native long nmethod_copyArgumentType(long m, int index);
+	public static long nmethod_copyArgumentType(long m, int index) {
+		long __functionAddress = getInstance().method_copyArgumentType;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(m);
+		return invokePIP(__functionAddress, m, index);
+	}
 
 	/**
 	 * Returns a string describing a single parameter type of a method.
@@ -1478,17 +1744,20 @@ public class ObjCRuntime {
 	 *         string with free().
 	 */
 	public static String method_copyArgumentType(long m, int index) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(m);
 		long __result = nmethod_copyArgumentType(m, index);
 		return memDecodeUTF8(__result);
 	}
 
 	// --- [ method_getReturnType ] ---
 
-	/** JNI method for {@link #method_getReturnType} */
+	/** Unsafe version of {@link #method_getReturnType} */
 	@JavadocExclude
-	public static native void nmethod_getReturnType(long m, long dst, long dst_len);
+	public static void nmethod_getReturnType(long m, long dst, long dst_len) {
+		long __functionAddress = getInstance().method_getReturnType;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(m);
+		invokePPPV(__functionAddress, m, dst, dst_len);
+	}
 
 	/**
 	 * Returns by reference a string describing a method's return type.
@@ -1500,24 +1769,18 @@ public class ObjCRuntime {
 	 * @param dst_len the maximum number of characters that can be stored in {@code dst}
 	 */
 	public static void method_getReturnType(long m, ByteBuffer dst, long dst_len) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(m);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(dst, dst_len);
-		}
 		nmethod_getReturnType(m, memAddress(dst), dst_len);
 	}
 
 	/** Alternative version of: {@link #method_getReturnType} */
 	public static void method_getReturnType(long m, ByteBuffer dst) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(m);
 		nmethod_getReturnType(m, memAddress(dst), dst.remaining());
 	}
 
 	/** String return version of: {@link #method_getReturnType} */
 	public static String method_getReturnType(long m, long dst_len) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(m);
 		APIBuffer __buffer = apiBuffer();
 		int dst = __buffer.bufferParam((int)dst_len);
 		nmethod_getReturnType(m, __buffer.address(dst), dst_len);
@@ -1526,9 +1789,14 @@ public class ObjCRuntime {
 
 	// --- [ method_getArgumentType ] ---
 
-	/** JNI method for {@link #method_getArgumentType} */
+	/** Unsafe version of {@link #method_getArgumentType} */
 	@JavadocExclude
-	public static native void nmethod_getArgumentType(long m, int index, long dst, long dst_len);
+	public static void nmethod_getArgumentType(long m, int index, long dst, long dst_len) {
+		long __functionAddress = getInstance().method_getArgumentType;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(m);
+		invokePIPPV(__functionAddress, m, index, dst, dst_len);
+	}
 
 	/**
 	 * Returns by reference a string describing a single parameter type of a method.
@@ -1542,24 +1810,18 @@ public class ObjCRuntime {
 	 * @param dst_len the maximum number of characters that can be stored in {@code dst}
 	 */
 	public static void method_getArgumentType(long m, int index, ByteBuffer dst, long dst_len) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(m);
+		if ( LWJGLUtil.CHECKS )
 			checkBuffer(dst, dst_len);
-		}
 		nmethod_getArgumentType(m, index, memAddress(dst), dst_len);
 	}
 
 	/** Alternative version of: {@link #method_getArgumentType} */
 	public static void method_getArgumentType(long m, int index, ByteBuffer dst) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(m);
 		nmethod_getArgumentType(m, index, memAddress(dst), dst.remaining());
 	}
 
 	/** String return version of: {@link #method_getArgumentType} */
 	public static String method_getArgumentType(long m, int index, long dst_len) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(m);
 		APIBuffer __buffer = apiBuffer();
 		int dst = __buffer.bufferParam((int)dst_len);
 		nmethod_getArgumentType(m, index, __buffer.address(dst), dst_len);
@@ -1567,10 +1829,6 @@ public class ObjCRuntime {
 	}
 
 	// --- [ method_setImplementation ] ---
-
-	/** JNI method for {@link #method_setImplementation} */
-	@JavadocExclude
-	public static native long nmethod_setImplementation(long m, long imp);
 
 	/**
 	 * Sets the implementation of a method.
@@ -1581,18 +1839,15 @@ public class ObjCRuntime {
 	 * @return the previous implementation of the method
 	 */
 	public static long method_setImplementation(long m, long imp) {
+		long __functionAddress = getInstance().method_setImplementation;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(m);
 			checkPointer(imp);
 		}
-		return nmethod_setImplementation(m, imp);
+		return invokePPP(__functionAddress, m, imp);
 	}
 
 	// --- [ method_exchangeImplementations ] ---
-
-	/** JNI method for {@link #method_exchangeImplementations} */
-	@JavadocExclude
-	public static native void nmethod_exchangeImplementations(long m1, long m2);
 
 	/**
 	 * Exchanges the implementations of two methods.
@@ -1601,18 +1856,24 @@ public class ObjCRuntime {
 	 * @param m2 the method to exchange with first method
 	 */
 	public static void method_exchangeImplementations(long m1, long m2) {
+		long __functionAddress = getInstance().method_exchangeImplementations;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(m1);
 			checkPointer(m2);
 		}
-		nmethod_exchangeImplementations(m1, m2);
+		invokePPV(__functionAddress, m1, m2);
 	}
 
 	// --- [ ivar_getName ] ---
 
-	/** JNI method for {@link #ivar_getName} */
+	/** Unsafe version of {@link #ivar_getName} */
 	@JavadocExclude
-	public static native long nivar_getName(long v);
+	public static long nivar_getName(long v) {
+		long __functionAddress = getInstance().ivar_getName;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(v);
+		return invokePP(__functionAddress, v);
+	}
 
 	/**
 	 * Returns the name of an instance variable.
@@ -1622,17 +1883,20 @@ public class ObjCRuntime {
 	 * @return a C string containing the instance variable's name
 	 */
 	public static String ivar_getName(long v) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(v);
 		long __result = nivar_getName(v);
 		return memDecodeUTF8(__result);
 	}
 
 	// --- [ ivar_getTypeEncoding ] ---
 
-	/** JNI method for {@link #ivar_getTypeEncoding} */
+	/** Unsafe version of {@link #ivar_getTypeEncoding} */
 	@JavadocExclude
-	public static native long nivar_getTypeEncoding(long v);
+	public static long nivar_getTypeEncoding(long v) {
+		long __functionAddress = getInstance().ivar_getTypeEncoding;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(v);
+		return invokePP(__functionAddress, v);
+	}
 
 	/**
 	 * Returns the type string of an instance variable.
@@ -1642,17 +1906,11 @@ public class ObjCRuntime {
 	 * @return a C string containing the instance variable's type encoding
 	 */
 	public static String ivar_getTypeEncoding(long v) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(v);
 		long __result = nivar_getTypeEncoding(v);
 		return memDecodeUTF8(__result);
 	}
 
 	// --- [ ivar_getOffset ] ---
-
-	/** JNI method for {@link #ivar_getOffset} */
-	@JavadocExclude
-	public static native long nivar_getOffset(long v);
 
 	/**
 	 * Returns the offset of an instance variable.
@@ -1665,16 +1923,22 @@ public class ObjCRuntime {
 	 * @return the offset of {@code v}
 	 */
 	public static long ivar_getOffset(long v) {
+		long __functionAddress = getInstance().ivar_getOffset;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(v);
-		return nivar_getOffset(v);
+		return invokePP(__functionAddress, v);
 	}
 
 	// --- [ property_getName ] ---
 
-	/** JNI method for {@link #property_getName} */
+	/** Unsafe version of {@link #property_getName} */
 	@JavadocExclude
-	public static native long nproperty_getName(long property);
+	public static long nproperty_getName(long property) {
+		long __functionAddress = getInstance().property_getName;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(property);
+		return invokePP(__functionAddress, property);
+	}
 
 	/**
 	 * Returns the name of a property.
@@ -1684,17 +1948,20 @@ public class ObjCRuntime {
 	 * @return a C string containing the property's name
 	 */
 	public static String property_getName(long property) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(property);
 		long __result = nproperty_getName(property);
 		return memDecodeUTF8(__result);
 	}
 
 	// --- [ property_getAttributes ] ---
 
-	/** JNI method for {@link #property_getAttributes} */
+	/** Unsafe version of {@link #property_getAttributes} */
 	@JavadocExclude
-	public static native long nproperty_getAttributes(long property);
+	public static long nproperty_getAttributes(long property) {
+		long __functionAddress = getInstance().property_getAttributes;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(property);
+		return invokePP(__functionAddress, property);
+	}
 
 	/**
 	 * Returns the attribute string of a property.
@@ -1704,17 +1971,20 @@ public class ObjCRuntime {
 	 * @return a C string containing the property's attributes
 	 */
 	public static String property_getAttributes(long property) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(property);
 		long __result = nproperty_getAttributes(property);
 		return memDecodeUTF8(__result);
 	}
 
 	// --- [ property_copyAttributeList ] ---
 
-	/** JNI method for {@link #property_copyAttributeList} */
+	/** Unsafe version of {@link #property_copyAttributeList} */
 	@JavadocExclude
-	public static native long nproperty_copyAttributeList(long property, long outCount);
+	public static long nproperty_copyAttributeList(long property, long outCount) {
+		long __functionAddress = getInstance().property_copyAttributeList;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(property);
+		return invokePPP(__functionAddress, property, outCount);
+	}
 
 	/**
 	 * Returns an array of property attributes for a given property.
@@ -1725,8 +1995,6 @@ public class ObjCRuntime {
 	 * @return an array of property attributes. You must free the array with free().
 	 */
 	public static ObjCPropertyAttribute.Buffer property_copyAttributeList(long property) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(property);
 		APIBuffer __buffer = apiBuffer();
 		int outCount = __buffer.intParam();
 		long __result = nproperty_copyAttributeList(property, __buffer.address(outCount));
@@ -1735,9 +2003,14 @@ public class ObjCRuntime {
 
 	// --- [ property_copyAttributeValue ] ---
 
-	/** JNI method for {@link #property_copyAttributeValue} */
+	/** Unsafe version of {@link #property_copyAttributeValue} */
 	@JavadocExclude
-	public static native long nproperty_copyAttributeValue(long property, long attributeName);
+	public static long nproperty_copyAttributeValue(long property, long attributeName) {
+		long __functionAddress = getInstance().property_copyAttributeValue;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(property);
+		return invokePPP(__functionAddress, property, attributeName);
+	}
 
 	/**
 	 * Returns the value of a property attribute given the attribute name.
@@ -1749,8 +2022,6 @@ public class ObjCRuntime {
 	 *         with free().
 	 */
 	public static String property_copyAttributeValue(long property, ByteBuffer attributeName) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(property);
 		long __result = nproperty_copyAttributeValue(property, memAddress(attributeName));
 		return memDecodeUTF8(__result);
 	}
@@ -1765,8 +2036,6 @@ public class ObjCRuntime {
 	 *         with free().
 	 */
 	public static String property_copyAttributeValue(long property, CharSequence attributeName) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(property);
 		APIBuffer __buffer = apiBuffer();
 		int attributeNameEncoded = __buffer.stringParamUTF8(attributeName, true);
 		long __result = nproperty_copyAttributeValue(property, __buffer.address(attributeNameEncoded));
@@ -1775,9 +2044,12 @@ public class ObjCRuntime {
 
 	// --- [ objc_getProtocol ] ---
 
-	/** JNI method for {@link #objc_getProtocol} */
+	/** Unsafe version of {@link #objc_getProtocol} */
 	@JavadocExclude
-	public static native long nobjc_getProtocol(long name);
+	public static long nobjc_getProtocol(long name) {
+		long __functionAddress = getInstance().objc_getProtocol;
+		return invokePP(__functionAddress, name);
+	}
 
 	/**
 	 * Returns a specified protocol.
@@ -1803,9 +2075,12 @@ public class ObjCRuntime {
 
 	// --- [ objc_copyProtocolList ] ---
 
-	/** JNI method for {@link #objc_copyProtocolList} */
+	/** Unsafe version of {@link #objc_copyProtocolList} */
 	@JavadocExclude
-	public static native long nobjc_copyProtocolList(long outCount);
+	public static long nobjc_copyProtocolList(long outCount) {
+		long __functionAddress = getInstance().objc_copyProtocolList;
+		return invokePP(__functionAddress, outCount);
+	}
 
 	/**
 	 * Returns an array of all the protocols known to the runtime.
@@ -1821,10 +2096,6 @@ public class ObjCRuntime {
 	}
 
 	// --- [ protocol_conformsToProtocol ] ---
-
-	/** JNI method for {@link #protocol_conformsToProtocol} */
-	@JavadocExclude
-	public static native byte nprotocol_conformsToProtocol(long proto, long other);
 
 	/**
 	 * Returns a Boolean value that indicates whether one protocol conforms to another protocol.
@@ -1842,18 +2113,15 @@ public class ObjCRuntime {
 	 * @return {@link #YES} if {@code proto} conforms to {@code other}, otherwise {@link #NO}
 	 */
 	public static byte protocol_conformsToProtocol(long proto, long other) {
+		long __functionAddress = getInstance().protocol_conformsToProtocol;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(proto);
 			checkPointer(other);
 		}
-		return nprotocol_conformsToProtocol(proto, other);
+		return invokePPB(__functionAddress, proto, other);
 	}
 
 	// --- [ protocol_isEqual ] ---
-
-	/** JNI method for {@link #protocol_isEqual} */
-	@JavadocExclude
-	public static native byte nprotocol_isEqual(long proto, long other);
 
 	/**
 	 * Returns a Boolean value that indicates whether two protocols are equal.
@@ -1864,18 +2132,24 @@ public class ObjCRuntime {
 	 * @return {@link #YES} if proto is the same as other, otherwise {@link #NO}
 	 */
 	public static byte protocol_isEqual(long proto, long other) {
+		long __functionAddress = getInstance().protocol_isEqual;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(proto);
 			checkPointer(other);
 		}
-		return nprotocol_isEqual(proto, other);
+		return invokePPB(__functionAddress, proto, other);
 	}
 
 	// --- [ protocol_getName ] ---
 
-	/** JNI method for {@link #protocol_getName} */
+	/** Unsafe version of {@link #protocol_getName} */
 	@JavadocExclude
-	public static native long nprotocol_getName(long p);
+	public static long nprotocol_getName(long p) {
+		long __functionAddress = getInstance().protocol_getName;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(p);
+		return invokePP(__functionAddress, p);
+	}
 
 	/**
 	 * Returns a the name of a protocol.
@@ -1885,8 +2159,6 @@ public class ObjCRuntime {
 	 * @return the name of the protocol {@code p} as a C string
 	 */
 	public static String protocol_getName(long p) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(p);
 		long __result = nprotocol_getName(p);
 		return memDecodeUTF8(__result);
 	}
@@ -1895,7 +2167,18 @@ public class ObjCRuntime {
 
 	/** JNI method for {@link #protocol_getMethodDescription} */
 	@JavadocExclude
-	public static native void nprotocol_getMethodDescription(long p, long aSel, byte isRequiredMethod, byte isInstanceMethod, long __result);
+	public static native void nprotocol_getMethodDescription(long __functionAddress, long p, long aSel, byte isRequiredMethod, byte isInstanceMethod, long __result);
+
+	/** Unsafe version of {@link #protocol_getMethodDescription} */
+	@JavadocExclude
+	public static void nprotocol_getMethodDescription(long p, long aSel, byte isRequiredMethod, byte isInstanceMethod, long __result) {
+		long __functionAddress = getInstance().protocol_getMethodDescription;
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(p);
+			checkPointer(aSel);
+		}
+		nprotocol_getMethodDescription(__functionAddress, p, aSel, isRequiredMethod, isInstanceMethod, __result);
+	}
 
 	/**
 	 * Returns a method description structure for a specified method of a given protocol.
@@ -1910,18 +2193,19 @@ public class ObjCRuntime {
 	 *                         <p>If the protocol does not contain the specified method, returns an objc_method_description structure with the value <code style="font-family: monospace">{NULL, NULL}</code>.</p>
 	 */
 	public static void protocol_getMethodDescription(long p, long aSel, byte isRequiredMethod, byte isInstanceMethod, ObjCMethodDescription __result) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(p);
-			checkPointer(aSel);
-		}
 		nprotocol_getMethodDescription(p, aSel, isRequiredMethod, isInstanceMethod, __result.address());
 	}
 
 	// --- [ protocol_copyMethodDescriptionList ] ---
 
-	/** JNI method for {@link #protocol_copyMethodDescriptionList} */
+	/** Unsafe version of {@link #protocol_copyMethodDescriptionList} */
 	@JavadocExclude
-	public static native long nprotocol_copyMethodDescriptionList(long p, byte isRequiredMethod, byte isInstanceMethod, long outCount);
+	public static long nprotocol_copyMethodDescriptionList(long p, byte isRequiredMethod, byte isInstanceMethod, long outCount) {
+		long __functionAddress = getInstance().protocol_copyMethodDescriptionList;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(p);
+		return invokePBBPP(__functionAddress, p, isRequiredMethod, isInstanceMethod, outCount);
+	}
 
 	/**
 	 * Returns an array of method descriptions of methods meeting a given specification for a given protocol.
@@ -1939,8 +2223,6 @@ public class ObjCRuntime {
 	 *         <p>If the protocol declares no methods that meet the specification, {@code NULL} is returned and {@code *outCount} is 0.</p>
 	 */
 	public static ObjCMethodDescription.Buffer protocol_copyMethodDescriptionList(long p, byte isRequiredMethod, byte isInstanceMethod) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(p);
 		APIBuffer __buffer = apiBuffer();
 		int outCount = __buffer.intParam();
 		long __result = nprotocol_copyMethodDescriptionList(p, isRequiredMethod, isInstanceMethod, __buffer.address(outCount));
@@ -1949,9 +2231,14 @@ public class ObjCRuntime {
 
 	// --- [ protocol_getProperty ] ---
 
-	/** JNI method for {@link #protocol_getProperty} */
+	/** Unsafe version of {@link #protocol_getProperty} */
 	@JavadocExclude
-	public static native long nprotocol_getProperty(long proto, long name, byte isRequiredProperty, byte isInstanceProperty);
+	public static long nprotocol_getProperty(long proto, long name, byte isRequiredProperty, byte isInstanceProperty) {
+		long __functionAddress = getInstance().protocol_getProperty;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(proto);
+		return invokePPBBP(__functionAddress, proto, name, isRequiredProperty, isInstanceProperty);
+	}
 
 	/**
 	 * Returns the specified property of a given protocol.
@@ -1965,17 +2252,13 @@ public class ObjCRuntime {
 	 *         {@code proto}'s properties meets the specification
 	 */
 	public static long protocol_getProperty(long proto, ByteBuffer name, byte isRequiredProperty, byte isInstanceProperty) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(proto);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(name);
-		}
 		return nprotocol_getProperty(proto, memAddress(name), isRequiredProperty, isInstanceProperty);
 	}
 
 	/** CharSequence version of: {@link #protocol_getProperty} */
 	public static long protocol_getProperty(long proto, CharSequence name, byte isRequiredProperty, byte isInstanceProperty) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(proto);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
 		return nprotocol_getProperty(proto, __buffer.address(nameEncoded), isRequiredProperty, isInstanceProperty);
@@ -1983,9 +2266,14 @@ public class ObjCRuntime {
 
 	// --- [ protocol_copyPropertyList ] ---
 
-	/** JNI method for {@link #protocol_copyPropertyList} */
+	/** Unsafe version of {@link #protocol_copyPropertyList} */
 	@JavadocExclude
-	public static native long nprotocol_copyPropertyList(long proto, long outCount);
+	public static long nprotocol_copyPropertyList(long proto, long outCount) {
+		long __functionAddress = getInstance().protocol_copyPropertyList;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(proto);
+		return invokePPP(__functionAddress, proto, outCount);
+	}
 
 	/**
 	 * Returns an array of the properties declared by a protocol.
@@ -1998,8 +2286,6 @@ public class ObjCRuntime {
 	 *         <p>If the protocol declares no properties, {@code NULL} is returned and {@code *outCount} is 0.</p>
 	 */
 	public static PointerBuffer protocol_copyPropertyList(long proto) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(proto);
 		APIBuffer __buffer = apiBuffer();
 		int outCount = __buffer.intParam();
 		long __result = nprotocol_copyPropertyList(proto, __buffer.address(outCount));
@@ -2008,9 +2294,14 @@ public class ObjCRuntime {
 
 	// --- [ protocol_copyProtocolList ] ---
 
-	/** JNI method for {@link #protocol_copyProtocolList} */
+	/** Unsafe version of {@link #protocol_copyProtocolList} */
 	@JavadocExclude
-	public static native long nprotocol_copyProtocolList(long proto, long outCount);
+	public static long nprotocol_copyProtocolList(long proto, long outCount) {
+		long __functionAddress = getInstance().protocol_copyProtocolList;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(proto);
+		return invokePPP(__functionAddress, proto, outCount);
+	}
 
 	/**
 	 * eturns an array of the protocols adopted by a protocol.
@@ -2023,8 +2314,6 @@ public class ObjCRuntime {
 	 *         <p>If the protocol declares no properties, {@code NULL} is returned and {@code *outCount} is 0.</p>
 	 */
 	public static PointerBuffer protocol_copyProtocolList(long proto) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(proto);
 		APIBuffer __buffer = apiBuffer();
 		int outCount = __buffer.intParam();
 		long __result = nprotocol_copyProtocolList(proto, __buffer.address(outCount));
@@ -2033,9 +2322,12 @@ public class ObjCRuntime {
 
 	// --- [ objc_allocateProtocol ] ---
 
-	/** JNI method for {@link #objc_allocateProtocol} */
+	/** Unsafe version of {@link #objc_allocateProtocol} */
 	@JavadocExclude
-	public static native long nobjc_allocateProtocol(long name);
+	public static long nobjc_allocateProtocol(long name) {
+		long __functionAddress = getInstance().objc_allocateProtocol;
+		return invokePP(__functionAddress, name);
+	}
 
 	/**
 	 * Creates a new protocol instance.
@@ -2063,10 +2355,6 @@ public class ObjCRuntime {
 
 	// --- [ objc_registerProtocol ] ---
 
-	/** JNI method for {@link #objc_registerProtocol} */
-	@JavadocExclude
-	public static native void nobjc_registerProtocol(long proto);
-
 	/**
 	 * Registers a newly created protocol with the Objective-C runtime.
 	 * 
@@ -2076,16 +2364,24 @@ public class ObjCRuntime {
 	 * @param proto the protocol you want to register with the Objective-C runtime
 	 */
 	public static void objc_registerProtocol(long proto) {
+		long __functionAddress = getInstance().objc_registerProtocol;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(proto);
-		nobjc_registerProtocol(proto);
+		invokePV(__functionAddress, proto);
 	}
 
 	// --- [ protocol_addMethodDescription ] ---
 
-	/** JNI method for {@link #protocol_addMethodDescription} */
+	/** Unsafe version of {@link #protocol_addMethodDescription} */
 	@JavadocExclude
-	public static native void nprotocol_addMethodDescription(long proto, long name, long types, byte isRequiredMethod, byte isInstanceMethod);
+	public static void nprotocol_addMethodDescription(long proto, long name, long types, byte isRequiredMethod, byte isInstanceMethod) {
+		long __functionAddress = getInstance().protocol_addMethodDescription;
+		if ( LWJGLUtil.CHECKS ) {
+			checkPointer(proto);
+			checkPointer(name);
+		}
+		invokePPPBBV(__functionAddress, proto, name, types, isRequiredMethod, isInstanceMethod);
+	}
 
 	/**
 	 * Adds a method to a protocol.
@@ -2101,30 +2397,19 @@ public class ObjCRuntime {
 	 * @param isInstanceMethod a Boolean indicating whether the method is an instance method. If {@link #YES}, the method is an instance method; if {@link #NO}, the method is a class method.
 	 */
 	public static void protocol_addMethodDescription(long proto, long name, ByteBuffer types, byte isRequiredMethod, byte isInstanceMethod) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(proto);
-			checkPointer(name);
+		if ( LWJGLUtil.CHECKS )
 			checkNT1(types);
-		}
 		nprotocol_addMethodDescription(proto, name, memAddress(types), isRequiredMethod, isInstanceMethod);
 	}
 
 	/** CharSequence version of: {@link #protocol_addMethodDescription} */
 	public static void protocol_addMethodDescription(long proto, long name, CharSequence types, byte isRequiredMethod, byte isInstanceMethod) {
-		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(proto);
-			checkPointer(name);
-		}
 		APIBuffer __buffer = apiBuffer();
 		int typesEncoded = __buffer.stringParamUTF8(types, true);
 		nprotocol_addMethodDescription(proto, name, __buffer.address(typesEncoded), isRequiredMethod, isInstanceMethod);
 	}
 
 	// --- [ protocol_addProtocol ] ---
-
-	/** JNI method for {@link #protocol_addProtocol} */
-	@JavadocExclude
-	public static native void nprotocol_addProtocol(long proto, long addition);
 
 	/**
 	 * Adds a registered protocol to another protocol that is under construction.
@@ -2136,18 +2421,24 @@ public class ObjCRuntime {
 	 * @param addition the registered protocol you want to add to {@code proto}
 	 */
 	public static void protocol_addProtocol(long proto, long addition) {
+		long __functionAddress = getInstance().protocol_addProtocol;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(proto);
 			checkPointer(addition);
 		}
-		nprotocol_addProtocol(proto, addition);
+		invokePPV(__functionAddress, proto, addition);
 	}
 
 	// --- [ protocol_addProperty ] ---
 
-	/** JNI method for {@link #protocol_addProperty} */
+	/** Unsafe version of {@link #protocol_addProperty} */
 	@JavadocExclude
-	public static native void nprotocol_addProperty(long proto, long name, long attributes, int attributeCount, byte isRequiredProperty, byte isInstanceProperty);
+	public static void nprotocol_addProperty(long proto, long name, long attributes, int attributeCount, byte isRequiredProperty, byte isInstanceProperty) {
+		long __functionAddress = getInstance().protocol_addProperty;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(proto);
+		invokePPPIBBV(__functionAddress, proto, name, attributes, attributeCount, isRequiredProperty, isInstanceProperty);
+	}
 
 	/**
 	 * Adds a property to a protocol that is under construction.
@@ -2166,7 +2457,6 @@ public class ObjCRuntime {
 	 */
 	public static void protocol_addProperty(long proto, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes, int attributeCount, byte isRequiredProperty, byte isInstanceProperty) {
 		if ( LWJGLUtil.CHECKS ) {
-			checkPointer(proto);
 			checkNT1(name);
 			checkBuffer(attributes, attributeCount);
 		}
@@ -2175,15 +2465,11 @@ public class ObjCRuntime {
 
 	/** Alternative version of: {@link #protocol_addProperty} */
 	public static void protocol_addProperty(long proto, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes, byte isRequiredProperty, byte isInstanceProperty) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(proto);
 		nprotocol_addProperty(proto, memAddress(name), attributes.address(), attributes.remaining(), isRequiredProperty, isInstanceProperty);
 	}
 
 	/** CharSequence version of: {@link #protocol_addProperty} */
 	public static void protocol_addProperty(long proto, CharSequence name, ObjCPropertyAttribute.Buffer attributes, byte isRequiredProperty, byte isInstanceProperty) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(proto);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
 		nprotocol_addProperty(proto, __buffer.address(nameEncoded), attributes.address(), attributes.remaining(), isRequiredProperty, isInstanceProperty);
@@ -2191,9 +2477,12 @@ public class ObjCRuntime {
 
 	// --- [ objc_copyImageNames ] ---
 
-	/** JNI method for {@link #objc_copyImageNames} */
+	/** Unsafe version of {@link #objc_copyImageNames} */
 	@JavadocExclude
-	public static native long nobjc_copyImageNames(long outCount);
+	public static long nobjc_copyImageNames(long outCount) {
+		long __functionAddress = getInstance().objc_copyImageNames;
+		return invokePP(__functionAddress, outCount);
+	}
 
 	/**
 	 * Returns the names of all the loaded Objective-C frameworks and dynamic libraries.
@@ -2209,9 +2498,14 @@ public class ObjCRuntime {
 
 	// --- [ class_getImageName ] ---
 
-	/** JNI method for {@link #class_getImageName} */
+	/** Unsafe version of {@link #class_getImageName} */
 	@JavadocExclude
-	public static native long nclass_getImageName(long cls);
+	public static long nclass_getImageName(long cls) {
+		long __functionAddress = getInstance().class_getImageName;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(cls);
+		return invokePP(__functionAddress, cls);
+	}
 
 	/**
 	 * Returns the name of the dynamic library a class originated from.
@@ -2221,17 +2515,18 @@ public class ObjCRuntime {
 	 * @return a C string representing the name of the library containing the {@code cls} class.
 	 */
 	public static String class_getImageName(long cls) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(cls);
 		long __result = nclass_getImageName(cls);
 		return memDecodeUTF8(__result);
 	}
 
 	// --- [ objc_copyClassNamesForImage ] ---
 
-	/** JNI method for {@link #objc_copyClassNamesForImage} */
+	/** Unsafe version of {@link #objc_copyClassNamesForImage} */
 	@JavadocExclude
-	public static native long nobjc_copyClassNamesForImage(long image, long outCount);
+	public static long nobjc_copyClassNamesForImage(long image, long outCount) {
+		long __functionAddress = getInstance().objc_copyClassNamesForImage;
+		return invokePPP(__functionAddress, image, outCount);
+	}
 
 	/**
 	 * Returns the names of all the classes within a specified library or framework.
@@ -2260,9 +2555,14 @@ public class ObjCRuntime {
 
 	// --- [ sel_getName ] ---
 
-	/** JNI method for {@link #sel_getName} */
+	/** Unsafe version of {@link #sel_getName} */
 	@JavadocExclude
-	public static native long nsel_getName(long sel);
+	public static long nsel_getName(long sel) {
+		long __functionAddress = getInstance().sel_getName;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(sel);
+		return invokePP(__functionAddress, sel);
+	}
 
 	/**
 	 * Returns the name of the method specified by a given selector.
@@ -2272,17 +2572,18 @@ public class ObjCRuntime {
 	 * @return a C string indicating the name of the selector
 	 */
 	public static String sel_getName(long sel) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(sel);
 		long __result = nsel_getName(sel);
 		return memDecodeUTF8(__result);
 	}
 
 	// --- [ sel_getUid ] ---
 
-	/** JNI method for {@link #sel_getUid} */
+	/** Unsafe version of {@link #sel_getUid} */
 	@JavadocExclude
-	public static native long nsel_getUid(long str);
+	public static long nsel_getUid(long str) {
+		long __functionAddress = getInstance().sel_getUid;
+		return invokePP(__functionAddress, str);
+	}
 
 	/**
 	 * Registers a method name with the Objective-C runtime system.
@@ -2308,9 +2609,12 @@ public class ObjCRuntime {
 
 	// --- [ sel_registerName ] ---
 
-	/** JNI method for {@link #sel_registerName} */
+	/** Unsafe version of {@link #sel_registerName} */
 	@JavadocExclude
-	public static native long nsel_registerName(long str);
+	public static long nsel_registerName(long str) {
+		long __functionAddress = getInstance().sel_registerName;
+		return invokePP(__functionAddress, str);
+	}
 
 	/**
 	 * Registers a method with the Objective-C runtime system, maps the method name to a selector, and returns the selector value.
@@ -2337,10 +2641,6 @@ public class ObjCRuntime {
 
 	// --- [ sel_isEqual ] ---
 
-	/** JNI method for {@link #sel_isEqual} */
-	@JavadocExclude
-	public static native byte nsel_isEqual(long lhs, long rhs);
-
 	/**
 	 * Returns a Boolean value that indicates whether two selectors are equal.
 	 * 
@@ -2352,18 +2652,15 @@ public class ObjCRuntime {
 	 * @return {@link #YES} if rhs and rhs are equal, otherwise {@link #NO}
 	 */
 	public static byte sel_isEqual(long lhs, long rhs) {
+		long __functionAddress = getInstance().sel_isEqual;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(lhs);
 			checkPointer(rhs);
 		}
-		return nsel_isEqual(lhs, rhs);
+		return invokePPB(__functionAddress, lhs, rhs);
 	}
 
 	// --- [ objc_enumerationMutation ] ---
-
-	/** JNI method for {@link #objc_enumerationMutation} */
-	@JavadocExclude
-	public static native void nobjc_enumerationMutation(long obj);
 
 	/**
 	 * Inserted by the compiler when a mutation is detected during a foreach iteration.
@@ -2375,16 +2672,13 @@ public class ObjCRuntime {
 	 * @param obj the object being mutated
 	 */
 	public static void objc_enumerationMutation(long obj) {
+		long __functionAddress = getInstance().objc_enumerationMutation;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(obj);
-		nobjc_enumerationMutation(obj);
+		invokePV(__functionAddress, obj);
 	}
 
 	// --- [ objc_setEnumerationMutationHandler ] ---
-
-	/** JNI method for {@link #objc_setEnumerationMutationHandler} */
-	@JavadocExclude
-	public static native void nobjc_setEnumerationMutationHandler(long handler);
 
 	/**
 	 * Sets the current mutation handler.
@@ -2392,14 +2686,11 @@ public class ObjCRuntime {
 	 * @param handler a function pointer to the new mutation handler
 	 */
 	public static void objc_setEnumerationMutationHandler(EnumerationMutationHandler handler) {
-		nobjc_setEnumerationMutationHandler(handler.address());
+		long __functionAddress = getInstance().objc_setEnumerationMutationHandler;
+		invokePV(__functionAddress, handler.address());
 	}
 
 	// --- [ imp_implementationWithBlock ] ---
-
-	/** JNI method for {@link #imp_implementationWithBlock} */
-	@JavadocExclude
-	public static native long nimp_implementationWithBlock(long block);
 
 	/**
 	 * Creates a pointer to a function that calls the specified block when the method is called.
@@ -2410,16 +2701,13 @@ public class ObjCRuntime {
 	 * @return the IMP that calls {@code block}. You must dispose of the returned IMP using the function.
 	 */
 	public static long imp_implementationWithBlock(long block) {
+		long __functionAddress = getInstance().imp_implementationWithBlock;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(block);
-		return nimp_implementationWithBlock(block);
+		return invokePP(__functionAddress, block);
 	}
 
 	// --- [ imp_getBlock ] ---
-
-	/** JNI method for {@link #imp_getBlock} */
-	@JavadocExclude
-	public static native long nimp_getBlock(long anImp);
 
 	/**
 	 * Returns the block associated with an IMP that was created using {@link #imp_implementationWithBlock}.
@@ -2429,16 +2717,13 @@ public class ObjCRuntime {
 	 * @return the block called by {@code anImp}
 	 */
 	public static long imp_getBlock(long anImp) {
+		long __functionAddress = getInstance().imp_getBlock;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(anImp);
-		return nimp_getBlock(anImp);
+		return invokePP(__functionAddress, anImp);
 	}
 
 	// --- [ imp_removeBlock ] ---
-
-	/** JNI method for {@link #imp_removeBlock} */
-	@JavadocExclude
-	public static native byte nimp_removeBlock(long anImp);
 
 	/**
 	 * Disassociates a block from an IMP that was created using {@link #imp_implementationWithBlock}, and releases the copy of the block that was created.
@@ -2449,16 +2734,20 @@ public class ObjCRuntime {
 	 *         previously).
 	 */
 	public static byte imp_removeBlock(long anImp) {
+		long __functionAddress = getInstance().imp_removeBlock;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(anImp);
-		return nimp_removeBlock(anImp);
+		return invokePB(__functionAddress, anImp);
 	}
 
 	// --- [ objc_loadWeak ] ---
 
-	/** JNI method for {@link #objc_loadWeak} */
+	/** Unsafe version of {@link #objc_loadWeak} */
 	@JavadocExclude
-	public static native long nobjc_loadWeak(long location);
+	public static long nobjc_loadWeak(long location) {
+		long __functionAddress = getInstance().objc_loadWeak;
+		return invokePP(__functionAddress, location);
+	}
 
 	/**
 	 * Loads the object referenced by a weak pointer and returns it.
@@ -2481,9 +2770,14 @@ public class ObjCRuntime {
 
 	// --- [ objc_storeWeak ] ---
 
-	/** JNI method for {@link #objc_storeWeak} */
+	/** Unsafe version of {@link #objc_storeWeak} */
 	@JavadocExclude
-	public static native long nobjc_storeWeak(long location, long obj);
+	public static long nobjc_storeWeak(long location, long obj) {
+		long __functionAddress = getInstance().objc_storeWeak;
+		if ( LWJGLUtil.CHECKS )
+			checkPointer(obj);
+		return invokePPP(__functionAddress, location, obj);
+	}
 
 	/**
 	 * Stores a new value in a {@code __weak} variable.
@@ -2496,23 +2790,15 @@ public class ObjCRuntime {
 	 * @return the value stored in location (that is, {@code obj})
 	 */
 	public static long objc_storeWeak(ByteBuffer location, long obj) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(obj);
 		return nobjc_storeWeak(memAddress(location), obj);
 	}
 
 	/** Alternative version of: {@link #objc_storeWeak} */
 	public static long objc_storeWeak(PointerBuffer location, long obj) {
-		if ( LWJGLUtil.CHECKS )
-			checkPointer(obj);
 		return nobjc_storeWeak(memAddress(location), obj);
 	}
 
 	// --- [ objc_setAssociatedObject ] ---
-
-	/** JNI method for {@link #objc_setAssociatedObject} */
-	@JavadocExclude
-	public static native void nobjc_setAssociatedObject(long object, long key, long value, long policy);
 
 	/**
 	 * Sets an associated value for a given object using a given key and association policy.
@@ -2523,19 +2809,16 @@ public class ObjCRuntime {
 	 * @param policy the policy for the association. One of:<br>{@link #OBJC_ASSOCIATION_ASSIGN}, {@link #OBJC_ASSOCIATION_RETAIN_NONATOMIC}, {@link #OBJC_ASSOCIATION_COPY_NONATOMIC}, {@link #OBJC_ASSOCIATION_RETAIN}, {@link #OBJC_ASSOCIATION_COPY}
 	 */
 	public static void objc_setAssociatedObject(long object, long key, long value, long policy) {
+		long __functionAddress = getInstance().objc_setAssociatedObject;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(object);
 			checkPointer(key);
 			checkPointer(value);
 		}
-		nobjc_setAssociatedObject(object, key, value, policy);
+		invokePPPPV(__functionAddress, object, key, value, policy);
 	}
 
 	// --- [ objc_getAssociatedObject ] ---
-
-	/** JNI method for {@link #objc_getAssociatedObject} */
-	@JavadocExclude
-	public static native long nobjc_getAssociatedObject(long object, long key);
 
 	/**
 	 * Returns the value associated with a given object for a given key.
@@ -2546,18 +2829,15 @@ public class ObjCRuntime {
 	 * @return the value associated with the key {@code key} for {@code object}.
 	 */
 	public static long objc_getAssociatedObject(long object, long key) {
+		long __functionAddress = getInstance().objc_getAssociatedObject;
 		if ( LWJGLUtil.CHECKS ) {
 			checkPointer(object);
 			checkPointer(key);
 		}
-		return nobjc_getAssociatedObject(object, key);
+		return invokePPP(__functionAddress, object, key);
 	}
 
 	// --- [ objc_removeAssociatedObjects ] ---
-
-	/** JNI method for {@link #objc_removeAssociatedObjects} */
-	@JavadocExclude
-	public static native void nobjc_removeAssociatedObjects(long object);
 
 	/**
 	 * Removes all associations for a given object.
@@ -2569,9 +2849,10 @@ public class ObjCRuntime {
 	 * @param object an object that maintains associated objects
 	 */
 	public static void objc_removeAssociatedObjects(long object) {
+		long __functionAddress = getInstance().objc_removeAssociatedObjects;
 		if ( LWJGLUtil.CHECKS )
 			checkPointer(object);
-		nobjc_removeAssociatedObjects(object);
+		invokePV(__functionAddress, object);
 	}
 
 }
