@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -183,7 +182,7 @@ public class ARBSparseTexture {
 	 */
 	public static void glTexturePageCommitmentEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit) {
 		long __functionAddress = getInstance().TexturePageCommitmentEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIIIIZV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, commit);
 	}

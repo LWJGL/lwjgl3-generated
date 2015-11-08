@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -269,14 +268,14 @@ public class ARBMultitexture {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord1fvARB(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 2);
 		nglMultiTexCoord1fvARB(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord1fvARB MultiTexCoord1fvARB} */
 	public static void glMultiTexCoord1fvARB(int texture, FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglMultiTexCoord1fvARB(texture, memAddress(v));
 	}
@@ -297,14 +296,14 @@ public class ARBMultitexture {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord1svARB(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 1);
 		nglMultiTexCoord1svARB(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord1svARB MultiTexCoord1svARB} */
 	public static void glMultiTexCoord1svARB(int texture, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglMultiTexCoord1svARB(texture, memAddress(v));
 	}
@@ -325,14 +324,14 @@ public class ARBMultitexture {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord1ivARB(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 2);
 		nglMultiTexCoord1ivARB(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord1ivARB MultiTexCoord1ivARB} */
 	public static void glMultiTexCoord1ivARB(int texture, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglMultiTexCoord1ivARB(texture, memAddress(v));
 	}
@@ -353,14 +352,14 @@ public class ARBMultitexture {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord1dvARB(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 3);
 		nglMultiTexCoord1dvARB(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord1dvARB MultiTexCoord1dvARB} */
 	public static void glMultiTexCoord1dvARB(int texture, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglMultiTexCoord1dvARB(texture, memAddress(v));
 	}
@@ -437,14 +436,14 @@ public class ARBMultitexture {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord2fvARB(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 2);
 		nglMultiTexCoord2fvARB(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord2fvARB MultiTexCoord2fvARB} */
 	public static void glMultiTexCoord2fvARB(int texture, FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglMultiTexCoord2fvARB(texture, memAddress(v));
 	}
@@ -465,14 +464,14 @@ public class ARBMultitexture {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord2svARB(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 1);
 		nglMultiTexCoord2svARB(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord2svARB MultiTexCoord2svARB} */
 	public static void glMultiTexCoord2svARB(int texture, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglMultiTexCoord2svARB(texture, memAddress(v));
 	}
@@ -493,14 +492,14 @@ public class ARBMultitexture {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord2ivARB(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 2);
 		nglMultiTexCoord2ivARB(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord2ivARB MultiTexCoord2ivARB} */
 	public static void glMultiTexCoord2ivARB(int texture, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglMultiTexCoord2ivARB(texture, memAddress(v));
 	}
@@ -521,14 +520,14 @@ public class ARBMultitexture {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord2dvARB(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 3);
 		nglMultiTexCoord2dvARB(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord2dvARB MultiTexCoord2dvARB} */
 	public static void glMultiTexCoord2dvARB(int texture, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglMultiTexCoord2dvARB(texture, memAddress(v));
 	}
@@ -609,14 +608,14 @@ public class ARBMultitexture {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord3fvARB(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglMultiTexCoord3fvARB(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord3fvARB MultiTexCoord3fvARB} */
 	public static void glMultiTexCoord3fvARB(int texture, FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglMultiTexCoord3fvARB(texture, memAddress(v));
 	}
@@ -637,14 +636,14 @@ public class ARBMultitexture {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord3svARB(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 1);
 		nglMultiTexCoord3svARB(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord3svARB MultiTexCoord3svARB} */
 	public static void glMultiTexCoord3svARB(int texture, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglMultiTexCoord3svARB(texture, memAddress(v));
 	}
@@ -665,14 +664,14 @@ public class ARBMultitexture {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord3ivARB(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglMultiTexCoord3ivARB(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord3ivARB MultiTexCoord3ivARB} */
 	public static void glMultiTexCoord3ivARB(int texture, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglMultiTexCoord3ivARB(texture, memAddress(v));
 	}
@@ -693,14 +692,14 @@ public class ARBMultitexture {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord3dvARB(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglMultiTexCoord3dvARB(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord3dvARB MultiTexCoord3dvARB} */
 	public static void glMultiTexCoord3dvARB(int texture, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglMultiTexCoord3dvARB(texture, memAddress(v));
 	}
@@ -785,14 +784,14 @@ public class ARBMultitexture {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord4fvARB(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglMultiTexCoord4fvARB(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord4fvARB MultiTexCoord4fvARB} */
 	public static void glMultiTexCoord4fvARB(int texture, FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglMultiTexCoord4fvARB(texture, memAddress(v));
 	}
@@ -813,14 +812,14 @@ public class ARBMultitexture {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord4svARB(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglMultiTexCoord4svARB(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord4svARB MultiTexCoord4svARB} */
 	public static void glMultiTexCoord4svARB(int texture, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglMultiTexCoord4svARB(texture, memAddress(v));
 	}
@@ -841,14 +840,14 @@ public class ARBMultitexture {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord4ivARB(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglMultiTexCoord4ivARB(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord4ivARB MultiTexCoord4ivARB} */
 	public static void glMultiTexCoord4ivARB(int texture, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglMultiTexCoord4ivARB(texture, memAddress(v));
 	}
@@ -869,14 +868,14 @@ public class ARBMultitexture {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord4dvARB(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 3);
 		nglMultiTexCoord4dvARB(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord4dvARB MultiTexCoord4dvARB} */
 	public static void glMultiTexCoord4dvARB(int texture, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglMultiTexCoord4dvARB(texture, memAddress(v));
 	}

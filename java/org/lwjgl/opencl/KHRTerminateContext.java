@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opencl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -105,7 +104,7 @@ public class KHRTerminateContext {
 	 */
 	public static int clTerminateContextKHR(long context) {
 		long __functionAddress = getInstance().TerminateContextKHR;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(context);
 		return callPI(__functionAddress, context);
 	}

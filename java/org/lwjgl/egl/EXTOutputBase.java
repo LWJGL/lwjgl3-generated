@@ -5,15 +5,15 @@
  */
 package org.lwjgl.egl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/EXT/EGL_EXT_output_base.txt">EXT_output_base</a> extension.
@@ -91,13 +91,13 @@ public class EXTOutputBase {
 	@JavadocExclude
 	public static boolean neglGetOutputLayersEXT(long dpy, long attrib_list, long layers, int max_layers, long num_layers) {
 		long __functionAddress = getInstance().GetOutputLayersEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(dpy);
 		return callPPPIPZ(__functionAddress, dpy, attrib_list, layers, max_layers, num_layers);
 	}
 
 	public static boolean eglGetOutputLayersEXT(long dpy, ByteBuffer attrib_list, ByteBuffer layers, int max_layers, ByteBuffer num_layers) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( attrib_list != null ) checkNTP(attrib_list, EGL10.EGL_NONE);
 			if ( layers != null ) checkBuffer(layers, max_layers << POINTER_SHIFT);
 			checkBuffer(num_layers, 1 << 2);
@@ -107,7 +107,7 @@ public class EXTOutputBase {
 
 	/** Alternative version of: {@link #eglGetOutputLayersEXT GetOutputLayersEXT} */
 	public static boolean eglGetOutputLayersEXT(long dpy, PointerBuffer attrib_list, PointerBuffer layers, IntBuffer num_layers) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
 			checkBuffer(num_layers, 1);
 		}
@@ -120,13 +120,13 @@ public class EXTOutputBase {
 	@JavadocExclude
 	public static boolean neglGetOutputPortsEXT(long dpy, long attrib_list, long ports, int max_ports, long num_ports) {
 		long __functionAddress = getInstance().GetOutputPortsEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(dpy);
 		return callPPPIPZ(__functionAddress, dpy, attrib_list, ports, max_ports, num_ports);
 	}
 
 	public static boolean eglGetOutputPortsEXT(long dpy, ByteBuffer attrib_list, ByteBuffer ports, int max_ports, ByteBuffer num_ports) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( attrib_list != null ) checkNTP(attrib_list, EGL10.EGL_NONE);
 			if ( ports != null ) checkBuffer(ports, max_ports << POINTER_SHIFT);
 			checkBuffer(num_ports, 1 << 2);
@@ -136,7 +136,7 @@ public class EXTOutputBase {
 
 	/** Alternative version of: {@link #eglGetOutputPortsEXT GetOutputPortsEXT} */
 	public static boolean eglGetOutputPortsEXT(long dpy, PointerBuffer attrib_list, PointerBuffer ports, IntBuffer num_ports) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
 			checkBuffer(num_ports, 1);
 		}
@@ -147,7 +147,7 @@ public class EXTOutputBase {
 
 	public static boolean eglOutputLayerAttribEXT(long dpy, long layer, int attribute, long value) {
 		long __functionAddress = getInstance().OutputLayerAttribEXT;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(layer);
 		}
@@ -160,7 +160,7 @@ public class EXTOutputBase {
 	@JavadocExclude
 	public static boolean neglQueryOutputLayerAttribEXT(long dpy, long layer, int attribute, long value) {
 		long __functionAddress = getInstance().QueryOutputLayerAttribEXT;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(layer);
 		}
@@ -168,14 +168,14 @@ public class EXTOutputBase {
 	}
 
 	public static boolean eglQueryOutputLayerAttribEXT(long dpy, long layer, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << POINTER_SHIFT);
 		return neglQueryOutputLayerAttribEXT(dpy, layer, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQueryOutputLayerAttribEXT QueryOutputLayerAttribEXT} */
 	public static boolean eglQueryOutputLayerAttribEXT(long dpy, long layer, int attribute, PointerBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQueryOutputLayerAttribEXT(dpy, layer, attribute, memAddress(value));
 	}
@@ -186,7 +186,7 @@ public class EXTOutputBase {
 	@JavadocExclude
 	public static long neglQueryOutputLayerStringEXT(long dpy, long layer, int name) {
 		long __functionAddress = getInstance().QueryOutputLayerStringEXT;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(layer);
 		}
@@ -202,7 +202,7 @@ public class EXTOutputBase {
 
 	public static boolean eglOutputPortAttribEXT(long dpy, long port, int attribute, long value) {
 		long __functionAddress = getInstance().OutputPortAttribEXT;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(port);
 		}
@@ -215,7 +215,7 @@ public class EXTOutputBase {
 	@JavadocExclude
 	public static boolean neglQueryOutputPortAttribEXT(long dpy, long port, int attribute, long value) {
 		long __functionAddress = getInstance().QueryOutputPortAttribEXT;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(port);
 		}
@@ -223,14 +223,14 @@ public class EXTOutputBase {
 	}
 
 	public static boolean eglQueryOutputPortAttribEXT(long dpy, long port, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << POINTER_SHIFT);
 		return neglQueryOutputPortAttribEXT(dpy, port, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQueryOutputPortAttribEXT QueryOutputPortAttribEXT} */
 	public static boolean eglQueryOutputPortAttribEXT(long dpy, long port, int attribute, PointerBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQueryOutputPortAttribEXT(dpy, port, attribute, memAddress(value));
 	}
@@ -241,7 +241,7 @@ public class EXTOutputBase {
 	@JavadocExclude
 	public static long neglQueryOutputPortStringEXT(long dpy, long port, int name) {
 		long __functionAddress = getInstance().QueryOutputPortStringEXT;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(port);
 		}

@@ -87,7 +87,7 @@ public class POINT extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public POINT set(POINT src) {
 		return nset(address());
@@ -95,7 +95,7 @@ public class POINT extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public POINT set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}

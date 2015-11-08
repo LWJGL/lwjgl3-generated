@@ -5,10 +5,9 @@
  */
 package org.lwjgl.system.macosx;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -44,7 +43,7 @@ public class CoreFoundation {
 		kCFURLHFSPathStyle     = 0x1,
 		kCFURLWindowsPathStyle = 0x2;
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected CoreFoundation() {
@@ -106,7 +105,7 @@ public class CoreFoundation {
 	 * @param cf the CFType object to retain
 	 */
 	public static long CFRetain(long cf) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(cf);
 		return nCFRetain(cf);
 	}
@@ -126,7 +125,7 @@ public class CoreFoundation {
 	 * @param cf the CFType object to release
 	 */
 	public static void CFRelease(long cf) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(cf);
 		nCFRelease(cf);
 	}
@@ -144,7 +143,7 @@ public class CoreFoundation {
 	 * @param bundleURL the location of the bundle for which to create a {@code CFBundle} object
 	 */
 	public static long CFBundleCreate(long allocator, long bundleURL) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(bundleURL);
 		return nCFBundleCreate(allocator, bundleURL);
 	}
@@ -162,7 +161,7 @@ public class CoreFoundation {
 	 * @param functionName the name of the function to locate
 	 */
 	public static long CFBundleGetFunctionPointerForName(long bundle, long functionName) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(bundle);
 			checkPointer(functionName);
 		}
@@ -223,7 +222,7 @@ public class CoreFoundation {
 	 *                    pathname indicates a directory, false otherwise.
 	 */
 	public static long CFURLCreateWithFileSystemPath(long allocator, long filePath, long pathStyle, byte isDirectory) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(filePath);
 		return nCFURLCreateWithFileSystemPath(allocator, filePath, pathStyle, isDirectory);
 	}

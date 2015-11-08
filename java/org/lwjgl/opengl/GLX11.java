@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -72,7 +71,7 @@ public class GLX11 {
 	@JavadocExclude
 	public static long nglXQueryExtensionsString(long display, int screen) {
 		long __functionAddress = getInstance().QueryExtensionsString;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(display);
 		return callPIP(__functionAddress, display, screen);
 	}
@@ -94,7 +93,7 @@ public class GLX11 {
 	@JavadocExclude
 	public static long nglXGetClientString(long display, int name) {
 		long __functionAddress = getInstance().GetClientString;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(display);
 		return callPIP(__functionAddress, display, name);
 	}
@@ -116,7 +115,7 @@ public class GLX11 {
 	@JavadocExclude
 	public static long nglXQueryServerString(long display, int screen, int name) {
 		long __functionAddress = getInstance().QueryServerString;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(display);
 		return callPIIP(__functionAddress, display, screen, name);
 	}

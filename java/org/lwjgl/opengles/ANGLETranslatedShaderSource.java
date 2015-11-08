@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opengles;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/ANGLE/ANGLE_translated_shader_source.txt">ANGLE_translated_shader_source</a> extension.
@@ -24,7 +24,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <p>This extension addes a new function to query the translated shader source, and adds a new enum for GetShaderiv's &lt;pname&gt; parameter to query the
  * translated shader source length.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public class ANGLETranslatedShaderSource {
 
@@ -78,7 +78,7 @@ public class ANGLETranslatedShaderSource {
 	}
 
 	public static void glGetTranslatedShaderSourceANGLE(int shader, int bufsize, ByteBuffer length, ByteBuffer source) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(source, bufsize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -87,7 +87,7 @@ public class ANGLETranslatedShaderSource {
 
 	/** Alternative version of: {@link #glGetTranslatedShaderSourceANGLE GetTranslatedShaderSourceANGLE} */
 	public static void glGetTranslatedShaderSourceANGLE(int shader, IntBuffer length, ByteBuffer source) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetTranslatedShaderSourceANGLE(shader, source.remaining(), memAddressSafe(length), memAddress(source));
 	}

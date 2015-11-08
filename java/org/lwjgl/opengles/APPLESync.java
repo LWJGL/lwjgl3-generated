@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/APPLE/APPLE_sync.txt">APPLE_sync</a> extension.
@@ -30,7 +29,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <p>These new mechanisms allow for synchronization between the host CPU and the GPU, which may be accessing the same resources (typically memory), as well
  * as between multiple GL contexts bound to multiple threads in the host CPU.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public class APPLESync {
 
@@ -133,7 +132,7 @@ public class APPLESync {
 
 	public static boolean glIsSyncAPPLE(long sync) {
 		long __functionAddress = getInstance().IsSyncAPPLE;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(sync);
 		return callPZ(__functionAddress, sync);
 	}
@@ -142,7 +141,7 @@ public class APPLESync {
 
 	public static void glDeleteSyncAPPLE(long sync) {
 		long __functionAddress = getInstance().DeleteSyncAPPLE;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(sync);
 		callPV(__functionAddress, sync);
 	}
@@ -151,7 +150,7 @@ public class APPLESync {
 
 	public static int glClientWaitSyncAPPLE(long sync, int flags, long timeout) {
 		long __functionAddress = getInstance().ClientWaitSyncAPPLE;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(sync);
 		return callPIJI(__functionAddress, sync, flags, timeout);
 	}
@@ -160,7 +159,7 @@ public class APPLESync {
 
 	public static void glWaitSyncAPPLE(long sync, int flags, long timeout) {
 		long __functionAddress = getInstance().WaitSyncAPPLE;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(sync);
 		callPIJV(__functionAddress, sync, flags, timeout);
 	}
@@ -175,14 +174,14 @@ public class APPLESync {
 	}
 
 	public static void glGetInteger64vAPPLE(int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetInteger64vAPPLE(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetInteger64vAPPLE GetInteger64vAPPLE} */
 	public static void glGetInteger64vAPPLE(int pname, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetInteger64vAPPLE(pname, memAddress(params));
 	}
@@ -201,13 +200,13 @@ public class APPLESync {
 	@JavadocExclude
 	public static void nglGetSyncivAPPLE(long sync, int pname, int bufSize, long length, long values) {
 		long __functionAddress = getInstance().GetSyncivAPPLE;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(sync);
 		callPIIPPV(__functionAddress, sync, pname, bufSize, length, values);
 	}
 
 	public static void glGetSyncivAPPLE(long sync, int pname, int bufSize, ByteBuffer length, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(values, bufSize << 2);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -216,14 +215,14 @@ public class APPLESync {
 
 	/** Alternative version of: {@link #glGetSyncivAPPLE GetSyncivAPPLE} */
 	public static void glGetSyncivAPPLE(long sync, int pname, IntBuffer length, IntBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetSyncivAPPLE(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
 	}
 
 	/** Single return value version of: {@link #glGetSyncivAPPLE GetSyncivAPPLE} */
 	public static int glGetSynciAPPLE(long sync, int pname, IntBuffer length) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		APIBuffer __buffer = apiBuffer();
 		int values = __buffer.intParam();

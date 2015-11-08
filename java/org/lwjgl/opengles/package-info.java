@@ -1,0 +1,15 @@
+/*
+ * Copyright LWJGL. All rights reserved.
+ * License terms: http://lwjgl.org/license.php
+ * MACHINE GENERATED FILE, DO NOT EDIT
+ */
+
+/**
+ * Contains bindings to the <a href="https://www.khronos.org/opengles/">OpenGL ES</a> cross-platform 2D and 3D rendering API on embedded systems.
+ * 
+ * <p>The <a href="https://www.khronos.org/registry/gles/">Khronos OpenGL ES registry</a> is a useful online resource that contains the OpenGL ES and OpenGL
+ * ES Shading Language specifications, as well as specifications of OpenGL ES extensions. The <a href="https://www.khronos.org/opengles/sdk/docs/">OpenGL
+ * ES Reference Pages</a> is another convenient source of documentation.</p>
+ */
+package org.lwjgl.opengles;
+

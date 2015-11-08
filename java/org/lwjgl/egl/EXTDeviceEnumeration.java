@@ -5,15 +5,15 @@
  */
 package org.lwjgl.egl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/EXT/EGL_EXT_device_enumeration.txt">EXT_device_enumeration</a> extension.
@@ -68,7 +68,7 @@ public class EXTDeviceEnumeration {
 	}
 
 	public static boolean eglQueryDevicesEXT(int max_devices, ByteBuffer devices, ByteBuffer num_devices) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( devices != null ) checkBuffer(devices, max_devices << POINTER_SHIFT);
 			checkBuffer(num_devices, 1 << 2);
 		}
@@ -77,7 +77,7 @@ public class EXTDeviceEnumeration {
 
 	/** Alternative version of: {@link #eglQueryDevicesEXT QueryDevicesEXT} */
 	public static boolean eglQueryDevicesEXT(PointerBuffer devices, IntBuffer num_devices) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(num_devices, 1);
 		return neglQueryDevicesEXT(devices == null ? 0 : devices.remaining(), memAddressSafe(devices), memAddress(num_devices));
 	}

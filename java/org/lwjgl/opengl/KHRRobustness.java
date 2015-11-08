@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/KHR/robustness.txt">KHR_robustness</a> extension.
@@ -181,7 +180,7 @@ public class KHRRobustness {
 	 * @param pixels  a buffer in which to place the returned pixel data
 	 */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(pixels, bufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -190,35 +189,35 @@ public class KHRRobustness {
 
 	/** Buffer object offset version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglReadnPixels(x, y, width, height, format, type, bufSize, pixelsOffset);
 	}
 
 	/** Alternative version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining(), memAddress(pixels));
 	}
 
 	/** ShortBuffer version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 1, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
@@ -241,7 +240,7 @@ public class KHRRobustness {
 	 * @param params   the buffer in which to place the returned data
 	 */
 	public static void glGetnUniformfv(int program, int location, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformfv(program, location, bufSize, memAddress(params));
 	}
@@ -277,7 +276,7 @@ public class KHRRobustness {
 	 * @param params   the buffer in which to place the returned data
 	 */
 	public static void glGetnUniformiv(int program, int location, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformiv(program, location, bufSize, memAddress(params));
 	}
@@ -313,7 +312,7 @@ public class KHRRobustness {
 	 * @param params   the buffer in which to place the returned data
 	 */
 	public static void glGetnUniformuiv(int program, int location, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformuiv(program, location, bufSize, memAddress(params));
 	}

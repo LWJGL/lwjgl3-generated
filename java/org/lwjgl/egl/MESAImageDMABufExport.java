@@ -5,10 +5,9 @@
  */
 package org.lwjgl.egl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -62,7 +61,7 @@ public class MESAImageDMABufExport {
 	@JavadocExclude
 	public static boolean neglExportDMABUFImageQueryMESA(long dpy, long image, long fourcc, long num_planes, long modifiers) {
 		long __functionAddress = getInstance().ExportDMABUFImageQueryMESA;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(image);
 		}
@@ -70,7 +69,7 @@ public class MESAImageDMABufExport {
 	}
 
 	public static boolean eglExportDMABUFImageQueryMESA(long dpy, long image, ByteBuffer fourcc, ByteBuffer num_planes, ByteBuffer modifiers) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( fourcc != null ) checkBuffer(fourcc, 1 << 2);
 			if ( num_planes != null ) checkBuffer(num_planes, 1 << 2);
 			if ( modifiers != null ) checkBuffer(modifiers, 1 << 3);
@@ -80,7 +79,7 @@ public class MESAImageDMABufExport {
 
 	/** Alternative version of: {@link #eglExportDMABUFImageQueryMESA ExportDMABUFImageQueryMESA} */
 	public static boolean eglExportDMABUFImageQueryMESA(long dpy, long image, IntBuffer fourcc, IntBuffer num_planes, LongBuffer modifiers) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( fourcc != null ) checkBuffer(fourcc, 1);
 			if ( num_planes != null ) checkBuffer(num_planes, 1);
 			if ( modifiers != null ) checkBuffer(modifiers, 1);
@@ -94,7 +93,7 @@ public class MESAImageDMABufExport {
 	@JavadocExclude
 	public static boolean neglExportDMABUFImageMESA(long dpy, long image, long fds, long strides, long offsets) {
 		long __functionAddress = getInstance().ExportDMABUFImageMESA;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(image);
 		}
@@ -102,7 +101,7 @@ public class MESAImageDMABufExport {
 	}
 
 	public static boolean eglExportDMABUFImageMESA(long dpy, long image, ByteBuffer fds, ByteBuffer strides, ByteBuffer offsets) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( fds != null ) checkBuffer(fds, 1 << 2);
 			if ( strides != null ) checkBuffer(strides, 1 << 2);
 			if ( offsets != null ) checkBuffer(offsets, 1 << 2);
@@ -112,7 +111,7 @@ public class MESAImageDMABufExport {
 
 	/** Alternative version of: {@link #eglExportDMABUFImageMESA ExportDMABUFImageMESA} */
 	public static boolean eglExportDMABUFImageMESA(long dpy, long image, IntBuffer fds, IntBuffer strides, IntBuffer offsets) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( fds != null ) checkBuffer(fds, 1);
 			if ( strides != null ) checkBuffer(strides, 1);
 			if ( offsets != null ) checkBuffer(offsets, 1);

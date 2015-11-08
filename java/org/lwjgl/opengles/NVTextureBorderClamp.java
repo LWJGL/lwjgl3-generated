@@ -16,7 +16,7 @@ package org.lwjgl.opengles;
  * and LINEAR filters of clamped coordinates return only the constant border color. This does not add the ability for textures to specify borders using
  * glTexImage2D, but only to clamp to a constant border value set using glTexParameter.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public final class NVTextureBorderClamp {
 

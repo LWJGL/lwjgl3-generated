@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -56,7 +55,7 @@ import static org.lwjgl.system.JNI.*;
  * floating-point, which could result in a loss of precision and dynamic range for framebuffer formats with 32-bit floating-point components, and in a
  * loss of precision for formats with 12- and 16-bit signed or unsigned normalized integer components.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public class NVBlendEquationAdvanced {
 

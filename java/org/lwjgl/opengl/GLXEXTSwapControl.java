@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -77,7 +76,7 @@ public class GLXEXTSwapControl {
 	 */
 	public static void glXSwapIntervalEXT(long display, long drawable, int interval) {
 		long __functionAddress = getInstance().SwapIntervalEXT;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(drawable);
 		}

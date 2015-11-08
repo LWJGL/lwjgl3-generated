@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * The core OpenGL 1.4 functionality.
@@ -341,7 +341,7 @@ public class GL14 {
 	 */
 	public static void glFogCoordf(float coord) {
 		long __functionAddress = getInstance().FogCoordf;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFV(__functionAddress, coord);
 	}
@@ -357,7 +357,7 @@ public class GL14 {
 	 */
 	public static void glFogCoordd(double coord) {
 		long __functionAddress = getInstance().FogCoordd;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDV(__functionAddress, coord);
 	}
@@ -368,7 +368,7 @@ public class GL14 {
 	@JavadocExclude
 	public static void nglFogCoordfv(long coord) {
 		long __functionAddress = getInstance().FogCoordfv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coord);
 	}
@@ -381,14 +381,14 @@ public class GL14 {
 	 * @param coord the fog coordinate value
 	 */
 	public static void glFogCoordfv(ByteBuffer coord) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coord, 1 << 2);
 		nglFogCoordfv(memAddress(coord));
 	}
 
 	/** Alternative version of: {@link #glFogCoordfv FogCoordfv} */
 	public static void glFogCoordfv(FloatBuffer coord) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coord, 1);
 		nglFogCoordfv(memAddress(coord));
 	}
@@ -399,7 +399,7 @@ public class GL14 {
 	@JavadocExclude
 	public static void nglFogCoorddv(long coord) {
 		long __functionAddress = getInstance().FogCoorddv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coord);
 	}
@@ -412,14 +412,14 @@ public class GL14 {
 	 * @param coord the fog coordinate value
 	 */
 	public static void glFogCoorddv(ByteBuffer coord) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coord, 1 << 3);
 		nglFogCoorddv(memAddress(coord));
 	}
 
 	/** Alternative version of: {@link #glFogCoorddv FogCoorddv} */
 	public static void glFogCoorddv(DoubleBuffer coord) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coord, 1);
 		nglFogCoorddv(memAddress(coord));
 	}
@@ -430,7 +430,7 @@ public class GL14 {
 	@JavadocExclude
 	public static void nglFogCoordPointer(int type, int stride, long pointer) {
 		long __functionAddress = getInstance().FogCoordPointer;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, type, stride, pointer);
 	}
@@ -445,28 +445,28 @@ public class GL14 {
 	 * @param pointer the fog coordinate array data
 	 */
 	public static void glFogCoordPointer(int type, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglFogCoordPointer(type, stride, memAddress(pointer));
 	}
 
 	/** Buffer object offset version of: {@link #glFogCoordPointer FogCoordPointer} */
 	public static void glFogCoordPointer(int type, int stride, long pointerOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglFogCoordPointer(type, stride, pointerOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glFogCoordPointer FogCoordPointer} */
 	public static void glFogCoordPointer(int type, int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglFogCoordPointer(type, stride, memAddress(pointer));
 	}
 
 	/** FloatBuffer version of: {@link #glFogCoordPointer FogCoordPointer} */
 	public static void glFogCoordPointer(int type, int stride, FloatBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglFogCoordPointer(type, stride, memAddress(pointer));
 	}
@@ -491,7 +491,7 @@ public class GL14 {
 	 * @param primcount the size of {@code first} and {@code count}
 	 */
 	public static void glMultiDrawArrays(int mode, ByteBuffer first, ByteBuffer count, int primcount) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(first, primcount << 2);
 			checkBuffer(count, primcount << 2);
 		}
@@ -500,7 +500,7 @@ public class GL14 {
 
 	/** Alternative version of: {@link #glMultiDrawArrays MultiDrawArrays} */
 	public static void glMultiDrawArrays(int mode, IntBuffer first, IntBuffer count) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(count, first.remaining());
 		nglMultiDrawArrays(mode, memAddress(first), memAddress(count), first.remaining());
 	}
@@ -528,7 +528,7 @@ public class GL14 {
 	 * @param primcount the size of the {@code count} array
 	 */
 	public static void glMultiDrawElements(int mode, ByteBuffer count, int type, ByteBuffer indices, int primcount) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(count, primcount << 2);
 			checkBuffer(indices, primcount << POINTER_SHIFT);
 		}
@@ -537,7 +537,7 @@ public class GL14 {
 
 	/** Alternative version of: {@link #glMultiDrawElements MultiDrawElements} */
 	public static void glMultiDrawElements(int mode, IntBuffer count, int type, PointerBuffer indices) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(indices, count.remaining());
 		nglMultiDrawElements(mode, memAddress(count), type, memAddress(indices), count.remaining());
 	}
@@ -590,14 +590,14 @@ public class GL14 {
 	 * @param params the parameter value
 	 */
 	public static void glPointParameterfv(int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 3 << 2);
 		nglPointParameterfv(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glPointParameterfv PointParameterfv} */
 	public static void glPointParameterfv(int pname, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 3);
 		nglPointParameterfv(pname, memAddress(params));
 	}
@@ -620,14 +620,14 @@ public class GL14 {
 	 * @param params the parameter value
 	 */
 	public static void glPointParameteriv(int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 3 << 2);
 		nglPointParameteriv(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glPointParameteriv PointParameteriv} */
 	public static void glPointParameteriv(int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 3);
 		nglPointParameteriv(pname, memAddress(params));
 	}
@@ -645,7 +645,7 @@ public class GL14 {
 	 */
 	public static void glSecondaryColor3b(byte red, byte green, byte blue) {
 		long __functionAddress = getInstance().SecondaryColor3b;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callBBBV(__functionAddress, red, green, blue);
 	}
@@ -663,7 +663,7 @@ public class GL14 {
 	 */
 	public static void glSecondaryColor3s(short red, short green, short blue) {
 		long __functionAddress = getInstance().SecondaryColor3s;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, red, green, blue);
 	}
@@ -681,7 +681,7 @@ public class GL14 {
 	 */
 	public static void glSecondaryColor3i(int red, int green, int blue) {
 		long __functionAddress = getInstance().SecondaryColor3i;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, red, green, blue);
 	}
@@ -699,7 +699,7 @@ public class GL14 {
 	 */
 	public static void glSecondaryColor3f(float red, float green, float blue) {
 		long __functionAddress = getInstance().SecondaryColor3f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFV(__functionAddress, red, green, blue);
 	}
@@ -717,7 +717,7 @@ public class GL14 {
 	 */
 	public static void glSecondaryColor3d(double red, double green, double blue) {
 		long __functionAddress = getInstance().SecondaryColor3d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDV(__functionAddress, red, green, blue);
 	}
@@ -735,7 +735,7 @@ public class GL14 {
 	 */
 	public static void glSecondaryColor3ub(byte red, byte green, byte blue) {
 		long __functionAddress = getInstance().SecondaryColor3ub;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callBBBV(__functionAddress, red, green, blue);
 	}
@@ -753,7 +753,7 @@ public class GL14 {
 	 */
 	public static void glSecondaryColor3us(short red, short green, short blue) {
 		long __functionAddress = getInstance().SecondaryColor3us;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, red, green, blue);
 	}
@@ -771,7 +771,7 @@ public class GL14 {
 	 */
 	public static void glSecondaryColor3ui(int red, int green, int blue) {
 		long __functionAddress = getInstance().SecondaryColor3ui;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, red, green, blue);
 	}
@@ -782,7 +782,7 @@ public class GL14 {
 	@JavadocExclude
 	public static void nglSecondaryColor3bv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3bv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -795,7 +795,7 @@ public class GL14 {
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3bv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3bv(memAddress(v));
 	}
@@ -806,7 +806,7 @@ public class GL14 {
 	@JavadocExclude
 	public static void nglSecondaryColor3sv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3sv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -819,14 +819,14 @@ public class GL14 {
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3sv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 1);
 		nglSecondaryColor3sv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glSecondaryColor3sv SecondaryColor3sv} */
 	public static void glSecondaryColor3sv(ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3sv(memAddress(v));
 	}
@@ -837,7 +837,7 @@ public class GL14 {
 	@JavadocExclude
 	public static void nglSecondaryColor3iv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3iv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -850,14 +850,14 @@ public class GL14 {
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3iv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglSecondaryColor3iv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glSecondaryColor3iv SecondaryColor3iv} */
 	public static void glSecondaryColor3iv(IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3iv(memAddress(v));
 	}
@@ -868,7 +868,7 @@ public class GL14 {
 	@JavadocExclude
 	public static void nglSecondaryColor3fv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3fv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -881,14 +881,14 @@ public class GL14 {
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3fv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglSecondaryColor3fv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glSecondaryColor3fv SecondaryColor3fv} */
 	public static void glSecondaryColor3fv(FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3fv(memAddress(v));
 	}
@@ -899,7 +899,7 @@ public class GL14 {
 	@JavadocExclude
 	public static void nglSecondaryColor3dv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3dv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -912,14 +912,14 @@ public class GL14 {
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3dv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglSecondaryColor3dv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glSecondaryColor3dv SecondaryColor3dv} */
 	public static void glSecondaryColor3dv(DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3dv(memAddress(v));
 	}
@@ -930,7 +930,7 @@ public class GL14 {
 	@JavadocExclude
 	public static void nglSecondaryColor3ubv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3ubv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -943,7 +943,7 @@ public class GL14 {
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3ubv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3ubv(memAddress(v));
 	}
@@ -954,7 +954,7 @@ public class GL14 {
 	@JavadocExclude
 	public static void nglSecondaryColor3usv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3usv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -967,14 +967,14 @@ public class GL14 {
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3usv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 1);
 		nglSecondaryColor3usv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glSecondaryColor3usv SecondaryColor3usv} */
 	public static void glSecondaryColor3usv(ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3usv(memAddress(v));
 	}
@@ -985,7 +985,7 @@ public class GL14 {
 	@JavadocExclude
 	public static void nglSecondaryColor3uiv(long v) {
 		long __functionAddress = getInstance().SecondaryColor3uiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -998,14 +998,14 @@ public class GL14 {
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3uiv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglSecondaryColor3uiv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glSecondaryColor3uiv SecondaryColor3uiv} */
 	public static void glSecondaryColor3uiv(IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3uiv(memAddress(v));
 	}
@@ -1016,7 +1016,7 @@ public class GL14 {
 	@JavadocExclude
 	public static void nglSecondaryColorPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().SecondaryColorPointer;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, size, type, stride, pointer);
 	}
@@ -1032,35 +1032,35 @@ public class GL14 {
 	 * @param pointer the secondary color array data
 	 */
 	public static void glSecondaryColorPointer(int size, int type, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglSecondaryColorPointer(size, type, stride, memAddress(pointer));
 	}
 
 	/** Buffer object offset version of: {@link #glSecondaryColorPointer SecondaryColorPointer} */
 	public static void glSecondaryColorPointer(int size, int type, int stride, long pointerOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglSecondaryColorPointer(size, type, stride, pointerOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glSecondaryColorPointer SecondaryColorPointer} */
 	public static void glSecondaryColorPointer(int size, int type, int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglSecondaryColorPointer(size, type, stride, memAddress(pointer));
 	}
 
 	/** IntBuffer version of: {@link #glSecondaryColorPointer SecondaryColorPointer} */
 	public static void glSecondaryColorPointer(int size, int type, int stride, IntBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglSecondaryColorPointer(size, type, stride, memAddress(pointer));
 	}
 
 	/** FloatBuffer version of: {@link #glSecondaryColorPointer SecondaryColorPointer} */
 	public static void glSecondaryColorPointer(int size, int type, int stride, FloatBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglSecondaryColorPointer(size, type, stride, memAddress(pointer));
 	}
@@ -1094,7 +1094,7 @@ public class GL14 {
 	 */
 	public static void glWindowPos2i(int x, int y) {
 		long __functionAddress = getInstance().WindowPos2i;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, x, y);
 	}
@@ -1111,7 +1111,7 @@ public class GL14 {
 	 */
 	public static void glWindowPos2s(short x, short y) {
 		long __functionAddress = getInstance().WindowPos2s;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSV(__functionAddress, x, y);
 	}
@@ -1128,7 +1128,7 @@ public class GL14 {
 	 */
 	public static void glWindowPos2f(float x, float y) {
 		long __functionAddress = getInstance().WindowPos2f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFV(__functionAddress, x, y);
 	}
@@ -1145,7 +1145,7 @@ public class GL14 {
 	 */
 	public static void glWindowPos2d(double x, double y) {
 		long __functionAddress = getInstance().WindowPos2d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDV(__functionAddress, x, y);
 	}
@@ -1156,7 +1156,7 @@ public class GL14 {
 	@JavadocExclude
 	public static void nglWindowPos2iv(long p) {
 		long __functionAddress = getInstance().WindowPos2iv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, p);
 	}
@@ -1169,14 +1169,14 @@ public class GL14 {
 	 * @param p the position value
 	 */
 	public static void glWindowPos2iv(ByteBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 2 << 2);
 		nglWindowPos2iv(memAddress(p));
 	}
 
 	/** Alternative version of: {@link #glWindowPos2iv WindowPos2iv} */
 	public static void glWindowPos2iv(IntBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 2);
 		nglWindowPos2iv(memAddress(p));
 	}
@@ -1187,7 +1187,7 @@ public class GL14 {
 	@JavadocExclude
 	public static void nglWindowPos2sv(long p) {
 		long __functionAddress = getInstance().WindowPos2sv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, p);
 	}
@@ -1200,14 +1200,14 @@ public class GL14 {
 	 * @param p the position value
 	 */
 	public static void glWindowPos2sv(ByteBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 2 << 1);
 		nglWindowPos2sv(memAddress(p));
 	}
 
 	/** Alternative version of: {@link #glWindowPos2sv WindowPos2sv} */
 	public static void glWindowPos2sv(ShortBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 2);
 		nglWindowPos2sv(memAddress(p));
 	}
@@ -1218,7 +1218,7 @@ public class GL14 {
 	@JavadocExclude
 	public static void nglWindowPos2fv(long p) {
 		long __functionAddress = getInstance().WindowPos2fv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, p);
 	}
@@ -1231,14 +1231,14 @@ public class GL14 {
 	 * @param p the position value
 	 */
 	public static void glWindowPos2fv(ByteBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 2 << 2);
 		nglWindowPos2fv(memAddress(p));
 	}
 
 	/** Alternative version of: {@link #glWindowPos2fv WindowPos2fv} */
 	public static void glWindowPos2fv(FloatBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 2);
 		nglWindowPos2fv(memAddress(p));
 	}
@@ -1249,7 +1249,7 @@ public class GL14 {
 	@JavadocExclude
 	public static void nglWindowPos2dv(long p) {
 		long __functionAddress = getInstance().WindowPos2dv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, p);
 	}
@@ -1262,14 +1262,14 @@ public class GL14 {
 	 * @param p the position value
 	 */
 	public static void glWindowPos2dv(ByteBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 2 << 3);
 		nglWindowPos2dv(memAddress(p));
 	}
 
 	/** Alternative version of: {@link #glWindowPos2dv WindowPos2dv} */
 	public static void glWindowPos2dv(DoubleBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 2);
 		nglWindowPos2dv(memAddress(p));
 	}
@@ -1287,7 +1287,7 @@ public class GL14 {
 	 */
 	public static void glWindowPos3i(int x, int y, int z) {
 		long __functionAddress = getInstance().WindowPos3i;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, x, y, z);
 	}
@@ -1305,7 +1305,7 @@ public class GL14 {
 	 */
 	public static void glWindowPos3s(short x, short y, short z) {
 		long __functionAddress = getInstance().WindowPos3s;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, x, y, z);
 	}
@@ -1323,7 +1323,7 @@ public class GL14 {
 	 */
 	public static void glWindowPos3f(float x, float y, float z) {
 		long __functionAddress = getInstance().WindowPos3f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFV(__functionAddress, x, y, z);
 	}
@@ -1341,7 +1341,7 @@ public class GL14 {
 	 */
 	public static void glWindowPos3d(double x, double y, double z) {
 		long __functionAddress = getInstance().WindowPos3d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDV(__functionAddress, x, y, z);
 	}
@@ -1352,7 +1352,7 @@ public class GL14 {
 	@JavadocExclude
 	public static void nglWindowPos3iv(long p) {
 		long __functionAddress = getInstance().WindowPos3iv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, p);
 	}
@@ -1365,14 +1365,14 @@ public class GL14 {
 	 * @param p the position value
 	 */
 	public static void glWindowPos3iv(ByteBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 3 << 2);
 		nglWindowPos3iv(memAddress(p));
 	}
 
 	/** Alternative version of: {@link #glWindowPos3iv WindowPos3iv} */
 	public static void glWindowPos3iv(IntBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 3);
 		nglWindowPos3iv(memAddress(p));
 	}
@@ -1383,7 +1383,7 @@ public class GL14 {
 	@JavadocExclude
 	public static void nglWindowPos3sv(long p) {
 		long __functionAddress = getInstance().WindowPos3sv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, p);
 	}
@@ -1396,14 +1396,14 @@ public class GL14 {
 	 * @param p the position value
 	 */
 	public static void glWindowPos3sv(ByteBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 3 << 1);
 		nglWindowPos3sv(memAddress(p));
 	}
 
 	/** Alternative version of: {@link #glWindowPos3sv WindowPos3sv} */
 	public static void glWindowPos3sv(ShortBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 3);
 		nglWindowPos3sv(memAddress(p));
 	}
@@ -1414,7 +1414,7 @@ public class GL14 {
 	@JavadocExclude
 	public static void nglWindowPos3fv(long p) {
 		long __functionAddress = getInstance().WindowPos3fv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, p);
 	}
@@ -1427,14 +1427,14 @@ public class GL14 {
 	 * @param p the position value
 	 */
 	public static void glWindowPos3fv(ByteBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 3 << 2);
 		nglWindowPos3fv(memAddress(p));
 	}
 
 	/** Alternative version of: {@link #glWindowPos3fv WindowPos3fv} */
 	public static void glWindowPos3fv(FloatBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 3);
 		nglWindowPos3fv(memAddress(p));
 	}
@@ -1445,7 +1445,7 @@ public class GL14 {
 	@JavadocExclude
 	public static void nglWindowPos3dv(long p) {
 		long __functionAddress = getInstance().WindowPos3dv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, p);
 	}
@@ -1458,14 +1458,14 @@ public class GL14 {
 	 * @param p the position value
 	 */
 	public static void glWindowPos3dv(ByteBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 3 << 3);
 		nglWindowPos3dv(memAddress(p));
 	}
 
 	/** Alternative version of: {@link #glWindowPos3dv WindowPos3dv} */
 	public static void glWindowPos3dv(DoubleBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 3);
 		nglWindowPos3dv(memAddress(p));
 	}

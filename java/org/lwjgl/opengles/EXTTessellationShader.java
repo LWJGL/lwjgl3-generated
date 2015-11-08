@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -56,7 +55,7 @@ import static org.lwjgl.system.JNI.*;
  * <p>This extension relies on the EXT_gpu_shader5 extension to provide the 'precise' and 'fma' functionality which are necessary to ensure crack-free
  * tessellation.</p>
  * 
- * <p>Requires {@link GLES31 GLES E.S}.</p>
+ * <p>Requires {@link GLES31 GLES 3.1}.</p>
  */
 public class EXTTessellationShader {
 

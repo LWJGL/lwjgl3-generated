@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 import org.lwjgl.system.linux.*;
 
@@ -157,7 +157,7 @@ public class GLX13 {
 	@JavadocExclude
 	public static long nglXGetFBConfigs(long display, int screen, long nelements) {
 		long __functionAddress = getInstance().GetFBConfigs;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(display);
 		return callPIPP(__functionAddress, display, screen, nelements);
 	}
@@ -181,7 +181,7 @@ public class GLX13 {
 	@JavadocExclude
 	public static long nglXChooseFBConfig(long display, int screen, long attrib_list, long nelements) {
 		long __functionAddress = getInstance().ChooseFBConfig;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(display);
 		return callPIPPP(__functionAddress, display, screen, attrib_list, nelements);
 	}
@@ -194,7 +194,7 @@ public class GLX13 {
 	 * @param attrib_list a list of attributes terminated with {@code None}
 	 */
 	public static PointerBuffer glXChooseFBConfig(long display, int screen, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list);
 		APIBuffer __buffer = apiBuffer();
 		int nelements = __buffer.intParam();
@@ -204,7 +204,7 @@ public class GLX13 {
 
 	/** Alternative version of: {@link #glXChooseFBConfig ChooseFBConfig} */
 	public static PointerBuffer glXChooseFBConfig(long display, int screen, IntBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);
 		APIBuffer __buffer = apiBuffer();
 		int nelements = __buffer.intParam();
@@ -218,7 +218,7 @@ public class GLX13 {
 	@JavadocExclude
 	public static int nglXGetFBConfigAttrib(long display, long config, int attribute, long value) {
 		long __functionAddress = getInstance().GetFBConfigAttrib;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -234,14 +234,14 @@ public class GLX13 {
 	 * @param value     the attribute value
 	 */
 	public static int glXGetFBConfigAttrib(long display, long config, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		return nglXGetFBConfigAttrib(display, config, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glXGetFBConfigAttrib GetFBConfigAttrib} */
 	public static int glXGetFBConfigAttrib(long display, long config, int attribute, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return nglXGetFBConfigAttrib(display, config, attribute, memAddress(value));
 	}
@@ -252,7 +252,7 @@ public class GLX13 {
 	@JavadocExclude
 	public static long nglXGetVisualFromFBConfig(long display, long config) {
 		long __functionAddress = getInstance().GetVisualFromFBConfig;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -276,7 +276,7 @@ public class GLX13 {
 	@JavadocExclude
 	public static long nglXCreateWindow(long display, long config, long win, long attrib_list) {
 		long __functionAddress = getInstance().CreateWindow;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -292,14 +292,14 @@ public class GLX13 {
 	 * @param attrib_list a list of attributes terminated with {@code None}
 	 */
 	public static long glXCreateWindow(long display, long config, long win, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list);
 		return nglXCreateWindow(display, config, win, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #glXCreateWindow CreateWindow} */
 	public static long glXCreateWindow(long display, long config, long win, IntBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);
 		return nglXCreateWindow(display, config, win, memAddressSafe(attrib_list));
 	}
@@ -310,7 +310,7 @@ public class GLX13 {
 	@JavadocExclude
 	public static long nglXCreatePixmap(long display, long config, long pixmap, long attrib_list) {
 		long __functionAddress = getInstance().CreatePixmap;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -326,14 +326,14 @@ public class GLX13 {
 	 * @param attrib_list a list of attributes terminated with {@code None}
 	 */
 	public static long glXCreatePixmap(long display, long config, long pixmap, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list);
 		return nglXCreatePixmap(display, config, pixmap, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #glXCreatePixmap CreatePixmap} */
 	public static long glXCreatePixmap(long display, long config, long pixmap, IntBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);
 		return nglXCreatePixmap(display, config, pixmap, memAddressSafe(attrib_list));
 	}
@@ -348,7 +348,7 @@ public class GLX13 {
 	 */
 	public static void glXDestroyPixmap(long display, long pixmap) {
 		long __functionAddress = getInstance().DestroyPixmap;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(pixmap);
 		}
@@ -361,7 +361,7 @@ public class GLX13 {
 	@JavadocExclude
 	public static long nglXCreatePbuffer(long display, long config, long attrib_list) {
 		long __functionAddress = getInstance().CreatePbuffer;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -376,14 +376,14 @@ public class GLX13 {
 	 * @param attrib_list a list of attributes terminated with {@code None}
 	 */
 	public static long glXCreatePbuffer(long display, long config, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list);
 		return nglXCreatePbuffer(display, config, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #glXCreatePbuffer CreatePbuffer} */
 	public static long glXCreatePbuffer(long display, long config, IntBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);
 		return nglXCreatePbuffer(display, config, memAddressSafe(attrib_list));
 	}
@@ -398,7 +398,7 @@ public class GLX13 {
 	 */
 	public static void glXDestroyPbuffer(long display, long pbuf) {
 		long __functionAddress = getInstance().DestroyPbuffer;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(pbuf);
 		}
@@ -411,7 +411,7 @@ public class GLX13 {
 	@JavadocExclude
 	public static void nglXQueryDrawable(long display, long draw, int attribute, long value) {
 		long __functionAddress = getInstance().QueryDrawable;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(draw);
 		}
@@ -427,14 +427,14 @@ public class GLX13 {
 	 * @param value     returns the attribute value
 	 */
 	public static void glXQueryDrawable(long display, long draw, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nglXQueryDrawable(display, draw, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glXQueryDrawable QueryDrawable} */
 	public static void glXQueryDrawable(long display, long draw, int attribute, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nglXQueryDrawable(display, draw, attribute, memAddress(value));
 	}
@@ -452,7 +452,7 @@ public class GLX13 {
 	 */
 	public static long glXCreateNewContext(long display, long config, int render_type, long share_list, int direct) {
 		long __functionAddress = getInstance().CreateNewContext;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -471,7 +471,7 @@ public class GLX13 {
 	 */
 	public static int glXMakeContextCurrent(long display, long draw, long read, long ctx) {
 		long __functionAddress = getInstance().MakeContextCurrent;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(display);
 		return callPPPPI(__functionAddress, display, draw, read, ctx);
 	}
@@ -490,7 +490,7 @@ public class GLX13 {
 	@JavadocExclude
 	public static int nglXQueryContext(long display, long ctx, int attribute, long value) {
 		long __functionAddress = getInstance().QueryContext;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(ctx);
 		}
@@ -506,14 +506,14 @@ public class GLX13 {
 	 * @param value     returns the attribute value
 	 */
 	public static int glXQueryContext(long display, long ctx, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		return nglXQueryContext(display, ctx, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glXQueryContext QueryContext} */
 	public static int glXQueryContext(long display, long ctx, int attribute, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return nglXQueryContext(display, ctx, attribute, memAddress(value));
 	}
@@ -529,7 +529,7 @@ public class GLX13 {
 	 */
 	public static void glXSelectEvent(long display, long draw, long event_mask) {
 		long __functionAddress = getInstance().SelectEvent;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(draw);
 		}
@@ -542,7 +542,7 @@ public class GLX13 {
 	@JavadocExclude
 	public static void nglXGetSelectedEvent(long display, long draw, long event_mask) {
 		long __functionAddress = getInstance().GetSelectedEvent;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(draw);
 		}

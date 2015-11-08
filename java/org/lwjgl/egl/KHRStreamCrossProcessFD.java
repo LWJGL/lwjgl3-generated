@@ -5,7 +5,6 @@
  */
 package org.lwjgl.egl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -74,7 +73,7 @@ public class KHRStreamCrossProcessFD {
 
 	public static int eglGetStreamFileDescriptorKHR(long dpy, long stream) {
 		long __functionAddress = getInstance().GetStreamFileDescriptorKHR;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
@@ -85,7 +84,7 @@ public class KHRStreamCrossProcessFD {
 
 	public static long eglCreateStreamFromFileDescriptorKHR(long dpy, int file_descriptor) {
 		long __functionAddress = getInstance().CreateStreamFromFileDescriptorKHR;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(dpy);
 		return callPIP(__functionAddress, dpy, file_descriptor);
 	}

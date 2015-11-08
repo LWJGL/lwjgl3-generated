@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -66,7 +65,7 @@ public class WGLARBExtensionsString {
 	@JavadocExclude
 	public static long nwglGetExtensionsStringARB(long hdc) {
 		long __functionAddress = getInstance().GetExtensionsStringARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hdc);
 		return callPP(__functionAddress, hdc);
 	}

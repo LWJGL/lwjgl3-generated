@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -135,7 +134,7 @@ public class GL21 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniformMatrix2x3fv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 6) << 2);
 		nglUniformMatrix2x3fv(location, count, transpose, memAddress(value));
 	}
@@ -165,7 +164,7 @@ public class GL21 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniformMatrix3x2fv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 6) << 2);
 		nglUniformMatrix3x2fv(location, count, transpose, memAddress(value));
 	}
@@ -195,7 +194,7 @@ public class GL21 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniformMatrix2x4fv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 3) << 2);
 		nglUniformMatrix2x4fv(location, count, transpose, memAddress(value));
 	}
@@ -225,7 +224,7 @@ public class GL21 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniformMatrix4x2fv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 3) << 2);
 		nglUniformMatrix4x2fv(location, count, transpose, memAddress(value));
 	}
@@ -255,7 +254,7 @@ public class GL21 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniformMatrix3x4fv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 12) << 2);
 		nglUniformMatrix3x4fv(location, count, transpose, memAddress(value));
 	}
@@ -285,7 +284,7 @@ public class GL21 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniformMatrix4x3fv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 12) << 2);
 		nglUniformMatrix4x3fv(location, count, transpose, memAddress(value));
 	}

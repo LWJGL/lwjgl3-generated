@@ -16,8 +16,9 @@ import static org.lwjgl.system.libffi.LibFFI.*;
 import java.io.PrintStream;
 import java.lang.reflect.Field;
 import java.util.Map;
-import org.lwjgl.LWJGLUtil.TokenFilter;
+import org.lwjgl.system.APIUtil;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.glfw.GLFW.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetErrorCallback} method. */
@@ -117,12 +118,12 @@ public abstract class GLFWErrorCallback extends Closure.Void {
 	}
 
 	/**
-	 * Returns a {@link GLFWErrorCallback} instance that prints the error to the {@link LWJGLUtil#DEBUG_STREAM}.
+	 * Returns a {@link GLFWErrorCallback} instance that prints the error to the {@link APIUtil#DEBUG_STREAM}.
 	 *
 	 * @return the GLFWerrorCallback
 	 */
 	public static GLFWErrorCallback createPrint() {
-		return createPrint(LWJGLUtil.DEBUG_STREAM);
+		return createPrint(DEBUG_STREAM);
 	}
 
 	/**
@@ -134,7 +135,7 @@ public abstract class GLFWErrorCallback extends Closure.Void {
 	 */
 	public static GLFWErrorCallback createPrint(final PrintStream stream) {
 		return new GLFWErrorCallback() {
-			private final Map<Integer, String> ERROR_CODES = LWJGLUtil.getClassTokens(new TokenFilter() {
+			private final Map<Integer, String> ERROR_CODES = apiClassTokens(new TokenFilter() {
 				@Override
 				public boolean accept(Field field, int value) {
 					return 0x10000 < value && value < 0x20000;

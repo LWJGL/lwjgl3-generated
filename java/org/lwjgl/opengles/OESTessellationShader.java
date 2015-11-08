@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -56,7 +55,7 @@ import static org.lwjgl.system.JNI.*;
  * <p>This extension relies on the OES_gpu_shader5 or EXT_gpu_shader5 extension to provide the 'precise' and 'fma' functionality which are necessary to
  * ensure crack-free tessellation.</p>
  * 
- * <p>Requires {@link GLES31 GLES E.S}, {@link  OES_shader_io_blocks} or {@link  EXT_shader_io_blocks} and {@link  OES_gpu_shader5} or {@link  EXT_gpu_shader5}.</p>
+ * <p>Requires {@link GLES31 GLES 3.1}, {@link GLESCapabilities#GL_OES_shader_io_blocks OES_shader_io_blocks} or {@link GLESCapabilities#GL_EXT_shader_io_blocks EXT_shader_io_blocks} and {@link GLESCapabilities#GL_OES_gpu_shader5 OES_gpu_shader5} or {@link GLESCapabilities#GL_EXT_gpu_shader5 EXT_gpu_shader5}.</p>
  */
 public class OESTessellationShader {
 

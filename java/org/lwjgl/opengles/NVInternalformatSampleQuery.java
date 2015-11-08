@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -35,7 +34,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * using 4 samples and up-scaling by a factor of 2 in each of the x- and y-dimensions. In this example, the driver might report MULTSAMPLES_NV of 4,
  * SUPERSAMPLE_SCALE_X_NV of 2, SUPERSAMPLE_SCALE_Y_NV of 2 and CONFORMANT_NV of FALSE.</p>
  * 
- * <p>Requires {@link GLES30 GLES E.S}.</p>
+ * <p>Requires {@link GLES30 GLES 3.0}.</p>
  */
 public class NVInternalformatSampleQuery {
 
@@ -93,7 +92,7 @@ public class NVInternalformatSampleQuery {
 	}
 
 	public static void glGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetInternalformatSampleivNV(target, internalformat, samples, pname, bufSize, memAddress(params));
 	}

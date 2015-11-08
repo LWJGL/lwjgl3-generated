@@ -5,14 +5,13 @@
  */
 package org.lwjgl.stb;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to stb_easy_font.h from the <a href="https://github.com/nothings/stb">stb library</a>.
@@ -49,7 +48,7 @@ import static org.lwjgl.system.APIUtil.*;
  */
 public class STBEasyFont {
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected STBEasyFont() {
@@ -70,7 +69,7 @@ public class STBEasyFont {
 	 * @return the horizontal size, in pixels
 	 */
 	public static int stb_easy_font_width(ByteBuffer text) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(text);
 		return nstb_easy_font_width(memAddress(text));
 	}
@@ -119,7 +118,7 @@ public class STBEasyFont {
 	 * @return the number of quads
 	 */
 	public static int stb_easy_font_print(float x, float y, ByteBuffer text, ByteBuffer color, ByteBuffer vertex_buffer, int vbuf_size) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkNT1(text);
 			if ( color != null ) checkBuffer(color, 4);
 			checkBuffer(vertex_buffer, vbuf_size);
@@ -129,14 +128,14 @@ public class STBEasyFont {
 
 	/** Alternative version of: {@link #stb_easy_font_print easy_font_print} */
 	public static int stb_easy_font_print(float x, float y, ByteBuffer text, ByteBuffer color, ByteBuffer vertex_buffer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( color != null ) checkBuffer(color, 4);
 		return nstb_easy_font_print(x, y, memAddress(text), memAddressSafe(color), memAddress(vertex_buffer), vertex_buffer.remaining());
 	}
 
 	/** CharSequence version of: {@link #stb_easy_font_print easy_font_print} */
 	public static int stb_easy_font_print(float x, float y, CharSequence text, ByteBuffer color, ByteBuffer vertex_buffer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( color != null ) checkBuffer(color, 4);
 		APIBuffer __buffer = apiBuffer();
 		int textEncoded = __buffer.stringParamASCII(text, true);

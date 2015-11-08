@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/vertex_buffer_unified_memory.txt">NV_vertex_buffer_unified_memory</a> extension.
@@ -213,14 +212,14 @@ public class NVVertexBufferUnifiedMemory {
 	}
 
 	public static void glGetIntegerui64i_vNV(int value, int index, ByteBuffer result) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(result, 1 << 3);
 		nglGetIntegerui64i_vNV(value, index, memAddress(result));
 	}
 
 	/** Alternative version of: {@link #glGetIntegerui64i_vNV GetIntegerui64i_vNV} */
 	public static void glGetIntegerui64i_vNV(int value, int index, LongBuffer result) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(result, 1);
 		nglGetIntegerui64i_vNV(value, index, memAddress(result));
 	}

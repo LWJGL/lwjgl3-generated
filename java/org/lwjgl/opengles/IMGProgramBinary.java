@@ -11,7 +11,7 @@ package org.lwjgl.opengles;
  * <p>This extension makes available a program binary format, SGX_PROGRAM_BINARY_IMG. It enables retrieving and loading of pre-linked program objects on
  * chips designed by Imagination Technologies.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S} and {@link OESGetProgramBinary OES_get_program_binary}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0} and {@link OESGetProgramBinary OES_get_program_binary}.</p>
  */
 public final class IMGProgramBinary {
 

@@ -5,15 +5,15 @@
  */
 package org.lwjgl.egl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/KHR/EGL_KHR_cl_event2.txt">KHR_cl_event2</a> extension.
@@ -69,20 +69,20 @@ public class KHRCLEvent2 {
 	@JavadocExclude
 	public static long neglCreateSync64KHR(long dpy, int type, long attrib_list) {
 		long __functionAddress = getInstance().CreateSync64KHR;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(dpy);
 		return callPIPP(__functionAddress, dpy, type, attrib_list);
 	}
 
 	public static long eglCreateSync64KHR(long dpy, int type, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNTP(attrib_list, EGL10.EGL_NONE);
 		return neglCreateSync64KHR(dpy, type, memAddress(attrib_list));
 	}
 
 	/** Alternative version of: {@link #eglCreateSync64KHR CreateSync64KHR} */
 	public static long eglCreateSync64KHR(long dpy, int type, PointerBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT(attrib_list, EGL10.EGL_NONE);
 		return neglCreateSync64KHR(dpy, type, memAddress(attrib_list));
 	}

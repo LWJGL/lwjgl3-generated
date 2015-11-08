@@ -23,7 +23,7 @@ package org.lwjgl.opengles;
  * explicitly flush the GL command stream are issued when pixel local storage is enabled then the contents of the pixel local storage becomes undefined
  * for subsequent commands.</p>
  * 
- * <p>Requires {@link GLES30 GLES E.S}.</p>
+ * <p>Requires {@link GLES30 GLES 3.0}.</p>
  */
 public final class EXTShaderPixelLocalStorage {
 

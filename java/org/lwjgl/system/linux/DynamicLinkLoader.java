@@ -5,14 +5,13 @@
  */
 package org.lwjgl.system.linux;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to <dlfcn.h>. */
 public class DynamicLinkLoader {
@@ -40,7 +39,7 @@ public class DynamicLinkLoader {
 	/** Do not delete object when closed. */
 	public static final int RTLD_NODELETE = 0x1000;
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected DynamicLinkLoader() {
@@ -61,7 +60,7 @@ public class DynamicLinkLoader {
 	 * @param mode     a bitfield. One or more of:<br>{@link #RTLD_LAZY}, {@link #RTLD_NOW}, {@link #RTLD_BINDING_MASK}, {@link #RTLD_NOLOAD}, {@link #RTLD_DEEPBIND}, {@link #RTLD_GLOBAL}, {@link #RTLD_LOCAL}, {@link #RTLD_NODELETE}
 	 */
 	public static long dlopen(ByteBuffer filename, int mode) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( filename != null ) checkNT1(filename);
 		return ndlopen(memAddressSafe(filename), mode);
 	}
@@ -103,7 +102,7 @@ public class DynamicLinkLoader {
 	 * @param name   the symbol name
 	 */
 	public static long dlsym(long handle, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(handle);
 			checkNT1(name);
 		}
@@ -112,7 +111,7 @@ public class DynamicLinkLoader {
 
 	/** CharSequence version of: {@link #dlsym} */
 	public static long dlsym(long handle, CharSequence name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(handle);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
@@ -132,7 +131,7 @@ public class DynamicLinkLoader {
 	 * @param handle the dynamic library to close
 	 */
 	public static int dlclose(long handle) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(handle);
 		return ndlclose(handle);
 	}

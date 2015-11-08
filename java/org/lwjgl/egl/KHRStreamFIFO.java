@@ -5,10 +5,9 @@
  */
 package org.lwjgl.egl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -78,7 +77,7 @@ public class KHRStreamFIFO {
 	@JavadocExclude
 	public static boolean neglQueryStreamTimeKHR(long dpy, long stream, int attribute, long value) {
 		long __functionAddress = getInstance().QueryStreamTimeKHR;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
@@ -86,14 +85,14 @@ public class KHRStreamFIFO {
 	}
 
 	public static boolean eglQueryStreamTimeKHR(long dpy, long stream, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 3);
 		return neglQueryStreamTimeKHR(dpy, stream, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQueryStreamTimeKHR QueryStreamTimeKHR} */
 	public static boolean eglQueryStreamTimeKHR(long dpy, long stream, int attribute, LongBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQueryStreamTimeKHR(dpy, stream, attribute, memAddress(value));
 	}

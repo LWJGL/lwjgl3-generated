@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -18,7 +17,7 @@ import static org.lwjgl.system.JNI.*;
  * directly from one framebuffer to another. In addition, a new high performance blit function is added to facilitate these blits and perform some data
  * conversion where allowed.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public class NVFramebufferBlit {
 

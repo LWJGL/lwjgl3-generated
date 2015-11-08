@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -73,7 +72,7 @@ public class GLXSGIMakeCurrentRead {
 	 */
 	public static int glXMakeCurrentReadSGI(long display, long draw, long read, long ctx) {
 		long __functionAddress = getInstance().MakeCurrentReadSGI;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(display);
 		return callPPPPI(__functionAddress, display, draw, read, ctx);
 	}

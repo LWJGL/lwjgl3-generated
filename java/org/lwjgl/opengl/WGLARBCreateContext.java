@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -84,7 +83,7 @@ public class WGLARBCreateContext {
 	@JavadocExclude
 	public static long nwglCreateContextAttribsARB(long hdc, long shareContext, long attribList) {
 		long __functionAddress = getInstance().CreateContextAttribsARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hdc);
 		return callPPPP(__functionAddress, hdc, shareContext, attribList);
 	}
@@ -102,14 +101,14 @@ public class WGLARBCreateContext {
 	 *                     is used.
 	 */
 	public static long wglCreateContextAttribsARB(long hdc, long shareContext, ByteBuffer attribList) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attribList != null ) checkNT4(attribList);
 		return nwglCreateContextAttribsARB(hdc, shareContext, memAddressSafe(attribList));
 	}
 
 	/** Alternative version of: {@link #wglCreateContextAttribsARB CreateContextAttribsARB} */
 	public static long wglCreateContextAttribsARB(long hdc, long shareContext, IntBuffer attribList) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attribList != null ) checkNT(attribList);
 		return nwglCreateContextAttribsARB(hdc, shareContext, memAddressSafe(attribList));
 	}

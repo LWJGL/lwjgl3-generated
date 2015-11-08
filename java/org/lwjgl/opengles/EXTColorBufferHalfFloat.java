@@ -14,7 +14,7 @@ package org.lwjgl.opengles;
  * 
  * <p>This extension also updates the framebuffer object API to allow querying attachment component types.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public final class EXTColorBufferHalfFloat {
 

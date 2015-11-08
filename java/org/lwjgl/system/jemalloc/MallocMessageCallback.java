@@ -84,8 +84,8 @@ public abstract class MallocMessageCallback extends Closure.Void {
 	 *
 	 * @return the message as a String
 	 */
-	public static String getMessage(long message) {
-		return memDecodeASCII(message);
+	public static String getMessage(long s) {
+		return memDecodeASCII(s);
 	}
 
 	/** A functional interface for {@link MallocMessageCallback}. */

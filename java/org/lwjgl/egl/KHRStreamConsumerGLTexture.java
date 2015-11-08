@@ -5,7 +5,6 @@
  */
 package org.lwjgl.egl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -60,7 +59,7 @@ public class KHRStreamConsumerGLTexture {
 
 	public static boolean eglStreamConsumerGLTextureExternalKHR(long dpy, long stream) {
 		long __functionAddress = getInstance().StreamConsumerGLTextureExternalKHR;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
@@ -71,7 +70,7 @@ public class KHRStreamConsumerGLTexture {
 
 	public static boolean eglStreamConsumerAcquireKHR(long dpy, long stream) {
 		long __functionAddress = getInstance().StreamConsumerAcquireKHR;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
@@ -82,7 +81,7 @@ public class KHRStreamConsumerGLTexture {
 
 	public static boolean eglStreamConsumerReleaseKHR(long dpy, long stream) {
 		long __functionAddress = getInstance().StreamConsumerReleaseKHR;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}

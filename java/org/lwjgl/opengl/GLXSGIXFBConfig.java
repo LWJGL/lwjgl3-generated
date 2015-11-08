@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 import org.lwjgl.system.linux.*;
 
@@ -119,7 +119,7 @@ public class GLXSGIXFBConfig {
 	@JavadocExclude
 	public static int nglXGetFBConfigAttribSGIX(long display, long config, int attribute, long value) {
 		long __functionAddress = getInstance().GetFBConfigAttribSGIX;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -135,14 +135,14 @@ public class GLXSGIXFBConfig {
 	 * @param value     returns the attribute value
 	 */
 	public static int glXGetFBConfigAttribSGIX(long display, long config, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		return nglXGetFBConfigAttribSGIX(display, config, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX} */
 	public static int glXGetFBConfigAttribSGIX(long display, long config, int attribute, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return nglXGetFBConfigAttribSGIX(display, config, attribute, memAddress(value));
 	}
@@ -153,7 +153,7 @@ public class GLXSGIXFBConfig {
 	@JavadocExclude
 	public static long nglXChooseFBConfigSGIX(long display, int screen, long attrib_list, long nelements) {
 		long __functionAddress = getInstance().ChooseFBConfigSGIX;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(display);
 		return callPIPPP(__functionAddress, display, screen, attrib_list, nelements);
 	}
@@ -191,7 +191,7 @@ public class GLXSGIXFBConfig {
 	 */
 	public static long glXCreateGLXPixmapWithConfigSGIX(long display, long config, long pixmap) {
 		long __functionAddress = getInstance().CreateGLXPixmapWithConfigSGIX;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -211,7 +211,7 @@ public class GLXSGIXFBConfig {
 	 */
 	public static long glXCreateContextWithConfigSGIX(long display, long config, int render_type, long share_list, int direct) {
 		long __functionAddress = getInstance().CreateContextWithConfigSGIX;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(config);
 			checkPointer(share_list);
@@ -225,7 +225,7 @@ public class GLXSGIXFBConfig {
 	@JavadocExclude
 	public static long nglXGetVisualFromFBConfigSGIX(long display, long config) {
 		long __functionAddress = getInstance().GetVisualFromFBConfigSGIX;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -249,7 +249,7 @@ public class GLXSGIXFBConfig {
 	@JavadocExclude
 	public static long nglXGetFBConfigFromVisualSGIX(long display, long vis) {
 		long __functionAddress = getInstance().GetFBConfigFromVisualSGIX;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(display);
 		return callPPP(__functionAddress, display, vis);
 	}

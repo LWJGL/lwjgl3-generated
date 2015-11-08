@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/gpu_shader_int64.txt">AMD_gpu_shader_int64</a> extension.
@@ -217,7 +216,7 @@ public class AMDGPUShaderInt64 {
 	}
 
 	public static void glUniform1i64vNV(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 3);
 		nglUniform1i64vNV(location, count, memAddress(value));
 	}
@@ -237,7 +236,7 @@ public class AMDGPUShaderInt64 {
 	}
 
 	public static void glUniform2i64vNV(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 3);
 		nglUniform2i64vNV(location, count, memAddress(value));
 	}
@@ -257,7 +256,7 @@ public class AMDGPUShaderInt64 {
 	}
 
 	public static void glUniform3i64vNV(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 3) << 3);
 		nglUniform3i64vNV(location, count, memAddress(value));
 	}
@@ -277,7 +276,7 @@ public class AMDGPUShaderInt64 {
 	}
 
 	public static void glUniform4i64vNV(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglUniform4i64vNV(location, count, memAddress(value));
 	}
@@ -325,7 +324,7 @@ public class AMDGPUShaderInt64 {
 	}
 
 	public static void glUniform1ui64vNV(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 3);
 		nglUniform1ui64vNV(location, count, memAddress(value));
 	}
@@ -345,7 +344,7 @@ public class AMDGPUShaderInt64 {
 	}
 
 	public static void glUniform2ui64vNV(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 3);
 		nglUniform2ui64vNV(location, count, memAddress(value));
 	}
@@ -365,7 +364,7 @@ public class AMDGPUShaderInt64 {
 	}
 
 	public static void glUniform3ui64vNV(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 3) << 3);
 		nglUniform3ui64vNV(location, count, memAddress(value));
 	}
@@ -385,7 +384,7 @@ public class AMDGPUShaderInt64 {
 	}
 
 	public static void glUniform4ui64vNV(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglUniform4ui64vNV(location, count, memAddress(value));
 	}
@@ -405,14 +404,14 @@ public class AMDGPUShaderInt64 {
 	}
 
 	public static void glGetUniformi64vNV(int program, int location, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetUniformi64vNV(program, location, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetUniformi64vNV GetUniformi64vNV} */
 	public static void glGetUniformi64vNV(int program, int location, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformi64vNV(program, location, memAddress(params));
 	}
@@ -435,14 +434,14 @@ public class AMDGPUShaderInt64 {
 	}
 
 	public static void glGetUniformui64vNV(int program, int location, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetUniformui64vNV(program, location, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetUniformui64vNV GetUniformui64vNV} */
 	public static void glGetUniformui64vNV(int program, int location, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformui64vNV(program, location, memAddress(params));
 	}
@@ -493,7 +492,7 @@ public class AMDGPUShaderInt64 {
 	}
 
 	public static void glProgramUniform1i64vNV(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 3);
 		nglProgramUniform1i64vNV(program, location, count, memAddress(value));
 	}
@@ -513,7 +512,7 @@ public class AMDGPUShaderInt64 {
 	}
 
 	public static void glProgramUniform2i64vNV(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 3);
 		nglProgramUniform2i64vNV(program, location, count, memAddress(value));
 	}
@@ -533,7 +532,7 @@ public class AMDGPUShaderInt64 {
 	}
 
 	public static void glProgramUniform3i64vNV(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 3) << 3);
 		nglProgramUniform3i64vNV(program, location, count, memAddress(value));
 	}
@@ -553,7 +552,7 @@ public class AMDGPUShaderInt64 {
 	}
 
 	public static void glProgramUniform4i64vNV(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglProgramUniform4i64vNV(program, location, count, memAddress(value));
 	}
@@ -601,7 +600,7 @@ public class AMDGPUShaderInt64 {
 	}
 
 	public static void glProgramUniform1ui64vNV(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 3);
 		nglProgramUniform1ui64vNV(program, location, count, memAddress(value));
 	}
@@ -621,7 +620,7 @@ public class AMDGPUShaderInt64 {
 	}
 
 	public static void glProgramUniform2ui64vNV(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 3);
 		nglProgramUniform2ui64vNV(program, location, count, memAddress(value));
 	}
@@ -641,7 +640,7 @@ public class AMDGPUShaderInt64 {
 	}
 
 	public static void glProgramUniform3ui64vNV(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 3) << 3);
 		nglProgramUniform3ui64vNV(program, location, count, memAddress(value));
 	}
@@ -661,7 +660,7 @@ public class AMDGPUShaderInt64 {
 	}
 
 	public static void glProgramUniform4ui64vNV(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglProgramUniform4ui64vNV(program, location, count, memAddress(value));
 	}

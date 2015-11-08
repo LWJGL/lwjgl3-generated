@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -19,7 +18,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>This extension adds support for non-square matrix variables in GLSL shaders.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public class NVNonSquareMatrices {
 
@@ -91,7 +90,7 @@ public class NVNonSquareMatrices {
 	}
 
 	public static void glUniformMatrix2x3fvNV(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 6) << 2);
 		nglUniformMatrix2x3fvNV(location, count, transpose, memAddress(value));
 	}
@@ -111,7 +110,7 @@ public class NVNonSquareMatrices {
 	}
 
 	public static void glUniformMatrix3x2fvNV(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 6) << 2);
 		nglUniformMatrix3x2fvNV(location, count, transpose, memAddress(value));
 	}
@@ -131,7 +130,7 @@ public class NVNonSquareMatrices {
 	}
 
 	public static void glUniformMatrix2x4fvNV(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 3) << 2);
 		nglUniformMatrix2x4fvNV(location, count, transpose, memAddress(value));
 	}
@@ -151,7 +150,7 @@ public class NVNonSquareMatrices {
 	}
 
 	public static void glUniformMatrix4x2fvNV(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 3) << 2);
 		nglUniformMatrix4x2fvNV(location, count, transpose, memAddress(value));
 	}
@@ -171,7 +170,7 @@ public class NVNonSquareMatrices {
 	}
 
 	public static void glUniformMatrix3x4fvNV(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 12) << 2);
 		nglUniformMatrix3x4fvNV(location, count, transpose, memAddress(value));
 	}
@@ -191,7 +190,7 @@ public class NVNonSquareMatrices {
 	}
 
 	public static void glUniformMatrix4x3fvNV(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 12) << 2);
 		nglUniformMatrix4x3fvNV(location, count, transpose, memAddress(value));
 	}

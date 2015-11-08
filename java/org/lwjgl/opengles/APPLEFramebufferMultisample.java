@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -30,7 +29,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Scissoring may be used in conjunction with ResolveMultisampleFramebufferAPPLE to resolve only a portion of the framebuffer.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public class APPLEFramebufferMultisample {
 

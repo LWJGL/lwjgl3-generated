@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_multiview_draw_buffers.txt">EXT_multiview_draw_buffers</a> extension.
@@ -109,7 +108,7 @@ public class EXTMultiviewDrawBuffers {
 	}
 
 	public static void glDrawBuffersIndexedEXT(int n, ByteBuffer location, ByteBuffer indices) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(location, n << 2);
 			checkBuffer(indices, n << 2);
 		}
@@ -118,7 +117,7 @@ public class EXTMultiviewDrawBuffers {
 
 	/** Alternative version of: {@link #glDrawBuffersIndexedEXT DrawBuffersIndexedEXT} */
 	public static void glDrawBuffersIndexedEXT(IntBuffer location, IntBuffer indices) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(indices, location.remaining());
 		nglDrawBuffersIndexedEXT(location.remaining(), memAddress(location), memAddress(indices));
 	}
@@ -133,14 +132,14 @@ public class EXTMultiviewDrawBuffers {
 	}
 
 	public static void glGetIntegeri_vEXT(int target, int index, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1 << 2);
 		nglGetIntegeri_vEXT(target, index, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetIntegeri_vEXT GetIntegeri_vEXT} */
 	public static void glGetIntegeri_vEXT(int target, int index, IntBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1);
 		nglGetIntegeri_vEXT(target, index, memAddress(data));
 	}

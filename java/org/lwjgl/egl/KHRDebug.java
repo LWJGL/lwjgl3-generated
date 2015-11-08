@@ -5,15 +5,15 @@
  */
 package org.lwjgl.egl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/KHR/EGL_KHR_debug.txt">KHR_debug</a> extension.
@@ -55,7 +55,7 @@ public class KHRDebug {
 		EGL_OBJECT_STREAM_KHR  = 0x33B6;
 
 	/**
-	 * Tokens provided by the {@code messageType} parameter of EGLDEBUGPROCKHR or the attributes input to {@link #eglControlDebugMessageKHR ControlDebugMessageKHR} or attribute of
+	 * Tokens provided by the {@code messageType} parameter of EGLDEBUGPROCKHR or the attributes input to {@link #eglDebugMessageControlKHR DebugMessageControlKHR} or attribute of
 	 * {@link #eglQueryDebugKHR QueryDebugKHR}.
 	 */
 	public static final int
@@ -126,14 +126,14 @@ public class KHRDebug {
 	}
 
 	public static boolean eglQueryDebugKHR(int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << POINTER_SHIFT);
 		return neglQueryDebugKHR(attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQueryDebugKHR QueryDebugKHR} */
 	public static boolean eglQueryDebugKHR(int attribute, PointerBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQueryDebugKHR(attribute, memAddress(value));
 	}
@@ -142,7 +142,7 @@ public class KHRDebug {
 
 	public static int eglLabelObjectKHR(long display, int objectType, long object, long label) {
 		long __functionAddress = getInstance().LabelObjectKHR;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(object);
 			checkPointer(label);

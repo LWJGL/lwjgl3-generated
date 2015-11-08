@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -230,21 +229,21 @@ public class EXTVertexAttrib64bit {
 	}
 
 	public static void glVertexAttribLPointerEXT(int index, int size, int type, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribLPointerEXT(index, size, type, stride, memAddress(pointer));
 	}
 
 	/** Buffer object offset version of: {@link #glVertexAttribLPointerEXT VertexAttribLPointerEXT} */
 	public static void glVertexAttribLPointerEXT(int index, int size, int type, int stride, long pointerOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglVertexAttribLPointerEXT(index, size, type, stride, pointerOffset);
 	}
 
 	/** GL_DOUBLE version of: {@link #glVertexAttribLPointerEXT VertexAttribLPointerEXT} */
 	public static void glVertexAttribLPointerEXT(int index, int size, int stride, DoubleBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribLPointerEXT(index, size, GL11.GL_DOUBLE, stride, memAddress(pointer));
 	}
@@ -271,7 +270,7 @@ public class EXTVertexAttrib64bit {
 
 	public static void glVertexArrayVertexAttribLOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset) {
 		long __functionAddress = getInstance().VertexArrayVertexAttribLOffsetEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIIPV(__functionAddress, vaobj, buffer, index, size, type, stride, offset);
 	}

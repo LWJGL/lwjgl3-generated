@@ -5,15 +5,15 @@
  */
 package org.lwjgl.egl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/EXT/EGL_EXT_device_base.txt">EXT_device_base</a> extension.
@@ -75,20 +75,20 @@ public class EXTDeviceBase {
 	@JavadocExclude
 	public static boolean neglQueryDeviceAttribEXT(long device, int attribute, long value) {
 		long __functionAddress = getInstance().QueryDeviceAttribEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(device);
 		return callPIPZ(__functionAddress, device, attribute, value);
 	}
 
 	public static boolean eglQueryDeviceAttribEXT(long device, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << POINTER_SHIFT);
 		return neglQueryDeviceAttribEXT(device, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQueryDeviceAttribEXT QueryDeviceAttribEXT} */
 	public static boolean eglQueryDeviceAttribEXT(long device, int attribute, PointerBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQueryDeviceAttribEXT(device, attribute, memAddress(value));
 	}
@@ -99,7 +99,7 @@ public class EXTDeviceBase {
 	@JavadocExclude
 	public static long neglQueryDeviceStringEXT(long device, int name) {
 		long __functionAddress = getInstance().QueryDeviceStringEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(device);
 		return callPIP(__functionAddress, device, name);
 	}
@@ -115,20 +115,20 @@ public class EXTDeviceBase {
 	@JavadocExclude
 	public static boolean neglQueryDisplayAttribEXT(long dpy, int attribute, long value) {
 		long __functionAddress = getInstance().QueryDisplayAttribEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(dpy);
 		return callPIPZ(__functionAddress, dpy, attribute, value);
 	}
 
 	public static boolean eglQueryDisplayAttribEXT(long dpy, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << POINTER_SHIFT);
 		return neglQueryDisplayAttribEXT(dpy, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQueryDisplayAttribEXT QueryDisplayAttribEXT} */
 	public static boolean eglQueryDisplayAttribEXT(long dpy, int attribute, PointerBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQueryDisplayAttribEXT(dpy, attribute, memAddress(value));
 	}
@@ -143,7 +143,7 @@ public class EXTDeviceBase {
 	}
 
 	public static boolean eglQueryDevicesEXT(int max_devices, ByteBuffer devices, ByteBuffer num_devices) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( devices != null ) checkBuffer(devices, max_devices << POINTER_SHIFT);
 			checkBuffer(num_devices, 1 << 2);
 		}
@@ -152,7 +152,7 @@ public class EXTDeviceBase {
 
 	/** Alternative version of: {@link #eglQueryDevicesEXT QueryDevicesEXT} */
 	public static boolean eglQueryDevicesEXT(PointerBuffer devices, IntBuffer num_devices) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(num_devices, 1);
 		return neglQueryDevicesEXT(devices == null ? 0 : devices.remaining(), memAddressSafe(devices), memAddress(num_devices));
 	}

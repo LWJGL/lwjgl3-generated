@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -104,7 +103,7 @@ public class ARBIndirectParameters {
 	 * @param stride       the distance in basic machine units between elements of the draw parameter array
 	 */
 	public static void glMultiDrawArraysIndirectCountARB(int mode, ByteBuffer indirect, long drawcount, int maxdrawcount, int stride) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indirect, maxdrawcount * (stride == 0 ? (4 * 4) : stride));
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
@@ -113,14 +112,14 @@ public class ARBIndirectParameters {
 
 	/** Buffer object offset version of: {@link #glMultiDrawArraysIndirectCountARB MultiDrawArraysIndirectCountARB} */
 	public static void glMultiDrawArraysIndirectCountARB(int mode, long indirectOffset, long drawcount, int maxdrawcount, int stride) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
 		nglMultiDrawArraysIndirectCountARB(mode, indirectOffset, drawcount, maxdrawcount, stride);
 	}
 
 	/** IntBuffer version of: {@link #glMultiDrawArraysIndirectCountARB MultiDrawArraysIndirectCountARB} */
 	public static void glMultiDrawArraysIndirectCountARB(int mode, IntBuffer indirect, long drawcount, int maxdrawcount, int stride) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indirect, (maxdrawcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
@@ -150,7 +149,7 @@ public class ARBIndirectParameters {
 	 * @param stride       the distance in basic machine units between elements of the draw parameter array
 	 */
 	public static void glMultiDrawElementsIndirectCountARB(int mode, int type, ByteBuffer indirect, long drawcount, int maxdrawcount, int stride) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indirect, maxdrawcount * (stride == 0 ? (5 * 4) : stride));
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
@@ -159,14 +158,14 @@ public class ARBIndirectParameters {
 
 	/** Buffer object offset version of: {@link #glMultiDrawElementsIndirectCountARB MultiDrawElementsIndirectCountARB} */
 	public static void glMultiDrawElementsIndirectCountARB(int mode, int type, long indirectOffset, long drawcount, int maxdrawcount, int stride) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
 		nglMultiDrawElementsIndirectCountARB(mode, type, indirectOffset, drawcount, maxdrawcount, stride);
 	}
 
 	/** IntBuffer version of: {@link #glMultiDrawElementsIndirectCountARB MultiDrawElementsIndirectCountARB} */
 	public static void glMultiDrawElementsIndirectCountARB(int mode, int type, IntBuffer indirect, long drawcount, int maxdrawcount, int stride) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indirect, (maxdrawcount * (stride == 0 ? (5 * 4) : stride)) >> 2);
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}

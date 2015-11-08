@@ -5,7 +5,6 @@
  */
 package org.lwjgl.glfw;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -37,9 +36,16 @@ public class GLFWNativeX11 {
 
 	// --- [ Function Addresses ] ---
 
+	private static final GLFWNativeX11 instance = new GLFWNativeX11(getLibrary());
+
+	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
+	public static SharedLibrary getLibrary() {
+		return GLFW.getLibrary();
+	}
+
 	/** Returns the {@link GLFWNativeX11} instance. */
 	public static GLFWNativeX11 getInstance() {
-		return checkFunctionality(LibGLFW.__GLFWNativeX11);
+		return instance;
 	}
 
 	// --- [ glfwGetX11Display ] ---
@@ -73,7 +79,7 @@ public class GLFWNativeX11 {
 	 */
 	public static long glfwGetX11Adapter(long monitor) {
 		long __functionAddress = getInstance().GetX11Adapter;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(monitor);
 		return invokePP(__functionAddress, monitor);
 	}
@@ -93,7 +99,7 @@ public class GLFWNativeX11 {
 	 */
 	public static long glfwGetX11Monitor(long monitor) {
 		long __functionAddress = getInstance().GetX11Monitor;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(monitor);
 		return invokePP(__functionAddress, monitor);
 	}
@@ -113,7 +119,7 @@ public class GLFWNativeX11 {
 	 */
 	public static long glfwGetX11Window(long window) {
 		long __functionAddress = getInstance().GetX11Window;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return invokePP(__functionAddress, window);
 	}

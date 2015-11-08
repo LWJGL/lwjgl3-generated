@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/transform_feedback.txt">EXT_transform_feedback</a> extension.
@@ -186,7 +186,7 @@ public class EXTTransformFeedback {
 	}
 
 	public static void glTransformFeedbackVaryingsEXT(int program, int count, ByteBuffer varyings, int bufferMode) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(varyings, count << POINTER_SHIFT);
 		nglTransformFeedbackVaryingsEXT(program, count, memAddress(varyings), bufferMode);
 	}
@@ -228,7 +228,7 @@ public class EXTTransformFeedback {
 	}
 
 	public static void glGetTransformFeedbackVaryingEXT(int program, int index, int bufSize, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(name, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 			checkBuffer(size, 1 << 2);
@@ -239,7 +239,7 @@ public class EXTTransformFeedback {
 
 	/** Alternative version of: {@link #glGetTransformFeedbackVaryingEXT GetTransformFeedbackVaryingEXT} */
 	public static void glGetTransformFeedbackVaryingEXT(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( length != null ) checkBuffer(length, 1);
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
@@ -249,7 +249,7 @@ public class EXTTransformFeedback {
 
 	/** String return version of: {@link #glGetTransformFeedbackVaryingEXT GetTransformFeedbackVaryingEXT} */
 	public static String glGetTransformFeedbackVaryingEXT(int program, int index, int bufSize, IntBuffer size, IntBuffer type) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
@@ -265,7 +265,7 @@ public class EXTTransformFeedback {
 		int bufSize = GL.getCapabilities().OpenGL20
 			? GL20.glGetProgrami(program, GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH_EXT)
 			: ARBShaderObjects.glGetObjectParameteriARB(program, GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH_EXT);
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
@@ -286,14 +286,14 @@ public class EXTTransformFeedback {
 	}
 
 	public static void glGetIntegerIndexedvEXT(int param, int index, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1 << 2);
 		nglGetIntegerIndexedvEXT(param, index, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
 	public static void glGetIntegerIndexedvEXT(int param, int index, IntBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1);
 		nglGetIntegerIndexedvEXT(param, index, memAddress(values));
 	}
@@ -316,7 +316,7 @@ public class EXTTransformFeedback {
 	}
 
 	public static void glGetBooleanIndexedvEXT(int param, int index, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1);
 		nglGetBooleanIndexedvEXT(param, index, memAddress(values));
 	}

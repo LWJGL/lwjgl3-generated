@@ -5,15 +5,15 @@
  */
 package org.lwjgl.stb;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
-import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.Pointer.*;
-import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to stb_truetype.h from the <a href="https://github.com/nothings/stb">stb library</a>.
@@ -292,7 +292,7 @@ public class STBTruetype {
 		STBTT_MAC_LANG_CHINESE_SIMPLIFIED = 0x21,
 		STBTT_MAC_LANG_CHINESE_TRAD       = 0x13;
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected STBTruetype() {
@@ -324,7 +324,7 @@ public class STBTruetype {
 	 *         rows were used.
 	 */
 	public static int stbtt_BakeFontBitmap(ByteBuffer data, int offset, float pixel_height, ByteBuffer pixels, int pw, int ph, int first_char, int num_chars, STBTTBakedChar.Buffer chardata) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(pixels, pw * ph);
 			checkBuffer(chardata, num_chars);
 		}
@@ -333,7 +333,7 @@ public class STBTruetype {
 
 	/** Alternative version of: {@link #stbtt_BakeFontBitmap BakeFontBitmap} */
 	public static int stbtt_BakeFontBitmap(ByteBuffer data, float pixel_height, ByteBuffer pixels, int pw, int ph, int first_char, STBTTBakedChar.Buffer chardata) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(pixels, pw * ph);
 		return nstbtt_BakeFontBitmap(memAddress(data), 0, pixel_height, memAddress(pixels), pw, ph, first_char, chardata.remaining(), chardata.address());
 	}
@@ -360,7 +360,7 @@ public class STBTruetype {
 	 * @param opengl_fillrule 1 if opengl fill rule; 0 if DX9 or earlier
 	 */
 	public static void stbtt_GetBakedQuad(STBTTBakedChar.Buffer chardata, int pw, int ph, int char_index, ByteBuffer xpos, ByteBuffer ypos, STBTTAlignedQuad q, int opengl_fillrule) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(chardata, char_index + 1);
 			checkBuffer(xpos, 1 << 2);
 			checkBuffer(ypos, 1 << 2);
@@ -370,7 +370,7 @@ public class STBTruetype {
 
 	/** Alternative version of: {@link #stbtt_GetBakedQuad GetBakedQuad} */
 	public static void stbtt_GetBakedQuad(STBTTBakedChar.Buffer chardata, int pw, int ph, int char_index, FloatBuffer xpos, FloatBuffer ypos, STBTTAlignedQuad q, int opengl_fillrule) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(chardata, char_index + 1);
 			checkBuffer(xpos, 1);
 			checkBuffer(ypos, 1);
@@ -399,14 +399,14 @@ public class STBTruetype {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbtt_PackBegin(STBTTPackContext spc, ByteBuffer pixels, int width, int height, int stride_in_bytes, int padding, ByteBuffer alloc_context) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(pixels, width * height);
 		return nstbtt_PackBegin(spc.address(), memAddress(pixels), width, height, stride_in_bytes, padding, memAddressSafe(alloc_context));
 	}
 
 	/** Alternative version of: {@link #stbtt_PackBegin PackBegin} */
 	public static int stbtt_PackBegin(STBTTPackContext spc, ByteBuffer pixels, int width, int height, int stride_in_bytes, int padding) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(pixels, width * height);
 		return nstbtt_PackBegin(spc.address(), memAddress(pixels), width, height, stride_in_bytes, padding, 0L);
 	}
@@ -464,7 +464,7 @@ public class STBTruetype {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbtt_PackFontRange(STBTTPackContext spc, ByteBuffer fontdata, int font_index, float font_size, int first_unicode_char_in_range, int num_chars_in_range, STBTTPackedchar.Buffer chardata_for_range) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(chardata_for_range, num_chars_in_range);
 		return nstbtt_PackFontRange(spc.address(), memAddress(fontdata), font_index, font_size, first_unicode_char_in_range, num_chars_in_range, chardata_for_range.address());
 	}
@@ -493,7 +493,7 @@ public class STBTruetype {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbtt_PackFontRanges(STBTTPackContext spc, ByteBuffer fontdata, int font_index, STBTTPackRange.Buffer ranges, int num_ranges) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ranges, num_ranges);
 		return nstbtt_PackFontRanges(spc.address(), memAddress(fontdata), font_index, ranges.address(), num_ranges);
 	}
@@ -550,7 +550,7 @@ public class STBTruetype {
 	 * @param align_to_integer 1 to align the quad to integer coordinates
 	 */
 	public static void stbtt_GetPackedQuad(STBTTPackedchar.Buffer chardata, int pw, int ph, int char_index, ByteBuffer xpos, ByteBuffer ypos, STBTTAlignedQuad q, int align_to_integer) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(chardata, char_index + 1);
 			checkBuffer(xpos, 1 << 2);
 			checkBuffer(ypos, 1 << 2);
@@ -560,7 +560,7 @@ public class STBTruetype {
 
 	/** Alternative version of: {@link #stbtt_GetPackedQuad GetPackedQuad} */
 	public static void stbtt_GetPackedQuad(STBTTPackedchar.Buffer chardata, int pw, int ph, int char_index, FloatBuffer xpos, FloatBuffer ypos, STBTTAlignedQuad q, int align_to_integer) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(chardata, char_index + 1);
 			checkBuffer(xpos, 1);
 			checkBuffer(ypos, 1);
@@ -587,7 +587,7 @@ public class STBTruetype {
 	 * @param rects      an array of {@link STBRPRect} structs. It must be big enough to accommodate all characters in the given ranges.
 	 */
 	public static int stbtt_PackFontRangesGatherRects(STBTTPackContext spc, STBTTFontinfo info, STBTTPackRange.Buffer ranges, int num_ranges, STBRPRect rects) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ranges, num_ranges);
 		return nstbtt_PackFontRangesGatherRects(spc.address(), info.address(), ranges.address(), num_ranges, rects.address());
 	}
@@ -611,7 +611,7 @@ public class STBTruetype {
 	 * @param num_rects the number of structs in {@code rects}
 	 */
 	public static void stbtt_PackFontRangesPackRects(STBTTPackContext spc, STBRPRect.Buffer rects, int num_rects) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(rects, num_rects);
 		nstbtt_PackFontRangesPackRects(spc.address(), rects.address(), num_rects);
 	}
@@ -637,7 +637,7 @@ public class STBTruetype {
 	 * @param rects      an array of {@link STBRPRect} structs. It must be big enough to accommodate all characters in the given ranges.
 	 */
 	public static int stbtt_PackFontRangesRenderIntoRects(STBTTPackContext spc, STBTTFontinfo info, STBTTPackRange.Buffer ranges, int num_ranges, STBRPRect rects) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ranges, num_ranges);
 		return nstbtt_PackFontRangesRenderIntoRects(spc.address(), info.address(), ranges.address(), num_ranges, rects.address());
 	}
@@ -768,7 +768,7 @@ public class STBTruetype {
 	 * @param lineGap returns the spacing between one row's descent and the next row's ascent
 	 */
 	public static void stbtt_GetFontVMetrics(STBTTFontinfo info, ByteBuffer ascent, ByteBuffer descent, ByteBuffer lineGap) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(ascent, 1 << 2);
 			checkBuffer(descent, 1 << 2);
 			checkBuffer(lineGap, 1 << 2);
@@ -778,7 +778,7 @@ public class STBTruetype {
 
 	/** Alternative version of: {@link #stbtt_GetFontVMetrics GetFontVMetrics} */
 	public static void stbtt_GetFontVMetrics(STBTTFontinfo info, IntBuffer ascent, IntBuffer descent, IntBuffer lineGap) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(ascent, 1);
 			checkBuffer(descent, 1);
 			checkBuffer(lineGap, 1);
@@ -802,7 +802,7 @@ public class STBTruetype {
 	 * @param y1   the top coordinate
 	 */
 	public static void stbtt_GetFontBoundingBox(STBTTFontinfo info, ByteBuffer x0, ByteBuffer y0, ByteBuffer x1, ByteBuffer y1) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(x0, 1 << 2);
 			checkBuffer(y0, 1 << 2);
 			checkBuffer(x1, 1 << 2);
@@ -813,7 +813,7 @@ public class STBTruetype {
 
 	/** Alternative version of: {@link #stbtt_GetFontBoundingBox GetFontBoundingBox} */
 	public static void stbtt_GetFontBoundingBox(STBTTFontinfo info, IntBuffer x0, IntBuffer y0, IntBuffer x1, IntBuffer y1) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(x0, 1);
 			checkBuffer(y0, 1);
 			checkBuffer(x1, 1);
@@ -839,7 +839,7 @@ public class STBTruetype {
 	 * @param leftSideBearing the offset from the current horizontal position to the left edge of the character
 	 */
 	public static void stbtt_GetCodepointHMetrics(STBTTFontinfo info, int codepoint, ByteBuffer advanceWidth, ByteBuffer leftSideBearing) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(advanceWidth, 1 << 2);
 			checkBuffer(leftSideBearing, 1 << 2);
 		}
@@ -848,7 +848,7 @@ public class STBTruetype {
 
 	/** Alternative version of: {@link #stbtt_GetCodepointHMetrics GetCodepointHMetrics} */
 	public static void stbtt_GetCodepointHMetrics(STBTTFontinfo info, int codepoint, IntBuffer advanceWidth, IntBuffer leftSideBearing) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(advanceWidth, 1);
 			checkBuffer(leftSideBearing, 1);
 		}
@@ -889,7 +889,7 @@ public class STBTruetype {
 	 * @param y1        returns the top coordinate
 	 */
 	public static int stbtt_GetCodepointBox(STBTTFontinfo info, int codepoint, ByteBuffer x0, ByteBuffer y0, ByteBuffer x1, ByteBuffer y1) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(x0, 1 << 2);
 			checkBuffer(y0, 1 << 2);
 			checkBuffer(x1, 1 << 2);
@@ -900,7 +900,7 @@ public class STBTruetype {
 
 	/** Alternative version of: {@link #stbtt_GetCodepointBox GetCodepointBox} */
 	public static int stbtt_GetCodepointBox(STBTTFontinfo info, int codepoint, IntBuffer x0, IntBuffer y0, IntBuffer x1, IntBuffer y1) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(x0, 1);
 			checkBuffer(y0, 1);
 			checkBuffer(x1, 1);
@@ -924,7 +924,7 @@ public class STBTruetype {
 	 * @param leftSideBearing the offset from the current horizontal position to the left edge of the character
 	 */
 	public static void stbtt_GetGlyphHMetrics(STBTTFontinfo info, int glyph_index, ByteBuffer advanceWidth, ByteBuffer leftSideBearing) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(advanceWidth, 1 << 2);
 			checkBuffer(leftSideBearing, 1 << 2);
 		}
@@ -933,7 +933,7 @@ public class STBTruetype {
 
 	/** Alternative version of: {@link #stbtt_GetGlyphHMetrics GetGlyphHMetrics} */
 	public static void stbtt_GetGlyphHMetrics(STBTTFontinfo info, int glyph_index, IntBuffer advanceWidth, IntBuffer leftSideBearing) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(advanceWidth, 1);
 			checkBuffer(leftSideBearing, 1);
 		}
@@ -974,7 +974,7 @@ public class STBTruetype {
 	 * @param y1          returns the top coordinate
 	 */
 	public static int stbtt_GetGlyphBox(STBTTFontinfo info, int glyph_index, ByteBuffer x0, ByteBuffer y0, ByteBuffer x1, ByteBuffer y1) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(x0, 1 << 2);
 			checkBuffer(y0, 1 << 2);
 			checkBuffer(x1, 1 << 2);
@@ -985,7 +985,7 @@ public class STBTruetype {
 
 	/** Alternative version of: {@link #stbtt_GetGlyphBox GetGlyphBox} */
 	public static int stbtt_GetGlyphBox(STBTTFontinfo info, int glyph_index, IntBuffer x0, IntBuffer y0, IntBuffer x1, IntBuffer y1) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(x0, 1);
 			checkBuffer(y0, 1);
 			checkBuffer(x1, 1);
@@ -1030,14 +1030,14 @@ public class STBTruetype {
 	 * @param vertices          returns a pointer to an array of {@link STBTTVertex} structs
 	 */
 	public static int stbtt_GetCodepointShape(STBTTFontinfo info, int unicode_codepoint, ByteBuffer vertices) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(vertices, 1 << POINTER_SHIFT);
 		return nstbtt_GetCodepointShape(info.address(), unicode_codepoint, memAddress(vertices));
 	}
 
 	/** Alternative version of: {@link #stbtt_GetCodepointShape GetCodepointShape} */
 	public static int stbtt_GetCodepointShape(STBTTFontinfo info, int unicode_codepoint, PointerBuffer vertices) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(vertices, 1);
 		return nstbtt_GetCodepointShape(info.address(), unicode_codepoint, memAddress(vertices));
 	}
@@ -1064,14 +1064,14 @@ public class STBTruetype {
 	 * @param vertices    returns a pointer to an array of {@link STBTTVertex} structs
 	 */
 	public static int stbtt_GetGlyphShape(STBTTFontinfo info, int glyph_index, ByteBuffer vertices) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(vertices, 1 << POINTER_SHIFT);
 		return nstbtt_GetGlyphShape(info.address(), glyph_index, memAddress(vertices));
 	}
 
 	/** Alternative version of: {@link #stbtt_GetGlyphShape GetGlyphShape} */
 	public static int stbtt_GetGlyphShape(STBTTFontinfo info, int glyph_index, PointerBuffer vertices) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(vertices, 1);
 		return nstbtt_GetGlyphShape(info.address(), glyph_index, memAddress(vertices));
 	}
@@ -1135,7 +1135,7 @@ public class STBTruetype {
 	 * @param yoff      returns the vertical offset in pixel space from the glyph origin to the top of the bitmap
 	 */
 	public static ByteBuffer stbtt_GetCodepointBitmap(STBTTFontinfo info, float scale_x, float scale_y, int codepoint, ByteBuffer width, ByteBuffer height, ByteBuffer xoff, ByteBuffer yoff) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(width, 1 << 2);
 			checkBuffer(height, 1 << 2);
 			checkBuffer(xoff, 1 << 2);
@@ -1147,7 +1147,7 @@ public class STBTruetype {
 
 	/** Alternative version of: {@link #stbtt_GetCodepointBitmap GetCodepointBitmap} */
 	public static ByteBuffer stbtt_GetCodepointBitmap(STBTTFontinfo info, float scale_x, float scale_y, int codepoint, IntBuffer width, IntBuffer height, IntBuffer xoff, IntBuffer yoff) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(width, 1);
 			checkBuffer(height, 1);
 			checkBuffer(xoff, 1);
@@ -1178,7 +1178,7 @@ public class STBTruetype {
 	 * @param yoff      returns the vertical offset in pixel space from the glyph origin to the top of the bitmap
 	 */
 	public static ByteBuffer stbtt_GetCodepointBitmapSubpixel(STBTTFontinfo info, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint, ByteBuffer width, ByteBuffer height, ByteBuffer xoff, ByteBuffer yoff) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(width, 1 << 2);
 			checkBuffer(height, 1 << 2);
 			checkBuffer(xoff, 1 << 2);
@@ -1190,7 +1190,7 @@ public class STBTruetype {
 
 	/** Alternative version of: {@link #stbtt_GetCodepointBitmapSubpixel GetCodepointBitmapSubpixel} */
 	public static ByteBuffer stbtt_GetCodepointBitmapSubpixel(STBTTFontinfo info, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint, IntBuffer width, IntBuffer height, IntBuffer xoff, IntBuffer yoff) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(width, 1);
 			checkBuffer(height, 1);
 			checkBuffer(xoff, 1);
@@ -1220,7 +1220,7 @@ public class STBTruetype {
 	 * @param codepoint  the unicode codepoint to render
 	 */
 	public static void stbtt_MakeCodepointBitmap(STBTTFontinfo info, ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, int codepoint) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(output, out_w * out_h);
 		nstbtt_MakeCodepointBitmap(info.address(), memAddress(output), out_w, out_h, out_stride, scale_x, scale_y, codepoint);
 	}
@@ -1246,7 +1246,7 @@ public class STBTruetype {
 	 * @param codepoint  the unicode codepoint to render
 	 */
 	public static void stbtt_MakeCodepointBitmapSubpixel(STBTTFontinfo info, ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(output, out_w * out_h);
 		nstbtt_MakeCodepointBitmapSubpixel(info.address(), memAddress(output), out_w, out_h, out_stride, scale_x, scale_y, shift_x, shift_y, codepoint);
 	}
@@ -1273,7 +1273,7 @@ public class STBTruetype {
 	 * @param iy1       returns the top coordinate
 	 */
 	public static void stbtt_GetCodepointBitmapBox(STBTTFontinfo font, int codepoint, float scale_x, float scale_y, ByteBuffer ix0, ByteBuffer iy0, ByteBuffer ix1, ByteBuffer iy1) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(ix0, 1 << 2);
 			checkBuffer(iy0, 1 << 2);
 			checkBuffer(ix1, 1 << 2);
@@ -1284,7 +1284,7 @@ public class STBTruetype {
 
 	/** Alternative version of: {@link #stbtt_GetCodepointBitmapBox GetCodepointBitmapBox} */
 	public static void stbtt_GetCodepointBitmapBox(STBTTFontinfo font, int codepoint, float scale_x, float scale_y, IntBuffer ix0, IntBuffer iy0, IntBuffer ix1, IntBuffer iy1) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(ix0, 1);
 			checkBuffer(iy0, 1);
 			checkBuffer(ix1, 1);
@@ -1314,7 +1314,7 @@ public class STBTruetype {
 	 * @param iy1       returns the top coordinate
 	 */
 	public static void stbtt_GetCodepointBitmapBoxSubpixel(STBTTFontinfo font, int codepoint, float scale_x, float scale_y, float shift_x, float shift_y, ByteBuffer ix0, ByteBuffer iy0, ByteBuffer ix1, ByteBuffer iy1) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(ix0, 1 << 2);
 			checkBuffer(iy0, 1 << 2);
 			checkBuffer(ix1, 1 << 2);
@@ -1325,7 +1325,7 @@ public class STBTruetype {
 
 	/** Alternative version of: {@link #stbtt_GetCodepointBitmapBoxSubpixel GetCodepointBitmapBoxSubpixel} */
 	public static void stbtt_GetCodepointBitmapBoxSubpixel(STBTTFontinfo font, int codepoint, float scale_x, float scale_y, float shift_x, float shift_y, IntBuffer ix0, IntBuffer iy0, IntBuffer ix1, IntBuffer iy1) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(ix0, 1);
 			checkBuffer(iy0, 1);
 			checkBuffer(ix1, 1);
@@ -1353,7 +1353,7 @@ public class STBTruetype {
 	 * @param yoff    returns the vertical offset in pixel space from the glyph origin to the top of the bitmap
 	 */
 	public static ByteBuffer stbtt_GetGlyphBitmap(STBTTFontinfo info, float scale_x, float scale_y, int glyph, ByteBuffer width, ByteBuffer height, ByteBuffer xoff, ByteBuffer yoff) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(width, 1 << 2);
 			checkBuffer(height, 1 << 2);
 			checkBuffer(xoff, 1 << 2);
@@ -1365,7 +1365,7 @@ public class STBTruetype {
 
 	/** Alternative version of: {@link #stbtt_GetGlyphBitmap GetGlyphBitmap} */
 	public static ByteBuffer stbtt_GetGlyphBitmap(STBTTFontinfo info, float scale_x, float scale_y, int glyph, IntBuffer width, IntBuffer height, IntBuffer xoff, IntBuffer yoff) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(width, 1);
 			checkBuffer(height, 1);
 			checkBuffer(xoff, 1);
@@ -1396,7 +1396,7 @@ public class STBTruetype {
 	 * @param yoff    returns the vertical offset in pixel space from the glyph origin to the top of the bitmap
 	 */
 	public static ByteBuffer stbtt_GetGlyphBitmapSubpixel(STBTTFontinfo info, float scale_x, float scale_y, float shift_x, float shift_y, int glyph, ByteBuffer width, ByteBuffer height, ByteBuffer xoff, ByteBuffer yoff) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(width, 1 << 2);
 			checkBuffer(height, 1 << 2);
 			checkBuffer(xoff, 1 << 2);
@@ -1408,7 +1408,7 @@ public class STBTruetype {
 
 	/** Alternative version of: {@link #stbtt_GetGlyphBitmapSubpixel GetGlyphBitmapSubpixel} */
 	public static ByteBuffer stbtt_GetGlyphBitmapSubpixel(STBTTFontinfo info, float scale_x, float scale_y, float shift_x, float shift_y, int glyph, IntBuffer width, IntBuffer height, IntBuffer xoff, IntBuffer yoff) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(width, 1);
 			checkBuffer(height, 1);
 			checkBuffer(xoff, 1);
@@ -1438,7 +1438,7 @@ public class STBTruetype {
 	 * @param glyph      the glyph index to render
 	 */
 	public static void stbtt_MakeGlyphBitmap(STBTTFontinfo info, ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, int glyph) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(output, out_w * out_h);
 		nstbtt_MakeGlyphBitmap(info.address(), memAddress(output), out_w, out_h, out_stride, scale_x, scale_y, glyph);
 	}
@@ -1464,7 +1464,7 @@ public class STBTruetype {
 	 * @param glyph      the glyph index to render
 	 */
 	public static void stbtt_MakeGlyphBitmapSubpixel(STBTTFontinfo info, ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int glyph) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(output, out_w * out_h);
 		nstbtt_MakeGlyphBitmapSubpixel(info.address(), memAddress(output), out_w, out_h, out_stride, scale_x, scale_y, shift_x, shift_y, glyph);
 	}
@@ -1491,7 +1491,7 @@ public class STBTruetype {
 	 * @param iy1     returns the top coordinate
 	 */
 	public static void stbtt_GetGlyphBitmapBox(STBTTFontinfo font, int glyph, float scale_x, float scale_y, ByteBuffer ix0, ByteBuffer iy0, ByteBuffer ix1, ByteBuffer iy1) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(ix0, 1 << 2);
 			checkBuffer(iy0, 1 << 2);
 			checkBuffer(ix1, 1 << 2);
@@ -1502,7 +1502,7 @@ public class STBTruetype {
 
 	/** Alternative version of: {@link #stbtt_GetGlyphBitmapBox GetGlyphBitmapBox} */
 	public static void stbtt_GetGlyphBitmapBox(STBTTFontinfo font, int glyph, float scale_x, float scale_y, IntBuffer ix0, IntBuffer iy0, IntBuffer ix1, IntBuffer iy1) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(ix0, 1);
 			checkBuffer(iy0, 1);
 			checkBuffer(ix1, 1);
@@ -1532,7 +1532,7 @@ public class STBTruetype {
 	 * @param iy1     returns the top coordinate
 	 */
 	public static void stbtt_GetGlyphBitmapBoxSubpixel(STBTTFontinfo font, int glyph, float scale_x, float scale_y, float shift_x, float shift_y, ByteBuffer ix0, ByteBuffer iy0, ByteBuffer ix1, ByteBuffer iy1) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(ix0, 1 << 2);
 			checkBuffer(iy0, 1 << 2);
 			checkBuffer(ix1, 1 << 2);
@@ -1543,7 +1543,7 @@ public class STBTruetype {
 
 	/** Alternative version of: {@link #stbtt_GetGlyphBitmapBoxSubpixel GetGlyphBitmapBoxSubpixel} */
 	public static void stbtt_GetGlyphBitmapBoxSubpixel(STBTTFontinfo font, int glyph, float scale_x, float scale_y, float shift_x, float shift_y, IntBuffer ix0, IntBuffer iy0, IntBuffer ix1, IntBuffer iy1) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(ix0, 1);
 			checkBuffer(iy0, 1);
 			checkBuffer(ix1, 1);
@@ -1569,7 +1569,7 @@ public class STBTruetype {
 	 * @param flags    the style flags. One of:<br>{@link #STBTT_MACSTYLE_DONTCARE MACSTYLE_DONTCARE}, {@link #STBTT_MACSTYLE_BOLD MACSTYLE_BOLD}, {@link #STBTT_MACSTYLE_ITALIC MACSTYLE_ITALIC}, {@link #STBTT_MACSTYLE_UNDERSCORE MACSTYLE_UNDERSCORE}, {@link #STBTT_MACSTYLE_NONE MACSTYLE_NONE}
 	 */
 	public static int stbtt_FindMatchingFont(ByteBuffer fontdata, ByteBuffer name, int flags) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		return nstbtt_FindMatchingFont(memAddress(fontdata), memAddress(name), flags);
 	}
@@ -1597,7 +1597,7 @@ public class STBTruetype {
 	 * @param len2 the length of the second string, in bytes
 	 */
 	public static int stbtt_CompareUTF8toUTF16_bigendian(ByteBuffer s1, int len1, ByteBuffer s2, int len2) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(s1, len1);
 			checkBuffer(s2, len2);
 		}

@@ -5,7 +5,6 @@
  */
 package org.lwjgl.egl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -61,7 +60,7 @@ public class ANDROIDBlobCache {
 
 	public static void eglSetBlobCacheFuncsANDROID(long dpy, EGLSetBlobFuncANDROID set, EGLGetBlobFuncANDROID get) {
 		long __functionAddress = getInstance().SetBlobCacheFuncsANDROID;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(dpy);
 		callPPPV(__functionAddress, dpy, set.address(), get.address());
 	}

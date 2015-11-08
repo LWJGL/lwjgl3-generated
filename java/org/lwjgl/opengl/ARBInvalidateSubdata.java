@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/invalidate_subdata.txt">ARB_invalidate_subdata</a> extension.
@@ -171,7 +170,7 @@ public class ARBInvalidateSubdata {
 	 * @param attachments    the address of an array identifying the attachments to be invalidated
 	 */
 	public static void glInvalidateFramebuffer(int target, int numAttachments, ByteBuffer attachments) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(attachments, numAttachments << 2);
 		nglInvalidateFramebuffer(target, numAttachments, memAddress(attachments));
 	}
@@ -209,7 +208,7 @@ public class ARBInvalidateSubdata {
 	 * @param height         the height of the region to be invalidated
 	 */
 	public static void glInvalidateSubFramebuffer(int target, int numAttachments, ByteBuffer attachments, int x, int y, int width, int height) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(attachments, numAttachments << 2);
 		nglInvalidateSubFramebuffer(target, numAttachments, memAddress(attachments), x, y, width, height);
 	}

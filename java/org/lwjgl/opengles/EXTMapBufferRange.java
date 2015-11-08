@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -30,7 +29,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * may have been modified. Further, it allows the application to more precisely specify its intent with respect to reading, writing, and whether the
  * previous contents of a mapped range of interest need be preserved prior to modification.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S} and {@link OESMapbuffer OES_mapbuffer}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0} and {@link OESMapbuffer OES_mapbuffer}.</p>
  */
 public class EXTMapBufferRange {
 

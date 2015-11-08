@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opengles;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/QCOM/QCOM_driver_control.txt">QCOM_driver_control</a> extension.
@@ -83,7 +83,7 @@ public class QCOMDriverControl {
 	}
 
 	public static void glGetDriverControlsQCOM(ByteBuffer num, int size, ByteBuffer driverControls) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( num != null ) checkBuffer(num, 1 << 2);
 			if ( driverControls != null ) checkBuffer(driverControls, size << 2);
 		}
@@ -92,7 +92,7 @@ public class QCOMDriverControl {
 
 	/** Alternative version of: {@link #glGetDriverControlsQCOM GetDriverControlsQCOM} */
 	public static void glGetDriverControlsQCOM(IntBuffer num, IntBuffer driverControls) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( num != null ) checkBuffer(num, 1);
 		nglGetDriverControlsQCOM(memAddressSafe(num), driverControls == null ? 0 : driverControls.remaining(), memAddressSafe(driverControls));
 	}
@@ -107,7 +107,7 @@ public class QCOMDriverControl {
 	}
 
 	public static void glGetDriverControlStringQCOM(int driverControl, int bufSize, ByteBuffer length, ByteBuffer driverControlString) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( driverControlString != null ) checkBuffer(driverControlString, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -116,7 +116,7 @@ public class QCOMDriverControl {
 
 	/** Alternative version of: {@link #glGetDriverControlStringQCOM GetDriverControlStringQCOM} */
 	public static void glGetDriverControlStringQCOM(int driverControl, IntBuffer length, ByteBuffer driverControlString) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetDriverControlStringQCOM(driverControl, driverControlString == null ? 0 : driverControlString.remaining(), memAddressSafe(length), memAddressSafe(driverControlString));
 	}

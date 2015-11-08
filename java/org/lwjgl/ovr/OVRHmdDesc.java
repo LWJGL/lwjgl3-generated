@@ -183,7 +183,7 @@ public class OVRHmdDesc extends Struct {
 	public static int ngetType(long struct) { return memGetInt(struct + TYPE); }
 	public static int getType(ByteBuffer struct) { return ngetType(memAddress(struct)); }
 	public static void ngetProductName(long struct, ByteBuffer ProductName) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ProductName, 64 * 1);
+		if ( CHECKS ) checkBufferGT(ProductName, 64 * 1);
 		memCopy(struct + PRODUCTNAME, memAddress(ProductName), ProductName.remaining());
 	}
 	public static void getProductName(ByteBuffer struct, ByteBuffer ProductName) { ngetProductName(memAddress(struct), ProductName); }
@@ -192,7 +192,7 @@ public class OVRHmdDesc extends Struct {
 	public static String ngetProductNameString(long struct, int byteLen) { return memDecodeUTF8(memByteBuffer(struct + PRODUCTNAME, byteLen)); }
 	public static String getProductNameString(ByteBuffer struct, int byteLen) { return ngetProductNameString(memAddress(struct), byteLen); }
 	public static void ngetManufacturer(long struct, ByteBuffer Manufacturer) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(Manufacturer, 64 * 1);
+		if ( CHECKS ) checkBufferGT(Manufacturer, 64 * 1);
 		memCopy(struct + MANUFACTURER, memAddress(Manufacturer), Manufacturer.remaining());
 	}
 	public static void getManufacturer(ByteBuffer struct, ByteBuffer Manufacturer) { ngetManufacturer(memAddress(struct), Manufacturer); }
@@ -205,7 +205,7 @@ public class OVRHmdDesc extends Struct {
 	public static int ngetProductId(long struct) { return memGetShort(struct + PRODUCTID); }
 	public static int getProductId(ByteBuffer struct) { return ngetProductId(memAddress(struct)); }
 	public static void ngetSerialNumber(long struct, ByteBuffer SerialNumber) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(SerialNumber, 24 * 1);
+		if ( CHECKS ) checkBufferGT(SerialNumber, 24 * 1);
 		memCopy(struct + SERIALNUMBER, memAddress(SerialNumber), SerialNumber.remaining());
 	}
 	public static void getSerialNumber(ByteBuffer struct, ByteBuffer SerialNumber) { ngetSerialNumber(memAddress(struct), SerialNumber); }
@@ -234,7 +234,7 @@ public class OVRHmdDesc extends Struct {
 	public static int ngetDefaultTrackingCaps(long struct) { return memGetInt(struct + DEFAULTTRACKINGCAPS); }
 	public static int getDefaultTrackingCaps(ByteBuffer struct) { return ngetDefaultTrackingCaps(memAddress(struct)); }
 	public static void ngetDefaultEyeFov(long struct, ByteBuffer DefaultEyeFov) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(DefaultEyeFov, 2 * OVRFovPort.SIZEOF);
+		if ( CHECKS ) checkBufferGT(DefaultEyeFov, 2 * OVRFovPort.SIZEOF);
 		memCopy(struct + DEFAULTEYEFOV, memAddress(DefaultEyeFov), DefaultEyeFov.remaining());
 	}
 	public static void getDefaultEyeFov(ByteBuffer struct, ByteBuffer DefaultEyeFov) { ngetDefaultEyeFov(memAddress(struct), DefaultEyeFov); }
@@ -243,7 +243,7 @@ public class OVRHmdDesc extends Struct {
 	}
 	public static OVRFovPort getDefaultEyeFov(ByteBuffer struct, int index) { return ngetDefaultEyeFov(memAddress(struct), index); }
 	public static void ngetMaxEyeFov(long struct, ByteBuffer MaxEyeFov) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(MaxEyeFov, 2 * OVRFovPort.SIZEOF);
+		if ( CHECKS ) checkBufferGT(MaxEyeFov, 2 * OVRFovPort.SIZEOF);
 		memCopy(struct + MAXEYEFOV, memAddress(MaxEyeFov), MaxEyeFov.remaining());
 	}
 	public static void getMaxEyeFov(ByteBuffer struct, ByteBuffer MaxEyeFov) { ngetMaxEyeFov(memAddress(struct), MaxEyeFov); }

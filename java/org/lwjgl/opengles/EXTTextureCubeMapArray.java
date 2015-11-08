@@ -20,7 +20,7 @@ package org.lwjgl.opengles;
  * texture fetch. The "q" texture is treated as an unnormalized floating-point value identifying the layer of the cube map array texture. Cube map array
  * texture lookups do not filter between layers.</p>
  * 
- * <p>Requires {@link GLES31 GLES E.S}.</p>
+ * <p>Requires {@link GLES31 GLES 3.1}.</p>
  */
 public final class EXTTextureCubeMapArray {
 

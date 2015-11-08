@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/gpu_shader4.txt">EXT_gpu_shader4</a> extension.
@@ -346,14 +345,14 @@ public class EXTGPUShader4 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI1ivEXT(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 2);
 		nglVertexAttribI1ivEXT(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribI1ivEXT VertexAttribI1ivEXT} */
 	public static void glVertexAttribI1ivEXT(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglVertexAttribI1ivEXT(index, memAddress(v));
 	}
@@ -374,14 +373,14 @@ public class EXTGPUShader4 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI2ivEXT(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 2);
 		nglVertexAttribI2ivEXT(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribI2ivEXT VertexAttribI2ivEXT} */
 	public static void glVertexAttribI2ivEXT(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglVertexAttribI2ivEXT(index, memAddress(v));
 	}
@@ -402,14 +401,14 @@ public class EXTGPUShader4 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI3ivEXT(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglVertexAttribI3ivEXT(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribI3ivEXT VertexAttribI3ivEXT} */
 	public static void glVertexAttribI3ivEXT(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglVertexAttribI3ivEXT(index, memAddress(v));
 	}
@@ -430,14 +429,14 @@ public class EXTGPUShader4 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI4ivEXT(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttribI4ivEXT(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribI4ivEXT VertexAttribI4ivEXT} */
 	public static void glVertexAttribI4ivEXT(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttribI4ivEXT(index, memAddress(v));
 	}
@@ -458,14 +457,14 @@ public class EXTGPUShader4 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI1uivEXT(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 2);
 		nglVertexAttribI1uivEXT(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribI1uivEXT VertexAttribI1uivEXT} */
 	public static void glVertexAttribI1uivEXT(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglVertexAttribI1uivEXT(index, memAddress(v));
 	}
@@ -486,14 +485,14 @@ public class EXTGPUShader4 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI2uivEXT(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 2);
 		nglVertexAttribI2uivEXT(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribI2uivEXT VertexAttribI2uivEXT} */
 	public static void glVertexAttribI2uivEXT(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglVertexAttribI2uivEXT(index, memAddress(v));
 	}
@@ -514,14 +513,14 @@ public class EXTGPUShader4 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI3uivEXT(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglVertexAttribI3uivEXT(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribI3uivEXT VertexAttribI3uivEXT} */
 	public static void glVertexAttribI3uivEXT(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglVertexAttribI3uivEXT(index, memAddress(v));
 	}
@@ -542,14 +541,14 @@ public class EXTGPUShader4 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI4uivEXT(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttribI4uivEXT(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribI4uivEXT VertexAttribI4uivEXT} */
 	public static void glVertexAttribI4uivEXT(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttribI4uivEXT(index, memAddress(v));
 	}
@@ -570,7 +569,7 @@ public class EXTGPUShader4 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI4bvEXT(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttribI4bvEXT(index, memAddress(v));
 	}
@@ -591,14 +590,14 @@ public class EXTGPUShader4 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI4svEXT(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglVertexAttribI4svEXT(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribI4svEXT VertexAttribI4svEXT} */
 	public static void glVertexAttribI4svEXT(int index, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttribI4svEXT(index, memAddress(v));
 	}
@@ -619,7 +618,7 @@ public class EXTGPUShader4 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI4ubvEXT(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttribI4ubvEXT(index, memAddress(v));
 	}
@@ -640,14 +639,14 @@ public class EXTGPUShader4 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI4usvEXT(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglVertexAttribI4usvEXT(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribI4usvEXT VertexAttribI4usvEXT} */
 	public static void glVertexAttribI4usvEXT(int index, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttribI4usvEXT(index, memAddress(v));
 	}
@@ -673,28 +672,28 @@ public class EXTGPUShader4 {
 	 *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
 	 */
 	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribIPointerEXT(index, size, type, stride, memAddress(pointer));
 	}
 
 	/** Buffer object offset version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
 	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, long pointerOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglVertexAttribIPointerEXT(index, size, type, stride, pointerOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
 	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribIPointerEXT(index, size, type, stride, memAddress(pointer));
 	}
 
 	/** IntBuffer version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
 	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, IntBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribIPointerEXT(index, size, type, stride, memAddress(pointer));
 	}
@@ -716,14 +715,14 @@ public class EXTGPUShader4 {
 	 * @param params returns the requested data
 	 */
 	public static void glGetVertexAttribIivEXT(int index, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglGetVertexAttribIivEXT(index, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetVertexAttribIivEXT GetVertexAttribIivEXT} */
 	public static void glGetVertexAttribIivEXT(int index, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglGetVertexAttribIivEXT(index, pname, memAddress(params));
 	}
@@ -753,14 +752,14 @@ public class EXTGPUShader4 {
 	 * @param params returns the requested data
 	 */
 	public static void glGetVertexAttribIuivEXT(int index, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglGetVertexAttribIuivEXT(index, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetVertexAttribIuivEXT GetVertexAttribIuivEXT} */
 	public static void glGetVertexAttribIuivEXT(int index, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglGetVertexAttribIuivEXT(index, pname, memAddress(params));
 	}
@@ -783,14 +782,14 @@ public class EXTGPUShader4 {
 	}
 
 	public static void glGetUniformuivEXT(int program, int location, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetUniformuivEXT(program, location, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetUniformuivEXT GetUniformuivEXT} */
 	public static void glGetUniformuivEXT(int program, int location, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformuivEXT(program, location, memAddress(params));
 	}
@@ -813,7 +812,7 @@ public class EXTGPUShader4 {
 	}
 
 	public static void glBindFragDataLocationEXT(int program, int color, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		nglBindFragDataLocationEXT(program, color, memAddress(name));
 	}
@@ -835,7 +834,7 @@ public class EXTGPUShader4 {
 	}
 
 	public static int glGetFragDataLocationEXT(int program, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		return nglGetFragDataLocationEXT(program, memAddress(name));
 	}
@@ -885,7 +884,7 @@ public class EXTGPUShader4 {
 	}
 
 	public static void glUniform1uivEXT(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 2);
 		nglUniform1uivEXT(location, count, memAddress(value));
 	}
@@ -905,7 +904,7 @@ public class EXTGPUShader4 {
 	}
 
 	public static void glUniform2uivEXT(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglUniform2uivEXT(location, count, memAddress(value));
 	}
@@ -925,7 +924,7 @@ public class EXTGPUShader4 {
 	}
 
 	public static void glUniform3uivEXT(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 3) << 2);
 		nglUniform3uivEXT(location, count, memAddress(value));
 	}
@@ -945,7 +944,7 @@ public class EXTGPUShader4 {
 	}
 
 	public static void glUniform4uivEXT(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglUniform4uivEXT(location, count, memAddress(value));
 	}

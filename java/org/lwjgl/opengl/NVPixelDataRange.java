@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -120,7 +119,7 @@ public class NVPixelDataRange {
 	}
 
 	public static void glPixelDataRangeNV(int target, int length, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(pointer, length);
 		nglPixelDataRangeNV(target, length, memAddress(pointer));
 	}

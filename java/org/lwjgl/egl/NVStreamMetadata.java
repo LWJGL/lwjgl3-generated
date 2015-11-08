@@ -5,15 +5,15 @@
  */
 package org.lwjgl.egl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/NV/EGL_NV_stream_metadata.txt">NV_stream_metadata</a> extension.
@@ -44,7 +44,7 @@ public class NVStreamMetadata {
 		EGL_CONSUMER_METADATA_NV = 0x3254,
 		EGL_PENDING_METADATA_NV  = 0x3328;
 
-	/** Accepted in {@code attrib_list} by {@link KHRStream#EGL_CreateStreamKHR CreateStreamKHR} and as {@code attribute} by {@link KHRStream#EGL_QueryStreamKHR QueryStreamKHR}. */
+	/** Accepted in {@code attrib_list} by {@link KHRStream#eglCreateStreamKHR CreateStreamKHR} and as {@code attribute} by {@link KHRStream#eglQueryStreamKHR QueryStreamKHR}. */
 	public static final int
 		EGL_METADATA0_SIZE_NV = 0x3255,
 		EGL_METADATA1_SIZE_NV = 0x3256,
@@ -92,20 +92,20 @@ public class NVStreamMetadata {
 	@JavadocExclude
 	public static boolean neglQueryDisplayAttribNV(long dpy, int attribute, long value) {
 		long __functionAddress = getInstance().QueryDisplayAttribNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(dpy);
 		return callPIPZ(__functionAddress, dpy, attribute, value);
 	}
 
 	public static boolean eglQueryDisplayAttribNV(long dpy, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << POINTER_SHIFT);
 		return neglQueryDisplayAttribNV(dpy, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQueryDisplayAttribNV QueryDisplayAttribNV} */
 	public static boolean eglQueryDisplayAttribNV(long dpy, int attribute, PointerBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQueryDisplayAttribNV(dpy, attribute, memAddress(value));
 	}
@@ -116,7 +116,7 @@ public class NVStreamMetadata {
 	@JavadocExclude
 	public static boolean neglSetStreamMetadataNV(long dpy, long stream, int n, int offset, int size, long data) {
 		long __functionAddress = getInstance().SetStreamMetadataNV;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
@@ -124,7 +124,7 @@ public class NVStreamMetadata {
 	}
 
 	public static boolean eglSetStreamMetadataNV(long dpy, long stream, int n, int offset, int size, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, size);
 		return neglSetStreamMetadataNV(dpy, stream, n, offset, size, memAddress(data));
 	}
@@ -140,7 +140,7 @@ public class NVStreamMetadata {
 	@JavadocExclude
 	public static boolean neglQueryStreamMetadataNV(long dpy, long stream, int name, int n, int offset, int size, long data) {
 		long __functionAddress = getInstance().QueryStreamMetadataNV;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
@@ -148,7 +148,7 @@ public class NVStreamMetadata {
 	}
 
 	public static boolean eglQueryStreamMetadataNV(long dpy, long stream, int name, int n, int offset, int size, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, size);
 		return neglQueryStreamMetadataNV(dpy, stream, name, n, offset, size, memAddress(data));
 	}

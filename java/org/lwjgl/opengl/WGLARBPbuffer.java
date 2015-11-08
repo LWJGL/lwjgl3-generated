@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -111,7 +110,7 @@ public class WGLARBPbuffer {
 	@JavadocExclude
 	public static long nwglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, long attribList) {
 		long __functionAddress = getInstance().CreatePbufferARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hdc);
 		return callPIIIPP(__functionAddress, hdc, pixelFormat, width, height, attribList);
 	}
@@ -129,14 +128,14 @@ public class WGLARBPbuffer {
 	 * @param attribList  a 0-terminated list of attributes {type, value} pairs containing integer attribute values
 	 */
 	public static long wglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, ByteBuffer attribList) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attribList != null ) checkNT4(attribList);
 		return nwglCreatePbufferARB(hdc, pixelFormat, width, height, memAddressSafe(attribList));
 	}
 
 	/** Alternative version of: {@link #wglCreatePbufferARB CreatePbufferARB} */
 	public static long wglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, IntBuffer attribList) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attribList != null ) checkNT(attribList);
 		return nwglCreatePbufferARB(hdc, pixelFormat, width, height, memAddressSafe(attribList));
 	}
@@ -150,7 +149,7 @@ public class WGLARBPbuffer {
 	 */
 	public static long wglGetPbufferDCARB(long pbuffer) {
 		long __functionAddress = getInstance().GetPbufferDCARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(pbuffer);
 		return callPP(__functionAddress, pbuffer);
 	}
@@ -165,7 +164,7 @@ public class WGLARBPbuffer {
 	 */
 	public static int wglReleasePbufferDCARB(long pbuffer, long hdc) {
 		long __functionAddress = getInstance().ReleasePbufferDCARB;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(pbuffer);
 			checkPointer(hdc);
 		}
@@ -184,7 +183,7 @@ public class WGLARBPbuffer {
 	 */
 	public static int wglDestroyPbufferARB(long pbuffer) {
 		long __functionAddress = getInstance().DestroyPbufferARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(pbuffer);
 		return callPI(__functionAddress, pbuffer);
 	}
@@ -195,7 +194,7 @@ public class WGLARBPbuffer {
 	@JavadocExclude
 	public static int nwglQueryPbufferARB(long pbuffer, int attribute, long value) {
 		long __functionAddress = getInstance().QueryPbufferARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(pbuffer);
 		return callPIPI(__functionAddress, pbuffer, attribute, value);
 	}
@@ -208,14 +207,14 @@ public class WGLARBPbuffer {
 	 * @param value     the attribute value
 	 */
 	public static int wglQueryPbufferARB(long pbuffer, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		return nwglQueryPbufferARB(pbuffer, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #wglQueryPbufferARB QueryPbufferARB} */
 	public static int wglQueryPbufferARB(long pbuffer, int attribute, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return nwglQueryPbufferARB(pbuffer, attribute, memAddress(value));
 	}

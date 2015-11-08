@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/timer_query.txt">EXT_timer_query</a> extension.
@@ -88,14 +87,14 @@ public class EXTTimerQuery {
 	}
 
 	public static void glGetQueryObjecti64vEXT(int id, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetQueryObjecti64vEXT(id, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryObjecti64vEXT GetQueryObjecti64vEXT} */
 	public static void glGetQueryObjecti64vEXT(int id, int pname, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjecti64vEXT(id, pname, memAddress(params));
 	}
@@ -118,14 +117,14 @@ public class EXTTimerQuery {
 	}
 
 	public static void glGetQueryObjectui64vEXT(int id, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetQueryObjectui64vEXT(id, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryObjectui64vEXT GetQueryObjectui64vEXT} */
 	public static void glGetQueryObjectui64vEXT(int id, int pname, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjectui64vEXT(id, pname, memAddress(params));
 	}

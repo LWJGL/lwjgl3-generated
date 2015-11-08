@@ -5,10 +5,9 @@
  */
 package org.lwjgl.system.windows;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -53,20 +52,20 @@ public class GDI32 {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		CreateCompatibleDCAddress,
-		DeleteDCAddress,
-		CancelDCAddress,
-		SaveDCAddress,
-		RestoreDCAddress,
-		GetDCOrgExAddress,
-		GetDeviceCapsAddress,
-		GetDeviceGammaRampAddress,
-		SetDeviceGammaRampAddress,
-		ChoosePixelFormatAddress,
-		DescribePixelFormatAddress,
-		GetPixelFormatAddress,
-		SetPixelFormatAddress,
-		SwapBuffersAddress;
+		CreateCompatibleDC,
+		DeleteDC,
+		CancelDC,
+		SaveDC,
+		RestoreDC,
+		GetDCOrgEx,
+		GetDeviceCaps,
+		GetDeviceGammaRamp,
+		SetDeviceGammaRamp,
+		ChoosePixelFormat,
+		DescribePixelFormat,
+		GetPixelFormat,
+		SetPixelFormat,
+		SwapBuffers;
 
 	@JavadocExclude
 	protected GDI32() {
@@ -75,31 +74,36 @@ public class GDI32 {
 
 	@JavadocExclude
 	public GDI32(FunctionProvider provider) {
-		CreateCompatibleDCAddress = checkFunctionAddress(provider.getFunctionAddress("CreateCompatibleDC"));
-		DeleteDCAddress = checkFunctionAddress(provider.getFunctionAddress("DeleteDC"));
-		CancelDCAddress = checkFunctionAddress(provider.getFunctionAddress("CancelDC"));
-		SaveDCAddress = checkFunctionAddress(provider.getFunctionAddress("SaveDC"));
-		RestoreDCAddress = checkFunctionAddress(provider.getFunctionAddress("RestoreDC"));
-		GetDCOrgExAddress = checkFunctionAddress(provider.getFunctionAddress("GetDCOrgEx"));
-		GetDeviceCapsAddress = checkFunctionAddress(provider.getFunctionAddress("GetDeviceCaps"));
-		GetDeviceGammaRampAddress = checkFunctionAddress(provider.getFunctionAddress("GetDeviceGammaRamp"));
-		SetDeviceGammaRampAddress = checkFunctionAddress(provider.getFunctionAddress("SetDeviceGammaRamp"));
-		ChoosePixelFormatAddress = checkFunctionAddress(provider.getFunctionAddress("ChoosePixelFormat"));
-		DescribePixelFormatAddress = checkFunctionAddress(provider.getFunctionAddress("DescribePixelFormat"));
-		GetPixelFormatAddress = checkFunctionAddress(provider.getFunctionAddress("GetPixelFormat"));
-		SetPixelFormatAddress = checkFunctionAddress(provider.getFunctionAddress("SetPixelFormat"));
-		SwapBuffersAddress = checkFunctionAddress(provider.getFunctionAddress("SwapBuffers"));
+		CreateCompatibleDC = checkFunctionAddress(provider.getFunctionAddress("CreateCompatibleDC"));
+		DeleteDC = checkFunctionAddress(provider.getFunctionAddress("DeleteDC"));
+		CancelDC = checkFunctionAddress(provider.getFunctionAddress("CancelDC"));
+		SaveDC = checkFunctionAddress(provider.getFunctionAddress("SaveDC"));
+		RestoreDC = checkFunctionAddress(provider.getFunctionAddress("RestoreDC"));
+		GetDCOrgEx = checkFunctionAddress(provider.getFunctionAddress("GetDCOrgEx"));
+		GetDeviceCaps = checkFunctionAddress(provider.getFunctionAddress("GetDeviceCaps"));
+		GetDeviceGammaRamp = checkFunctionAddress(provider.getFunctionAddress("GetDeviceGammaRamp"));
+		SetDeviceGammaRamp = checkFunctionAddress(provider.getFunctionAddress("SetDeviceGammaRamp"));
+		ChoosePixelFormat = checkFunctionAddress(provider.getFunctionAddress("ChoosePixelFormat"));
+		DescribePixelFormat = checkFunctionAddress(provider.getFunctionAddress("DescribePixelFormat"));
+		GetPixelFormat = checkFunctionAddress(provider.getFunctionAddress("GetPixelFormat"));
+		SetPixelFormat = checkFunctionAddress(provider.getFunctionAddress("SetPixelFormat"));
+		SwapBuffers = checkFunctionAddress(provider.getFunctionAddress("SwapBuffers"));
 	}
 
 	// --- [ Function Addresses ] ---
 
-	private static final DynamicLinkLibrary GDI32;
+	private static final SharedLibrary GDI32;
 
 	private static final GDI32 instance;
 
 	static {
-		GDI32 = LWJGLUtil.loadLibraryNative("gdi32");
+		GDI32 = Library.loadNative("gdi32");
 		instance = new GDI32(GDI32);
+	}
+
+	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
+	public static SharedLibrary getLibrary() {
+		return GDI32;
 	}
 
 	/** Returns the {@link GDI32} instance. */
@@ -115,7 +119,7 @@ public class GDI32 {
 	 * @param hdc a handle to an existing DC. If this handle is {@code NULL}, the function creates a memory DC compatible with the application's current screen.
 	 */
 	public static long CreateCompatibleDC(long hdc) {
-		long __functionAddress = getInstance().CreateCompatibleDCAddress;
+		long __functionAddress = getInstance().CreateCompatibleDC;
 		return callPP(__functionAddress, hdc);
 	}
 
@@ -127,8 +131,8 @@ public class GDI32 {
 	 * @param hdc a handle to the device context
 	 */
 	public static int DeleteDC(long hdc) {
-		long __functionAddress = getInstance().DeleteDCAddress;
-		if ( LWJGLUtil.CHECKS )
+		long __functionAddress = getInstance().DeleteDC;
+		if ( CHECKS )
 			checkPointer(hdc);
 		return callPI(__functionAddress, hdc);
 	}
@@ -141,8 +145,8 @@ public class GDI32 {
 	 * @param hdc a handle to the DC
 	 */
 	public static int CancelDC(long hdc) {
-		long __functionAddress = getInstance().CancelDCAddress;
-		if ( LWJGLUtil.CHECKS )
+		long __functionAddress = getInstance().CancelDC;
+		if ( CHECKS )
 			checkPointer(hdc);
 		return callPI(__functionAddress, hdc);
 	}
@@ -156,8 +160,8 @@ public class GDI32 {
 	 * @param hdc a handle to the DC whose state is to be saved
 	 */
 	public static int SaveDC(long hdc) {
-		long __functionAddress = getInstance().SaveDCAddress;
-		if ( LWJGLUtil.CHECKS )
+		long __functionAddress = getInstance().SaveDC;
+		if ( CHECKS )
 			checkPointer(hdc);
 		return callPI(__functionAddress, hdc);
 	}
@@ -173,8 +177,8 @@ public class GDI32 {
 	 *                parameter is negative, {@code savedDC} represents an instance relative to the current state. For example, -1 restores the most recently saved state.
 	 */
 	public static int RestoreDC(long hdc, int savedDC) {
-		long __functionAddress = getInstance().RestoreDCAddress;
-		if ( LWJGLUtil.CHECKS )
+		long __functionAddress = getInstance().RestoreDC;
+		if ( CHECKS )
 			checkPointer(hdc);
 		return callPII(__functionAddress, hdc, savedDC);
 	}
@@ -184,8 +188,8 @@ public class GDI32 {
 	/** Unsafe version of {@link #GetDCOrgEx} */
 	@JavadocExclude
 	public static int nGetDCOrgEx(long hdc, long point) {
-		long __functionAddress = getInstance().GetDCOrgExAddress;
-		if ( LWJGLUtil.CHECKS )
+		long __functionAddress = getInstance().GetDCOrgEx;
+		if ( CHECKS )
 			checkPointer(hdc);
 		return callPPI(__functionAddress, hdc, point);
 	}
@@ -210,8 +214,8 @@ public class GDI32 {
 	 * @param index the item to be returned
 	 */
 	public static int GetDeviceCaps(long hdc, int index) {
-		long __functionAddress = getInstance().GetDeviceCapsAddress;
-		if ( LWJGLUtil.CHECKS )
+		long __functionAddress = getInstance().GetDeviceCaps;
+		if ( CHECKS )
 			checkPointer(hdc);
 		return callPII(__functionAddress, hdc, index);
 	}
@@ -227,8 +231,8 @@ public class GDI32 {
 	 *               values must be stored in the most significant bits of each WORD to increase DAC independence.
 	 */
 	public static int GetDeviceGammaRamp(long hdc, long lpRamp) {
-		long __functionAddress = getInstance().GetDeviceGammaRampAddress;
-		if ( LWJGLUtil.CHECKS ) {
+		long __functionAddress = getInstance().GetDeviceGammaRamp;
+		if ( CHECKS ) {
 			checkPointer(hdc);
 			checkPointer(lpRamp);
 		}
@@ -246,8 +250,8 @@ public class GDI32 {
 	 *               the arrays is red, green, blue.
 	 */
 	public static int SetDeviceGammaRamp(long hdc, long lpRamp) {
-		long __functionAddress = getInstance().SetDeviceGammaRampAddress;
-		if ( LWJGLUtil.CHECKS ) {
+		long __functionAddress = getInstance().SetDeviceGammaRamp;
+		if ( CHECKS ) {
 			checkPointer(hdc);
 			checkPointer(lpRamp);
 		}
@@ -259,8 +263,8 @@ public class GDI32 {
 	/** Unsafe version of {@link #ChoosePixelFormat} */
 	@JavadocExclude
 	public static int nChoosePixelFormat(long hdc, long pixelFormatDescriptor) {
-		long __functionAddress = getInstance().ChoosePixelFormatAddress;
-		if ( LWJGLUtil.CHECKS )
+		long __functionAddress = getInstance().ChoosePixelFormat;
+		if ( CHECKS )
 			checkPointer(hdc);
 		return callPPI(__functionAddress, hdc, pixelFormatDescriptor);
 	}
@@ -280,8 +284,8 @@ public class GDI32 {
 	/** Unsafe version of {@link #DescribePixelFormat} */
 	@JavadocExclude
 	public static int nDescribePixelFormat(long hdc, int pixelFormat, int bytes, long pixelFormatDescriptor) {
-		long __functionAddress = getInstance().DescribePixelFormatAddress;
-		if ( LWJGLUtil.CHECKS )
+		long __functionAddress = getInstance().DescribePixelFormat;
+		if ( CHECKS )
 			checkPointer(hdc);
 		return callPIIPI(__functionAddress, hdc, pixelFormat, bytes, pixelFormatDescriptor);
 	}
@@ -316,8 +320,8 @@ public class GDI32 {
 	 * @param hdc the device context of the currently selected pixel format index returned by the function
 	 */
 	public static int GetPixelFormat(long hdc) {
-		long __functionAddress = getInstance().GetPixelFormatAddress;
-		if ( LWJGLUtil.CHECKS )
+		long __functionAddress = getInstance().GetPixelFormat;
+		if ( CHECKS )
 			checkPointer(hdc);
 		return callPI(__functionAddress, hdc);
 	}
@@ -327,8 +331,8 @@ public class GDI32 {
 	/** Unsafe version of {@link #SetPixelFormat} */
 	@JavadocExclude
 	public static int nSetPixelFormat(long hdc, int pixelFormat, long pixelFormatDescriptor) {
-		long __functionAddress = getInstance().SetPixelFormatAddress;
-		if ( LWJGLUtil.CHECKS )
+		long __functionAddress = getInstance().SetPixelFormat;
+		if ( CHECKS )
 			checkPointer(hdc);
 		return callPIPI(__functionAddress, hdc, pixelFormat, pixelFormatDescriptor);
 	}
@@ -354,8 +358,8 @@ public class GDI32 {
 	 *           front and back buffers.
 	 */
 	public static int SwapBuffers(long dc) {
-		long __functionAddress = getInstance().SwapBuffersAddress;
-		if ( LWJGLUtil.CHECKS )
+		long __functionAddress = getInstance().SwapBuffers;
+		if ( CHECKS )
 			checkPointer(dc);
 		return callPI(__functionAddress, dc);
 	}

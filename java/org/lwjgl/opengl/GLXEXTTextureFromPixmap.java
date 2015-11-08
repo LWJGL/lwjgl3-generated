@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -127,7 +126,7 @@ public class GLXEXTTextureFromPixmap {
 	@JavadocExclude
 	public static void nglXBindTexImageEXT(long display, long drawable, int buffer, long attrib_list) {
 		long __functionAddress = getInstance().BindTexImageEXT;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
@@ -144,14 +143,14 @@ public class GLXEXTTextureFromPixmap {
 	 * @param attrib_list an optional null-terminated list of attributes
 	 */
 	public static void glXBindTexImageEXT(long display, long drawable, int buffer, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list);
 		nglXBindTexImageEXT(display, drawable, buffer, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #glXBindTexImageEXT BindTexImageEXT} */
 	public static void glXBindTexImageEXT(long display, long drawable, int buffer, IntBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);
 		nglXBindTexImageEXT(display, drawable, buffer, memAddressSafe(attrib_list));
 	}
@@ -167,7 +166,7 @@ public class GLXEXTTextureFromPixmap {
 	 */
 	public static void glXReleaseTexImageEXT(long display, long drawable, int buffer) {
 		long __functionAddress = getInstance().ReleaseTexImageEXT;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(drawable);
 		}

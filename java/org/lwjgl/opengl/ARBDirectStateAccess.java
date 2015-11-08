@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/direct_state_access.txt">ARB_direct_state_access</a> extension.
@@ -308,7 +308,7 @@ public class ARBDirectStateAccess {
 	 * @param ids the buffer in which to return the names
 	 */
 	public static void glCreateTransformFeedbacks(int n, ByteBuffer ids) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ids, n << 2);
 		nglCreateTransformFeedbacks(n, memAddress(ids));
 	}
@@ -373,14 +373,14 @@ public class ARBDirectStateAccess {
 	 * @param param the buffer in which to return the parameter value
 	 */
 	public static void glGetTransformFeedbackiv(int xfb, int pname, ByteBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1 << 2);
 		nglGetTransformFeedbackiv(xfb, pname, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glGetTransformFeedbackiv GetTransformFeedbackiv} */
 	public static void glGetTransformFeedbackiv(int xfb, int pname, IntBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1);
 		nglGetTransformFeedbackiv(xfb, pname, memAddress(param));
 	}
@@ -411,14 +411,14 @@ public class ARBDirectStateAccess {
 	 * @param param the buffer in which to return the parameter value
 	 */
 	public static void glGetTransformFeedbacki_v(int xfb, int pname, int index, ByteBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1 << 2);
 		nglGetTransformFeedbacki_v(xfb, pname, index, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glGetTransformFeedbacki_v GetTransformFeedbacki_v} */
 	public static void glGetTransformFeedbacki_v(int xfb, int pname, int index, IntBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1);
 		nglGetTransformFeedbacki_v(xfb, pname, index, memAddress(param));
 	}
@@ -449,14 +449,14 @@ public class ARBDirectStateAccess {
 	 * @param param the buffer in which to return the parameter value
 	 */
 	public static void glGetTransformFeedbacki64_v(int xfb, int pname, int index, ByteBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1 << 3);
 		nglGetTransformFeedbacki64_v(xfb, pname, index, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glGetTransformFeedbacki64_v GetTransformFeedbacki64_v} */
 	public static void glGetTransformFeedbacki64_v(int xfb, int pname, int index, LongBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1);
 		nglGetTransformFeedbacki64_v(xfb, pname, index, memAddress(param));
 	}
@@ -486,7 +486,7 @@ public class ARBDirectStateAccess {
 	 * @param buffers the buffer in which to return the names
 	 */
 	public static void glCreateBuffers(int n, ByteBuffer buffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(buffers, n << 2);
 		nglCreateBuffers(n, memAddress(buffers));
 	}
@@ -555,7 +555,7 @@ public class ARBDirectStateAccess {
 	 *               <p>It is an error to specify {@link GL44#GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link GL44#GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
 	 */
 	public static void glNamedBufferStorage(int buffer, long size, ByteBuffer data, int flags) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( data != null ) checkBuffer(data, size);
 		nglNamedBufferStorage(buffer, size, memAddressSafe(data), flags);
 	}
@@ -608,7 +608,7 @@ public class ARBDirectStateAccess {
 	 * @param usage  the expected usage pattern of the data store. One of:<br>{@link GL15#GL_STREAM_DRAW STREAM_DRAW}, {@link GL15#GL_STREAM_READ STREAM_READ}, {@link GL15#GL_STREAM_COPY STREAM_COPY}, {@link GL15#GL_STATIC_DRAW STATIC_DRAW}, {@link GL15#GL_STATIC_READ STATIC_READ}, {@link GL15#GL_STATIC_COPY STATIC_COPY}, {@link GL15#GL_DYNAMIC_DRAW DYNAMIC_DRAW}, {@link GL15#GL_DYNAMIC_READ DYNAMIC_READ}, {@link GL15#GL_DYNAMIC_COPY DYNAMIC_COPY}
 	 */
 	public static void glNamedBufferData(int buffer, long size, ByteBuffer data, int usage) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( data != null ) checkBuffer(data, size);
 		nglNamedBufferData(buffer, size, memAddressSafe(data), usage);
 	}
@@ -661,7 +661,7 @@ public class ARBDirectStateAccess {
 	 * @param data   a pointer to the new data that will be copied into the data store
 	 */
 	public static void glNamedBufferSubData(int buffer, long offset, long size, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, size);
 		nglNamedBufferSubData(buffer, offset, size, memAddress(data));
 	}
@@ -891,14 +891,14 @@ public class ARBDirectStateAccess {
 	 * @param params the requested parameter
 	 */
 	public static void glGetNamedBufferParameteriv(int buffer, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetNamedBufferParameteriv(buffer, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetNamedBufferParameteriv GetNamedBufferParameteriv} */
 	public static void glGetNamedBufferParameteriv(int buffer, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedBufferParameteriv(buffer, pname, memAddress(params));
 	}
@@ -928,14 +928,14 @@ public class ARBDirectStateAccess {
 	 * @param params the requested parameter
 	 */
 	public static void glGetNamedBufferParameteri64v(int buffer, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetNamedBufferParameteri64v(buffer, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetNamedBufferParameteri64v GetNamedBufferParameteri64v} */
 	public static void glGetNamedBufferParameteri64v(int buffer, int pname, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedBufferParameteri64v(buffer, pname, memAddress(params));
 	}
@@ -965,14 +965,14 @@ public class ARBDirectStateAccess {
 	 * @param params the pointer value specified by {@code pname}
 	 */
 	public static void glGetNamedBufferPointerv(int buffer, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << POINTER_SHIFT);
 		nglGetNamedBufferPointerv(buffer, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetNamedBufferPointerv GetNamedBufferPointerv} */
 	public static void glGetNamedBufferPointerv(int buffer, int pname, PointerBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedBufferPointerv(buffer, pname, memAddress(params));
 	}
@@ -1003,7 +1003,7 @@ public class ARBDirectStateAccess {
 	 * @param data   a pointer to the location where buffer object data is returned
 	 */
 	public static void glGetNamedBufferSubData(int buffer, long offset, long size, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, size);
 		nglGetNamedBufferSubData(buffer, offset, size, memAddress(data));
 	}
@@ -1049,7 +1049,7 @@ public class ARBDirectStateAccess {
 	 * @param framebuffers the buffer in which to store the framebuffer names
 	 */
 	public static void glCreateFramebuffers(int n, ByteBuffer framebuffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(framebuffers, n << 2);
 		nglCreateFramebuffers(n, memAddress(framebuffers));
 	}
@@ -1157,7 +1157,7 @@ public class ARBDirectStateAccess {
 	 * @param bufs        an array of symbolic constants specifying the buffers into which fragment colors or data values will be written. One of:<br>{@link GL11#GL_NONE NONE}, {@link GL11#GL_FRONT_LEFT FRONT_LEFT}, {@link GL11#GL_FRONT_RIGHT FRONT_RIGHT}, {@link GL11#GL_BACK_LEFT BACK_LEFT}, {@link GL11#GL_BACK_RIGHT BACK_RIGHT}, {@link GL11#GL_AUX0 AUX0}, {@link GL11#GL_AUX1 AUX1}, {@link GL11#GL_AUX2 AUX2}, {@link GL11#GL_AUX3 AUX3}, {@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, GL30.GL_COLOR_ATTACHMENT[1-15]
 	 */
 	public static void glNamedFramebufferDrawBuffers(int framebuffer, int n, ByteBuffer bufs) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(bufs, n << 2);
 		nglNamedFramebufferDrawBuffers(framebuffer, n, memAddress(bufs));
 	}
@@ -1204,7 +1204,7 @@ public class ARBDirectStateAccess {
 	 * @param attachments    the address of an array identifying the attachments to be invalidated
 	 */
 	public static void glInvalidateNamedFramebufferData(int framebuffer, int numAttachments, ByteBuffer attachments) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(attachments, numAttachments << 2);
 		nglInvalidateNamedFramebufferData(framebuffer, numAttachments, memAddress(attachments));
 	}
@@ -1242,7 +1242,7 @@ public class ARBDirectStateAccess {
 	 * @param height         the height of the region to be invalidated
 	 */
 	public static void glInvalidateNamedFramebufferSubData(int framebuffer, int numAttachments, ByteBuffer attachments, int x, int y, int width, int height) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(attachments, numAttachments << 2);
 		nglInvalidateNamedFramebufferSubData(framebuffer, numAttachments, memAddress(attachments), x, y, width, height);
 	}
@@ -1278,14 +1278,14 @@ public class ARBDirectStateAccess {
 	 *                    single stencil value to clear the buffer to.
 	 */
 	public static void glClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nglClearNamedFramebufferiv(framebuffer, buffer, drawbuffer, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glClearNamedFramebufferiv ClearNamedFramebufferiv} */
 	public static void glClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nglClearNamedFramebufferiv(framebuffer, buffer, drawbuffer, memAddress(value));
 	}
@@ -1308,14 +1308,14 @@ public class ARBDirectStateAccess {
 	 * @param value       a pointer to a four-element vector specifying R, G, B and A values to clear the buffer to
 	 */
 	public static void glClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 4 << 2);
 		nglClearNamedFramebufferuiv(framebuffer, buffer, drawbuffer, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glClearNamedFramebufferuiv ClearNamedFramebufferuiv} */
 	public static void glClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 4);
 		nglClearNamedFramebufferuiv(framebuffer, buffer, drawbuffer, memAddress(value));
 	}
@@ -1339,14 +1339,14 @@ public class ARBDirectStateAccess {
 	 *                    single depth value to clear the buffer to.
 	 */
 	public static void glClearNamedFramebufferfv(int framebuffer, int buffer, int drawbuffer, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nglClearNamedFramebufferfv(framebuffer, buffer, drawbuffer, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glClearNamedFramebufferfv ClearNamedFramebufferfv} */
 	public static void glClearNamedFramebufferfv(int framebuffer, int buffer, int drawbuffer, FloatBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nglClearNamedFramebufferfv(framebuffer, buffer, drawbuffer, memAddress(value));
 	}
@@ -1419,14 +1419,14 @@ public class ARBDirectStateAccess {
 	 * @param params      a variable to receive the value of the parameter named {@code pname}
 	 */
 	public static void glGetNamedFramebufferParameteriv(int framebuffer, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetNamedFramebufferParameteriv(framebuffer, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetNamedFramebufferParameteriv GetNamedFramebufferParameteriv} */
 	public static void glGetNamedFramebufferParameteriv(int framebuffer, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedFramebufferParameteriv(framebuffer, pname, memAddress(params));
 	}
@@ -1457,14 +1457,14 @@ public class ARBDirectStateAccess {
 	 * @param params      an array to receive the value of the queried parameter
 	 */
 	public static void glGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetNamedFramebufferAttachmentParameteriv(framebuffer, attachment, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetNamedFramebufferAttachmentParameteriv GetNamedFramebufferAttachmentParameteriv} */
 	public static void glGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedFramebufferAttachmentParameteriv(framebuffer, attachment, pname, memAddress(params));
 	}
@@ -1493,7 +1493,7 @@ public class ARBDirectStateAccess {
 	 * @param renderbuffers the buffer in which to store the created renderbuffer names
 	 */
 	public static void glCreateRenderbuffers(int n, ByteBuffer renderbuffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(renderbuffers, n << 2);
 		nglCreateRenderbuffers(n, memAddress(renderbuffers));
 	}
@@ -1559,14 +1559,14 @@ public class ARBDirectStateAccess {
 	 * @param params       an array to receive the value of the queried parameter
 	 */
 	public static void glGetNamedRenderbufferParameteriv(int renderbuffer, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetNamedRenderbufferParameteriv(renderbuffer, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetNamedRenderbufferParameteriv GetNamedRenderbufferParameteriv} */
 	public static void glGetNamedRenderbufferParameteriv(int renderbuffer, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedRenderbufferParameteriv(renderbuffer, pname, memAddress(params));
 	}
@@ -1596,7 +1596,7 @@ public class ARBDirectStateAccess {
 	 * @param textures the buffer in which to store the created texture names
 	 */
 	public static void glCreateTextures(int target, int n, ByteBuffer textures) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(textures, n << 2);
 		nglCreateTextures(target, n, memAddress(textures));
 	}
@@ -1750,42 +1750,42 @@ public class ARBDirectStateAccess {
 	 * @param pixels  the pixel data
 	 */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
 	/** Buffer object offset version of: {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, pixelsOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, ShortBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, IntBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, FloatBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
 	/** DoubleBuffer version of: {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, DoubleBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, memAddress(pixels));
 	}
@@ -1813,42 +1813,42 @@ public class ARBDirectStateAccess {
 	 * @param pixels  the pixel data
 	 */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
 	/** Buffer object offset version of: {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, pixelsOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, ShortBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, IntBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, FloatBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
 	/** DoubleBuffer version of: {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, DoubleBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
@@ -1878,42 +1878,42 @@ public class ARBDirectStateAccess {
 	 * @param pixels  the pixel data
 	 */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
 	/** Buffer object offset version of: {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixelsOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, FloatBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
 	/** DoubleBuffer version of: {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, DoubleBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
@@ -1939,7 +1939,7 @@ public class ARBDirectStateAccess {
 	 * @param data      a pointer to the compressed image data
 	 */
 	public static void glCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int imageSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
@@ -1948,14 +1948,14 @@ public class ARBDirectStateAccess {
 
 	/** Buffer object offset version of: {@link #glCompressedTextureSubImage1D CompressedTextureSubImage1D} */
 	public static void glCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int imageSize, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTextureSubImage1D(texture, level, xoffset, width, format, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTextureSubImage1D CompressedTextureSubImage1D} */
 	public static void glCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTextureSubImage1D(texture, level, xoffset, width, format, data.remaining(), memAddress(data));
 	}
@@ -1983,7 +1983,7 @@ public class ARBDirectStateAccess {
 	 * @param data      a pointer to the compressed image data
 	 */
 	public static void glCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
@@ -1992,14 +1992,14 @@ public class ARBDirectStateAccess {
 
 	/** Buffer object offset version of: {@link #glCompressedTextureSubImage2D CompressedTextureSubImage2D} */
 	public static void glCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTextureSubImage2D CompressedTextureSubImage2D} */
 	public static void glCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, data.remaining(), memAddress(data));
 	}
@@ -2029,7 +2029,7 @@ public class ARBDirectStateAccess {
 	 * @param data      a pointer to the compressed image data
 	 */
 	public static void glCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
@@ -2038,14 +2038,14 @@ public class ARBDirectStateAccess {
 
 	/** Buffer object offset version of: {@link #glCompressedTextureSubImage3D CompressedTextureSubImage3D} */
 	public static void glCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTextureSubImage3D CompressedTextureSubImage3D} */
 	public static void glCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, data.remaining(), memAddress(data));
 	}
@@ -2137,14 +2137,14 @@ public class ARBDirectStateAccess {
 	 * @param params  the parameter value
 	 */
 	public static void glTextureParameterfv(int texture, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglTextureParameterfv(texture, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glTextureParameterfv TextureParameterfv} */
 	public static void glTextureParameterfv(int texture, int pname, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglTextureParameterfv(texture, pname, memAddress(params));
 	}
@@ -2180,14 +2180,14 @@ public class ARBDirectStateAccess {
 	 * @param params  the value of {@code pname}
 	 */
 	public static void glTextureParameterIiv(int texture, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglTextureParameterIiv(texture, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glTextureParameterIiv TextureParameterIiv} */
 	public static void glTextureParameterIiv(int texture, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglTextureParameterIiv(texture, pname, memAddress(params));
 	}
@@ -2216,14 +2216,14 @@ public class ARBDirectStateAccess {
 	 * @param params  the value of {@code pname}
 	 */
 	public static void glTextureParameterIuiv(int texture, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglTextureParameterIuiv(texture, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glTextureParameterIuiv TextureParameterIuiv} */
 	public static void glTextureParameterIuiv(int texture, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglTextureParameterIuiv(texture, pname, memAddress(params));
 	}
@@ -2252,14 +2252,14 @@ public class ARBDirectStateAccess {
 	 * @param params  the parameter value
 	 */
 	public static void glTextureParameteriv(int texture, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglTextureParameteriv(texture, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glTextureParameteriv TextureParameteriv} */
 	public static void glTextureParameteriv(int texture, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglTextureParameteriv(texture, pname, memAddress(params));
 	}
@@ -2313,7 +2313,7 @@ public class ARBDirectStateAccess {
 	 * @param pixels  the buffer in which to place the returned data
 	 */
 	public static void glGetTextureImage(int texture, int level, int format, int type, int bufSize, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(pixels, bufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -2322,42 +2322,42 @@ public class ARBDirectStateAccess {
 
 	/** Buffer object offset version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, int bufSize, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetTextureImage(texture, level, format, type, bufSize, pixelsOffset);
 	}
 
 	/** Alternative version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureImage(texture, level, format, type, pixels.remaining(), memAddress(pixels));
 	}
 
 	/** ShortBuffer version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, ShortBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureImage(texture, level, format, type, pixels.remaining() << 1, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, IntBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureImage(texture, level, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, FloatBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureImage(texture, level, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
 	/** DoubleBuffer version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, DoubleBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureImage(texture, level, format, type, pixels.remaining() << 3, memAddress(pixels));
 	}
@@ -2380,9 +2380,9 @@ public class ARBDirectStateAccess {
 	 * @param pixels  a buffer in which to return the compressed texture image
 	 */
 	public static void glGetCompressedTextureImage(int texture, int level, int bufSize, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(pixels, bufSize);
-			if ( LWJGLUtil.DEBUG )
+			if ( DEBUG )
 				checkBuffer(pixels, glGetTextureLevelParameteri(texture, level, GL13.GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -2391,15 +2391,15 @@ public class ARBDirectStateAccess {
 
 	/** Buffer object offset version of: {@link #glGetCompressedTextureImage GetCompressedTextureImage} */
 	public static void glGetCompressedTextureImage(int texture, int level, int bufSize, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetCompressedTextureImage(texture, level, bufSize, pixelsOffset);
 	}
 
 	/** Alternative version of: {@link #glGetCompressedTextureImage GetCompressedTextureImage} */
 	public static void glGetCompressedTextureImage(int texture, int level, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS ) {
-			if ( LWJGLUtil.DEBUG )
+		if ( CHECKS ) {
+			if ( DEBUG )
 				checkBuffer(pixels, glGetTextureLevelParameteri(texture, level, GL13.GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -2424,14 +2424,14 @@ public class ARBDirectStateAccess {
 	 * @param params  a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetTextureLevelParameterfv(int texture, int level, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureLevelParameterfv(texture, level, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTextureLevelParameterfv GetTextureLevelParameterfv} */
 	public static void glGetTextureLevelParameterfv(int texture, int level, int pname, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureLevelParameterfv(texture, level, pname, memAddress(params));
 	}
@@ -2462,14 +2462,14 @@ public class ARBDirectStateAccess {
 	 * @param params  a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetTextureLevelParameteriv(int texture, int level, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureLevelParameteriv(texture, level, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTextureLevelParameteriv GetTextureLevelParameteriv} */
 	public static void glGetTextureLevelParameteriv(int texture, int level, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureLevelParameteriv(texture, level, pname, memAddress(params));
 	}
@@ -2499,14 +2499,14 @@ public class ARBDirectStateAccess {
 	 * @param params  a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetTextureParameterfv(int texture, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureParameterfv(texture, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTextureParameterfv GetTextureParameterfv} */
 	public static void glGetTextureParameterfv(int texture, int pname, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureParameterfv(texture, pname, memAddress(params));
 	}
@@ -2536,14 +2536,14 @@ public class ARBDirectStateAccess {
 	 * @param params  returns the texture parameter value
 	 */
 	public static void glGetTextureParameterIiv(int texture, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureParameterIiv(texture, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTextureParameterIiv GetTextureParameterIiv} */
 	public static void glGetTextureParameterIiv(int texture, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureParameterIiv(texture, pname, memAddress(params));
 	}
@@ -2573,14 +2573,14 @@ public class ARBDirectStateAccess {
 	 * @param params  returns the texture parameter value
 	 */
 	public static void glGetTextureParameterIuiv(int texture, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureParameterIuiv(texture, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTextureParameterIuiv GetTextureParameterIuiv} */
 	public static void glGetTextureParameterIuiv(int texture, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureParameterIuiv(texture, pname, memAddress(params));
 	}
@@ -2610,14 +2610,14 @@ public class ARBDirectStateAccess {
 	 * @param params  a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetTextureParameteriv(int texture, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureParameteriv(texture, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTextureParameteriv GetTextureParameteriv} */
 	public static void glGetTextureParameteriv(int texture, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureParameteriv(texture, pname, memAddress(params));
 	}
@@ -2646,7 +2646,7 @@ public class ARBDirectStateAccess {
 	 * @param arrays the buffer in which to return the created vertex array object names
 	 */
 	public static void glCreateVertexArrays(int n, ByteBuffer arrays) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(arrays, n << 2);
 		nglCreateVertexArrays(n, memAddress(arrays));
 	}
@@ -2739,7 +2739,7 @@ public class ARBDirectStateAccess {
 	 * @param strides an array of stride values
 	 */
 	public static void glVertexArrayVertexBuffers(int vaobj, int first, int count, ByteBuffer buffers, ByteBuffer offsets, ByteBuffer strides) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( buffers != null ) checkBuffer(buffers, count << 2);
 			if ( offsets != null ) checkBuffer(offsets, count << POINTER_SHIFT);
 			if ( strides != null ) checkBuffer(strides, count << 2);
@@ -2749,7 +2749,7 @@ public class ARBDirectStateAccess {
 
 	/** Alternative version of: {@link #glVertexArrayVertexBuffers VertexArrayVertexBuffers} */
 	public static void glVertexArrayVertexBuffers(int vaobj, int first, IntBuffer buffers, PointerBuffer offsets, IntBuffer strides) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( offsets != null ) checkBuffer(offsets, buffers.remaining());
 			if ( strides != null ) checkBuffer(strides, buffers.remaining());
 		}
@@ -2851,14 +2851,14 @@ public class ARBDirectStateAccess {
 	 * @param param the buffer in which to return the parameter values
 	 */
 	public static void glGetVertexArrayiv(int vaobj, int pname, ByteBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1 << 2);
 		nglGetVertexArrayiv(vaobj, pname, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glGetVertexArrayiv GetVertexArrayiv} */
 	public static void glGetVertexArrayiv(int vaobj, int pname, IntBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1);
 		nglGetVertexArrayiv(vaobj, pname, memAddress(param));
 	}
@@ -2889,14 +2889,14 @@ public class ARBDirectStateAccess {
 	 * @param param the buffer in which to return the parameter values
 	 */
 	public static void glGetVertexArrayIndexediv(int vaobj, int index, int pname, ByteBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1 << 2);
 		nglGetVertexArrayIndexediv(vaobj, index, pname, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glGetVertexArrayIndexediv GetVertexArrayIndexediv} */
 	public static void glGetVertexArrayIndexediv(int vaobj, int index, int pname, IntBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1);
 		nglGetVertexArrayIndexediv(vaobj, index, pname, memAddress(param));
 	}
@@ -2927,14 +2927,14 @@ public class ARBDirectStateAccess {
 	 * @param param the buffer in which to return the parameter values
 	 */
 	public static void glGetVertexArrayIndexed64iv(int vaobj, int index, int pname, ByteBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1 << 3);
 		nglGetVertexArrayIndexed64iv(vaobj, index, pname, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glGetVertexArrayIndexed64iv GetVertexArrayIndexed64iv} */
 	public static void glGetVertexArrayIndexed64iv(int vaobj, int index, int pname, LongBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1);
 		nglGetVertexArrayIndexed64iv(vaobj, index, pname, memAddress(param));
 	}
@@ -2963,7 +2963,7 @@ public class ARBDirectStateAccess {
 	 * @param samplers the buffer in which to return the created sampler object names
 	 */
 	public static void glCreateSamplers(int n, ByteBuffer samplers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(samplers, n << 2);
 		nglCreateSamplers(n, memAddress(samplers));
 	}
@@ -2997,7 +2997,7 @@ public class ARBDirectStateAccess {
 	 * @param pipelines the buffer in which to return the created program pipeline names
 	 */
 	public static void glCreateProgramPipelines(int n, ByteBuffer pipelines) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(pipelines, n << 2);
 		nglCreateProgramPipelines(n, memAddress(pipelines));
 	}
@@ -3032,7 +3032,7 @@ public class ARBDirectStateAccess {
 	 * @param ids    the buffer in which to return the created query object names
 	 */
 	public static void glCreateQueries(int target, int n, ByteBuffer ids) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ids, n << 2);
 		nglCreateQueries(target, n, memAddress(ids));
 	}

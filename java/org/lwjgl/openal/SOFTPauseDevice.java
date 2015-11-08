@@ -5,7 +5,6 @@
  */
 package org.lwjgl.openal;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -73,7 +72,7 @@ public class SOFTPauseDevice {
 	 */
 	public static void alcDevicePauseSOFT(long device) {
 		long __functionAddress = getInstance().DevicePauseSOFT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(device);
 		invokePV(__functionAddress, device);
 	}
@@ -93,7 +92,7 @@ public class SOFTPauseDevice {
 	 */
 	public static void alcDeviceResumeSOFT(long device) {
 		long __functionAddress = getInstance().DeviceResumeSOFT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(device);
 		invokePV(__functionAddress, device);
 	}

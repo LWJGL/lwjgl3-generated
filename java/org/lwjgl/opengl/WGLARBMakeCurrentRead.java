@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -97,7 +96,7 @@ public class WGLARBMakeCurrentRead {
 	 */
 	public static int wglMakeContextCurrentARB(long drawDC, long readDC, long hglrc) {
 		long __functionAddress = getInstance().MakeContextCurrentARB;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(drawDC);
 			checkPointer(readDC);
 			checkPointer(hglrc);

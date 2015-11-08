@@ -5,7 +5,6 @@
  */
 package org.lwjgl.system.libc;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -133,7 +132,7 @@ public class Errno {
 	/** String was truncated */
 	public static final int STRUNCATE = 0x50;
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected Errno() {

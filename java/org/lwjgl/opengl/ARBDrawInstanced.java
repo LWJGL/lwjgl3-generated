@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -109,7 +108,7 @@ public class ARBDrawInstanced {
 	 * @param primcount the number of instances of the specified range of indices to be rendered
 	 */
 	public static void glDrawElementsInstancedARB(int mode, int count, int type, ByteBuffer indices, int primcount) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indices, count << GLChecks.typeToByteShift(type));
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
@@ -118,35 +117,35 @@ public class ARBDrawInstanced {
 
 	/** Buffer object offset version of: {@link #glDrawElementsInstancedARB DrawElementsInstancedARB} */
 	public static void glDrawElementsInstancedARB(int mode, int count, int type, long indicesOffset, int primcount) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElementsInstancedARB(mode, count, type, indicesOffset, primcount);
 	}
 
 	/** Alternative version of: {@link #glDrawElementsInstancedARB DrawElementsInstancedARB} */
 	public static void glDrawElementsInstancedARB(int mode, int type, ByteBuffer indices, int primcount) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedARB(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), primcount);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedARB DrawElementsInstancedARB} */
 	public static void glDrawElementsInstancedARB(int mode, ByteBuffer indices, int primcount) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedARB(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount);
 	}
 
 	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstancedARB DrawElementsInstancedARB} */
 	public static void glDrawElementsInstancedARB(int mode, ShortBuffer indices, int primcount) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedARB(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount);
 	}
 
 	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstancedARB DrawElementsInstancedARB} */
 	public static void glDrawElementsInstancedARB(int mode, IntBuffer indices, int primcount) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedARB(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), primcount);
 	}

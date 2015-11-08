@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/NV_viewport_array.txt">NV_viewport_array</a> extension.
@@ -31,7 +30,7 @@ import static org.lwjgl.system.APIUtil.*;
  * rectangle to be selected for each. This extension also exposes a separate scissor rectangle for each viewport. Finally, the viewport bounds are now
  * floating point quantities allowing fractional pixel offsets to be applied during the viewport transform.</p>
  * 
- * <p>Requires {@link GLES31 GLES E.S} and {@link EXTGeometryShader EXT_geometry_shader}.</p>
+ * <p>Requires {@link GLES31 GLES 3.1} and {@link EXTGeometryShader EXT_geometry_shader}.</p>
  */
 public class NVViewportArray {
 
@@ -113,7 +112,7 @@ public class NVViewportArray {
 	}
 
 	public static void glViewportArrayvNV(int first, int count, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, (count << 2) << 2);
 		nglViewportArrayvNV(first, count, memAddress(v));
 	}
@@ -140,14 +139,14 @@ public class NVViewportArray {
 	}
 
 	public static void glViewportIndexedfvNV(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglViewportIndexedfvNV(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glViewportIndexedfvNV ViewportIndexedfvNV} */
 	public static void glViewportIndexedfvNV(int index, FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglViewportIndexedfvNV(index, memAddress(v));
 	}
@@ -162,7 +161,7 @@ public class NVViewportArray {
 	}
 
 	public static void glScissorArrayvNV(int first, int count, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, (count << 2) << 2);
 		nglScissorArrayvNV(first, count, memAddress(v));
 	}
@@ -189,14 +188,14 @@ public class NVViewportArray {
 	}
 
 	public static void glScissorIndexedvNV(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglScissorIndexedvNV(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glScissorIndexedvNV ScissorIndexedvNV} */
 	public static void glScissorIndexedvNV(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglScissorIndexedvNV(index, memAddress(v));
 	}
@@ -211,7 +210,7 @@ public class NVViewportArray {
 	}
 
 	public static void glDepthRangeArrayfvNV(int first, int count, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, (count << 1) << 2);
 		nglDepthRangeArrayfvNV(first, count, memAddress(v));
 	}
@@ -238,14 +237,14 @@ public class NVViewportArray {
 	}
 
 	public static void glGetFloati_vNV(int target, int index, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1 << 2);
 		nglGetFloati_vNV(target, index, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetFloati_vNV GetFloati_vNV} */
 	public static void glGetFloati_vNV(int target, int index, FloatBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1);
 		nglGetFloati_vNV(target, index, memAddress(data));
 	}

@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * The core OpenGL 2.0 functionality.
@@ -560,7 +560,7 @@ Creates a program object.
 	 * @param length  an array of string lengths
 	 */
 	public static void glShaderSource(int shader, int count, ByteBuffer strings, ByteBuffer length) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(strings, count << POINTER_SHIFT);
 			if ( length != null ) checkBuffer(length, count << 2);
 		}
@@ -569,7 +569,7 @@ Creates a program object.
 
 	/** Alternative version of: {@link #glShaderSource ShaderSource} */
 	public static void glShaderSource(int shader, PointerBuffer strings, IntBuffer length) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, strings.remaining());
 		nglShaderSource(shader, strings.remaining(), memAddress(strings), memAddressSafe(length));
 	}
@@ -803,7 +803,7 @@ Creates a program object.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform1fv(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 2);
 		nglUniform1fv(location, count, memAddress(value));
 	}
@@ -832,7 +832,7 @@ Creates a program object.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform2fv(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglUniform2fv(location, count, memAddress(value));
 	}
@@ -861,7 +861,7 @@ Creates a program object.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform3fv(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 3) << 2);
 		nglUniform3fv(location, count, memAddress(value));
 	}
@@ -890,7 +890,7 @@ Creates a program object.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform4fv(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglUniform4fv(location, count, memAddress(value));
 	}
@@ -919,7 +919,7 @@ Creates a program object.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform1iv(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 2);
 		nglUniform1iv(location, count, memAddress(value));
 	}
@@ -948,7 +948,7 @@ Creates a program object.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform2iv(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglUniform2iv(location, count, memAddress(value));
 	}
@@ -977,7 +977,7 @@ Creates a program object.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform3iv(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 3) << 2);
 		nglUniform3iv(location, count, memAddress(value));
 	}
@@ -1006,7 +1006,7 @@ Creates a program object.
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform4iv(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglUniform4iv(location, count, memAddress(value));
 	}
@@ -1036,7 +1036,7 @@ Creates a program object.
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniformMatrix2fv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglUniformMatrix2fv(location, count, transpose, memAddress(value));
 	}
@@ -1066,7 +1066,7 @@ Creates a program object.
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniformMatrix3fv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 9) << 2);
 		nglUniformMatrix3fv(location, count, transpose, memAddress(value));
 	}
@@ -1096,7 +1096,7 @@ Creates a program object.
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniformMatrix4fv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 4) << 2);
 		nglUniformMatrix4fv(location, count, transpose, memAddress(value));
 	}
@@ -1125,14 +1125,14 @@ Creates a program object.
 	 * @param params the requested object parameter
 	 */
 	public static void glGetShaderiv(int shader, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetShaderiv(shader, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetShaderiv GetShaderiv} */
 	public static void glGetShaderiv(int shader, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetShaderiv(shader, pname, memAddress(params));
 	}
@@ -1164,14 +1164,14 @@ Creates a program object.
 	 * @param params  the requested object parameter
 	 */
 	public static void glGetProgramiv(int program, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetProgramiv(program, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetProgramiv GetProgramiv} */
 	public static void glGetProgramiv(int program, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetProgramiv(program, pname, memAddress(params));
 	}
@@ -1204,7 +1204,7 @@ Creates a program object.
 	 * @param infoLog   an array of characters that is used to return the information log
 	 */
 	public static void glGetShaderInfoLog(int shader, int maxLength, ByteBuffer length, ByteBuffer infoLog) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(infoLog, maxLength);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -1213,7 +1213,7 @@ Creates a program object.
 
 	/** Alternative version of: {@link #glGetShaderInfoLog GetShaderInfoLog} */
 	public static void glGetShaderInfoLog(int shader, IntBuffer length, ByteBuffer infoLog) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetShaderInfoLog(shader, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
 	}
@@ -1257,7 +1257,7 @@ Creates a program object.
 	 * @param infoLog   an array of characters that is used to return the information log
 	 */
 	public static void glGetProgramInfoLog(int program, int maxLength, ByteBuffer length, ByteBuffer infoLog) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(infoLog, maxLength);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -1266,7 +1266,7 @@ Creates a program object.
 
 	/** Alternative version of: {@link #glGetProgramInfoLog GetProgramInfoLog} */
 	public static void glGetProgramInfoLog(int program, IntBuffer length, ByteBuffer infoLog) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetProgramInfoLog(program, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
 	}
@@ -1310,7 +1310,7 @@ Creates a program object.
 	 * @param shaders  an array that is used to return the names of attached shader objects
 	 */
 	public static void glGetAttachedShaders(int program, int maxCount, ByteBuffer count, ByteBuffer shaders) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(shaders, maxCount << 2);
 			if ( count != null ) checkBuffer(count, 1 << 2);
 		}
@@ -1319,7 +1319,7 @@ Creates a program object.
 
 	/** Alternative version of: {@link #glGetAttachedShaders GetAttachedShaders} */
 	public static void glGetAttachedShaders(int program, IntBuffer count, IntBuffer shaders) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( count != null ) checkBuffer(count, 1);
 		nglGetAttachedShaders(program, shaders.remaining(), memAddressSafe(count), memAddress(shaders));
 	}
@@ -1363,7 +1363,7 @@ Creates a program object.
 	 * @param name    a null terminated string containing the name of the uniform variable whose location is to be queried
 	 */
 	public static int glGetUniformLocation(int program, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		return nglGetUniformLocation(program, memAddress(name));
 	}
@@ -1398,7 +1398,7 @@ Creates a program object.
 	 * @param name      a null terminated string containing the name of the uniform variable
 	 */
 	public static void glGetActiveUniform(int program, int index, int maxLength, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(name, maxLength);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 			checkBuffer(size, 1 << 2);
@@ -1409,7 +1409,7 @@ Creates a program object.
 
 	/** Alternative version of: {@link #glGetActiveUniform GetActiveUniform} */
 	public static void glGetActiveUniform(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( length != null ) checkBuffer(length, 1);
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
@@ -1419,7 +1419,7 @@ Creates a program object.
 
 	/** String return version of: {@link #glGetActiveUniform GetActiveUniform} */
 	public static String glGetActiveUniform(int program, int index, int maxLength, IntBuffer size, IntBuffer type) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
@@ -1433,7 +1433,7 @@ Creates a program object.
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniform GetActiveUniform} */
 	public static String glGetActiveUniform(int program, int index, IntBuffer size, IntBuffer type) {
 		int maxLength = glGetProgrami(program, GL_ACTIVE_UNIFORM_MAX_LENGTH);
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
@@ -1463,14 +1463,14 @@ Creates a program object.
 	 * @param params   the value of the specified uniform variable
 	 */
 	public static void glGetUniformfv(int program, int location, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetUniformfv(program, location, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetUniformfv GetUniformfv} */
 	public static void glGetUniformfv(int program, int location, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformfv(program, location, memAddress(params));
 	}
@@ -1502,14 +1502,14 @@ Creates a program object.
 	 * @param params   the value of the specified uniform variable
 	 */
 	public static void glGetUniformiv(int program, int location, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetUniformiv(program, location, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetUniformiv GetUniformiv} */
 	public static void glGetUniformiv(int program, int location, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformiv(program, location, memAddress(params));
 	}
@@ -1542,7 +1542,7 @@ Creates a program object.
 	 * @param source    an array of characters that is used to return the source code string
 	 */
 	public static void glGetShaderSource(int shader, int maxLength, ByteBuffer length, ByteBuffer source) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(source, maxLength);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -1551,7 +1551,7 @@ Creates a program object.
 
 	/** Alternative version of: {@link #glGetShaderSource GetShaderSource} */
 	public static void glGetShaderSource(int shader, IntBuffer length, ByteBuffer source) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetShaderSource(shader, source.remaining(), memAddressSafe(length), memAddress(source));
 	}
@@ -1809,14 +1809,14 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib1fv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 2);
 		nglVertexAttrib1fv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib1fv VertexAttrib1fv} */
 	public static void glVertexAttrib1fv(int index, FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglVertexAttrib1fv(index, memAddress(v));
 	}
@@ -1839,14 +1839,14 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib1sv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 1);
 		nglVertexAttrib1sv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib1sv VertexAttrib1sv} */
 	public static void glVertexAttrib1sv(int index, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglVertexAttrib1sv(index, memAddress(v));
 	}
@@ -1869,14 +1869,14 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib1dv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 3);
 		nglVertexAttrib1dv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib1dv VertexAttrib1dv} */
 	public static void glVertexAttrib1dv(int index, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglVertexAttrib1dv(index, memAddress(v));
 	}
@@ -1899,14 +1899,14 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib2fv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 2);
 		nglVertexAttrib2fv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib2fv VertexAttrib2fv} */
 	public static void glVertexAttrib2fv(int index, FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglVertexAttrib2fv(index, memAddress(v));
 	}
@@ -1929,14 +1929,14 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib2sv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 1);
 		nglVertexAttrib2sv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib2sv VertexAttrib2sv} */
 	public static void glVertexAttrib2sv(int index, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglVertexAttrib2sv(index, memAddress(v));
 	}
@@ -1959,14 +1959,14 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib2dv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 3);
 		nglVertexAttrib2dv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib2dv VertexAttrib2dv} */
 	public static void glVertexAttrib2dv(int index, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglVertexAttrib2dv(index, memAddress(v));
 	}
@@ -1989,14 +1989,14 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib3fv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglVertexAttrib3fv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib3fv VertexAttrib3fv} */
 	public static void glVertexAttrib3fv(int index, FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglVertexAttrib3fv(index, memAddress(v));
 	}
@@ -2019,14 +2019,14 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib3sv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 1);
 		nglVertexAttrib3sv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib3sv VertexAttrib3sv} */
 	public static void glVertexAttrib3sv(int index, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglVertexAttrib3sv(index, memAddress(v));
 	}
@@ -2049,14 +2049,14 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib3dv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglVertexAttrib3dv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib3dv VertexAttrib3dv} */
 	public static void glVertexAttrib3dv(int index, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglVertexAttrib3dv(index, memAddress(v));
 	}
@@ -2079,14 +2079,14 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4fv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttrib4fv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib4fv VertexAttrib4fv} */
 	public static void glVertexAttrib4fv(int index, FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4fv(index, memAddress(v));
 	}
@@ -2109,14 +2109,14 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4sv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglVertexAttrib4sv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib4sv VertexAttrib4sv} */
 	public static void glVertexAttrib4sv(int index, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4sv(index, memAddress(v));
 	}
@@ -2139,14 +2139,14 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4dv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 3);
 		nglVertexAttrib4dv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib4dv VertexAttrib4dv} */
 	public static void glVertexAttrib4dv(int index, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4dv(index, memAddress(v));
 	}
@@ -2169,14 +2169,14 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4iv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttrib4iv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib4iv VertexAttrib4iv} */
 	public static void glVertexAttrib4iv(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4iv(index, memAddress(v));
 	}
@@ -2199,7 +2199,7 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4bv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4bv(index, memAddress(v));
 	}
@@ -2222,7 +2222,7 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4ubv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4ubv(index, memAddress(v));
 	}
@@ -2245,14 +2245,14 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4usv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglVertexAttrib4usv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib4usv VertexAttrib4usv} */
 	public static void glVertexAttrib4usv(int index, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4usv(index, memAddress(v));
 	}
@@ -2275,14 +2275,14 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4uiv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttrib4uiv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib4uiv VertexAttrib4uiv} */
 	public static void glVertexAttrib4uiv(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4uiv(index, memAddress(v));
 	}
@@ -2305,7 +2305,7 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4Nbv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4Nbv(index, memAddress(v));
 	}
@@ -2328,14 +2328,14 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4Nsv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglVertexAttrib4Nsv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib4Nsv VertexAttrib4Nsv} */
 	public static void glVertexAttrib4Nsv(int index, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4Nsv(index, memAddress(v));
 	}
@@ -2358,14 +2358,14 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4Niv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttrib4Niv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib4Niv VertexAttrib4Niv} */
 	public static void glVertexAttrib4Niv(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4Niv(index, memAddress(v));
 	}
@@ -2388,7 +2388,7 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4Nubv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4Nubv(index, memAddress(v));
 	}
@@ -2411,14 +2411,14 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4Nusv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglVertexAttrib4Nusv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib4Nusv VertexAttrib4Nusv} */
 	public static void glVertexAttrib4Nusv(int index, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4Nusv(index, memAddress(v));
 	}
@@ -2441,14 +2441,14 @@ Creates a program object.
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4Nuiv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttrib4Nuiv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib4Nuiv VertexAttrib4Nuiv} */
 	public static void glVertexAttrib4Nuiv(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4Nuiv(index, memAddress(v));
 	}
@@ -2477,35 +2477,35 @@ Creates a program object.
 	 *                   currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
 	 */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
 	/** Buffer object offset version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointerOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglVertexAttribPointer(index, size, type, normalized, stride, pointerOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
 	/** IntBuffer version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, IntBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
 	/** FloatBuffer version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, FloatBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
 	}
@@ -2557,7 +2557,7 @@ Creates a program object.
 	 * @param name    a null terminated string containing the name of the vertex shader attribute variable to which {@code index} is to be bound
 	 */
 	public static void glBindAttribLocation(int program, int index, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		nglBindAttribLocation(program, index, memAddress(name));
 	}
@@ -2592,7 +2592,7 @@ Creates a program object.
 	 * @param name      a null terminated string containing the name of the attribute variable
 	 */
 	public static void glGetActiveAttrib(int program, int index, int maxLength, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(name, maxLength);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 			checkBuffer(size, 1 << 2);
@@ -2603,7 +2603,7 @@ Creates a program object.
 
 	/** Alternative version of: {@link #glGetActiveAttrib GetActiveAttrib} */
 	public static void glGetActiveAttrib(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( length != null ) checkBuffer(length, 1);
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
@@ -2613,7 +2613,7 @@ Creates a program object.
 
 	/** String return version of: {@link #glGetActiveAttrib GetActiveAttrib} */
 	public static String glGetActiveAttrib(int program, int index, int maxLength, IntBuffer size, IntBuffer type) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
@@ -2627,7 +2627,7 @@ Creates a program object.
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveAttrib GetActiveAttrib} */
 	public static String glGetActiveAttrib(int program, int index, IntBuffer size, IntBuffer type) {
 		int maxLength = glGetProgrami(program, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH);
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
@@ -2656,7 +2656,7 @@ Creates a program object.
 	 * @param name    a null terminated string containing the name of the attribute variable whose location is to be queried
 	 */
 	public static int glGetAttribLocation(int program, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		return nglGetAttribLocation(program, memAddress(name));
 	}
@@ -2687,14 +2687,14 @@ Creates a program object.
 	 * @param params returns the requested data
 	 */
 	public static void glGetVertexAttribiv(int index, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetVertexAttribiv(index, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetVertexAttribiv GetVertexAttribiv} */
 	public static void glGetVertexAttribiv(int index, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetVertexAttribiv(index, pname, memAddress(params));
 	}
@@ -2726,14 +2726,14 @@ Creates a program object.
 	 * @param params returns the requested data
 	 */
 	public static void glGetVertexAttribfv(int index, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglGetVertexAttribfv(index, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetVertexAttribfv GetVertexAttribfv} */
 	public static void glGetVertexAttribfv(int index, int pname, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglGetVertexAttribfv(index, pname, memAddress(params));
 	}
@@ -2757,14 +2757,14 @@ Creates a program object.
 	 * @param params returns the requested data
 	 */
 	public static void glGetVertexAttribdv(int index, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 3);
 		nglGetVertexAttribdv(index, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetVertexAttribdv GetVertexAttribdv} */
 	public static void glGetVertexAttribdv(int index, int pname, DoubleBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglGetVertexAttribdv(index, pname, memAddress(params));
 	}
@@ -2788,14 +2788,14 @@ Creates a program object.
 	 * @param pointer the pointer value
 	 */
 	public static void glGetVertexAttribPointerv(int index, int pname, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(pointer, 1 << POINTER_SHIFT);
 		nglGetVertexAttribPointerv(index, pname, memAddress(pointer));
 	}
 
 	/** Alternative version of: {@link #glGetVertexAttribPointerv GetVertexAttribPointerv} */
 	public static void glGetVertexAttribPointerv(int index, int pname, PointerBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(pointer, 1);
 		nglGetVertexAttribPointerv(index, pname, memAddress(pointer));
 	}
@@ -2826,7 +2826,7 @@ Creates a program object.
 	 * @param bufs an array of symbolic constants specifying the buffers into which fragment colors or data values will be written. One of:<br>{@link GL11#GL_NONE NONE}, {@link GL11#GL_FRONT_LEFT FRONT_LEFT}, {@link GL11#GL_FRONT_RIGHT FRONT_RIGHT}, {@link GL11#GL_BACK_LEFT BACK_LEFT}, {@link GL11#GL_BACK_RIGHT BACK_RIGHT}, {@link GL11#GL_AUX0 AUX0}, {@link GL11#GL_AUX1 AUX1}, {@link GL11#GL_AUX2 AUX2}, {@link GL11#GL_AUX3 AUX3}, {@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, GL30.GL_COLOR_ATTACHMENT[1-15]
 	 */
 	public static void glDrawBuffers(int n, ByteBuffer bufs) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(bufs, n << 2);
 		nglDrawBuffers(n, memAddress(bufs));
 	}

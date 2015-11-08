@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/timer_query.txt">ARB_timer_query</a> extension.
@@ -116,14 +115,14 @@ public class ARBTimerQuery {
 	 * @param params the requested data
 	 */
 	public static void glGetQueryObjecti64v(int id, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetQueryObjecti64v(id, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
 	public static void glGetQueryObjecti64v(int id, int pname, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjecti64v(id, pname, memAddress(params));
 	}
@@ -153,14 +152,14 @@ public class ARBTimerQuery {
 	 * @param params the requested data
 	 */
 	public static void glGetQueryObjectui64v(int id, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetQueryObjectui64v(id, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
 	public static void glGetQueryObjectui64v(int id, int pname, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjectui64v(id, pname, memAddress(params));
 	}

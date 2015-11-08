@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -130,7 +129,7 @@ public class ARBMatrixPalette {
 	 * @param indices the matrix index values
 	 */
 	public static void glMatrixIndexuivARB(int size, ByteBuffer indices) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(indices, size << 2);
 		nglMatrixIndexuivARB(size, memAddress(indices));
 	}
@@ -156,7 +155,7 @@ public class ARBMatrixPalette {
 	 * @param indices the matrix index values
 	 */
 	public static void glMatrixIndexubvARB(int size, ByteBuffer indices) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(indices, size);
 		nglMatrixIndexubvARB(size, memAddress(indices));
 	}
@@ -182,7 +181,7 @@ public class ARBMatrixPalette {
 	 * @param indices the matrix index values
 	 */
 	public static void glMatrixIndexusvARB(int size, ByteBuffer indices) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(indices, size << 1);
 		nglMatrixIndexusvARB(size, memAddress(indices));
 	}
@@ -210,35 +209,35 @@ public class ARBMatrixPalette {
 	 * @param pointer the matrix index data
 	 */
 	public static void glMatrixIndexPointerARB(int size, int type, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglMatrixIndexPointerARB(size, type, stride, memAddress(pointer));
 	}
 
 	/** Buffer object offset version of: {@link #glMatrixIndexPointerARB MatrixIndexPointerARB} */
 	public static void glMatrixIndexPointerARB(int size, int type, int stride, long pointerOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglMatrixIndexPointerARB(size, type, stride, pointerOffset);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glMatrixIndexPointerARB MatrixIndexPointerARB} */
 	public static void glMatrixIndexPointerARB(int size, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglMatrixIndexPointerARB(size, GL11.GL_UNSIGNED_BYTE, stride, memAddress(pointer));
 	}
 
 	/** GL_UNSIGNED_SHORT version of: {@link #glMatrixIndexPointerARB MatrixIndexPointerARB} */
 	public static void glMatrixIndexPointerARB(int size, int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglMatrixIndexPointerARB(size, GL11.GL_UNSIGNED_SHORT, stride, memAddress(pointer));
 	}
 
 	/** GL_UNSIGNED_INT version of: {@link #glMatrixIndexPointerARB MatrixIndexPointerARB} */
 	public static void glMatrixIndexPointerARB(int size, int stride, IntBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglMatrixIndexPointerARB(size, GL11.GL_UNSIGNED_INT, stride, memAddress(pointer));
 	}

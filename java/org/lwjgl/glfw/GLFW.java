@@ -5,15 +5,15 @@
  */
 package org.lwjgl.glfw;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.glfw.org/docs/latest/">GLFW</a> library.
@@ -584,9 +584,23 @@ public class GLFW {
 
 	// --- [ Function Addresses ] ---
 
+	private static final SharedLibrary GLFW;
+
+	private static final GLFW instance;
+
+	static {
+		GLFW = Library.loadNative(Configuration.LIBRARY_NAME_GLFW.get(Pointer.BITS64 ? "glfw" : "glfw32"));
+		instance = new GLFW(GLFW);
+	}
+
+	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
+	public static SharedLibrary getLibrary() {
+		return GLFW;
+	}
+
 	/** Returns the {@link GLFW} instance. */
 	public static GLFW getInstance() {
-		return LibGLFW.__GLFW;
+		return instance;
 	}
 
 	// --- [ glfwInit ] ---
@@ -665,7 +679,7 @@ public class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static void glfwGetVersion(ByteBuffer major, ByteBuffer minor, ByteBuffer rev) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( major != null ) checkBuffer(major, 1 << 2);
 			if ( minor != null ) checkBuffer(minor, 1 << 2);
 			if ( rev != null ) checkBuffer(rev, 1 << 2);
@@ -675,7 +689,7 @@ public class GLFW {
 
 	/** Alternative version of: {@link #glfwGetVersion GetVersion} */
 	public static void glfwGetVersion(IntBuffer major, IntBuffer minor, IntBuffer rev) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( major != null ) checkBuffer(major, 1);
 			if ( minor != null ) checkBuffer(minor, 1);
 			if ( rev != null ) checkBuffer(rev, 1);
@@ -799,7 +813,7 @@ public class GLFW {
 	@JavadocExclude
 	public static void nglfwGetMonitorPos(long monitor, long xpos, long ypos) {
 		long __functionAddress = getInstance().GetMonitorPos;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(monitor);
 		invokePPPV(__functionAddress, monitor, xpos, ypos);
 	}
@@ -818,7 +832,7 @@ public class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static void glfwGetMonitorPos(long monitor, ByteBuffer xpos, ByteBuffer ypos) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( xpos != null ) checkBuffer(xpos, 1 << 2);
 			if ( ypos != null ) checkBuffer(ypos, 1 << 2);
 		}
@@ -827,7 +841,7 @@ public class GLFW {
 
 	/** Alternative version of: {@link #glfwGetMonitorPos GetMonitorPos} */
 	public static void glfwGetMonitorPos(long monitor, IntBuffer xpos, IntBuffer ypos) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( xpos != null ) checkBuffer(xpos, 1);
 			if ( ypos != null ) checkBuffer(ypos, 1);
 		}
@@ -840,7 +854,7 @@ public class GLFW {
 	@JavadocExclude
 	public static void nglfwGetMonitorPhysicalSize(long monitor, long widthMM, long heightMM) {
 		long __functionAddress = getInstance().GetMonitorPhysicalSize;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(monitor);
 		invokePPPV(__functionAddress, monitor, widthMM, heightMM);
 	}
@@ -867,7 +881,7 @@ public class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static void glfwGetMonitorPhysicalSize(long monitor, ByteBuffer widthMM, ByteBuffer heightMM) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( widthMM != null ) checkBuffer(widthMM, 1 << 2);
 			if ( heightMM != null ) checkBuffer(heightMM, 1 << 2);
 		}
@@ -876,7 +890,7 @@ public class GLFW {
 
 	/** Alternative version of: {@link #glfwGetMonitorPhysicalSize GetMonitorPhysicalSize} */
 	public static void glfwGetMonitorPhysicalSize(long monitor, IntBuffer widthMM, IntBuffer heightMM) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( widthMM != null ) checkBuffer(widthMM, 1);
 			if ( heightMM != null ) checkBuffer(heightMM, 1);
 		}
@@ -889,7 +903,7 @@ public class GLFW {
 	@JavadocExclude
 	public static long nglfwGetMonitorName(long monitor) {
 		long __functionAddress = getInstance().GetMonitorName;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(monitor);
 		return invokePP(__functionAddress, monitor);
 	}
@@ -939,7 +953,7 @@ public class GLFW {
 	@JavadocExclude
 	public static long nglfwGetVideoModes(long monitor, long count) {
 		long __functionAddress = getInstance().GetVideoModes;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(monitor);
 		return invokePPP(__functionAddress, monitor, count);
 	}
@@ -973,7 +987,7 @@ public class GLFW {
 	@JavadocExclude
 	public static long nglfwGetVideoMode(long monitor) {
 		long __functionAddress = getInstance().GetVideoMode;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(monitor);
 		return invokePP(__functionAddress, monitor);
 	}
@@ -1013,7 +1027,7 @@ public class GLFW {
 	 */
 	public static void glfwSetGamma(long monitor, float gamma) {
 		long __functionAddress = getInstance().SetGamma;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(monitor);
 		invokePFV(__functionAddress, monitor, gamma);
 	}
@@ -1024,7 +1038,7 @@ public class GLFW {
 	@JavadocExclude
 	public static long nglfwGetGammaRamp(long monitor) {
 		long __functionAddress = getInstance().GetGammaRamp;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(monitor);
 		return invokePP(__functionAddress, monitor);
 	}
@@ -1054,7 +1068,7 @@ public class GLFW {
 	@JavadocExclude
 	public static void nglfwSetGammaRamp(long monitor, long ramp) {
 		long __functionAddress = getInstance().SetGammaRamp;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(monitor);
 		invokePPV(__functionAddress, monitor, ramp);
 	}
@@ -1222,7 +1236,7 @@ public class GLFW {
 	 */
 	public static long glfwCreateWindow(int width, int height, ByteBuffer title, long monitor, long share) {
 		EventLoop.OffScreen.check();
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(title);
 		return nglfwCreateWindow(width, height, memAddress(title), monitor, share);
 	}
@@ -1255,7 +1269,7 @@ public class GLFW {
 	 */
 	public static void glfwDestroyWindow(long window) {
 		long __functionAddress = getInstance().DestroyWindow;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		invokePV(__functionAddress, window);
 	}
@@ -1275,7 +1289,7 @@ public class GLFW {
 	 */
 	public static int glfwWindowShouldClose(long window) {
 		long __functionAddress = getInstance().WindowShouldClose;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return invokePI(__functionAddress, window);
 	}
@@ -1295,7 +1309,7 @@ public class GLFW {
 	 */
 	public static void glfwSetWindowShouldClose(long window, int value) {
 		long __functionAddress = getInstance().SetWindowShouldClose;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		invokePIV(__functionAddress, window, value);
 	}
@@ -1306,7 +1320,7 @@ public class GLFW {
 	@JavadocExclude
 	public static void nglfwSetWindowTitle(long window, long title) {
 		long __functionAddress = getInstance().SetWindowTitle;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		invokePPV(__functionAddress, window, title);
 	}
@@ -1324,7 +1338,7 @@ public class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static void glfwSetWindowTitle(long window, ByteBuffer title) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(title);
 		nglfwSetWindowTitle(window, memAddress(title));
 	}
@@ -1342,7 +1356,7 @@ public class GLFW {
 	@JavadocExclude
 	public static void nglfwGetWindowPos(long window, long xpos, long ypos) {
 		long __functionAddress = getInstance().GetWindowPos;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		invokePPPV(__functionAddress, window, xpos, ypos);
 	}
@@ -1361,7 +1375,7 @@ public class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static void glfwGetWindowPos(long window, ByteBuffer xpos, ByteBuffer ypos) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( xpos != null ) checkBuffer(xpos, 1 << 2);
 			if ( ypos != null ) checkBuffer(ypos, 1 << 2);
 		}
@@ -1370,7 +1384,7 @@ public class GLFW {
 
 	/** Alternative version of: {@link #glfwGetWindowPos GetWindowPos} */
 	public static void glfwGetWindowPos(long window, IntBuffer xpos, IntBuffer ypos) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( xpos != null ) checkBuffer(xpos, 1);
 			if ( ypos != null ) checkBuffer(ypos, 1);
 		}
@@ -1398,7 +1412,7 @@ public class GLFW {
 	 */
 	public static void glfwSetWindowPos(long window, int xpos, int ypos) {
 		long __functionAddress = getInstance().SetWindowPos;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		invokePIIV(__functionAddress, window, xpos, ypos);
 	}
@@ -1409,7 +1423,7 @@ public class GLFW {
 	@JavadocExclude
 	public static void nglfwGetWindowSize(long window, long width, long height) {
 		long __functionAddress = getInstance().GetWindowSize;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		invokePPPV(__functionAddress, window, width, height);
 	}
@@ -1429,7 +1443,7 @@ public class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static void glfwGetWindowSize(long window, ByteBuffer width, ByteBuffer height) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( width != null ) checkBuffer(width, 1 << 2);
 			if ( height != null ) checkBuffer(height, 1 << 2);
 		}
@@ -1438,7 +1452,7 @@ public class GLFW {
 
 	/** Alternative version of: {@link #glfwGetWindowSize GetWindowSize} */
 	public static void glfwGetWindowSize(long window, IntBuffer width, IntBuffer height) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( width != null ) checkBuffer(width, 1);
 			if ( height != null ) checkBuffer(height, 1);
 		}
@@ -1465,7 +1479,7 @@ public class GLFW {
 	 */
 	public static void glfwSetWindowSizeLimits(long window, int minwidth, int minheight, int maxwidth, int maxheight) {
 		long __functionAddress = getInstance().SetWindowSizeLimits;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		invokePIIIIV(__functionAddress, window, minwidth, minheight, maxwidth, maxheight);
 	}
@@ -1493,7 +1507,7 @@ public class GLFW {
 	 */
 	public static void glfwSetWindowAspectRatio(long window, int numer, int denom) {
 		long __functionAddress = getInstance().SetWindowAspectRatio;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		invokePIIV(__functionAddress, window, numer, denom);
 	}
@@ -1518,7 +1532,7 @@ public class GLFW {
 	 */
 	public static void glfwSetWindowSize(long window, int width, int height) {
 		long __functionAddress = getInstance().SetWindowSize;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		invokePIIV(__functionAddress, window, width, height);
 	}
@@ -1529,7 +1543,7 @@ public class GLFW {
 	@JavadocExclude
 	public static void nglfwGetFramebufferSize(long window, long width, long height) {
 		long __functionAddress = getInstance().GetFramebufferSize;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		invokePPPV(__functionAddress, window, width, height);
 	}
@@ -1549,7 +1563,7 @@ public class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static void glfwGetFramebufferSize(long window, ByteBuffer width, ByteBuffer height) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( width != null ) checkBuffer(width, 1 << 2);
 			if ( height != null ) checkBuffer(height, 1 << 2);
 		}
@@ -1558,7 +1572,7 @@ public class GLFW {
 
 	/** Alternative version of: {@link #glfwGetFramebufferSize GetFramebufferSize} */
 	public static void glfwGetFramebufferSize(long window, IntBuffer width, IntBuffer height) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( width != null ) checkBuffer(width, 1);
 			if ( height != null ) checkBuffer(height, 1);
 		}
@@ -1571,7 +1585,7 @@ public class GLFW {
 	@JavadocExclude
 	public static void nglfwGetWindowFrameSize(long window, long left, long top, long right, long bottom) {
 		long __functionAddress = getInstance().GetWindowFrameSize;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		invokePPPPPV(__functionAddress, window, left, top, right, bottom);
 	}
@@ -1597,7 +1611,7 @@ public class GLFW {
 	 * @since GLFW 3.1
 	 */
 	public static void glfwGetWindowFrameSize(long window, ByteBuffer left, ByteBuffer top, ByteBuffer right, ByteBuffer bottom) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( left != null ) checkBuffer(left, 1 << 2);
 			if ( top != null ) checkBuffer(top, 1 << 2);
 			if ( right != null ) checkBuffer(right, 1 << 2);
@@ -1608,7 +1622,7 @@ public class GLFW {
 
 	/** Alternative version of: {@link #glfwGetWindowFrameSize GetWindowFrameSize} */
 	public static void glfwGetWindowFrameSize(long window, IntBuffer left, IntBuffer top, IntBuffer right, IntBuffer bottom) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( left != null ) checkBuffer(left, 1);
 			if ( top != null ) checkBuffer(top, 1);
 			if ( right != null ) checkBuffer(right, 1);
@@ -1632,7 +1646,7 @@ public class GLFW {
 	 */
 	public static void glfwIconifyWindow(long window) {
 		long __functionAddress = getInstance().IconifyWindow;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		invokePV(__functionAddress, window);
 	}
@@ -1652,7 +1666,7 @@ public class GLFW {
 	 */
 	public static void glfwRestoreWindow(long window) {
 		long __functionAddress = getInstance().RestoreWindow;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		invokePV(__functionAddress, window);
 	}
@@ -1671,7 +1685,7 @@ public class GLFW {
 	public static void glfwShowWindow(long window) {
 		long __functionAddress = getInstance().ShowWindow;
 		EventLoop.OnScreen.check();
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		invokePV(__functionAddress, window);
 	}
@@ -1689,7 +1703,7 @@ public class GLFW {
 	 */
 	public static void glfwHideWindow(long window) {
 		long __functionAddress = getInstance().HideWindow;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		invokePV(__functionAddress, window);
 	}
@@ -1709,7 +1723,7 @@ public class GLFW {
 	 */
 	public static long glfwGetWindowMonitor(long window) {
 		long __functionAddress = getInstance().GetWindowMonitor;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return invokePP(__functionAddress, window);
 	}
@@ -1735,7 +1749,7 @@ public class GLFW {
 	 */
 	public static int glfwGetWindowAttrib(long window, int attrib) {
 		long __functionAddress = getInstance().GetWindowAttrib;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return invokePII(__functionAddress, window, attrib);
 	}
@@ -1754,7 +1768,7 @@ public class GLFW {
 	 */
 	public static void glfwSetWindowUserPointer(long window, long pointer) {
 		long __functionAddress = getInstance().SetWindowUserPointer;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		invokePPV(__functionAddress, window, pointer);
 	}
@@ -1772,7 +1786,7 @@ public class GLFW {
 	 */
 	public static long glfwGetWindowUserPointer(long window) {
 		long __functionAddress = getInstance().GetWindowUserPointer;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return invokePP(__functionAddress, window);
 	}
@@ -1795,7 +1809,7 @@ public class GLFW {
 	 */
 	public static GLFWWindowPosCallback glfwSetWindowPosCallback(long window, GLFWWindowPosCallback cbfun) {
 		long __functionAddress = getInstance().SetWindowPosCallback;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return GLFWWindowPosCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
 	}
@@ -1818,7 +1832,7 @@ public class GLFW {
 	 */
 	public static GLFWWindowSizeCallback glfwSetWindowSizeCallback(long window, GLFWWindowSizeCallback cbfun) {
 		long __functionAddress = getInstance().SetWindowSizeCallback;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return GLFWWindowSizeCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
 	}
@@ -1849,7 +1863,7 @@ public class GLFW {
 	 */
 	public static GLFWWindowCloseCallback glfwSetWindowCloseCallback(long window, GLFWWindowCloseCallback cbfun) {
 		long __functionAddress = getInstance().SetWindowCloseCallback;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return GLFWWindowCloseCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
 	}
@@ -1875,7 +1889,7 @@ public class GLFW {
 	 */
 	public static GLFWWindowRefreshCallback glfwSetWindowRefreshCallback(long window, GLFWWindowRefreshCallback cbfun) {
 		long __functionAddress = getInstance().SetWindowRefreshCallback;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return GLFWWindowRefreshCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
 	}
@@ -1900,7 +1914,7 @@ public class GLFW {
 	 */
 	public static GLFWWindowFocusCallback glfwSetWindowFocusCallback(long window, GLFWWindowFocusCallback cbfun) {
 		long __functionAddress = getInstance().SetWindowFocusCallback;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return GLFWWindowFocusCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
 	}
@@ -1922,7 +1936,7 @@ public class GLFW {
 	 */
 	public static GLFWWindowIconifyCallback glfwSetWindowIconifyCallback(long window, GLFWWindowIconifyCallback cbfun) {
 		long __functionAddress = getInstance().SetWindowIconifyCallback;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return GLFWWindowIconifyCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
 	}
@@ -1944,7 +1958,7 @@ public class GLFW {
 	 */
 	public static GLFWFramebufferSizeCallback glfwSetFramebufferSizeCallback(long window, GLFWFramebufferSizeCallback cbfun) {
 		long __functionAddress = getInstance().SetFramebufferSizeCallback;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return GLFWFramebufferSizeCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
 	}
@@ -2045,7 +2059,7 @@ public class GLFW {
 	 */
 	public static int glfwGetInputMode(long window, int mode) {
 		long __functionAddress = getInstance().GetInputMode;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return invokePII(__functionAddress, window, mode);
 	}
@@ -2082,7 +2096,7 @@ public class GLFW {
 	 */
 	public static void glfwSetInputMode(long window, int mode, int value) {
 		long __functionAddress = getInstance().SetInputMode;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		invokePIIV(__functionAddress, window, mode, value);
 	}
@@ -2116,7 +2130,7 @@ public class GLFW {
 	 */
 	public static int glfwGetKey(long window, int key) {
 		long __functionAddress = getInstance().GetKey;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return invokePII(__functionAddress, window, key);
 	}
@@ -2141,7 +2155,7 @@ public class GLFW {
 	 */
 	public static int glfwGetMouseButton(long window, int button) {
 		long __functionAddress = getInstance().GetMouseButton;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return invokePII(__functionAddress, window, button);
 	}
@@ -2152,7 +2166,7 @@ public class GLFW {
 	@JavadocExclude
 	public static void nglfwGetCursorPos(long window, long xpos, long ypos) {
 		long __functionAddress = getInstance().GetCursorPos;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		invokePPPV(__functionAddress, window, xpos, ypos);
 	}
@@ -2177,7 +2191,7 @@ public class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static void glfwGetCursorPos(long window, ByteBuffer xpos, ByteBuffer ypos) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( xpos != null ) checkBuffer(xpos, 1 << 3);
 			if ( ypos != null ) checkBuffer(ypos, 1 << 3);
 		}
@@ -2186,7 +2200,7 @@ public class GLFW {
 
 	/** Alternative version of: {@link #glfwGetCursorPos GetCursorPos} */
 	public static void glfwGetCursorPos(long window, DoubleBuffer xpos, DoubleBuffer ypos) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( xpos != null ) checkBuffer(xpos, 1);
 			if ( ypos != null ) checkBuffer(ypos, 1);
 		}
@@ -2219,7 +2233,7 @@ public class GLFW {
 	 */
 	public static void glfwSetCursorPos(long window, double xpos, double ypos) {
 		long __functionAddress = getInstance().SetCursorPos;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		invokePDDV(__functionAddress, window, xpos, ypos);
 	}
@@ -2302,7 +2316,7 @@ public class GLFW {
 	 */
 	public static void glfwDestroyCursor(long cursor) {
 		long __functionAddress = getInstance().DestroyCursor;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(cursor);
 		invokePV(__functionAddress, cursor);
 	}
@@ -2324,7 +2338,7 @@ public class GLFW {
 	 */
 	public static void glfwSetCursor(long window, long cursor) {
 		long __functionAddress = getInstance().SetCursor;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		invokePPV(__functionAddress, window, cursor);
 	}
@@ -2357,7 +2371,7 @@ public class GLFW {
 	 */
 	public static GLFWKeyCallback glfwSetKeyCallback(long window, GLFWKeyCallback cbfun) {
 		long __functionAddress = getInstance().SetKeyCallback;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return GLFWKeyCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
 	}
@@ -2385,7 +2399,7 @@ public class GLFW {
 	 */
 	public static GLFWCharCallback glfwSetCharCallback(long window, GLFWCharCallback cbfun) {
 		long __functionAddress = getInstance().SetCharCallback;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return GLFWCharCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
 	}
@@ -2412,7 +2426,7 @@ public class GLFW {
 	 */
 	public static GLFWCharModsCallback glfwSetCharModsCallback(long window, GLFWCharModsCallback cbfun) {
 		long __functionAddress = getInstance().SetCharModsCallback;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return GLFWCharModsCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
 	}
@@ -2437,7 +2451,7 @@ public class GLFW {
 	 */
 	public static GLFWMouseButtonCallback glfwSetMouseButtonCallback(long window, GLFWMouseButtonCallback cbfun) {
 		long __functionAddress = getInstance().SetMouseButtonCallback;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return GLFWMouseButtonCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
 	}
@@ -2459,7 +2473,7 @@ public class GLFW {
 	 */
 	public static GLFWCursorPosCallback glfwSetCursorPosCallback(long window, GLFWCursorPosCallback cbfun) {
 		long __functionAddress = getInstance().SetCursorPosCallback;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return GLFWCursorPosCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
 	}
@@ -2480,7 +2494,7 @@ public class GLFW {
 	 */
 	public static GLFWCursorEnterCallback glfwSetCursorEnterCallback(long window, GLFWCursorEnterCallback cbfun) {
 		long __functionAddress = getInstance().SetCursorEnterCallback;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return GLFWCursorEnterCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
 	}
@@ -2503,7 +2517,7 @@ public class GLFW {
 	 */
 	public static GLFWScrollCallback glfwSetScrollCallback(long window, GLFWScrollCallback cbfun) {
 		long __functionAddress = getInstance().SetScrollCallback;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return GLFWScrollCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
 	}
@@ -2527,7 +2541,7 @@ public class GLFW {
 	 */
 	public static GLFWDropCallback glfwSetDropCallback(long window, GLFWDropCallback cbfun) {
 		long __functionAddress = getInstance().SetDropCallback;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return GLFWDropCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
 	}
@@ -2644,7 +2658,7 @@ public class GLFW {
 	@JavadocExclude
 	public static void nglfwSetClipboardString(long window, long string) {
 		long __functionAddress = getInstance().SetClipboardString;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		invokePPV(__functionAddress, window, string);
 	}
@@ -2662,7 +2676,7 @@ public class GLFW {
 	 * @since GLFW 3.0
 	 */
 	public static void glfwSetClipboardString(long window, ByteBuffer string) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(string);
 		nglfwSetClipboardString(window, memAddress(string));
 	}
@@ -2680,7 +2694,7 @@ public class GLFW {
 	@JavadocExclude
 	public static long nglfwGetClipboardString(long window) {
 		long __functionAddress = getInstance().GetClipboardString;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return invokePP(__functionAddress, window);
 	}
@@ -2800,7 +2814,7 @@ public class GLFW {
 	 */
 	public static void glfwSwapBuffers(long window) {
 		long __functionAddress = getInstance().SwapBuffers;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		invokePV(__functionAddress, window);
 	}
@@ -2863,7 +2877,7 @@ public class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static int glfwExtensionSupported(ByteBuffer extension) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(extension);
 		return nglfwExtensionSupported(memAddress(extension));
 	}
@@ -2906,7 +2920,7 @@ public class GLFW {
 	 * @since GLFW 1.0
 	 */
 	public static long glfwGetProcAddress(ByteBuffer procname) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(procname);
 		return nglfwGetProcAddress(memAddress(procname));
 	}

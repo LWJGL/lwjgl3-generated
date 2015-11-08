@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -76,7 +75,7 @@ public class GLXSGIXSwapBarrier {
 	 */
 	public static void glXBindSwapBarrierSGIX(long display, long drawable, int barrier) {
 		long __functionAddress = getInstance().BindSwapBarrierSGIX;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
@@ -89,7 +88,7 @@ public class GLXSGIXSwapBarrier {
 	@JavadocExclude
 	public static int nglXQueryMaxSwapBarriersSGIX(long display, int screen, long max) {
 		long __functionAddress = getInstance().QueryMaxSwapBarriersSGIX;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(display);
 		return callPIPI(__functionAddress, display, screen, max);
 	}
@@ -102,14 +101,14 @@ public class GLXSGIXSwapBarrier {
 	 * @param max     returns the maximum number of barriers
 	 */
 	public static int glXQueryMaxSwapBarriersSGIX(long display, int screen, ByteBuffer max) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(max, 1 << 2);
 		return nglXQueryMaxSwapBarriersSGIX(display, screen, memAddress(max));
 	}
 
 	/** Alternative version of: {@link #glXQueryMaxSwapBarriersSGIX QueryMaxSwapBarriersSGIX} */
 	public static int glXQueryMaxSwapBarriersSGIX(long display, int screen, IntBuffer max) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(max, 1);
 		return nglXQueryMaxSwapBarriersSGIX(display, screen, memAddress(max));
 	}

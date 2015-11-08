@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -68,7 +67,7 @@ public class INTELFramebufferCMAA {
 	// --- [ glApplyFramebufferAttachmentCMAAINTEL ] ---
 
 	/**
-	 * Requests the post processing of current draw buffers pertaining to the framebuffer bound to the {@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER} target according to the
+	 * Requests the post processing of current draw buffers pertaining to the framebuffer bound to the {@link GLES30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER} target according to the
 	 * Conservative Morphological Anti-Aliasing algorithm.
 	 */
 	public static void glApplyFramebufferAttachmentCMAAINTEL() {

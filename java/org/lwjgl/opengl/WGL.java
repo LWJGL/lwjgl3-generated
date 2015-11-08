@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 import org.lwjgl.system.windows.*;
 
@@ -129,7 +128,7 @@ public class WGL {
 	 */
 	public static long wglCreateContext(long hdc) {
 		long __functionAddress = getInstance().CreateContext;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hdc);
 		return callPP(__functionAddress, hdc);
 	}
@@ -148,7 +147,7 @@ public class WGL {
 	 */
 	public static long wglCreateLayerContext(long hdc, int layerPlane) {
 		long __functionAddress = getInstance().CreateLayerContext;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hdc);
 		return callPIP(__functionAddress, hdc, layerPlane);
 	}
@@ -166,7 +165,7 @@ public class WGL {
 	 */
 	public static int wglCopyContext(long src, long dst, int mask) {
 		long __functionAddress = getInstance().CopyContext;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(src);
 			checkPointer(dst);
 		}
@@ -182,7 +181,7 @@ public class WGL {
 	 */
 	public static int wglDeleteContext(long context) {
 		long __functionAddress = getInstance().DeleteContext;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(context);
 		return callPI(__functionAddress, context);
 	}
@@ -219,7 +218,7 @@ public class WGL {
 	 *             corresponding function implemented by OpenGL.
 	 */
 	public static long wglGetProcAddress(ByteBuffer proc) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(proc);
 		return nwglGetProcAddress(memAddress(proc));
 	}
@@ -258,7 +257,7 @@ public class WGL {
 	 */
 	public static int wglShareLists(long context1, long context2) {
 		long __functionAddress = getInstance().ShareLists;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(context1);
 			checkPointer(context2);
 		}
@@ -280,7 +279,7 @@ public class WGL {
 	 */
 	public static int wglUseFontBitmaps(long hdc, int first, int count, int listBase) {
 		long __functionAddress = getInstance().UseFontBitmaps;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hdc);
 		return callPIIII(__functionAddress, hdc, first, count, listBase);
 	}
@@ -291,7 +290,7 @@ public class WGL {
 	@JavadocExclude
 	public static int nwglUseFontOutlines(long hdc, int first, int count, int listBase, float deviation, float extrusion, int format, long glyphMetrics) {
 		long __functionAddress = getInstance().UseFontOutlines;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hdc);
 		return callPIIIFFIPI(__functionAddress, hdc, first, count, listBase, deviation, extrusion, format, glyphMetrics);
 	}
@@ -323,7 +322,7 @@ public class WGL {
 	 *                     glyph metrics are returned.
 	 */
 	public static int wglUseFontOutlines(long hdc, int first, int count, int listBase, float deviation, float extrusion, int format, GLYPHMETRICSFLOAT.Buffer glyphMetrics) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( glyphMetrics != null ) checkBuffer(glyphMetrics, count);
 		return nwglUseFontOutlines(hdc, first, count, listBase, deviation, extrusion, format, glyphMetrics == null ? NULL : glyphMetrics.address());
 	}

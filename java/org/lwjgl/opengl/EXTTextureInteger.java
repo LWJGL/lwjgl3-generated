@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/texture_integer.txt">EXT_texture_integer</a> extension.
@@ -180,14 +179,14 @@ public class EXTTextureInteger {
 	}
 
 	public static void glTexParameterIivEXT(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglTexParameterIivEXT(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glTexParameterIivEXT TexParameterIivEXT} */
 	public static void glTexParameterIivEXT(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglTexParameterIivEXT(target, pname, memAddress(params));
 	}
@@ -209,14 +208,14 @@ public class EXTTextureInteger {
 	}
 
 	public static void glTexParameterIuivEXT(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglTexParameterIuivEXT(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
 	public static void glTexParameterIuivEXT(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglTexParameterIuivEXT(target, pname, memAddress(params));
 	}
@@ -238,14 +237,14 @@ public class EXTTextureInteger {
 	}
 
 	public static void glGetTexParameterIivEXT(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTexParameterIivEXT(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
 	public static void glGetTexParameterIivEXT(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterIivEXT(target, pname, memAddress(params));
 	}
@@ -268,14 +267,14 @@ public class EXTTextureInteger {
 	}
 
 	public static void glGetTexParameterIuivEXT(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTexParameterIuivEXT(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
 	public static void glGetTexParameterIuivEXT(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterIuivEXT(target, pname, memAddress(params));
 	}

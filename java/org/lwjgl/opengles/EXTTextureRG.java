@@ -20,7 +20,7 @@ package org.lwjgl.opengles;
  * <p>This extension adds new base internal formats for one-component RED and two-component RG (red green) textures as well as sized RED and RG internal
  * formats for renderbuffers. The RED and RG texture formats can be used for both texturing and rendering into with framebuffer objects.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public final class EXTTextureRG {
 

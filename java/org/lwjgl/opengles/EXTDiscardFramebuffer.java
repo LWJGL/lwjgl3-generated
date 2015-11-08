@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_discard_framebuffer.txt">EXT_discard_framebuffer</a> extension.
@@ -32,7 +31,7 @@ import static org.lwjgl.system.APIUtil.*;
  * contents will no longer be needed. In this case an OpenGL ES implementation may also optimize away the storing back of framebuffer contents after
  * rendering the frame.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}</p>
+ * <p>Requires {@link GLES20 GLES 2.0}</p>
  */
 public class EXTDiscardFramebuffer {
 
@@ -89,7 +88,7 @@ public class EXTDiscardFramebuffer {
 	}
 
 	public static void glDiscardFramebufferEXT(int target, int numAttachments, ByteBuffer attachments) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(attachments, numAttachments << 2);
 		nglDiscardFramebufferEXT(target, numAttachments, memAddress(attachments));
 	}

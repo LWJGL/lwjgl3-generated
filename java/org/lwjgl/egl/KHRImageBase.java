@@ -5,10 +5,9 @@
  */
 package org.lwjgl.egl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -66,7 +65,7 @@ public class KHRImageBase {
 	@JavadocExclude
 	public static long neglCreateImageKHR(long dpy, long ctx, int target, long buffer, long attrib_list) {
 		long __functionAddress = getInstance().CreateImageKHR;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(ctx);
 			checkPointer(buffer);
@@ -75,14 +74,14 @@ public class KHRImageBase {
 	}
 
 	public static long eglCreateImageKHR(long dpy, long ctx, int target, long buffer, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
 		return neglCreateImageKHR(dpy, ctx, target, buffer, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #eglCreateImageKHR CreateImageKHR} */
 	public static long eglCreateImageKHR(long dpy, long ctx, int target, long buffer, IntBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
 		return neglCreateImageKHR(dpy, ctx, target, buffer, memAddressSafe(attrib_list));
 	}
@@ -91,7 +90,7 @@ public class KHRImageBase {
 
 	public static boolean eglDestroyImageKHR(long dpy, long image) {
 		long __functionAddress = getInstance().DestroyImageKHR;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(image);
 		}

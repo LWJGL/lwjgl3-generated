@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -29,7 +28,7 @@ import static org.lwjgl.system.JNI.*;
  * the conditional query test on a region-by-region basis without checking the query results from other regions. Such a mode is useful for cases like
  * split-frame SLI, where a frame is divided between multiple GPUs, each of which has its own occlusion query hardware.</p>
  * 
- * <p>Requires {@link GLES30 GLES E.S} or {@link EXTOcclusionQueryBoolean EXT_occlusion_query_boolean}.</p>
+ * <p>Requires {@link GLES30 GLES 3.0} or {@link EXTOcclusionQueryBoolean EXT_occlusion_query_boolean}.</p>
  */
 public class NVConditionalRender {
 

@@ -91,7 +91,7 @@ public class OVRTextureHeader extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public OVRTextureHeader set(OVRTextureHeader src) {
 		return nset(address());
@@ -99,7 +99,7 @@ public class OVRTextureHeader extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public OVRTextureHeader set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}

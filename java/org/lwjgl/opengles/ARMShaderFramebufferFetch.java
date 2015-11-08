@@ -16,7 +16,7 @@ package org.lwjgl.opengles;
  * <p>Reading framebuffer data as input in combination with multiple render targets (MRT) may not be supported by all implementations. This extension allows
  * applications to query for this capability.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public final class ARMShaderFramebufferFetch {
 

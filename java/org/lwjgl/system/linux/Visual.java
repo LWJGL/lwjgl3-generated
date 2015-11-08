@@ -117,7 +117,7 @@ public class Visual extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public Visual set(Visual src) {
 		return nset(address());
@@ -125,7 +125,7 @@ public class Visual extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public Visual set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}

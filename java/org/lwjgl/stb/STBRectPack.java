@@ -5,10 +5,9 @@
  */
 package org.lwjgl.stb;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -29,7 +28,7 @@ public class STBRectPack {
 		STBRP_HEURISTIC_Skyline_BL_sortHeight = STBRP_HEURISTIC_Skyline_default,
 		STBRP_HEURISTIC_Skyline_BF_sortHeight = 0x1;
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected STBRectPack() {
@@ -62,7 +61,7 @@ public class STBRectPack {
 	 * @param num_rects the number of structs in {@code rects}
 	 */
 	public static void stbrp_pack_rects(STBRPContext context, STBRPRect.Buffer rects, int num_rects) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(rects, num_rects);
 		nstbrp_pack_rects(context.address(), rects.address(), num_rects);
 	}
@@ -104,7 +103,7 @@ public class STBRectPack {
 	 * @param num_nodes the number of structs in {@code nodes}
 	 */
 	public static void stbrp_init_target(STBRPContext context, int width, int height, STBRPNode.Buffer nodes, int num_nodes) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(nodes, num_nodes);
 		nstbrp_init_target(context.address(), width, height, nodes.address(), num_nodes);
 	}

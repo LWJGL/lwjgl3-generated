@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 import org.lwjgl.system.windows.*;
 import org.lwjgl.system.linux.*;
@@ -446,7 +445,7 @@ public class ARBFramebufferObject {
 	 * @param renderbuffers an array containing {@code n} renderbuffer objects to be deleted
 	 */
 	public static void glDeleteRenderbuffers(int n, ByteBuffer renderbuffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(renderbuffers, n << 2);
 		nglDeleteRenderbuffers(n, memAddress(renderbuffers));
 	}
@@ -479,7 +478,7 @@ public class ARBFramebufferObject {
 	 * @param renderbuffers a buffer in which the generated renderbuffer object names are stored
 	 */
 	public static void glGenRenderbuffers(int n, ByteBuffer renderbuffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(renderbuffers, n << 2);
 		nglGenRenderbuffers(n, memAddress(renderbuffers));
 	}
@@ -547,14 +546,14 @@ public class ARBFramebufferObject {
 	 * @param params an array to receive the value of the queried parameter
 	 */
 	public static void glGetRenderbufferParameteriv(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetRenderbufferParameteriv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
 	public static void glGetRenderbufferParameteriv(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetRenderbufferParameteriv(target, pname, memAddress(params));
 	}
@@ -608,7 +607,7 @@ public class ARBFramebufferObject {
 	 * @param framebuffers an array containing {@code n} framebuffer objects to be deleted
 	 */
 	public static void glDeleteFramebuffers(int n, ByteBuffer framebuffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(framebuffers, n << 2);
 		nglDeleteFramebuffers(n, memAddress(framebuffers));
 	}
@@ -641,7 +640,7 @@ public class ARBFramebufferObject {
 	 * @param framebuffers a buffer in which the generated framebuffer object names are stored
 	 */
 	public static void glGenFramebuffers(int n, ByteBuffer framebuffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(framebuffers, n << 2);
 		nglGenFramebuffers(n, memAddress(framebuffers));
 	}
@@ -769,14 +768,14 @@ public class ARBFramebufferObject {
 	 * @param params     an array to receive the value of the queried parameter
 	 */
 	public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
 	public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
 	}

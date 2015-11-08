@@ -16,7 +16,7 @@ package org.lwjgl.opengles;
  * 
  * <p>Finally, sized variant of sRGB, sLuminace, and sLuminance_alpha are provided for immutable textures defined using the EXT_texture_storage extension.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S} and {@link EXTSRGB EXT_sRGB}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0} and {@link EXTSRGB EXT_sRGB}.</p>
  */
 public final class NVSRGBFormats {
 

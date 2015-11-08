@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -93,7 +92,7 @@ public class WGLNVDelayBeforeSwap {
 	 */
 	public static int wglDelayBeforeSwapNV(long hDC, float seconds) {
 		long __functionAddress = getInstance().DelayBeforeSwapNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hDC);
 		return callPFI(__functionAddress, hDC, seconds);
 	}

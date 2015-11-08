@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/fence.txt">NV_fence</a> extension.
@@ -105,7 +104,7 @@ public class NVFence {
 	}
 
 	public static void glDeleteFencesNV(int n, ByteBuffer fences) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(fences, n << 2);
 		nglDeleteFencesNV(n, memAddress(fences));
 	}
@@ -132,7 +131,7 @@ public class NVFence {
 	}
 
 	public static void glGenFencesNV(int n, ByteBuffer fences) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(fences, n << 2);
 		nglGenFencesNV(n, memAddress(fences));
 	}
@@ -174,14 +173,14 @@ public class NVFence {
 	}
 
 	public static void glGetFenceivNV(int fence, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetFenceivNV(fence, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetFenceivNV GetFenceivNV} */
 	public static void glGetFenceivNV(int fence, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetFenceivNV(fence, pname, memAddress(params));
 	}

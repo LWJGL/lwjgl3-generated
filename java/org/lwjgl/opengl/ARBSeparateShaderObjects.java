@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/separate_shader_objects.txt">ARB_separate_shader_objects</a> extension.
@@ -324,7 +324,7 @@ public class ARBSeparateShaderObjects {
 	 * @param strings an array of pointers to source code strings from which to create the program object
 	 */
 	public static int glCreateShaderProgramv(int type, int count, ByteBuffer strings) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(strings, count << POINTER_SHIFT);
 		return nglCreateShaderProgramv(type, count, memAddress(strings));
 	}
@@ -384,7 +384,7 @@ public class ARBSeparateShaderObjects {
 	 * @param pipelines an array of names of program pipeline objects to delete
 	 */
 	public static void glDeleteProgramPipelines(int n, ByteBuffer pipelines) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(pipelines, n << 2);
 		nglDeleteProgramPipelines(n, memAddress(pipelines));
 	}
@@ -417,7 +417,7 @@ public class ARBSeparateShaderObjects {
 	 * @param pipelines an array of into which the reserved names will be written
 	 */
 	public static void glGenProgramPipelines(int n, ByteBuffer pipelines) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(pipelines, n << 2);
 		nglGenProgramPipelines(n, memAddress(pipelines));
 	}
@@ -478,14 +478,14 @@ public class ARBSeparateShaderObjects {
 	 * @param params   a variable into which will be written the value or values of {@code pname} for {@code pipeline}
 	 */
 	public static void glGetProgramPipelineiv(int pipeline, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetProgramPipelineiv(pipeline, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetProgramPipelineiv GetProgramPipelineiv} */
 	public static void glGetProgramPipelineiv(int pipeline, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetProgramPipelineiv(pipeline, pname, memAddress(params));
 	}
@@ -764,7 +764,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform1iv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 2);
 		nglProgramUniform1iv(program, location, count, memAddress(value));
 	}
@@ -792,7 +792,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform2iv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglProgramUniform2iv(program, location, count, memAddress(value));
 	}
@@ -820,7 +820,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform3iv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 9) << 2);
 		nglProgramUniform3iv(program, location, count, memAddress(value));
 	}
@@ -848,7 +848,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform4iv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniform4iv(program, location, count, memAddress(value));
 	}
@@ -876,7 +876,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform1uiv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 2);
 		nglProgramUniform1uiv(program, location, count, memAddress(value));
 	}
@@ -904,7 +904,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform2uiv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglProgramUniform2uiv(program, location, count, memAddress(value));
 	}
@@ -932,7 +932,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform3uiv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 9) << 2);
 		nglProgramUniform3uiv(program, location, count, memAddress(value));
 	}
@@ -960,7 +960,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform4uiv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniform4uiv(program, location, count, memAddress(value));
 	}
@@ -988,7 +988,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform1fv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 2);
 		nglProgramUniform1fv(program, location, count, memAddress(value));
 	}
@@ -1016,7 +1016,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform2fv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglProgramUniform2fv(program, location, count, memAddress(value));
 	}
@@ -1044,7 +1044,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform3fv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 9) << 2);
 		nglProgramUniform3fv(program, location, count, memAddress(value));
 	}
@@ -1072,7 +1072,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform4fv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniform4fv(program, location, count, memAddress(value));
 	}
@@ -1100,7 +1100,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform1dv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 3);
 		nglProgramUniform1dv(program, location, count, memAddress(value));
 	}
@@ -1128,7 +1128,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform2dv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 3);
 		nglProgramUniform2dv(program, location, count, memAddress(value));
 	}
@@ -1156,7 +1156,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform3dv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 9) << 3);
 		nglProgramUniform3dv(program, location, count, memAddress(value));
 	}
@@ -1184,7 +1184,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform4dv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglProgramUniform4dv(program, location, count, memAddress(value));
 	}
@@ -1213,7 +1213,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix2fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniformMatrix2fv(program, location, count, transpose, memAddress(value));
 	}
@@ -1242,7 +1242,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix3fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 9) << 2);
 		nglProgramUniformMatrix3fv(program, location, count, transpose, memAddress(value));
 	}
@@ -1271,7 +1271,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix4fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 4) << 2);
 		nglProgramUniformMatrix4fv(program, location, count, transpose, memAddress(value));
 	}
@@ -1300,7 +1300,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix2dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglProgramUniformMatrix2dv(program, location, count, transpose, memAddress(value));
 	}
@@ -1329,7 +1329,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix3dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 9) << 3);
 		nglProgramUniformMatrix3dv(program, location, count, transpose, memAddress(value));
 	}
@@ -1358,7 +1358,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix4dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 4) << 3);
 		nglProgramUniformMatrix4dv(program, location, count, transpose, memAddress(value));
 	}
@@ -1387,7 +1387,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix2x3fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 6) << 2);
 		nglProgramUniformMatrix2x3fv(program, location, count, transpose, memAddress(value));
 	}
@@ -1416,7 +1416,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix3x2fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 6) << 2);
 		nglProgramUniformMatrix3x2fv(program, location, count, transpose, memAddress(value));
 	}
@@ -1445,7 +1445,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix2x4fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 3) << 2);
 		nglProgramUniformMatrix2x4fv(program, location, count, transpose, memAddress(value));
 	}
@@ -1474,7 +1474,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix4x2fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 3) << 2);
 		nglProgramUniformMatrix4x2fv(program, location, count, transpose, memAddress(value));
 	}
@@ -1503,7 +1503,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix3x4fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 12) << 2);
 		nglProgramUniformMatrix3x4fv(program, location, count, transpose, memAddress(value));
 	}
@@ -1532,7 +1532,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix4x3fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 12) << 2);
 		nglProgramUniformMatrix4x3fv(program, location, count, transpose, memAddress(value));
 	}
@@ -1561,7 +1561,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix2x3dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 6) << 3);
 		nglProgramUniformMatrix2x3dv(program, location, count, transpose, memAddress(value));
 	}
@@ -1590,7 +1590,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix3x2dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 6) << 3);
 		nglProgramUniformMatrix3x2dv(program, location, count, transpose, memAddress(value));
 	}
@@ -1619,7 +1619,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix2x4dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 3) << 3);
 		nglProgramUniformMatrix2x4dv(program, location, count, transpose, memAddress(value));
 	}
@@ -1648,7 +1648,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix4x2dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 3) << 3);
 		nglProgramUniformMatrix4x2dv(program, location, count, transpose, memAddress(value));
 	}
@@ -1677,7 +1677,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix3x4dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 12) << 3);
 		nglProgramUniformMatrix3x4dv(program, location, count, transpose, memAddress(value));
 	}
@@ -1706,7 +1706,7 @@ public class ARBSeparateShaderObjects {
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix4x3dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 12) << 3);
 		nglProgramUniformMatrix4x3dv(program, location, count, transpose, memAddress(value));
 	}
@@ -1746,7 +1746,7 @@ public class ARBSeparateShaderObjects {
 	 * @param infoLog  an array of characters into which will be written the info log for {@code pipeline}
 	 */
 	public static void glGetProgramPipelineInfoLog(int pipeline, int bufSize, ByteBuffer length, ByteBuffer infoLog) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(infoLog, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -1755,7 +1755,7 @@ public class ARBSeparateShaderObjects {
 
 	/** Alternative version of: {@link #glGetProgramPipelineInfoLog GetProgramPipelineInfoLog} */
 	public static void glGetProgramPipelineInfoLog(int pipeline, IntBuffer length, ByteBuffer infoLog) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetProgramPipelineInfoLog(pipeline, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
 	}

@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * The core OpenGL 1.1 functionality.
@@ -1495,7 +1495,7 @@ public class GL11 {
 	 */
 	public static void glAccum(int op, float value) {
 		long __functionAddress = getInstance().Accum;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFV(__functionAddress, op, value);
 	}
@@ -1514,7 +1514,7 @@ public class GL11 {
 	 */
 	public static void glAlphaFunc(int func, float ref) {
 		long __functionAddress = getInstance().AlphaFunc;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFV(__functionAddress, func, ref);
 	}
@@ -1525,7 +1525,7 @@ public class GL11 {
 	@JavadocExclude
 	public static boolean nglAreTexturesResident(int n, long textures, long residences) {
 		long __functionAddress = getInstance().AreTexturesResident;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callIPPZ(__functionAddress, n, textures, residences);
 	}
@@ -1542,7 +1542,7 @@ public class GL11 {
 	 * @param residences returns the residences of each texture object
 	 */
 	public static boolean glAreTexturesResident(int n, ByteBuffer textures, ByteBuffer residences) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(textures, n << 2);
 			checkBuffer(residences, n);
 		}
@@ -1551,14 +1551,14 @@ public class GL11 {
 
 	/** Alternative version of: {@link #glAreTexturesResident AreTexturesResident} */
 	public static boolean glAreTexturesResident(IntBuffer textures, ByteBuffer residences) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(residences, textures.remaining());
 		return nglAreTexturesResident(textures.remaining(), memAddress(textures), memAddress(residences));
 	}
 
 	/** Single value version of: {@link #glAreTexturesResident AreTexturesResident} */
 	public static boolean glAreTexturesResident(int texture, ByteBuffer residences) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(residences, 1);
 		APIBuffer __buffer = apiBuffer();
 		int textures = __buffer.intParam(texture);
@@ -1590,7 +1590,7 @@ public class GL11 {
 	 */
 	public static void glBegin(int mode) {
 		long __functionAddress = getInstance().Begin;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, mode);
 	}
@@ -1620,7 +1620,7 @@ public class GL11 {
 	@JavadocExclude
 	public static void nglBitmap(int w, int h, float xOrig, float yOrig, float xInc, float yInc, long data) {
 		long __functionAddress = getInstance().Bitmap;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIFFFFPV(__functionAddress, w, h, xOrig, yOrig, xInc, yInc, data);
 	}
@@ -1640,14 +1640,14 @@ public class GL11 {
 	 * @param data  the buffer containing the bitmap data.
 	 */
 	public static void glBitmap(int w, int h, float xOrig, float yOrig, float xInc, float yInc, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglBitmap(w, h, xOrig, yOrig, xInc, yInc, memAddressSafe(data));
 	}
 
 	/** Buffer object offset version of: {@link #glBitmap Bitmap} */
 	public static void glBitmap(int w, int h, float xOrig, float yOrig, float xInc, float yInc, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglBitmap(w, h, xOrig, yOrig, xInc, yInc, dataOffset);
 	}
@@ -1678,7 +1678,7 @@ public class GL11 {
 	 */
 	public static void glCallList(int list) {
 		long __functionAddress = getInstance().CallList;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, list);
 	}
@@ -1689,7 +1689,7 @@ public class GL11 {
 	@JavadocExclude
 	public static void nglCallLists(int n, int type, long lists) {
 		long __functionAddress = getInstance().CallLists;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, n, type, lists);
 	}
@@ -1704,7 +1704,7 @@ public class GL11 {
 	 * @param lists an array of offsets. Each offset is added to the display list base to obtain the display list number.
 	 */
 	public static void glCallLists(int n, int type, ByteBuffer lists) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(lists, n * GLChecks.typeToBytes(type));
 		nglCallLists(n, type, memAddress(lists));
 	}
@@ -1758,7 +1758,7 @@ public class GL11 {
 	 */
 	public static void glClearAccum(float red, float green, float blue, float alpha) {
 		long __functionAddress = getInstance().ClearAccum;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFFV(__functionAddress, red, green, blue, alpha);
 	}
@@ -1808,7 +1808,7 @@ public class GL11 {
 	 */
 	public static void glClearIndex(float index) {
 		long __functionAddress = getInstance().ClearIndex;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFV(__functionAddress, index);
 	}
@@ -1870,7 +1870,7 @@ public class GL11 {
 	 */
 	public static void glColor3b(byte red, byte green, byte blue) {
 		long __functionAddress = getInstance().Color3b;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callBBBV(__functionAddress, red, green, blue);
 	}
@@ -1888,7 +1888,7 @@ public class GL11 {
 	 */
 	public static void glColor3s(short red, short green, short blue) {
 		long __functionAddress = getInstance().Color3s;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, red, green, blue);
 	}
@@ -1906,7 +1906,7 @@ public class GL11 {
 	 */
 	public static void glColor3i(int red, int green, int blue) {
 		long __functionAddress = getInstance().Color3i;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, red, green, blue);
 	}
@@ -1924,7 +1924,7 @@ public class GL11 {
 	 */
 	public static void glColor3f(float red, float green, float blue) {
 		long __functionAddress = getInstance().Color3f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFV(__functionAddress, red, green, blue);
 	}
@@ -1942,7 +1942,7 @@ public class GL11 {
 	 */
 	public static void glColor3d(double red, double green, double blue) {
 		long __functionAddress = getInstance().Color3d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDV(__functionAddress, red, green, blue);
 	}
@@ -1960,7 +1960,7 @@ public class GL11 {
 	 */
 	public static void glColor3ub(byte red, byte green, byte blue) {
 		long __functionAddress = getInstance().Color3ub;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callBBBV(__functionAddress, red, green, blue);
 	}
@@ -1978,7 +1978,7 @@ public class GL11 {
 	 */
 	public static void glColor3us(short red, short green, short blue) {
 		long __functionAddress = getInstance().Color3us;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, red, green, blue);
 	}
@@ -1996,7 +1996,7 @@ public class GL11 {
 	 */
 	public static void glColor3ui(int red, int green, int blue) {
 		long __functionAddress = getInstance().Color3ui;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, red, green, blue);
 	}
@@ -2007,7 +2007,7 @@ public class GL11 {
 	@JavadocExclude
 	public static void nglColor3bv(long v) {
 		long __functionAddress = getInstance().Color3bv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -2020,7 +2020,7 @@ public class GL11 {
 	 * @param v the color buffer
 	 */
 	public static void glColor3bv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglColor3bv(memAddress(v));
 	}
@@ -2031,7 +2031,7 @@ public class GL11 {
 	@JavadocExclude
 	public static void nglColor3sv(long v) {
 		long __functionAddress = getInstance().Color3sv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -2044,14 +2044,14 @@ public class GL11 {
 	 * @param v the color buffer
 	 */
 	public static void glColor3sv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 1);
 		nglColor3sv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glColor3sv Color3sv} */
 	public static void glColor3sv(ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglColor3sv(memAddress(v));
 	}
@@ -2062,7 +2062,7 @@ public class GL11 {
 	@JavadocExclude
 	public static void nglColor3iv(long v) {
 		long __functionAddress = getInstance().Color3iv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -2075,14 +2075,14 @@ public class GL11 {
 	 * @param v the color buffer
 	 */
 	public static void glColor3iv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglColor3iv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glColor3iv Color3iv} */
 	public static void glColor3iv(IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglColor3iv(memAddress(v));
 	}
@@ -2093,7 +2093,7 @@ public class GL11 {
 	@JavadocExclude
 	public static void nglColor3fv(long v) {
 		long __functionAddress = getInstance().Color3fv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -2106,14 +2106,14 @@ public class GL11 {
 	 * @param v the color buffer
 	 */
 	public static void glColor3fv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglColor3fv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glColor3fv Color3fv} */
 	public static void glColor3fv(FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglColor3fv(memAddress(v));
 	}
@@ -2124,7 +2124,7 @@ public class GL11 {
 	@JavadocExclude
 	public static void nglColor3dv(long v) {
 		long __functionAddress = getInstance().Color3dv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -2137,14 +2137,14 @@ public class GL11 {
 	 * @param v the color buffer
 	 */
 	public static void glColor3dv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglColor3dv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glColor3dv Color3dv} */
 	public static void glColor3dv(DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglColor3dv(memAddress(v));
 	}
@@ -2155,7 +2155,7 @@ public class GL11 {
 	@JavadocExclude
 	public static void nglColor3ubv(long v) {
 		long __functionAddress = getInstance().Color3ubv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -2168,7 +2168,7 @@ public class GL11 {
 	 * @param v the color buffer
 	 */
 	public static void glColor3ubv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglColor3ubv(memAddress(v));
 	}
@@ -2179,7 +2179,7 @@ public class GL11 {
 	@JavadocExclude
 	public static void nglColor3usv(long v) {
 		long __functionAddress = getInstance().Color3usv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -2192,14 +2192,14 @@ public class GL11 {
 	 * @param v the color buffer
 	 */
 	public static void glColor3usv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 1);
 		nglColor3usv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glColor3usv Color3usv} */
 	public static void glColor3usv(ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglColor3usv(memAddress(v));
 	}
@@ -2210,7 +2210,7 @@ public class GL11 {
 	@JavadocExclude
 	public static void nglColor3uiv(long v) {
 		long __functionAddress = getInstance().Color3uiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -2223,14 +2223,14 @@ public class GL11 {
 	 * @param v the color buffer
 	 */
 	public static void glColor3uiv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglColor3uiv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glColor3uiv Color3uiv} */
 	public static void glColor3uiv(IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglColor3uiv(memAddress(v));
 	}
@@ -2249,7 +2249,7 @@ public class GL11 {
 	 */
 	public static void glColor4b(byte red, byte green, byte blue, byte alpha) {
 		long __functionAddress = getInstance().Color4b;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callBBBBV(__functionAddress, red, green, blue, alpha);
 	}
@@ -2268,7 +2268,7 @@ public class GL11 {
 	 */
 	public static void glColor4s(short red, short green, short blue, short alpha) {
 		long __functionAddress = getInstance().Color4s;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSSV(__functionAddress, red, green, blue, alpha);
 	}
@@ -2287,7 +2287,7 @@ public class GL11 {
 	 */
 	public static void glColor4i(int red, int green, int blue, int alpha) {
 		long __functionAddress = getInstance().Color4i;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, red, green, blue, alpha);
 	}
@@ -2306,7 +2306,7 @@ public class GL11 {
 	 */
 	public static void glColor4f(float red, float green, float blue, float alpha) {
 		long __functionAddress = getInstance().Color4f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFFV(__functionAddress, red, green, blue, alpha);
 	}
@@ -2325,7 +2325,7 @@ public class GL11 {
 	 */
 	public static void glColor4d(double red, double green, double blue, double alpha) {
 		long __functionAddress = getInstance().Color4d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDDV(__functionAddress, red, green, blue, alpha);
 	}
@@ -2344,7 +2344,7 @@ public class GL11 {
 	 */
 	public static void glColor4ub(byte red, byte green, byte blue, byte alpha) {
 		long __functionAddress = getInstance().Color4ub;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callBBBBV(__functionAddress, red, green, blue, alpha);
 	}
@@ -2363,7 +2363,7 @@ public class GL11 {
 	 */
 	public static void glColor4us(short red, short green, short blue, short alpha) {
 		long __functionAddress = getInstance().Color4us;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSSV(__functionAddress, red, green, blue, alpha);
 	}
@@ -2382,7 +2382,7 @@ public class GL11 {
 	 */
 	public static void glColor4ui(int red, int green, int blue, int alpha) {
 		long __functionAddress = getInstance().Color4ui;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, red, green, blue, alpha);
 	}
@@ -2393,7 +2393,7 @@ public class GL11 {
 	@JavadocExclude
 	public static void nglColor4bv(long v) {
 		long __functionAddress = getInstance().Color4bv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -2406,7 +2406,7 @@ public class GL11 {
 	 * @param v the color buffer
 	 */
 	public static void glColor4bv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglColor4bv(memAddress(v));
 	}
@@ -2417,7 +2417,7 @@ public class GL11 {
 	@JavadocExclude
 	public static void nglColor4sv(long v) {
 		long __functionAddress = getInstance().Color4sv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -2430,14 +2430,14 @@ public class GL11 {
 	 * @param v the color buffer
 	 */
 	public static void glColor4sv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglColor4sv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glColor4sv Color4sv} */
 	public static void glColor4sv(ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglColor4sv(memAddress(v));
 	}
@@ -2448,7 +2448,7 @@ public class GL11 {
 	@JavadocExclude
 	public static void nglColor4iv(long v) {
 		long __functionAddress = getInstance().Color4iv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -2461,14 +2461,14 @@ public class GL11 {
 	 * @param v the color buffer
 	 */
 	public static void glColor4iv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglColor4iv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glColor4iv Color4iv} */
 	public static void glColor4iv(IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglColor4iv(memAddress(v));
 	}
@@ -2479,7 +2479,7 @@ public class GL11 {
 	@JavadocExclude
 	public static void nglColor4fv(long v) {
 		long __functionAddress = getInstance().Color4fv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -2492,14 +2492,14 @@ public class GL11 {
 	 * @param v the color buffer
 	 */
 	public static void glColor4fv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglColor4fv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glColor4fv Color4fv} */
 	public static void glColor4fv(FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglColor4fv(memAddress(v));
 	}
@@ -2510,7 +2510,7 @@ public class GL11 {
 	@JavadocExclude
 	public static void nglColor4dv(long v) {
 		long __functionAddress = getInstance().Color4dv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -2523,14 +2523,14 @@ public class GL11 {
 	 * @param v the color buffer
 	 */
 	public static void glColor4dv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 3);
 		nglColor4dv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glColor4dv Color4dv} */
 	public static void glColor4dv(DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglColor4dv(memAddress(v));
 	}
@@ -2541,7 +2541,7 @@ public class GL11 {
 	@JavadocExclude
 	public static void nglColor4ubv(long v) {
 		long __functionAddress = getInstance().Color4ubv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -2554,7 +2554,7 @@ public class GL11 {
 	 * @param v the color buffer
 	 */
 	public static void glColor4ubv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglColor4ubv(memAddress(v));
 	}
@@ -2565,7 +2565,7 @@ public class GL11 {
 	@JavadocExclude
 	public static void nglColor4usv(long v) {
 		long __functionAddress = getInstance().Color4usv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -2578,14 +2578,14 @@ public class GL11 {
 	 * @param v the color buffer
 	 */
 	public static void glColor4usv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglColor4usv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glColor4usv Color4usv} */
 	public static void glColor4usv(ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglColor4usv(memAddress(v));
 	}
@@ -2596,7 +2596,7 @@ public class GL11 {
 	@JavadocExclude
 	public static void nglColor4uiv(long v) {
 		long __functionAddress = getInstance().Color4uiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -2609,14 +2609,14 @@ public class GL11 {
 	 * @param v the color buffer
 	 */
 	public static void glColor4uiv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglColor4uiv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glColor4uiv Color4uiv} */
 	public static void glColor4uiv(IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglColor4uiv(memAddress(v));
 	}
@@ -2652,7 +2652,7 @@ public class GL11 {
 	 */
 	public static void glColorMaterial(int face, int mode) {
 		long __functionAddress = getInstance().ColorMaterial;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, face, mode);
 	}
@@ -2663,7 +2663,7 @@ public class GL11 {
 	@JavadocExclude
 	public static void nglColorPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().ColorPointer;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, size, type, stride, pointer);
 	}
@@ -2679,35 +2679,35 @@ public class GL11 {
 	 * @param pointer the color array data
 	 */
 	public static void glColorPointer(int size, int type, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglColorPointer(size, type, stride, memAddress(pointer));
 	}
 
 	/** Buffer object offset version of: {@link #glColorPointer ColorPointer} */
 	public static void glColorPointer(int size, int type, int stride, long pointerOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglColorPointer(size, type, stride, pointerOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glColorPointer ColorPointer} */
 	public static void glColorPointer(int size, int type, int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglColorPointer(size, type, stride, memAddress(pointer));
 	}
 
 	/** IntBuffer version of: {@link #glColorPointer ColorPointer} */
 	public static void glColorPointer(int size, int type, int stride, IntBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglColorPointer(size, type, stride, memAddress(pointer));
 	}
 
 	/** FloatBuffer version of: {@link #glColorPointer ColorPointer} */
 	public static void glColorPointer(int size, int type, int stride, FloatBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglColorPointer(size, type, stride, memAddress(pointer));
 	}
@@ -2759,7 +2759,7 @@ public class GL11 {
 	 */
 	public static void glDeleteLists(int list, int range) {
 		long __functionAddress = getInstance().DeleteLists;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, list, range);
 	}
@@ -2818,7 +2818,7 @@ public class GL11 {
 	 */
 	public static void glDisableClientState(int array) {
 		long __functionAddress = getInstance().DisableClientState;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, array);
 	}
@@ -2882,7 +2882,7 @@ public class GL11 {
 	 * @param indices the index values
 	 */
 	public static void glDrawElements(int mode, int count, int type, ByteBuffer indices) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indices, count << GLChecks.typeToByteShift(type));
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
@@ -2891,35 +2891,35 @@ public class GL11 {
 
 	/** Buffer object offset version of: {@link #glDrawElements DrawElements} */
 	public static void glDrawElements(int mode, int count, int type, long indicesOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElements(mode, count, type, indicesOffset);
 	}
 
 	/** Alternative version of: {@link #glDrawElements DrawElements} */
 	public static void glDrawElements(int mode, int type, ByteBuffer indices) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElements(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices));
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElements DrawElements} */
 	public static void glDrawElements(int mode, ByteBuffer indices) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElements(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices));
 	}
 
 	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElements DrawElements} */
 	public static void glDrawElements(int mode, ShortBuffer indices) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElements(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices));
 	}
 
 	/** GL_UNSIGNED_INT version of: {@link #glDrawElements DrawElements} */
 	public static void glDrawElements(int mode, IntBuffer indices) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElements(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices));
 	}
@@ -2930,7 +2930,7 @@ public class GL11 {
 	@JavadocExclude
 	public static void nglDrawPixels(int width, int height, int format, int type, long pixels) {
 		long __functionAddress = getInstance().DrawPixels;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, width, height, format, type, pixels);
 	}
@@ -2947,35 +2947,35 @@ public class GL11 {
 	 * @param pixels the pixel data
 	 */
 	public static void glDrawPixels(int width, int height, int format, int type, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglDrawPixels(width, height, format, type, memAddress(pixels));
 	}
 
 	/** Buffer object offset version of: {@link #glDrawPixels DrawPixels} */
 	public static void glDrawPixels(int width, int height, int format, int type, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglDrawPixels(width, height, format, type, pixelsOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glDrawPixels DrawPixels} */
 	public static void glDrawPixels(int width, int height, int format, int type, ShortBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglDrawPixels(width, height, format, type, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glDrawPixels DrawPixels} */
 	public static void glDrawPixels(int width, int height, int format, int type, IntBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglDrawPixels(width, height, format, type, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glDrawPixels DrawPixels} */
 	public static void glDrawPixels(int width, int height, int format, int type, FloatBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglDrawPixels(width, height, format, type, memAddress(pixels));
 	}
@@ -2997,7 +2997,7 @@ public class GL11 {
 	 */
 	public static void glEdgeFlag(boolean flag) {
 		long __functionAddress = getInstance().EdgeFlag;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callZV(__functionAddress, flag);
 	}
@@ -3008,7 +3008,7 @@ public class GL11 {
 	@JavadocExclude
 	public static void nglEdgeFlagv(long flag) {
 		long __functionAddress = getInstance().EdgeFlagv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, flag);
 	}
@@ -3021,7 +3021,7 @@ public class GL11 {
 	 * @param flag the edge flag buffer
 	 */
 	public static void glEdgeFlagv(ByteBuffer flag) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(flag, 1);
 		nglEdgeFlagv(memAddress(flag));
 	}
@@ -3032,7 +3032,7 @@ public class GL11 {
 	@JavadocExclude
 	public static void nglEdgeFlagPointer(int stride, long pointer) {
 		long __functionAddress = getInstance().EdgeFlagPointer;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, stride, pointer);
 	}
@@ -3046,14 +3046,14 @@ public class GL11 {
 	 * @param pointer the edge flag array data
 	 */
 	public static void glEdgeFlagPointer(int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglEdgeFlagPointer(stride, memAddress(pointer));
 	}
 
 	/** Buffer object offset version of: {@link #glEdgeFlagPointer EdgeFlagPointer} */
 	public static void glEdgeFlagPointer(int stride, long pointerOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglEdgeFlagPointer(stride, pointerOffset);
 	}
@@ -3069,7 +3069,7 @@ public class GL11 {
 	 */
 	public static void glEnableClientState(int array) {
 		long __functionAddress = getInstance().EnableClientState;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, array);
 	}
@@ -3083,7 +3083,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 */
 	public static void glEnd() {
 		long __functionAddress = getInstance().End;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
@@ -3099,7 +3099,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 */
 	public static void glEvalCoord1f(float u) {
 		long __functionAddress = getInstance().EvalCoord1f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFV(__functionAddress, u);
 	}
@@ -3110,7 +3110,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	@JavadocExclude
 	public static void nglEvalCoord1fv(long u) {
 		long __functionAddress = getInstance().EvalCoord1fv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, u);
 	}
@@ -3142,7 +3142,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 */
 	public static void glEvalCoord1d(double u) {
 		long __functionAddress = getInstance().EvalCoord1d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDV(__functionAddress, u);
 	}
@@ -3153,7 +3153,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	@JavadocExclude
 	public static void nglEvalCoord1dv(long u) {
 		long __functionAddress = getInstance().EvalCoord1dv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, u);
 	}
@@ -3186,7 +3186,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 */
 	public static void glEvalCoord2f(float u, float v) {
 		long __functionAddress = getInstance().EvalCoord2f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFV(__functionAddress, u, v);
 	}
@@ -3197,7 +3197,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	@JavadocExclude
 	public static void nglEvalCoord2fv(long u) {
 		long __functionAddress = getInstance().EvalCoord2fv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, u);
 	}
@@ -3230,7 +3230,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 */
 	public static void glEvalCoord2d(double u, double v) {
 		long __functionAddress = getInstance().EvalCoord2d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDV(__functionAddress, u, v);
 	}
@@ -3241,7 +3241,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	@JavadocExclude
 	public static void nglEvalCoord2dv(long u) {
 		long __functionAddress = getInstance().EvalCoord2dv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, u);
 	}
@@ -3275,7 +3275,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 */
 	public static void glEvalMesh1(int mode, int i1, int i2) {
 		long __functionAddress = getInstance().EvalMesh1;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, mode, i1, i2);
 	}
@@ -3295,7 +3295,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 */
 	public static void glEvalMesh2(int mode, int i1, int i2, int j1, int j2) {
 		long __functionAddress = getInstance().EvalMesh2;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, mode, i1, i2, j1, j2);
 	}
@@ -3311,7 +3311,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 */
 	public static void glEvalPoint1(int i) {
 		long __functionAddress = getInstance().EvalPoint1;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, i);
 	}
@@ -3328,7 +3328,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 */
 	public static void glEvalPoint2(int i, int j) {
 		long __functionAddress = getInstance().EvalPoint2;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, i, j);
 	}
@@ -3339,7 +3339,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	@JavadocExclude
 	public static void nglFeedbackBuffer(int size, int type, long buffer) {
 		long __functionAddress = getInstance().FeedbackBuffer;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, size, type, buffer);
 	}
@@ -3354,7 +3354,7 @@ Ends the definition of vertex attributes of a sequence of primitives to be trans
 	 * @param buffer an array of floating-point values into which feedback information will be placed
 	 */
 	public static void glFeedbackBuffer(int size, int type, ByteBuffer buffer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(buffer, size << 2);
 		nglFeedbackBuffer(size, type, memAddress(buffer));
 	}
@@ -3401,7 +3401,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glFogi(int pname, int param) {
 		long __functionAddress = getInstance().Fogi;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, pname, param);
 	}
@@ -3412,7 +3412,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglFogiv(int pname, long params) {
 		long __functionAddress = getInstance().Fogiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, pname, params);
 	}
@@ -3426,14 +3426,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param params the fog parameter buffer
 	 */
 	public static void glFogiv(int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglFogiv(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glFogiv Fogiv} */
 	public static void glFogiv(int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglFogiv(pname, memAddress(params));
 	}
@@ -3450,7 +3450,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glFogf(int pname, float param) {
 		long __functionAddress = getInstance().Fogf;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFV(__functionAddress, pname, param);
 	}
@@ -3461,7 +3461,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglFogfv(int pname, long params) {
 		long __functionAddress = getInstance().Fogfv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, pname, params);
 	}
@@ -3475,14 +3475,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param params the fog parameter buffer
 	 */
 	public static void glFogfv(int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglFogfv(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glFogfv Fogfv} */
 	public static void glFogfv(int pname, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglFogfv(pname, memAddress(params));
 	}
@@ -3517,7 +3517,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static int glGenLists(int s) {
 		long __functionAddress = getInstance().GenLists;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callII(__functionAddress, s);
 	}
@@ -3541,7 +3541,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param textures a scalar or buffer in which to place the returned texture names
 	 */
 	public static void glGenTextures(int n, ByteBuffer textures) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(textures, n << 2);
 		nglGenTextures(n, memAddress(textures));
 	}
@@ -3583,7 +3583,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param textures contains {@code n} names of texture objects to be deleted
 	 */
 	public static void glDeleteTextures(int n, ByteBuffer textures) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(textures, n << 2);
 		nglDeleteTextures(n, memAddress(textures));
 	}
@@ -3619,14 +3619,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param equation a buffer in which to place the returned values
 	 */
 	public static void glGetClipPlane(int plane, ByteBuffer equation) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(equation, 4 << 3);
 		nglGetClipPlane(plane, memAddress(equation));
 	}
 
 	/** Alternative version of: {@link #glGetClipPlane GetClipPlane} */
 	public static void glGetClipPlane(int plane, DoubleBuffer equation) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(equation, 4);
 		nglGetClipPlane(plane, memAddress(equation));
 	}
@@ -3653,7 +3653,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param params a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetBooleanv(int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetBooleanv(pname, memAddress(params));
 	}
@@ -3688,14 +3688,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param params a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetFloatv(int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetFloatv(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetFloatv GetFloatv} */
 	public static void glGetFloatv(int pname, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetFloatv(pname, memAddress(params));
 	}
@@ -3730,14 +3730,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param params a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetIntegerv(int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetIntegerv(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetIntegerv GetIntegerv} */
 	public static void glGetIntegerv(int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetIntegerv(pname, memAddress(params));
 	}
@@ -3772,14 +3772,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param params a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetDoublev(int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetDoublev(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetDoublev GetDoublev} */
 	public static void glGetDoublev(int pname, DoubleBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetDoublev(pname, memAddress(params));
 	}
@@ -3813,7 +3813,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetLightiv(int light, int pname, long data) {
 		long __functionAddress = getInstance().GetLightiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, light, pname, data);
 	}
@@ -3828,14 +3828,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param data  a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetLightiv(int light, int pname, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 4 << 2);
 		nglGetLightiv(light, pname, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetLightiv GetLightiv} */
 	public static void glGetLightiv(int light, int pname, IntBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 4);
 		nglGetLightiv(light, pname, memAddress(data));
 	}
@@ -3854,7 +3854,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetLightfv(int light, int pname, long data) {
 		long __functionAddress = getInstance().GetLightfv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, light, pname, data);
 	}
@@ -3869,14 +3869,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param data  a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetLightfv(int light, int pname, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 4 << 2);
 		nglGetLightfv(light, pname, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetLightfv GetLightfv} */
 	public static void glGetLightfv(int light, int pname, FloatBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 4);
 		nglGetLightfv(light, pname, memAddress(data));
 	}
@@ -3895,7 +3895,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetMapiv(int target, int query, long data) {
 		long __functionAddress = getInstance().GetMapiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, query, data);
 	}
@@ -3910,14 +3910,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param data   a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetMapiv(int target, int query, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 4 << 2);
 		nglGetMapiv(target, query, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetMapiv GetMapiv} */
 	public static void glGetMapiv(int target, int query, IntBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 4);
 		nglGetMapiv(target, query, memAddress(data));
 	}
@@ -3936,7 +3936,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetMapfv(int target, int query, long data) {
 		long __functionAddress = getInstance().GetMapfv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, query, data);
 	}
@@ -3951,14 +3951,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param data   a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetMapfv(int target, int query, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 4 << 2);
 		nglGetMapfv(target, query, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetMapfv GetMapfv} */
 	public static void glGetMapfv(int target, int query, FloatBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 4);
 		nglGetMapfv(target, query, memAddress(data));
 	}
@@ -3977,7 +3977,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetMapdv(int target, int query, long data) {
 		long __functionAddress = getInstance().GetMapdv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, target, query, data);
 	}
@@ -3992,14 +3992,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param data   a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetMapdv(int target, int query, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 4 << 3);
 		nglGetMapdv(target, query, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetMapdv GetMapdv} */
 	public static void glGetMapdv(int target, int query, DoubleBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 4);
 		nglGetMapdv(target, query, memAddress(data));
 	}
@@ -4018,7 +4018,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetMaterialiv(int face, int pname, long data) {
 		long __functionAddress = getInstance().GetMaterialiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, face, pname, data);
 	}
@@ -4047,7 +4047,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetMaterialfv(int face, int pname, long data) {
 		long __functionAddress = getInstance().GetMaterialfv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, face, pname, data);
 	}
@@ -4076,7 +4076,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetPixelMapfv(int map, long data) {
 		long __functionAddress = getInstance().GetPixelMapfv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, map, data);
 	}
@@ -4090,7 +4090,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param data a buffer in which to place the returned data
 	 */
 	public static void glGetPixelMapfv(int map, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, 32 << 2);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -4099,14 +4099,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Buffer object offset version of: {@link #glGetPixelMapfv GetPixelMapfv} */
 	public static void glGetPixelMapfv(int map, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetPixelMapfv(map, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glGetPixelMapfv GetPixelMapfv} */
 	public static void glGetPixelMapfv(int map, FloatBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, 32);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -4119,7 +4119,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetPixelMapusv(int map, long data) {
 		long __functionAddress = getInstance().GetPixelMapusv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, map, data);
 	}
@@ -4133,7 +4133,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param data a buffer in which to place the returned data
 	 */
 	public static void glGetPixelMapusv(int map, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, 32 << 1);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -4142,14 +4142,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Buffer object offset version of: {@link #glGetPixelMapusv GetPixelMapusv} */
 	public static void glGetPixelMapusv(int map, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetPixelMapusv(map, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glGetPixelMapusv GetPixelMapusv} */
 	public static void glGetPixelMapusv(int map, ShortBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, 32);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -4162,7 +4162,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetPixelMapuiv(int map, long data) {
 		long __functionAddress = getInstance().GetPixelMapuiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, map, data);
 	}
@@ -4176,7 +4176,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param data a buffer in which to place the returned data
 	 */
 	public static void glGetPixelMapuiv(int map, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, 32 << 2);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -4185,14 +4185,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Buffer object offset version of: {@link #glGetPixelMapuiv GetPixelMapuiv} */
 	public static void glGetPixelMapuiv(int map, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetPixelMapuiv(map, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glGetPixelMapuiv GetPixelMapuiv} */
 	public static void glGetPixelMapuiv(int map, IntBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, 32);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -4217,14 +4217,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param params a buffer in which to place the returned pointer
 	 */
 	public static void glGetPointerv(int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << POINTER_SHIFT);
 		nglGetPointerv(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetPointerv GetPointerv} */
 	public static void glGetPointerv(int pname, PointerBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetPointerv(pname, memAddress(params));
 	}
@@ -4243,7 +4243,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetPolygonStipple(long pattern) {
 		long __functionAddress = getInstance().GetPolygonStipple;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, pattern);
 	}
@@ -4256,7 +4256,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param pattern a buffer in which to place the returned data
 	 */
 	public static void glGetPolygonStipple(ByteBuffer pattern) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(pattern, 128);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -4265,7 +4265,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 
 	/** Buffer object offset version of: {@link #glGetPolygonStipple GetPolygonStipple} */
 	public static void glGetPolygonStipple(long patternOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetPolygonStipple(patternOffset);
 	}
@@ -4308,14 +4308,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param data  a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetTexEnviv(int env, int pname, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1 << 2);
 		nglGetTexEnviv(env, pname, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetTexEnviv GetTexEnviv} */
 	public static void glGetTexEnviv(int env, int pname, IntBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1);
 		nglGetTexEnviv(env, pname, memAddress(data));
 	}
@@ -4347,14 +4347,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param data  a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetTexEnvfv(int env, int pname, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1 << 2);
 		nglGetTexEnvfv(env, pname, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetTexEnvfv GetTexEnvfv} */
 	public static void glGetTexEnvfv(int env, int pname, FloatBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1);
 		nglGetTexEnvfv(env, pname, memAddress(data));
 	}
@@ -4373,7 +4373,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetTexGeniv(int coord, int pname, long data) {
 		long __functionAddress = getInstance().GetTexGeniv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, coord, pname, data);
 	}
@@ -4388,14 +4388,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param data  a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetTexGeniv(int coord, int pname, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1 << 2);
 		nglGetTexGeniv(coord, pname, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetTexGeniv GetTexGeniv} */
 	public static void glGetTexGeniv(int coord, int pname, IntBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1);
 		nglGetTexGeniv(coord, pname, memAddress(data));
 	}
@@ -4414,7 +4414,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetTexGenfv(int coord, int pname, long data) {
 		long __functionAddress = getInstance().GetTexGenfv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, coord, pname, data);
 	}
@@ -4429,14 +4429,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param data  a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetTexGenfv(int coord, int pname, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 4 << 2);
 		nglGetTexGenfv(coord, pname, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetTexGenfv GetTexGenfv} */
 	public static void glGetTexGenfv(int coord, int pname, FloatBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 4);
 		nglGetTexGenfv(coord, pname, memAddress(data));
 	}
@@ -4455,7 +4455,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglGetTexGendv(int coord, int pname, long data) {
 		long __functionAddress = getInstance().GetTexGendv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, coord, pname, data);
 	}
@@ -4470,14 +4470,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param data  a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetTexGendv(int coord, int pname, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 4 << 3);
 		nglGetTexGendv(coord, pname, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetTexGendv GetTexGendv} */
 	public static void glGetTexGendv(int coord, int pname, DoubleBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 4);
 		nglGetTexGendv(coord, pname, memAddress(data));
 	}
@@ -4511,42 +4511,42 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param pixels the buffer in which to place the returned data
 	 */
 	public static void glGetTexImage(int tex, int level, int format, int type, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTexImage(tex, level, format, type, memAddress(pixels));
 	}
 
 	/** Buffer object offset version of: {@link #glGetTexImage GetTexImage} */
 	public static void glGetTexImage(int tex, int level, int format, int type, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetTexImage(tex, level, format, type, pixelsOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glGetTexImage GetTexImage} */
 	public static void glGetTexImage(int tex, int level, int format, int type, ShortBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTexImage(tex, level, format, type, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glGetTexImage GetTexImage} */
 	public static void glGetTexImage(int tex, int level, int format, int type, IntBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTexImage(tex, level, format, type, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glGetTexImage GetTexImage} */
 	public static void glGetTexImage(int tex, int level, int format, int type, FloatBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTexImage(tex, level, format, type, memAddress(pixels));
 	}
 
 	/** DoubleBuffer version of: {@link #glGetTexImage GetTexImage} */
 	public static void glGetTexImage(int tex, int level, int format, int type, DoubleBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTexImage(tex, level, format, type, memAddress(pixels));
 	}
@@ -4571,14 +4571,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param params a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetTexLevelParameteriv(int target, int level, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTexLevelParameteriv(target, level, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTexLevelParameteriv GetTexLevelParameteriv} */
 	public static void glGetTexLevelParameteriv(int target, int level, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexLevelParameteriv(target, level, pname, memAddress(params));
 	}
@@ -4611,14 +4611,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param params a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetTexLevelParameterfv(int target, int level, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTexLevelParameterfv(target, level, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTexLevelParameterfv GetTexLevelParameterfv} */
 	public static void glGetTexLevelParameterfv(int target, int level, int pname, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexLevelParameterfv(target, level, pname, memAddress(params));
 	}
@@ -4650,14 +4650,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param params a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetTexParameteriv(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTexParameteriv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTexParameteriv GetTexParameteriv} */
 	public static void glGetTexParameteriv(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameteriv(target, pname, memAddress(params));
 	}
@@ -4689,14 +4689,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param params a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetTexParameterfv(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTexParameterfv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTexParameterfv GetTexParameterfv} */
 	public static void glGetTexParameterfv(int target, int pname, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterfv(target, pname, memAddress(params));
 	}
@@ -4736,7 +4736,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glIndexi(int index) {
 		long __functionAddress = getInstance().Indexi;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, index);
 	}
@@ -4752,7 +4752,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glIndexub(byte index) {
 		long __functionAddress = getInstance().Indexub;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callBV(__functionAddress, index);
 	}
@@ -4768,7 +4768,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glIndexs(short index) {
 		long __functionAddress = getInstance().Indexs;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSV(__functionAddress, index);
 	}
@@ -4784,7 +4784,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glIndexf(float index) {
 		long __functionAddress = getInstance().Indexf;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFV(__functionAddress, index);
 	}
@@ -4800,7 +4800,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glIndexd(double index) {
 		long __functionAddress = getInstance().Indexd;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDV(__functionAddress, index);
 	}
@@ -4811,7 +4811,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglIndexiv(long index) {
 		long __functionAddress = getInstance().Indexiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, index);
 	}
@@ -4824,14 +4824,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param index the value to which the current color index should be set
 	 */
 	public static void glIndexiv(ByteBuffer index) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(index, 1 << 2);
 		nglIndexiv(memAddress(index));
 	}
 
 	/** Alternative version of: {@link #glIndexiv Indexiv} */
 	public static void glIndexiv(IntBuffer index) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(index, 1);
 		nglIndexiv(memAddress(index));
 	}
@@ -4842,7 +4842,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglIndexubv(long index) {
 		long __functionAddress = getInstance().Indexubv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, index);
 	}
@@ -4855,7 +4855,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param index the value to which the current color index should be set
 	 */
 	public static void glIndexubv(ByteBuffer index) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(index, 1);
 		nglIndexubv(memAddress(index));
 	}
@@ -4866,7 +4866,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglIndexsv(long index) {
 		long __functionAddress = getInstance().Indexsv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, index);
 	}
@@ -4879,14 +4879,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param index the value to which the current color index should be set
 	 */
 	public static void glIndexsv(ByteBuffer index) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(index, 1 << 1);
 		nglIndexsv(memAddress(index));
 	}
 
 	/** Alternative version of: {@link #glIndexsv Indexsv} */
 	public static void glIndexsv(ShortBuffer index) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(index, 1);
 		nglIndexsv(memAddress(index));
 	}
@@ -4897,7 +4897,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglIndexfv(long index) {
 		long __functionAddress = getInstance().Indexfv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, index);
 	}
@@ -4910,14 +4910,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param index the value to which the current color index should be set
 	 */
 	public static void glIndexfv(ByteBuffer index) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(index, 1 << 2);
 		nglIndexfv(memAddress(index));
 	}
 
 	/** Alternative version of: {@link #glIndexfv Indexfv} */
 	public static void glIndexfv(FloatBuffer index) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(index, 1);
 		nglIndexfv(memAddress(index));
 	}
@@ -4928,7 +4928,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglIndexdv(long index) {
 		long __functionAddress = getInstance().Indexdv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, index);
 	}
@@ -4941,14 +4941,14 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param index the value to which the current color index should be set
 	 */
 	public static void glIndexdv(ByteBuffer index) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(index, 1 << 3);
 		nglIndexdv(memAddress(index));
 	}
 
 	/** Alternative version of: {@link #glIndexdv Indexdv} */
 	public static void glIndexdv(DoubleBuffer index) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(index, 1);
 		nglIndexdv(memAddress(index));
 	}
@@ -4966,7 +4966,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 */
 	public static void glIndexMask(int mask) {
 		long __functionAddress = getInstance().IndexMask;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, mask);
 	}
@@ -4977,7 +4977,7 @@ Causes all previously issued GL commands to complete in finite time (although su
 	@JavadocExclude
 	public static void nglIndexPointer(int type, int stride, long pointer) {
 		long __functionAddress = getInstance().IndexPointer;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, type, stride, pointer);
 	}
@@ -4992,35 +4992,35 @@ Causes all previously issued GL commands to complete in finite time (although su
 	 * @param pointer the color index array data
 	 */
 	public static void glIndexPointer(int type, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglIndexPointer(type, stride, memAddress(pointer));
 	}
 
 	/** Buffer object offset version of: {@link #glIndexPointer IndexPointer} */
 	public static void glIndexPointer(int type, int stride, long pointerOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglIndexPointer(type, stride, pointerOffset);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glIndexPointer IndexPointer} */
 	public static void glIndexPointer(int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglIndexPointer(GL11.GL_UNSIGNED_BYTE, stride, memAddress(pointer));
 	}
 
 	/** GL_SHORT version of: {@link #glIndexPointer IndexPointer} */
 	public static void glIndexPointer(int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglIndexPointer(GL11.GL_SHORT, stride, memAddress(pointer));
 	}
 
 	/** GL_INT version of: {@link #glIndexPointer IndexPointer} */
 	public static void glIndexPointer(int stride, IntBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglIndexPointer(GL11.GL_INT, stride, memAddress(pointer));
 	}
@@ -5034,7 +5034,7 @@ Clears the selection name stack.
 	 */
 	public static void glInitNames() {
 		long __functionAddress = getInstance().InitNames;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
@@ -5058,42 +5058,42 @@ Clears the selection name stack.
 	 * @param pointer the vertex array data
 	 */
 	public static void glInterleavedArrays(int format, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglInterleavedArrays(format, stride, memAddress(pointer));
 	}
 
 	/** Buffer object offset version of: {@link #glInterleavedArrays InterleavedArrays} */
 	public static void glInterleavedArrays(int format, int stride, long pointerOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglInterleavedArrays(format, stride, pointerOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glInterleavedArrays InterleavedArrays} */
 	public static void glInterleavedArrays(int format, int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglInterleavedArrays(format, stride, memAddress(pointer));
 	}
 
 	/** IntBuffer version of: {@link #glInterleavedArrays InterleavedArrays} */
 	public static void glInterleavedArrays(int format, int stride, IntBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglInterleavedArrays(format, stride, memAddress(pointer));
 	}
 
 	/** FloatBuffer version of: {@link #glInterleavedArrays InterleavedArrays} */
 	public static void glInterleavedArrays(int format, int stride, FloatBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglInterleavedArrays(format, stride, memAddress(pointer));
 	}
 
 	/** DoubleBuffer version of: {@link #glInterleavedArrays InterleavedArrays} */
 	public static void glInterleavedArrays(int format, int stride, DoubleBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglInterleavedArrays(format, stride, memAddress(pointer));
 	}
@@ -5123,7 +5123,7 @@ Clears the selection name stack.
 	 */
 	public static boolean glIsList(int list) {
 		long __functionAddress = getInstance().IsList;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callIZ(__functionAddress, list);
 	}
@@ -5154,7 +5154,7 @@ Clears the selection name stack.
 	 */
 	public static void glLightModeli(int pname, int param) {
 		long __functionAddress = getInstance().LightModeli;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, pname, param);
 	}
@@ -5171,7 +5171,7 @@ Clears the selection name stack.
 	 */
 	public static void glLightModelf(int pname, float param) {
 		long __functionAddress = getInstance().LightModelf;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFV(__functionAddress, pname, param);
 	}
@@ -5182,7 +5182,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglLightModeliv(int pname, long params) {
 		long __functionAddress = getInstance().LightModeliv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, pname, params);
 	}
@@ -5196,14 +5196,14 @@ Clears the selection name stack.
 	 * @param params the parameter value
 	 */
 	public static void glLightModeliv(int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglLightModeliv(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glLightModeliv LightModeliv} */
 	public static void glLightModeliv(int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglLightModeliv(pname, memAddress(params));
 	}
@@ -5214,7 +5214,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglLightModelfv(int pname, long params) {
 		long __functionAddress = getInstance().LightModelfv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, pname, params);
 	}
@@ -5228,14 +5228,14 @@ Clears the selection name stack.
 	 * @param params the parameter value
 	 */
 	public static void glLightModelfv(int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglLightModelfv(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glLightModelfv LightModelfv} */
 	public static void glLightModelfv(int pname, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglLightModelfv(pname, memAddress(params));
 	}
@@ -5253,7 +5253,7 @@ Clears the selection name stack.
 	 */
 	public static void glLighti(int light, int pname, int param) {
 		long __functionAddress = getInstance().Lighti;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, light, pname, param);
 	}
@@ -5271,7 +5271,7 @@ Clears the selection name stack.
 	 */
 	public static void glLightf(int light, int pname, float param) {
 		long __functionAddress = getInstance().Lightf;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIFV(__functionAddress, light, pname, param);
 	}
@@ -5282,7 +5282,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglLightiv(int light, int pname, long params) {
 		long __functionAddress = getInstance().Lightiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, light, pname, params);
 	}
@@ -5297,14 +5297,14 @@ Clears the selection name stack.
 	 * @param params the parameter value
 	 */
 	public static void glLightiv(int light, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglLightiv(light, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glLightiv Lightiv} */
 	public static void glLightiv(int light, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglLightiv(light, pname, memAddress(params));
 	}
@@ -5315,7 +5315,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglLightfv(int light, int pname, long params) {
 		long __functionAddress = getInstance().Lightfv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, light, pname, params);
 	}
@@ -5330,14 +5330,14 @@ Clears the selection name stack.
 	 * @param params the parameter value
 	 */
 	public static void glLightfv(int light, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglLightfv(light, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glLightfv Lightfv} */
 	public static void glLightfv(int light, int pname, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglLightfv(light, pname, memAddress(params));
 	}
@@ -5356,7 +5356,7 @@ Clears the selection name stack.
 	 */
 	public static void glLineStipple(int factor, short pattern) {
 		long __functionAddress = getInstance().LineStipple;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callISV(__functionAddress, factor, pattern);
 	}
@@ -5386,7 +5386,7 @@ Clears the selection name stack.
 	 */
 	public static void glListBase(int base) {
 		long __functionAddress = getInstance().ListBase;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, base);
 	}
@@ -5397,7 +5397,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglLoadMatrixf(long m) {
 		long __functionAddress = getInstance().LoadMatrixf;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, m);
 	}
@@ -5421,14 +5421,14 @@ Clears the selection name stack.
 	 * @param m the matrix data
 	 */
 	public static void glLoadMatrixf(ByteBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16 << 2);
 		nglLoadMatrixf(memAddress(m));
 	}
 
 	/** Alternative version of: {@link #glLoadMatrixf LoadMatrixf} */
 	public static void glLoadMatrixf(FloatBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16);
 		nglLoadMatrixf(memAddress(m));
 	}
@@ -5439,7 +5439,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglLoadMatrixd(long m) {
 		long __functionAddress = getInstance().LoadMatrixd;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, m);
 	}
@@ -5452,14 +5452,14 @@ Clears the selection name stack.
 	 * @param m the matrix data
 	 */
 	public static void glLoadMatrixd(ByteBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16 << 3);
 		nglLoadMatrixd(memAddress(m));
 	}
 
 	/** Alternative version of: {@link #glLoadMatrixd LoadMatrixd} */
 	public static void glLoadMatrixd(DoubleBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16);
 		nglLoadMatrixd(memAddress(m));
 	}
@@ -5481,7 +5481,7 @@ Clears the selection name stack.
 	 */
 	public static void glLoadIdentity() {
 		long __functionAddress = getInstance().LoadIdentity;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
@@ -5497,7 +5497,7 @@ Clears the selection name stack.
 	 */
 	public static void glLoadName(int name) {
 		long __functionAddress = getInstance().LoadName;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, name);
 	}
@@ -5522,7 +5522,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglMap1f(int target, float u1, float u2, int stride, int order, long points) {
 		long __functionAddress = getInstance().Map1f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFFIIPV(__functionAddress, target, u1, u2, stride, order, points);
 	}
@@ -5541,14 +5541,14 @@ Clears the selection name stack.
 	 * @param points a set of {@code order} blocks of storage containing control points
 	 */
 	public static void glMap1f(int target, float u1, float u2, int stride, int order, ByteBuffer points) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(points, (order * stride) << 2);
 		nglMap1f(target, u1, u2, stride, order, memAddress(points));
 	}
 
 	/** Alternative version of: {@link #glMap1f Map1f} */
 	public static void glMap1f(int target, float u1, float u2, int stride, int order, FloatBuffer points) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(points, order * stride);
 		nglMap1f(target, u1, u2, stride, order, memAddress(points));
 	}
@@ -5559,7 +5559,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglMap1d(int target, double u1, double u2, int stride, int order, long points) {
 		long __functionAddress = getInstance().Map1d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIDDIIPV(__functionAddress, target, u1, u2, stride, order, points);
 	}
@@ -5577,14 +5577,14 @@ Clears the selection name stack.
 	 * @param points a set of {@code order} blocks of storage containing control points
 	 */
 	public static void glMap1d(int target, double u1, double u2, int stride, int order, ByteBuffer points) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(points, (stride * order) << 3);
 		nglMap1d(target, u1, u2, stride, order, memAddress(points));
 	}
 
 	/** Alternative version of: {@link #glMap1d Map1d} */
 	public static void glMap1d(int target, double u1, double u2, int stride, int order, DoubleBuffer points) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(points, stride * order);
 		nglMap1d(target, u1, u2, stride, order, memAddress(points));
 	}
@@ -5595,7 +5595,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, long points) {
 		long __functionAddress = getInstance().Map2f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFFIIFFIIPV(__functionAddress, target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
 	}
@@ -5617,14 +5617,14 @@ Clears the selection name stack.
 	 * @param points  a set of <code style="font-family: monospace">uorder &times; vorder</code> blocks of storage containing control points
 	 */
 	public static void glMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, ByteBuffer points) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(points, (ustride * uorder * vstride * vorder) << 2);
 		nglMap2f(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, memAddress(points));
 	}
 
 	/** Alternative version of: {@link #glMap2f Map2f} */
 	public static void glMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, FloatBuffer points) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(points, ustride * uorder * vstride * vorder);
 		nglMap2f(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, memAddress(points));
 	}
@@ -5635,7 +5635,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, long points) {
 		long __functionAddress = getInstance().Map2d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIDDIIDDIIPV(__functionAddress, target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
 	}
@@ -5657,14 +5657,14 @@ Clears the selection name stack.
 	 * @param points  a set of <code style="font-family: monospace">uorder &times; vorder</code> blocks of storage containing control points
 	 */
 	public static void glMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, ByteBuffer points) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(points, (ustride * uorder * vstride * vorder) << 3);
 		nglMap2d(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, memAddress(points));
 	}
 
 	/** Alternative version of: {@link #glMap2d Map2d} */
 	public static void glMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, DoubleBuffer points) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(points, ustride * uorder * vstride * vorder);
 		nglMap2d(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, memAddress(points));
 	}
@@ -5682,7 +5682,7 @@ Clears the selection name stack.
 	 */
 	public static void glMapGrid1f(int n, float u1, float u2) {
 		long __functionAddress = getInstance().MapGrid1f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFFV(__functionAddress, n, u1, u2);
 	}
@@ -5700,7 +5700,7 @@ Clears the selection name stack.
 	 */
 	public static void glMapGrid1d(int n, double u1, double u2) {
 		long __functionAddress = getInstance().MapGrid1d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIDDV(__functionAddress, n, u1, u2);
 	}
@@ -5721,7 +5721,7 @@ Clears the selection name stack.
 	 */
 	public static void glMapGrid2f(int un, float u1, float u2, int vn, float v1, float v2) {
 		long __functionAddress = getInstance().MapGrid2f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFFIFFV(__functionAddress, un, u1, u2, vn, v1, v2);
 	}
@@ -5742,7 +5742,7 @@ Clears the selection name stack.
 	 */
 	public static void glMapGrid2d(int un, double u1, double u2, int vn, double v1, double v2) {
 		long __functionAddress = getInstance().MapGrid2d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIDDIDDV(__functionAddress, un, u1, u2, vn, v1, v2);
 	}
@@ -5760,7 +5760,7 @@ Clears the selection name stack.
 	 */
 	public static void glMateriali(int face, int pname, int param) {
 		long __functionAddress = getInstance().Materiali;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, face, pname, param);
 	}
@@ -5778,7 +5778,7 @@ Clears the selection name stack.
 	 */
 	public static void glMaterialf(int face, int pname, float param) {
 		long __functionAddress = getInstance().Materialf;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIFV(__functionAddress, face, pname, param);
 	}
@@ -5789,7 +5789,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglMaterialiv(int face, int pname, long params) {
 		long __functionAddress = getInstance().Materialiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, face, pname, params);
 	}
@@ -5804,14 +5804,14 @@ Clears the selection name stack.
 	 * @param params the parameter value
 	 */
 	public static void glMaterialiv(int face, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglMaterialiv(face, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glMaterialiv Materialiv} */
 	public static void glMaterialiv(int face, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglMaterialiv(face, pname, memAddress(params));
 	}
@@ -5822,7 +5822,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglMaterialfv(int face, int pname, long params) {
 		long __functionAddress = getInstance().Materialfv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, face, pname, params);
 	}
@@ -5837,14 +5837,14 @@ Clears the selection name stack.
 	 * @param params the parameter value
 	 */
 	public static void glMaterialfv(int face, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglMaterialfv(face, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glMaterialfv Materialfv} */
 	public static void glMaterialfv(int face, int pname, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglMaterialfv(face, pname, memAddress(params));
 	}
@@ -5860,7 +5860,7 @@ Clears the selection name stack.
 	 */
 	public static void glMatrixMode(int mode) {
 		long __functionAddress = getInstance().MatrixMode;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, mode);
 	}
@@ -5871,7 +5871,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglMultMatrixf(long m) {
 		long __functionAddress = getInstance().MultMatrixf;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, m);
 	}
@@ -5884,14 +5884,14 @@ Clears the selection name stack.
 	 * @param m the matrix data
 	 */
 	public static void glMultMatrixf(ByteBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16 << 2);
 		nglMultMatrixf(memAddress(m));
 	}
 
 	/** Alternative version of: {@link #glMultMatrixf MultMatrixf} */
 	public static void glMultMatrixf(FloatBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16);
 		nglMultMatrixf(memAddress(m));
 	}
@@ -5902,7 +5902,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglMultMatrixd(long m) {
 		long __functionAddress = getInstance().MultMatrixd;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, m);
 	}
@@ -5915,14 +5915,14 @@ Clears the selection name stack.
 	 * @param m the matrix data
 	 */
 	public static void glMultMatrixd(ByteBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16 << 3);
 		nglMultMatrixd(memAddress(m));
 	}
 
 	/** Alternative version of: {@link #glMultMatrixd MultMatrixd} */
 	public static void glMultMatrixd(DoubleBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16);
 		nglMultMatrixd(memAddress(m));
 	}
@@ -5954,7 +5954,7 @@ Clears the selection name stack.
 	 */
 	public static void glFrustum(double l, double r, double b, double t, double n, double f) {
 		long __functionAddress = getInstance().Frustum;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDDDDV(__functionAddress, l, r, b, t, n, f);
 	}
@@ -5971,7 +5971,7 @@ Clears the selection name stack.
 	 */
 	public static void glNewList(int n, int mode) {
 		long __functionAddress = getInstance().NewList;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, n, mode);
 	}
@@ -5986,7 +5986,7 @@ Clears the selection name stack.
 	 */
 	public static void glEndList() {
 		long __functionAddress = getInstance().EndList;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
@@ -6004,7 +6004,7 @@ Clears the selection name stack.
 	 */
 	public static void glNormal3f(float nx, float ny, float nz) {
 		long __functionAddress = getInstance().Normal3f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFV(__functionAddress, nx, ny, nz);
 	}
@@ -6022,7 +6022,7 @@ Clears the selection name stack.
 	 */
 	public static void glNormal3b(byte nx, byte ny, byte nz) {
 		long __functionAddress = getInstance().Normal3b;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callBBBV(__functionAddress, nx, ny, nz);
 	}
@@ -6040,7 +6040,7 @@ Clears the selection name stack.
 	 */
 	public static void glNormal3s(short nx, short ny, short nz) {
 		long __functionAddress = getInstance().Normal3s;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, nx, ny, nz);
 	}
@@ -6058,7 +6058,7 @@ Clears the selection name stack.
 	 */
 	public static void glNormal3i(int nx, int ny, int nz) {
 		long __functionAddress = getInstance().Normal3i;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, nx, ny, nz);
 	}
@@ -6076,7 +6076,7 @@ Clears the selection name stack.
 	 */
 	public static void glNormal3d(double nx, double ny, double nz) {
 		long __functionAddress = getInstance().Normal3d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDV(__functionAddress, nx, ny, nz);
 	}
@@ -6087,7 +6087,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglNormal3fv(long v) {
 		long __functionAddress = getInstance().Normal3fv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -6100,14 +6100,14 @@ Clears the selection name stack.
 	 * @param v the normal buffer
 	 */
 	public static void glNormal3fv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglNormal3fv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glNormal3fv Normal3fv} */
 	public static void glNormal3fv(FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglNormal3fv(memAddress(v));
 	}
@@ -6118,7 +6118,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglNormal3bv(long v) {
 		long __functionAddress = getInstance().Normal3bv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -6131,7 +6131,7 @@ Clears the selection name stack.
 	 * @param v the normal buffer
 	 */
 	public static void glNormal3bv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglNormal3bv(memAddress(v));
 	}
@@ -6142,7 +6142,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglNormal3sv(long v) {
 		long __functionAddress = getInstance().Normal3sv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -6155,14 +6155,14 @@ Clears the selection name stack.
 	 * @param v the normal buffer
 	 */
 	public static void glNormal3sv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 1);
 		nglNormal3sv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glNormal3sv Normal3sv} */
 	public static void glNormal3sv(ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglNormal3sv(memAddress(v));
 	}
@@ -6173,7 +6173,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglNormal3iv(long v) {
 		long __functionAddress = getInstance().Normal3iv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -6186,14 +6186,14 @@ Clears the selection name stack.
 	 * @param v the normal buffer
 	 */
 	public static void glNormal3iv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglNormal3iv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glNormal3iv Normal3iv} */
 	public static void glNormal3iv(IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglNormal3iv(memAddress(v));
 	}
@@ -6204,7 +6204,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglNormal3dv(long v) {
 		long __functionAddress = getInstance().Normal3dv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -6217,14 +6217,14 @@ Clears the selection name stack.
 	 * @param v the normal buffer
 	 */
 	public static void glNormal3dv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglNormal3dv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glNormal3dv Normal3dv} */
 	public static void glNormal3dv(DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglNormal3dv(memAddress(v));
 	}
@@ -6235,7 +6235,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglNormalPointer(int type, int stride, long pointer) {
 		long __functionAddress = getInstance().NormalPointer;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, type, stride, pointer);
 	}
@@ -6250,35 +6250,35 @@ Clears the selection name stack.
 	 * @param pointer the normal array data
 	 */
 	public static void glNormalPointer(int type, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglNormalPointer(type, stride, memAddress(pointer));
 	}
 
 	/** Buffer object offset version of: {@link #glNormalPointer NormalPointer} */
 	public static void glNormalPointer(int type, int stride, long pointerOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglNormalPointer(type, stride, pointerOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glNormalPointer NormalPointer} */
 	public static void glNormalPointer(int type, int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglNormalPointer(type, stride, memAddress(pointer));
 	}
 
 	/** IntBuffer version of: {@link #glNormalPointer NormalPointer} */
 	public static void glNormalPointer(int type, int stride, IntBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglNormalPointer(type, stride, memAddress(pointer));
 	}
 
 	/** FloatBuffer version of: {@link #glNormalPointer NormalPointer} */
 	public static void glNormalPointer(int type, int stride, FloatBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglNormalPointer(type, stride, memAddress(pointer));
 	}
@@ -6310,7 +6310,7 @@ Clears the selection name stack.
 	 */
 	public static void glOrtho(double l, double r, double b, double t, double n, double f) {
 		long __functionAddress = getInstance().Ortho;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDDDDV(__functionAddress, l, r, b, t, n, f);
 	}
@@ -6328,7 +6328,7 @@ Clears the selection name stack.
 	 */
 	public static void glPassThrough(float token) {
 		long __functionAddress = getInstance().PassThrough;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFV(__functionAddress, token);
 	}
@@ -6339,7 +6339,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglPixelMapfv(int map, int size, long values) {
 		long __functionAddress = getInstance().PixelMapfv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, map, size, values);
 	}
@@ -6354,7 +6354,7 @@ Clears the selection name stack.
 	 * @param values the map values
 	 */
 	public static void glPixelMapfv(int map, int size, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(values, size << 2);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
@@ -6363,14 +6363,14 @@ Clears the selection name stack.
 
 	/** Buffer object offset version of: {@link #glPixelMapfv PixelMapfv} */
 	public static void glPixelMapfv(int map, int size, long valuesOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglPixelMapfv(map, size, valuesOffset);
 	}
 
 	/** Alternative version of: {@link #glPixelMapfv PixelMapfv} */
 	public static void glPixelMapfv(int map, FloatBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglPixelMapfv(map, values.remaining(), memAddress(values));
 	}
@@ -6381,7 +6381,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglPixelMapusv(int map, int size, long values) {
 		long __functionAddress = getInstance().PixelMapusv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, map, size, values);
 	}
@@ -6396,7 +6396,7 @@ Clears the selection name stack.
 	 * @param values the map values
 	 */
 	public static void glPixelMapusv(int map, int size, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(values, size << 1);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
@@ -6405,14 +6405,14 @@ Clears the selection name stack.
 
 	/** Buffer object offset version of: {@link #glPixelMapusv PixelMapusv} */
 	public static void glPixelMapusv(int map, int size, long valuesOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglPixelMapusv(map, size, valuesOffset);
 	}
 
 	/** Alternative version of: {@link #glPixelMapusv PixelMapusv} */
 	public static void glPixelMapusv(int map, ShortBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglPixelMapusv(map, values.remaining(), memAddress(values));
 	}
@@ -6423,7 +6423,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglPixelMapuiv(int map, int size, long values) {
 		long __functionAddress = getInstance().PixelMapuiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, map, size, values);
 	}
@@ -6438,7 +6438,7 @@ Clears the selection name stack.
 	 * @param values the map values
 	 */
 	public static void glPixelMapuiv(int map, int size, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(values, size << 2);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
@@ -6447,14 +6447,14 @@ Clears the selection name stack.
 
 	/** Buffer object offset version of: {@link #glPixelMapuiv PixelMapuiv} */
 	public static void glPixelMapuiv(int map, int size, long valuesOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglPixelMapuiv(map, size, valuesOffset);
 	}
 
 	/** Alternative version of: {@link #glPixelMapuiv PixelMapuiv} */
 	public static void glPixelMapuiv(int map, IntBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglPixelMapuiv(map, values.remaining(), memAddress(values));
 	}
@@ -6501,7 +6501,7 @@ Clears the selection name stack.
 	 */
 	public static void glPixelTransferi(int pname, int param) {
 		long __functionAddress = getInstance().PixelTransferi;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, pname, param);
 	}
@@ -6518,7 +6518,7 @@ Clears the selection name stack.
 	 */
 	public static void glPixelTransferf(int pname, float param) {
 		long __functionAddress = getInstance().PixelTransferf;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFV(__functionAddress, pname, param);
 	}
@@ -6543,7 +6543,7 @@ Clears the selection name stack.
 	 */
 	public static void glPixelZoom(float xfactor, float yfactor) {
 		long __functionAddress = getInstance().PixelZoom;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFV(__functionAddress, xfactor, yfactor);
 	}
@@ -6606,7 +6606,7 @@ Clears the selection name stack.
 	@JavadocExclude
 	public static void nglPolygonStipple(long pattern) {
 		long __functionAddress = getInstance().PolygonStipple;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, pattern);
 	}
@@ -6626,14 +6626,14 @@ Clears the selection name stack.
 	 * @param pattern a pointer to memory into which a 32 &times; 32 pattern is packed
 	 */
 	public static void glPolygonStipple(ByteBuffer pattern) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglPolygonStipple(memAddress(pattern));
 	}
 
 	/** Buffer object offset version of: {@link #glPolygonStipple PolygonStipple} */
 	public static void glPolygonStipple(long patternOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglPolygonStipple(patternOffset);
 	}
@@ -6656,7 +6656,7 @@ Clears the selection name stack.
 	 */
 	public static void glPushAttrib(int mask) {
 		long __functionAddress = getInstance().PushAttrib;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, mask);
 	}
@@ -6679,7 +6679,7 @@ Clears the selection name stack.
 	 */
 	public static void glPushClientAttrib(int mask) {
 		long __functionAddress = getInstance().PushClientAttrib;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, mask);
 	}
@@ -6693,7 +6693,7 @@ Resets the values of those state variables that were saved with the last {@link 
 	 */
 	public static void glPopAttrib() {
 		long __functionAddress = getInstance().PopAttrib;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
@@ -6707,7 +6707,7 @@ Resets the values of those state variables that were saved with the last {@link 
 	 */
 	public static void glPopClientAttrib() {
 		long __functionAddress = getInstance().PopClientAttrib;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
@@ -6721,7 +6721,7 @@ Pops the top entry off the current matrix stack, replacing the current matrix wi
 	 */
 	public static void glPopMatrix() {
 		long __functionAddress = getInstance().PopMatrix;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
@@ -6735,7 +6735,7 @@ Pops one name off the top of the selection name stack.
 	 */
 	public static void glPopName() {
 		long __functionAddress = getInstance().PopName;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
@@ -6746,7 +6746,7 @@ Pops one name off the top of the selection name stack.
 	@JavadocExclude
 	public static void nglPrioritizeTextures(int n, long textures, long priorities) {
 		long __functionAddress = getInstance().PrioritizeTextures;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPPV(__functionAddress, n, textures, priorities);
 	}
@@ -6762,7 +6762,7 @@ Pops one name off the top of the selection name stack.
 	 * @param priorities an array of texture object priorities
 	 */
 	public static void glPrioritizeTextures(int n, ByteBuffer textures, ByteBuffer priorities) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(textures, n << 2);
 			checkBuffer(priorities, n << 2);
 		}
@@ -6771,7 +6771,7 @@ Pops one name off the top of the selection name stack.
 
 	/** Alternative version of: {@link #glPrioritizeTextures PrioritizeTextures} */
 	public static void glPrioritizeTextures(IntBuffer textures, FloatBuffer priorities) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(priorities, textures.remaining());
 		nglPrioritizeTextures(textures.remaining(), memAddress(textures), memAddress(priorities));
 	}
@@ -6785,7 +6785,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glPushMatrix() {
 		long __functionAddress = getInstance().PushMatrix;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
 	}
@@ -6801,7 +6801,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glPushName(int name) {
 		long __functionAddress = getInstance().PushName;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, name);
 	}
@@ -6824,7 +6824,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos2i(int x, int y) {
 		long __functionAddress = getInstance().RasterPos2i;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, x, y);
 	}
@@ -6841,7 +6841,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos2s(short x, short y) {
 		long __functionAddress = getInstance().RasterPos2s;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSV(__functionAddress, x, y);
 	}
@@ -6858,7 +6858,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos2f(float x, float y) {
 		long __functionAddress = getInstance().RasterPos2f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFV(__functionAddress, x, y);
 	}
@@ -6875,7 +6875,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos2d(double x, double y) {
 		long __functionAddress = getInstance().RasterPos2d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDV(__functionAddress, x, y);
 	}
@@ -6886,7 +6886,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos2iv(long coords) {
 		long __functionAddress = getInstance().RasterPos2iv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -6899,14 +6899,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos2iv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 2 << 2);
 		nglRasterPos2iv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glRasterPos2iv RasterPos2iv} */
 	public static void glRasterPos2iv(IntBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 2);
 		nglRasterPos2iv(memAddress(coords));
 	}
@@ -6917,7 +6917,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos2sv(long coords) {
 		long __functionAddress = getInstance().RasterPos2sv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -6930,14 +6930,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos2sv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 2 << 1);
 		nglRasterPos2sv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glRasterPos2sv RasterPos2sv} */
 	public static void glRasterPos2sv(ShortBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 2);
 		nglRasterPos2sv(memAddress(coords));
 	}
@@ -6948,7 +6948,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos2fv(long coords) {
 		long __functionAddress = getInstance().RasterPos2fv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -6961,14 +6961,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos2fv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 2 << 2);
 		nglRasterPos2fv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glRasterPos2fv RasterPos2fv} */
 	public static void glRasterPos2fv(FloatBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 2);
 		nglRasterPos2fv(memAddress(coords));
 	}
@@ -6979,7 +6979,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos2dv(long coords) {
 		long __functionAddress = getInstance().RasterPos2dv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -6992,14 +6992,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos2dv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 2 << 3);
 		nglRasterPos2dv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glRasterPos2dv RasterPos2dv} */
 	public static void glRasterPos2dv(DoubleBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 2);
 		nglRasterPos2dv(memAddress(coords));
 	}
@@ -7017,7 +7017,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos3i(int x, int y, int z) {
 		long __functionAddress = getInstance().RasterPos3i;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, x, y, z);
 	}
@@ -7035,7 +7035,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos3s(short x, short y, short z) {
 		long __functionAddress = getInstance().RasterPos3s;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, x, y, z);
 	}
@@ -7053,7 +7053,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos3f(float x, float y, float z) {
 		long __functionAddress = getInstance().RasterPos3f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFV(__functionAddress, x, y, z);
 	}
@@ -7071,7 +7071,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos3d(double x, double y, double z) {
 		long __functionAddress = getInstance().RasterPos3d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDV(__functionAddress, x, y, z);
 	}
@@ -7082,7 +7082,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos3iv(long coords) {
 		long __functionAddress = getInstance().RasterPos3iv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -7095,14 +7095,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos3iv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 3 << 2);
 		nglRasterPos3iv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glRasterPos3iv RasterPos3iv} */
 	public static void glRasterPos3iv(IntBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 3);
 		nglRasterPos3iv(memAddress(coords));
 	}
@@ -7113,7 +7113,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos3sv(long coords) {
 		long __functionAddress = getInstance().RasterPos3sv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -7126,14 +7126,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos3sv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 3 << 1);
 		nglRasterPos3sv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glRasterPos3sv RasterPos3sv} */
 	public static void glRasterPos3sv(ShortBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 3);
 		nglRasterPos3sv(memAddress(coords));
 	}
@@ -7144,7 +7144,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos3fv(long coords) {
 		long __functionAddress = getInstance().RasterPos3fv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -7157,14 +7157,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos3fv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 3 << 2);
 		nglRasterPos3fv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glRasterPos3fv RasterPos3fv} */
 	public static void glRasterPos3fv(FloatBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 3);
 		nglRasterPos3fv(memAddress(coords));
 	}
@@ -7175,7 +7175,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos3dv(long coords) {
 		long __functionAddress = getInstance().RasterPos3dv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -7188,14 +7188,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos3dv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 3 << 3);
 		nglRasterPos3dv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glRasterPos3dv RasterPos3dv} */
 	public static void glRasterPos3dv(DoubleBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 3);
 		nglRasterPos3dv(memAddress(coords));
 	}
@@ -7214,7 +7214,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos4i(int x, int y, int z, int w) {
 		long __functionAddress = getInstance().RasterPos4i;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, x, y, z, w);
 	}
@@ -7233,7 +7233,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos4s(short x, short y, short z, short w) {
 		long __functionAddress = getInstance().RasterPos4s;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSSV(__functionAddress, x, y, z, w);
 	}
@@ -7252,7 +7252,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos4f(float x, float y, float z, float w) {
 		long __functionAddress = getInstance().RasterPos4f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFFV(__functionAddress, x, y, z, w);
 	}
@@ -7271,7 +7271,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRasterPos4d(double x, double y, double z, double w) {
 		long __functionAddress = getInstance().RasterPos4d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDDV(__functionAddress, x, y, z, w);
 	}
@@ -7282,7 +7282,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos4iv(long coords) {
 		long __functionAddress = getInstance().RasterPos4iv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -7295,14 +7295,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos4iv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 4 << 2);
 		nglRasterPos4iv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glRasterPos4iv RasterPos4iv} */
 	public static void glRasterPos4iv(IntBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 4);
 		nglRasterPos4iv(memAddress(coords));
 	}
@@ -7313,7 +7313,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos4sv(long coords) {
 		long __functionAddress = getInstance().RasterPos4sv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -7326,14 +7326,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos4sv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 4 << 1);
 		nglRasterPos4sv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glRasterPos4sv RasterPos4sv} */
 	public static void glRasterPos4sv(ShortBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 4);
 		nglRasterPos4sv(memAddress(coords));
 	}
@@ -7344,7 +7344,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos4fv(long coords) {
 		long __functionAddress = getInstance().RasterPos4fv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -7357,14 +7357,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos4fv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 4 << 2);
 		nglRasterPos4fv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glRasterPos4fv RasterPos4fv} */
 	public static void glRasterPos4fv(FloatBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 4);
 		nglRasterPos4fv(memAddress(coords));
 	}
@@ -7375,7 +7375,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRasterPos4dv(long coords) {
 		long __functionAddress = getInstance().RasterPos4dv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -7388,14 +7388,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the raster position buffer
 	 */
 	public static void glRasterPos4dv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 4 << 3);
 		nglRasterPos4dv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glRasterPos4dv RasterPos4dv} */
 	public static void glRasterPos4dv(DoubleBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 4);
 		nglRasterPos4dv(memAddress(coords));
 	}
@@ -7444,35 +7444,35 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param pixels a buffer in which to place the returned pixel data
 	 */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels));
 	}
 
 	/** Buffer object offset version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglReadPixels(x, y, width, height, format, type, pixelsOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels));
 	}
@@ -7504,7 +7504,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRecti(int x1, int y1, int x2, int y2) {
 		long __functionAddress = getInstance().Recti;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, x1, y1, x2, y2);
 	}
@@ -7523,7 +7523,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRects(short x1, short y1, short x2, short y2) {
 		long __functionAddress = getInstance().Rects;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSSV(__functionAddress, x1, y1, x2, y2);
 	}
@@ -7542,7 +7542,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRectf(float x1, float y1, float x2, float y2) {
 		long __functionAddress = getInstance().Rectf;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFFV(__functionAddress, x1, y1, x2, y2);
 	}
@@ -7561,7 +7561,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRectd(double x1, double y1, double x2, double y2) {
 		long __functionAddress = getInstance().Rectd;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDDV(__functionAddress, x1, y1, x2, y2);
 	}
@@ -7572,7 +7572,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRectiv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPPV(__functionAddress, v1, v2);
 	}
@@ -7586,7 +7586,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v2 the second vertex buffer
 	 */
 	public static void glRectiv(ByteBuffer v1, ByteBuffer v2) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(v1, 2 << 2);
 			checkBuffer(v2, 2 << 2);
 		}
@@ -7595,7 +7595,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Alternative version of: {@link #glRectiv Rectiv} */
 	public static void glRectiv(IntBuffer v1, IntBuffer v2) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(v1, 2);
 			checkBuffer(v2, 2);
 		}
@@ -7608,7 +7608,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRectsv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectsv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPPV(__functionAddress, v1, v2);
 	}
@@ -7622,7 +7622,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v2 the second vertex buffer
 	 */
 	public static void glRectsv(ByteBuffer v1, ByteBuffer v2) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(v1, 2 << 1);
 			checkBuffer(v2, 2 << 1);
 		}
@@ -7631,7 +7631,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Alternative version of: {@link #glRectsv Rectsv} */
 	public static void glRectsv(ShortBuffer v1, ShortBuffer v2) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(v1, 2);
 			checkBuffer(v2, 2);
 		}
@@ -7644,7 +7644,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRectfv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectfv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPPV(__functionAddress, v1, v2);
 	}
@@ -7658,7 +7658,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v2 the second vertex buffer
 	 */
 	public static void glRectfv(ByteBuffer v1, ByteBuffer v2) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(v1, 2 << 2);
 			checkBuffer(v2, 2 << 2);
 		}
@@ -7667,7 +7667,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Alternative version of: {@link #glRectfv Rectfv} */
 	public static void glRectfv(FloatBuffer v1, FloatBuffer v2) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(v1, 2);
 			checkBuffer(v2, 2);
 		}
@@ -7680,7 +7680,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglRectdv(long v1, long v2) {
 		long __functionAddress = getInstance().Rectdv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPPV(__functionAddress, v1, v2);
 	}
@@ -7694,7 +7694,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v2 the second vertex buffer
 	 */
 	public static void glRectdv(ByteBuffer v1, ByteBuffer v2) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(v1, 2 << 3);
 			checkBuffer(v2, 2 << 3);
 		}
@@ -7703,7 +7703,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 
 	/** Alternative version of: {@link #glRectdv Rectdv} */
 	public static void glRectdv(DoubleBuffer v1, DoubleBuffer v2) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(v1, 2);
 			checkBuffer(v2, 2);
 		}
@@ -7721,7 +7721,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static int glRenderMode(int mode) {
 		long __functionAddress = getInstance().RenderMode;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callII(__functionAddress, mode);
 	}
@@ -7759,7 +7759,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRotatef(float angle, float x, float y, float z) {
 		long __functionAddress = getInstance().Rotatef;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFFV(__functionAddress, angle, x, y, z);
 	}
@@ -7778,7 +7778,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glRotated(double angle, double x, double y, double z) {
 		long __functionAddress = getInstance().Rotated;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDDV(__functionAddress, angle, x, y, z);
 	}
@@ -7804,7 +7804,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glScalef(float x, float y, float z) {
 		long __functionAddress = getInstance().Scalef;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFV(__functionAddress, x, y, z);
 	}
@@ -7822,7 +7822,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glScaled(double x, double y, double z) {
 		long __functionAddress = getInstance().Scaled;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDV(__functionAddress, x, y, z);
 	}
@@ -7853,7 +7853,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglSelectBuffer(int size, long buffer) {
 		long __functionAddress = getInstance().SelectBuffer;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, size, buffer);
 	}
@@ -7867,7 +7867,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param buffer an array of unsigned integers to be potentially filled names
 	 */
 	public static void glSelectBuffer(int size, ByteBuffer buffer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(buffer, size << 2);
 		nglSelectBuffer(size, memAddress(buffer));
 	}
@@ -7892,7 +7892,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glShadeModel(int mode) {
 		long __functionAddress = getInstance().ShadeModel;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, mode);
 	}
@@ -7970,7 +7970,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord1f(float s) {
 		long __functionAddress = getInstance().TexCoord1f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFV(__functionAddress, s);
 	}
@@ -7986,7 +7986,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord1s(short s) {
 		long __functionAddress = getInstance().TexCoord1s;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSV(__functionAddress, s);
 	}
@@ -8002,7 +8002,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord1i(int s) {
 		long __functionAddress = getInstance().TexCoord1i;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, s);
 	}
@@ -8018,7 +8018,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord1d(double s) {
 		long __functionAddress = getInstance().TexCoord1d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDV(__functionAddress, s);
 	}
@@ -8029,7 +8029,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord1fv(long v) {
 		long __functionAddress = getInstance().TexCoord1fv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -8042,14 +8042,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord1fv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 2);
 		nglTexCoord1fv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glTexCoord1fv TexCoord1fv} */
 	public static void glTexCoord1fv(FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglTexCoord1fv(memAddress(v));
 	}
@@ -8060,7 +8060,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord1sv(long v) {
 		long __functionAddress = getInstance().TexCoord1sv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -8073,14 +8073,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord1sv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 1);
 		nglTexCoord1sv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glTexCoord1sv TexCoord1sv} */
 	public static void glTexCoord1sv(ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglTexCoord1sv(memAddress(v));
 	}
@@ -8091,7 +8091,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord1iv(long v) {
 		long __functionAddress = getInstance().TexCoord1iv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -8104,14 +8104,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord1iv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 2);
 		nglTexCoord1iv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glTexCoord1iv TexCoord1iv} */
 	public static void glTexCoord1iv(IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglTexCoord1iv(memAddress(v));
 	}
@@ -8122,7 +8122,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord1dv(long v) {
 		long __functionAddress = getInstance().TexCoord1dv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -8135,14 +8135,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord1dv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 3);
 		nglTexCoord1dv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glTexCoord1dv TexCoord1dv} */
 	public static void glTexCoord1dv(DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglTexCoord1dv(memAddress(v));
 	}
@@ -8159,7 +8159,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord2f(float s, float t) {
 		long __functionAddress = getInstance().TexCoord2f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFV(__functionAddress, s, t);
 	}
@@ -8176,7 +8176,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord2s(short s, short t) {
 		long __functionAddress = getInstance().TexCoord2s;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSV(__functionAddress, s, t);
 	}
@@ -8193,7 +8193,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord2i(int s, int t) {
 		long __functionAddress = getInstance().TexCoord2i;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, s, t);
 	}
@@ -8210,7 +8210,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord2d(double s, double t) {
 		long __functionAddress = getInstance().TexCoord2d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDV(__functionAddress, s, t);
 	}
@@ -8221,7 +8221,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord2fv(long v) {
 		long __functionAddress = getInstance().TexCoord2fv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -8234,14 +8234,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord2fv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 2);
 		nglTexCoord2fv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glTexCoord2fv TexCoord2fv} */
 	public static void glTexCoord2fv(FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglTexCoord2fv(memAddress(v));
 	}
@@ -8252,7 +8252,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord2sv(long v) {
 		long __functionAddress = getInstance().TexCoord2sv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -8265,14 +8265,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord2sv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 1);
 		nglTexCoord2sv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glTexCoord2sv TexCoord2sv} */
 	public static void glTexCoord2sv(ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglTexCoord2sv(memAddress(v));
 	}
@@ -8283,7 +8283,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord2iv(long v) {
 		long __functionAddress = getInstance().TexCoord2iv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -8296,14 +8296,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord2iv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 2);
 		nglTexCoord2iv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glTexCoord2iv TexCoord2iv} */
 	public static void glTexCoord2iv(IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglTexCoord2iv(memAddress(v));
 	}
@@ -8314,7 +8314,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord2dv(long v) {
 		long __functionAddress = getInstance().TexCoord2dv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -8327,14 +8327,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord2dv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 3);
 		nglTexCoord2dv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glTexCoord2dv TexCoord2dv} */
 	public static void glTexCoord2dv(DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglTexCoord2dv(memAddress(v));
 	}
@@ -8352,7 +8352,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord3f(float s, float t, float r) {
 		long __functionAddress = getInstance().TexCoord3f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFV(__functionAddress, s, t, r);
 	}
@@ -8370,7 +8370,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord3s(short s, short t, short r) {
 		long __functionAddress = getInstance().TexCoord3s;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, s, t, r);
 	}
@@ -8388,7 +8388,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord3i(int s, int t, int r) {
 		long __functionAddress = getInstance().TexCoord3i;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, s, t, r);
 	}
@@ -8406,7 +8406,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord3d(double s, double t, double r) {
 		long __functionAddress = getInstance().TexCoord3d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDV(__functionAddress, s, t, r);
 	}
@@ -8417,7 +8417,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord3fv(long v) {
 		long __functionAddress = getInstance().TexCoord3fv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -8430,14 +8430,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord3fv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglTexCoord3fv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glTexCoord3fv TexCoord3fv} */
 	public static void glTexCoord3fv(FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglTexCoord3fv(memAddress(v));
 	}
@@ -8448,7 +8448,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord3sv(long v) {
 		long __functionAddress = getInstance().TexCoord3sv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -8461,14 +8461,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord3sv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 1);
 		nglTexCoord3sv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glTexCoord3sv TexCoord3sv} */
 	public static void glTexCoord3sv(ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglTexCoord3sv(memAddress(v));
 	}
@@ -8479,7 +8479,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord3iv(long v) {
 		long __functionAddress = getInstance().TexCoord3iv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -8492,14 +8492,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord3iv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglTexCoord3iv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glTexCoord3iv TexCoord3iv} */
 	public static void glTexCoord3iv(IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglTexCoord3iv(memAddress(v));
 	}
@@ -8510,7 +8510,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord3dv(long v) {
 		long __functionAddress = getInstance().TexCoord3dv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -8523,14 +8523,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord3dv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglTexCoord3dv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glTexCoord3dv TexCoord3dv} */
 	public static void glTexCoord3dv(DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglTexCoord3dv(memAddress(v));
 	}
@@ -8549,7 +8549,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord4f(float s, float t, float r, float q) {
 		long __functionAddress = getInstance().TexCoord4f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFFV(__functionAddress, s, t, r, q);
 	}
@@ -8568,7 +8568,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord4s(short s, short t, short r, short q) {
 		long __functionAddress = getInstance().TexCoord4s;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSSV(__functionAddress, s, t, r, q);
 	}
@@ -8587,7 +8587,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord4i(int s, int t, int r, int q) {
 		long __functionAddress = getInstance().TexCoord4i;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, s, t, r, q);
 	}
@@ -8606,7 +8606,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexCoord4d(double s, double t, double r, double q) {
 		long __functionAddress = getInstance().TexCoord4d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDDV(__functionAddress, s, t, r, q);
 	}
@@ -8617,7 +8617,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord4fv(long v) {
 		long __functionAddress = getInstance().TexCoord4fv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -8630,14 +8630,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord4fv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglTexCoord4fv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glTexCoord4fv TexCoord4fv} */
 	public static void glTexCoord4fv(FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglTexCoord4fv(memAddress(v));
 	}
@@ -8648,7 +8648,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord4sv(long v) {
 		long __functionAddress = getInstance().TexCoord4sv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -8661,14 +8661,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord4sv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglTexCoord4sv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glTexCoord4sv TexCoord4sv} */
 	public static void glTexCoord4sv(ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglTexCoord4sv(memAddress(v));
 	}
@@ -8679,7 +8679,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord4iv(long v) {
 		long __functionAddress = getInstance().TexCoord4iv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -8692,14 +8692,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord4iv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglTexCoord4iv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glTexCoord4iv TexCoord4iv} */
 	public static void glTexCoord4iv(IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglTexCoord4iv(memAddress(v));
 	}
@@ -8710,7 +8710,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoord4dv(long v) {
 		long __functionAddress = getInstance().TexCoord4dv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, v);
 	}
@@ -8723,14 +8723,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param v the texture coordinate buffer
 	 */
 	public static void glTexCoord4dv(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 3);
 		nglTexCoord4dv(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glTexCoord4dv TexCoord4dv} */
 	public static void glTexCoord4dv(DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglTexCoord4dv(memAddress(v));
 	}
@@ -8741,7 +8741,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexCoordPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().TexCoordPointer;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, size, type, stride, pointer);
 	}
@@ -8757,35 +8757,35 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param pointer the texture coordinate array data
 	 */
 	public static void glTexCoordPointer(int size, int type, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglTexCoordPointer(size, type, stride, memAddress(pointer));
 	}
 
 	/** Buffer object offset version of: {@link #glTexCoordPointer TexCoordPointer} */
 	public static void glTexCoordPointer(int size, int type, int stride, long pointerOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglTexCoordPointer(size, type, stride, pointerOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glTexCoordPointer TexCoordPointer} */
 	public static void glTexCoordPointer(int size, int type, int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglTexCoordPointer(size, type, stride, memAddress(pointer));
 	}
 
 	/** IntBuffer version of: {@link #glTexCoordPointer TexCoordPointer} */
 	public static void glTexCoordPointer(int size, int type, int stride, IntBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglTexCoordPointer(size, type, stride, memAddress(pointer));
 	}
 
 	/** FloatBuffer version of: {@link #glTexCoordPointer TexCoordPointer} */
 	public static void glTexCoordPointer(int size, int type, int stride, FloatBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglTexCoordPointer(size, type, stride, memAddress(pointer));
 	}
@@ -8826,14 +8826,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param params the parameter value
 	 */
 	public static void glTexEnviv(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglTexEnviv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glTexEnviv TexEnviv} */
 	public static void glTexEnviv(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglTexEnviv(target, pname, memAddress(params));
 	}
@@ -8873,14 +8873,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param params the parameter value
 	 */
 	public static void glTexEnvfv(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglTexEnvfv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glTexEnvfv TexEnvfv} */
 	public static void glTexEnvfv(int target, int pname, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglTexEnvfv(target, pname, memAddress(params));
 	}
@@ -8906,7 +8906,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexGeni(int coord, int pname, int param) {
 		long __functionAddress = getInstance().TexGeni;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, coord, pname, param);
 	}
@@ -8917,7 +8917,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexGeniv(int coord, int pname, long params) {
 		long __functionAddress = getInstance().TexGeniv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, coord, pname, params);
 	}
@@ -8932,14 +8932,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param params the parameter value
 	 */
 	public static void glTexGeniv(int coord, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglTexGeniv(coord, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glTexGeniv TexGeniv} */
 	public static void glTexGeniv(int coord, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglTexGeniv(coord, pname, memAddress(params));
 	}
@@ -8957,7 +8957,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexGenf(int coord, int pname, float param) {
 		long __functionAddress = getInstance().TexGenf;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIFV(__functionAddress, coord, pname, param);
 	}
@@ -8968,7 +8968,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexGenfv(int coord, int pname, long params) {
 		long __functionAddress = getInstance().TexGenfv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, coord, pname, params);
 	}
@@ -8983,14 +8983,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param params the parameter value
 	 */
 	public static void glTexGenfv(int coord, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglTexGenfv(coord, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glTexGenfv TexGenfv} */
 	public static void glTexGenfv(int coord, int pname, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglTexGenfv(coord, pname, memAddress(params));
 	}
@@ -9008,7 +9008,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTexGend(int coord, int pname, double param) {
 		long __functionAddress = getInstance().TexGend;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIDV(__functionAddress, coord, pname, param);
 	}
@@ -9019,7 +9019,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglTexGendv(int coord, int pname, long params) {
 		long __functionAddress = getInstance().TexGendv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, coord, pname, params);
 	}
@@ -9034,14 +9034,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param params the parameter value
 	 */
 	public static void glTexGendv(int coord, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 3);
 		nglTexGendv(coord, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glTexGendv TexGendv} */
 	public static void glTexGendv(int coord, int pname, DoubleBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglTexGendv(coord, pname, memAddress(params));
 	}
@@ -9071,42 +9071,42 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param pixels         the texel data
 	 */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
 	/** Buffer object offset version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, pixelsOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, ShortBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, IntBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, FloatBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
 	/** DoubleBuffer version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, DoubleBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
@@ -9135,42 +9135,42 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param pixels         the texel data
 	 */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
 	}
 
 	/** Buffer object offset version of: {@link #glTexImage1D TexImage1D} */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglTexImage1D(target, level, internalformat, width, border, format, type, pixelsOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glTexImage1D TexImage1D} */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, ShortBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glTexImage1D TexImage1D} */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, IntBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glTexImage1D TexImage1D} */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, FloatBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
 	}
 
 	/** DoubleBuffer version of: {@link #glTexImage1D TexImage1D} */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, DoubleBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
 	}
@@ -9313,14 +9313,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param params the parameter value
 	 */
 	public static void glTexParameteriv(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglTexParameteriv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glTexParameteriv TexParameteriv} */
 	public static void glTexParameteriv(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglTexParameteriv(target, pname, memAddress(params));
 	}
@@ -9360,14 +9360,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param params the parameter value
 	 */
 	public static void glTexParameterfv(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglTexParameterfv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glTexParameterfv TexParameterfv} */
 	public static void glTexParameterfv(int target, int pname, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglTexParameterfv(target, pname, memAddress(params));
 	}
@@ -9395,42 +9395,42 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param pixels  the pixel data
 	 */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
 	/** Buffer object offset version of: {@link #glTexSubImage1D TexSubImage1D} */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglTexSubImage1D(target, level, xoffset, width, format, type, pixelsOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glTexSubImage1D TexSubImage1D} */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, ShortBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glTexSubImage1D TexSubImage1D} */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, IntBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glTexSubImage1D TexSubImage1D} */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, FloatBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
 	/** DoubleBuffer version of: {@link #glTexSubImage1D TexSubImage1D} */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, DoubleBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels));
 	}
@@ -9461,42 +9461,42 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param pixels  the pixel data
 	 */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
 	/** Buffer object offset version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixelsOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, ShortBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, IntBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, FloatBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
 	/** DoubleBuffer version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, DoubleBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
@@ -9522,7 +9522,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTranslatef(float x, float y, float z) {
 		long __functionAddress = getInstance().Translatef;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFV(__functionAddress, x, y, z);
 	}
@@ -9540,7 +9540,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glTranslated(double x, double y, double z) {
 		long __functionAddress = getInstance().Translated;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDV(__functionAddress, x, y, z);
 	}
@@ -9558,7 +9558,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex2f(float x, float y) {
 		long __functionAddress = getInstance().Vertex2f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFV(__functionAddress, x, y);
 	}
@@ -9575,7 +9575,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex2s(short x, short y) {
 		long __functionAddress = getInstance().Vertex2s;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSV(__functionAddress, x, y);
 	}
@@ -9592,7 +9592,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex2i(int x, int y) {
 		long __functionAddress = getInstance().Vertex2i;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, x, y);
 	}
@@ -9609,7 +9609,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex2d(double x, double y) {
 		long __functionAddress = getInstance().Vertex2d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDV(__functionAddress, x, y);
 	}
@@ -9620,7 +9620,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex2fv(long coords) {
 		long __functionAddress = getInstance().Vertex2fv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -9633,14 +9633,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex2fv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 2 << 2);
 		nglVertex2fv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glVertex2fv Vertex2fv} */
 	public static void glVertex2fv(FloatBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 2);
 		nglVertex2fv(memAddress(coords));
 	}
@@ -9651,7 +9651,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex2sv(long coords) {
 		long __functionAddress = getInstance().Vertex2sv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -9664,14 +9664,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex2sv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 2 << 1);
 		nglVertex2sv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glVertex2sv Vertex2sv} */
 	public static void glVertex2sv(ShortBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 2);
 		nglVertex2sv(memAddress(coords));
 	}
@@ -9682,7 +9682,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex2iv(long coords) {
 		long __functionAddress = getInstance().Vertex2iv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -9695,14 +9695,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex2iv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 2 << 2);
 		nglVertex2iv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glVertex2iv Vertex2iv} */
 	public static void glVertex2iv(IntBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 2);
 		nglVertex2iv(memAddress(coords));
 	}
@@ -9713,7 +9713,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex2dv(long coords) {
 		long __functionAddress = getInstance().Vertex2dv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -9726,14 +9726,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex2dv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 2 << 3);
 		nglVertex2dv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glVertex2dv Vertex2dv} */
 	public static void glVertex2dv(DoubleBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 2);
 		nglVertex2dv(memAddress(coords));
 	}
@@ -9752,7 +9752,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex3f(float x, float y, float z) {
 		long __functionAddress = getInstance().Vertex3f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFV(__functionAddress, x, y, z);
 	}
@@ -9770,7 +9770,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex3s(short x, short y, short z) {
 		long __functionAddress = getInstance().Vertex3s;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSV(__functionAddress, x, y, z);
 	}
@@ -9788,7 +9788,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex3i(int x, int y, int z) {
 		long __functionAddress = getInstance().Vertex3i;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, x, y, z);
 	}
@@ -9806,7 +9806,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex3d(double x, double y, double z) {
 		long __functionAddress = getInstance().Vertex3d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDV(__functionAddress, x, y, z);
 	}
@@ -9817,7 +9817,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex3fv(long coords) {
 		long __functionAddress = getInstance().Vertex3fv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -9830,14 +9830,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex3fv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 3 << 2);
 		nglVertex3fv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glVertex3fv Vertex3fv} */
 	public static void glVertex3fv(FloatBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 3);
 		nglVertex3fv(memAddress(coords));
 	}
@@ -9848,7 +9848,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex3sv(long coords) {
 		long __functionAddress = getInstance().Vertex3sv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -9861,14 +9861,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex3sv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 3 << 1);
 		nglVertex3sv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glVertex3sv Vertex3sv} */
 	public static void glVertex3sv(ShortBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 3);
 		nglVertex3sv(memAddress(coords));
 	}
@@ -9879,7 +9879,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex3iv(long coords) {
 		long __functionAddress = getInstance().Vertex3iv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -9892,14 +9892,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex3iv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 3 << 2);
 		nglVertex3iv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glVertex3iv Vertex3iv} */
 	public static void glVertex3iv(IntBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 3);
 		nglVertex3iv(memAddress(coords));
 	}
@@ -9910,7 +9910,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex3dv(long coords) {
 		long __functionAddress = getInstance().Vertex3dv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -9923,14 +9923,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex3dv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 3 << 3);
 		nglVertex3dv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glVertex3dv Vertex3dv} */
 	public static void glVertex3dv(DoubleBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 3);
 		nglVertex3dv(memAddress(coords));
 	}
@@ -9949,7 +9949,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex4f(float x, float y, float z, float w) {
 		long __functionAddress = getInstance().Vertex4f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callFFFFV(__functionAddress, x, y, z, w);
 	}
@@ -9968,7 +9968,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex4s(short x, short y, short z, short w) {
 		long __functionAddress = getInstance().Vertex4s;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callSSSSV(__functionAddress, x, y, z, w);
 	}
@@ -9987,7 +9987,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex4i(int x, int y, int z, int w) {
 		long __functionAddress = getInstance().Vertex4i;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, x, y, z, w);
 	}
@@ -10006,7 +10006,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 */
 	public static void glVertex4d(double x, double y, double z, double w) {
 		long __functionAddress = getInstance().Vertex4d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callDDDDV(__functionAddress, x, y, z, w);
 	}
@@ -10017,7 +10017,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex4fv(long coords) {
 		long __functionAddress = getInstance().Vertex4fv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -10030,14 +10030,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex4fv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 4 << 2);
 		nglVertex4fv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glVertex4fv Vertex4fv} */
 	public static void glVertex4fv(FloatBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 4);
 		nglVertex4fv(memAddress(coords));
 	}
@@ -10048,7 +10048,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex4sv(long coords) {
 		long __functionAddress = getInstance().Vertex4sv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -10061,14 +10061,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex4sv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 4 << 1);
 		nglVertex4sv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glVertex4sv Vertex4sv} */
 	public static void glVertex4sv(ShortBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 4);
 		nglVertex4sv(memAddress(coords));
 	}
@@ -10079,7 +10079,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex4iv(long coords) {
 		long __functionAddress = getInstance().Vertex4iv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -10092,14 +10092,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex4iv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 4 << 2);
 		nglVertex4iv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glVertex4iv Vertex4iv} */
 	public static void glVertex4iv(IntBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 4);
 		nglVertex4iv(memAddress(coords));
 	}
@@ -10110,7 +10110,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertex4dv(long coords) {
 		long __functionAddress = getInstance().Vertex4dv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
@@ -10123,14 +10123,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param coords the vertex buffer
 	 */
 	public static void glVertex4dv(ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 4 << 3);
 		nglVertex4dv(memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glVertex4dv Vertex4dv} */
 	public static void glVertex4dv(DoubleBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 4);
 		nglVertex4dv(memAddress(coords));
 	}
@@ -10141,7 +10141,7 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	@JavadocExclude
 	public static void nglVertexPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = getInstance().VertexPointer;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, size, type, stride, pointer);
 	}
@@ -10157,35 +10157,35 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * @param pointer the vertex array data
 	 */
 	public static void glVertexPointer(int size, int type, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexPointer(size, type, stride, memAddress(pointer));
 	}
 
 	/** Buffer object offset version of: {@link #glVertexPointer VertexPointer} */
 	public static void glVertexPointer(int size, int type, int stride, long pointerOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglVertexPointer(size, type, stride, pointerOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glVertexPointer VertexPointer} */
 	public static void glVertexPointer(int size, int type, int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexPointer(size, type, stride, memAddress(pointer));
 	}
 
 	/** IntBuffer version of: {@link #glVertexPointer VertexPointer} */
 	public static void glVertexPointer(int size, int type, int stride, IntBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexPointer(size, type, stride, memAddress(pointer));
 	}
 
 	/** FloatBuffer version of: {@link #glVertexPointer VertexPointer} */
 	public static void glVertexPointer(int size, int type, int stride, FloatBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexPointer(size, type, stride, memAddress(pointer));
 	}

@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opencl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
@@ -133,7 +133,7 @@ public class CL10GL {
 	@JavadocExclude
 	public static long nclCreateFromGLBuffer(long context, long flags, int bufobj, long errcode_ret) {
 		long __functionAddress = getInstance().CreateFromGLBuffer;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(context);
 		return callPJIPP(__functionAddress, context, flags, bufobj, errcode_ret);
 	}
@@ -165,14 +165,14 @@ public class CL10GL {
 	 *         </ul>
 	 */
 	public static long clCreateFromGLBuffer(long context, long flags, int bufobj, ByteBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		return nclCreateFromGLBuffer(context, flags, bufobj, memAddressSafe(errcode_ret));
 	}
 
 	/** Alternative version of: {@link #clCreateFromGLBuffer CreateFromGLBuffer} */
 	public static long clCreateFromGLBuffer(long context, long flags, int bufobj, IntBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		return nclCreateFromGLBuffer(context, flags, bufobj, memAddressSafe(errcode_ret));
 	}
@@ -183,7 +183,7 @@ public class CL10GL {
 	@JavadocExclude
 	public static long nclCreateFromGLTexture2D(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret) {
 		long __functionAddress = getInstance().CreateFromGLTexture2D;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(context);
 		return callPJIIIPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
 	}
@@ -226,14 +226,14 @@ public class CL10GL {
 	 *         </ul>
 	 */
 	public static long clCreateFromGLTexture2D(long context, long flags, int texture_target, int miplevel, int texture, ByteBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		return nclCreateFromGLTexture2D(context, flags, texture_target, miplevel, texture, memAddressSafe(errcode_ret));
 	}
 
 	/** Alternative version of: {@link #clCreateFromGLTexture2D CreateFromGLTexture2D} */
 	public static long clCreateFromGLTexture2D(long context, long flags, int texture_target, int miplevel, int texture, IntBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		return nclCreateFromGLTexture2D(context, flags, texture_target, miplevel, texture, memAddressSafe(errcode_ret));
 	}
@@ -244,7 +244,7 @@ public class CL10GL {
 	@JavadocExclude
 	public static long nclCreateFromGLTexture3D(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret) {
 		long __functionAddress = getInstance().CreateFromGLTexture3D;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(context);
 		return callPJIIIPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
 	}
@@ -286,14 +286,14 @@ public class CL10GL {
 	 *         </ul>
 	 */
 	public static long clCreateFromGLTexture3D(long context, long flags, int texture_target, int miplevel, int texture, ByteBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		return nclCreateFromGLTexture3D(context, flags, texture_target, miplevel, texture, memAddressSafe(errcode_ret));
 	}
 
 	/** Alternative version of: {@link #clCreateFromGLTexture3D CreateFromGLTexture3D} */
 	public static long clCreateFromGLTexture3D(long context, long flags, int texture_target, int miplevel, int texture, IntBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		return nclCreateFromGLTexture3D(context, flags, texture_target, miplevel, texture, memAddressSafe(errcode_ret));
 	}
@@ -304,7 +304,7 @@ public class CL10GL {
 	@JavadocExclude
 	public static long nclCreateFromGLRenderbuffer(long context, long flags, int renderbuffer, long errcode_ret) {
 		long __functionAddress = getInstance().CreateFromGLRenderbuffer;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(context);
 		return callPJIPP(__functionAddress, context, flags, renderbuffer, errcode_ret);
 	}
@@ -338,14 +338,14 @@ public class CL10GL {
 	 *         </ul>
 	 */
 	public static long clCreateFromGLRenderbuffer(long context, long flags, int renderbuffer, ByteBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		return nclCreateFromGLRenderbuffer(context, flags, renderbuffer, memAddressSafe(errcode_ret));
 	}
 
 	/** Alternative version of: {@link #clCreateFromGLRenderbuffer CreateFromGLRenderbuffer} */
 	public static long clCreateFromGLRenderbuffer(long context, long flags, int renderbuffer, IntBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		return nclCreateFromGLRenderbuffer(context, flags, renderbuffer, memAddressSafe(errcode_ret));
 	}
@@ -356,7 +356,7 @@ public class CL10GL {
 	@JavadocExclude
 	public static int nclGetGLObjectInfo(long memobj, long gl_object_type, long gl_object_name) {
 		long __functionAddress = getInstance().GetGLObjectInfo;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(memobj);
 		return callPPPI(__functionAddress, memobj, gl_object_type, gl_object_name);
 	}
@@ -392,7 +392,7 @@ public class CL10GL {
 	@JavadocExclude
 	public static int nclGetGLTextureInfo(long memobj, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetGLTextureInfo;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(memobj);
 		return callPIPPPI(__functionAddress, memobj, param_name, param_value_size, param_value, param_value_size_ret);
 	}
@@ -417,7 +417,7 @@ public class CL10GL {
 	 *         </ul>
 	 */
 	public static int clGetGLTextureInfo(long memobj, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << POINTER_SHIFT);
 		}
@@ -426,14 +426,14 @@ public class CL10GL {
 
 	/** Alternative version of: {@link #clGetGLTextureInfo GetGLTextureInfo} */
 	public static int clGetGLTextureInfo(long memobj, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		return nclGetGLTextureInfo(memobj, param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetGLTextureInfo GetGLTextureInfo} */
 	public static int clGetGLTextureInfo(long memobj, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		return nclGetGLTextureInfo(memobj, param_name, (param_value == null ? 0 : param_value.remaining() << 2), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
@@ -444,7 +444,7 @@ public class CL10GL {
 	@JavadocExclude
 	public static int nclEnqueueAcquireGLObjects(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueAcquireGLObjects;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(command_queue);
 		return callPIPIPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -490,7 +490,7 @@ public class CL10GL {
 	 *         </ul>
 	 */
 	public static int clEnqueueAcquireGLObjects(long command_queue, int num_objects, ByteBuffer mem_objects, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(mem_objects, num_objects << POINTER_SHIFT);
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
 			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
@@ -500,14 +500,14 @@ public class CL10GL {
 
 	/** Alternative version of: {@link #clEnqueueAcquireGLObjects EnqueueAcquireGLObjects} */
 	public static int clEnqueueAcquireGLObjects(long command_queue, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
 		return nclEnqueueAcquireGLObjects(command_queue, mem_objects.remaining(), memAddress(mem_objects), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Single value version of: {@link #clEnqueueAcquireGLObjects EnqueueAcquireGLObjects} */
 	public static int clEnqueueAcquireGLObjects(long command_queue, long mem_object, PointerBuffer event_wait_list, PointerBuffer event) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
 		APIBuffer __buffer = apiBuffer();
 		int mem_objects = __buffer.pointerParam(mem_object);
@@ -520,7 +520,7 @@ public class CL10GL {
 	@JavadocExclude
 	public static int nclEnqueueReleaseGLObjects(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueReleaseGLObjects;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(command_queue);
 		return callPIPIPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -562,7 +562,7 @@ public class CL10GL {
 	 *         </ul>
 	 */
 	public static int clEnqueueReleaseGLObjects(long command_queue, int num_objects, ByteBuffer mem_objects, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(mem_objects, num_objects << POINTER_SHIFT);
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
 			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
@@ -572,14 +572,14 @@ public class CL10GL {
 
 	/** Alternative version of: {@link #clEnqueueReleaseGLObjects EnqueueReleaseGLObjects} */
 	public static int clEnqueueReleaseGLObjects(long command_queue, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
 		return nclEnqueueReleaseGLObjects(command_queue, mem_objects.remaining(), memAddress(mem_objects), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Single value version of: {@link #clEnqueueReleaseGLObjects EnqueueReleaseGLObjects} */
 	public static int clEnqueueReleaseGLObjects(long command_queue, long mem_object, PointerBuffer event_wait_list, PointerBuffer event) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
 		APIBuffer __buffer = apiBuffer();
 		int mem_objects = __buffer.pointerParam(mem_object);

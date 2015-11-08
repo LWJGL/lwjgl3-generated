@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/vertex_shader.txt">ARB_vertex_shader</a> extension.
@@ -420,14 +420,14 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib1fvARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 2);
 		nglVertexAttrib1fvARB(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib1fvARB VertexAttrib1fvARB} */
 	public static void glVertexAttrib1fvARB(int index, FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglVertexAttrib1fvARB(index, memAddress(v));
 	}
@@ -448,14 +448,14 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib1svARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 1);
 		nglVertexAttrib1svARB(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib1svARB VertexAttrib1svARB} */
 	public static void glVertexAttrib1svARB(int index, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglVertexAttrib1svARB(index, memAddress(v));
 	}
@@ -476,14 +476,14 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib1dvARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 3);
 		nglVertexAttrib1dvARB(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib1dvARB VertexAttrib1dvARB} */
 	public static void glVertexAttrib1dvARB(int index, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglVertexAttrib1dvARB(index, memAddress(v));
 	}
@@ -504,14 +504,14 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib2fvARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 2);
 		nglVertexAttrib2fvARB(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib2fvARB VertexAttrib2fvARB} */
 	public static void glVertexAttrib2fvARB(int index, FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglVertexAttrib2fvARB(index, memAddress(v));
 	}
@@ -532,14 +532,14 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib2svARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 1);
 		nglVertexAttrib2svARB(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib2svARB VertexAttrib2svARB} */
 	public static void glVertexAttrib2svARB(int index, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglVertexAttrib2svARB(index, memAddress(v));
 	}
@@ -560,14 +560,14 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib2dvARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 3);
 		nglVertexAttrib2dvARB(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib2dvARB VertexAttrib2dvARB} */
 	public static void glVertexAttrib2dvARB(int index, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglVertexAttrib2dvARB(index, memAddress(v));
 	}
@@ -588,14 +588,14 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib3fvARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglVertexAttrib3fvARB(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib3fvARB VertexAttrib3fvARB} */
 	public static void glVertexAttrib3fvARB(int index, FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglVertexAttrib3fvARB(index, memAddress(v));
 	}
@@ -616,14 +616,14 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib3svARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 1);
 		nglVertexAttrib3svARB(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib3svARB VertexAttrib3svARB} */
 	public static void glVertexAttrib3svARB(int index, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglVertexAttrib3svARB(index, memAddress(v));
 	}
@@ -644,14 +644,14 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib3dvARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglVertexAttrib3dvARB(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib3dvARB VertexAttrib3dvARB} */
 	public static void glVertexAttrib3dvARB(int index, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglVertexAttrib3dvARB(index, memAddress(v));
 	}
@@ -672,14 +672,14 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4fvARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttrib4fvARB(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib4fvARB VertexAttrib4fvARB} */
 	public static void glVertexAttrib4fvARB(int index, FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4fvARB(index, memAddress(v));
 	}
@@ -700,14 +700,14 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4svARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglVertexAttrib4svARB(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib4svARB VertexAttrib4svARB} */
 	public static void glVertexAttrib4svARB(int index, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4svARB(index, memAddress(v));
 	}
@@ -728,14 +728,14 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4dvARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 3);
 		nglVertexAttrib4dvARB(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib4dvARB VertexAttrib4dvARB} */
 	public static void glVertexAttrib4dvARB(int index, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4dvARB(index, memAddress(v));
 	}
@@ -756,14 +756,14 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4ivARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttrib4ivARB(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib4ivARB VertexAttrib4ivARB} */
 	public static void glVertexAttrib4ivARB(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4ivARB(index, memAddress(v));
 	}
@@ -784,7 +784,7 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4bvARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4bvARB(index, memAddress(v));
 	}
@@ -805,7 +805,7 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4ubvARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4ubvARB(index, memAddress(v));
 	}
@@ -826,14 +826,14 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4usvARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglVertexAttrib4usvARB(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib4usvARB VertexAttrib4usvARB} */
 	public static void glVertexAttrib4usvARB(int index, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4usvARB(index, memAddress(v));
 	}
@@ -854,14 +854,14 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4uivARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttrib4uivARB(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib4uivARB VertexAttrib4uivARB} */
 	public static void glVertexAttrib4uivARB(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4uivARB(index, memAddress(v));
 	}
@@ -882,7 +882,7 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4NbvARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4NbvARB(index, memAddress(v));
 	}
@@ -903,14 +903,14 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4NsvARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglVertexAttrib4NsvARB(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib4NsvARB VertexAttrib4NsvARB} */
 	public static void glVertexAttrib4NsvARB(int index, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4NsvARB(index, memAddress(v));
 	}
@@ -931,14 +931,14 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4NivARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttrib4NivARB(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib4NivARB VertexAttrib4NivARB} */
 	public static void glVertexAttrib4NivARB(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4NivARB(index, memAddress(v));
 	}
@@ -959,7 +959,7 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4NubvARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4NubvARB(index, memAddress(v));
 	}
@@ -980,14 +980,14 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4NusvARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglVertexAttrib4NusvARB(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib4NusvARB VertexAttrib4NusvARB} */
 	public static void glVertexAttrib4NusvARB(int index, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4NusvARB(index, memAddress(v));
 	}
@@ -1008,14 +1008,14 @@ public class ARBVertexShader {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttrib4NuivARB(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttrib4NuivARB(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttrib4NuivARB VertexAttrib4NuivARB} */
 	public static void glVertexAttrib4NuivARB(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttrib4NuivARB(index, memAddress(v));
 	}
@@ -1042,35 +1042,35 @@ public class ARBVertexShader {
 	 *                   currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
 	 */
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribPointerARB(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
 	/** Buffer object offset version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, long pointerOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglVertexAttribPointerARB(index, size, type, normalized, stride, pointerOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribPointerARB(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
 	/** IntBuffer version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, IntBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribPointerARB(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
 	/** FloatBuffer version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, FloatBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribPointerARB(index, size, type, normalized, stride, memAddress(pointer));
 	}
@@ -1116,7 +1116,7 @@ public class ARBVertexShader {
 	 * @param name       a null terminated string containing the name of the vertex shader attribute variable to which {@code index} is to be bound
 	 */
 	public static void glBindAttribLocationARB(int programObj, int index, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		nglBindAttribLocationARB(programObj, index, memAddress(name));
 	}
@@ -1149,7 +1149,7 @@ public class ARBVertexShader {
 	 * @param name       a null terminated string containing the name of the attribute variable
 	 */
 	public static void glGetActiveAttribARB(int programObj, int index, int maxLength, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(name, maxLength);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 			checkBuffer(size, 1 << 2);
@@ -1160,7 +1160,7 @@ public class ARBVertexShader {
 
 	/** Alternative version of: {@link #glGetActiveAttribARB GetActiveAttribARB} */
 	public static void glGetActiveAttribARB(int programObj, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( length != null ) checkBuffer(length, 1);
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
@@ -1170,7 +1170,7 @@ public class ARBVertexShader {
 
 	/** String return version of: {@link #glGetActiveAttribARB GetActiveAttribARB} */
 	public static String glGetActiveAttribARB(int programObj, int index, int maxLength, IntBuffer size, IntBuffer type) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
@@ -1184,7 +1184,7 @@ public class ARBVertexShader {
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveAttribARB GetActiveAttribARB} */
 	public static String glGetActiveAttribARB(int programObj, int index, IntBuffer size, IntBuffer type) {
 		int maxLength = ARBShaderObjects.glGetObjectParameteriARB(programObj, GL_OBJECT_ACTIVE_ATTRIBUTE_MAX_LENGTH_ARB);
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
@@ -1211,7 +1211,7 @@ public class ARBVertexShader {
 	 * @param name       a null terminated string containing the name of the attribute variable whose location is to be queried
 	 */
 	public static int glGetAttribLocationARB(int programObj, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		return nglGetAttribLocationARB(programObj, memAddress(name));
 	}
@@ -1240,14 +1240,14 @@ public class ARBVertexShader {
 	 * @param params returns the requested data
 	 */
 	public static void glGetVertexAttribivARB(int index, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetVertexAttribivARB(index, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetVertexAttribivARB GetVertexAttribivARB} */
 	public static void glGetVertexAttribivARB(int index, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetVertexAttribivARB(index, pname, memAddress(params));
 	}
@@ -1277,14 +1277,14 @@ public class ARBVertexShader {
 	 * @param params returns the requested data
 	 */
 	public static void glGetVertexAttribfvARB(int index, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglGetVertexAttribfvARB(index, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetVertexAttribfvARB GetVertexAttribfvARB} */
 	public static void glGetVertexAttribfvARB(int index, int pname, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglGetVertexAttribfvARB(index, pname, memAddress(params));
 	}
@@ -1306,14 +1306,14 @@ public class ARBVertexShader {
 	 * @param params returns the requested data
 	 */
 	public static void glGetVertexAttribdvARB(int index, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 3);
 		nglGetVertexAttribdvARB(index, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetVertexAttribdvARB GetVertexAttribdvARB} */
 	public static void glGetVertexAttribdvARB(int index, int pname, DoubleBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglGetVertexAttribdvARB(index, pname, memAddress(params));
 	}
@@ -1335,14 +1335,14 @@ public class ARBVertexShader {
 	 * @param pointer the pointer value
 	 */
 	public static void glGetVertexAttribPointervARB(int index, int pname, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(pointer, 1 << POINTER_SHIFT);
 		nglGetVertexAttribPointervARB(index, pname, memAddress(pointer));
 	}
 
 	/** Alternative version of: {@link #glGetVertexAttribPointervARB GetVertexAttribPointervARB} */
 	public static void glGetVertexAttribPointervARB(int index, int pname, PointerBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(pointer, 1);
 		nglGetVertexAttribPointervARB(index, pname, memAddress(pointer));
 	}

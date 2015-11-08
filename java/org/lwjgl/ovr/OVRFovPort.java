@@ -103,7 +103,7 @@ public class OVRFovPort extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public OVRFovPort set(OVRFovPort src) {
 		return nset(address());
@@ -111,7 +111,7 @@ public class OVRFovPort extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public OVRFovPort set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}

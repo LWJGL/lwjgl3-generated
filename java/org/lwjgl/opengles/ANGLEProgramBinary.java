@@ -10,7 +10,7 @@ package org.lwjgl.opengles;
  * 
  * <p>This extension makes available a program binary format, PROGRAM_BINARY_ANGLE. It enables retrieving and loading of pre-linked ANGLE program objects.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S} and {@link OESGetProgramBinary OES_get_program_binary}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0} and {@link OESGetProgramBinary OES_get_program_binary}.</p>
  */
 public final class ANGLEProgramBinary {
 

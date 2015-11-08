@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -103,7 +102,7 @@ public class GLXAMDGPUAssociation {
 
 	public static void glXBlitContextFramebufferAMD(long dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
 		long __functionAddress = getInstance().BlitContextFramebufferAMD;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(dstCtx);
 		callPIIIIIIIIIIV(__functionAddress, dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
@@ -118,7 +117,7 @@ public class GLXAMDGPUAssociation {
 	 */
 	public static long glXCreateAssociatedContextAMD(int id, long share_list) {
 		long __functionAddress = getInstance().CreateAssociatedContextAMD;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(share_list);
 		return callIPP(__functionAddress, id, share_list);
 	}
@@ -129,7 +128,7 @@ public class GLXAMDGPUAssociation {
 	@JavadocExclude
 	public static long nglXCreateAssociatedContextAttribsAMD(int id, long share_context, long attribList) {
 		long __functionAddress = getInstance().CreateAssociatedContextAttribsAMD;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(share_context);
 		return callIPPP(__functionAddress, id, share_context, attribList);
 	}
@@ -159,7 +158,7 @@ public class GLXAMDGPUAssociation {
 	 */
 	public static int glXDeleteAssociatedContextAMD(long ctx) {
 		long __functionAddress = getInstance().DeleteAssociatedContextAMD;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPI(__functionAddress, ctx);
 	}
@@ -173,7 +172,7 @@ public class GLXAMDGPUAssociation {
 	 */
 	public static int glXGetContextGPUIDAMD(long ctx) {
 		long __functionAddress = getInstance().GetContextGPUIDAMD;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPI(__functionAddress, ctx);
 	}
@@ -230,7 +229,7 @@ public class GLXAMDGPUAssociation {
 	 */
 	public static int glXMakeAssociatedContextCurrentAMD(long ctx) {
 		long __functionAddress = getInstance().MakeAssociatedContextCurrentAMD;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPI(__functionAddress, ctx);
 	}

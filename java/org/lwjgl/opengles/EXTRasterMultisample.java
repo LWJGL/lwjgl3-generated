@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -25,7 +24,7 @@ import static org.lwjgl.system.JNI.*;
  * sample) through the fragment shader, in the sample mask output, through the multisample fragment operations and occlusion query, until the coverage is
  * finally "reduced" to a single bit in a new "Coverage Reduction" stage that occurs before blending.</p>
  * 
- * <p>Requires {@link GLES30 GLES E.S}.</p>
+ * <p>Requires {@link GLES30 GLES 3.0}.</p>
  */
 public class EXTRasterMultisample {
 

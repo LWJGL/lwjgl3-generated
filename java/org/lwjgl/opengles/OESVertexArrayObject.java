@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/OES/OES_vertex_array_object.txt">OES_vertex_array_object</a> extension.
@@ -88,7 +87,7 @@ public class OESVertexArrayObject {
 	}
 
 	public static void glDeleteVertexArraysOES(int n, ByteBuffer arrays) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(arrays, n << 2);
 		nglDeleteVertexArraysOES(n, memAddress(arrays));
 	}
@@ -115,7 +114,7 @@ public class OESVertexArrayObject {
 	}
 
 	public static void glGenVertexArraysOES(int n, ByteBuffer arrays) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(arrays, n << 2);
 			checkBuffer(arrays, 1 << 2);
 		}
@@ -124,7 +123,7 @@ public class OESVertexArrayObject {
 
 	/** Alternative version of: {@link #glGenVertexArraysOES GenVertexArraysOES} */
 	public static void glGenVertexArraysOES(IntBuffer arrays) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(arrays, 1);
 		nglGenVertexArraysOES(arrays.remaining(), memAddress(arrays));
 	}

@@ -13,7 +13,7 @@ package org.lwjgl.opengles;
  * <p>The shader objects loaded with this extension are equivalent to shaders created from source, i.e. there are no additional restrictions on which other
  * shader objects they can be linked to, nor on which OpenGL ES states they can be used with.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public final class ARMMaliShaderBinary {
 

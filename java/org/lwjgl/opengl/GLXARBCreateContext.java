@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -83,7 +82,7 @@ public class GLXARBCreateContext {
 	@JavadocExclude
 	public static long nglXCreateContextAttribsARB(long display, long config, long share_context, int direct, long attrib_list) {
 		long __functionAddress = getInstance().CreateContextAttribsARB;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -106,8 +105,8 @@ public class GLXARBCreateContext {
 	 * @param share_context if not {@code NULL}, then all shareable data (excluding OpenGL texture objects named 0) will be shared by {@code share_context}, all other contexts
 	 *                      {@code share_context} already shares with, and the newly created context. An arbitrary number of GLXContexts can share data in this fashion. The
 	 *                      server context state for all sharing contexts must exist in a single address space.
-	 * @param direct        direct rendering is requested if {@code direct} is {@link Xlib#True}, and indirect rendering if {@code direct} is {@link Xlib#False}. If
-	 *                      {@code direct} is {@link Xlib#True}, the implementation may nonetheless create an indirect rendering context if any of the following conditions hold:
+	 * @param direct        direct rendering is requested if {@code direct} is {@code True}, and indirect rendering if {@code direct} is {@code False}. If
+	 *                      {@code direct} is {@code True}, the implementation may nonetheless create an indirect rendering context if any of the following conditions hold:
 	 *                      <ul>
 	 *                      <li>The implementation does not support direct rendering.</li>
 	 *                      <li>{@code display} is not a local X server.</li>
@@ -117,14 +116,14 @@ public class GLXARBCreateContext {
 	 * @param attrib_list   an optional list of attributes for the context, terminated with {@code None}
 	 */
 	public static long glXCreateContextAttribsARB(long display, long config, long share_context, int direct, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list);
 		return nglXCreateContextAttribsARB(display, config, share_context, direct, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #glXCreateContextAttribsARB CreateContextAttribsARB} */
 	public static long glXCreateContextAttribsARB(long display, long config, long share_context, int direct, IntBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);
 		return nglXCreateContextAttribsARB(display, config, share_context, direct, memAddressSafe(attrib_list));
 	}

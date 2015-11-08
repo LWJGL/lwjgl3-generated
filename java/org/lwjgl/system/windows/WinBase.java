@@ -5,14 +5,13 @@
  */
 package org.lwjgl.system.windows;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to WinBase.h. */
 public class WinBase {
@@ -22,7 +21,7 @@ public class WinBase {
 		FALSE = 0x0,
 		TRUE  = 0x1;
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected WinBase() {
@@ -68,7 +67,7 @@ public class WinBase {
 	 *                   <p>If this parameter is {@code NULL}, {@code GetModuleHandle} returns a handle to the file used to create the calling process (.exe file).</p>
 	 */
 	public static long GetModuleHandle(ByteBuffer moduleName) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( moduleName != null ) checkNT2(moduleName);
 		return nGetModuleHandle(memAddressSafe(moduleName));
 	}
@@ -103,7 +102,7 @@ public class WinBase {
 	 *             to the module name. To prevent the function from appending.dll to the module name, include a trailing point character (.) in the module name string.</p>
 	 */
 	public static long LoadLibrary(ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT2(name);
 		return nLoadLibrary(memAddress(name));
 	}
@@ -129,7 +128,7 @@ public class WinBase {
 	 *               high-order word must be zero.
 	 */
 	public static long GetProcAddress(long handle, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(handle);
 			checkNT1(name);
 		}
@@ -138,7 +137,7 @@ public class WinBase {
 
 	/** CharSequence version of: {@link #GetProcAddress} */
 	public static long GetProcAddress(long handle, CharSequence name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(handle);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
@@ -158,7 +157,7 @@ public class WinBase {
 	 * @param handle a handle to the loaded library module
 	 */
 	public static int FreeLibrary(long handle) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(handle);
 		return nFreeLibrary(handle);
 	}

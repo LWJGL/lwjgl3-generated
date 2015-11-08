@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_blend_func_extended.txt">EXT_blend_func_extended</a> extension.
@@ -106,7 +105,7 @@ public class EXTBlendFuncExtended {
 	}
 
 	public static void glBindFragDataLocationIndexedEXT(int program, int colorNumber, int index, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		nglBindFragDataLocationIndexedEXT(program, colorNumber, index, memAddress(name));
 	}
@@ -128,7 +127,7 @@ public class EXTBlendFuncExtended {
 	}
 
 	public static int glGetFragDataIndexEXT(int program, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		return nglGetFragDataIndexEXT(program, memAddress(name));
 	}
@@ -150,7 +149,7 @@ public class EXTBlendFuncExtended {
 	}
 
 	public static void glBindFragDataLocationEXT(int program, int colorNumber, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		nglBindFragDataLocationEXT(program, colorNumber, memAddress(name));
 	}
@@ -172,7 +171,7 @@ public class EXTBlendFuncExtended {
 	}
 
 	public static int glGetProgramResourceLocationIndexEXT(int program, int programInterface, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		return nglGetProgramResourceLocationIndexEXT(program, programInterface, memAddress(name));
 	}

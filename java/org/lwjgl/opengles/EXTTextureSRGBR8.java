@@ -11,7 +11,7 @@ package org.lwjgl.opengles;
  * <p>This extension introduces SR8_EXT as an acceptable internal format. This allows efficient sRGB sampling for source images stored as a separate texture
  * per channel.</p>
  * 
- * <p>Requires {@link GLES30 GLES E.S}.</p>
+ * <p>Requires {@link GLES30 GLES 3.0}.</p>
  */
 public final class EXTTextureSRGBR8 {
 

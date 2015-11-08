@@ -19,7 +19,7 @@ package org.lwjgl.opengles;
  * sign bit so all three components must be non-negative. The fractional mantissas are stored without an implied 1 to the left of the decimal point.
  * Neither infinity nor not-a-number (NaN) are representable in this shared exponent format.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public final class APPLETexturePackedFloat {
 

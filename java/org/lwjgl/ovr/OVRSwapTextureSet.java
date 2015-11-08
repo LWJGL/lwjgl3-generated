@@ -16,11 +16,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Describes a set of textures that act as a rendered flip chain.
  * 
- * <p>An ovrSwapTextureSet per layer is passed to {@link OVR#ovrHmd_SubmitFrame} via one of the ovrLayer types. The {@code TextureCount} refers to the flip chain
+ * <p>An ovrSwapTextureSet per layer is passed to {@link OVR#ovr_SubmitFrame} via one of the ovrLayer types. The {@code TextureCount} refers to the flip chain
  * count and not an eye count. See the layer structs and functions for information about how to use ovrSwapTextureSet.</p>
  * 
- * <p>ovrSwapTextureSets must be created by either the ovrHmd_CreateSwapTextureSetD3D11 or {@link OVRGL#ovrHmd_CreateSwapTextureSetGL} factory function, and must
- * be destroyed by {@link OVR#ovrHmd_DestroySwapTextureSet}.</p>
+ * <p>ovrSwapTextureSets must be created by either the ovr_CreateSwapTextureSetD3D11 or {@link OVRGL#ovr_CreateSwapTextureSetGL} factory function, and must
+ * be destroyed by {@link OVR#ovr_DestroySwapTextureSet}.</p>
  */
 public class OVRSwapTextureSet extends Struct {
 
@@ -101,7 +101,7 @@ public class OVRSwapTextureSet extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public OVRSwapTextureSet set(OVRSwapTextureSet src) {
 		return nset(address());
@@ -109,7 +109,7 @@ public class OVRSwapTextureSet extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public OVRSwapTextureSet set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}

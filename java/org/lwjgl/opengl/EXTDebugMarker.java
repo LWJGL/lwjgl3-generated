@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/debug_marker.txt">EXT_debug_marker</a> extension.
@@ -81,7 +80,7 @@ public class EXTDebugMarker {
 	}
 
 	public static void glInsertEventMarkerEXT(int length, ByteBuffer marker) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(marker, length);
 		nglInsertEventMarkerEXT(length, memAddress(marker));
 	}
@@ -109,7 +108,7 @@ public class EXTDebugMarker {
 	}
 
 	public static void glPushGroupMarkerEXT(int length, ByteBuffer marker) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(marker, length);
 		nglPushGroupMarkerEXT(length, memAddress(marker));
 	}

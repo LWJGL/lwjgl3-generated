@@ -10,7 +10,7 @@ package org.lwjgl.opengles;
  * 
  * <p>This extension introduces SRG8_EXT as an acceptable internal format. This allows efficient sRGB sampling for source images stored with 2 channels.</p>
  * 
- * <p>Requires {@link GLES30 GLES E.S}.</p>
+ * <p>Requires {@link GLES30 GLES 3.0}.</p>
  */
 public final class EXTTextureSRGBRG8 {
 

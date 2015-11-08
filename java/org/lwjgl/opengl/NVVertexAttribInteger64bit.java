@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/vertex_attrib_integer_64bit.txt">NV_vertex_attrib_integer_64bit</a> extension.
@@ -150,14 +149,14 @@ public class NVVertexAttribInteger64bit {
 	}
 
 	public static void glVertexAttribL1i64vNV(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 3);
 		nglVertexAttribL1i64vNV(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL1i64vNV VertexAttribL1i64vNV} */
 	public static void glVertexAttribL1i64vNV(int index, LongBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglVertexAttribL1i64vNV(index, memAddress(v));
 	}
@@ -172,14 +171,14 @@ public class NVVertexAttribInteger64bit {
 	}
 
 	public static void glVertexAttribL2i64vNV(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 3);
 		nglVertexAttribL2i64vNV(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL2i64vNV VertexAttribL2i64vNV} */
 	public static void glVertexAttribL2i64vNV(int index, LongBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglVertexAttribL2i64vNV(index, memAddress(v));
 	}
@@ -194,14 +193,14 @@ public class NVVertexAttribInteger64bit {
 	}
 
 	public static void glVertexAttribL3i64vNV(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglVertexAttribL3i64vNV(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL3i64vNV VertexAttribL3i64vNV} */
 	public static void glVertexAttribL3i64vNV(int index, LongBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglVertexAttribL3i64vNV(index, memAddress(v));
 	}
@@ -216,14 +215,14 @@ public class NVVertexAttribInteger64bit {
 	}
 
 	public static void glVertexAttribL4i64vNV(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 3);
 		nglVertexAttribL4i64vNV(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL4i64vNV VertexAttribL4i64vNV} */
 	public static void glVertexAttribL4i64vNV(int index, LongBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttribL4i64vNV(index, memAddress(v));
 	}
@@ -266,14 +265,14 @@ public class NVVertexAttribInteger64bit {
 	}
 
 	public static void glVertexAttribL1ui64vNV(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 3);
 		nglVertexAttribL1ui64vNV(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL1ui64vNV VertexAttribL1ui64vNV} */
 	public static void glVertexAttribL1ui64vNV(int index, LongBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglVertexAttribL1ui64vNV(index, memAddress(v));
 	}
@@ -288,14 +287,14 @@ public class NVVertexAttribInteger64bit {
 	}
 
 	public static void glVertexAttribL2ui64vNV(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 3);
 		nglVertexAttribL2ui64vNV(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL2ui64vNV VertexAttribL2ui64vNV} */
 	public static void glVertexAttribL2ui64vNV(int index, LongBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglVertexAttribL2ui64vNV(index, memAddress(v));
 	}
@@ -310,14 +309,14 @@ public class NVVertexAttribInteger64bit {
 	}
 
 	public static void glVertexAttribL3ui64vNV(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglVertexAttribL3ui64vNV(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL3ui64vNV VertexAttribL3ui64vNV} */
 	public static void glVertexAttribL3ui64vNV(int index, LongBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglVertexAttribL3ui64vNV(index, memAddress(v));
 	}
@@ -332,14 +331,14 @@ public class NVVertexAttribInteger64bit {
 	}
 
 	public static void glVertexAttribL4ui64vNV(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 3);
 		nglVertexAttribL4ui64vNV(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL4ui64vNV VertexAttribL4ui64vNV} */
 	public static void glVertexAttribL4ui64vNV(int index, LongBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttribL4ui64vNV(index, memAddress(v));
 	}
@@ -354,14 +353,14 @@ public class NVVertexAttribInteger64bit {
 	}
 
 	public static void glGetVertexAttribLi64vNV(int index, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetVertexAttribLi64vNV(index, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetVertexAttribLi64vNV GetVertexAttribLi64vNV} */
 	public static void glGetVertexAttribLi64vNV(int index, int pname, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetVertexAttribLi64vNV(index, pname, memAddress(params));
 	}
@@ -384,14 +383,14 @@ public class NVVertexAttribInteger64bit {
 	}
 
 	public static void glGetVertexAttribLui64vNV(int index, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetVertexAttribLui64vNV(index, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetVertexAttribLui64vNV GetVertexAttribLui64vNV} */
 	public static void glGetVertexAttribLui64vNV(int index, int pname, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetVertexAttribLui64vNV(index, pname, memAddress(params));
 	}
@@ -408,7 +407,7 @@ public class NVVertexAttribInteger64bit {
 
 	public static void glVertexAttribLFormatNV(int index, int size, int type, int stride) {
 		long __functionAddress = getInstance().VertexAttribLFormatNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, index, size, type, stride);
 	}

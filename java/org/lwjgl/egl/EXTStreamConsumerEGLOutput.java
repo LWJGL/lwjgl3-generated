@@ -5,7 +5,6 @@
  */
 package org.lwjgl.egl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -57,7 +56,7 @@ public class EXTStreamConsumerEGLOutput {
 
 	public static boolean eglStreamConsumerOutputEXT(long dpy, long stream, long layer) {
 		long __functionAddress = getInstance().StreamConsumerOutputEXT;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 			checkPointer(layer);

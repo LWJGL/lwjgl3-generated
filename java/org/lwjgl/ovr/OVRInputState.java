@@ -124,7 +124,7 @@ public class OVRInputState extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public OVRInputState set(OVRInputState src) {
 		return nset(address());
@@ -132,7 +132,7 @@ public class OVRInputState extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public OVRInputState set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}
@@ -200,21 +200,21 @@ public class OVRInputState extends Struct {
 	public static int ngetTouches(long struct) { return memGetInt(struct + TOUCHES); }
 	public static int getTouches(ByteBuffer struct) { return ngetTouches(memAddress(struct)); }
 	public static void ngetIndexTrigger(long struct, ByteBuffer IndexTrigger) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(IndexTrigger, 2 * 4);
+		if ( CHECKS ) checkBufferGT(IndexTrigger, 2 * 4);
 		memCopy(struct + INDEXTRIGGER, memAddress(IndexTrigger), IndexTrigger.remaining());
 	}
 	public static void getIndexTrigger(ByteBuffer struct, ByteBuffer IndexTrigger) { ngetIndexTrigger(memAddress(struct), IndexTrigger); }
 	public static float ngetIndexTrigger(long struct, int index) { return memGetFloat(struct + INDEXTRIGGER + index * 4); }
 	public static float getIndexTrigger(ByteBuffer struct, int index) { return ngetIndexTrigger(memAddress(struct), index); }
 	public static void ngetHandTrigger(long struct, ByteBuffer HandTrigger) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(HandTrigger, 2 * 4);
+		if ( CHECKS ) checkBufferGT(HandTrigger, 2 * 4);
 		memCopy(struct + HANDTRIGGER, memAddress(HandTrigger), HandTrigger.remaining());
 	}
 	public static void getHandTrigger(ByteBuffer struct, ByteBuffer HandTrigger) { ngetHandTrigger(memAddress(struct), HandTrigger); }
 	public static float ngetHandTrigger(long struct, int index) { return memGetFloat(struct + HANDTRIGGER + index * 4); }
 	public static float getHandTrigger(ByteBuffer struct, int index) { return ngetHandTrigger(memAddress(struct), index); }
 	public static void ngetThumbstick(long struct, ByteBuffer Thumbstick) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(Thumbstick, 2 * OVRVector2f.SIZEOF);
+		if ( CHECKS ) checkBufferGT(Thumbstick, 2 * OVRVector2f.SIZEOF);
 		memCopy(struct + THUMBSTICK, memAddress(Thumbstick), Thumbstick.remaining());
 	}
 	public static void getThumbstick(ByteBuffer struct, ByteBuffer Thumbstick) { ngetThumbstick(memAddress(struct), Thumbstick); }
@@ -232,7 +232,7 @@ public class OVRInputState extends Struct {
 	public static void nsetTouches(long struct, int Touches) { memPutInt(struct + TOUCHES, Touches); }
 	public static void setTouches(ByteBuffer struct, int Touches) { nsetTouches(memAddress(struct), Touches); }
 	public static void nsetIndexTrigger(long struct, ByteBuffer IndexTrigger) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBufferGT(IndexTrigger, 2 * 4);
 		}
 		memCopy(memAddress(IndexTrigger), struct + INDEXTRIGGER, IndexTrigger.remaining());
@@ -241,7 +241,7 @@ public class OVRInputState extends Struct {
 	public static void nsetIndexTrigger(long struct, int index, float IndexTrigger) { memPutFloat(struct + INDEXTRIGGER + index * 4, IndexTrigger); }
 	public static void setIndexTrigger(ByteBuffer struct, int index, float IndexTrigger) { nsetIndexTrigger(memAddress(struct), index, IndexTrigger); }
 	public static void nsetHandTrigger(long struct, ByteBuffer HandTrigger) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBufferGT(HandTrigger, 2 * 4);
 		}
 		memCopy(memAddress(HandTrigger), struct + HANDTRIGGER, HandTrigger.remaining());
@@ -250,7 +250,7 @@ public class OVRInputState extends Struct {
 	public static void nsetHandTrigger(long struct, int index, float HandTrigger) { memPutFloat(struct + HANDTRIGGER + index * 4, HandTrigger); }
 	public static void setHandTrigger(ByteBuffer struct, int index, float HandTrigger) { nsetHandTrigger(memAddress(struct), index, HandTrigger); }
 	public static void nsetThumbstick(long struct, ByteBuffer Thumbstick) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(Thumbstick, 2 * OVRVector2f.SIZEOF);
+		if ( CHECKS ) checkBufferGT(Thumbstick, 2 * OVRVector2f.SIZEOF);
 		memCopy(memAddress(Thumbstick), struct + THUMBSTICK, Thumbstick.remaining());
 	}
 	public static void setThumbstick(ByteBuffer struct, ByteBuffer Thumbstick) { nsetThumbstick(memAddress(struct), Thumbstick); }

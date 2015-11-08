@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * The core OpenGL 4.4 functionality. OpenGL 4.4 implementations support revision 4.40 of the OpenGL Shading Language.
@@ -212,7 +212,7 @@ public class GL44 {
 	 *               <p>It is an error to specify {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
 	 */
 	public static void glBufferStorage(int target, long size, ByteBuffer data, int flags) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( data != null ) checkBuffer(data, size);
 		nglBufferStorage(target, size, memAddressSafe(data), flags);
 	}
@@ -389,7 +389,7 @@ public class GL44 {
 	 * @param buffers an array of zeros or names of existing buffers objects
 	 */
 	public static void glBindBuffersBase(int target, int first, int count, ByteBuffer buffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( buffers != null ) checkBuffer(buffers, count << 2);
 		nglBindBuffersBase(target, first, count, memAddressSafe(buffers));
 	}
@@ -438,7 +438,7 @@ public class GL44 {
 	 * @param sizes   an array of sizes
 	 */
 	public static void glBindBuffersRange(int target, int first, int count, ByteBuffer buffers, ByteBuffer offsets, ByteBuffer sizes) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( buffers != null ) checkBuffer(buffers, count << 2);
 			if ( offsets != null ) checkBuffer(offsets, count << POINTER_SHIFT);
 			if ( sizes != null ) checkBuffer(sizes, count << POINTER_SHIFT);
@@ -448,7 +448,7 @@ public class GL44 {
 
 	/** Alternative version of: {@link #glBindBuffersRange BindBuffersRange} */
 	public static void glBindBuffersRange(int target, int first, IntBuffer buffers, PointerBuffer offsets, PointerBuffer sizes) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( offsets != null ) checkBuffer(offsets, buffers.remaining());
 			if ( sizes != null ) checkBuffer(sizes, buffers.remaining());
 		}
@@ -505,7 +505,7 @@ public class GL44 {
 	 * @param textures an array of zeros or names of existing texture objects
 	 */
 	public static void glBindTextures(int first, int count, ByteBuffer textures) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( textures != null ) checkBuffer(textures, count << 2);
 		nglBindTextures(first, count, memAddressSafe(textures));
 	}
@@ -549,7 +549,7 @@ public class GL44 {
 	 * @param samplers an array of zeros or names of existing sampler objects
 	 */
 	public static void glBindSamplers(int first, int count, ByteBuffer samplers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( samplers != null ) checkBuffer(samplers, count << 2);
 		nglBindSamplers(first, count, memAddressSafe(samplers));
 	}
@@ -604,7 +604,7 @@ public class GL44 {
 	 * @param textures an array of zeros or names of existing texture objects
 	 */
 	public static void glBindImageTextures(int first, int count, ByteBuffer textures) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( textures != null ) checkBuffer(textures, count << 2);
 		nglBindImageTextures(first, count, memAddressSafe(textures));
 	}
@@ -655,7 +655,7 @@ public class GL44 {
 	 * @param strides an array of stride values
 	 */
 	public static void glBindVertexBuffers(int first, int count, ByteBuffer buffers, ByteBuffer offsets, ByteBuffer strides) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( buffers != null ) checkBuffer(buffers, count << 2);
 			if ( offsets != null ) checkBuffer(offsets, count << POINTER_SHIFT);
 			if ( strides != null ) checkBuffer(strides, count << 2);
@@ -665,7 +665,7 @@ public class GL44 {
 
 	/** Alternative version of: {@link #glBindVertexBuffers BindVertexBuffers} */
 	public static void glBindVertexBuffers(int first, IntBuffer buffers, PointerBuffer offsets, IntBuffer strides) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( offsets != null ) checkBuffer(offsets, buffers.remaining());
 			if ( strides != null ) checkBuffer(strides, buffers.remaining());
 		}

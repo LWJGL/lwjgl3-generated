@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -100,7 +99,7 @@ public class ARBSparseBuffer {
 	 */
 	public static void glNamedBufferPageCommitmentEXT(int buffer, long offset, long size, boolean commit) {
 		long __functionAddress = getInstance().NamedBufferPageCommitmentEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPPZV(__functionAddress, buffer, offset, size, commit);
 	}
@@ -117,7 +116,7 @@ public class ARBSparseBuffer {
 	 */
 	public static void glNamedBufferPageCommitmentARB(int buffer, long offset, long size, boolean commit) {
 		long __functionAddress = getInstance().NamedBufferPageCommitmentARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPPZV(__functionAddress, buffer, offset, size, commit);
 	}

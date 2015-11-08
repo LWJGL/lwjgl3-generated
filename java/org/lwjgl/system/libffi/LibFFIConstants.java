@@ -5,7 +5,6 @@
  */
 package org.lwjgl.system.libffi;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -13,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 /** Defines methods that return platform-specific constant values that are used by {@link LibFFI}. */
 class LibFFIConstants {
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected LibFFIConstants() {

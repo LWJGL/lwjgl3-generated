@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/NV_draw_buffers.txt">NV_draw_buffers</a> extension.
@@ -112,7 +111,7 @@ public class NVDrawBuffers {
 	}
 
 	public static void glDrawBuffersNV(int n, ByteBuffer bufs) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(bufs, n << 2);
 		nglDrawBuffersNV(n, memAddress(bufs));
 	}

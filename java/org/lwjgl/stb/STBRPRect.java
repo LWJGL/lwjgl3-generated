@@ -111,7 +111,7 @@ public class STBRPRect extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public STBRPRect set(STBRPRect src) {
 		return nset(address());
@@ -119,7 +119,7 @@ public class STBRPRect extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public STBRPRect set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}

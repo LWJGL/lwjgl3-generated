@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -81,7 +80,7 @@ public class WGLNVSwapGroup {
 
 	public static int wglJoinSwapGroupNV(long hDC, int group) {
 		long __functionAddress = getInstance().JoinSwapGroupNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hDC);
 		return callPII(__functionAddress, hDC, group);
 	}
@@ -99,13 +98,13 @@ public class WGLNVSwapGroup {
 	@JavadocExclude
 	public static int nwglQuerySwapGroupNV(long hDC, long group, long barrier) {
 		long __functionAddress = getInstance().QuerySwapGroupNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hDC);
 		return callPPPI(__functionAddress, hDC, group, barrier);
 	}
 
 	public static int wglQuerySwapGroupNV(long hDC, ByteBuffer group, ByteBuffer barrier) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(group, 1 << 2);
 			checkBuffer(barrier, 1 << 2);
 		}
@@ -114,7 +113,7 @@ public class WGLNVSwapGroup {
 
 	/** Alternative version of: {@link #wglQuerySwapGroupNV QuerySwapGroupNV} */
 	public static int wglQuerySwapGroupNV(long hDC, IntBuffer group, IntBuffer barrier) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(group, 1);
 			checkBuffer(barrier, 1);
 		}
@@ -127,13 +126,13 @@ public class WGLNVSwapGroup {
 	@JavadocExclude
 	public static int nwglQueryMaxSwapGroupsNV(long hDC, long maxGroups, long maxBarriers) {
 		long __functionAddress = getInstance().QueryMaxSwapGroupsNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hDC);
 		return callPPPI(__functionAddress, hDC, maxGroups, maxBarriers);
 	}
 
 	public static int wglQueryMaxSwapGroupsNV(long hDC, ByteBuffer maxGroups, ByteBuffer maxBarriers) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(maxGroups, 1 << 2);
 			checkBuffer(maxBarriers, 1 << 2);
 		}
@@ -142,7 +141,7 @@ public class WGLNVSwapGroup {
 
 	/** Alternative version of: {@link #wglQueryMaxSwapGroupsNV QueryMaxSwapGroupsNV} */
 	public static int wglQueryMaxSwapGroupsNV(long hDC, IntBuffer maxGroups, IntBuffer maxBarriers) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(maxGroups, 1);
 			checkBuffer(maxBarriers, 1);
 		}
@@ -155,20 +154,20 @@ public class WGLNVSwapGroup {
 	@JavadocExclude
 	public static int nwglQueryFrameCountNV(long hDC, long count) {
 		long __functionAddress = getInstance().QueryFrameCountNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hDC);
 		return callPPI(__functionAddress, hDC, count);
 	}
 
 	public static int wglQueryFrameCountNV(long hDC, ByteBuffer count) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(count, 1 << 2);
 		return nwglQueryFrameCountNV(hDC, memAddress(count));
 	}
 
 	/** Alternative version of: {@link #wglQueryFrameCountNV QueryFrameCountNV} */
 	public static int wglQueryFrameCountNV(long hDC, IntBuffer count) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(count, 1);
 		return nwglQueryFrameCountNV(hDC, memAddress(count));
 	}
@@ -177,7 +176,7 @@ public class WGLNVSwapGroup {
 
 	public static int wglResetFrameCountNV(long hDC) {
 		long __functionAddress = getInstance().ResetFrameCountNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hDC);
 		return callPI(__functionAddress, hDC);
 	}

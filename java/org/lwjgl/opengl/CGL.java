@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /** Native bindings to CGL. */
 public class CGL {
@@ -384,7 +384,7 @@ public class CGL {
 	 */
 	public static int CGLSetCurrentContext(long context) {
 		long __functionAddress = getInstance().SetCurrentContext;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(context);
 		return callPI(__functionAddress, context);
 	}
@@ -398,7 +398,7 @@ public class CGL {
 	 */
 	public static long CGLGetShareGroup(long ctx) {
 		long __functionAddress = getInstance().GetShareGroup;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPP(__functionAddress, ctx);
 	}
@@ -424,7 +424,7 @@ public class CGL {
 	 * @param npix    on return, points to the number of virtual screens referenced by pix. If pix is {@code NULL}, the value of {@code npix} is set to 0.
 	 */
 	public static int CGLChoosePixelFormat(ByteBuffer attribs, ByteBuffer pix, ByteBuffer npix) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( pix != null ) checkBuffer(pix, 1 << POINTER_SHIFT);
 			checkBuffer(npix, 1 << 2);
 		}
@@ -433,7 +433,7 @@ public class CGL {
 
 	/** Alternative version of: {@link #CGLChoosePixelFormat ChoosePixelFormat} */
 	public static int CGLChoosePixelFormat(IntBuffer attribs, PointerBuffer pix, IntBuffer npix) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( pix != null ) checkBuffer(pix, 1);
 			checkBuffer(npix, 1);
 		}
@@ -449,7 +449,7 @@ public class CGL {
 	 */
 	public static int CGLDestroyPixelFormat(long pix) {
 		long __functionAddress = getInstance().DestroyPixelFormat;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(pix);
 		return callPI(__functionAddress, pix);
 	}
@@ -460,7 +460,7 @@ public class CGL {
 	@JavadocExclude
 	public static int nCGLDescribePixelFormat(long pix, int pix_num, int attrib, long value) {
 		long __functionAddress = getInstance().DescribePixelFormat;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(pix);
 		return callPIIPI(__functionAddress, pix, pix_num, attrib, value);
 	}
@@ -474,14 +474,14 @@ public class CGL {
 	 * @param value   on return, points to the value of the attribute
 	 */
 	public static int CGLDescribePixelFormat(long pix, int pix_num, int attrib, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		return nCGLDescribePixelFormat(pix, pix_num, attrib, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #CGLDescribePixelFormat DescribePixelFormat} */
 	public static int CGLDescribePixelFormat(long pix, int pix_num, int attrib, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return nCGLDescribePixelFormat(pix, pix_num, attrib, memAddress(value));
 	}
@@ -500,7 +500,7 @@ public class CGL {
 	 */
 	public static void CGLReleasePixelFormat(long pix) {
 		long __functionAddress = getInstance().ReleasePixelFormat;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(pix);
 		callPV(__functionAddress, pix);
 	}
@@ -517,7 +517,7 @@ public class CGL {
 	 */
 	public static long CGLRetainPixelFormat(long pix) {
 		long __functionAddress = getInstance().RetainPixelFormat;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(pix);
 		return callPP(__functionAddress, pix);
 	}
@@ -531,7 +531,7 @@ public class CGL {
 	 */
 	public static int CGLGetPixelFormatRetainCount(long pix) {
 		long __functionAddress = getInstance().GetPixelFormatRetainCount;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(pix);
 		return callPI(__functionAddress, pix);
 	}
@@ -558,7 +558,7 @@ public class CGL {
 	 *                     the value of {@code nrend} is set to 0.
 	 */
 	public static int CGLQueryRendererInfo(int display_mask, ByteBuffer rend, ByteBuffer nrend) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(rend, 1 << POINTER_SHIFT);
 			checkBuffer(nrend, 1 << 2);
 		}
@@ -567,7 +567,7 @@ public class CGL {
 
 	/** Alternative version of: {@link #CGLQueryRendererInfo QueryRendererInfo} */
 	public static int CGLQueryRendererInfo(int display_mask, PointerBuffer rend, IntBuffer nrend) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(rend, 1);
 			checkBuffer(nrend, 1);
 		}
@@ -583,7 +583,7 @@ public class CGL {
 	 */
 	public static int CGLDestroyRendererInfo(long rend) {
 		long __functionAddress = getInstance().DestroyRendererInfo;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(rend);
 		return callPI(__functionAddress, rend);
 	}
@@ -594,7 +594,7 @@ public class CGL {
 	@JavadocExclude
 	public static int nCGLDescribeRenderer(long rend, int rend_num, int prop, long value) {
 		long __functionAddress = getInstance().DescribeRenderer;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(rend);
 		return callPIIPI(__functionAddress, rend, rend_num, prop, value);
 	}
@@ -612,14 +612,14 @@ public class CGL {
 	 * @param value    on return, points to the value of the requested property
 	 */
 	public static int CGLDescribeRenderer(long rend, int rend_num, int prop, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		return nCGLDescribeRenderer(rend, rend_num, prop, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #CGLDescribeRenderer DescribeRenderer} */
 	public static int CGLDescribeRenderer(long rend, int rend_num, int prop, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return nCGLDescribeRenderer(rend, rend_num, prop, memAddress(value));
 	}
@@ -630,7 +630,7 @@ public class CGL {
 	@JavadocExclude
 	public static int nCGLCreateContext(long pix, long share, long ctx) {
 		long __functionAddress = getInstance().CreateContext;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(pix);
 			checkPointer(share);
 		}
@@ -648,14 +648,14 @@ public class CGL {
 	 *              parameter. If the context can not be created as specified, the value of {@code ctx} is set to {@code NULL}.
 	 */
 	public static int CGLCreateContext(long pix, long share, ByteBuffer ctx) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ctx, 1 << POINTER_SHIFT);
 		return nCGLCreateContext(pix, share, memAddress(ctx));
 	}
 
 	/** Alternative version of: {@link #CGLCreateContext CreateContext} */
 	public static int CGLCreateContext(long pix, long share, PointerBuffer ctx) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ctx, 1);
 		return nCGLCreateContext(pix, share, memAddress(ctx));
 	}
@@ -673,7 +673,7 @@ public class CGL {
 	 */
 	public static int CGLDestroyContext(long ctx) {
 		long __functionAddress = getInstance().DestroyContext;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPI(__functionAddress, ctx);
 	}
@@ -691,7 +691,7 @@ public class CGL {
 	 */
 	public static int CGLCopyContext(long src, long dst, int mask) {
 		long __functionAddress = getInstance().CopyContext;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(src);
 			checkPointer(dst);
 		}
@@ -712,7 +712,7 @@ public class CGL {
 	 */
 	public static long CGLRetainContext(long ctx) {
 		long __functionAddress = getInstance().RetainContext;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPP(__functionAddress, ctx);
 	}
@@ -733,7 +733,7 @@ public class CGL {
 	 */
 	public static void CGLReleaseContext(long ctx) {
 		long __functionAddress = getInstance().ReleaseContext;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		callPV(__functionAddress, ctx);
 	}
@@ -747,7 +747,7 @@ public class CGL {
 	 */
 	public static int CGLGetContextRetainCount(long ctx) {
 		long __functionAddress = getInstance().GetContextRetainCount;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPI(__functionAddress, ctx);
 	}
@@ -764,7 +764,7 @@ public class CGL {
 	 */
 	public static long CGLGetPixelFormat(long ctx) {
 		long __functionAddress = getInstance().GetPixelFormat;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPP(__functionAddress, ctx);
 	}
@@ -807,14 +807,14 @@ public class CGL {
 	 * @param pbuffer        on return, points to a new pixel buffer object
 	 */
 	public static int CGLCreatePBuffer(int width, int height, int target, int internalFormat, int max_level, ByteBuffer pbuffer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(pbuffer, 1 << POINTER_SHIFT);
 		return nCGLCreatePBuffer(width, height, target, internalFormat, max_level, memAddress(pbuffer));
 	}
 
 	/** Alternative version of: {@link #CGLCreatePBuffer CreatePBuffer} */
 	public static int CGLCreatePBuffer(int width, int height, int target, int internalFormat, int max_level, PointerBuffer pbuffer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(pbuffer, 1);
 		return nCGLCreatePBuffer(width, height, target, internalFormat, max_level, memAddress(pbuffer));
 	}
@@ -832,7 +832,7 @@ public class CGL {
 	 */
 	public static int CGLDestroyPBuffer(long pbuffer) {
 		long __functionAddress = getInstance().DestroyPBuffer;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(pbuffer);
 		return callPI(__functionAddress, pbuffer);
 	}
@@ -843,7 +843,7 @@ public class CGL {
 	@JavadocExclude
 	public static int nCGLDescribePBuffer(long obj, long width, long height, long target, long internalFormat, long mipmap) {
 		long __functionAddress = getInstance().DescribePBuffer;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(obj);
 		return callPPPPPPI(__functionAddress, obj, width, height, target, internalFormat, mipmap);
 	}
@@ -865,7 +865,7 @@ public class CGL {
 	 * @param mipmap         on return, points to the mipmap level of the pixel buffer or 0 if it doesn't use mipmaps
 	 */
 	public static int CGLDescribePBuffer(long obj, ByteBuffer width, ByteBuffer height, ByteBuffer target, ByteBuffer internalFormat, ByteBuffer mipmap) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(width, 1 << 2);
 			checkBuffer(height, 1 << 2);
 			checkBuffer(target, 1 << 2);
@@ -877,7 +877,7 @@ public class CGL {
 
 	/** Alternative version of: {@link #CGLDescribePBuffer DescribePBuffer} */
 	public static int CGLDescribePBuffer(long obj, IntBuffer width, IntBuffer height, IntBuffer target, IntBuffer internalFormat, IntBuffer mipmap) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(width, 1);
 			checkBuffer(height, 1);
 			checkBuffer(target, 1);
@@ -922,7 +922,7 @@ public class CGL {
 	 */
 	public static int CGLTexImagePBuffer(long ctx, long pbuffer, int source) {
 		long __functionAddress = getInstance().TexImagePBuffer;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(ctx);
 			checkPointer(pbuffer);
 		}
@@ -943,7 +943,7 @@ public class CGL {
 	 */
 	public static long CGLRetainPBuffer(long pbuffer) {
 		long __functionAddress = getInstance().RetainPBuffer;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(pbuffer);
 		return callPP(__functionAddress, pbuffer);
 	}
@@ -961,7 +961,7 @@ public class CGL {
 	 */
 	public static void CGLReleasePBuffer(long pbuffer) {
 		long __functionAddress = getInstance().ReleasePBuffer;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(pbuffer);
 		callPV(__functionAddress, pbuffer);
 	}
@@ -977,7 +977,7 @@ public class CGL {
 	 */
 	public static int CGLGetPBufferRetainCount(long pbuffer) {
 		long __functionAddress = getInstance().GetPBufferRetainCount;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(pbuffer);
 		return callPI(__functionAddress, pbuffer);
 	}
@@ -988,7 +988,7 @@ public class CGL {
 	@JavadocExclude
 	public static int nCGLSetOffScreen(long ctx, int width, int height, int rowbytes, long baseaddr) {
 		long __functionAddress = getInstance().SetOffScreen;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPIIIPI(__functionAddress, ctx, width, height, rowbytes, baseaddr);
 	}
@@ -1016,7 +1016,7 @@ public class CGL {
 	 * @param baseaddr a pointer to a block of memory to use as the offscreen buffer. The size of the memory must be at least {@code rowbytes*height} bytes.
 	 */
 	public static int CGLSetOffScreen(long ctx, int width, int height, int rowbytes, ByteBuffer baseaddr) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(baseaddr, rowbytes * height);
 		return nCGLSetOffScreen(ctx, width, height, rowbytes, memAddress(baseaddr));
 	}
@@ -1027,7 +1027,7 @@ public class CGL {
 	@JavadocExclude
 	public static int nCGLGetOffScreen(long ctx, long width, long height, long rowbytes, long baseaddr) {
 		long __functionAddress = getInstance().GetOffScreen;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPPPPPI(__functionAddress, ctx, width, height, rowbytes, baseaddr);
 	}
@@ -1048,7 +1048,7 @@ public class CGL {
 	 *                 {@code baseaddr} is set to {@code NULL}.
 	 */
 	public static int CGLGetOffScreen(long ctx, ByteBuffer width, ByteBuffer height, ByteBuffer rowbytes, ByteBuffer baseaddr) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(width, 1 << 2);
 			checkBuffer(height, 1 << 2);
 			checkBuffer(rowbytes, 1 << 2);
@@ -1059,7 +1059,7 @@ public class CGL {
 
 	/** Alternative version of: {@link #CGLGetOffScreen GetOffScreen} */
 	public static int CGLGetOffScreen(long ctx, IntBuffer width, IntBuffer height, IntBuffer rowbytes, PointerBuffer baseaddr) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(width, 1);
 			checkBuffer(height, 1);
 			checkBuffer(rowbytes, 1);
@@ -1089,7 +1089,7 @@ public class CGL {
 	 */
 	public static int CGLSetFullScreen(long ctx) {
 		long __functionAddress = getInstance().SetFullScreen;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPI(__functionAddress, ctx);
 	}
@@ -1121,7 +1121,7 @@ public class CGL {
 	 */
 	public static int CGLSetFullScreenOnDisplay(long ctx, int display_mask) {
 		long __functionAddress = getInstance().SetFullScreenOnDisplay;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPII(__functionAddress, ctx, display_mask);
 	}
@@ -1161,7 +1161,7 @@ public class CGL {
 	 */
 	public static int CGLSetPBuffer(long ctx, long pbuffer, int face, int level, int screen) {
 		long __functionAddress = getInstance().SetPBuffer;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(ctx);
 			checkPointer(pbuffer);
 		}
@@ -1174,7 +1174,7 @@ public class CGL {
 	@JavadocExclude
 	public static int nCGLGetPBuffer(long ctx, long pbuffer, long face, long level, long screen) {
 		long __functionAddress = getInstance().GetPBuffer;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPPPPPI(__functionAddress, ctx, pbuffer, face, level, screen);
 	}
@@ -1192,7 +1192,7 @@ public class CGL {
 	 * @param screen  on return, points to the current virtual screen number, as set by the last valid call to {@link #CGLSetPBuffer SetPBuffer}
 	 */
 	public static int CGLGetPBuffer(long ctx, ByteBuffer pbuffer, ByteBuffer face, ByteBuffer level, ByteBuffer screen) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(pbuffer, 1 << POINTER_SHIFT);
 			checkBuffer(face, 1 << 2);
 			checkBuffer(level, 1 << 2);
@@ -1203,7 +1203,7 @@ public class CGL {
 
 	/** Alternative version of: {@link #CGLGetPBuffer GetPBuffer} */
 	public static int CGLGetPBuffer(long ctx, PointerBuffer pbuffer, IntBuffer face, IntBuffer level, IntBuffer screen) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(pbuffer, 1);
 			checkBuffer(face, 1);
 			checkBuffer(level, 1);
@@ -1221,7 +1221,7 @@ public class CGL {
 	 */
 	public static int CGLClearDrawable(long ctx) {
 		long __functionAddress = getInstance().ClearDrawable;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPI(__functionAddress, ctx);
 	}
@@ -1244,7 +1244,7 @@ public class CGL {
 	 */
 	public static int CGLFlushDrawable(long ctx) {
 		long __functionAddress = getInstance().FlushDrawable;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPI(__functionAddress, ctx);
 	}
@@ -1259,7 +1259,7 @@ public class CGL {
 	 */
 	public static int CGLEnable(long ctx, int pname) {
 		long __functionAddress = getInstance().Enable;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPII(__functionAddress, ctx, pname);
 	}
@@ -1274,7 +1274,7 @@ public class CGL {
 	 */
 	public static int CGLDisable(long ctx, int pname) {
 		long __functionAddress = getInstance().Disable;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPII(__functionAddress, ctx, pname);
 	}
@@ -1285,7 +1285,7 @@ public class CGL {
 	@JavadocExclude
 	public static int nCGLIsEnabled(long ctx, int pname, long enable) {
 		long __functionAddress = getInstance().IsEnabled;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPIPI(__functionAddress, ctx, pname, enable);
 	}
@@ -1298,14 +1298,14 @@ public class CGL {
 	 * @param enable on return, enable is set to true if the option is enabled
 	 */
 	public static int CGLIsEnabled(long ctx, int pname, ByteBuffer enable) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(enable, 1 << 2);
 		return nCGLIsEnabled(ctx, pname, memAddress(enable));
 	}
 
 	/** Alternative version of: {@link #CGLIsEnabled IsEnabled} */
 	public static int CGLIsEnabled(long ctx, int pname, IntBuffer enable) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(enable, 1);
 		return nCGLIsEnabled(ctx, pname, memAddress(enable));
 	}
@@ -1316,7 +1316,7 @@ public class CGL {
 	@JavadocExclude
 	public static int nCGLSetParameter(long ctx, int pname, long params) {
 		long __functionAddress = getInstance().SetParameter;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPIPI(__functionAddress, ctx, pname, params);
 	}
@@ -1329,14 +1329,14 @@ public class CGL {
 	 * @param params a pointer to the value to set the parameter to
 	 */
 	public static int CGLSetParameter(long ctx, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		return nCGLSetParameter(ctx, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #CGLSetParameter SetParameter} */
 	public static int CGLSetParameter(long ctx, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		return nCGLSetParameter(ctx, pname, memAddress(params));
 	}
@@ -1354,7 +1354,7 @@ public class CGL {
 	@JavadocExclude
 	public static int nCGLGetParameter(long ctx, int pname, long params) {
 		long __functionAddress = getInstance().GetParameter;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPIPI(__functionAddress, ctx, pname, params);
 	}
@@ -1367,14 +1367,14 @@ public class CGL {
 	 * @param params on return, points to the value of the parameter
 	 */
 	public static int CGLGetParameter(long ctx, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		return nCGLGetParameter(ctx, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #CGLGetParameter GetParameter} */
 	public static int CGLGetParameter(long ctx, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		return nCGLGetParameter(ctx, pname, memAddress(params));
 	}
@@ -1396,7 +1396,7 @@ public class CGL {
 	 */
 	public static int CGLSetVirtualScreen(long ctx, int screen) {
 		long __functionAddress = getInstance().SetVirtualScreen;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPII(__functionAddress, ctx, screen);
 	}
@@ -1407,7 +1407,7 @@ public class CGL {
 	@JavadocExclude
 	public static int nCGLGetVirtualScreen(long ctx, long screen) {
 		long __functionAddress = getInstance().GetVirtualScreen;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPPI(__functionAddress, ctx, screen);
 	}
@@ -1423,14 +1423,14 @@ public class CGL {
 	 *               for any reason.
 	 */
 	public static int CGLGetVirtualScreen(long ctx, ByteBuffer screen) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(screen, 1 << 2);
 		return nCGLGetVirtualScreen(ctx, memAddress(screen));
 	}
 
 	/** Alternative version of: {@link #CGLGetVirtualScreen GetVirtualScreen} */
 	public static int CGLGetVirtualScreen(long ctx, IntBuffer screen) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(screen, 1);
 		return nCGLGetVirtualScreen(ctx, memAddress(screen));
 	}
@@ -1444,7 +1444,7 @@ public class CGL {
 	 */
 	public static int CGLUpdateContext(long ctx) {
 		long __functionAddress = getInstance().UpdateContext;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ctx);
 		return callPI(__functionAddress, ctx);
 	}
@@ -1465,14 +1465,14 @@ public class CGL {
 	 * @param params the value to set the option to
 	 */
 	public static int CGLSetGlobalOption(int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		return nCGLSetGlobalOption(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #CGLSetGlobalOption SetGlobalOption} */
 	public static int CGLSetGlobalOption(int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		return nCGLSetGlobalOption(pname, memAddress(params));
 	}
@@ -1500,14 +1500,14 @@ public class CGL {
 	 * @param params on return, a pointer to the value of the option
 	 */
 	public static int CGLGetGlobalOption(int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		return nCGLGetGlobalOption(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #CGLGetGlobalOption GetGlobalOption} */
 	public static int CGLGetGlobalOption(int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		return nCGLGetGlobalOption(pname, memAddress(params));
 	}
@@ -1530,7 +1530,7 @@ public class CGL {
 	 */
 	public static int CGLLockContext(long context) {
 		long __functionAddress = getInstance().LockContext;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(context);
 		return callPI(__functionAddress, context);
 	}
@@ -1544,7 +1544,7 @@ public class CGL {
 	 */
 	public static int CGLUnlockContext(long context) {
 		long __functionAddress = getInstance().UnlockContext;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(context);
 		return callPI(__functionAddress, context);
 	}
@@ -1565,7 +1565,7 @@ public class CGL {
 	 * @param minorvers on return, points to the minor version number of the CGL library
 	 */
 	public static void CGLGetVersion(ByteBuffer majorvers, ByteBuffer minorvers) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(majorvers, 1 << 2);
 			checkBuffer(minorvers, 1 << 2);
 		}
@@ -1574,7 +1574,7 @@ public class CGL {
 
 	/** Alternative version of: {@link #CGLGetVersion GetVersion} */
 	public static void CGLGetVersion(IntBuffer majorvers, IntBuffer minorvers) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(majorvers, 1);
 			checkBuffer(minorvers, 1);
 		}

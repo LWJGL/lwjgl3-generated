@@ -5,15 +5,15 @@
  */
 package org.lwjgl.ovr;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
-import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.Pointer.*;
-import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to libOVR, using the <a href="https://developer.oculus.com/">Oculus SDK</a> C API.
@@ -224,7 +224,7 @@ public class OVR {
 		ovrDebugHudStereo_QuadWithCrosshair   = 0x2,
 		ovrDebugHudStereo_CrosshairAtInfinity = 0x3;
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected OVR() {
@@ -403,14 +403,14 @@ public class OVR {
 	 * @return an {@code ovrResult} indicating success or failure. Upon failure the returned {@code pHmd} will be {@code NULL}.
 	 */
 	public static int ovr_Create(ByteBuffer pHmd, OVRGraphicsLuid luid) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(pHmd, 1 << POINTER_SHIFT);
 		return novr_Create(memAddress(pHmd), luid.address());
 	}
 
 	/** Alternative version of: {@link #ovr_Create Create} */
 	public static int ovr_Create(PointerBuffer pHmd, OVRGraphicsLuid luid) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(pHmd, 1);
 		return novr_Create(memAddress(pHmd), luid.address());
 	}
@@ -427,7 +427,7 @@ public class OVR {
 	 * @param hmd an {@code ovrHmd} previously returned by {@link #ovr_Create Create}
 	 */
 	public static void ovr_Destroy(long hmd) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		novr_Destroy(hmd);
 	}
@@ -448,7 +448,7 @@ public class OVR {
 	 * @return a combination of zero or more {@code ovrHmdCaps}
 	 */
 	public static int ovr_GetEnabledCaps(long hmd) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		return novr_GetEnabledCaps(hmd);
 	}
@@ -466,7 +466,7 @@ public class OVR {
 	 * @param hmdCaps a combination of 0 or more {@code ovrHmdCaps}. One or more of:<br>{@link #ovrHmdCap_DebugDevice HmdCap_DebugDevice}
 	 */
 	public static void ovr_SetEnabledCaps(long hmd, int hmdCaps) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		novr_SetEnabledCaps(hmd, hmdCaps);
 	}
@@ -492,7 +492,7 @@ public class OVR {
 	 * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link #ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
 	 */
 	public static int ovr_ConfigureTracking(long hmd, int requestedTrackingCaps, int requiredTrackingCaps) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		return novr_ConfigureTracking(hmd, requestedTrackingCaps, requiredTrackingCaps);
 	}
@@ -512,7 +512,7 @@ public class OVR {
 	 * @param hmd an {@code ovrHmd} previously returned by {@link #ovr_Create Create}
 	 */
 	public static void ovr_RecenterPose(long hmd) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		novr_RecenterPose(hmd);
 	}
@@ -536,7 +536,7 @@ public class OVR {
 	 * @param __result the {@link OVRTrackingState} that is predicted for the given {@code absTime}
 	 */
 	public static void ovr_GetTrackingState(long hmd, double absTime, OVRTrackingState __result) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		novr_GetTrackingState(hmd, absTime, __result.address());
 	}
@@ -558,7 +558,7 @@ public class OVR {
 	 * @return {@link OVRErrorCode#ovrSuccess Success} if the new state was successfully obtained
 	 */
 	public static int ovr_GetInputState(long hmd, int controllerTypeMask, OVRInputState inputState) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		return novr_GetInputState(hmd, controllerTypeMask, inputState.address());
 	}
@@ -584,7 +584,7 @@ public class OVR {
 	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
 	 */
 	public static int ovr_SetControllerVibration(long hmd, int controllerTypeMask, float frequency, float amplitude) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		return novr_SetControllerVibration(hmd, controllerTypeMask, frequency, amplitude);
 	}
@@ -602,7 +602,7 @@ public class OVR {
 	 * @param textureSet the {@link OVRSwapTextureSet} to destroy. If it is {@code NULL} then this function has no effect.
 	 */
 	public static void ovr_DestroySwapTextureSet(long hmd, OVRSwapTextureSet textureSet) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		novr_DestroySwapTextureSet(hmd, textureSet == null ? NULL : textureSet.address());
 	}
@@ -620,7 +620,7 @@ public class OVR {
 	 * @param mirrorTexture the {@link OVRTexture} to destroy. If it is {@code NULL} then this function has no effect.
 	 */
 	public static void ovr_DestroyMirrorTexture(long hmd, OVRTexture mirrorTexture) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		novr_DestroyMirrorTexture(hmd, mirrorTexture == null ? NULL : mirrorTexture.address());
 	}
@@ -645,7 +645,7 @@ public class OVR {
 	 * @param __result              the texture width and height size
 	 */
 	public static void ovr_GetFovTextureSize(long hmd, int eye, OVRFovPort fov, float pixelsPerDisplayPixel, OVRSizei __result) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		novr_GetFovTextureSize(hmd, eye, fov.address(), pixelsPerDisplayPixel, __result.address());
 	}
@@ -665,7 +665,7 @@ public class OVR {
 	 * @param __result the computed {@link OVREyeRenderDesc} for the given {@code eyeType} and field of view
 	 */
 	public static void ovr_GetRenderDesc(long hmd, int eyeType, OVRFovPort fov, OVREyeRenderDesc __result) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		novr_GetRenderDesc(hmd, eyeType, fov.address(), __result.address());
 	}
@@ -722,7 +722,7 @@ public class OVR {
 	 *         </ul>
 	 */
 	public static int ovr_SubmitFrame(long hmd, int frameIndex, OVRViewScaleDesc viewScaleDesc, ByteBuffer layerPtrList, int layerCount) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(hmd);
 			checkBuffer(layerPtrList, layerCount << POINTER_SHIFT);
 		}
@@ -731,7 +731,7 @@ public class OVR {
 
 	/** Alternative version of: {@link #ovr_SubmitFrame SubmitFrame} */
 	public static int ovr_SubmitFrame(long hmd, int frameIndex, OVRViewScaleDesc viewScaleDesc, PointerBuffer layerPtrList) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		return novr_SubmitFrame(hmd, frameIndex, viewScaleDesc == null ? NULL : viewScaleDesc.address(), memAddress(layerPtrList), layerPtrList.remaining());
 	}
@@ -754,7 +754,7 @@ public class OVR {
 	 * @param frameIndex the frame the caller wishes to target
 	 */
 	public static void ovr_GetFrameTiming(long hmd, int frameIndex, OVRFrameTiming __result) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		novr_GetFrameTiming(hmd, frameIndex, __result.address());
 	}
@@ -782,7 +782,7 @@ public class OVR {
 	 * @param hmd an {@code ovrHmd} previously returned by {@link #ovr_Create Create}
 	 */
 	public static void ovr_ResetBackOfHeadTracking(long hmd) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		novr_ResetBackOfHeadTracking(hmd);
 	}
@@ -799,7 +799,7 @@ public class OVR {
 	 * @param hmd an {@code ovrHmd} previously returned by {@link #ovr_Create Create}
 	 */
 	public static void ovr_ResetMulticameraTracking(long hmd) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		novr_ResetMulticameraTracking(hmd);
 	}
@@ -820,7 +820,7 @@ public class OVR {
 	 * @return the property interpreted as a boolean value. Returns {@code defaultVal} if the property doesn't exist.
 	 */
 	public static boolean ovr_GetBool(long hmd, ByteBuffer propertyName, boolean defaultVal) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(hmd);
 			checkNT1(propertyName);
 		}
@@ -829,7 +829,7 @@ public class OVR {
 
 	/** CharSequence version of: {@link #ovr_GetBool GetBool} */
 	public static boolean ovr_GetBool(long hmd, CharSequence propertyName, boolean defaultVal) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		APIBuffer __buffer = apiBuffer();
 		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);
@@ -854,7 +854,7 @@ public class OVR {
 	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
 	 */
 	public static boolean ovr_SetBool(long hmd, ByteBuffer propertyName, boolean value) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(hmd);
 			checkNT1(propertyName);
 		}
@@ -863,7 +863,7 @@ public class OVR {
 
 	/** CharSequence version of: {@link #ovr_SetBool SetBool} */
 	public static boolean ovr_SetBool(long hmd, CharSequence propertyName, boolean value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		APIBuffer __buffer = apiBuffer();
 		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);
@@ -886,7 +886,7 @@ public class OVR {
 	 * @return the property interpreted as an integer value. Returns {@code defaultVal} if the property doesn't exist.
 	 */
 	public static int ovr_GetInt(long hmd, ByteBuffer propertyName, int defaultVal) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(hmd);
 			checkNT1(propertyName);
 		}
@@ -895,7 +895,7 @@ public class OVR {
 
 	/** CharSequence version of: {@link #ovr_GetInt GetInt} */
 	public static int ovr_GetInt(long hmd, CharSequence propertyName, int defaultVal) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		APIBuffer __buffer = apiBuffer();
 		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);
@@ -920,7 +920,7 @@ public class OVR {
 	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
 	 */
 	public static boolean ovr_SetInt(long hmd, ByteBuffer propertyName, int value) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(hmd);
 			checkNT1(propertyName);
 		}
@@ -929,7 +929,7 @@ public class OVR {
 
 	/** CharSequence version of: {@link #ovr_SetInt SetInt} */
 	public static boolean ovr_SetInt(long hmd, CharSequence propertyName, int value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		APIBuffer __buffer = apiBuffer();
 		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);
@@ -952,7 +952,7 @@ public class OVR {
 	 * @return the property interpreted as a float value. Returns {@code defaultVal} if the property doesn't exist.
 	 */
 	public static float ovr_GetFloat(long hmd, ByteBuffer propertyName, float defaultVal) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(hmd);
 			checkNT1(propertyName);
 		}
@@ -961,7 +961,7 @@ public class OVR {
 
 	/** CharSequence version of: {@link #ovr_GetFloat GetFloat} */
 	public static float ovr_GetFloat(long hmd, CharSequence propertyName, float defaultVal) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		APIBuffer __buffer = apiBuffer();
 		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);
@@ -986,7 +986,7 @@ public class OVR {
 	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
 	 */
 	public static boolean ovr_SetFloat(long hmd, ByteBuffer propertyName, float value) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(hmd);
 			checkNT1(propertyName);
 		}
@@ -995,7 +995,7 @@ public class OVR {
 
 	/** CharSequence version of: {@link #ovr_SetFloat SetFloat} */
 	public static boolean ovr_SetFloat(long hmd, CharSequence propertyName, float value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		APIBuffer __buffer = apiBuffer();
 		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);
@@ -1019,7 +1019,7 @@ public class OVR {
 	 * @return the number of elements read, or 0 if property doesn't exist or is empty
 	 */
 	public static int ovr_GetFloatArray(long hmd, ByteBuffer propertyName, ByteBuffer values, int valuesCapacity) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(hmd);
 			checkNT1(propertyName);
 			checkBuffer(values, valuesCapacity << 2);
@@ -1029,14 +1029,14 @@ public class OVR {
 
 	/** Alternative version of: {@link #ovr_GetFloatArray GetFloatArray} */
 	public static int ovr_GetFloatArray(long hmd, ByteBuffer propertyName, FloatBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		return novr_GetFloatArray(hmd, memAddress(propertyName), memAddress(values), values.remaining());
 	}
 
 	/** CharSequence version of: {@link #ovr_GetFloatArray GetFloatArray} */
 	public static int ovr_GetFloatArray(long hmd, CharSequence propertyName, FloatBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		APIBuffer __buffer = apiBuffer();
 		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);
@@ -1060,7 +1060,7 @@ public class OVR {
 	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
 	 */
 	public static boolean ovr_SetFloatArray(long hmd, ByteBuffer propertyName, ByteBuffer values, int valuesSize) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(hmd);
 			checkNT1(propertyName);
 			checkBuffer(values, valuesSize << 2);
@@ -1070,14 +1070,14 @@ public class OVR {
 
 	/** Alternative version of: {@link #ovr_SetFloatArray SetFloatArray} */
 	public static boolean ovr_SetFloatArray(long hmd, ByteBuffer propertyName, FloatBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		return novr_SetFloatArray(hmd, memAddress(propertyName), memAddress(values), values.remaining());
 	}
 
 	/** CharSequence version of: {@link #ovr_SetFloatArray SetFloatArray} */
 	public static boolean ovr_SetFloatArray(long hmd, CharSequence propertyName, FloatBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		APIBuffer __buffer = apiBuffer();
 		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);
@@ -1103,7 +1103,7 @@ public class OVR {
 	 *         until next call to ovr_GetString or until the HMD is destroyed, whichever occurs first.
 	 */
 	public static String ovr_GetString(long hmd, ByteBuffer propertyName, ByteBuffer defaultVal) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		long __result = novr_GetString(hmd, memAddress(propertyName), memAddressSafe(defaultVal));
 		return memDecodeUTF8(__result);
@@ -1122,7 +1122,7 @@ public class OVR {
 	 *         until next call to ovr_GetString or until the HMD is destroyed, whichever occurs first.
 	 */
 	public static String ovr_GetString(long hmd, CharSequence propertyName, CharSequence defaultVal) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmd);
 		APIBuffer __buffer = apiBuffer();
 		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);
@@ -1149,7 +1149,7 @@ public class OVR {
 	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
 	 */
 	public static boolean ovr_SetString(long hmddesc, ByteBuffer propertyName, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(hmddesc);
 			checkNT1(propertyName);
 			checkNT1(value);
@@ -1159,7 +1159,7 @@ public class OVR {
 
 	/** CharSequence version of: {@link #ovr_SetString SetString} */
 	public static boolean ovr_SetString(long hmddesc, CharSequence propertyName, CharSequence value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hmddesc);
 		APIBuffer __buffer = apiBuffer();
 		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);

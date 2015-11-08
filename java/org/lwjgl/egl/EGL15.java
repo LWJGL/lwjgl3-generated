@@ -5,15 +5,15 @@
  */
 package org.lwjgl.egl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /** The core EGL 1.5 functionality. */
 public class EGL15 {
@@ -118,20 +118,20 @@ public class EGL15 {
 	@JavadocExclude
 	public static long neglCreateSync(long dpy, int type, long attrib_list) {
 		long __functionAddress = getInstance().CreateSync;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(dpy);
 		return callPIPP(__functionAddress, dpy, type, attrib_list);
 	}
 
 	public static long eglCreateSync(long dpy, int type, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNTP(attrib_list, EGL10.EGL_NONE);
 		return neglCreateSync(dpy, type, memAddress(attrib_list));
 	}
 
 	/** Alternative version of: {@link #eglCreateSync CreateSync} */
 	public static long eglCreateSync(long dpy, int type, PointerBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT(attrib_list, EGL10.EGL_NONE);
 		return neglCreateSync(dpy, type, memAddress(attrib_list));
 	}
@@ -140,7 +140,7 @@ public class EGL15 {
 
 	public static boolean eglDestroySync(long dpy, long sync) {
 		long __functionAddress = getInstance().DestroySync;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
@@ -151,7 +151,7 @@ public class EGL15 {
 
 	public static int eglClientWaitSync(long dpy, long sync, int flags, long timeout) {
 		long __functionAddress = getInstance().ClientWaitSync;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
@@ -164,7 +164,7 @@ public class EGL15 {
 	@JavadocExclude
 	public static boolean neglGetSyncAttrib(long dpy, long sync, int attribute, long value) {
 		long __functionAddress = getInstance().GetSyncAttrib;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
@@ -172,14 +172,14 @@ public class EGL15 {
 	}
 
 	public static boolean eglGetSyncAttrib(long dpy, long sync, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << POINTER_SHIFT);
 		return neglGetSyncAttrib(dpy, sync, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglGetSyncAttrib GetSyncAttrib} */
 	public static boolean eglGetSyncAttrib(long dpy, long sync, int attribute, PointerBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglGetSyncAttrib(dpy, sync, attribute, memAddress(value));
 	}
@@ -190,7 +190,7 @@ public class EGL15 {
 	@JavadocExclude
 	public static long neglCreateImage(long dpy, long ctx, int target, long buffer, long attrib_list) {
 		long __functionAddress = getInstance().CreateImage;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(ctx);
 			checkPointer(buffer);
@@ -199,14 +199,14 @@ public class EGL15 {
 	}
 
 	public static long eglCreateImage(long dpy, long ctx, int target, long buffer, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNTP(attrib_list, EGL10.EGL_NONE);
 		return neglCreateImage(dpy, ctx, target, buffer, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #eglCreateImage CreateImage} */
 	public static long eglCreateImage(long dpy, long ctx, int target, long buffer, PointerBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
 		return neglCreateImage(dpy, ctx, target, buffer, memAddressSafe(attrib_list));
 	}
@@ -215,7 +215,7 @@ public class EGL15 {
 
 	public static boolean eglDestroyImage(long dpy, long image) {
 		long __functionAddress = getInstance().DestroyImage;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(image);
 		}
@@ -228,20 +228,20 @@ public class EGL15 {
 	@JavadocExclude
 	public static long neglGetPlatformDisplay(int platform, long native_display, long attrib_list) {
 		long __functionAddress = getInstance().GetPlatformDisplay;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(native_display);
 		return callIPPP(__functionAddress, platform, native_display, attrib_list);
 	}
 
 	public static long eglGetPlatformDisplay(int platform, long native_display, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNTP(attrib_list, EGL10.EGL_NONE);
 		return neglGetPlatformDisplay(platform, native_display, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #eglGetPlatformDisplay GetPlatformDisplay} */
 	public static long eglGetPlatformDisplay(int platform, long native_display, PointerBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
 		return neglGetPlatformDisplay(platform, native_display, memAddressSafe(attrib_list));
 	}
@@ -252,7 +252,7 @@ public class EGL15 {
 	@JavadocExclude
 	public static long neglCreatePlatformWindowSurface(long dpy, long config, long native_window, long attrib_list) {
 		long __functionAddress = getInstance().CreatePlatformWindowSurface;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(config);
 			checkPointer(native_window);
@@ -261,14 +261,14 @@ public class EGL15 {
 	}
 
 	public static long eglCreatePlatformWindowSurface(long dpy, long config, long native_window, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNTP(attrib_list, EGL10.EGL_NONE);
 		return neglCreatePlatformWindowSurface(dpy, config, native_window, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #eglCreatePlatformWindowSurface CreatePlatformWindowSurface} */
 	public static long eglCreatePlatformWindowSurface(long dpy, long config, long native_window, PointerBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
 		return neglCreatePlatformWindowSurface(dpy, config, native_window, memAddressSafe(attrib_list));
 	}
@@ -279,7 +279,7 @@ public class EGL15 {
 	@JavadocExclude
 	public static long neglCreatePlatformPixmapSurface(long dpy, long config, long native_pixmap, long attrib_list) {
 		long __functionAddress = getInstance().CreatePlatformPixmapSurface;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(config);
 			checkPointer(native_pixmap);
@@ -288,14 +288,14 @@ public class EGL15 {
 	}
 
 	public static long eglCreatePlatformPixmapSurface(long dpy, long config, long native_pixmap, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNTP(attrib_list, EGL10.EGL_NONE);
 		return neglCreatePlatformPixmapSurface(dpy, config, native_pixmap, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #eglCreatePlatformPixmapSurface CreatePlatformPixmapSurface} */
 	public static long eglCreatePlatformPixmapSurface(long dpy, long config, long native_pixmap, PointerBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
 		return neglCreatePlatformPixmapSurface(dpy, config, native_pixmap, memAddressSafe(attrib_list));
 	}
@@ -304,7 +304,7 @@ public class EGL15 {
 
 	public static boolean eglWaitSync(long dpy, long sync, int flags) {
 		long __functionAddress = getInstance().WaitSync;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}

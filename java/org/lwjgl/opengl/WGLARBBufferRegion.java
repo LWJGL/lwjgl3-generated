@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -86,7 +85,7 @@ public class WGLARBBufferRegion {
 	 */
 	public static long wglCreateBufferRegionARB(long hdc, int layerPlane, int type) {
 		long __functionAddress = getInstance().CreateBufferRegionARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hdc);
 		return callPIIP(__functionAddress, hdc, layerPlane, type);
 	}
@@ -100,7 +99,7 @@ public class WGLARBBufferRegion {
 	 */
 	public static void wglDeleteBufferRegionARB(long region) {
 		long __functionAddress = getInstance().DeleteBufferRegionARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(region);
 		callPV(__functionAddress, region);
 	}
@@ -125,7 +124,7 @@ public class WGLARBBufferRegion {
 	 */
 	public static int wglSaveBufferRegionARB(long region, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().SaveBufferRegionARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(region);
 		return callPIIIII(__functionAddress, region, x, y, width, height);
 	}
@@ -145,7 +144,7 @@ public class WGLARBBufferRegion {
 	 */
 	public static int wglRestoreBufferRegionARB(long region, int x, int y, int width, int height, int xSrc, int ySrc) {
 		long __functionAddress = getInstance().RestoreBufferRegionARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(region);
 		return callPIIIIIII(__functionAddress, region, x, y, width, height, xSrc, ySrc);
 	}

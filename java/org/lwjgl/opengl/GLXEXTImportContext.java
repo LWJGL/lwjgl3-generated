@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -90,7 +89,7 @@ public class GLXEXTImportContext {
 	@JavadocExclude
 	public static int nglXQueryContextInfoEXT(long display, long context, int attribute, long value) {
 		long __functionAddress = getInstance().QueryContextInfoEXT;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(context);
 		}
@@ -106,14 +105,14 @@ public class GLXEXTImportContext {
 	 * @param value     returns the attribute value
 	 */
 	public static int glXQueryContextInfoEXT(long display, long context, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		return nglXQueryContextInfoEXT(display, context, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glXQueryContextInfoEXT QueryContextInfoEXT} */
 	public static int glXQueryContextInfoEXT(long display, long context, int attribute, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return nglXQueryContextInfoEXT(display, context, attribute, memAddress(value));
 	}
@@ -127,7 +126,7 @@ public class GLXEXTImportContext {
 	 */
 	public static long glXGetContextIDEXT(long context) {
 		long __functionAddress = getInstance().GetContextIDEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(context);
 		return callPP(__functionAddress, context);
 	}
@@ -142,7 +141,7 @@ public class GLXEXTImportContext {
 	 */
 	public static long glXImportContextEXT(long display, long contextID) {
 		long __functionAddress = getInstance().ImportContextEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(display);
 		return callPPP(__functionAddress, display, contextID);
 	}
@@ -157,7 +156,7 @@ public class GLXEXTImportContext {
 	 */
 	public static void glXFreeContextEXT(long display, long context) {
 		long __functionAddress = getInstance().FreeContextEXT;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(context);
 		}

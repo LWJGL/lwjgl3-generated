@@ -5,16 +5,16 @@
  */
 package org.lwjgl.egl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /** The core EGL 1.0 functionality. */
 public class EGL10 {
@@ -163,13 +163,13 @@ public class EGL10 {
 	@JavadocExclude
 	public static boolean neglChooseConfig(long dpy, long attrib_list, long configs, int config_size, long num_config) {
 		long __functionAddress = getInstance().ChooseConfig;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(dpy);
 		return callPPPIPZ(__functionAddress, dpy, attrib_list, configs, config_size, num_config);
 	}
 
 	public static boolean eglChooseConfig(long dpy, ByteBuffer attrib_list, ByteBuffer configs, int config_size, ByteBuffer num_config) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
 			if ( configs != null ) checkBuffer(configs, config_size << POINTER_SHIFT);
 			checkBuffer(num_config, 1 << 2);
@@ -179,7 +179,7 @@ public class EGL10 {
 
 	/** Alternative version of: {@link #eglChooseConfig ChooseConfig} */
 	public static boolean eglChooseConfig(long dpy, IntBuffer attrib_list, PointerBuffer configs, IntBuffer num_config) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
 			checkBuffer(num_config, 1);
 		}
@@ -190,7 +190,7 @@ public class EGL10 {
 
 	public static boolean eglCopyBuffers(long dpy, long surface, long target) {
 		long __functionAddress = getInstance().CopyBuffers;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 			checkPointer(target);
@@ -204,7 +204,7 @@ public class EGL10 {
 	@JavadocExclude
 	public static long neglCreateContext(long dpy, long config, long share_context, long attrib_list) {
 		long __functionAddress = getInstance().CreateContext;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(config);
 		}
@@ -212,14 +212,14 @@ public class EGL10 {
 	}
 
 	public static long eglCreateContext(long dpy, long config, long share_context, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
 		return neglCreateContext(dpy, config, share_context, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #eglCreateContext CreateContext} */
 	public static long eglCreateContext(long dpy, long config, long share_context, IntBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
 		return neglCreateContext(dpy, config, share_context, memAddressSafe(attrib_list));
 	}
@@ -230,7 +230,7 @@ public class EGL10 {
 	@JavadocExclude
 	public static long neglCreatePbufferSurface(long dpy, long config, long attrib_list) {
 		long __functionAddress = getInstance().CreatePbufferSurface;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(config);
 		}
@@ -238,14 +238,14 @@ public class EGL10 {
 	}
 
 	public static long eglCreatePbufferSurface(long dpy, long config, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
 		return neglCreatePbufferSurface(dpy, config, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #eglCreatePbufferSurface CreatePbufferSurface} */
 	public static long eglCreatePbufferSurface(long dpy, long config, IntBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
 		return neglCreatePbufferSurface(dpy, config, memAddressSafe(attrib_list));
 	}
@@ -256,7 +256,7 @@ public class EGL10 {
 	@JavadocExclude
 	public static long neglCreatePixmapSurface(long dpy, long config, long pixmap, long attrib_list) {
 		long __functionAddress = getInstance().CreatePixmapSurface;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(config);
 			checkPointer(pixmap);
@@ -265,14 +265,14 @@ public class EGL10 {
 	}
 
 	public static long eglCreatePixmapSurface(long dpy, long config, long pixmap, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
 		return neglCreatePixmapSurface(dpy, config, pixmap, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #eglCreatePixmapSurface CreatePixmapSurface} */
 	public static long eglCreatePixmapSurface(long dpy, long config, long pixmap, IntBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
 		return neglCreatePixmapSurface(dpy, config, pixmap, memAddressSafe(attrib_list));
 	}
@@ -283,7 +283,7 @@ public class EGL10 {
 	@JavadocExclude
 	public static long neglCreateWindowSurface(long dpy, long config, long win, long attrib_list) {
 		long __functionAddress = getInstance().CreateWindowSurface;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(config);
 			checkPointer(win);
@@ -292,14 +292,14 @@ public class EGL10 {
 	}
 
 	public static long eglCreateWindowSurface(long dpy, long config, long win, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
 		return neglCreateWindowSurface(dpy, config, win, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #eglCreateWindowSurface CreateWindowSurface} */
 	public static long eglCreateWindowSurface(long dpy, long config, long win, IntBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
 		return neglCreateWindowSurface(dpy, config, win, memAddressSafe(attrib_list));
 	}
@@ -308,7 +308,7 @@ public class EGL10 {
 
 	public static boolean eglDestroyContext(long dpy, long ctx) {
 		long __functionAddress = getInstance().DestroyContext;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(ctx);
 		}
@@ -319,7 +319,7 @@ public class EGL10 {
 
 	public static boolean eglDestroySurface(long dpy, long surface) {
 		long __functionAddress = getInstance().DestroySurface;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
@@ -332,7 +332,7 @@ public class EGL10 {
 	@JavadocExclude
 	public static boolean neglGetConfigAttrib(long dpy, long config, int attribute, long value) {
 		long __functionAddress = getInstance().GetConfigAttrib;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(config);
 		}
@@ -340,14 +340,14 @@ public class EGL10 {
 	}
 
 	public static boolean eglGetConfigAttrib(long dpy, long config, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		return neglGetConfigAttrib(dpy, config, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglGetConfigAttrib GetConfigAttrib} */
 	public static boolean eglGetConfigAttrib(long dpy, long config, int attribute, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglGetConfigAttrib(dpy, config, attribute, memAddress(value));
 	}
@@ -358,13 +358,13 @@ public class EGL10 {
 	@JavadocExclude
 	public static boolean neglGetConfigs(long dpy, long configs, int config_size, long num_config) {
 		long __functionAddress = getInstance().GetConfigs;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(dpy);
 		return callPPIPZ(__functionAddress, dpy, configs, config_size, num_config);
 	}
 
 	public static boolean eglGetConfigs(long dpy, ByteBuffer configs, int config_size, ByteBuffer num_config) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( configs != null ) checkBuffer(configs, config_size << POINTER_SHIFT);
 			checkBuffer(num_config, 1 << 2);
 		}
@@ -373,7 +373,7 @@ public class EGL10 {
 
 	/** Alternative version of: {@link #eglGetConfigs GetConfigs} */
 	public static boolean eglGetConfigs(long dpy, PointerBuffer configs, IntBuffer num_config) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(num_config, 1);
 		return neglGetConfigs(dpy, memAddressSafe(configs), configs == null ? 0 : configs.remaining(), memAddress(num_config));
 	}
@@ -416,7 +416,7 @@ public class EGL10 {
 	}
 
 	public static long eglGetProcAddress(ByteBuffer procname) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(procname);
 		return neglGetProcAddress(memAddress(procname));
 	}
@@ -434,13 +434,13 @@ public class EGL10 {
 	@JavadocExclude
 	public static boolean neglInitialize(long dpy, long major, long minor) {
 		long __functionAddress = getInstance().Initialize;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(dpy);
 		return callPPPZ(__functionAddress, dpy, major, minor);
 	}
 
 	public static boolean eglInitialize(long dpy, ByteBuffer major, ByteBuffer minor) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(major, 1 << 2);
 			checkBuffer(minor, 1 << 2);
 		}
@@ -449,7 +449,7 @@ public class EGL10 {
 
 	/** Alternative version of: {@link #eglInitialize Initialize} */
 	public static boolean eglInitialize(long dpy, IntBuffer major, IntBuffer minor) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(major, 1);
 			checkBuffer(minor, 1);
 		}
@@ -460,7 +460,7 @@ public class EGL10 {
 
 	public static boolean eglMakeCurrent(long dpy, long draw, long read, long ctx) {
 		long __functionAddress = getInstance().MakeCurrent;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(draw);
 			checkPointer(read);
@@ -475,7 +475,7 @@ public class EGL10 {
 	@JavadocExclude
 	public static boolean neglQueryContext(long dpy, long ctx, int attribute, long value) {
 		long __functionAddress = getInstance().QueryContext;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(ctx);
 		}
@@ -483,14 +483,14 @@ public class EGL10 {
 	}
 
 	public static boolean eglQueryContext(long dpy, long ctx, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		return neglQueryContext(dpy, ctx, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQueryContext QueryContext} */
 	public static boolean eglQueryContext(long dpy, long ctx, int attribute, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQueryContext(dpy, ctx, attribute, memAddress(value));
 	}
@@ -515,7 +515,7 @@ public class EGL10 {
 	@JavadocExclude
 	public static boolean neglQuerySurface(long dpy, long surface, int attribute, long value) {
 		long __functionAddress = getInstance().QuerySurface;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
@@ -523,14 +523,14 @@ public class EGL10 {
 	}
 
 	public static boolean eglQuerySurface(long dpy, long surface, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		return neglQuerySurface(dpy, surface, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQuerySurface QuerySurface} */
 	public static boolean eglQuerySurface(long dpy, long surface, int attribute, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQuerySurface(dpy, surface, attribute, memAddress(value));
 	}
@@ -539,7 +539,7 @@ public class EGL10 {
 
 	public static boolean eglSwapBuffers(long dpy, long surface) {
 		long __functionAddress = getInstance().SwapBuffers;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
@@ -550,7 +550,7 @@ public class EGL10 {
 
 	public static boolean eglTerminate(long dpy) {
 		long __functionAddress = getInstance().Terminate;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(dpy);
 		return callPZ(__functionAddress, dpy);
 	}

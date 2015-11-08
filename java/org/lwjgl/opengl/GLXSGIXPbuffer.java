@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/SGIX/pbuffer.txt">GLX_SGIX_pbuffer</a> extension.
@@ -127,7 +127,7 @@ public class GLXSGIXPbuffer {
 	@JavadocExclude
 	public static long nglXCreateGLXPbufferSGIX(long display, long config, int width, int height, long attrib_list) {
 		long __functionAddress = getInstance().CreateGLXPbufferSGIX;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(config);
 		}
@@ -144,14 +144,14 @@ public class GLXSGIXPbuffer {
 	 * @param attrib_list an optional null-terminated list of attributes
 	 */
 	public static long glXCreateGLXPbufferSGIX(long display, long config, int width, int height, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list);
 		return nglXCreateGLXPbufferSGIX(display, config, width, height, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #glXCreateGLXPbufferSGIX CreateGLXPbufferSGIX} */
 	public static long glXCreateGLXPbufferSGIX(long display, long config, int width, int height, IntBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);
 		return nglXCreateGLXPbufferSGIX(display, config, width, height, memAddressSafe(attrib_list));
 	}
@@ -166,7 +166,7 @@ public class GLXSGIXPbuffer {
 	 */
 	public static void glXDestroyGLXPbufferSGIX(long display, long pbuf) {
 		long __functionAddress = getInstance().DestroyGLXPbufferSGIX;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(pbuf);
 		}
@@ -179,7 +179,7 @@ public class GLXSGIXPbuffer {
 	@JavadocExclude
 	public static void nglXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, long value) {
 		long __functionAddress = getInstance().QueryGLXPbufferSGIX;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(pbuf);
 		}
@@ -195,14 +195,14 @@ public class GLXSGIXPbuffer {
 	 * @param value     returns the attribute value
 	 */
 	public static void glXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nglXQueryGLXPbufferSGIX(display, pbuf, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glXQueryGLXPbufferSGIX QueryGLXPbufferSGIX} */
 	public static void glXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nglXQueryGLXPbufferSGIX(display, pbuf, attribute, memAddress(value));
 	}
@@ -218,7 +218,7 @@ public class GLXSGIXPbuffer {
 	 */
 	public static void glXSelectEventSGIX(long display, long drawable, long mask) {
 		long __functionAddress = getInstance().SelectEventSGIX;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
@@ -231,7 +231,7 @@ public class GLXSGIXPbuffer {
 	@JavadocExclude
 	public static void nglXGetSelectedEventSGIX(long display, long drawable, long mask) {
 		long __functionAddress = getInstance().GetSelectedEventSGIX;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
@@ -246,14 +246,14 @@ public class GLXSGIXPbuffer {
 	 * @param mask     returns the selection mask
 	 */
 	public static void glXGetSelectedEventSGIX(long display, long drawable, ByteBuffer mask) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(mask, 1 << POINTER_SHIFT);
 		nglXGetSelectedEventSGIX(display, drawable, memAddress(mask));
 	}
 
 	/** Alternative version of: {@link #glXGetSelectedEventSGIX GetSelectedEventSGIX} */
 	public static void glXGetSelectedEventSGIX(long display, long drawable, PointerBuffer mask) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(mask, 1);
 		nglXGetSelectedEventSGIX(display, drawable, memAddress(mask));
 	}

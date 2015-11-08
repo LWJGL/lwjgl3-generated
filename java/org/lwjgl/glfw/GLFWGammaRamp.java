@@ -99,7 +99,7 @@ public class GLFWGammaRamp extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public GLFWGammaRamp set(GLFWGammaRamp src) {
 		return nset(address());
@@ -107,7 +107,7 @@ public class GLFWGammaRamp extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public GLFWGammaRamp set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}

@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * The core OpenGL 4.3 functionality. OpenGL 4.3 implementations support revision 4.30 of the OpenGL Shading Language.
@@ -699,7 +699,7 @@ public class GL43 {
 	 */
 	public static void glDispatchComputeIndirect(long indirect) {
 		long __functionAddress = getInstance().DispatchComputeIndirect;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL43.GL_DISPATCH_INDIRECT_BUFFER_BINDING, true);
 		callPV(__functionAddress, indirect);
 	}
@@ -776,7 +776,7 @@ public class GL43 {
 	 * @param enabled  whether the selected messages should be enabled or disabled
 	 */
 	public static void glDebugMessageControl(int source, int type, int severity, int count, ByteBuffer ids, boolean enabled) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( ids != null ) checkBuffer(ids, count << 2);
 		nglDebugMessageControl(source, type, severity, count, memAddressSafe(ids), enabled);
 	}
@@ -824,7 +824,7 @@ public class GL43 {
 	 * @param message  a character array containing the message to insert
 	 */
 	public static void glDebugMessageInsert(int source, int type, int id, int severity, int length, ByteBuffer message) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(message, length);
 		nglDebugMessageInsert(source, type, id, severity, length, memAddress(message));
 	}
@@ -928,7 +928,7 @@ public class GL43 {
 	 * @param messageLog an array of characters that will receive the messages
 	 */
 	public static int glGetDebugMessageLog(int count, int bufsize, ByteBuffer sources, ByteBuffer types, ByteBuffer ids, ByteBuffer severities, ByteBuffer lengths, ByteBuffer messageLog) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( messageLog != null ) checkBuffer(messageLog, bufsize);
 			if ( sources != null ) checkBuffer(sources, count << 2);
 			if ( types != null ) checkBuffer(types, count << 2);
@@ -941,7 +941,7 @@ public class GL43 {
 
 	/** Alternative version of: {@link #glGetDebugMessageLog GetDebugMessageLog} */
 	public static int glGetDebugMessageLog(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, ByteBuffer messageLog) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( sources != null ) checkBuffer(sources, count);
 			if ( types != null ) checkBuffer(types, count);
 			if ( ids != null ) checkBuffer(ids, count);
@@ -980,7 +980,7 @@ public class GL43 {
 	 * @param message a string containing the message to be sent to the debug output stream
 	 */
 	public static void glPushDebugGroup(int source, int id, int length, ByteBuffer message) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(message, length);
 		nglPushDebugGroup(source, id, length, memAddress(message));
 	}
@@ -1036,7 +1036,7 @@ public class GL43 {
 	 * @param label      a string containing the label to assign to the object
 	 */
 	public static void glObjectLabel(int identifier, int name, int length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(label, length);
 		nglObjectLabel(identifier, name, length, memAddress(label));
 	}
@@ -1075,7 +1075,7 @@ public class GL43 {
 	 * @param label      a string that will receive the object label
 	 */
 	public static void glGetObjectLabel(int identifier, int name, int bufSize, ByteBuffer length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(label, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -1084,7 +1084,7 @@ public class GL43 {
 
 	/** Alternative version of: {@link #glGetObjectLabel GetObjectLabel} */
 	public static void glGetObjectLabel(int identifier, int name, IntBuffer length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetObjectLabel(identifier, name, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
@@ -1114,7 +1114,7 @@ public class GL43 {
 	@JavadocExclude
 	public static void nglObjectPtrLabel(long ptr, int length, long label) {
 		long __functionAddress = getInstance().ObjectPtrLabel;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ptr);
 		callPIPV(__functionAddress, ptr, length, label);
 	}
@@ -1129,7 +1129,7 @@ public class GL43 {
 	 * @param label  a string containing the label to assign to the object
 	 */
 	public static void glObjectPtrLabel(long ptr, int length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(label, length);
 		nglObjectPtrLabel(ptr, length, memAddress(label));
 	}
@@ -1153,7 +1153,7 @@ public class GL43 {
 	@JavadocExclude
 	public static void nglGetObjectPtrLabel(long ptr, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectPtrLabel;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ptr);
 		callPIPPV(__functionAddress, ptr, bufSize, length, label);
 	}
@@ -1169,7 +1169,7 @@ public class GL43 {
 	 * @param label   a string that will receive the object label
 	 */
 	public static void glGetObjectPtrLabel(long ptr, int bufSize, ByteBuffer length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(label, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -1178,7 +1178,7 @@ public class GL43 {
 
 	/** Alternative version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
 	public static void glGetObjectPtrLabel(long ptr, IntBuffer length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetObjectPtrLabel(ptr, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
@@ -1237,14 +1237,14 @@ public class GL43 {
 	 * @param params a variable to receive the value of the parameter named {@code pname}
 	 */
 	public static void glGetFramebufferParameteriv(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetFramebufferParameteriv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
 	public static void glGetFramebufferParameteriv(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetFramebufferParameteriv(target, pname, memAddress(params));
 	}
@@ -1278,7 +1278,7 @@ public class GL43 {
 	 * @param params         a variable into which to write the retrieved information
 	 */
 	public static void glGetInternalformati64v(int target, int internalformat, int pname, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 3);
 		nglGetInternalformati64v(target, internalformat, pname, bufSize, memAddress(params));
 	}
@@ -1381,7 +1381,7 @@ public class GL43 {
 	 * @param attachments    the address of an array identifying the attachments to be invalidated
 	 */
 	public static void glInvalidateFramebuffer(int target, int numAttachments, ByteBuffer attachments) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(attachments, numAttachments << 2);
 		nglInvalidateFramebuffer(target, numAttachments, memAddress(attachments));
 	}
@@ -1421,7 +1421,7 @@ public class GL43 {
 	 * @param height         the height of the region to be invalidated
 	 */
 	public static void glInvalidateSubFramebuffer(int target, int numAttachments, ByteBuffer attachments, int x, int y, int width, int height) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(attachments, numAttachments << 2);
 		nglInvalidateSubFramebuffer(target, numAttachments, memAddress(attachments), x, y, width, height);
 	}
@@ -1478,7 +1478,7 @@ public class GL43 {
 	 * @param stride    the distance in basic machine units between elements of the draw parameter array
 	 */
 	public static void glMultiDrawArraysIndirect(int mode, ByteBuffer indirect, int primcount, int stride) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indirect, primcount * (stride == 0 ? (4 * 4) : stride));
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
@@ -1487,14 +1487,14 @@ public class GL43 {
 
 	/** Buffer object offset version of: {@link #glMultiDrawArraysIndirect MultiDrawArraysIndirect} */
 	public static void glMultiDrawArraysIndirect(int mode, long indirectOffset, int primcount, int stride) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
 		nglMultiDrawArraysIndirect(mode, indirectOffset, primcount, stride);
 	}
 
 	/** IntBuffer version of: {@link #glMultiDrawArraysIndirect MultiDrawArraysIndirect} */
 	public static void glMultiDrawArraysIndirect(int mode, IntBuffer indirect, int primcount, int stride) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indirect, (primcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
@@ -1543,7 +1543,7 @@ public class GL43 {
 	 * @param stride    the distance in basic machine units between elements of the draw parameter array
 	 */
 	public static void glMultiDrawElementsIndirect(int mode, int type, ByteBuffer indirect, int primcount, int stride) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indirect, primcount * (stride == 0 ? (5 * 4) : stride));
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
@@ -1552,14 +1552,14 @@ public class GL43 {
 
 	/** Buffer object offset version of: {@link #glMultiDrawElementsIndirect MultiDrawElementsIndirect} */
 	public static void glMultiDrawElementsIndirect(int mode, int type, long indirectOffset, int primcount, int stride) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
 		nglMultiDrawElementsIndirect(mode, type, indirectOffset, primcount, stride);
 	}
 
 	/** IntBuffer version of: {@link #glMultiDrawElementsIndirect MultiDrawElementsIndirect} */
 	public static void glMultiDrawElementsIndirect(int mode, int type, IntBuffer indirect, int primcount, int stride) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indirect, (primcount * (stride == 0 ? (5 * 4) : stride)) >> 2);
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
@@ -1586,14 +1586,14 @@ public class GL43 {
 	 * @param params           a variable to retrieve the value of {@code pname} for the program interface
 	 */
 	public static void glGetProgramInterfaceiv(int program, int programInterface, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetProgramInterfaceiv(program, programInterface, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
 	public static void glGetProgramInterfaceiv(int program, int programInterface, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetProgramInterfaceiv(program, programInterface, pname, memAddress(params));
 	}
@@ -1625,7 +1625,7 @@ public class GL43 {
 	 * @param name             the name of the resource to query the index of
 	 */
 	public static int glGetProgramResourceIndex(int program, int programInterface, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		return nglGetProgramResourceIndex(program, programInterface, memAddress(name));
 	}
@@ -1659,7 +1659,7 @@ public class GL43 {
 	 * @param name             a character array into which will be written the name of the resource
 	 */
 	public static void glGetProgramResourceName(int program, int programInterface, int index, int bufSize, ByteBuffer length, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(name, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -1668,7 +1668,7 @@ public class GL43 {
 
 	/** Alternative version of: {@link #glGetProgramResourceName GetProgramResourceName} */
 	public static void glGetProgramResourceName(int program, int programInterface, int index, IntBuffer length, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetProgramResourceName(program, programInterface, index, name.remaining(), memAddressSafe(length), memAddress(name));
 	}
@@ -1716,7 +1716,7 @@ public class GL43 {
 	 * @param params           an array that will receive the property values
 	 */
 	public static void glGetProgramResourceiv(int program, int programInterface, int index, int propCount, ByteBuffer props, int bufSize, ByteBuffer length, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(props, propCount << 2);
 			checkBuffer(params, bufSize << 2);
 			if ( length != null ) checkBuffer(length, 1 << 2);
@@ -1726,7 +1726,7 @@ public class GL43 {
 
 	/** Alternative version of: {@link #glGetProgramResourceiv GetProgramResourceiv} */
 	public static void glGetProgramResourceiv(int program, int programInterface, int index, IntBuffer props, IntBuffer length, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), params.remaining(), memAddressSafe(length), memAddress(params));
 	}
@@ -1760,7 +1760,7 @@ public class GL43 {
 	 * @param name             the name of the resource to query the location of
 	 */
 	public static int glGetProgramResourceLocation(int program, int programInterface, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		return nglGetProgramResourceLocation(program, programInterface, memAddress(name));
 	}
@@ -1791,7 +1791,7 @@ public class GL43 {
 	 * @param name             the name of the resource to query the location of
 	 */
 	public static int glGetProgramResourceLocationIndex(int program, int programInterface, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		return nglGetProgramResourceLocationIndex(program, programInterface, memAddress(name));
 	}

@@ -132,7 +132,7 @@ public final class GLESCapabilities {
 	 * <p>In addition, this extension ensures support for images, shader storage buffers, and atomic counters in fragment shaders. In unextended OpenGL ES the
 	 * minimum value of the relevant implementation-defined limits is zero; this extension raises these minimums to match the minimums for compute shaders.</p>
 	 * 
-	 * <p>Requires {@link GLES31 GLES E.S}.</p>
+	 * <p>Requires {@link GLES31 GLES 3.1}.</p>
 	 */
 	public final boolean GL_ANDROID_extension_pack_es31a;
 	/** When true, {@link ANGLEDepthTexture} is supported. */
@@ -165,7 +165,7 @@ public final class GLESCapabilities {
 	 * <p>This extension allows two packed floating point formats R11F_G11F_B10F and as RGB9_E5 defined in APPLE_texture_packed_float or OpenGL ES 3.0 or to be
 	 * rendered to via framebuffer objects.</p>
 	 * 
-	 * <p>Requires {@link EXTColorBufferHalfFloat EXT_color_buffer_half_float} and {@link GLES30 GLES E.S} or {@link APPLETexturePackedFloat APPLE_texture_packed_float}.</p>
+	 * <p>Requires {@link EXTColorBufferHalfFloat EXT_color_buffer_half_float} and {@link GLES30 GLES 3.0} or {@link APPLETexturePackedFloat APPLE_texture_packed_float}.</p>
 	 */
 	public final boolean GL_APPLE_color_buffer_packed_float;
 	/** When true, {@link APPLECopyTextureLevels} is supported. */
@@ -191,7 +191,7 @@ public final class GLESCapabilities {
 	 * 
 	 * <p>This extension enables a RGBA8 renderbuffer storage format. It is similar to OES_rgb8_rgba8, but only exposes RGBA8.</p>
 	 * 
-	 * <p>Requires {@link GLES20 GLES E.S}.</p>
+	 * <p>Requires {@link GLES20 GLES 2.0}.</p>
 	 */
 	public final boolean GL_ARM_rgba8;
 	/** When true, {@link ARMShaderFramebufferFetch} is supported. */
@@ -208,7 +208,7 @@ public final class GLESCapabilities {
 	 * background geometry to a depth texture, and one that renders the particles while reading from the depth texture to do the blending. This extension
 	 * allows this to be done in a single pass.</p>
 	 * 
-	 * <p>Requires {@link GLES20 GLES E.S}.</p>
+	 * <p>Requires {@link GLES20 GLES 2.0}.</p>
 	 */
 	public final boolean GL_ARM_shader_framebuffer_fetch_depth_stencil;
 	/** When true, {@link DMPProgramBinary} is supported. */
@@ -228,7 +228,7 @@ public final class GLESCapabilities {
 	 * 
 	 * <p>This extension allows a variety of floating point formats to be rendered to via framebuffer objects.</p>
 	 * 
-	 * <p>Requires {@link GLES30 GLES E.S}.</p>
+	 * <p>Requires {@link GLES30 GLES 3.0}.</p>
 	 */
 	public final boolean GL_EXT_color_buffer_float;
 	/** When true, {@link EXTColorBufferHalfFloat} is supported. */
@@ -289,7 +289,7 @@ public final class GLESCapabilities {
 	 * </ul></li>
 	 * </ul></p>
 	 * 
-	 * <p>Requires {@link GLES31 GLES E.S}.</p>
+	 * <p>Requires {@link GLES31 GLES 3.1}.</p>
 	 */
 	public final boolean GL_EXT_gpu_shader5;
 	/** When true, {@link EXTInstancedArrays} is supported. */
@@ -318,7 +318,7 @@ public final class GLESCapabilities {
 	 * To use this feature, early fragment tests must also be enabled in the fragment shader via:
 	 * <pre><code style="font-family: monospace">
 	 * 	layout(early_fragment_tests) in;</code></pre>
-	 * Requires {@link \#GL_OES_sample_variables OES_sample_variables}.</p>
+	 * Requires {@link #GL_OES_sample_variables OES_sample_variables}.</p>
 	 */
 	public final boolean GL_EXT_post_depth_coverage;
 	/** When true, {@link EXTPrimitiveBoundingBox} is supported. */
@@ -343,7 +343,7 @@ public final class GLESCapabilities {
 	 * <p>This extension provides support for implicitly converting signed integer types to unsigned types, as well as more general implicit conversion and
 	 * function overloading infrastructure to support new data types introduced by other extensions.</p>
 	 * 
-	 * <p>Requires {@link GLES31 GLES E.S}.</p>
+	 * <p>Requires {@link GLES31 GLES 3.1}.</p>
 	 */
 	public final boolean GL_EXT_shader_implicit_conversions;
 	/**
@@ -352,7 +352,7 @@ public final class GLESCapabilities {
 	 * <p>GLSL 1.30 (and GLSL ES 3.00) expanded the mix() built-in function to operate on a boolean third argument that does not interpolate but selects. This
 	 * extension extends mix() to select between int, uint, and bool components.</p>
 	 * 
-	 * <p>Requires {@link GLES30 GLES E.S}.</p>
+	 * <p>Requires {@link GLES30 GLES 3.0}.</p>
 	 */
 	public final boolean GL_EXT_shader_integer_mix;
 	/**
@@ -372,7 +372,7 @@ public final class GLESCapabilities {
 	 * 
 	 * <p>Finally, this extension allows the redeclaration of the gl_PerVertex block in order to reduce the set of variables that must be passed between shaders.</p>
 	 * 
-	 * <p>Requires {@link GLES31 GLES E.S}.</p>
+	 * <p>Requires {@link GLES31 GLES 3.1}.</p>
 	 */
 	public final boolean GL_EXT_shader_io_blocks;
 	/** When true, {@link EXTShaderPixelLocalStorage} is supported. */
@@ -518,7 +518,7 @@ public final class GLESCapabilities {
 	 * by the GL to ensure that out-of-bounds accesses cannot read from or write to data not owned by the application. All accesses are contained within the
 	 * buffer object and program area they reference. These additional robustness guarantees apply to contexts created with the robust access flag set.</p>
 	 * 
-	 * <p>Requires {@link GLES20 GLES E.S} and {@link KHRRobustness KHR_robustness}.</p>
+	 * <p>Requires {@link GLES20 GLES 2.0} and {@link KHRRobustness KHR_robustness}.</p>
 	 */
 	public final boolean GL_KHR_robust_buffer_access_behavior;
 	/** When true, {@link KHRRobustness} is supported. */
@@ -571,7 +571,7 @@ public final class GLESCapabilities {
 	 * particular semantic meaning, such as diffuse color or vertex normal, to a particular attribute location without knowing how that attribute will be
 	 * named in any particular shader.</p>
 	 * 
-	 * <p>Requires {@link GLES20 GLES E.S}.</p>
+	 * <p>Requires {@link GLES20 GLES 2.0}.</p>
 	 */
 	public final boolean GL_NV_explicit_attrib_location;
 	/** When true, {@link NVFboColorAttachments} is supported. */
@@ -615,7 +615,7 @@ public final class GLESCapabilities {
 	 * applications may be able to execute programmable blending operations in the fragment shader, where the destination buffer is read via image loads and
 	 * the final value is written via image stores.</p>
 	 * 
-	 * <p>Requires {@link GLES31 GLES E.S}.</p>
+	 * <p>Requires {@link GLES31 GLES 3.1}.</p>
 	 */
 	public final boolean GL_NV_fragment_shader_interlock;
 	/** When true, {@link NVFramebufferBlit} is supported. */
@@ -697,7 +697,7 @@ public final class GLESCapabilities {
 	 *         // loop over three vertices or call EmitVertex().
 	 *         gl_Layer = compute_layer();
 	 *       }</code></pre>
-	 * Requires {@link GLES31 GLES E.S}.</p>
+	 * Requires {@link GLES31 GLES 3.1}.</p>
 	 */
 	public final boolean GL_NV_geometry_shader_passthrough;
 	/**
@@ -706,7 +706,7 @@ public final class GLESCapabilities {
 	 * <p>OpenGL ES 3.1 specifies a variety of formats required to be usable with texture images. This extension introduces the texture image formats missing for
 	 * parity with OpenGL 4.4.</p>
 	 * 
-	 * <p>Requires {@link GLES31 GLES E.S}.</p>
+	 * <p>Requires {@link GLES31 GLES 3.1}.</p>
 	 */
 	public final boolean GL_NV_image_formats;
 	/** When true, {@link NVInstancedArrays} is supported. */
@@ -769,7 +769,7 @@ public final class GLESCapabilities {
 	 * layout qualifier:
 	 * <pre><code style="font-family: monospace">
 	 * 	layout(override_coverage) out int gl_SampleMask[];</code></pre>
-	 * Requires {@link \#GL_OES_sample_variables OES_sample_variables}.</p>
+	 * Requires {@link #GL_OES_sample_variables OES_sample_variables}.</p>
 	 */
 	public final boolean GL_NV_sample_mask_override_coverage;
 	/**
@@ -787,7 +787,7 @@ public final class GLESCapabilities {
 	 * <p>The smooth and flat interpolation qualifiers are already supported in OpenGL ES 3.0 and later. This extension adds support for noperspective
 	 * interpolation to OpenGL ES.</p>
 	 * 
-	 * <p>Requires {@link GLES30 GLES E.S}.</p>
+	 * <p>Requires {@link GLES30 GLES 3.0}.</p>
 	 */
 	public final boolean GL_NV_shader_noperspective_interpolation;
 	/** When true, {@link NVShadowSamplersArray} is supported. */
@@ -844,7 +844,7 @@ public final class GLESCapabilities {
 	 * expected to be exported if GL_NV_viewport_array2 is supported. This extension includes the edits for those extensions, recast against the reorganized
 	 * OpenGL 4.3 specification.</p>
 	 * 
-	 * <p>Requires {@link NVViewportArray NV_viewport_array}, {@link EXTGeometryShader EXT_geometry_shader} and {@link  EXT_shader_io_blocks}.</p>
+	 * <p>Requires {@link NVViewportArray NV_viewport_array}, {@link EXTGeometryShader EXT_geometry_shader} and {@link #GL_EXT_shader_io_blocks EXT_shader_io_blocks}.</p>
 	 */
 	public final boolean GL_NV_viewport_array2;
 	/** When true, the <a href="https://www.khronos.org/registry/gles/extensions/OES/OES_compressed_ETC1_RGB8_sub_texture.txt">OES_compressed_ETC1_RGB8_sub_texture</a> extension is supported. */
@@ -865,7 +865,7 @@ public final class GLESCapabilities {
 	 * <p>This extension defines a new texture format that stores depth values in the texture. Depth texture images are widely used for shadow casting but can
 	 * also be used for other effects such as image based rendering, displacement mapping etc.</p>
 	 * 
-	 * <p>Requires {@link GLES20 GLES E.S}.</p>
+	 * <p>Requires {@link GLES20 GLES 2.0}.</p>
 	 */
 	public final boolean GL_OES_depth_texture;
 	/** When true, {@link OESDepthTextureCubeMap} is supported. */
@@ -934,7 +934,7 @@ public final class GLESCapabilities {
 	 * <li>allowing shaders to use separate independent offsets for each of the four texels returned, instead of requiring a fixed 2x2 footprint.</li>
 	 * </ul></li>
 	 * </ul>
-	 * Requires {@link GLES31 GLES E.S}.</p>
+	 * Requires {@link GLES31 GLES 3.1}.</p>
 	 */
 	public final boolean GL_OES_gpu_shader5;
 	/** When true, {@link OESMapbuffer} is supported. */
@@ -964,7 +964,7 @@ public final class GLESCapabilities {
 	 * <p>In order to obtain per-sample interpolation on fragment inputs, either OES_sample_shading or OES_shader_multisample_interpolation must be used in
 	 * conjunction with the features from this extension.</p>
 	 * 
-	 * <p>Requires {@link GLES30 GLES E.S}.</p>
+	 * <p>Requires {@link GLES30 GLES 3.0}.</p>
 	 */
 	public final boolean GL_OES_sample_variables;
 	/**
@@ -974,7 +974,7 @@ public final class GLESCapabilities {
 	 * any shader stage. These built-in functions are named imageAtomic*(), and accept integer texel coordinates to identify the texel accessed. These
 	 * built-in functions extend the Images in ESSL 3.10.</p>
 	 * 
-	 * <p>Requires {@link GLES31 GLES E.S}.</p>
+	 * <p>Requires {@link GLES31 GLES 3.1}.</p>
 	 */
 	public final boolean GL_OES_shader_image_atomic;
 	/**
@@ -994,7 +994,7 @@ public final class GLESCapabilities {
 	 * 
 	 * <p>Finally, this extension allows the redeclaration of the gl_PerVertex block in order to reduce the set of variables that must be passed between shaders.</p>
 	 * 
-	 * <p>Requires {@link GLES31 GLES E.S}.</p>
+	 * <p>Requires {@link GLES31 GLES 3.1}.</p>
 	 */
 	public final boolean GL_OES_shader_io_blocks;
 	/** When true, {@link OESShaderMultisampleInterpolation} is supported. */
@@ -1045,7 +1045,7 @@ public final class GLESCapabilities {
 	 * example, checking the ``TF'' column of table 8.13 in the ES 3.1 Specification (``Correspondence of sized internal formats to base internal formats ...
 	 * and use cases ...'') for the R32F, RG32F, RGB32F, and RGBA32F formats.</p>
 	 * 
-	 * <p>Requires {@link  OES_texture_float}.</p>
+	 * <p>Requires {@link #GL_OES_texture_float OES_texture_float}.</p>
 	 */
 	public final boolean GL_OES_texture_float_linear;
 	/** When true, {@link OESTextureHalfFloat} is supported. */
@@ -1101,7 +1101,7 @@ public final class GLESCapabilities {
 	 * <p>This extension relaxes the restriction in OVR_multiview that only gl_Position can depend on ViewID in the vertex shader. With this change,
 	 * view-dependent outputs like reflection vectors and similar are allowed.</p>
 	 * 
-	 * <p>Requires {@link GLES30 GLES E.S} and {@link OVRMultiview OVR_multiview}.</p>
+	 * <p>Requires {@link GLES30 GLES 3.0} and {@link OVRMultiview OVR_multiview}.</p>
 	 */
 	public final boolean GL_OVR_multiview2;
 	/** When true, {@link OVRMultiviewMultisampledRenderToTexture} is supported. */

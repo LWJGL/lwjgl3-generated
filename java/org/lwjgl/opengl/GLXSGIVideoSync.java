@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -77,14 +76,14 @@ public class GLXSGIVideoSync {
 	 * @param count the video sync counter value
 	 */
 	public static int glXGetVideoSyncSGI(ByteBuffer count) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(count, 1 << 2);
 		return nglXGetVideoSyncSGI(memAddress(count));
 	}
 
 	/** Alternative version of: {@link #glXGetVideoSyncSGI GetVideoSyncSGI} */
 	public static int glXGetVideoSyncSGI(IntBuffer count) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(count, 1);
 		return nglXGetVideoSyncSGI(memAddress(count));
 	}
@@ -112,14 +111,14 @@ public class GLXSGIVideoSync {
 	 * @param count     the video sync counter value
 	 */
 	public static int glXWaitVideoSyncSGI(int divisor, int remainder, ByteBuffer count) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(count, 1 << 2);
 		return nglXWaitVideoSyncSGI(divisor, remainder, memAddress(count));
 	}
 
 	/** Alternative version of: {@link #glXWaitVideoSyncSGI WaitVideoSyncSGI} */
 	public static int glXWaitVideoSyncSGI(int divisor, int remainder, IntBuffer count) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(count, 1);
 		return nglXWaitVideoSyncSGI(divisor, remainder, memAddress(count));
 	}

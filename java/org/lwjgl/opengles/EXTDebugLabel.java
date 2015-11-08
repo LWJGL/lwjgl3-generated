@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opengles;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_debug_label.txt">EXT_debug_label</a> extension.
@@ -88,7 +88,7 @@ public class EXTDebugLabel {
 	}
 
 	public static void glLabelObjectEXT(int type, int object, int length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(label, length);
 		nglLabelObjectEXT(type, object, length, memAddress(label));
 	}
@@ -116,7 +116,7 @@ public class EXTDebugLabel {
 	}
 
 	public static void glGetObjectLabelEXT(int type, int object, int bufSize, ByteBuffer length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(label, bufSize);
 			checkBuffer(length, 1 << 2);
 		}
@@ -125,7 +125,7 @@ public class EXTDebugLabel {
 
 	/** Alternative version of: {@link #glGetObjectLabelEXT GetObjectLabelEXT} */
 	public static void glGetObjectLabelEXT(int type, int object, IntBuffer length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(length, 1);
 		nglGetObjectLabelEXT(type, object, label.remaining(), memAddress(length), memAddress(label));
 	}

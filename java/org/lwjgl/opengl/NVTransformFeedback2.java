@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/transform_feedback2.txt">NV_transform_feedback2</a> extension.
@@ -113,7 +112,7 @@ public class NVTransformFeedback2 {
 	}
 
 	public static void glDeleteTransformFeedbacksNV(int n, ByteBuffer ids) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ids, n << 2);
 		nglDeleteTransformFeedbacksNV(n, memAddress(ids));
 	}
@@ -140,7 +139,7 @@ public class NVTransformFeedback2 {
 	}
 
 	public static void glGenTransformFeedbacksNV(int n, ByteBuffer ids) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(ids, n << 2);
 			checkBuffer(ids, 1 << 2);
 		}
@@ -149,7 +148,7 @@ public class NVTransformFeedback2 {
 
 	/** Alternative version of: {@link #glGenTransformFeedbacksNV GenTransformFeedbacksNV} */
 	public static void glGenTransformFeedbacksNV(IntBuffer ids) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ids, 1);
 		nglGenTransformFeedbacksNV(ids.remaining(), memAddress(ids));
 	}

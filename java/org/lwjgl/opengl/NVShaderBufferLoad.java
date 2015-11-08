@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/shader_buffer_load.txt">NV_shader_buffer_load</a> extension.
@@ -216,14 +215,14 @@ public class NVShaderBufferLoad {
 	}
 
 	public static void glGetBufferParameterui64vNV(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetBufferParameterui64vNV(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetBufferParameterui64vNV GetBufferParameterui64vNV} */
 	public static void glGetBufferParameterui64vNV(int target, int pname, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetBufferParameterui64vNV(target, pname, memAddress(params));
 	}
@@ -246,14 +245,14 @@ public class NVShaderBufferLoad {
 	}
 
 	public static void glGetNamedBufferParameterui64vNV(int buffer, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetNamedBufferParameterui64vNV(buffer, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetNamedBufferParameterui64vNV GetNamedBufferParameterui64vNV} */
 	public static void glGetNamedBufferParameterui64vNV(int buffer, int pname, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedBufferParameterui64vNV(buffer, pname, memAddress(params));
 	}
@@ -276,14 +275,14 @@ public class NVShaderBufferLoad {
 	}
 
 	public static void glGetIntegerui64vNV(int value, ByteBuffer result) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(result, 1 << 3);
 		nglGetIntegerui64vNV(value, memAddress(result));
 	}
 
 	/** Alternative version of: {@link #glGetIntegerui64vNV GetIntegerui64vNV} */
 	public static void glGetIntegerui64vNV(int value, LongBuffer result) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(result, 1);
 		nglGetIntegerui64vNV(value, memAddress(result));
 	}
@@ -313,7 +312,7 @@ public class NVShaderBufferLoad {
 	}
 
 	public static void glUniformui64vNV(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 3);
 		nglUniformui64vNV(location, count, memAddress(value));
 	}
@@ -333,14 +332,14 @@ public class NVShaderBufferLoad {
 	}
 
 	public static void glGetUniformui64vNV(int program, int location, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetUniformui64vNV(program, location, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetUniformui64vNV GetUniformui64vNV} */
 	public static void glGetUniformui64vNV(int program, int location, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformui64vNV(program, location, memAddress(params));
 	}
@@ -370,7 +369,7 @@ public class NVShaderBufferLoad {
 	}
 
 	public static void glProgramUniformui64vNV(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 3);
 		nglProgramUniformui64vNV(program, location, count, memAddress(value));
 	}

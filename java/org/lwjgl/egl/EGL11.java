@@ -5,7 +5,6 @@
  */
 package org.lwjgl.egl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -68,7 +67,7 @@ public class EGL11 {
 
 	public static boolean eglBindTexImage(long dpy, long surface, int buffer) {
 		long __functionAddress = getInstance().BindTexImage;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
@@ -79,7 +78,7 @@ public class EGL11 {
 
 	public static boolean eglReleaseTexImage(long dpy, long surface, int buffer) {
 		long __functionAddress = getInstance().ReleaseTexImage;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
@@ -90,7 +89,7 @@ public class EGL11 {
 
 	public static boolean eglSurfaceAttrib(long dpy, long surface, int attribute, int value) {
 		long __functionAddress = getInstance().SurfaceAttrib;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
@@ -101,7 +100,7 @@ public class EGL11 {
 
 	public static boolean eglSwapInterval(long dpy, int interval) {
 		long __functionAddress = getInstance().SwapInterval;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(dpy);
 		return callPIZ(__functionAddress, dpy, interval);
 	}

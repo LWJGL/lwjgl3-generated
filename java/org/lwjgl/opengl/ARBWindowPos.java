@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -169,14 +168,14 @@ public class ARBWindowPos {
 	 * @param p the position value
 	 */
 	public static void glWindowPos2ivARB(ByteBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 2 << 2);
 		nglWindowPos2ivARB(memAddress(p));
 	}
 
 	/** Alternative version of: {@link #glWindowPos2ivARB WindowPos2ivARB} */
 	public static void glWindowPos2ivARB(IntBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 2);
 		nglWindowPos2ivARB(memAddress(p));
 	}
@@ -196,14 +195,14 @@ public class ARBWindowPos {
 	 * @param p the position value
 	 */
 	public static void glWindowPos2svARB(ByteBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 2 << 1);
 		nglWindowPos2svARB(memAddress(p));
 	}
 
 	/** Alternative version of: {@link #glWindowPos2svARB WindowPos2svARB} */
 	public static void glWindowPos2svARB(ShortBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 2);
 		nglWindowPos2svARB(memAddress(p));
 	}
@@ -223,14 +222,14 @@ public class ARBWindowPos {
 	 * @param p the position value
 	 */
 	public static void glWindowPos2fvARB(ByteBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 2 << 2);
 		nglWindowPos2fvARB(memAddress(p));
 	}
 
 	/** Alternative version of: {@link #glWindowPos2fvARB WindowPos2fvARB} */
 	public static void glWindowPos2fvARB(FloatBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 2);
 		nglWindowPos2fvARB(memAddress(p));
 	}
@@ -250,14 +249,14 @@ public class ARBWindowPos {
 	 * @param p the position value
 	 */
 	public static void glWindowPos2dvARB(ByteBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 2 << 3);
 		nglWindowPos2dvARB(memAddress(p));
 	}
 
 	/** Alternative version of: {@link #glWindowPos2dvARB WindowPos2dvARB} */
 	public static void glWindowPos2dvARB(DoubleBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 2);
 		nglWindowPos2dvARB(memAddress(p));
 	}
@@ -333,14 +332,14 @@ public class ARBWindowPos {
 	 * @param p the position value
 	 */
 	public static void glWindowPos3ivARB(ByteBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 3 << 2);
 		nglWindowPos3ivARB(memAddress(p));
 	}
 
 	/** Alternative version of: {@link #glWindowPos3ivARB WindowPos3ivARB} */
 	public static void glWindowPos3ivARB(IntBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 3);
 		nglWindowPos3ivARB(memAddress(p));
 	}
@@ -360,14 +359,14 @@ public class ARBWindowPos {
 	 * @param p the position value
 	 */
 	public static void glWindowPos3svARB(ByteBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 3 << 1);
 		nglWindowPos3svARB(memAddress(p));
 	}
 
 	/** Alternative version of: {@link #glWindowPos3svARB WindowPos3svARB} */
 	public static void glWindowPos3svARB(ShortBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 3);
 		nglWindowPos3svARB(memAddress(p));
 	}
@@ -387,14 +386,14 @@ public class ARBWindowPos {
 	 * @param p the position value
 	 */
 	public static void glWindowPos3fvARB(ByteBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 3 << 2);
 		nglWindowPos3fvARB(memAddress(p));
 	}
 
 	/** Alternative version of: {@link #glWindowPos3fvARB WindowPos3fvARB} */
 	public static void glWindowPos3fvARB(FloatBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 3);
 		nglWindowPos3fvARB(memAddress(p));
 	}
@@ -414,14 +413,14 @@ public class ARBWindowPos {
 	 * @param p the position value
 	 */
 	public static void glWindowPos3dvARB(ByteBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 3 << 3);
 		nglWindowPos3dvARB(memAddress(p));
 	}
 
 	/** Alternative version of: {@link #glWindowPos3dvARB WindowPos3dvARB} */
 	public static void glWindowPos3dvARB(DoubleBuffer p) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(p, 3);
 		nglWindowPos3dvARB(memAddress(p));
 	}

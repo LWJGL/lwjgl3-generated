@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -195,14 +194,14 @@ public class ARBVertexAttrib64Bit {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttribL1dv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 3);
 		nglVertexAttribL1dv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL1dv VertexAttribL1dv} */
 	public static void glVertexAttribL1dv(int index, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglVertexAttribL1dv(index, memAddress(v));
 	}
@@ -223,14 +222,14 @@ public class ARBVertexAttrib64Bit {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttribL2dv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 3);
 		nglVertexAttribL2dv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL2dv VertexAttribL2dv} */
 	public static void glVertexAttribL2dv(int index, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglVertexAttribL2dv(index, memAddress(v));
 	}
@@ -251,14 +250,14 @@ public class ARBVertexAttrib64Bit {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttribL3dv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglVertexAttribL3dv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL3dv VertexAttribL3dv} */
 	public static void glVertexAttribL3dv(int index, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglVertexAttribL3dv(index, memAddress(v));
 	}
@@ -279,14 +278,14 @@ public class ARBVertexAttrib64Bit {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttribL4dv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 3);
 		nglVertexAttribL4dv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL4dv VertexAttribL4dv} */
 	public static void glVertexAttribL4dv(int index, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttribL4dv(index, memAddress(v));
 	}
@@ -312,21 +311,21 @@ public class ARBVertexAttrib64Bit {
 	 *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
 	 */
 	public static void glVertexAttribLPointer(int index, int size, int type, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribLPointer(index, size, type, stride, memAddress(pointer));
 	}
 
 	/** Buffer object offset version of: {@link #glVertexAttribLPointer VertexAttribLPointer} */
 	public static void glVertexAttribLPointer(int index, int size, int type, int stride, long pointerOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglVertexAttribLPointer(index, size, type, stride, pointerOffset);
 	}
 
 	/** GL_DOUBLE version of: {@link #glVertexAttribLPointer VertexAttribLPointer} */
 	public static void glVertexAttribLPointer(int index, int size, int stride, DoubleBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribLPointer(index, size, GL11.GL_DOUBLE, stride, memAddress(pointer));
 	}
@@ -372,7 +371,7 @@ public class ARBVertexAttrib64Bit {
 	 */
 	public static void glVertexArrayVertexAttribLOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset) {
 		long __functionAddress = getInstance().VertexArrayVertexAttribLOffsetEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIIPV(__functionAddress, vaobj, buffer, index, size, type, stride, offset);
 	}

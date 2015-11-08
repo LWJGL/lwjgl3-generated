@@ -95,7 +95,7 @@ public class OVRGLTextureData extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public OVRGLTextureData set(OVRGLTextureData src) {
 		return nset(address());
@@ -103,7 +103,7 @@ public class OVRGLTextureData extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public OVRGLTextureData set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}

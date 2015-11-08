@@ -11,7 +11,7 @@ package org.lwjgl.opengles;
  * <p>This extension guarantees that blending is done coherently and in API primitive order. An enable is provided to allow implementations to opt out of
  * fully coherent blending and instead behave as though only {@link KHRBlendEquationAdvanced KHR_blend_equation_advanced} were supported.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S} and {@link EXTBlendMinmax EXT_blend_minmax}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0} and {@link EXTBlendMinmax EXT_blend_minmax}.</p>
  */
 public final class KHRBlendEquationAdvancedCoherent {
 

@@ -5,10 +5,10 @@
  */
 package org.lwjgl.system.libc;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
-
-import java.nio.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Native bindings to stdlib.h. */
 public class Stdlib {
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected Stdlib() {

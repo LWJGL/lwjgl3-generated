@@ -5,14 +5,14 @@
  */
 package org.lwjgl.system.libffi;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 import static org.lwjgl.system.libffi.LibFFIConstants.*;
 
@@ -56,7 +56,7 @@ public class LibFFI {
 		FFI_SYSV        = 0x1,
 		FFI_WIN64       = 0x1,
 		FFI_UNIX64      = 0x2,
-		FFI_STDCALL     = LWJGLUtil.getPlatform() == LWJGLUtil.Platform.WINDOWS ? 0x2 : 0x5,
+		FFI_STDCALL     = Platform.get() == Platform.WINDOWS ? 0x2 : 0x5,
 		FFI_THISCALL    = 0x3,
 		FFI_FASTCALL    = 0x4,
 		FFI_MS_CDECL    = 0x5,
@@ -92,7 +92,7 @@ public class LibFFI {
 		ffi_type_longdouble = ffi_type_longdouble(),
 		ffi_type_pointer    = ffi_type_pointer();
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected LibFFI() {
@@ -118,7 +118,7 @@ public class LibFFI {
 	 *         {@code atypes} or {@code rtype} is malformed. If {@code abi} does not refer to a valid ABI, {@link #FFI_BAD_ABI BAD_ABI} will be returned.
 	 */
 	public static int ffi_prep_cif(FFICIF cif, int abi, int nargs, long rtype, ByteBuffer atypes) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( atypes != null ) checkBuffer(atypes, nargs << POINTER_SHIFT);
 			checkPointer(rtype);
 		}
@@ -127,7 +127,7 @@ public class LibFFI {
 
 	/** Alternative version of: {@link #ffi_prep_cif prep_cif} */
 	public static int ffi_prep_cif(FFICIF cif, int abi, long rtype, PointerBuffer atypes) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(rtype);
 		return nffi_prep_cif(cif.address(), abi, atypes == null ? 0 : atypes.remaining(), rtype, memAddressSafe(atypes));
 	}
@@ -152,7 +152,7 @@ public class LibFFI {
 	 *         {@code atypes} or {@code rtype} is malformed. If {@code abi} does not refer to a valid ABI, {@link #FFI_BAD_ABI BAD_ABI} will be returned.
 	 */
 	public static int ffi_prep_cif_var(FFICIF cif, int abi, int nfixedargs, int ntotalargs, long rtype, ByteBuffer atypes) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(atypes, ntotalargs << POINTER_SHIFT);
 			checkPointer(rtype);
 		}
@@ -161,7 +161,7 @@ public class LibFFI {
 
 	/** Alternative version of: {@link #ffi_prep_cif_var prep_cif_var} */
 	public static int ffi_prep_cif_var(FFICIF cif, int abi, int nfixedargs, long rtype, PointerBuffer atypes) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(rtype);
 		return nffi_prep_cif_var(cif.address(), abi, nfixedargs, atypes.remaining(), rtype, memAddress(atypes));
 	}
@@ -182,14 +182,14 @@ public class LibFFI {
 	 * @param avalue an array of pointers from which the argument values are retrieved
 	 */
 	public static void ffi_call(FFICIF cif, long fn, ByteBuffer rvalue, ByteBuffer avalue) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(fn);
 		nffi_call(cif.address(), fn, memAddressSafe(rvalue), memAddressSafe(avalue));
 	}
 
 	/** Alternative version of: {@link #ffi_call call} */
 	public static void ffi_call(FFICIF cif, long fn, ByteBuffer rvalue, PointerBuffer avalue) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(fn);
 		nffi_call(cif.address(), fn, memAddressSafe(rvalue), memAddressSafe(avalue));
 	}
@@ -209,7 +209,7 @@ public class LibFFI {
 	 * @return a pointer to the writable address
 	 */
 	public static ByteBuffer ffi_closure_alloc(long size, ByteBuffer code) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(code, 1 << POINTER_SHIFT);
 		long __result = nffi_closure_alloc(size, memAddress(code));
 		return memByteBuffer(__result, (int)size);
@@ -217,7 +217,7 @@ public class LibFFI {
 
 	/** Alternative version of: {@link #ffi_closure_alloc closure_alloc} */
 	public static ByteBuffer ffi_closure_alloc(long size, PointerBuffer code) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(code, 1);
 		long __result = nffi_closure_alloc(size, memAddress(code));
 		return memByteBuffer(__result, (int)size);
@@ -254,7 +254,7 @@ public class LibFFI {
 	 * @param codeloc   the executable address returned by {@link #ffi_closure_alloc closure_alloc}.
 	 */
 	public static int ffi_prep_closure_loc(FFIClosure closure, FFICIF cif, long fun, long user_data, long codeloc) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(fun);
 			checkPointer(codeloc);
 		}

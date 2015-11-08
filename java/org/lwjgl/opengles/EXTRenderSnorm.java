@@ -12,7 +12,7 @@ package org.lwjgl.opengles;
  * 
  * <p>This extension enables signed normalized texture and renderbuffer formats to be color-renderable.</p>
  * 
- * <p>Requires {@link GLES31 GLES E.S}.</p>
+ * <p>Requires {@link GLES31 GLES 3.1}.</p>
  */
 public final class EXTRenderSnorm {
 

@@ -140,7 +140,7 @@ public class OVRLayerEyeFovDepth extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public OVRLayerEyeFovDepth set(OVRLayerEyeFovDepth src) {
 		return nset(address());
@@ -148,7 +148,7 @@ public class OVRLayerEyeFovDepth extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public OVRLayerEyeFovDepth set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}
@@ -215,7 +215,7 @@ public class OVRLayerEyeFovDepth extends Struct {
 	public static int ngetHeaderFlags(long struct) { return memGetInt(struct + HEADER + OVRLayerHeader.FLAGS); }
 	public static int getHeaderFlags(ByteBuffer struct) { return ngetHeaderFlags(memAddress(struct)); }
 	public static void ngetColorTexture(long struct, PointerBuffer ColorTexture) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2);
+		if ( CHECKS ) checkBufferGT(ColorTexture, 2);
 		memCopy(struct + COLORTEXTURE, memAddress(ColorTexture), ColorTexture.remaining() * POINTER_SIZE);
 	}
 	public static void getColorTexture(ByteBuffer struct, PointerBuffer ColorTexture) { ngetColorTexture(memAddress(struct), ColorTexture); }
@@ -224,7 +224,7 @@ public class OVRLayerEyeFovDepth extends Struct {
 	}
 	public static OVRSwapTextureSet getColorTexture(ByteBuffer struct, int index) { return ngetColorTexture(memAddress(struct), index); }
 	public static void ngetViewport(long struct, ByteBuffer Viewport) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(Viewport, 2 * OVRRecti.SIZEOF);
+		if ( CHECKS ) checkBufferGT(Viewport, 2 * OVRRecti.SIZEOF);
 		memCopy(struct + VIEWPORT, memAddress(Viewport), Viewport.remaining());
 	}
 	public static void getViewport(ByteBuffer struct, ByteBuffer Viewport) { ngetViewport(memAddress(struct), Viewport); }
@@ -233,7 +233,7 @@ public class OVRLayerEyeFovDepth extends Struct {
 	}
 	public static OVRRecti getViewport(ByteBuffer struct, int index) { return ngetViewport(memAddress(struct), index); }
 	public static void ngetFov(long struct, ByteBuffer Fov) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(Fov, 2 * OVRFovPort.SIZEOF);
+		if ( CHECKS ) checkBufferGT(Fov, 2 * OVRFovPort.SIZEOF);
 		memCopy(struct + FOV, memAddress(Fov), Fov.remaining());
 	}
 	public static void getFov(ByteBuffer struct, ByteBuffer Fov) { ngetFov(memAddress(struct), Fov); }
@@ -242,7 +242,7 @@ public class OVRLayerEyeFovDepth extends Struct {
 	}
 	public static OVRFovPort getFov(ByteBuffer struct, int index) { return ngetFov(memAddress(struct), index); }
 	public static void ngetRenderPose(long struct, ByteBuffer RenderPose) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(RenderPose, 2 * OVRPosef.SIZEOF);
+		if ( CHECKS ) checkBufferGT(RenderPose, 2 * OVRPosef.SIZEOF);
 		memCopy(struct + RENDERPOSE, memAddress(RenderPose), RenderPose.remaining());
 	}
 	public static void getRenderPose(ByteBuffer struct, ByteBuffer RenderPose) { ngetRenderPose(memAddress(struct), RenderPose); }
@@ -251,7 +251,7 @@ public class OVRLayerEyeFovDepth extends Struct {
 	}
 	public static OVRPosef getRenderPose(ByteBuffer struct, int index) { return ngetRenderPose(memAddress(struct), index); }
 	public static void ngetDepthTexture(long struct, PointerBuffer DepthTexture) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(DepthTexture, 2);
+		if ( CHECKS ) checkBufferGT(DepthTexture, 2);
 		memCopy(struct + DEPTHTEXTURE, memAddress(DepthTexture), DepthTexture.remaining() * POINTER_SIZE);
 	}
 	public static void getDepthTexture(ByteBuffer struct, PointerBuffer DepthTexture) { ngetDepthTexture(memAddress(struct), DepthTexture); }
@@ -277,7 +277,7 @@ public class OVRLayerEyeFovDepth extends Struct {
 	public static void nsetHeaderFlags(long struct, int Flags) { memPutInt(struct + HEADER + OVRLayerHeader.FLAGS, Flags); }
 	public static void setHeaderFlags(ByteBuffer struct, int Flags) { nsetHeaderFlags(memAddress(struct), Flags); }
 	public static void nsetColorTexture(long struct, PointerBuffer ColorTexture) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2);
+		if ( CHECKS ) checkBufferGT(ColorTexture, 2);
 		memCopy(memAddress(ColorTexture), struct + COLORTEXTURE, ColorTexture.remaining() * POINTER_SIZE);
 	}
 	public static void setColorTexture(ByteBuffer struct, PointerBuffer ColorTexture) { nsetColorTexture(memAddress(struct), ColorTexture); }
@@ -286,7 +286,7 @@ public class OVRLayerEyeFovDepth extends Struct {
 	}
 	public static void setColorTexture(ByteBuffer struct, int index, OVRSwapTextureSet ColorTexture) { nsetColorTexture(memAddress(struct), index, ColorTexture); }
 	public static void nsetViewport(long struct, ByteBuffer Viewport) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(Viewport, 2 * OVRRecti.SIZEOF);
+		if ( CHECKS ) checkBufferGT(Viewport, 2 * OVRRecti.SIZEOF);
 		memCopy(memAddress(Viewport), struct + VIEWPORT, Viewport.remaining());
 	}
 	public static void setViewport(ByteBuffer struct, ByteBuffer Viewport) { nsetViewport(memAddress(struct), Viewport); }
@@ -295,7 +295,7 @@ public class OVRLayerEyeFovDepth extends Struct {
 	}
 	public static void setViewport(ByteBuffer struct, int index, OVRRecti Viewport) { nsetViewport(memAddress(struct), index, Viewport); }
 	public static void nsetFov(long struct, ByteBuffer Fov) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(Fov, 2 * OVRFovPort.SIZEOF);
+		if ( CHECKS ) checkBufferGT(Fov, 2 * OVRFovPort.SIZEOF);
 		memCopy(memAddress(Fov), struct + FOV, Fov.remaining());
 	}
 	public static void setFov(ByteBuffer struct, ByteBuffer Fov) { nsetFov(memAddress(struct), Fov); }
@@ -304,7 +304,7 @@ public class OVRLayerEyeFovDepth extends Struct {
 	}
 	public static void setFov(ByteBuffer struct, int index, OVRFovPort Fov) { nsetFov(memAddress(struct), index, Fov); }
 	public static void nsetRenderPose(long struct, ByteBuffer RenderPose) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(RenderPose, 2 * OVRPosef.SIZEOF);
+		if ( CHECKS ) checkBufferGT(RenderPose, 2 * OVRPosef.SIZEOF);
 		memCopy(memAddress(RenderPose), struct + RENDERPOSE, RenderPose.remaining());
 	}
 	public static void setRenderPose(ByteBuffer struct, ByteBuffer RenderPose) { nsetRenderPose(memAddress(struct), RenderPose); }
@@ -313,7 +313,7 @@ public class OVRLayerEyeFovDepth extends Struct {
 	}
 	public static void setRenderPose(ByteBuffer struct, int index, OVRPosef RenderPose) { nsetRenderPose(memAddress(struct), index, RenderPose); }
 	public static void nsetDepthTexture(long struct, PointerBuffer DepthTexture) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(DepthTexture, 2);
+		if ( CHECKS ) checkBufferGT(DepthTexture, 2);
 		memCopy(memAddress(DepthTexture), struct + DEPTHTEXTURE, DepthTexture.remaining() * POINTER_SIZE);
 	}
 	public static void setDepthTexture(ByteBuffer struct, PointerBuffer DepthTexture) { nsetDepthTexture(memAddress(struct), DepthTexture); }

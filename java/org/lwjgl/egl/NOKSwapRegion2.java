@@ -5,10 +5,9 @@
  */
 package org.lwjgl.egl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -64,7 +63,7 @@ public class NOKSwapRegion2 {
 	@JavadocExclude
 	public static boolean neglSwapBuffersRegion2NOK(long dpy, long surface, int numRects, long rects) {
 		long __functionAddress = getInstance().SwapBuffersRegion2NOK;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
@@ -72,7 +71,7 @@ public class NOKSwapRegion2 {
 	}
 
 	public static boolean eglSwapBuffersRegion2NOK(long dpy, long surface, int numRects, ByteBuffer rects) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( rects != null ) checkBuffer(rects, numRects << 2);
 		return neglSwapBuffersRegion2NOK(dpy, surface, numRects, memAddressSafe(rects));
 	}

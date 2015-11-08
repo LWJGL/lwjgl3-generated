@@ -87,7 +87,7 @@ public class OVRVector2i extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public OVRVector2i set(OVRVector2i src) {
 		return nset(address());
@@ -95,7 +95,7 @@ public class OVRVector2i extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public OVRVector2i set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}

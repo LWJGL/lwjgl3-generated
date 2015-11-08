@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -75,7 +74,7 @@ public class GLXNVCopyBuffer {
 	 */
 	public static void glXCopyBufferSubDataNV(long display, long readCtx, long writeCtx, int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
 		long __functionAddress = getInstance().CopyBufferSubDataNV;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(readCtx);
 			checkPointer(writeCtx);
@@ -99,7 +98,7 @@ public class GLXNVCopyBuffer {
 	 */
 	public static void glXNamedCopyBufferSubDataNV(long display, long readCtx, long writeCtx, int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size) {
 		long __functionAddress = getInstance().NamedCopyBufferSubDataNV;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(readCtx);
 			checkPointer(writeCtx);

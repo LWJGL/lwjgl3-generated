@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -88,7 +87,7 @@ public class ARBCLEvent {
 	 */
 	public static long glCreateSyncFromCLeventARB(long context, long event, int flags) {
 		long __functionAddress = getInstance().CreateSyncFromCLeventARB;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(context);
 			checkPointer(event);
 		}

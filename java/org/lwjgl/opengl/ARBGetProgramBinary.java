@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/get_program_binary.txt">ARB_get_program_binary</a> extension.
@@ -107,7 +107,7 @@ public class ARBGetProgramBinary {
 	 * @param binary       an array into which the GL will return {@code program}'s binary representation
 	 */
 	public static void glGetProgramBinary(int program, int bufSize, ByteBuffer length, ByteBuffer binaryFormat, ByteBuffer binary) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(binary, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 			checkBuffer(binaryFormat, 1 << 2);
@@ -117,7 +117,7 @@ public class ARBGetProgramBinary {
 
 	/** Alternative version of: {@link #glGetProgramBinary GetProgramBinary} */
 	public static void glGetProgramBinary(int program, IntBuffer length, IntBuffer binaryFormat, ByteBuffer binary) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( length != null ) checkBuffer(length, 1);
 			checkBuffer(binaryFormat, 1);
 		}
@@ -126,7 +126,7 @@ public class ARBGetProgramBinary {
 
 	/** Buffer return version of: {@link #glGetProgramBinary GetProgramBinary} */
 	public static ByteBuffer glGetProgramBinary(int program, int bufSize, IntBuffer binaryFormat) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(binaryFormat, 1);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
@@ -139,7 +139,7 @@ public class ARBGetProgramBinary {
 	/** Buffer return (w/ implicit max length) version of: {@link #glGetProgramBinary GetProgramBinary} */
 	public static ByteBuffer glGetProgramBinary(int program, IntBuffer binaryFormat) {
 		int bufSize = GL20.glGetProgrami(program, GL_PROGRAM_BINARY_LENGTH);
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(binaryFormat, 1);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
@@ -167,7 +167,7 @@ public class ARBGetProgramBinary {
 	 * @param length       the number of bytes contained in {@code binary}
 	 */
 	public static void glProgramBinary(int program, int binaryFormat, ByteBuffer binary, int length) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(binary, length);
 		nglProgramBinary(program, binaryFormat, memAddress(binary), length);
 	}

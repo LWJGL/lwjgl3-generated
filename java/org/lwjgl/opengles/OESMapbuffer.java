@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengles;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/OES/OES_mapbuffer.txt">OES_mapbuffer</a> extension.
@@ -121,14 +121,14 @@ public class OESMapbuffer {
 	}
 
 	public static void glGetBufferPointervOES(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << POINTER_SHIFT);
 		nglGetBufferPointervOES(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetBufferPointervOES GetBufferPointervOES} */
 	public static void glGetBufferPointervOES(int target, int pname, PointerBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetBufferPointervOES(target, pname, memAddress(params));
 	}

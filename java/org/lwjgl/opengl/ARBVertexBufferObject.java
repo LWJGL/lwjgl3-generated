@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/vertex_buffer_object.txt">ARB_vertex_buffer_object</a> extension.
@@ -197,7 +197,7 @@ public class ARBVertexBufferObject {
 	 * @param buffers an array of buffer objects to be deleted
 	 */
 	public static void glDeleteBuffersARB(int n, ByteBuffer buffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(buffers, n << 2);
 		nglDeleteBuffersARB(n, memAddress(buffers));
 	}
@@ -230,7 +230,7 @@ public class ARBVertexBufferObject {
 	 * @param buffers a buffer in which the generated buffer object names are stored
 	 */
 	public static void glGenBuffersARB(int n, ByteBuffer buffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(buffers, n << 2);
 		nglGenBuffersARB(n, memAddress(buffers));
 	}
@@ -294,7 +294,7 @@ public class ARBVertexBufferObject {
 	 * @param usage  the expected usage pattern of the data store. One of:<br>{@link #GL_STREAM_DRAW_ARB STREAM_DRAW_ARB}, {@link #GL_STREAM_READ_ARB STREAM_READ_ARB}, {@link #GL_STREAM_COPY_ARB STREAM_COPY_ARB}, {@link #GL_STATIC_DRAW_ARB STATIC_DRAW_ARB}, {@link #GL_STATIC_READ_ARB STATIC_READ_ARB}, {@link #GL_STATIC_COPY_ARB STATIC_COPY_ARB}, {@link #GL_DYNAMIC_DRAW_ARB DYNAMIC_DRAW_ARB}, {@link #GL_DYNAMIC_READ_ARB DYNAMIC_READ_ARB}, {@link #GL_DYNAMIC_COPY_ARB DYNAMIC_COPY_ARB}
 	 */
 	public static void glBufferDataARB(int target, long size, ByteBuffer data, int usage) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( data != null ) checkBuffer(data, size);
 		nglBufferDataARB(target, size, memAddressSafe(data), usage);
 	}
@@ -347,7 +347,7 @@ public class ARBVertexBufferObject {
 	 * @param data   a pointer to the new data that will be copied into the data store
 	 */
 	public static void glBufferSubDataARB(int target, long offset, long size, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, size);
 		nglBufferSubDataARB(target, offset, size, memAddress(data));
 	}
@@ -375,7 +375,7 @@ public class ARBVertexBufferObject {
 	 * @param data   a pointer to the location where buffer object data is returned
 	 */
 	public static void glGetBufferSubDataARB(int target, long offset, long size, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, size);
 		nglGetBufferSubDataARB(target, offset, size, memAddress(data));
 	}
@@ -479,14 +479,14 @@ public class ARBVertexBufferObject {
 	 * @param params the requested parameter
 	 */
 	public static void glGetBufferParameterivARB(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetBufferParameterivARB(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetBufferParameterivARB GetBufferParameterivARB} */
 	public static void glGetBufferParameterivARB(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetBufferParameterivARB(target, pname, memAddress(params));
 	}
@@ -516,14 +516,14 @@ public class ARBVertexBufferObject {
 	 * @param params the pointer value specified by {@code pname}
 	 */
 	public static void glGetBufferPointervARB(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << POINTER_SHIFT);
 		nglGetBufferPointervARB(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetBufferPointervARB GetBufferPointervARB} */
 	public static void glGetBufferPointervARB(int target, int pname, PointerBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetBufferPointervARB(target, pname, memAddress(params));
 	}

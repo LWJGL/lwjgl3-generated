@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/uniform_buffer_object.txt">ARB_uniform_buffer_object</a> extension.
@@ -215,7 +215,7 @@ public class ARBUniformBufferObject {
 	 * @param uniformIndices an array that will receive the indices of the uniforms
 	 */
 	public static void glGetUniformIndices(int program, int uniformCount, ByteBuffer uniformNames, ByteBuffer uniformIndices) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(uniformNames, uniformCount << POINTER_SHIFT);
 			checkBuffer(uniformIndices, uniformCount << 2);
 		}
@@ -224,14 +224,14 @@ public class ARBUniformBufferObject {
 
 	/** Alternative version of: {@link #glGetUniformIndices GetUniformIndices} */
 	public static void glGetUniformIndices(int program, PointerBuffer uniformNames, IntBuffer uniformIndices) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(uniformIndices, uniformNames.remaining());
 		nglGetUniformIndices(program, uniformNames.remaining(), memAddress(uniformNames), memAddress(uniformIndices));
 	}
 
 	/** Array version of: {@link #glGetUniformIndices GetUniformIndices} */
 	public static void glGetUniformIndices(int program, CharSequence[] uniformNames, IntBuffer uniformIndices) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(uniformIndices, uniformNames.length);
 		APIBuffer __buffer = apiBuffer();
 		int uniformNamesAddress = __buffer.pointerArrayParamASCII(uniformNames);
@@ -274,7 +274,7 @@ public class ARBUniformBufferObject {
 	 * @param params         an array of {@code uniformCount} integers which are to receive the value of {@code pname} for each uniform in {@code uniformIndices}
 	 */
 	public static void glGetActiveUniformsiv(int program, int uniformCount, ByteBuffer uniformIndices, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(uniformIndices, uniformCount << 2);
 			checkBuffer(params, uniformCount << 2);
 		}
@@ -283,7 +283,7 @@ public class ARBUniformBufferObject {
 
 	/** Alternative version of: {@link #glGetActiveUniformsiv GetActiveUniformsiv} */
 	public static void glGetActiveUniformsiv(int program, IntBuffer uniformIndices, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, uniformIndices.remaining());
 		nglGetActiveUniformsiv(program, uniformIndices.remaining(), memAddress(uniformIndices), pname, memAddress(params));
 	}
@@ -316,7 +316,7 @@ public class ARBUniformBufferObject {
 	 * @param uniformName  the address of a buffer into which the GL will place the name of the active uniform at {@code uniformIndex} within {@code program}
 	 */
 	public static void glGetActiveUniformName(int program, int uniformIndex, int bufSize, ByteBuffer length, ByteBuffer uniformName) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(uniformName, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -325,7 +325,7 @@ public class ARBUniformBufferObject {
 
 	/** Alternative version of: {@link #glGetActiveUniformName GetActiveUniformName} */
 	public static void glGetActiveUniformName(int program, int uniformIndex, IntBuffer length, ByteBuffer uniformName) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetActiveUniformName(program, uniformIndex, uniformName.remaining(), memAddressSafe(length), memAddress(uniformName));
 	}
@@ -365,7 +365,7 @@ public class ARBUniformBufferObject {
 	 * @param uniformBlockName an array of characters to containing the name of the uniform block whose index to retrieve
 	 */
 	public static int glGetUniformBlockIndex(int program, ByteBuffer uniformBlockName) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(uniformBlockName);
 		return nglGetUniformBlockIndex(program, memAddress(uniformBlockName));
 	}
@@ -395,14 +395,14 @@ public class ARBUniformBufferObject {
 	 * @param params            the address of a variable to receive the result of the query
 	 */
 	public static void glGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv} */
 	public static void glGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, memAddress(params));
 	}
@@ -434,7 +434,7 @@ public class ARBUniformBufferObject {
 	 * @param uniformBlockName  an array of characters to receive the name of the uniform block at {@code uniformBlockIndex}
 	 */
 	public static void glGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, ByteBuffer length, ByteBuffer uniformBlockName) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(uniformBlockName, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -443,7 +443,7 @@ public class ARBUniformBufferObject {
 
 	/** Alternative version of: {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
 	public static void glGetActiveUniformBlockName(int program, int uniformBlockIndex, IntBuffer length, ByteBuffer uniformBlockName) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetActiveUniformBlockName(program, uniformBlockIndex, uniformBlockName.remaining(), memAddressSafe(length), memAddress(uniformBlockName));
 	}
@@ -514,14 +514,14 @@ public class ARBUniformBufferObject {
 	 * @param data   a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetIntegeri_v(int target, int index, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1 << 2);
 		nglGetIntegeri_v(target, index, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetIntegeri_v GetIntegeri_v} */
 	public static void glGetIntegeri_v(int target, int index, IntBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1);
 		nglGetIntegeri_v(target, index, memAddress(data));
 	}

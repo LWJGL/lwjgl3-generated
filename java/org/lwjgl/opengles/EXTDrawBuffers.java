@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_draw_buffers.txt">EXT_draw_buffers</a> extension.
@@ -24,7 +23,7 @@ import static org.lwjgl.system.APIUtil.*;
  * <p>This extension is similar to the combination of the GL_NV_draw_buffers and GL_NV_fbo_color_attachments extensions, but imposes certain restrictions
  * informed by the OpenGL ES 3.0 API.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public class EXTDrawBuffers {
 
@@ -120,7 +119,7 @@ public class EXTDrawBuffers {
 	}
 
 	public static void glDrawBuffersEXT(int n, ByteBuffer bufs) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(bufs, n << 2);
 		nglDrawBuffersEXT(n, memAddress(bufs));
 	}

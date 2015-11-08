@@ -98,7 +98,7 @@ public class OVRViewScaleDesc extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public OVRViewScaleDesc set(OVRViewScaleDesc src) {
 		return nset(address());
@@ -106,7 +106,7 @@ public class OVRViewScaleDesc extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public OVRViewScaleDesc set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}
@@ -166,7 +166,7 @@ public class OVRViewScaleDesc extends Struct {
 	}
 
 	public static void ngetHmdToEyeViewOffset(long struct, ByteBuffer HmdToEyeViewOffset) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(HmdToEyeViewOffset, 2 * OVRVector3f.SIZEOF);
+		if ( CHECKS ) checkBufferGT(HmdToEyeViewOffset, 2 * OVRVector3f.SIZEOF);
 		memCopy(struct + HMDTOEYEVIEWOFFSET, memAddress(HmdToEyeViewOffset), HmdToEyeViewOffset.remaining());
 	}
 	public static void getHmdToEyeViewOffset(ByteBuffer struct, ByteBuffer HmdToEyeViewOffset) { ngetHmdToEyeViewOffset(memAddress(struct), HmdToEyeViewOffset); }
@@ -178,7 +178,7 @@ public class OVRViewScaleDesc extends Struct {
 	public static float getHmdSpaceToWorldScaleInMeters(ByteBuffer struct) { return ngetHmdSpaceToWorldScaleInMeters(memAddress(struct)); }
 
 	public static void nsetHmdToEyeViewOffset(long struct, ByteBuffer HmdToEyeViewOffset) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(HmdToEyeViewOffset, 2 * OVRVector3f.SIZEOF);
+		if ( CHECKS ) checkBufferGT(HmdToEyeViewOffset, 2 * OVRVector3f.SIZEOF);
 		memCopy(memAddress(HmdToEyeViewOffset), struct + HMDTOEYEVIEWOFFSET, HmdToEyeViewOffset.remaining());
 	}
 	public static void setHmdToEyeViewOffset(ByteBuffer struct, ByteBuffer HmdToEyeViewOffset) { nsetHmdToEyeViewOffset(memAddress(struct), HmdToEyeViewOffset); }

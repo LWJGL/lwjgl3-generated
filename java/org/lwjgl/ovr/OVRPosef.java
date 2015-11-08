@@ -101,7 +101,7 @@ public class OVRPosef extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public OVRPosef set(OVRPosef src) {
 		return nset(address());
@@ -109,7 +109,7 @@ public class OVRPosef extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public OVRPosef set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}

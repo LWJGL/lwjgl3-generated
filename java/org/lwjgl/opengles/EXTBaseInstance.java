@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -27,7 +26,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * instanced vertex attribute data to be stored in a single vertex array, and the base offset of that data to be specified for each draw. Further, this
  * extension exposes the <baseinstance> parameter as the final and previously undefined structure member of the draw-indirect data structure.</p>
  * 
- * <p>Requires {@link GLES30 GLES E.S}.</p>
+ * <p>Requires {@link GLES30 GLES 3.0}.</p>
  */
 public class EXTBaseInstance {
 
@@ -90,33 +89,45 @@ public class EXTBaseInstance {
 	}
 
 	public static void glDrawElementsInstancedBaseInstanceEXT(int mode, int count, int type, ByteBuffer indices, int instancecount, int baseinstance) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS ) {
 			checkBuffer(indices, count << GLESChecks.typeToByteShift(type));
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
+		}
 		nglDrawElementsInstancedBaseInstanceEXT(mode, count, type, memAddress(indices), instancecount, baseinstance);
 	}
 
 	/** Buffer object offset version of: {@link #glDrawElementsInstancedBaseInstanceEXT DrawElementsInstancedBaseInstanceEXT} */
 	public static void glDrawElementsInstancedBaseInstanceEXT(int mode, int count, int type, long indicesOffset, int instancecount, int baseinstance) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElementsInstancedBaseInstanceEXT(mode, count, type, indicesOffset, instancecount, baseinstance);
 	}
 
 	/** Alternative version of: {@link #glDrawElementsInstancedBaseInstanceEXT DrawElementsInstancedBaseInstanceEXT} */
 	public static void glDrawElementsInstancedBaseInstanceEXT(int mode, int type, ByteBuffer indices, int instancecount, int baseinstance) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseInstanceEXT(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), instancecount, baseinstance);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedBaseInstanceEXT DrawElementsInstancedBaseInstanceEXT} */
 	public static void glDrawElementsInstancedBaseInstanceEXT(int mode, ByteBuffer indices, int instancecount, int baseinstance) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseInstanceEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), instancecount, baseinstance);
 	}
 
 	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstancedBaseInstanceEXT DrawElementsInstancedBaseInstanceEXT} */
 	public static void glDrawElementsInstancedBaseInstanceEXT(int mode, ShortBuffer indices, int instancecount, int baseinstance) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseInstanceEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), instancecount, baseinstance);
 	}
 
 	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstancedBaseInstanceEXT DrawElementsInstancedBaseInstanceEXT} */
 	public static void glDrawElementsInstancedBaseInstanceEXT(int mode, IntBuffer indices, int instancecount, int baseinstance) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseInstanceEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), instancecount, baseinstance);
 	}
 
@@ -130,33 +141,45 @@ public class EXTBaseInstance {
 	}
 
 	public static void glDrawElementsInstancedBaseVertexBaseInstanceEXT(int mode, int count, int type, ByteBuffer indices, int instancecount, int basevertex, int baseinstance) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS ) {
 			checkBuffer(indices, count << GLESChecks.typeToByteShift(type));
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
+		}
 		nglDrawElementsInstancedBaseVertexBaseInstanceEXT(mode, count, type, memAddress(indices), instancecount, basevertex, baseinstance);
 	}
 
 	/** Buffer object offset version of: {@link #glDrawElementsInstancedBaseVertexBaseInstanceEXT DrawElementsInstancedBaseVertexBaseInstanceEXT} */
 	public static void glDrawElementsInstancedBaseVertexBaseInstanceEXT(int mode, int count, int type, long indicesOffset, int instancecount, int basevertex, int baseinstance) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElementsInstancedBaseVertexBaseInstanceEXT(mode, count, type, indicesOffset, instancecount, basevertex, baseinstance);
 	}
 
 	/** Alternative version of: {@link #glDrawElementsInstancedBaseVertexBaseInstanceEXT DrawElementsInstancedBaseVertexBaseInstanceEXT} */
 	public static void glDrawElementsInstancedBaseVertexBaseInstanceEXT(int mode, int type, ByteBuffer indices, int instancecount, int basevertex, int baseinstance) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertexBaseInstanceEXT(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), instancecount, basevertex, baseinstance);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedBaseVertexBaseInstanceEXT DrawElementsInstancedBaseVertexBaseInstanceEXT} */
 	public static void glDrawElementsInstancedBaseVertexBaseInstanceEXT(int mode, ByteBuffer indices, int instancecount, int basevertex, int baseinstance) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertexBaseInstanceEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), instancecount, basevertex, baseinstance);
 	}
 
 	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstancedBaseVertexBaseInstanceEXT DrawElementsInstancedBaseVertexBaseInstanceEXT} */
 	public static void glDrawElementsInstancedBaseVertexBaseInstanceEXT(int mode, ShortBuffer indices, int instancecount, int basevertex, int baseinstance) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertexBaseInstanceEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), instancecount, basevertex, baseinstance);
 	}
 
 	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstancedBaseVertexBaseInstanceEXT DrawElementsInstancedBaseVertexBaseInstanceEXT} */
 	public static void glDrawElementsInstancedBaseVertexBaseInstanceEXT(int mode, IntBuffer indices, int instancecount, int basevertex, int baseinstance) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertexBaseInstanceEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), instancecount, basevertex, baseinstance);
 	}
 

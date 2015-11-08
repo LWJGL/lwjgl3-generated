@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opencl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -71,7 +70,7 @@ public class KHRGLEvent {
 	@JavadocExclude
 	public static long nclCreateEventFromGLsyncKHR(long context, long sync, long errcode_ret) {
 		long __functionAddress = getInstance().CreateEventFromGLsyncKHR;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(context);
 			checkPointer(sync);
 		}
@@ -86,14 +85,14 @@ public class KHRGLEvent {
 	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 */
 	public static long clCreateEventFromGLsyncKHR(long context, long sync, ByteBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		return nclCreateEventFromGLsyncKHR(context, sync, memAddressSafe(errcode_ret));
 	}
 
 	/** Alternative version of: {@link #clCreateEventFromGLsyncKHR CreateEventFromGLsyncKHR} */
 	public static long clCreateEventFromGLsyncKHR(long context, long sync, IntBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		return nclCreateEventFromGLsyncKHR(context, sync, memAddressSafe(errcode_ret));
 	}

@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -110,14 +109,14 @@ public class NVPointSprite {
 	}
 
 	public static void glPointParameterivNV(int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglPointParameterivNV(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glPointParameterivNV PointParameterivNV} */
 	public static void glPointParameterivNV(int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglPointParameterivNV(pname, memAddress(params));
 	}

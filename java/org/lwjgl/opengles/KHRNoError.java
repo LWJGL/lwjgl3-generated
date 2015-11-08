@@ -13,7 +13,7 @@ package org.lwjgl.opengles;
  * this extension. This could include application termination. In general this extension should be used after you have verified all the GL errors are
  * removed, and an application is not the kind that would check for GL errors and adjust behavior based on those errors.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public final class KHRNoError {
 

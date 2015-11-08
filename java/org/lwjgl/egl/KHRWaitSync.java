@@ -5,7 +5,6 @@
  */
 package org.lwjgl.egl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -53,7 +52,7 @@ public class KHRWaitSync {
 
 	public static int eglWaitSyncKHR(long dpy, long sync, int flags) {
 		long __functionAddress = getInstance().WaitSyncKHR;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}

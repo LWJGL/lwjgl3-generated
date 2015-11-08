@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * The core OpenGL 3.2 functionality. OpenGL 3.2 implementations support revision 1.50 of the OpenGL Shading Language.
@@ -284,14 +284,14 @@ public class GL32 {
 	 * @param params the requested parameter
 	 */
 	public static void glGetBufferParameteri64v(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetBufferParameteri64v(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetBufferParameteri64v GetBufferParameteri64v} */
 	public static void glGetBufferParameteri64v(int target, int pname, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetBufferParameteri64v(target, pname, memAddress(params));
 	}
@@ -325,7 +325,7 @@ public class GL32 {
 	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
 	 */
 	public static void glDrawElementsBaseVertex(int mode, int count, int type, ByteBuffer indices, int basevertex) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indices, count << GLChecks.typeToByteShift(type));
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
@@ -334,35 +334,35 @@ public class GL32 {
 
 	/** Buffer object offset version of: {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, int count, int type, long indicesOffset, int basevertex) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElementsBaseVertex(mode, count, type, indicesOffset, basevertex);
 	}
 
 	/** Alternative version of: {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, int type, ByteBuffer indices, int basevertex) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertex(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, ByteBuffer indices, int basevertex) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
 	}
 
 	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, ShortBuffer indices, int basevertex) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
 	}
 
 	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, IntBuffer indices, int basevertex) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), basevertex);
 	}
@@ -390,7 +390,7 @@ public class GL32 {
 	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
 	 */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, ByteBuffer indices, int basevertex) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indices, count << GLChecks.typeToByteShift(type));
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
@@ -399,35 +399,35 @@ public class GL32 {
 
 	/** Buffer object offset version of: {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indicesOffset, int basevertex) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawRangeElementsBaseVertex(mode, start, end, count, type, indicesOffset, basevertex);
 	}
 
 	/** Alternative version of: {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int type, ByteBuffer indices, int basevertex) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, ByteBuffer indices, int basevertex) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
 	}
 
 	/** GL_UNSIGNED_SHORT version of: {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, ShortBuffer indices, int basevertex) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
 	}
 
 	/** GL_UNSIGNED_INT version of: {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, IntBuffer indices, int basevertex) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), basevertex);
 	}
@@ -454,7 +454,7 @@ public class GL32 {
 	 * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
 	 */
 	public static void glDrawElementsInstancedBaseVertex(int mode, int count, int type, ByteBuffer indices, int primcount, int basevertex) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indices, count << GLChecks.typeToByteShift(type));
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		}
@@ -463,35 +463,35 @@ public class GL32 {
 
 	/** Buffer object offset version of: {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, int count, int type, long indicesOffset, int primcount, int basevertex) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElementsInstancedBaseVertex(mode, count, type, indicesOffset, primcount, basevertex);
 	}
 
 	/** Alternative version of: {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, int type, ByteBuffer indices, int primcount, int basevertex) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), primcount, basevertex);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, ByteBuffer indices, int primcount, int basevertex) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount, basevertex);
 	}
 
 	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, ShortBuffer indices, int primcount, int basevertex) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount, basevertex);
 	}
 
 	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, IntBuffer indices, int primcount, int basevertex) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), primcount, basevertex);
 	}
@@ -520,7 +520,7 @@ public class GL32 {
 	 * @param basevertex a pointer to the location where the base vertices are stored
 	 */
 	public static void glMultiDrawElementsBaseVertex(int mode, ByteBuffer count, int type, ByteBuffer indices, int primcount, ByteBuffer basevertex) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(count, primcount << 2);
 			checkBuffer(indices, primcount << POINTER_SHIFT);
 			checkBuffer(basevertex, primcount << 2);
@@ -530,7 +530,7 @@ public class GL32 {
 
 	/** Alternative version of: {@link #glMultiDrawElementsBaseVertex MultiDrawElementsBaseVertex} */
 	public static void glMultiDrawElementsBaseVertex(int mode, IntBuffer count, int type, PointerBuffer indices, IntBuffer basevertex) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indices, count.remaining());
 			checkBuffer(basevertex, count.remaining());
 		}
@@ -613,14 +613,14 @@ public class GL32 {
 	 * @param val   an array to receive the position of the sample
 	 */
 	public static void glGetMultisamplefv(int pname, int index, ByteBuffer val) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(val, 1 << 2);
 		nglGetMultisamplefv(pname, index, memAddress(val));
 	}
 
 	/** Alternative version of: {@link #glGetMultisamplefv GetMultisamplefv} */
 	public static void glGetMultisamplefv(int pname, int index, FloatBuffer val) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(val, 1);
 		nglGetMultisamplefv(pname, index, memAddress(val));
 	}
@@ -692,7 +692,7 @@ public class GL32 {
 	 */
 	public static boolean glIsSync(long sync) {
 		long __functionAddress = getInstance().IsSync;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(sync);
 		return callPZ(__functionAddress, sync);
 	}
@@ -708,7 +708,7 @@ public class GL32 {
 	 */
 	public static void glDeleteSync(long sync) {
 		long __functionAddress = getInstance().DeleteSync;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(sync);
 		callPV(__functionAddress, sync);
 	}
@@ -735,7 +735,7 @@ public class GL32 {
 	 */
 	public static int glClientWaitSync(long sync, int flags, long timeout) {
 		long __functionAddress = getInstance().ClientWaitSync;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(sync);
 		return callPIJI(__functionAddress, sync, flags, timeout);
 	}
@@ -759,7 +759,7 @@ public class GL32 {
 	 */
 	public static void glWaitSync(long sync, int flags, long timeout) {
 		long __functionAddress = getInstance().WaitSync;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(sync);
 		callPIJV(__functionAddress, sync, flags, timeout);
 	}
@@ -782,14 +782,14 @@ public class GL32 {
 	 * @param params the value or values of the specified parameter
 	 */
 	public static void glGetInteger64v(int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetInteger64v(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetInteger64v GetInteger64v} */
 	public static void glGetInteger64v(int pname, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetInteger64v(pname, memAddress(params));
 	}
@@ -821,14 +821,14 @@ public class GL32 {
 	 * @param params the value or values of the specified parameter
 	 */
 	public static void glGetInteger64i_v(int pname, int index, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetInteger64i_v(pname, index, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetInteger64i_v GetInteger64i_v} */
 	public static void glGetInteger64i_v(int pname, int index, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetInteger64i_v(pname, index, memAddress(params));
 	}
@@ -847,7 +847,7 @@ public class GL32 {
 	@JavadocExclude
 	public static void nglGetSynciv(long sync, int pname, int bufSize, long length, long values) {
 		long __functionAddress = getInstance().GetSynciv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(sync);
 		callPIIPPV(__functionAddress, sync, pname, bufSize, length, values);
 	}
@@ -864,7 +864,7 @@ public class GL32 {
 	 * @param values  the address of an array to receive the values of the queried parameter
 	 */
 	public static void glGetSynciv(long sync, int pname, int bufSize, ByteBuffer length, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(values, bufSize << 2);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -873,14 +873,14 @@ public class GL32 {
 
 	/** Alternative version of: {@link #glGetSynciv GetSynciv} */
 	public static void glGetSynciv(long sync, int pname, IntBuffer length, IntBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetSynciv(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
 	}
 
 	/** Single return value version of: {@link #glGetSynciv GetSynciv} */
 	public static int glGetSynci(long sync, int pname, IntBuffer length) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		APIBuffer __buffer = apiBuffer();
 		int values = __buffer.intParam();

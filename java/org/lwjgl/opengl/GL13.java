@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -369,7 +368,7 @@ public class GL13 {
 	 * @param data           a pointer to the compressed image data
 	 */
 	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( data != null ) checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
@@ -378,14 +377,14 @@ public class GL13 {
 
 	/** Buffer object offset version of: {@link #glCompressedTexImage3D CompressedTexImage3D} */
 	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTexImage3D CompressedTexImage3D} */
 	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, data == null ? 0 : data.remaining(), memAddressSafe(data));
 	}
@@ -414,7 +413,7 @@ public class GL13 {
 	 * @param data           a pointer to the compressed image data
 	 */
 	public static void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( data != null ) checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
@@ -423,14 +422,14 @@ public class GL13 {
 
 	/** Buffer object offset version of: {@link #glCompressedTexImage2D CompressedTexImage2D} */
 	public static void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTexImage2D CompressedTexImage2D} */
 	public static void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTexImage2D(target, level, internalformat, width, height, border, data == null ? 0 : data.remaining(), memAddressSafe(data));
 	}
@@ -458,7 +457,7 @@ public class GL13 {
 	 * @param data           a pointer to the compressed image data
 	 */
 	public static void glCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( data != null ) checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
@@ -467,14 +466,14 @@ public class GL13 {
 
 	/** Buffer object offset version of: {@link #glCompressedTexImage1D CompressedTexImage1D} */
 	public static void glCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTexImage1D(target, level, internalformat, width, border, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTexImage1D CompressedTexImage1D} */
 	public static void glCompressedTexImage1D(int target, int level, int internalformat, int width, int border, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTexImage1D(target, level, internalformat, width, border, data == null ? 0 : data.remaining(), memAddressSafe(data));
 	}
@@ -506,7 +505,7 @@ public class GL13 {
 	 * @param data      a pointer to the compressed image data
 	 */
 	public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
@@ -515,14 +514,14 @@ public class GL13 {
 
 	/** Buffer object offset version of: {@link #glCompressedTexSubImage3D CompressedTexSubImage3D} */
 	public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTexSubImage3D CompressedTexSubImage3D} */
 	public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, data.remaining(), memAddress(data));
 	}
@@ -552,7 +551,7 @@ public class GL13 {
 	 * @param data      a pointer to the compressed image data
 	 */
 	public static void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
@@ -561,14 +560,14 @@ public class GL13 {
 
 	/** Buffer object offset version of: {@link #glCompressedTexSubImage2D CompressedTexSubImage2D} */
 	public static void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTexSubImage2D CompressedTexSubImage2D} */
 	public static void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, data.remaining(), memAddress(data));
 	}
@@ -596,7 +595,7 @@ public class GL13 {
 	 * @param data      a pointer to the compressed image data
 	 */
 	public static void glCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
@@ -605,14 +604,14 @@ public class GL13 {
 
 	/** Buffer object offset version of: {@link #glCompressedTexSubImage1D CompressedTexSubImage1D} */
 	public static void glCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTexSubImage1D CompressedTexSubImage1D} */
 	public static void glCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTexSubImage1D(target, level, xoffset, width, format, data.remaining(), memAddress(data));
 	}
@@ -636,8 +635,8 @@ public class GL13 {
 	 * @param pixels a buffer in which to return the compressed texture image
 	 */
 	public static void glGetCompressedTexImage(int target, int level, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS ) {
-			if ( LWJGLUtil.DEBUG )
+		if ( CHECKS ) {
+			if ( DEBUG )
 				checkBuffer(pixels, GL11.glGetTexLevelParameteri(target, level, GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -646,7 +645,7 @@ public class GL13 {
 
 	/** Buffer object offset version of: {@link #glGetCompressedTexImage GetCompressedTexImage} */
 	public static void glGetCompressedTexImage(int target, int level, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetCompressedTexImage(target, level, pixelsOffset);
 	}
@@ -706,7 +705,7 @@ public class GL13 {
 	 */
 	public static void glClientActiveTexture(int texture) {
 		long __functionAddress = getInstance().ClientActiveTexture;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIV(__functionAddress, texture);
 	}
@@ -723,7 +722,7 @@ public class GL13 {
 	 */
 	public static void glMultiTexCoord1f(int texture, float s) {
 		long __functionAddress = getInstance().MultiTexCoord1f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFV(__functionAddress, texture, s);
 	}
@@ -740,7 +739,7 @@ public class GL13 {
 	 */
 	public static void glMultiTexCoord1s(int texture, short s) {
 		long __functionAddress = getInstance().MultiTexCoord1s;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callISV(__functionAddress, texture, s);
 	}
@@ -757,7 +756,7 @@ public class GL13 {
 	 */
 	public static void glMultiTexCoord1i(int texture, int s) {
 		long __functionAddress = getInstance().MultiTexCoord1i;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, texture, s);
 	}
@@ -774,7 +773,7 @@ public class GL13 {
 	 */
 	public static void glMultiTexCoord1d(int texture, double s) {
 		long __functionAddress = getInstance().MultiTexCoord1d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIDV(__functionAddress, texture, s);
 	}
@@ -785,7 +784,7 @@ public class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord1fv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1fv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
 	}
@@ -799,14 +798,14 @@ public class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord1fv(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 2);
 		nglMultiTexCoord1fv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord1fv MultiTexCoord1fv} */
 	public static void glMultiTexCoord1fv(int texture, FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglMultiTexCoord1fv(texture, memAddress(v));
 	}
@@ -817,7 +816,7 @@ public class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord1sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1sv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
 	}
@@ -831,14 +830,14 @@ public class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord1sv(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 1);
 		nglMultiTexCoord1sv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord1sv MultiTexCoord1sv} */
 	public static void glMultiTexCoord1sv(int texture, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglMultiTexCoord1sv(texture, memAddress(v));
 	}
@@ -849,7 +848,7 @@ public class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord1iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1iv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
 	}
@@ -863,14 +862,14 @@ public class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord1iv(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 2);
 		nglMultiTexCoord1iv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord1iv MultiTexCoord1iv} */
 	public static void glMultiTexCoord1iv(int texture, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglMultiTexCoord1iv(texture, memAddress(v));
 	}
@@ -881,7 +880,7 @@ public class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord1dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord1dv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
 	}
@@ -895,14 +894,14 @@ public class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord1dv(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 3);
 		nglMultiTexCoord1dv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord1dv MultiTexCoord1dv} */
 	public static void glMultiTexCoord1dv(int texture, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglMultiTexCoord1dv(texture, memAddress(v));
 	}
@@ -920,7 +919,7 @@ public class GL13 {
 	 */
 	public static void glMultiTexCoord2f(int texture, float s, float t) {
 		long __functionAddress = getInstance().MultiTexCoord2f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFFV(__functionAddress, texture, s, t);
 	}
@@ -938,7 +937,7 @@ public class GL13 {
 	 */
 	public static void glMultiTexCoord2s(int texture, short s, short t) {
 		long __functionAddress = getInstance().MultiTexCoord2s;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callISSV(__functionAddress, texture, s, t);
 	}
@@ -956,7 +955,7 @@ public class GL13 {
 	 */
 	public static void glMultiTexCoord2i(int texture, int s, int t) {
 		long __functionAddress = getInstance().MultiTexCoord2i;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, texture, s, t);
 	}
@@ -974,7 +973,7 @@ public class GL13 {
 	 */
 	public static void glMultiTexCoord2d(int texture, double s, double t) {
 		long __functionAddress = getInstance().MultiTexCoord2d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIDDV(__functionAddress, texture, s, t);
 	}
@@ -985,7 +984,7 @@ public class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord2fv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2fv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
 	}
@@ -999,14 +998,14 @@ public class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord2fv(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 2);
 		nglMultiTexCoord2fv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord2fv MultiTexCoord2fv} */
 	public static void glMultiTexCoord2fv(int texture, FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglMultiTexCoord2fv(texture, memAddress(v));
 	}
@@ -1017,7 +1016,7 @@ public class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord2sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2sv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
 	}
@@ -1031,14 +1030,14 @@ public class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord2sv(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 1);
 		nglMultiTexCoord2sv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord2sv MultiTexCoord2sv} */
 	public static void glMultiTexCoord2sv(int texture, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglMultiTexCoord2sv(texture, memAddress(v));
 	}
@@ -1049,7 +1048,7 @@ public class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord2iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2iv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
 	}
@@ -1063,14 +1062,14 @@ public class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord2iv(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 2);
 		nglMultiTexCoord2iv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord2iv MultiTexCoord2iv} */
 	public static void glMultiTexCoord2iv(int texture, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglMultiTexCoord2iv(texture, memAddress(v));
 	}
@@ -1081,7 +1080,7 @@ public class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord2dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord2dv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
 	}
@@ -1095,14 +1094,14 @@ public class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord2dv(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 3);
 		nglMultiTexCoord2dv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord2dv MultiTexCoord2dv} */
 	public static void glMultiTexCoord2dv(int texture, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglMultiTexCoord2dv(texture, memAddress(v));
 	}
@@ -1121,7 +1120,7 @@ public class GL13 {
 	 */
 	public static void glMultiTexCoord3f(int texture, float s, float t, float r) {
 		long __functionAddress = getInstance().MultiTexCoord3f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFFFV(__functionAddress, texture, s, t, r);
 	}
@@ -1140,7 +1139,7 @@ public class GL13 {
 	 */
 	public static void glMultiTexCoord3s(int texture, short s, short t, short r) {
 		long __functionAddress = getInstance().MultiTexCoord3s;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callISSSV(__functionAddress, texture, s, t, r);
 	}
@@ -1159,7 +1158,7 @@ public class GL13 {
 	 */
 	public static void glMultiTexCoord3i(int texture, int s, int t, int r) {
 		long __functionAddress = getInstance().MultiTexCoord3i;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIV(__functionAddress, texture, s, t, r);
 	}
@@ -1178,7 +1177,7 @@ public class GL13 {
 	 */
 	public static void glMultiTexCoord3d(int texture, double s, double t, double r) {
 		long __functionAddress = getInstance().MultiTexCoord3d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIDDDV(__functionAddress, texture, s, t, r);
 	}
@@ -1189,7 +1188,7 @@ public class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord3fv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3fv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
 	}
@@ -1203,14 +1202,14 @@ public class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord3fv(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglMultiTexCoord3fv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord3fv MultiTexCoord3fv} */
 	public static void glMultiTexCoord3fv(int texture, FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglMultiTexCoord3fv(texture, memAddress(v));
 	}
@@ -1221,7 +1220,7 @@ public class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord3sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3sv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
 	}
@@ -1235,14 +1234,14 @@ public class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord3sv(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 1);
 		nglMultiTexCoord3sv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord3sv MultiTexCoord3sv} */
 	public static void glMultiTexCoord3sv(int texture, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglMultiTexCoord3sv(texture, memAddress(v));
 	}
@@ -1253,7 +1252,7 @@ public class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord3iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3iv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
 	}
@@ -1267,14 +1266,14 @@ public class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord3iv(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglMultiTexCoord3iv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord3iv MultiTexCoord3iv} */
 	public static void glMultiTexCoord3iv(int texture, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglMultiTexCoord3iv(texture, memAddress(v));
 	}
@@ -1285,7 +1284,7 @@ public class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord3dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord3dv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
 	}
@@ -1299,14 +1298,14 @@ public class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord3dv(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglMultiTexCoord3dv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord3dv MultiTexCoord3dv} */
 	public static void glMultiTexCoord3dv(int texture, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglMultiTexCoord3dv(texture, memAddress(v));
 	}
@@ -1326,7 +1325,7 @@ public class GL13 {
 	 */
 	public static void glMultiTexCoord4f(int texture, float s, float t, float r, float q) {
 		long __functionAddress = getInstance().MultiTexCoord4f;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIFFFFV(__functionAddress, texture, s, t, r, q);
 	}
@@ -1346,7 +1345,7 @@ public class GL13 {
 	 */
 	public static void glMultiTexCoord4s(int texture, short s, short t, short r, short q) {
 		long __functionAddress = getInstance().MultiTexCoord4s;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callISSSSV(__functionAddress, texture, s, t, r, q);
 	}
@@ -1366,7 +1365,7 @@ public class GL13 {
 	 */
 	public static void glMultiTexCoord4i(int texture, int s, int t, int r, int q) {
 		long __functionAddress = getInstance().MultiTexCoord4i;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, texture, s, t, r, q);
 	}
@@ -1386,7 +1385,7 @@ public class GL13 {
 	 */
 	public static void glMultiTexCoord4d(int texture, double s, double t, double r, double q) {
 		long __functionAddress = getInstance().MultiTexCoord4d;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIDDDDV(__functionAddress, texture, s, t, r, q);
 	}
@@ -1397,7 +1396,7 @@ public class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord4fv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4fv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
 	}
@@ -1411,14 +1410,14 @@ public class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord4fv(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglMultiTexCoord4fv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord4fv MultiTexCoord4fv} */
 	public static void glMultiTexCoord4fv(int texture, FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglMultiTexCoord4fv(texture, memAddress(v));
 	}
@@ -1429,7 +1428,7 @@ public class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord4sv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4sv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
 	}
@@ -1443,14 +1442,14 @@ public class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord4sv(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglMultiTexCoord4sv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord4sv MultiTexCoord4sv} */
 	public static void glMultiTexCoord4sv(int texture, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglMultiTexCoord4sv(texture, memAddress(v));
 	}
@@ -1461,7 +1460,7 @@ public class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord4iv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4iv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
 	}
@@ -1475,14 +1474,14 @@ public class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord4iv(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglMultiTexCoord4iv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord4iv MultiTexCoord4iv} */
 	public static void glMultiTexCoord4iv(int texture, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglMultiTexCoord4iv(texture, memAddress(v));
 	}
@@ -1493,7 +1492,7 @@ public class GL13 {
 	@JavadocExclude
 	public static void nglMultiTexCoord4dv(int texture, long v) {
 		long __functionAddress = getInstance().MultiTexCoord4dv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, texture, v);
 	}
@@ -1507,14 +1506,14 @@ public class GL13 {
 	 * @param v       the texture coordinate buffer
 	 */
 	public static void glMultiTexCoord4dv(int texture, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 3);
 		nglMultiTexCoord4dv(texture, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoord4dv MultiTexCoord4dv} */
 	public static void glMultiTexCoord4dv(int texture, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglMultiTexCoord4dv(texture, memAddress(v));
 	}
@@ -1525,7 +1524,7 @@ public class GL13 {
 	@JavadocExclude
 	public static void nglLoadTransposeMatrixf(long m) {
 		long __functionAddress = getInstance().LoadTransposeMatrixf;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, m);
 	}
@@ -1546,14 +1545,14 @@ public class GL13 {
 	 * @param m the matrix data
 	 */
 	public static void glLoadTransposeMatrixf(ByteBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16 << 2);
 		nglLoadTransposeMatrixf(memAddress(m));
 	}
 
 	/** Alternative version of: {@link #glLoadTransposeMatrixf LoadTransposeMatrixf} */
 	public static void glLoadTransposeMatrixf(FloatBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16);
 		nglLoadTransposeMatrixf(memAddress(m));
 	}
@@ -1564,7 +1563,7 @@ public class GL13 {
 	@JavadocExclude
 	public static void nglLoadTransposeMatrixd(long m) {
 		long __functionAddress = getInstance().LoadTransposeMatrixd;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, m);
 	}
@@ -1577,14 +1576,14 @@ public class GL13 {
 	 * @param m the matrix data
 	 */
 	public static void glLoadTransposeMatrixd(ByteBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16 << 3);
 		nglLoadTransposeMatrixd(memAddress(m));
 	}
 
 	/** Alternative version of: {@link #glLoadTransposeMatrixd LoadTransposeMatrixd} */
 	public static void glLoadTransposeMatrixd(DoubleBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16);
 		nglLoadTransposeMatrixd(memAddress(m));
 	}
@@ -1595,7 +1594,7 @@ public class GL13 {
 	@JavadocExclude
 	public static void nglMultTransposeMatrixf(long m) {
 		long __functionAddress = getInstance().MultTransposeMatrixf;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, m);
 	}
@@ -1608,14 +1607,14 @@ public class GL13 {
 	 * @param m the matrix data
 	 */
 	public static void glMultTransposeMatrixf(ByteBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16 << 2);
 		nglMultTransposeMatrixf(memAddress(m));
 	}
 
 	/** Alternative version of: {@link #glMultTransposeMatrixf MultTransposeMatrixf} */
 	public static void glMultTransposeMatrixf(FloatBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16);
 		nglMultTransposeMatrixf(memAddress(m));
 	}
@@ -1626,7 +1625,7 @@ public class GL13 {
 	@JavadocExclude
 	public static void nglMultTransposeMatrixd(long m) {
 		long __functionAddress = getInstance().MultTransposeMatrixd;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, m);
 	}
@@ -1639,14 +1638,14 @@ public class GL13 {
 	 * @param m the matrix data
 	 */
 	public static void glMultTransposeMatrixd(ByteBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16 << 3);
 		nglMultTransposeMatrixd(memAddress(m));
 	}
 
 	/** Alternative version of: {@link #glMultTransposeMatrixd MultTransposeMatrixd} */
 	public static void glMultTransposeMatrixd(DoubleBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16);
 		nglMultTransposeMatrixd(memAddress(m));
 	}

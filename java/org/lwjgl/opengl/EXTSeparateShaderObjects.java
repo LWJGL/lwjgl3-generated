@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/separate_shader_objects.txt">EXT_separate_shader_objects</a> extension.
@@ -122,7 +121,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static int glCreateShaderProgramEXT(int type, ByteBuffer string) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(string);
 		return nglCreateShaderProgramEXT(type, memAddress(string));
 	}

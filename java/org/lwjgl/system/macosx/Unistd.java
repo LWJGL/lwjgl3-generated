@@ -5,7 +5,6 @@
  */
 package org.lwjgl.system.macosx;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -13,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 /** Native bindings to <unistd.h>. */
 public class Unistd {
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected Unistd() {

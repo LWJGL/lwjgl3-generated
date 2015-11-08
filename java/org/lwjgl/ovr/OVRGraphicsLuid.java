@@ -114,7 +114,7 @@ public class OVRGraphicsLuid extends Struct {
 	}
 
 	public static void ngetReserved(long struct, ByteBuffer Reserved) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(Reserved, 8 * 1);
+		if ( CHECKS ) checkBufferGT(Reserved, 8 * 1);
 		memCopy(struct + RESERVED, memAddress(Reserved), Reserved.remaining());
 	}
 	public static void getReserved(ByteBuffer struct, ByteBuffer Reserved) { ngetReserved(memAddress(struct), Reserved); }

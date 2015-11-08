@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -72,7 +71,7 @@ public class GLXSGIXSwapGroup {
 	 */
 	public static void glXJoinSwapGroupSGIX(long display, long drawable, long member) {
 		long __functionAddress = getInstance().JoinSwapGroupSGIX;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(drawable);
 		}

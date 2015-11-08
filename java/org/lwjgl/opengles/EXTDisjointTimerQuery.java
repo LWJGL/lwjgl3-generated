@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_disjoint_timer_query.txt">EXT_disjoint_timer_query</a> extension.
@@ -30,7 +29,7 @@ import static org.lwjgl.system.APIUtil.*;
  * stalling the rendering pipeline. It uses the query object mechanisms first introduced in the occlusion query extension, which allow time intervals to
  * be polled asynchronously by the application.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public class EXTDisjointTimerQuery {
 
@@ -125,7 +124,7 @@ public class EXTDisjointTimerQuery {
 	}
 
 	public static void glGenQueriesEXT(int n, ByteBuffer ids) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ids, n << 2);
 		nglGenQueriesEXT(n, memAddress(ids));
 	}
@@ -153,7 +152,7 @@ public class EXTDisjointTimerQuery {
 	}
 
 	public static void glDeleteQueriesEXT(int n, ByteBuffer ids) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ids, n << 2);
 		nglDeleteQueriesEXT(n, memAddress(ids));
 	}
@@ -208,14 +207,14 @@ public class EXTDisjointTimerQuery {
 	}
 
 	public static void glGetQueryivEXT(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetQueryivEXT(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryivEXT GetQueryivEXT} */
 	public static void glGetQueryivEXT(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryivEXT(target, pname, memAddress(params));
 	}
@@ -238,14 +237,14 @@ public class EXTDisjointTimerQuery {
 	}
 
 	public static void glGetQueryObjectivEXT(int id, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetQueryObjectivEXT(id, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryObjectivEXT GetQueryObjectivEXT} */
 	public static void glGetQueryObjectivEXT(int id, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjectivEXT(id, pname, memAddress(params));
 	}
@@ -268,14 +267,14 @@ public class EXTDisjointTimerQuery {
 	}
 
 	public static void glGetQueryObjectuivEXT(int id, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetQueryObjectuivEXT(id, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryObjectuivEXT GetQueryObjectuivEXT} */
 	public static void glGetQueryObjectuivEXT(int id, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjectuivEXT(id, pname, memAddress(params));
 	}
@@ -298,14 +297,14 @@ public class EXTDisjointTimerQuery {
 	}
 
 	public static void glGetQueryObjecti64vEXT(int id, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetQueryObjecti64vEXT(id, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryObjecti64vEXT GetQueryObjecti64vEXT} */
 	public static void glGetQueryObjecti64vEXT(int id, int pname, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjecti64vEXT(id, pname, memAddress(params));
 	}
@@ -328,14 +327,14 @@ public class EXTDisjointTimerQuery {
 	}
 
 	public static void glGetQueryObjectui64vEXT(int id, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetQueryObjectui64vEXT(id, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryObjectui64vEXT GetQueryObjectui64vEXT} */
 	public static void glGetQueryObjectui64vEXT(int id, int pname, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjectui64vEXT(id, pname, memAddress(params));
 	}

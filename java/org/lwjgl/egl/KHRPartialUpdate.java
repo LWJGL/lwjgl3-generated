@@ -5,10 +5,9 @@
  */
 package org.lwjgl.egl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -70,7 +69,7 @@ public class KHRPartialUpdate {
 	@JavadocExclude
 	public static boolean neglSetDamageRegionKHR(long dpy, long surface, long rects, int n_rects) {
 		long __functionAddress = getInstance().SetDamageRegionKHR;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
@@ -78,7 +77,7 @@ public class KHRPartialUpdate {
 	}
 
 	public static boolean eglSetDamageRegionKHR(long dpy, long surface, ByteBuffer rects, int n_rects) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( rects != null ) checkBuffer(rects, n_rects << 2);
 		return neglSetDamageRegionKHR(dpy, surface, memAddressSafe(rects), n_rects);
 	}

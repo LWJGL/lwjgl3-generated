@@ -5,7 +5,6 @@
  */
 package org.lwjgl.glfw;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -33,9 +32,16 @@ public class GLFWNativeCocoa {
 
 	// --- [ Function Addresses ] ---
 
+	private static final GLFWNativeCocoa instance = new GLFWNativeCocoa(getLibrary());
+
+	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
+	public static SharedLibrary getLibrary() {
+		return GLFW.getLibrary();
+	}
+
 	/** Returns the {@link GLFWNativeCocoa} instance. */
 	public static GLFWNativeCocoa getInstance() {
-		return checkFunctionality(LibGLFW.__GLFWNativeCocoa);
+		return instance;
 	}
 
 	// --- [ glfwGetCocoaMonitor ] ---
@@ -53,7 +59,7 @@ public class GLFWNativeCocoa {
 	 */
 	public static long glfwGetCocoaMonitor(long monitor) {
 		long __functionAddress = getInstance().GetCocoaMonitor;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(monitor);
 		return invokePP(__functionAddress, monitor);
 	}
@@ -73,7 +79,7 @@ public class GLFWNativeCocoa {
 	 */
 	public static long glfwGetCocoaWindow(long window) {
 		long __functionAddress = getInstance().GetCocoaWindow;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return invokePP(__functionAddress, window);
 	}

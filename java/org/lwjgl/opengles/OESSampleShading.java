@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -25,7 +24,7 @@ import static org.lwjgl.system.JNI.*;
  * <p>This extension adds new global state that controls the minimum number of samples for which attribute data is independently interpolated. When enabled,
  * all fragment-shading operations are executed independently on each sample.</p>
  * 
- * <p>Requires {@link GLES30 GLES E.S}.</p>
+ * <p>Requires {@link GLES30 GLES 3.0}.</p>
  */
 public class OESSampleShading {
 

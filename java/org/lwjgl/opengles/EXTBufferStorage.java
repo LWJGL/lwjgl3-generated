@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -29,7 +28,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Finally, this extension introduces the concept of persistent client mappings of buffer objects, which allow clients to retain pointers to a buffer's
  * data store returned as the result of a mapping, and to issue drawing commands while those mappings are in place.</p>
  * 
- * <p>Requires {@link GLES31 GLES E.S}.</p>
+ * <p>Requires {@link GLES31 GLES 3.1}.</p>
  */
 public class EXTBufferStorage {
 
@@ -95,7 +94,7 @@ public class EXTBufferStorage {
 	}
 
 	public static void glBufferStorageEXT(int target, long size, ByteBuffer data, int flags) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( data != null ) checkBuffer(data, size);
 		nglBufferStorageEXT(target, size, memAddressSafe(data), flags);
 	}

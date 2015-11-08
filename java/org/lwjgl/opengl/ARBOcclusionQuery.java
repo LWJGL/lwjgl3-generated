@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/occlusion_query.txt">ARB_occlusion_query</a> extension.
@@ -139,7 +138,7 @@ public class ARBOcclusionQuery {
 	 * @param ids a buffer in which the generated query object names are stored
 	 */
 	public static void glGenQueriesARB(int n, ByteBuffer ids) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ids, n << 2);
 		nglGenQueriesARB(n, memAddress(ids));
 	}
@@ -173,7 +172,7 @@ public class ARBOcclusionQuery {
 	 * @param ids an array of query objects to be deleted
 	 */
 	public static void glDeleteQueriesARB(int n, ByteBuffer ids) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ids, n << 2);
 		nglDeleteQueriesARB(n, memAddress(ids));
 	}
@@ -244,14 +243,14 @@ public class ARBOcclusionQuery {
 	 * @param params the requested data
 	 */
 	public static void glGetQueryivARB(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetQueryivARB(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryivARB GetQueryivARB} */
 	public static void glGetQueryivARB(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryivARB(target, pname, memAddress(params));
 	}
@@ -281,14 +280,14 @@ public class ARBOcclusionQuery {
 	 * @param params the requested data
 	 */
 	public static void glGetQueryObjectivARB(int id, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetQueryObjectivARB(id, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryObjectivARB GetQueryObjectivARB} */
 	public static void glGetQueryObjectivARB(int id, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjectivARB(id, pname, memAddress(params));
 	}
@@ -318,14 +317,14 @@ public class ARBOcclusionQuery {
 	 * @param params the requested data
 	 */
 	public static void glGetQueryObjectuivARB(int id, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetQueryObjectuivARB(id, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryObjectuivARB GetQueryObjectuivARB} */
 	public static void glGetQueryObjectuivARB(int id, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjectuivARB(id, pname, memAddress(params));
 	}

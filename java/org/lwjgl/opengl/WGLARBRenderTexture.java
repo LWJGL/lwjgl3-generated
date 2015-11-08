@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -161,7 +160,7 @@ public class WGLARBRenderTexture {
 	 */
 	public static int wglBindTexImageARB(long pbuffer, int buffer) {
 		long __functionAddress = getInstance().BindTexImageARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(pbuffer);
 		return callPII(__functionAddress, pbuffer, buffer);
 	}
@@ -177,7 +176,7 @@ public class WGLARBRenderTexture {
 	 */
 	public static int wglReleaseTexImageARB(long pbuffer, int buffer) {
 		long __functionAddress = getInstance().ReleaseTexImageARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(pbuffer);
 		return callPII(__functionAddress, pbuffer, buffer);
 	}
@@ -188,7 +187,7 @@ public class WGLARBRenderTexture {
 	@JavadocExclude
 	public static int nwglSetPbufferAttribARB(long pbuffer, long attribList) {
 		long __functionAddress = getInstance().SetPbufferAttribARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(pbuffer);
 		return callPPI(__functionAddress, pbuffer, attribList);
 	}
@@ -200,14 +199,14 @@ public class WGLARBRenderTexture {
 	 * @param attribList a 0-terminated list of attribute {type, value} pairs containing integer values
 	 */
 	public static int wglSetPbufferAttribARB(long pbuffer, ByteBuffer attribList) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attribList != null ) checkNT4(attribList);
 		return nwglSetPbufferAttribARB(pbuffer, memAddressSafe(attribList));
 	}
 
 	/** Alternative version of: {@link #wglSetPbufferAttribARB SetPbufferAttribARB} */
 	public static int wglSetPbufferAttribARB(long pbuffer, IntBuffer attribList) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attribList != null ) checkNT(attribList);
 		return nwglSetPbufferAttribARB(pbuffer, memAddressSafe(attribList));
 	}

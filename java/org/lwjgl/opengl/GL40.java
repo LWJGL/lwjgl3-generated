@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * The core OpenGL 4.0 functionality. OpenGL 4.0 implementations support revision 4.00 of the OpenGL Shading Language.
@@ -424,7 +424,7 @@ public class GL40 {
 	 * @param indirect a structure containing the draw parameters
 	 */
 	public static void glDrawArraysIndirect(int mode, ByteBuffer indirect) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indirect, 4 * 4);
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
@@ -433,14 +433,14 @@ public class GL40 {
 
 	/** Buffer object offset version of: {@link #glDrawArraysIndirect DrawArraysIndirect} */
 	public static void glDrawArraysIndirect(int mode, long indirectOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
 		nglDrawArraysIndirect(mode, indirectOffset);
 	}
 
 	/** IntBuffer version of: {@link #glDrawArraysIndirect DrawArraysIndirect} */
 	public static void glDrawArraysIndirect(int mode, IntBuffer indirect) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indirect, (4 * 4) >> 2);
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
@@ -494,7 +494,7 @@ public class GL40 {
 	 * @param indirect the address of a structure containing the draw parameters
 	 */
 	public static void glDrawElementsIndirect(int mode, int type, ByteBuffer indirect) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indirect, 5 * 4);
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
@@ -503,14 +503,14 @@ public class GL40 {
 
 	/** Buffer object offset version of: {@link #glDrawElementsIndirect DrawElementsIndirect} */
 	public static void glDrawElementsIndirect(int mode, int type, long indirectOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
 		nglDrawElementsIndirect(mode, type, indirectOffset);
 	}
 
 	/** IntBuffer version of: {@link #glDrawElementsIndirect DrawElementsIndirect} */
 	public static void glDrawElementsIndirect(int mode, int type, IntBuffer indirect) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indirect, (5 * 4) >> 2);
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
@@ -602,7 +602,7 @@ public class GL40 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform1dv(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 3);
 		nglUniform1dv(location, count, memAddress(value));
 	}
@@ -631,7 +631,7 @@ public class GL40 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform2dv(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 3);
 		nglUniform2dv(location, count, memAddress(value));
 	}
@@ -660,7 +660,7 @@ public class GL40 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform3dv(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 3) << 3);
 		nglUniform3dv(location, count, memAddress(value));
 	}
@@ -689,7 +689,7 @@ public class GL40 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform4dv(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglUniform4dv(location, count, memAddress(value));
 	}
@@ -719,7 +719,7 @@ public class GL40 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glUniformMatrix2dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglUniformMatrix2dv(location, count, transpose, memAddress(value));
 	}
@@ -749,7 +749,7 @@ public class GL40 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glUniformMatrix3dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 9) << 3);
 		nglUniformMatrix3dv(location, count, transpose, memAddress(value));
 	}
@@ -779,7 +779,7 @@ public class GL40 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glUniformMatrix4dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 4) << 3);
 		nglUniformMatrix4dv(location, count, transpose, memAddress(value));
 	}
@@ -809,7 +809,7 @@ public class GL40 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glUniformMatrix2x3dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 6) << 3);
 		nglUniformMatrix2x3dv(location, count, transpose, memAddress(value));
 	}
@@ -839,7 +839,7 @@ public class GL40 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glUniformMatrix2x4dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 3) << 3);
 		nglUniformMatrix2x4dv(location, count, transpose, memAddress(value));
 	}
@@ -869,7 +869,7 @@ public class GL40 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glUniformMatrix3x2dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 6) << 3);
 		nglUniformMatrix3x2dv(location, count, transpose, memAddress(value));
 	}
@@ -899,7 +899,7 @@ public class GL40 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glUniformMatrix3x4dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 12) << 3);
 		nglUniformMatrix3x4dv(location, count, transpose, memAddress(value));
 	}
@@ -929,7 +929,7 @@ public class GL40 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glUniformMatrix4x2dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 3) << 3);
 		nglUniformMatrix4x2dv(location, count, transpose, memAddress(value));
 	}
@@ -959,7 +959,7 @@ public class GL40 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glUniformMatrix4x3dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 12) << 3);
 		nglUniformMatrix4x3dv(location, count, transpose, memAddress(value));
 	}
@@ -988,14 +988,14 @@ public class GL40 {
 	 * @param params   the value of the specified uniform variable
 	 */
 	public static void glGetUniformdv(int program, int location, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetUniformdv(program, location, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetUniformdv GetUniformdv} */
 	public static void glGetUniformdv(int program, int location, DoubleBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformdv(program, location, memAddress(params));
 	}
@@ -1041,7 +1041,7 @@ public class GL40 {
 	 * @param name       the name of the subroutine uniform whose index to query.
 	 */
 	public static int glGetSubroutineUniformLocation(int program, int shadertype, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		return nglGetSubroutineUniformLocation(program, shadertype, memAddress(name));
 	}
@@ -1072,7 +1072,7 @@ public class GL40 {
 	 * @param name       the name of the subroutine function whose index to query
 	 */
 	public static int glGetSubroutineIndex(int program, int shadertype, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		return nglGetSubroutineIndex(program, shadertype, memAddress(name));
 	}
@@ -1105,14 +1105,14 @@ public class GL40 {
 	 * @param values     the address of a buffer into which the queried value or values will be placed
 	 */
 	public static void glGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1 << 2);
 		nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #glGetActiveSubroutineUniformiv GetActiveSubroutineUniformiv} */
 	public static void glGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, IntBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1);
 		nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, memAddress(values));
 	}
@@ -1147,7 +1147,7 @@ public class GL40 {
 	 * @param name       the address of a buffer that will receive the name of the specified shader subroutine uniform
 	 */
 	public static void glGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize, ByteBuffer length, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(name, bufsize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -1156,7 +1156,7 @@ public class GL40 {
 
 	/** Alternative version of: {@link #glGetActiveSubroutineUniformName GetActiveSubroutineUniformName} */
 	public static void glGetActiveSubroutineUniformName(int program, int shadertype, int index, IntBuffer length, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetActiveSubroutineUniformName(program, shadertype, index, name.remaining(), memAddressSafe(length), memAddress(name));
 	}
@@ -1202,7 +1202,7 @@ public class GL40 {
 	 * @param name       an array into which the name of the shader subroutine uniform will be written
 	 */
 	public static void glGetActiveSubroutineName(int program, int shadertype, int index, int bufsize, ByteBuffer length, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(name, bufsize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -1211,7 +1211,7 @@ public class GL40 {
 
 	/** Alternative version of: {@link #glGetActiveSubroutineName GetActiveSubroutineName} */
 	public static void glGetActiveSubroutineName(int program, int shadertype, int index, IntBuffer length, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetActiveSubroutineName(program, shadertype, index, name.remaining(), memAddressSafe(length), memAddress(name));
 	}
@@ -1254,7 +1254,7 @@ public class GL40 {
 	 * @param indices    an array holding the indices to load into the shader subroutine variables
 	 */
 	public static void glUniformSubroutinesuiv(int shadertype, int count, ByteBuffer indices) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(indices, count << 2);
 		nglUniformSubroutinesuiv(shadertype, count, memAddress(indices));
 	}
@@ -1290,14 +1290,14 @@ public class GL40 {
 	 * @param params     a variable to receive the value or values of the subroutine uniform
 	 */
 	public static void glGetUniformSubroutineuiv(int shadertype, int location, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetUniformSubroutineuiv(shadertype, location, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetUniformSubroutineuiv GetUniformSubroutineuiv} */
 	public static void glGetUniformSubroutineuiv(int shadertype, int location, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformSubroutineuiv(shadertype, location, memAddress(params));
 	}
@@ -1330,14 +1330,14 @@ public class GL40 {
 	 * @param values     a variable into which the queried value or values will be placed
 	 */
 	public static void glGetProgramStageiv(int program, int shadertype, int pname, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1 << 2);
 		nglGetProgramStageiv(program, shadertype, pname, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #glGetProgramStageiv GetProgramStageiv} */
 	public static void glGetProgramStageiv(int program, int shadertype, int pname, IntBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1);
 		nglGetProgramStageiv(program, shadertype, pname, memAddress(values));
 	}
@@ -1383,16 +1383,16 @@ public class GL40 {
 	 * @param values an array containing the new values for the parameter given by {@code pname}
 	 */
 	public static void glPatchParameterfv(int pname, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
-			if ( LWJGLUtil.DEBUG )
+		if ( CHECKS )
+			if ( DEBUG )
 				checkBuffer(values, GL11.glGetInteger(GL_PATCH_VERTICES) << 2);
 		nglPatchParameterfv(pname, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #glPatchParameterfv PatchParameterfv} */
 	public static void glPatchParameterfv(int pname, FloatBuffer values) {
-		if ( LWJGLUtil.CHECKS )
-			if ( LWJGLUtil.DEBUG )
+		if ( CHECKS )
+			if ( DEBUG )
 				checkBuffer(values, GL11.glGetInteger(GL_PATCH_VERTICES));
 		nglPatchParameterfv(pname, memAddress(values));
 	}
@@ -1430,7 +1430,7 @@ public class GL40 {
 	 * @param ids an array of names of transform feedback objects to delete
 	 */
 	public static void glDeleteTransformFeedbacks(int n, ByteBuffer ids) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ids, n << 2);
 		nglDeleteTransformFeedbacks(n, memAddress(ids));
 	}
@@ -1465,7 +1465,7 @@ public class GL40 {
 	 * @param ids an array of into which the reserved names will be written
 	 */
 	public static void glGenTransformFeedbacks(int n, ByteBuffer ids) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ids, n << 2);
 		nglGenTransformFeedbacks(n, memAddress(ids));
 	}
@@ -1615,14 +1615,14 @@ public class GL40 {
 	 * @param params the requested data
 	 */
 	public static void glGetQueryIndexediv(int target, int index, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetQueryIndexediv(target, index, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryIndexediv GetQueryIndexediv} */
 	public static void glGetQueryIndexediv(int target, int index, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryIndexediv(target, index, pname, memAddress(params));
 	}

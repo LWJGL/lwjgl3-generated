@@ -19,7 +19,7 @@ package org.lwjgl.opengles;
  * deploying GLSL source shaders with the application rather than vendor- specific binaries. The details of this extension are obviated by the use of that
  * extension.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S} and {@link OESGetProgramBinary OES_get_program_binary}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0} and {@link OESGetProgramBinary OES_get_program_binary}.</p>
  */
 public final class AMDProgramBinaryZ400 {
 

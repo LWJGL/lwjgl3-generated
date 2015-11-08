@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/program_interface_query.txt">ARB_program_interface_query</a> extension.
@@ -168,14 +168,14 @@ public class ARBProgramInterfaceQuery {
 	 * @param params           a variable to retrieve the value of {@code pname} for the program interface
 	 */
 	public static void glGetProgramInterfaceiv(int program, int programInterface, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetProgramInterfaceiv(program, programInterface, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
 	public static void glGetProgramInterfaceiv(int program, int programInterface, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetProgramInterfaceiv(program, programInterface, pname, memAddress(params));
 	}
@@ -205,7 +205,7 @@ public class ARBProgramInterfaceQuery {
 	 * @param name             the name of the resource to query the index of
 	 */
 	public static int glGetProgramResourceIndex(int program, int programInterface, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		return nglGetProgramResourceIndex(program, programInterface, memAddress(name));
 	}
@@ -237,7 +237,7 @@ public class ARBProgramInterfaceQuery {
 	 * @param name             a character array into which will be written the name of the resource
 	 */
 	public static void glGetProgramResourceName(int program, int programInterface, int index, int bufSize, ByteBuffer length, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(name, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -246,7 +246,7 @@ public class ARBProgramInterfaceQuery {
 
 	/** Alternative version of: {@link #glGetProgramResourceName GetProgramResourceName} */
 	public static void glGetProgramResourceName(int program, int programInterface, int index, IntBuffer length, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetProgramResourceName(program, programInterface, index, name.remaining(), memAddressSafe(length), memAddress(name));
 	}
@@ -292,7 +292,7 @@ public class ARBProgramInterfaceQuery {
 	 * @param params           an array that will receive the property values
 	 */
 	public static void glGetProgramResourceiv(int program, int programInterface, int index, int propCount, ByteBuffer props, int bufSize, ByteBuffer length, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(props, propCount << 2);
 			checkBuffer(params, bufSize << 2);
 			if ( length != null ) checkBuffer(length, 1 << 2);
@@ -302,7 +302,7 @@ public class ARBProgramInterfaceQuery {
 
 	/** Alternative version of: {@link #glGetProgramResourceiv GetProgramResourceiv} */
 	public static void glGetProgramResourceiv(int program, int programInterface, int index, IntBuffer props, IntBuffer length, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), params.remaining(), memAddressSafe(length), memAddress(params));
 	}
@@ -334,7 +334,7 @@ public class ARBProgramInterfaceQuery {
 	 * @param name             the name of the resource to query the location of
 	 */
 	public static int glGetProgramResourceLocation(int program, int programInterface, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		return nglGetProgramResourceLocation(program, programInterface, memAddress(name));
 	}
@@ -363,7 +363,7 @@ public class ARBProgramInterfaceQuery {
 	 * @param name             the name of the resource to query the location of
 	 */
 	public static int glGetProgramResourceLocationIndex(int program, int programInterface, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		return nglGetProgramResourceLocationIndex(program, programInterface, memAddress(name));
 	}

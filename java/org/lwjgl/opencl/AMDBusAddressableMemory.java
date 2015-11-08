@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opencl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="http://www.khronos.org/registry/cl/extensions/amd/cl_amd_bus_addressable_memory.txt">amd_bus_addressable_memory</a> extension.
@@ -100,7 +100,7 @@ public class AMDBusAddressableMemory {
 	@JavadocExclude
 	public static int nclEnqueueWaitSignalAMD(long command_queue, long mem_object, int value, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueWaitSignalAMD;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(command_queue);
 			checkPointer(mem_object);
 		}
@@ -132,7 +132,7 @@ public class AMDBusAddressableMemory {
 	 *         </ul>
 	 */
 	public static int clEnqueueWaitSignalAMD(long command_queue, long mem_object, int value, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
 			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
@@ -141,7 +141,7 @@ public class AMDBusAddressableMemory {
 
 	/** Alternative version of: {@link #clEnqueueWaitSignalAMD EnqueueWaitSignalAMD} */
 	public static int clEnqueueWaitSignalAMD(long command_queue, long mem_object, int value, PointerBuffer event_wait_list, PointerBuffer event) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
 		return nclEnqueueWaitSignalAMD(command_queue, mem_object, value, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -152,7 +152,7 @@ public class AMDBusAddressableMemory {
 	@JavadocExclude
 	public static int nclEnqueueWriteSignalAMD(long command_queue, long mem_object, int value, long offset, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueWriteSignalAMD;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(command_queue);
 			checkPointer(mem_object);
 		}
@@ -189,7 +189,7 @@ public class AMDBusAddressableMemory {
 	 *         </ul>
 	 */
 	public static int clEnqueueWriteSignalAMD(long command_queue, long mem_object, int value, long offset, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
 			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
@@ -198,7 +198,7 @@ public class AMDBusAddressableMemory {
 
 	/** Alternative version of: {@link #clEnqueueWriteSignalAMD EnqueueWriteSignalAMD} */
 	public static int clEnqueueWriteSignalAMD(long command_queue, long mem_object, int value, long offset, PointerBuffer event_wait_list, PointerBuffer event) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
 		return nclEnqueueWriteSignalAMD(command_queue, mem_object, value, offset, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -209,7 +209,7 @@ public class AMDBusAddressableMemory {
 	@JavadocExclude
 	public static int nclEnqueueMakeBuffersResidentAMD(long command_queue, int num_mem_objs, long mem_objects, int blocking_make_resident, long bus_addresses, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueMakeBuffersResidentAMD;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(command_queue);
 		return callPIPIPIPPI(__functionAddress, command_queue, num_mem_objs, mem_objects, blocking_make_resident, bus_addresses, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -244,7 +244,7 @@ public class AMDBusAddressableMemory {
 	 *         </ul>
 	 */
 	public static int clEnqueueMakeBuffersResidentAMD(long command_queue, int num_mem_objs, ByteBuffer mem_objects, int blocking_make_resident, CLBusAddressAMD.Buffer bus_addresses, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(mem_objects, num_mem_objs << POINTER_SHIFT);
 			checkBuffer(bus_addresses, num_mem_objs);
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
@@ -255,7 +255,7 @@ public class AMDBusAddressableMemory {
 
 	/** Alternative version of: {@link #clEnqueueMakeBuffersResidentAMD EnqueueMakeBuffersResidentAMD} */
 	public static int clEnqueueMakeBuffersResidentAMD(long command_queue, PointerBuffer mem_objects, int blocking_make_resident, CLBusAddressAMD.Buffer bus_addresses, PointerBuffer event_wait_list, PointerBuffer event) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(bus_addresses, mem_objects.remaining());
 			if ( event != null ) checkBuffer(event, 1);
 		}

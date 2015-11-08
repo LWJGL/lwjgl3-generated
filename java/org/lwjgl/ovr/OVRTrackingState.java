@@ -13,7 +13,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Tracking state at a given absolute time (describes predicted HMD pose etc). Returned by {@link OVR#ovrHmd_GetTrackingState}. */
+/** Tracking state at a given absolute time (describes predicted HMD pose etc). Returned by {@link OVR#ovr_GetTrackingState}. */
 public class OVRTrackingState extends Struct {
 
 	/** The struct size in bytes. */
@@ -302,7 +302,7 @@ public class OVRTrackingState extends Struct {
 	public static float ngetLeveledCameraPosePositionZ(long struct) { return memGetFloat(struct + LEVELEDCAMERAPOSE + OVRPosef.POSITION + OVRVector3f.Z); }
 	public static float getLeveledCameraPosePositionZ(ByteBuffer struct) { return ngetLeveledCameraPosePositionZ(memAddress(struct)); }
 	public static void ngetHandPoses(long struct, ByteBuffer HandPoses) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(HandPoses, 2 * OVRPoseStatef.SIZEOF);
+		if ( CHECKS ) checkBufferGT(HandPoses, 2 * OVRPoseStatef.SIZEOF);
 		memCopy(struct + HANDPOSES, memAddress(HandPoses), HandPoses.remaining());
 	}
 	public static void getHandPoses(ByteBuffer struct, ByteBuffer HandPoses) { ngetHandPoses(memAddress(struct), HandPoses); }

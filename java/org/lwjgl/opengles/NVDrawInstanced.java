@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -30,7 +29,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>By using the instance ID or multiples thereof as an index into a uniform array containing transform data, vertex shaders can draw multiple instances of
  * an object with a single draw call.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public class NVDrawInstanced {
 
@@ -100,33 +99,45 @@ public class NVDrawInstanced {
 	 * @param primcount 
 	 */
 	public static void glDrawElementsInstancedNV(int mode, int count, int type, ByteBuffer indices, int primcount) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS ) {
 			checkBuffer(indices, count << GLESChecks.typeToByteShift(type));
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
+		}
 		nglDrawElementsInstancedNV(mode, count, type, memAddress(indices), primcount);
 	}
 
 	/** Buffer object offset version of: {@link #glDrawElementsInstancedNV DrawElementsInstancedNV} */
 	public static void glDrawElementsInstancedNV(int mode, int count, int type, long indicesOffset, int primcount) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElementsInstancedNV(mode, count, type, indicesOffset, primcount);
 	}
 
 	/** Alternative version of: {@link #glDrawElementsInstancedNV DrawElementsInstancedNV} */
 	public static void glDrawElementsInstancedNV(int mode, int type, ByteBuffer indices, int primcount) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedNV(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), primcount);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedNV DrawElementsInstancedNV} */
 	public static void glDrawElementsInstancedNV(int mode, ByteBuffer indices, int primcount) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedNV(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), primcount);
 	}
 
 	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstancedNV DrawElementsInstancedNV} */
 	public static void glDrawElementsInstancedNV(int mode, ShortBuffer indices, int primcount) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedNV(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), primcount);
 	}
 
 	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstancedNV DrawElementsInstancedNV} */
 	public static void glDrawElementsInstancedNV(int mode, IntBuffer indices, int primcount) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedNV(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), primcount);
 	}
 

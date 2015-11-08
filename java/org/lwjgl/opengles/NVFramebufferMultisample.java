@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -28,7 +27,7 @@ import static org.lwjgl.system.JNI.*;
  * framebuffer object and the destination is a single-sample framebuffer object. Source and destination framebuffer may be either application-created or
  * window-system provided.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S} and {@link NVFramebufferBlit NV_framebuffer_blit}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0} and {@link NVFramebufferBlit NV_framebuffer_blit}.</p>
  */
 public class NVFramebufferMultisample {
 

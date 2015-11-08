@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_robustness.txt">EXT_robustness</a> extension.
@@ -128,33 +127,45 @@ public class EXTRobustness {
 	}
 
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int bufSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS ) {
 			checkBuffer(data, bufSize);
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
 		nglReadnPixelsEXT(x, y, width, height, format, type, bufSize, memAddress(data));
 	}
 
 	/** Buffer object offset version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int bufSize, long dataOffset) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglReadnPixelsEXT(x, y, width, height, format, type, bufSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, ByteBuffer data) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining(), memAddress(data));
 	}
 
 	/** ShortBuffer version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, ShortBuffer data) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining() << 1, memAddress(data));
 	}
 
 	/** IntBuffer version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, IntBuffer data) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining() << 2, memAddress(data));
 	}
 
 	/** FloatBuffer version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, FloatBuffer data) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining() << 2, memAddress(data));
 	}
 
@@ -168,7 +179,7 @@ public class EXTRobustness {
 	}
 
 	public static void glGetnUniformfvEXT(int program, int location, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformfvEXT(program, location, bufSize, memAddress(params));
 	}
@@ -196,7 +207,7 @@ public class EXTRobustness {
 	}
 
 	public static void glGetnUniformivEXT(int program, int location, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformivEXT(program, location, bufSize, memAddress(params));
 	}

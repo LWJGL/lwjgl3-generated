@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/transform_feedback2.txt">ARB_transform_feedback2</a> extension.
@@ -127,7 +126,7 @@ public class ARBTransformFeedback2 {
 	 * @param ids an array of names of transform feedback objects to delete
 	 */
 	public static void glDeleteTransformFeedbacks(int n, ByteBuffer ids) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ids, n << 2);
 		nglDeleteTransformFeedbacks(n, memAddress(ids));
 	}
@@ -160,7 +159,7 @@ public class ARBTransformFeedback2 {
 	 * @param ids an array of into which the reserved names will be written
 	 */
 	public static void glGenTransformFeedbacks(int n, ByteBuffer ids) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ids, n << 2);
 		nglGenTransformFeedbacks(n, memAddress(ids));
 	}

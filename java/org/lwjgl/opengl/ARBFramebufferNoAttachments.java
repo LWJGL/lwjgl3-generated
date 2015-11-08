@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/framebuffer_no_attachments.txt">ARB_framebuffer_no_attachments</a> extension.
@@ -142,14 +141,14 @@ public class ARBFramebufferNoAttachments {
 	 * @param params a variable to receive the value of the parameter named {@code pname}
 	 */
 	public static void glGetFramebufferParameteriv(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetFramebufferParameteriv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
 	public static void glGetFramebufferParameteriv(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetFramebufferParameteriv(target, pname, memAddress(params));
 	}
@@ -173,7 +172,7 @@ public class ARBFramebufferNoAttachments {
 	 */
 	public static void glNamedFramebufferParameteriEXT(int framebuffer, int pname, int param) {
 		long __functionAddress = getInstance().NamedFramebufferParameteriEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, framebuffer, pname, param);
 	}
@@ -184,7 +183,7 @@ public class ARBFramebufferNoAttachments {
 	@JavadocExclude
 	public static void nglGetNamedFramebufferParameterivEXT(int framebuffer, int pname, long params) {
 		long __functionAddress = getInstance().GetNamedFramebufferParameterivEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, framebuffer, pname, params);
 	}
@@ -197,14 +196,14 @@ public class ARBFramebufferNoAttachments {
 	 * @param params      a variable to receive the value of the parameter named {@code pname}
 	 */
 	public static void glGetNamedFramebufferParameterivEXT(int framebuffer, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetNamedFramebufferParameterivEXT(framebuffer, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetNamedFramebufferParameterivEXT GetNamedFramebufferParameterivEXT} */
 	public static void glGetNamedFramebufferParameterivEXT(int framebuffer, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedFramebufferParameterivEXT(framebuffer, pname, memAddress(params));
 	}

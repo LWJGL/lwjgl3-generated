@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -40,7 +39,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * exceed the amount of memory available to the system, this extension provides API calls allowing applications to manage overall texture memory
  * consumption by making a texture resident and non-resident as required.</p>
  * 
- * <p>Requires {@link GLES30 GLES E.S}.</p>
+ * <p>Requires {@link GLES30 GLES 3.0}.</p>
  */
 public class NVBindlessTexture {
 
@@ -174,7 +173,7 @@ public class NVBindlessTexture {
 	}
 
 	public static void glUniformHandleui64vNV(int location, int count, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, count << 3);
 		nglUniformHandleui64vNV(location, count, memAddress(values));
 	}
@@ -201,7 +200,7 @@ public class NVBindlessTexture {
 	}
 
 	public static void glProgramUniformHandleui64vNV(int program, int location, int count, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, count << 3);
 		nglProgramUniformHandleui64vNV(program, location, count, memAddress(values));
 	}

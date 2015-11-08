@@ -99,7 +99,7 @@ public class RECT extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public RECT set(RECT src) {
 		return nset(address());
@@ -107,7 +107,7 @@ public class RECT extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public RECT set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}

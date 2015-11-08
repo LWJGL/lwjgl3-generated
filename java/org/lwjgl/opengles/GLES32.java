@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengles;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /** The core OpenGL ES 3.2 functionality. */
 public class GLES32 {
@@ -546,7 +546,7 @@ public class GLES32 {
 	 * <p>When using advanced blending equations, applications should split their rendering into a collection of blending passes, none of which touch an
 	 * individual sample in the framebuffer more than once. The results of blending are undefined if the sample being blended has been touched previously in
 	 * the same pass. Any command that causes the value of a sample to be modified using the framebuffer is considered to touch the sample, including clears,
-	 * blended or unblended primitives, and {@link GLES20#glBlitFramebuffer BlitFramebuffer} copies.</p>
+	 * blended or unblended primitives, and {@link GLES30#glBlitFramebuffer BlitFramebuffer} copies.</p>
 	 */
 	public static void glBlendBarrier() {
 		long __functionAddress = getInstance().BlendBarrier;
@@ -602,7 +602,7 @@ public class GLES32 {
 	 * @param enabled  whether the selected messages should be enabled or disabled
 	 */
 	public static void glDebugMessageControl(int source, int type, int severity, int count, ByteBuffer ids, boolean enabled) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ids, count << 2);
 		nglDebugMessageControl(source, type, severity, count, memAddress(ids), enabled);
 	}
@@ -648,7 +648,7 @@ public class GLES32 {
 	 * @param message  a character array containing the message to insert
 	 */
 	public static void glDebugMessageInsert(int source, int type, int id, int severity, int length, ByteBuffer message) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(message, length);
 		nglDebugMessageInsert(source, type, id, severity, length, memAddress(message));
 	}
@@ -747,7 +747,7 @@ public class GLES32 {
 	 * @param messageLog an array of characters that will receive the messages
 	 */
 	public static int glGetDebugMessageLog(int count, int bufsize, ByteBuffer sources, ByteBuffer types, ByteBuffer ids, ByteBuffer severities, ByteBuffer lengths, ByteBuffer messageLog) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( messageLog != null ) checkBuffer(messageLog, bufsize);
 			if ( sources != null ) checkBuffer(sources, count << 2);
 			if ( types != null ) checkBuffer(types, count << 2);
@@ -760,7 +760,7 @@ public class GLES32 {
 
 	/** Alternative version of: {@link #glGetDebugMessageLog GetDebugMessageLog} */
 	public static int glGetDebugMessageLog(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, ByteBuffer messageLog) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( sources != null ) checkBuffer(sources, count);
 			if ( types != null ) checkBuffer(types, count);
 			if ( ids != null ) checkBuffer(ids, count);
@@ -780,14 +780,14 @@ public class GLES32 {
 	}
 
 	public static void glGetPointerv(int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << POINTER_SHIFT);
 		nglGetPointerv(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetPointerv GetPointerv} */
 	public static void glGetPointerv(int pname, PointerBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetPointerv(pname, memAddress(params));
 	}
@@ -828,7 +828,7 @@ public class GLES32 {
 	 * @param message a string containing the message to be sent to the debug output stream
 	 */
 	public static void glPushDebugGroup(int source, int id, int length, ByteBuffer message) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(message, length);
 		nglPushDebugGroup(source, id, length, memAddress(message));
 	}
@@ -881,7 +881,7 @@ public class GLES32 {
 	 * @param label      a string containing the label to assign to the object
 	 */
 	public static void glObjectLabel(int identifier, int name, int length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(label, length);
 		nglObjectLabel(identifier, name, length, memAddress(label));
 	}
@@ -918,7 +918,7 @@ public class GLES32 {
 	 * @param label      a string that will receive the object label
 	 */
 	public static void glGetObjectLabel(int identifier, int name, int bufSize, ByteBuffer length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(label, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -927,7 +927,7 @@ public class GLES32 {
 
 	/** Alternative version of: {@link #glGetObjectLabel GetObjectLabel} */
 	public static void glGetObjectLabel(int identifier, int name, IntBuffer length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetObjectLabel(identifier, name, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
@@ -957,7 +957,7 @@ public class GLES32 {
 	@JavadocExclude
 	public static void nglObjectPtrLabel(long ptr, int length, long label) {
 		long __functionAddress = getInstance().ObjectPtrLabel;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ptr);
 		callPIPV(__functionAddress, ptr, length, label);
 	}
@@ -970,7 +970,7 @@ public class GLES32 {
 	 * @param label  a string containing the label to assign to the object
 	 */
 	public static void glObjectPtrLabel(long ptr, int length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(label, length);
 		nglObjectPtrLabel(ptr, length, memAddress(label));
 	}
@@ -994,7 +994,7 @@ public class GLES32 {
 	@JavadocExclude
 	public static void nglGetObjectPtrLabel(long ptr, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectPtrLabel;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ptr);
 		callPIPPV(__functionAddress, ptr, bufSize, length, label);
 	}
@@ -1008,7 +1008,7 @@ public class GLES32 {
 	 * @param label   a string that will receive the object label
 	 */
 	public static void glGetObjectPtrLabel(long ptr, int bufSize, ByteBuffer length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(label, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -1017,7 +1017,7 @@ public class GLES32 {
 
 	/** Alternative version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
 	public static void glGetObjectPtrLabel(long ptr, IntBuffer length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetObjectPtrLabel(ptr, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
@@ -1107,33 +1107,45 @@ public class GLES32 {
 	}
 
 	public static void glDrawElementsBaseVertex(int mode, int count, int type, ByteBuffer indices, int basevertex) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS ) {
 			checkBuffer(indices, count << GLESChecks.typeToByteShift(type));
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
+		}
 		nglDrawElementsBaseVertex(mode, count, type, memAddress(indices), basevertex);
 	}
 
 	/** Buffer object offset version of: {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, int count, int type, long indicesOffset, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElementsBaseVertex(mode, count, type, indicesOffset, basevertex);
 	}
 
 	/** Alternative version of: {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, int type, ByteBuffer indices, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertex(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, ByteBuffer indices, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
 	}
 
 	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, ShortBuffer indices, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
 	}
 
 	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsBaseVertex DrawElementsBaseVertex} */
 	public static void glDrawElementsBaseVertex(int mode, IntBuffer indices, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), basevertex);
 	}
 
@@ -1147,33 +1159,45 @@ public class GLES32 {
 	}
 
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, ByteBuffer indices, int basevertex) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS ) {
 			checkBuffer(indices, count << GLESChecks.typeToByteShift(type));
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
+		}
 		nglDrawRangeElementsBaseVertex(mode, start, end, count, type, memAddress(indices), basevertex);
 	}
 
 	/** Buffer object offset version of: {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indicesOffset, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawRangeElementsBaseVertex(mode, start, end, count, type, indicesOffset, basevertex);
 	}
 
 	/** Alternative version of: {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int type, ByteBuffer indices, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, ByteBuffer indices, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
 	}
 
 	/** GL_UNSIGNED_SHORT version of: {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, ShortBuffer indices, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
 	}
 
 	/** GL_UNSIGNED_INT version of: {@link #glDrawRangeElementsBaseVertex DrawRangeElementsBaseVertex} */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, IntBuffer indices, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), basevertex);
 	}
 
@@ -1187,33 +1211,45 @@ public class GLES32 {
 	}
 
 	public static void glDrawElementsInstancedBaseVertex(int mode, int count, int type, ByteBuffer indices, int instancecount, int basevertex) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS ) {
 			checkBuffer(indices, count << GLESChecks.typeToByteShift(type));
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
+		}
 		nglDrawElementsInstancedBaseVertex(mode, count, type, memAddress(indices), instancecount, basevertex);
 	}
 
 	/** Buffer object offset version of: {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, int count, int type, long indicesOffset, int instancecount, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElementsInstancedBaseVertex(mode, count, type, indicesOffset, instancecount, basevertex);
 	}
 
 	/** Alternative version of: {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, int type, ByteBuffer indices, int instancecount, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), instancecount, basevertex);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, ByteBuffer indices, int instancecount, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), instancecount, basevertex);
 	}
 
 	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, ShortBuffer indices, int instancecount, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), instancecount, basevertex);
 	}
 
 	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstancedBaseVertex DrawElementsInstancedBaseVertex} */
 	public static void glDrawElementsInstancedBaseVertex(int mode, IntBuffer indices, int instancecount, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), instancecount, basevertex);
 	}
 
@@ -1308,33 +1344,45 @@ public class GLES32 {
 	 * @param pixels  a buffer in which to place the returned pixel data
 	 */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS ) {
 			checkBuffer(pixels, bufSize);
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
 		nglReadnPixels(x, y, width, height, format, type, bufSize, memAddress(pixels));
 	}
 
 	/** Buffer object offset version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixelsOffset) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglReadnPixels(x, y, width, height, format, type, bufSize, pixelsOffset);
 	}
 
 	/** Alternative version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining(), memAddress(pixels));
 	}
 
 	/** ShortBuffer version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 1, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
@@ -1356,7 +1404,7 @@ public class GLES32 {
 	 * @param params   the buffer in which to place the returned data
 	 */
 	public static void glGetnUniformfv(int program, int location, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformfv(program, location, bufSize, memAddress(params));
 	}
@@ -1392,7 +1440,7 @@ public class GLES32 {
 	 * @param params   the buffer in which to place the returned data
 	 */
 	public static void glGetnUniformiv(int program, int location, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformiv(program, location, bufSize, memAddress(params));
 	}
@@ -1428,7 +1476,7 @@ public class GLES32 {
 	 * @param params   the buffer in which to place the returned data
 	 */
 	public static void glGetnUniformuiv(int program, int location, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformuiv(program, location, bufSize, memAddress(params));
 	}
@@ -1520,14 +1568,14 @@ public class GLES32 {
 	}
 
 	public static void glGetTexParameterIiv(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTexParameterIiv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTexParameterIiv GetTexParameterIiv} */
 	public static void glGetTexParameterIiv(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterIiv(target, pname, memAddress(params));
 	}
@@ -1550,14 +1598,14 @@ public class GLES32 {
 	}
 
 	public static void glGetTexParameterIuiv(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTexParameterIuiv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTexParameterIuiv GetTexParameterIuiv} */
 	public static void glGetTexParameterIuiv(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterIuiv(target, pname, memAddress(params));
 	}
@@ -1630,14 +1678,14 @@ public class GLES32 {
 	}
 
 	public static void glGetSamplerParameterIiv(int sampler, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
 	public static void glGetSamplerParameterIiv(int sampler, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
@@ -1660,14 +1708,14 @@ public class GLES32 {
 	}
 
 	public static void glGetSamplerParameterIuiv(int sampler, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
 	public static void glGetSamplerParameterIuiv(int sampler, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}

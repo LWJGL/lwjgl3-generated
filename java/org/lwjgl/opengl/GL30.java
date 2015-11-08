@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * The core OpenGL 3.0 functionality. OpenGL 3.0 implementations are guaranteed to support at least versions 1.10, 1.20 and 1.30 of the shading language,
@@ -733,14 +733,14 @@ public class GL30 {
 	 *                   single stencil value to clear the buffer to.
 	 */
 	public static void glClearBufferiv(int buffer, int drawbuffer, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nglClearBufferiv(buffer, drawbuffer, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glClearBufferiv ClearBufferiv} */
 	public static void glClearBufferiv(int buffer, int drawbuffer, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nglClearBufferiv(buffer, drawbuffer, memAddress(value));
 	}
@@ -764,14 +764,14 @@ public class GL30 {
 	 * @param value      a pointer to a four-element vector specifying R, G, B and A values to clear the buffer to
 	 */
 	public static void glClearBufferuiv(int buffer, int drawbuffer, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 4 << 2);
 		nglClearBufferuiv(buffer, drawbuffer, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glClearBufferuiv ClearBufferuiv} */
 	public static void glClearBufferuiv(int buffer, int drawbuffer, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 4);
 		nglClearBufferuiv(buffer, drawbuffer, memAddress(value));
 	}
@@ -796,14 +796,14 @@ public class GL30 {
 	 *                   single depth value to clear the buffer to.
 	 */
 	public static void glClearBufferfv(int buffer, int drawbuffer, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nglClearBufferfv(buffer, drawbuffer, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glClearBufferfv ClearBufferfv} */
 	public static void glClearBufferfv(int buffer, int drawbuffer, FloatBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nglClearBufferfv(buffer, drawbuffer, memAddress(value));
 	}
@@ -975,14 +975,14 @@ public class GL30 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI1iv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 2);
 		nglVertexAttribI1iv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribI1iv VertexAttribI1iv} */
 	public static void glVertexAttribI1iv(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglVertexAttribI1iv(index, memAddress(v));
 	}
@@ -1005,14 +1005,14 @@ public class GL30 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI2iv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 2);
 		nglVertexAttribI2iv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribI2iv VertexAttribI2iv} */
 	public static void glVertexAttribI2iv(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglVertexAttribI2iv(index, memAddress(v));
 	}
@@ -1035,14 +1035,14 @@ public class GL30 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI3iv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglVertexAttribI3iv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribI3iv VertexAttribI3iv} */
 	public static void glVertexAttribI3iv(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglVertexAttribI3iv(index, memAddress(v));
 	}
@@ -1065,14 +1065,14 @@ public class GL30 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI4iv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttribI4iv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribI4iv VertexAttribI4iv} */
 	public static void glVertexAttribI4iv(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttribI4iv(index, memAddress(v));
 	}
@@ -1095,14 +1095,14 @@ public class GL30 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI1uiv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 2);
 		nglVertexAttribI1uiv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribI1uiv VertexAttribI1uiv} */
 	public static void glVertexAttribI1uiv(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglVertexAttribI1uiv(index, memAddress(v));
 	}
@@ -1125,14 +1125,14 @@ public class GL30 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI2uiv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 2);
 		nglVertexAttribI2uiv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribI2uiv VertexAttribI2uiv} */
 	public static void glVertexAttribI2uiv(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglVertexAttribI2uiv(index, memAddress(v));
 	}
@@ -1155,14 +1155,14 @@ public class GL30 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI3uiv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglVertexAttribI3uiv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribI3uiv VertexAttribI3uiv} */
 	public static void glVertexAttribI3uiv(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglVertexAttribI3uiv(index, memAddress(v));
 	}
@@ -1185,14 +1185,14 @@ public class GL30 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI4uiv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglVertexAttribI4uiv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribI4uiv VertexAttribI4uiv} */
 	public static void glVertexAttribI4uiv(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttribI4uiv(index, memAddress(v));
 	}
@@ -1215,7 +1215,7 @@ public class GL30 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI4bv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttribI4bv(index, memAddress(v));
 	}
@@ -1238,14 +1238,14 @@ public class GL30 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI4sv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglVertexAttribI4sv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribI4sv VertexAttribI4sv} */
 	public static void glVertexAttribI4sv(int index, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttribI4sv(index, memAddress(v));
 	}
@@ -1268,7 +1268,7 @@ public class GL30 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI4ubv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttribI4ubv(index, memAddress(v));
 	}
@@ -1291,14 +1291,14 @@ public class GL30 {
 	 * @param v     the pure integer vertex attribute buffer
 	 */
 	public static void glVertexAttribI4usv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 1);
 		nglVertexAttribI4usv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribI4usv VertexAttribI4usv} */
 	public static void glVertexAttribI4usv(int index, ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttribI4usv(index, memAddress(v));
 	}
@@ -1326,28 +1326,28 @@ public class GL30 {
 	 *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
 	 */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer));
 	}
 
 	/** Buffer object offset version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, long pointerOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglVertexAttribIPointer(index, size, type, stride, pointerOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer));
 	}
 
 	/** IntBuffer version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, IntBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer));
 	}
@@ -1371,14 +1371,14 @@ public class GL30 {
 	 * @param params returns the requested data
 	 */
 	public static void glGetVertexAttribIiv(int index, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglGetVertexAttribIiv(index, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetVertexAttribIiv GetVertexAttribIiv} */
 	public static void glGetVertexAttribIiv(int index, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglGetVertexAttribIiv(index, pname, memAddress(params));
 	}
@@ -1410,14 +1410,14 @@ public class GL30 {
 	 * @param params returns the requested data
 	 */
 	public static void glGetVertexAttribIuiv(int index, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglGetVertexAttribIuiv(index, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetVertexAttribIuiv GetVertexAttribIuiv} */
 	public static void glGetVertexAttribIuiv(int index, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglGetVertexAttribIuiv(index, pname, memAddress(params));
 	}
@@ -1515,7 +1515,7 @@ public class GL30 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform1uiv(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 2);
 		nglUniform1uiv(location, count, memAddress(value));
 	}
@@ -1544,7 +1544,7 @@ public class GL30 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform2uiv(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglUniform2uiv(location, count, memAddress(value));
 	}
@@ -1573,7 +1573,7 @@ public class GL30 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform3uiv(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 3) << 2);
 		nglUniform3uiv(location, count, memAddress(value));
 	}
@@ -1602,7 +1602,7 @@ public class GL30 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform4uiv(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglUniform4uiv(location, count, memAddress(value));
 	}
@@ -1631,14 +1631,14 @@ public class GL30 {
 	 * @param params   the value of the specified uniform variable
 	 */
 	public static void glGetUniformuiv(int program, int location, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetUniformuiv(program, location, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetUniformuiv GetUniformuiv} */
 	public static void glGetUniformuiv(int program, int location, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformuiv(program, location, memAddress(params));
 	}
@@ -1670,7 +1670,7 @@ public class GL30 {
 	 * @param name        the name of the user-defined varying out variable whose binding to modify
 	 */
 	public static void glBindFragDataLocation(int program, int colorNumber, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		nglBindFragDataLocation(program, colorNumber, memAddress(name));
 	}
@@ -1700,7 +1700,7 @@ public class GL30 {
 	 * @param name    the name of the user-defined varying out variable whose binding to query
 	 */
 	public static int glGetFragDataLocation(int program, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		return nglGetFragDataLocation(program, memAddress(name));
 	}
@@ -1853,7 +1853,7 @@ Ends conditional rendering.
 	 * @param renderbuffers an array containing {@code n} renderbuffer objects to be deleted
 	 */
 	public static void glDeleteRenderbuffers(int n, ByteBuffer renderbuffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(renderbuffers, n << 2);
 		nglDeleteRenderbuffers(n, memAddress(renderbuffers));
 	}
@@ -1888,7 +1888,7 @@ Ends conditional rendering.
 	 * @param renderbuffers a buffer in which the generated renderbuffer object names are stored
 	 */
 	public static void glGenRenderbuffers(int n, ByteBuffer renderbuffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(renderbuffers, n << 2);
 		nglGenRenderbuffers(n, memAddress(renderbuffers));
 	}
@@ -1962,14 +1962,14 @@ Ends conditional rendering.
 	 * @param params an array to receive the value of the queried parameter
 	 */
 	public static void glGetRenderbufferParameteriv(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetRenderbufferParameteriv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
 	public static void glGetRenderbufferParameteriv(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetRenderbufferParameteriv(target, pname, memAddress(params));
 	}
@@ -2029,7 +2029,7 @@ Ends conditional rendering.
 	 * @param framebuffers an array containing {@code n} framebuffer objects to be deleted
 	 */
 	public static void glDeleteFramebuffers(int n, ByteBuffer framebuffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(framebuffers, n << 2);
 		nglDeleteFramebuffers(n, memAddress(framebuffers));
 	}
@@ -2064,7 +2064,7 @@ Ends conditional rendering.
 	 * @param framebuffers a buffer in which the generated framebuffer object names are stored
 	 */
 	public static void glGenFramebuffers(int n, ByteBuffer framebuffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(framebuffers, n << 2);
 		nglGenFramebuffers(n, memAddress(framebuffers));
 	}
@@ -2206,14 +2206,14 @@ Ends conditional rendering.
 	 * @param params     an array to receive the value of the queried parameter
 	 */
 	public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
 	public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
 	}
@@ -2282,14 +2282,14 @@ Ends conditional rendering.
 	 * @param params the value of {@code pname}
 	 */
 	public static void glTexParameterIiv(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglTexParameterIiv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glTexParameterIiv TexParameterIiv} */
 	public static void glTexParameterIiv(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglTexParameterIiv(target, pname, memAddress(params));
 	}
@@ -2320,14 +2320,14 @@ Ends conditional rendering.
 	 * @param params the value of {@code pname}
 	 */
 	public static void glTexParameterIuiv(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglTexParameterIuiv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glTexParameterIuiv TexParameterIuiv} */
 	public static void glTexParameterIuiv(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglTexParameterIuiv(target, pname, memAddress(params));
 	}
@@ -2358,14 +2358,14 @@ Ends conditional rendering.
 	 * @param params returns the texture parameter value
 	 */
 	public static void glGetTexParameterIiv(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTexParameterIiv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTexParameterIiv GetTexParameterIiv} */
 	public static void glGetTexParameterIiv(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterIiv(target, pname, memAddress(params));
 	}
@@ -2397,14 +2397,14 @@ Ends conditional rendering.
 	 * @param params returns the texture parameter value
 	 */
 	public static void glGetTexParameterIuiv(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTexParameterIuiv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTexParameterIuiv GetTexParameterIuiv} */
 	public static void glGetTexParameterIuiv(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterIuiv(target, pname, memAddress(params));
 	}
@@ -2454,7 +2454,7 @@ Ends conditional rendering.
 	 * @param data   a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetBooleani_v(int target, int index, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1);
 		nglGetBooleani_v(target, index, memAddress(data));
 	}
@@ -2486,14 +2486,14 @@ Ends conditional rendering.
 	 * @param data   a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetIntegeri_v(int target, int index, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1 << 2);
 		nglGetIntegeri_v(target, index, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetIntegeri_v GetIntegeri_v} */
 	public static void glGetIntegeri_v(int target, int index, IntBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1);
 		nglGetIntegeri_v(target, index, memAddress(data));
 	}
@@ -2631,7 +2631,7 @@ Ends transform feedback operation.
 	 * @param bufferMode the mode used to capture the varying variables when transform feedback is active. One of:<br>{@link #GL_INTERLEAVED_ATTRIBS INTERLEAVED_ATTRIBS}, {@link #GL_SEPARATE_ATTRIBS SEPARATE_ATTRIBS}
 	 */
 	public static void glTransformFeedbackVaryings(int program, int count, ByteBuffer varyings, int bufferMode) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(varyings, count << POINTER_SHIFT);
 		nglTransformFeedbackVaryings(program, count, memAddress(varyings), bufferMode);
 	}
@@ -2686,7 +2686,7 @@ Ends transform feedback operation.
 	 * @param name    a buffer into which will be written the name of the varying
 	 */
 	public static void glGetTransformFeedbackVarying(int program, int index, int bufSize, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(name, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 			checkBuffer(size, 1 << 2);
@@ -2697,7 +2697,7 @@ Ends transform feedback operation.
 
 	/** Alternative version of: {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying} */
 	public static void glGetTransformFeedbackVarying(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( length != null ) checkBuffer(length, 1);
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
@@ -2707,7 +2707,7 @@ Ends transform feedback operation.
 
 	/** String return version of: {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying} */
 	public static String glGetTransformFeedbackVarying(int program, int index, int bufSize, IntBuffer size, IntBuffer type) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
@@ -2721,7 +2721,7 @@ Ends transform feedback operation.
 	/** String return (w/ implicit max length) version of: {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying} */
 	public static String glGetTransformFeedbackVarying(int program, int index, IntBuffer size, IntBuffer type) {
 		int bufSize = GL20.glGetProgrami(program, GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH);
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
@@ -2764,7 +2764,7 @@ Ends transform feedback operation.
 	 * @param arrays an array containing the n names of the objects to be deleted
 	 */
 	public static void glDeleteVertexArrays(int n, ByteBuffer arrays) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(arrays, n << 2);
 		nglDeleteVertexArrays(n, memAddress(arrays));
 	}
@@ -2799,7 +2799,7 @@ Ends transform feedback operation.
 	 * @param arrays a buffer in which the generated vertex array object names are stored
 	 */
 	public static void glGenVertexArrays(int n, ByteBuffer arrays) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(arrays, n << 2);
 		nglGenVertexArrays(n, memAddress(arrays));
 	}

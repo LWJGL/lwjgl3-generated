@@ -5,7 +5,6 @@
  */
 package org.lwjgl.glfw;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -37,9 +36,16 @@ public class GLFWNativeEGL {
 
 	// --- [ Function Addresses ] ---
 
+	private static final GLFWNativeEGL instance = new GLFWNativeEGL(getLibrary());
+
+	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
+	public static SharedLibrary getLibrary() {
+		return GLFW.getLibrary();
+	}
+
 	/** Returns the {@link GLFWNativeEGL} instance. */
 	public static GLFWNativeEGL getInstance() {
-		return checkFunctionality(LibGLFW.__GLFWNativeEGL);
+		return instance;
 	}
 
 	// --- [ glfwGetEGLDisplay ] ---
@@ -69,7 +75,7 @@ public class GLFWNativeEGL {
 	 */
 	public static long glfwGetEGLContext(long window) {
 		long __functionAddress = getInstance().GetEGLContext;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return invokePP(__functionAddress, window);
 	}
@@ -87,7 +93,7 @@ public class GLFWNativeEGL {
 	 */
 	public static long glfwGetEGLSurface(long window) {
 		long __functionAddress = getInstance().GetEGLSurface;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return invokePP(__functionAddress, window);
 	}

@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -137,7 +136,7 @@ public class INTELMapTexture {
 	 * @param layout  returns the internal layout of the texture in the graphics memory
 	 */
 	public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, ByteBuffer stride, ByteBuffer layout) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(stride, 1 << 2);
 			checkBuffer(layout, 1 << 2);
 		}
@@ -147,7 +146,7 @@ public class INTELMapTexture {
 
 	/** Alternative version of: {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
 	public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, IntBuffer stride, IntBuffer layout, ByteBuffer old_buffer) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(stride, 1);
 			checkBuffer(layout, 1);
 		}
@@ -158,7 +157,7 @@ public class INTELMapTexture {
 
 	/** Explicit size alternative version of: {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
 	public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, IntBuffer stride, IntBuffer layout, long length, ByteBuffer old_buffer) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(stride, 1);
 			checkBuffer(layout, 1);
 		}

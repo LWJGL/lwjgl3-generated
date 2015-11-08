@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/command_list.txt">NV_command_list</a> extension.
@@ -266,7 +266,7 @@ public class NVCommandList {
 	 * @param states the buffer in which to write the created state object names
 	 */
 	public static void glCreateStatesNV(int n, ByteBuffer states) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(states, n << 2);
 		nglCreateStatesNV(n, memAddress(states));
 	}
@@ -301,7 +301,7 @@ public class NVCommandList {
 	 * @param states the buffer from which to read the state object names to delete
 	 */
 	public static void glDeleteStatesNV(int n, ByteBuffer states) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(states, n << 2);
 		nglDeleteStatesNV(n, memAddress(states));
 	}
@@ -406,7 +406,7 @@ public class NVCommandList {
 	 * @param count         the number of commands
 	 */
 	public static void glDrawCommandsNV(int primitiveMode, int buffer, ByteBuffer indirects, ByteBuffer sizes, int count) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indirects, count << POINTER_SHIFT);
 			checkBuffer(sizes, count << 2);
 		}
@@ -415,7 +415,7 @@ public class NVCommandList {
 
 	/** Alternative version of: {@link #glDrawCommandsNV DrawCommandsNV} */
 	public static void glDrawCommandsNV(int primitiveMode, int buffer, PointerBuffer indirects, IntBuffer sizes) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(sizes, indirects.remaining());
 		nglDrawCommandsNV(primitiveMode, buffer, memAddress(indirects), memAddress(sizes), indirects.remaining());
 	}
@@ -439,7 +439,7 @@ public class NVCommandList {
 	 * @param count         the number of commands
 	 */
 	public static void glDrawCommandsAddressNV(int primitiveMode, ByteBuffer indirects, ByteBuffer sizes, int count) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indirects, count << 3);
 			checkBuffer(sizes, count << 2);
 		}
@@ -448,7 +448,7 @@ public class NVCommandList {
 
 	/** Alternative version of: {@link #glDrawCommandsAddressNV DrawCommandsAddressNV} */
 	public static void glDrawCommandsAddressNV(int primitiveMode, LongBuffer indirects, IntBuffer sizes) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(sizes, indirects.remaining());
 		nglDrawCommandsAddressNV(primitiveMode, memAddress(indirects), memAddress(sizes), indirects.remaining());
 	}
@@ -476,7 +476,7 @@ public class NVCommandList {
 	 * @param count     the number of commands
 	 */
 	public static void glDrawCommandsStatesNV(int buffer, ByteBuffer indirects, ByteBuffer sizes, ByteBuffer states, ByteBuffer fbos, int count) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indirects, count << POINTER_SHIFT);
 			checkBuffer(sizes, count << 2);
 			checkBuffer(states, count << 2);
@@ -487,7 +487,7 @@ public class NVCommandList {
 
 	/** Alternative version of: {@link #glDrawCommandsStatesNV DrawCommandsStatesNV} */
 	public static void glDrawCommandsStatesNV(int buffer, PointerBuffer indirects, IntBuffer sizes, IntBuffer states, IntBuffer fbos) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(sizes, indirects.remaining());
 			checkBuffer(states, indirects.remaining());
 			checkBuffer(fbos, indirects.remaining());
@@ -517,7 +517,7 @@ public class NVCommandList {
 	 * @param count     the number of commands
 	 */
 	public static void glDrawCommandsStatesAddressNV(ByteBuffer indirects, ByteBuffer sizes, ByteBuffer states, ByteBuffer fbos, int count) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indirects, count << 3);
 			checkBuffer(sizes, count << 2);
 			checkBuffer(states, count << 2);
@@ -528,7 +528,7 @@ public class NVCommandList {
 
 	/** Alternative version of: {@link #glDrawCommandsStatesAddressNV DrawCommandsStatesAddressNV} */
 	public static void glDrawCommandsStatesAddressNV(LongBuffer indirects, IntBuffer sizes, IntBuffer states, IntBuffer fbos) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(sizes, indirects.remaining());
 			checkBuffer(states, indirects.remaining());
 			checkBuffer(fbos, indirects.remaining());
@@ -552,7 +552,7 @@ public class NVCommandList {
 	 * @param lists the buffer in which to return the created command list names
 	 */
 	public static void glCreateCommandListsNV(int n, ByteBuffer lists) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(lists, n << 2);
 		nglCreateCommandListsNV(n, memAddress(lists));
 	}
@@ -587,7 +587,7 @@ public class NVCommandList {
 	 * @param lists the buffer from which to read the command list names to delete
 	 */
 	public static void glDeleteCommandListsNV(int n, ByteBuffer lists) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(lists, n << 2);
 		nglDeleteCommandListsNV(n, memAddress(lists));
 	}
@@ -646,7 +646,7 @@ public class NVCommandList {
 	 * @param count     the number of commands
 	 */
 	public static void glListDrawCommandsStatesClientNV(int list, int segment, ByteBuffer indirects, ByteBuffer sizes, ByteBuffer states, ByteBuffer fbos, int count) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indirects, count << POINTER_SHIFT);
 			checkBuffer(sizes, count << POINTER_SHIFT);
 			checkBuffer(states, count << 2);
@@ -657,7 +657,7 @@ public class NVCommandList {
 
 	/** Alternative version of: {@link #glListDrawCommandsStatesClientNV ListDrawCommandsStatesClientNV} */
 	public static void glListDrawCommandsStatesClientNV(int list, int segment, PointerBuffer indirects, PointerBuffer sizes, IntBuffer states, IntBuffer fbos) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(sizes, indirects.remaining());
 			checkBuffer(states, indirects.remaining());
 			checkBuffer(fbos, indirects.remaining());

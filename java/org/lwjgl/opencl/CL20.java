@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opencl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /** The core OpenCL 2.0 functionality. */
 public class CL20 {
@@ -181,7 +181,7 @@ public class CL20 {
 	@JavadocExclude
 	public static long nclCreateCommandQueueWithProperties(long context, long device, long properties, long errcode_ret) {
 		long __functionAddress = getInstance().CreateCommandQueueWithProperties;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(context);
 			checkPointer(device);
 		}
@@ -216,14 +216,14 @@ public class CL20 {
 	 *         </ul>
 	 */
 	public static long clCreateCommandQueueWithProperties(long context, long device, ByteBuffer properties, ByteBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		return nclCreateCommandQueueWithProperties(context, device, memAddress(properties), memAddressSafe(errcode_ret));
 	}
 
 	/** Alternative version of: {@link #clCreateCommandQueueWithProperties CreateCommandQueueWithProperties} */
 	public static long clCreateCommandQueueWithProperties(long context, long device, LongBuffer properties, IntBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		return nclCreateCommandQueueWithProperties(context, device, memAddress(properties), memAddressSafe(errcode_ret));
 	}
@@ -234,7 +234,7 @@ public class CL20 {
 	@JavadocExclude
 	public static long nclCreatePipe(long context, long flags, int pipe_packet_size, int pipe_max_packets, long properties, long errcode_ret) {
 		long __functionAddress = getInstance().CreatePipe;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(context);
 		return callPJIIPPP(__functionAddress, context, flags, pipe_packet_size, pipe_max_packets, properties, errcode_ret);
 	}
@@ -265,14 +265,14 @@ public class CL20 {
 	 *         </ul>
 	 */
 	public static long clCreatePipe(long context, long flags, int pipe_packet_size, int pipe_max_packets, ByteBuffer properties, ByteBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		return nclCreatePipe(context, flags, pipe_packet_size, pipe_max_packets, memAddress(properties), memAddressSafe(errcode_ret));
 	}
 
 	/** Alternative version of: {@link #clCreatePipe CreatePipe} */
 	public static long clCreatePipe(long context, long flags, int pipe_packet_size, int pipe_max_packets, IntBuffer properties, IntBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		return nclCreatePipe(context, flags, pipe_packet_size, pipe_max_packets, memAddress(properties), memAddressSafe(errcode_ret));
 	}
@@ -283,7 +283,7 @@ public class CL20 {
 	@JavadocExclude
 	public static int nclGetPipeInfo(long pipe, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetPipeInfo;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(pipe);
 		return callPIPPPI(__functionAddress, pipe, param_name, param_value_size, param_value, param_value_size_ret);
 	}
@@ -307,7 +307,7 @@ public class CL20 {
 	 *         </ul>
 	 */
 	public static int clGetPipeInfo(long pipe, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << POINTER_SHIFT);
 		}
@@ -316,14 +316,14 @@ public class CL20 {
 
 	/** Alternative version of: {@link #clGetPipeInfo GetPipeInfo} */
 	public static int clGetPipeInfo(long pipe, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		return nclGetPipeInfo(pipe, param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetPipeInfo GetPipeInfo} */
 	public static int clGetPipeInfo(long pipe, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		return nclGetPipeInfo(pipe, param_name, (param_value == null ? 0 : param_value.remaining() << 2), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
@@ -334,7 +334,7 @@ public class CL20 {
 	@JavadocExclude
 	public static long nclSVMAlloc(long context, long flags, long size, int alignment) {
 		long __functionAddress = getInstance().SVMAlloc;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(context);
 		return callPJPIP(__functionAddress, context, flags, size, alignment);
 	}
@@ -396,7 +396,7 @@ public class CL20 {
 	@JavadocExclude
 	public static void nclSVMFree(long context, long svm_pointer) {
 		long __functionAddress = getInstance().SVMFree;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(context);
 		callPPV(__functionAddress, context, svm_pointer);
 	}
@@ -426,7 +426,7 @@ public class CL20 {
 	@JavadocExclude
 	public static int nclEnqueueSVMFree(long command_queue, int num_svm_pointers, long svm_pointers, long pfn_free_func, long user_data, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueSVMFree;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(command_queue);
 		return callPIPPPIPPI(__functionAddress, command_queue, num_svm_pointers, svm_pointers, pfn_free_func, user_data, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -465,7 +465,7 @@ public class CL20 {
 	 *         </ul>
 	 */
 	public static int clEnqueueSVMFree(long command_queue, int num_svm_pointers, ByteBuffer svm_pointers, CLSVMFreeCallback pfn_free_func, ByteBuffer user_data, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(svm_pointers, num_svm_pointers << POINTER_SHIFT);
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
 			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
@@ -475,7 +475,7 @@ public class CL20 {
 
 	/** Alternative version of: {@link #clEnqueueSVMFree EnqueueSVMFree} */
 	public static int clEnqueueSVMFree(long command_queue, PointerBuffer svm_pointers, CLSVMFreeCallback pfn_free_func, ByteBuffer user_data, PointerBuffer event_wait_list, PointerBuffer event) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
 		return nclEnqueueSVMFree(command_queue, svm_pointers.remaining(), memAddress(svm_pointers), pfn_free_func == null ? NULL : pfn_free_func.address(), memAddressSafe(user_data), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -486,7 +486,7 @@ public class CL20 {
 	@JavadocExclude
 	public static int nclEnqueueSVMMemcpy(long command_queue, int blocking_copy, long dst_ptr, long src_ptr, long size, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueSVMMemcpy;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(command_queue);
 		return callPIPPPIPPI(__functionAddress, command_queue, blocking_copy, dst_ptr, src_ptr, size, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -535,7 +535,7 @@ public class CL20 {
 	 *         </ul>
 	 */
 	public static int clEnqueueSVMMemcpy(long command_queue, int blocking_copy, ByteBuffer dst_ptr, ByteBuffer src_ptr, long size, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
 			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
@@ -544,7 +544,7 @@ public class CL20 {
 
 	/** Alternative version of: {@link #clEnqueueSVMMemcpy EnqueueSVMMemcpy} */
 	public static int clEnqueueSVMMemcpy(long command_queue, int blocking_copy, ByteBuffer dst_ptr, ByteBuffer src_ptr, long size, PointerBuffer event_wait_list, PointerBuffer event) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
 		return nclEnqueueSVMMemcpy(command_queue, blocking_copy, memAddress(dst_ptr), memAddress(src_ptr), size, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -555,7 +555,7 @@ public class CL20 {
 	@JavadocExclude
 	public static int nclEnqueueSVMMemFill(long command_queue, long svm_ptr, long pattern, long pattern_size, long size, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueSVMMemFill;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(command_queue);
 		return callPPPPPIPPI(__functionAddress, command_queue, svm_ptr, pattern, pattern_size, size, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -599,7 +599,7 @@ public class CL20 {
 	 *         </ul>
 	 */
 	public static int clEnqueueSVMMemFill(long command_queue, ByteBuffer svm_ptr, ByteBuffer pattern, long pattern_size, long size, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(pattern, pattern_size);
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
 			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
@@ -609,7 +609,7 @@ public class CL20 {
 
 	/** Alternative version of: {@link #clEnqueueSVMMemFill EnqueueSVMMemFill} */
 	public static int clEnqueueSVMMemFill(long command_queue, ByteBuffer svm_ptr, ByteBuffer pattern, long size, PointerBuffer event_wait_list, PointerBuffer event) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
 		return nclEnqueueSVMMemFill(command_queue, memAddress(svm_ptr), memAddress(pattern), pattern.remaining(), size, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -620,7 +620,7 @@ public class CL20 {
 	@JavadocExclude
 	public static int nclEnqueueSVMMap(long command_queue, int blocking_map, long map_flags, long svm_ptr, long size, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueSVMMap;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(command_queue);
 		return callPIJPPIPPI(__functionAddress, command_queue, blocking_map, map_flags, svm_ptr, size, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -666,7 +666,7 @@ public class CL20 {
 	 *         </ul>
 	 */
 	public static int clEnqueueSVMMap(long command_queue, int blocking_map, long map_flags, ByteBuffer svm_ptr, long size, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(svm_ptr, size);
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
 			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
@@ -676,7 +676,7 @@ public class CL20 {
 
 	/** Alternative version of: {@link #clEnqueueSVMMap EnqueueSVMMap} */
 	public static int clEnqueueSVMMap(long command_queue, int blocking_map, long map_flags, ByteBuffer svm_ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
 		return nclEnqueueSVMMap(command_queue, blocking_map, map_flags, memAddress(svm_ptr), svm_ptr.remaining(), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -687,7 +687,7 @@ public class CL20 {
 	@JavadocExclude
 	public static int nclEnqueueSVMUnmap(long command_queue, long svm_ptr, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueSVMUnmap;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(command_queue);
 		return callPPIPPI(__functionAddress, command_queue, svm_ptr, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -720,7 +720,7 @@ public class CL20 {
 	 *         </ul>
 	 */
 	public static int clEnqueueSVMUnmap(long command_queue, ByteBuffer svm_ptr, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
 			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
 		}
@@ -729,7 +729,7 @@ public class CL20 {
 
 	/** Alternative version of: {@link #clEnqueueSVMUnmap EnqueueSVMUnmap} */
 	public static int clEnqueueSVMUnmap(long command_queue, ByteBuffer svm_ptr, PointerBuffer event_wait_list, PointerBuffer event) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
 		return nclEnqueueSVMUnmap(command_queue, memAddress(svm_ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -740,7 +740,7 @@ public class CL20 {
 	@JavadocExclude
 	public static int nclSetKernelArgSVMPointer(long kernel, int arg_index, long arg_value) {
 		long __functionAddress = getInstance().SetKernelArgSVMPointer;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(kernel);
 		return callPIPI(__functionAddress, kernel, arg_index, arg_value);
 	}
@@ -777,7 +777,7 @@ public class CL20 {
 	@JavadocExclude
 	public static int nclSetKernelExecInfo(long kernel, int param_name, long param_value_size, long param_value) {
 		long __functionAddress = getInstance().SetKernelExecInfo;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(kernel);
 		return callPIPPI(__functionAddress, kernel, param_name, param_value_size, param_value);
 	}
@@ -829,7 +829,7 @@ public class CL20 {
 	 *         </ul>
 	 */
 	public static int clSetKernelExecInfo(long kernel, int param_name, long param_value_size, ByteBuffer param_value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param_value, param_value_size);
 		return nclSetKernelExecInfo(kernel, param_name, param_value_size, memAddress(param_value));
 	}
@@ -855,7 +855,7 @@ public class CL20 {
 	@JavadocExclude
 	public static long nclCreateSamplerWithProperties(long context, long sampler_properties, long errcode_ret) {
 		long __functionAddress = getInstance().CreateSamplerWithProperties;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(context);
 		return callPPPP(__functionAddress, context, sampler_properties, errcode_ret);
 	}
@@ -881,7 +881,7 @@ public class CL20 {
 	 *         </ul>
 	 */
 	public static long clCreateSamplerWithProperties(long context, ByteBuffer sampler_properties, ByteBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( sampler_properties != null ) checkNT4(sampler_properties);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
@@ -890,7 +890,7 @@ public class CL20 {
 
 	/** Alternative version of: {@link #clCreateSamplerWithProperties CreateSamplerWithProperties} */
 	public static long clCreateSamplerWithProperties(long context, IntBuffer sampler_properties, IntBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( sampler_properties != null ) checkNT(sampler_properties);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}

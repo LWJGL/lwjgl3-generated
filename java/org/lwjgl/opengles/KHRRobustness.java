@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/KHR/robustness.txt">KHR_robustness</a> extension.
@@ -49,7 +48,7 @@ import static org.lwjgl.system.APIUtil.*;
  * reads of uniforms or parameters from buffers.</li>
  * </ul></p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public class KHRRobustness {
 
@@ -179,33 +178,45 @@ public class KHRRobustness {
 	 * @param pixels  a buffer in which to place the returned pixel data
 	 */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS ) {
 			checkBuffer(pixels, bufSize);
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
 		nglReadnPixelsKHR(x, y, width, height, format, type, bufSize, memAddress(pixels));
 	}
 
 	/** Buffer object offset version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, long pixelsOffset) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglReadnPixelsKHR(x, y, width, height, format, type, bufSize, pixelsOffset);
 	}
 
 	/** Alternative version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining(), memAddress(pixels));
 	}
 
 	/** ShortBuffer version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining() << 1, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
@@ -227,7 +238,7 @@ public class KHRRobustness {
 	 * @param params   the buffer in which to place the returned data
 	 */
 	public static void glGetnUniformfvKHR(int program, int location, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformfvKHR(program, location, bufSize, memAddress(params));
 	}
@@ -263,7 +274,7 @@ public class KHRRobustness {
 	 * @param params   the buffer in which to place the returned data
 	 */
 	public static void glGetnUniformivKHR(int program, int location, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformivKHR(program, location, bufSize, memAddress(params));
 	}
@@ -299,7 +310,7 @@ public class KHRRobustness {
 	 * @param params   the buffer in which to place the returned data
 	 */
 	public static void glGetnUniformuivKHR(int program, int location, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformuivKHR(program, location, bufSize, memAddress(params));
 	}

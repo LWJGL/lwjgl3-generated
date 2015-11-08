@@ -5,15 +5,14 @@
  */
 package org.lwjgl.openal;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to AL 1.1 functionality. */
 public class AL11 {
@@ -129,14 +128,14 @@ public class AL11 {
 	 * @param values the parameter values
 	 */
 	public static void alGetListeneriv(int param, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1 << 2);
 		nalGetListeneriv(param, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #alGetListeneriv GetListeneriv} */
 	public static void alGetListeneriv(int param, IntBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1);
 		nalGetListeneriv(param, memAddress(values));
 	}
@@ -173,14 +172,14 @@ public class AL11 {
 	 * @param value    the parameter values
 	 */
 	public static void alListeneriv(int listener, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nalListeneriv(listener, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #alListeneriv Listeneriv} */
 	public static void alListeneriv(int listener, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalListeneriv(listener, memAddress(value));
 	}
@@ -202,14 +201,14 @@ public class AL11 {
 	 * @param value     the parameter values
 	 */
 	public static void alSourceiv(int source, int paramName, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nalSourceiv(source, paramName, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #alSourceiv Sourceiv} */
 	public static void alSourceiv(int source, int paramName, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalSourceiv(source, paramName, memAddress(value));
 	}
@@ -261,14 +260,14 @@ public class AL11 {
 	 * @param value     the parameter values
 	 */
 	public static void alBufferfv(int buffer, int paramName, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nalBufferfv(buffer, paramName, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #alBufferfv Bufferfv} */
 	public static void alBufferfv(int buffer, int paramName, FloatBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalBufferfv(buffer, paramName, memAddress(value));
 	}
@@ -320,14 +319,14 @@ public class AL11 {
 	 * @param value     the parameter values
 	 */
 	public static void alBufferiv(int buffer, int paramName, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nalBufferiv(buffer, paramName, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #alBufferiv Bufferiv} */
 	public static void alBufferiv(int buffer, int paramName, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalBufferiv(buffer, paramName, memAddress(value));
 	}
@@ -349,14 +348,14 @@ public class AL11 {
 	 * @param value  the parameter value
 	 */
 	public static void alGetBufferi(int buffer, int param, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nalGetBufferi(buffer, param, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #alGetBufferi GetBufferi} */
 	public static void alGetBufferi(int buffer, int param, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetBufferi(buffer, param, memAddress(value));
 	}
@@ -386,14 +385,14 @@ public class AL11 {
 	 * @param values the parameter values
 	 */
 	public static void alGetBufferiv(int buffer, int param, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1 << 2);
 		nalGetBufferiv(buffer, param, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #alGetBufferiv GetBufferiv} */
 	public static void alGetBufferiv(int buffer, int param, IntBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1);
 		nalGetBufferiv(buffer, param, memAddress(values));
 	}
@@ -415,14 +414,14 @@ public class AL11 {
 	 * @param value  the parameter value
 	 */
 	public static void alGetBufferf(int buffer, int param, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nalGetBufferf(buffer, param, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #alGetBufferf GetBufferf} */
 	public static void alGetBufferf(int buffer, int param, FloatBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetBufferf(buffer, param, memAddress(value));
 	}
@@ -452,14 +451,14 @@ public class AL11 {
 	 * @param values the parameter values
 	 */
 	public static void alGetBufferfv(int buffer, int param, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1 << 2);
 		nalGetBufferfv(buffer, param, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #alGetBufferfv GetBufferfv} */
 	public static void alGetBufferfv(int buffer, int param, FloatBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1);
 		nalGetBufferfv(buffer, param, memAddress(values));
 	}

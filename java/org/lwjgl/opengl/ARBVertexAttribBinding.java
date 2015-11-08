@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -226,7 +225,7 @@ public class ARBVertexAttribBinding {
 	 */
 	public static void glVertexArrayBindVertexBufferEXT(int vaobj, int bindingindex, int buffer, long offset, int stride) {
 		long __functionAddress = getInstance().VertexArrayBindVertexBufferEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPIV(__functionAddress, vaobj, bindingindex, buffer, offset, stride);
 	}
@@ -246,7 +245,7 @@ public class ARBVertexAttribBinding {
 	 */
 	public static void glVertexArrayVertexAttribFormatEXT(int vaobj, int attribindex, int size, int type, boolean normalized, int relativeoffset) {
 		long __functionAddress = getInstance().VertexArrayVertexAttribFormatEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIZIV(__functionAddress, vaobj, attribindex, size, type, normalized, relativeoffset);
 	}
@@ -264,7 +263,7 @@ public class ARBVertexAttribBinding {
 	 */
 	public static void glVertexArrayVertexAttribIFormatEXT(int vaobj, int attribindex, int size, int type, int relativeoffset) {
 		long __functionAddress = getInstance().VertexArrayVertexAttribIFormatEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, vaobj, attribindex, size, type, relativeoffset);
 	}
@@ -282,7 +281,7 @@ public class ARBVertexAttribBinding {
 	 */
 	public static void glVertexArrayVertexAttribLFormatEXT(int vaobj, int attribindex, int size, int type, int relativeoffset) {
 		long __functionAddress = getInstance().VertexArrayVertexAttribLFormatEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, vaobj, attribindex, size, type, relativeoffset);
 	}
@@ -298,7 +297,7 @@ public class ARBVertexAttribBinding {
 	 */
 	public static void glVertexArrayVertexAttribBindingEXT(int vaobj, int attribindex, int bindingindex) {
 		long __functionAddress = getInstance().VertexArrayVertexAttribBindingEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, vaobj, attribindex, bindingindex);
 	}
@@ -314,7 +313,7 @@ public class ARBVertexAttribBinding {
 	 */
 	public static void glVertexArrayVertexBindingDivisorEXT(int vaobj, int bindingindex, int divisor) {
 		long __functionAddress = getInstance().VertexArrayVertexBindingDivisorEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, vaobj, bindingindex, divisor);
 	}

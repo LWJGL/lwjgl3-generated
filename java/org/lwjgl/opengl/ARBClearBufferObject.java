@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -161,7 +160,7 @@ public class ARBClearBufferObject {
 	@JavadocExclude
 	public static void nglClearNamedBufferDataEXT(int buffer, int internalformat, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearNamedBufferDataEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, buffer, internalformat, format, type, data);
 	}
@@ -202,7 +201,7 @@ public class ARBClearBufferObject {
 	@JavadocExclude
 	public static void nglClearNamedBufferSubDataEXT(int buffer, int internalformat, long offset, long size, int format, int type, long data) {
 		long __functionAddress = getInstance().ClearNamedBufferSubDataEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPPIIPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
 	}

@@ -5,10 +5,9 @@
  */
 package org.lwjgl.egl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -91,20 +90,20 @@ public class NVSync {
 	@JavadocExclude
 	public static long neglCreateFenceSyncNV(long dpy, int condition, long attrib_list) {
 		long __functionAddress = getInstance().CreateFenceSyncNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(dpy);
 		return callPIPP(__functionAddress, dpy, condition, attrib_list);
 	}
 
 	public static long eglCreateFenceSyncNV(long dpy, int condition, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT4(attrib_list, EGL10.EGL_NONE);
 		return neglCreateFenceSyncNV(dpy, condition, memAddress(attrib_list));
 	}
 
 	/** Alternative version of: {@link #eglCreateFenceSyncNV CreateFenceSyncNV} */
 	public static long eglCreateFenceSyncNV(long dpy, int condition, IntBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT(attrib_list, EGL10.EGL_NONE);
 		return neglCreateFenceSyncNV(dpy, condition, memAddress(attrib_list));
 	}
@@ -113,7 +112,7 @@ public class NVSync {
 
 	public static boolean eglDestroySyncNV(long sync) {
 		long __functionAddress = getInstance().DestroySyncNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(sync);
 		return callPZ(__functionAddress, sync);
 	}
@@ -122,7 +121,7 @@ public class NVSync {
 
 	public static boolean eglFenceNV(long sync) {
 		long __functionAddress = getInstance().FenceNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(sync);
 		return callPZ(__functionAddress, sync);
 	}
@@ -131,7 +130,7 @@ public class NVSync {
 
 	public static int eglClientWaitSyncNV(long sync, int flags, long timeout) {
 		long __functionAddress = getInstance().ClientWaitSyncNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(sync);
 		return callPIJI(__functionAddress, sync, flags, timeout);
 	}
@@ -140,7 +139,7 @@ public class NVSync {
 
 	public static boolean eglSignalSyncNV(long sync, int mode) {
 		long __functionAddress = getInstance().SignalSyncNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(sync);
 		return callPIZ(__functionAddress, sync, mode);
 	}
@@ -151,20 +150,20 @@ public class NVSync {
 	@JavadocExclude
 	public static boolean neglGetSyncAttribNV(long sync, int attribute, long value) {
 		long __functionAddress = getInstance().GetSyncAttribNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(sync);
 		return callPIPZ(__functionAddress, sync, attribute, value);
 	}
 
 	public static boolean eglGetSyncAttribNV(long sync, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		return neglGetSyncAttribNV(sync, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglGetSyncAttribNV GetSyncAttribNV} */
 	public static boolean eglGetSyncAttribNV(long sync, int attribute, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglGetSyncAttribNV(sync, attribute, memAddress(value));
 	}

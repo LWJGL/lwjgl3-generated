@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -147,7 +146,7 @@ public class ARBBufferStorage {
 	 *               <p>It is an error to specify {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
 	 */
 	public static void glBufferStorage(int target, long size, ByteBuffer data, int flags) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( data != null ) checkBuffer(data, size);
 		nglBufferStorage(target, size, memAddressSafe(data), flags);
 	}
@@ -188,7 +187,7 @@ public class ARBBufferStorage {
 	@JavadocExclude
 	public static void nglNamedBufferStorageEXT(int buffer, long size, long data, int flags) {
 		long __functionAddress = getInstance().NamedBufferStorageEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPPIV(__functionAddress, buffer, size, data, flags);
 	}
@@ -236,7 +235,7 @@ public class ARBBufferStorage {
 	 *               <p>It is an error to specify {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
 	 */
 	public static void glNamedBufferStorageEXT(int buffer, long size, ByteBuffer data, int flags) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( data != null ) checkBuffer(data, size);
 		nglNamedBufferStorageEXT(buffer, size, memAddressSafe(data), flags);
 	}

@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/sampler_objects.txt">ARB_sampler_objects</a> extension.
@@ -121,7 +120,7 @@ public class ARBSamplerObjects {
 	 * @param samplers a buffer in which the generated sampler object names are stored
 	 */
 	public static void glGenSamplers(int count, ByteBuffer samplers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(samplers, count << 2);
 		nglGenSamplers(count, memAddress(samplers));
 	}
@@ -155,7 +154,7 @@ public class ARBSamplerObjects {
 	 * @param samplers an array of sampler objects to be deleted
 	 */
 	public static void glDeleteSamplers(int count, ByteBuffer samplers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(samplers, count << 2);
 		nglDeleteSamplers(count, memAddress(samplers));
 	}
@@ -342,14 +341,14 @@ public class ARBSamplerObjects {
 	 * @param params  the sampler parameters
 	 */
 	public static void glGetSamplerParameteriv(int sampler, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetSamplerParameteriv(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetSamplerParameteriv GetSamplerParameteriv} */
 	public static void glGetSamplerParameteriv(int sampler, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameteriv(sampler, pname, memAddress(params));
 	}
@@ -379,14 +378,14 @@ public class ARBSamplerObjects {
 	 * @param params  the sampler parameters
 	 */
 	public static void glGetSamplerParameterfv(int sampler, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetSamplerParameterfv(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetSamplerParameterfv GetSamplerParameterfv} */
 	public static void glGetSamplerParameterfv(int sampler, int pname, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameterfv(sampler, pname, memAddress(params));
 	}
@@ -416,14 +415,14 @@ public class ARBSamplerObjects {
 	 * @param params  the sampler parameters
 	 */
 	public static void glGetSamplerParameterIiv(int sampler, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
 	public static void glGetSamplerParameterIiv(int sampler, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
@@ -453,14 +452,14 @@ public class ARBSamplerObjects {
 	 * @param params  the sampler parameters
 	 */
 	public static void glGetSamplerParameterIuiv(int sampler, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
 	public static void glGetSamplerParameterIuiv(int sampler, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}

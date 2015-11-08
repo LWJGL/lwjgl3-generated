@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -25,13 +24,13 @@ import static org.lwjgl.system.JNI.*;
  * </ul>
  * Some implementations may support KHR_blend_equation_advanced without supporting KHR_blend_equation_advanced_coherent.</p>
  * 
- * <p>In unextended OpenGL, the set of blending equations is limited, and can be expressed very simply. The {@link ARBImaging#GL_MIN MIN} and {@link ARBImaging#GL_MAX MAX} blend equations
- * simply compute component-wise minimums or maximums of source and destination color components. The {@link ARBImaging#GL_FUNC_ADD FUNC_ADD}, {@link ARBImaging#GL_FUNC_SUBTRACT FUNC_SUBTRACT}, and
- * {@link ARBImaging#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT} multiply the source and destination colors by source and destination factors and either add the two products together
+ * <p>In unextended OpenGL, the set of blending equations is limited, and can be expressed very simply. The {@link GLES30#GL_MIN MIN} and {@link GLES30#GL_MAX MAX} blend equations
+ * simply compute component-wise minimums or maximums of source and destination color components. The {@link GLES20#GL_FUNC_ADD FUNC_ADD}, {@link GLES20#GL_FUNC_SUBTRACT FUNC_SUBTRACT}, and
+ * {@link GLES20#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT} multiply the source and destination colors by source and destination factors and either add the two products together
  * or subtract one from the other. This limited set of operations supports many common blending operations but precludes the use of more sophisticated
  * transparency and blending operations commonly available in many dedicated imaging APIs.</p>
  * 
- * <p>This extension provides a number of new "advanced" blending equations. Unlike traditional blending operations using the {@link ARBImaging#GL_FUNC_ADD FUNC_ADD} equation,
+ * <p>This extension provides a number of new "advanced" blending equations. Unlike traditional blending operations using the {@link GLES20#GL_FUNC_ADD FUNC_ADD} equation,
  * these blending equations do not use source and destination factors specified by {@link GLES20#glBlendFunc BlendFunc}. Instead, each blend equation specifies a complete
  * equation based on the source and destination colors. These new blend equations are used for both RGB and alpha components; they may not be used to
  * perform separate RGB and alpha blending (via functions like {@link GLES20#glBlendEquationSeparate BlendEquationSeparate}).</p>
@@ -48,7 +47,7 @@ import static org.lwjgl.system.JNI.*;
  * 16-bit floating-point, which could result in a loss of precision and dynamic range for framebuffer formats with 32-bit floating-point components, and in
  * a loss of precision for formats with 12- and 16-bit signed or unsigned normalized integer components.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S} and {@link EXTBlendMinmax EXT_blend_minmax}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0} and {@link EXTBlendMinmax EXT_blend_minmax}.</p>
  */
 public class KHRBlendEquationAdvanced {
 
@@ -115,7 +114,7 @@ public class KHRBlendEquationAdvanced {
 	 * <p>When using advanced blending equations, applications should split their rendering into a collection of blending passes, none of which touch an
 	 * individual sample in the framebuffer more than once. The results of blending are undefined if the sample being blended has been touched previously in
 	 * the same pass. Any command that causes the value of a sample to be modified using the framebuffer is considered to touch the sample, including clears,
-	 * blended or unblended primitives, and {@link GLES20#glBlitFramebuffer BlitFramebuffer} copies.</p>
+	 * blended or unblended primitives, and {@link GLES30#glBlitFramebuffer BlitFramebuffer} copies.</p>
 	 */
 	public static void glBlendBarrierKHR() {
 		long __functionAddress = getInstance().BlendBarrierKHR;

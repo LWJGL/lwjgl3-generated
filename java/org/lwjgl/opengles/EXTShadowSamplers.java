@@ -11,7 +11,7 @@ package org.lwjgl.opengles;
  * <p>This extension supports comparing the texture R coordinate to a depth texture value returning the result as a float value in the range [0,1]. This can
  * be used to implement shadow maps.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public final class EXTShadowSamplers {
 

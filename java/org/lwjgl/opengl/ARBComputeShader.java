@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -154,7 +153,7 @@ public class ARBComputeShader {
 	 */
 	public static void glDispatchComputeIndirect(long indirect) {
 		long __functionAddress = getInstance().DispatchComputeIndirect;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL43.GL_DISPATCH_INDIRECT_BUFFER_BINDING, true);
 		callPV(__functionAddress, indirect);
 	}

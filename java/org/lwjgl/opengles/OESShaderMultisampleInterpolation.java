@@ -18,7 +18,7 @@ package org.lwjgl.opengles;
  * <p>This extension provides built-in fragment shader functions to provide fine-grained control over interpolation, including interpolating a fragment
  * shader input at a programmable offset relative to the pixel center, a specific sample number, or at the centroid.</p>
  * 
- * <p>Requires {@link GLES30 GLES E.S}.</p>
+ * <p>Requires {@link GLES30 GLES 3.0}.</p>
  */
 public final class OESShaderMultisampleInterpolation {
 

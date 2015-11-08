@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -125,7 +124,7 @@ public class ARBTextureStorageMultisample {
 	 */
 	public static void glTextureStorage2DMultisampleEXT(int texture, int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TextureStorage2DMultisampleEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIIZV(__functionAddress, texture, target, samples, internalformat, width, height, fixedsamplelocations);
 	}
@@ -147,7 +146,7 @@ public class ARBTextureStorageMultisample {
 	 */
 	public static void glTextureStorage3DMultisampleEXT(int texture, int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
 		long __functionAddress = getInstance().TextureStorage3DMultisampleEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIIIZV(__functionAddress, texture, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}

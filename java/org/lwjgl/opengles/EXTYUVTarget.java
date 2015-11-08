@@ -18,7 +18,7 @@ package org.lwjgl.opengles;
  * the texture has a target type of TEXTURE_EXTERNAL_OES with YUV color format then the GL driver can use this framebuffer object as the render target,
  * TEXTURE_EXTERNAL_OES target with RGB color format are not allowed with this extension.</p>
  * 
- * <p>Requires {@link GLES30 GLES E.S}.</p>
+ * <p>Requires {@link GLES30 GLES 3.0}.</p>
  */
 public final class EXTYUVTarget {
 

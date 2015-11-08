@@ -5,15 +5,14 @@
  */
 package org.lwjgl.openal;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://kcat.strangesoft.net/openal-extensions/SOFT_loopback.txt">SOFT_loopback</a> extension.
@@ -116,7 +115,7 @@ public class SOFTLoopback {
 	 *                   name returned by enumeration (and further must be a device capable of loopback rendering).
 	 */
 	public static long alcLoopbackOpenDeviceSOFT(ByteBuffer deviceName) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( deviceName != null ) checkNT1(deviceName);
 		return nalcLoopbackOpenDeviceSOFT(memAddressSafe(deviceName));
 	}
@@ -143,7 +142,7 @@ public class SOFTLoopback {
 	 */
 	public static boolean alcIsRenderFormatSupportedSOFT(long device, int frequency, int channels, int type) {
 		long __functionAddress = getInstance().IsRenderFormatSupportedSOFT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(device);
 		return invokePIIIZ(__functionAddress, device, frequency, channels, type);
 	}
@@ -154,7 +153,7 @@ public class SOFTLoopback {
 	@JavadocExclude
 	public static void nalcRenderSamplesSOFT(long device, long buffer, int samples) {
 		long __functionAddress = getInstance().RenderSamplesSOFT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(device);
 		invokePPIV(__functionAddress, device, buffer, samples);
 	}

@@ -5,15 +5,15 @@
  */
 package org.lwjgl.egl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/NV/EGL_NV_stream_consumer_gltexture_yuv.txt">NV_stream_consumer_gltexture_yuv</a> extension.
@@ -74,7 +74,7 @@ public class NVStreamConsumerGLTextureYUV {
 	@JavadocExclude
 	public static boolean neglStreamConsumerGLTextureExternalAttribsNV(long dpy, long stream, long attrib_list) {
 		long __functionAddress = getInstance().StreamConsumerGLTextureExternalAttribsNV;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}

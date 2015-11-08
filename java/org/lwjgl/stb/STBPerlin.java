@@ -5,7 +5,6 @@
  */
 package org.lwjgl.stb;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -17,7 +16,7 @@ import static org.lwjgl.system.Checks.*;
  */
 public class STBPerlin {
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected STBPerlin() {

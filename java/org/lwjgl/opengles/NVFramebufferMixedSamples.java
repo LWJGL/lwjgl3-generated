@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -128,7 +127,7 @@ public class NVFramebufferMixedSamples {
 	}
 
 	public static void glCoverageModulationTableNV(int n, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, n << 2);
 		nglCoverageModulationTableNV(n, memAddress(v));
 	}
@@ -148,7 +147,7 @@ public class NVFramebufferMixedSamples {
 	}
 
 	public static void glGetCoverageModulationTableNV(int bufsize, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, bufsize << 2);
 		nglGetCoverageModulationTableNV(bufsize, memAddress(v));
 	}

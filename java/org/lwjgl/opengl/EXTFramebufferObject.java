@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/framebuffer_object.txt">EXT_framebuffer_object</a> extension.
@@ -240,7 +239,7 @@ public class EXTFramebufferObject {
 	}
 
 	public static void glDeleteRenderbuffersEXT(int n, ByteBuffer renderbuffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(renderbuffers, n << 2);
 		nglDeleteRenderbuffersEXT(n, memAddress(renderbuffers));
 	}
@@ -267,7 +266,7 @@ public class EXTFramebufferObject {
 	}
 
 	public static void glGenRenderbuffersEXT(int n, ByteBuffer renderbuffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(renderbuffers, n << 2);
 		nglGenRenderbuffersEXT(n, memAddress(renderbuffers));
 	}
@@ -302,14 +301,14 @@ public class EXTFramebufferObject {
 	}
 
 	public static void glGetRenderbufferParameterivEXT(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetRenderbufferParameterivEXT(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetRenderbufferParameterivEXT GetRenderbufferParameterivEXT} */
 	public static void glGetRenderbufferParameterivEXT(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetRenderbufferParameterivEXT(target, pname, memAddress(params));
 	}
@@ -346,7 +345,7 @@ public class EXTFramebufferObject {
 	}
 
 	public static void glDeleteFramebuffersEXT(int n, ByteBuffer framebuffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(framebuffers, n << 2);
 		nglDeleteFramebuffersEXT(n, memAddress(framebuffers));
 	}
@@ -373,7 +372,7 @@ public class EXTFramebufferObject {
 	}
 
 	public static void glGenFramebuffersEXT(int n, ByteBuffer framebuffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(framebuffers, n << 2);
 		nglGenFramebuffersEXT(n, memAddress(framebuffers));
 	}
@@ -436,14 +435,14 @@ public class EXTFramebufferObject {
 	}
 
 	public static void glGetFramebufferAttachmentParameterivEXT(int target, int attachment, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetFramebufferAttachmentParameterivEXT(target, attachment, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetFramebufferAttachmentParameterivEXT GetFramebufferAttachmentParameterivEXT} */
 	public static void glGetFramebufferAttachmentParameterivEXT(int target, int attachment, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetFramebufferAttachmentParameterivEXT(target, attachment, pname, memAddress(params));
 	}

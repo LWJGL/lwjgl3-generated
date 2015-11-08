@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opengles;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/OES/OES_draw_elements_base_vertex.txt">OES_draw_elements_base_vertex</a> extension.
@@ -59,7 +59,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>With the new drawing commands introduced by this extension you can instead draw using vertices2 and the new draw call:
  * <pre><code style="font-family: monospace">
  * 		DrawElementsBaseVertexOES(TRIANGLES, 6, UNSIGNED_BYTE, &indices, 100)</code></pre>
- * Requires {@link GLES20 GLES E.S}.</p>
+ * Requires {@link GLES20 GLES 2.0}.</p>
  */
 public class OESDrawElementsBaseVertex {
 
@@ -119,33 +119,45 @@ public class OESDrawElementsBaseVertex {
 	}
 
 	public static void glDrawElementsBaseVertexOES(int mode, int count, int type, ByteBuffer indices, int basevertex) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS ) {
 			checkBuffer(indices, count << GLESChecks.typeToByteShift(type));
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
+		}
 		nglDrawElementsBaseVertexOES(mode, count, type, memAddress(indices), basevertex);
 	}
 
 	/** Buffer object offset version of: {@link #glDrawElementsBaseVertexOES DrawElementsBaseVertexOES} */
 	public static void glDrawElementsBaseVertexOES(int mode, int count, int type, long indicesOffset, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElementsBaseVertexOES(mode, count, type, indicesOffset, basevertex);
 	}
 
 	/** Alternative version of: {@link #glDrawElementsBaseVertexOES DrawElementsBaseVertexOES} */
 	public static void glDrawElementsBaseVertexOES(int mode, int type, ByteBuffer indices, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertexOES(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsBaseVertexOES DrawElementsBaseVertexOES} */
 	public static void glDrawElementsBaseVertexOES(int mode, ByteBuffer indices, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertexOES(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
 	}
 
 	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsBaseVertexOES DrawElementsBaseVertexOES} */
 	public static void glDrawElementsBaseVertexOES(int mode, ShortBuffer indices, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertexOES(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
 	}
 
 	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsBaseVertexOES DrawElementsBaseVertexOES} */
 	public static void glDrawElementsBaseVertexOES(int mode, IntBuffer indices, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertexOES(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), basevertex);
 	}
 
@@ -155,39 +167,51 @@ public class OESDrawElementsBaseVertex {
 	@JavadocExclude
 	public static void nglDrawRangeElementsBaseVertexOES(int mode, int start, int end, int count, int type, long indices, int basevertex) {
 		long __functionAddress = getInstance().DrawRangeElementsBaseVertexOES;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIPIV(__functionAddress, mode, start, end, count, type, indices, basevertex);
 	}
 
 	public static void glDrawRangeElementsBaseVertexOES(int mode, int start, int end, int count, int type, ByteBuffer indices, int basevertex) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS ) {
 			checkBuffer(indices, count << GLESChecks.typeToByteShift(type));
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
+		}
 		nglDrawRangeElementsBaseVertexOES(mode, start, end, count, type, memAddress(indices), basevertex);
 	}
 
 	/** Buffer object offset version of: {@link #glDrawRangeElementsBaseVertexOES DrawRangeElementsBaseVertexOES} */
 	public static void glDrawRangeElementsBaseVertexOES(int mode, int start, int end, int count, int type, long indicesOffset, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawRangeElementsBaseVertexOES(mode, start, end, count, type, indicesOffset, basevertex);
 	}
 
 	/** Alternative version of: {@link #glDrawRangeElementsBaseVertexOES DrawRangeElementsBaseVertexOES} */
 	public static void glDrawRangeElementsBaseVertexOES(int mode, int start, int end, int type, ByteBuffer indices, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertexOES(mode, start, end, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawRangeElementsBaseVertexOES DrawRangeElementsBaseVertexOES} */
 	public static void glDrawRangeElementsBaseVertexOES(int mode, int start, int end, ByteBuffer indices, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertexOES(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
 	}
 
 	/** GL_UNSIGNED_SHORT version of: {@link #glDrawRangeElementsBaseVertexOES DrawRangeElementsBaseVertexOES} */
 	public static void glDrawRangeElementsBaseVertexOES(int mode, int start, int end, ShortBuffer indices, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertexOES(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
 	}
 
 	/** GL_UNSIGNED_INT version of: {@link #glDrawRangeElementsBaseVertexOES DrawRangeElementsBaseVertexOES} */
 	public static void glDrawRangeElementsBaseVertexOES(int mode, int start, int end, IntBuffer indices, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertexOES(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), basevertex);
 	}
 
@@ -197,39 +221,51 @@ public class OESDrawElementsBaseVertex {
 	@JavadocExclude
 	public static void nglDrawElementsInstancedBaseVertexOES(int mode, int count, int type, long indices, int instancecount, int basevertex) {
 		long __functionAddress = getInstance().DrawElementsInstancedBaseVertexOES;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPIIV(__functionAddress, mode, count, type, indices, instancecount, basevertex);
 	}
 
 	public static void glDrawElementsInstancedBaseVertexOES(int mode, int count, int type, ByteBuffer indices, int instancecount, int basevertex) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS ) {
 			checkBuffer(indices, count << GLESChecks.typeToByteShift(type));
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
+		}
 		nglDrawElementsInstancedBaseVertexOES(mode, count, type, memAddress(indices), instancecount, basevertex);
 	}
 
 	/** Buffer object offset version of: {@link #glDrawElementsInstancedBaseVertexOES DrawElementsInstancedBaseVertexOES} */
 	public static void glDrawElementsInstancedBaseVertexOES(int mode, int count, int type, long indicesOffset, int instancecount, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElementsInstancedBaseVertexOES(mode, count, type, indicesOffset, instancecount, basevertex);
 	}
 
 	/** Alternative version of: {@link #glDrawElementsInstancedBaseVertexOES DrawElementsInstancedBaseVertexOES} */
 	public static void glDrawElementsInstancedBaseVertexOES(int mode, int type, ByteBuffer indices, int instancecount, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertexOES(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), instancecount, basevertex);
 	}
 
 	/** GL_UNSIGNED_BYTE version of: {@link #glDrawElementsInstancedBaseVertexOES DrawElementsInstancedBaseVertexOES} */
 	public static void glDrawElementsInstancedBaseVertexOES(int mode, ByteBuffer indices, int instancecount, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertexOES(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), instancecount, basevertex);
 	}
 
 	/** GL_UNSIGNED_SHORT version of: {@link #glDrawElementsInstancedBaseVertexOES DrawElementsInstancedBaseVertexOES} */
 	public static void glDrawElementsInstancedBaseVertexOES(int mode, ShortBuffer indices, int instancecount, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertexOES(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), instancecount, basevertex);
 	}
 
 	/** GL_UNSIGNED_INT version of: {@link #glDrawElementsInstancedBaseVertexOES DrawElementsInstancedBaseVertexOES} */
 	public static void glDrawElementsInstancedBaseVertexOES(int mode, IntBuffer indices, int instancecount, int basevertex) {
+		if ( CHECKS )
+			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertexOES(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), instancecount, basevertex);
 	}
 
@@ -239,13 +275,13 @@ public class OESDrawElementsBaseVertex {
 	@JavadocExclude
 	public static void nglMultiDrawElementsBaseVertexOES(int mode, long count, int type, long indices, int primcount, long basevertex) {
 		long __functionAddress = getInstance().MultiDrawElementsBaseVertexOES;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPIPIPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
 	}
 
 	public static void glMultiDrawElementsBaseVertexOES(int mode, ByteBuffer count, int type, ByteBuffer indices, int primcount, ByteBuffer basevertex) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(count, primcount << 2);
 			checkBuffer(indices, primcount << POINTER_SHIFT);
 			checkBuffer(basevertex, primcount << 2);
@@ -255,7 +291,7 @@ public class OESDrawElementsBaseVertex {
 
 	/** Alternative version of: {@link #glMultiDrawElementsBaseVertexOES MultiDrawElementsBaseVertexOES} */
 	public static void glMultiDrawElementsBaseVertexOES(int mode, IntBuffer count, int type, PointerBuffer indices, IntBuffer basevertex) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(indices, count.remaining());
 			checkBuffer(basevertex, count.remaining());
 		}

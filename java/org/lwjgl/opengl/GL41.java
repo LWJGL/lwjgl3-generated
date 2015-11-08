@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * The core OpenGL 4.1 functionality. OpenGL 4.1 implementations support revision 4.10 of the OpenGL Shading Language.
@@ -359,7 +359,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param length       the length of the array whose address is given in binary
 	 */
 	public static void glShaderBinary(int count, ByteBuffer shaders, int binaryformat, ByteBuffer binary, int length) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(shaders, count << 2);
 			checkBuffer(binary, length);
 		}
@@ -391,7 +391,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param precision     the address of an integer into which the numeric precision of the implementation is written
 	 */
 	public static void glGetShaderPrecisionFormat(int shadertype, int precisiontype, ByteBuffer range, ByteBuffer precision) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(range, 2 << 2);
 			checkBuffer(precision, 1 << 2);
 		}
@@ -400,7 +400,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 
 	/** Alternative version of: {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat} */
 	public static void glGetShaderPrecisionFormat(int shadertype, int precisiontype, IntBuffer range, IntBuffer precision) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(range, 2);
 			checkBuffer(precision, 1);
 		}
@@ -409,7 +409,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 
 	/** Single return value version of: {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat} */
 	public static int glGetShaderPrecisionFormat(int shadertype, int precisiontype, IntBuffer range) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(range, 2);
 		APIBuffer __buffer = apiBuffer();
 		int precision = __buffer.intParam();
@@ -467,7 +467,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param binary       an array into which the GL will return {@code program}'s binary representation
 	 */
 	public static void glGetProgramBinary(int program, int bufSize, ByteBuffer length, ByteBuffer binaryFormat, ByteBuffer binary) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(binary, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 			checkBuffer(binaryFormat, 1 << 2);
@@ -477,7 +477,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 
 	/** Alternative version of: {@link #glGetProgramBinary GetProgramBinary} */
 	public static void glGetProgramBinary(int program, IntBuffer length, IntBuffer binaryFormat, ByteBuffer binary) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( length != null ) checkBuffer(length, 1);
 			checkBuffer(binaryFormat, 1);
 		}
@@ -486,7 +486,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 
 	/** Buffer return version of: {@link #glGetProgramBinary GetProgramBinary} */
 	public static ByteBuffer glGetProgramBinary(int program, int bufSize, IntBuffer binaryFormat) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(binaryFormat, 1);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
@@ -499,7 +499,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	/** Buffer return (w/ implicit max length) version of: {@link #glGetProgramBinary GetProgramBinary} */
 	public static ByteBuffer glGetProgramBinary(int program, IntBuffer binaryFormat) {
 		int bufSize = GL20.glGetProgrami(program, GL_PROGRAM_BINARY_LENGTH);
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(binaryFormat, 1);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
@@ -529,7 +529,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param length       the number of bytes contained in {@code binary}
 	 */
 	public static void glProgramBinary(int program, int binaryFormat, ByteBuffer binary, int length) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(binary, length);
 		nglProgramBinary(program, binaryFormat, memAddress(binary), length);
 	}
@@ -630,7 +630,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param strings an array of pointers to source code strings from which to create the program object
 	 */
 	public static int glCreateShaderProgramv(int type, int count, ByteBuffer strings) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(strings, count << POINTER_SHIFT);
 		return nglCreateShaderProgramv(type, count, memAddress(strings));
 	}
@@ -694,7 +694,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param pipelines an array of names of program pipeline objects to delete
 	 */
 	public static void glDeleteProgramPipelines(int n, ByteBuffer pipelines) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(pipelines, n << 2);
 		nglDeleteProgramPipelines(n, memAddress(pipelines));
 	}
@@ -729,7 +729,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param pipelines an array of into which the reserved names will be written
 	 */
 	public static void glGenProgramPipelines(int n, ByteBuffer pipelines) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(pipelines, n << 2);
 		nglGenProgramPipelines(n, memAddress(pipelines));
 	}
@@ -780,14 +780,14 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param params   a variable into which will be written the value or values of {@code pname} for {@code pipeline}
 	 */
 	public static void glGetProgramPipelineiv(int pipeline, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetProgramPipelineiv(pipeline, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetProgramPipelineiv GetProgramPipelineiv} */
 	public static void glGetProgramPipelineiv(int pipeline, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetProgramPipelineiv(pipeline, pname, memAddress(params));
 	}
@@ -1100,7 +1100,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform1iv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 2);
 		nglProgramUniform1iv(program, location, count, memAddress(value));
 	}
@@ -1130,7 +1130,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform2iv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglProgramUniform2iv(program, location, count, memAddress(value));
 	}
@@ -1160,7 +1160,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform3iv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 9) << 2);
 		nglProgramUniform3iv(program, location, count, memAddress(value));
 	}
@@ -1190,7 +1190,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform4iv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniform4iv(program, location, count, memAddress(value));
 	}
@@ -1220,7 +1220,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform1uiv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 2);
 		nglProgramUniform1uiv(program, location, count, memAddress(value));
 	}
@@ -1250,7 +1250,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform2uiv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglProgramUniform2uiv(program, location, count, memAddress(value));
 	}
@@ -1280,7 +1280,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform3uiv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 9) << 2);
 		nglProgramUniform3uiv(program, location, count, memAddress(value));
 	}
@@ -1310,7 +1310,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform4uiv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniform4uiv(program, location, count, memAddress(value));
 	}
@@ -1340,7 +1340,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform1fv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 2);
 		nglProgramUniform1fv(program, location, count, memAddress(value));
 	}
@@ -1370,7 +1370,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform2fv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglProgramUniform2fv(program, location, count, memAddress(value));
 	}
@@ -1400,7 +1400,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform3fv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 9) << 2);
 		nglProgramUniform3fv(program, location, count, memAddress(value));
 	}
@@ -1430,7 +1430,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform4fv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniform4fv(program, location, count, memAddress(value));
 	}
@@ -1460,7 +1460,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform1dv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 3);
 		nglProgramUniform1dv(program, location, count, memAddress(value));
 	}
@@ -1490,7 +1490,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform2dv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 3);
 		nglProgramUniform2dv(program, location, count, memAddress(value));
 	}
@@ -1520,7 +1520,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform3dv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 9) << 3);
 		nglProgramUniform3dv(program, location, count, memAddress(value));
 	}
@@ -1550,7 +1550,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform4dv(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglProgramUniform4dv(program, location, count, memAddress(value));
 	}
@@ -1581,7 +1581,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix2fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniformMatrix2fv(program, location, count, transpose, memAddress(value));
 	}
@@ -1612,7 +1612,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix3fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 9) << 2);
 		nglProgramUniformMatrix3fv(program, location, count, transpose, memAddress(value));
 	}
@@ -1643,7 +1643,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix4fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 4) << 2);
 		nglProgramUniformMatrix4fv(program, location, count, transpose, memAddress(value));
 	}
@@ -1674,7 +1674,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix2dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglProgramUniformMatrix2dv(program, location, count, transpose, memAddress(value));
 	}
@@ -1705,7 +1705,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix3dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 9) << 3);
 		nglProgramUniformMatrix3dv(program, location, count, transpose, memAddress(value));
 	}
@@ -1736,7 +1736,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix4dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 4) << 3);
 		nglProgramUniformMatrix4dv(program, location, count, transpose, memAddress(value));
 	}
@@ -1767,7 +1767,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix2x3fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 6) << 2);
 		nglProgramUniformMatrix2x3fv(program, location, count, transpose, memAddress(value));
 	}
@@ -1798,7 +1798,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix3x2fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 6) << 2);
 		nglProgramUniformMatrix3x2fv(program, location, count, transpose, memAddress(value));
 	}
@@ -1829,7 +1829,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix2x4fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 3) << 2);
 		nglProgramUniformMatrix2x4fv(program, location, count, transpose, memAddress(value));
 	}
@@ -1860,7 +1860,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix4x2fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 3) << 2);
 		nglProgramUniformMatrix4x2fv(program, location, count, transpose, memAddress(value));
 	}
@@ -1891,7 +1891,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix3x4fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 12) << 2);
 		nglProgramUniformMatrix3x4fv(program, location, count, transpose, memAddress(value));
 	}
@@ -1922,7 +1922,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix4x3fv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 12) << 2);
 		nglProgramUniformMatrix4x3fv(program, location, count, transpose, memAddress(value));
 	}
@@ -1953,7 +1953,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix2x3dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 6) << 3);
 		nglProgramUniformMatrix2x3dv(program, location, count, transpose, memAddress(value));
 	}
@@ -1984,7 +1984,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix3x2dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 6) << 3);
 		nglProgramUniformMatrix3x2dv(program, location, count, transpose, memAddress(value));
 	}
@@ -2015,7 +2015,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix2x4dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 3) << 3);
 		nglProgramUniformMatrix2x4dv(program, location, count, transpose, memAddress(value));
 	}
@@ -2046,7 +2046,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix4x2dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 3) << 3);
 		nglProgramUniformMatrix4x2dv(program, location, count, transpose, memAddress(value));
 	}
@@ -2077,7 +2077,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix3x4dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 12) << 3);
 		nglProgramUniformMatrix3x4dv(program, location, count, transpose, memAddress(value));
 	}
@@ -2108,7 +2108,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix4x3dv(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 12) << 3);
 		nglProgramUniformMatrix4x3dv(program, location, count, transpose, memAddress(value));
 	}
@@ -2152,7 +2152,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param infoLog  an array of characters into which will be written the info log for {@code pipeline}
 	 */
 	public static void glGetProgramPipelineInfoLog(int pipeline, int bufSize, ByteBuffer length, ByteBuffer infoLog) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(infoLog, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -2161,7 +2161,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 
 	/** Alternative version of: {@link #glGetProgramPipelineInfoLog GetProgramPipelineInfoLog} */
 	public static void glGetProgramPipelineInfoLog(int pipeline, IntBuffer length, ByteBuffer infoLog) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetProgramPipelineInfoLog(pipeline, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
 	}
@@ -2269,14 +2269,14 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttribL1dv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1 << 3);
 		nglVertexAttribL1dv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL1dv VertexAttribL1dv} */
 	public static void glVertexAttribL1dv(int index, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 1);
 		nglVertexAttribL1dv(index, memAddress(v));
 	}
@@ -2299,14 +2299,14 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttribL2dv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2 << 3);
 		nglVertexAttribL2dv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL2dv VertexAttribL2dv} */
 	public static void glVertexAttribL2dv(int index, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 2);
 		nglVertexAttribL2dv(index, memAddress(v));
 	}
@@ -2329,14 +2329,14 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttribL3dv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglVertexAttribL3dv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL3dv VertexAttribL3dv} */
 	public static void glVertexAttribL3dv(int index, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglVertexAttribL3dv(index, memAddress(v));
 	}
@@ -2359,14 +2359,14 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttribL4dv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 3);
 		nglVertexAttribL4dv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribL4dv VertexAttribL4dv} */
 	public static void glVertexAttribL4dv(int index, DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglVertexAttribL4dv(index, memAddress(v));
 	}
@@ -2394,21 +2394,21 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
 	 */
 	public static void glVertexAttribLPointer(int index, int size, int type, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribLPointer(index, size, type, stride, memAddress(pointer));
 	}
 
 	/** Buffer object offset version of: {@link #glVertexAttribLPointer VertexAttribLPointer} */
 	public static void glVertexAttribLPointer(int index, int size, int type, int stride, long pointerOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglVertexAttribLPointer(index, size, type, stride, pointerOffset);
 	}
 
 	/** GL_DOUBLE version of: {@link #glVertexAttribLPointer VertexAttribLPointer} */
 	public static void glVertexAttribLPointer(int index, int size, int stride, DoubleBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribLPointer(index, size, GL11.GL_DOUBLE, stride, memAddress(pointer));
 	}
@@ -2459,7 +2459,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param v     an array containing the viewport parameters
 	 */
 	public static void glViewportArrayv(int first, int count, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, (count << 2) << 2);
 		nglViewportArrayv(first, count, memAddress(v));
 	}
@@ -2505,14 +2505,14 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param v     the viewport parameters
 	 */
 	public static void glViewportIndexedfv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglViewportIndexedfv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glViewportIndexedfv ViewportIndexedfv} */
 	public static void glViewportIndexedfv(int index, FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglViewportIndexedfv(index, memAddress(v));
 	}
@@ -2536,7 +2536,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param v     an array containing the left, bottom, width and height of each scissor box, in that order
 	 */
 	public static void glScissorArrayv(int first, int count, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, (count << 2) << 2);
 		nglScissorArrayv(first, count, memAddress(v));
 	}
@@ -2582,14 +2582,14 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param v     an array containing the left, bottom, width and height of each scissor box, in that order
 	 */
 	public static void glScissorIndexedv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglScissorIndexedv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glScissorIndexedv ScissorIndexedv} */
 	public static void glScissorIndexedv(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglScissorIndexedv(index, memAddress(v));
 	}
@@ -2613,7 +2613,7 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param v     n array containing the near and far values for the depth range of each modified viewport
 	 */
 	public static void glDepthRangeArrayv(int first, int count, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, (count << 1) << 3);
 		nglDepthRangeArrayv(first, count, memAddress(v));
 	}
@@ -2658,14 +2658,14 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param data   a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetFloati_v(int target, int index, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1 << 2);
 		nglGetFloati_v(target, index, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetFloati_v GetFloati_v} */
 	public static void glGetFloati_v(int target, int index, FloatBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1);
 		nglGetFloati_v(target, index, memAddress(data));
 	}
@@ -2697,14 +2697,14 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * @param data   a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetDoublei_v(int target, int index, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1 << 3);
 		nglGetDoublei_v(target, index, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetDoublei_v GetDoublei_v} */
 	public static void glGetDoublei_v(int target, int index, DoubleBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1);
 		nglGetDoublei_v(target, index, memAddress(data));
 	}

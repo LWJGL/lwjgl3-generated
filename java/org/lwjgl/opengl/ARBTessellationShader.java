@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -183,16 +182,16 @@ public class ARBTessellationShader {
 	 * @param values an array containing the new values for the parameter given by {@code pname}
 	 */
 	public static void glPatchParameterfv(int pname, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
-			if ( LWJGLUtil.DEBUG )
+		if ( CHECKS )
+			if ( DEBUG )
 				checkBuffer(values, GL11.glGetInteger(GL_PATCH_VERTICES) << 2);
 		nglPatchParameterfv(pname, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #glPatchParameterfv PatchParameterfv} */
 	public static void glPatchParameterfv(int pname, FloatBuffer values) {
-		if ( LWJGLUtil.CHECKS )
-			if ( LWJGLUtil.DEBUG )
+		if ( CHECKS )
+			if ( DEBUG )
 				checkBuffer(values, GL11.glGetInteger(GL_PATCH_VERTICES));
 		nglPatchParameterfv(pname, memAddress(values));
 	}

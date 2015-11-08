@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/vertex_array_object.txt">ARB_vertex_array_object</a> extension.
@@ -105,7 +104,7 @@ public class ARBVertexArrayObject {
 	 * @param arrays an array containing the n names of the objects to be deleted
 	 */
 	public static void glDeleteVertexArrays(int n, ByteBuffer arrays) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(arrays, n << 2);
 		nglDeleteVertexArrays(n, memAddress(arrays));
 	}
@@ -138,7 +137,7 @@ public class ARBVertexArrayObject {
 	 * @param arrays a buffer in which the generated vertex array object names are stored
 	 */
 	public static void glGenVertexArrays(int n, ByteBuffer arrays) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(arrays, n << 2);
 		nglGenVertexArrays(n, memAddress(arrays));
 	}

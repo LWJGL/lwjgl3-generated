@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_texture_border_clamp.txt">EXT_texture_border_clamp</a> extension.
@@ -26,7 +25,7 @@ import static org.lwjgl.system.APIUtil.*;
  * and LINEAR filters of clamped coordinates return only the constant border color. This does not add the ability for textures to specify borders using
  * glTexImage2D, but only to clamp to a constant border value set using glTexParameter and glSamplerParameter.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public class EXTTextureBorderClamp {
 
@@ -109,14 +108,14 @@ public class EXTTextureBorderClamp {
 	}
 
 	public static void glTexParameterIivEXT(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglTexParameterIivEXT(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glTexParameterIivEXT TexParameterIivEXT} */
 	public static void glTexParameterIivEXT(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglTexParameterIivEXT(target, pname, memAddress(params));
 	}
@@ -131,14 +130,14 @@ public class EXTTextureBorderClamp {
 	}
 
 	public static void glTexParameterIuivEXT(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglTexParameterIuivEXT(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
 	public static void glTexParameterIuivEXT(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglTexParameterIuivEXT(target, pname, memAddress(params));
 	}
@@ -153,14 +152,14 @@ public class EXTTextureBorderClamp {
 	}
 
 	public static void glGetTexParameterIivEXT(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTexParameterIivEXT(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
 	public static void glGetTexParameterIivEXT(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterIivEXT(target, pname, memAddress(params));
 	}
@@ -183,14 +182,14 @@ public class EXTTextureBorderClamp {
 	}
 
 	public static void glGetTexParameterIuivEXT(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTexParameterIuivEXT(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
 	public static void glGetTexParameterIuivEXT(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterIuivEXT(target, pname, memAddress(params));
 	}
@@ -213,14 +212,14 @@ public class EXTTextureBorderClamp {
 	}
 
 	public static void glSamplerParameterIivEXT(int sampler, int pname, ByteBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1 << 2);
 		nglSamplerParameterIivEXT(sampler, pname, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glSamplerParameterIivEXT SamplerParameterIivEXT} */
 	public static void glSamplerParameterIivEXT(int sampler, int pname, IntBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1);
 		nglSamplerParameterIivEXT(sampler, pname, memAddress(param));
 	}
@@ -235,14 +234,14 @@ public class EXTTextureBorderClamp {
 	}
 
 	public static void glSamplerParameterIuivEXT(int sampler, int pname, ByteBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1 << 2);
 		nglSamplerParameterIuivEXT(sampler, pname, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glSamplerParameterIuivEXT SamplerParameterIuivEXT} */
 	public static void glSamplerParameterIuivEXT(int sampler, int pname, IntBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1);
 		nglSamplerParameterIuivEXT(sampler, pname, memAddress(param));
 	}
@@ -257,14 +256,14 @@ public class EXTTextureBorderClamp {
 	}
 
 	public static void glGetSamplerParameterIivEXT(int sampler, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetSamplerParameterIivEXT(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetSamplerParameterIivEXT GetSamplerParameterIivEXT} */
 	public static void glGetSamplerParameterIivEXT(int sampler, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameterIivEXT(sampler, pname, memAddress(params));
 	}
@@ -287,14 +286,14 @@ public class EXTTextureBorderClamp {
 	}
 
 	public static void glGetSamplerParameterIuivEXT(int sampler, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetSamplerParameterIuivEXT(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetSamplerParameterIuivEXT GetSamplerParameterIuivEXT} */
 	public static void glGetSamplerParameterIuivEXT(int sampler, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameterIuivEXT(sampler, pname, memAddress(params));
 	}

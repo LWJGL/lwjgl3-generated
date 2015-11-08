@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/viewport_array.txt">ARB_viewport_array</a> extension.
@@ -121,7 +120,7 @@ public class ARBViewportArray {
 	 * @param v     an array containing the viewport parameters
 	 */
 	public static void glViewportArrayv(int first, int count, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, (count << 2) << 2);
 		nglViewportArrayv(first, count, memAddress(v));
 	}
@@ -163,14 +162,14 @@ public class ARBViewportArray {
 	 * @param v     the viewport parameters
 	 */
 	public static void glViewportIndexedfv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglViewportIndexedfv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glViewportIndexedfv ViewportIndexedfv} */
 	public static void glViewportIndexedfv(int index, FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglViewportIndexedfv(index, memAddress(v));
 	}
@@ -192,7 +191,7 @@ public class ARBViewportArray {
 	 * @param v     an array containing the left, bottom, width and height of each scissor box, in that order
 	 */
 	public static void glScissorArrayv(int first, int count, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, (count << 2) << 2);
 		nglScissorArrayv(first, count, memAddress(v));
 	}
@@ -234,14 +233,14 @@ public class ARBViewportArray {
 	 * @param v     an array containing the left, bottom, width and height of each scissor box, in that order
 	 */
 	public static void glScissorIndexedv(int index, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4 << 2);
 		nglScissorIndexedv(index, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glScissorIndexedv ScissorIndexedv} */
 	public static void glScissorIndexedv(int index, IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglScissorIndexedv(index, memAddress(v));
 	}
@@ -263,7 +262,7 @@ public class ARBViewportArray {
 	 * @param v     n array containing the near and far values for the depth range of each modified viewport
 	 */
 	public static void glDepthRangeArrayv(int first, int count, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, (count << 1) << 3);
 		nglDepthRangeArrayv(first, count, memAddress(v));
 	}
@@ -304,14 +303,14 @@ public class ARBViewportArray {
 	 * @param data   a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetFloati_v(int target, int index, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1 << 2);
 		nglGetFloati_v(target, index, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetFloati_v GetFloati_v} */
 	public static void glGetFloati_v(int target, int index, FloatBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1);
 		nglGetFloati_v(target, index, memAddress(data));
 	}
@@ -341,14 +340,14 @@ public class ARBViewportArray {
 	 * @param data   a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetDoublei_v(int target, int index, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1 << 3);
 		nglGetDoublei_v(target, index, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #glGetDoublei_v GetDoublei_v} */
 	public static void glGetDoublei_v(int target, int index, DoubleBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 1);
 		nglGetDoublei_v(target, index, memAddress(data));
 	}

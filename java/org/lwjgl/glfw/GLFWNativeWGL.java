@@ -5,7 +5,6 @@
  */
 package org.lwjgl.glfw;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -30,9 +29,16 @@ public class GLFWNativeWGL {
 
 	// --- [ Function Addresses ] ---
 
+	private static final GLFWNativeWGL instance = new GLFWNativeWGL(getLibrary());
+
+	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
+	public static SharedLibrary getLibrary() {
+		return GLFW.getLibrary();
+	}
+
 	/** Returns the {@link GLFWNativeWGL} instance. */
 	public static GLFWNativeWGL getInstance() {
-		return checkFunctionality(LibGLFW.__GLFWNativeWGL);
+		return instance;
 	}
 
 	// --- [ glfwGetWGLContext ] ---
@@ -50,7 +56,7 @@ public class GLFWNativeWGL {
 	 */
 	public static long glfwGetWGLContext(long window) {
 		long __functionAddress = getInstance().GetWGLContext;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return invokePP(__functionAddress, window);
 	}

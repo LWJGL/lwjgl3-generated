@@ -5,15 +5,14 @@
  */
 package org.lwjgl.openal;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to ALC 1.0 functionality. */
 public class ALC10 {
@@ -139,7 +138,7 @@ public class ALC10 {
 	 * @param deviceSpecifier the requested device or device configuration
 	 */
 	public static long alcOpenDevice(ByteBuffer deviceSpecifier) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( deviceSpecifier != null ) checkNT1(deviceSpecifier);
 		return nalcOpenDevice(memAddressSafe(deviceSpecifier));
 	}
@@ -163,7 +162,7 @@ public class ALC10 {
 	 */
 	public static boolean alcCloseDevice(long deviceHandle) {
 		long __functionAddress = getInstance().CloseDevice;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(deviceHandle);
 		return invokePZ(__functionAddress, deviceHandle);
 	}
@@ -174,7 +173,7 @@ public class ALC10 {
 	@JavadocExclude
 	public static long nalcCreateContext(long deviceHandle, long attrList) {
 		long __functionAddress = getInstance().CreateContext;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(deviceHandle);
 		return invokePPP(__functionAddress, deviceHandle, attrList);
 	}
@@ -186,14 +185,14 @@ public class ALC10 {
 	 * @param attrList     null or a zero terminated list of integer pairs composed of valid ALC attribute tokens and requested values. One of:<br>{@link #ALC_FREQUENCY FREQUENCY}, {@link #ALC_REFRESH REFRESH}, {@link #ALC_SYNC SYNC}, {@link ALC11#ALC_MONO_SOURCES MONO_SOURCES}, {@link ALC11#ALC_STEREO_SOURCES STEREO_SOURCES}
 	 */
 	public static long alcCreateContext(long deviceHandle, ByteBuffer attrList) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrList != null ) checkNT4(attrList);
 		return nalcCreateContext(deviceHandle, memAddressSafe(attrList));
 	}
 
 	/** Alternative version of: {@link #alcCreateContext CreateContext} */
 	public static long alcCreateContext(long deviceHandle, IntBuffer attrList) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrList != null ) checkNT(attrList);
 		return nalcCreateContext(deviceHandle, memAddressSafe(attrList));
 	}
@@ -230,7 +229,7 @@ public class ALC10 {
 	 */
 	public static void alcProcessContext(long context) {
 		long __functionAddress = getInstance().ProcessContext;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(context);
 		invokePV(__functionAddress, context);
 	}
@@ -247,7 +246,7 @@ public class ALC10 {
 	 */
 	public static void alcSuspendContext(long context) {
 		long __functionAddress = getInstance().SuspendContext;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(context);
 		invokePV(__functionAddress, context);
 	}
@@ -265,7 +264,7 @@ public class ALC10 {
 	 */
 	public static void alcDestroyContext(long context) {
 		long __functionAddress = getInstance().DestroyContext;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(context);
 		invokePV(__functionAddress, context);
 	}
@@ -287,7 +286,7 @@ public class ALC10 {
 	 */
 	public static long alcGetContextsDevice(long context) {
 		long __functionAddress = getInstance().GetContextsDevice;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(context);
 		return invokePP(__functionAddress, context);
 	}
@@ -311,7 +310,7 @@ public class ALC10 {
 	 * @param extName      the extension name
 	 */
 	public static boolean alcIsExtensionPresent(long deviceHandle, ByteBuffer extName) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(extName);
 		return nalcIsExtensionPresent(deviceHandle, memAddress(extName));
 	}
@@ -345,7 +344,7 @@ public class ALC10 {
 	 * @param funcName     the function name
 	 */
 	public static long alcGetProcAddress(long deviceHandle, ByteBuffer funcName) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(funcName);
 		return nalcGetProcAddress(deviceHandle, memAddress(funcName));
 	}
@@ -376,7 +375,7 @@ public class ALC10 {
 	 * @param enumName     the enum name
 	 */
 	public static int alcGetEnumValue(long deviceHandle, ByteBuffer enumName) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(enumName);
 		return nalcGetEnumValue(deviceHandle, memAddress(enumName));
 	}
@@ -402,7 +401,7 @@ public class ALC10 {
 	 */
 	public static int alcGetError(long deviceHandle) {
 		long __functionAddress = getInstance().GetError;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(deviceHandle);
 		return invokePI(__functionAddress, deviceHandle);
 	}
@@ -447,7 +446,7 @@ public class ALC10 {
 	 * @param dest         the destination buffer
 	 */
 	public static void alcGetIntegerv(long deviceHandle, int token, int size, ByteBuffer dest) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(dest, size << 2);
 		nalcGetIntegerv(deviceHandle, token, size, memAddress(dest));
 	}

@@ -5,7 +5,6 @@
  */
 package org.lwjgl.glfw;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -30,9 +29,16 @@ public class GLFWNativeGLX {
 
 	// --- [ Function Addresses ] ---
 
+	private static final GLFWNativeGLX instance = new GLFWNativeGLX(getLibrary());
+
+	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
+	public static SharedLibrary getLibrary() {
+		return GLFW.getLibrary();
+	}
+
 	/** Returns the {@link GLFWNativeGLX} instance. */
 	public static GLFWNativeGLX getInstance() {
-		return checkFunctionality(LibGLFW.__GLFWNativeGLX);
+		return instance;
 	}
 
 	// --- [ glfwGetGLXContext ] ---
@@ -50,7 +56,7 @@ public class GLFWNativeGLX {
 	 */
 	public static long glfwGetGLXContext(long window) {
 		long __functionAddress = getInstance().GetGLXContext;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return invokePP(__functionAddress, window);
 	}

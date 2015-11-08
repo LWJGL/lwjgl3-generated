@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * The core OpenGL 4.5 functionality. OpenGL 4.5 implementations support revision 4.50 of the OpenGL Shading Language.
@@ -433,7 +433,7 @@ public class GL45 {
 	 * @param ids the buffer in which to return the names
 	 */
 	public static void glCreateTransformFeedbacks(int n, ByteBuffer ids) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ids, n << 2);
 		nglCreateTransformFeedbacks(n, memAddress(ids));
 	}
@@ -504,14 +504,14 @@ public class GL45 {
 	 * @param param the buffer in which to return the parameter value
 	 */
 	public static void glGetTransformFeedbackiv(int xfb, int pname, ByteBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1 << 2);
 		nglGetTransformFeedbackiv(xfb, pname, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glGetTransformFeedbackiv GetTransformFeedbackiv} */
 	public static void glGetTransformFeedbackiv(int xfb, int pname, IntBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1);
 		nglGetTransformFeedbackiv(xfb, pname, memAddress(param));
 	}
@@ -544,14 +544,14 @@ public class GL45 {
 	 * @param param the buffer in which to return the parameter value
 	 */
 	public static void glGetTransformFeedbacki_v(int xfb, int pname, int index, ByteBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1 << 2);
 		nglGetTransformFeedbacki_v(xfb, pname, index, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glGetTransformFeedbacki_v GetTransformFeedbacki_v} */
 	public static void glGetTransformFeedbacki_v(int xfb, int pname, int index, IntBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1);
 		nglGetTransformFeedbacki_v(xfb, pname, index, memAddress(param));
 	}
@@ -584,14 +584,14 @@ public class GL45 {
 	 * @param param the buffer in which to return the parameter value
 	 */
 	public static void glGetTransformFeedbacki64_v(int xfb, int pname, int index, ByteBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1 << 3);
 		nglGetTransformFeedbacki64_v(xfb, pname, index, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glGetTransformFeedbacki64_v GetTransformFeedbacki64_v} */
 	public static void glGetTransformFeedbacki64_v(int xfb, int pname, int index, LongBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1);
 		nglGetTransformFeedbacki64_v(xfb, pname, index, memAddress(param));
 	}
@@ -623,7 +623,7 @@ public class GL45 {
 	 * @param buffers the buffer in which to return the names
 	 */
 	public static void glCreateBuffers(int n, ByteBuffer buffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(buffers, n << 2);
 		nglCreateBuffers(n, memAddress(buffers));
 	}
@@ -694,7 +694,7 @@ public class GL45 {
 	 *               <p>It is an error to specify {@link GL44#GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link GL44#GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
 	 */
 	public static void glNamedBufferStorage(int buffer, long size, ByteBuffer data, int flags) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( data != null ) checkBuffer(data, size);
 		nglNamedBufferStorage(buffer, size, memAddressSafe(data), flags);
 	}
@@ -749,7 +749,7 @@ public class GL45 {
 	 * @param usage  the expected usage pattern of the data store. One of:<br>{@link GL15#GL_STREAM_DRAW STREAM_DRAW}, {@link GL15#GL_STREAM_READ STREAM_READ}, {@link GL15#GL_STREAM_COPY STREAM_COPY}, {@link GL15#GL_STATIC_DRAW STATIC_DRAW}, {@link GL15#GL_STATIC_READ STATIC_READ}, {@link GL15#GL_STATIC_COPY STATIC_COPY}, {@link GL15#GL_DYNAMIC_DRAW DYNAMIC_DRAW}, {@link GL15#GL_DYNAMIC_READ DYNAMIC_READ}, {@link GL15#GL_DYNAMIC_COPY DYNAMIC_COPY}
 	 */
 	public static void glNamedBufferData(int buffer, long size, ByteBuffer data, int usage) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( data != null ) checkBuffer(data, size);
 		nglNamedBufferData(buffer, size, memAddressSafe(data), usage);
 	}
@@ -804,7 +804,7 @@ public class GL45 {
 	 * @param data   a pointer to the new data that will be copied into the data store
 	 */
 	public static void glNamedBufferSubData(int buffer, long offset, long size, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, size);
 		nglNamedBufferSubData(buffer, offset, size, memAddress(data));
 	}
@@ -1050,14 +1050,14 @@ public class GL45 {
 	 * @param params the requested parameter
 	 */
 	public static void glGetNamedBufferParameteriv(int buffer, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetNamedBufferParameteriv(buffer, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetNamedBufferParameteriv GetNamedBufferParameteriv} */
 	public static void glGetNamedBufferParameteriv(int buffer, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedBufferParameteriv(buffer, pname, memAddress(params));
 	}
@@ -1089,14 +1089,14 @@ public class GL45 {
 	 * @param params the requested parameter
 	 */
 	public static void glGetNamedBufferParameteri64v(int buffer, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetNamedBufferParameteri64v(buffer, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetNamedBufferParameteri64v GetNamedBufferParameteri64v} */
 	public static void glGetNamedBufferParameteri64v(int buffer, int pname, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedBufferParameteri64v(buffer, pname, memAddress(params));
 	}
@@ -1128,14 +1128,14 @@ public class GL45 {
 	 * @param params the pointer value specified by {@code pname}
 	 */
 	public static void glGetNamedBufferPointerv(int buffer, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << POINTER_SHIFT);
 		nglGetNamedBufferPointerv(buffer, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetNamedBufferPointerv GetNamedBufferPointerv} */
 	public static void glGetNamedBufferPointerv(int buffer, int pname, PointerBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedBufferPointerv(buffer, pname, memAddress(params));
 	}
@@ -1168,7 +1168,7 @@ public class GL45 {
 	 * @param data   a pointer to the location where buffer object data is returned
 	 */
 	public static void glGetNamedBufferSubData(int buffer, long offset, long size, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, size);
 		nglGetNamedBufferSubData(buffer, offset, size, memAddress(data));
 	}
@@ -1216,7 +1216,7 @@ public class GL45 {
 	 * @param framebuffers the buffer in which to store the framebuffer names
 	 */
 	public static void glCreateFramebuffers(int n, ByteBuffer framebuffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(framebuffers, n << 2);
 		nglCreateFramebuffers(n, memAddress(framebuffers));
 	}
@@ -1336,7 +1336,7 @@ public class GL45 {
 	 * @param bufs        an array of symbolic constants specifying the buffers into which fragment colors or data values will be written. One of:<br>{@link GL11#GL_NONE NONE}, {@link GL11#GL_FRONT_LEFT FRONT_LEFT}, {@link GL11#GL_FRONT_RIGHT FRONT_RIGHT}, {@link GL11#GL_BACK_LEFT BACK_LEFT}, {@link GL11#GL_BACK_RIGHT BACK_RIGHT}, {@link GL11#GL_AUX0 AUX0}, {@link GL11#GL_AUX1 AUX1}, {@link GL11#GL_AUX2 AUX2}, {@link GL11#GL_AUX3 AUX3}, {@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}, GL30.GL_COLOR_ATTACHMENT[1-15]
 	 */
 	public static void glNamedFramebufferDrawBuffers(int framebuffer, int n, ByteBuffer bufs) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(bufs, n << 2);
 		nglNamedFramebufferDrawBuffers(framebuffer, n, memAddress(bufs));
 	}
@@ -1387,7 +1387,7 @@ public class GL45 {
 	 * @param attachments    the address of an array identifying the attachments to be invalidated
 	 */
 	public static void glInvalidateNamedFramebufferData(int framebuffer, int numAttachments, ByteBuffer attachments) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(attachments, numAttachments << 2);
 		nglInvalidateNamedFramebufferData(framebuffer, numAttachments, memAddress(attachments));
 	}
@@ -1427,7 +1427,7 @@ public class GL45 {
 	 * @param height         the height of the region to be invalidated
 	 */
 	public static void glInvalidateNamedFramebufferSubData(int framebuffer, int numAttachments, ByteBuffer attachments, int x, int y, int width, int height) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(attachments, numAttachments << 2);
 		nglInvalidateNamedFramebufferSubData(framebuffer, numAttachments, memAddress(attachments), x, y, width, height);
 	}
@@ -1465,14 +1465,14 @@ public class GL45 {
 	 *                    single stencil value to clear the buffer to.
 	 */
 	public static void glClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nglClearNamedFramebufferiv(framebuffer, buffer, drawbuffer, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glClearNamedFramebufferiv ClearNamedFramebufferiv} */
 	public static void glClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nglClearNamedFramebufferiv(framebuffer, buffer, drawbuffer, memAddress(value));
 	}
@@ -1497,14 +1497,14 @@ public class GL45 {
 	 * @param value       a pointer to a four-element vector specifying R, G, B and A values to clear the buffer to
 	 */
 	public static void glClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 4 << 2);
 		nglClearNamedFramebufferuiv(framebuffer, buffer, drawbuffer, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glClearNamedFramebufferuiv ClearNamedFramebufferuiv} */
 	public static void glClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 4);
 		nglClearNamedFramebufferuiv(framebuffer, buffer, drawbuffer, memAddress(value));
 	}
@@ -1530,14 +1530,14 @@ public class GL45 {
 	 *                    single depth value to clear the buffer to.
 	 */
 	public static void glClearNamedFramebufferfv(int framebuffer, int buffer, int drawbuffer, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nglClearNamedFramebufferfv(framebuffer, buffer, drawbuffer, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glClearNamedFramebufferfv ClearNamedFramebufferfv} */
 	public static void glClearNamedFramebufferfv(int framebuffer, int buffer, int drawbuffer, FloatBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nglClearNamedFramebufferfv(framebuffer, buffer, drawbuffer, memAddress(value));
 	}
@@ -1618,14 +1618,14 @@ public class GL45 {
 	 * @param params      a variable to receive the value of the parameter named {@code pname}
 	 */
 	public static void glGetNamedFramebufferParameteriv(int framebuffer, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetNamedFramebufferParameteriv(framebuffer, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetNamedFramebufferParameteriv GetNamedFramebufferParameteriv} */
 	public static void glGetNamedFramebufferParameteriv(int framebuffer, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedFramebufferParameteriv(framebuffer, pname, memAddress(params));
 	}
@@ -1658,14 +1658,14 @@ public class GL45 {
 	 * @param params      an array to receive the value of the queried parameter
 	 */
 	public static void glGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetNamedFramebufferAttachmentParameteriv(framebuffer, attachment, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetNamedFramebufferAttachmentParameteriv GetNamedFramebufferAttachmentParameteriv} */
 	public static void glGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedFramebufferAttachmentParameteriv(framebuffer, attachment, pname, memAddress(params));
 	}
@@ -1696,7 +1696,7 @@ public class GL45 {
 	 * @param renderbuffers the buffer in which to store the created renderbuffer names
 	 */
 	public static void glCreateRenderbuffers(int n, ByteBuffer renderbuffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(renderbuffers, n << 2);
 		nglCreateRenderbuffers(n, memAddress(renderbuffers));
 	}
@@ -1768,14 +1768,14 @@ public class GL45 {
 	 * @param params       an array to receive the value of the queried parameter
 	 */
 	public static void glGetNamedRenderbufferParameteriv(int renderbuffer, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetNamedRenderbufferParameteriv(renderbuffer, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetNamedRenderbufferParameteriv GetNamedRenderbufferParameteriv} */
 	public static void glGetNamedRenderbufferParameteriv(int renderbuffer, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedRenderbufferParameteriv(renderbuffer, pname, memAddress(params));
 	}
@@ -1807,7 +1807,7 @@ public class GL45 {
 	 * @param textures the buffer in which to store the created texture names
 	 */
 	public static void glCreateTextures(int target, int n, ByteBuffer textures) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(textures, n << 2);
 		nglCreateTextures(target, n, memAddress(textures));
 	}
@@ -1977,42 +1977,42 @@ public class GL45 {
 	 * @param pixels  the pixel data
 	 */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
 	/** Buffer object offset version of: {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, pixelsOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, ShortBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, IntBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, FloatBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
 	/** DoubleBuffer version of: {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, DoubleBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, memAddress(pixels));
 	}
@@ -2042,42 +2042,42 @@ public class GL45 {
 	 * @param pixels  the pixel data
 	 */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
 	/** Buffer object offset version of: {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, pixelsOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, ShortBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, IntBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, FloatBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
 	/** DoubleBuffer version of: {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, DoubleBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
@@ -2109,42 +2109,42 @@ public class GL45 {
 	 * @param pixels  the pixel data
 	 */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
 	/** Buffer object offset version of: {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixelsOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, FloatBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
 	/** DoubleBuffer version of: {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, DoubleBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
@@ -2172,7 +2172,7 @@ public class GL45 {
 	 * @param data      a pointer to the compressed image data
 	 */
 	public static void glCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int imageSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
@@ -2181,14 +2181,14 @@ public class GL45 {
 
 	/** Buffer object offset version of: {@link #glCompressedTextureSubImage1D CompressedTextureSubImage1D} */
 	public static void glCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int imageSize, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTextureSubImage1D(texture, level, xoffset, width, format, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTextureSubImage1D CompressedTextureSubImage1D} */
 	public static void glCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTextureSubImage1D(texture, level, xoffset, width, format, data.remaining(), memAddress(data));
 	}
@@ -2218,7 +2218,7 @@ public class GL45 {
 	 * @param data      a pointer to the compressed image data
 	 */
 	public static void glCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
@@ -2227,14 +2227,14 @@ public class GL45 {
 
 	/** Buffer object offset version of: {@link #glCompressedTextureSubImage2D CompressedTextureSubImage2D} */
 	public static void glCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTextureSubImage2D CompressedTextureSubImage2D} */
 	public static void glCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, data.remaining(), memAddress(data));
 	}
@@ -2266,7 +2266,7 @@ public class GL45 {
 	 * @param data      a pointer to the compressed image data
 	 */
 	public static void glCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
@@ -2275,14 +2275,14 @@ public class GL45 {
 
 	/** Buffer object offset version of: {@link #glCompressedTextureSubImage3D CompressedTextureSubImage3D} */
 	public static void glCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTextureSubImage3D CompressedTextureSubImage3D} */
 	public static void glCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, data.remaining(), memAddress(data));
 	}
@@ -2384,14 +2384,14 @@ public class GL45 {
 	 * @param params  the parameter value
 	 */
 	public static void glTextureParameterfv(int texture, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglTextureParameterfv(texture, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glTextureParameterfv TextureParameterfv} */
 	public static void glTextureParameterfv(int texture, int pname, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglTextureParameterfv(texture, pname, memAddress(params));
 	}
@@ -2431,14 +2431,14 @@ public class GL45 {
 	 * @param params  the value of {@code pname}
 	 */
 	public static void glTextureParameterIiv(int texture, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglTextureParameterIiv(texture, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glTextureParameterIiv TextureParameterIiv} */
 	public static void glTextureParameterIiv(int texture, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglTextureParameterIiv(texture, pname, memAddress(params));
 	}
@@ -2469,14 +2469,14 @@ public class GL45 {
 	 * @param params  the value of {@code pname}
 	 */
 	public static void glTextureParameterIuiv(int texture, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglTextureParameterIuiv(texture, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glTextureParameterIuiv TextureParameterIuiv} */
 	public static void glTextureParameterIuiv(int texture, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglTextureParameterIuiv(texture, pname, memAddress(params));
 	}
@@ -2507,14 +2507,14 @@ public class GL45 {
 	 * @param params  the parameter value
 	 */
 	public static void glTextureParameteriv(int texture, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4 << 2);
 		nglTextureParameteriv(texture, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glTextureParameteriv TextureParameteriv} */
 	public static void glTextureParameteriv(int texture, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 4);
 		nglTextureParameteriv(texture, pname, memAddress(params));
 	}
@@ -2574,7 +2574,7 @@ public class GL45 {
 	 * @param pixels  the buffer in which to place the returned data
 	 */
 	public static void glGetTextureImage(int texture, int level, int format, int type, int bufSize, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(pixels, bufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -2583,42 +2583,42 @@ public class GL45 {
 
 	/** Buffer object offset version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, int bufSize, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetTextureImage(texture, level, format, type, bufSize, pixelsOffset);
 	}
 
 	/** Alternative version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureImage(texture, level, format, type, pixels.remaining(), memAddress(pixels));
 	}
 
 	/** ShortBuffer version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, ShortBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureImage(texture, level, format, type, pixels.remaining() << 1, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, IntBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureImage(texture, level, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, FloatBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureImage(texture, level, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
 	/** DoubleBuffer version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, DoubleBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureImage(texture, level, format, type, pixels.remaining() << 3, memAddress(pixels));
 	}
@@ -2643,9 +2643,9 @@ public class GL45 {
 	 * @param pixels  a buffer in which to return the compressed texture image
 	 */
 	public static void glGetCompressedTextureImage(int texture, int level, int bufSize, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(pixels, bufSize);
-			if ( LWJGLUtil.DEBUG )
+			if ( DEBUG )
 				checkBuffer(pixels, glGetTextureLevelParameteri(texture, level, GL13.GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -2654,15 +2654,15 @@ public class GL45 {
 
 	/** Buffer object offset version of: {@link #glGetCompressedTextureImage GetCompressedTextureImage} */
 	public static void glGetCompressedTextureImage(int texture, int level, int bufSize, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetCompressedTextureImage(texture, level, bufSize, pixelsOffset);
 	}
 
 	/** Alternative version of: {@link #glGetCompressedTextureImage GetCompressedTextureImage} */
 	public static void glGetCompressedTextureImage(int texture, int level, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS ) {
-			if ( LWJGLUtil.DEBUG )
+		if ( CHECKS ) {
+			if ( DEBUG )
 				checkBuffer(pixels, glGetTextureLevelParameteri(texture, level, GL13.GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -2689,14 +2689,14 @@ public class GL45 {
 	 * @param params  a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetTextureLevelParameterfv(int texture, int level, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureLevelParameterfv(texture, level, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTextureLevelParameterfv GetTextureLevelParameterfv} */
 	public static void glGetTextureLevelParameterfv(int texture, int level, int pname, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureLevelParameterfv(texture, level, pname, memAddress(params));
 	}
@@ -2729,14 +2729,14 @@ public class GL45 {
 	 * @param params  a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetTextureLevelParameteriv(int texture, int level, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureLevelParameteriv(texture, level, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTextureLevelParameteriv GetTextureLevelParameteriv} */
 	public static void glGetTextureLevelParameteriv(int texture, int level, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureLevelParameteriv(texture, level, pname, memAddress(params));
 	}
@@ -2768,14 +2768,14 @@ public class GL45 {
 	 * @param params  a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetTextureParameterfv(int texture, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureParameterfv(texture, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTextureParameterfv GetTextureParameterfv} */
 	public static void glGetTextureParameterfv(int texture, int pname, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureParameterfv(texture, pname, memAddress(params));
 	}
@@ -2807,14 +2807,14 @@ public class GL45 {
 	 * @param params  returns the texture parameter value
 	 */
 	public static void glGetTextureParameterIiv(int texture, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureParameterIiv(texture, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTextureParameterIiv GetTextureParameterIiv} */
 	public static void glGetTextureParameterIiv(int texture, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureParameterIiv(texture, pname, memAddress(params));
 	}
@@ -2846,14 +2846,14 @@ public class GL45 {
 	 * @param params  returns the texture parameter value
 	 */
 	public static void glGetTextureParameterIuiv(int texture, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureParameterIuiv(texture, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTextureParameterIuiv GetTextureParameterIuiv} */
 	public static void glGetTextureParameterIuiv(int texture, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureParameterIuiv(texture, pname, memAddress(params));
 	}
@@ -2885,14 +2885,14 @@ public class GL45 {
 	 * @param params  a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetTextureParameteriv(int texture, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTextureParameteriv(texture, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTextureParameteriv GetTextureParameteriv} */
 	public static void glGetTextureParameteriv(int texture, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTextureParameteriv(texture, pname, memAddress(params));
 	}
@@ -2923,7 +2923,7 @@ public class GL45 {
 	 * @param arrays the buffer in which to return the created vertex array object names
 	 */
 	public static void glCreateVertexArrays(int n, ByteBuffer arrays) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(arrays, n << 2);
 		nglCreateVertexArrays(n, memAddress(arrays));
 	}
@@ -3026,7 +3026,7 @@ public class GL45 {
 	 * @param strides an array of stride values
 	 */
 	public static void glVertexArrayVertexBuffers(int vaobj, int first, int count, ByteBuffer buffers, ByteBuffer offsets, ByteBuffer strides) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( buffers != null ) checkBuffer(buffers, count << 2);
 			if ( offsets != null ) checkBuffer(offsets, count << POINTER_SHIFT);
 			if ( strides != null ) checkBuffer(strides, count << 2);
@@ -3036,7 +3036,7 @@ public class GL45 {
 
 	/** Alternative version of: {@link #glVertexArrayVertexBuffers VertexArrayVertexBuffers} */
 	public static void glVertexArrayVertexBuffers(int vaobj, int first, IntBuffer buffers, PointerBuffer offsets, IntBuffer strides) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( offsets != null ) checkBuffer(offsets, buffers.remaining());
 			if ( strides != null ) checkBuffer(strides, buffers.remaining());
 		}
@@ -3150,14 +3150,14 @@ public class GL45 {
 	 * @param param the buffer in which to return the parameter values
 	 */
 	public static void glGetVertexArrayiv(int vaobj, int pname, ByteBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1 << 2);
 		nglGetVertexArrayiv(vaobj, pname, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glGetVertexArrayiv GetVertexArrayiv} */
 	public static void glGetVertexArrayiv(int vaobj, int pname, IntBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1);
 		nglGetVertexArrayiv(vaobj, pname, memAddress(param));
 	}
@@ -3190,14 +3190,14 @@ public class GL45 {
 	 * @param param the buffer in which to return the parameter values
 	 */
 	public static void glGetVertexArrayIndexediv(int vaobj, int index, int pname, ByteBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1 << 2);
 		nglGetVertexArrayIndexediv(vaobj, index, pname, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glGetVertexArrayIndexediv GetVertexArrayIndexediv} */
 	public static void glGetVertexArrayIndexediv(int vaobj, int index, int pname, IntBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1);
 		nglGetVertexArrayIndexediv(vaobj, index, pname, memAddress(param));
 	}
@@ -3230,14 +3230,14 @@ public class GL45 {
 	 * @param param the buffer in which to return the parameter values
 	 */
 	public static void glGetVertexArrayIndexed64iv(int vaobj, int index, int pname, ByteBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1 << 3);
 		nglGetVertexArrayIndexed64iv(vaobj, index, pname, memAddress(param));
 	}
 
 	/** Alternative version of: {@link #glGetVertexArrayIndexed64iv GetVertexArrayIndexed64iv} */
 	public static void glGetVertexArrayIndexed64iv(int vaobj, int index, int pname, LongBuffer param) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(param, 1);
 		nglGetVertexArrayIndexed64iv(vaobj, index, pname, memAddress(param));
 	}
@@ -3268,7 +3268,7 @@ public class GL45 {
 	 * @param samplers the buffer in which to return the created sampler object names
 	 */
 	public static void glCreateSamplers(int n, ByteBuffer samplers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(samplers, n << 2);
 		nglCreateSamplers(n, memAddress(samplers));
 	}
@@ -3304,7 +3304,7 @@ public class GL45 {
 	 * @param pipelines the buffer in which to return the created program pipeline names
 	 */
 	public static void glCreateProgramPipelines(int n, ByteBuffer pipelines) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(pipelines, n << 2);
 		nglCreateProgramPipelines(n, memAddress(pipelines));
 	}
@@ -3341,7 +3341,7 @@ public class GL45 {
 	 * @param ids    the buffer in which to return the created query object names
 	 */
 	public static void glCreateQueries(int target, int n, ByteBuffer ids) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ids, n << 2);
 		nglCreateQueries(target, n, memAddress(ids));
 	}
@@ -3481,7 +3481,7 @@ public class GL45 {
 	 * @param pixels  the buffer in which to place the returned data
 	 */
 	public static void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int bufSize, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(pixels, bufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -3490,42 +3490,42 @@ public class GL45 {
 
 	/** Buffer object offset version of: {@link #glGetTextureSubImage GetTextureSubImage} */
 	public static void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int bufSize, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, bufSize, pixelsOffset);
 	}
 
 	/** Alternative version of: {@link #glGetTextureSubImage GetTextureSubImage} */
 	public static void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels.remaining(), memAddress(pixels));
 	}
 
 	/** ShortBuffer version of: {@link #glGetTextureSubImage GetTextureSubImage} */
 	public static void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels.remaining() << 1, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glGetTextureSubImage GetTextureSubImage} */
 	public static void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glGetTextureSubImage GetTextureSubImage} */
 	public static void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, FloatBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
 	/** DoubleBuffer version of: {@link #glGetTextureSubImage GetTextureSubImage} */
 	public static void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, DoubleBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels.remaining() << 3, memAddress(pixels));
 	}
@@ -3556,7 +3556,7 @@ public class GL45 {
 	 * @param pixels  the buffer in which to place the returned data
 	 */
 	public static void glGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int bufSize, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(pixels, bufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -3565,42 +3565,42 @@ public class GL45 {
 
 	/** Buffer object offset version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage} */
 	public static void glGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int bufSize, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetCompressedTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, bufSize, pixelsOffset);
 	}
 
 	/** Alternative version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage} */
 	public static void glGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetCompressedTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, pixels.remaining(), memAddress(pixels));
 	}
 
 	/** ShortBuffer version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage} */
 	public static void glGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, ShortBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetCompressedTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, pixels.remaining() << 1, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage} */
 	public static void glGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, IntBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetCompressedTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, pixels.remaining() << 2, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage} */
 	public static void glGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, FloatBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetCompressedTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, pixels.remaining() << 2, memAddress(pixels));
 	}
 
 	/** DoubleBuffer version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage} */
 	public static void glGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, DoubleBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetCompressedTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, pixels.remaining() << 3, memAddress(pixels));
 	}
@@ -3664,7 +3664,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	@JavadocExclude
 	public static void nglGetnMapdv(int target, int query, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnMapdv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, query, bufSize, data);
 	}
@@ -3680,7 +3680,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * @param data    a buffer in which to place the returned data
 	 */
 	public static void glGetnMapdv(int target, int query, int bufSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, bufSize << 3);
 		nglGetnMapdv(target, query, bufSize, memAddress(data));
 	}
@@ -3704,7 +3704,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	@JavadocExclude
 	public static void nglGetnMapfv(int target, int query, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnMapfv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, query, bufSize, data);
 	}
@@ -3720,7 +3720,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * @param data    a buffer in which to place the returned data
 	 */
 	public static void glGetnMapfv(int target, int query, int bufSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, bufSize << 2);
 		nglGetnMapfv(target, query, bufSize, memAddress(data));
 	}
@@ -3744,7 +3744,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	@JavadocExclude
 	public static void nglGetnMapiv(int target, int query, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnMapiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, query, bufSize, data);
 	}
@@ -3760,7 +3760,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * @param data    a buffer in which to place the returned data
 	 */
 	public static void glGetnMapiv(int target, int query, int bufSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, bufSize << 2);
 		nglGetnMapiv(target, query, bufSize, memAddress(data));
 	}
@@ -3784,7 +3784,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	@JavadocExclude
 	public static void nglGetnPixelMapfv(int map, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnPixelMapfv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, map, bufSize, data);
 	}
@@ -3799,7 +3799,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * @param data    a buffer in which to place the returned data
 	 */
 	public static void glGetnPixelMapfv(int map, int bufSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, bufSize << 2);
 		nglGetnPixelMapfv(map, bufSize, memAddress(data));
 	}
@@ -3815,7 +3815,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	@JavadocExclude
 	public static void nglGetnPixelMapuiv(int map, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnPixelMapuiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, map, bufSize, data);
 	}
@@ -3830,7 +3830,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * @param data    a buffer in which to place the returned data
 	 */
 	public static void glGetnPixelMapuiv(int map, int bufSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, bufSize << 2);
 		nglGetnPixelMapuiv(map, bufSize, memAddress(data));
 	}
@@ -3846,7 +3846,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	@JavadocExclude
 	public static void nglGetnPixelMapusv(int map, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnPixelMapusv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, map, bufSize, data);
 	}
@@ -3861,7 +3861,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * @param data    a buffer in which to place the returned data
 	 */
 	public static void glGetnPixelMapusv(int map, int bufSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, bufSize << 1);
 		nglGetnPixelMapusv(map, bufSize, memAddress(data));
 	}
@@ -3877,7 +3877,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	@JavadocExclude
 	public static void nglGetnPolygonStipple(int bufSize, long pattern) {
 		long __functionAddress = getInstance().GetnPolygonStipple;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, bufSize, pattern);
 	}
@@ -3891,7 +3891,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * @param pattern a buffer in which to place the returned pattern
 	 */
 	public static void glGetnPolygonStipple(int bufSize, ByteBuffer pattern) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(pattern, bufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -3900,14 +3900,14 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Buffer object offset version of: {@link #glGetnPolygonStipple GetnPolygonStipple} */
 	public static void glGetnPolygonStipple(int bufSize, long patternOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetnPolygonStipple(bufSize, patternOffset);
 	}
 
 	/** Alternative version of: {@link #glGetnPolygonStipple GetnPolygonStipple} */
 	public static void glGetnPolygonStipple(ByteBuffer pattern) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnPolygonStipple(pattern.remaining(), memAddress(pattern));
 	}
@@ -3918,7 +3918,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	@JavadocExclude
 	public static void nglGetnTexImage(int tex, int level, int format, int type, int bufSize, long img) {
 		long __functionAddress = getInstance().GetnTexImage;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIPV(__functionAddress, tex, level, format, type, bufSize, img);
 	}
@@ -3936,7 +3936,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * @param img     a buffer in which to place the returned data
 	 */
 	public static void glGetnTexImage(int tex, int level, int format, int type, int bufSize, ByteBuffer img) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(img, bufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -3945,42 +3945,42 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Buffer object offset version of: {@link #glGetnTexImage GetnTexImage} */
 	public static void glGetnTexImage(int tex, int level, int format, int type, int bufSize, long imgOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetnTexImage(tex, level, format, type, bufSize, imgOffset);
 	}
 
 	/** Alternative version of: {@link #glGetnTexImage GetnTexImage} */
 	public static void glGetnTexImage(int tex, int level, int format, int type, ByteBuffer img) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnTexImage(tex, level, format, type, img.remaining(), memAddress(img));
 	}
 
 	/** ShortBuffer version of: {@link #glGetnTexImage GetnTexImage} */
 	public static void glGetnTexImage(int tex, int level, int format, int type, ShortBuffer img) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnTexImage(tex, level, format, type, img.remaining() << 1, memAddress(img));
 	}
 
 	/** IntBuffer version of: {@link #glGetnTexImage GetnTexImage} */
 	public static void glGetnTexImage(int tex, int level, int format, int type, IntBuffer img) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnTexImage(tex, level, format, type, img.remaining() << 2, memAddress(img));
 	}
 
 	/** FloatBuffer version of: {@link #glGetnTexImage GetnTexImage} */
 	public static void glGetnTexImage(int tex, int level, int format, int type, FloatBuffer img) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnTexImage(tex, level, format, type, img.remaining() << 2, memAddress(img));
 	}
 
 	/** DoubleBuffer version of: {@link #glGetnTexImage GetnTexImage} */
 	public static void glGetnTexImage(int tex, int level, int format, int type, DoubleBuffer img) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnTexImage(tex, level, format, type, img.remaining() << 3, memAddress(img));
 	}
@@ -4009,7 +4009,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * @param pixels  a buffer in which to place the returned pixel data
 	 */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(pixels, bufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -4018,35 +4018,35 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Buffer object offset version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglReadnPixels(x, y, width, height, format, type, bufSize, pixelsOffset);
 	}
 
 	/** Alternative version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining(), memAddress(pixels));
 	}
 
 	/** ShortBuffer version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 1, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
@@ -4057,7 +4057,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	@JavadocExclude
 	public static void nglGetnColorTable(int target, int format, int type, int bufSize, long table) {
 		long __functionAddress = getInstance().GetnColorTable;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, target, format, type, bufSize, table);
 	}
@@ -4074,7 +4074,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * @param table   a buffer in which to place the returned data
 	 */
 	public static void glGetnColorTable(int target, int format, int type, int bufSize, ByteBuffer table) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(table, bufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -4083,35 +4083,35 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Buffer object offset version of: {@link #glGetnColorTable GetnColorTable} */
 	public static void glGetnColorTable(int target, int format, int type, int bufSize, long tableOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetnColorTable(target, format, type, bufSize, tableOffset);
 	}
 
 	/** Alternative version of: {@link #glGetnColorTable GetnColorTable} */
 	public static void glGetnColorTable(int target, int format, int type, ByteBuffer table) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnColorTable(target, format, type, table.remaining(), memAddress(table));
 	}
 
 	/** ShortBuffer version of: {@link #glGetnColorTable GetnColorTable} */
 	public static void glGetnColorTable(int target, int format, int type, ShortBuffer table) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnColorTable(target, format, type, table.remaining() << 1, memAddress(table));
 	}
 
 	/** IntBuffer version of: {@link #glGetnColorTable GetnColorTable} */
 	public static void glGetnColorTable(int target, int format, int type, IntBuffer table) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnColorTable(target, format, type, table.remaining() << 2, memAddress(table));
 	}
 
 	/** FloatBuffer version of: {@link #glGetnColorTable GetnColorTable} */
 	public static void glGetnColorTable(int target, int format, int type, FloatBuffer table) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnColorTable(target, format, type, table.remaining() << 2, memAddress(table));
 	}
@@ -4122,7 +4122,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	@JavadocExclude
 	public static void nglGetnConvolutionFilter(int target, int format, int type, int bufSize, long image) {
 		long __functionAddress = getInstance().GetnConvolutionFilter;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, target, format, type, bufSize, image);
 	}
@@ -4139,7 +4139,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * @param image   a buffer in which to place the returned data
 	 */
 	public static void glGetnConvolutionFilter(int target, int format, int type, int bufSize, ByteBuffer image) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(image, bufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -4148,14 +4148,14 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Buffer object offset version of: {@link #glGetnConvolutionFilter GetnConvolutionFilter} */
 	public static void glGetnConvolutionFilter(int target, int format, int type, int bufSize, long imageOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetnConvolutionFilter(target, format, type, bufSize, imageOffset);
 	}
 
 	/** Alternative version of: {@link #glGetnConvolutionFilter GetnConvolutionFilter} */
 	public static void glGetnConvolutionFilter(int target, int format, int type, ByteBuffer image) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnConvolutionFilter(target, format, type, image.remaining(), memAddress(image));
 	}
@@ -4166,7 +4166,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	@JavadocExclude
 	public static void nglGetnSeparableFilter(int target, int format, int type, int rowBufSize, long row, int columnBufSize, long column, long span) {
 		long __functionAddress = getInstance().GetnSeparableFilter;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIPIPPV(__functionAddress, target, format, type, rowBufSize, row, columnBufSize, column, span);
 	}
@@ -4186,7 +4186,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * @param span          
 	 */
 	public static void glGetnSeparableFilter(int target, int format, int type, int rowBufSize, ByteBuffer row, int columnBufSize, ByteBuffer column, ByteBuffer span) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(row, rowBufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 			checkBuffer(column, columnBufSize);
@@ -4196,14 +4196,14 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Buffer object offset version of: {@link #glGetnSeparableFilter GetnSeparableFilter} */
 	public static void glGetnSeparableFilter(int target, int format, int type, int rowBufSize, long rowOffset, int columnBufSize, long columnOffset, ByteBuffer span) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetnSeparableFilter(target, format, type, rowBufSize, rowOffset, columnBufSize, columnOffset, memAddressSafe(span));
 	}
 
 	/** Alternative version of: {@link #glGetnSeparableFilter GetnSeparableFilter} */
 	public static void glGetnSeparableFilter(int target, int format, int type, ByteBuffer row, ByteBuffer column, ByteBuffer span) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnSeparableFilter(target, format, type, row.remaining(), memAddress(row), column.remaining(), memAddress(column), memAddressSafe(span));
 	}
@@ -4214,7 +4214,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	@JavadocExclude
 	public static void nglGetnHistogram(int target, boolean reset, int format, int type, int bufSize, long values) {
 		long __functionAddress = getInstance().GetnHistogram;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIZIIIPV(__functionAddress, target, reset, format, type, bufSize, values);
 	}
@@ -4232,7 +4232,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * @param values  a buffer in which to place the returned data
 	 */
 	public static void glGetnHistogram(int target, boolean reset, int format, int type, int bufSize, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(values, bufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -4241,14 +4241,14 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Buffer object offset version of: {@link #glGetnHistogram GetnHistogram} */
 	public static void glGetnHistogram(int target, boolean reset, int format, int type, int bufSize, long valuesOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetnHistogram(target, reset, format, type, bufSize, valuesOffset);
 	}
 
 	/** Alternative version of: {@link #glGetnHistogram GetnHistogram} */
 	public static void glGetnHistogram(int target, boolean reset, int format, int type, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnHistogram(target, reset, format, type, values.remaining(), memAddress(values));
 	}
@@ -4259,7 +4259,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	@JavadocExclude
 	public static void nglGetnMinmax(int target, boolean reset, int format, int type, int bufSize, long values) {
 		long __functionAddress = getInstance().GetnMinmax;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIZIIIPV(__functionAddress, target, reset, format, type, bufSize, values);
 	}
@@ -4278,7 +4278,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * @param values  a buffer in which to place the returned data
 	 */
 	public static void glGetnMinmax(int target, boolean reset, int format, int type, int bufSize, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(values, bufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -4287,14 +4287,14 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Buffer object offset version of: {@link #glGetnMinmax GetnMinmax} */
 	public static void glGetnMinmax(int target, boolean reset, int format, int type, int bufSize, long valuesOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetnMinmax(target, reset, format, type, bufSize, valuesOffset);
 	}
 
 	/** Alternative version of: {@link #glGetnMinmax GetnMinmax} */
 	public static void glGetnMinmax(int target, boolean reset, int format, int type, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnMinmax(target, reset, format, type, values.remaining(), memAddress(values));
 	}
@@ -4305,7 +4305,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	@JavadocExclude
 	public static void nglGetnCompressedTexImage(int target, int level, int bufSize, long img) {
 		long __functionAddress = getInstance().GetnCompressedTexImage;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, level, bufSize, img);
 	}
@@ -4321,9 +4321,9 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * @param img     a buffer in which to place the returned data
 	 */
 	public static void glGetnCompressedTexImage(int target, int level, int bufSize, ByteBuffer img) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(img, bufSize);
-			if ( LWJGLUtil.DEBUG )
+			if ( DEBUG )
 				checkBuffer(img, GL11.glGetTexLevelParameteri(target, level, GL13.GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -4332,15 +4332,15 @@ Guarantees that writes have completed and caches have been invalidated before su
 
 	/** Buffer object offset version of: {@link #glGetnCompressedTexImage GetnCompressedTexImage} */
 	public static void glGetnCompressedTexImage(int target, int level, int bufSize, long imgOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetnCompressedTexImage(target, level, bufSize, imgOffset);
 	}
 
 	/** Alternative version of: {@link #glGetnCompressedTexImage GetnCompressedTexImage} */
 	public static void glGetnCompressedTexImage(int target, int level, ByteBuffer img) {
-		if ( LWJGLUtil.CHECKS ) {
-			if ( LWJGLUtil.DEBUG )
+		if ( CHECKS ) {
+			if ( DEBUG )
 				checkBuffer(img, GL11.glGetTexLevelParameteri(target, level, GL13.GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -4367,7 +4367,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * @param params   the buffer in which to place the returned data
 	 */
 	public static void glGetnUniformfv(int program, int location, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformfv(program, location, bufSize, memAddress(params));
 	}
@@ -4391,7 +4391,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	@JavadocExclude
 	public static void nglGetnUniformdv(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformdv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
@@ -4407,7 +4407,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * @param params   the buffer in which to place the returned data
 	 */
 	public static void glGetnUniformdv(int program, int location, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 3);
 		nglGetnUniformdv(program, location, bufSize, memAddress(params));
 	}
@@ -4445,7 +4445,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * @param params   the buffer in which to place the returned data
 	 */
 	public static void glGetnUniformiv(int program, int location, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformiv(program, location, bufSize, memAddress(params));
 	}
@@ -4483,7 +4483,7 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * @param params   the buffer in which to place the returned data
 	 */
 	public static void glGetnUniformuiv(int program, int location, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformuiv(program, location, bufSize, memAddress(params));
 	}

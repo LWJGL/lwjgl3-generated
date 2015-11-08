@@ -11,7 +11,7 @@ package org.lwjgl.opengles;
  * <p>This extension adds support for hardware clip planes to OpenGL ES 2.0 and 3.0. These were present in OpenGL ES 1.1, but were removed to better match
  * certain hardware. Since they're useful for certain applications, notable CAD, we return them here.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public final class APPLEClipDistance {
 

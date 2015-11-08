@@ -231,7 +231,7 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public PIXELFORMATDESCRIPTOR set(PIXELFORMATDESCRIPTOR src) {
 		return nset(address());
@@ -239,7 +239,7 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public PIXELFORMATDESCRIPTOR set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}

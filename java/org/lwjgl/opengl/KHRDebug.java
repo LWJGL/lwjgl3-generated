@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/KHR/debug.txt">KHR_debug</a> extension.
@@ -259,7 +259,7 @@ public class KHRDebug {
 	 * @param enabled  whether the selected messages should be enabled or disabled
 	 */
 	public static void glDebugMessageControl(int source, int type, int severity, int count, ByteBuffer ids, boolean enabled) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( ids != null ) checkBuffer(ids, count << 2);
 		nglDebugMessageControl(source, type, severity, count, memAddressSafe(ids), enabled);
 	}
@@ -305,7 +305,7 @@ public class KHRDebug {
 	 * @param message  a character array containing the message to insert
 	 */
 	public static void glDebugMessageInsert(int source, int type, int id, int severity, int length, ByteBuffer message) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(message, length);
 		nglDebugMessageInsert(source, type, id, severity, length, memAddress(message));
 	}
@@ -405,7 +405,7 @@ public class KHRDebug {
 	 * @param messageLog an array of characters that will receive the messages
 	 */
 	public static int glGetDebugMessageLog(int count, int bufsize, ByteBuffer sources, ByteBuffer types, ByteBuffer ids, ByteBuffer severities, ByteBuffer lengths, ByteBuffer messageLog) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( messageLog != null ) checkBuffer(messageLog, bufsize);
 			if ( sources != null ) checkBuffer(sources, count << 2);
 			if ( types != null ) checkBuffer(types, count << 2);
@@ -418,7 +418,7 @@ public class KHRDebug {
 
 	/** Alternative version of: {@link #glGetDebugMessageLog GetDebugMessageLog} */
 	public static int glGetDebugMessageLog(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, ByteBuffer messageLog) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( sources != null ) checkBuffer(sources, count);
 			if ( types != null ) checkBuffer(types, count);
 			if ( ids != null ) checkBuffer(ids, count);
@@ -455,7 +455,7 @@ public class KHRDebug {
 	 * @param message a string containing the message to be sent to the debug output stream
 	 */
 	public static void glPushDebugGroup(int source, int id, int length, ByteBuffer message) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(message, length);
 		nglPushDebugGroup(source, id, length, memAddress(message));
 	}
@@ -507,7 +507,7 @@ public class KHRDebug {
 	 * @param label      a string containing the label to assign to the object
 	 */
 	public static void glObjectLabel(int identifier, int name, int length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(label, length);
 		nglObjectLabel(identifier, name, length, memAddress(label));
 	}
@@ -544,7 +544,7 @@ public class KHRDebug {
 	 * @param label      a string that will receive the object label
 	 */
 	public static void glGetObjectLabel(int identifier, int name, int bufSize, ByteBuffer length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(label, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -553,7 +553,7 @@ public class KHRDebug {
 
 	/** Alternative version of: {@link #glGetObjectLabel GetObjectLabel} */
 	public static void glGetObjectLabel(int identifier, int name, IntBuffer length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetObjectLabel(identifier, name, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
@@ -583,7 +583,7 @@ public class KHRDebug {
 	@JavadocExclude
 	public static void nglObjectPtrLabel(long ptr, int length, long label) {
 		long __functionAddress = getInstance().ObjectPtrLabel;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ptr);
 		callPIPV(__functionAddress, ptr, length, label);
 	}
@@ -596,7 +596,7 @@ public class KHRDebug {
 	 * @param label  a string containing the label to assign to the object
 	 */
 	public static void glObjectPtrLabel(long ptr, int length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(label, length);
 		nglObjectPtrLabel(ptr, length, memAddress(label));
 	}
@@ -620,7 +620,7 @@ public class KHRDebug {
 	@JavadocExclude
 	public static void nglGetObjectPtrLabel(long ptr, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectPtrLabel;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ptr);
 		callPIPPV(__functionAddress, ptr, bufSize, length, label);
 	}
@@ -634,7 +634,7 @@ public class KHRDebug {
 	 * @param label   a string that will receive the object label
 	 */
 	public static void glGetObjectPtrLabel(long ptr, int bufSize, ByteBuffer length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(label, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -643,7 +643,7 @@ public class KHRDebug {
 
 	/** Alternative version of: {@link #glGetObjectPtrLabel GetObjectPtrLabel} */
 	public static void glGetObjectPtrLabel(long ptr, IntBuffer length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetObjectPtrLabel(ptr, label.remaining(), memAddressSafe(length), memAddress(label));
 	}

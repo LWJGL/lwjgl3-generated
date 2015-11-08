@@ -5,10 +5,9 @@
  */
 package org.lwjgl.egl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -61,7 +60,7 @@ public class NVStreamSync {
 	@JavadocExclude
 	public static long neglCreateStreamSyncNV(long dpy, long stream, int type, long attrib_list) {
 		long __functionAddress = getInstance().CreateStreamSyncNV;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
@@ -69,14 +68,14 @@ public class NVStreamSync {
 	}
 
 	public static long eglCreateStreamSyncNV(long dpy, long stream, int type, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT4(attrib_list, EGL10.EGL_NONE);
 		return neglCreateStreamSyncNV(dpy, stream, type, memAddress(attrib_list));
 	}
 
 	/** Alternative version of: {@link #eglCreateStreamSyncNV CreateStreamSyncNV} */
 	public static long eglCreateStreamSyncNV(long dpy, long stream, int type, IntBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT(attrib_list, EGL10.EGL_NONE);
 		return neglCreateStreamSyncNV(dpy, stream, type, memAddress(attrib_list));
 	}

@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -165,7 +164,7 @@ public class ARBVertexBlend {
 	 * @param weights the vertex weights
 	 */
 	public static void glWeightfvARB(int size, ByteBuffer weights) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(weights, size << 2);
 		nglWeightfvARB(size, memAddress(weights));
 	}
@@ -191,7 +190,7 @@ public class ARBVertexBlend {
 	 * @param weights the vertex weights
 	 */
 	public static void glWeightbvARB(int size, ByteBuffer weights) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(weights, size);
 		nglWeightbvARB(size, memAddress(weights));
 	}
@@ -217,7 +216,7 @@ public class ARBVertexBlend {
 	 * @param weights the vertex weights
 	 */
 	public static void glWeightubvARB(int size, ByteBuffer weights) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(weights, size);
 		nglWeightubvARB(size, memAddress(weights));
 	}
@@ -243,7 +242,7 @@ public class ARBVertexBlend {
 	 * @param weights the vertex weights
 	 */
 	public static void glWeightsvARB(int size, ByteBuffer weights) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(weights, size << 1);
 		nglWeightsvARB(size, memAddress(weights));
 	}
@@ -269,7 +268,7 @@ public class ARBVertexBlend {
 	 * @param weights the vertex weights
 	 */
 	public static void glWeightusvARB(int size, ByteBuffer weights) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(weights, size << 1);
 		nglWeightusvARB(size, memAddress(weights));
 	}
@@ -295,7 +294,7 @@ public class ARBVertexBlend {
 	 * @param weights the vertex weights
 	 */
 	public static void glWeightivARB(int size, ByteBuffer weights) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(weights, size << 2);
 		nglWeightivARB(size, memAddress(weights));
 	}
@@ -321,7 +320,7 @@ public class ARBVertexBlend {
 	 * @param weights the vertex weights
 	 */
 	public static void glWeightuivARB(int size, ByteBuffer weights) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(weights, size << 2);
 		nglWeightuivARB(size, memAddress(weights));
 	}
@@ -347,7 +346,7 @@ public class ARBVertexBlend {
 	 * @param weights the vertex weights
 	 */
 	public static void glWeightdvARB(int size, ByteBuffer weights) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(weights, size << 3);
 		nglWeightdvARB(size, memAddress(weights));
 	}
@@ -375,35 +374,35 @@ public class ARBVertexBlend {
 	 * @param pointer the weight data
 	 */
 	public static void glWeightPointerARB(int size, int type, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglWeightPointerARB(size, type, stride, memAddress(pointer));
 	}
 
 	/** Buffer object offset version of: {@link #glWeightPointerARB WeightPointerARB} */
 	public static void glWeightPointerARB(int size, int type, int stride, long pointerOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglWeightPointerARB(size, type, stride, pointerOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glWeightPointerARB WeightPointerARB} */
 	public static void glWeightPointerARB(int size, int type, int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglWeightPointerARB(size, type, stride, memAddress(pointer));
 	}
 
 	/** IntBuffer version of: {@link #glWeightPointerARB WeightPointerARB} */
 	public static void glWeightPointerARB(int size, int type, int stride, IntBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglWeightPointerARB(size, type, stride, memAddress(pointer));
 	}
 
 	/** FloatBuffer version of: {@link #glWeightPointerARB WeightPointerARB} */
 	public static void glWeightPointerARB(int size, int type, int stride, FloatBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglWeightPointerARB(size, type, stride, memAddress(pointer));
 	}

@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opencl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /** Native bindings to the <a href="http://www.khronos.org/registry/cl/extensions/khr/cl_khr_gl_sharing.txt">khr_gl_sharing</a> extension. */
 public class KHRGLSharing {
@@ -141,7 +141,7 @@ public class KHRGLSharing {
 	 *         the OpenCL implementation on the host.</p>
 	 */
 	public static int clGetGLContextInfoKHR(ByteBuffer properties, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(properties, 5 << POINTER_SHIFT);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << POINTER_SHIFT);
@@ -151,7 +151,7 @@ public class KHRGLSharing {
 
 	/** Alternative version of: {@link #clGetGLContextInfoKHR GetGLContextInfoKHR} */
 	public static int clGetGLContextInfoKHR(PointerBuffer properties, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(properties, 5);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		}
@@ -160,7 +160,7 @@ public class KHRGLSharing {
 
 	/** PointerBuffer version of: {@link #clGetGLContextInfoKHR GetGLContextInfoKHR} */
 	public static int clGetGLContextInfoKHR(PointerBuffer properties, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(properties, 5);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		}

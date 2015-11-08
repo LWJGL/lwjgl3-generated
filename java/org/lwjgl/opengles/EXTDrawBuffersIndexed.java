@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -27,7 +26,7 @@ import static org.lwjgl.system.JNI.*;
  * This extension introduces indexed versions of the enable, blend equation, blend function, and color mask commands, as well as associated indexed
  * queries in order to control and query these states independently on a per-color output basis.</p>
  * 
- * <p>Requres {@link GLES30 GLES E.S} or {@link EXTDrawBuffers EXT_draw_buffers}.</p>
+ * <p>Requres {@link GLES30 GLES 3.0} or {@link EXTDrawBuffers EXT_draw_buffers}.</p>
  */
 public class EXTDrawBuffersIndexed {
 

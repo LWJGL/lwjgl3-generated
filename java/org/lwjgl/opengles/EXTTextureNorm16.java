@@ -12,7 +12,7 @@ package org.lwjgl.opengles;
  * 
  * <p>This extension provides a set of new 16 bit signed normalized and unsigned normalized fixed point texture, renderbuffer and texture buffer formats.</p>
  * 
- * <p>Requires {@link GLES31 GLES E.S}.</p>
+ * <p>Requires {@link GLES31 GLES 3.1}.</p>
  */
 public final class EXTTextureNorm16 {
 

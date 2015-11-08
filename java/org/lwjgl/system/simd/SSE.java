@@ -5,7 +5,6 @@
  */
 package org.lwjgl.system.simd;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -47,7 +46,7 @@ public class SSE {
 		_MM_FLUSH_ZERO_ON   = 0x8000,
 		_MM_FLUSH_ZERO_OFF  = 0x0;
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected SSE() {

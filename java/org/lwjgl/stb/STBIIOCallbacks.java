@@ -93,7 +93,7 @@ public class STBIIOCallbacks extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public STBIIOCallbacks set(STBIIOCallbacks src) {
 		return nset(address());
@@ -101,7 +101,7 @@ public class STBIIOCallbacks extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public STBIIOCallbacks set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}

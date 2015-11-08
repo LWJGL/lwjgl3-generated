@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opengles;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/OES/OES_get_program_binary.txt">OES_get_program_binary</a> extension.
@@ -31,7 +31,7 @@ import static org.lwjgl.system.APIUtil.*;
  * compiler. If not, the GetProgramBinaryOES command is rendered virtually useless, but the ProgramBinaryOES command may still be used by vendor
  * extensions as a standard method for loading offline-compiled program binaries.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public class OESGetProgramBinary {
 
@@ -93,7 +93,7 @@ public class OESGetProgramBinary {
 	}
 
 	public static void glGetProgramBinaryOES(int program, int bufSize, ByteBuffer length, ByteBuffer binaryFormat, ByteBuffer binary) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(binary, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 			checkBuffer(binaryFormat, 1 << 2);
@@ -103,7 +103,7 @@ public class OESGetProgramBinary {
 
 	/** Alternative version of: {@link #glGetProgramBinaryOES GetProgramBinaryOES} */
 	public static void glGetProgramBinaryOES(int program, IntBuffer length, IntBuffer binaryFormat, ByteBuffer binary) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( length != null ) checkBuffer(length, 1);
 			checkBuffer(binaryFormat, 1);
 		}
@@ -112,7 +112,7 @@ public class OESGetProgramBinary {
 
 	/** Buffer return version of: {@link #glGetProgramBinaryOES GetProgramBinaryOES} */
 	public static ByteBuffer glGetProgramBinaryOES(int program, int bufSize, IntBuffer binaryFormat) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(binaryFormat, 1);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
@@ -125,7 +125,7 @@ public class OESGetProgramBinary {
 	/** Buffer return (w/ implicit max length) version of: {@link #glGetProgramBinaryOES GetProgramBinaryOES} */
 	public static ByteBuffer glGetProgramBinaryOES(int program, IntBuffer binaryFormat) {
 		int bufSize = GLES20.glGetProgrami(program, GL_PROGRAM_BINARY_LENGTH_OES);
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(binaryFormat, 1);
 		APIBuffer __buffer = apiBuffer();
 		int length = __buffer.intParam();
@@ -145,7 +145,7 @@ public class OESGetProgramBinary {
 	}
 
 	public static void glProgramBinaryOES(int program, int binaryFormat, ByteBuffer binary, int length) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(binary, length);
 		nglProgramBinaryOES(program, binaryFormat, memAddress(binary), length);
 	}

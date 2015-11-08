@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/wgl_pixel_format.txt">WGL_ARB_pixel_format</a> extension.
@@ -137,7 +136,7 @@ public class WGLARBPixelFormat {
 	@JavadocExclude
 	public static int nwglGetPixelFormatAttribivARB(long hdc, int pixelFormat, int layerPlane, int n, long attributes, long values) {
 		long __functionAddress = getInstance().GetPixelFormatAttribivARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hdc);
 		return callPIIIPPI(__functionAddress, hdc, pixelFormat, layerPlane, n, attributes, values);
 	}
@@ -153,7 +152,7 @@ public class WGLARBPixelFormat {
 	 * @param values      a buffer into which the results of the query will be placed
 	 */
 	public static int wglGetPixelFormatAttribivARB(long hdc, int pixelFormat, int layerPlane, int n, ByteBuffer attributes, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(attributes, n << 2);
 			checkBuffer(values, n << 2);
 		}
@@ -162,14 +161,14 @@ public class WGLARBPixelFormat {
 
 	/** Alternative version of: {@link #wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB} */
 	public static int wglGetPixelFormatAttribivARB(long hdc, int pixelFormat, int layerPlane, IntBuffer attributes, IntBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, attributes.remaining());
 		return nwglGetPixelFormatAttribivARB(hdc, pixelFormat, layerPlane, attributes.remaining(), memAddress(attributes), memAddress(values));
 	}
 
 	/** Single value version of: {@link #wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB} */
 	public static int wglGetPixelFormatAttribiARB(long hdc, int pixelFormat, int layerPlane, int attribute, IntBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1);
 		APIBuffer __buffer = apiBuffer();
 		int attributes = __buffer.intParam(attribute);
@@ -182,7 +181,7 @@ public class WGLARBPixelFormat {
 	@JavadocExclude
 	public static int nwglGetPixelFormatAttribfvARB(long hdc, int pixelFormat, int layerPlane, int n, long attributes, long values) {
 		long __functionAddress = getInstance().GetPixelFormatAttribfvARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hdc);
 		return callPIIIPPI(__functionAddress, hdc, pixelFormat, layerPlane, n, attributes, values);
 	}
@@ -198,7 +197,7 @@ public class WGLARBPixelFormat {
 	 * @param values      a buffer into which the results of the query will be placed
 	 */
 	public static int wglGetPixelFormatAttribfvARB(long hdc, int pixelFormat, int layerPlane, int n, ByteBuffer attributes, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(attributes, n << 2);
 			checkBuffer(values, n << 2);
 		}
@@ -207,14 +206,14 @@ public class WGLARBPixelFormat {
 
 	/** Alternative version of: {@link #wglGetPixelFormatAttribfvARB GetPixelFormatAttribfvARB} */
 	public static int wglGetPixelFormatAttribfvARB(long hdc, int pixelFormat, int layerPlane, IntBuffer attributes, FloatBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, attributes.remaining());
 		return nwglGetPixelFormatAttribfvARB(hdc, pixelFormat, layerPlane, attributes.remaining(), memAddress(attributes), memAddress(values));
 	}
 
 	/** Single value version of: {@link #wglGetPixelFormatAttribfvARB GetPixelFormatAttribfvARB} */
 	public static int wglGetPixelFormatAttribfARB(long hdc, int pixelFormat, int layerPlane, int attribute, FloatBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1);
 		APIBuffer __buffer = apiBuffer();
 		int attributes = __buffer.intParam(attribute);
@@ -227,7 +226,7 @@ public class WGLARBPixelFormat {
 	@JavadocExclude
 	public static int nwglChoosePixelFormatARB(long hdc, long attribIList, long attribFList, int maxFormats, long formats, long numFormats) {
 		long __functionAddress = getInstance().ChoosePixelFormatARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hdc);
 		return callPPPIPPI(__functionAddress, hdc, attribIList, attribFList, maxFormats, formats, numFormats);
 	}
@@ -246,7 +245,7 @@ public class WGLARBPixelFormat {
 	 * @param numFormats  returns the number of matching formats
 	 */
 	public static int wglChoosePixelFormatARB(long hdc, ByteBuffer attribIList, ByteBuffer attribFList, int maxFormats, ByteBuffer formats, ByteBuffer numFormats) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( attribIList != null ) checkNT4(attribIList);
 			if ( attribFList != null ) checkNT4(attribFList);
 			checkBuffer(formats, maxFormats << 2);
@@ -257,7 +256,7 @@ public class WGLARBPixelFormat {
 
 	/** Alternative version of: {@link #wglChoosePixelFormatARB ChoosePixelFormatARB} */
 	public static int wglChoosePixelFormatARB(long hdc, IntBuffer attribIList, FloatBuffer attribFList, IntBuffer formats, IntBuffer numFormats) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( attribIList != null ) checkNT(attribIList);
 			if ( attribFList != null ) checkNT(attribFList);
 			checkBuffer(numFormats, 1);

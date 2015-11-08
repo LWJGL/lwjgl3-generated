@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -69,7 +68,7 @@ public class OESEGLImage {
 
 	public static void glEGLImageTargetTexture2DOES(int target, long image) {
 		long __functionAddress = getInstance().EGLImageTargetTexture2DOES;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(image);
 		callIPV(__functionAddress, target, image);
 	}
@@ -78,7 +77,7 @@ public class OESEGLImage {
 
 	public static void glEGLImageTargetRenderbufferStorageOES(int target, long image) {
 		long __functionAddress = getInstance().EGLImageTargetRenderbufferStorageOES;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(image);
 		callIPV(__functionAddress, target, image);
 	}

@@ -10,7 +10,7 @@ package org.lwjgl.opengles;
  * 
  * <p>This extension expands the shadow map capability described in EXT_shadow_samplers to include support for shadow samplers of cube map textures.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}, {@link OESDepthTextureCubeMap OES_depth_texture_cube_map} and {@link EXTShadowSamplers EXT_shadow_samplers}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}, {@link OESDepthTextureCubeMap OES_depth_texture_cube_map} and {@link EXTShadowSamplers EXT_shadow_samplers}.</p>
  */
 public final class NVShadowSamplersCube {
 

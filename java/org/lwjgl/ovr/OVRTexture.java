@@ -96,7 +96,7 @@ public class OVRTexture extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public OVRTexture set(OVRTexture src) {
 		return nset(address());
@@ -104,7 +104,7 @@ public class OVRTexture extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public OVRTexture set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}
@@ -176,7 +176,7 @@ public class OVRTexture extends Struct {
 	public static int ngetHeaderTextureSizeH(long struct) { return memGetInt(struct + HEADER + OVRTextureHeader.TEXTURESIZE + OVRSizei.H); }
 	public static int getHeaderTextureSizeH(ByteBuffer struct) { return ngetHeaderTextureSizeH(memAddress(struct)); }
 	public static void ngetPlatformData(long struct, ByteBuffer PlatformData) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(PlatformData, 8 * 8);
+		if ( CHECKS ) checkBufferGT(PlatformData, 8 * 8);
 		memCopy(struct + PLATFORMDATA, memAddress(PlatformData), PlatformData.remaining());
 	}
 	public static void getPlatformData(ByteBuffer struct, ByteBuffer PlatformData) { ngetPlatformData(memAddress(struct), PlatformData); }
@@ -196,7 +196,7 @@ public class OVRTexture extends Struct {
 	public static void nsetHeaderTextureSizeH(long struct, int h) { memPutInt(struct + HEADER + OVRTextureHeader.TEXTURESIZE + OVRSizei.H, h); }
 	public static void setHeaderTextureSizeH(ByteBuffer struct, int h) { nsetHeaderTextureSizeH(memAddress(struct), h); }
 	public static void nsetPlatformData(long struct, ByteBuffer PlatformData) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBufferGT(PlatformData, 8 * POINTER_SIZE);
 		}
 		memCopy(memAddress(PlatformData), struct + PLATFORMDATA, PlatformData.remaining());

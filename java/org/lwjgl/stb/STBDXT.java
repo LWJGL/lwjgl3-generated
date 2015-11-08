@@ -5,10 +5,9 @@
  */
 package org.lwjgl.stb;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -29,7 +28,7 @@ public class STBDXT {
 	/** High quality mode, does two refinement steps instead of 1. ~30-40% slower. */
 	public static final int STB_DXT_HIGHQUAL = 0x2;
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected STBDXT() {
@@ -52,7 +51,7 @@ public class STBDXT {
 	 * @param mode  the compression mode. One of:<br>{@link #STB_DXT_NORMAL DXT_NORMAL}, {@link #STB_DXT_DITHER DXT_DITHER}, {@link #STB_DXT_HIGHQUAL DXT_HIGHQUAL}
 	 */
 	public static void stb_compress_dxt_block(ByteBuffer dest, ByteBuffer src, int alpha, int mode) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(src, 64);
 		nstb_compress_dxt_block(memAddress(dest), memAddress(src), alpha, mode);
 	}

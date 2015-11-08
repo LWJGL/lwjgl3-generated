@@ -87,7 +87,7 @@ public class CLBusAddressAMD extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public CLBusAddressAMD set(CLBusAddressAMD src) {
 		return nset(address());
@@ -95,7 +95,7 @@ public class CLBusAddressAMD extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public CLBusAddressAMD set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}

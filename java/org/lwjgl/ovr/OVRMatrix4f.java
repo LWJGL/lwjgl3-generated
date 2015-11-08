@@ -117,7 +117,7 @@ public class OVRMatrix4f extends Struct {
 	}
 
 	public static void ngetM(long struct, ByteBuffer m) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(m, 16 * 4);
+		if ( CHECKS ) checkBufferGT(m, 16 * 4);
 		memCopy(struct + M, memAddress(m), m.remaining());
 	}
 	public static void getM(ByteBuffer struct, ByteBuffer m) { ngetM(memAddress(struct), m); }
@@ -125,7 +125,7 @@ public class OVRMatrix4f extends Struct {
 	public static float getM(ByteBuffer struct, int index) { return ngetM(memAddress(struct), index); }
 
 	public static void nsetM(long struct, ByteBuffer m) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBufferGT(m, 16 * 4);
 		}
 		memCopy(memAddress(m), struct + M, m.remaining());

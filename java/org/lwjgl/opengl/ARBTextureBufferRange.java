@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -102,7 +101,7 @@ public class ARBTextureBufferRange {
 	 */
 	public static void glTextureBufferRangeEXT(int texture, int target, int internalformat, int buffer, long offset, long size) {
 		long __functionAddress = getInstance().TextureBufferRangeEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIPPV(__functionAddress, texture, target, internalformat, buffer, offset, size);
 	}

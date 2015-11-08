@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengles;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/KHR/debug.txt">KHR_debug</a> extension.
@@ -261,7 +261,7 @@ public class KHRDebug {
 	 * @param enabled  whether the selected messages should be enabled or disabled
 	 */
 	public static void glDebugMessageControlKHR(int source, int type, int severity, int count, ByteBuffer ids, boolean enabled) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( ids != null ) checkBuffer(ids, count << 2);
 		nglDebugMessageControlKHR(source, type, severity, count, memAddressSafe(ids), enabled);
 	}
@@ -307,7 +307,7 @@ public class KHRDebug {
 	 * @param message  a character array containing the message to insert
 	 */
 	public static void glDebugMessageInsertKHR(int source, int type, int id, int severity, int length, ByteBuffer message) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(message, length);
 		nglDebugMessageInsertKHR(source, type, id, severity, length, memAddress(message));
 	}
@@ -406,7 +406,7 @@ public class KHRDebug {
 	 * @param messageLog an array of characters that will receive the messages
 	 */
 	public static int glGetDebugMessageLogKHR(int count, int bufsize, ByteBuffer sources, ByteBuffer types, ByteBuffer ids, ByteBuffer severities, ByteBuffer lengths, ByteBuffer messageLog) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( messageLog != null ) checkBuffer(messageLog, bufsize);
 			if ( sources != null ) checkBuffer(sources, count << 2);
 			if ( types != null ) checkBuffer(types, count << 2);
@@ -419,7 +419,7 @@ public class KHRDebug {
 
 	/** Alternative version of: {@link #glGetDebugMessageLogKHR GetDebugMessageLogKHR} */
 	public static int glGetDebugMessageLogKHR(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, ByteBuffer messageLog) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( sources != null ) checkBuffer(sources, count);
 			if ( types != null ) checkBuffer(types, count);
 			if ( ids != null ) checkBuffer(ids, count);
@@ -439,14 +439,14 @@ public class KHRDebug {
 	}
 
 	public static void glGetPointervKHR(int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << POINTER_SHIFT);
 		nglGetPointervKHR(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetPointervKHR GetPointervKHR} */
 	public static void glGetPointervKHR(int pname, PointerBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetPointervKHR(pname, memAddress(params));
 	}
@@ -487,7 +487,7 @@ public class KHRDebug {
 	 * @param message a string containing the message to be sent to the debug output stream
 	 */
 	public static void glPushDebugGroupKHR(int source, int id, int length, ByteBuffer message) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(message, length);
 		nglPushDebugGroupKHR(source, id, length, memAddress(message));
 	}
@@ -540,7 +540,7 @@ public class KHRDebug {
 	 * @param label      a string containing the label to assign to the object
 	 */
 	public static void glObjectLabelKHR(int identifier, int name, int length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(label, length);
 		nglObjectLabelKHR(identifier, name, length, memAddress(label));
 	}
@@ -577,7 +577,7 @@ public class KHRDebug {
 	 * @param label      a string that will receive the object label
 	 */
 	public static void glGetObjectLabelKHR(int identifier, int name, int bufSize, ByteBuffer length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(label, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -586,7 +586,7 @@ public class KHRDebug {
 
 	/** Alternative version of: {@link #glGetObjectLabelKHR GetObjectLabelKHR} */
 	public static void glGetObjectLabelKHR(int identifier, int name, IntBuffer length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetObjectLabelKHR(identifier, name, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
@@ -616,7 +616,7 @@ public class KHRDebug {
 	@JavadocExclude
 	public static void nglObjectPtrLabelKHR(long ptr, int length, long label) {
 		long __functionAddress = getInstance().ObjectPtrLabelKHR;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ptr);
 		callPIPV(__functionAddress, ptr, length, label);
 	}
@@ -629,7 +629,7 @@ public class KHRDebug {
 	 * @param label  a string containing the label to assign to the object
 	 */
 	public static void glObjectPtrLabelKHR(long ptr, int length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(label, length);
 		nglObjectPtrLabelKHR(ptr, length, memAddress(label));
 	}
@@ -653,7 +653,7 @@ public class KHRDebug {
 	@JavadocExclude
 	public static void nglGetObjectPtrLabelKHR(long ptr, int bufSize, long length, long label) {
 		long __functionAddress = getInstance().GetObjectPtrLabelKHR;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(ptr);
 		callPIPPV(__functionAddress, ptr, bufSize, length, label);
 	}
@@ -667,7 +667,7 @@ public class KHRDebug {
 	 * @param label   a string that will receive the object label
 	 */
 	public static void glGetObjectPtrLabelKHR(long ptr, int bufSize, ByteBuffer length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(label, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -676,7 +676,7 @@ public class KHRDebug {
 
 	/** Alternative version of: {@link #glGetObjectPtrLabelKHR GetObjectPtrLabelKHR} */
 	public static void glGetObjectPtrLabelKHR(long ptr, IntBuffer length, ByteBuffer label) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetObjectPtrLabelKHR(ptr, label.remaining(), memAddressSafe(length), memAddress(label));
 	}

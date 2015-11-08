@@ -5,15 +5,15 @@
  */
 package org.lwjgl.egl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/KHR/EGL_KHR_lock_surface3.txt">KHR_lock_surface3</a> extension.
@@ -87,7 +87,7 @@ public class KHRLockSurface3 {
 	@JavadocExclude
 	public static boolean neglLockSurfaceKHR(long dpy, long surface, long attrib_list) {
 		long __functionAddress = getInstance().LockSurfaceKHR;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
@@ -95,14 +95,14 @@ public class KHRLockSurface3 {
 	}
 
 	public static boolean eglLockSurfaceKHR(long dpy, long surface, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
 		return neglLockSurfaceKHR(dpy, surface, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #eglLockSurfaceKHR LockSurfaceKHR} */
 	public static boolean eglLockSurfaceKHR(long dpy, long surface, IntBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
 		return neglLockSurfaceKHR(dpy, surface, memAddressSafe(attrib_list));
 	}
@@ -111,7 +111,7 @@ public class KHRLockSurface3 {
 
 	public static boolean eglUnlockSurfaceKHR(long dpy, long surface) {
 		long __functionAddress = getInstance().UnlockSurfaceKHR;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
@@ -124,7 +124,7 @@ public class KHRLockSurface3 {
 	@JavadocExclude
 	public static boolean neglQuerySurface64KHR(long dpy, long surface, int attribute, long value) {
 		long __functionAddress = getInstance().QuerySurface64KHR;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
@@ -132,14 +132,14 @@ public class KHRLockSurface3 {
 	}
 
 	public static boolean eglQuerySurface64KHR(long dpy, long surface, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << POINTER_SHIFT);
 		return neglQuerySurface64KHR(dpy, surface, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQuerySurface64KHR QuerySurface64KHR} */
 	public static boolean eglQuerySurface64KHR(long dpy, long surface, int attribute, PointerBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQuerySurface64KHR(dpy, surface, attribute, memAddress(value));
 	}

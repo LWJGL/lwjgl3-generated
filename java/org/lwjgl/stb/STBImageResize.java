@@ -5,10 +5,9 @@
  */
 package org.lwjgl.stb;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -110,7 +109,7 @@ public class STBImageResize {
 		STBIR_TYPE_UINT32 = 0x2,
 		STBIR_TYPE_FLOAT  = 0x3;
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected STBImageResize() {
@@ -146,7 +145,7 @@ public class STBImageResize {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbir_resize_uint8(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(input_pixels, input_w * input_h * num_channels);
 			checkBuffer(output_pixels, output_w * output_h * num_channels);
 		}
@@ -175,7 +174,7 @@ public class STBImageResize {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbir_resize_float(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(input_pixels, (input_w * input_h * num_channels) << 2);
 			checkBuffer(output_pixels, (output_w * output_h * num_channels) << 2);
 		}
@@ -184,7 +183,7 @@ public class STBImageResize {
 
 	/** Alternative version of: {@link #stbir_resize_float resize_float} */
 	public static int stbir_resize_float(FloatBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, FloatBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(input_pixels, input_w * input_h * num_channels);
 			checkBuffer(output_pixels, output_w * output_h * num_channels);
 		}
@@ -221,7 +220,7 @@ public class STBImageResize {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbir_resize_uint8_srgb(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(input_pixels, input_w * input_h * num_channels);
 			checkBuffer(output_pixels, output_w * output_h * num_channels);
 		}
@@ -253,7 +252,7 @@ public class STBImageResize {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbir_resize_uint8_srgb_edgemode(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(input_pixels, input_w * input_h * num_channels);
 			checkBuffer(output_pixels, output_w * output_h * num_channels);
 		}
@@ -288,7 +287,7 @@ public class STBImageResize {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbir_resize_uint8_generic(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space, ByteBuffer alloc_context) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(input_pixels, input_w * input_h * num_channels);
 			checkBuffer(output_pixels, output_w * output_h * num_channels);
 		}
@@ -297,7 +296,7 @@ public class STBImageResize {
 
 	/** Alternative version of: {@link #stbir_resize_uint8_generic resize_uint8_generic} */
 	public static int stbir_resize_uint8_generic(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(input_pixels, input_w * input_h * num_channels);
 			checkBuffer(output_pixels, output_w * output_h * num_channels);
 		}
@@ -332,7 +331,7 @@ public class STBImageResize {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbir_resize_uint16_generic(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space, ByteBuffer alloc_context) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(input_pixels, (input_w * input_h * num_channels) << 1);
 			checkBuffer(output_pixels, (output_w * output_h * num_channels) << 1);
 		}
@@ -341,7 +340,7 @@ public class STBImageResize {
 
 	/** Alternative version of: {@link #stbir_resize_uint16_generic resize_uint16_generic} */
 	public static int stbir_resize_uint16_generic(ShortBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ShortBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(input_pixels, input_w * input_h * num_channels);
 			checkBuffer(output_pixels, output_w * output_h * num_channels);
 		}
@@ -376,7 +375,7 @@ public class STBImageResize {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbir_resize_float_generic(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space, ByteBuffer alloc_context) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(input_pixels, (input_w * input_h * num_channels) << 2);
 			checkBuffer(output_pixels, (output_w * output_h * num_channels) << 2);
 		}
@@ -385,7 +384,7 @@ public class STBImageResize {
 
 	/** Alternative version of: {@link #stbir_resize_float_generic resize_float_generic} */
 	public static int stbir_resize_float_generic(FloatBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, FloatBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(input_pixels, input_w * input_h * num_channels);
 			checkBuffer(output_pixels, output_w * output_h * num_channels);
 		}

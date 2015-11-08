@@ -13,7 +13,7 @@ package org.lwjgl.opengles;
  * shader may not want the color conversion occurring, and by disabling conversion the application can be simplified, sometimes in very significant and
  * more optimal ways.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S} and {@link EXTSRGB EXT_sRGB} or {@link GLES30 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0} and {@link EXTSRGB EXT_sRGB} or {@link GLES30 GLES 3.0}.</p>
  */
 public final class EXTSRGBWriteControl {
 

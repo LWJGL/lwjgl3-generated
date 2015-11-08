@@ -5,15 +5,14 @@
  */
 package org.lwjgl.openal;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /** bindings to ALC_EXT_EFX extension. */
 public class EXTEfx {
@@ -761,7 +760,7 @@ public class EXTEfx {
 	 * @param effects the buffer that will receive the effects
 	 */
 	public static void alGenEffects(int n, ByteBuffer effects) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(effects, n << 2);
 		nalGenEffects(n, memAddress(effects));
 	}
@@ -795,7 +794,7 @@ public class EXTEfx {
 	 * @param effects the effect to delete
 	 */
 	public static void alDeleteEffects(int n, ByteBuffer effects) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(effects, n << 2);
 		nalDeleteEffects(n, memAddress(effects));
 	}
@@ -919,14 +918,14 @@ public class EXTEfx {
 	 * @param value  the parameter value
 	 */
 	public static void alGetEffecti(int effect, int param, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nalGetEffecti(effect, param, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #alGetEffecti GetEffecti} */
 	public static void alGetEffecti(int effect, int param, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetEffecti(effect, param, memAddress(value));
 	}
@@ -956,14 +955,14 @@ public class EXTEfx {
 	 * @param values the parameter values
 	 */
 	public static void alGetEffectiv(int effect, int param, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1 << 2);
 		nalGetEffectiv(effect, param, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #alGetEffectiv GetEffectiv} */
 	public static void alGetEffectiv(int effect, int param, IntBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1);
 		nalGetEffectiv(effect, param, memAddress(values));
 	}
@@ -985,14 +984,14 @@ public class EXTEfx {
 	 * @param value  the parameter value
 	 */
 	public static void alGetEffectf(int effect, int param, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nalGetEffectf(effect, param, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #alGetEffectf GetEffectf} */
 	public static void alGetEffectf(int effect, int param, FloatBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetEffectf(effect, param, memAddress(value));
 	}
@@ -1022,14 +1021,14 @@ public class EXTEfx {
 	 * @param values the parameter values
 	 */
 	public static void alGetEffectfv(int effect, int param, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1 << 2);
 		nalGetEffectfv(effect, param, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #alGetEffectfv GetEffectfv} */
 	public static void alGetEffectfv(int effect, int param, FloatBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1);
 		nalGetEffectfv(effect, param, memAddress(values));
 	}
@@ -1050,7 +1049,7 @@ public class EXTEfx {
 	 * @param filters the buffer that will receive the filters
 	 */
 	public static void alGenFilters(int n, ByteBuffer filters) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(filters, n << 2);
 		nalGenFilters(n, memAddress(filters));
 	}
@@ -1084,7 +1083,7 @@ public class EXTEfx {
 	 * @param filters the filter to delete
 	 */
 	public static void alDeleteFilters(int n, ByteBuffer filters) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(filters, n << 2);
 		nalDeleteFilters(n, memAddress(filters));
 	}
@@ -1208,14 +1207,14 @@ public class EXTEfx {
 	 * @param value  the parameter value
 	 */
 	public static void alGetFilteri(int filter, int param, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nalGetFilteri(filter, param, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #alGetFilteri GetFilteri} */
 	public static void alGetFilteri(int filter, int param, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetFilteri(filter, param, memAddress(value));
 	}
@@ -1245,14 +1244,14 @@ public class EXTEfx {
 	 * @param values the parameter values
 	 */
 	public static void alGetFilteriv(int filter, int param, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1 << 2);
 		nalGetFilteriv(filter, param, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #alGetFilteriv GetFilteriv} */
 	public static void alGetFilteriv(int filter, int param, IntBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1);
 		nalGetFilteriv(filter, param, memAddress(values));
 	}
@@ -1274,14 +1273,14 @@ public class EXTEfx {
 	 * @param value  the parameter value
 	 */
 	public static void alGetFilterf(int filter, int param, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nalGetFilterf(filter, param, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #alGetFilterf GetFilterf} */
 	public static void alGetFilterf(int filter, int param, FloatBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetFilterf(filter, param, memAddress(value));
 	}
@@ -1311,14 +1310,14 @@ public class EXTEfx {
 	 * @param values the parameter values
 	 */
 	public static void alGetFilterfv(int filter, int param, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1 << 2);
 		nalGetFilterfv(filter, param, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #alGetFilterfv GetFilterfv} */
 	public static void alGetFilterfv(int filter, int param, FloatBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1);
 		nalGetFilterfv(filter, param, memAddress(values));
 	}
@@ -1339,7 +1338,7 @@ public class EXTEfx {
 	 * @param effectSlots the buffer that will receive the effect slots
 	 */
 	public static void alGenAuxiliaryEffectSlots(int n, ByteBuffer effectSlots) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(effectSlots, n << 2);
 		nalGenAuxiliaryEffectSlots(n, memAddress(effectSlots));
 	}
@@ -1373,7 +1372,7 @@ public class EXTEfx {
 	 * @param effectSlots the effectSlot to delete
 	 */
 	public static void alDeleteAuxiliaryEffectSlots(int n, ByteBuffer effectSlots) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(effectSlots, n << 2);
 		nalDeleteAuxiliaryEffectSlots(n, memAddress(effectSlots));
 	}
@@ -1497,14 +1496,14 @@ public class EXTEfx {
 	 * @param value      the parameter value
 	 */
 	public static void alGetAuxiliaryEffectSloti(int effectSlot, int param, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nalGetAuxiliaryEffectSloti(effectSlot, param, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #alGetAuxiliaryEffectSloti GetAuxiliaryEffectSloti} */
 	public static void alGetAuxiliaryEffectSloti(int effectSlot, int param, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetAuxiliaryEffectSloti(effectSlot, param, memAddress(value));
 	}
@@ -1534,14 +1533,14 @@ public class EXTEfx {
 	 * @param values     the parameter values
 	 */
 	public static void alGetAuxiliaryEffectSlotiv(int effectSlot, int param, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1 << 2);
 		nalGetAuxiliaryEffectSlotiv(effectSlot, param, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #alGetAuxiliaryEffectSlotiv GetAuxiliaryEffectSlotiv} */
 	public static void alGetAuxiliaryEffectSlotiv(int effectSlot, int param, IntBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1);
 		nalGetAuxiliaryEffectSlotiv(effectSlot, param, memAddress(values));
 	}
@@ -1563,14 +1562,14 @@ public class EXTEfx {
 	 * @param value      the parameter value
 	 */
 	public static void alGetAuxiliaryEffectSlotf(int effectSlot, int param, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nalGetAuxiliaryEffectSlotf(effectSlot, param, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #alGetAuxiliaryEffectSlotf GetAuxiliaryEffectSlotf} */
 	public static void alGetAuxiliaryEffectSlotf(int effectSlot, int param, FloatBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nalGetAuxiliaryEffectSlotf(effectSlot, param, memAddress(value));
 	}
@@ -1600,14 +1599,14 @@ public class EXTEfx {
 	 * @param values     the parameter values
 	 */
 	public static void alGetAuxiliaryEffectSlotfv(int effectSlot, int param, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1 << 2);
 		nalGetAuxiliaryEffectSlotfv(effectSlot, param, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #alGetAuxiliaryEffectSlotfv GetAuxiliaryEffectSlotfv} */
 	public static void alGetAuxiliaryEffectSlotfv(int effectSlot, int param, FloatBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1);
 		nalGetAuxiliaryEffectSlotfv(effectSlot, param, memAddress(values));
 	}

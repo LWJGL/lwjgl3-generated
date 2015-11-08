@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/transform_feedback.txt">NV_transform_feedback</a> extension.
@@ -189,7 +188,7 @@ public class NVTransformFeedback {
 	}
 
 	public static void glTransformFeedbackAttribsNV(int count, ByteBuffer attribs, int bufferMode) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(attribs, count << 2);
 		nglTransformFeedbackAttribsNV(count, memAddress(attribs), bufferMode);
 	}
@@ -230,7 +229,7 @@ public class NVTransformFeedback {
 	}
 
 	public static void glTransformFeedbackVaryingsNV(int program, int count, ByteBuffer locations, int bufferMode) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(locations, count << 2);
 		nglTransformFeedbackVaryingsNV(program, count, memAddress(locations), bufferMode);
 	}
@@ -250,7 +249,7 @@ public class NVTransformFeedback {
 	}
 
 	public static void glActiveVaryingNV(int program, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		nglActiveVaryingNV(program, memAddress(name));
 	}
@@ -272,7 +271,7 @@ public class NVTransformFeedback {
 	}
 
 	public static int glGetVaryingLocationNV(int program, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		return nglGetVaryingLocationNV(program, memAddress(name));
 	}
@@ -294,7 +293,7 @@ public class NVTransformFeedback {
 	}
 
 	public static void glGetActiveVaryingNV(int program, int index, int bufSize, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(name, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 			checkBuffer(size, 1 << 2);
@@ -305,7 +304,7 @@ public class NVTransformFeedback {
 
 	/** Alternative version of: {@link #glGetActiveVaryingNV GetActiveVaryingNV} */
 	public static void glGetActiveVaryingNV(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( length != null ) checkBuffer(length, 1);
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
@@ -323,14 +322,14 @@ public class NVTransformFeedback {
 	}
 
 	public static void glGetTransformFeedbackVaryingNV(int program, int index, ByteBuffer location) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(location, 1 << 2);
 		nglGetTransformFeedbackVaryingNV(program, index, memAddress(location));
 	}
 
 	/** Alternative version of: {@link #glGetTransformFeedbackVaryingNV GetTransformFeedbackVaryingNV} */
 	public static void glGetTransformFeedbackVaryingNV(int program, int index, IntBuffer location) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(location, 1);
 		nglGetTransformFeedbackVaryingNV(program, index, memAddress(location));
 	}
@@ -353,7 +352,7 @@ public class NVTransformFeedback {
 	}
 
 	public static void glTransformFeedbackStreamAttribsNV(int count, ByteBuffer attribs, int nbuffers, ByteBuffer bufstreams, int bufferMode) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(attribs, count << 2);
 			checkBuffer(bufstreams, nbuffers << 2);
 		}

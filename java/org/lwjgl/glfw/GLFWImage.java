@@ -93,7 +93,7 @@ public class GLFWImage extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public GLFWImage set(GLFWImage src) {
 		return nset(address());
@@ -101,7 +101,7 @@ public class GLFWImage extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public GLFWImage set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}

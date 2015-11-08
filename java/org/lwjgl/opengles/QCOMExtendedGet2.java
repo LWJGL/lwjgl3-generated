@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/QCOM/QCOM_extended_get2.txt">QCOM_extended_get2</a> extension.
@@ -76,7 +75,7 @@ public class QCOMExtendedGet2 {
 	}
 
 	public static void glExtGetShadersQCOM(ByteBuffer shaders, int maxShaders, ByteBuffer numShaders) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( shaders != null ) checkBuffer(shaders, maxShaders << 2);
 			if ( numShaders != null ) checkBuffer(numShaders, 1 << 2);
 		}
@@ -85,7 +84,7 @@ public class QCOMExtendedGet2 {
 
 	/** Alternative version of: {@link #glExtGetShadersQCOM ExtGetShadersQCOM} */
 	public static void glExtGetShadersQCOM(IntBuffer shaders, IntBuffer numShaders) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( numShaders != null ) checkBuffer(numShaders, 1);
 		nglExtGetShadersQCOM(memAddressSafe(shaders), shaders == null ? 0 : shaders.remaining(), memAddressSafe(numShaders));
 	}
@@ -100,7 +99,7 @@ public class QCOMExtendedGet2 {
 	}
 
 	public static void glExtGetProgramsQCOM(ByteBuffer programs, int maxPrograms, ByteBuffer numPrograms) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( programs != null ) checkBuffer(programs, maxPrograms << 2);
 			if ( numPrograms != null ) checkBuffer(numPrograms, 1 << 2);
 		}
@@ -109,7 +108,7 @@ public class QCOMExtendedGet2 {
 
 	/** Alternative version of: {@link #glExtGetProgramsQCOM ExtGetProgramsQCOM} */
 	public static void glExtGetProgramsQCOM(IntBuffer programs, IntBuffer numPrograms) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( numPrograms != null ) checkBuffer(numPrograms, 1);
 		nglExtGetProgramsQCOM(memAddressSafe(programs), programs == null ? 0 : programs.remaining(), memAddressSafe(numPrograms));
 	}
@@ -131,14 +130,14 @@ public class QCOMExtendedGet2 {
 	}
 
 	public static void glExtGetProgramBinarySourceQCOM(int program, int shadertype, ByteBuffer source, ByteBuffer length) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		nglExtGetProgramBinarySourceQCOM(program, shadertype, memAddressSafe(source), memAddressSafe(length));
 	}
 
 	/** Alternative version of: {@link #glExtGetProgramBinarySourceQCOM ExtGetProgramBinarySourceQCOM} */
 	public static void glExtGetProgramBinarySourceQCOM(int program, int shadertype, ByteBuffer source, IntBuffer length) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglExtGetProgramBinarySourceQCOM(program, shadertype, memAddressSafe(source), memAddressSafe(length));
 	}

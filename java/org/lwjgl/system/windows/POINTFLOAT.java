@@ -86,7 +86,7 @@ public class POINTFLOAT extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public POINTFLOAT set(POINTFLOAT src) {
 		return nset(address());
@@ -94,7 +94,7 @@ public class POINTFLOAT extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public POINTFLOAT set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}

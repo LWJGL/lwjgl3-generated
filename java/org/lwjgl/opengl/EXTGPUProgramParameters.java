@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -77,7 +76,7 @@ public class EXTGPUProgramParameters {
 	}
 
 	public static void glProgramEnvParameters4fvEXT(int target, int index, int count, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, (count << 2) << 2);
 		nglProgramEnvParameters4fvEXT(target, index, count, memAddress(params));
 	}
@@ -97,7 +96,7 @@ public class EXTGPUProgramParameters {
 	}
 
 	public static void glProgramLocalParameters4fvEXT(int target, int index, int count, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, (count << 2) << 2);
 		nglProgramLocalParameters4fvEXT(target, index, count, memAddress(params));
 	}

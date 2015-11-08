@@ -18,7 +18,7 @@ package org.lwjgl.opengles;
  * that is sRGB and is ignored for all other textures. This value defaults to DECODE_EXT, which indicates the texture should be decoded to linear color
  * space.</p>
  * 
- * <p>Requires {@link GLES30 GLES E.S} or {@link EXTSRGB EXT_sRGB}.</p>
+ * <p>Requires {@link GLES30 GLES 3.0} or {@link EXTSRGB EXT_sRGB}.</p>
  */
 public final class EXTTextureSRGBDecode {
 

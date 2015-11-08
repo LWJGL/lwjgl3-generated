@@ -5,7 +5,6 @@
  */
 package org.lwjgl.openal;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;

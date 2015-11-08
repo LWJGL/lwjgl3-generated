@@ -10,7 +10,7 @@ package org.lwjgl.opengles;
  * 
  * <p>This extension enables loading precompiled program binaries compatible with chips designed by Digital Media Professionals Inc.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S} and {@link OESGetProgramBinary OES_get_program_binary}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0} and {@link OESGetProgramBinary OES_get_program_binary}.</p>
  */
 public final class DMPProgramBinary {
 

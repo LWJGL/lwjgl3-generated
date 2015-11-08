@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opengles;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/multi_draw_arrays.txt">EXT_multi_draw_arrays</a> extension.
@@ -73,7 +73,7 @@ public class EXTMultiDrawArrays {
 	}
 
 	public static void glMultiDrawArraysEXT(int mode, ByteBuffer first, ByteBuffer count, int primcount) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(first, primcount << 2);
 			checkBuffer(count, primcount << 2);
 		}
@@ -82,7 +82,7 @@ public class EXTMultiDrawArrays {
 
 	/** Alternative version of: {@link #glMultiDrawArraysEXT MultiDrawArraysEXT} */
 	public static void glMultiDrawArraysEXT(int mode, IntBuffer first, IntBuffer count) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(count, first.remaining());
 		nglMultiDrawArraysEXT(mode, memAddress(first), memAddress(count), first.remaining());
 	}
@@ -97,7 +97,7 @@ public class EXTMultiDrawArrays {
 	}
 
 	public static void glMultiDrawElementsEXT(int mode, ByteBuffer count, int type, ByteBuffer indices, int primcount) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(count, primcount << 2);
 			checkBuffer(indices, primcount << POINTER_SHIFT);
 		}
@@ -106,7 +106,7 @@ public class EXTMultiDrawArrays {
 
 	/** Alternative version of: {@link #glMultiDrawElementsEXT MultiDrawElementsEXT} */
 	public static void glMultiDrawElementsEXT(int mode, IntBuffer count, int type, PointerBuffer indices) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(indices, count.remaining());
 		nglMultiDrawElementsEXT(mode, memAddress(count), type, memAddress(indices), count.remaining());
 	}

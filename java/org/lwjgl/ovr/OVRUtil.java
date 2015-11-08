@@ -5,10 +5,9 @@
  */
 package org.lwjgl.ovr;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -48,7 +47,7 @@ public class OVRUtil {
 	 */
 	public static final int ovrProjection_ClipRangeOpenGL = 0x8;
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected OVRUtil() {
@@ -128,7 +127,7 @@ public class OVRUtil {
 	 *                           {@link OVRLayerEyeFovDepth}{@code ::RenderPose}
 	 */
 	public static void ovr_CalcEyePoses(OVRPosef headPose, OVRVector3f.Buffer hmdToEyeViewOffset, OVRPosef.Buffer outEyePoses) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(hmdToEyeViewOffset, 2);
 			checkBuffer(outEyePoses, 2);
 		}
@@ -156,7 +155,7 @@ public class OVRUtil {
 	 * @param outHmdTrackingState the predicted {@link OVRTrackingState}. May be {@code NULL}, in which case it is ignored.
 	 */
 	public static void ovr_GetEyePoses(long hmd, int frameIndex, OVRVector3f.Buffer hmdToEyeViewOffset, OVRPosef.Buffer outEyePoses, OVRTrackingState outHmdTrackingState) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(hmd);
 			checkBuffer(hmdToEyeViewOffset, 2);
 			checkBuffer(outEyePoses, 2);

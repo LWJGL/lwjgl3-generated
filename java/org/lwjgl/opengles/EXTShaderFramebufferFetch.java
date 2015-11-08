@@ -17,7 +17,7 @@ package org.lwjgl.opengles;
  * operations that would have been inconvenient or impossible with fixed-function blending. It can also be used to apply a function to the framebuffer
  * color, by writing a shader which uses the existing framebuffer color as its only input.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public final class EXTShaderFramebufferFetch {
 

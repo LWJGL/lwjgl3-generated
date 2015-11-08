@@ -105,7 +105,7 @@ public class OVRLayerDirect extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public OVRLayerDirect set(OVRLayerDirect src) {
 		return nset(address());
@@ -113,7 +113,7 @@ public class OVRLayerDirect extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public OVRLayerDirect set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}
@@ -180,7 +180,7 @@ public class OVRLayerDirect extends Struct {
 	public static int ngetHeaderFlags(long struct) { return memGetInt(struct + HEADER + OVRLayerHeader.FLAGS); }
 	public static int getHeaderFlags(ByteBuffer struct) { return ngetHeaderFlags(memAddress(struct)); }
 	public static void ngetColorTexture(long struct, PointerBuffer ColorTexture) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2);
+		if ( CHECKS ) checkBufferGT(ColorTexture, 2);
 		memCopy(struct + COLORTEXTURE, memAddress(ColorTexture), ColorTexture.remaining() * POINTER_SIZE);
 	}
 	public static void getColorTexture(ByteBuffer struct, PointerBuffer ColorTexture) { ngetColorTexture(memAddress(struct), ColorTexture); }
@@ -189,7 +189,7 @@ public class OVRLayerDirect extends Struct {
 	}
 	public static OVRSwapTextureSet getColorTexture(ByteBuffer struct, int index) { return ngetColorTexture(memAddress(struct), index); }
 	public static void ngetViewport(long struct, ByteBuffer Viewport) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(Viewport, 2 * OVRRecti.SIZEOF);
+		if ( CHECKS ) checkBufferGT(Viewport, 2 * OVRRecti.SIZEOF);
 		memCopy(struct + VIEWPORT, memAddress(Viewport), Viewport.remaining());
 	}
 	public static void getViewport(ByteBuffer struct, ByteBuffer Viewport) { ngetViewport(memAddress(struct), Viewport); }
@@ -206,7 +206,7 @@ public class OVRLayerDirect extends Struct {
 	public static void nsetHeaderFlags(long struct, int Flags) { memPutInt(struct + HEADER + OVRLayerHeader.FLAGS, Flags); }
 	public static void setHeaderFlags(ByteBuffer struct, int Flags) { nsetHeaderFlags(memAddress(struct), Flags); }
 	public static void nsetColorTexture(long struct, PointerBuffer ColorTexture) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ColorTexture, 2);
+		if ( CHECKS ) checkBufferGT(ColorTexture, 2);
 		memCopy(memAddress(ColorTexture), struct + COLORTEXTURE, ColorTexture.remaining() * POINTER_SIZE);
 	}
 	public static void setColorTexture(ByteBuffer struct, PointerBuffer ColorTexture) { nsetColorTexture(memAddress(struct), ColorTexture); }
@@ -215,7 +215,7 @@ public class OVRLayerDirect extends Struct {
 	}
 	public static void setColorTexture(ByteBuffer struct, int index, OVRSwapTextureSet ColorTexture) { nsetColorTexture(memAddress(struct), index, ColorTexture); }
 	public static void nsetViewport(long struct, ByteBuffer Viewport) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(Viewport, 2 * OVRRecti.SIZEOF);
+		if ( CHECKS ) checkBufferGT(Viewport, 2 * OVRRecti.SIZEOF);
 		memCopy(memAddress(Viewport), struct + VIEWPORT, Viewport.remaining());
 	}
 	public static void setViewport(ByteBuffer struct, ByteBuffer Viewport) { nsetViewport(memAddress(struct), Viewport); }

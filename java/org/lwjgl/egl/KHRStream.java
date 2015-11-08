@@ -5,10 +5,9 @@
  */
 package org.lwjgl.egl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -109,20 +108,20 @@ public class KHRStream {
 	@JavadocExclude
 	public static long neglCreateStreamKHR(long dpy, long attrib_list) {
 		long __functionAddress = getInstance().CreateStreamKHR;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(dpy);
 		return callPPP(__functionAddress, dpy, attrib_list);
 	}
 
 	public static long eglCreateStreamKHR(long dpy, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
 		return neglCreateStreamKHR(dpy, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #eglCreateStreamKHR CreateStreamKHR} */
 	public static long eglCreateStreamKHR(long dpy, IntBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
 		return neglCreateStreamKHR(dpy, memAddressSafe(attrib_list));
 	}
@@ -131,7 +130,7 @@ public class KHRStream {
 
 	public static boolean eglDestroyStreamKHR(long dpy, long stream) {
 		long __functionAddress = getInstance().DestroyStreamKHR;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
@@ -142,7 +141,7 @@ public class KHRStream {
 
 	public static boolean eglStreamAttribKHR(long dpy, long stream, int attribute, int value) {
 		long __functionAddress = getInstance().StreamAttribKHR;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
@@ -155,7 +154,7 @@ public class KHRStream {
 	@JavadocExclude
 	public static boolean neglQueryStreamKHR(long dpy, long stream, int attribute, long value) {
 		long __functionAddress = getInstance().QueryStreamKHR;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
@@ -163,14 +162,14 @@ public class KHRStream {
 	}
 
 	public static boolean eglQueryStreamKHR(long dpy, long stream, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		return neglQueryStreamKHR(dpy, stream, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQueryStreamKHR QueryStreamKHR} */
 	public static boolean eglQueryStreamKHR(long dpy, long stream, int attribute, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQueryStreamKHR(dpy, stream, attribute, memAddress(value));
 	}
@@ -181,7 +180,7 @@ public class KHRStream {
 	@JavadocExclude
 	public static boolean neglQueryStreamu64KHR(long dpy, long stream, int attribute, long value) {
 		long __functionAddress = getInstance().QueryStreamu64KHR;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
@@ -189,14 +188,14 @@ public class KHRStream {
 	}
 
 	public static boolean eglQueryStreamu64KHR(long dpy, long stream, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 3);
 		return neglQueryStreamu64KHR(dpy, stream, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQueryStreamu64KHR QueryStreamu64KHR} */
 	public static boolean eglQueryStreamu64KHR(long dpy, long stream, int attribute, LongBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQueryStreamu64KHR(dpy, stream, attribute, memAddress(value));
 	}

@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/bindless_texture.txt">ARB_bindless_texture</a> extension.
@@ -313,7 +312,7 @@ public class ARBBindlessTexture {
 	 * @param values   a buffer from which to load the handles
 	 */
 	public static void glUniformHandleui64vARB(int location, int count, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, count << 3);
 		nglUniformHandleui64vARB(location, count, memAddress(values));
 	}
@@ -355,7 +354,7 @@ public class ARBBindlessTexture {
 	 * @param values   a buffer from which to load the handles
 	 */
 	public static void glProgramUniformHandleui64vARB(int program, int location, int count, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, count << 3);
 		nglProgramUniformHandleui64vARB(program, location, count, memAddress(values));
 	}
@@ -443,14 +442,14 @@ public class ARBBindlessTexture {
 	 * @param params a buffer in which to place the returned data
 	 */
 	public static void glGetVertexAttribLui64vARB(int index, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetVertexAttribLui64vARB(index, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetVertexAttribLui64vARB GetVertexAttribLui64vARB} */
 	public static void glGetVertexAttribLui64vARB(int index, int pname, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetVertexAttribLui64vARB(index, pname, memAddress(params));
 	}

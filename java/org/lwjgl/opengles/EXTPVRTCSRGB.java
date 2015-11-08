@@ -26,7 +26,7 @@ package org.lwjgl.opengles;
  * 
  * <p>Texture filtering operations as well as mipmap generation are carried out in linear space.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S} and {@link IMGTextureCompressionPVRTC IMG_texture_compression_pvrtc}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0} and {@link IMGTextureCompressionPVRTC IMG_texture_compression_pvrtc}.</p>
  */
 public final class EXTPVRTCSRGB {
 

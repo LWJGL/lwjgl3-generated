@@ -14,12 +14,12 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** Instances of this interface may be passed to the {@link CL10#clCreateContext} and {@link CL10#clCreateContextFromType} methods. */
-public abstract class CLCreateContextCallback extends Closure.Void {
+public abstract class CLContextCallback extends Closure.Void {
 
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(4);
 
-	private static final long CLASSPATH = staticAllocText("org.lwjgl.opencl.CLCreateContextCallback");
+	private static final long CLASSPATH = staticAllocText("org.lwjgl.opencl.CLContextCallback");
 
 	static {
 		prepareCIF(
@@ -29,7 +29,7 @@ public abstract class CLCreateContextCallback extends Closure.Void {
 		);
 	}
 
-	protected CLCreateContextCallback() {
+	protected CLContextCallback() {
 		super(CIF, CLASSPATH);
 	}
 
@@ -58,20 +58,20 @@ public abstract class CLCreateContextCallback extends Closure.Void {
 	 */
 	public abstract void invoke(long errinfo, long private_info, long cb, long user_data);
 
-	/** A functional interface for {@link CLCreateContextCallback}. */
+	/** A functional interface for {@link CLContextCallback}. */
 	public interface SAM {
 		void invoke(long errinfo, long private_info, long cb, long user_data);
 	}
 
 	/**
-	 * Creates a {@link CLCreateContextCallback} that delegates the callback to the specified functional interface.
+	 * Creates a {@link CLContextCallback} that delegates the callback to the specified functional interface.
 	 *
 	 * @param sam the delegation target
 	 *
-	 * @return the {@link CLCreateContextCallback} instance
+	 * @return the {@link CLContextCallback} instance
 	 */
-	public static CLCreateContextCallback create(final SAM sam) {
-		return new CLCreateContextCallback() {
+	public static CLContextCallback create(final SAM sam) {
+		return new CLContextCallback() {
 			@Override
 			public void invoke(long errinfo, long private_info, long cb, long user_data) {
 				sam.invoke(errinfo, private_info, cb, user_data);
@@ -79,20 +79,20 @@ public abstract class CLCreateContextCallback extends Closure.Void {
 		};
 	}
 
-	/** A functional interface for {@link CLCreateContextCallback}. */
+	/** A functional interface for {@link CLContextCallback}. */
 	public interface SAMString {
 		void invoke(String errinfo, ByteBuffer private_info, long user_data);
 	}
 
 	/**
-	 * Creates a {@link CLCreateContextCallback} that delegates the callback to the specified functional interface.
+	 * Creates a {@link CLContextCallback} that delegates the callback to the specified functional interface.
 	 *
 	 * @param sam the delegation target
 	 *
-	 * @return the {@link CLCreateContextCallback} instance
+	 * @return the {@link CLContextCallback} instance
 	 */
-	public static CLCreateContextCallback createString(final SAMString sam) {
-		return new CLCreateContextCallback() {
+	public static CLContextCallback createString(final SAMString sam) {
+		return new CLContextCallback() {
 			@Override
 			public void invoke(long errinfo, long private_info, long cb, long user_data) {
 				sam.invoke(memDecodeUTF8(errinfo), memByteBuffer(private_info, (int)cb), user_data);

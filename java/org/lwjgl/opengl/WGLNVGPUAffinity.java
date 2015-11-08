@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/gpu_affinity.txt">WGL_NV_gpu_affinity</a> extension.
@@ -116,7 +116,7 @@ public class WGLNVGPUAffinity {
 	@JavadocExclude
 	public static int nwglEnumGpuDevicesNV(long gpu, int deviceIndex, long gpuDevice) {
 		long __functionAddress = getInstance().EnumGpuDevicesNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(gpu);
 		return callPIPI(__functionAddress, gpu, deviceIndex, gpuDevice);
 	}
@@ -152,14 +152,14 @@ public class WGLNVGPUAffinity {
 	 * @param gpuList a NULL-terminated array of GPU handles to which the affinity-DC will be restricted
 	 */
 	public static long wglCreateAffinityDCNV(ByteBuffer gpuList) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNTP(gpuList);
 		return nwglCreateAffinityDCNV(memAddress(gpuList));
 	}
 
 	/** Alternative version of: {@link #wglCreateAffinityDCNV CreateAffinityDCNV} */
 	public static long wglCreateAffinityDCNV(PointerBuffer gpuList) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT(gpuList);
 		return nwglCreateAffinityDCNV(memAddress(gpuList));
 	}
@@ -170,7 +170,7 @@ public class WGLNVGPUAffinity {
 	@JavadocExclude
 	public static int nwglEnumGpusFromAffinityDCNV(long affinityDC, int gpuIndex, long gpu) {
 		long __functionAddress = getInstance().EnumGpusFromAffinityDCNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(affinityDC);
 		return callPIPI(__functionAddress, affinityDC, gpuIndex, gpu);
 	}
@@ -204,7 +204,7 @@ public class WGLNVGPUAffinity {
 	 */
 	public static int wglDeleteDCNV(long hdc) {
 		long __functionAddress = getInstance().DeleteDCNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(hdc);
 		return callPI(__functionAddress, hdc);
 	}

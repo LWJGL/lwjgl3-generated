@@ -5,10 +5,9 @@
  */
 package org.lwjgl.egl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -86,20 +85,20 @@ public class KHRReusableSync {
 	@JavadocExclude
 	public static long neglCreateSyncKHR(long dpy, int type, long attrib_list) {
 		long __functionAddress = getInstance().CreateSyncKHR;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(dpy);
 		return callPIPP(__functionAddress, dpy, type, attrib_list);
 	}
 
 	public static long eglCreateSyncKHR(long dpy, int type, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
 		return neglCreateSyncKHR(dpy, type, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #eglCreateSyncKHR CreateSyncKHR} */
 	public static long eglCreateSyncKHR(long dpy, int type, IntBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
 		return neglCreateSyncKHR(dpy, type, memAddressSafe(attrib_list));
 	}
@@ -108,7 +107,7 @@ public class KHRReusableSync {
 
 	public static boolean eglDestroySyncKHR(long dpy, long sync) {
 		long __functionAddress = getInstance().DestroySyncKHR;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
@@ -119,7 +118,7 @@ public class KHRReusableSync {
 
 	public static int eglClientWaitSyncKHR(long dpy, long sync, int flags, long timeout) {
 		long __functionAddress = getInstance().ClientWaitSyncKHR;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
@@ -130,7 +129,7 @@ public class KHRReusableSync {
 
 	public static boolean eglSignalSyncKHR(long dpy, long sync, int mode) {
 		long __functionAddress = getInstance().SignalSyncKHR;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
@@ -143,7 +142,7 @@ public class KHRReusableSync {
 	@JavadocExclude
 	public static boolean neglGetSyncAttribKHR(long dpy, long sync, int attribute, long value) {
 		long __functionAddress = getInstance().GetSyncAttribKHR;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
@@ -151,14 +150,14 @@ public class KHRReusableSync {
 	}
 
 	public static boolean eglGetSyncAttribKHR(long dpy, long sync, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		return neglGetSyncAttribKHR(dpy, sync, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglGetSyncAttribKHR GetSyncAttribKHR} */
 	public static boolean eglGetSyncAttribKHR(long dpy, long sync, int attribute, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglGetSyncAttribKHR(dpy, sync, attribute, memAddress(value));
 	}

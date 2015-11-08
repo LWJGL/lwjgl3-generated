@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -161,7 +160,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glVertexP2ui(int type, int value) {
 		long __functionAddress = getInstance().VertexP2ui;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, value);
 	}
@@ -176,7 +175,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glVertexP3ui(int type, int value) {
 		long __functionAddress = getInstance().VertexP3ui;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, value);
 	}
@@ -191,7 +190,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glVertexP4ui(int type, int value) {
 		long __functionAddress = getInstance().VertexP4ui;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, value);
 	}
@@ -202,7 +201,7 @@ public class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglVertexP2uiv(int type, long value) {
 		long __functionAddress = getInstance().VertexP2uiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, value);
 	}
@@ -214,14 +213,14 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param value the packed value
 	 */
 	public static void glVertexP2uiv(int type, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nglVertexP2uiv(type, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glVertexP2uiv VertexP2uiv} */
 	public static void glVertexP2uiv(int type, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nglVertexP2uiv(type, memAddress(value));
 	}
@@ -232,7 +231,7 @@ public class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglVertexP3uiv(int type, long value) {
 		long __functionAddress = getInstance().VertexP3uiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, value);
 	}
@@ -244,14 +243,14 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param value the packed value
 	 */
 	public static void glVertexP3uiv(int type, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nglVertexP3uiv(type, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glVertexP3uiv VertexP3uiv} */
 	public static void glVertexP3uiv(int type, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nglVertexP3uiv(type, memAddress(value));
 	}
@@ -262,7 +261,7 @@ public class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglVertexP4uiv(int type, long value) {
 		long __functionAddress = getInstance().VertexP4uiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, value);
 	}
@@ -274,14 +273,14 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param value the packed value
 	 */
 	public static void glVertexP4uiv(int type, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nglVertexP4uiv(type, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glVertexP4uiv VertexP4uiv} */
 	public static void glVertexP4uiv(int type, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nglVertexP4uiv(type, memAddress(value));
 	}
@@ -296,7 +295,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glTexCoordP1ui(int type, int coords) {
 		long __functionAddress = getInstance().TexCoordP1ui;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, coords);
 	}
@@ -311,7 +310,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glTexCoordP2ui(int type, int coords) {
 		long __functionAddress = getInstance().TexCoordP2ui;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, coords);
 	}
@@ -326,7 +325,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glTexCoordP3ui(int type, int coords) {
 		long __functionAddress = getInstance().TexCoordP3ui;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, coords);
 	}
@@ -341,7 +340,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glTexCoordP4ui(int type, int coords) {
 		long __functionAddress = getInstance().TexCoordP4ui;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, coords);
 	}
@@ -352,7 +351,7 @@ public class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglTexCoordP1uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP1uiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, coords);
 	}
@@ -364,14 +363,14 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param coords the packed value
 	 */
 	public static void glTexCoordP1uiv(int type, ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 1 << 2);
 		nglTexCoordP1uiv(type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glTexCoordP1uiv TexCoordP1uiv} */
 	public static void glTexCoordP1uiv(int type, IntBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 1);
 		nglTexCoordP1uiv(type, memAddress(coords));
 	}
@@ -382,7 +381,7 @@ public class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglTexCoordP2uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP2uiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, coords);
 	}
@@ -394,14 +393,14 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param coords the packed value
 	 */
 	public static void glTexCoordP2uiv(int type, ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 1 << 2);
 		nglTexCoordP2uiv(type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glTexCoordP2uiv TexCoordP2uiv} */
 	public static void glTexCoordP2uiv(int type, IntBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 1);
 		nglTexCoordP2uiv(type, memAddress(coords));
 	}
@@ -412,7 +411,7 @@ public class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglTexCoordP3uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP3uiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, coords);
 	}
@@ -424,14 +423,14 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param coords the packed value
 	 */
 	public static void glTexCoordP3uiv(int type, ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 1 << 2);
 		nglTexCoordP3uiv(type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glTexCoordP3uiv TexCoordP3uiv} */
 	public static void glTexCoordP3uiv(int type, IntBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 1);
 		nglTexCoordP3uiv(type, memAddress(coords));
 	}
@@ -442,7 +441,7 @@ public class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglTexCoordP4uiv(int type, long coords) {
 		long __functionAddress = getInstance().TexCoordP4uiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, coords);
 	}
@@ -454,14 +453,14 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param coords the packed value
 	 */
 	public static void glTexCoordP4uiv(int type, ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 1 << 2);
 		nglTexCoordP4uiv(type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glTexCoordP4uiv TexCoordP4uiv} */
 	public static void glTexCoordP4uiv(int type, IntBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 1);
 		nglTexCoordP4uiv(type, memAddress(coords));
 	}
@@ -477,7 +476,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glMultiTexCoordP1ui(int texture, int type, int coords) {
 		long __functionAddress = getInstance().MultiTexCoordP1ui;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, texture, type, coords);
 	}
@@ -493,7 +492,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glMultiTexCoordP2ui(int texture, int type, int coords) {
 		long __functionAddress = getInstance().MultiTexCoordP2ui;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, texture, type, coords);
 	}
@@ -509,7 +508,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glMultiTexCoordP3ui(int texture, int type, int coords) {
 		long __functionAddress = getInstance().MultiTexCoordP3ui;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, texture, type, coords);
 	}
@@ -525,7 +524,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glMultiTexCoordP4ui(int texture, int type, int coords) {
 		long __functionAddress = getInstance().MultiTexCoordP4ui;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, texture, type, coords);
 	}
@@ -536,7 +535,7 @@ public class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglMultiTexCoordP1uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP1uiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, texture, type, coords);
 	}
@@ -549,14 +548,14 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param coords  the packed value
 	 */
 	public static void glMultiTexCoordP1uiv(int texture, int type, ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 1 << 2);
 		nglMultiTexCoordP1uiv(texture, type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoordP1uiv MultiTexCoordP1uiv} */
 	public static void glMultiTexCoordP1uiv(int texture, int type, IntBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 1);
 		nglMultiTexCoordP1uiv(texture, type, memAddress(coords));
 	}
@@ -567,7 +566,7 @@ public class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglMultiTexCoordP2uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP2uiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, texture, type, coords);
 	}
@@ -580,14 +579,14 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param coords  the packed value
 	 */
 	public static void glMultiTexCoordP2uiv(int texture, int type, ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 1 << 2);
 		nglMultiTexCoordP2uiv(texture, type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoordP2uiv MultiTexCoordP2uiv} */
 	public static void glMultiTexCoordP2uiv(int texture, int type, IntBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 1);
 		nglMultiTexCoordP2uiv(texture, type, memAddress(coords));
 	}
@@ -598,7 +597,7 @@ public class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglMultiTexCoordP3uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP3uiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, texture, type, coords);
 	}
@@ -611,14 +610,14 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param coords  the packed value
 	 */
 	public static void glMultiTexCoordP3uiv(int texture, int type, ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 1 << 2);
 		nglMultiTexCoordP3uiv(texture, type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoordP3uiv MultiTexCoordP3uiv} */
 	public static void glMultiTexCoordP3uiv(int texture, int type, IntBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 1);
 		nglMultiTexCoordP3uiv(texture, type, memAddress(coords));
 	}
@@ -629,7 +628,7 @@ public class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglMultiTexCoordP4uiv(int texture, int type, long coords) {
 		long __functionAddress = getInstance().MultiTexCoordP4uiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, texture, type, coords);
 	}
@@ -642,14 +641,14 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param coords  the packed value
 	 */
 	public static void glMultiTexCoordP4uiv(int texture, int type, ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 1 << 2);
 		nglMultiTexCoordP4uiv(texture, type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glMultiTexCoordP4uiv MultiTexCoordP4uiv} */
 	public static void glMultiTexCoordP4uiv(int texture, int type, IntBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 1);
 		nglMultiTexCoordP4uiv(texture, type, memAddress(coords));
 	}
@@ -664,7 +663,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glNormalP3ui(int type, int coords) {
 		long __functionAddress = getInstance().NormalP3ui;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, coords);
 	}
@@ -675,7 +674,7 @@ public class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglNormalP3uiv(int type, long coords) {
 		long __functionAddress = getInstance().NormalP3uiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, coords);
 	}
@@ -687,14 +686,14 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param coords the packed value
 	 */
 	public static void glNormalP3uiv(int type, ByteBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 1 << 2);
 		nglNormalP3uiv(type, memAddress(coords));
 	}
 
 	/** Alternative version of: {@link #glNormalP3uiv NormalP3uiv} */
 	public static void glNormalP3uiv(int type, IntBuffer coords) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(coords, 1);
 		nglNormalP3uiv(type, memAddress(coords));
 	}
@@ -709,7 +708,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glColorP3ui(int type, int color) {
 		long __functionAddress = getInstance().ColorP3ui;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, color);
 	}
@@ -724,7 +723,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glColorP4ui(int type, int color) {
 		long __functionAddress = getInstance().ColorP4ui;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, color);
 	}
@@ -735,7 +734,7 @@ public class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglColorP3uiv(int type, long color) {
 		long __functionAddress = getInstance().ColorP3uiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, color);
 	}
@@ -747,14 +746,14 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param color the packed value
 	 */
 	public static void glColorP3uiv(int type, ByteBuffer color) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(color, 1 << 2);
 		nglColorP3uiv(type, memAddress(color));
 	}
 
 	/** Alternative version of: {@link #glColorP3uiv ColorP3uiv} */
 	public static void glColorP3uiv(int type, IntBuffer color) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(color, 1);
 		nglColorP3uiv(type, memAddress(color));
 	}
@@ -765,7 +764,7 @@ public class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglColorP4uiv(int type, long color) {
 		long __functionAddress = getInstance().ColorP4uiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, color);
 	}
@@ -777,14 +776,14 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param color the packed value
 	 */
 	public static void glColorP4uiv(int type, ByteBuffer color) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(color, 1 << 2);
 		nglColorP4uiv(type, memAddress(color));
 	}
 
 	/** Alternative version of: {@link #glColorP4uiv ColorP4uiv} */
 	public static void glColorP4uiv(int type, IntBuffer color) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(color, 1);
 		nglColorP4uiv(type, memAddress(color));
 	}
@@ -799,7 +798,7 @@ public class ARBVertexType2_10_10_10_REV {
 	 */
 	public static void glSecondaryColorP3ui(int type, int color) {
 		long __functionAddress = getInstance().SecondaryColorP3ui;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIV(__functionAddress, type, color);
 	}
@@ -810,7 +809,7 @@ public class ARBVertexType2_10_10_10_REV {
 	@JavadocExclude
 	public static void nglSecondaryColorP3uiv(int type, long color) {
 		long __functionAddress = getInstance().SecondaryColorP3uiv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, type, color);
 	}
@@ -822,14 +821,14 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param color the packed value
 	 */
 	public static void glSecondaryColorP3uiv(int type, ByteBuffer color) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(color, 1 << 2);
 		nglSecondaryColorP3uiv(type, memAddress(color));
 	}
 
 	/** Alternative version of: {@link #glSecondaryColorP3uiv SecondaryColorP3uiv} */
 	public static void glSecondaryColorP3uiv(int type, IntBuffer color) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(color, 1);
 		nglSecondaryColorP3uiv(type, memAddress(color));
 	}
@@ -912,14 +911,14 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param value      the packed value
 	 */
 	public static void glVertexAttribP1uiv(int index, int type, boolean normalized, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nglVertexAttribP1uiv(index, type, normalized, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribP1uiv VertexAttribP1uiv} */
 	public static void glVertexAttribP1uiv(int index, int type, boolean normalized, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nglVertexAttribP1uiv(index, type, normalized, memAddress(value));
 	}
@@ -942,14 +941,14 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param value      the packed value
 	 */
 	public static void glVertexAttribP2uiv(int index, int type, boolean normalized, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nglVertexAttribP2uiv(index, type, normalized, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribP2uiv VertexAttribP2uiv} */
 	public static void glVertexAttribP2uiv(int index, int type, boolean normalized, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nglVertexAttribP2uiv(index, type, normalized, memAddress(value));
 	}
@@ -972,14 +971,14 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param value      the packed value
 	 */
 	public static void glVertexAttribP3uiv(int index, int type, boolean normalized, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nglVertexAttribP3uiv(index, type, normalized, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribP3uiv VertexAttribP3uiv} */
 	public static void glVertexAttribP3uiv(int index, int type, boolean normalized, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nglVertexAttribP3uiv(index, type, normalized, memAddress(value));
 	}
@@ -1002,14 +1001,14 @@ public class ARBVertexType2_10_10_10_REV {
 	 * @param value      the packed value
 	 */
 	public static void glVertexAttribP4uiv(int index, int type, boolean normalized, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		nglVertexAttribP4uiv(index, type, normalized, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribP4uiv VertexAttribP4uiv} */
 	public static void glVertexAttribP4uiv(int index, int type, boolean normalized, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		nglVertexAttribP4uiv(index, type, normalized, memAddress(value));
 	}

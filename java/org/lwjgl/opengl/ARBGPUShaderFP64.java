@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/gpu_shader_fp64.txt">ARB_gpu_shader_fp64</a> extension.
@@ -254,7 +253,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform1dv(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 3);
 		nglUniform1dv(location, count, memAddress(value));
 	}
@@ -281,7 +280,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform2dv(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 3);
 		nglUniform2dv(location, count, memAddress(value));
 	}
@@ -308,7 +307,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform3dv(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 3) << 3);
 		nglUniform3dv(location, count, memAddress(value));
 	}
@@ -335,7 +334,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glUniform4dv(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglUniform4dv(location, count, memAddress(value));
 	}
@@ -363,7 +362,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glUniformMatrix2dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglUniformMatrix2dv(location, count, transpose, memAddress(value));
 	}
@@ -391,7 +390,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glUniformMatrix3dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 9) << 3);
 		nglUniformMatrix3dv(location, count, transpose, memAddress(value));
 	}
@@ -419,7 +418,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glUniformMatrix4dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 4) << 3);
 		nglUniformMatrix4dv(location, count, transpose, memAddress(value));
 	}
@@ -447,7 +446,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glUniformMatrix2x3dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 6) << 3);
 		nglUniformMatrix2x3dv(location, count, transpose, memAddress(value));
 	}
@@ -475,7 +474,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glUniformMatrix2x4dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 3) << 3);
 		nglUniformMatrix2x4dv(location, count, transpose, memAddress(value));
 	}
@@ -503,7 +502,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glUniformMatrix3x2dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 6) << 3);
 		nglUniformMatrix3x2dv(location, count, transpose, memAddress(value));
 	}
@@ -531,7 +530,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glUniformMatrix3x4dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 12) << 3);
 		nglUniformMatrix3x4dv(location, count, transpose, memAddress(value));
 	}
@@ -559,7 +558,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glUniformMatrix4x2dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 3) << 3);
 		nglUniformMatrix4x2dv(location, count, transpose, memAddress(value));
 	}
@@ -587,7 +586,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glUniformMatrix4x3dv(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 12) << 3);
 		nglUniformMatrix4x3dv(location, count, transpose, memAddress(value));
 	}
@@ -614,14 +613,14 @@ public class ARBGPUShaderFP64 {
 	 * @param params   the value of the specified uniform variable
 	 */
 	public static void glGetUniformdv(int program, int location, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetUniformdv(program, location, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetUniformdv GetUniformdv} */
 	public static void glGetUniformdv(int program, int location, DoubleBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformdv(program, location, memAddress(params));
 	}
@@ -645,7 +644,7 @@ public class ARBGPUShaderFP64 {
 	 */
 	public static void glProgramUniform1dEXT(int program, int location, double x) {
 		long __functionAddress = getInstance().ProgramUniform1dEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIDV(__functionAddress, program, location, x);
 	}
@@ -662,7 +661,7 @@ public class ARBGPUShaderFP64 {
 	 */
 	public static void glProgramUniform2dEXT(int program, int location, double x, double y) {
 		long __functionAddress = getInstance().ProgramUniform2dEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIDDV(__functionAddress, program, location, x, y);
 	}
@@ -680,7 +679,7 @@ public class ARBGPUShaderFP64 {
 	 */
 	public static void glProgramUniform3dEXT(int program, int location, double x, double y, double z) {
 		long __functionAddress = getInstance().ProgramUniform3dEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIDDDV(__functionAddress, program, location, x, y, z);
 	}
@@ -699,7 +698,7 @@ public class ARBGPUShaderFP64 {
 	 */
 	public static void glProgramUniform4dEXT(int program, int location, double x, double y, double z, double w) {
 		long __functionAddress = getInstance().ProgramUniform4dEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIDDDDV(__functionAddress, program, location, x, y, z, w);
 	}
@@ -710,7 +709,7 @@ public class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglProgramUniform1dvEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform1dvEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
@@ -724,7 +723,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform1dvEXT(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 3);
 		nglProgramUniform1dvEXT(program, location, count, memAddress(value));
 	}
@@ -740,7 +739,7 @@ public class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglProgramUniform2dvEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform2dvEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
@@ -754,7 +753,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform2dvEXT(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 3);
 		nglProgramUniform2dvEXT(program, location, count, memAddress(value));
 	}
@@ -770,7 +769,7 @@ public class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglProgramUniform3dvEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform3dvEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
@@ -784,7 +783,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform3dvEXT(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 3) << 3);
 		nglProgramUniform3dvEXT(program, location, count, memAddress(value));
 	}
@@ -800,7 +799,7 @@ public class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglProgramUniform4dvEXT(int program, int location, int count, long value) {
 		long __functionAddress = getInstance().ProgramUniform4dvEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
 	}
@@ -814,7 +813,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
 	 */
 	public static void glProgramUniform4dvEXT(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglProgramUniform4dvEXT(program, location, count, memAddress(value));
 	}
@@ -830,7 +829,7 @@ public class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2dvEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
@@ -845,7 +844,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix2dvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglProgramUniformMatrix2dvEXT(program, location, count, transpose, memAddress(value));
 	}
@@ -861,7 +860,7 @@ public class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3dvEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
@@ -876,7 +875,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix3dvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 9) << 3);
 		nglProgramUniformMatrix3dvEXT(program, location, count, transpose, memAddress(value));
 	}
@@ -892,7 +891,7 @@ public class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4dvEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
@@ -907,7 +906,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix4dvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 4) << 3);
 		nglProgramUniformMatrix4dvEXT(program, location, count, transpose, memAddress(value));
 	}
@@ -923,7 +922,7 @@ public class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x3dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x3dvEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
@@ -938,7 +937,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix2x3dvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 6) << 3);
 		nglProgramUniformMatrix2x3dvEXT(program, location, count, transpose, memAddress(value));
 	}
@@ -954,7 +953,7 @@ public class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix2x4dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix2x4dvEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
@@ -969,7 +968,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix2x4dvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 3) << 3);
 		nglProgramUniformMatrix2x4dvEXT(program, location, count, transpose, memAddress(value));
 	}
@@ -985,7 +984,7 @@ public class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x2dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x2dvEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
@@ -1000,7 +999,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix3x2dvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 6) << 3);
 		nglProgramUniformMatrix3x2dvEXT(program, location, count, transpose, memAddress(value));
 	}
@@ -1016,7 +1015,7 @@ public class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix3x4dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix3x4dvEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
@@ -1031,7 +1030,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix3x4dvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 12) << 3);
 		nglProgramUniformMatrix3x4dvEXT(program, location, count, transpose, memAddress(value));
 	}
@@ -1047,7 +1046,7 @@ public class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x2dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x2dvEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
@@ -1062,7 +1061,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix4x2dvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 3) << 3);
 		nglProgramUniformMatrix4x2dvEXT(program, location, count, transpose, memAddress(value));
 	}
@@ -1078,7 +1077,7 @@ public class ARBGPUShaderFP64 {
 	@JavadocExclude
 	public static void nglProgramUniformMatrix4x3dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = getInstance().ProgramUniformMatrix4x3dvEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIZPV(__functionAddress, program, location, count, transpose, value);
 	}
@@ -1093,7 +1092,7 @@ public class ARBGPUShaderFP64 {
 	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
 	 */
 	public static void glProgramUniformMatrix4x3dvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 12) << 3);
 		nglProgramUniformMatrix4x3dvEXT(program, location, count, transpose, memAddress(value));
 	}

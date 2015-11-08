@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -112,14 +111,14 @@ public class ARBPointParameters {
 	 * @param params the parameter value
 	 */
 	public static void glPointParameterfvARB(int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 3 << 2);
 		nglPointParameterfvARB(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glPointParameterfvARB PointParameterfvARB} */
 	public static void glPointParameterfvARB(int pname, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 3);
 		nglPointParameterfvARB(pname, memAddress(params));
 	}

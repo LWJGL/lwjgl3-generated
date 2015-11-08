@@ -12,8 +12,8 @@ public final class OVRErrorCode {
 	public static final int ovrSuccess = 0x0;
 
 	/**
-	 * Returned from a call to {@link OVR#ovrHmd_SubmitFrame Hmd_SubmitFrame}. The call succeeded, but what the app rendered will not be visible on the HMD. Ideally the app should
-	 * continue calling {@link OVR#ovrHmd_SubmitFrame Hmd_SubmitFrame}, but not do any rendering. When the result becomes {@link #ovrSuccess Success}, rendering should continue as usual.
+	 * Returned from a call to {@link OVR#ovr_SubmitFrame SubmitFrame}. The call succeeded, but what the app rendered will not be visible on the HMD. Ideally the app should
+	 * continue calling {@link OVR#ovr_SubmitFrame SubmitFrame}, but not do any rendering. When the result becomes {@link #ovrSuccess Success}, rendering should continue as usual.
 	 */
 	public static final int ovrSuccess_NotVisible = 0x3E8;
 

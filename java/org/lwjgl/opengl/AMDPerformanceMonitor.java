@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/performance_monitor.txt">AMD_performance_monitor</a> extension.
@@ -112,7 +111,7 @@ public class AMDPerformanceMonitor {
 	}
 
 	public static void glGetPerfMonitorGroupsAMD(ByteBuffer numGroups, int groupsSize, ByteBuffer groups) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( numGroups != null ) checkBuffer(numGroups, 1 << 2);
 			if ( groups != null ) checkBuffer(groups, groupsSize << 2);
 		}
@@ -121,7 +120,7 @@ public class AMDPerformanceMonitor {
 
 	/** Alternative version of: {@link #glGetPerfMonitorGroupsAMD GetPerfMonitorGroupsAMD} */
 	public static void glGetPerfMonitorGroupsAMD(IntBuffer numGroups, IntBuffer groups) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( numGroups != null ) checkBuffer(numGroups, 1);
 		nglGetPerfMonitorGroupsAMD(memAddressSafe(numGroups), groups == null ? 0 : groups.remaining(), memAddressSafe(groups));
 	}
@@ -136,7 +135,7 @@ public class AMDPerformanceMonitor {
 	}
 
 	public static void glGetPerfMonitorCountersAMD(int group, ByteBuffer numCounters, ByteBuffer maxActiveCounters, int counterSize, ByteBuffer counters) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(numCounters, 1 << 2);
 			checkBuffer(maxActiveCounters, 1 << 2);
 			checkBuffer(counters, counterSize << 2);
@@ -146,7 +145,7 @@ public class AMDPerformanceMonitor {
 
 	/** Alternative version of: {@link #glGetPerfMonitorCountersAMD GetPerfMonitorCountersAMD} */
 	public static void glGetPerfMonitorCountersAMD(int group, IntBuffer numCounters, IntBuffer maxActiveCounters, IntBuffer counters) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(numCounters, 1);
 			checkBuffer(maxActiveCounters, 1);
 		}
@@ -163,7 +162,7 @@ public class AMDPerformanceMonitor {
 	}
 
 	public static void glGetPerfMonitorGroupStringAMD(int group, int bufSize, ByteBuffer length, ByteBuffer groupString) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(groupString, bufSize);
 			checkBuffer(length, 1 << 2);
 		}
@@ -172,7 +171,7 @@ public class AMDPerformanceMonitor {
 
 	/** Alternative version of: {@link #glGetPerfMonitorGroupStringAMD GetPerfMonitorGroupStringAMD} */
 	public static void glGetPerfMonitorGroupStringAMD(int group, IntBuffer length, ByteBuffer groupString) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(length, 1);
 		nglGetPerfMonitorGroupStringAMD(group, groupString.remaining(), memAddress(length), memAddress(groupString));
 	}
@@ -187,7 +186,7 @@ public class AMDPerformanceMonitor {
 	}
 
 	public static void glGetPerfMonitorCounterStringAMD(int group, int counter, int bufSize, ByteBuffer length, ByteBuffer counterString) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( counterString != null ) checkBuffer(counterString, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -196,7 +195,7 @@ public class AMDPerformanceMonitor {
 
 	/** Alternative version of: {@link #glGetPerfMonitorCounterStringAMD GetPerfMonitorCounterStringAMD} */
 	public static void glGetPerfMonitorCounterStringAMD(int group, int counter, IntBuffer length, ByteBuffer counterString) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetPerfMonitorCounterStringAMD(group, counter, counterString == null ? 0 : counterString.remaining(), memAddressSafe(length), memAddressSafe(counterString));
 	}
@@ -211,21 +210,21 @@ public class AMDPerformanceMonitor {
 	}
 
 	public static void glGetPerfMonitorCounterInfoAMD(int group, int counter, int pname, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 4);
 		nglGetPerfMonitorCounterInfoAMD(group, counter, pname, memAddress(data));
 	}
 
 	/** IntBuffer version of: {@link #glGetPerfMonitorCounterInfoAMD GetPerfMonitorCounterInfoAMD} */
 	public static void glGetPerfMonitorCounterInfoAMD(int group, int counter, int pname, IntBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 4 >> 2);
 		nglGetPerfMonitorCounterInfoAMD(group, counter, pname, memAddress(data));
 	}
 
 	/** FloatBuffer version of: {@link #glGetPerfMonitorCounterInfoAMD GetPerfMonitorCounterInfoAMD} */
 	public static void glGetPerfMonitorCounterInfoAMD(int group, int counter, int pname, FloatBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, 4 >> 2);
 		nglGetPerfMonitorCounterInfoAMD(group, counter, pname, memAddress(data));
 	}
@@ -240,7 +239,7 @@ public class AMDPerformanceMonitor {
 	}
 
 	public static void glGenPerfMonitorsAMD(int n, ByteBuffer monitors) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(monitors, n << 2);
 		nglGenPerfMonitorsAMD(n, memAddress(monitors));
 	}
@@ -268,7 +267,7 @@ public class AMDPerformanceMonitor {
 	}
 
 	public static void glDeletePerfMonitorsAMD(int n, ByteBuffer monitors) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(monitors, n << 2);
 		nglDeletePerfMonitorsAMD(n, memAddress(monitors));
 	}
@@ -295,7 +294,7 @@ public class AMDPerformanceMonitor {
 	}
 
 	public static void glSelectPerfMonitorCountersAMD(int monitor, boolean enable, int group, int numCounters, ByteBuffer counterList) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(counterList, numCounters << 2);
 		nglSelectPerfMonitorCountersAMD(monitor, enable, group, numCounters, memAddress(counterList));
 	}
@@ -329,7 +328,7 @@ public class AMDPerformanceMonitor {
 	}
 
 	public static void glGetPerfMonitorCounterDataAMD(int monitor, int pname, int dataSize, ByteBuffer data, ByteBuffer bytesWritten) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, dataSize << 2);
 			if ( bytesWritten != null ) checkBuffer(bytesWritten, 1 << 2);
 		}
@@ -338,7 +337,7 @@ public class AMDPerformanceMonitor {
 
 	/** Alternative version of: {@link #glGetPerfMonitorCounterDataAMD GetPerfMonitorCounterDataAMD} */
 	public static void glGetPerfMonitorCounterDataAMD(int monitor, int pname, IntBuffer data, IntBuffer bytesWritten) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( bytesWritten != null ) checkBuffer(bytesWritten, 1);
 		nglGetPerfMonitorCounterDataAMD(monitor, pname, data.remaining(), memAddress(data), memAddressSafe(bytesWritten));
 	}

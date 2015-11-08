@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/gpu_shader_int64.txt">ARB_gpu_shader_int64</a> extension.
@@ -188,7 +187,7 @@ public class ARBGPUShaderInt64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified int64_t variable
 	 */
 	public static void glUniform1i64vARB(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 3);
 		nglUniform1i64vARB(location, count, memAddress(value));
 	}
@@ -230,7 +229,7 @@ public class ARBGPUShaderInt64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified int64_t variable
 	 */
 	public static void glProgramUniform1i64vARB(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 3);
 		nglProgramUniform1i64vARB(program, location, count, memAddress(value));
 	}
@@ -271,7 +270,7 @@ public class ARBGPUShaderInt64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified i64vec2 variable
 	 */
 	public static void glUniform2i64vARB(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 3);
 		nglUniform2i64vARB(location, count, memAddress(value));
 	}
@@ -314,7 +313,7 @@ public class ARBGPUShaderInt64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified i64vec2 variable
 	 */
 	public static void glProgramUniform2i64vARB(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 3);
 		nglProgramUniform2i64vARB(program, location, count, memAddress(value));
 	}
@@ -356,7 +355,7 @@ public class ARBGPUShaderInt64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified i64vec3 variable
 	 */
 	public static void glUniform3i64vARB(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 3) << 3);
 		nglUniform3i64vARB(location, count, memAddress(value));
 	}
@@ -400,7 +399,7 @@ public class ARBGPUShaderInt64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified i64vec3 variable
 	 */
 	public static void glProgramUniform3i64vARB(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 3) << 3);
 		nglProgramUniform3i64vARB(program, location, count, memAddress(value));
 	}
@@ -443,7 +442,7 @@ public class ARBGPUShaderInt64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified i64vec4 variable
 	 */
 	public static void glUniform4i64vARB(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglUniform4i64vARB(location, count, memAddress(value));
 	}
@@ -488,7 +487,7 @@ public class ARBGPUShaderInt64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified i64vec4 variable
 	 */
 	public static void glProgramUniform4i64vARB(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglProgramUniform4i64vARB(program, location, count, memAddress(value));
 	}
@@ -528,7 +527,7 @@ public class ARBGPUShaderInt64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uint64_t variable
 	 */
 	public static void glUniform1ui64vARB(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 3);
 		nglUniform1ui64vARB(location, count, memAddress(value));
 	}
@@ -570,7 +569,7 @@ public class ARBGPUShaderInt64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uint64_t variable
 	 */
 	public static void glProgramUniform1ui64vARB(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 3);
 		nglProgramUniform1ui64vARB(program, location, count, memAddress(value));
 	}
@@ -611,7 +610,7 @@ public class ARBGPUShaderInt64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified u64vec2 variable
 	 */
 	public static void glUniform2ui64vARB(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 3);
 		nglUniform2ui64vARB(location, count, memAddress(value));
 	}
@@ -654,7 +653,7 @@ public class ARBGPUShaderInt64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified u64vec2 variable
 	 */
 	public static void glProgramUniform2ui64vARB(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 3);
 		nglProgramUniform2ui64vARB(program, location, count, memAddress(value));
 	}
@@ -696,7 +695,7 @@ public class ARBGPUShaderInt64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified u64vec3 variable
 	 */
 	public static void glUniform3ui64vARB(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 3) << 3);
 		nglUniform3ui64vARB(location, count, memAddress(value));
 	}
@@ -740,7 +739,7 @@ public class ARBGPUShaderInt64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified u64vec3 variable
 	 */
 	public static void glProgramUniform3ui64vARB(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 3) << 3);
 		nglProgramUniform3ui64vARB(program, location, count, memAddress(value));
 	}
@@ -783,7 +782,7 @@ public class ARBGPUShaderInt64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified u64vec4 variable
 	 */
 	public static void glUniform4ui64vARB(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglUniform4ui64vARB(location, count, memAddress(value));
 	}
@@ -828,7 +827,7 @@ public class ARBGPUShaderInt64 {
 	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified u64vec4 variable
 	 */
 	public static void glProgramUniform4ui64vARB(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 3);
 		nglProgramUniform4ui64vARB(program, location, count, memAddress(value));
 	}
@@ -855,14 +854,14 @@ public class ARBGPUShaderInt64 {
 	 * @param params   the value of the specified uniform variable
 	 */
 	public static void glGetUniformi64vARB(int program, int location, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetUniformi64vARB(program, location, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetUniformi64vARB GetUniformi64vARB} */
 	public static void glGetUniformi64vARB(int program, int location, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformi64vARB(program, location, memAddress(params));
 	}
@@ -892,14 +891,14 @@ public class ARBGPUShaderInt64 {
 	 * @param params   the value of the specified uniform variable
 	 */
 	public static void glGetUniformui64vARB(int program, int location, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetUniformui64vARB(program, location, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetUniformui64vARB GetUniformui64vARB} */
 	public static void glGetUniformui64vARB(int program, int location, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformui64vARB(program, location, memAddress(params));
 	}
@@ -930,7 +929,7 @@ public class ARBGPUShaderInt64 {
 	 * @param params   the value of the specified uniform variable
 	 */
 	public static void glGetnUniformi64vARB(int program, int location, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 3);
 		nglGetnUniformi64vARB(program, location, bufSize, memAddress(params));
 	}
@@ -966,7 +965,7 @@ public class ARBGPUShaderInt64 {
 	 * @param params   the value of the specified uniform variable
 	 */
 	public static void glGetnUniformui64vARB(int program, int location, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 3);
 		nglGetnUniformui64vARB(program, location, bufSize, memAddress(params));
 	}

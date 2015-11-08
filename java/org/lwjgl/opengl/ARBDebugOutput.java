@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/debug_output.txt">ARB_debug_output</a> extension.
@@ -217,7 +216,7 @@ public class ARBDebugOutput {
 	 * @param enabled  whether to enable or disable the references subset of messages
 	 */
 	public static void glDebugMessageControlARB(int source, int type, int severity, int count, ByteBuffer ids, boolean enabled) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( ids != null ) checkBuffer(ids, count << 2);
 		nglDebugMessageControlARB(source, type, severity, count, memAddressSafe(ids), enabled);
 	}
@@ -258,7 +257,7 @@ public class ARBDebugOutput {
 	 * @param buf      the string representation of the message
 	 */
 	public static void glDebugMessageInsertARB(int source, int type, int id, int severity, int length, ByteBuffer buf) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(buf, length);
 		nglDebugMessageInsertARB(source, type, id, severity, length, memAddress(buf));
 	}
@@ -361,7 +360,7 @@ public class ARBDebugOutput {
 	 * @param messageLog a buffer in which to place the returned messages
 	 */
 	public static int glGetDebugMessageLogARB(int count, int bufSize, ByteBuffer sources, ByteBuffer types, ByteBuffer ids, ByteBuffer severities, ByteBuffer lengths, ByteBuffer messageLog) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( messageLog != null ) checkBuffer(messageLog, bufSize);
 			if ( sources != null ) checkBuffer(sources, count << 2);
 			if ( types != null ) checkBuffer(types, count << 2);
@@ -374,7 +373,7 @@ public class ARBDebugOutput {
 
 	/** Alternative version of: {@link #glGetDebugMessageLogARB GetDebugMessageLogARB} */
 	public static int glGetDebugMessageLogARB(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, ByteBuffer messageLog) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( sources != null ) checkBuffer(sources, count);
 			if ( types != null ) checkBuffer(types, count);
 			if ( ids != null ) checkBuffer(ids, count);

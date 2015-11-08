@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -36,7 +35,7 @@ import static org.lwjgl.system.JNI.*;
  * textures to be backed by independent sub-ranges of the same buffer object, or for different sub-ranges of a single buffer object to be used for
  * different purposes.</p>
  * 
- * <p>Requires {@link GLES31 GLES E.S}.</p>
+ * <p>Requires {@link GLES31 GLES 3.1}.</p>
  */
 public class OESTextureBuffer {
 

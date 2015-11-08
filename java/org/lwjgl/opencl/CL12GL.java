@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opencl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -72,7 +71,7 @@ public class CL12GL {
 	@JavadocExclude
 	public static long nclCreateFromGLTexture(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret) {
 		long __functionAddress = getInstance().CreateFromGLTexture;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(context);
 		return callPJIIIPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
 	}
@@ -124,14 +123,14 @@ public class CL12GL {
 	 *         </ul>
 	 */
 	public static long clCreateFromGLTexture(long context, long flags, int texture_target, int miplevel, int texture, ByteBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		return nclCreateFromGLTexture(context, flags, texture_target, miplevel, texture, memAddressSafe(errcode_ret));
 	}
 
 	/** Alternative version of: {@link #clCreateFromGLTexture CreateFromGLTexture} */
 	public static long clCreateFromGLTexture(long context, long flags, int texture_target, int miplevel, int texture, IntBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		return nclCreateFromGLTexture(context, flags, texture_target, miplevel, texture, memAddressSafe(errcode_ret));
 	}

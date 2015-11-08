@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/INTEL/performance_query.txt">INTEL_performance_query</a> extension.
@@ -154,14 +153,14 @@ public class INTELPerformanceQuery {
 	}
 
 	public static void glCreatePerfQueryINTEL(int queryId, ByteBuffer queryHandle) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(queryHandle, 1 << 2);
 		nglCreatePerfQueryINTEL(queryId, memAddress(queryHandle));
 	}
 
 	/** Alternative version of: {@link #glCreatePerfQueryINTEL CreatePerfQueryINTEL} */
 	public static void glCreatePerfQueryINTEL(int queryId, IntBuffer queryHandle) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(queryHandle, 1);
 		nglCreatePerfQueryINTEL(queryId, memAddress(queryHandle));
 	}
@@ -198,14 +197,14 @@ public class INTELPerformanceQuery {
 	}
 
 	public static void glGetFirstPerfQueryIdINTEL(ByteBuffer queryId) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(queryId, 1 << 2);
 		nglGetFirstPerfQueryIdINTEL(memAddress(queryId));
 	}
 
 	/** Alternative version of: {@link #glGetFirstPerfQueryIdINTEL GetFirstPerfQueryIdINTEL} */
 	public static void glGetFirstPerfQueryIdINTEL(IntBuffer queryId) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(queryId, 1);
 		nglGetFirstPerfQueryIdINTEL(memAddress(queryId));
 	}
@@ -228,14 +227,14 @@ public class INTELPerformanceQuery {
 	}
 
 	public static void glGetNextPerfQueryIdINTEL(int queryId, ByteBuffer nextQueryId) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(nextQueryId, 1 << 2);
 		nglGetNextPerfQueryIdINTEL(queryId, memAddress(nextQueryId));
 	}
 
 	/** Alternative version of: {@link #glGetNextPerfQueryIdINTEL GetNextPerfQueryIdINTEL} */
 	public static void glGetNextPerfQueryIdINTEL(int queryId, IntBuffer nextQueryId) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(nextQueryId, 1);
 		nglGetNextPerfQueryIdINTEL(queryId, memAddress(nextQueryId));
 	}
@@ -258,7 +257,7 @@ public class INTELPerformanceQuery {
 	}
 
 	public static void glGetPerfCounterInfoINTEL(int queryId, int counterId, int counterNameLength, ByteBuffer counterName, int counterDescLength, ByteBuffer counterDesc, ByteBuffer counterOffset, ByteBuffer counterDataSize, ByteBuffer counterTypeEnum, ByteBuffer counterDataTypeEnum, ByteBuffer rawCounterMaxValue) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(counterName, counterNameLength);
 			checkBuffer(counterDesc, counterDescLength);
 			checkBuffer(counterOffset, 1 << 2);
@@ -272,7 +271,7 @@ public class INTELPerformanceQuery {
 
 	/** Alternative version of: {@link #glGetPerfCounterInfoINTEL GetPerfCounterInfoINTEL} */
 	public static void glGetPerfCounterInfoINTEL(int queryId, int counterId, ByteBuffer counterName, ByteBuffer counterDesc, IntBuffer counterOffset, IntBuffer counterDataSize, IntBuffer counterTypeEnum, IntBuffer counterDataTypeEnum, LongBuffer rawCounterMaxValue) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(counterOffset, 1);
 			checkBuffer(counterDataSize, 1);
 			checkBuffer(counterTypeEnum, 1);
@@ -292,7 +291,7 @@ public class INTELPerformanceQuery {
 	}
 
 	public static void glGetPerfQueryDataINTEL(int queryHandle, int flags, int dataSize, ByteBuffer data, ByteBuffer bytesWritten) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, dataSize);
 			checkBuffer(bytesWritten, 1 << 2);
 		}
@@ -301,7 +300,7 @@ public class INTELPerformanceQuery {
 
 	/** Alternative version of: {@link #glGetPerfQueryDataINTEL GetPerfQueryDataINTEL} */
 	public static void glGetPerfQueryDataINTEL(int queryHandle, int flags, ByteBuffer data, IntBuffer bytesWritten) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(bytesWritten, 1);
 		nglGetPerfQueryDataINTEL(queryHandle, flags, data.remaining(), memAddress(data), memAddress(bytesWritten));
 	}
@@ -316,7 +315,7 @@ public class INTELPerformanceQuery {
 	}
 
 	public static void glGetPerfQueryIdByNameINTEL(ByteBuffer queryName, ByteBuffer queryId) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkNT1(queryName);
 			checkBuffer(queryId, 1 << 2);
 		}
@@ -325,14 +324,14 @@ public class INTELPerformanceQuery {
 
 	/** Alternative version of: {@link #glGetPerfQueryIdByNameINTEL GetPerfQueryIdByNameINTEL} */
 	public static void glGetPerfQueryIdByNameINTEL(ByteBuffer queryName, IntBuffer queryId) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(queryId, 1);
 		nglGetPerfQueryIdByNameINTEL(memAddress(queryName), memAddress(queryId));
 	}
 
 	/** CharSequence version of: {@link #glGetPerfQueryIdByNameINTEL GetPerfQueryIdByNameINTEL} */
 	public static void glGetPerfQueryIdByNameINTEL(CharSequence queryName, IntBuffer queryId) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(queryId, 1);
 		APIBuffer __buffer = apiBuffer();
 		int queryNameEncoded = __buffer.stringParamASCII(queryName, true);
@@ -358,7 +357,7 @@ public class INTELPerformanceQuery {
 	}
 
 	public static void glGetPerfQueryInfoINTEL(int queryId, int queryNameLength, ByteBuffer queryName, ByteBuffer dataSize, ByteBuffer noCounters, ByteBuffer noInstances, ByteBuffer capsMask) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(queryName, queryNameLength);
 			checkBuffer(dataSize, 1 << 2);
 			checkBuffer(noCounters, 1 << 2);
@@ -370,7 +369,7 @@ public class INTELPerformanceQuery {
 
 	/** Alternative version of: {@link #glGetPerfQueryInfoINTEL GetPerfQueryInfoINTEL} */
 	public static void glGetPerfQueryInfoINTEL(int queryId, ByteBuffer queryName, IntBuffer dataSize, IntBuffer noCounters, IntBuffer noInstances, IntBuffer capsMask) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(dataSize, 1);
 			checkBuffer(noCounters, 1);
 			checkBuffer(noInstances, 1);

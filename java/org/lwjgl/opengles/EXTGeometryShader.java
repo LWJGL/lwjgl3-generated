@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -41,7 +40,7 @@ import static org.lwjgl.system.JNI.*;
  * <p>This extension relies on the EXT_shader_io_blocks extension to provide the required functionality for declaring input and output blocks and interfacing
  * between shaders.</p>
  * 
- * <p>Requires {@link GLES31 GLES E.S}.</p>
+ * <p>Requires {@link GLES31 GLES 3.1}.</p>
  */
 public class EXTGeometryShader {
 

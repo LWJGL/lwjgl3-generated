@@ -5,10 +5,9 @@
  */
 package org.lwjgl.system.xxhash;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -25,7 +24,7 @@ public class XXHash {
 		OK    = 0x0,
 		ERROR = 0x1;
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected XXHash() {
@@ -48,7 +47,7 @@ public class XXHash {
 	 * @param seed   the seed that can be used to alter the result predictably
 	 */
 	public static int XXH32(ByteBuffer input, long length, int seed) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(input, length);
 		return nXXH32(memAddress(input), length, seed);
 	}
@@ -72,7 +71,7 @@ public class XXHash {
 	 * @param seed   the seed that can be used to alter the result predictably
 	 */
 	public static long XXH64(ByteBuffer input, long length, long seed) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(input, length);
 		return nXXH64(memAddress(input), length, seed);
 	}
@@ -179,7 +178,7 @@ public class XXHash {
 	 * @param length   the number of bytes stored at memory address {@code input}
 	 */
 	public static int XXH32_update(XXH32State statePtr, ByteBuffer input, long length) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(input, length);
 		return nXXH32_update(statePtr.address(), memAddress(input), length);
 	}
@@ -196,7 +195,7 @@ public class XXHash {
 	public static native int nXXH32_digest(long statePtr);
 
 	/**
-	 * Returns the final 32-bits hash of the specified {@link {@link #XXH32State}}.
+	 * Returns the final 32-bits hash of the specified {@link XXH32State}.
 	 * 
 	 * <p>You can nonetheless continue feeding the hash state with more input, and therefore get some new hashes, by calling again {@link #XXH32_digest 32_digest}.</p>
 	 * 
@@ -238,7 +237,7 @@ public class XXHash {
 	 * @param length   the number of bytes stored at memory address {@code input}
 	 */
 	public static int XXH64_update(XXH64State statePtr, ByteBuffer input, long length) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(input, length);
 		return nXXH64_update(statePtr.address(), memAddress(input), length);
 	}

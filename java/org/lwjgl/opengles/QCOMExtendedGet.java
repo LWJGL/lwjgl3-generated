@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengles;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/QCOM/QCOM_extended_get.txt">QCOM_extended_get</a> extension.
@@ -101,7 +101,7 @@ public class QCOMExtendedGet {
 	}
 
 	public static void glExtGetTexturesQCOM(ByteBuffer textures, int maxTextures, ByteBuffer numTextures) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( textures != null ) checkBuffer(textures, maxTextures << 2);
 			if ( numTextures != null ) checkBuffer(numTextures, 1 << 2);
 		}
@@ -110,7 +110,7 @@ public class QCOMExtendedGet {
 
 	/** Alternative version of: {@link #glExtGetTexturesQCOM ExtGetTexturesQCOM} */
 	public static void glExtGetTexturesQCOM(IntBuffer textures, IntBuffer numTextures) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( numTextures != null ) checkBuffer(numTextures, 1);
 		nglExtGetTexturesQCOM(memAddressSafe(textures), textures == null ? 0 : textures.remaining(), memAddressSafe(numTextures));
 	}
@@ -125,7 +125,7 @@ public class QCOMExtendedGet {
 	}
 
 	public static void glExtGetBuffersQCOM(ByteBuffer buffers, int maxBuffers, ByteBuffer numBuffers) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( buffers != null ) checkBuffer(buffers, maxBuffers << 2);
 			if ( numBuffers != null ) checkBuffer(numBuffers, 1 << 2);
 		}
@@ -134,7 +134,7 @@ public class QCOMExtendedGet {
 
 	/** Alternative version of: {@link #glExtGetBuffersQCOM ExtGetBuffersQCOM} */
 	public static void glExtGetBuffersQCOM(IntBuffer buffers, IntBuffer numBuffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( numBuffers != null ) checkBuffer(numBuffers, 1);
 		nglExtGetBuffersQCOM(memAddressSafe(buffers), buffers == null ? 0 : buffers.remaining(), memAddressSafe(numBuffers));
 	}
@@ -149,7 +149,7 @@ public class QCOMExtendedGet {
 	}
 
 	public static void glExtGetRenderbuffersQCOM(ByteBuffer renderbuffers, int maxRenderbuffers, ByteBuffer numRenderbuffers) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( renderbuffers != null ) checkBuffer(renderbuffers, maxRenderbuffers << 2);
 			if ( numRenderbuffers != null ) checkBuffer(numRenderbuffers, 1 << 2);
 		}
@@ -158,7 +158,7 @@ public class QCOMExtendedGet {
 
 	/** Alternative version of: {@link #glExtGetRenderbuffersQCOM ExtGetRenderbuffersQCOM} */
 	public static void glExtGetRenderbuffersQCOM(IntBuffer renderbuffers, IntBuffer numRenderbuffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( numRenderbuffers != null ) checkBuffer(numRenderbuffers, 1);
 		nglExtGetRenderbuffersQCOM(memAddressSafe(renderbuffers), renderbuffers == null ? 0 : renderbuffers.remaining(), memAddressSafe(numRenderbuffers));
 	}
@@ -173,7 +173,7 @@ public class QCOMExtendedGet {
 	}
 
 	public static void glExtGetFramebuffersQCOM(ByteBuffer framebuffers, int maxFramebuffers, ByteBuffer numFramebuffers) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( framebuffers != null ) checkBuffer(framebuffers, maxFramebuffers << 2);
 			if ( numFramebuffers != null ) checkBuffer(numFramebuffers, 1 << 2);
 		}
@@ -182,7 +182,7 @@ public class QCOMExtendedGet {
 
 	/** Alternative version of: {@link #glExtGetFramebuffersQCOM ExtGetFramebuffersQCOM} */
 	public static void glExtGetFramebuffersQCOM(IntBuffer framebuffers, IntBuffer numFramebuffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( numFramebuffers != null ) checkBuffer(numFramebuffers, 1);
 		nglExtGetFramebuffersQCOM(memAddressSafe(framebuffers), framebuffers == null ? 0 : framebuffers.remaining(), memAddressSafe(numFramebuffers));
 	}
@@ -197,14 +197,14 @@ public class QCOMExtendedGet {
 	}
 
 	public static void glExtGetTexLevelParameterivQCOM(int texture, int face, int level, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglExtGetTexLevelParameterivQCOM(texture, face, level, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glExtGetTexLevelParameterivQCOM ExtGetTexLevelParameterivQCOM} */
 	public static void glExtGetTexLevelParameterivQCOM(int texture, int face, int level, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglExtGetTexLevelParameterivQCOM(texture, face, level, pname, memAddress(params));
 	}
@@ -247,14 +247,14 @@ public class QCOMExtendedGet {
 	}
 
 	public static void glExtGetBufferPointervQCOM(int target, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << POINTER_SHIFT);
 		nglExtGetBufferPointervQCOM(target, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glExtGetBufferPointervQCOM ExtGetBufferPointervQCOM} */
 	public static void glExtGetBufferPointervQCOM(int target, PointerBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglExtGetBufferPointervQCOM(target, memAddress(params));
 	}

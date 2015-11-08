@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * The core OpenGL 1.5 functionality.
@@ -221,7 +221,7 @@ public class GL15 {
 	 * @param buffers an array of buffer objects to be deleted
 	 */
 	public static void glDeleteBuffers(int n, ByteBuffer buffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(buffers, n << 2);
 		nglDeleteBuffers(n, memAddress(buffers));
 	}
@@ -256,7 +256,7 @@ public class GL15 {
 	 * @param buffers a buffer in which the generated buffer object names are stored
 	 */
 	public static void glGenBuffers(int n, ByteBuffer buffers) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(buffers, n << 2);
 		nglGenBuffers(n, memAddress(buffers));
 	}
@@ -324,7 +324,7 @@ public class GL15 {
 	 * @param usage  the expected usage pattern of the data store. One of:<br>{@link #GL_STREAM_DRAW STREAM_DRAW}, {@link #GL_STREAM_READ STREAM_READ}, {@link #GL_STREAM_COPY STREAM_COPY}, {@link #GL_STATIC_DRAW STATIC_DRAW}, {@link #GL_STATIC_READ STATIC_READ}, {@link #GL_STATIC_COPY STATIC_COPY}, {@link #GL_DYNAMIC_DRAW DYNAMIC_DRAW}, {@link #GL_DYNAMIC_READ DYNAMIC_READ}, {@link #GL_DYNAMIC_COPY DYNAMIC_COPY}
 	 */
 	public static void glBufferData(int target, long size, ByteBuffer data, int usage) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( data != null ) checkBuffer(data, size);
 		nglBufferData(target, size, memAddressSafe(data), usage);
 	}
@@ -379,7 +379,7 @@ public class GL15 {
 	 * @param data   a pointer to the new data that will be copied into the data store
 	 */
 	public static void glBufferSubData(int target, long offset, long size, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, size);
 		nglBufferSubData(target, offset, size, memAddress(data));
 	}
@@ -429,7 +429,7 @@ public class GL15 {
 	 * @param data   a pointer to the location where buffer object data is returned
 	 */
 	public static void glGetBufferSubData(int target, long offset, long size, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, size);
 		nglGetBufferSubData(target, offset, size, memAddress(data));
 	}
@@ -539,14 +539,14 @@ public class GL15 {
 	 * @param params the requested parameter
 	 */
 	public static void glGetBufferParameteriv(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetBufferParameteriv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetBufferParameteriv GetBufferParameteriv} */
 	public static void glGetBufferParameteriv(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetBufferParameteriv(target, pname, memAddress(params));
 	}
@@ -578,14 +578,14 @@ public class GL15 {
 	 * @param params the pointer value specified by {@code pname}
 	 */
 	public static void glGetBufferPointerv(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << POINTER_SHIFT);
 		nglGetBufferPointerv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetBufferPointerv GetBufferPointerv} */
 	public static void glGetBufferPointerv(int target, int pname, PointerBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetBufferPointerv(target, pname, memAddress(params));
 	}
@@ -616,7 +616,7 @@ public class GL15 {
 	 * @param ids a buffer in which the generated query object names are stored
 	 */
 	public static void glGenQueries(int n, ByteBuffer ids) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ids, n << 2);
 		nglGenQueries(n, memAddress(ids));
 	}
@@ -652,7 +652,7 @@ public class GL15 {
 	 * @param ids an array of query objects to be deleted
 	 */
 	public static void glDeleteQueries(int n, ByteBuffer ids) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ids, n << 2);
 		nglDeleteQueries(n, memAddress(ids));
 	}
@@ -731,14 +731,14 @@ public class GL15 {
 	 * @param params the requested data
 	 */
 	public static void glGetQueryiv(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetQueryiv(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryiv GetQueryiv} */
 	public static void glGetQueryiv(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryiv(target, pname, memAddress(params));
 	}
@@ -770,14 +770,14 @@ public class GL15 {
 	 * @param params the requested data
 	 */
 	public static void glGetQueryObjectiv(int id, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetQueryObjectiv(id, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryObjectiv GetQueryObjectiv} */
 	public static void glGetQueryObjectiv(int id, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjectiv(id, pname, memAddress(params));
 	}
@@ -809,14 +809,14 @@ public class GL15 {
 	 * @param params the requested data
 	 */
 	public static void glGetQueryObjectuiv(int id, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetQueryObjectuiv(id, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryObjectuiv GetQueryObjectuiv} */
 	public static void glGetQueryObjectuiv(int id, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjectuiv(id, pname, memAddress(params));
 	}

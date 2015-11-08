@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/shader_objects.txt">ARB_shader_objects</a> extension.
@@ -288,7 +288,7 @@ public class ARBShaderObjects {
 	 *                  considered null terminated.
 	 */
 	public static void glShaderSourceARB(int shaderObj, int count, ByteBuffer string, ByteBuffer length) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(string, count << POINTER_SHIFT);
 			if ( length != null ) checkBuffer(length, count << 2);
 		}
@@ -297,7 +297,7 @@ public class ARBShaderObjects {
 
 	/** Alternative version of: {@link #glShaderSourceARB ShaderSourceARB} */
 	public static void glShaderSourceARB(int shaderObj, PointerBuffer string, IntBuffer length) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, string.remaining());
 		nglShaderSourceARB(shaderObj, string.remaining(), memAddress(string), memAddressSafe(length));
 	}
@@ -575,7 +575,7 @@ public class ARBShaderObjects {
 	 * @param value    the values to load
 	 */
 	public static void glUniform1fvARB(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 2);
 		nglUniform1fvARB(location, count, memAddress(value));
 	}
@@ -602,7 +602,7 @@ public class ARBShaderObjects {
 	 * @param value    the values to load
 	 */
 	public static void glUniform2fvARB(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglUniform2fvARB(location, count, memAddress(value));
 	}
@@ -629,7 +629,7 @@ public class ARBShaderObjects {
 	 * @param value    the values to load
 	 */
 	public static void glUniform3fvARB(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 3) << 2);
 		nglUniform3fvARB(location, count, memAddress(value));
 	}
@@ -656,7 +656,7 @@ public class ARBShaderObjects {
 	 * @param value    the values to load
 	 */
 	public static void glUniform4fvARB(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglUniform4fvARB(location, count, memAddress(value));
 	}
@@ -683,7 +683,7 @@ public class ARBShaderObjects {
 	 * @param value    the values to load
 	 */
 	public static void glUniform1ivARB(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 2);
 		nglUniform1ivARB(location, count, memAddress(value));
 	}
@@ -710,7 +710,7 @@ public class ARBShaderObjects {
 	 * @param value    the values to load
 	 */
 	public static void glUniform2ivARB(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglUniform2ivARB(location, count, memAddress(value));
 	}
@@ -737,7 +737,7 @@ public class ARBShaderObjects {
 	 * @param value    the values to load
 	 */
 	public static void glUniform3ivARB(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 3) << 2);
 		nglUniform3ivARB(location, count, memAddress(value));
 	}
@@ -764,7 +764,7 @@ public class ARBShaderObjects {
 	 * @param value    the values to load
 	 */
 	public static void glUniform4ivARB(int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglUniform4ivARB(location, count, memAddress(value));
 	}
@@ -792,7 +792,7 @@ public class ARBShaderObjects {
 	 * @param value     the matrix values to load
 	 */
 	public static void glUniformMatrix2fvARB(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglUniformMatrix2fvARB(location, count, transpose, memAddress(value));
 	}
@@ -820,7 +820,7 @@ public class ARBShaderObjects {
 	 * @param value     the matrix values to load
 	 */
 	public static void glUniformMatrix3fvARB(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 9) << 2);
 		nglUniformMatrix3fvARB(location, count, transpose, memAddress(value));
 	}
@@ -848,7 +848,7 @@ public class ARBShaderObjects {
 	 * @param value     the matrix values to load
 	 */
 	public static void glUniformMatrix4fvARB(int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 4) << 2);
 		nglUniformMatrix4fvARB(location, count, transpose, memAddress(value));
 	}
@@ -875,14 +875,14 @@ public class ARBShaderObjects {
 	 * @param params a buffer in which to return the parameter value
 	 */
 	public static void glGetObjectParameterfvARB(int obj, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetObjectParameterfvARB(obj, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetObjectParameterfvARB GetObjectParameterfvARB} */
 	public static void glGetObjectParameterfvARB(int obj, int pname, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetObjectParameterfvARB(obj, pname, memAddress(params));
 	}
@@ -904,14 +904,14 @@ public class ARBShaderObjects {
 	 * @param params a buffer in which to return the parameter value
 	 */
 	public static void glGetObjectParameterivARB(int obj, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetObjectParameterivARB(obj, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetObjectParameterivARB GetObjectParameterivARB} */
 	public static void glGetObjectParameterivARB(int obj, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetObjectParameterivARB(obj, pname, memAddress(params));
 	}
@@ -954,7 +954,7 @@ public class ARBShaderObjects {
 	 * @param infoLog   a buffer in which to return the info log
 	 */
 	public static void glGetInfoLogARB(int obj, int maxLength, ByteBuffer length, ByteBuffer infoLog) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(infoLog, maxLength);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -963,7 +963,7 @@ public class ARBShaderObjects {
 
 	/** Alternative version of: {@link #glGetInfoLogARB GetInfoLogARB} */
 	public static void glGetInfoLogARB(int obj, IntBuffer length, ByteBuffer infoLog) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetInfoLogARB(obj, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
 	}
@@ -1007,7 +1007,7 @@ public class ARBShaderObjects {
 	 * @param obj          a buffer in which to return the attached object handles
 	 */
 	public static void glGetAttachedObjectsARB(int containerObj, int maxCount, ByteBuffer count, ByteBuffer obj) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(obj, maxCount << 2);
 			if ( count != null ) checkBuffer(count, 1 << 2);
 		}
@@ -1016,7 +1016,7 @@ public class ARBShaderObjects {
 
 	/** Alternative version of: {@link #glGetAttachedObjectsARB GetAttachedObjectsARB} */
 	public static void glGetAttachedObjectsARB(int containerObj, IntBuffer count, IntBuffer obj) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( count != null ) checkBuffer(count, 1);
 		nglGetAttachedObjectsARB(containerObj, obj.remaining(), memAddressSafe(count), memAddress(obj));
 	}
@@ -1068,7 +1068,7 @@ public class ARBShaderObjects {
 	 * @param name       the name of the uniform variable whose location is to be queried
 	 */
 	public static int glGetUniformLocationARB(int programObj, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		return nglGetUniformLocationARB(programObj, memAddress(name));
 	}
@@ -1123,7 +1123,7 @@ public class ARBShaderObjects {
 	 * @param name       a buffer in which to return the uniform name
 	 */
 	public static void glGetActiveUniformARB(int programObj, int index, int maxLength, ByteBuffer length, ByteBuffer size, ByteBuffer type, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(name, maxLength);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 			checkBuffer(size, 1 << 2);
@@ -1134,7 +1134,7 @@ public class ARBShaderObjects {
 
 	/** Alternative version of: {@link #glGetActiveUniformARB GetActiveUniformARB} */
 	public static void glGetActiveUniformARB(int programObj, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( length != null ) checkBuffer(length, 1);
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
@@ -1144,7 +1144,7 @@ public class ARBShaderObjects {
 
 	/** String return version of: {@link #glGetActiveUniformARB GetActiveUniformARB} */
 	public static String glGetActiveUniformARB(int programObj, int index, int maxLength, IntBuffer size, IntBuffer type) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
@@ -1158,7 +1158,7 @@ public class ARBShaderObjects {
 	/** String return (w/ implicit max length) version of: {@link #glGetActiveUniformARB GetActiveUniformARB} */
 	public static String glGetActiveUniformARB(int programObj, int index, IntBuffer size, IntBuffer type) {
 		int maxLength = glGetObjectParameteriARB(programObj, GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB);
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
@@ -1186,14 +1186,14 @@ public class ARBShaderObjects {
 	 * @param params     a buffer in which to return the uniform values
 	 */
 	public static void glGetUniformfvARB(int programObj, int location, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetUniformfvARB(programObj, location, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetUniformfvARB GetUniformfvARB} */
 	public static void glGetUniformfvARB(int programObj, int location, FloatBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformfvARB(programObj, location, memAddress(params));
 	}
@@ -1223,14 +1223,14 @@ public class ARBShaderObjects {
 	 * @param params     a buffer in which to return the uniform values
 	 */
 	public static void glGetUniformivARB(int programObj, int location, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetUniformivARB(programObj, location, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetUniformivARB GetUniformivARB} */
 	public static void glGetUniformivARB(int programObj, int location, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformivARB(programObj, location, memAddress(params));
 	}
@@ -1266,7 +1266,7 @@ public class ARBShaderObjects {
 	 * @param source    a buffer in which to return the shader object source
 	 */
 	public static void glGetShaderSourceARB(int obj, int maxLength, ByteBuffer length, ByteBuffer source) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(source, maxLength);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -1275,7 +1275,7 @@ public class ARBShaderObjects {
 
 	/** Alternative version of: {@link #glGetShaderSourceARB GetShaderSourceARB} */
 	public static void glGetShaderSourceARB(int obj, IntBuffer length, ByteBuffer source) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetShaderSourceARB(obj, source.remaining(), memAddressSafe(length), memAddress(source));
 	}

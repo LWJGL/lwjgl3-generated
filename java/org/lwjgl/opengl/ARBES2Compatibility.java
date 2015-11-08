@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/ES2_compatibility.txt">ARB_ES2_compatibility</a> extension.
@@ -125,7 +124,7 @@ public class ARBES2Compatibility {
 	 * @param length       the length of the array whose address is given in binary
 	 */
 	public static void glShaderBinary(int count, ByteBuffer shaders, int binaryformat, ByteBuffer binary, int length) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(shaders, count << 2);
 			checkBuffer(binary, length);
 		}
@@ -155,7 +154,7 @@ public class ARBES2Compatibility {
 	 * @param precision     the address of an integer into which the numeric precision of the implementation is written
 	 */
 	public static void glGetShaderPrecisionFormat(int shadertype, int precisiontype, ByteBuffer range, ByteBuffer precision) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(range, 2 << 2);
 			checkBuffer(precision, 1 << 2);
 		}
@@ -164,7 +163,7 @@ public class ARBES2Compatibility {
 
 	/** Alternative version of: {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat} */
 	public static void glGetShaderPrecisionFormat(int shadertype, int precisiontype, IntBuffer range, IntBuffer precision) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(range, 2);
 			checkBuffer(precision, 1);
 		}
@@ -173,7 +172,7 @@ public class ARBES2Compatibility {
 
 	/** Single return value version of: {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat} */
 	public static int glGetShaderPrecisionFormat(int shadertype, int precisiontype, IntBuffer range) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(range, 2);
 		APIBuffer __buffer = apiBuffer();
 		int precision = __buffer.intParam();

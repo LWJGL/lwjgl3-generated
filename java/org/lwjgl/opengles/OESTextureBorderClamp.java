@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/OES/OES_texture_border_clamp.txt">OES_texture_border_clamp</a> extension.
@@ -26,7 +25,7 @@ import static org.lwjgl.system.APIUtil.*;
  * and LINEAR filters of clamped coordinates return only the constant border color. This does not add the ability for textures to specify borders using
  * glTexImage2D, but only to clamp to a constant border value set using glTexParameter and glSamplerParameter.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public class OESTextureBorderClamp {
 
@@ -159,14 +158,14 @@ public class OESTextureBorderClamp {
 	}
 
 	public static void glGetTexParameterIivOES(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTexParameterIivOES(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTexParameterIivOES GetTexParameterIivOES} */
 	public static void glGetTexParameterIivOES(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterIivOES(target, pname, memAddress(params));
 	}
@@ -189,14 +188,14 @@ public class OESTextureBorderClamp {
 	}
 
 	public static void glGetTexParameterIuivOES(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetTexParameterIuivOES(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetTexParameterIuivOES GetTexParameterIuivOES} */
 	public static void glGetTexParameterIuivOES(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetTexParameterIuivOES(target, pname, memAddress(params));
 	}
@@ -269,14 +268,14 @@ public class OESTextureBorderClamp {
 	}
 
 	public static void glGetSamplerParameterIivOES(int sampler, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetSamplerParameterIivOES(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetSamplerParameterIivOES GetSamplerParameterIivOES} */
 	public static void glGetSamplerParameterIivOES(int sampler, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameterIivOES(sampler, pname, memAddress(params));
 	}
@@ -299,14 +298,14 @@ public class OESTextureBorderClamp {
 	}
 
 	public static void glGetSamplerParameterIuivOES(int sampler, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetSamplerParameterIuivOES(sampler, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetSamplerParameterIuivOES GetSamplerParameterIuivOES} */
 	public static void glGetSamplerParameterIuivOES(int sampler, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetSamplerParameterIuivOES(sampler, pname, memAddress(params));
 	}

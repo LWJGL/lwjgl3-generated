@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_occlusion_query_boolean.txt">EXT_occlusion_query_boolean</a> extension.
@@ -101,7 +100,7 @@ public class EXTOcclusionQueryBoolean {
 	}
 
 	public static void glGenQueriesEXT(int n, ByteBuffer ids) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ids, n << 2);
 		nglGenQueriesEXT(n, memAddress(ids));
 	}
@@ -129,7 +128,7 @@ public class EXTOcclusionQueryBoolean {
 	}
 
 	public static void glDeleteQueriesEXT(int n, ByteBuffer ids) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ids, n << 2);
 		nglDeleteQueriesEXT(n, memAddress(ids));
 	}
@@ -177,14 +176,14 @@ public class EXTOcclusionQueryBoolean {
 	}
 
 	public static void glGetQueryivEXT(int target, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetQueryivEXT(target, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryivEXT GetQueryivEXT} */
 	public static void glGetQueryivEXT(int target, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryivEXT(target, pname, memAddress(params));
 	}
@@ -207,14 +206,14 @@ public class EXTOcclusionQueryBoolean {
 	}
 
 	public static void glGetQueryObjectuivEXT(int id, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetQueryObjectuivEXT(id, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetQueryObjectuivEXT GetQueryObjectuivEXT} */
 	public static void glGetQueryObjectuivEXT(int id, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetQueryObjectuivEXT(id, pname, memAddress(params));
 	}

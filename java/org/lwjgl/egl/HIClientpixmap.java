@@ -5,10 +5,9 @@
  */
 package org.lwjgl.egl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -56,7 +55,7 @@ public class HIClientpixmap {
 	@JavadocExclude
 	public static long neglCreatePixmapSurfaceHI(long dpy, long config, long pixmap) {
 		long __functionAddress = getInstance().CreatePixmapSurfaceHI;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(config);
 		}

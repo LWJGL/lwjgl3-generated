@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -110,7 +109,7 @@ public class ARBInstancedArrays {
 	 */
 	public static void glVertexArrayVertexAttribDivisorEXT(int vaobj, int index, int divisor) {
 		long __functionAddress = getInstance().VertexArrayVertexAttribDivisorEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIV(__functionAddress, vaobj, index, divisor);
 	}

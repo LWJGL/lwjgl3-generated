@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/robustness.txt">ARB_robustness</a> extension.
@@ -214,7 +213,7 @@ public class ARBRobustness {
 	@JavadocExclude
 	public static void nglGetnMapdvARB(int target, int query, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnMapdvARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, query, bufSize, data);
 	}
@@ -228,7 +227,7 @@ public class ARBRobustness {
 	 * @param data    a buffer in which to place the returned data
 	 */
 	public static void glGetnMapdvARB(int target, int query, int bufSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, bufSize << 3);
 		nglGetnMapdvARB(target, query, bufSize, memAddress(data));
 	}
@@ -252,7 +251,7 @@ public class ARBRobustness {
 	@JavadocExclude
 	public static void nglGetnMapfvARB(int target, int query, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnMapfvARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, query, bufSize, data);
 	}
@@ -266,7 +265,7 @@ public class ARBRobustness {
 	 * @param data    a buffer in which to place the returned data
 	 */
 	public static void glGetnMapfvARB(int target, int query, int bufSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, bufSize << 2);
 		nglGetnMapfvARB(target, query, bufSize, memAddress(data));
 	}
@@ -290,7 +289,7 @@ public class ARBRobustness {
 	@JavadocExclude
 	public static void nglGetnMapivARB(int target, int query, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnMapivARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, query, bufSize, data);
 	}
@@ -304,7 +303,7 @@ public class ARBRobustness {
 	 * @param data    a buffer in which to place the returned data
 	 */
 	public static void glGetnMapivARB(int target, int query, int bufSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, bufSize << 2);
 		nglGetnMapivARB(target, query, bufSize, memAddress(data));
 	}
@@ -328,7 +327,7 @@ public class ARBRobustness {
 	@JavadocExclude
 	public static void nglGetnPixelMapfvARB(int map, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnPixelMapfvARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, map, bufSize, data);
 	}
@@ -341,7 +340,7 @@ public class ARBRobustness {
 	 * @param data    a buffer in which to place the returned data
 	 */
 	public static void glGetnPixelMapfvARB(int map, int bufSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, bufSize << 2);
 		nglGetnPixelMapfvARB(map, bufSize, memAddress(data));
 	}
@@ -357,7 +356,7 @@ public class ARBRobustness {
 	@JavadocExclude
 	public static void nglGetnPixelMapuivARB(int map, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnPixelMapuivARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, map, bufSize, data);
 	}
@@ -370,7 +369,7 @@ public class ARBRobustness {
 	 * @param data    a buffer in which to place the returned data
 	 */
 	public static void glGetnPixelMapuivARB(int map, int bufSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, bufSize << 2);
 		nglGetnPixelMapuivARB(map, bufSize, memAddress(data));
 	}
@@ -386,7 +385,7 @@ public class ARBRobustness {
 	@JavadocExclude
 	public static void nglGetnPixelMapusvARB(int map, int bufSize, long data) {
 		long __functionAddress = getInstance().GetnPixelMapusvARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, map, bufSize, data);
 	}
@@ -399,7 +398,7 @@ public class ARBRobustness {
 	 * @param data    a buffer in which to place the returned data
 	 */
 	public static void glGetnPixelMapusvARB(int map, int bufSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, bufSize << 1);
 		nglGetnPixelMapusvARB(map, bufSize, memAddress(data));
 	}
@@ -415,7 +414,7 @@ public class ARBRobustness {
 	@JavadocExclude
 	public static void nglGetnPolygonStippleARB(int bufSize, long pattern) {
 		long __functionAddress = getInstance().GetnPolygonStippleARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIPV(__functionAddress, bufSize, pattern);
 	}
@@ -427,7 +426,7 @@ public class ARBRobustness {
 	 * @param pattern a buffer in which to place the returned pattern
 	 */
 	public static void glGetnPolygonStippleARB(int bufSize, ByteBuffer pattern) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(pattern, bufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -436,14 +435,14 @@ public class ARBRobustness {
 
 	/** Buffer object offset version of: {@link #glGetnPolygonStippleARB GetnPolygonStippleARB} */
 	public static void glGetnPolygonStippleARB(int bufSize, long patternOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetnPolygonStippleARB(bufSize, patternOffset);
 	}
 
 	/** Alternative version of: {@link #glGetnPolygonStippleARB GetnPolygonStippleARB} */
 	public static void glGetnPolygonStippleARB(ByteBuffer pattern) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnPolygonStippleARB(pattern.remaining(), memAddress(pattern));
 	}
@@ -468,7 +467,7 @@ public class ARBRobustness {
 	 * @param img     a buffer in which to place the returned data
 	 */
 	public static void glGetnTexImageARB(int tex, int level, int format, int type, int bufSize, ByteBuffer img) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(img, bufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -477,42 +476,42 @@ public class ARBRobustness {
 
 	/** Buffer object offset version of: {@link #glGetnTexImageARB GetnTexImageARB} */
 	public static void glGetnTexImageARB(int tex, int level, int format, int type, int bufSize, long imgOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetnTexImageARB(tex, level, format, type, bufSize, imgOffset);
 	}
 
 	/** Alternative version of: {@link #glGetnTexImageARB GetnTexImageARB} */
 	public static void glGetnTexImageARB(int tex, int level, int format, int type, ByteBuffer img) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnTexImageARB(tex, level, format, type, img.remaining(), memAddress(img));
 	}
 
 	/** ShortBuffer version of: {@link #glGetnTexImageARB GetnTexImageARB} */
 	public static void glGetnTexImageARB(int tex, int level, int format, int type, ShortBuffer img) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnTexImageARB(tex, level, format, type, img.remaining() << 1, memAddress(img));
 	}
 
 	/** IntBuffer version of: {@link #glGetnTexImageARB GetnTexImageARB} */
 	public static void glGetnTexImageARB(int tex, int level, int format, int type, IntBuffer img) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnTexImageARB(tex, level, format, type, img.remaining() << 2, memAddress(img));
 	}
 
 	/** FloatBuffer version of: {@link #glGetnTexImageARB GetnTexImageARB} */
 	public static void glGetnTexImageARB(int tex, int level, int format, int type, FloatBuffer img) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnTexImageARB(tex, level, format, type, img.remaining() << 2, memAddress(img));
 	}
 
 	/** DoubleBuffer version of: {@link #glGetnTexImageARB GetnTexImageARB} */
 	public static void glGetnTexImageARB(int tex, int level, int format, int type, DoubleBuffer img) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnTexImageARB(tex, level, format, type, img.remaining() << 3, memAddress(img));
 	}
@@ -539,7 +538,7 @@ public class ARBRobustness {
 	 * @param data    a buffer in which to place the returned data
 	 */
 	public static void glReadnPixelsARB(int x, int y, int width, int height, int format, int type, int bufSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, bufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -548,35 +547,35 @@ public class ARBRobustness {
 
 	/** Buffer object offset version of: {@link #glReadnPixelsARB ReadnPixelsARB} */
 	public static void glReadnPixelsARB(int x, int y, int width, int height, int format, int type, int bufSize, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglReadnPixelsARB(x, y, width, height, format, type, bufSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glReadnPixelsARB ReadnPixelsARB} */
 	public static void glReadnPixelsARB(int x, int y, int width, int height, int format, int type, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixelsARB(x, y, width, height, format, type, data.remaining(), memAddress(data));
 	}
 
 	/** ShortBuffer version of: {@link #glReadnPixelsARB ReadnPixelsARB} */
 	public static void glReadnPixelsARB(int x, int y, int width, int height, int format, int type, ShortBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixelsARB(x, y, width, height, format, type, data.remaining() << 1, memAddress(data));
 	}
 
 	/** IntBuffer version of: {@link #glReadnPixelsARB ReadnPixelsARB} */
 	public static void glReadnPixelsARB(int x, int y, int width, int height, int format, int type, IntBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixelsARB(x, y, width, height, format, type, data.remaining() << 2, memAddress(data));
 	}
 
 	/** FloatBuffer version of: {@link #glReadnPixelsARB ReadnPixelsARB} */
 	public static void glReadnPixelsARB(int x, int y, int width, int height, int format, int type, FloatBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixelsARB(x, y, width, height, format, type, data.remaining() << 2, memAddress(data));
 	}
@@ -587,7 +586,7 @@ public class ARBRobustness {
 	@JavadocExclude
 	public static void nglGetnColorTableARB(int target, int format, int type, int bufSize, long table) {
 		long __functionAddress = getInstance().GetnColorTableARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, target, format, type, bufSize, table);
 	}
@@ -602,7 +601,7 @@ public class ARBRobustness {
 	 * @param table   a buffer in which to place the returned data
 	 */
 	public static void glGetnColorTableARB(int target, int format, int type, int bufSize, ByteBuffer table) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(table, bufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -611,35 +610,35 @@ public class ARBRobustness {
 
 	/** Buffer object offset version of: {@link #glGetnColorTableARB GetnColorTableARB} */
 	public static void glGetnColorTableARB(int target, int format, int type, int bufSize, long tableOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetnColorTableARB(target, format, type, bufSize, tableOffset);
 	}
 
 	/** Alternative version of: {@link #glGetnColorTableARB GetnColorTableARB} */
 	public static void glGetnColorTableARB(int target, int format, int type, ByteBuffer table) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnColorTableARB(target, format, type, table.remaining(), memAddress(table));
 	}
 
 	/** ShortBuffer version of: {@link #glGetnColorTableARB GetnColorTableARB} */
 	public static void glGetnColorTableARB(int target, int format, int type, ShortBuffer table) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnColorTableARB(target, format, type, table.remaining() << 1, memAddress(table));
 	}
 
 	/** IntBuffer version of: {@link #glGetnColorTableARB GetnColorTableARB} */
 	public static void glGetnColorTableARB(int target, int format, int type, IntBuffer table) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnColorTableARB(target, format, type, table.remaining() << 2, memAddress(table));
 	}
 
 	/** FloatBuffer version of: {@link #glGetnColorTableARB GetnColorTableARB} */
 	public static void glGetnColorTableARB(int target, int format, int type, FloatBuffer table) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnColorTableARB(target, format, type, table.remaining() << 2, memAddress(table));
 	}
@@ -650,7 +649,7 @@ public class ARBRobustness {
 	@JavadocExclude
 	public static void nglGetnConvolutionFilterARB(int target, int format, int type, int bufSize, long image) {
 		long __functionAddress = getInstance().GetnConvolutionFilterARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIPV(__functionAddress, target, format, type, bufSize, image);
 	}
@@ -665,7 +664,7 @@ public class ARBRobustness {
 	 * @param image   a buffer in which to place the returned data
 	 */
 	public static void glGetnConvolutionFilterARB(int target, int format, int type, int bufSize, ByteBuffer image) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(image, bufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -674,14 +673,14 @@ public class ARBRobustness {
 
 	/** Buffer object offset version of: {@link #glGetnConvolutionFilterARB GetnConvolutionFilterARB} */
 	public static void glGetnConvolutionFilterARB(int target, int format, int type, int bufSize, long imageOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetnConvolutionFilterARB(target, format, type, bufSize, imageOffset);
 	}
 
 	/** Alternative version of: {@link #glGetnConvolutionFilterARB GetnConvolutionFilterARB} */
 	public static void glGetnConvolutionFilterARB(int target, int format, int type, ByteBuffer image) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnConvolutionFilterARB(target, format, type, image.remaining(), memAddress(image));
 	}
@@ -692,7 +691,7 @@ public class ARBRobustness {
 	@JavadocExclude
 	public static void nglGetnSeparableFilterARB(int target, int format, int type, int rowBufSize, long row, int columnBufSize, long column, long span) {
 		long __functionAddress = getInstance().GetnSeparableFilterARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIPIPPV(__functionAddress, target, format, type, rowBufSize, row, columnBufSize, column, span);
 	}
@@ -710,7 +709,7 @@ public class ARBRobustness {
 	 * @param span          
 	 */
 	public static void glGetnSeparableFilterARB(int target, int format, int type, int rowBufSize, ByteBuffer row, int columnBufSize, ByteBuffer column, ByteBuffer span) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(row, rowBufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 			checkBuffer(column, columnBufSize);
@@ -720,14 +719,14 @@ public class ARBRobustness {
 
 	/** Buffer object offset version of: {@link #glGetnSeparableFilterARB GetnSeparableFilterARB} */
 	public static void glGetnSeparableFilterARB(int target, int format, int type, int rowBufSize, long rowOffset, int columnBufSize, long columnOffset, ByteBuffer span) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetnSeparableFilterARB(target, format, type, rowBufSize, rowOffset, columnBufSize, columnOffset, memAddressSafe(span));
 	}
 
 	/** Alternative version of: {@link #glGetnSeparableFilterARB GetnSeparableFilterARB} */
 	public static void glGetnSeparableFilterARB(int target, int format, int type, ByteBuffer row, ByteBuffer column, ByteBuffer span) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnSeparableFilterARB(target, format, type, row.remaining(), memAddress(row), column.remaining(), memAddress(column), memAddressSafe(span));
 	}
@@ -738,7 +737,7 @@ public class ARBRobustness {
 	@JavadocExclude
 	public static void nglGetnHistogramARB(int target, boolean reset, int format, int type, int bufSize, long values) {
 		long __functionAddress = getInstance().GetnHistogramARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIZIIIPV(__functionAddress, target, reset, format, type, bufSize, values);
 	}
@@ -754,7 +753,7 @@ public class ARBRobustness {
 	 * @param values  a buffer in which to place the returned data
 	 */
 	public static void glGetnHistogramARB(int target, boolean reset, int format, int type, int bufSize, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(values, bufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -763,14 +762,14 @@ public class ARBRobustness {
 
 	/** Buffer object offset version of: {@link #glGetnHistogramARB GetnHistogramARB} */
 	public static void glGetnHistogramARB(int target, boolean reset, int format, int type, int bufSize, long valuesOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetnHistogramARB(target, reset, format, type, bufSize, valuesOffset);
 	}
 
 	/** Alternative version of: {@link #glGetnHistogramARB GetnHistogramARB} */
 	public static void glGetnHistogramARB(int target, boolean reset, int format, int type, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnHistogramARB(target, reset, format, type, values.remaining(), memAddress(values));
 	}
@@ -781,7 +780,7 @@ public class ARBRobustness {
 	@JavadocExclude
 	public static void nglGetnMinmaxARB(int target, boolean reset, int format, int type, int bufSize, long values) {
 		long __functionAddress = getInstance().GetnMinmaxARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIZIIIPV(__functionAddress, target, reset, format, type, bufSize, values);
 	}
@@ -798,7 +797,7 @@ public class ARBRobustness {
 	 * @param values  a buffer in which to place the returned data
 	 */
 	public static void glGetnMinmaxARB(int target, boolean reset, int format, int type, int bufSize, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(values, bufSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -807,14 +806,14 @@ public class ARBRobustness {
 
 	/** Buffer object offset version of: {@link #glGetnMinmaxARB GetnMinmaxARB} */
 	public static void glGetnMinmaxARB(int target, boolean reset, int format, int type, int bufSize, long valuesOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetnMinmaxARB(target, reset, format, type, bufSize, valuesOffset);
 	}
 
 	/** Alternative version of: {@link #glGetnMinmaxARB GetnMinmaxARB} */
 	public static void glGetnMinmaxARB(int target, boolean reset, int format, int type, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnMinmaxARB(target, reset, format, type, values.remaining(), memAddress(values));
 	}
@@ -825,7 +824,7 @@ public class ARBRobustness {
 	@JavadocExclude
 	public static void nglGetnCompressedTexImageARB(int target, int level, int bufSize, long img) {
 		long __functionAddress = getInstance().GetnCompressedTexImageARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, target, level, bufSize, img);
 	}
@@ -839,9 +838,9 @@ public class ARBRobustness {
 	 * @param img     a buffer in which to place the returned data
 	 */
 	public static void glGetnCompressedTexImageARB(int target, int level, int bufSize, ByteBuffer img) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(img, bufSize);
-			if ( LWJGLUtil.DEBUG )
+			if ( DEBUG )
 				checkBuffer(img, GL11.glGetTexLevelParameteri(target, level, GL13.GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -850,15 +849,15 @@ public class ARBRobustness {
 
 	/** Buffer object offset version of: {@link #glGetnCompressedTexImageARB GetnCompressedTexImageARB} */
 	public static void glGetnCompressedTexImageARB(int target, int level, int bufSize, long imgOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetnCompressedTexImageARB(target, level, bufSize, imgOffset);
 	}
 
 	/** Alternative version of: {@link #glGetnCompressedTexImageARB GetnCompressedTexImageARB} */
 	public static void glGetnCompressedTexImageARB(int target, int level, ByteBuffer img) {
-		if ( LWJGLUtil.CHECKS ) {
-			if ( LWJGLUtil.DEBUG )
+		if ( CHECKS ) {
+			if ( DEBUG )
 				checkBuffer(img, GL11.glGetTexLevelParameteri(target, level, GL13.GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -871,7 +870,7 @@ public class ARBRobustness {
 	@JavadocExclude
 	public static void nglGetnUniformfvARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformfvARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
@@ -885,7 +884,7 @@ public class ARBRobustness {
 	 * @param params   a buffer in which to place the returned data
 	 */
 	public static void glGetnUniformfvARB(int program, int location, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformfvARB(program, location, bufSize, memAddress(params));
 	}
@@ -909,7 +908,7 @@ public class ARBRobustness {
 	@JavadocExclude
 	public static void nglGetnUniformivARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformivARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
@@ -923,7 +922,7 @@ public class ARBRobustness {
 	 * @param params   a buffer in which to place the returned data
 	 */
 	public static void glGetnUniformivARB(int program, int location, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformivARB(program, location, bufSize, memAddress(params));
 	}
@@ -947,7 +946,7 @@ public class ARBRobustness {
 	@JavadocExclude
 	public static void nglGetnUniformuivARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformuivARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
@@ -961,7 +960,7 @@ public class ARBRobustness {
 	 * @param params   a buffer in which to place the returned data
 	 */
 	public static void glGetnUniformuivARB(int program, int location, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 2);
 		nglGetnUniformuivARB(program, location, bufSize, memAddress(params));
 	}
@@ -985,7 +984,7 @@ public class ARBRobustness {
 	@JavadocExclude
 	public static void nglGetnUniformdvARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = getInstance().GetnUniformdvARB;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, bufSize, params);
 	}
@@ -999,7 +998,7 @@ public class ARBRobustness {
 	 * @param params   a buffer in which to place the returned data
 	 */
 	public static void glGetnUniformdvARB(int program, int location, int bufSize, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, bufSize << 3);
 		nglGetnUniformdvARB(program, location, bufSize, memAddress(params));
 	}

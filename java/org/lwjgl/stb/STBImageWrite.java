@@ -5,14 +5,13 @@
  */
 package org.lwjgl.stb;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to stb_image_write.h from the <a href="https://github.com/nothings/stb">stb library</a>.
@@ -49,7 +48,7 @@ import static org.lwjgl.system.APIUtil.*;
  */
 public class STBImageWrite {
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected STBImageWrite() {
@@ -81,7 +80,7 @@ public class STBImageWrite {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbi_write_png(ByteBuffer filename, int w, int h, int comp, ByteBuffer data, int stride_in_bytes) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkNT1(filename);
 			checkBuffer(data, w * h * comp);
 		}
@@ -90,7 +89,7 @@ public class STBImageWrite {
 
 	/** CharSequence version of: {@link #stbi_write_png write_png} */
 	public static int stbi_write_png(CharSequence filename, int w, int h, int comp, ByteBuffer data, int stride_in_bytes) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, w * h * comp);
 		APIBuffer __buffer = apiBuffer();
 		int filenameEncoded = __buffer.stringParamASCII(filename, true);
@@ -117,7 +116,7 @@ public class STBImageWrite {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbi_write_bmp(ByteBuffer filename, int w, int h, int comp, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkNT1(filename);
 			checkBuffer(data, w * h * comp);
 		}
@@ -126,7 +125,7 @@ public class STBImageWrite {
 
 	/** CharSequence version of: {@link #stbi_write_bmp write_bmp} */
 	public static int stbi_write_bmp(CharSequence filename, int w, int h, int comp, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, w * h * comp);
 		APIBuffer __buffer = apiBuffer();
 		int filenameEncoded = __buffer.stringParamASCII(filename, true);
@@ -154,7 +153,7 @@ public class STBImageWrite {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbi_write_tga(ByteBuffer filename, int w, int h, int comp, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkNT1(filename);
 			checkBuffer(data, w * h * comp);
 		}
@@ -163,7 +162,7 @@ public class STBImageWrite {
 
 	/** CharSequence version of: {@link #stbi_write_tga write_tga} */
 	public static int stbi_write_tga(CharSequence filename, int w, int h, int comp, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, w * h * comp);
 		APIBuffer __buffer = apiBuffer();
 		int filenameEncoded = __buffer.stringParamASCII(filename, true);
@@ -203,7 +202,7 @@ public class STBImageWrite {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbi_write_hdr(ByteBuffer filename, int w, int h, int comp, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkNT1(filename);
 			checkBuffer(data, (w * h * comp) << 2);
 		}
@@ -212,14 +211,14 @@ public class STBImageWrite {
 
 	/** Alternative version of: {@link #stbi_write_hdr write_hdr} */
 	public static int stbi_write_hdr(ByteBuffer filename, int w, int h, int comp, FloatBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, w * h * comp);
 		return nstbi_write_hdr(memAddress(filename), w, h, comp, memAddress(data));
 	}
 
 	/** CharSequence version of: {@link #stbi_write_hdr write_hdr} */
 	public static int stbi_write_hdr(CharSequence filename, int w, int h, int comp, FloatBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, w * h * comp);
 		APIBuffer __buffer = apiBuffer();
 		int filenameEncoded = __buffer.stringParamASCII(filename, true);
@@ -246,7 +245,7 @@ public class STBImageWrite {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbi_write_png_to_func(STBIWriteCallback func, ByteBuffer context, int w, int h, int comp, ByteBuffer data, int stride_in_bytes) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, w * h * comp);
 		return nstbi_write_png_to_func(func.address(), memAddressSafe(context), w, h, comp, memAddress(data), stride_in_bytes);
 	}
@@ -270,7 +269,7 @@ public class STBImageWrite {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbi_write_bmp_to_func(STBIWriteCallback func, ByteBuffer context, int w, int h, int comp, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, w * h * comp);
 		return nstbi_write_bmp_to_func(func.address(), memAddressSafe(context), w, h, comp, memAddress(data));
 	}
@@ -294,7 +293,7 @@ public class STBImageWrite {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbi_write_tga_to_func(STBIWriteCallback func, ByteBuffer context, int w, int h, int comp, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, w * h * comp);
 		return nstbi_write_tga_to_func(func.address(), memAddressSafe(context), w, h, comp, memAddress(data));
 	}
@@ -318,14 +317,14 @@ public class STBImageWrite {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbi_write_hdr_to_func(STBIWriteCallback func, ByteBuffer context, int w, int h, int comp, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, (w * h * comp) << 2);
 		return nstbi_write_hdr_to_func(func.address(), memAddressSafe(context), w, h, comp, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #stbi_write_hdr_to_func write_hdr_to_func} */
 	public static int stbi_write_hdr_to_func(STBIWriteCallback func, ByteBuffer context, int w, int h, int comp, FloatBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(data, w * h * comp);
 		return nstbi_write_hdr_to_func(func.address(), memAddressSafe(context), w, h, comp, memAddress(data));
 	}

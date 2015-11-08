@@ -5,7 +5,6 @@
  */
 package org.lwjgl.egl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -63,7 +62,7 @@ public class ANDROIDNativeFenceSync {
 
 	public static int eglDupNativeFenceFDANDROID(long dpy, long sync) {
 		long __functionAddress = getInstance().DupNativeFenceFDANDROID;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}

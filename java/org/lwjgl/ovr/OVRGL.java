@@ -5,14 +5,14 @@
  */
 package org.lwjgl.ovr;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to libOVR, using the <a href="https://developer.oculus.com/">Oculus SDK</a> C API.
@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class OVRGL {
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected OVRGL() {
@@ -58,7 +58,7 @@ public class OVRGL {
 	 * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
 	 */
 	public static int ovr_CreateSwapTextureSetGL(long hmd, int format, int width, int height, ByteBuffer outTextureSet) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(hmd);
 			checkBuffer(outTextureSet, 1 << POINTER_SHIFT);
 		}
@@ -67,7 +67,7 @@ public class OVRGL {
 
 	/** Alternative version of: {@link #ovr_CreateSwapTextureSetGL CreateSwapTextureSetGL} */
 	public static int ovr_CreateSwapTextureSetGL(long hmd, int format, int width, int height, PointerBuffer outTextureSet) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(hmd);
 			checkBuffer(outTextureSet, 1);
 		}
@@ -102,7 +102,7 @@ public class OVRGL {
 	 * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
 	 */
 	public static int ovr_CreateMirrorTextureGL(long hmd, int format, int width, int height, ByteBuffer outMirrorTexture) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(hmd);
 			checkBuffer(outMirrorTexture, 1 << POINTER_SHIFT);
 		}
@@ -111,7 +111,7 @@ public class OVRGL {
 
 	/** Alternative version of: {@link #ovr_CreateMirrorTextureGL CreateMirrorTextureGL} */
 	public static int ovr_CreateMirrorTextureGL(long hmd, int format, int width, int height, PointerBuffer outMirrorTexture) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(hmd);
 			checkBuffer(outMirrorTexture, 1);
 		}

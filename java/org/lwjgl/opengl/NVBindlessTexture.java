@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -321,7 +320,7 @@ public class NVBindlessTexture {
 	 * @param values   a buffer from which to load the handles
 	 */
 	public static void glUniformHandleui64vNV(int location, int count, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, count << 3);
 		nglUniformHandleui64vNV(location, count, memAddress(values));
 	}
@@ -363,7 +362,7 @@ public class NVBindlessTexture {
 	 * @param values   a buffer from which to load the handles
 	 */
 	public static void glProgramUniformHandleui64vNV(int program, int location, int count, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, count << 3);
 		nglProgramUniformHandleui64vNV(program, location, count, memAddress(values));
 	}

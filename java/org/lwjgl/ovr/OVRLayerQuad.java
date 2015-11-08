@@ -154,7 +154,7 @@ public class OVRLayerQuad extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public OVRLayerQuad set(OVRLayerQuad src) {
 		return nset(address());
@@ -162,7 +162,7 @@ public class OVRLayerQuad extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public OVRLayerQuad set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}

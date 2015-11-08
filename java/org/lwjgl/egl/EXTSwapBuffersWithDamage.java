@@ -5,10 +5,9 @@
  */
 package org.lwjgl.egl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -59,7 +58,7 @@ public class EXTSwapBuffersWithDamage {
 	@JavadocExclude
 	public static boolean neglSwapBuffersWithDamageEXT(long dpy, long surface, long rects, int n_rects) {
 		long __functionAddress = getInstance().SwapBuffersWithDamageEXT;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
@@ -67,7 +66,7 @@ public class EXTSwapBuffersWithDamage {
 	}
 
 	public static boolean eglSwapBuffersWithDamageEXT(long dpy, long surface, ByteBuffer rects, int n_rects) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( rects != null ) checkBuffer(rects, n_rects << 2);
 		return neglSwapBuffersWithDamageEXT(dpy, surface, memAddressSafe(rects), n_rects);
 	}

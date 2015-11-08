@@ -141,7 +141,7 @@ public class GPU_DEVICE extends Struct {
 	public static int ngetCb(long struct) { return memGetInt(struct + CB); }
 	public static int getCb(ByteBuffer struct) { return ngetCb(memAddress(struct)); }
 	public static void ngetDeviceName(long struct, ByteBuffer DeviceName) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(DeviceName, 32 * 2);
+		if ( CHECKS ) checkBufferGT(DeviceName, 32 * 2);
 		memCopy(struct + DEVICENAME, memAddress(DeviceName), DeviceName.remaining());
 	}
 	public static void getDeviceName(ByteBuffer struct, ByteBuffer DeviceName) { ngetDeviceName(memAddress(struct), DeviceName); }
@@ -150,7 +150,7 @@ public class GPU_DEVICE extends Struct {
 	public static String ngetDeviceNameString(long struct, int byteLen) { return memDecodeUTF16(memByteBuffer(struct + DEVICENAME, byteLen)); }
 	public static String getDeviceNameString(ByteBuffer struct, int byteLen) { return ngetDeviceNameString(memAddress(struct), byteLen); }
 	public static void ngetDeviceString(long struct, ByteBuffer DeviceString) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(DeviceString, 128 * 2);
+		if ( CHECKS ) checkBufferGT(DeviceString, 128 * 2);
 		memCopy(struct + DEVICESTRING, memAddress(DeviceString), DeviceString.remaining());
 	}
 	public static void getDeviceString(ByteBuffer struct, ByteBuffer DeviceString) { ngetDeviceString(memAddress(struct), DeviceString); }

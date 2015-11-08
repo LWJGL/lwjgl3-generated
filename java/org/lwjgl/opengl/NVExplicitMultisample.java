@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -111,14 +110,14 @@ public class NVExplicitMultisample {
 	}
 
 	public static void glGetMultisamplefvNV(int pname, int index, ByteBuffer val) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(val, 2 << 2);
 		nglGetMultisamplefvNV(pname, index, memAddress(val));
 	}
 
 	/** Alternative version of: {@link #glGetMultisamplefvNV GetMultisamplefvNV} */
 	public static void glGetMultisamplefvNV(int pname, int index, FloatBuffer val) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(val, 2);
 		nglGetMultisamplefvNV(pname, index, memAddress(val));
 	}

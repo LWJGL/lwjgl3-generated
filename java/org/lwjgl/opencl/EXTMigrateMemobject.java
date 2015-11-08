@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opencl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="http://www.khronos.org/registry/cl/extensions/ext/cl_ext_migrate_memobject.txt">ext_migrate_memobject</a> extension.
@@ -70,7 +70,7 @@ public class EXTMigrateMemobject {
 	@JavadocExclude
 	public static int nclEnqueueMigrateMemObjectEXT(long command_queue, int num_mem_objects, long mem_objects, long flags, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = getInstance().EnqueueMigrateMemObjectEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(command_queue);
 		return callPIPJIPPI(__functionAddress, command_queue, num_mem_objects, mem_objects, flags, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -102,7 +102,7 @@ public class EXTMigrateMemobject {
 	 *                                {@code event_wait_list} array.
 	 */
 	public static int clEnqueueMigrateMemObjectEXT(long command_queue, int num_mem_objects, ByteBuffer mem_objects, long flags, int num_events_in_wait_list, ByteBuffer event_wait_list, ByteBuffer event) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(mem_objects, num_mem_objects << POINTER_SHIFT);
 			if ( event_wait_list != null ) checkBuffer(event_wait_list, num_events_in_wait_list << POINTER_SHIFT);
 			if ( event != null ) checkBuffer(event, 1 << POINTER_SHIFT);
@@ -112,7 +112,7 @@ public class EXTMigrateMemobject {
 
 	/** Alternative version of: {@link #clEnqueueMigrateMemObjectEXT EnqueueMigrateMemObjectEXT} */
 	public static int clEnqueueMigrateMemObjectEXT(long command_queue, PointerBuffer mem_objects, long flags, PointerBuffer event_wait_list, PointerBuffer event) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
 		return nclEnqueueMigrateMemObjectEXT(command_queue, mem_objects.remaining(), memAddress(mem_objects), flags, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}

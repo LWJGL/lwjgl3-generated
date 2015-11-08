@@ -5,10 +5,9 @@
  */
 package org.lwjgl.egl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -104,7 +103,7 @@ public class EGL12 {
 	@JavadocExclude
 	public static long neglCreatePbufferFromClientBuffer(long dpy, int buftype, long buffer, long config, long attrib_list) {
 		long __functionAddress = getInstance().CreatePbufferFromClientBuffer;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(buffer);
 			checkPointer(config);
@@ -113,14 +112,14 @@ public class EGL12 {
 	}
 
 	public static long eglCreatePbufferFromClientBuffer(long dpy, int buftype, long buffer, long config, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
 		return neglCreatePbufferFromClientBuffer(dpy, buftype, buffer, config, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #eglCreatePbufferFromClientBuffer CreatePbufferFromClientBuffer} */
 	public static long eglCreatePbufferFromClientBuffer(long dpy, int buftype, long buffer, long config, IntBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
 		return neglCreatePbufferFromClientBuffer(dpy, buftype, buffer, config, memAddressSafe(attrib_list));
 	}

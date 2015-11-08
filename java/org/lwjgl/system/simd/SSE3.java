@@ -5,7 +5,6 @@
  */
 package org.lwjgl.system.simd;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -19,7 +18,7 @@ public class SSE3 {
 		_MM_DENORMALS_ZERO_ON   = 0x40,
 		_MM_DENORMALS_ZERO_OFF  = 0x0;
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected SSE3() {

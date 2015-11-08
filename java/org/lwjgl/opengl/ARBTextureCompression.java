@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -136,7 +135,7 @@ public class ARBTextureCompression {
 	 * @param data           a pointer to the compressed image data
 	 */
 	public static void glCompressedTexImage3DARB(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
@@ -145,14 +144,14 @@ public class ARBTextureCompression {
 
 	/** Buffer object offset version of: {@link #glCompressedTexImage3DARB CompressedTexImage3DARB} */
 	public static void glCompressedTexImage3DARB(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTexImage3DARB(target, level, internalformat, width, height, depth, border, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTexImage3DARB CompressedTexImage3DARB} */
 	public static void glCompressedTexImage3DARB(int target, int level, int internalformat, int width, int height, int depth, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTexImage3DARB(target, level, internalformat, width, height, depth, 0, data.remaining(), memAddress(data));
 	}
@@ -179,7 +178,7 @@ public class ARBTextureCompression {
 	 * @param data           a pointer to the compressed image data
 	 */
 	public static void glCompressedTexImage2DARB(int target, int level, int internalformat, int width, int height, int border, int imageSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
@@ -188,14 +187,14 @@ public class ARBTextureCompression {
 
 	/** Buffer object offset version of: {@link #glCompressedTexImage2DARB CompressedTexImage2DARB} */
 	public static void glCompressedTexImage2DARB(int target, int level, int internalformat, int width, int height, int border, int imageSize, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTexImage2DARB(target, level, internalformat, width, height, border, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTexImage2DARB CompressedTexImage2DARB} */
 	public static void glCompressedTexImage2DARB(int target, int level, int internalformat, int width, int height, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTexImage2DARB(target, level, internalformat, width, height, 0, data.remaining(), memAddress(data));
 	}
@@ -221,7 +220,7 @@ public class ARBTextureCompression {
 	 * @param data           a pointer to the compressed image data
 	 */
 	public static void glCompressedTexImage1DARB(int target, int level, int internalformat, int width, int border, int imageSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
@@ -230,14 +229,14 @@ public class ARBTextureCompression {
 
 	/** Buffer object offset version of: {@link #glCompressedTexImage1DARB CompressedTexImage1DARB} */
 	public static void glCompressedTexImage1DARB(int target, int level, int internalformat, int width, int border, int imageSize, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTexImage1DARB(target, level, internalformat, width, border, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTexImage1DARB CompressedTexImage1DARB} */
 	public static void glCompressedTexImage1DARB(int target, int level, int internalformat, int width, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTexImage1DARB(target, level, internalformat, width, 0, data.remaining(), memAddress(data));
 	}
@@ -267,7 +266,7 @@ public class ARBTextureCompression {
 	 * @param data      a pointer to the compressed image data
 	 */
 	public static void glCompressedTexSubImage3DARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
@@ -276,14 +275,14 @@ public class ARBTextureCompression {
 
 	/** Buffer object offset version of: {@link #glCompressedTexSubImage3DARB CompressedTexSubImage3DARB} */
 	public static void glCompressedTexSubImage3DARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTexSubImage3DARB(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTexSubImage3DARB CompressedTexSubImage3DARB} */
 	public static void glCompressedTexSubImage3DARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTexSubImage3DARB(target, level, xoffset, yoffset, zoffset, width, height, depth, format, data.remaining(), memAddress(data));
 	}
@@ -311,7 +310,7 @@ public class ARBTextureCompression {
 	 * @param data      a pointer to the compressed image data
 	 */
 	public static void glCompressedTexSubImage2DARB(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
@@ -320,14 +319,14 @@ public class ARBTextureCompression {
 
 	/** Buffer object offset version of: {@link #glCompressedTexSubImage2DARB CompressedTexSubImage2DARB} */
 	public static void glCompressedTexSubImage2DARB(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTexSubImage2DARB(target, level, xoffset, yoffset, width, height, format, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTexSubImage2DARB CompressedTexSubImage2DARB} */
 	public static void glCompressedTexSubImage2DARB(int target, int level, int xoffset, int yoffset, int width, int height, int format, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTexSubImage2DARB(target, level, xoffset, yoffset, width, height, format, data.remaining(), memAddress(data));
 	}
@@ -353,7 +352,7 @@ public class ARBTextureCompression {
 	 * @param data      a pointer to the compressed image data
 	 */
 	public static void glCompressedTexSubImage1DARB(int target, int level, int xoffset, int width, int format, int imageSize, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(data, imageSize);
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		}
@@ -362,14 +361,14 @@ public class ARBTextureCompression {
 
 	/** Buffer object offset version of: {@link #glCompressedTexSubImage1DARB CompressedTexSubImage1DARB} */
 	public static void glCompressedTexSubImage1DARB(int target, int level, int xoffset, int width, int format, int imageSize, long dataOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTexSubImage1DARB(target, level, xoffset, width, format, imageSize, dataOffset);
 	}
 
 	/** Alternative version of: {@link #glCompressedTexSubImage1DARB CompressedTexSubImage1DARB} */
 	public static void glCompressedTexSubImage1DARB(int target, int level, int xoffset, int width, int format, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTexSubImage1DARB(target, level, xoffset, width, format, data.remaining(), memAddress(data));
 	}
@@ -391,8 +390,8 @@ public class ARBTextureCompression {
 	 * @param pixels a buffer in which to return the compressed texture image
 	 */
 	public static void glGetCompressedTexImageARB(int target, int level, ByteBuffer pixels) {
-		if ( LWJGLUtil.CHECKS ) {
-			if ( LWJGLUtil.DEBUG )
+		if ( CHECKS ) {
+			if ( DEBUG )
 				checkBuffer(pixels, GL11.glGetTexLevelParameteri(target, level, GL_TEXTURE_COMPRESSED_IMAGE_SIZE_ARB));
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
@@ -401,7 +400,7 @@ public class ARBTextureCompression {
 
 	/** Buffer object offset version of: {@link #glGetCompressedTexImageARB GetCompressedTexImageARB} */
 	public static void glGetCompressedTexImageARB(int target, int level, long pixelsOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetCompressedTexImageARB(target, level, pixelsOffset);
 	}

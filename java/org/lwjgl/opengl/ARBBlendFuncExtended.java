@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/blend_func_extended.txt">ARB_blend_func_extended</a> extension.
@@ -102,7 +101,7 @@ public class ARBBlendFuncExtended {
 	 * @param name        the name of the user-defined varying out variable whose binding to modify
 	 */
 	public static void glBindFragDataLocationIndexed(int program, int colorNumber, int index, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		nglBindFragDataLocationIndexed(program, colorNumber, index, memAddress(name));
 	}
@@ -130,7 +129,7 @@ public class ARBBlendFuncExtended {
 	 * @param name    the name of the user-defined varying out variable whose index to query
 	 */
 	public static int glGetFragDataIndex(int program, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		return nglGetFragDataIndex(program, memAddress(name));
 	}

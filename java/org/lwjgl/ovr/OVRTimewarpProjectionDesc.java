@@ -97,7 +97,7 @@ public class OVRTimewarpProjectionDesc extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public OVRTimewarpProjectionDesc set(OVRTimewarpProjectionDesc src) {
 		return nset(address());
@@ -105,7 +105,7 @@ public class OVRTimewarpProjectionDesc extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public OVRTimewarpProjectionDesc set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}

@@ -5,10 +5,9 @@
  */
 package org.lwjgl.glfw;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -38,9 +37,16 @@ public class GLFWNativeWin32 {
 
 	// --- [ Function Addresses ] ---
 
+	private static final GLFWNativeWin32 instance = new GLFWNativeWin32(getLibrary());
+
+	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
+	public static SharedLibrary getLibrary() {
+		return GLFW.getLibrary();
+	}
+
 	/** Returns the {@link GLFWNativeWin32} instance. */
 	public static GLFWNativeWin32 getInstance() {
-		return checkFunctionality(LibGLFW.__GLFWNativeWin32);
+		return instance;
 	}
 
 	// --- [ glfwGetWin32Adapter ] ---
@@ -49,7 +55,7 @@ public class GLFWNativeWin32 {
 	@JavadocExclude
 	public static long nglfwGetWin32Adapter(long monitor) {
 		long __functionAddress = getInstance().GetWin32Adapter;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(monitor);
 		return invokePP(__functionAddress, monitor);
 	}
@@ -76,7 +82,7 @@ public class GLFWNativeWin32 {
 	@JavadocExclude
 	public static long nglfwGetWin32Monitor(long monitor) {
 		long __functionAddress = getInstance().GetWin32Monitor;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(monitor);
 		return invokePP(__functionAddress, monitor);
 	}
@@ -112,7 +118,7 @@ public class GLFWNativeWin32 {
 	 */
 	public static long glfwGetWin32Window(long window) {
 		long __functionAddress = getInstance().GetWin32Window;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(window);
 		return invokePP(__functionAddress, window);
 	}

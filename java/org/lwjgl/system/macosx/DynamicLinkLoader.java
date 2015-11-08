@@ -5,14 +5,13 @@
  */
 package org.lwjgl.system.macosx;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to <dlfcn.h>. */
 public class DynamicLinkLoader {
@@ -31,7 +30,7 @@ public class DynamicLinkLoader {
 		RTLD_SELF      = 0xFFFFFFFFFFFFFFFDL,
 		RTLD_MAIN_ONLY = 0xFFFFFFFFFFFFFFFBL;
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected DynamicLinkLoader() {
@@ -98,7 +97,7 @@ public class DynamicLinkLoader {
 	 *             </ul></p>
 	 */
 	public static long dlopen(ByteBuffer path, int mode) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( path != null ) checkNT1(path);
 		return ndlopen(memAddressSafe(path), mode);
 	}
@@ -155,7 +154,7 @@ public class DynamicLinkLoader {
 	 * @param name   the null-terminated character string containing the C name of the symbol being sought
 	 */
 	public static long dlsym(long handle, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(handle);
 			checkNT1(name);
 		}
@@ -164,7 +163,7 @@ public class DynamicLinkLoader {
 
 	/** CharSequence version of: {@link #dlsym} */
 	public static long dlsym(long handle, CharSequence name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(handle);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
@@ -186,7 +185,7 @@ public class DynamicLinkLoader {
 	 * @param handle a handle obtained through a call to {@link #dlopen}.
 	 */
 	public static int dlclose(long handle) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(handle);
 		return ndlclose(handle);
 	}

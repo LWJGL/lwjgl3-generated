@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -144,7 +143,7 @@ public class GLX {
 	@JavadocExclude
 	public static int nglXQueryExtension(long display, long error_base, long event_base) {
 		long __functionAddress = getInstance().QueryExtension;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(display);
 		return callPPPI(__functionAddress, display, error_base, event_base);
 	}
@@ -157,7 +156,7 @@ public class GLX {
 	 * @param event_base returns the value of the first event code
 	 */
 	public static int glXQueryExtension(long display, ByteBuffer error_base, ByteBuffer event_base) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(error_base, 1 << 2);
 			checkBuffer(event_base, 1 << 2);
 		}
@@ -166,7 +165,7 @@ public class GLX {
 
 	/** Alternative version of: {@link #glXQueryExtension QueryExtension} */
 	public static int glXQueryExtension(long display, IntBuffer error_base, IntBuffer event_base) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(error_base, 1);
 			checkBuffer(event_base, 1);
 		}
@@ -179,7 +178,7 @@ public class GLX {
 	@JavadocExclude
 	public static int nglXQueryVersion(long display, long major, long minor) {
 		long __functionAddress = getInstance().QueryVersion;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(display);
 		return callPPPI(__functionAddress, display, major, minor);
 	}
@@ -192,7 +191,7 @@ public class GLX {
 	 * @param minor   returns the minor version
 	 */
 	public static int glXQueryVersion(long display, ByteBuffer major, ByteBuffer minor) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(major, 1 << 2);
 			checkBuffer(minor, 1 << 2);
 		}
@@ -201,7 +200,7 @@ public class GLX {
 
 	/** Alternative version of: {@link #glXQueryVersion QueryVersion} */
 	public static int glXQueryVersion(long display, IntBuffer major, IntBuffer minor) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(major, 1);
 			checkBuffer(minor, 1);
 		}
@@ -214,7 +213,7 @@ public class GLX {
 	@JavadocExclude
 	public static int nglXGetConfig(long display, long visual, int attribute, long value) {
 		long __functionAddress = getInstance().GetConfig;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(display);
 		return callPPIPI(__functionAddress, display, visual, attribute, value);
 	}
@@ -228,14 +227,14 @@ public class GLX {
 	 * @param value     returns the attribute value
 	 */
 	public static int glXGetConfig(long display, XVisualInfo visual, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		return nglXGetConfig(display, visual.address(), attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glXGetConfig GetConfig} */
 	public static int glXGetConfig(long display, XVisualInfo visual, int attribute, IntBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return nglXGetConfig(display, visual.address(), attribute, memAddress(value));
 	}
@@ -246,7 +245,7 @@ public class GLX {
 	@JavadocExclude
 	public static long nglXChooseVisual(long display, int screen, long attrib_list) {
 		long __functionAddress = getInstance().ChooseVisual;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(display);
 		return callPIPP(__functionAddress, display, screen, attrib_list);
 	}
@@ -262,7 +261,7 @@ public class GLX {
 	 *         returned.
 	 */
 	public static XVisualInfo glXChooseVisual(long display, int screen, ByteBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list);
 		long __result = nglXChooseVisual(display, screen, memAddressSafe(attrib_list));
 		return new XVisualInfo(__result);
@@ -270,7 +269,7 @@ public class GLX {
 
 	/** Alternative version of: {@link #glXChooseVisual ChooseVisual} */
 	public static XVisualInfo glXChooseVisual(long display, int screen, IntBuffer attrib_list) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);
 		long __result = nglXChooseVisual(display, screen, memAddressSafe(attrib_list));
 		return new XVisualInfo(__result);
@@ -282,7 +281,7 @@ public class GLX {
 	@JavadocExclude
 	public static long nglXCreateContext(long display, long visual, long share_list, int direct) {
 		long __functionAddress = getInstance().CreateContext;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(display);
 		return callPPPIP(__functionAddress, display, visual, share_list, direct);
 	}
@@ -310,7 +309,7 @@ public class GLX {
 	 */
 	public static int glXMakeCurrent(long display, long draw, long ctx) {
 		long __functionAddress = getInstance().MakeCurrent;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(display);
 		return callPPPI(__functionAddress, display, draw, ctx);
 	}
@@ -327,7 +326,7 @@ public class GLX {
 	 */
 	public static void glXCopyContext(long display, long source, long dest, long mask) {
 		long __functionAddress = getInstance().CopyContext;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(source);
 			checkPointer(dest);
@@ -345,7 +344,7 @@ public class GLX {
 	 */
 	public static int glXIsDirect(long display, long ctx) {
 		long __functionAddress = getInstance().IsDirect;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(ctx);
 		}
@@ -365,7 +364,7 @@ public class GLX {
 	 */
 	public static void glXDestroyContext(long display, long ctx) {
 		long __functionAddress = getInstance().DestroyContext;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(ctx);
 		}
@@ -408,7 +407,7 @@ public class GLX {
 	 * Prevents the OpenGL command sequence from executing until any outstanding X requests are completed.
 	 * 
 	 * <p>X rendering calls made prior to {@code glXWaitX} are guaranteed to be executed before OpenGL rendering calls made after {@code glXWaitX}. While the same
-	 * result can be achieved using {@link Xlib#XSync}, {@code glXWaitX} does not require a round trip to the server, and may therefore be more efficient.</p>
+	 * result can be achieved using {@code XSync()}, {@code glXWaitX} does not require a round trip to the server, and may therefore be more efficient.</p>
 	 */
 	public static void glXWaitX() {
 		long __functionAddress = getInstance().WaitX;
@@ -428,7 +427,7 @@ public class GLX {
 	 */
 	public static void glXSwapBuffers(long display, long draw) {
 		long __functionAddress = getInstance().SwapBuffers;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(draw);
 		}
@@ -456,7 +455,7 @@ public class GLX {
 	@JavadocExclude
 	public static long nglXCreateGLXPixmap(long display, long visual, long pixmap) {
 		long __functionAddress = getInstance().CreateGLXPixmap;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(display);
 		return callPPPP(__functionAddress, display, visual, pixmap);
 	}
@@ -482,7 +481,7 @@ public class GLX {
 	 */
 	public static void glXDestroyGLXPixmap(long display, long pixmap) {
 		long __functionAddress = getInstance().DestroyGLXPixmap;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(pixmap);
 		}

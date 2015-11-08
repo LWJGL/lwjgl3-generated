@@ -135,7 +135,7 @@ public class CLDeviceTopologyAMD extends Struct {
 	public static int ngetRawType(long struct) { return memGetInt(struct + RAW_TYPE); }
 	public static int getRawType(ByteBuffer struct) { return ngetRawType(memAddress(struct)); }
 	public static void ngetRawData(long struct, ByteBuffer data) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(data, 5 * 4);
+		if ( CHECKS ) checkBufferGT(data, 5 * 4);
 		memCopy(struct + RAW_DATA, memAddress(data), data.remaining());
 	}
 	public static void getRawData(ByteBuffer struct, ByteBuffer data) { ngetRawData(memAddress(struct), data); }

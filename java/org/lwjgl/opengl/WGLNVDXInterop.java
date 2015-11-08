@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/DX_interop.txt">WGL_NV_DX_interop</a> extension.
@@ -95,7 +95,7 @@ public class WGLNVDXInterop {
 	 */
 	public static int wglDXSetResourceShareHandleNV(long dxObject, long shareHandle) {
 		long __functionAddress = getInstance().DXSetResourceShareHandleNV;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dxObject);
 			checkPointer(shareHandle);
 		}
@@ -111,7 +111,7 @@ public class WGLNVDXInterop {
 	 */
 	public static long wglDXOpenDeviceNV(long dxDevice) {
 		long __functionAddress = getInstance().DXOpenDeviceNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(dxDevice);
 		return callPP(__functionAddress, dxDevice);
 	}
@@ -120,7 +120,7 @@ public class WGLNVDXInterop {
 
 	public static int wglDXCloseDeviceNV(long device) {
 		long __functionAddress = getInstance().DXCloseDeviceNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(device);
 		return callPI(__functionAddress, device);
 	}
@@ -138,7 +138,7 @@ public class WGLNVDXInterop {
 	 */
 	public static long wglDXRegisterObjectNV(long device, long dxResource, int name, int type, int access) {
 		long __functionAddress = getInstance().DXRegisterObjectNV;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(device);
 			checkPointer(dxResource);
 		}
@@ -149,7 +149,7 @@ public class WGLNVDXInterop {
 
 	public static int wglDXUnregisterObjectNV(long device, long object) {
 		long __functionAddress = getInstance().DXUnregisterObjectNV;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(device);
 			checkPointer(object);
 		}
@@ -166,7 +166,7 @@ public class WGLNVDXInterop {
 	 */
 	public static int wglDXObjectAccessNV(long object, int access) {
 		long __functionAddress = getInstance().DXObjectAccessNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(object);
 		return callPII(__functionAddress, object, access);
 	}
@@ -177,7 +177,7 @@ public class WGLNVDXInterop {
 	@JavadocExclude
 	public static int nwglDXLockObjectsNV(long device, int count, long objects) {
 		long __functionAddress = getInstance().DXLockObjectsNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(device);
 		return callPIPI(__functionAddress, device, count, objects);
 	}
@@ -197,7 +197,7 @@ public class WGLNVDXInterop {
 	 * @param objects an array of {@code count} interop objects
 	 */
 	public static int wglDXLockObjectsNV(long device, int count, ByteBuffer objects) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(objects, count << POINTER_SHIFT);
 		return nwglDXLockObjectsNV(device, count, memAddress(objects));
 	}
@@ -213,7 +213,7 @@ public class WGLNVDXInterop {
 	@JavadocExclude
 	public static int nwglDXUnlockObjectsNV(long device, int count, long objects) {
 		long __functionAddress = getInstance().DXUnlockObjectsNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(device);
 		return callPIPI(__functionAddress, device, count, objects);
 	}
@@ -226,7 +226,7 @@ public class WGLNVDXInterop {
 	 * @param objects an array of {@code count} interop objects
 	 */
 	public static int wglDXUnlockObjectsNV(long device, int count, ByteBuffer objects) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(objects, count << POINTER_SHIFT);
 		return nwglDXUnlockObjectsNV(device, count, memAddress(objects));
 	}

@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengles;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_separate_shader_objects.txt">EXT_separate_shader_objects</a> extension.
@@ -52,7 +52,7 @@ import static org.lwjgl.system.APIUtil.*;
  * applications to globally assign a particular semantic meaning, such as diffuse color or vertex normal, to a particular attribute and/or varying
  * location without knowing how that variable will be named in any particular shader.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public class EXTSeparateShaderObjects {
 
@@ -228,7 +228,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static int glCreateShaderProgramvEXT(int type, int count, ByteBuffer strings) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(strings, count << POINTER_SHIFT);
 		return nglCreateShaderProgramvEXT(type, count, memAddress(strings));
 	}
@@ -270,7 +270,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glDeleteProgramPipelinesEXT(int n, ByteBuffer pipelines) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(pipelines, n << 2);
 		nglDeleteProgramPipelinesEXT(n, memAddress(pipelines));
 	}
@@ -297,7 +297,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glGenProgramPipelinesEXT(int n, ByteBuffer pipelines) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(pipelines, n << 2);
 		nglGenProgramPipelinesEXT(n, memAddress(pipelines));
 	}
@@ -325,7 +325,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glGetProgramPipelineInfoLogEXT(int pipeline, int bufSize, ByteBuffer length, ByteBuffer infoLog) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(infoLog, bufSize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -334,7 +334,7 @@ public class EXTSeparateShaderObjects {
 
 	/** Alternative version of: {@link #glGetProgramPipelineInfoLogEXT GetProgramPipelineInfoLogEXT} */
 	public static void glGetProgramPipelineInfoLogEXT(int pipeline, IntBuffer length, ByteBuffer infoLog) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetProgramPipelineInfoLogEXT(pipeline, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
 	}
@@ -368,14 +368,14 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glGetProgramPipelineivEXT(int pipeline, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetProgramPipelineivEXT(pipeline, pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetProgramPipelineivEXT GetProgramPipelineivEXT} */
 	public static void glGetProgramPipelineivEXT(int pipeline, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetProgramPipelineivEXT(pipeline, pname, memAddress(params));
 	}
@@ -419,7 +419,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glProgramUniform1fvEXT(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 2);
 		nglProgramUniform1fvEXT(program, location, count, memAddress(value));
 	}
@@ -446,7 +446,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glProgramUniform1ivEXT(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 2);
 		nglProgramUniform1ivEXT(program, location, count, memAddress(value));
 	}
@@ -473,7 +473,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glProgramUniform2fvEXT(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglProgramUniform2fvEXT(program, location, count, memAddress(value));
 	}
@@ -500,7 +500,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glProgramUniform2ivEXT(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglProgramUniform2ivEXT(program, location, count, memAddress(value));
 	}
@@ -527,7 +527,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glProgramUniform3fvEXT(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 3) << 2);
 		nglProgramUniform3fvEXT(program, location, count, memAddress(value));
 	}
@@ -554,7 +554,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glProgramUniform3ivEXT(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 3) << 2);
 		nglProgramUniform3ivEXT(program, location, count, memAddress(value));
 	}
@@ -581,7 +581,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glProgramUniform4fvEXT(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniform4fvEXT(program, location, count, memAddress(value));
 	}
@@ -608,7 +608,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glProgramUniform4ivEXT(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniform4ivEXT(program, location, count, memAddress(value));
 	}
@@ -628,7 +628,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glProgramUniformMatrix2fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniformMatrix2fvEXT(program, location, count, transpose, memAddress(value));
 	}
@@ -648,7 +648,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glProgramUniformMatrix3fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 9) << 2);
 		nglProgramUniformMatrix3fvEXT(program, location, count, transpose, memAddress(value));
 	}
@@ -668,7 +668,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glProgramUniformMatrix4fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 4) << 2);
 		nglProgramUniformMatrix4fvEXT(program, location, count, transpose, memAddress(value));
 	}
@@ -730,7 +730,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glProgramUniform1uivEXT(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, count << 2);
 		nglProgramUniform1uivEXT(program, location, count, memAddress(value));
 	}
@@ -750,7 +750,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glProgramUniform2uivEXT(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 1) << 2);
 		nglProgramUniform2uivEXT(program, location, count, memAddress(value));
 	}
@@ -770,7 +770,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glProgramUniform3uivEXT(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 3) << 2);
 		nglProgramUniform3uivEXT(program, location, count, memAddress(value));
 	}
@@ -790,7 +790,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glProgramUniform4uivEXT(int program, int location, int count, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 2) << 2);
 		nglProgramUniform4uivEXT(program, location, count, memAddress(value));
 	}
@@ -810,7 +810,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glProgramUniformMatrix2x3fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 6) << 2);
 		nglProgramUniformMatrix2x3fvEXT(program, location, count, transpose, memAddress(value));
 	}
@@ -830,7 +830,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glProgramUniformMatrix3x2fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 6) << 2);
 		nglProgramUniformMatrix3x2fvEXT(program, location, count, transpose, memAddress(value));
 	}
@@ -850,7 +850,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glProgramUniformMatrix2x4fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 3) << 2);
 		nglProgramUniformMatrix2x4fvEXT(program, location, count, transpose, memAddress(value));
 	}
@@ -870,7 +870,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glProgramUniformMatrix4x2fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count << 3) << 2);
 		nglProgramUniformMatrix4x2fvEXT(program, location, count, transpose, memAddress(value));
 	}
@@ -890,7 +890,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glProgramUniformMatrix3x4fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 12) << 2);
 		nglProgramUniformMatrix3x4fvEXT(program, location, count, transpose, memAddress(value));
 	}
@@ -910,7 +910,7 @@ public class EXTSeparateShaderObjects {
 	}
 
 	public static void glProgramUniformMatrix4x3fvEXT(int program, int location, int count, boolean transpose, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, (count * 12) << 2);
 		nglProgramUniformMatrix4x3fvEXT(program, location, count, transpose, memAddress(value));
 	}

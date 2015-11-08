@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -30,7 +29,7 @@ import static org.lwjgl.system.JNI.*;
  * source levels and the larger base level. The efficiency of the copy without conversion allows for the smaller mipmap levels to be in place while the
  * larger base level is being read from the storage device and uploaded.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S} and {@link EXTTextureStorage EXT_texture_storage}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0} and {@link EXTTextureStorage EXT_texture_storage}.</p>
  */
 public class APPLECopyTextureLevels {
 

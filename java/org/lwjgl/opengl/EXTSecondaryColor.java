@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -242,7 +241,7 @@ public class EXTSecondaryColor {
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3bvEXT(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3bvEXT(memAddress(v));
 	}
@@ -262,14 +261,14 @@ public class EXTSecondaryColor {
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3svEXT(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 1);
 		nglSecondaryColor3svEXT(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glSecondaryColor3svEXT SecondaryColor3svEXT} */
 	public static void glSecondaryColor3svEXT(ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3svEXT(memAddress(v));
 	}
@@ -289,14 +288,14 @@ public class EXTSecondaryColor {
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3ivEXT(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglSecondaryColor3ivEXT(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glSecondaryColor3ivEXT SecondaryColor3ivEXT} */
 	public static void glSecondaryColor3ivEXT(IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3ivEXT(memAddress(v));
 	}
@@ -316,14 +315,14 @@ public class EXTSecondaryColor {
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3fvEXT(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglSecondaryColor3fvEXT(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glSecondaryColor3fvEXT SecondaryColor3fvEXT} */
 	public static void glSecondaryColor3fvEXT(FloatBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3fvEXT(memAddress(v));
 	}
@@ -343,14 +342,14 @@ public class EXTSecondaryColor {
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3dvEXT(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 3);
 		nglSecondaryColor3dvEXT(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glSecondaryColor3dvEXT SecondaryColor3dvEXT} */
 	public static void glSecondaryColor3dvEXT(DoubleBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3dvEXT(memAddress(v));
 	}
@@ -370,7 +369,7 @@ public class EXTSecondaryColor {
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3ubvEXT(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3ubvEXT(memAddress(v));
 	}
@@ -390,14 +389,14 @@ public class EXTSecondaryColor {
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3usvEXT(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 1);
 		nglSecondaryColor3usvEXT(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glSecondaryColor3usvEXT SecondaryColor3usvEXT} */
 	public static void glSecondaryColor3usvEXT(ShortBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3usvEXT(memAddress(v));
 	}
@@ -417,14 +416,14 @@ public class EXTSecondaryColor {
 	 * @param v the secondary color buffer
 	 */
 	public static void glSecondaryColor3uivEXT(ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3 << 2);
 		nglSecondaryColor3uivEXT(memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glSecondaryColor3uivEXT SecondaryColor3uivEXT} */
 	public static void glSecondaryColor3uivEXT(IntBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, 3);
 		nglSecondaryColor3uivEXT(memAddress(v));
 	}
@@ -447,35 +446,35 @@ public class EXTSecondaryColor {
 	 * @param pointer the secondary color array data
 	 */
 	public static void glSecondaryColorPointerEXT(int size, int type, int stride, ByteBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglSecondaryColorPointerEXT(size, type, stride, memAddress(pointer));
 	}
 
 	/** Buffer object offset version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
 	public static void glSecondaryColorPointerEXT(int size, int type, int stride, long pointerOffset) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglSecondaryColorPointerEXT(size, type, stride, pointerOffset);
 	}
 
 	/** ShortBuffer version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
 	public static void glSecondaryColorPointerEXT(int size, int type, int stride, ShortBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglSecondaryColorPointerEXT(size, type, stride, memAddress(pointer));
 	}
 
 	/** IntBuffer version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
 	public static void glSecondaryColorPointerEXT(int size, int type, int stride, IntBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglSecondaryColorPointerEXT(size, type, stride, memAddress(pointer));
 	}
 
 	/** FloatBuffer version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
 	public static void glSecondaryColorPointerEXT(int size, int type, int stride, FloatBuffer pointer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglSecondaryColorPointerEXT(size, type, stride, memAddress(pointer));
 	}

@@ -5,15 +5,15 @@
  */
 package org.lwjgl.egl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/ANGLE/EGL_ANGLE_query_surface_pointer.txt">ANGLE_query_surface_pointer</a> extension.
@@ -54,7 +54,7 @@ public class ANGLEQuerySurfacePointer {
 	@JavadocExclude
 	public static boolean neglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, long value) {
 		long __functionAddress = getInstance().QuerySurfacePointerANGLE;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
@@ -62,14 +62,14 @@ public class ANGLEQuerySurfacePointer {
 	}
 
 	public static boolean eglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, ByteBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1 << POINTER_SHIFT);
 		return neglQuerySurfacePointerANGLE(dpy, surface, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQuerySurfacePointerANGLE QuerySurfacePointerANGLE} */
 	public static boolean eglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, PointerBuffer value) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQuerySurfacePointerANGLE(dpy, surface, attribute, memAddress(value));
 	}

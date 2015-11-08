@@ -5,7 +5,6 @@
  */
 package org.lwjgl.egl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -56,7 +55,7 @@ public class NVPostSubBuffer {
 
 	public static boolean eglPostSubBufferNV(long dpy, long surface, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().PostSubBufferNV;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}

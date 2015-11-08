@@ -5,7 +5,6 @@
  */
 package org.lwjgl.openal;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -70,7 +69,7 @@ public class EXTThreadLocalContext {
 	 */
 	public static boolean alcSetThreadContext(long context) {
 		long __functionAddress = getInstance().SetThreadContext;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(context);
 		return invokePZ(__functionAddress, context);
 	}

@@ -91,7 +91,7 @@ public class ObjCPropertyAttribute extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public ObjCPropertyAttribute set(ObjCPropertyAttribute src) {
 		return nset(address());
@@ -99,7 +99,7 @@ public class ObjCPropertyAttribute extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public ObjCPropertyAttribute set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}
@@ -170,13 +170,13 @@ public class ObjCPropertyAttribute extends Struct {
 	public static String getValueString(ByteBuffer struct) { return ngetValueString(memAddress(struct)); }
 
 	public static void nsetName(long struct, long name) { memPutAddress(struct + NAME, name); }
-	public static void nsetName(long struct, ByteBuffer name) { if ( LWJGLUtil.CHECKS && name != null ) checkNT1(name); nsetName(struct, memAddressSafe(name)); }
+	public static void nsetName(long struct, ByteBuffer name) { if ( CHECKS && name != null ) checkNT1(name); nsetName(struct, memAddressSafe(name)); }
 	public static void setName(ByteBuffer struct, ByteBuffer name) { nsetName(memAddress(struct), name); }
 	public static void nsetName(long struct, CharSequence name) { nsetName(struct, memEncodeUTF8(name, BufferAllocator.MALLOC)); }
 	/** Encodes the specified {@link CharSequence} to a newly allocated buffer and sets its address to the {@code name} field. The allocated buffer must be explicitly freed. */
 	public static void setName(ByteBuffer struct, CharSequence name) { nsetName(memAddress(struct), name); }
 	public static void nsetValue(long struct, long value) { memPutAddress(struct + VALUE, value); }
-	public static void nsetValue(long struct, ByteBuffer value) { if ( LWJGLUtil.CHECKS && value != null ) checkNT1(value); nsetValue(struct, memAddressSafe(value)); }
+	public static void nsetValue(long struct, ByteBuffer value) { if ( CHECKS && value != null ) checkNT1(value); nsetValue(struct, memAddressSafe(value)); }
 	public static void setValue(ByteBuffer struct, ByteBuffer value) { nsetValue(memAddress(struct), value); }
 	public static void nsetValue(long struct, CharSequence value) { nsetValue(struct, memEncodeUTF8(value, BufferAllocator.MALLOC)); }
 	/** Encodes the specified {@link CharSequence} to a newly allocated buffer and sets its address to the {@code value} field. The allocated buffer must be explicitly freed. */

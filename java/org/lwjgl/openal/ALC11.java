@@ -5,15 +5,14 @@
  */
 package org.lwjgl.openal;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /** Native bindings to ALC 1.1 functionality. */
 public class ALC11 {
@@ -101,7 +100,7 @@ public class ALC11 {
 	 * @param buffersize the number of sample frame to buffer in the AL
 	 */
 	public static long alcCaptureOpenDevice(ByteBuffer devicename, int frequency, int format, int buffersize) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( devicename != null ) checkNT1(devicename);
 		return nalcCaptureOpenDevice(memAddressSafe(devicename), frequency, format, buffersize);
 	}
@@ -122,7 +121,7 @@ public class ALC11 {
 	 */
 	public static boolean alcCaptureCloseDevice(long device) {
 		long __functionAddress = getInstance().CaptureCloseDevice;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(device);
 		return invokePZ(__functionAddress, device);
 	}
@@ -140,7 +139,7 @@ public class ALC11 {
 	 */
 	public static void alcCaptureStart(long device) {
 		long __functionAddress = getInstance().CaptureStart;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(device);
 		invokePV(__functionAddress, device);
 	}
@@ -157,7 +156,7 @@ public class ALC11 {
 	 */
 	public static void alcCaptureStop(long device) {
 		long __functionAddress = getInstance().CaptureStop;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(device);
 		invokePV(__functionAddress, device);
 	}
@@ -168,7 +167,7 @@ public class ALC11 {
 	@JavadocExclude
 	public static void nalcCaptureSamples(long device, long buffer, int samples) {
 		long __functionAddress = getInstance().CaptureSamples;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(device);
 		invokePPIV(__functionAddress, device, buffer, samples);
 	}
@@ -183,7 +182,7 @@ public class ALC11 {
 	 * @param samples the buffer size
 	 */
 	public static void alcCaptureSamples(long device, ByteBuffer buffer, int samples) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(buffer, samples);
 		nalcCaptureSamples(device, memAddress(buffer), samples);
 	}

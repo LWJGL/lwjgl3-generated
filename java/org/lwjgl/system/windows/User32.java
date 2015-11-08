@@ -5,7 +5,6 @@
  */
 package org.lwjgl.system.windows;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -17,8 +16,8 @@ public class User32 {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		GetDCAddress,
-		ReleaseDCAddress;
+		GetDC,
+		ReleaseDC;
 
 	@JavadocExclude
 	protected User32() {
@@ -27,19 +26,24 @@ public class User32 {
 
 	@JavadocExclude
 	public User32(FunctionProvider provider) {
-		GetDCAddress = checkFunctionAddress(provider.getFunctionAddress("GetDC"));
-		ReleaseDCAddress = checkFunctionAddress(provider.getFunctionAddress("ReleaseDC"));
+		GetDC = checkFunctionAddress(provider.getFunctionAddress("GetDC"));
+		ReleaseDC = checkFunctionAddress(provider.getFunctionAddress("ReleaseDC"));
 	}
 
 	// --- [ Function Addresses ] ---
 
-	private static final DynamicLinkLibrary USER32;
+	private static final SharedLibrary USER32;
 
 	private static final User32 instance;
 
 	static {
-		USER32 = LWJGLUtil.loadLibraryNative("user32");
+		USER32 = Library.loadNative("user32");
 		instance = new User32(USER32);
+	}
+
+	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
+	public static SharedLibrary getLibrary() {
+		return USER32;
 	}
 
 	/** Returns the {@link User32} instance. */
@@ -56,7 +60,7 @@ public class User32 {
 	 * @param hWnd a handle to the window whose DC is to be retrieved. If this value is {@code NULL}, GetDC retrieves the DC for the entire screen.
 	 */
 	public static long GetDC(long hWnd) {
-		long __functionAddress = getInstance().GetDCAddress;
+		long __functionAddress = getInstance().GetDC;
 		return callPP(__functionAddress, hWnd);
 	}
 
@@ -70,8 +74,8 @@ public class User32 {
 	 * @param hDC  a handle to the DC to be released
 	 */
 	public static int ReleaseDC(long hWnd, long hDC) {
-		long __functionAddress = getInstance().ReleaseDCAddress;
-		if ( LWJGLUtil.CHECKS ) {
+		long __functionAddress = getInstance().ReleaseDC;
+		if ( CHECKS ) {
 			checkPointer(hWnd);
 			checkPointer(hDC);
 		}

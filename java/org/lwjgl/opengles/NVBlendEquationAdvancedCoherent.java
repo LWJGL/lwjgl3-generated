@@ -8,7 +8,7 @@ package org.lwjgl.opengles;
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/blend_equation_advanced.txt">NV_blend_equation_advanced_coherent</a> extension.
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public final class NVBlendEquationAdvancedCoherent {
 

@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/shader_subroutine.txt">ARB_shader_subroutine</a> extension.
@@ -115,7 +115,7 @@ public class ARBShaderSubroutine {
 	 * @param name       the name of the subroutine uniform whose index to query.
 	 */
 	public static int glGetSubroutineUniformLocation(int program, int shadertype, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		return nglGetSubroutineUniformLocation(program, shadertype, memAddress(name));
 	}
@@ -144,7 +144,7 @@ public class ARBShaderSubroutine {
 	 * @param name       the name of the subroutine function whose index to query
 	 */
 	public static int glGetSubroutineIndex(int program, int shadertype, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(name);
 		return nglGetSubroutineIndex(program, shadertype, memAddress(name));
 	}
@@ -175,14 +175,14 @@ public class ARBShaderSubroutine {
 	 * @param values     the address of a buffer into which the queried value or values will be placed
 	 */
 	public static void glGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1 << 2);
 		nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #glGetActiveSubroutineUniformiv GetActiveSubroutineUniformiv} */
 	public static void glGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, IntBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1);
 		nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, memAddress(values));
 	}
@@ -215,7 +215,7 @@ public class ARBShaderSubroutine {
 	 * @param name       the address of a buffer that will receive the name of the specified shader subroutine uniform
 	 */
 	public static void glGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize, ByteBuffer length, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(name, bufsize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -224,7 +224,7 @@ public class ARBShaderSubroutine {
 
 	/** Alternative version of: {@link #glGetActiveSubroutineUniformName GetActiveSubroutineUniformName} */
 	public static void glGetActiveSubroutineUniformName(int program, int shadertype, int index, IntBuffer length, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetActiveSubroutineUniformName(program, shadertype, index, name.remaining(), memAddressSafe(length), memAddress(name));
 	}
@@ -268,7 +268,7 @@ public class ARBShaderSubroutine {
 	 * @param name       an array into which the name of the shader subroutine uniform will be written
 	 */
 	public static void glGetActiveSubroutineName(int program, int shadertype, int index, int bufsize, ByteBuffer length, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(name, bufsize);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -277,7 +277,7 @@ public class ARBShaderSubroutine {
 
 	/** Alternative version of: {@link #glGetActiveSubroutineName GetActiveSubroutineName} */
 	public static void glGetActiveSubroutineName(int program, int shadertype, int index, IntBuffer length, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetActiveSubroutineName(program, shadertype, index, name.remaining(), memAddressSafe(length), memAddress(name));
 	}
@@ -318,7 +318,7 @@ public class ARBShaderSubroutine {
 	 * @param indices    an array holding the indices to load into the shader subroutine variables
 	 */
 	public static void glUniformSubroutinesuiv(int shadertype, int count, ByteBuffer indices) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(indices, count << 2);
 		nglUniformSubroutinesuiv(shadertype, count, memAddress(indices));
 	}
@@ -352,14 +352,14 @@ public class ARBShaderSubroutine {
 	 * @param params     a variable to receive the value or values of the subroutine uniform
 	 */
 	public static void glGetUniformSubroutineuiv(int shadertype, int location, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 2);
 		nglGetUniformSubroutineuiv(shadertype, location, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetUniformSubroutineuiv GetUniformSubroutineuiv} */
 	public static void glGetUniformSubroutineuiv(int shadertype, int location, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetUniformSubroutineuiv(shadertype, location, memAddress(params));
 	}
@@ -390,14 +390,14 @@ public class ARBShaderSubroutine {
 	 * @param values     a variable into which the queried value or values will be placed
 	 */
 	public static void glGetProgramStageiv(int program, int shadertype, int pname, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1 << 2);
 		nglGetProgramStageiv(program, shadertype, pname, memAddress(values));
 	}
 
 	/** Alternative version of: {@link #glGetProgramStageiv GetProgramStageiv} */
 	public static void glGetProgramStageiv(int program, int shadertype, int pname, IntBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(values, 1);
 		nglGetProgramStageiv(program, shadertype, pname, memAddress(values));
 	}

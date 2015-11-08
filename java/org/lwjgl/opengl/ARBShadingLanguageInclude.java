@@ -5,16 +5,16 @@
  */
 package org.lwjgl.opengl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/shading_language_include.txt">ARB_shading_language_include</a> extension.
@@ -150,7 +150,7 @@ public class ARBShadingLanguageInclude {
 	 * @param string    an arbitrary string of characters
 	 */
 	public static void glNamedStringARB(int type, int namelen, ByteBuffer name, int stringlen, ByteBuffer string) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(name, namelen);
 			checkBuffer(string, stringlen);
 		}
@@ -188,7 +188,7 @@ public class ARBShadingLanguageInclude {
 	 * @param name    the name associated with the string
 	 */
 	public static void glDeleteNamedStringARB(int namelen, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(name, namelen);
 		nglDeleteNamedStringARB(namelen, memAddress(name));
 	}
@@ -228,7 +228,7 @@ public class ARBShadingLanguageInclude {
 	 *               accompanying string is null-terminated. If {@code length} is {@code NULL}, all strings in the {@code path} argument are considered null-terminated.
 	 */
 	public static void glCompileShaderIncludeARB(int shader, int count, ByteBuffer path, ByteBuffer length) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(path, count << POINTER_SHIFT);
 			if ( length != null ) checkBuffer(length, count << 2);
 		}
@@ -237,7 +237,7 @@ public class ARBShadingLanguageInclude {
 
 	/** Alternative version of: {@link #glCompileShaderIncludeARB CompileShaderIncludeARB} */
 	public static void glCompileShaderIncludeARB(int shader, PointerBuffer path, IntBuffer length) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, path.remaining());
 		nglCompileShaderIncludeARB(shader, path.remaining(), memAddress(path), memAddressSafe(length));
 	}
@@ -259,7 +259,7 @@ public class ARBShadingLanguageInclude {
 	 * @param name    the name associated with the string
 	 */
 	public static boolean glIsNamedStringARB(int namelen, ByteBuffer name) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(name, namelen);
 		return nglIsNamedStringARB(namelen, memAddress(name));
 	}
@@ -297,7 +297,7 @@ public class ARBShadingLanguageInclude {
 	 * @param string    a buffer in which to place the returned string
 	 */
 	public static void glGetNamedStringARB(int namelen, ByteBuffer name, int bufSize, ByteBuffer stringlen, ByteBuffer string) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(name, namelen);
 			checkBuffer(string, bufSize);
 			if ( stringlen != null ) checkBuffer(stringlen, 1 << 2);
@@ -307,14 +307,14 @@ public class ARBShadingLanguageInclude {
 
 	/** Alternative version of: {@link #glGetNamedStringARB GetNamedStringARB} */
 	public static void glGetNamedStringARB(ByteBuffer name, IntBuffer stringlen, ByteBuffer string) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( stringlen != null ) checkBuffer(stringlen, 1);
 		nglGetNamedStringARB(name.remaining(), memAddress(name), string.remaining(), memAddressSafe(stringlen), memAddress(string));
 	}
 
 	/** CharSequence version of: {@link #glGetNamedStringARB GetNamedStringARB} */
 	public static void glGetNamedStringARB(CharSequence name, IntBuffer stringlen, ByteBuffer string) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( stringlen != null ) checkBuffer(stringlen, 1);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, false);
@@ -363,7 +363,7 @@ public class ARBShadingLanguageInclude {
 	 * @param params  a buffer in which to place the returned value
 	 */
 	public static void glGetNamedStringivARB(int namelen, ByteBuffer name, int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(name, namelen);
 			checkBuffer(params, 1 << 2);
 		}
@@ -372,14 +372,14 @@ public class ARBShadingLanguageInclude {
 
 	/** Alternative version of: {@link #glGetNamedStringivARB GetNamedStringivARB} */
 	public static void glGetNamedStringivARB(ByteBuffer name, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetNamedStringivARB(name.remaining(), memAddress(name), pname, memAddress(params));
 	}
 
 	/** CharSequence version of: {@link #glGetNamedStringivARB GetNamedStringivARB} */
 	public static void glGetNamedStringivARB(CharSequence name, int pname, IntBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, false);

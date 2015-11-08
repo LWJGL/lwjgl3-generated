@@ -14,7 +14,7 @@ package org.lwjgl.opengles;
  * load existing data via TexImage2D or TexSubImage2D. This extension also allows implementation variability in which components from a sampled depth
  * texture contain the depth data. Depth textures created with this extension only support 1 level.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public final class ANGLEDepthTexture {
 

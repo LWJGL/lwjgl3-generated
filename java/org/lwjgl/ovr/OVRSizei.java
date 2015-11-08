@@ -87,7 +87,7 @@ public class OVRSizei extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public OVRSizei set(OVRSizei src) {
 		return nset(address());
@@ -95,7 +95,7 @@ public class OVRSizei extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public OVRSizei set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}

@@ -33,7 +33,7 @@ package org.lwjgl.opengles;
  * values between adjacent pixels. And lastly, the color channel assignments are slightly different, essentially to match more closely the rough meanings
  * of the Y, Cb and Cr values in 422 video data.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
 public final class APPLERGB422 {
 

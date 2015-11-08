@@ -5,16 +5,16 @@
  */
 package org.lwjgl.system.jemalloc;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to jemalloc.
@@ -81,17 +81,17 @@ public class JEmalloc {
 
 	// --- [ Function Addresses ] ---
 
-	private static final DynamicLinkLibrary JEMALLOC;
+	private static final SharedLibrary JEMALLOC;
 
 	private static final JEmalloc instance;
 
 	static {
-		JEMALLOC = LWJGLUtil.loadLibraryNative(Configuration.LIBRARY_NAME_JEMALLOC.get(Pointer.BITS64 ? "jemalloc" : "jemalloc32"));
+		JEMALLOC = Library.loadNative(Configuration.LIBRARY_NAME_JEMALLOC.get(Pointer.BITS64 ? "jemalloc" : "jemalloc32"));
 		instance = new JEmalloc(JEMALLOC);
 	}
 
-	/** Returns the {@link DynamicLinkLibrary} that provides pointers for the functions in this class. */
-	public static DynamicLinkLibrary getLibrary() {
+	/** Returns the {@link SharedLibrary} that provides pointers for the functions in this class. */
+	public static SharedLibrary getLibrary() {
 		return JEMALLOC;
 	}
 
@@ -167,14 +167,14 @@ public class JEmalloc {
 	 * @param size      the number of bytes to allocate
 	 */
 	public static int je_posix_memalign(ByteBuffer memptr, long alignment, long size) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(memptr, 1 << POINTER_SHIFT);
 		return nje_posix_memalign(memAddress(memptr), alignment, size);
 	}
 
 	/** Alternative version of: {@link #je_posix_memalign posix_memalign} */
 	public static int je_posix_memalign(PointerBuffer memptr, long alignment, long size) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(memptr, 1);
 		return nje_posix_memalign(memAddress(memptr), alignment, size);
 	}
@@ -424,7 +424,7 @@ public class JEmalloc {
 	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
 	 */
 	public static void je_sdallocx(ByteBuffer ptr, long size, int flags) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(ptr, size);
 		nje_sdallocx(memAddress(ptr), size, flags);
 	}
@@ -498,7 +498,7 @@ public class JEmalloc {
 	/**
 	 * Provides a general interface for introspecting the memory allocator, as well as setting modifiable parameters and triggering actions. The
 	 * period-separated {@code name} argument specifies a location in a tree-structured namespace; see the
-	 * <a href="http://www.canonware.com/download/jemalloc/jemalloc-latest/doc/{@link jemalloc.html#mallctl_namespace}">MALLCTL NAMESPACE</a> section for
+	 * <a href="http://www.canonware.com/download/jemalloc/jemalloc-latest/doc/jemalloc.html#mallctl_namespace">MALLCTL NAMESPACE</a> section for
 	 * documentation on the tree contents. To read a value, pass a pointer via {@code oldp} to adequate space to contain the value, and a pointer to its
 	 * length via {@code oldlenp}; otherwise pass {@code NULL} and {@code NULL}. Similarly, to write a value, pass a pointer to the value via {@code newp}, and its length
 	 * via {@code newlen}; otherwise pass {@code NULL} and {@code 0}.
@@ -510,7 +510,7 @@ public class JEmalloc {
 	 * @param newlen  the new value length
 	 */
 	public static int je_mallctl(ByteBuffer name, ByteBuffer oldp, ByteBuffer oldlenp, ByteBuffer newp, long newlen) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkNT1(name);
 			if ( oldlenp != null ) checkBuffer(oldlenp, 1 << POINTER_SHIFT);
 			if ( newp != null ) checkBuffer(newp, newlen);
@@ -520,14 +520,14 @@ public class JEmalloc {
 
 	/** Alternative version of: {@link #je_mallctl mallctl} */
 	public static int je_mallctl(ByteBuffer name, ByteBuffer oldp, PointerBuffer oldlenp, ByteBuffer newp) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( oldlenp != null ) checkBuffer(oldlenp, 1);
 		return nje_mallctl(memAddress(name), memAddressSafe(oldp), memAddressSafe(oldlenp), memAddressSafe(newp), newp == null ? 0 : newp.remaining());
 	}
 
 	/** CharSequence version of: {@link #je_mallctl mallctl} */
 	public static int je_mallctl(CharSequence name, ByteBuffer oldp, PointerBuffer oldlenp, ByteBuffer newp) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( oldlenp != null ) checkBuffer(oldlenp, 1);
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamASCII(name, true);
@@ -574,7 +574,7 @@ public class JEmalloc {
 	 * @param miblenp the number of components in {@code mibp}
 	 */
 	public static int je_mallctlnametomib(ByteBuffer name, ByteBuffer mibp, ByteBuffer miblenp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkNT1(name);
 			checkBuffer(miblenp, 1 << POINTER_SHIFT);
 			checkBuffer(mibp, (PointerBuffer.get(miblenp, miblenp.position())) << POINTER_SHIFT);
@@ -584,7 +584,7 @@ public class JEmalloc {
 
 	/** Alternative version of: {@link #je_mallctlnametomib mallctlnametomib} */
 	public static int je_mallctlnametomib(ByteBuffer name, PointerBuffer mibp, PointerBuffer miblenp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(miblenp, 1);
 			checkBuffer(mibp, miblenp.get(miblenp.position()));
 		}
@@ -593,7 +593,7 @@ public class JEmalloc {
 
 	/** CharSequence version of: {@link #je_mallctlnametomib mallctlnametomib} */
 	public static int je_mallctlnametomib(CharSequence name, PointerBuffer mibp, PointerBuffer miblenp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(miblenp, 1);
 			checkBuffer(mibp, miblenp.get(miblenp.position()));
 		}
@@ -622,7 +622,7 @@ public class JEmalloc {
 	 * @param newlen  the new value length
 	 */
 	public static int je_mallctlbymib(ByteBuffer mib, long miblen, ByteBuffer oldp, ByteBuffer oldlenp, ByteBuffer newp, long newlen) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(mib, miblen << POINTER_SHIFT);
 			if ( oldlenp != null ) checkBuffer(oldlenp, 1 << POINTER_SHIFT);
 			if ( newp != null ) checkBuffer(newp, newlen);
@@ -632,7 +632,7 @@ public class JEmalloc {
 
 	/** Alternative version of: {@link #je_mallctlbymib mallctlbymib} */
 	public static int je_mallctlbymib(PointerBuffer mib, ByteBuffer oldp, PointerBuffer oldlenp, ByteBuffer newp) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( oldlenp != null ) checkBuffer(oldlenp, 1);
 		return nje_mallctlbymib(memAddress(mib), mib.remaining(), memAddressSafe(oldp), memAddressSafe(oldlenp), memAddressSafe(newp), newp == null ? 0 : newp.remaining());
 	}
@@ -660,7 +660,7 @@ public class JEmalloc {
 	 * @param opts        an options string
 	 */
 	public static void je_malloc_stats_print(MallocMessageCallback write_cb, ByteBuffer je_cbopaque, ByteBuffer opts) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( opts != null ) checkNT1(opts);
 		nje_malloc_stats_print(write_cb == null ? NULL : write_cb.address(), memAddressSafe(je_cbopaque), memAddressSafe(opts));
 	}

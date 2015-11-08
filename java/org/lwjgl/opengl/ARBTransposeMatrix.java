@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -104,14 +103,14 @@ public class ARBTransposeMatrix {
 	 * @param m the matrix data
 	 */
 	public static void glLoadTransposeMatrixfARB(ByteBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16 << 2);
 		nglLoadTransposeMatrixfARB(memAddress(m));
 	}
 
 	/** Alternative version of: {@link #glLoadTransposeMatrixfARB LoadTransposeMatrixfARB} */
 	public static void glLoadTransposeMatrixfARB(FloatBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16);
 		nglLoadTransposeMatrixfARB(memAddress(m));
 	}
@@ -131,14 +130,14 @@ public class ARBTransposeMatrix {
 	 * @param m the matrix data
 	 */
 	public static void glLoadTransposeMatrixdARB(ByteBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16 << 3);
 		nglLoadTransposeMatrixdARB(memAddress(m));
 	}
 
 	/** Alternative version of: {@link #glLoadTransposeMatrixdARB LoadTransposeMatrixdARB} */
 	public static void glLoadTransposeMatrixdARB(DoubleBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16);
 		nglLoadTransposeMatrixdARB(memAddress(m));
 	}
@@ -158,14 +157,14 @@ public class ARBTransposeMatrix {
 	 * @param m the matrix data
 	 */
 	public static void glMultTransposeMatrixfARB(ByteBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16 << 2);
 		nglMultTransposeMatrixfARB(memAddress(m));
 	}
 
 	/** Alternative version of: {@link #glMultTransposeMatrixfARB MultTransposeMatrixfARB} */
 	public static void glMultTransposeMatrixfARB(FloatBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16);
 		nglMultTransposeMatrixfARB(memAddress(m));
 	}
@@ -185,14 +184,14 @@ public class ARBTransposeMatrix {
 	 * @param m the matrix data
 	 */
 	public static void glMultTransposeMatrixdARB(ByteBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16 << 3);
 		nglMultTransposeMatrixdARB(memAddress(m));
 	}
 
 	/** Alternative version of: {@link #glMultTransposeMatrixdARB MultTransposeMatrixdARB} */
 	public static void glMultTransposeMatrixdARB(DoubleBuffer m) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(m, 16);
 		nglMultTransposeMatrixdARB(memAddress(m));
 	}

@@ -99,7 +99,7 @@ public class CLMotionEstimationDescINTEL extends Struct {
 	 *
 	 * @param src the source struct
 	 *
-	 * @returns this struct
+	 * @return this struct
 	 */
 	public CLMotionEstimationDescINTEL set(CLMotionEstimationDescINTEL src) {
 		return nset(address());
@@ -107,7 +107,7 @@ public class CLMotionEstimationDescINTEL extends Struct {
 
 	/** {@link ByteBuffer} version of {@link #set}. */
 	public CLMotionEstimationDescINTEL set(ByteBuffer struct) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
 		return nset(memAddress(struct));
 	}

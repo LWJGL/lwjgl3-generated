@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -88,7 +87,7 @@ public class GLXNVSwapGroup {
 	 */
 	public static int glXJoinSwapGroupNV(long display, long drawable, int group) {
 		long __functionAddress = getInstance().JoinSwapGroupNV;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
@@ -106,7 +105,7 @@ public class GLXNVSwapGroup {
 	 */
 	public static int glXBindSwapBarrierNV(long display, int group, int barrier) {
 		long __functionAddress = getInstance().BindSwapBarrierNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(display);
 		return callPIII(__functionAddress, display, group, barrier);
 	}
@@ -117,7 +116,7 @@ public class GLXNVSwapGroup {
 	@JavadocExclude
 	public static int nglXQuerySwapGroupNV(long display, long drawable, long group, long barrier) {
 		long __functionAddress = getInstance().QuerySwapGroupNV;
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
@@ -133,7 +132,7 @@ public class GLXNVSwapGroup {
 	 * @param barrier  
 	 */
 	public static int glXQuerySwapGroupNV(long display, long drawable, ByteBuffer group, ByteBuffer barrier) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(group, 1 << 2);
 			checkBuffer(barrier, 1 << 2);
 		}
@@ -142,7 +141,7 @@ public class GLXNVSwapGroup {
 
 	/** Alternative version of: {@link #glXQuerySwapGroupNV QuerySwapGroupNV} */
 	public static int glXQuerySwapGroupNV(long display, long drawable, IntBuffer group, IntBuffer barrier) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(group, 1);
 			checkBuffer(barrier, 1);
 		}
@@ -155,7 +154,7 @@ public class GLXNVSwapGroup {
 	@JavadocExclude
 	public static int nglXQueryMaxSwapGroupsNV(long display, int screen, long maxGroups, long maxBarriers) {
 		long __functionAddress = getInstance().QueryMaxSwapGroupsNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(display);
 		return callPIPPI(__functionAddress, display, screen, maxGroups, maxBarriers);
 	}
@@ -169,7 +168,7 @@ public class GLXNVSwapGroup {
 	 * @param maxBarriers 
 	 */
 	public static int glXQueryMaxSwapGroupsNV(long display, int screen, ByteBuffer maxGroups, ByteBuffer maxBarriers) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(maxGroups, 1 << 2);
 			checkBuffer(maxBarriers, 1 << 2);
 		}
@@ -178,7 +177,7 @@ public class GLXNVSwapGroup {
 
 	/** Alternative version of: {@link #glXQueryMaxSwapGroupsNV QueryMaxSwapGroupsNV} */
 	public static int glXQueryMaxSwapGroupsNV(long display, int screen, IntBuffer maxGroups, IntBuffer maxBarriers) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(maxGroups, 1);
 			checkBuffer(maxBarriers, 1);
 		}
@@ -191,7 +190,7 @@ public class GLXNVSwapGroup {
 	@JavadocExclude
 	public static int nglXQueryFrameCountNV(long display, int screen, long count) {
 		long __functionAddress = getInstance().QueryFrameCountNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(display);
 		return callPIPI(__functionAddress, display, screen, count);
 	}
@@ -204,14 +203,14 @@ public class GLXNVSwapGroup {
 	 * @param count   
 	 */
 	public static int glXQueryFrameCountNV(long display, int screen, ByteBuffer count) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(count, 1 << 2);
 		return nglXQueryFrameCountNV(display, screen, memAddress(count));
 	}
 
 	/** Alternative version of: {@link #glXQueryFrameCountNV QueryFrameCountNV} */
 	public static int glXQueryFrameCountNV(long display, int screen, IntBuffer count) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(count, 1);
 		return nglXQueryFrameCountNV(display, screen, memAddress(count));
 	}
@@ -226,7 +225,7 @@ public class GLXNVSwapGroup {
 	 */
 	public static int glXResetFrameCountNV(long display, int screen) {
 		long __functionAddress = getInstance().ResetFrameCountNV;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(display);
 		return callPII(__functionAddress, display, screen);
 	}

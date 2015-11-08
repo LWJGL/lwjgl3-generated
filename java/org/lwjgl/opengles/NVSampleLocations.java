@@ -5,10 +5,9 @@
  */
 package org.lwjgl.opengles;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -106,7 +105,7 @@ public class NVSampleLocations {
 	}
 
 	public static void glFramebufferSampleLocationsfvNV(int target, int start, int count, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, count << 2);
 		nglFramebufferSampleLocationsfvNV(target, start, count, memAddress(v));
 	}
@@ -126,7 +125,7 @@ public class NVSampleLocations {
 	}
 
 	public static void glNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, ByteBuffer v) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(v, count << 2);
 		nglNamedFramebufferSampleLocationsfvNV(framebuffer, start, count, memAddress(v));
 	}

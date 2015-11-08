@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -146,7 +145,7 @@ public class ARBTextureStorage {
 	 */
 	public static void glTextureStorage1DEXT(int texture, int target, int levels, int internalformat, int width) {
 		long __functionAddress = getInstance().TextureStorage1DEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIV(__functionAddress, texture, target, levels, internalformat, width);
 	}
@@ -165,7 +164,7 @@ public class ARBTextureStorage {
 	 */
 	public static void glTextureStorage2DEXT(int texture, int target, int levels, int internalformat, int width, int height) {
 		long __functionAddress = getInstance().TextureStorage2DEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIIV(__functionAddress, texture, target, levels, internalformat, width, height);
 	}
@@ -185,7 +184,7 @@ public class ARBTextureStorage {
 	 */
 	public static void glTextureStorage3DEXT(int texture, int target, int levels, int internalformat, int width, int height, int depth) {
 		long __functionAddress = getInstance().TextureStorage3DEXT;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIIIIIV(__functionAddress, texture, target, levels, internalformat, width, height, depth);
 	}

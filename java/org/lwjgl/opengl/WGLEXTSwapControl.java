@@ -5,7 +5,6 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -65,7 +64,7 @@ public class WGLEXTSwapControl {
 
 	/**
 	 * Specifies the minimum number of video frame periods per buffer swap for the window associated with the current context. The interval takes effect when
-	 * {@link org.lwjgl.system.windows.WinGDI#SwapBuffers} or wglSwapLayerBuffer is first called subsequent to the {@code wglSwapIntervalEXT} call.
+	 * {@link org.lwjgl.system.windows.GDI32#SwapBuffers} or wglSwapLayerBuffer is first called subsequent to the {@code wglSwapIntervalEXT} call.
 	 * 
 	 * <p>A video frame period is the time required by the monitor to display a full frame of video data.  In the case of an interlaced monitor, this is typically
 	 * the time required to display both the even and odd fields of a frame of video data.  An interval set to a value of 2 means that the color buffers will

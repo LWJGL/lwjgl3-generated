@@ -14,7 +14,7 @@ package org.lwjgl.opengles;
  * <p>This extension supports 4 and 2 bit per pixel texture compression formats. Because the compression of PVRTC2 is CPU intensive, it is not appropriate to
  * carry out compression on the target platform. Therefore this extension only supports the loading of compressed texture data.</p>
  * 
- * <p>Requires {@link GLES20 GLES E.S} and {@link  OES_texture_npot}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0} and {@link GLESCapabilities#GL_OES_texture_npot OES_texture_npot}.</p>
  */
 public final class IMGTextureCompressionPVRTC2 {
 

@@ -5,15 +5,15 @@
  */
 package org.lwjgl.opencl;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.Pointer.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 /**
  * Native bindings to the <a href="http://www.khronos.org/registry/cl/extensions/intel/cl_intel_accelerator.txt">intel_accelerator</a> extension.
@@ -100,7 +100,7 @@ public class INTELAccelerator {
 	@JavadocExclude
 	public static long nclCreateAcceleratorINTEL(long context, int accelerator_type, long descriptor_size, long descriptor, long errcode_ret) {
 		long __functionAddress = getInstance().CreateAcceleratorINTEL;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(context);
 		return callPIPPPP(__functionAddress, context, accelerator_type, descriptor_size, descriptor, errcode_ret);
 	}
@@ -138,7 +138,7 @@ public class INTELAccelerator {
 	 *         </ul>
 	 */
 	public static long clCreateAcceleratorINTEL(long context, int accelerator_type, long descriptor_size, ByteBuffer descriptor, ByteBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(descriptor, descriptor_size);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
@@ -147,7 +147,7 @@ public class INTELAccelerator {
 
 	/** Alternative version of: {@link #clCreateAcceleratorINTEL CreateAcceleratorINTEL} */
 	public static long clCreateAcceleratorINTEL(long context, int accelerator_type, ByteBuffer descriptor, IntBuffer errcode_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		return nclCreateAcceleratorINTEL(context, accelerator_type, descriptor.remaining(), memAddress(descriptor), memAddressSafe(errcode_ret));
 	}
@@ -168,7 +168,7 @@ public class INTELAccelerator {
 	 */
 	public static int clRetainAcceleratorINTEL(long accelerator) {
 		long __functionAddress = getInstance().RetainAcceleratorINTEL;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(accelerator);
 		return callPI(__functionAddress, accelerator);
 	}
@@ -190,7 +190,7 @@ public class INTELAccelerator {
 	 */
 	public static int clReleaseAcceleratorINTEL(long accelerator) {
 		long __functionAddress = getInstance().ReleaseAcceleratorINTEL;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(accelerator);
 		return callPI(__functionAddress, accelerator);
 	}
@@ -201,7 +201,7 @@ public class INTELAccelerator {
 	@JavadocExclude
 	public static int nclGetAcceleratorInfoINTEL(long accelerator, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = getInstance().GetAcceleratorInfoINTEL;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(accelerator);
 		return callPIPPPI(__functionAddress, accelerator, param_name, param_value_size, param_value, param_value_size_ret);
 	}
@@ -225,7 +225,7 @@ public class INTELAccelerator {
 	 *         </ul>
 	 */
 	public static int clGetAcceleratorInfoINTEL(long accelerator, int param_name, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << POINTER_SHIFT);
 		}
@@ -234,21 +234,21 @@ public class INTELAccelerator {
 
 	/** Alternative version of: {@link #clGetAcceleratorInfoINTEL GetAcceleratorInfoINTEL} */
 	public static int clGetAcceleratorInfoINTEL(long accelerator, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		return nclGetAcceleratorInfoINTEL(accelerator, param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetAcceleratorInfoINTEL GetAcceleratorInfoINTEL} */
 	public static int clGetAcceleratorInfoINTEL(long accelerator, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		return nclGetAcceleratorInfoINTEL(accelerator, param_name, (param_value == null ? 0 : param_value.remaining() << 2), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetAcceleratorInfoINTEL GetAcceleratorInfoINTEL} */
 	public static int clGetAcceleratorInfoINTEL(long accelerator, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		return nclGetAcceleratorInfoINTEL(accelerator, param_name, (param_value == null ? 0 : param_value.remaining() << POINTER_SHIFT), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}

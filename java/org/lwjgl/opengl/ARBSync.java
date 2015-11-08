@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/sync.txt">ARB_sync</a> extension.
@@ -142,7 +141,7 @@ public class ARBSync {
 	 */
 	public static boolean glIsSync(long sync) {
 		long __functionAddress = getInstance().IsSync;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(sync);
 		return callPZ(__functionAddress, sync);
 	}
@@ -156,7 +155,7 @@ public class ARBSync {
 	 */
 	public static void glDeleteSync(long sync) {
 		long __functionAddress = getInstance().DeleteSync;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(sync);
 		callPV(__functionAddress, sync);
 	}
@@ -181,7 +180,7 @@ public class ARBSync {
 	 */
 	public static int glClientWaitSync(long sync, int flags, long timeout) {
 		long __functionAddress = getInstance().ClientWaitSync;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(sync);
 		return callPIJI(__functionAddress, sync, flags, timeout);
 	}
@@ -203,7 +202,7 @@ public class ARBSync {
 	 */
 	public static void glWaitSync(long sync, int flags, long timeout) {
 		long __functionAddress = getInstance().WaitSync;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(sync);
 		callPIJV(__functionAddress, sync, flags, timeout);
 	}
@@ -224,14 +223,14 @@ public class ARBSync {
 	 * @param params the value or values of the specified parameter
 	 */
 	public static void glGetInteger64v(int pname, ByteBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1 << 3);
 		nglGetInteger64v(pname, memAddress(params));
 	}
 
 	/** Alternative version of: {@link #glGetInteger64v GetInteger64v} */
 	public static void glGetInteger64v(int pname, LongBuffer params) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(params, 1);
 		nglGetInteger64v(pname, memAddress(params));
 	}
@@ -250,7 +249,7 @@ public class ARBSync {
 	@JavadocExclude
 	public static void nglGetSynciv(long sync, int pname, int bufSize, long length, long values) {
 		long __functionAddress = getInstance().GetSynciv;
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(sync);
 		callPIIPPV(__functionAddress, sync, pname, bufSize, length, values);
 	}
@@ -265,7 +264,7 @@ public class ARBSync {
 	 * @param values  the address of an array to receive the values of the queried parameter
 	 */
 	public static void glGetSynciv(long sync, int pname, int bufSize, ByteBuffer length, ByteBuffer values) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(values, bufSize << 2);
 			if ( length != null ) checkBuffer(length, 1 << 2);
 		}
@@ -274,14 +273,14 @@ public class ARBSync {
 
 	/** Alternative version of: {@link #glGetSynciv GetSynciv} */
 	public static void glGetSynciv(long sync, int pname, IntBuffer length, IntBuffer values) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglGetSynciv(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
 	}
 
 	/** Single return value version of: {@link #glGetSynciv GetSynciv} */
 	public static int glGetSynci(long sync, int pname, IntBuffer length) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		APIBuffer __buffer = apiBuffer();
 		int values = __buffer.intParam();

@@ -5,15 +5,15 @@
  */
 package org.lwjgl.stb;
 
+import java.nio.*;
+
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import java.nio.*;
-
-import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.Pointer.*;
-import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.Pointer.*;
 
 import org.lwjgl.system.libc.Stdlib;
 
@@ -72,7 +72,7 @@ public class STBVorbis {
 		VORBIS_cant_find_last_page              = 0x24,
 		VORBIS_seek_failed                      = 0x25;
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected STBVorbis() {
@@ -91,7 +91,7 @@ public class STBVorbis {
 	 * @param f an ogg vorbis file decoder
 	 */
 	public static void stb_vorbis_get_info(long f, STBVorbisInfo __result) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(f);
 		nstb_vorbis_get_info(f, __result.address());
 	}
@@ -108,7 +108,7 @@ public class STBVorbis {
 	 * @param f an ogg vorbis file decoder
 	 */
 	public static int stb_vorbis_get_error(long f) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(f);
 		return nstb_vorbis_get_error(f);
 	}
@@ -125,7 +125,7 @@ public class STBVorbis {
 	 * @param f an ogg vorbis file decoder
 	 */
 	public static void stb_vorbis_close(long f) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(f);
 		nstb_vorbis_close(f);
 	}
@@ -145,7 +145,7 @@ public class STBVorbis {
 	 * @param f an ogg vorbis file decoder
 	 */
 	public static int stb_vorbis_get_sample_offset(long f) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(f);
 		return nstb_vorbis_get_sample_offset(f);
 	}
@@ -162,7 +162,7 @@ public class STBVorbis {
 	 * @param f an ogg vorbis file decoder
 	 */
 	public static int stb_vorbis_get_file_offset(long f) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(f);
 		return nstb_vorbis_get_file_offset(f);
 	}
@@ -189,7 +189,7 @@ public class STBVorbis {
 	 *         in a larger block from the start of the file.
 	 */
 	public static long stb_vorbis_open_pushdata(ByteBuffer datablock, int datablock_length_in_bytes, ByteBuffer datablock_memory_consumed_in_bytes, ByteBuffer error, STBVorbisAlloc alloc_buffer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(datablock, datablock_length_in_bytes);
 		return nstb_vorbis_open_pushdata(memAddress(datablock), datablock_length_in_bytes, memAddress(datablock_memory_consumed_in_bytes), memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());
 	}
@@ -231,7 +231,7 @@ public class STBVorbis {
 	 *         Note that after opening a file, you will ALWAYS get one N-bytes,0-sample frame, because Vorbis always "discards" the first frame.
 	 */
 	public static int stb_vorbis_decode_frame_pushdata(long f, ByteBuffer datablock, int datablock_length_in_bytes, ByteBuffer channels, ByteBuffer output, ByteBuffer samples) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(f);
 			checkBuffer(datablock, datablock_length_in_bytes);
 			checkBuffer(channels, 1 << 2);
@@ -243,7 +243,7 @@ public class STBVorbis {
 
 	/** Alternative version of: {@link #stb_vorbis_decode_frame_pushdata decode_frame_pushdata} */
 	public static int stb_vorbis_decode_frame_pushdata(long f, ByteBuffer datablock, IntBuffer channels, PointerBuffer output, IntBuffer samples) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(f);
 			checkBuffer(channels, 1);
 			checkBuffer(output, 1);
@@ -269,7 +269,7 @@ public class STBVorbis {
 	 * @param f an ogg vorbis file decoder
 	 */
 	public static void stb_vorbis_flush_pushdata(long f) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(f);
 		nstb_vorbis_flush_pushdata(f);
 	}
@@ -292,7 +292,7 @@ public class STBVorbis {
 	 * @return the number of samples decoded, or -1 if the file could not be opened or was not an ogg vorbis file
 	 */
 	public static int stb_vorbis_decode_filename(ByteBuffer filename, ByteBuffer channels, ByteBuffer sample_rate, ByteBuffer output) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkNT1(filename);
 			checkBuffer(channels, 1 << 2);
 			checkBuffer(sample_rate, 1 << 2);
@@ -303,7 +303,7 @@ public class STBVorbis {
 
 	/** Alternative version of: {@link #stb_vorbis_decode_filename decode_filename} */
 	public static int stb_vorbis_decode_filename(ByteBuffer filename, IntBuffer channels, IntBuffer sample_rate, PointerBuffer output) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(channels, 1);
 			checkBuffer(sample_rate, 1);
 			checkBuffer(output, 1);
@@ -313,7 +313,7 @@ public class STBVorbis {
 
 	/** CharSequence version of: {@link #stb_vorbis_decode_filename decode_filename} */
 	public static int stb_vorbis_decode_filename(CharSequence filename, IntBuffer channels, IntBuffer sample_rate, PointerBuffer output) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(channels, 1);
 			checkBuffer(sample_rate, 1);
 			checkBuffer(output, 1);
@@ -325,7 +325,7 @@ public class STBVorbis {
 
 	/** Buffer return version of: {@link #stb_vorbis_decode_filename decode_filename} */
 	public static ShortBuffer stb_vorbis_decode_filename(CharSequence filename, IntBuffer channels, IntBuffer sample_rate) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(channels, 1);
 			checkBuffer(sample_rate, 1);
 		}
@@ -352,7 +352,7 @@ public class STBVorbis {
 	 * @param output      returns a pointer to the decoded data
 	 */
 	public static int stb_vorbis_decode_memory(ByteBuffer mem, int len, ByteBuffer channels, ByteBuffer sample_rate, ByteBuffer output) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(mem, len);
 			checkBuffer(channels, 1 << 2);
 			checkBuffer(sample_rate, 1 << 2);
@@ -363,7 +363,7 @@ public class STBVorbis {
 
 	/** Alternative version of: {@link #stb_vorbis_decode_memory decode_memory} */
 	public static int stb_vorbis_decode_memory(ByteBuffer mem, IntBuffer channels, IntBuffer sample_rate, PointerBuffer output) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(channels, 1);
 			checkBuffer(sample_rate, 1);
 			checkBuffer(output, 1);
@@ -373,7 +373,7 @@ public class STBVorbis {
 
 	/** Buffer return version of: {@link #stb_vorbis_decode_memory decode_memory} */
 	public static ShortBuffer stb_vorbis_decode_memory(ByteBuffer mem, IntBuffer channels, IntBuffer sample_rate) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(channels, 1);
 			checkBuffer(sample_rate, 1);
 		}
@@ -400,7 +400,7 @@ public class STBVorbis {
 	 * @return the ogg vorbis decoder. On failure, returns {@code NULL} and sets {@code *error}.
 	 */
 	public static long stb_vorbis_open_memory(ByteBuffer mem, int len, ByteBuffer error, STBVorbisAlloc alloc_buffer) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(mem, len);
 			checkBuffer(error, 1 << 2);
 		}
@@ -409,7 +409,7 @@ public class STBVorbis {
 
 	/** Alternative version of: {@link #stb_vorbis_open_memory open_memory} */
 	public static long stb_vorbis_open_memory(ByteBuffer mem, IntBuffer error, STBVorbisAlloc alloc_buffer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(error, 1);
 		return nstb_vorbis_open_memory(memAddress(mem), mem.remaining(), memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());
 	}
@@ -430,7 +430,7 @@ public class STBVorbis {
 	 * @return the ogg vorbis decoder. On failure, returns {@code NULL} and sets {@code *error}.
 	 */
 	public static long stb_vorbis_open_filename(ByteBuffer filename, ByteBuffer error, STBVorbisAlloc alloc_buffer) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkNT1(filename);
 			checkBuffer(error, 1 << 2);
 		}
@@ -439,14 +439,14 @@ public class STBVorbis {
 
 	/** Alternative version of: {@link #stb_vorbis_open_filename open_filename} */
 	public static long stb_vorbis_open_filename(ByteBuffer filename, IntBuffer error, STBVorbisAlloc alloc_buffer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(error, 1);
 		return nstb_vorbis_open_filename(memAddress(filename), memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());
 	}
 
 	/** CharSequence version of: {@link #stb_vorbis_open_filename open_filename} */
 	public static long stb_vorbis_open_filename(CharSequence filename, IntBuffer error, STBVorbisAlloc alloc_buffer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(error, 1);
 		APIBuffer __buffer = apiBuffer();
 		int filenameEncoded = __buffer.stringParamASCII(filename, true);
@@ -467,7 +467,7 @@ public class STBVorbis {
 	 * @param sample_number the sample index
 	 */
 	public static int stb_vorbis_seek_frame(long f, int sample_number) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(f);
 		return nstb_vorbis_seek_frame(f, sample_number);
 	}
@@ -486,7 +486,7 @@ public class STBVorbis {
 	 * @param sample_number the sample index
 	 */
 	public static int stb_vorbis_seek(long f, int sample_number) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(f);
 		return nstb_vorbis_seek(f, sample_number);
 	}
@@ -503,7 +503,7 @@ public class STBVorbis {
 	 * @param f an ogg vorbis file decoder
 	 */
 	public static void stb_vorbis_seek_start(long f) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(f);
 		nstb_vorbis_seek_start(f);
 	}
@@ -520,7 +520,7 @@ public class STBVorbis {
 	 * @param f an ogg vorbis file decoder
 	 */
 	public static int stb_vorbis_stream_length_in_samples(long f) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(f);
 		return nstb_vorbis_stream_length_in_samples(f);
 	}
@@ -537,7 +537,7 @@ public class STBVorbis {
 	 * @param f an ogg vorbis file decoder
 	 */
 	public static float stb_vorbis_stream_length_in_seconds(long f) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(f);
 		return nstb_vorbis_stream_length_in_seconds(f);
 	}
@@ -561,7 +561,7 @@ public class STBVorbis {
 	 * @return the number of samples per channel
 	 */
 	public static int stb_vorbis_get_frame_float(long f, ByteBuffer channels, ByteBuffer output) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(f);
 			if ( channels != null ) checkBuffer(channels, 1 << 2);
 		}
@@ -570,7 +570,7 @@ public class STBVorbis {
 
 	/** Alternative version of: {@link #stb_vorbis_get_frame_float get_frame_float} */
 	public static int stb_vorbis_get_frame_float(long f, IntBuffer channels, PointerBuffer output) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(f);
 			if ( channels != null ) checkBuffer(channels, 1);
 		}
@@ -608,7 +608,7 @@ public class STBVorbis {
 	 * @return the number of samples per channel
 	 */
 	public static int stb_vorbis_get_frame_short(long f, int num_c, ByteBuffer buffer, int num_samples) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(f);
 			checkBuffer(buffer, num_c << POINTER_SHIFT);
 		}
@@ -617,7 +617,7 @@ public class STBVorbis {
 
 	/** Alternative version of: {@link #stb_vorbis_get_frame_short get_frame_short} */
 	public static int stb_vorbis_get_frame_short(long f, PointerBuffer buffer, int num_samples) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(f);
 		return nstb_vorbis_get_frame_short(f, buffer.remaining(), memAddress(buffer), num_samples);
 	}
@@ -642,7 +642,7 @@ public class STBVorbis {
 	 * @return the number of samples per channel
 	 */
 	public static int stb_vorbis_get_frame_short_interleaved(long f, int num_c, ByteBuffer buffer, int num_shorts) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(f);
 			checkBuffer(buffer, num_shorts << 1);
 		}
@@ -651,7 +651,7 @@ public class STBVorbis {
 
 	/** Alternative version of: {@link #stb_vorbis_get_frame_short_interleaved get_frame_short_interleaved} */
 	public static int stb_vorbis_get_frame_short_interleaved(long f, int num_c, ShortBuffer buffer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(f);
 		return nstb_vorbis_get_frame_short_interleaved(f, num_c, memAddress(buffer), buffer.remaining());
 	}
@@ -674,7 +674,7 @@ public class STBVorbis {
 	 * @return the number of samples stored per channel; it may be less than requested at the end of the file. If there are no more samples in the file, returns 0.
 	 */
 	public static int stb_vorbis_get_samples_float(long f, int channels, ByteBuffer buffer, int num_samples) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(f);
 			checkBuffer(buffer, channels << POINTER_SHIFT);
 		}
@@ -683,7 +683,7 @@ public class STBVorbis {
 
 	/** Alternative version of: {@link #stb_vorbis_get_samples_float get_samples_float} */
 	public static int stb_vorbis_get_samples_float(long f, PointerBuffer buffer, int num_samples) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(f);
 		return nstb_vorbis_get_samples_float(f, buffer.remaining(), memAddress(buffer), num_samples);
 	}
@@ -705,7 +705,7 @@ public class STBVorbis {
 	 * @return the number of samples stored per channel; it may be less than requested at the end of the file. If there are no more samples in the file, returns 0.
 	 */
 	public static int stb_vorbis_get_samples_float_interleaved(long f, int channels, ByteBuffer buffer, int num_floats) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(f);
 			checkBuffer(buffer, num_floats << 2);
 		}
@@ -714,7 +714,7 @@ public class STBVorbis {
 
 	/** Alternative version of: {@link #stb_vorbis_get_samples_float_interleaved get_samples_float_interleaved} */
 	public static int stb_vorbis_get_samples_float_interleaved(long f, int channels, FloatBuffer buffer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(f);
 		return nstb_vorbis_get_samples_float_interleaved(f, channels, memAddress(buffer), buffer.remaining());
 	}
@@ -737,7 +737,7 @@ public class STBVorbis {
 	 * @return the number of samples stored per channel; it may be less than requested at the end of the file. If there are no more samples in the file, returns 0.
 	 */
 	public static int stb_vorbis_get_samples_short(long f, int channels, ByteBuffer buffer, int num_samples) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(f);
 			checkBuffer(buffer, channels << POINTER_SHIFT);
 		}
@@ -746,7 +746,7 @@ public class STBVorbis {
 
 	/** Alternative version of: {@link #stb_vorbis_get_samples_short get_samples_short} */
 	public static int stb_vorbis_get_samples_short(long f, PointerBuffer buffer, int num_samples) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(f);
 		return nstb_vorbis_get_samples_short(f, buffer.remaining(), memAddress(buffer), num_samples);
 	}
@@ -768,7 +768,7 @@ public class STBVorbis {
 	 * @return the number of samples stored per channel; it may be less than requested at the end of the file. If there are no more samples in the file, returns 0.
 	 */
 	public static int stb_vorbis_get_samples_short_interleaved(long f, int channels, ByteBuffer buffer, int num_shorts) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkPointer(f);
 			checkBuffer(buffer, num_shorts << 1);
 		}
@@ -777,7 +777,7 @@ public class STBVorbis {
 
 	/** Alternative version of: {@link #stb_vorbis_get_samples_short_interleaved get_samples_short_interleaved} */
 	public static int stb_vorbis_get_samples_short_interleaved(long f, int channels, ShortBuffer buffer) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkPointer(f);
 		return nstb_vorbis_get_samples_short_interleaved(f, channels, memAddress(buffer), buffer.remaining());
 	}

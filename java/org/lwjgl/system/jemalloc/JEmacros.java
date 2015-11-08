@@ -5,10 +5,9 @@
  */
 package org.lwjgl.system.jemalloc;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
+
+import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -16,7 +15,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Macros for jemalloc. */
 public class JEmacros {
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected JEmacros() {

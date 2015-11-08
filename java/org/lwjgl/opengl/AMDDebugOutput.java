@@ -5,15 +5,14 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/debug_output.txt">AMD_debug_output</a> extension.
@@ -160,7 +159,7 @@ public class AMDDebugOutput {
 	 * @param enabled  whether to enable or disable the referenced subset of messages
 	 */
 	public static void glDebugMessageEnableAMD(int category, int severity, int count, ByteBuffer ids, boolean enabled) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			if ( ids != null ) checkBuffer(ids, count << 2);
 		nglDebugMessageEnableAMD(category, severity, count, memAddressSafe(ids), enabled);
 	}
@@ -204,7 +203,7 @@ public class AMDDebugOutput {
 	 * @param buf      the message characters
 	 */
 	public static void glDebugMessageInsertAMD(int category, int severity, int id, int length, ByteBuffer buf) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(buf, length);
 		nglDebugMessageInsertAMD(category, severity, id, length, memAddress(buf));
 	}
@@ -291,7 +290,7 @@ public class AMDDebugOutput {
 	 * @param messageLog an array of characters that will receive the messages
 	 */
 	public static int glGetDebugMessageLogAMD(int count, int bufsize, ByteBuffer categories, ByteBuffer severities, ByteBuffer ids, ByteBuffer lengths, ByteBuffer messageLog) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( messageLog != null ) checkBuffer(messageLog, bufsize);
 			if ( categories != null ) checkBuffer(categories, count << 2);
 			if ( severities != null ) checkBuffer(severities, count << 2);
@@ -303,7 +302,7 @@ public class AMDDebugOutput {
 
 	/** Alternative version of: {@link #glGetDebugMessageLogAMD GetDebugMessageLogAMD} */
 	public static int glGetDebugMessageLogAMD(int count, IntBuffer categories, IntBuffer severities, IntBuffer ids, IntBuffer lengths, ByteBuffer messageLog) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			if ( categories != null ) checkBuffer(categories, count);
 			if ( severities != null ) checkBuffer(severities, count);
 			if ( ids != null ) checkBuffer(ids, count);

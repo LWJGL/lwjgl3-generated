@@ -5,14 +5,13 @@
  */
 package org.lwjgl.stb;
 
-import org.lwjgl.*;
-import org.lwjgl.system.*;
-
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.APIUtil.*;
 
 /**
  * Native bindings to stb_image.h from the <a href="https://github.com/nothings/stb">stb library</a>.
@@ -102,7 +101,7 @@ public class STBImage {
 	/** Default component count, used as an argument to {@code req_comp}. */
 	public static final int STBI_default = 0x0;
 
-	static { LWJGLUtil.initialize(); }
+	static { Library.initialize(); }
 
 	@JavadocExclude
 	protected STBImage() {
@@ -144,7 +143,7 @@ public class STBImage {
 	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
 	 */
 	public static ByteBuffer stbi_load(ByteBuffer filename, ByteBuffer x, ByteBuffer y, ByteBuffer comp, int req_comp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkNT1(filename);
 			checkBuffer(x, 1 << 2);
 			checkBuffer(y, 1 << 2);
@@ -156,7 +155,7 @@ public class STBImage {
 
 	/** Alternative version of: {@link #stbi_load load} */
 	public static ByteBuffer stbi_load(ByteBuffer filename, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
@@ -167,7 +166,7 @@ public class STBImage {
 
 	/** CharSequence version of: {@link #stbi_load load} */
 	public static ByteBuffer stbi_load(CharSequence filename, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
@@ -195,7 +194,7 @@ public class STBImage {
 	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
 	 */
 	public static ByteBuffer stbi_load_from_memory(ByteBuffer buffer, int len, ByteBuffer x, ByteBuffer y, ByteBuffer comp, int req_comp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(buffer, len);
 			checkBuffer(x, 1 << 2);
 			checkBuffer(y, 1 << 2);
@@ -207,7 +206,7 @@ public class STBImage {
 
 	/** Alternative version of: {@link #stbi_load_from_memory load_from_memory} */
 	public static ByteBuffer stbi_load_from_memory(ByteBuffer buffer, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
@@ -239,7 +238,7 @@ public class STBImage {
 	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
 	 */
 	public static ByteBuffer stbi_load_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, ByteBuffer x, ByteBuffer y, ByteBuffer comp, int req_comp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(x, 1 << 2);
 			checkBuffer(y, 1 << 2);
 			checkBuffer(comp, 1 << 2);
@@ -250,7 +249,7 @@ public class STBImage {
 
 	/** Alternative version of: {@link #stbi_load_from_callbacks load_from_callbacks} */
 	public static ByteBuffer stbi_load_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
@@ -275,7 +274,7 @@ public class STBImage {
 	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
 	 */
 	public static FloatBuffer stbi_loadf(ByteBuffer filename, ByteBuffer x, ByteBuffer y, ByteBuffer comp, int req_comp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkNT1(filename);
 			checkBuffer(x, 1 << 2);
 			checkBuffer(y, 1 << 2);
@@ -287,7 +286,7 @@ public class STBImage {
 
 	/** Alternative version of: {@link #stbi_loadf loadf} */
 	public static FloatBuffer stbi_loadf(ByteBuffer filename, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
@@ -298,7 +297,7 @@ public class STBImage {
 
 	/** CharSequence version of: {@link #stbi_loadf loadf} */
 	public static FloatBuffer stbi_loadf(CharSequence filename, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
@@ -326,7 +325,7 @@ public class STBImage {
 	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
 	 */
 	public static FloatBuffer stbi_loadf_from_memory(ByteBuffer buffer, int len, ByteBuffer x, ByteBuffer y, ByteBuffer comp, int req_comp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(buffer, len);
 			checkBuffer(x, 1 << 2);
 			checkBuffer(y, 1 << 2);
@@ -338,7 +337,7 @@ public class STBImage {
 
 	/** Alternative version of: {@link #stbi_loadf_from_memory loadf_from_memory} */
 	public static FloatBuffer stbi_loadf_from_memory(ByteBuffer buffer, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
@@ -364,7 +363,7 @@ public class STBImage {
 	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br>0, 1, 2, 3, 4
 	 */
 	public static FloatBuffer stbi_loadf_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, ByteBuffer x, ByteBuffer y, ByteBuffer comp, int req_comp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(x, 1 << 2);
 			checkBuffer(y, 1 << 2);
 			checkBuffer(comp, 1 << 2);
@@ -375,7 +374,7 @@ public class STBImage {
 
 	/** Alternative version of: {@link #stbi_loadf_from_callbacks loadf_from_callbacks} */
 	public static FloatBuffer stbi_loadf_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
@@ -434,7 +433,7 @@ public class STBImage {
 	 * @return 1 if the image is HDR, 0 otherwise
 	 */
 	public static int stbi_is_hdr(ByteBuffer filename) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkNT1(filename);
 		return nstbi_is_hdr(memAddress(filename));
 	}
@@ -459,7 +458,7 @@ public class STBImage {
 	 * @param len    the buffer length, in bytes
 	 */
 	public static int stbi_is_hdr_from_memory(ByteBuffer buffer, int len) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(buffer, len);
 		return nstbi_is_hdr_from_memory(memAddress(buffer), len);
 	}
@@ -529,7 +528,7 @@ public class STBImage {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static int stbi_info(ByteBuffer filename, ByteBuffer x, ByteBuffer y, ByteBuffer comp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkNT1(filename);
 			checkBuffer(x, 1 << 2);
 			checkBuffer(y, 1 << 2);
@@ -540,7 +539,7 @@ public class STBImage {
 
 	/** Alternative version of: {@link #stbi_info info} */
 	public static int stbi_info(ByteBuffer filename, IntBuffer x, IntBuffer y, IntBuffer comp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
@@ -550,7 +549,7 @@ public class STBImage {
 
 	/** CharSequence version of: {@link #stbi_info info} */
 	public static int stbi_info(CharSequence filename, IntBuffer x, IntBuffer y, IntBuffer comp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
@@ -576,7 +575,7 @@ public class STBImage {
 	 * @param comp   outputs number of components in image
 	 */
 	public static int stbi_info_from_memory(ByteBuffer buffer, int len, ByteBuffer x, ByteBuffer y, ByteBuffer comp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(buffer, len);
 			checkBuffer(x, 1 << 2);
 			checkBuffer(y, 1 << 2);
@@ -587,7 +586,7 @@ public class STBImage {
 
 	/** Alternative version of: {@link #stbi_info_from_memory info_from_memory} */
 	public static int stbi_info_from_memory(ByteBuffer buffer, IntBuffer x, IntBuffer y, IntBuffer comp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
@@ -611,7 +610,7 @@ public class STBImage {
 	 * @param comp outputs number of components in image
 	 */
 	public static int stbi_info_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, ByteBuffer x, ByteBuffer y, ByteBuffer comp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(x, 1 << 2);
 			checkBuffer(y, 1 << 2);
 			checkBuffer(comp, 1 << 2);
@@ -621,7 +620,7 @@ public class STBImage {
 
 	/** Alternative version of: {@link #stbi_info_from_callbacks info_from_callbacks} */
 	public static int stbi_info_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, IntBuffer x, IntBuffer y, IntBuffer comp) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
@@ -671,7 +670,7 @@ public class STBImage {
 	 * @param initial_size 
 	 */
 	public static ByteBuffer stbi_zlib_decode_malloc_guesssize(ByteBuffer buffer, int len, int initial_size) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(buffer, len);
 		APIBuffer __buffer = apiBuffer();
 		int outlen = __buffer.intParam();
@@ -702,7 +701,7 @@ public class STBImage {
 	 * @param parse_header 
 	 */
 	public static ByteBuffer stbi_zlib_decode_malloc_guesssize_headerflag(ByteBuffer buffer, int len, int initial_size, int parse_header) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(buffer, len);
 		APIBuffer __buffer = apiBuffer();
 		int outlen = __buffer.intParam();
@@ -731,7 +730,7 @@ public class STBImage {
 	 * @param len    
 	 */
 	public static ByteBuffer stbi_zlib_decode_malloc(ByteBuffer buffer, int len) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(buffer, len);
 		APIBuffer __buffer = apiBuffer();
 		int outlen = __buffer.intParam();
@@ -762,7 +761,7 @@ public class STBImage {
 	 * @param ilen    
 	 */
 	public static int stbi_zlib_decode_buffer(ByteBuffer obuffer, int olen, ByteBuffer ibuffer, int ilen) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(obuffer, olen);
 			checkBuffer(ibuffer, ilen);
 		}
@@ -787,7 +786,7 @@ public class STBImage {
 	 * @param len    
 	 */
 	public static ByteBuffer stbi_zlib_decode_noheader_malloc(ByteBuffer buffer, int len) {
-		if ( LWJGLUtil.CHECKS )
+		if ( CHECKS )
 			checkBuffer(buffer, len);
 		APIBuffer __buffer = apiBuffer();
 		int outlen = __buffer.intParam();
@@ -818,7 +817,7 @@ public class STBImage {
 	 * @param ilen    
 	 */
 	public static int stbi_zlib_decode_noheader_buffer(ByteBuffer obuffer, int olen, ByteBuffer ibuffer, int ilen) {
-		if ( LWJGLUtil.CHECKS ) {
+		if ( CHECKS ) {
 			checkBuffer(obuffer, olen);
 			checkBuffer(ibuffer, ilen);
 		}

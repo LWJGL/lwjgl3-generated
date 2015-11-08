@@ -119,7 +119,7 @@ public class OVRErrorInfo extends Struct {
 	public static int ngetResult(long struct) { return memGetInt(struct + RESULT); }
 	public static int getResult(ByteBuffer struct) { return ngetResult(memAddress(struct)); }
 	public static void ngetErrorString(long struct, ByteBuffer ErrorString) {
-		if ( LWJGLUtil.CHECKS ) checkBufferGT(ErrorString, 512 * 1);
+		if ( CHECKS ) checkBufferGT(ErrorString, 512 * 1);
 		memCopy(struct + ERRORSTRING, memAddress(ErrorString), ErrorString.remaining());
 	}
 	public static void getErrorString(ByteBuffer struct, ByteBuffer ErrorString) { ngetErrorString(memAddress(struct), ErrorString); }
