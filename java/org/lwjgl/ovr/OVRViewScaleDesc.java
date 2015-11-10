@@ -101,7 +101,7 @@ public class OVRViewScaleDesc extends Struct {
 	 * @return this struct
 	 */
 	public OVRViewScaleDesc set(OVRViewScaleDesc src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

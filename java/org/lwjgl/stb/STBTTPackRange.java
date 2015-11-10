@@ -67,7 +67,7 @@ public class STBTTPackRange extends Struct {
 
 	public float getFontSize() { return ngetFontSize(address()); }
 	public int getFirstUnicodeCodepointInRange() { return ngetFirstUnicodeCodepointInRange(address()); }
-	public ByteBuffer getArrayOfUnicodeCodepoints(int byteLen) { return ngetArrayOfUnicodeCodepoints(address(), byteLen); }
+	public IntBuffer getArrayOfUnicodeCodepoints(int capacity) { return ngetArrayOfUnicodeCodepoints(address(), capacity); }
 	public int getNumChars() { return ngetNumChars(address()); }
 	public STBTTPackedchar getChardataForRange() { return ngetChardataForRangeStruct(address()); }
 
@@ -130,8 +130,8 @@ public class STBTTPackRange extends Struct {
 	public static int ngetFirstUnicodeCodepointInRange(long struct) { return memGetInt(struct + FIRST_UNICODE_CODEPOINT_IN_RANGE); }
 	public static int getFirstUnicodeCodepointInRange(ByteBuffer struct) { return ngetFirstUnicodeCodepointInRange(memAddress(struct)); }
 	public static long ngetArrayOfUnicodeCodepoints(long struct) { return memGetAddress(struct + ARRAY_OF_UNICODE_CODEPOINTS); }
-	public static ByteBuffer ngetArrayOfUnicodeCodepoints(long struct, int byteLen) { return memByteBuffer(ngetArrayOfUnicodeCodepoints(struct), byteLen); }
-	public static ByteBuffer getArrayOfUnicodeCodepoints(ByteBuffer struct, int byteLen) { return ngetArrayOfUnicodeCodepoints(memAddress(struct), byteLen); }
+	public static IntBuffer ngetArrayOfUnicodeCodepoints(long struct, int capacity) { return memIntBuffer(ngetArrayOfUnicodeCodepoints(struct), capacity); }
+	public static IntBuffer getArrayOfUnicodeCodepoints(ByteBuffer struct, int capacity) { return ngetArrayOfUnicodeCodepoints(memAddress(struct), capacity); }
 	public static int ngetNumChars(long struct) { return memGetInt(struct + NUM_CHARS); }
 	public static int getNumChars(ByteBuffer struct) { return ngetNumChars(memAddress(struct)); }
 	public static long ngetChardataForRange(long struct) { return memGetAddress(struct + CHARDATA_FOR_RANGE); }
@@ -182,7 +182,7 @@ public class STBTTPackRange extends Struct {
 
 		public float getFontSize() { return ngetFontSize(address()); }
 		public int getFirstUnicodeCodepointInRange() { return ngetFirstUnicodeCodepointInRange(address()); }
-		public ByteBuffer getArrayOfUnicodeCodepoints(int byteLen) { return ngetArrayOfUnicodeCodepoints(address(), byteLen); }
+		public IntBuffer getArrayOfUnicodeCodepoints(int capacity) { return ngetArrayOfUnicodeCodepoints(address(), capacity); }
 		public int getNumChars() { return ngetNumChars(address()); }
 		public STBTTPackedchar getChardataForRange() { return ngetChardataForRangeStruct(address()); }
 

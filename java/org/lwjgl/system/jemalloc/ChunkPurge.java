@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** Instances of this interface may be set to the {@link ChunkHooks} struct. */
-public abstract class ChunkPurge extends Closure.Byte {
+public abstract class ChunkPurge extends Closure.Boolean {
 
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(5);
@@ -39,7 +39,7 @@ public abstract class ChunkPurge extends Closure.Byte {
 	 * @param args pointer to an array of jvalues
 	 */
 	@Override
-	protected byte callback(long args) {
+	protected boolean callback(long args) {
 		return invoke(
 			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args)),
 			memGetAddress(memGetAddress(POINTER_SIZE * 1 + args)),
@@ -58,11 +58,11 @@ public abstract class ChunkPurge extends Closure.Byte {
 	 * @param length    
 	 * @param arena_ind 
 	 */
-	public abstract byte invoke(long chunk, long size, long offset, long length, int arena_ind);
+	public abstract boolean invoke(long chunk, long size, long offset, long length, int arena_ind);
 
 	/** A functional interface for {@link ChunkPurge}. */
 	public interface SAM {
-		byte invoke(long chunk, long size, long offset, long length, int arena_ind);
+		boolean invoke(long chunk, long size, long offset, long length, int arena_ind);
 	}
 
 	/**
@@ -75,7 +75,7 @@ public abstract class ChunkPurge extends Closure.Byte {
 	public static ChunkPurge create(final SAM sam) {
 		return new ChunkPurge() {
 			@Override
-			public byte invoke(long chunk, long size, long offset, long length, int arena_ind) {
+			public boolean invoke(long chunk, long size, long offset, long length, int arena_ind) {
 				return sam.invoke(chunk, size, offset, length, arena_ind);
 			}
 		};

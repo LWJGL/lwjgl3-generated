@@ -94,7 +94,7 @@ public class OVRTextureHeader extends Struct {
 	 * @return this struct
 	 */
 	public OVRTextureHeader set(OVRTextureHeader src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

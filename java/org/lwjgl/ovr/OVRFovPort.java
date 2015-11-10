@@ -106,7 +106,7 @@ public class OVRFovPort extends Struct {
 	 * @return this struct
 	 */
 	public OVRFovPort set(OVRFovPort src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

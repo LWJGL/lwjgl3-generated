@@ -89,7 +89,7 @@ public class POINTFLOAT extends Struct {
 	 * @return this struct
 	 */
 	public POINTFLOAT set(POINTFLOAT src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

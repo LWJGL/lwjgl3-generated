@@ -32,12 +32,12 @@ public class OVRGL {
 
 	/** JNI method for {@link #ovr_CreateSwapTextureSetGL CreateSwapTextureSetGL} */
 	@JavadocExclude
-	public static native int novr_CreateSwapTextureSetGL(long hmd, int format, int width, int height, long outTextureSet);
+	public static native int novr_CreateSwapTextureSetGL(long session, int format, int width, int height, long outTextureSet);
 
 	/**
 	 * Creates a Texture Set suitable for use with OpenGL.
 	 * 
-	 * <p>Multiple calls to ovr_CreateSwapTextureSetGL for the same {@code ovrHmd} is supported, but applications cannot rely on switching between
+	 * <p>Multiple calls to ovr_CreateSwapTextureSetGL for the same {@code ovrHmd} are supported, but applications cannot rely on switching between
 	 * {@code ovrSwapTextureSets} at runtime without a performance penalty.</p>
 	 * 
 	 * <p>The {@code format} provided should be thought of as the format the distortion compositor will use when reading the contents of the texture. To that
@@ -48,7 +48,7 @@ public class OVRGL {
 	 * {@code GL_SRGB_ALPHA8} (not {@code GL_RGBA}) for the {@code format}. Failure to do so will cause the distortion compositor to apply incorrect gamma
 	 * conversions leading to gamma-curve artifacts.</p>
 	 *
-	 * @param hmd           an {@code ovrHmd} previously returned by {@link OVR#ovr_Create Create}.
+	 * @param session       an {@code ovrSession} previously returned by {@link OVR#ovr_Create Create}.
 	 * @param format        the texture format
 	 * @param width         the requested texture width
 	 * @param height        the requested texture height
@@ -57,28 +57,28 @@ public class OVRGL {
 	 *
 	 * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
 	 */
-	public static int ovr_CreateSwapTextureSetGL(long hmd, int format, int width, int height, ByteBuffer outTextureSet) {
+	public static int ovr_CreateSwapTextureSetGL(long session, int format, int width, int height, ByteBuffer outTextureSet) {
 		if ( CHECKS ) {
-			checkPointer(hmd);
+			checkPointer(session);
 			checkBuffer(outTextureSet, 1 << POINTER_SHIFT);
 		}
-		return novr_CreateSwapTextureSetGL(hmd, format, width, height, memAddress(outTextureSet));
+		return novr_CreateSwapTextureSetGL(session, format, width, height, memAddress(outTextureSet));
 	}
 
 	/** Alternative version of: {@link #ovr_CreateSwapTextureSetGL CreateSwapTextureSetGL} */
-	public static int ovr_CreateSwapTextureSetGL(long hmd, int format, int width, int height, PointerBuffer outTextureSet) {
+	public static int ovr_CreateSwapTextureSetGL(long session, int format, int width, int height, PointerBuffer outTextureSet) {
 		if ( CHECKS ) {
-			checkPointer(hmd);
+			checkPointer(session);
 			checkBuffer(outTextureSet, 1);
 		}
-		return novr_CreateSwapTextureSetGL(hmd, format, width, height, memAddress(outTextureSet));
+		return novr_CreateSwapTextureSetGL(session, format, width, height, memAddress(outTextureSet));
 	}
 
 	// --- [ ovr_CreateMirrorTextureGL ] ---
 
 	/** JNI method for {@link #ovr_CreateMirrorTextureGL CreateMirrorTextureGL} */
 	@JavadocExclude
-	public static native int novr_CreateMirrorTextureGL(long hmd, int format, int width, int height, long outMirrorTexture);
+	public static native int novr_CreateMirrorTextureGL(long session, int format, int width, int height, long outMirrorTexture);
 
 	/**
 	 * Creates a Mirror Texture which is auto-refreshed to mirror Rift contents produced by this application.
@@ -92,7 +92,7 @@ public class OVRGL {
 	 * conversion when reading from the mirror texture. Failure to do so can result in incorrect gamma conversions leading to gamma-curve artifacts and color
 	 * banding.</p>
 	 *
-	 * @param hmd              an {@code ovrHmd} previously returned by {@link OVR#ovr_Create Create}.
+	 * @param session          an {@code ovrSession} previously returned by {@link OVR#ovr_Create Create}.
 	 * @param format           the texture format
 	 * @param width            the requested texture width
 	 * @param height           the requested texture height
@@ -101,21 +101,21 @@ public class OVRGL {
 	 *
 	 * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
 	 */
-	public static int ovr_CreateMirrorTextureGL(long hmd, int format, int width, int height, ByteBuffer outMirrorTexture) {
+	public static int ovr_CreateMirrorTextureGL(long session, int format, int width, int height, ByteBuffer outMirrorTexture) {
 		if ( CHECKS ) {
-			checkPointer(hmd);
+			checkPointer(session);
 			checkBuffer(outMirrorTexture, 1 << POINTER_SHIFT);
 		}
-		return novr_CreateMirrorTextureGL(hmd, format, width, height, memAddress(outMirrorTexture));
+		return novr_CreateMirrorTextureGL(session, format, width, height, memAddress(outMirrorTexture));
 	}
 
 	/** Alternative version of: {@link #ovr_CreateMirrorTextureGL CreateMirrorTextureGL} */
-	public static int ovr_CreateMirrorTextureGL(long hmd, int format, int width, int height, PointerBuffer outMirrorTexture) {
+	public static int ovr_CreateMirrorTextureGL(long session, int format, int width, int height, PointerBuffer outMirrorTexture) {
 		if ( CHECKS ) {
-			checkPointer(hmd);
+			checkPointer(session);
 			checkBuffer(outMirrorTexture, 1);
 		}
-		return novr_CreateMirrorTextureGL(hmd, format, width, height, memAddress(outMirrorTexture));
+		return novr_CreateMirrorTextureGL(session, format, width, height, memAddress(outMirrorTexture));
 	}
 
 }

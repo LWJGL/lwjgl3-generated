@@ -98,7 +98,7 @@ public class OVRRecti extends Struct {
 	 * @return this struct
 	 */
 	public OVRRecti set(OVRRecti src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

@@ -44,9 +44,19 @@ public final class OVRKeys {
 	/**  */
 	public static final String OVR_PERF_HUDE_MODE = "PerfHudMode";
 
+	/** Allowed values are defined in enum {@code ovrLayerHudMode}. */
+	public static final String OVR_LAYER_HUD_MODE = "LayerHudMode";
+
+	/** The layer to show. */
+	public static final String OVR_LAYER_HUD_CURRENT_LAYER = "LayerHudCurrentLayer";
+
+	/** Hide other layers when the hud is enabled. */
+	public static final String OVR_LAYER_HUD_SHOW_ALL_LAYERS = "LayerHudShowAll";
+
 	/**  */
 	public static final String
 		OVR_DEBUG_HUD_STEREO_MODE               = "DebugHudStereoMode",
+		OVR_DEBUG_HUD_STEREO_GUIDE_INFO_ENABLE  = "DebugHudStereoGuideInfoEnable",
 		OVR_DEBUG_HUD_STEREO_GUIDE_SIZE         = "DebugHudStereoGuideSize2f",
 		OVR_DEBUG_HUD_STEREO_GUIDE_POSITION     = "DebugHudStereoGuidePosition3f",
 		OVR_DEBUG_HUD_STEREO_GUIDE_YAWPITCHROLL = "DebugHudStereoGuideYawPitchRoll3f",

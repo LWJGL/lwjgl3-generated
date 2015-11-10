@@ -96,7 +96,7 @@ public class STBIIOCallbacks extends Struct {
 	 * @return this struct
 	 */
 	public STBIIOCallbacks set(STBIIOCallbacks src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

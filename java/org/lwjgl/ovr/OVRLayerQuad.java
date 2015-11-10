@@ -14,14 +14,12 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Describes a layer of Quad type, which is a single quad in world or viewer space. It is used for both {@link OVR#ovrLayerType_QuadInWorld} and
- * {@link OVR#ovrLayerType_QuadHeadLocked}. This type of layer represents a single object placed in the world and not a stereo view of the world itself.
+ * Describes a layer of Quad type, which is a single quad in world or viewer space. It is used for both {@link OVR#ovrLayerType_Quad}. This type of layer
+ * represents a single object placed in the world and not a stereo view of the world itself.
  * 
- * <p>A typical use of {@link OVR#ovrLayerType_QuadInWorld} is to draw a television screen in a room that for some reason is more convenient to draw as a layer than
+ * <p>A typical use of {@link OVR#ovrLayerType_Quad} is to draw a television screen in a room that for some reason is more convenient to draw as a layer than
  * as part of the main view in layer 0. For example, it could implement a 3D popup GUI that is drawn at a higher resolution than layer 0 to improve
  * fidelity of the GUI.</p>
- * 
- * <p>A use of {@link OVR#ovrLayerType_QuadHeadLocked} might be to implement a debug HUD visible in the HMD.</p>
  * 
  * <p>Quad layers are visible from both sides; they are not back-face culled.</p>
  */
@@ -157,7 +155,7 @@ public class OVRLayerQuad extends Struct {
 	 * @return this struct
 	 */
 	public OVRLayerQuad set(OVRLayerQuad src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

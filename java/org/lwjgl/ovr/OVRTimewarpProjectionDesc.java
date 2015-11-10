@@ -100,7 +100,7 @@ public class OVRTimewarpProjectionDesc extends Struct {
 	 * @return this struct
 	 */
 	public OVRTimewarpProjectionDesc set(OVRTimewarpProjectionDesc src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

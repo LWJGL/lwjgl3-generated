@@ -90,7 +90,7 @@ public class OVRLayerHeader extends Struct {
 	 * @return this struct
 	 */
 	public OVRLayerHeader set(OVRLayerHeader src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

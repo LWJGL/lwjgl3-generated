@@ -138,7 +138,7 @@ public class CLImageDesc extends Struct {
 	 * @return this struct
 	 */
 	public CLImageDesc set(CLImageDesc src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

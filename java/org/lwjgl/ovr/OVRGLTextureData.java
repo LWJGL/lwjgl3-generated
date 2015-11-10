@@ -98,7 +98,7 @@ public class OVRGLTextureData extends Struct {
 	 * @return this struct
 	 */
 	public OVRGLTextureData set(OVRGLTextureData src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

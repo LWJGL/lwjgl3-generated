@@ -29,11 +29,12 @@ public class OVRLayerEyeFovDepth extends Struct {
 		VIEWPORT,
 		FOV,
 		RENDERPOSE,
+		SENSORSAMPLETIME,
 		DEPTHTEXTURE,
 		PROJECTIONDESC;
 
 	static {
-		IntBuffer offsets = memAllocInt(7);
+		IntBuffer offsets = memAllocInt(8);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -42,8 +43,9 @@ public class OVRLayerEyeFovDepth extends Struct {
 		VIEWPORT = offsets.get(2);
 		FOV = offsets.get(3);
 		RENDERPOSE = offsets.get(4);
-		DEPTHTEXTURE = offsets.get(5);
-		PROJECTIONDESC = offsets.get(6);
+		SENSORSAMPLETIME = offsets.get(5);
+		DEPTHTEXTURE = offsets.get(6);
+		PROJECTIONDESC = offsets.get(7);
 
 		memFree(offsets);
 	}
@@ -83,6 +85,7 @@ public class OVRLayerEyeFovDepth extends Struct {
 	public OVRFovPort getFov(int index) { return ngetFov(address(), index); }
 	public void getRenderPose(ByteBuffer RenderPose) { ngetRenderPose(address(), RenderPose); }
 	public OVRPosef getRenderPose(int index) { return ngetRenderPose(address(), index); }
+	public double getSensorSampleTime() { return ngetSensorSampleTime(address()); }
 	public void getDepthTexture(PointerBuffer DepthTexture) { ngetDepthTexture(address(), DepthTexture); }
 	public OVRSwapTextureSet getDepthTexture(int index) { return ngetDepthTexture(address(), index); }
 	public OVRTimewarpProjectionDesc getProjectionDesc() { return ngetProjectionDesc(address()); }
@@ -101,6 +104,7 @@ public class OVRLayerEyeFovDepth extends Struct {
 	public OVRLayerEyeFovDepth setFov(int index, OVRFovPort Fov) { nsetFov(address(), index, Fov); return this; }
 	public OVRLayerEyeFovDepth setRenderPose(ByteBuffer RenderPose) { nsetRenderPose(address(), RenderPose); return this; }
 	public OVRLayerEyeFovDepth setRenderPose(int index, OVRPosef RenderPose) { nsetRenderPose(address(), index, RenderPose); return this; }
+	public OVRLayerEyeFovDepth setSensorSampleTime(double SensorSampleTime) { nsetSensorSampleTime(address(), SensorSampleTime); return this; }
 	public OVRLayerEyeFovDepth setDepthTexture(PointerBuffer DepthTexture) { nsetDepthTexture(address(), DepthTexture); return this; }
 	public OVRLayerEyeFovDepth setDepthTexture(int index, OVRSwapTextureSet DepthTexture) { nsetDepthTexture(address(), index, DepthTexture); return this; }
 	public OVRLayerEyeFovDepth setProjectionDesc(OVRTimewarpProjectionDesc ProjectionDesc) { nsetProjectionDesc(address(), ProjectionDesc); return this; }
@@ -115,6 +119,7 @@ public class OVRLayerEyeFovDepth extends Struct {
 		ByteBuffer Viewport,
 		ByteBuffer Fov,
 		ByteBuffer RenderPose,
+		double SensorSampleTime,
 		PointerBuffer DepthTexture,
 		OVRTimewarpProjectionDesc ProjectionDesc
 	) {
@@ -123,6 +128,7 @@ public class OVRLayerEyeFovDepth extends Struct {
 		setViewport(Viewport);
 		setFov(Fov);
 		setRenderPose(RenderPose);
+		setSensorSampleTime(SensorSampleTime);
 		setDepthTexture(DepthTexture);
 		setProjectionDesc(ProjectionDesc);
 
@@ -143,7 +149,7 @@ public class OVRLayerEyeFovDepth extends Struct {
 	 * @return this struct
 	 */
 	public OVRLayerEyeFovDepth set(OVRLayerEyeFovDepth src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */
@@ -250,6 +256,8 @@ public class OVRLayerEyeFovDepth extends Struct {
 		return OVRPosef.malloc().nset(struct + RENDERPOSE + index * OVRPosef.SIZEOF);
 	}
 	public static OVRPosef getRenderPose(ByteBuffer struct, int index) { return ngetRenderPose(memAddress(struct), index); }
+	public static double ngetSensorSampleTime(long struct) { return memGetDouble(struct + SENSORSAMPLETIME); }
+	public static double getSensorSampleTime(ByteBuffer struct) { return ngetSensorSampleTime(memAddress(struct)); }
 	public static void ngetDepthTexture(long struct, PointerBuffer DepthTexture) {
 		if ( CHECKS ) checkBufferGT(DepthTexture, 2);
 		memCopy(struct + DEPTHTEXTURE, memAddress(DepthTexture), DepthTexture.remaining() * POINTER_SIZE);
@@ -312,6 +320,8 @@ public class OVRLayerEyeFovDepth extends Struct {
 		memCopy(RenderPose.address(), struct + RENDERPOSE + index * OVRPosef.SIZEOF, OVRPosef.SIZEOF);
 	}
 	public static void setRenderPose(ByteBuffer struct, int index, OVRPosef RenderPose) { nsetRenderPose(memAddress(struct), index, RenderPose); }
+	public static void nsetSensorSampleTime(long struct, double SensorSampleTime) { memPutDouble(struct + SENSORSAMPLETIME, SensorSampleTime); }
+	public static void setSensorSampleTime(ByteBuffer struct, double SensorSampleTime) { nsetSensorSampleTime(memAddress(struct), SensorSampleTime); }
 	public static void nsetDepthTexture(long struct, PointerBuffer DepthTexture) {
 		if ( CHECKS ) checkBufferGT(DepthTexture, 2);
 		memCopy(memAddress(DepthTexture), struct + DEPTHTEXTURE, DepthTexture.remaining() * POINTER_SIZE);
@@ -384,6 +394,7 @@ public class OVRLayerEyeFovDepth extends Struct {
 		public OVRFovPort getFov(int index) { return ngetFov(address(), index); }
 		public void getRenderPose(ByteBuffer RenderPose) { ngetRenderPose(address(), RenderPose); }
 		public OVRPosef getRenderPose(int index) { return ngetRenderPose(address(), index); }
+		public double getSensorSampleTime() { return ngetSensorSampleTime(address()); }
 		public void getDepthTexture(PointerBuffer DepthTexture) { ngetDepthTexture(address(), DepthTexture); }
 		public OVRSwapTextureSet getDepthTexture(int index) { return ngetDepthTexture(address(), index); }
 		public OVRTimewarpProjectionDesc getProjectionDesc() { return ngetProjectionDesc(address()); }
@@ -402,6 +413,7 @@ public class OVRLayerEyeFovDepth extends Struct {
 		public OVRLayerEyeFovDepth.Buffer setFov(int index, OVRFovPort Fov) { nsetFov(address(), index, Fov); return this; }
 		public OVRLayerEyeFovDepth.Buffer setRenderPose(ByteBuffer RenderPose) { nsetRenderPose(address(), RenderPose); return this; }
 		public OVRLayerEyeFovDepth.Buffer setRenderPose(int index, OVRPosef RenderPose) { nsetRenderPose(address(), index, RenderPose); return this; }
+		public OVRLayerEyeFovDepth.Buffer setSensorSampleTime(double SensorSampleTime) { nsetSensorSampleTime(address(), SensorSampleTime); return this; }
 		public OVRLayerEyeFovDepth.Buffer setDepthTexture(PointerBuffer DepthTexture) { nsetDepthTexture(address(), DepthTexture); return this; }
 		public OVRLayerEyeFovDepth.Buffer setDepthTexture(int index, OVRSwapTextureSet DepthTexture) { nsetDepthTexture(address(), index, DepthTexture); return this; }
 		public OVRLayerEyeFovDepth.Buffer setProjectionDesc(OVRTimewarpProjectionDesc ProjectionDesc) { nsetProjectionDesc(address(), ProjectionDesc); return this; }

@@ -114,7 +114,7 @@ public class STBRPRect extends Struct {
 	 * @return this struct
 	 */
 	public STBRPRect set(STBRPRect src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

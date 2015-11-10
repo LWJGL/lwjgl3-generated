@@ -90,7 +90,7 @@ public class POINT extends Struct {
 	 * @return this struct
 	 */
 	public POINT set(POINT src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

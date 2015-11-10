@@ -5,15 +5,19 @@
  */
 package org.lwjgl.ovr;
 
+import org.lwjgl.system.*;
+
+import static org.lwjgl.system.Checks.*;
+
 /** LibOVR error code declarations. */
-public final class OVRErrorCode {
+public class OVRErrorCode {
 
 	/** This is a general success result. */
 	public static final int ovrSuccess = 0x0;
 
 	/**
-	 * Returned from a call to {@link OVR#ovr_SubmitFrame SubmitFrame}. The call succeeded, but what the app rendered will not be visible on the HMD. Ideally the app should
-	 * continue calling {@link OVR#ovr_SubmitFrame SubmitFrame}, but not do any rendering. When the result becomes {@link #ovrSuccess Success}, rendering should continue as usual.
+	 * Returned from a call to {@link OVR#ovr_SubmitFrame}. The call succeeded, but what the app rendered will not be visible on the HMD. Ideally the app should
+	 * continue calling {@link OVR#ovr_SubmitFrame}, but not do any rendering. When the result becomes {@link #ovrSuccess Success}, rendering should continue as usual.
 	 */
 	public static final int ovrSuccess_NotVisible = 0x3E8;
 
@@ -152,6 +156,43 @@ public final class OVRErrorCode {
 	/** In the event of a system-wide graphics reset or cable unplug this is returned to the app. */
 	public static final int ovrError_DisplayLost = -6000;
 
-	private OVRErrorCode() {}
+	static { Library.initialize(); }
+
+	@JavadocExclude
+	protected OVRErrorCode() {
+		throw new UnsupportedOperationException();
+	}
+
+	// --- [ OVR_SUCCESS ] ---
+
+	/**
+	 * Indicates if an {@code ovrResult} indicates success.
+	 * 
+	 * <p>Some functions return additional successful values other than {@link #ovrSuccess Success} and require usage of this macro to indicate success.</p>
+	 *
+	 * @param result the {@code ovrResult} to check
+	 */
+	public static native boolean OVR_SUCCESS(int result);
+
+	// --- [ OVR_UNQUALIFIED_SUCCESS ] ---
+
+	/**
+	 * Indicates if an {@code ovrResult} indicates an unqualified success.
+	 * 
+	 * <p>This is useful for indicating that the code intentionally wants to check for {@code result == ovrSuccess} as opposed to {@link #OVR_SUCCESS SUCCESS}, which checks for
+	 * {@code result >= ovrSuccess}.</p>
+	 *
+	 * @param result the {@code ovrResult} to check
+	 */
+	public static native boolean OVR_UNQUALIFIED_SUCCESS(int result);
+
+	// --- [ OVR_FAILURE ] ---
+
+	/**
+	 * Indicates if an {@code ovrResult} indicates failure.
+	 *
+	 * @param result the {@code ovrResult} to check
+	 */
+	public static native boolean OVR_FAILURE(int result);
 
 }

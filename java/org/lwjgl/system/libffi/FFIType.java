@@ -66,19 +66,19 @@ public class FFIType extends Struct {
 	public long getSize() { return ngetSize(address()); }
 	public int getAlignment() { return ngetAlignment(address()); }
 	public int getType() { return ngetType(address()); }
-	public ByteBuffer getElements(int byteLen) { return ngetElements(address(), byteLen); }
+	public PointerBuffer getElements(int capacity) { return ngetElements(address(), capacity); }
 
 	public FFIType setSize(long size) { nsetSize(address(), size); return this; }
 	public FFIType setAlignment(int alignment) { nsetAlignment(address(), alignment); return this; }
 	public FFIType setType(int type) { nsetType(address(), type); return this; }
-	public FFIType setElements(ByteBuffer elements) { nsetElements(address(), elements); return this; }
+	public FFIType setElements(PointerBuffer elements) { nsetElements(address(), elements); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public FFIType set(
 		long size,
 		int alignment,
 		int type,
-		ByteBuffer elements
+		PointerBuffer elements
 	) {
 		setSize(size);
 		setAlignment(alignment);
@@ -102,7 +102,7 @@ public class FFIType extends Struct {
 	 * @return this struct
 	 */
 	public FFIType set(FFIType src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */
@@ -173,8 +173,8 @@ public class FFIType extends Struct {
 	public static int ngetType(long struct) { return memGetShort(struct + TYPE) & 0xFFFF; }
 	public static int getType(ByteBuffer struct) { return ngetType(memAddress(struct)); }
 	public static long ngetElements(long struct) { return memGetAddress(struct + ELEMENTS); }
-	public static ByteBuffer ngetElements(long struct, int byteLen) { return memByteBuffer(ngetElements(struct), byteLen); }
-	public static ByteBuffer getElements(ByteBuffer struct, int byteLen) { return ngetElements(memAddress(struct), byteLen); }
+	public static PointerBuffer ngetElements(long struct, int capacity) { return memPointerBuffer(ngetElements(struct), capacity); }
+	public static PointerBuffer getElements(ByteBuffer struct, int capacity) { return ngetElements(memAddress(struct), capacity); }
 
 	public static void nsetSize(long struct, long size) { memPutAddress(struct + SIZE, size); }
 	public static void setSize(ByteBuffer struct, long size) { nsetSize(memAddress(struct), size); }
@@ -183,8 +183,8 @@ public class FFIType extends Struct {
 	public static void nsetType(long struct, int type) { memPutShort(struct + TYPE, (short)type); }
 	public static void setType(ByteBuffer struct, int type) { nsetType(memAddress(struct), type); }
 	public static void nsetElements(long struct, long elements) { memPutAddress(struct + ELEMENTS, elements); }
-	public static void nsetElements(long struct, ByteBuffer elements) { nsetElements(struct, memAddressSafe(elements)); }
-	public static void setElements(ByteBuffer struct, ByteBuffer elements) { nsetElements(memAddress(struct), elements); }
+	public static void nsetElements(long struct, PointerBuffer elements) { nsetElements(struct, memAddressSafe(elements)); }
+	public static void setElements(ByteBuffer struct, PointerBuffer elements) { nsetElements(memAddress(struct), elements); }
 
 	// -----------------------------------
 
@@ -231,12 +231,12 @@ public class FFIType extends Struct {
 		public long getSize() { return ngetSize(address()); }
 		public int getAlignment() { return ngetAlignment(address()); }
 		public int getType() { return ngetType(address()); }
-		public ByteBuffer getElements(int byteLen) { return ngetElements(address(), byteLen); }
+		public PointerBuffer getElements(int capacity) { return ngetElements(address(), capacity); }
 
 		public FFIType.Buffer setSize(long size) { nsetSize(address(), size); return this; }
 		public FFIType.Buffer setAlignment(int alignment) { nsetAlignment(address(), alignment); return this; }
 		public FFIType.Buffer setType(int type) { nsetType(address(), type); return this; }
-		public FFIType.Buffer setElements(ByteBuffer elements) { nsetElements(address(), elements); return this; }
+		public FFIType.Buffer setElements(PointerBuffer elements) { nsetElements(address(), elements); return this; }
 
 	}
 

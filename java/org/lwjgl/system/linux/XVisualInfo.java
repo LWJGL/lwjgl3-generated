@@ -138,7 +138,7 @@ public class XVisualInfo extends Struct {
 	 * @return this struct
 	 */
 	public XVisualInfo set(XVisualInfo src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

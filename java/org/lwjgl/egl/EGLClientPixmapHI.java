@@ -63,7 +63,7 @@ public class EGLClientPixmapHI extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public ByteBuffer getPData(int byteLen) { return ngetPData(address(), byteLen); }
+	public ByteBuffer getPData(int capacity) { return ngetPData(address(), capacity); }
 	public int getIWidth() { return ngetIWidth(address()); }
 	public int getIHeight() { return ngetIHeight(address()); }
 	public int getIStride() { return ngetIStride(address()); }
@@ -102,7 +102,7 @@ public class EGLClientPixmapHI extends Struct {
 	 * @return this struct
 	 */
 	public EGLClientPixmapHI set(EGLClientPixmapHI src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */
@@ -167,8 +167,8 @@ public class EGLClientPixmapHI extends Struct {
 	}
 
 	public static long ngetPData(long struct) { return memGetAddress(struct + PDATA); }
-	public static ByteBuffer ngetPData(long struct, int byteLen) { return memByteBuffer(ngetPData(struct), byteLen); }
-	public static ByteBuffer getPData(ByteBuffer struct, int byteLen) { return ngetPData(memAddress(struct), byteLen); }
+	public static ByteBuffer ngetPData(long struct, int capacity) { return memByteBuffer(ngetPData(struct), capacity); }
+	public static ByteBuffer getPData(ByteBuffer struct, int capacity) { return ngetPData(memAddress(struct), capacity); }
 	public static int ngetIWidth(long struct) { return memGetInt(struct + IWIDTH); }
 	public static int getIWidth(ByteBuffer struct) { return ngetIWidth(memAddress(struct)); }
 	public static int ngetIHeight(long struct) { return memGetInt(struct + IHEIGHT); }
@@ -228,7 +228,7 @@ public class EGLClientPixmapHI extends Struct {
 			return SIZEOF;
 		}
 
-		public ByteBuffer getPData(int byteLen) { return ngetPData(address(), byteLen); }
+		public ByteBuffer getPData(int capacity) { return ngetPData(address(), capacity); }
 		public int getIWidth() { return ngetIWidth(address()); }
 		public int getIHeight() { return ngetIHeight(address()); }
 		public int getIStride() { return ngetIStride(address()); }

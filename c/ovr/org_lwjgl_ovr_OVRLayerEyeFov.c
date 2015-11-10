@@ -21,6 +21,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRLayerEyeFov_offsets(JNIEnv *__env, 
 	buffer[2] = (jint)offsetof(ovrLayerEyeFov, Viewport);
 	buffer[3] = (jint)offsetof(ovrLayerEyeFov, Fov);
 	buffer[4] = (jint)offsetof(ovrLayerEyeFov, RenderPose);
+	buffer[5] = (jint)offsetof(ovrLayerEyeFov, SensorSampleTime);
 
 	return sizeof(ovrLayerEyeFov);
 }

@@ -96,7 +96,7 @@ public class OVRVector3f extends Struct {
 	 * @return this struct
 	 */
 	public OVRVector3f set(OVRVector3f src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

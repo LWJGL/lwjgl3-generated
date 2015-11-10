@@ -99,7 +99,7 @@ public class OVRTexture extends Struct {
 	 * @return this struct
 	 */
 	public OVRTexture set(OVRTexture src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

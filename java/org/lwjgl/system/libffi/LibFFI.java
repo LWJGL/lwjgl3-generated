@@ -69,7 +69,7 @@ public class LibFFI {
 		FFI_BAD_ABI     = 0x2;
 
 	/** Data types. These are the addresses of libffi's predefined {@link FFIType} structs. */
-	public static final long
+	public static final FFIType
 		ffi_type_void       = ffi_type_void(),
 		ffi_type_uint8      = ffi_type_uint8(),
 		ffi_type_sint8      = ffi_type_sint8(),
@@ -117,19 +117,15 @@ public class LibFFI {
 	 * @return Upon successful completion, {@code ffi_prep_cif} returns {@link #FFI_OK OK}. It will return {@link #FFI_BAD_TYPEDEF BAD_TYPEDEF} if {@code cif} is {@code NULL} or
 	 *         {@code atypes} or {@code rtype} is malformed. If {@code abi} does not refer to a valid ABI, {@link #FFI_BAD_ABI BAD_ABI} will be returned.
 	 */
-	public static int ffi_prep_cif(FFICIF cif, int abi, int nargs, long rtype, ByteBuffer atypes) {
-		if ( CHECKS ) {
+	public static int ffi_prep_cif(FFICIF cif, int abi, int nargs, FFIType rtype, ByteBuffer atypes) {
+		if ( CHECKS )
 			if ( atypes != null ) checkBuffer(atypes, nargs << POINTER_SHIFT);
-			checkPointer(rtype);
-		}
-		return nffi_prep_cif(cif.address(), abi, nargs, rtype, memAddressSafe(atypes));
+		return nffi_prep_cif(cif.address(), abi, nargs, rtype.address(), memAddressSafe(atypes));
 	}
 
 	/** Alternative version of: {@link #ffi_prep_cif prep_cif} */
-	public static int ffi_prep_cif(FFICIF cif, int abi, long rtype, PointerBuffer atypes) {
-		if ( CHECKS )
-			checkPointer(rtype);
-		return nffi_prep_cif(cif.address(), abi, atypes == null ? 0 : atypes.remaining(), rtype, memAddressSafe(atypes));
+	public static int ffi_prep_cif(FFICIF cif, int abi, FFIType rtype, PointerBuffer atypes) {
+		return nffi_prep_cif(cif.address(), abi, atypes == null ? 0 : atypes.remaining(), rtype.address(), memAddressSafe(atypes));
 	}
 
 	// --- [ ffi_prep_cif_var ] ---
@@ -151,19 +147,15 @@ public class LibFFI {
 	 * @return Upon successful completion, {@code ffi_prep_cif} returns {@link #FFI_OK OK}. It will return {@link #FFI_BAD_TYPEDEF BAD_TYPEDEF} if {@code cif} is {@code NULL} or
 	 *         {@code atypes} or {@code rtype} is malformed. If {@code abi} does not refer to a valid ABI, {@link #FFI_BAD_ABI BAD_ABI} will be returned.
 	 */
-	public static int ffi_prep_cif_var(FFICIF cif, int abi, int nfixedargs, int ntotalargs, long rtype, ByteBuffer atypes) {
-		if ( CHECKS ) {
+	public static int ffi_prep_cif_var(FFICIF cif, int abi, int nfixedargs, int ntotalargs, FFIType rtype, ByteBuffer atypes) {
+		if ( CHECKS )
 			checkBuffer(atypes, ntotalargs << POINTER_SHIFT);
-			checkPointer(rtype);
-		}
-		return nffi_prep_cif_var(cif.address(), abi, nfixedargs, ntotalargs, rtype, memAddress(atypes));
+		return nffi_prep_cif_var(cif.address(), abi, nfixedargs, ntotalargs, rtype.address(), memAddress(atypes));
 	}
 
 	/** Alternative version of: {@link #ffi_prep_cif_var prep_cif_var} */
-	public static int ffi_prep_cif_var(FFICIF cif, int abi, int nfixedargs, long rtype, PointerBuffer atypes) {
-		if ( CHECKS )
-			checkPointer(rtype);
-		return nffi_prep_cif_var(cif.address(), abi, nfixedargs, atypes.remaining(), rtype, memAddress(atypes));
+	public static int ffi_prep_cif_var(FFICIF cif, int abi, int nfixedargs, FFIType rtype, PointerBuffer atypes) {
+		return nffi_prep_cif_var(cif.address(), abi, nfixedargs, atypes.remaining(), rtype.address(), memAddress(atypes));
 	}
 
 	// --- [ ffi_call ] ---

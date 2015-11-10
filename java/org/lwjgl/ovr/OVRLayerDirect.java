@@ -108,7 +108,7 @@ public class OVRLayerDirect extends Struct {
 	 * @return this struct
 	 */
 	public OVRLayerDirect set(OVRLayerDirect src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

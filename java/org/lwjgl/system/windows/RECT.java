@@ -102,7 +102,7 @@ public class RECT extends Struct {
 	 * @return this struct
 	 */
 	public RECT set(RECT src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

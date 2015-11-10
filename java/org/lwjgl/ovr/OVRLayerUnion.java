@@ -80,6 +80,7 @@ public class OVRLayerUnion extends Struct {
 	public OVRFovPort getEyeFovFov(int index) { return ngetEyeFovFov(address(), index); }
 	public void getEyeFovRenderPose(ByteBuffer RenderPose) { ngetEyeFovRenderPose(address(), RenderPose); }
 	public OVRPosef getEyeFovRenderPose(int index) { return ngetEyeFovRenderPose(address(), index); }
+	public double getEyeFovSensorSampleTime() { return ngetEyeFovSensorSampleTime(address()); }
 	public OVRLayerEyeFovDepth getEyeFovDepth() { return ngetEyeFovDepth(address()); }
 	public OVRLayerHeader getEyeFovDepthHeader() { return ngetEyeFovDepthHeader(address()); }
 	public int getEyeFovDepthHeaderType() { return ngetEyeFovDepthHeaderType(address()); }
@@ -92,6 +93,7 @@ public class OVRLayerUnion extends Struct {
 	public OVRFovPort getEyeFovDepthFov(int index) { return ngetEyeFovDepthFov(address(), index); }
 	public void getEyeFovDepthRenderPose(ByteBuffer RenderPose) { ngetEyeFovDepthRenderPose(address(), RenderPose); }
 	public OVRPosef getEyeFovDepthRenderPose(int index) { return ngetEyeFovDepthRenderPose(address(), index); }
+	public double getEyeFovDepthSensorSampleTime() { return ngetEyeFovDepthSensorSampleTime(address()); }
 	public void getEyeFovDepthDepthTexture(PointerBuffer DepthTexture) { ngetEyeFovDepthDepthTexture(address(), DepthTexture); }
 	public OVRSwapTextureSet getEyeFovDepthDepthTexture(int index) { return ngetEyeFovDepthDepthTexture(address(), index); }
 	public OVRTimewarpProjectionDesc getEyeFovDepthProjectionDesc() { return ngetEyeFovDepthProjectionDesc(address()); }
@@ -147,6 +149,7 @@ public class OVRLayerUnion extends Struct {
 	public OVRLayerUnion setEyeFovFov(int index, OVRFovPort Fov) { nsetEyeFovFov(address(), index, Fov); return this; }
 	public OVRLayerUnion setEyeFovRenderPose(ByteBuffer RenderPose) { nsetEyeFovRenderPose(address(), RenderPose); return this; }
 	public OVRLayerUnion setEyeFovRenderPose(int index, OVRPosef RenderPose) { nsetEyeFovRenderPose(address(), index, RenderPose); return this; }
+	public OVRLayerUnion setEyeFovSensorSampleTime(double SensorSampleTime) { nsetEyeFovSensorSampleTime(address(), SensorSampleTime); return this; }
 	public OVRLayerUnion setEyeFovDepth(OVRLayerEyeFovDepth EyeFovDepth) { nsetEyeFovDepth(address(), EyeFovDepth); return this; }
 	public OVRLayerUnion setEyeFovDepthHeader(OVRLayerHeader Header) { nsetEyeFovDepthHeader(address(), Header); return this; }
 	public OVRLayerUnion setEyeFovDepthHeaderType(int Type) { nsetEyeFovDepthHeaderType(address(), Type); return this; }
@@ -159,6 +162,7 @@ public class OVRLayerUnion extends Struct {
 	public OVRLayerUnion setEyeFovDepthFov(int index, OVRFovPort Fov) { nsetEyeFovDepthFov(address(), index, Fov); return this; }
 	public OVRLayerUnion setEyeFovDepthRenderPose(ByteBuffer RenderPose) { nsetEyeFovDepthRenderPose(address(), RenderPose); return this; }
 	public OVRLayerUnion setEyeFovDepthRenderPose(int index, OVRPosef RenderPose) { nsetEyeFovDepthRenderPose(address(), index, RenderPose); return this; }
+	public OVRLayerUnion setEyeFovDepthSensorSampleTime(double SensorSampleTime) { nsetEyeFovDepthSensorSampleTime(address(), SensorSampleTime); return this; }
 	public OVRLayerUnion setEyeFovDepthDepthTexture(PointerBuffer DepthTexture) { nsetEyeFovDepthDepthTexture(address(), DepthTexture); return this; }
 	public OVRLayerUnion setEyeFovDepthDepthTexture(int index, OVRSwapTextureSet DepthTexture) { nsetEyeFovDepthDepthTexture(address(), index, DepthTexture); return this; }
 	public OVRLayerUnion setEyeFovDepthProjectionDesc(OVRTimewarpProjectionDesc ProjectionDesc) { nsetEyeFovDepthProjectionDesc(address(), ProjectionDesc); return this; }
@@ -230,7 +234,7 @@ public class OVRLayerUnion extends Struct {
 	 * @return this struct
 	 */
 	public OVRLayerUnion set(OVRLayerUnion src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */
@@ -347,6 +351,8 @@ public class OVRLayerUnion extends Struct {
 		return OVRPosef.malloc().nset(struct + EYEFOV + OVRLayerEyeFov.RENDERPOSE + index * OVRPosef.SIZEOF);
 	}
 	public static OVRPosef getEyeFovRenderPose(ByteBuffer struct, int index) { return ngetEyeFovRenderPose(memAddress(struct), index); }
+	public static double ngetEyeFovSensorSampleTime(long struct) { return memGetDouble(struct + EYEFOV + OVRLayerEyeFov.SENSORSAMPLETIME); }
+	public static double getEyeFovSensorSampleTime(ByteBuffer struct) { return ngetEyeFovSensorSampleTime(memAddress(struct)); }
 	public static OVRLayerEyeFovDepth ngetEyeFovDepth(long struct) { return OVRLayerEyeFovDepth.malloc().nset(struct + EYEFOVDEPTH); }
 	/** Returns a copy of the {@code EyeFovDepth} {@link OVRLayerEyeFovDepth} struct. */
 	public static OVRLayerEyeFovDepth getEyeFovDepth(ByteBuffer struct) { return ngetEyeFovDepth(memAddress(struct)); }
@@ -393,6 +399,8 @@ public class OVRLayerUnion extends Struct {
 		return OVRPosef.malloc().nset(struct + EYEFOVDEPTH + OVRLayerEyeFovDepth.RENDERPOSE + index * OVRPosef.SIZEOF);
 	}
 	public static OVRPosef getEyeFovDepthRenderPose(ByteBuffer struct, int index) { return ngetEyeFovDepthRenderPose(memAddress(struct), index); }
+	public static double ngetEyeFovDepthSensorSampleTime(long struct) { return memGetDouble(struct + EYEFOVDEPTH + OVRLayerEyeFovDepth.SENSORSAMPLETIME); }
+	public static double getEyeFovDepthSensorSampleTime(ByteBuffer struct) { return ngetEyeFovDepthSensorSampleTime(memAddress(struct)); }
 	public static void ngetEyeFovDepthDepthTexture(long struct, PointerBuffer DepthTexture) {
 		if ( CHECKS ) checkBufferGT(DepthTexture, 2);
 		memCopy(struct + EYEFOVDEPTH + OVRLayerEyeFovDepth.DEPTHTEXTURE, memAddress(DepthTexture), DepthTexture.remaining() * POINTER_SIZE);
@@ -553,6 +561,8 @@ public class OVRLayerUnion extends Struct {
 		memCopy(RenderPose.address(), struct + EYEFOV + OVRLayerEyeFov.RENDERPOSE + index * OVRPosef.SIZEOF, OVRPosef.SIZEOF);
 	}
 	public static void setEyeFovRenderPose(ByteBuffer struct, int index, OVRPosef RenderPose) { nsetEyeFovRenderPose(memAddress(struct), index, RenderPose); }
+	public static void nsetEyeFovSensorSampleTime(long struct, double SensorSampleTime) { memPutDouble(struct + EYEFOV + OVRLayerEyeFov.SENSORSAMPLETIME, SensorSampleTime); }
+	public static void setEyeFovSensorSampleTime(ByteBuffer struct, double SensorSampleTime) { nsetEyeFovSensorSampleTime(memAddress(struct), SensorSampleTime); }
 	public static void nsetEyeFovDepth(long struct, OVRLayerEyeFovDepth EyeFovDepth) { memCopy(EyeFovDepth.address(), struct + EYEFOVDEPTH, OVRLayerEyeFovDepth.SIZEOF); }
 	/** Copies the specified {@link OVRLayerEyeFovDepth} struct to the nested {@code EyeFovDepth} struct. */
 	public static void setEyeFovDepth(ByteBuffer struct, OVRLayerEyeFovDepth EyeFovDepth) { nsetEyeFovDepth(memAddress(struct), EyeFovDepth); }
@@ -599,6 +609,8 @@ public class OVRLayerUnion extends Struct {
 		memCopy(RenderPose.address(), struct + EYEFOVDEPTH + OVRLayerEyeFovDepth.RENDERPOSE + index * OVRPosef.SIZEOF, OVRPosef.SIZEOF);
 	}
 	public static void setEyeFovDepthRenderPose(ByteBuffer struct, int index, OVRPosef RenderPose) { nsetEyeFovDepthRenderPose(memAddress(struct), index, RenderPose); }
+	public static void nsetEyeFovDepthSensorSampleTime(long struct, double SensorSampleTime) { memPutDouble(struct + EYEFOVDEPTH + OVRLayerEyeFovDepth.SENSORSAMPLETIME, SensorSampleTime); }
+	public static void setEyeFovDepthSensorSampleTime(ByteBuffer struct, double SensorSampleTime) { nsetEyeFovDepthSensorSampleTime(memAddress(struct), SensorSampleTime); }
 	public static void nsetEyeFovDepthDepthTexture(long struct, PointerBuffer DepthTexture) {
 		if ( CHECKS ) checkBufferGT(DepthTexture, 2);
 		memCopy(memAddress(DepthTexture), struct + EYEFOVDEPTH + OVRLayerEyeFovDepth.DEPTHTEXTURE, DepthTexture.remaining() * POINTER_SIZE);
@@ -763,6 +775,7 @@ public class OVRLayerUnion extends Struct {
 		public OVRFovPort getEyeFovFov(int index) { return ngetEyeFovFov(address(), index); }
 		public void getEyeFovRenderPose(ByteBuffer RenderPose) { ngetEyeFovRenderPose(address(), RenderPose); }
 		public OVRPosef getEyeFovRenderPose(int index) { return ngetEyeFovRenderPose(address(), index); }
+		public double getEyeFovSensorSampleTime() { return ngetEyeFovSensorSampleTime(address()); }
 		public OVRLayerEyeFovDepth getEyeFovDepth() { return ngetEyeFovDepth(address()); }
 		public OVRLayerHeader getEyeFovDepthHeader() { return ngetEyeFovDepthHeader(address()); }
 		public int getEyeFovDepthHeaderType() { return ngetEyeFovDepthHeaderType(address()); }
@@ -775,6 +788,7 @@ public class OVRLayerUnion extends Struct {
 		public OVRFovPort getEyeFovDepthFov(int index) { return ngetEyeFovDepthFov(address(), index); }
 		public void getEyeFovDepthRenderPose(ByteBuffer RenderPose) { ngetEyeFovDepthRenderPose(address(), RenderPose); }
 		public OVRPosef getEyeFovDepthRenderPose(int index) { return ngetEyeFovDepthRenderPose(address(), index); }
+		public double getEyeFovDepthSensorSampleTime() { return ngetEyeFovDepthSensorSampleTime(address()); }
 		public void getEyeFovDepthDepthTexture(PointerBuffer DepthTexture) { ngetEyeFovDepthDepthTexture(address(), DepthTexture); }
 		public OVRSwapTextureSet getEyeFovDepthDepthTexture(int index) { return ngetEyeFovDepthDepthTexture(address(), index); }
 		public OVRTimewarpProjectionDesc getEyeFovDepthProjectionDesc() { return ngetEyeFovDepthProjectionDesc(address()); }
@@ -830,6 +844,7 @@ public class OVRLayerUnion extends Struct {
 		public OVRLayerUnion.Buffer setEyeFovFov(int index, OVRFovPort Fov) { nsetEyeFovFov(address(), index, Fov); return this; }
 		public OVRLayerUnion.Buffer setEyeFovRenderPose(ByteBuffer RenderPose) { nsetEyeFovRenderPose(address(), RenderPose); return this; }
 		public OVRLayerUnion.Buffer setEyeFovRenderPose(int index, OVRPosef RenderPose) { nsetEyeFovRenderPose(address(), index, RenderPose); return this; }
+		public OVRLayerUnion.Buffer setEyeFovSensorSampleTime(double SensorSampleTime) { nsetEyeFovSensorSampleTime(address(), SensorSampleTime); return this; }
 		public OVRLayerUnion.Buffer setEyeFovDepth(OVRLayerEyeFovDepth EyeFovDepth) { nsetEyeFovDepth(address(), EyeFovDepth); return this; }
 		public OVRLayerUnion.Buffer setEyeFovDepthHeader(OVRLayerHeader Header) { nsetEyeFovDepthHeader(address(), Header); return this; }
 		public OVRLayerUnion.Buffer setEyeFovDepthHeaderType(int Type) { nsetEyeFovDepthHeaderType(address(), Type); return this; }
@@ -842,6 +857,7 @@ public class OVRLayerUnion extends Struct {
 		public OVRLayerUnion.Buffer setEyeFovDepthFov(int index, OVRFovPort Fov) { nsetEyeFovDepthFov(address(), index, Fov); return this; }
 		public OVRLayerUnion.Buffer setEyeFovDepthRenderPose(ByteBuffer RenderPose) { nsetEyeFovDepthRenderPose(address(), RenderPose); return this; }
 		public OVRLayerUnion.Buffer setEyeFovDepthRenderPose(int index, OVRPosef RenderPose) { nsetEyeFovDepthRenderPose(address(), index, RenderPose); return this; }
+		public OVRLayerUnion.Buffer setEyeFovDepthSensorSampleTime(double SensorSampleTime) { nsetEyeFovDepthSensorSampleTime(address(), SensorSampleTime); return this; }
 		public OVRLayerUnion.Buffer setEyeFovDepthDepthTexture(PointerBuffer DepthTexture) { nsetEyeFovDepthDepthTexture(address(), DepthTexture); return this; }
 		public OVRLayerUnion.Buffer setEyeFovDepthDepthTexture(int index, OVRSwapTextureSet DepthTexture) { nsetEyeFovDepthDepthTexture(address(), index, DepthTexture); return this; }
 		public OVRLayerUnion.Buffer setEyeFovDepthProjectionDesc(OVRTimewarpProjectionDesc ProjectionDesc) { nsetEyeFovDepthProjectionDesc(address(), ProjectionDesc); return this; }

@@ -27,10 +27,11 @@ public class OVRTrackingState extends Struct {
 		HANDPOSES,
 		RAWSENSORDATA,
 		STATUSFLAGS,
+		HANDSTATUSFLAGS,
 		LASTCAMERAFRAMECOUNTER;
 
 	static {
-		IntBuffer offsets = memAllocInt(7);
+		IntBuffer offsets = memAllocInt(8);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -40,7 +41,8 @@ public class OVRTrackingState extends Struct {
 		HANDPOSES = offsets.get(3);
 		RAWSENSORDATA = offsets.get(4);
 		STATUSFLAGS = offsets.get(5);
-		LASTCAMERAFRAMECOUNTER = offsets.get(6);
+		HANDSTATUSFLAGS = offsets.get(6);
+		LASTCAMERAFRAMECOUNTER = offsets.get(7);
 
 		memFree(offsets);
 	}
@@ -135,6 +137,7 @@ public class OVRTrackingState extends Struct {
 	public float getRawSensorDataTemperature() { return ngetRawSensorDataTemperature(address()); }
 	public float getRawSensorDataTimeInSeconds() { return ngetRawSensorDataTimeInSeconds(address()); }
 	public int getStatusFlags() { return ngetStatusFlags(address()); }
+	public void getHandStatusFlags(ByteBuffer HandStatusFlags) { ngetHandStatusFlags(address(), HandStatusFlags); }
 	public int getLastCameraFrameCounter() { return ngetLastCameraFrameCounter(address()); }
 
 	// -----------------------------------
@@ -346,6 +349,13 @@ public class OVRTrackingState extends Struct {
 	public static float getRawSensorDataTimeInSeconds(ByteBuffer struct) { return ngetRawSensorDataTimeInSeconds(memAddress(struct)); }
 	public static int ngetStatusFlags(long struct) { return memGetInt(struct + STATUSFLAGS); }
 	public static int getStatusFlags(ByteBuffer struct) { return ngetStatusFlags(memAddress(struct)); }
+	public static void ngetHandStatusFlags(long struct, ByteBuffer HandStatusFlags) {
+		if ( CHECKS ) checkBufferGT(HandStatusFlags, 2 * 4);
+		memCopy(struct + HANDSTATUSFLAGS, memAddress(HandStatusFlags), HandStatusFlags.remaining());
+	}
+	public static void getHandStatusFlags(ByteBuffer struct, ByteBuffer HandStatusFlags) { ngetHandStatusFlags(memAddress(struct), HandStatusFlags); }
+	public static int ngetHandStatusFlags(long struct, int index) { return memGetInt(struct + HANDSTATUSFLAGS + index * 4); }
+	public static int getHandStatusFlags(ByteBuffer struct, int index) { return ngetHandStatusFlags(memAddress(struct), index); }
 	public static int ngetLastCameraFrameCounter(long struct) { return memGetInt(struct + LASTCAMERAFRAMECOUNTER); }
 	public static int getLastCameraFrameCounter(ByteBuffer struct) { return ngetLastCameraFrameCounter(memAddress(struct)); }
 
@@ -457,6 +467,7 @@ public class OVRTrackingState extends Struct {
 		public float getRawSensorDataTemperature() { return ngetRawSensorDataTemperature(address()); }
 		public float getRawSensorDataTimeInSeconds() { return ngetRawSensorDataTimeInSeconds(address()); }
 		public int getStatusFlags() { return ngetStatusFlags(address()); }
+		public void getHandStatusFlags(ByteBuffer HandStatusFlags) { ngetHandStatusFlags(address(), HandStatusFlags); }
 		public int getLastCameraFrameCounter() { return ngetLastCameraFrameCounter(address()); }
 
 	}

@@ -104,7 +104,7 @@ public class OVRPosef extends Struct {
 	 * @return this struct
 	 */
 	public OVRPosef set(OVRPosef src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

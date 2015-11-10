@@ -54,6 +54,24 @@ public class OVRUtil {
 		throw new UnsupportedOperationException();
 	}
 
+	// --- [ ovr_Detect ] ---
+
+	/** JNI method for {@link #ovr_Detect _Detect} */
+	@JavadocExclude
+	public static native void novr_Detect(int timeoutMsec, long __result);
+
+	/**
+	 * Detects Oculus Runtime and Device Status.
+	 * 
+	 * <p>Checks for Oculus Runtime and Oculus HMD device status without loading the LibOVRRT shared library. This may be called before {@link OVR#ovr_Initialize _Initialize} to help
+	 * decide whether or not to initialize LibOVR.</p>
+	 *
+	 * @param timeoutMsec a timeout to wait for HMD to be attached or 0 to poll
+	 */
+	public static void ovr_Detect(int timeoutMsec, OVRDetectResult __result) {
+		novr_Detect(timeoutMsec, __result.address());
+	}
+
 	// --- [ ovrMatrix4f_Projection ] ---
 
 	/** JNI method for {@link #ovrMatrix4f_Projection Matrix4f_Projection} */
@@ -138,7 +156,7 @@ public class OVRUtil {
 
 	/** JNI method for {@link #ovr_GetEyePoses _GetEyePoses} */
 	@JavadocExclude
-	public static native void novr_GetEyePoses(long hmd, int frameIndex, long hmdToEyeViewOffset, long outEyePoses, long outHmdTrackingState);
+	public static native void novr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, long hmdToEyeViewOffset, long outEyePoses, long outHmdTrackingState);
 
 	/**
 	 * Returns the predicted head pose in {@code outHmdTrackingState} and offset eye poses in {@code outEyePoses}.
@@ -147,20 +165,22 @@ public class OVRUtil {
 	 * called on the rendering thread. Assuming {@code outEyePoses} are used for rendering, it should be passed as a part of {@link OVRLayerEyeFov}. The caller does
 	 * not need to worry about applying {@code hmdToEyeViewOffset} to the returned {@code outEyePoses} variables.</p>
 	 *
-	 * @param hmd                 an {@code ovrHmd} previously returned by {@link OVR#ovr_Create _Create}
+	 * @param session             an {@code ovrSession} previously returned by {@link OVR#ovr_Create _Create}
 	 * @param frameIndex          the targeted frame index, or 0 to refer to one frame after the last time {@link OVR#ovr_SubmitFrame _SubmitFrame} was called
+	 * @param latencyMarker       Specifies that this call is the point in time where the "App-to-Mid-Photon" latency timer starts from. If a given {@code ovrLayer} provides
+	 *                            "SensorSampleTimestamp", that will override the value stored here.
 	 * @param hmdToEyeViewOffset  can be {@link OVREyeRenderDesc}{@code .HmdToEyeViewOffset} returned from {@link OVR#ovr_GetRenderDesc _GetRenderDesc}. For monoscopic rendering, use a vector that is the
 	 *                            average of the two vectors for both eyes.
 	 * @param outEyePoses         the predicted eye poses
 	 * @param outHmdTrackingState the predicted {@link OVRTrackingState}. May be {@code NULL}, in which case it is ignored.
 	 */
-	public static void ovr_GetEyePoses(long hmd, int frameIndex, OVRVector3f.Buffer hmdToEyeViewOffset, OVRPosef.Buffer outEyePoses, OVRTrackingState outHmdTrackingState) {
+	public static void ovr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, OVRVector3f.Buffer hmdToEyeViewOffset, OVRPosef.Buffer outEyePoses, OVRTrackingState outHmdTrackingState) {
 		if ( CHECKS ) {
-			checkPointer(hmd);
+			checkPointer(session);
 			checkBuffer(hmdToEyeViewOffset, 2);
 			checkBuffer(outEyePoses, 2);
 		}
-		novr_GetEyePoses(hmd, frameIndex, hmdToEyeViewOffset.address(), outEyePoses.address(), outHmdTrackingState == null ? NULL : outHmdTrackingState.address());
+		novr_GetEyePoses(session, frameIndex, latencyMarker, hmdToEyeViewOffset.address(), outEyePoses.address(), outHmdTrackingState == null ? NULL : outHmdTrackingState.address());
 	}
 
 }

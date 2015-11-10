@@ -94,7 +94,7 @@ public class ObjCPropertyAttribute extends Struct {
 	 * @return this struct
 	 */
 	public ObjCPropertyAttribute set(ObjCPropertyAttribute src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

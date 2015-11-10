@@ -62,6 +62,30 @@ public class OVRMatrix4f extends Struct {
 	public OVRMatrix4f setM(ByteBuffer m) { nsetM(address(), m); return this; }
 	public OVRMatrix4f setM(int index, float m) { nsetM(address(), index, m); return this; }
 
+	/** Unsafe version of {@link #set}. */
+	public OVRMatrix4f nset(long struct) {
+		memCopy(struct, address(), SIZEOF);
+		return this;
+	}
+
+	/**
+	 * Copies the specified struct data to this struct.
+	 *
+	 * @param src the source struct
+	 *
+	 * @return this struct
+	 */
+	public OVRMatrix4f set(OVRMatrix4f src) {
+		return nset(src.address());
+	}
+
+	/** {@link ByteBuffer} version of {@link #set}. */
+	public OVRMatrix4f set(ByteBuffer struct) {
+		if ( CHECKS )
+			checkBuffer(struct, SIZEOF);
+		return nset(memAddress(struct));
+	}
+
 	// -----------------------------------
 
 	/** Returns a new {@link OVRMatrix4f} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */

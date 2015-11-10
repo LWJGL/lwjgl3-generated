@@ -21,8 +21,9 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRLayerEyeFovDepth_offsets(JNIEnv *__
 	buffer[2] = (jint)offsetof(ovrLayerEyeFovDepth, Viewport);
 	buffer[3] = (jint)offsetof(ovrLayerEyeFovDepth, Fov);
 	buffer[4] = (jint)offsetof(ovrLayerEyeFovDepth, RenderPose);
-	buffer[5] = (jint)offsetof(ovrLayerEyeFovDepth, DepthTexture);
-	buffer[6] = (jint)offsetof(ovrLayerEyeFovDepth, ProjectionDesc);
+	buffer[5] = (jint)offsetof(ovrLayerEyeFovDepth, SensorSampleTime);
+	buffer[6] = (jint)offsetof(ovrLayerEyeFovDepth, DepthTexture);
+	buffer[7] = (jint)offsetof(ovrLayerEyeFovDepth, ProjectionDesc);
 
 	return sizeof(ovrLayerEyeFovDepth);
 }

@@ -69,8 +69,8 @@ public class FFICIF extends Struct {
 
 	public int getAbi() { return ngetAbi(address()); }
 	public int getNargs() { return ngetNargs(address()); }
-	public ByteBuffer getArgTypes(int byteLen) { return ngetArgTypes(address(), byteLen); }
-	public long getRtype() { return ngetRtype(address()); }
+	public PointerBuffer getArgTypes(int capacity) { return ngetArgTypes(address(), capacity); }
+	public FFIType getRtype() { return ngetRtypeStruct(address()); }
 	public int getBytes() { return ngetBytes(address()); }
 	public int getFlags() { return ngetFlags(address()); }
 
@@ -133,10 +133,11 @@ public class FFICIF extends Struct {
 	public static int ngetNargs(long struct) { return memGetInt(struct + NARGS); }
 	public static int getNargs(ByteBuffer struct) { return ngetNargs(memAddress(struct)); }
 	public static long ngetArgTypes(long struct) { return memGetAddress(struct + ARG_TYPES); }
-	public static ByteBuffer ngetArgTypes(long struct, int byteLen) { return memByteBuffer(ngetArgTypes(struct), byteLen); }
-	public static ByteBuffer getArgTypes(ByteBuffer struct, int byteLen) { return ngetArgTypes(memAddress(struct), byteLen); }
+	public static PointerBuffer ngetArgTypes(long struct, int capacity) { return memPointerBuffer(ngetArgTypes(struct), capacity); }
+	public static PointerBuffer getArgTypes(ByteBuffer struct, int capacity) { return ngetArgTypes(memAddress(struct), capacity); }
 	public static long ngetRtype(long struct) { return memGetAddress(struct + RTYPE); }
-	public static long getRtype(ByteBuffer struct) { return ngetRtype(memAddress(struct)); }
+	public static FFIType ngetRtypeStruct(long struct) { return new FFIType(ngetRtype(struct)); }
+	public static FFIType getRtype(ByteBuffer struct) { return ngetRtypeStruct(memAddress(struct)); }
 	public static int ngetBytes(long struct) { return memGetInt(struct + BYTES); }
 	public static int getBytes(ByteBuffer struct) { return ngetBytes(memAddress(struct)); }
 	public static int ngetFlags(long struct) { return memGetInt(struct + FLAGS); }
@@ -186,8 +187,8 @@ public class FFICIF extends Struct {
 
 		public int getAbi() { return ngetAbi(address()); }
 		public int getNargs() { return ngetNargs(address()); }
-		public ByteBuffer getArgTypes(int byteLen) { return ngetArgTypes(address(), byteLen); }
-		public long getRtype() { return ngetRtype(address()); }
+		public PointerBuffer getArgTypes(int capacity) { return ngetArgTypes(address(), capacity); }
+		public FFIType getRtype() { return ngetRtypeStruct(address()); }
 		public int getBytes() { return ngetBytes(address()); }
 		public int getFlags() { return ngetFlags(address()); }
 

@@ -120,7 +120,7 @@ public class Visual extends Struct {
 	 * @return this struct
 	 */
 	public Visual set(Visual src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

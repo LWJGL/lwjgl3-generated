@@ -63,7 +63,7 @@ public class GLFWImage extends Struct {
 
 	public int getWidth() { return ngetWidth(address()); }
 	public int getHeight() { return ngetHeight(address()); }
-	public ByteBuffer getPixels(int byteLen) { return ngetPixels(address(), byteLen); }
+	public ByteBuffer getPixels(int capacity) { return ngetPixels(address(), capacity); }
 
 	public GLFWImage setWidth(int width) { nsetWidth(address(), width); return this; }
 	public GLFWImage setHeight(int height) { nsetHeight(address(), height); return this; }
@@ -96,7 +96,7 @@ public class GLFWImage extends Struct {
 	 * @return this struct
 	 */
 	public GLFWImage set(GLFWImage src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */
@@ -165,8 +165,8 @@ public class GLFWImage extends Struct {
 	public static int ngetHeight(long struct) { return memGetInt(struct + HEIGHT); }
 	public static int getHeight(ByteBuffer struct) { return ngetHeight(memAddress(struct)); }
 	public static long ngetPixels(long struct) { return memGetAddress(struct + PIXELS); }
-	public static ByteBuffer ngetPixels(long struct, int byteLen) { return memByteBuffer(ngetPixels(struct), byteLen); }
-	public static ByteBuffer getPixels(ByteBuffer struct, int byteLen) { return ngetPixels(memAddress(struct), byteLen); }
+	public static ByteBuffer ngetPixels(long struct, int capacity) { return memByteBuffer(ngetPixels(struct), capacity); }
+	public static ByteBuffer getPixels(ByteBuffer struct, int capacity) { return ngetPixels(memAddress(struct), capacity); }
 
 	public static void nsetWidth(long struct, int width) { memPutInt(struct + WIDTH, width); }
 	public static void setWidth(ByteBuffer struct, int width) { nsetWidth(memAddress(struct), width); }
@@ -220,7 +220,7 @@ public class GLFWImage extends Struct {
 
 		public int getWidth() { return ngetWidth(address()); }
 		public int getHeight() { return ngetHeight(address()); }
-		public ByteBuffer getPixels(int byteLen) { return ngetPixels(address(), byteLen); }
+		public ByteBuffer getPixels(int capacity) { return ngetPixels(address(), capacity); }
 
 		public GLFWImage.Buffer setWidth(int width) { nsetWidth(address(), width); return this; }
 		public GLFWImage.Buffer setHeight(int height) { nsetHeight(address(), height); return this; }

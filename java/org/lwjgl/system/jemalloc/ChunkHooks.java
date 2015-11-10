@@ -120,7 +120,7 @@ public class ChunkHooks extends Struct {
 	 * @return this struct
 	 */
 	public ChunkHooks set(ChunkHooks src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

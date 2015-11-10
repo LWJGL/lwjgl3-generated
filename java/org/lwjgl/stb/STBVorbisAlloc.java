@@ -59,7 +59,7 @@ public class STBVorbisAlloc extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public ByteBuffer getAllocBuffer(int byteLen) { return ngetAllocBuffer(address(), byteLen); }
+	public ByteBuffer getAllocBuffer(int capacity) { return ngetAllocBuffer(address(), capacity); }
 	public int getAllocBufferLengthInBytes() { return ngetAllocBufferLengthInBytes(address()); }
 
 	public STBVorbisAlloc setAllocBuffer(ByteBuffer alloc_buffer) { nsetAllocBuffer(address(), alloc_buffer); return this; }
@@ -90,7 +90,7 @@ public class STBVorbisAlloc extends Struct {
 	 * @return this struct
 	 */
 	public STBVorbisAlloc set(STBVorbisAlloc src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */
@@ -155,8 +155,8 @@ public class STBVorbisAlloc extends Struct {
 	}
 
 	public static long ngetAllocBuffer(long struct) { return memGetAddress(struct + ALLOC_BUFFER); }
-	public static ByteBuffer ngetAllocBuffer(long struct, int byteLen) { return memByteBuffer(ngetAllocBuffer(struct), byteLen); }
-	public static ByteBuffer getAllocBuffer(ByteBuffer struct, int byteLen) { return ngetAllocBuffer(memAddress(struct), byteLen); }
+	public static ByteBuffer ngetAllocBuffer(long struct, int capacity) { return memByteBuffer(ngetAllocBuffer(struct), capacity); }
+	public static ByteBuffer getAllocBuffer(ByteBuffer struct, int capacity) { return ngetAllocBuffer(memAddress(struct), capacity); }
 	public static int ngetAllocBufferLengthInBytes(long struct) { return memGetInt(struct + ALLOC_BUFFER_LENGTH_IN_BYTES); }
 	public static int getAllocBufferLengthInBytes(ByteBuffer struct) { return ngetAllocBufferLengthInBytes(memAddress(struct)); }
 
@@ -208,7 +208,7 @@ public class STBVorbisAlloc extends Struct {
 			return SIZEOF;
 		}
 
-		public ByteBuffer getAllocBuffer(int byteLen) { return ngetAllocBuffer(address(), byteLen); }
+		public ByteBuffer getAllocBuffer(int capacity) { return ngetAllocBuffer(address(), capacity); }
 		public int getAllocBufferLengthInBytes() { return ngetAllocBufferLengthInBytes(address()); }
 
 		public STBVorbisAlloc.Buffer setAllocBuffer(ByteBuffer alloc_buffer) { nsetAllocBuffer(address(), alloc_buffer); return this; }

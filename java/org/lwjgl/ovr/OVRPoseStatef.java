@@ -13,7 +13,12 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** A full pose (rigid body) configuration with first and second derivatives. */
+/**
+ * A full pose (rigid body) configuration with first and second derivatives.
+ * 
+ * <p>Body refers to any object for which ovrPoseStatef is providing data.  It can be the HMD, Touch controller, camera or something else. The context
+ * depends on the usage of the struct.</p>
+ */
 public class OVRPoseStatef extends Struct {
 
 	/** The struct size in bytes. */

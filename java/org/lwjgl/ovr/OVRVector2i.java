@@ -90,7 +90,7 @@ public class OVRVector2i extends Struct {
 	 * @return this struct
 	 */
 	public OVRVector2i set(OVRVector2i src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

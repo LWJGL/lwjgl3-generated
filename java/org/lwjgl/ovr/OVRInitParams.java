@@ -108,7 +108,7 @@ public class OVRInitParams extends Struct {
 	 * @return this struct
 	 */
 	public OVRInitParams set(OVRInitParams src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

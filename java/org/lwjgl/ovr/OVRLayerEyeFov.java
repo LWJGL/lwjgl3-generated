@@ -28,10 +28,11 @@ public class OVRLayerEyeFov extends Struct {
 		COLORTEXTURE,
 		VIEWPORT,
 		FOV,
-		RENDERPOSE;
+		RENDERPOSE,
+		SENSORSAMPLETIME;
 
 	static {
-		IntBuffer offsets = memAllocInt(5);
+		IntBuffer offsets = memAllocInt(6);
 
 		SIZEOF = offsets(memAddress(offsets));
 
@@ -40,6 +41,7 @@ public class OVRLayerEyeFov extends Struct {
 		VIEWPORT = offsets.get(2);
 		FOV = offsets.get(3);
 		RENDERPOSE = offsets.get(4);
+		SENSORSAMPLETIME = offsets.get(5);
 
 		memFree(offsets);
 	}
@@ -79,6 +81,7 @@ public class OVRLayerEyeFov extends Struct {
 	public OVRFovPort getFov(int index) { return ngetFov(address(), index); }
 	public void getRenderPose(ByteBuffer RenderPose) { ngetRenderPose(address(), RenderPose); }
 	public OVRPosef getRenderPose(int index) { return ngetRenderPose(address(), index); }
+	public double getSensorSampleTime() { return ngetSensorSampleTime(address()); }
 
 	public OVRLayerEyeFov setHeader(OVRLayerHeader Header) { nsetHeader(address(), Header); return this; }
 	public OVRLayerEyeFov setHeaderType(int Type) { nsetHeaderType(address(), Type); return this; }
@@ -91,6 +94,7 @@ public class OVRLayerEyeFov extends Struct {
 	public OVRLayerEyeFov setFov(int index, OVRFovPort Fov) { nsetFov(address(), index, Fov); return this; }
 	public OVRLayerEyeFov setRenderPose(ByteBuffer RenderPose) { nsetRenderPose(address(), RenderPose); return this; }
 	public OVRLayerEyeFov setRenderPose(int index, OVRPosef RenderPose) { nsetRenderPose(address(), index, RenderPose); return this; }
+	public OVRLayerEyeFov setSensorSampleTime(double SensorSampleTime) { nsetSensorSampleTime(address(), SensorSampleTime); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public OVRLayerEyeFov set(
@@ -98,13 +102,15 @@ public class OVRLayerEyeFov extends Struct {
 		PointerBuffer ColorTexture,
 		ByteBuffer Viewport,
 		ByteBuffer Fov,
-		ByteBuffer RenderPose
+		ByteBuffer RenderPose,
+		double SensorSampleTime
 	) {
 		setHeader(Header);
 		setColorTexture(ColorTexture);
 		setViewport(Viewport);
 		setFov(Fov);
 		setRenderPose(RenderPose);
+		setSensorSampleTime(SensorSampleTime);
 
 		return this;
 	}
@@ -123,7 +129,7 @@ public class OVRLayerEyeFov extends Struct {
 	 * @return this struct
 	 */
 	public OVRLayerEyeFov set(OVRLayerEyeFov src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */
@@ -230,6 +236,8 @@ public class OVRLayerEyeFov extends Struct {
 		return OVRPosef.malloc().nset(struct + RENDERPOSE + index * OVRPosef.SIZEOF);
 	}
 	public static OVRPosef getRenderPose(ByteBuffer struct, int index) { return ngetRenderPose(memAddress(struct), index); }
+	public static double ngetSensorSampleTime(long struct) { return memGetDouble(struct + SENSORSAMPLETIME); }
+	public static double getSensorSampleTime(ByteBuffer struct) { return ngetSensorSampleTime(memAddress(struct)); }
 
 	public static void nsetHeader(long struct, OVRLayerHeader Header) { memCopy(Header.address(), struct + HEADER, OVRLayerHeader.SIZEOF); }
 	/** Copies the specified {@link OVRLayerHeader} struct to the nested {@code Header} struct. */
@@ -274,6 +282,8 @@ public class OVRLayerEyeFov extends Struct {
 		memCopy(RenderPose.address(), struct + RENDERPOSE + index * OVRPosef.SIZEOF, OVRPosef.SIZEOF);
 	}
 	public static void setRenderPose(ByteBuffer struct, int index, OVRPosef RenderPose) { nsetRenderPose(memAddress(struct), index, RenderPose); }
+	public static void nsetSensorSampleTime(long struct, double SensorSampleTime) { memPutDouble(struct + SENSORSAMPLETIME, SensorSampleTime); }
+	public static void setSensorSampleTime(ByteBuffer struct, double SensorSampleTime) { nsetSensorSampleTime(memAddress(struct), SensorSampleTime); }
 
 	// -----------------------------------
 
@@ -328,6 +338,7 @@ public class OVRLayerEyeFov extends Struct {
 		public OVRFovPort getFov(int index) { return ngetFov(address(), index); }
 		public void getRenderPose(ByteBuffer RenderPose) { ngetRenderPose(address(), RenderPose); }
 		public OVRPosef getRenderPose(int index) { return ngetRenderPose(address(), index); }
+		public double getSensorSampleTime() { return ngetSensorSampleTime(address()); }
 
 		public OVRLayerEyeFov.Buffer setHeader(OVRLayerHeader Header) { nsetHeader(address(), Header); return this; }
 		public OVRLayerEyeFov.Buffer setHeaderType(int Type) { nsetHeaderType(address(), Type); return this; }
@@ -340,6 +351,7 @@ public class OVRLayerEyeFov extends Struct {
 		public OVRLayerEyeFov.Buffer setFov(int index, OVRFovPort Fov) { nsetFov(address(), index, Fov); return this; }
 		public OVRLayerEyeFov.Buffer setRenderPose(ByteBuffer RenderPose) { nsetRenderPose(address(), RenderPose); return this; }
 		public OVRLayerEyeFov.Buffer setRenderPose(int index, OVRPosef RenderPose) { nsetRenderPose(address(), index, RenderPose); return this; }
+		public OVRLayerEyeFov.Buffer setSensorSampleTime(double SensorSampleTime) { nsetSensorSampleTime(address(), SensorSampleTime); return this; }
 
 	}
 

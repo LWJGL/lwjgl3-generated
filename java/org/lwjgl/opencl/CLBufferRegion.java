@@ -90,7 +90,7 @@ public class CLBufferRegion extends Struct {
 	 * @return this struct
 	 */
 	public CLBufferRegion set(CLBufferRegion src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

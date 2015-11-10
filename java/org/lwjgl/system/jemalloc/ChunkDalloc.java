@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libffi.LibFFI.*;
 
 /** Instances of this interface may be set to the {@link ChunkHooks} struct. */
-public abstract class ChunkDalloc extends Closure.Byte {
+public abstract class ChunkDalloc extends Closure.Boolean {
 
 	private static final FFICIF        CIF  = staticAllocCIF();
 	private static final PointerBuffer ARGS = staticAllocPointer(4);
@@ -39,11 +39,11 @@ public abstract class ChunkDalloc extends Closure.Byte {
 	 * @param args pointer to an array of jvalues
 	 */
 	@Override
-	protected byte callback(long args) {
+	protected boolean callback(long args) {
 		return invoke(
 			memGetAddress(memGetAddress(POINTER_SIZE * 0 + args)),
 			memGetAddress(memGetAddress(POINTER_SIZE * 1 + args)),
-			memGetByte(memGetAddress(POINTER_SIZE * 2 + args)),
+			memGetBoolean(memGetAddress(POINTER_SIZE * 2 + args)),
 			memGetInt(memGetAddress(POINTER_SIZE * 3 + args))
 		);
 	}
@@ -56,11 +56,11 @@ public abstract class ChunkDalloc extends Closure.Byte {
 	 * @param committed 
 	 * @param arena_ind 
 	 */
-	public abstract byte invoke(long chunk, long size, byte committed, int arena_ind);
+	public abstract boolean invoke(long chunk, long size, boolean committed, int arena_ind);
 
 	/** A functional interface for {@link ChunkDalloc}. */
 	public interface SAM {
-		byte invoke(long chunk, long size, byte committed, int arena_ind);
+		boolean invoke(long chunk, long size, boolean committed, int arena_ind);
 	}
 
 	/**
@@ -73,7 +73,7 @@ public abstract class ChunkDalloc extends Closure.Byte {
 	public static ChunkDalloc create(final SAM sam) {
 		return new ChunkDalloc() {
 			@Override
-			public byte invoke(long chunk, long size, byte committed, int arena_ind) {
+			public boolean invoke(long chunk, long size, boolean committed, int arena_ind) {
 				return sam.invoke(chunk, size, committed, arena_ind);
 			}
 		};

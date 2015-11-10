@@ -10,6 +10,11 @@ ENABLE_WARNINGS()
 
 EXTERN_C_ENTER
 
+JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1Detect(JNIEnv *__env, jclass clazz, jint timeoutMsec, jlong __result) {
+	UNUSED_PARAMS(__env, clazz)
+	*((ovrDetectResult*)(intptr_t)__result) = ovr_Detect(timeoutMsec);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novrMatrix4f_1Projection(JNIEnv *__env, jclass clazz, jlong fovAddress, jfloat znear, jfloat zfar, jint projectionModFlags, jlong __result) {
 	ovrFovPort *fov = (ovrFovPort *)(intptr_t)fovAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -37,13 +42,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1CalcEyePoses(JNIEnv *__e
 	ovr_CalcEyePoses(*headPose, hmdToEyeViewOffset, outEyePoses);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1GetEyePoses(JNIEnv *__env, jclass clazz, jlong hmdAddress, jint frameIndex, jlong hmdToEyeViewOffsetAddress, jlong outEyePosesAddress, jlong outHmdTrackingStateAddress) {
-	ovrHmd hmd = (ovrHmd)(intptr_t)hmdAddress;
+JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1GetEyePoses(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong frameIndex, jboolean latencyMarker, jlong hmdToEyeViewOffsetAddress, jlong outEyePosesAddress, jlong outHmdTrackingStateAddress) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
 	const ovrVector3f *hmdToEyeViewOffset = (const ovrVector3f *)(intptr_t)hmdToEyeViewOffsetAddress;
 	ovrPosef *outEyePoses = (ovrPosef *)(intptr_t)outEyePosesAddress;
 	ovrTrackingState *outHmdTrackingState = (ovrTrackingState *)(intptr_t)outHmdTrackingStateAddress;
 	UNUSED_PARAMS(__env, clazz)
-	ovr_GetEyePoses(hmd, frameIndex, hmdToEyeViewOffset, outEyePoses, outHmdTrackingState);
+	ovr_GetEyePoses(session, frameIndex, latencyMarker, hmdToEyeViewOffset, outEyePoses, outHmdTrackingState);
 }
 
 EXTERN_C_EXIT

@@ -90,7 +90,7 @@ public class CLBusAddressAMD extends Struct {
 	 * @return this struct
 	 */
 	public CLBusAddressAMD set(CLBusAddressAMD src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */

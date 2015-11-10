@@ -63,21 +63,21 @@ public class GLFWGammaRamp extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public ByteBuffer getRed(int byteLen) { return ngetRed(address(), byteLen); }
-	public ByteBuffer getGreen(int byteLen) { return ngetGreen(address(), byteLen); }
-	public ByteBuffer getBlue(int byteLen) { return ngetBlue(address(), byteLen); }
+	public ShortBuffer getRed(int capacity) { return ngetRed(address(), capacity); }
+	public ShortBuffer getGreen(int capacity) { return ngetGreen(address(), capacity); }
+	public ShortBuffer getBlue(int capacity) { return ngetBlue(address(), capacity); }
 	public int getSize() { return ngetSize(address()); }
 
-	public GLFWGammaRamp setRed(ByteBuffer red) { nsetRed(address(), red); return this; }
-	public GLFWGammaRamp setGreen(ByteBuffer green) { nsetGreen(address(), green); return this; }
-	public GLFWGammaRamp setBlue(ByteBuffer blue) { nsetBlue(address(), blue); return this; }
+	public GLFWGammaRamp setRed(ShortBuffer red) { nsetRed(address(), red); return this; }
+	public GLFWGammaRamp setGreen(ShortBuffer green) { nsetGreen(address(), green); return this; }
+	public GLFWGammaRamp setBlue(ShortBuffer blue) { nsetBlue(address(), blue); return this; }
 	public GLFWGammaRamp setSize(int size) { nsetSize(address(), size); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public GLFWGammaRamp set(
-		ByteBuffer red,
-		ByteBuffer green,
-		ByteBuffer blue,
+		ShortBuffer red,
+		ShortBuffer green,
+		ShortBuffer blue,
 		int size
 	) {
 		setRed(red);
@@ -102,7 +102,7 @@ public class GLFWGammaRamp extends Struct {
 	 * @return this struct
 	 */
 	public GLFWGammaRamp set(GLFWGammaRamp src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */
@@ -167,26 +167,26 @@ public class GLFWGammaRamp extends Struct {
 	}
 
 	public static long ngetRed(long struct) { return memGetAddress(struct + RED); }
-	public static ByteBuffer ngetRed(long struct, int byteLen) { return memByteBuffer(ngetRed(struct), byteLen); }
-	public static ByteBuffer getRed(ByteBuffer struct, int byteLen) { return ngetRed(memAddress(struct), byteLen); }
+	public static ShortBuffer ngetRed(long struct, int capacity) { return memShortBuffer(ngetRed(struct), capacity); }
+	public static ShortBuffer getRed(ByteBuffer struct, int capacity) { return ngetRed(memAddress(struct), capacity); }
 	public static long ngetGreen(long struct) { return memGetAddress(struct + GREEN); }
-	public static ByteBuffer ngetGreen(long struct, int byteLen) { return memByteBuffer(ngetGreen(struct), byteLen); }
-	public static ByteBuffer getGreen(ByteBuffer struct, int byteLen) { return ngetGreen(memAddress(struct), byteLen); }
+	public static ShortBuffer ngetGreen(long struct, int capacity) { return memShortBuffer(ngetGreen(struct), capacity); }
+	public static ShortBuffer getGreen(ByteBuffer struct, int capacity) { return ngetGreen(memAddress(struct), capacity); }
 	public static long ngetBlue(long struct) { return memGetAddress(struct + BLUE); }
-	public static ByteBuffer ngetBlue(long struct, int byteLen) { return memByteBuffer(ngetBlue(struct), byteLen); }
-	public static ByteBuffer getBlue(ByteBuffer struct, int byteLen) { return ngetBlue(memAddress(struct), byteLen); }
+	public static ShortBuffer ngetBlue(long struct, int capacity) { return memShortBuffer(ngetBlue(struct), capacity); }
+	public static ShortBuffer getBlue(ByteBuffer struct, int capacity) { return ngetBlue(memAddress(struct), capacity); }
 	public static int ngetSize(long struct) { return memGetInt(struct + SIZE); }
 	public static int getSize(ByteBuffer struct) { return ngetSize(memAddress(struct)); }
 
 	public static void nsetRed(long struct, long red) { memPutAddress(struct + RED, red); }
-	public static void nsetRed(long struct, ByteBuffer red) { nsetRed(struct, memAddressSafe(red)); }
-	public static void setRed(ByteBuffer struct, ByteBuffer red) { nsetRed(memAddress(struct), red); }
+	public static void nsetRed(long struct, ShortBuffer red) { nsetRed(struct, memAddressSafe(red)); }
+	public static void setRed(ByteBuffer struct, ShortBuffer red) { nsetRed(memAddress(struct), red); }
 	public static void nsetGreen(long struct, long green) { memPutAddress(struct + GREEN, green); }
-	public static void nsetGreen(long struct, ByteBuffer green) { nsetGreen(struct, memAddressSafe(green)); }
-	public static void setGreen(ByteBuffer struct, ByteBuffer green) { nsetGreen(memAddress(struct), green); }
+	public static void nsetGreen(long struct, ShortBuffer green) { nsetGreen(struct, memAddressSafe(green)); }
+	public static void setGreen(ByteBuffer struct, ShortBuffer green) { nsetGreen(memAddress(struct), green); }
 	public static void nsetBlue(long struct, long blue) { memPutAddress(struct + BLUE, blue); }
-	public static void nsetBlue(long struct, ByteBuffer blue) { nsetBlue(struct, memAddressSafe(blue)); }
-	public static void setBlue(ByteBuffer struct, ByteBuffer blue) { nsetBlue(memAddress(struct), blue); }
+	public static void nsetBlue(long struct, ShortBuffer blue) { nsetBlue(struct, memAddressSafe(blue)); }
+	public static void setBlue(ByteBuffer struct, ShortBuffer blue) { nsetBlue(memAddress(struct), blue); }
 	public static void nsetSize(long struct, int size) { memPutInt(struct + SIZE, size); }
 	public static void setSize(ByteBuffer struct, int size) { nsetSize(memAddress(struct), size); }
 
@@ -232,14 +232,14 @@ public class GLFWGammaRamp extends Struct {
 			return SIZEOF;
 		}
 
-		public ByteBuffer getRed(int byteLen) { return ngetRed(address(), byteLen); }
-		public ByteBuffer getGreen(int byteLen) { return ngetGreen(address(), byteLen); }
-		public ByteBuffer getBlue(int byteLen) { return ngetBlue(address(), byteLen); }
+		public ShortBuffer getRed(int capacity) { return ngetRed(address(), capacity); }
+		public ShortBuffer getGreen(int capacity) { return ngetGreen(address(), capacity); }
+		public ShortBuffer getBlue(int capacity) { return ngetBlue(address(), capacity); }
 		public int getSize() { return ngetSize(address()); }
 
-		public GLFWGammaRamp.Buffer setRed(ByteBuffer red) { nsetRed(address(), red); return this; }
-		public GLFWGammaRamp.Buffer setGreen(ByteBuffer green) { nsetGreen(address(), green); return this; }
-		public GLFWGammaRamp.Buffer setBlue(ByteBuffer blue) { nsetBlue(address(), blue); return this; }
+		public GLFWGammaRamp.Buffer setRed(ShortBuffer red) { nsetRed(address(), red); return this; }
+		public GLFWGammaRamp.Buffer setGreen(ShortBuffer green) { nsetGreen(address(), green); return this; }
+		public GLFWGammaRamp.Buffer setBlue(ShortBuffer blue) { nsetBlue(address(), blue); return this; }
 		public GLFWGammaRamp.Buffer setSize(int size) { nsetSize(address(), size); return this; }
 
 	}

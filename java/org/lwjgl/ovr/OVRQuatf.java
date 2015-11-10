@@ -102,7 +102,7 @@ public class OVRQuatf extends Struct {
 	 * @return this struct
 	 */
 	public OVRQuatf set(OVRQuatf src) {
-		return nset(address());
+		return nset(src.address());
 	}
 
 	/** {@link ByteBuffer} version of {@link #set}. */
