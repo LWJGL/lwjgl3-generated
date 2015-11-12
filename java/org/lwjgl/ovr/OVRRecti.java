@@ -13,7 +13,16 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** A 2D rectangle with a position and size. All components are integers. */
+/**
+ * A 2D rectangle with a position and size. All components are integers.
+ * 
+ * <h3>ovrRecti members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>Pos</td><td class="nw">ovrVector2i</td><td>the rectangle position</td></tr>
+ * <tr><td>Size</td><td class="nw">ovrSizei</td><td>the rectangle size</td></tr>
+ * </table>
+ */
 public class OVRRecti extends Struct {
 
 	/** The struct size in bytes. */
@@ -59,32 +68,28 @@ public class OVRRecti extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public OVRVector2i getPos() { return ngetPos(address()); }
-	public int getPosX() { return ngetPosX(address()); }
-	public int getPosY() { return ngetPosY(address()); }
-	public OVRSizei getSize() { return ngetSize(address()); }
-	public int getSizeW() { return ngetSizeW(address()); }
-	public int getSizeH() { return ngetSizeH(address()); }
+	/** Returns a {@link OVRVector2i} view of the {@code Pos} field. */
+	public OVRVector2i Pos() { return nPos(address()); }
+	/** Returns a {@link OVRSizei} view of the {@code Size} field. */
+	public OVRSizei Size() { return nSize(address()); }
 
-	public OVRRecti setPos(OVRVector2i Pos) { nsetPos(address(), Pos); return this; }
-	public OVRRecti setPosX(int x) { nsetPosX(address(), x); return this; }
-	public OVRRecti setPosY(int y) { nsetPosY(address(), y); return this; }
-	public OVRRecti setSize(OVRSizei Size) { nsetSize(address(), Size); return this; }
-	public OVRRecti setSizeW(int w) { nsetSizeW(address(), w); return this; }
-	public OVRRecti setSizeH(int h) { nsetSizeH(address(), h); return this; }
+	/** Copies the specified {@link OVRVector2i} to the {@code Pos} field. */
+	public OVRRecti Pos(OVRVector2i value) { nPos(address(), value); return this; }
+	/** Copies the specified {@link OVRSizei} to the {@code Size} field. */
+	public OVRRecti Size(OVRSizei value) { nSize(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public OVRRecti set(
 		OVRVector2i Pos,
 		OVRSizei Size
 	) {
-		setPos(Pos);
-		setSize(Size);
+		Pos(Pos);
+		Size(Size);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(OVRRecti) set}. */
 	public OVRRecti nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -101,7 +106,7 @@ public class OVRRecti extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(OVRRecti) set}. */
 	public OVRRecti set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -162,35 +167,15 @@ public class OVRRecti extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static OVRVector2i ngetPos(long struct) { return OVRVector2i.malloc().nset(struct + POS); }
-	/** Returns a copy of the {@code Pos} {@link OVRVector2i} struct. */
-	public static OVRVector2i getPos(ByteBuffer struct) { return ngetPos(memAddress(struct)); }
-	public static int ngetPosX(long struct) { return memGetInt(struct + POS + OVRVector2i.X); }
-	public static int getPosX(ByteBuffer struct) { return ngetPosX(memAddress(struct)); }
-	public static int ngetPosY(long struct) { return memGetInt(struct + POS + OVRVector2i.Y); }
-	public static int getPosY(ByteBuffer struct) { return ngetPosY(memAddress(struct)); }
-	public static OVRSizei ngetSize(long struct) { return OVRSizei.malloc().nset(struct + SIZE); }
-	/** Returns a copy of the {@code Size} {@link OVRSizei} struct. */
-	public static OVRSizei getSize(ByteBuffer struct) { return ngetSize(memAddress(struct)); }
-	public static int ngetSizeW(long struct) { return memGetInt(struct + SIZE + OVRSizei.W); }
-	public static int getSizeW(ByteBuffer struct) { return ngetSizeW(memAddress(struct)); }
-	public static int ngetSizeH(long struct) { return memGetInt(struct + SIZE + OVRSizei.H); }
-	public static int getSizeH(ByteBuffer struct) { return ngetSizeH(memAddress(struct)); }
+	/** Unsafe version of {@link #Pos}. */
+	public static OVRVector2i nPos(long struct) { return new OVRVector2i(struct + OVRRecti.POS); }
+	/** Unsafe version of {@link #Size}. */
+	public static OVRSizei nSize(long struct) { return new OVRSizei(struct + OVRRecti.SIZE); }
 
-	public static void nsetPos(long struct, OVRVector2i Pos) { memCopy(Pos.address(), struct + POS, OVRVector2i.SIZEOF); }
-	/** Copies the specified {@link OVRVector2i} struct to the nested {@code Pos} struct. */
-	public static void setPos(ByteBuffer struct, OVRVector2i Pos) { nsetPos(memAddress(struct), Pos); }
-	public static void nsetPosX(long struct, int x) { memPutInt(struct + POS + OVRVector2i.X, x); }
-	public static void setPosX(ByteBuffer struct, int x) { nsetPosX(memAddress(struct), x); }
-	public static void nsetPosY(long struct, int y) { memPutInt(struct + POS + OVRVector2i.Y, y); }
-	public static void setPosY(ByteBuffer struct, int y) { nsetPosY(memAddress(struct), y); }
-	public static void nsetSize(long struct, OVRSizei Size) { memCopy(Size.address(), struct + SIZE, OVRSizei.SIZEOF); }
-	/** Copies the specified {@link OVRSizei} struct to the nested {@code Size} struct. */
-	public static void setSize(ByteBuffer struct, OVRSizei Size) { nsetSize(memAddress(struct), Size); }
-	public static void nsetSizeW(long struct, int w) { memPutInt(struct + SIZE + OVRSizei.W, w); }
-	public static void setSizeW(ByteBuffer struct, int w) { nsetSizeW(memAddress(struct), w); }
-	public static void nsetSizeH(long struct, int h) { memPutInt(struct + SIZE + OVRSizei.H, h); }
-	public static void setSizeH(ByteBuffer struct, int h) { nsetSizeH(memAddress(struct), h); }
+	/** Unsafe version of {@link #Pos(OVRVector2i) Pos}. */
+	public static void nPos(long struct, OVRVector2i value) { memCopy(value.address(), struct + OVRRecti.POS, OVRVector2i.SIZEOF); }
+	/** Unsafe version of {@link #Size(OVRSizei) Size}. */
+	public static void nSize(long struct, OVRSizei value) { memCopy(value.address(), struct + OVRRecti.SIZE, OVRSizei.SIZEOF); }
 
 	// -----------------------------------
 
@@ -234,19 +219,15 @@ public class OVRRecti extends Struct {
 			return SIZEOF;
 		}
 
-		public OVRVector2i getPos() { return ngetPos(address()); }
-		public int getPosX() { return ngetPosX(address()); }
-		public int getPosY() { return ngetPosY(address()); }
-		public OVRSizei getSize() { return ngetSize(address()); }
-		public int getSizeW() { return ngetSizeW(address()); }
-		public int getSizeH() { return ngetSizeH(address()); }
+		/** Returns a {@link OVRVector2i} view of the {@code Pos} field. */
+		public OVRVector2i Pos() { return nPos(address()); }
+		/** Returns a {@link OVRSizei} view of the {@code Size} field. */
+		public OVRSizei Size() { return nSize(address()); }
 
-		public OVRRecti.Buffer setPos(OVRVector2i Pos) { nsetPos(address(), Pos); return this; }
-		public OVRRecti.Buffer setPosX(int x) { nsetPosX(address(), x); return this; }
-		public OVRRecti.Buffer setPosY(int y) { nsetPosY(address(), y); return this; }
-		public OVRRecti.Buffer setSize(OVRSizei Size) { nsetSize(address(), Size); return this; }
-		public OVRRecti.Buffer setSizeW(int w) { nsetSizeW(address(), w); return this; }
-		public OVRRecti.Buffer setSizeH(int h) { nsetSizeH(address(), h); return this; }
+		/** Copies the specified {@link OVRVector2i} to the {@code Pos} field. */
+		public OVRRecti.Buffer Pos(OVRVector2i value) { nPos(address(), value); return this; }
+		/** Copies the specified {@link OVRSizei} to the {@code Size} field. */
+		public OVRRecti.Buffer Size(OVRSizei value) { nSize(address(), value); return this; }
 
 	}
 

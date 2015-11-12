@@ -10,10 +10,21 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Specifies a reading we can query from the sensor. */
+/**
+ * Specifies a reading we can query from the sensor.
+ * 
+ * <h3>ovrSensorData members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>Accelerometer</td><td class="nw">ovrVector3f</td><td>acceleration reading in m/s^2</td></tr>
+ * <tr><td>Gyro</td><td class="nw">ovrVector3f</td><td>rotation rate in rad/s</td></tr>
+ * <tr><td>Magnetometer</td><td class="nw">ovrVector3f</td><td>magnetic field in Gauss</td></tr>
+ * <tr><td>Temperature</td><td class="nw">float</td><td>temperature of the sensor in degrees Celsius</td></tr>
+ * <tr><td>TimeInSeconds</td><td class="nw">float</td><td>time when the reported IMU reading took place, in seconds</td></tr>
+ * </table>
+ */
 public class OVRSensorData extends Struct {
 
 	/** The struct size in bytes. */
@@ -65,20 +76,16 @@ public class OVRSensorData extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public OVRVector3f getAccelerometer() { return ngetAccelerometer(address()); }
-	public float getAccelerometerX() { return ngetAccelerometerX(address()); }
-	public float getAccelerometerY() { return ngetAccelerometerY(address()); }
-	public float getAccelerometerZ() { return ngetAccelerometerZ(address()); }
-	public OVRVector3f getGyro() { return ngetGyro(address()); }
-	public float getGyroX() { return ngetGyroX(address()); }
-	public float getGyroY() { return ngetGyroY(address()); }
-	public float getGyroZ() { return ngetGyroZ(address()); }
-	public OVRVector3f getMagnetometer() { return ngetMagnetometer(address()); }
-	public float getMagnetometerX() { return ngetMagnetometerX(address()); }
-	public float getMagnetometerY() { return ngetMagnetometerY(address()); }
-	public float getMagnetometerZ() { return ngetMagnetometerZ(address()); }
-	public float getTemperature() { return ngetTemperature(address()); }
-	public float getTimeInSeconds() { return ngetTimeInSeconds(address()); }
+	/** Returns a {@link OVRVector3f} view of the {@code Accelerometer} field. */
+	public OVRVector3f Accelerometer() { return nAccelerometer(address()); }
+	/** Returns a {@link OVRVector3f} view of the {@code Gyro} field. */
+	public OVRVector3f Gyro() { return nGyro(address()); }
+	/** Returns a {@link OVRVector3f} view of the {@code Magnetometer} field. */
+	public OVRVector3f Magnetometer() { return nMagnetometer(address()); }
+	/** Returns the value of the {@code Temperature} field. */
+	public float Temperature() { return nTemperature(address()); }
+	/** Returns the value of the {@code TimeInSeconds} field. */
+	public float TimeInSeconds() { return nTimeInSeconds(address()); }
 
 	// -----------------------------------
 
@@ -134,37 +141,16 @@ public class OVRSensorData extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static OVRVector3f ngetAccelerometer(long struct) { return OVRVector3f.malloc().nset(struct + ACCELEROMETER); }
-	/** Returns a copy of the {@code Accelerometer} {@link OVRVector3f} struct. */
-	public static OVRVector3f getAccelerometer(ByteBuffer struct) { return ngetAccelerometer(memAddress(struct)); }
-	public static float ngetAccelerometerX(long struct) { return memGetFloat(struct + ACCELEROMETER + OVRVector3f.X); }
-	public static float getAccelerometerX(ByteBuffer struct) { return ngetAccelerometerX(memAddress(struct)); }
-	public static float ngetAccelerometerY(long struct) { return memGetFloat(struct + ACCELEROMETER + OVRVector3f.Y); }
-	public static float getAccelerometerY(ByteBuffer struct) { return ngetAccelerometerY(memAddress(struct)); }
-	public static float ngetAccelerometerZ(long struct) { return memGetFloat(struct + ACCELEROMETER + OVRVector3f.Z); }
-	public static float getAccelerometerZ(ByteBuffer struct) { return ngetAccelerometerZ(memAddress(struct)); }
-	public static OVRVector3f ngetGyro(long struct) { return OVRVector3f.malloc().nset(struct + GYRO); }
-	/** Returns a copy of the {@code Gyro} {@link OVRVector3f} struct. */
-	public static OVRVector3f getGyro(ByteBuffer struct) { return ngetGyro(memAddress(struct)); }
-	public static float ngetGyroX(long struct) { return memGetFloat(struct + GYRO + OVRVector3f.X); }
-	public static float getGyroX(ByteBuffer struct) { return ngetGyroX(memAddress(struct)); }
-	public static float ngetGyroY(long struct) { return memGetFloat(struct + GYRO + OVRVector3f.Y); }
-	public static float getGyroY(ByteBuffer struct) { return ngetGyroY(memAddress(struct)); }
-	public static float ngetGyroZ(long struct) { return memGetFloat(struct + GYRO + OVRVector3f.Z); }
-	public static float getGyroZ(ByteBuffer struct) { return ngetGyroZ(memAddress(struct)); }
-	public static OVRVector3f ngetMagnetometer(long struct) { return OVRVector3f.malloc().nset(struct + MAGNETOMETER); }
-	/** Returns a copy of the {@code Magnetometer} {@link OVRVector3f} struct. */
-	public static OVRVector3f getMagnetometer(ByteBuffer struct) { return ngetMagnetometer(memAddress(struct)); }
-	public static float ngetMagnetometerX(long struct) { return memGetFloat(struct + MAGNETOMETER + OVRVector3f.X); }
-	public static float getMagnetometerX(ByteBuffer struct) { return ngetMagnetometerX(memAddress(struct)); }
-	public static float ngetMagnetometerY(long struct) { return memGetFloat(struct + MAGNETOMETER + OVRVector3f.Y); }
-	public static float getMagnetometerY(ByteBuffer struct) { return ngetMagnetometerY(memAddress(struct)); }
-	public static float ngetMagnetometerZ(long struct) { return memGetFloat(struct + MAGNETOMETER + OVRVector3f.Z); }
-	public static float getMagnetometerZ(ByteBuffer struct) { return ngetMagnetometerZ(memAddress(struct)); }
-	public static float ngetTemperature(long struct) { return memGetFloat(struct + TEMPERATURE); }
-	public static float getTemperature(ByteBuffer struct) { return ngetTemperature(memAddress(struct)); }
-	public static float ngetTimeInSeconds(long struct) { return memGetFloat(struct + TIMEINSECONDS); }
-	public static float getTimeInSeconds(ByteBuffer struct) { return ngetTimeInSeconds(memAddress(struct)); }
+	/** Unsafe version of {@link #Accelerometer}. */
+	public static OVRVector3f nAccelerometer(long struct) { return new OVRVector3f(struct + OVRSensorData.ACCELEROMETER); }
+	/** Unsafe version of {@link #Gyro}. */
+	public static OVRVector3f nGyro(long struct) { return new OVRVector3f(struct + OVRSensorData.GYRO); }
+	/** Unsafe version of {@link #Magnetometer}. */
+	public static OVRVector3f nMagnetometer(long struct) { return new OVRVector3f(struct + OVRSensorData.MAGNETOMETER); }
+	/** Unsafe version of {@link #Temperature}. */
+	public static float nTemperature(long struct) { return memGetFloat(struct + OVRSensorData.TEMPERATURE); }
+	/** Unsafe version of {@link #TimeInSeconds}. */
+	public static float nTimeInSeconds(long struct) { return memGetFloat(struct + OVRSensorData.TIMEINSECONDS); }
 
 	// -----------------------------------
 
@@ -208,20 +194,16 @@ public class OVRSensorData extends Struct {
 			return SIZEOF;
 		}
 
-		public OVRVector3f getAccelerometer() { return ngetAccelerometer(address()); }
-		public float getAccelerometerX() { return ngetAccelerometerX(address()); }
-		public float getAccelerometerY() { return ngetAccelerometerY(address()); }
-		public float getAccelerometerZ() { return ngetAccelerometerZ(address()); }
-		public OVRVector3f getGyro() { return ngetGyro(address()); }
-		public float getGyroX() { return ngetGyroX(address()); }
-		public float getGyroY() { return ngetGyroY(address()); }
-		public float getGyroZ() { return ngetGyroZ(address()); }
-		public OVRVector3f getMagnetometer() { return ngetMagnetometer(address()); }
-		public float getMagnetometerX() { return ngetMagnetometerX(address()); }
-		public float getMagnetometerY() { return ngetMagnetometerY(address()); }
-		public float getMagnetometerZ() { return ngetMagnetometerZ(address()); }
-		public float getTemperature() { return ngetTemperature(address()); }
-		public float getTimeInSeconds() { return ngetTimeInSeconds(address()); }
+		/** Returns a {@link OVRVector3f} view of the {@code Accelerometer} field. */
+		public OVRVector3f Accelerometer() { return nAccelerometer(address()); }
+		/** Returns a {@link OVRVector3f} view of the {@code Gyro} field. */
+		public OVRVector3f Gyro() { return nGyro(address()); }
+		/** Returns a {@link OVRVector3f} view of the {@code Magnetometer} field. */
+		public OVRVector3f Magnetometer() { return nMagnetometer(address()); }
+		/** Returns the value of the {@code Temperature} field. */
+		public float Temperature() { return nTemperature(address()); }
+		/** Returns the value of the {@code TimeInSeconds} field. */
+		public float TimeInSeconds() { return nTimeInSeconds(address()); }
 
 	}
 

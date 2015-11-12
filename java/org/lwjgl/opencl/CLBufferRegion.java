@@ -13,7 +13,16 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Buffer region struct. */
+/**
+ * Buffer region struct.
+ * 
+ * <h3>cl_buffer_region members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>origin</td><td class="nw">size_t</td><td>the region offset, in bytes</td></tr>
+ * <tr><td>size</td><td class="nw">size_t</td><td>the region size, in bytes</td></tr>
+ * </table>
+ */
 public class CLBufferRegion extends Struct {
 
 	/** The struct size in bytes. */
@@ -59,24 +68,28 @@ public class CLBufferRegion extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public long getOrigin() { return ngetOrigin(address()); }
-	public long getSize() { return ngetSize(address()); }
+	/** Returns the value of the {@code origin} field. */
+	public long origin() { return norigin(address()); }
+	/** Returns the value of the {@code size} field. */
+	public long size() { return nsize(address()); }
 
-	public CLBufferRegion setOrigin(long origin) { nsetOrigin(address(), origin); return this; }
-	public CLBufferRegion setSize(long size) { nsetSize(address(), size); return this; }
+	/** Sets the specified value to the {@code origin} field. */
+	public CLBufferRegion origin(long value) { norigin(address(), value); return this; }
+	/** Sets the specified value to the {@code size} field. */
+	public CLBufferRegion size(long value) { nsize(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public CLBufferRegion set(
 		long origin,
 		long size
 	) {
-		setOrigin(origin);
-		setSize(size);
+		origin(origin);
+		size(size);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(CLBufferRegion) set}. */
 	public CLBufferRegion nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -93,7 +106,7 @@ public class CLBufferRegion extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(CLBufferRegion) set}. */
 	public CLBufferRegion set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -154,15 +167,15 @@ public class CLBufferRegion extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static long ngetOrigin(long struct) { return memGetAddress(struct + ORIGIN); }
-	public static long getOrigin(ByteBuffer struct) { return ngetOrigin(memAddress(struct)); }
-	public static long ngetSize(long struct) { return memGetAddress(struct + SIZE); }
-	public static long getSize(ByteBuffer struct) { return ngetSize(memAddress(struct)); }
+	/** Unsafe version of {@link #origin}. */
+	public static long norigin(long struct) { return memGetAddress(struct + CLBufferRegion.ORIGIN); }
+	/** Unsafe version of {@link #size}. */
+	public static long nsize(long struct) { return memGetAddress(struct + CLBufferRegion.SIZE); }
 
-	public static void nsetOrigin(long struct, long origin) { memPutAddress(struct + ORIGIN, origin); }
-	public static void setOrigin(ByteBuffer struct, long origin) { nsetOrigin(memAddress(struct), origin); }
-	public static void nsetSize(long struct, long size) { memPutAddress(struct + SIZE, size); }
-	public static void setSize(ByteBuffer struct, long size) { nsetSize(memAddress(struct), size); }
+	/** Unsafe version of {@link #origin(long) origin}. */
+	public static void norigin(long struct, long value) { memPutAddress(struct + CLBufferRegion.ORIGIN, value); }
+	/** Unsafe version of {@link #size(long) size}. */
+	public static void nsize(long struct, long value) { memPutAddress(struct + CLBufferRegion.SIZE, value); }
 
 	// -----------------------------------
 
@@ -206,11 +219,15 @@ public class CLBufferRegion extends Struct {
 			return SIZEOF;
 		}
 
-		public long getOrigin() { return ngetOrigin(address()); }
-		public long getSize() { return ngetSize(address()); }
+		/** Returns the value of the {@code origin} field. */
+		public long origin() { return norigin(address()); }
+		/** Returns the value of the {@code size} field. */
+		public long size() { return nsize(address()); }
 
-		public CLBufferRegion.Buffer setOrigin(long origin) { nsetOrigin(address(), origin); return this; }
-		public CLBufferRegion.Buffer setSize(long size) { nsetSize(address(), size); return this; }
+		/** Sets the specified value to the {@code origin} field. */
+		public CLBufferRegion.Buffer origin(long value) { norigin(address(), value); return this; }
+		/** Sets the specified value to the {@code size} field. */
+		public CLBufferRegion.Buffer size(long value) { nsize(address(), value); return this; }
 
 	}
 

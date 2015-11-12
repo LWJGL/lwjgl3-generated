@@ -13,7 +13,17 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Image data. */
+/**
+ * Image data.
+ * 
+ * <h3>GLFWimage members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>width</td><td class="nw">int</td><td>the width, in pixels, of this image</td></tr>
+ * <tr><td>height</td><td class="nw">int</td><td>the height, in pixels, of this image</td></tr>
+ * <tr><td>pixels</td><td class="nw">unsigned char</td><td>the pixel data of this image, arranged left-to-right, top-to-bottom</td></tr>
+ * </table>
+ */
 public class GLFWImage extends Struct {
 
 	/** The struct size in bytes. */
@@ -61,13 +71,23 @@ public class GLFWImage extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public int getWidth() { return ngetWidth(address()); }
-	public int getHeight() { return ngetHeight(address()); }
-	public ByteBuffer getPixels(int capacity) { return ngetPixels(address(), capacity); }
+	/** Returns the value of the {@code width} field. */
+	public int width() { return nwidth(address()); }
+	/** Returns the value of the {@code height} field. */
+	public int height() { return nheight(address()); }
+	/**
+	 * Returns a {@link ByteBuffer} view of the data pointed to by the {@code pixels} field.
+	 *
+	 * @param capacity the number of elements in the returned {@link ByteBuffer}
+	 */
+	public ByteBuffer pixels(int capacity) { return npixels(address(), capacity); }
 
-	public GLFWImage setWidth(int width) { nsetWidth(address(), width); return this; }
-	public GLFWImage setHeight(int height) { nsetHeight(address(), height); return this; }
-	public GLFWImage setPixels(ByteBuffer pixels) { nsetPixels(address(), pixels); return this; }
+	/** Sets the specified value to the {@code width} field. */
+	public GLFWImage width(int value) { nwidth(address(), value); return this; }
+	/** Sets the specified value to the {@code height} field. */
+	public GLFWImage height(int value) { nheight(address(), value); return this; }
+	/** Sets the address of the specified {@link ByteBuffer} to the {@code pixels} field. */
+	public GLFWImage pixels(ByteBuffer value) { npixels(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public GLFWImage set(
@@ -75,14 +95,14 @@ public class GLFWImage extends Struct {
 		int height,
 		ByteBuffer pixels
 	) {
-		setWidth(width);
-		setHeight(height);
-		setPixels(pixels);
+		width(width);
+		height(height);
+		pixels(pixels);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(GLFWImage) set}. */
 	public GLFWImage nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -99,7 +119,7 @@ public class GLFWImage extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(GLFWImage) set}. */
 	public GLFWImage set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -160,21 +180,19 @@ public class GLFWImage extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static int ngetWidth(long struct) { return memGetInt(struct + WIDTH); }
-	public static int getWidth(ByteBuffer struct) { return ngetWidth(memAddress(struct)); }
-	public static int ngetHeight(long struct) { return memGetInt(struct + HEIGHT); }
-	public static int getHeight(ByteBuffer struct) { return ngetHeight(memAddress(struct)); }
-	public static long ngetPixels(long struct) { return memGetAddress(struct + PIXELS); }
-	public static ByteBuffer ngetPixels(long struct, int capacity) { return memByteBuffer(ngetPixels(struct), capacity); }
-	public static ByteBuffer getPixels(ByteBuffer struct, int capacity) { return ngetPixels(memAddress(struct), capacity); }
+	/** Unsafe version of {@link #width}. */
+	public static int nwidth(long struct) { return memGetInt(struct + GLFWImage.WIDTH); }
+	/** Unsafe version of {@link #height}. */
+	public static int nheight(long struct) { return memGetInt(struct + GLFWImage.HEIGHT); }
+	/** Unsafe version of {@link #pixels(int) pixels}. */
+	public static ByteBuffer npixels(long struct, int capacity) { return memByteBuffer(memGetAddress(struct + GLFWImage.PIXELS), capacity); }
 
-	public static void nsetWidth(long struct, int width) { memPutInt(struct + WIDTH, width); }
-	public static void setWidth(ByteBuffer struct, int width) { nsetWidth(memAddress(struct), width); }
-	public static void nsetHeight(long struct, int height) { memPutInt(struct + HEIGHT, height); }
-	public static void setHeight(ByteBuffer struct, int height) { nsetHeight(memAddress(struct), height); }
-	public static void nsetPixels(long struct, long pixels) { memPutAddress(struct + PIXELS, pixels); }
-	public static void nsetPixels(long struct, ByteBuffer pixels) { nsetPixels(struct, memAddressSafe(pixels)); }
-	public static void setPixels(ByteBuffer struct, ByteBuffer pixels) { nsetPixels(memAddress(struct), pixels); }
+	/** Unsafe version of {@link #width(int) width}. */
+	public static void nwidth(long struct, int value) { memPutInt(struct + GLFWImage.WIDTH, value); }
+	/** Unsafe version of {@link #height(int) height}. */
+	public static void nheight(long struct, int value) { memPutInt(struct + GLFWImage.HEIGHT, value); }
+	/** Unsafe version of {@link #pixels(ByteBuffer) pixels}. */
+	public static void npixels(long struct, ByteBuffer value) { memPutAddress(struct + GLFWImage.PIXELS, memAddressSafe(value)); }
 
 	// -----------------------------------
 
@@ -218,13 +236,23 @@ public class GLFWImage extends Struct {
 			return SIZEOF;
 		}
 
-		public int getWidth() { return ngetWidth(address()); }
-		public int getHeight() { return ngetHeight(address()); }
-		public ByteBuffer getPixels(int capacity) { return ngetPixels(address(), capacity); }
+		/** Returns the value of the {@code width} field. */
+		public int width() { return nwidth(address()); }
+		/** Returns the value of the {@code height} field. */
+		public int height() { return nheight(address()); }
+		/**
+		 * Returns a {@link ByteBuffer} view of the data pointed to by the {@code pixels} field.
+		 *
+		 * @param capacity the number of elements in the returned {@link ByteBuffer}
+		 */
+		public ByteBuffer pixels(int capacity) { return npixels(address(), capacity); }
 
-		public GLFWImage.Buffer setWidth(int width) { nsetWidth(address(), width); return this; }
-		public GLFWImage.Buffer setHeight(int height) { nsetHeight(address(), height); return this; }
-		public GLFWImage.Buffer setPixels(ByteBuffer pixels) { nsetPixels(address(), pixels); return this; }
+		/** Sets the specified value to the {@code width} field. */
+		public GLFWImage.Buffer width(int value) { nwidth(address(), value); return this; }
+		/** Sets the specified value to the {@code height} field. */
+		public GLFWImage.Buffer height(int value) { nheight(address(), value); return this; }
+		/** Sets the address of the specified {@link ByteBuffer} to the {@code pixels} field. */
+		public GLFWImage.Buffer pixels(ByteBuffer value) { npixels(address(), value); return this; }
 
 	}
 

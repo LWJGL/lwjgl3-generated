@@ -13,7 +13,21 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Parameters for {@link OVR#ovr_Initialize}. */
+/**
+ * Parameters for {@link OVR#ovr_Initialize}.
+ * 
+ * <h3>ovrInitParams members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>Flags</td><td class="nw">uint32_t</td><td>combination of ovrInitFlags or 0</td></tr>
+ * <tr><td>RequestedMinorVersion</td><td class="nw">uint32_t</td><td>request a specific minimum minor version of the LibOVR runtime. Flags must include ovrInit_RequestVersion or this will be ignored.</td></tr>
+ * <tr><td>LogCallback</td><td class="nw">ovrLogCallback</td><td>log callback function, which may be called at any time asynchronously from multiple threads until {@link OVR#ovr_Shutdown} completes. Pass {@code NULL} for no log
+ * callback.</td></tr>
+ * <tr><td>UserData</td><td class="nw">uintptr_t</td><td>user-supplied data which is passed as-is to LogCallback. Typically this is used to store an application-specific pointer which is read in the callback
+ * function.</td></tr>
+ * <tr><td>ConnectionTimeoutMS</td><td class="nw">uint32_t</td><td>number of milliseconds to wait for a connection to the server. Pass 0 for the default timeout</td></tr>
+ * </table>
+ */
 public class OVRInitParams extends Struct {
 
 	/** The struct size in bytes. */
@@ -65,17 +79,27 @@ public class OVRInitParams extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public int getFlags() { return ngetFlags(address()); }
-	public int getRequestedMinorVersion() { return ngetRequestedMinorVersion(address()); }
-	public long getLogCallback() { return ngetLogCallback(address()); }
-	public long getUserData() { return ngetUserData(address()); }
-	public int getConnectionTimeoutMS() { return ngetConnectionTimeoutMS(address()); }
+	/** Returns the value of the {@code Flags} field. */
+	public int Flags() { return nFlags(address()); }
+	/** Returns the value of the {@code RequestedMinorVersion} field. */
+	public int RequestedMinorVersion() { return nRequestedMinorVersion(address()); }
+	/** Returns the {@code OVRLogCallback} instance at the {@code LogCallback} field. */
+	public OVRLogCallback LogCallback() { return nLogCallback(address()); }
+	/** Returns the value of the {@code UserData} field. */
+	public long UserData() { return nUserData(address()); }
+	/** Returns the value of the {@code ConnectionTimeoutMS} field. */
+	public int ConnectionTimeoutMS() { return nConnectionTimeoutMS(address()); }
 
-	public OVRInitParams setFlags(int Flags) { nsetFlags(address(), Flags); return this; }
-	public OVRInitParams setRequestedMinorVersion(int RequestedMinorVersion) { nsetRequestedMinorVersion(address(), RequestedMinorVersion); return this; }
-	public OVRInitParams setLogCallback(long LogCallback) { nsetLogCallback(address(), LogCallback); return this; }
-	public OVRInitParams setUserData(long UserData) { nsetUserData(address(), UserData); return this; }
-	public OVRInitParams setConnectionTimeoutMS(int ConnectionTimeoutMS) { nsetConnectionTimeoutMS(address(), ConnectionTimeoutMS); return this; }
+	/** Sets the specified value to the {@code Flags} field. */
+	public OVRInitParams Flags(int value) { nFlags(address(), value); return this; }
+	/** Sets the specified value to the {@code RequestedMinorVersion} field. */
+	public OVRInitParams RequestedMinorVersion(int value) { nRequestedMinorVersion(address(), value); return this; }
+	/** Sets the specified value to the {@code LogCallback} field. */
+	public OVRInitParams LogCallback(long value) { nLogCallback(address(), value); return this; }
+	/** Sets the specified value to the {@code UserData} field. */
+	public OVRInitParams UserData(long value) { nUserData(address(), value); return this; }
+	/** Sets the specified value to the {@code ConnectionTimeoutMS} field. */
+	public OVRInitParams ConnectionTimeoutMS(int value) { nConnectionTimeoutMS(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public OVRInitParams set(
@@ -85,16 +109,16 @@ public class OVRInitParams extends Struct {
 		long UserData,
 		int ConnectionTimeoutMS
 	) {
-		setFlags(Flags);
-		setRequestedMinorVersion(RequestedMinorVersion);
-		setLogCallback(LogCallback);
-		setUserData(UserData);
-		setConnectionTimeoutMS(ConnectionTimeoutMS);
+		Flags(Flags);
+		RequestedMinorVersion(RequestedMinorVersion);
+		LogCallback(LogCallback);
+		UserData(UserData);
+		ConnectionTimeoutMS(ConnectionTimeoutMS);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(OVRInitParams) set}. */
 	public OVRInitParams nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -111,7 +135,7 @@ public class OVRInitParams extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(OVRInitParams) set}. */
 	public OVRInitParams set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -172,27 +196,27 @@ public class OVRInitParams extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static int ngetFlags(long struct) { return memGetInt(struct + FLAGS); }
-	public static int getFlags(ByteBuffer struct) { return ngetFlags(memAddress(struct)); }
-	public static int ngetRequestedMinorVersion(long struct) { return memGetInt(struct + REQUESTEDMINORVERSION); }
-	public static int getRequestedMinorVersion(ByteBuffer struct) { return ngetRequestedMinorVersion(memAddress(struct)); }
-	public static long ngetLogCallback(long struct) { return memGetAddress(struct + LOGCALLBACK); }
-	public static long getLogCallback(ByteBuffer struct) { return ngetLogCallback(memAddress(struct)); }
-	public static long ngetUserData(long struct) { return memGetAddress(struct + USERDATA); }
-	public static long getUserData(ByteBuffer struct) { return ngetUserData(memAddress(struct)); }
-	public static int ngetConnectionTimeoutMS(long struct) { return memGetInt(struct + CONNECTIONTIMEOUTMS); }
-	public static int getConnectionTimeoutMS(ByteBuffer struct) { return ngetConnectionTimeoutMS(memAddress(struct)); }
+	/** Unsafe version of {@link #Flags}. */
+	public static int nFlags(long struct) { return memGetInt(struct + OVRInitParams.FLAGS); }
+	/** Unsafe version of {@link #RequestedMinorVersion}. */
+	public static int nRequestedMinorVersion(long struct) { return memGetInt(struct + OVRInitParams.REQUESTEDMINORVERSION); }
+	/** Unsafe version of {@link #LogCallback}. */
+	public static OVRLogCallback nLogCallback(long struct) { return org.lwjgl.system.libffi.Closure.create(memGetAddress(struct + OVRInitParams.LOGCALLBACK)); }
+	/** Unsafe version of {@link #UserData}. */
+	public static long nUserData(long struct) { return memGetAddress(struct + OVRInitParams.USERDATA); }
+	/** Unsafe version of {@link #ConnectionTimeoutMS}. */
+	public static int nConnectionTimeoutMS(long struct) { return memGetInt(struct + OVRInitParams.CONNECTIONTIMEOUTMS); }
 
-	public static void nsetFlags(long struct, int Flags) { memPutInt(struct + FLAGS, Flags); }
-	public static void setFlags(ByteBuffer struct, int Flags) { nsetFlags(memAddress(struct), Flags); }
-	public static void nsetRequestedMinorVersion(long struct, int RequestedMinorVersion) { memPutInt(struct + REQUESTEDMINORVERSION, RequestedMinorVersion); }
-	public static void setRequestedMinorVersion(ByteBuffer struct, int RequestedMinorVersion) { nsetRequestedMinorVersion(memAddress(struct), RequestedMinorVersion); }
-	public static void nsetLogCallback(long struct, long LogCallback) { memPutAddress(struct + LOGCALLBACK, LogCallback); }
-	public static void setLogCallback(ByteBuffer struct, long LogCallback) { nsetLogCallback(memAddress(struct), LogCallback); }
-	public static void nsetUserData(long struct, long UserData) { memPutAddress(struct + USERDATA, UserData); }
-	public static void setUserData(ByteBuffer struct, long UserData) { nsetUserData(memAddress(struct), UserData); }
-	public static void nsetConnectionTimeoutMS(long struct, int ConnectionTimeoutMS) { memPutInt(struct + CONNECTIONTIMEOUTMS, ConnectionTimeoutMS); }
-	public static void setConnectionTimeoutMS(ByteBuffer struct, int ConnectionTimeoutMS) { nsetConnectionTimeoutMS(memAddress(struct), ConnectionTimeoutMS); }
+	/** Unsafe version of {@link #Flags(int) Flags}. */
+	public static void nFlags(long struct, int value) { memPutInt(struct + OVRInitParams.FLAGS, value); }
+	/** Unsafe version of {@link #RequestedMinorVersion(int) RequestedMinorVersion}. */
+	public static void nRequestedMinorVersion(long struct, int value) { memPutInt(struct + OVRInitParams.REQUESTEDMINORVERSION, value); }
+	/** Unsafe version of {@link #LogCallback(long) LogCallback}. */
+	public static void nLogCallback(long struct, long value) { memPutAddress(struct + OVRInitParams.LOGCALLBACK, value); }
+	/** Unsafe version of {@link #UserData(long) UserData}. */
+	public static void nUserData(long struct, long value) { memPutAddress(struct + OVRInitParams.USERDATA, value); }
+	/** Unsafe version of {@link #ConnectionTimeoutMS(int) ConnectionTimeoutMS}. */
+	public static void nConnectionTimeoutMS(long struct, int value) { memPutInt(struct + OVRInitParams.CONNECTIONTIMEOUTMS, value); }
 
 	// -----------------------------------
 
@@ -236,17 +260,27 @@ public class OVRInitParams extends Struct {
 			return SIZEOF;
 		}
 
-		public int getFlags() { return ngetFlags(address()); }
-		public int getRequestedMinorVersion() { return ngetRequestedMinorVersion(address()); }
-		public long getLogCallback() { return ngetLogCallback(address()); }
-		public long getUserData() { return ngetUserData(address()); }
-		public int getConnectionTimeoutMS() { return ngetConnectionTimeoutMS(address()); }
+		/** Returns the value of the {@code Flags} field. */
+		public int Flags() { return nFlags(address()); }
+		/** Returns the value of the {@code RequestedMinorVersion} field. */
+		public int RequestedMinorVersion() { return nRequestedMinorVersion(address()); }
+		/** Returns the {@code OVRLogCallback} instance at the {@code LogCallback} field. */
+		public OVRLogCallback LogCallback() { return nLogCallback(address()); }
+		/** Returns the value of the {@code UserData} field. */
+		public long UserData() { return nUserData(address()); }
+		/** Returns the value of the {@code ConnectionTimeoutMS} field. */
+		public int ConnectionTimeoutMS() { return nConnectionTimeoutMS(address()); }
 
-		public OVRInitParams.Buffer setFlags(int Flags) { nsetFlags(address(), Flags); return this; }
-		public OVRInitParams.Buffer setRequestedMinorVersion(int RequestedMinorVersion) { nsetRequestedMinorVersion(address(), RequestedMinorVersion); return this; }
-		public OVRInitParams.Buffer setLogCallback(long LogCallback) { nsetLogCallback(address(), LogCallback); return this; }
-		public OVRInitParams.Buffer setUserData(long UserData) { nsetUserData(address(), UserData); return this; }
-		public OVRInitParams.Buffer setConnectionTimeoutMS(int ConnectionTimeoutMS) { nsetConnectionTimeoutMS(address(), ConnectionTimeoutMS); return this; }
+		/** Sets the specified value to the {@code Flags} field. */
+		public OVRInitParams.Buffer Flags(int value) { nFlags(address(), value); return this; }
+		/** Sets the specified value to the {@code RequestedMinorVersion} field. */
+		public OVRInitParams.Buffer RequestedMinorVersion(int value) { nRequestedMinorVersion(address(), value); return this; }
+		/** Sets the specified value to the {@code LogCallback} field. */
+		public OVRInitParams.Buffer LogCallback(long value) { nLogCallback(address(), value); return this; }
+		/** Sets the specified value to the {@code UserData} field. */
+		public OVRInitParams.Buffer UserData(long value) { nUserData(address(), value); return this; }
+		/** Sets the specified value to the {@code ConnectionTimeoutMS} field. */
+		public OVRInitParams.Buffer ConnectionTimeoutMS(int value) { nConnectionTimeoutMS(address(), value); return this; }
 
 	}
 

@@ -10,10 +10,22 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Information about a Vorbis stream. */
+/**
+ * Information about a Vorbis stream.
+ * 
+ * <h3>stb_vorbis_info members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>sample_rate</td><td class="nw">unsigned int</td><td></td></tr>
+ * <tr><td>channels</td><td class="nw">int</td><td></td></tr>
+ * <tr><td>setup_memory_required</td><td class="nw">unsigned int</td><td></td></tr>
+ * <tr><td>setup_temp_memory_required</td><td class="nw">unsigned int</td><td></td></tr>
+ * <tr><td>temp_memory_required</td><td class="nw">unsigned int</td><td></td></tr>
+ * <tr><td>max_frame_size</td><td class="nw">int</td><td></td></tr>
+ * </table>
+ */
 public class STBVorbisInfo extends Struct {
 
 	/** The struct size in bytes. */
@@ -67,12 +79,18 @@ public class STBVorbisInfo extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public int getSampleRate() { return ngetSampleRate(address()); }
-	public int getChannels() { return ngetChannels(address()); }
-	public int getSetupMemoryRequired() { return ngetSetupMemoryRequired(address()); }
-	public int getSetupTempMemoryRequired() { return ngetSetupTempMemoryRequired(address()); }
-	public int getTempMemoryRequired() { return ngetTempMemoryRequired(address()); }
-	public int getMaxFrameSize() { return ngetMaxFrameSize(address()); }
+	/** Returns the value of the {@code sample_rate} field. */
+	public int sample_rate() { return nsample_rate(address()); }
+	/** Returns the value of the {@code channels} field. */
+	public int channels() { return nchannels(address()); }
+	/** Returns the value of the {@code setup_memory_required} field. */
+	public int setup_memory_required() { return nsetup_memory_required(address()); }
+	/** Returns the value of the {@code setup_temp_memory_required} field. */
+	public int setup_temp_memory_required() { return nsetup_temp_memory_required(address()); }
+	/** Returns the value of the {@code temp_memory_required} field. */
+	public int temp_memory_required() { return ntemp_memory_required(address()); }
+	/** Returns the value of the {@code max_frame_size} field. */
+	public int max_frame_size() { return nmax_frame_size(address()); }
 
 	// -----------------------------------
 
@@ -128,18 +146,18 @@ public class STBVorbisInfo extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static int ngetSampleRate(long struct) { return memGetInt(struct + SAMPLE_RATE); }
-	public static int getSampleRate(ByteBuffer struct) { return ngetSampleRate(memAddress(struct)); }
-	public static int ngetChannels(long struct) { return memGetInt(struct + CHANNELS); }
-	public static int getChannels(ByteBuffer struct) { return ngetChannels(memAddress(struct)); }
-	public static int ngetSetupMemoryRequired(long struct) { return memGetInt(struct + SETUP_MEMORY_REQUIRED); }
-	public static int getSetupMemoryRequired(ByteBuffer struct) { return ngetSetupMemoryRequired(memAddress(struct)); }
-	public static int ngetSetupTempMemoryRequired(long struct) { return memGetInt(struct + SETUP_TEMP_MEMORY_REQUIRED); }
-	public static int getSetupTempMemoryRequired(ByteBuffer struct) { return ngetSetupTempMemoryRequired(memAddress(struct)); }
-	public static int ngetTempMemoryRequired(long struct) { return memGetInt(struct + TEMP_MEMORY_REQUIRED); }
-	public static int getTempMemoryRequired(ByteBuffer struct) { return ngetTempMemoryRequired(memAddress(struct)); }
-	public static int ngetMaxFrameSize(long struct) { return memGetInt(struct + MAX_FRAME_SIZE); }
-	public static int getMaxFrameSize(ByteBuffer struct) { return ngetMaxFrameSize(memAddress(struct)); }
+	/** Unsafe version of {@link #sample_rate}. */
+	public static int nsample_rate(long struct) { return memGetInt(struct + STBVorbisInfo.SAMPLE_RATE); }
+	/** Unsafe version of {@link #channels}. */
+	public static int nchannels(long struct) { return memGetInt(struct + STBVorbisInfo.CHANNELS); }
+	/** Unsafe version of {@link #setup_memory_required}. */
+	public static int nsetup_memory_required(long struct) { return memGetInt(struct + STBVorbisInfo.SETUP_MEMORY_REQUIRED); }
+	/** Unsafe version of {@link #setup_temp_memory_required}. */
+	public static int nsetup_temp_memory_required(long struct) { return memGetInt(struct + STBVorbisInfo.SETUP_TEMP_MEMORY_REQUIRED); }
+	/** Unsafe version of {@link #temp_memory_required}. */
+	public static int ntemp_memory_required(long struct) { return memGetInt(struct + STBVorbisInfo.TEMP_MEMORY_REQUIRED); }
+	/** Unsafe version of {@link #max_frame_size}. */
+	public static int nmax_frame_size(long struct) { return memGetInt(struct + STBVorbisInfo.MAX_FRAME_SIZE); }
 
 	// -----------------------------------
 
@@ -183,12 +201,18 @@ public class STBVorbisInfo extends Struct {
 			return SIZEOF;
 		}
 
-		public int getSampleRate() { return ngetSampleRate(address()); }
-		public int getChannels() { return ngetChannels(address()); }
-		public int getSetupMemoryRequired() { return ngetSetupMemoryRequired(address()); }
-		public int getSetupTempMemoryRequired() { return ngetSetupTempMemoryRequired(address()); }
-		public int getTempMemoryRequired() { return ngetTempMemoryRequired(address()); }
-		public int getMaxFrameSize() { return ngetMaxFrameSize(address()); }
+		/** Returns the value of the {@code sample_rate} field. */
+		public int sample_rate() { return nsample_rate(address()); }
+		/** Returns the value of the {@code channels} field. */
+		public int channels() { return nchannels(address()); }
+		/** Returns the value of the {@code setup_memory_required} field. */
+		public int setup_memory_required() { return nsetup_memory_required(address()); }
+		/** Returns the value of the {@code setup_temp_memory_required} field. */
+		public int setup_temp_memory_required() { return nsetup_temp_memory_required(address()); }
+		/** Returns the value of the {@code temp_memory_required} field. */
+		public int temp_memory_required() { return ntemp_memory_required(address()); }
+		/** Returns the value of the {@code max_frame_size} field. */
+		public int max_frame_size() { return nmax_frame_size(address()); }
 
 	}
 

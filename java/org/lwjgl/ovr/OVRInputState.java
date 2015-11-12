@@ -16,6 +16,18 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Describes the complete controller input state, including Oculus Touch, and XBox gamepad. If multiple inputs are connected and used at the same time,
  * their inputs are combined.
+ * 
+ * <h3>ovrInputState members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>TimeInSeconds</td><td class="nw">double</td><td>system type when the controller state was last updated</td></tr>
+ * <tr><td>ConnectedControllerTypes</td><td class="nw">unsigned int</td><td>described by {@code ovrControllerType}. Indicates which ControllerTypes are present.</td></tr>
+ * <tr><td>Buttons</td><td class="nw">unsigned int</td><td>values for buttons described by {@code ovrButton}</td></tr>
+ * <tr><td>Touches</td><td class="nw">unsigned int</td><td>touch values for buttons and sensors as described by {@code ovrTouch}.</td></tr>
+ * <tr><td>IndexTrigger</td><td class="nw">float[2]</td><td>left and right finger trigger values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range 0.0 to 1.0f.</td></tr>
+ * <tr><td>HandTrigger</td><td class="nw">float[2]</td><td>left and right hand trigger values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range 0.0 to 1.0f.</td></tr>
+ * <tr><td>Thumbstick</td><td class="nw">ovrVector2f[2]</td><td>horizontal and vertical thumbstick axis values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range -1.0f to 1.0f.</td></tr>
+ * </table>
  */
 public class OVRInputState extends Struct {
 
@@ -72,25 +84,47 @@ public class OVRInputState extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public double getTimeInSeconds() { return ngetTimeInSeconds(address()); }
-	public int getConnectedControllerTypes() { return ngetConnectedControllerTypes(address()); }
-	public int getButtons() { return ngetButtons(address()); }
-	public int getTouches() { return ngetTouches(address()); }
-	public void getIndexTrigger(ByteBuffer IndexTrigger) { ngetIndexTrigger(address(), IndexTrigger); }
-	public void getHandTrigger(ByteBuffer HandTrigger) { ngetHandTrigger(address(), HandTrigger); }
-	public void getThumbstick(ByteBuffer Thumbstick) { ngetThumbstick(address(), Thumbstick); }
-	public OVRVector2f getThumbstick(int index) { return ngetThumbstick(address(), index); }
+	/** Returns the value of the {@code TimeInSeconds} field. */
+	public double TimeInSeconds() { return nTimeInSeconds(address()); }
+	/** Returns the value of the {@code ConnectedControllerTypes} field. */
+	public int ConnectedControllerTypes() { return nConnectedControllerTypes(address()); }
+	/** Returns the value of the {@code Buttons} field. */
+	public int Buttons() { return nButtons(address()); }
+	/** Returns the value of the {@code Touches} field. */
+	public int Touches() { return nTouches(address()); }
+	/** Returns a {@link FloatBuffer} view of the {@code IndexTrigger} field. */
+	public FloatBuffer IndexTrigger() { return nIndexTrigger(address()); }
+	/** Returns the value at the specified index of the {@code IndexTrigger} field. */
+	public float IndexTrigger(int index) { return nIndexTrigger(address(), index); }
+	/** Returns a {@link FloatBuffer} view of the {@code HandTrigger} field. */
+	public FloatBuffer HandTrigger() { return nHandTrigger(address()); }
+	/** Returns the value at the specified index of the {@code HandTrigger} field. */
+	public float HandTrigger(int index) { return nHandTrigger(address(), index); }
+	/** Returns a {@link OVRVector2f}.Buffer view of the {@code Thumbstick} field. */
+	public OVRVector2f.Buffer Thumbstick() { return nThumbstick(address()); }
+	/** Returns a {@link OVRVector2f} view of the struct at the specified index of the {@code Thumbstick} field. */
+	public OVRVector2f Thumbstick(int index) { return nThumbstick(address(), index); }
 
-	public OVRInputState setTimeInSeconds(double TimeInSeconds) { nsetTimeInSeconds(address(), TimeInSeconds); return this; }
-	public OVRInputState setConnectedControllerTypes(int ConnectedControllerTypes) { nsetConnectedControllerTypes(address(), ConnectedControllerTypes); return this; }
-	public OVRInputState setButtons(int Buttons) { nsetButtons(address(), Buttons); return this; }
-	public OVRInputState setTouches(int Touches) { nsetTouches(address(), Touches); return this; }
-	public OVRInputState setIndexTrigger(ByteBuffer IndexTrigger) { nsetIndexTrigger(address(), IndexTrigger); return this; }
-	public OVRInputState setIndexTrigger(int index, float IndexTrigger) { nsetIndexTrigger(address(), index, IndexTrigger); return this; }
-	public OVRInputState setHandTrigger(ByteBuffer HandTrigger) { nsetHandTrigger(address(), HandTrigger); return this; }
-	public OVRInputState setHandTrigger(int index, float HandTrigger) { nsetHandTrigger(address(), index, HandTrigger); return this; }
-	public OVRInputState setThumbstick(ByteBuffer Thumbstick) { nsetThumbstick(address(), Thumbstick); return this; }
-	public OVRInputState setThumbstick(int index, OVRVector2f Thumbstick) { nsetThumbstick(address(), index, Thumbstick); return this; }
+	/** Sets the specified value to the {@code TimeInSeconds} field. */
+	public OVRInputState TimeInSeconds(double value) { nTimeInSeconds(address(), value); return this; }
+	/** Sets the specified value to the {@code ConnectedControllerTypes} field. */
+	public OVRInputState ConnectedControllerTypes(int value) { nConnectedControllerTypes(address(), value); return this; }
+	/** Sets the specified value to the {@code Buttons} field. */
+	public OVRInputState Buttons(int value) { nButtons(address(), value); return this; }
+	/** Sets the specified value to the {@code Touches} field. */
+	public OVRInputState Touches(int value) { nTouches(address(), value); return this; }
+	/** Copies the specified {@link FloatBuffer} to the {@code IndexTrigger} field. */
+	public OVRInputState IndexTrigger(FloatBuffer value) { nIndexTrigger(address(), value); return this; }
+	/** Sets the specified value at the specified index of the {@code IndexTrigger} field. */
+	public OVRInputState IndexTrigger(int index, float value) { nIndexTrigger(address(), index, value); return this; }
+	/** Copies the specified {@link FloatBuffer} to the {@code HandTrigger} field. */
+	public OVRInputState HandTrigger(FloatBuffer value) { nHandTrigger(address(), value); return this; }
+	/** Sets the specified value at the specified index of the {@code HandTrigger} field. */
+	public OVRInputState HandTrigger(int index, float value) { nHandTrigger(address(), index, value); return this; }
+	/** Copies the specified {@link OVRVector2f.Buffer} to the {@code Thumbstick} field. */
+	public OVRInputState Thumbstick(OVRVector2f.Buffer value) { nThumbstick(address(), value); return this; }
+	/** Copies the specified {@link OVRVector2f} at the specified index of the {@code Thumbstick} field. */
+	public OVRInputState Thumbstick(int index, OVRVector2f value) { nThumbstick(address(), index, value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public OVRInputState set(
@@ -98,22 +132,22 @@ public class OVRInputState extends Struct {
 		int ConnectedControllerTypes,
 		int Buttons,
 		int Touches,
-		ByteBuffer IndexTrigger,
-		ByteBuffer HandTrigger,
-		ByteBuffer Thumbstick
+		FloatBuffer IndexTrigger,
+		FloatBuffer HandTrigger,
+		OVRVector2f.Buffer Thumbstick
 	) {
-		setTimeInSeconds(TimeInSeconds);
-		setConnectedControllerTypes(ConnectedControllerTypes);
-		setButtons(Buttons);
-		setTouches(Touches);
-		setIndexTrigger(IndexTrigger);
-		setHandTrigger(HandTrigger);
-		setThumbstick(Thumbstick);
+		TimeInSeconds(TimeInSeconds);
+		ConnectedControllerTypes(ConnectedControllerTypes);
+		Buttons(Buttons);
+		Touches(Touches);
+		IndexTrigger(IndexTrigger);
+		HandTrigger(HandTrigger);
+		Thumbstick(Thumbstick);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(OVRInputState) set}. */
 	public OVRInputState nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -130,7 +164,7 @@ public class OVRInputState extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(OVRInputState) set}. */
 	public OVRInputState set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -191,73 +225,64 @@ public class OVRInputState extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static double ngetTimeInSeconds(long struct) { return memGetDouble(struct + TIMEINSECONDS); }
-	public static double getTimeInSeconds(ByteBuffer struct) { return ngetTimeInSeconds(memAddress(struct)); }
-	public static int ngetConnectedControllerTypes(long struct) { return memGetInt(struct + CONNECTEDCONTROLLERTYPES); }
-	public static int getConnectedControllerTypes(ByteBuffer struct) { return ngetConnectedControllerTypes(memAddress(struct)); }
-	public static int ngetButtons(long struct) { return memGetInt(struct + BUTTONS); }
-	public static int getButtons(ByteBuffer struct) { return ngetButtons(memAddress(struct)); }
-	public static int ngetTouches(long struct) { return memGetInt(struct + TOUCHES); }
-	public static int getTouches(ByteBuffer struct) { return ngetTouches(memAddress(struct)); }
-	public static void ngetIndexTrigger(long struct, ByteBuffer IndexTrigger) {
-		if ( CHECKS ) checkBufferGT(IndexTrigger, 2 * 4);
-		memCopy(struct + INDEXTRIGGER, memAddress(IndexTrigger), IndexTrigger.remaining());
+	/** Unsafe version of {@link #TimeInSeconds}. */
+	public static double nTimeInSeconds(long struct) { return memGetDouble(struct + OVRInputState.TIMEINSECONDS); }
+	/** Unsafe version of {@link #ConnectedControllerTypes}. */
+	public static int nConnectedControllerTypes(long struct) { return memGetInt(struct + OVRInputState.CONNECTEDCONTROLLERTYPES); }
+	/** Unsafe version of {@link #Buttons}. */
+	public static int nButtons(long struct) { return memGetInt(struct + OVRInputState.BUTTONS); }
+	/** Unsafe version of {@link #Touches}. */
+	public static int nTouches(long struct) { return memGetInt(struct + OVRInputState.TOUCHES); }
+	/** Unsafe version of {@link #IndexTrigger}. */
+	public static FloatBuffer nIndexTrigger(long struct) {
+		return memFloatBuffer(struct + OVRInputState.INDEXTRIGGER, 2);
 	}
-	public static void getIndexTrigger(ByteBuffer struct, ByteBuffer IndexTrigger) { ngetIndexTrigger(memAddress(struct), IndexTrigger); }
-	public static float ngetIndexTrigger(long struct, int index) { return memGetFloat(struct + INDEXTRIGGER + index * 4); }
-	public static float getIndexTrigger(ByteBuffer struct, int index) { return ngetIndexTrigger(memAddress(struct), index); }
-	public static void ngetHandTrigger(long struct, ByteBuffer HandTrigger) {
-		if ( CHECKS ) checkBufferGT(HandTrigger, 2 * 4);
-		memCopy(struct + HANDTRIGGER, memAddress(HandTrigger), HandTrigger.remaining());
+	/** Unsafe version of {@link #IndexTrigger(int) IndexTrigger}. */
+	public static float nIndexTrigger(long struct, int index) { return memGetFloat(struct + OVRInputState.INDEXTRIGGER + index * 4); }
+	/** Unsafe version of {@link #HandTrigger}. */
+	public static FloatBuffer nHandTrigger(long struct) {
+		return memFloatBuffer(struct + OVRInputState.HANDTRIGGER, 2);
 	}
-	public static void getHandTrigger(ByteBuffer struct, ByteBuffer HandTrigger) { ngetHandTrigger(memAddress(struct), HandTrigger); }
-	public static float ngetHandTrigger(long struct, int index) { return memGetFloat(struct + HANDTRIGGER + index * 4); }
-	public static float getHandTrigger(ByteBuffer struct, int index) { return ngetHandTrigger(memAddress(struct), index); }
-	public static void ngetThumbstick(long struct, ByteBuffer Thumbstick) {
-		if ( CHECKS ) checkBufferGT(Thumbstick, 2 * OVRVector2f.SIZEOF);
-		memCopy(struct + THUMBSTICK, memAddress(Thumbstick), Thumbstick.remaining());
+	/** Unsafe version of {@link #HandTrigger(int) HandTrigger}. */
+	public static float nHandTrigger(long struct, int index) { return memGetFloat(struct + OVRInputState.HANDTRIGGER + index * 4); }
+	/** Unsafe version of {@link #Thumbstick}. */
+	public static OVRVector2f.Buffer nThumbstick(long struct) {
+		return OVRVector2f.createBuffer(struct + OVRInputState.THUMBSTICK, 2);
 	}
-	public static void getThumbstick(ByteBuffer struct, ByteBuffer Thumbstick) { ngetThumbstick(memAddress(struct), Thumbstick); }
-	public static OVRVector2f ngetThumbstick(long struct, int index) {
-		return OVRVector2f.malloc().nset(struct + THUMBSTICK + index * OVRVector2f.SIZEOF);
+	/** Unsafe version of {@link #Thumbstick(int) Thumbstick}. */
+	public static OVRVector2f nThumbstick(long struct, int index) {
+		return new OVRVector2f(struct + OVRInputState.THUMBSTICK + index * OVRVector2f.SIZEOF);
 	}
-	public static OVRVector2f getThumbstick(ByteBuffer struct, int index) { return ngetThumbstick(memAddress(struct), index); }
 
-	public static void nsetTimeInSeconds(long struct, double TimeInSeconds) { memPutDouble(struct + TIMEINSECONDS, TimeInSeconds); }
-	public static void setTimeInSeconds(ByteBuffer struct, double TimeInSeconds) { nsetTimeInSeconds(memAddress(struct), TimeInSeconds); }
-	public static void nsetConnectedControllerTypes(long struct, int ConnectedControllerTypes) { memPutInt(struct + CONNECTEDCONTROLLERTYPES, ConnectedControllerTypes); }
-	public static void setConnectedControllerTypes(ByteBuffer struct, int ConnectedControllerTypes) { nsetConnectedControllerTypes(memAddress(struct), ConnectedControllerTypes); }
-	public static void nsetButtons(long struct, int Buttons) { memPutInt(struct + BUTTONS, Buttons); }
-	public static void setButtons(ByteBuffer struct, int Buttons) { nsetButtons(memAddress(struct), Buttons); }
-	public static void nsetTouches(long struct, int Touches) { memPutInt(struct + TOUCHES, Touches); }
-	public static void setTouches(ByteBuffer struct, int Touches) { nsetTouches(memAddress(struct), Touches); }
-	public static void nsetIndexTrigger(long struct, ByteBuffer IndexTrigger) {
-		if ( CHECKS ) {
-			checkBufferGT(IndexTrigger, 2 * 4);
-		}
-		memCopy(memAddress(IndexTrigger), struct + INDEXTRIGGER, IndexTrigger.remaining());
+	/** Unsafe version of {@link #TimeInSeconds(double) TimeInSeconds}. */
+	public static void nTimeInSeconds(long struct, double value) { memPutDouble(struct + OVRInputState.TIMEINSECONDS, value); }
+	/** Unsafe version of {@link #ConnectedControllerTypes(int) ConnectedControllerTypes}. */
+	public static void nConnectedControllerTypes(long struct, int value) { memPutInt(struct + OVRInputState.CONNECTEDCONTROLLERTYPES, value); }
+	/** Unsafe version of {@link #Buttons(int) Buttons}. */
+	public static void nButtons(long struct, int value) { memPutInt(struct + OVRInputState.BUTTONS, value); }
+	/** Unsafe version of {@link #Touches(int) Touches}. */
+	public static void nTouches(long struct, int value) { memPutInt(struct + OVRInputState.TOUCHES, value); }
+	/** Unsafe version of {@link #IndexTrigger(FloatBuffer) IndexTrigger}. */
+	public static void nIndexTrigger(long struct, FloatBuffer value) {
+		if ( CHECKS ) checkBufferGT(value, 2);
+		memCopy(memAddress(value), struct + OVRInputState.INDEXTRIGGER, value.remaining() * 4);
 	}
-	public static void setIndexTrigger(ByteBuffer struct, ByteBuffer IndexTrigger) { nsetIndexTrigger(memAddress(struct), IndexTrigger); }
-	public static void nsetIndexTrigger(long struct, int index, float IndexTrigger) { memPutFloat(struct + INDEXTRIGGER + index * 4, IndexTrigger); }
-	public static void setIndexTrigger(ByteBuffer struct, int index, float IndexTrigger) { nsetIndexTrigger(memAddress(struct), index, IndexTrigger); }
-	public static void nsetHandTrigger(long struct, ByteBuffer HandTrigger) {
-		if ( CHECKS ) {
-			checkBufferGT(HandTrigger, 2 * 4);
-		}
-		memCopy(memAddress(HandTrigger), struct + HANDTRIGGER, HandTrigger.remaining());
+	/** Unsafe version of {@link #IndexTrigger(int, float) IndexTrigger}. */
+	public static void nIndexTrigger(long struct, int index, float value) { memPutFloat(struct + OVRInputState.INDEXTRIGGER + index * 4, value); }
+	/** Unsafe version of {@link #HandTrigger(FloatBuffer) HandTrigger}. */
+	public static void nHandTrigger(long struct, FloatBuffer value) {
+		if ( CHECKS ) checkBufferGT(value, 2);
+		memCopy(memAddress(value), struct + OVRInputState.HANDTRIGGER, value.remaining() * 4);
 	}
-	public static void setHandTrigger(ByteBuffer struct, ByteBuffer HandTrigger) { nsetHandTrigger(memAddress(struct), HandTrigger); }
-	public static void nsetHandTrigger(long struct, int index, float HandTrigger) { memPutFloat(struct + HANDTRIGGER + index * 4, HandTrigger); }
-	public static void setHandTrigger(ByteBuffer struct, int index, float HandTrigger) { nsetHandTrigger(memAddress(struct), index, HandTrigger); }
-	public static void nsetThumbstick(long struct, ByteBuffer Thumbstick) {
-		if ( CHECKS ) checkBufferGT(Thumbstick, 2 * OVRVector2f.SIZEOF);
-		memCopy(memAddress(Thumbstick), struct + THUMBSTICK, Thumbstick.remaining());
+	/** Unsafe version of {@link #HandTrigger(int, float) HandTrigger}. */
+	public static void nHandTrigger(long struct, int index, float value) { memPutFloat(struct + OVRInputState.HANDTRIGGER + index * 4, value); }
+	/** Unsafe version of {@link #Thumbstick(OVRVector2f.Buffer) Thumbstick}. */
+	public static void nThumbstick(long struct, OVRVector2f.Buffer value) {
+		if ( CHECKS ) checkBufferGT(value, 2);
+		memCopy(value.address(), struct + OVRInputState.THUMBSTICK, value.remaining() * OVRVector2f.SIZEOF);
 	}
-	public static void setThumbstick(ByteBuffer struct, ByteBuffer Thumbstick) { nsetThumbstick(memAddress(struct), Thumbstick); }
-	public static void nsetThumbstick(long struct, int index, OVRVector2f Thumbstick) {
-		memCopy(Thumbstick.address(), struct + THUMBSTICK + index * OVRVector2f.SIZEOF, OVRVector2f.SIZEOF);
-	}
-	public static void setThumbstick(ByteBuffer struct, int index, OVRVector2f Thumbstick) { nsetThumbstick(memAddress(struct), index, Thumbstick); }
+	/** Unsafe version of {@link #Thumbstick(int, OVRVector2f) Thumbstick}. */
+	public static void nThumbstick(long struct, int index, OVRVector2f value) { memCopy(value.address(), struct + OVRInputState.THUMBSTICK + index * OVRVector2f.SIZEOF, OVRVector2f.SIZEOF); }
 
 	// -----------------------------------
 
@@ -301,25 +326,47 @@ public class OVRInputState extends Struct {
 			return SIZEOF;
 		}
 
-		public double getTimeInSeconds() { return ngetTimeInSeconds(address()); }
-		public int getConnectedControllerTypes() { return ngetConnectedControllerTypes(address()); }
-		public int getButtons() { return ngetButtons(address()); }
-		public int getTouches() { return ngetTouches(address()); }
-		public void getIndexTrigger(ByteBuffer IndexTrigger) { ngetIndexTrigger(address(), IndexTrigger); }
-		public void getHandTrigger(ByteBuffer HandTrigger) { ngetHandTrigger(address(), HandTrigger); }
-		public void getThumbstick(ByteBuffer Thumbstick) { ngetThumbstick(address(), Thumbstick); }
-		public OVRVector2f getThumbstick(int index) { return ngetThumbstick(address(), index); }
+		/** Returns the value of the {@code TimeInSeconds} field. */
+		public double TimeInSeconds() { return nTimeInSeconds(address()); }
+		/** Returns the value of the {@code ConnectedControllerTypes} field. */
+		public int ConnectedControllerTypes() { return nConnectedControllerTypes(address()); }
+		/** Returns the value of the {@code Buttons} field. */
+		public int Buttons() { return nButtons(address()); }
+		/** Returns the value of the {@code Touches} field. */
+		public int Touches() { return nTouches(address()); }
+		/** Returns a {@link FloatBuffer} view of the {@code IndexTrigger} field. */
+		public FloatBuffer IndexTrigger() { return nIndexTrigger(address()); }
+		/** Returns the value at the specified index of the {@code IndexTrigger} field. */
+		public float IndexTrigger(int index) { return nIndexTrigger(address(), index); }
+		/** Returns a {@link FloatBuffer} view of the {@code HandTrigger} field. */
+		public FloatBuffer HandTrigger() { return nHandTrigger(address()); }
+		/** Returns the value at the specified index of the {@code HandTrigger} field. */
+		public float HandTrigger(int index) { return nHandTrigger(address(), index); }
+		/** Returns a {@link OVRVector2f}.Buffer view of the {@code Thumbstick} field. */
+		public OVRVector2f.Buffer Thumbstick() { return nThumbstick(address()); }
+		/** Returns a {@link OVRVector2f} view of the struct at the specified index of the {@code Thumbstick} field. */
+		public OVRVector2f Thumbstick(int index) { return nThumbstick(address(), index); }
 
-		public OVRInputState.Buffer setTimeInSeconds(double TimeInSeconds) { nsetTimeInSeconds(address(), TimeInSeconds); return this; }
-		public OVRInputState.Buffer setConnectedControllerTypes(int ConnectedControllerTypes) { nsetConnectedControllerTypes(address(), ConnectedControllerTypes); return this; }
-		public OVRInputState.Buffer setButtons(int Buttons) { nsetButtons(address(), Buttons); return this; }
-		public OVRInputState.Buffer setTouches(int Touches) { nsetTouches(address(), Touches); return this; }
-		public OVRInputState.Buffer setIndexTrigger(ByteBuffer IndexTrigger) { nsetIndexTrigger(address(), IndexTrigger); return this; }
-		public OVRInputState.Buffer setIndexTrigger(int index, float IndexTrigger) { nsetIndexTrigger(address(), index, IndexTrigger); return this; }
-		public OVRInputState.Buffer setHandTrigger(ByteBuffer HandTrigger) { nsetHandTrigger(address(), HandTrigger); return this; }
-		public OVRInputState.Buffer setHandTrigger(int index, float HandTrigger) { nsetHandTrigger(address(), index, HandTrigger); return this; }
-		public OVRInputState.Buffer setThumbstick(ByteBuffer Thumbstick) { nsetThumbstick(address(), Thumbstick); return this; }
-		public OVRInputState.Buffer setThumbstick(int index, OVRVector2f Thumbstick) { nsetThumbstick(address(), index, Thumbstick); return this; }
+		/** Sets the specified value to the {@code TimeInSeconds} field. */
+		public OVRInputState.Buffer TimeInSeconds(double value) { nTimeInSeconds(address(), value); return this; }
+		/** Sets the specified value to the {@code ConnectedControllerTypes} field. */
+		public OVRInputState.Buffer ConnectedControllerTypes(int value) { nConnectedControllerTypes(address(), value); return this; }
+		/** Sets the specified value to the {@code Buttons} field. */
+		public OVRInputState.Buffer Buttons(int value) { nButtons(address(), value); return this; }
+		/** Sets the specified value to the {@code Touches} field. */
+		public OVRInputState.Buffer Touches(int value) { nTouches(address(), value); return this; }
+		/** Copies the specified {@link FloatBuffer} to the {@code IndexTrigger} field. */
+		public OVRInputState.Buffer IndexTrigger(FloatBuffer value) { nIndexTrigger(address(), value); return this; }
+		/** Sets the specified value at the specified index of the {@code IndexTrigger} field. */
+		public OVRInputState.Buffer IndexTrigger(int index, float value) { nIndexTrigger(address(), index, value); return this; }
+		/** Copies the specified {@link FloatBuffer} to the {@code HandTrigger} field. */
+		public OVRInputState.Buffer HandTrigger(FloatBuffer value) { nHandTrigger(address(), value); return this; }
+		/** Sets the specified value at the specified index of the {@code HandTrigger} field. */
+		public OVRInputState.Buffer HandTrigger(int index, float value) { nHandTrigger(address(), index, value); return this; }
+		/** Copies the specified {@link OVRVector2f.Buffer} to the {@code Thumbstick} field. */
+		public OVRInputState.Buffer Thumbstick(OVRVector2f.Buffer value) { nThumbstick(address(), value); return this; }
+		/** Copies the specified {@link OVRVector2f} at the specified index of the {@code Thumbstick} field. */
+		public OVRInputState.Buffer Thumbstick(int index, OVRVector2f value) { nThumbstick(address(), index, value); return this; }
 
 	}
 

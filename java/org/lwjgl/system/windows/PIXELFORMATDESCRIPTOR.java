@@ -13,7 +13,43 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Describes the pixel format of a drawing surface. */
+/**
+ * Describes the pixel format of a drawing surface.
+ * 
+ * <h3>PIXELFORMATDESCRIPTOR members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>nSize</td><td class="nw">WORD</td><td>specifies the size of this data structure. This value should be set to {@link #SIZEOF}.</td></tr>
+ * <tr><td>nVersion</td><td class="nw">WORD</td><td>specifies the version of this data structure. This value should be set to 1</td></tr>
+ * <tr><td>dwFlags</td><td class="nw">DWORD</td><td>a set of bit flags that specify properties of the pixel buffer</td></tr>
+ * <tr><td>iPixelType</td><td class="nw">BYTE</td><td>specifies the type of pixel data</td></tr>
+ * <tr><td>cColorBits</td><td class="nw">BYTE</td><td>specifies the number of color bitplanes in each color buffer. For RGBA pixel types, it is the size of the color buffer, excluding the alpha bitplanes.
+ * For color-index pixels, it is the size of the color-index buffer.</td></tr>
+ * <tr><td>cRedBits</td><td class="nw">BYTE</td><td>specifies the number of red bitplanes in each RGBA color buffer</td></tr>
+ * <tr><td>cRedShift</td><td class="nw">BYTE</td><td>specifies the shift count for red bitplanes in each RGBA color buffer</td></tr>
+ * <tr><td>cGreenBits</td><td class="nw">BYTE</td><td>specifies the number of green bitplanes in each RGBA color buffer</td></tr>
+ * <tr><td>cGreenShift</td><td class="nw">BYTE</td><td>specifies the shift count for green bitplanes in each RGBA color buffer</td></tr>
+ * <tr><td>cBlueBits</td><td class="nw">BYTE</td><td>specifies the number of blue bitplanes in each RGBA color buffer</td></tr>
+ * <tr><td>cBlueShift</td><td class="nw">BYTE</td><td>specifies the shift count for blue bitplanes in each RGBA color buffer</td></tr>
+ * <tr><td>cAlphaBits</td><td class="nw">BYTE</td><td>specifies the number of alpha bitplanes in each RGBA color buffer. Alpha bitplanes are not supported</td></tr>
+ * <tr><td>cAlphaShift</td><td class="nw">BYTE</td><td>specifies the shift count for alpha bitplanes in each RGBA color buffer. Alpha bitplanes are not supported</td></tr>
+ * <tr><td>cAccumBits</td><td class="nw">BYTE</td><td>specifies the total number of bitplanes in the accumulation buffer</td></tr>
+ * <tr><td>cAccumRedBits</td><td class="nw">BYTE</td><td>specifies the number of red bitplanes in the accumulation buffer</td></tr>
+ * <tr><td>cAccumGreenBits</td><td class="nw">BYTE</td><td>specifies the number of green bitplanes in the accumulation buffer</td></tr>
+ * <tr><td>cAccumBlueBits</td><td class="nw">BYTE</td><td>specifies the number of blue bitplanes in the accumulation buffer</td></tr>
+ * <tr><td>cAccumAlphaBits</td><td class="nw">BYTE</td><td>specifies the number of alpha bitplanes in the accumulation buffer</td></tr>
+ * <tr><td>cDepthBits</td><td class="nw">BYTE</td><td>specifies the depth of the depth (z-axis) buffer</td></tr>
+ * <tr><td>cStencilBits</td><td class="nw">BYTE</td><td>specifies the depth of the stencil buffer</td></tr>
+ * <tr><td>cAuxBuffers</td><td class="nw">BYTE</td><td>specifies the number of auxiliary buffers. Auxiliary buffers are not supported</td></tr>
+ * <tr><td>iLayerType</td><td class="nw">BYTE</td><td>Ignored. Earlier implementations of OpenGL used this member, but it is no longer used.</td></tr>
+ * <tr><td>bReserved</td><td class="nw">BYTE</td><td>specifies the number of overlay and underlay planes. Bits 0 through 3 specify up to 15 overlay planes and bits 4 through 7 specify up to 15 underlay
+ * planes</td></tr>
+ * <tr><td>dwLayerMask</td><td class="nw">DWORD</td><td>Ignored. Earlier implementations of OpenGL used this member, but it is no longer used.</td></tr>
+ * <tr><td>dwVisibleMask</td><td class="nw">DWORD</td><td>specifies the transparent color or index of an underlay plane. When the pixel type is RGBA, {@code dwVisibleMask} is a transparent RGB color value.
+ * When the pixel type is color index, it is a transparent index value.</td></tr>
+ * <tr><td>dwDamageMask</td><td class="nw">DWORD</td><td>Ignored. Earlier implementations of OpenGL used this member, but it is no longer used.</td></tr>
+ * </table>
+ */
 public class PIXELFORMATDESCRIPTOR extends Struct {
 
 	/** The struct size in bytes. */
@@ -21,64 +57,64 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 
 	/** The struct member offsets. */
 	public static final int
-		SIZE,
-		VERSION,
-		FLAGS,
-		PIXELTYPE,
-		COLORBITS,
-		REDBITS,
-		REDSHIRT,
-		GREENBITS,
-		GREENSHIFT,
-		BLUEBITS,
-		BLUESHIFT,
-		ALPHABITS,
-		ALPHASHIFT,
-		ACCUMBITS,
-		ACCUMREDBITS,
-		ACCUMGREENBITS,
-		ACCUMBLUEBITS,
-		ACCUMALPHABITS,
-		DEPTHBITS,
-		STENCILBITS,
-		AUXBUFFERS,
-		LAYERTYPE,
-		RESERVED,
-		LAYERMASK,
-		VISIBLEMASK,
-		DAMAGEMASK;
+		NSIZE,
+		NVERSION,
+		DWFLAGS,
+		IPIXELTYPE,
+		CCOLORBITS,
+		CREDBITS,
+		CREDSHIFT,
+		CGREENBITS,
+		CGREENSHIFT,
+		CBLUEBITS,
+		CBLUESHIFT,
+		CALPHABITS,
+		CALPHASHIFT,
+		CACCUMBITS,
+		CACCUMREDBITS,
+		CACCUMGREENBITS,
+		CACCUMBLUEBITS,
+		CACCUMALPHABITS,
+		CDEPTHBITS,
+		CSTENCILBITS,
+		CAUXBUFFERS,
+		ILAYERTYPE,
+		BRESERVED,
+		DWLAYERMASK,
+		DWVISIBLEMASK,
+		DWDAMAGEMASK;
 
 	static {
 		IntBuffer offsets = memAllocInt(26);
 
 		SIZEOF = offsets(memAddress(offsets));
 
-		SIZE = offsets.get(0);
-		VERSION = offsets.get(1);
-		FLAGS = offsets.get(2);
-		PIXELTYPE = offsets.get(3);
-		COLORBITS = offsets.get(4);
-		REDBITS = offsets.get(5);
-		REDSHIRT = offsets.get(6);
-		GREENBITS = offsets.get(7);
-		GREENSHIFT = offsets.get(8);
-		BLUEBITS = offsets.get(9);
-		BLUESHIFT = offsets.get(10);
-		ALPHABITS = offsets.get(11);
-		ALPHASHIFT = offsets.get(12);
-		ACCUMBITS = offsets.get(13);
-		ACCUMREDBITS = offsets.get(14);
-		ACCUMGREENBITS = offsets.get(15);
-		ACCUMBLUEBITS = offsets.get(16);
-		ACCUMALPHABITS = offsets.get(17);
-		DEPTHBITS = offsets.get(18);
-		STENCILBITS = offsets.get(19);
-		AUXBUFFERS = offsets.get(20);
-		LAYERTYPE = offsets.get(21);
-		RESERVED = offsets.get(22);
-		LAYERMASK = offsets.get(23);
-		VISIBLEMASK = offsets.get(24);
-		DAMAGEMASK = offsets.get(25);
+		NSIZE = offsets.get(0);
+		NVERSION = offsets.get(1);
+		DWFLAGS = offsets.get(2);
+		IPIXELTYPE = offsets.get(3);
+		CCOLORBITS = offsets.get(4);
+		CREDBITS = offsets.get(5);
+		CREDSHIFT = offsets.get(6);
+		CGREENBITS = offsets.get(7);
+		CGREENSHIFT = offsets.get(8);
+		CBLUEBITS = offsets.get(9);
+		CBLUESHIFT = offsets.get(10);
+		CALPHABITS = offsets.get(11);
+		CALPHASHIFT = offsets.get(12);
+		CACCUMBITS = offsets.get(13);
+		CACCUMREDBITS = offsets.get(14);
+		CACCUMGREENBITS = offsets.get(15);
+		CACCUMBLUEBITS = offsets.get(16);
+		CACCUMALPHABITS = offsets.get(17);
+		CDEPTHBITS = offsets.get(18);
+		CSTENCILBITS = offsets.get(19);
+		CAUXBUFFERS = offsets.get(20);
+		ILAYERTYPE = offsets.get(21);
+		BRESERVED = offsets.get(22);
+		DWLAYERMASK = offsets.get(23);
+		DWVISIBLEMASK = offsets.get(24);
+		DWDAMAGEMASK = offsets.get(25);
 
 		memFree(offsets);
 	}
@@ -107,120 +143,172 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public int getSize() { return ngetSize(address()); }
-	public int getVersion() { return ngetVersion(address()); }
-	public int getFlags() { return ngetFlags(address()); }
-	public int getPixelType() { return ngetPixelType(address()); }
-	public int getColorBits() { return ngetColorBits(address()); }
-	public int getRedBits() { return ngetRedBits(address()); }
-	public int getRedShirt() { return ngetRedShirt(address()); }
-	public int getGreenBits() { return ngetGreenBits(address()); }
-	public int getGreenShift() { return ngetGreenShift(address()); }
-	public int getBlueBits() { return ngetBlueBits(address()); }
-	public int getBlueShift() { return ngetBlueShift(address()); }
-	public int getAlphaBits() { return ngetAlphaBits(address()); }
-	public int getAlphaShift() { return ngetAlphaShift(address()); }
-	public int getAccumBits() { return ngetAccumBits(address()); }
-	public int getAccumRedBits() { return ngetAccumRedBits(address()); }
-	public int getAccumGreenBits() { return ngetAccumGreenBits(address()); }
-	public int getAccumBlueBits() { return ngetAccumBlueBits(address()); }
-	public int getAccumAlphaBits() { return ngetAccumAlphaBits(address()); }
-	public int getDepthBits() { return ngetDepthBits(address()); }
-	public int getStencilBits() { return ngetStencilBits(address()); }
-	public int getAuxBuffers() { return ngetAuxBuffers(address()); }
-	public int getLayerType() { return ngetLayerType(address()); }
-	public int getReserved() { return ngetReserved(address()); }
-	public int getLayerMask() { return ngetLayerMask(address()); }
-	public int getVisibleMask() { return ngetVisibleMask(address()); }
-	public int getDamageMask() { return ngetDamageMask(address()); }
+	/** Returns the value of the {@code nSize} field. */
+	public short nSize() { return nnSize(address()); }
+	/** Returns the value of the {@code nVersion} field. */
+	public short nVersion() { return nnVersion(address()); }
+	/** Returns the value of the {@code dwFlags} field. */
+	public int dwFlags() { return ndwFlags(address()); }
+	/** Returns the value of the {@code iPixelType} field. */
+	public byte iPixelType() { return niPixelType(address()); }
+	/** Returns the value of the {@code cColorBits} field. */
+	public byte cColorBits() { return ncColorBits(address()); }
+	/** Returns the value of the {@code cRedBits} field. */
+	public byte cRedBits() { return ncRedBits(address()); }
+	/** Returns the value of the {@code cRedShift} field. */
+	public byte cRedShift() { return ncRedShift(address()); }
+	/** Returns the value of the {@code cGreenBits} field. */
+	public byte cGreenBits() { return ncGreenBits(address()); }
+	/** Returns the value of the {@code cGreenShift} field. */
+	public byte cGreenShift() { return ncGreenShift(address()); }
+	/** Returns the value of the {@code cBlueBits} field. */
+	public byte cBlueBits() { return ncBlueBits(address()); }
+	/** Returns the value of the {@code cBlueShift} field. */
+	public byte cBlueShift() { return ncBlueShift(address()); }
+	/** Returns the value of the {@code cAlphaBits} field. */
+	public byte cAlphaBits() { return ncAlphaBits(address()); }
+	/** Returns the value of the {@code cAlphaShift} field. */
+	public byte cAlphaShift() { return ncAlphaShift(address()); }
+	/** Returns the value of the {@code cAccumBits} field. */
+	public byte cAccumBits() { return ncAccumBits(address()); }
+	/** Returns the value of the {@code cAccumRedBits} field. */
+	public byte cAccumRedBits() { return ncAccumRedBits(address()); }
+	/** Returns the value of the {@code cAccumGreenBits} field. */
+	public byte cAccumGreenBits() { return ncAccumGreenBits(address()); }
+	/** Returns the value of the {@code cAccumBlueBits} field. */
+	public byte cAccumBlueBits() { return ncAccumBlueBits(address()); }
+	/** Returns the value of the {@code cAccumAlphaBits} field. */
+	public byte cAccumAlphaBits() { return ncAccumAlphaBits(address()); }
+	/** Returns the value of the {@code cDepthBits} field. */
+	public byte cDepthBits() { return ncDepthBits(address()); }
+	/** Returns the value of the {@code cStencilBits} field. */
+	public byte cStencilBits() { return ncStencilBits(address()); }
+	/** Returns the value of the {@code cAuxBuffers} field. */
+	public byte cAuxBuffers() { return ncAuxBuffers(address()); }
+	/** Returns the value of the {@code iLayerType} field. */
+	public byte iLayerType() { return niLayerType(address()); }
+	/** Returns the value of the {@code bReserved} field. */
+	public byte bReserved() { return nbReserved(address()); }
+	/** Returns the value of the {@code dwLayerMask} field. */
+	public int dwLayerMask() { return ndwLayerMask(address()); }
+	/** Returns the value of the {@code dwVisibleMask} field. */
+	public int dwVisibleMask() { return ndwVisibleMask(address()); }
+	/** Returns the value of the {@code dwDamageMask} field. */
+	public int dwDamageMask() { return ndwDamageMask(address()); }
 
-	public PIXELFORMATDESCRIPTOR setSize(int size) { nsetSize(address(), size); return this; }
-	public PIXELFORMATDESCRIPTOR setVersion(int version) { nsetVersion(address(), version); return this; }
-	public PIXELFORMATDESCRIPTOR setFlags(int flags) { nsetFlags(address(), flags); return this; }
-	public PIXELFORMATDESCRIPTOR setPixelType(int pixelType) { nsetPixelType(address(), pixelType); return this; }
-	public PIXELFORMATDESCRIPTOR setColorBits(int colorBits) { nsetColorBits(address(), colorBits); return this; }
-	public PIXELFORMATDESCRIPTOR setRedBits(int redBits) { nsetRedBits(address(), redBits); return this; }
-	public PIXELFORMATDESCRIPTOR setRedShirt(int redShirt) { nsetRedShirt(address(), redShirt); return this; }
-	public PIXELFORMATDESCRIPTOR setGreenBits(int greenBits) { nsetGreenBits(address(), greenBits); return this; }
-	public PIXELFORMATDESCRIPTOR setGreenShift(int greenShift) { nsetGreenShift(address(), greenShift); return this; }
-	public PIXELFORMATDESCRIPTOR setBlueBits(int blueBits) { nsetBlueBits(address(), blueBits); return this; }
-	public PIXELFORMATDESCRIPTOR setBlueShift(int blueShift) { nsetBlueShift(address(), blueShift); return this; }
-	public PIXELFORMATDESCRIPTOR setAlphaBits(int alphaBits) { nsetAlphaBits(address(), alphaBits); return this; }
-	public PIXELFORMATDESCRIPTOR setAlphaShift(int alphaShift) { nsetAlphaShift(address(), alphaShift); return this; }
-	public PIXELFORMATDESCRIPTOR setAccumBits(int accumBits) { nsetAccumBits(address(), accumBits); return this; }
-	public PIXELFORMATDESCRIPTOR setAccumRedBits(int accumRedBits) { nsetAccumRedBits(address(), accumRedBits); return this; }
-	public PIXELFORMATDESCRIPTOR setAccumGreenBits(int accumGreenBits) { nsetAccumGreenBits(address(), accumGreenBits); return this; }
-	public PIXELFORMATDESCRIPTOR setAccumBlueBits(int accumBlueBits) { nsetAccumBlueBits(address(), accumBlueBits); return this; }
-	public PIXELFORMATDESCRIPTOR setAccumAlphaBits(int accumAlphaBits) { nsetAccumAlphaBits(address(), accumAlphaBits); return this; }
-	public PIXELFORMATDESCRIPTOR setDepthBits(int depthBits) { nsetDepthBits(address(), depthBits); return this; }
-	public PIXELFORMATDESCRIPTOR setStencilBits(int stencilBits) { nsetStencilBits(address(), stencilBits); return this; }
-	public PIXELFORMATDESCRIPTOR setAuxBuffers(int auxBuffers) { nsetAuxBuffers(address(), auxBuffers); return this; }
-	public PIXELFORMATDESCRIPTOR setLayerType(int layerType) { nsetLayerType(address(), layerType); return this; }
-	public PIXELFORMATDESCRIPTOR setReserved(int reserved) { nsetReserved(address(), reserved); return this; }
-	public PIXELFORMATDESCRIPTOR setLayerMask(int layerMask) { nsetLayerMask(address(), layerMask); return this; }
-	public PIXELFORMATDESCRIPTOR setVisibleMask(int visibleMask) { nsetVisibleMask(address(), visibleMask); return this; }
-	public PIXELFORMATDESCRIPTOR setDamageMask(int damageMask) { nsetDamageMask(address(), damageMask); return this; }
+	/** Sets the specified value to the {@code nSize} field. */
+	public PIXELFORMATDESCRIPTOR nSize(short value) { nnSize(address(), value); return this; }
+	/** Sets the specified value to the {@code nVersion} field. */
+	public PIXELFORMATDESCRIPTOR nVersion(short value) { nnVersion(address(), value); return this; }
+	/** Sets the specified value to the {@code dwFlags} field. */
+	public PIXELFORMATDESCRIPTOR dwFlags(int value) { ndwFlags(address(), value); return this; }
+	/** Sets the specified value to the {@code iPixelType} field. */
+	public PIXELFORMATDESCRIPTOR iPixelType(byte value) { niPixelType(address(), value); return this; }
+	/** Sets the specified value to the {@code cColorBits} field. */
+	public PIXELFORMATDESCRIPTOR cColorBits(byte value) { ncColorBits(address(), value); return this; }
+	/** Sets the specified value to the {@code cRedBits} field. */
+	public PIXELFORMATDESCRIPTOR cRedBits(byte value) { ncRedBits(address(), value); return this; }
+	/** Sets the specified value to the {@code cRedShift} field. */
+	public PIXELFORMATDESCRIPTOR cRedShift(byte value) { ncRedShift(address(), value); return this; }
+	/** Sets the specified value to the {@code cGreenBits} field. */
+	public PIXELFORMATDESCRIPTOR cGreenBits(byte value) { ncGreenBits(address(), value); return this; }
+	/** Sets the specified value to the {@code cGreenShift} field. */
+	public PIXELFORMATDESCRIPTOR cGreenShift(byte value) { ncGreenShift(address(), value); return this; }
+	/** Sets the specified value to the {@code cBlueBits} field. */
+	public PIXELFORMATDESCRIPTOR cBlueBits(byte value) { ncBlueBits(address(), value); return this; }
+	/** Sets the specified value to the {@code cBlueShift} field. */
+	public PIXELFORMATDESCRIPTOR cBlueShift(byte value) { ncBlueShift(address(), value); return this; }
+	/** Sets the specified value to the {@code cAlphaBits} field. */
+	public PIXELFORMATDESCRIPTOR cAlphaBits(byte value) { ncAlphaBits(address(), value); return this; }
+	/** Sets the specified value to the {@code cAlphaShift} field. */
+	public PIXELFORMATDESCRIPTOR cAlphaShift(byte value) { ncAlphaShift(address(), value); return this; }
+	/** Sets the specified value to the {@code cAccumBits} field. */
+	public PIXELFORMATDESCRIPTOR cAccumBits(byte value) { ncAccumBits(address(), value); return this; }
+	/** Sets the specified value to the {@code cAccumRedBits} field. */
+	public PIXELFORMATDESCRIPTOR cAccumRedBits(byte value) { ncAccumRedBits(address(), value); return this; }
+	/** Sets the specified value to the {@code cAccumGreenBits} field. */
+	public PIXELFORMATDESCRIPTOR cAccumGreenBits(byte value) { ncAccumGreenBits(address(), value); return this; }
+	/** Sets the specified value to the {@code cAccumBlueBits} field. */
+	public PIXELFORMATDESCRIPTOR cAccumBlueBits(byte value) { ncAccumBlueBits(address(), value); return this; }
+	/** Sets the specified value to the {@code cAccumAlphaBits} field. */
+	public PIXELFORMATDESCRIPTOR cAccumAlphaBits(byte value) { ncAccumAlphaBits(address(), value); return this; }
+	/** Sets the specified value to the {@code cDepthBits} field. */
+	public PIXELFORMATDESCRIPTOR cDepthBits(byte value) { ncDepthBits(address(), value); return this; }
+	/** Sets the specified value to the {@code cStencilBits} field. */
+	public PIXELFORMATDESCRIPTOR cStencilBits(byte value) { ncStencilBits(address(), value); return this; }
+	/** Sets the specified value to the {@code cAuxBuffers} field. */
+	public PIXELFORMATDESCRIPTOR cAuxBuffers(byte value) { ncAuxBuffers(address(), value); return this; }
+	/** Sets the specified value to the {@code iLayerType} field. */
+	public PIXELFORMATDESCRIPTOR iLayerType(byte value) { niLayerType(address(), value); return this; }
+	/** Sets the specified value to the {@code bReserved} field. */
+	public PIXELFORMATDESCRIPTOR bReserved(byte value) { nbReserved(address(), value); return this; }
+	/** Sets the specified value to the {@code dwLayerMask} field. */
+	public PIXELFORMATDESCRIPTOR dwLayerMask(int value) { ndwLayerMask(address(), value); return this; }
+	/** Sets the specified value to the {@code dwVisibleMask} field. */
+	public PIXELFORMATDESCRIPTOR dwVisibleMask(int value) { ndwVisibleMask(address(), value); return this; }
+	/** Sets the specified value to the {@code dwDamageMask} field. */
+	public PIXELFORMATDESCRIPTOR dwDamageMask(int value) { ndwDamageMask(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public PIXELFORMATDESCRIPTOR set(
-		int size,
-		int version,
-		int flags,
-		int pixelType,
-		int colorBits,
-		int redBits,
-		int redShirt,
-		int greenBits,
-		int greenShift,
-		int blueBits,
-		int blueShift,
-		int alphaBits,
-		int alphaShift,
-		int accumBits,
-		int accumRedBits,
-		int accumGreenBits,
-		int accumBlueBits,
-		int accumAlphaBits,
-		int depthBits,
-		int stencilBits,
-		int auxBuffers,
-		int layerType,
-		int reserved,
-		int layerMask,
-		int visibleMask,
-		int damageMask
+		short nSize,
+		short nVersion,
+		int dwFlags,
+		byte iPixelType,
+		byte cColorBits,
+		byte cRedBits,
+		byte cRedShift,
+		byte cGreenBits,
+		byte cGreenShift,
+		byte cBlueBits,
+		byte cBlueShift,
+		byte cAlphaBits,
+		byte cAlphaShift,
+		byte cAccumBits,
+		byte cAccumRedBits,
+		byte cAccumGreenBits,
+		byte cAccumBlueBits,
+		byte cAccumAlphaBits,
+		byte cDepthBits,
+		byte cStencilBits,
+		byte cAuxBuffers,
+		byte iLayerType,
+		byte bReserved,
+		int dwLayerMask,
+		int dwVisibleMask,
+		int dwDamageMask
 	) {
-		setSize(size);
-		setVersion(version);
-		setFlags(flags);
-		setPixelType(pixelType);
-		setColorBits(colorBits);
-		setRedBits(redBits);
-		setRedShirt(redShirt);
-		setGreenBits(greenBits);
-		setGreenShift(greenShift);
-		setBlueBits(blueBits);
-		setBlueShift(blueShift);
-		setAlphaBits(alphaBits);
-		setAlphaShift(alphaShift);
-		setAccumBits(accumBits);
-		setAccumRedBits(accumRedBits);
-		setAccumGreenBits(accumGreenBits);
-		setAccumBlueBits(accumBlueBits);
-		setAccumAlphaBits(accumAlphaBits);
-		setDepthBits(depthBits);
-		setStencilBits(stencilBits);
-		setAuxBuffers(auxBuffers);
-		setLayerType(layerType);
-		setReserved(reserved);
-		setLayerMask(layerMask);
-		setVisibleMask(visibleMask);
-		setDamageMask(damageMask);
+		nSize(nSize);
+		nVersion(nVersion);
+		dwFlags(dwFlags);
+		iPixelType(iPixelType);
+		cColorBits(cColorBits);
+		cRedBits(cRedBits);
+		cRedShift(cRedShift);
+		cGreenBits(cGreenBits);
+		cGreenShift(cGreenShift);
+		cBlueBits(cBlueBits);
+		cBlueShift(cBlueShift);
+		cAlphaBits(cAlphaBits);
+		cAlphaShift(cAlphaShift);
+		cAccumBits(cAccumBits);
+		cAccumRedBits(cAccumRedBits);
+		cAccumGreenBits(cAccumGreenBits);
+		cAccumBlueBits(cAccumBlueBits);
+		cAccumAlphaBits(cAccumAlphaBits);
+		cDepthBits(cDepthBits);
+		cStencilBits(cStencilBits);
+		cAuxBuffers(cAuxBuffers);
+		iLayerType(iLayerType);
+		bReserved(bReserved);
+		dwLayerMask(dwLayerMask);
+		dwVisibleMask(dwVisibleMask);
+		dwDamageMask(dwDamageMask);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(PIXELFORMATDESCRIPTOR) set}. */
 	public PIXELFORMATDESCRIPTOR nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -237,7 +325,7 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(PIXELFORMATDESCRIPTOR) set}. */
 	public PIXELFORMATDESCRIPTOR set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -298,111 +386,111 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static int ngetSize(long struct) { return memGetShort(struct + SIZE); }
-	public static int getSize(ByteBuffer struct) { return ngetSize(memAddress(struct)); }
-	public static int ngetVersion(long struct) { return memGetShort(struct + VERSION); }
-	public static int getVersion(ByteBuffer struct) { return ngetVersion(memAddress(struct)); }
-	public static int ngetFlags(long struct) { return memGetInt(struct + FLAGS); }
-	public static int getFlags(ByteBuffer struct) { return ngetFlags(memAddress(struct)); }
-	public static int ngetPixelType(long struct) { return memGetByte(struct + PIXELTYPE); }
-	public static int getPixelType(ByteBuffer struct) { return ngetPixelType(memAddress(struct)); }
-	public static int ngetColorBits(long struct) { return memGetByte(struct + COLORBITS); }
-	public static int getColorBits(ByteBuffer struct) { return ngetColorBits(memAddress(struct)); }
-	public static int ngetRedBits(long struct) { return memGetByte(struct + REDBITS); }
-	public static int getRedBits(ByteBuffer struct) { return ngetRedBits(memAddress(struct)); }
-	public static int ngetRedShirt(long struct) { return memGetByte(struct + REDSHIRT); }
-	public static int getRedShirt(ByteBuffer struct) { return ngetRedShirt(memAddress(struct)); }
-	public static int ngetGreenBits(long struct) { return memGetByte(struct + GREENBITS); }
-	public static int getGreenBits(ByteBuffer struct) { return ngetGreenBits(memAddress(struct)); }
-	public static int ngetGreenShift(long struct) { return memGetByte(struct + GREENSHIFT); }
-	public static int getGreenShift(ByteBuffer struct) { return ngetGreenShift(memAddress(struct)); }
-	public static int ngetBlueBits(long struct) { return memGetByte(struct + BLUEBITS); }
-	public static int getBlueBits(ByteBuffer struct) { return ngetBlueBits(memAddress(struct)); }
-	public static int ngetBlueShift(long struct) { return memGetByte(struct + BLUESHIFT); }
-	public static int getBlueShift(ByteBuffer struct) { return ngetBlueShift(memAddress(struct)); }
-	public static int ngetAlphaBits(long struct) { return memGetByte(struct + ALPHABITS); }
-	public static int getAlphaBits(ByteBuffer struct) { return ngetAlphaBits(memAddress(struct)); }
-	public static int ngetAlphaShift(long struct) { return memGetByte(struct + ALPHASHIFT); }
-	public static int getAlphaShift(ByteBuffer struct) { return ngetAlphaShift(memAddress(struct)); }
-	public static int ngetAccumBits(long struct) { return memGetByte(struct + ACCUMBITS); }
-	public static int getAccumBits(ByteBuffer struct) { return ngetAccumBits(memAddress(struct)); }
-	public static int ngetAccumRedBits(long struct) { return memGetByte(struct + ACCUMREDBITS); }
-	public static int getAccumRedBits(ByteBuffer struct) { return ngetAccumRedBits(memAddress(struct)); }
-	public static int ngetAccumGreenBits(long struct) { return memGetByte(struct + ACCUMGREENBITS); }
-	public static int getAccumGreenBits(ByteBuffer struct) { return ngetAccumGreenBits(memAddress(struct)); }
-	public static int ngetAccumBlueBits(long struct) { return memGetByte(struct + ACCUMBLUEBITS); }
-	public static int getAccumBlueBits(ByteBuffer struct) { return ngetAccumBlueBits(memAddress(struct)); }
-	public static int ngetAccumAlphaBits(long struct) { return memGetByte(struct + ACCUMALPHABITS); }
-	public static int getAccumAlphaBits(ByteBuffer struct) { return ngetAccumAlphaBits(memAddress(struct)); }
-	public static int ngetDepthBits(long struct) { return memGetByte(struct + DEPTHBITS); }
-	public static int getDepthBits(ByteBuffer struct) { return ngetDepthBits(memAddress(struct)); }
-	public static int ngetStencilBits(long struct) { return memGetByte(struct + STENCILBITS); }
-	public static int getStencilBits(ByteBuffer struct) { return ngetStencilBits(memAddress(struct)); }
-	public static int ngetAuxBuffers(long struct) { return memGetByte(struct + AUXBUFFERS); }
-	public static int getAuxBuffers(ByteBuffer struct) { return ngetAuxBuffers(memAddress(struct)); }
-	public static int ngetLayerType(long struct) { return memGetByte(struct + LAYERTYPE); }
-	public static int getLayerType(ByteBuffer struct) { return ngetLayerType(memAddress(struct)); }
-	public static int ngetReserved(long struct) { return memGetByte(struct + RESERVED); }
-	public static int getReserved(ByteBuffer struct) { return ngetReserved(memAddress(struct)); }
-	public static int ngetLayerMask(long struct) { return memGetInt(struct + LAYERMASK); }
-	public static int getLayerMask(ByteBuffer struct) { return ngetLayerMask(memAddress(struct)); }
-	public static int ngetVisibleMask(long struct) { return memGetInt(struct + VISIBLEMASK); }
-	public static int getVisibleMask(ByteBuffer struct) { return ngetVisibleMask(memAddress(struct)); }
-	public static int ngetDamageMask(long struct) { return memGetInt(struct + DAMAGEMASK); }
-	public static int getDamageMask(ByteBuffer struct) { return ngetDamageMask(memAddress(struct)); }
+	/** Unsafe version of {@link #nSize}. */
+	public static short nnSize(long struct) { return memGetShort(struct + PIXELFORMATDESCRIPTOR.NSIZE); }
+	/** Unsafe version of {@link #nVersion}. */
+	public static short nnVersion(long struct) { return memGetShort(struct + PIXELFORMATDESCRIPTOR.NVERSION); }
+	/** Unsafe version of {@link #dwFlags}. */
+	public static int ndwFlags(long struct) { return memGetInt(struct + PIXELFORMATDESCRIPTOR.DWFLAGS); }
+	/** Unsafe version of {@link #iPixelType}. */
+	public static byte niPixelType(long struct) { return memGetByte(struct + PIXELFORMATDESCRIPTOR.IPIXELTYPE); }
+	/** Unsafe version of {@link #cColorBits}. */
+	public static byte ncColorBits(long struct) { return memGetByte(struct + PIXELFORMATDESCRIPTOR.CCOLORBITS); }
+	/** Unsafe version of {@link #cRedBits}. */
+	public static byte ncRedBits(long struct) { return memGetByte(struct + PIXELFORMATDESCRIPTOR.CREDBITS); }
+	/** Unsafe version of {@link #cRedShift}. */
+	public static byte ncRedShift(long struct) { return memGetByte(struct + PIXELFORMATDESCRIPTOR.CREDSHIFT); }
+	/** Unsafe version of {@link #cGreenBits}. */
+	public static byte ncGreenBits(long struct) { return memGetByte(struct + PIXELFORMATDESCRIPTOR.CGREENBITS); }
+	/** Unsafe version of {@link #cGreenShift}. */
+	public static byte ncGreenShift(long struct) { return memGetByte(struct + PIXELFORMATDESCRIPTOR.CGREENSHIFT); }
+	/** Unsafe version of {@link #cBlueBits}. */
+	public static byte ncBlueBits(long struct) { return memGetByte(struct + PIXELFORMATDESCRIPTOR.CBLUEBITS); }
+	/** Unsafe version of {@link #cBlueShift}. */
+	public static byte ncBlueShift(long struct) { return memGetByte(struct + PIXELFORMATDESCRIPTOR.CBLUESHIFT); }
+	/** Unsafe version of {@link #cAlphaBits}. */
+	public static byte ncAlphaBits(long struct) { return memGetByte(struct + PIXELFORMATDESCRIPTOR.CALPHABITS); }
+	/** Unsafe version of {@link #cAlphaShift}. */
+	public static byte ncAlphaShift(long struct) { return memGetByte(struct + PIXELFORMATDESCRIPTOR.CALPHASHIFT); }
+	/** Unsafe version of {@link #cAccumBits}. */
+	public static byte ncAccumBits(long struct) { return memGetByte(struct + PIXELFORMATDESCRIPTOR.CACCUMBITS); }
+	/** Unsafe version of {@link #cAccumRedBits}. */
+	public static byte ncAccumRedBits(long struct) { return memGetByte(struct + PIXELFORMATDESCRIPTOR.CACCUMREDBITS); }
+	/** Unsafe version of {@link #cAccumGreenBits}. */
+	public static byte ncAccumGreenBits(long struct) { return memGetByte(struct + PIXELFORMATDESCRIPTOR.CACCUMGREENBITS); }
+	/** Unsafe version of {@link #cAccumBlueBits}. */
+	public static byte ncAccumBlueBits(long struct) { return memGetByte(struct + PIXELFORMATDESCRIPTOR.CACCUMBLUEBITS); }
+	/** Unsafe version of {@link #cAccumAlphaBits}. */
+	public static byte ncAccumAlphaBits(long struct) { return memGetByte(struct + PIXELFORMATDESCRIPTOR.CACCUMALPHABITS); }
+	/** Unsafe version of {@link #cDepthBits}. */
+	public static byte ncDepthBits(long struct) { return memGetByte(struct + PIXELFORMATDESCRIPTOR.CDEPTHBITS); }
+	/** Unsafe version of {@link #cStencilBits}. */
+	public static byte ncStencilBits(long struct) { return memGetByte(struct + PIXELFORMATDESCRIPTOR.CSTENCILBITS); }
+	/** Unsafe version of {@link #cAuxBuffers}. */
+	public static byte ncAuxBuffers(long struct) { return memGetByte(struct + PIXELFORMATDESCRIPTOR.CAUXBUFFERS); }
+	/** Unsafe version of {@link #iLayerType}. */
+	public static byte niLayerType(long struct) { return memGetByte(struct + PIXELFORMATDESCRIPTOR.ILAYERTYPE); }
+	/** Unsafe version of {@link #bReserved}. */
+	public static byte nbReserved(long struct) { return memGetByte(struct + PIXELFORMATDESCRIPTOR.BRESERVED); }
+	/** Unsafe version of {@link #dwLayerMask}. */
+	public static int ndwLayerMask(long struct) { return memGetInt(struct + PIXELFORMATDESCRIPTOR.DWLAYERMASK); }
+	/** Unsafe version of {@link #dwVisibleMask}. */
+	public static int ndwVisibleMask(long struct) { return memGetInt(struct + PIXELFORMATDESCRIPTOR.DWVISIBLEMASK); }
+	/** Unsafe version of {@link #dwDamageMask}. */
+	public static int ndwDamageMask(long struct) { return memGetInt(struct + PIXELFORMATDESCRIPTOR.DWDAMAGEMASK); }
 
-	public static void nsetSize(long struct, int size) { memPutShort(struct + SIZE, (short)size); }
-	public static void setSize(ByteBuffer struct, int size) { nsetSize(memAddress(struct), size); }
-	public static void nsetVersion(long struct, int version) { memPutShort(struct + VERSION, (short)version); }
-	public static void setVersion(ByteBuffer struct, int version) { nsetVersion(memAddress(struct), version); }
-	public static void nsetFlags(long struct, int flags) { memPutInt(struct + FLAGS, flags); }
-	public static void setFlags(ByteBuffer struct, int flags) { nsetFlags(memAddress(struct), flags); }
-	public static void nsetPixelType(long struct, int pixelType) { memPutByte(struct + PIXELTYPE, (byte)pixelType); }
-	public static void setPixelType(ByteBuffer struct, int pixelType) { nsetPixelType(memAddress(struct), pixelType); }
-	public static void nsetColorBits(long struct, int colorBits) { memPutByte(struct + COLORBITS, (byte)colorBits); }
-	public static void setColorBits(ByteBuffer struct, int colorBits) { nsetColorBits(memAddress(struct), colorBits); }
-	public static void nsetRedBits(long struct, int redBits) { memPutByte(struct + REDBITS, (byte)redBits); }
-	public static void setRedBits(ByteBuffer struct, int redBits) { nsetRedBits(memAddress(struct), redBits); }
-	public static void nsetRedShirt(long struct, int redShirt) { memPutByte(struct + REDSHIRT, (byte)redShirt); }
-	public static void setRedShirt(ByteBuffer struct, int redShirt) { nsetRedShirt(memAddress(struct), redShirt); }
-	public static void nsetGreenBits(long struct, int greenBits) { memPutByte(struct + GREENBITS, (byte)greenBits); }
-	public static void setGreenBits(ByteBuffer struct, int greenBits) { nsetGreenBits(memAddress(struct), greenBits); }
-	public static void nsetGreenShift(long struct, int greenShift) { memPutByte(struct + GREENSHIFT, (byte)greenShift); }
-	public static void setGreenShift(ByteBuffer struct, int greenShift) { nsetGreenShift(memAddress(struct), greenShift); }
-	public static void nsetBlueBits(long struct, int blueBits) { memPutByte(struct + BLUEBITS, (byte)blueBits); }
-	public static void setBlueBits(ByteBuffer struct, int blueBits) { nsetBlueBits(memAddress(struct), blueBits); }
-	public static void nsetBlueShift(long struct, int blueShift) { memPutByte(struct + BLUESHIFT, (byte)blueShift); }
-	public static void setBlueShift(ByteBuffer struct, int blueShift) { nsetBlueShift(memAddress(struct), blueShift); }
-	public static void nsetAlphaBits(long struct, int alphaBits) { memPutByte(struct + ALPHABITS, (byte)alphaBits); }
-	public static void setAlphaBits(ByteBuffer struct, int alphaBits) { nsetAlphaBits(memAddress(struct), alphaBits); }
-	public static void nsetAlphaShift(long struct, int alphaShift) { memPutByte(struct + ALPHASHIFT, (byte)alphaShift); }
-	public static void setAlphaShift(ByteBuffer struct, int alphaShift) { nsetAlphaShift(memAddress(struct), alphaShift); }
-	public static void nsetAccumBits(long struct, int accumBits) { memPutByte(struct + ACCUMBITS, (byte)accumBits); }
-	public static void setAccumBits(ByteBuffer struct, int accumBits) { nsetAccumBits(memAddress(struct), accumBits); }
-	public static void nsetAccumRedBits(long struct, int accumRedBits) { memPutByte(struct + ACCUMREDBITS, (byte)accumRedBits); }
-	public static void setAccumRedBits(ByteBuffer struct, int accumRedBits) { nsetAccumRedBits(memAddress(struct), accumRedBits); }
-	public static void nsetAccumGreenBits(long struct, int accumGreenBits) { memPutByte(struct + ACCUMGREENBITS, (byte)accumGreenBits); }
-	public static void setAccumGreenBits(ByteBuffer struct, int accumGreenBits) { nsetAccumGreenBits(memAddress(struct), accumGreenBits); }
-	public static void nsetAccumBlueBits(long struct, int accumBlueBits) { memPutByte(struct + ACCUMBLUEBITS, (byte)accumBlueBits); }
-	public static void setAccumBlueBits(ByteBuffer struct, int accumBlueBits) { nsetAccumBlueBits(memAddress(struct), accumBlueBits); }
-	public static void nsetAccumAlphaBits(long struct, int accumAlphaBits) { memPutByte(struct + ACCUMALPHABITS, (byte)accumAlphaBits); }
-	public static void setAccumAlphaBits(ByteBuffer struct, int accumAlphaBits) { nsetAccumAlphaBits(memAddress(struct), accumAlphaBits); }
-	public static void nsetDepthBits(long struct, int depthBits) { memPutByte(struct + DEPTHBITS, (byte)depthBits); }
-	public static void setDepthBits(ByteBuffer struct, int depthBits) { nsetDepthBits(memAddress(struct), depthBits); }
-	public static void nsetStencilBits(long struct, int stencilBits) { memPutByte(struct + STENCILBITS, (byte)stencilBits); }
-	public static void setStencilBits(ByteBuffer struct, int stencilBits) { nsetStencilBits(memAddress(struct), stencilBits); }
-	public static void nsetAuxBuffers(long struct, int auxBuffers) { memPutByte(struct + AUXBUFFERS, (byte)auxBuffers); }
-	public static void setAuxBuffers(ByteBuffer struct, int auxBuffers) { nsetAuxBuffers(memAddress(struct), auxBuffers); }
-	public static void nsetLayerType(long struct, int layerType) { memPutByte(struct + LAYERTYPE, (byte)layerType); }
-	public static void setLayerType(ByteBuffer struct, int layerType) { nsetLayerType(memAddress(struct), layerType); }
-	public static void nsetReserved(long struct, int reserved) { memPutByte(struct + RESERVED, (byte)reserved); }
-	public static void setReserved(ByteBuffer struct, int reserved) { nsetReserved(memAddress(struct), reserved); }
-	public static void nsetLayerMask(long struct, int layerMask) { memPutInt(struct + LAYERMASK, layerMask); }
-	public static void setLayerMask(ByteBuffer struct, int layerMask) { nsetLayerMask(memAddress(struct), layerMask); }
-	public static void nsetVisibleMask(long struct, int visibleMask) { memPutInt(struct + VISIBLEMASK, visibleMask); }
-	public static void setVisibleMask(ByteBuffer struct, int visibleMask) { nsetVisibleMask(memAddress(struct), visibleMask); }
-	public static void nsetDamageMask(long struct, int damageMask) { memPutInt(struct + DAMAGEMASK, damageMask); }
-	public static void setDamageMask(ByteBuffer struct, int damageMask) { nsetDamageMask(memAddress(struct), damageMask); }
+	/** Unsafe version of {@link #nSize(short) nSize}. */
+	public static void nnSize(long struct, short value) { memPutShort(struct + PIXELFORMATDESCRIPTOR.NSIZE, value); }
+	/** Unsafe version of {@link #nVersion(short) nVersion}. */
+	public static void nnVersion(long struct, short value) { memPutShort(struct + PIXELFORMATDESCRIPTOR.NVERSION, value); }
+	/** Unsafe version of {@link #dwFlags(int) dwFlags}. */
+	public static void ndwFlags(long struct, int value) { memPutInt(struct + PIXELFORMATDESCRIPTOR.DWFLAGS, value); }
+	/** Unsafe version of {@link #iPixelType(byte) iPixelType}. */
+	public static void niPixelType(long struct, byte value) { memPutByte(struct + PIXELFORMATDESCRIPTOR.IPIXELTYPE, value); }
+	/** Unsafe version of {@link #cColorBits(byte) cColorBits}. */
+	public static void ncColorBits(long struct, byte value) { memPutByte(struct + PIXELFORMATDESCRIPTOR.CCOLORBITS, value); }
+	/** Unsafe version of {@link #cRedBits(byte) cRedBits}. */
+	public static void ncRedBits(long struct, byte value) { memPutByte(struct + PIXELFORMATDESCRIPTOR.CREDBITS, value); }
+	/** Unsafe version of {@link #cRedShift(byte) cRedShift}. */
+	public static void ncRedShift(long struct, byte value) { memPutByte(struct + PIXELFORMATDESCRIPTOR.CREDSHIFT, value); }
+	/** Unsafe version of {@link #cGreenBits(byte) cGreenBits}. */
+	public static void ncGreenBits(long struct, byte value) { memPutByte(struct + PIXELFORMATDESCRIPTOR.CGREENBITS, value); }
+	/** Unsafe version of {@link #cGreenShift(byte) cGreenShift}. */
+	public static void ncGreenShift(long struct, byte value) { memPutByte(struct + PIXELFORMATDESCRIPTOR.CGREENSHIFT, value); }
+	/** Unsafe version of {@link #cBlueBits(byte) cBlueBits}. */
+	public static void ncBlueBits(long struct, byte value) { memPutByte(struct + PIXELFORMATDESCRIPTOR.CBLUEBITS, value); }
+	/** Unsafe version of {@link #cBlueShift(byte) cBlueShift}. */
+	public static void ncBlueShift(long struct, byte value) { memPutByte(struct + PIXELFORMATDESCRIPTOR.CBLUESHIFT, value); }
+	/** Unsafe version of {@link #cAlphaBits(byte) cAlphaBits}. */
+	public static void ncAlphaBits(long struct, byte value) { memPutByte(struct + PIXELFORMATDESCRIPTOR.CALPHABITS, value); }
+	/** Unsafe version of {@link #cAlphaShift(byte) cAlphaShift}. */
+	public static void ncAlphaShift(long struct, byte value) { memPutByte(struct + PIXELFORMATDESCRIPTOR.CALPHASHIFT, value); }
+	/** Unsafe version of {@link #cAccumBits(byte) cAccumBits}. */
+	public static void ncAccumBits(long struct, byte value) { memPutByte(struct + PIXELFORMATDESCRIPTOR.CACCUMBITS, value); }
+	/** Unsafe version of {@link #cAccumRedBits(byte) cAccumRedBits}. */
+	public static void ncAccumRedBits(long struct, byte value) { memPutByte(struct + PIXELFORMATDESCRIPTOR.CACCUMREDBITS, value); }
+	/** Unsafe version of {@link #cAccumGreenBits(byte) cAccumGreenBits}. */
+	public static void ncAccumGreenBits(long struct, byte value) { memPutByte(struct + PIXELFORMATDESCRIPTOR.CACCUMGREENBITS, value); }
+	/** Unsafe version of {@link #cAccumBlueBits(byte) cAccumBlueBits}. */
+	public static void ncAccumBlueBits(long struct, byte value) { memPutByte(struct + PIXELFORMATDESCRIPTOR.CACCUMBLUEBITS, value); }
+	/** Unsafe version of {@link #cAccumAlphaBits(byte) cAccumAlphaBits}. */
+	public static void ncAccumAlphaBits(long struct, byte value) { memPutByte(struct + PIXELFORMATDESCRIPTOR.CACCUMALPHABITS, value); }
+	/** Unsafe version of {@link #cDepthBits(byte) cDepthBits}. */
+	public static void ncDepthBits(long struct, byte value) { memPutByte(struct + PIXELFORMATDESCRIPTOR.CDEPTHBITS, value); }
+	/** Unsafe version of {@link #cStencilBits(byte) cStencilBits}. */
+	public static void ncStencilBits(long struct, byte value) { memPutByte(struct + PIXELFORMATDESCRIPTOR.CSTENCILBITS, value); }
+	/** Unsafe version of {@link #cAuxBuffers(byte) cAuxBuffers}. */
+	public static void ncAuxBuffers(long struct, byte value) { memPutByte(struct + PIXELFORMATDESCRIPTOR.CAUXBUFFERS, value); }
+	/** Unsafe version of {@link #iLayerType(byte) iLayerType}. */
+	public static void niLayerType(long struct, byte value) { memPutByte(struct + PIXELFORMATDESCRIPTOR.ILAYERTYPE, value); }
+	/** Unsafe version of {@link #bReserved(byte) bReserved}. */
+	public static void nbReserved(long struct, byte value) { memPutByte(struct + PIXELFORMATDESCRIPTOR.BRESERVED, value); }
+	/** Unsafe version of {@link #dwLayerMask(int) dwLayerMask}. */
+	public static void ndwLayerMask(long struct, int value) { memPutInt(struct + PIXELFORMATDESCRIPTOR.DWLAYERMASK, value); }
+	/** Unsafe version of {@link #dwVisibleMask(int) dwVisibleMask}. */
+	public static void ndwVisibleMask(long struct, int value) { memPutInt(struct + PIXELFORMATDESCRIPTOR.DWVISIBLEMASK, value); }
+	/** Unsafe version of {@link #dwDamageMask(int) dwDamageMask}. */
+	public static void ndwDamageMask(long struct, int value) { memPutInt(struct + PIXELFORMATDESCRIPTOR.DWDAMAGEMASK, value); }
 
 	// -----------------------------------
 
@@ -446,59 +534,111 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 			return SIZEOF;
 		}
 
-		public int getSize() { return ngetSize(address()); }
-		public int getVersion() { return ngetVersion(address()); }
-		public int getFlags() { return ngetFlags(address()); }
-		public int getPixelType() { return ngetPixelType(address()); }
-		public int getColorBits() { return ngetColorBits(address()); }
-		public int getRedBits() { return ngetRedBits(address()); }
-		public int getRedShirt() { return ngetRedShirt(address()); }
-		public int getGreenBits() { return ngetGreenBits(address()); }
-		public int getGreenShift() { return ngetGreenShift(address()); }
-		public int getBlueBits() { return ngetBlueBits(address()); }
-		public int getBlueShift() { return ngetBlueShift(address()); }
-		public int getAlphaBits() { return ngetAlphaBits(address()); }
-		public int getAlphaShift() { return ngetAlphaShift(address()); }
-		public int getAccumBits() { return ngetAccumBits(address()); }
-		public int getAccumRedBits() { return ngetAccumRedBits(address()); }
-		public int getAccumGreenBits() { return ngetAccumGreenBits(address()); }
-		public int getAccumBlueBits() { return ngetAccumBlueBits(address()); }
-		public int getAccumAlphaBits() { return ngetAccumAlphaBits(address()); }
-		public int getDepthBits() { return ngetDepthBits(address()); }
-		public int getStencilBits() { return ngetStencilBits(address()); }
-		public int getAuxBuffers() { return ngetAuxBuffers(address()); }
-		public int getLayerType() { return ngetLayerType(address()); }
-		public int getReserved() { return ngetReserved(address()); }
-		public int getLayerMask() { return ngetLayerMask(address()); }
-		public int getVisibleMask() { return ngetVisibleMask(address()); }
-		public int getDamageMask() { return ngetDamageMask(address()); }
+		/** Returns the value of the {@code nSize} field. */
+		public short nSize() { return nnSize(address()); }
+		/** Returns the value of the {@code nVersion} field. */
+		public short nVersion() { return nnVersion(address()); }
+		/** Returns the value of the {@code dwFlags} field. */
+		public int dwFlags() { return ndwFlags(address()); }
+		/** Returns the value of the {@code iPixelType} field. */
+		public byte iPixelType() { return niPixelType(address()); }
+		/** Returns the value of the {@code cColorBits} field. */
+		public byte cColorBits() { return ncColorBits(address()); }
+		/** Returns the value of the {@code cRedBits} field. */
+		public byte cRedBits() { return ncRedBits(address()); }
+		/** Returns the value of the {@code cRedShift} field. */
+		public byte cRedShift() { return ncRedShift(address()); }
+		/** Returns the value of the {@code cGreenBits} field. */
+		public byte cGreenBits() { return ncGreenBits(address()); }
+		/** Returns the value of the {@code cGreenShift} field. */
+		public byte cGreenShift() { return ncGreenShift(address()); }
+		/** Returns the value of the {@code cBlueBits} field. */
+		public byte cBlueBits() { return ncBlueBits(address()); }
+		/** Returns the value of the {@code cBlueShift} field. */
+		public byte cBlueShift() { return ncBlueShift(address()); }
+		/** Returns the value of the {@code cAlphaBits} field. */
+		public byte cAlphaBits() { return ncAlphaBits(address()); }
+		/** Returns the value of the {@code cAlphaShift} field. */
+		public byte cAlphaShift() { return ncAlphaShift(address()); }
+		/** Returns the value of the {@code cAccumBits} field. */
+		public byte cAccumBits() { return ncAccumBits(address()); }
+		/** Returns the value of the {@code cAccumRedBits} field. */
+		public byte cAccumRedBits() { return ncAccumRedBits(address()); }
+		/** Returns the value of the {@code cAccumGreenBits} field. */
+		public byte cAccumGreenBits() { return ncAccumGreenBits(address()); }
+		/** Returns the value of the {@code cAccumBlueBits} field. */
+		public byte cAccumBlueBits() { return ncAccumBlueBits(address()); }
+		/** Returns the value of the {@code cAccumAlphaBits} field. */
+		public byte cAccumAlphaBits() { return ncAccumAlphaBits(address()); }
+		/** Returns the value of the {@code cDepthBits} field. */
+		public byte cDepthBits() { return ncDepthBits(address()); }
+		/** Returns the value of the {@code cStencilBits} field. */
+		public byte cStencilBits() { return ncStencilBits(address()); }
+		/** Returns the value of the {@code cAuxBuffers} field. */
+		public byte cAuxBuffers() { return ncAuxBuffers(address()); }
+		/** Returns the value of the {@code iLayerType} field. */
+		public byte iLayerType() { return niLayerType(address()); }
+		/** Returns the value of the {@code bReserved} field. */
+		public byte bReserved() { return nbReserved(address()); }
+		/** Returns the value of the {@code dwLayerMask} field. */
+		public int dwLayerMask() { return ndwLayerMask(address()); }
+		/** Returns the value of the {@code dwVisibleMask} field. */
+		public int dwVisibleMask() { return ndwVisibleMask(address()); }
+		/** Returns the value of the {@code dwDamageMask} field. */
+		public int dwDamageMask() { return ndwDamageMask(address()); }
 
-		public PIXELFORMATDESCRIPTOR.Buffer setSize(int size) { nsetSize(address(), size); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setVersion(int version) { nsetVersion(address(), version); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setFlags(int flags) { nsetFlags(address(), flags); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setPixelType(int pixelType) { nsetPixelType(address(), pixelType); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setColorBits(int colorBits) { nsetColorBits(address(), colorBits); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setRedBits(int redBits) { nsetRedBits(address(), redBits); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setRedShirt(int redShirt) { nsetRedShirt(address(), redShirt); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setGreenBits(int greenBits) { nsetGreenBits(address(), greenBits); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setGreenShift(int greenShift) { nsetGreenShift(address(), greenShift); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setBlueBits(int blueBits) { nsetBlueBits(address(), blueBits); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setBlueShift(int blueShift) { nsetBlueShift(address(), blueShift); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setAlphaBits(int alphaBits) { nsetAlphaBits(address(), alphaBits); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setAlphaShift(int alphaShift) { nsetAlphaShift(address(), alphaShift); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setAccumBits(int accumBits) { nsetAccumBits(address(), accumBits); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setAccumRedBits(int accumRedBits) { nsetAccumRedBits(address(), accumRedBits); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setAccumGreenBits(int accumGreenBits) { nsetAccumGreenBits(address(), accumGreenBits); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setAccumBlueBits(int accumBlueBits) { nsetAccumBlueBits(address(), accumBlueBits); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setAccumAlphaBits(int accumAlphaBits) { nsetAccumAlphaBits(address(), accumAlphaBits); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setDepthBits(int depthBits) { nsetDepthBits(address(), depthBits); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setStencilBits(int stencilBits) { nsetStencilBits(address(), stencilBits); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setAuxBuffers(int auxBuffers) { nsetAuxBuffers(address(), auxBuffers); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setLayerType(int layerType) { nsetLayerType(address(), layerType); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setReserved(int reserved) { nsetReserved(address(), reserved); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setLayerMask(int layerMask) { nsetLayerMask(address(), layerMask); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setVisibleMask(int visibleMask) { nsetVisibleMask(address(), visibleMask); return this; }
-		public PIXELFORMATDESCRIPTOR.Buffer setDamageMask(int damageMask) { nsetDamageMask(address(), damageMask); return this; }
+		/** Sets the specified value to the {@code nSize} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer nSize(short value) { nnSize(address(), value); return this; }
+		/** Sets the specified value to the {@code nVersion} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer nVersion(short value) { nnVersion(address(), value); return this; }
+		/** Sets the specified value to the {@code dwFlags} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer dwFlags(int value) { ndwFlags(address(), value); return this; }
+		/** Sets the specified value to the {@code iPixelType} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer iPixelType(byte value) { niPixelType(address(), value); return this; }
+		/** Sets the specified value to the {@code cColorBits} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer cColorBits(byte value) { ncColorBits(address(), value); return this; }
+		/** Sets the specified value to the {@code cRedBits} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer cRedBits(byte value) { ncRedBits(address(), value); return this; }
+		/** Sets the specified value to the {@code cRedShift} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer cRedShift(byte value) { ncRedShift(address(), value); return this; }
+		/** Sets the specified value to the {@code cGreenBits} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer cGreenBits(byte value) { ncGreenBits(address(), value); return this; }
+		/** Sets the specified value to the {@code cGreenShift} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer cGreenShift(byte value) { ncGreenShift(address(), value); return this; }
+		/** Sets the specified value to the {@code cBlueBits} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer cBlueBits(byte value) { ncBlueBits(address(), value); return this; }
+		/** Sets the specified value to the {@code cBlueShift} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer cBlueShift(byte value) { ncBlueShift(address(), value); return this; }
+		/** Sets the specified value to the {@code cAlphaBits} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer cAlphaBits(byte value) { ncAlphaBits(address(), value); return this; }
+		/** Sets the specified value to the {@code cAlphaShift} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer cAlphaShift(byte value) { ncAlphaShift(address(), value); return this; }
+		/** Sets the specified value to the {@code cAccumBits} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer cAccumBits(byte value) { ncAccumBits(address(), value); return this; }
+		/** Sets the specified value to the {@code cAccumRedBits} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer cAccumRedBits(byte value) { ncAccumRedBits(address(), value); return this; }
+		/** Sets the specified value to the {@code cAccumGreenBits} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer cAccumGreenBits(byte value) { ncAccumGreenBits(address(), value); return this; }
+		/** Sets the specified value to the {@code cAccumBlueBits} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer cAccumBlueBits(byte value) { ncAccumBlueBits(address(), value); return this; }
+		/** Sets the specified value to the {@code cAccumAlphaBits} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer cAccumAlphaBits(byte value) { ncAccumAlphaBits(address(), value); return this; }
+		/** Sets the specified value to the {@code cDepthBits} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer cDepthBits(byte value) { ncDepthBits(address(), value); return this; }
+		/** Sets the specified value to the {@code cStencilBits} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer cStencilBits(byte value) { ncStencilBits(address(), value); return this; }
+		/** Sets the specified value to the {@code cAuxBuffers} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer cAuxBuffers(byte value) { ncAuxBuffers(address(), value); return this; }
+		/** Sets the specified value to the {@code iLayerType} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer iLayerType(byte value) { niLayerType(address(), value); return this; }
+		/** Sets the specified value to the {@code bReserved} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer bReserved(byte value) { nbReserved(address(), value); return this; }
+		/** Sets the specified value to the {@code dwLayerMask} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer dwLayerMask(int value) { ndwLayerMask(address(), value); return this; }
+		/** Sets the specified value to the {@code dwVisibleMask} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer dwVisibleMask(int value) { ndwVisibleMask(address(), value); return this; }
+		/** Sets the specified value to the {@code dwDamageMask} field. */
+		public PIXELFORMATDESCRIPTOR.Buffer dwDamageMask(int value) { ndwDamageMask(address(), value); return this; }
 
 	}
 

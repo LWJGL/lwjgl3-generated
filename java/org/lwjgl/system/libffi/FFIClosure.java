@@ -10,10 +10,19 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** The libffi closure structure. */
+/**
+ * The libffi closure structure.
+ * 
+ * <h3>ffi_closure members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>cif</td><td class="nw">ffi_cif *</td><td></td></tr>
+ * <tr><td>fun</td><td class="nw">void</td><td></td></tr>
+ * <tr><td>user_data</td><td class="nw">void</td><td></td></tr>
+ * </table>
+ */
 public class FFIClosure extends Struct {
 
 	/** The struct size in bytes. */
@@ -61,9 +70,12 @@ public class FFIClosure extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public FFICIF getCif() { return ngetCifStruct(address()); }
-	public long getFun() { return ngetFun(address()); }
-	public long getUserData() { return ngetUserData(address()); }
+	/** Returns a {@link FFICIF} view of the struct pointed to by the {@code cif} field. */
+	public FFICIF cif() { return ncifStruct(address()); }
+	/** Returns the value of the {@code fun} field. */
+	public long fun() { return nfun(address()); }
+	/** Returns the value of the {@code user_data} field. */
+	public long user_data() { return nuser_data(address()); }
 
 	// -----------------------------------
 
@@ -119,13 +131,12 @@ public class FFIClosure extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static long ngetCif(long struct) { return memGetAddress(struct + CIF); }
-	public static FFICIF ngetCifStruct(long struct) { return new FFICIF(ngetCif(struct)); }
-	public static FFICIF getCif(ByteBuffer struct) { return ngetCifStruct(memAddress(struct)); }
-	public static long ngetFun(long struct) { return memGetAddress(struct + FUN); }
-	public static long getFun(ByteBuffer struct) { return ngetFun(memAddress(struct)); }
-	public static long ngetUserData(long struct) { return memGetAddress(struct + USER_DATA); }
-	public static long getUserData(ByteBuffer struct) { return ngetUserData(memAddress(struct)); }
+	/** Unsafe version of {@link #cif}. */
+	public static FFICIF ncifStruct(long struct) { return new FFICIF(memGetAddress(struct + FFIClosure.CIF)); }
+	/** Unsafe version of {@link #fun}. */
+	public static long nfun(long struct) { return memGetAddress(struct + FFIClosure.FUN); }
+	/** Unsafe version of {@link #user_data}. */
+	public static long nuser_data(long struct) { return memGetAddress(struct + FFIClosure.USER_DATA); }
 
 	// -----------------------------------
 
@@ -169,9 +180,12 @@ public class FFIClosure extends Struct {
 			return SIZEOF;
 		}
 
-		public FFICIF getCif() { return ngetCifStruct(address()); }
-		public long getFun() { return ngetFun(address()); }
-		public long getUserData() { return ngetUserData(address()); }
+		/** Returns a {@link FFICIF} view of the struct pointed to by the {@code cif} field. */
+		public FFICIF cif() { return ncifStruct(address()); }
+		/** Returns the value of the {@code fun} field. */
+		public long fun() { return nfun(address()); }
+		/** Returns the value of the {@code user_data} field. */
+		public long user_data() { return nuser_data(address()); }
 
 	}
 

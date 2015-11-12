@@ -13,7 +13,21 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Image format struct. */
+/**
+ * Specifies the width, height, stride, format and memory pointer of the pixmap to be used by the function {@link HIClientpixmap#eglCreatePixmapSurfaceHI} to
+ * create the {@code PixmapSurface}.
+ * 
+ * <h3>EGLClientPixmapHI members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>pData</td><td class="nw">void</td><td>pointer to a memory buffer allocated by the application that will contain the result of the drawing operations. It is up to the application to ensure
+ * that the buffer size corresponds to {@code iHeight * iStride * sizeof(pixel)}.</td></tr>
+ * <tr><td>iWidth</td><td class="nw">EGLint</td><td>width of the buffer in pixels</td></tr>
+ * <tr><td>iHeight</td><td class="nw">EGLint</td><td>height of the buffer in pixels. The height of the buffer can be negative; in that case the result of the drawing operations will be vertically swapped.
+ * When positive, {@code pData} will point at the bottom-left corner of the image; when negative, to the top-left corner.</td></tr>
+ * <tr><td>iStride</td><td class="nw">EGLint</td><td>stride of the buffer, in pixels. It is important to note that each row of the buffer must start on 32-bit boundaries.</td></tr>
+ * </table>
+ */
 public class EGLClientPixmapHI extends Struct {
 
 	/** The struct size in bytes. */
@@ -63,15 +77,27 @@ public class EGLClientPixmapHI extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public ByteBuffer getPData(int capacity) { return ngetPData(address(), capacity); }
-	public int getIWidth() { return ngetIWidth(address()); }
-	public int getIHeight() { return ngetIHeight(address()); }
-	public int getIStride() { return ngetIStride(address()); }
+	/**
+	 * Returns a {@link ByteBuffer} view of the data pointed to by the {@code pData} field.
+	 *
+	 * @param capacity the number of elements in the returned {@link ByteBuffer}
+	 */
+	public ByteBuffer pData(int capacity) { return npData(address(), capacity); }
+	/** Returns the value of the {@code iWidth} field. */
+	public int iWidth() { return niWidth(address()); }
+	/** Returns the value of the {@code iHeight} field. */
+	public int iHeight() { return niHeight(address()); }
+	/** Returns the value of the {@code iStride} field. */
+	public int iStride() { return niStride(address()); }
 
-	public EGLClientPixmapHI setPData(ByteBuffer pData) { nsetPData(address(), pData); return this; }
-	public EGLClientPixmapHI setIWidth(int iWidth) { nsetIWidth(address(), iWidth); return this; }
-	public EGLClientPixmapHI setIHeight(int iHeight) { nsetIHeight(address(), iHeight); return this; }
-	public EGLClientPixmapHI setIStride(int iStride) { nsetIStride(address(), iStride); return this; }
+	/** Sets the address of the specified {@link ByteBuffer} to the {@code pData} field. */
+	public EGLClientPixmapHI pData(ByteBuffer value) { npData(address(), value); return this; }
+	/** Sets the specified value to the {@code iWidth} field. */
+	public EGLClientPixmapHI iWidth(int value) { niWidth(address(), value); return this; }
+	/** Sets the specified value to the {@code iHeight} field. */
+	public EGLClientPixmapHI iHeight(int value) { niHeight(address(), value); return this; }
+	/** Sets the specified value to the {@code iStride} field. */
+	public EGLClientPixmapHI iStride(int value) { niStride(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public EGLClientPixmapHI set(
@@ -80,15 +106,15 @@ public class EGLClientPixmapHI extends Struct {
 		int iHeight,
 		int iStride
 	) {
-		setPData(pData);
-		setIWidth(iWidth);
-		setIHeight(iHeight);
-		setIStride(iStride);
+		pData(pData);
+		iWidth(iWidth);
+		iHeight(iHeight);
+		iStride(iStride);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(EGLClientPixmapHI) set}. */
 	public EGLClientPixmapHI nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -105,7 +131,7 @@ public class EGLClientPixmapHI extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(EGLClientPixmapHI) set}. */
 	public EGLClientPixmapHI set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -166,25 +192,23 @@ public class EGLClientPixmapHI extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static long ngetPData(long struct) { return memGetAddress(struct + PDATA); }
-	public static ByteBuffer ngetPData(long struct, int capacity) { return memByteBuffer(ngetPData(struct), capacity); }
-	public static ByteBuffer getPData(ByteBuffer struct, int capacity) { return ngetPData(memAddress(struct), capacity); }
-	public static int ngetIWidth(long struct) { return memGetInt(struct + IWIDTH); }
-	public static int getIWidth(ByteBuffer struct) { return ngetIWidth(memAddress(struct)); }
-	public static int ngetIHeight(long struct) { return memGetInt(struct + IHEIGHT); }
-	public static int getIHeight(ByteBuffer struct) { return ngetIHeight(memAddress(struct)); }
-	public static int ngetIStride(long struct) { return memGetInt(struct + ISTRIDE); }
-	public static int getIStride(ByteBuffer struct) { return ngetIStride(memAddress(struct)); }
+	/** Unsafe version of {@link #pData(int) pData}. */
+	public static ByteBuffer npData(long struct, int capacity) { return memByteBuffer(memGetAddress(struct + EGLClientPixmapHI.PDATA), capacity); }
+	/** Unsafe version of {@link #iWidth}. */
+	public static int niWidth(long struct) { return memGetInt(struct + EGLClientPixmapHI.IWIDTH); }
+	/** Unsafe version of {@link #iHeight}. */
+	public static int niHeight(long struct) { return memGetInt(struct + EGLClientPixmapHI.IHEIGHT); }
+	/** Unsafe version of {@link #iStride}. */
+	public static int niStride(long struct) { return memGetInt(struct + EGLClientPixmapHI.ISTRIDE); }
 
-	public static void nsetPData(long struct, long pData) { memPutAddress(struct + PDATA, pData); }
-	public static void nsetPData(long struct, ByteBuffer pData) { nsetPData(struct, memAddressSafe(pData)); }
-	public static void setPData(ByteBuffer struct, ByteBuffer pData) { nsetPData(memAddress(struct), pData); }
-	public static void nsetIWidth(long struct, int iWidth) { memPutInt(struct + IWIDTH, iWidth); }
-	public static void setIWidth(ByteBuffer struct, int iWidth) { nsetIWidth(memAddress(struct), iWidth); }
-	public static void nsetIHeight(long struct, int iHeight) { memPutInt(struct + IHEIGHT, iHeight); }
-	public static void setIHeight(ByteBuffer struct, int iHeight) { nsetIHeight(memAddress(struct), iHeight); }
-	public static void nsetIStride(long struct, int iStride) { memPutInt(struct + ISTRIDE, iStride); }
-	public static void setIStride(ByteBuffer struct, int iStride) { nsetIStride(memAddress(struct), iStride); }
+	/** Unsafe version of {@link #pData(ByteBuffer) pData}. */
+	public static void npData(long struct, ByteBuffer value) { memPutAddress(struct + EGLClientPixmapHI.PDATA, memAddressSafe(value)); }
+	/** Unsafe version of {@link #iWidth(int) iWidth}. */
+	public static void niWidth(long struct, int value) { memPutInt(struct + EGLClientPixmapHI.IWIDTH, value); }
+	/** Unsafe version of {@link #iHeight(int) iHeight}. */
+	public static void niHeight(long struct, int value) { memPutInt(struct + EGLClientPixmapHI.IHEIGHT, value); }
+	/** Unsafe version of {@link #iStride(int) iStride}. */
+	public static void niStride(long struct, int value) { memPutInt(struct + EGLClientPixmapHI.ISTRIDE, value); }
 
 	// -----------------------------------
 
@@ -228,15 +252,27 @@ public class EGLClientPixmapHI extends Struct {
 			return SIZEOF;
 		}
 
-		public ByteBuffer getPData(int capacity) { return ngetPData(address(), capacity); }
-		public int getIWidth() { return ngetIWidth(address()); }
-		public int getIHeight() { return ngetIHeight(address()); }
-		public int getIStride() { return ngetIStride(address()); }
+		/**
+		 * Returns a {@link ByteBuffer} view of the data pointed to by the {@code pData} field.
+		 *
+		 * @param capacity the number of elements in the returned {@link ByteBuffer}
+		 */
+		public ByteBuffer pData(int capacity) { return npData(address(), capacity); }
+		/** Returns the value of the {@code iWidth} field. */
+		public int iWidth() { return niWidth(address()); }
+		/** Returns the value of the {@code iHeight} field. */
+		public int iHeight() { return niHeight(address()); }
+		/** Returns the value of the {@code iStride} field. */
+		public int iStride() { return niStride(address()); }
 
-		public EGLClientPixmapHI.Buffer setPData(ByteBuffer pData) { nsetPData(address(), pData); return this; }
-		public EGLClientPixmapHI.Buffer setIWidth(int iWidth) { nsetIWidth(address(), iWidth); return this; }
-		public EGLClientPixmapHI.Buffer setIHeight(int iHeight) { nsetIHeight(address(), iHeight); return this; }
-		public EGLClientPixmapHI.Buffer setIStride(int iStride) { nsetIStride(address(), iStride); return this; }
+		/** Sets the address of the specified {@link ByteBuffer} to the {@code pData} field. */
+		public EGLClientPixmapHI.Buffer pData(ByteBuffer value) { npData(address(), value); return this; }
+		/** Sets the specified value to the {@code iWidth} field. */
+		public EGLClientPixmapHI.Buffer iWidth(int value) { niWidth(address(), value); return this; }
+		/** Sets the specified value to the {@code iHeight} field. */
+		public EGLClientPixmapHI.Buffer iHeight(int value) { niHeight(address(), value); return this; }
+		/** Sets the specified value to the {@code iStride} field. */
+		public EGLClientPixmapHI.Buffer iStride(int value) { niStride(address(), value); return this; }
 
 	}
 

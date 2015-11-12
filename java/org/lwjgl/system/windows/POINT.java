@@ -13,7 +13,16 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Defines the x- and y- coordinates of a point. */
+/**
+ * Defines the x- and y- coordinates of a point.
+ * 
+ * <h3>POINT members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>x</td><td class="nw">LONG</td><td>the x-coordinate of the point</td></tr>
+ * <tr><td>y</td><td class="nw">LONG</td><td>the y-coordinate of the point</td></tr>
+ * </table>
+ */
 public class POINT extends Struct {
 
 	/** The struct size in bytes. */
@@ -59,24 +68,28 @@ public class POINT extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public int getX() { return ngetX(address()); }
-	public int getY() { return ngetY(address()); }
+	/** Returns the value of the {@code x} field. */
+	public int x() { return nx(address()); }
+	/** Returns the value of the {@code y} field. */
+	public int y() { return ny(address()); }
 
-	public POINT setX(int x) { nsetX(address(), x); return this; }
-	public POINT setY(int y) { nsetY(address(), y); return this; }
+	/** Sets the specified value to the {@code x} field. */
+	public POINT x(int value) { nx(address(), value); return this; }
+	/** Sets the specified value to the {@code y} field. */
+	public POINT y(int value) { ny(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public POINT set(
 		int x,
 		int y
 	) {
-		setX(x);
-		setY(y);
+		x(x);
+		y(y);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(POINT) set}. */
 	public POINT nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -93,7 +106,7 @@ public class POINT extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(POINT) set}. */
 	public POINT set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -154,15 +167,15 @@ public class POINT extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static int ngetX(long struct) { return memGetInt(struct + X); }
-	public static int getX(ByteBuffer struct) { return ngetX(memAddress(struct)); }
-	public static int ngetY(long struct) { return memGetInt(struct + Y); }
-	public static int getY(ByteBuffer struct) { return ngetY(memAddress(struct)); }
+	/** Unsafe version of {@link #x}. */
+	public static int nx(long struct) { return memGetInt(struct + POINT.X); }
+	/** Unsafe version of {@link #y}. */
+	public static int ny(long struct) { return memGetInt(struct + POINT.Y); }
 
-	public static void nsetX(long struct, int x) { memPutInt(struct + X, x); }
-	public static void setX(ByteBuffer struct, int x) { nsetX(memAddress(struct), x); }
-	public static void nsetY(long struct, int y) { memPutInt(struct + Y, y); }
-	public static void setY(ByteBuffer struct, int y) { nsetY(memAddress(struct), y); }
+	/** Unsafe version of {@link #x(int) x}. */
+	public static void nx(long struct, int value) { memPutInt(struct + POINT.X, value); }
+	/** Unsafe version of {@link #y(int) y}. */
+	public static void ny(long struct, int value) { memPutInt(struct + POINT.Y, value); }
 
 	// -----------------------------------
 
@@ -206,11 +219,15 @@ public class POINT extends Struct {
 			return SIZEOF;
 		}
 
-		public int getX() { return ngetX(address()); }
-		public int getY() { return ngetY(address()); }
+		/** Returns the value of the {@code x} field. */
+		public int x() { return nx(address()); }
+		/** Returns the value of the {@code y} field. */
+		public int y() { return ny(address()); }
 
-		public POINT.Buffer setX(int x) { nsetX(address(), x); return this; }
-		public POINT.Buffer setY(int y) { nsetY(address(), y); return this; }
+		/** Sets the specified value to the {@code x} field. */
+		public POINT.Buffer x(int value) { nx(address(), value); return this; }
+		/** Sets the specified value to the {@code y} field. */
+		public POINT.Buffer y(int value) { ny(address(), value); return this; }
 
 	}
 

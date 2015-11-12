@@ -10,12 +10,21 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Rendering information for each eye. Computed by either {@link OVR#ovr_GetRenderDesc} based on the specified FOV. Note that the rendering viewport is not
+ * rendering information for each eye. Computed by either {@link OVR#ovr_GetRenderDesc} based on the specified FOV. Note that the rendering viewport is not
  * included here as it can be specified separately and modified per frame by passing different viewport values in the layer structure.
+ * 
+ * <h3>ovrEyeRenderDesc members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>Eye</td><td class="nw">ovrEyeType</td><td>the eye index this instance corresponds to</td></tr>
+ * <tr><td>Fov</td><td class="nw">ovrFovPort</td><td>the field of view</td></tr>
+ * <tr><td>DistortedViewport</td><td class="nw">ovrRecti</td><td>distortion viewport</td></tr>
+ * <tr><td>PixelsPerTanAngleAtCenter</td><td class="nw">ovrVector2f</td><td>wow many display pixels will fit in tan(angle) = 1</td></tr>
+ * <tr><td>HmdToEyeViewOffset</td><td class="nw">ovrVector3f</td><td>translation to be applied to view matrix for each eye offset</td></tr>
+ * </table>
  */
 public class OVREyeRenderDesc extends Struct {
 
@@ -68,26 +77,16 @@ public class OVREyeRenderDesc extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public int getEye() { return ngetEye(address()); }
-	public OVRFovPort getFov() { return ngetFov(address()); }
-	public float getFovUpTan() { return ngetFovUpTan(address()); }
-	public float getFovDownTan() { return ngetFovDownTan(address()); }
-	public float getFovLeftTan() { return ngetFovLeftTan(address()); }
-	public float getFovRightTan() { return ngetFovRightTan(address()); }
-	public OVRRecti getDistortedViewport() { return ngetDistortedViewport(address()); }
-	public OVRVector2i getDistortedViewportPos() { return ngetDistortedViewportPos(address()); }
-	public int getDistortedViewportPosX() { return ngetDistortedViewportPosX(address()); }
-	public int getDistortedViewportPosY() { return ngetDistortedViewportPosY(address()); }
-	public OVRSizei getDistortedViewportSize() { return ngetDistortedViewportSize(address()); }
-	public int getDistortedViewportSizeW() { return ngetDistortedViewportSizeW(address()); }
-	public int getDistortedViewportSizeH() { return ngetDistortedViewportSizeH(address()); }
-	public OVRVector2f getPixelsPerTanAngleAtCenter() { return ngetPixelsPerTanAngleAtCenter(address()); }
-	public float getPixelsPerTanAngleAtCenterX() { return ngetPixelsPerTanAngleAtCenterX(address()); }
-	public float getPixelsPerTanAngleAtCenterY() { return ngetPixelsPerTanAngleAtCenterY(address()); }
-	public OVRVector3f getHmdToEyeViewOffset() { return ngetHmdToEyeViewOffset(address()); }
-	public float getHmdToEyeViewOffsetX() { return ngetHmdToEyeViewOffsetX(address()); }
-	public float getHmdToEyeViewOffsetY() { return ngetHmdToEyeViewOffsetY(address()); }
-	public float getHmdToEyeViewOffsetZ() { return ngetHmdToEyeViewOffsetZ(address()); }
+	/** Returns the value of the {@code Eye} field. */
+	public int Eye() { return nEye(address()); }
+	/** Returns a {@link OVRFovPort} view of the {@code Fov} field. */
+	public OVRFovPort Fov() { return nFov(address()); }
+	/** Returns a {@link OVRRecti} view of the {@code DistortedViewport} field. */
+	public OVRRecti DistortedViewport() { return nDistortedViewport(address()); }
+	/** Returns a {@link OVRVector2f} view of the {@code PixelsPerTanAngleAtCenter} field. */
+	public OVRVector2f PixelsPerTanAngleAtCenter() { return nPixelsPerTanAngleAtCenter(address()); }
+	/** Returns a {@link OVRVector3f} view of the {@code HmdToEyeViewOffset} field. */
+	public OVRVector3f HmdToEyeViewOffset() { return nHmdToEyeViewOffset(address()); }
 
 	// -----------------------------------
 
@@ -143,52 +142,16 @@ public class OVREyeRenderDesc extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static int ngetEye(long struct) { return memGetInt(struct + EYE); }
-	public static int getEye(ByteBuffer struct) { return ngetEye(memAddress(struct)); }
-	public static OVRFovPort ngetFov(long struct) { return OVRFovPort.malloc().nset(struct + FOV); }
-	/** Returns a copy of the {@code Fov} {@link OVRFovPort} struct. */
-	public static OVRFovPort getFov(ByteBuffer struct) { return ngetFov(memAddress(struct)); }
-	public static float ngetFovUpTan(long struct) { return memGetFloat(struct + FOV + OVRFovPort.UPTAN); }
-	public static float getFovUpTan(ByteBuffer struct) { return ngetFovUpTan(memAddress(struct)); }
-	public static float ngetFovDownTan(long struct) { return memGetFloat(struct + FOV + OVRFovPort.DOWNTAN); }
-	public static float getFovDownTan(ByteBuffer struct) { return ngetFovDownTan(memAddress(struct)); }
-	public static float ngetFovLeftTan(long struct) { return memGetFloat(struct + FOV + OVRFovPort.LEFTTAN); }
-	public static float getFovLeftTan(ByteBuffer struct) { return ngetFovLeftTan(memAddress(struct)); }
-	public static float ngetFovRightTan(long struct) { return memGetFloat(struct + FOV + OVRFovPort.RIGHTTAN); }
-	public static float getFovRightTan(ByteBuffer struct) { return ngetFovRightTan(memAddress(struct)); }
-	public static OVRRecti ngetDistortedViewport(long struct) { return OVRRecti.malloc().nset(struct + DISTORTEDVIEWPORT); }
-	/** Returns a copy of the {@code DistortedViewport} {@link OVRRecti} struct. */
-	public static OVRRecti getDistortedViewport(ByteBuffer struct) { return ngetDistortedViewport(memAddress(struct)); }
-	public static OVRVector2i ngetDistortedViewportPos(long struct) { return OVRVector2i.malloc().nset(struct + DISTORTEDVIEWPORT + OVRRecti.POS); }
-	/** Returns a copy of the {@code Pos} {@link OVRVector2i} struct. */
-	public static OVRVector2i getDistortedViewportPos(ByteBuffer struct) { return ngetDistortedViewportPos(memAddress(struct)); }
-	public static int ngetDistortedViewportPosX(long struct) { return memGetInt(struct + DISTORTEDVIEWPORT + OVRRecti.POS + OVRVector2i.X); }
-	public static int getDistortedViewportPosX(ByteBuffer struct) { return ngetDistortedViewportPosX(memAddress(struct)); }
-	public static int ngetDistortedViewportPosY(long struct) { return memGetInt(struct + DISTORTEDVIEWPORT + OVRRecti.POS + OVRVector2i.Y); }
-	public static int getDistortedViewportPosY(ByteBuffer struct) { return ngetDistortedViewportPosY(memAddress(struct)); }
-	public static OVRSizei ngetDistortedViewportSize(long struct) { return OVRSizei.malloc().nset(struct + DISTORTEDVIEWPORT + OVRRecti.SIZE); }
-	/** Returns a copy of the {@code Size} {@link OVRSizei} struct. */
-	public static OVRSizei getDistortedViewportSize(ByteBuffer struct) { return ngetDistortedViewportSize(memAddress(struct)); }
-	public static int ngetDistortedViewportSizeW(long struct) { return memGetInt(struct + DISTORTEDVIEWPORT + OVRRecti.SIZE + OVRSizei.W); }
-	public static int getDistortedViewportSizeW(ByteBuffer struct) { return ngetDistortedViewportSizeW(memAddress(struct)); }
-	public static int ngetDistortedViewportSizeH(long struct) { return memGetInt(struct + DISTORTEDVIEWPORT + OVRRecti.SIZE + OVRSizei.H); }
-	public static int getDistortedViewportSizeH(ByteBuffer struct) { return ngetDistortedViewportSizeH(memAddress(struct)); }
-	public static OVRVector2f ngetPixelsPerTanAngleAtCenter(long struct) { return OVRVector2f.malloc().nset(struct + PIXELSPERTANANGLEATCENTER); }
-	/** Returns a copy of the {@code PixelsPerTanAngleAtCenter} {@link OVRVector2f} struct. */
-	public static OVRVector2f getPixelsPerTanAngleAtCenter(ByteBuffer struct) { return ngetPixelsPerTanAngleAtCenter(memAddress(struct)); }
-	public static float ngetPixelsPerTanAngleAtCenterX(long struct) { return memGetFloat(struct + PIXELSPERTANANGLEATCENTER + OVRVector2f.X); }
-	public static float getPixelsPerTanAngleAtCenterX(ByteBuffer struct) { return ngetPixelsPerTanAngleAtCenterX(memAddress(struct)); }
-	public static float ngetPixelsPerTanAngleAtCenterY(long struct) { return memGetFloat(struct + PIXELSPERTANANGLEATCENTER + OVRVector2f.Y); }
-	public static float getPixelsPerTanAngleAtCenterY(ByteBuffer struct) { return ngetPixelsPerTanAngleAtCenterY(memAddress(struct)); }
-	public static OVRVector3f ngetHmdToEyeViewOffset(long struct) { return OVRVector3f.malloc().nset(struct + HMDTOEYEVIEWOFFSET); }
-	/** Returns a copy of the {@code HmdToEyeViewOffset} {@link OVRVector3f} struct. */
-	public static OVRVector3f getHmdToEyeViewOffset(ByteBuffer struct) { return ngetHmdToEyeViewOffset(memAddress(struct)); }
-	public static float ngetHmdToEyeViewOffsetX(long struct) { return memGetFloat(struct + HMDTOEYEVIEWOFFSET + OVRVector3f.X); }
-	public static float getHmdToEyeViewOffsetX(ByteBuffer struct) { return ngetHmdToEyeViewOffsetX(memAddress(struct)); }
-	public static float ngetHmdToEyeViewOffsetY(long struct) { return memGetFloat(struct + HMDTOEYEVIEWOFFSET + OVRVector3f.Y); }
-	public static float getHmdToEyeViewOffsetY(ByteBuffer struct) { return ngetHmdToEyeViewOffsetY(memAddress(struct)); }
-	public static float ngetHmdToEyeViewOffsetZ(long struct) { return memGetFloat(struct + HMDTOEYEVIEWOFFSET + OVRVector3f.Z); }
-	public static float getHmdToEyeViewOffsetZ(ByteBuffer struct) { return ngetHmdToEyeViewOffsetZ(memAddress(struct)); }
+	/** Unsafe version of {@link #Eye}. */
+	public static int nEye(long struct) { return memGetInt(struct + OVREyeRenderDesc.EYE); }
+	/** Unsafe version of {@link #Fov}. */
+	public static OVRFovPort nFov(long struct) { return new OVRFovPort(struct + OVREyeRenderDesc.FOV); }
+	/** Unsafe version of {@link #DistortedViewport}. */
+	public static OVRRecti nDistortedViewport(long struct) { return new OVRRecti(struct + OVREyeRenderDesc.DISTORTEDVIEWPORT); }
+	/** Unsafe version of {@link #PixelsPerTanAngleAtCenter}. */
+	public static OVRVector2f nPixelsPerTanAngleAtCenter(long struct) { return new OVRVector2f(struct + OVREyeRenderDesc.PIXELSPERTANANGLEATCENTER); }
+	/** Unsafe version of {@link #HmdToEyeViewOffset}. */
+	public static OVRVector3f nHmdToEyeViewOffset(long struct) { return new OVRVector3f(struct + OVREyeRenderDesc.HMDTOEYEVIEWOFFSET); }
 
 	// -----------------------------------
 
@@ -232,26 +195,16 @@ public class OVREyeRenderDesc extends Struct {
 			return SIZEOF;
 		}
 
-		public int getEye() { return ngetEye(address()); }
-		public OVRFovPort getFov() { return ngetFov(address()); }
-		public float getFovUpTan() { return ngetFovUpTan(address()); }
-		public float getFovDownTan() { return ngetFovDownTan(address()); }
-		public float getFovLeftTan() { return ngetFovLeftTan(address()); }
-		public float getFovRightTan() { return ngetFovRightTan(address()); }
-		public OVRRecti getDistortedViewport() { return ngetDistortedViewport(address()); }
-		public OVRVector2i getDistortedViewportPos() { return ngetDistortedViewportPos(address()); }
-		public int getDistortedViewportPosX() { return ngetDistortedViewportPosX(address()); }
-		public int getDistortedViewportPosY() { return ngetDistortedViewportPosY(address()); }
-		public OVRSizei getDistortedViewportSize() { return ngetDistortedViewportSize(address()); }
-		public int getDistortedViewportSizeW() { return ngetDistortedViewportSizeW(address()); }
-		public int getDistortedViewportSizeH() { return ngetDistortedViewportSizeH(address()); }
-		public OVRVector2f getPixelsPerTanAngleAtCenter() { return ngetPixelsPerTanAngleAtCenter(address()); }
-		public float getPixelsPerTanAngleAtCenterX() { return ngetPixelsPerTanAngleAtCenterX(address()); }
-		public float getPixelsPerTanAngleAtCenterY() { return ngetPixelsPerTanAngleAtCenterY(address()); }
-		public OVRVector3f getHmdToEyeViewOffset() { return ngetHmdToEyeViewOffset(address()); }
-		public float getHmdToEyeViewOffsetX() { return ngetHmdToEyeViewOffsetX(address()); }
-		public float getHmdToEyeViewOffsetY() { return ngetHmdToEyeViewOffsetY(address()); }
-		public float getHmdToEyeViewOffsetZ() { return ngetHmdToEyeViewOffsetZ(address()); }
+		/** Returns the value of the {@code Eye} field. */
+		public int Eye() { return nEye(address()); }
+		/** Returns a {@link OVRFovPort} view of the {@code Fov} field. */
+		public OVRFovPort Fov() { return nFov(address()); }
+		/** Returns a {@link OVRRecti} view of the {@code DistortedViewport} field. */
+		public OVRRecti DistortedViewport() { return nDistortedViewport(address()); }
+		/** Returns a {@link OVRVector2f} view of the {@code PixelsPerTanAngleAtCenter} field. */
+		public OVRVector2f PixelsPerTanAngleAtCenter() { return nPixelsPerTanAngleAtCenter(address()); }
+		/** Returns a {@link OVRVector3f} view of the {@code HmdToEyeViewOffset} field. */
+		public OVRVector3f HmdToEyeViewOffset() { return nHmdToEyeViewOffset(address()); }
 
 	}
 

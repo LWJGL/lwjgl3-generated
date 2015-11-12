@@ -17,6 +17,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Projection information for {@link OVRLayerEyeFovDepth}.
  * 
  * <p>Use the utility function {@link OVRUtil#ovrTimewarpProjectionDesc_FromProjection} to generate this structure from the application's projection matrix.</p>
+ * 
+ * <h3>ovrTimewarpProjectionDesc members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>Projection22</td><td class="nw">float</td><td>projection matrix element [2][2]</td></tr>
+ * <tr><td>Projection23</td><td class="nw">float</td><td>projection matrix element [2][3]</td></tr>
+ * <tr><td>Projection32</td><td class="nw">float</td><td>projection matrix element [3][2]</td></tr>
+ * </table>
  */
 public class OVRTimewarpProjectionDesc extends Struct {
 
@@ -65,13 +73,19 @@ public class OVRTimewarpProjectionDesc extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public float getProjection22() { return ngetProjection22(address()); }
-	public float getProjection23() { return ngetProjection23(address()); }
-	public float getProjection32() { return ngetProjection32(address()); }
+	/** Returns the value of the {@code Projection22} field. */
+	public float Projection22() { return nProjection22(address()); }
+	/** Returns the value of the {@code Projection23} field. */
+	public float Projection23() { return nProjection23(address()); }
+	/** Returns the value of the {@code Projection32} field. */
+	public float Projection32() { return nProjection32(address()); }
 
-	public OVRTimewarpProjectionDesc setProjection22(float Projection22) { nsetProjection22(address(), Projection22); return this; }
-	public OVRTimewarpProjectionDesc setProjection23(float Projection23) { nsetProjection23(address(), Projection23); return this; }
-	public OVRTimewarpProjectionDesc setProjection32(float Projection32) { nsetProjection32(address(), Projection32); return this; }
+	/** Sets the specified value to the {@code Projection22} field. */
+	public OVRTimewarpProjectionDesc Projection22(float value) { nProjection22(address(), value); return this; }
+	/** Sets the specified value to the {@code Projection23} field. */
+	public OVRTimewarpProjectionDesc Projection23(float value) { nProjection23(address(), value); return this; }
+	/** Sets the specified value to the {@code Projection32} field. */
+	public OVRTimewarpProjectionDesc Projection32(float value) { nProjection32(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public OVRTimewarpProjectionDesc set(
@@ -79,14 +93,14 @@ public class OVRTimewarpProjectionDesc extends Struct {
 		float Projection23,
 		float Projection32
 	) {
-		setProjection22(Projection22);
-		setProjection23(Projection23);
-		setProjection32(Projection32);
+		Projection22(Projection22);
+		Projection23(Projection23);
+		Projection32(Projection32);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(OVRTimewarpProjectionDesc) set}. */
 	public OVRTimewarpProjectionDesc nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -103,7 +117,7 @@ public class OVRTimewarpProjectionDesc extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(OVRTimewarpProjectionDesc) set}. */
 	public OVRTimewarpProjectionDesc set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -164,19 +178,19 @@ public class OVRTimewarpProjectionDesc extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static float ngetProjection22(long struct) { return memGetFloat(struct + PROJECTION22); }
-	public static float getProjection22(ByteBuffer struct) { return ngetProjection22(memAddress(struct)); }
-	public static float ngetProjection23(long struct) { return memGetFloat(struct + PROJECTION23); }
-	public static float getProjection23(ByteBuffer struct) { return ngetProjection23(memAddress(struct)); }
-	public static float ngetProjection32(long struct) { return memGetFloat(struct + PROJECTION32); }
-	public static float getProjection32(ByteBuffer struct) { return ngetProjection32(memAddress(struct)); }
+	/** Unsafe version of {@link #Projection22}. */
+	public static float nProjection22(long struct) { return memGetFloat(struct + OVRTimewarpProjectionDesc.PROJECTION22); }
+	/** Unsafe version of {@link #Projection23}. */
+	public static float nProjection23(long struct) { return memGetFloat(struct + OVRTimewarpProjectionDesc.PROJECTION23); }
+	/** Unsafe version of {@link #Projection32}. */
+	public static float nProjection32(long struct) { return memGetFloat(struct + OVRTimewarpProjectionDesc.PROJECTION32); }
 
-	public static void nsetProjection22(long struct, float Projection22) { memPutFloat(struct + PROJECTION22, Projection22); }
-	public static void setProjection22(ByteBuffer struct, float Projection22) { nsetProjection22(memAddress(struct), Projection22); }
-	public static void nsetProjection23(long struct, float Projection23) { memPutFloat(struct + PROJECTION23, Projection23); }
-	public static void setProjection23(ByteBuffer struct, float Projection23) { nsetProjection23(memAddress(struct), Projection23); }
-	public static void nsetProjection32(long struct, float Projection32) { memPutFloat(struct + PROJECTION32, Projection32); }
-	public static void setProjection32(ByteBuffer struct, float Projection32) { nsetProjection32(memAddress(struct), Projection32); }
+	/** Unsafe version of {@link #Projection22(float) Projection22}. */
+	public static void nProjection22(long struct, float value) { memPutFloat(struct + OVRTimewarpProjectionDesc.PROJECTION22, value); }
+	/** Unsafe version of {@link #Projection23(float) Projection23}. */
+	public static void nProjection23(long struct, float value) { memPutFloat(struct + OVRTimewarpProjectionDesc.PROJECTION23, value); }
+	/** Unsafe version of {@link #Projection32(float) Projection32}. */
+	public static void nProjection32(long struct, float value) { memPutFloat(struct + OVRTimewarpProjectionDesc.PROJECTION32, value); }
 
 	// -----------------------------------
 
@@ -220,13 +234,19 @@ public class OVRTimewarpProjectionDesc extends Struct {
 			return SIZEOF;
 		}
 
-		public float getProjection22() { return ngetProjection22(address()); }
-		public float getProjection23() { return ngetProjection23(address()); }
-		public float getProjection32() { return ngetProjection32(address()); }
+		/** Returns the value of the {@code Projection22} field. */
+		public float Projection22() { return nProjection22(address()); }
+		/** Returns the value of the {@code Projection23} field. */
+		public float Projection23() { return nProjection23(address()); }
+		/** Returns the value of the {@code Projection32} field. */
+		public float Projection32() { return nProjection32(address()); }
 
-		public OVRTimewarpProjectionDesc.Buffer setProjection22(float Projection22) { nsetProjection22(address(), Projection22); return this; }
-		public OVRTimewarpProjectionDesc.Buffer setProjection23(float Projection23) { nsetProjection23(address(), Projection23); return this; }
-		public OVRTimewarpProjectionDesc.Buffer setProjection32(float Projection32) { nsetProjection32(address(), Projection32); return this; }
+		/** Sets the specified value to the {@code Projection22} field. */
+		public OVRTimewarpProjectionDesc.Buffer Projection22(float value) { nProjection22(address(), value); return this; }
+		/** Sets the specified value to the {@code Projection23} field. */
+		public OVRTimewarpProjectionDesc.Buffer Projection23(float value) { nProjection23(address(), value); return this; }
+		/** Sets the specified value to the {@code Projection32} field. */
+		public OVRTimewarpProjectionDesc.Buffer Projection32(float value) { nProjection32(address(), value); return this; }
 
 	}
 

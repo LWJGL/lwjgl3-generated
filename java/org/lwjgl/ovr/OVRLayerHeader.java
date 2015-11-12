@@ -13,7 +13,16 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Defines properties shared by all ovrLayer structs, such as {@link OVRLayerEyeFov}. */
+/**
+ * Defines properties shared by all ovrLayer structs, such as {@link OVRLayerEyeFov}.
+ * 
+ * <h3>ovrLayerHeader members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>Type</td><td class="nw">ovrLayerType</td><td>described by {@code ovrLayerType}</td></tr>
+ * <tr><td>Flags</td><td class="nw">unsigned int</td><td>described by {@code ovrLayerFlags}</td></tr>
+ * </table>
+ */
 public class OVRLayerHeader extends Struct {
 
 	/** The struct size in bytes. */
@@ -59,24 +68,28 @@ public class OVRLayerHeader extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public int getType() { return ngetType(address()); }
-	public int getFlags() { return ngetFlags(address()); }
+	/** Returns the value of the {@code Type} field. */
+	public int Type() { return nType(address()); }
+	/** Returns the value of the {@code Flags} field. */
+	public int Flags() { return nFlags(address()); }
 
-	public OVRLayerHeader setType(int Type) { nsetType(address(), Type); return this; }
-	public OVRLayerHeader setFlags(int Flags) { nsetFlags(address(), Flags); return this; }
+	/** Sets the specified value to the {@code Type} field. */
+	public OVRLayerHeader Type(int value) { nType(address(), value); return this; }
+	/** Sets the specified value to the {@code Flags} field. */
+	public OVRLayerHeader Flags(int value) { nFlags(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public OVRLayerHeader set(
 		int Type,
 		int Flags
 	) {
-		setType(Type);
-		setFlags(Flags);
+		Type(Type);
+		Flags(Flags);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(OVRLayerHeader) set}. */
 	public OVRLayerHeader nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -93,7 +106,7 @@ public class OVRLayerHeader extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(OVRLayerHeader) set}. */
 	public OVRLayerHeader set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -154,15 +167,15 @@ public class OVRLayerHeader extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static int ngetType(long struct) { return memGetInt(struct + TYPE); }
-	public static int getType(ByteBuffer struct) { return ngetType(memAddress(struct)); }
-	public static int ngetFlags(long struct) { return memGetInt(struct + FLAGS); }
-	public static int getFlags(ByteBuffer struct) { return ngetFlags(memAddress(struct)); }
+	/** Unsafe version of {@link #Type}. */
+	public static int nType(long struct) { return memGetInt(struct + OVRLayerHeader.TYPE); }
+	/** Unsafe version of {@link #Flags}. */
+	public static int nFlags(long struct) { return memGetInt(struct + OVRLayerHeader.FLAGS); }
 
-	public static void nsetType(long struct, int Type) { memPutInt(struct + TYPE, Type); }
-	public static void setType(ByteBuffer struct, int Type) { nsetType(memAddress(struct), Type); }
-	public static void nsetFlags(long struct, int Flags) { memPutInt(struct + FLAGS, Flags); }
-	public static void setFlags(ByteBuffer struct, int Flags) { nsetFlags(memAddress(struct), Flags); }
+	/** Unsafe version of {@link #Type(int) Type}. */
+	public static void nType(long struct, int value) { memPutInt(struct + OVRLayerHeader.TYPE, value); }
+	/** Unsafe version of {@link #Flags(int) Flags}. */
+	public static void nFlags(long struct, int value) { memPutInt(struct + OVRLayerHeader.FLAGS, value); }
 
 	// -----------------------------------
 
@@ -206,11 +219,15 @@ public class OVRLayerHeader extends Struct {
 			return SIZEOF;
 		}
 
-		public int getType() { return ngetType(address()); }
-		public int getFlags() { return ngetFlags(address()); }
+		/** Returns the value of the {@code Type} field. */
+		public int Type() { return nType(address()); }
+		/** Returns the value of the {@code Flags} field. */
+		public int Flags() { return nFlags(address()); }
 
-		public OVRLayerHeader.Buffer setType(int Type) { nsetType(address(), Type); return this; }
-		public OVRLayerHeader.Buffer setFlags(int Flags) { nsetFlags(address(), Flags); return this; }
+		/** Sets the specified value to the {@code Type} field. */
+		public OVRLayerHeader.Buffer Type(int value) { nType(address(), value); return this; }
+		/** Sets the specified value to the {@code Flags} field. */
+		public OVRLayerHeader.Buffer Flags(int value) { nFlags(address(), value); return this; }
 
 	}
 

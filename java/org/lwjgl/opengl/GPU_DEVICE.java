@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 import org.lwjgl.system.windows.*;
@@ -18,6 +17,20 @@ import org.lwjgl.system.windows.*;
 /**
  * Receives information about the display device specified by the {@code deviceIndex} parameter of the {@link WGLNVGPUAffinity#wglEnumGpuDevicesNV}
  * function.
+ * 
+ * <h3>GPU_DEVICE members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>cb</td><td class="nw">DWORD</td><td>the size of the {@code GPU_DEVICE} structure. Before calling {@link WGLNVGPUAffinity#wglEnumGpuDevicesNV}, set {@code cb} to the size, in bytes, of
+ * {@code GPU_DEVICE}.</td></tr>
+ * <tr><td>DeviceName</td><td class="nw">TCHAR[32]</td><td>a string identifying the display device name. This will be the same string as stored in the {@code DeviceName} field of the {@code DISPLAY_DEVICE}
+ * structure, which is filled in by {@code EnumDisplayDevices}.</td></tr>
+ * <tr><td>DeviceString</td><td class="nw">TCHAR[128]</td><td>a string describing the GPU for this display device. It is the same string as stored in the {@code DeviceString} field in the
+ * {@code DISPLAY_DEVICE} structure that is filled in by {@code EnumDisplayDevices} when it describes a display adapter (and not a monitor).</td></tr>
+ * <tr><td>Flags</td><td class="nw">DWORD</td><td>indicates the state of the display device</td></tr>
+ * <tr><td>rcVirtualScreen</td><td class="nw">RECT</td><td>specifies the display device rectangle, in virtual screen coordinates. The value of {@code rcVirtualScreen} is undefined if the device is not part
+ * of the desktop, i.e. {@code DISPLAY_DEVICE_ATTACHED_TO_DESKTOP} is not set in the {@code Flags} field.</td></tr>
+ * </table>
  */
 public class GPU_DEVICE extends Struct {
 
@@ -30,7 +43,7 @@ public class GPU_DEVICE extends Struct {
 		DEVICENAME,
 		DEVICESTRING,
 		FLAGS,
-		VIRTUALSCREEN;
+		RCVIRTUALSCREEN;
 
 	static {
 		IntBuffer offsets = memAllocInt(5);
@@ -41,7 +54,7 @@ public class GPU_DEVICE extends Struct {
 		DEVICENAME = offsets.get(1);
 		DEVICESTRING = offsets.get(2);
 		FLAGS = offsets.get(3);
-		VIRTUALSCREEN = offsets.get(4);
+		RCVIRTUALSCREEN = offsets.get(4);
 
 		memFree(offsets);
 	}
@@ -70,19 +83,20 @@ public class GPU_DEVICE extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public int getCb() { return ngetCb(address()); }
-	public void getDeviceName(ByteBuffer DeviceName) { ngetDeviceName(address(), DeviceName); }
-	public String getDeviceNameString() { return ngetDeviceNameString(address()); }
-	public String getDeviceNameString(int byteLen) { return ngetDeviceNameString(address(), byteLen); }
-	public void getDeviceString(ByteBuffer DeviceString) { ngetDeviceString(address(), DeviceString); }
-	public String getDeviceStringString() { return ngetDeviceStringString(address()); }
-	public String getDeviceStringString(int byteLen) { return ngetDeviceStringString(address(), byteLen); }
-	public int getFlags() { return ngetFlags(address()); }
-	public RECT getVirtualScreen() { return ngetVirtualScreen(address()); }
-	public int getVirtualScreenLeft() { return ngetVirtualScreenLeft(address()); }
-	public int getVirtualScreenTop() { return ngetVirtualScreenTop(address()); }
-	public int getVirtualScreenRight() { return ngetVirtualScreenRight(address()); }
-	public int getVirtualScreenBottom() { return ngetVirtualScreenBottom(address()); }
+	/** Returns the value of the {@code cb} field. */
+	public int cb() { return ncb(address()); }
+	/** Returns a {@link ByteBuffer} view of the {@code DeviceName} field. */
+	public ByteBuffer DeviceName() { return nDeviceName(address()); }
+	/** Decodes the null-terminated string stored in the {@code DeviceName} field. */
+	public String DeviceNameString() { return nDeviceNameString(address()); }
+	/** Returns a {@link ByteBuffer} view of the {@code DeviceString} field. */
+	public ByteBuffer DeviceString() { return nDeviceString(address()); }
+	/** Decodes the null-terminated string stored in the {@code DeviceString} field. */
+	public String DeviceStringString() { return nDeviceStringString(address()); }
+	/** Returns the value of the {@code Flags} field. */
+	public int Flags() { return nFlags(address()); }
+	/** Returns a {@link RECT} view of the {@code rcVirtualScreen} field. */
+	public RECT rcVirtualScreen() { return nrcVirtualScreen(address()); }
 
 	// -----------------------------------
 
@@ -138,39 +152,20 @@ public class GPU_DEVICE extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static int ngetCb(long struct) { return memGetInt(struct + CB); }
-	public static int getCb(ByteBuffer struct) { return ngetCb(memAddress(struct)); }
-	public static void ngetDeviceName(long struct, ByteBuffer DeviceName) {
-		if ( CHECKS ) checkBufferGT(DeviceName, 32 * 2);
-		memCopy(struct + DEVICENAME, memAddress(DeviceName), DeviceName.remaining());
-	}
-	public static void getDeviceName(ByteBuffer struct, ByteBuffer DeviceName) { ngetDeviceName(memAddress(struct), DeviceName); }
-	public static String ngetDeviceNameString(long struct) { return memDecodeUTF16(struct + DEVICENAME); }
-	public static String getDeviceNameString(ByteBuffer struct) { return ngetDeviceNameString(memAddress(struct)); }
-	public static String ngetDeviceNameString(long struct, int byteLen) { return memDecodeUTF16(memByteBuffer(struct + DEVICENAME, byteLen)); }
-	public static String getDeviceNameString(ByteBuffer struct, int byteLen) { return ngetDeviceNameString(memAddress(struct), byteLen); }
-	public static void ngetDeviceString(long struct, ByteBuffer DeviceString) {
-		if ( CHECKS ) checkBufferGT(DeviceString, 128 * 2);
-		memCopy(struct + DEVICESTRING, memAddress(DeviceString), DeviceString.remaining());
-	}
-	public static void getDeviceString(ByteBuffer struct, ByteBuffer DeviceString) { ngetDeviceString(memAddress(struct), DeviceString); }
-	public static String ngetDeviceStringString(long struct) { return memDecodeUTF16(struct + DEVICESTRING); }
-	public static String getDeviceStringString(ByteBuffer struct) { return ngetDeviceStringString(memAddress(struct)); }
-	public static String ngetDeviceStringString(long struct, int byteLen) { return memDecodeUTF16(memByteBuffer(struct + DEVICESTRING, byteLen)); }
-	public static String getDeviceStringString(ByteBuffer struct, int byteLen) { return ngetDeviceStringString(memAddress(struct), byteLen); }
-	public static int ngetFlags(long struct) { return memGetInt(struct + FLAGS); }
-	public static int getFlags(ByteBuffer struct) { return ngetFlags(memAddress(struct)); }
-	public static RECT ngetVirtualScreen(long struct) { return RECT.malloc().nset(struct + VIRTUALSCREEN); }
-	/** Returns a copy of the {@code virtualScreen} {@link RECT} struct. */
-	public static RECT getVirtualScreen(ByteBuffer struct) { return ngetVirtualScreen(memAddress(struct)); }
-	public static int ngetVirtualScreenLeft(long struct) { return memGetInt(struct + VIRTUALSCREEN + RECT.LEFT); }
-	public static int getVirtualScreenLeft(ByteBuffer struct) { return ngetVirtualScreenLeft(memAddress(struct)); }
-	public static int ngetVirtualScreenTop(long struct) { return memGetInt(struct + VIRTUALSCREEN + RECT.TOP); }
-	public static int getVirtualScreenTop(ByteBuffer struct) { return ngetVirtualScreenTop(memAddress(struct)); }
-	public static int ngetVirtualScreenRight(long struct) { return memGetInt(struct + VIRTUALSCREEN + RECT.RIGHT); }
-	public static int getVirtualScreenRight(ByteBuffer struct) { return ngetVirtualScreenRight(memAddress(struct)); }
-	public static int ngetVirtualScreenBottom(long struct) { return memGetInt(struct + VIRTUALSCREEN + RECT.BOTTOM); }
-	public static int getVirtualScreenBottom(ByteBuffer struct) { return ngetVirtualScreenBottom(memAddress(struct)); }
+	/** Unsafe version of {@link #cb}. */
+	public static int ncb(long struct) { return memGetInt(struct + GPU_DEVICE.CB); }
+	/** Unsafe version of {@link #DeviceName}. */
+	public static ByteBuffer nDeviceName(long struct) { return memByteBuffer(struct + GPU_DEVICE.DEVICENAME, 64); }
+	/** Unsafe version of {@link #DeviceNameString}. */
+	public static String nDeviceNameString(long struct) { return memDecodeUTF16(struct + GPU_DEVICE.DEVICENAME); }
+	/** Unsafe version of {@link #DeviceString}. */
+	public static ByteBuffer nDeviceString(long struct) { return memByteBuffer(struct + GPU_DEVICE.DEVICESTRING, 256); }
+	/** Unsafe version of {@link #DeviceStringString}. */
+	public static String nDeviceStringString(long struct) { return memDecodeUTF16(struct + GPU_DEVICE.DEVICESTRING); }
+	/** Unsafe version of {@link #Flags}. */
+	public static int nFlags(long struct) { return memGetInt(struct + GPU_DEVICE.FLAGS); }
+	/** Unsafe version of {@link #rcVirtualScreen}. */
+	public static RECT nrcVirtualScreen(long struct) { return new RECT(struct + GPU_DEVICE.RCVIRTUALSCREEN); }
 
 	// -----------------------------------
 
@@ -214,19 +209,20 @@ public class GPU_DEVICE extends Struct {
 			return SIZEOF;
 		}
 
-		public int getCb() { return ngetCb(address()); }
-		public void getDeviceName(ByteBuffer DeviceName) { ngetDeviceName(address(), DeviceName); }
-		public String getDeviceNameString() { return ngetDeviceNameString(address()); }
-		public String getDeviceNameString(int byteLen) { return ngetDeviceNameString(address(), byteLen); }
-		public void getDeviceString(ByteBuffer DeviceString) { ngetDeviceString(address(), DeviceString); }
-		public String getDeviceStringString() { return ngetDeviceStringString(address()); }
-		public String getDeviceStringString(int byteLen) { return ngetDeviceStringString(address(), byteLen); }
-		public int getFlags() { return ngetFlags(address()); }
-		public RECT getVirtualScreen() { return ngetVirtualScreen(address()); }
-		public int getVirtualScreenLeft() { return ngetVirtualScreenLeft(address()); }
-		public int getVirtualScreenTop() { return ngetVirtualScreenTop(address()); }
-		public int getVirtualScreenRight() { return ngetVirtualScreenRight(address()); }
-		public int getVirtualScreenBottom() { return ngetVirtualScreenBottom(address()); }
+		/** Returns the value of the {@code cb} field. */
+		public int cb() { return ncb(address()); }
+		/** Returns a {@link ByteBuffer} view of the {@code DeviceName} field. */
+		public ByteBuffer DeviceName() { return nDeviceName(address()); }
+		/** Decodes the null-terminated string stored in the {@code DeviceName} field. */
+		public String DeviceNameString() { return nDeviceNameString(address()); }
+		/** Returns a {@link ByteBuffer} view of the {@code DeviceString} field. */
+		public ByteBuffer DeviceString() { return nDeviceString(address()); }
+		/** Decodes the null-terminated string stored in the {@code DeviceString} field. */
+		public String DeviceStringString() { return nDeviceStringString(address()); }
+		/** Returns the value of the {@code Flags} field. */
+		public int Flags() { return nFlags(address()); }
+		/** Returns a {@link RECT} view of the {@code rcVirtualScreen} field. */
+		public RECT rcVirtualScreen() { return nrcVirtualScreen(address()); }
 
 	}
 

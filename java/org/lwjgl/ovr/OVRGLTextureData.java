@@ -13,7 +13,16 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** OpenGL texture data. */
+/**
+ * OpenGL texture data.
+ * 
+ * <h3>ovrGLTextureData members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>Header</td><td class="nw">ovrTextureHeader</td><td>general device settings</td></tr>
+ * <tr><td>TexId</td><td class="nw">GLuint</td><td>the OpenGL name for this texture</td></tr>
+ * </table>
+ */
 public class OVRGLTextureData extends Struct {
 
 	/** The struct size in bytes. */
@@ -59,32 +68,28 @@ public class OVRGLTextureData extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public OVRTextureHeader getHeader() { return ngetHeader(address()); }
-	public int getHeaderAPI() { return ngetHeaderAPI(address()); }
-	public OVRSizei getHeaderTextureSize() { return ngetHeaderTextureSize(address()); }
-	public int getHeaderTextureSizeW() { return ngetHeaderTextureSizeW(address()); }
-	public int getHeaderTextureSizeH() { return ngetHeaderTextureSizeH(address()); }
-	public int getTexId() { return ngetTexId(address()); }
+	/** Returns a {@link OVRTextureHeader} view of the {@code Header} field. */
+	public OVRTextureHeader Header() { return nHeader(address()); }
+	/** Returns the value of the {@code TexId} field. */
+	public int TexId() { return nTexId(address()); }
 
-	public OVRGLTextureData setHeader(OVRTextureHeader Header) { nsetHeader(address(), Header); return this; }
-	public OVRGLTextureData setHeaderAPI(int API) { nsetHeaderAPI(address(), API); return this; }
-	public OVRGLTextureData setHeaderTextureSize(OVRSizei TextureSize) { nsetHeaderTextureSize(address(), TextureSize); return this; }
-	public OVRGLTextureData setHeaderTextureSizeW(int w) { nsetHeaderTextureSizeW(address(), w); return this; }
-	public OVRGLTextureData setHeaderTextureSizeH(int h) { nsetHeaderTextureSizeH(address(), h); return this; }
-	public OVRGLTextureData setTexId(int TexId) { nsetTexId(address(), TexId); return this; }
+	/** Copies the specified {@link OVRTextureHeader} to the {@code Header} field. */
+	public OVRGLTextureData Header(OVRTextureHeader value) { nHeader(address(), value); return this; }
+	/** Sets the specified value to the {@code TexId} field. */
+	public OVRGLTextureData TexId(int value) { nTexId(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public OVRGLTextureData set(
 		OVRTextureHeader Header,
 		int TexId
 	) {
-		setHeader(Header);
-		setTexId(TexId);
+		Header(Header);
+		TexId(TexId);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(OVRGLTextureData) set}. */
 	public OVRGLTextureData nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -101,7 +106,7 @@ public class OVRGLTextureData extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(OVRGLTextureData) set}. */
 	public OVRGLTextureData set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -162,35 +167,15 @@ public class OVRGLTextureData extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static OVRTextureHeader ngetHeader(long struct) { return OVRTextureHeader.malloc().nset(struct + HEADER); }
-	/** Returns a copy of the {@code Header} {@link OVRTextureHeader} struct. */
-	public static OVRTextureHeader getHeader(ByteBuffer struct) { return ngetHeader(memAddress(struct)); }
-	public static int ngetHeaderAPI(long struct) { return memGetInt(struct + HEADER + OVRTextureHeader.API); }
-	public static int getHeaderAPI(ByteBuffer struct) { return ngetHeaderAPI(memAddress(struct)); }
-	public static OVRSizei ngetHeaderTextureSize(long struct) { return OVRSizei.malloc().nset(struct + HEADER + OVRTextureHeader.TEXTURESIZE); }
-	/** Returns a copy of the {@code TextureSize} {@link OVRSizei} struct. */
-	public static OVRSizei getHeaderTextureSize(ByteBuffer struct) { return ngetHeaderTextureSize(memAddress(struct)); }
-	public static int ngetHeaderTextureSizeW(long struct) { return memGetInt(struct + HEADER + OVRTextureHeader.TEXTURESIZE + OVRSizei.W); }
-	public static int getHeaderTextureSizeW(ByteBuffer struct) { return ngetHeaderTextureSizeW(memAddress(struct)); }
-	public static int ngetHeaderTextureSizeH(long struct) { return memGetInt(struct + HEADER + OVRTextureHeader.TEXTURESIZE + OVRSizei.H); }
-	public static int getHeaderTextureSizeH(ByteBuffer struct) { return ngetHeaderTextureSizeH(memAddress(struct)); }
-	public static int ngetTexId(long struct) { return memGetInt(struct + TEXID); }
-	public static int getTexId(ByteBuffer struct) { return ngetTexId(memAddress(struct)); }
+	/** Unsafe version of {@link #Header}. */
+	public static OVRTextureHeader nHeader(long struct) { return new OVRTextureHeader(struct + OVRGLTextureData.HEADER); }
+	/** Unsafe version of {@link #TexId}. */
+	public static int nTexId(long struct) { return memGetInt(struct + OVRGLTextureData.TEXID); }
 
-	public static void nsetHeader(long struct, OVRTextureHeader Header) { memCopy(Header.address(), struct + HEADER, OVRTextureHeader.SIZEOF); }
-	/** Copies the specified {@link OVRTextureHeader} struct to the nested {@code Header} struct. */
-	public static void setHeader(ByteBuffer struct, OVRTextureHeader Header) { nsetHeader(memAddress(struct), Header); }
-	public static void nsetHeaderAPI(long struct, int API) { memPutInt(struct + HEADER + OVRTextureHeader.API, API); }
-	public static void setHeaderAPI(ByteBuffer struct, int API) { nsetHeaderAPI(memAddress(struct), API); }
-	public static void nsetHeaderTextureSize(long struct, OVRSizei TextureSize) { memCopy(TextureSize.address(), struct + HEADER + OVRTextureHeader.TEXTURESIZE, OVRSizei.SIZEOF); }
-	/** Copies the specified {@link OVRSizei} struct to the nested {@code TextureSize} struct. */
-	public static void setHeaderTextureSize(ByteBuffer struct, OVRSizei TextureSize) { nsetHeaderTextureSize(memAddress(struct), TextureSize); }
-	public static void nsetHeaderTextureSizeW(long struct, int w) { memPutInt(struct + HEADER + OVRTextureHeader.TEXTURESIZE + OVRSizei.W, w); }
-	public static void setHeaderTextureSizeW(ByteBuffer struct, int w) { nsetHeaderTextureSizeW(memAddress(struct), w); }
-	public static void nsetHeaderTextureSizeH(long struct, int h) { memPutInt(struct + HEADER + OVRTextureHeader.TEXTURESIZE + OVRSizei.H, h); }
-	public static void setHeaderTextureSizeH(ByteBuffer struct, int h) { nsetHeaderTextureSizeH(memAddress(struct), h); }
-	public static void nsetTexId(long struct, int TexId) { memPutInt(struct + TEXID, TexId); }
-	public static void setTexId(ByteBuffer struct, int TexId) { nsetTexId(memAddress(struct), TexId); }
+	/** Unsafe version of {@link #Header(OVRTextureHeader) Header}. */
+	public static void nHeader(long struct, OVRTextureHeader value) { memCopy(value.address(), struct + OVRGLTextureData.HEADER, OVRTextureHeader.SIZEOF); }
+	/** Unsafe version of {@link #TexId(int) TexId}. */
+	public static void nTexId(long struct, int value) { memPutInt(struct + OVRGLTextureData.TEXID, value); }
 
 	// -----------------------------------
 
@@ -234,19 +219,15 @@ public class OVRGLTextureData extends Struct {
 			return SIZEOF;
 		}
 
-		public OVRTextureHeader getHeader() { return ngetHeader(address()); }
-		public int getHeaderAPI() { return ngetHeaderAPI(address()); }
-		public OVRSizei getHeaderTextureSize() { return ngetHeaderTextureSize(address()); }
-		public int getHeaderTextureSizeW() { return ngetHeaderTextureSizeW(address()); }
-		public int getHeaderTextureSizeH() { return ngetHeaderTextureSizeH(address()); }
-		public int getTexId() { return ngetTexId(address()); }
+		/** Returns a {@link OVRTextureHeader} view of the {@code Header} field. */
+		public OVRTextureHeader Header() { return nHeader(address()); }
+		/** Returns the value of the {@code TexId} field. */
+		public int TexId() { return nTexId(address()); }
 
-		public OVRGLTextureData.Buffer setHeader(OVRTextureHeader Header) { nsetHeader(address(), Header); return this; }
-		public OVRGLTextureData.Buffer setHeaderAPI(int API) { nsetHeaderAPI(address(), API); return this; }
-		public OVRGLTextureData.Buffer setHeaderTextureSize(OVRSizei TextureSize) { nsetHeaderTextureSize(address(), TextureSize); return this; }
-		public OVRGLTextureData.Buffer setHeaderTextureSizeW(int w) { nsetHeaderTextureSizeW(address(), w); return this; }
-		public OVRGLTextureData.Buffer setHeaderTextureSizeH(int h) { nsetHeaderTextureSizeH(address(), h); return this; }
-		public OVRGLTextureData.Buffer setTexId(int TexId) { nsetTexId(address(), TexId); return this; }
+		/** Copies the specified {@link OVRTextureHeader} to the {@code Header} field. */
+		public OVRGLTextureData.Buffer Header(OVRTextureHeader value) { nHeader(address(), value); return this; }
+		/** Sets the specified value to the {@code TexId} field. */
+		public OVRGLTextureData.Buffer TexId(int value) { nTexId(address(), value); return this; }
 
 	}
 

@@ -13,7 +13,20 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Describes the configuration of the motion estimation algorithm. */
+/**
+ * Describes the configuration of the motion estimation algorithm.
+ * 
+ * <h3>cl_motion_estimation_desc_intel members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>mb_block_type</td><td class="nw">cl_uint</td><td>describes the size of the blocks described by the motion estimator</td></tr>
+ * <tr><td>subpixel_mode</td><td class="nw">cl_uint</td><td>defines the search precision (and hence, the precision of the returned motion vectors)</td></tr>
+ * <tr><td>sad_adjust_mode</td><td class="nw">cl_uint</td><td>specifies distortion measure adjustment used for the motion search SAD comparison</td></tr>
+ * <tr><td>search_path_type</td><td class="nw">cl_uint</td><td>specifies the search path and search radius when matching blocks in the neighborhood of each pixel block (optionally offset by the predicted motion
+ * vector). Currently, all search algorithms match the source block with pixel blocks in the reference area exhaustively within a {@code [Rx, Ry]}
+ * radius from the current source pixel block location (optionally offset by the predicted motion vector)</td></tr>
+ * </table>
+ */
 public class CLMotionEstimationDescINTEL extends Struct {
 
 	/** The struct size in bytes. */
@@ -63,15 +76,23 @@ public class CLMotionEstimationDescINTEL extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public int getMbBlockType() { return ngetMbBlockType(address()); }
-	public int getSubpixelMode() { return ngetSubpixelMode(address()); }
-	public int getSadAdjustMode() { return ngetSadAdjustMode(address()); }
-	public int getSearchPathType() { return ngetSearchPathType(address()); }
+	/** Returns the value of the {@code mb_block_type} field. */
+	public int mb_block_type() { return nmb_block_type(address()); }
+	/** Returns the value of the {@code subpixel_mode} field. */
+	public int subpixel_mode() { return nsubpixel_mode(address()); }
+	/** Returns the value of the {@code sad_adjust_mode} field. */
+	public int sad_adjust_mode() { return nsad_adjust_mode(address()); }
+	/** Returns the value of the {@code search_path_type} field. */
+	public int search_path_type() { return nsearch_path_type(address()); }
 
-	public CLMotionEstimationDescINTEL setMbBlockType(int mb_block_type) { nsetMbBlockType(address(), mb_block_type); return this; }
-	public CLMotionEstimationDescINTEL setSubpixelMode(int subpixel_mode) { nsetSubpixelMode(address(), subpixel_mode); return this; }
-	public CLMotionEstimationDescINTEL setSadAdjustMode(int sad_adjust_mode) { nsetSadAdjustMode(address(), sad_adjust_mode); return this; }
-	public CLMotionEstimationDescINTEL setSearchPathType(int search_path_type) { nsetSearchPathType(address(), search_path_type); return this; }
+	/** Sets the specified value to the {@code mb_block_type} field. */
+	public CLMotionEstimationDescINTEL mb_block_type(int value) { nmb_block_type(address(), value); return this; }
+	/** Sets the specified value to the {@code subpixel_mode} field. */
+	public CLMotionEstimationDescINTEL subpixel_mode(int value) { nsubpixel_mode(address(), value); return this; }
+	/** Sets the specified value to the {@code sad_adjust_mode} field. */
+	public CLMotionEstimationDescINTEL sad_adjust_mode(int value) { nsad_adjust_mode(address(), value); return this; }
+	/** Sets the specified value to the {@code search_path_type} field. */
+	public CLMotionEstimationDescINTEL search_path_type(int value) { nsearch_path_type(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public CLMotionEstimationDescINTEL set(
@@ -80,15 +101,15 @@ public class CLMotionEstimationDescINTEL extends Struct {
 		int sad_adjust_mode,
 		int search_path_type
 	) {
-		setMbBlockType(mb_block_type);
-		setSubpixelMode(subpixel_mode);
-		setSadAdjustMode(sad_adjust_mode);
-		setSearchPathType(search_path_type);
+		mb_block_type(mb_block_type);
+		subpixel_mode(subpixel_mode);
+		sad_adjust_mode(sad_adjust_mode);
+		search_path_type(search_path_type);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(CLMotionEstimationDescINTEL) set}. */
 	public CLMotionEstimationDescINTEL nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -105,7 +126,7 @@ public class CLMotionEstimationDescINTEL extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(CLMotionEstimationDescINTEL) set}. */
 	public CLMotionEstimationDescINTEL set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -166,23 +187,23 @@ public class CLMotionEstimationDescINTEL extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static int ngetMbBlockType(long struct) { return memGetInt(struct + MB_BLOCK_TYPE); }
-	public static int getMbBlockType(ByteBuffer struct) { return ngetMbBlockType(memAddress(struct)); }
-	public static int ngetSubpixelMode(long struct) { return memGetInt(struct + SUBPIXEL_MODE); }
-	public static int getSubpixelMode(ByteBuffer struct) { return ngetSubpixelMode(memAddress(struct)); }
-	public static int ngetSadAdjustMode(long struct) { return memGetInt(struct + SAD_ADJUST_MODE); }
-	public static int getSadAdjustMode(ByteBuffer struct) { return ngetSadAdjustMode(memAddress(struct)); }
-	public static int ngetSearchPathType(long struct) { return memGetInt(struct + SEARCH_PATH_TYPE); }
-	public static int getSearchPathType(ByteBuffer struct) { return ngetSearchPathType(memAddress(struct)); }
+	/** Unsafe version of {@link #mb_block_type}. */
+	public static int nmb_block_type(long struct) { return memGetInt(struct + CLMotionEstimationDescINTEL.MB_BLOCK_TYPE); }
+	/** Unsafe version of {@link #subpixel_mode}. */
+	public static int nsubpixel_mode(long struct) { return memGetInt(struct + CLMotionEstimationDescINTEL.SUBPIXEL_MODE); }
+	/** Unsafe version of {@link #sad_adjust_mode}. */
+	public static int nsad_adjust_mode(long struct) { return memGetInt(struct + CLMotionEstimationDescINTEL.SAD_ADJUST_MODE); }
+	/** Unsafe version of {@link #search_path_type}. */
+	public static int nsearch_path_type(long struct) { return memGetInt(struct + CLMotionEstimationDescINTEL.SEARCH_PATH_TYPE); }
 
-	public static void nsetMbBlockType(long struct, int mb_block_type) { memPutInt(struct + MB_BLOCK_TYPE, mb_block_type); }
-	public static void setMbBlockType(ByteBuffer struct, int mb_block_type) { nsetMbBlockType(memAddress(struct), mb_block_type); }
-	public static void nsetSubpixelMode(long struct, int subpixel_mode) { memPutInt(struct + SUBPIXEL_MODE, subpixel_mode); }
-	public static void setSubpixelMode(ByteBuffer struct, int subpixel_mode) { nsetSubpixelMode(memAddress(struct), subpixel_mode); }
-	public static void nsetSadAdjustMode(long struct, int sad_adjust_mode) { memPutInt(struct + SAD_ADJUST_MODE, sad_adjust_mode); }
-	public static void setSadAdjustMode(ByteBuffer struct, int sad_adjust_mode) { nsetSadAdjustMode(memAddress(struct), sad_adjust_mode); }
-	public static void nsetSearchPathType(long struct, int search_path_type) { memPutInt(struct + SEARCH_PATH_TYPE, search_path_type); }
-	public static void setSearchPathType(ByteBuffer struct, int search_path_type) { nsetSearchPathType(memAddress(struct), search_path_type); }
+	/** Unsafe version of {@link #mb_block_type(int) mb_block_type}. */
+	public static void nmb_block_type(long struct, int value) { memPutInt(struct + CLMotionEstimationDescINTEL.MB_BLOCK_TYPE, value); }
+	/** Unsafe version of {@link #subpixel_mode(int) subpixel_mode}. */
+	public static void nsubpixel_mode(long struct, int value) { memPutInt(struct + CLMotionEstimationDescINTEL.SUBPIXEL_MODE, value); }
+	/** Unsafe version of {@link #sad_adjust_mode(int) sad_adjust_mode}. */
+	public static void nsad_adjust_mode(long struct, int value) { memPutInt(struct + CLMotionEstimationDescINTEL.SAD_ADJUST_MODE, value); }
+	/** Unsafe version of {@link #search_path_type(int) search_path_type}. */
+	public static void nsearch_path_type(long struct, int value) { memPutInt(struct + CLMotionEstimationDescINTEL.SEARCH_PATH_TYPE, value); }
 
 	// -----------------------------------
 
@@ -226,15 +247,23 @@ public class CLMotionEstimationDescINTEL extends Struct {
 			return SIZEOF;
 		}
 
-		public int getMbBlockType() { return ngetMbBlockType(address()); }
-		public int getSubpixelMode() { return ngetSubpixelMode(address()); }
-		public int getSadAdjustMode() { return ngetSadAdjustMode(address()); }
-		public int getSearchPathType() { return ngetSearchPathType(address()); }
+		/** Returns the value of the {@code mb_block_type} field. */
+		public int mb_block_type() { return nmb_block_type(address()); }
+		/** Returns the value of the {@code subpixel_mode} field. */
+		public int subpixel_mode() { return nsubpixel_mode(address()); }
+		/** Returns the value of the {@code sad_adjust_mode} field. */
+		public int sad_adjust_mode() { return nsad_adjust_mode(address()); }
+		/** Returns the value of the {@code search_path_type} field. */
+		public int search_path_type() { return nsearch_path_type(address()); }
 
-		public CLMotionEstimationDescINTEL.Buffer setMbBlockType(int mb_block_type) { nsetMbBlockType(address(), mb_block_type); return this; }
-		public CLMotionEstimationDescINTEL.Buffer setSubpixelMode(int subpixel_mode) { nsetSubpixelMode(address(), subpixel_mode); return this; }
-		public CLMotionEstimationDescINTEL.Buffer setSadAdjustMode(int sad_adjust_mode) { nsetSadAdjustMode(address(), sad_adjust_mode); return this; }
-		public CLMotionEstimationDescINTEL.Buffer setSearchPathType(int search_path_type) { nsetSearchPathType(address(), search_path_type); return this; }
+		/** Sets the specified value to the {@code mb_block_type} field. */
+		public CLMotionEstimationDescINTEL.Buffer mb_block_type(int value) { nmb_block_type(address(), value); return this; }
+		/** Sets the specified value to the {@code subpixel_mode} field. */
+		public CLMotionEstimationDescINTEL.Buffer subpixel_mode(int value) { nsubpixel_mode(address(), value); return this; }
+		/** Sets the specified value to the {@code sad_adjust_mode} field. */
+		public CLMotionEstimationDescINTEL.Buffer sad_adjust_mode(int value) { nsad_adjust_mode(address(), value); return this; }
+		/** Sets the specified value to the {@code search_path_type} field. */
+		public CLMotionEstimationDescINTEL.Buffer search_path_type(int value) { nsearch_path_type(address(), value); return this; }
 
 	}
 

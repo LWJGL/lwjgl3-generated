@@ -13,6 +13,16 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
+/**
+ * Contains the x and y coordinates of a point.
+ * 
+ * <h3>POINTFLOAT members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>x</td><td class="nw">FLOAT</td><td>specifies the horizontal (x) coordinate of a point</td></tr>
+ * <tr><td>y</td><td class="nw">FLOAT</td><td>specifies the vertical (y) coordinate of a point</td></tr>
+ * </table>
+ */
 public class POINTFLOAT extends Struct {
 
 	/** The struct size in bytes. */
@@ -58,24 +68,28 @@ public class POINTFLOAT extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public float getX() { return ngetX(address()); }
-	public float getY() { return ngetY(address()); }
+	/** Returns the value of the {@code x} field. */
+	public float x() { return nx(address()); }
+	/** Returns the value of the {@code y} field. */
+	public float y() { return ny(address()); }
 
-	public POINTFLOAT setX(float x) { nsetX(address(), x); return this; }
-	public POINTFLOAT setY(float y) { nsetY(address(), y); return this; }
+	/** Sets the specified value to the {@code x} field. */
+	public POINTFLOAT x(float value) { nx(address(), value); return this; }
+	/** Sets the specified value to the {@code y} field. */
+	public POINTFLOAT y(float value) { ny(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public POINTFLOAT set(
 		float x,
 		float y
 	) {
-		setX(x);
-		setY(y);
+		x(x);
+		y(y);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(POINTFLOAT) set}. */
 	public POINTFLOAT nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -92,7 +106,7 @@ public class POINTFLOAT extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(POINTFLOAT) set}. */
 	public POINTFLOAT set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -153,15 +167,15 @@ public class POINTFLOAT extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static float ngetX(long struct) { return memGetFloat(struct + X); }
-	public static float getX(ByteBuffer struct) { return ngetX(memAddress(struct)); }
-	public static float ngetY(long struct) { return memGetFloat(struct + Y); }
-	public static float getY(ByteBuffer struct) { return ngetY(memAddress(struct)); }
+	/** Unsafe version of {@link #x}. */
+	public static float nx(long struct) { return memGetFloat(struct + POINTFLOAT.X); }
+	/** Unsafe version of {@link #y}. */
+	public static float ny(long struct) { return memGetFloat(struct + POINTFLOAT.Y); }
 
-	public static void nsetX(long struct, float x) { memPutFloat(struct + X, x); }
-	public static void setX(ByteBuffer struct, float x) { nsetX(memAddress(struct), x); }
-	public static void nsetY(long struct, float y) { memPutFloat(struct + Y, y); }
-	public static void setY(ByteBuffer struct, float y) { nsetY(memAddress(struct), y); }
+	/** Unsafe version of {@link #x(float) x}. */
+	public static void nx(long struct, float value) { memPutFloat(struct + POINTFLOAT.X, value); }
+	/** Unsafe version of {@link #y(float) y}. */
+	public static void ny(long struct, float value) { memPutFloat(struct + POINTFLOAT.Y, value); }
 
 	// -----------------------------------
 
@@ -205,11 +219,15 @@ public class POINTFLOAT extends Struct {
 			return SIZEOF;
 		}
 
-		public float getX() { return ngetX(address()); }
-		public float getY() { return ngetY(address()); }
+		/** Returns the value of the {@code x} field. */
+		public float x() { return nx(address()); }
+		/** Returns the value of the {@code y} field. */
+		public float y() { return ny(address()); }
 
-		public POINTFLOAT.Buffer setX(float x) { nsetX(address(), x); return this; }
-		public POINTFLOAT.Buffer setY(float y) { nsetY(address(), y); return this; }
+		/** Sets the specified value to the {@code x} field. */
+		public POINTFLOAT.Buffer x(float value) { nx(address(), value); return this; }
+		/** Sets the specified value to the {@code y} field. */
+		public POINTFLOAT.Buffer y(float value) { ny(address(), value); return this; }
 
 	}
 

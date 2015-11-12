@@ -10,10 +10,22 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Contains information about a libffi call interface. */
+/**
+ * Contains information about a libffi call interface.
+ * 
+ * <h3>ffi_cif members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>abi</td><td class="nw">ffi_abi</td><td></td></tr>
+ * <tr><td>nargs</td><td class="nw">unsigned</td><td></td></tr>
+ * <tr><td>arg_types</td><td class="nw">ffi_type *</td><td></td></tr>
+ * <tr><td>rtype</td><td class="nw">ffi_type *</td><td></td></tr>
+ * <tr><td>bytes</td><td class="nw">unsigned</td><td></td></tr>
+ * <tr><td>flags</td><td class="nw">unsigned</td><td></td></tr>
+ * </table>
+ */
 public class FFICIF extends Struct {
 
 	/** The struct size in bytes. */
@@ -67,12 +79,22 @@ public class FFICIF extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public int getAbi() { return ngetAbi(address()); }
-	public int getNargs() { return ngetNargs(address()); }
-	public PointerBuffer getArgTypes(int capacity) { return ngetArgTypes(address(), capacity); }
-	public FFIType getRtype() { return ngetRtypeStruct(address()); }
-	public int getBytes() { return ngetBytes(address()); }
-	public int getFlags() { return ngetFlags(address()); }
+	/** Returns the value of the {@code abi} field. */
+	public int abi() { return nabi(address()); }
+	/** Returns the value of the {@code nargs} field. */
+	public int nargs() { return nnargs(address()); }
+	/**
+	 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code arg_types} field.
+	 *
+	 * @param capacity the number of elements in the returned {@link PointerBuffer}
+	 */
+	public PointerBuffer arg_types(int capacity) { return narg_types(address(), capacity); }
+	/** Returns a {@link FFIType} view of the struct pointed to by the {@code rtype} field. */
+	public FFIType rtype() { return nrtypeStruct(address()); }
+	/** Returns the value of the {@code bytes} field. */
+	public int bytes() { return nbytes(address()); }
+	/** Returns the value of the {@code flags} field. */
+	public int flags() { return nflags(address()); }
 
 	// -----------------------------------
 
@@ -128,20 +150,18 @@ public class FFICIF extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static int ngetAbi(long struct) { return memGetInt(struct + ABI); }
-	public static int getAbi(ByteBuffer struct) { return ngetAbi(memAddress(struct)); }
-	public static int ngetNargs(long struct) { return memGetInt(struct + NARGS); }
-	public static int getNargs(ByteBuffer struct) { return ngetNargs(memAddress(struct)); }
-	public static long ngetArgTypes(long struct) { return memGetAddress(struct + ARG_TYPES); }
-	public static PointerBuffer ngetArgTypes(long struct, int capacity) { return memPointerBuffer(ngetArgTypes(struct), capacity); }
-	public static PointerBuffer getArgTypes(ByteBuffer struct, int capacity) { return ngetArgTypes(memAddress(struct), capacity); }
-	public static long ngetRtype(long struct) { return memGetAddress(struct + RTYPE); }
-	public static FFIType ngetRtypeStruct(long struct) { return new FFIType(ngetRtype(struct)); }
-	public static FFIType getRtype(ByteBuffer struct) { return ngetRtypeStruct(memAddress(struct)); }
-	public static int ngetBytes(long struct) { return memGetInt(struct + BYTES); }
-	public static int getBytes(ByteBuffer struct) { return ngetBytes(memAddress(struct)); }
-	public static int ngetFlags(long struct) { return memGetInt(struct + FLAGS); }
-	public static int getFlags(ByteBuffer struct) { return ngetFlags(memAddress(struct)); }
+	/** Unsafe version of {@link #abi}. */
+	public static int nabi(long struct) { return memGetInt(struct + FFICIF.ABI); }
+	/** Unsafe version of {@link #nargs}. */
+	public static int nnargs(long struct) { return memGetInt(struct + FFICIF.NARGS); }
+	/** Unsafe version of {@link #arg_types(int) arg_types}. */
+	public static PointerBuffer narg_types(long struct, int capacity) { return memPointerBuffer(memGetAddress(struct + FFICIF.ARG_TYPES), capacity); }
+	/** Unsafe version of {@link #rtype}. */
+	public static FFIType nrtypeStruct(long struct) { return new FFIType(memGetAddress(struct + FFICIF.RTYPE)); }
+	/** Unsafe version of {@link #bytes}. */
+	public static int nbytes(long struct) { return memGetInt(struct + FFICIF.BYTES); }
+	/** Unsafe version of {@link #flags}. */
+	public static int nflags(long struct) { return memGetInt(struct + FFICIF.FLAGS); }
 
 	// -----------------------------------
 
@@ -185,12 +205,22 @@ public class FFICIF extends Struct {
 			return SIZEOF;
 		}
 
-		public int getAbi() { return ngetAbi(address()); }
-		public int getNargs() { return ngetNargs(address()); }
-		public PointerBuffer getArgTypes(int capacity) { return ngetArgTypes(address(), capacity); }
-		public FFIType getRtype() { return ngetRtypeStruct(address()); }
-		public int getBytes() { return ngetBytes(address()); }
-		public int getFlags() { return ngetFlags(address()); }
+		/** Returns the value of the {@code abi} field. */
+		public int abi() { return nabi(address()); }
+		/** Returns the value of the {@code nargs} field. */
+		public int nargs() { return nnargs(address()); }
+		/**
+		 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code arg_types} field.
+		 *
+		 * @param capacity the number of elements in the returned {@link PointerBuffer}
+		 */
+		public PointerBuffer arg_types(int capacity) { return narg_types(address(), capacity); }
+		/** Returns a {@link FFIType} view of the struct pointed to by the {@code rtype} field. */
+		public FFIType rtype() { return nrtypeStruct(address()); }
+		/** Returns the value of the {@code bytes} field. */
+		public int bytes() { return nbytes(address()); }
+		/** Returns the value of the {@code flags} field. */
+		public int flags() { return nflags(address()); }
 
 	}
 

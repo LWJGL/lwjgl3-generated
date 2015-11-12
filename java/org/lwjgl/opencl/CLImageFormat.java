@@ -13,7 +13,17 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Image format struct. */
+/**
+ * The image format descriptor struct.
+ * 
+ * <h3>cl_image_format members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>image_channel_order</td><td class="nw">cl_channel_order</td><td>specifies the number of channels and the channel layout i.e. the memory layout in which channels are stored in the image</td></tr>
+ * <tr><td>image_channel_data_type</td><td class="nw">cl_channel_type</td><td>describes the size of the channel data type. The number of bits per element determined by the {@code image_channel_data_type} and
+ * {@code image_channel_order} must be a power of two.</td></tr>
+ * </table>
+ */
 public class CLImageFormat extends Struct {
 
 	/** The struct size in bytes. */
@@ -59,24 +69,28 @@ public class CLImageFormat extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public int getImageChannelOrder() { return ngetImageChannelOrder(address()); }
-	public int getImageChannelDataType() { return ngetImageChannelDataType(address()); }
+	/** Returns the value of the {@code image_channel_order} field. */
+	public int image_channel_order() { return nimage_channel_order(address()); }
+	/** Returns the value of the {@code image_channel_data_type} field. */
+	public int image_channel_data_type() { return nimage_channel_data_type(address()); }
 
-	public CLImageFormat setImageChannelOrder(int image_channel_order) { nsetImageChannelOrder(address(), image_channel_order); return this; }
-	public CLImageFormat setImageChannelDataType(int image_channel_data_type) { nsetImageChannelDataType(address(), image_channel_data_type); return this; }
+	/** Sets the specified value to the {@code image_channel_order} field. */
+	public CLImageFormat image_channel_order(int value) { nimage_channel_order(address(), value); return this; }
+	/** Sets the specified value to the {@code image_channel_data_type} field. */
+	public CLImageFormat image_channel_data_type(int value) { nimage_channel_data_type(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public CLImageFormat set(
 		int image_channel_order,
 		int image_channel_data_type
 	) {
-		setImageChannelOrder(image_channel_order);
-		setImageChannelDataType(image_channel_data_type);
+		image_channel_order(image_channel_order);
+		image_channel_data_type(image_channel_data_type);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(CLImageFormat) set}. */
 	public CLImageFormat nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -93,7 +107,7 @@ public class CLImageFormat extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(CLImageFormat) set}. */
 	public CLImageFormat set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -154,15 +168,15 @@ public class CLImageFormat extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static int ngetImageChannelOrder(long struct) { return memGetInt(struct + IMAGE_CHANNEL_ORDER); }
-	public static int getImageChannelOrder(ByteBuffer struct) { return ngetImageChannelOrder(memAddress(struct)); }
-	public static int ngetImageChannelDataType(long struct) { return memGetInt(struct + IMAGE_CHANNEL_DATA_TYPE); }
-	public static int getImageChannelDataType(ByteBuffer struct) { return ngetImageChannelDataType(memAddress(struct)); }
+	/** Unsafe version of {@link #image_channel_order}. */
+	public static int nimage_channel_order(long struct) { return memGetInt(struct + CLImageFormat.IMAGE_CHANNEL_ORDER); }
+	/** Unsafe version of {@link #image_channel_data_type}. */
+	public static int nimage_channel_data_type(long struct) { return memGetInt(struct + CLImageFormat.IMAGE_CHANNEL_DATA_TYPE); }
 
-	public static void nsetImageChannelOrder(long struct, int image_channel_order) { memPutInt(struct + IMAGE_CHANNEL_ORDER, image_channel_order); }
-	public static void setImageChannelOrder(ByteBuffer struct, int image_channel_order) { nsetImageChannelOrder(memAddress(struct), image_channel_order); }
-	public static void nsetImageChannelDataType(long struct, int image_channel_data_type) { memPutInt(struct + IMAGE_CHANNEL_DATA_TYPE, image_channel_data_type); }
-	public static void setImageChannelDataType(ByteBuffer struct, int image_channel_data_type) { nsetImageChannelDataType(memAddress(struct), image_channel_data_type); }
+	/** Unsafe version of {@link #image_channel_order(int) image_channel_order}. */
+	public static void nimage_channel_order(long struct, int value) { memPutInt(struct + CLImageFormat.IMAGE_CHANNEL_ORDER, value); }
+	/** Unsafe version of {@link #image_channel_data_type(int) image_channel_data_type}. */
+	public static void nimage_channel_data_type(long struct, int value) { memPutInt(struct + CLImageFormat.IMAGE_CHANNEL_DATA_TYPE, value); }
 
 	// -----------------------------------
 
@@ -206,11 +220,15 @@ public class CLImageFormat extends Struct {
 			return SIZEOF;
 		}
 
-		public int getImageChannelOrder() { return ngetImageChannelOrder(address()); }
-		public int getImageChannelDataType() { return ngetImageChannelDataType(address()); }
+		/** Returns the value of the {@code image_channel_order} field. */
+		public int image_channel_order() { return nimage_channel_order(address()); }
+		/** Returns the value of the {@code image_channel_data_type} field. */
+		public int image_channel_data_type() { return nimage_channel_data_type(address()); }
 
-		public CLImageFormat.Buffer setImageChannelOrder(int image_channel_order) { nsetImageChannelOrder(address(), image_channel_order); return this; }
-		public CLImageFormat.Buffer setImageChannelDataType(int image_channel_data_type) { nsetImageChannelDataType(address(), image_channel_data_type); return this; }
+		/** Sets the specified value to the {@code image_channel_order} field. */
+		public CLImageFormat.Buffer image_channel_order(int value) { nimage_channel_order(address(), value); return this; }
+		/** Sets the specified value to the {@code image_channel_data_type} field. */
+		public CLImageFormat.Buffer image_channel_data_type(int value) { nimage_channel_data_type(address(), value); return this; }
 
 	}
 

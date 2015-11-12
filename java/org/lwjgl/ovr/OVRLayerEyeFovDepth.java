@@ -16,6 +16,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Describes a layer that specifies a monoscopic or stereoscopic view, with depth textures in addition to color textures. This is typically used to
  * support positional time warp. This struct is the same as {@link OVRLayerEyeFov}, but with the addition of {@code DepthTexture} and {@code ProjectionDesc}.
+ * 
+ * <h3>ovrLayerEyeFovDepth members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>Header</td><td class="nw">ovrLayerHeader</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_EyeFovDepth}.</td></tr>
+ * <tr><td>ColorTexture</td><td class="nw">ovrSwapTextureSet *[2]</td><td>{@code ovrSwapTextureSets} for the left and right eye respectively. The second one of which can be {@code NULL}.</td></tr>
+ * <tr><td>Viewport</td><td class="nw">ovrRecti[2]</td><td>specifies the {@code ColorTexture} sub-rect UV coordinates. Both {@code Viewport[0]} and {@code Viewport[1]} must be valid.</td></tr>
+ * <tr><td>Fov</td><td class="nw">ovrFovPort[2]</td><td>the viewport field of view</td></tr>
+ * <tr><td>RenderPose</td><td class="nw">ovrPosef[2]</td><td>specifies the position and orientation of each eye view, with the position specified in meters. RenderPose will typically be the value returned from
+ * {@link OVRUtil#ovr_CalcEyePoses}, but can be different in special cases if a different head pose is used for rendering.</td></tr>
+ * <tr><td>SensorSampleTime</td><td class="nw">double</td><td>specifies the timestamp when the source {@code ovrPosef} (used in calculating RenderPose) was sampled from the SDK. Typically retrieved by calling
+ * {@link OVR#ovr_GetTimeInSeconds} around the instant the application calls {@link OVR#ovr_GetTrackingState}. The main purpose for this is to accurately track app
+ * tracking latency.</td></tr>
+ * <tr><td>DepthTexture</td><td class="nw">ovrSwapTextureSet *[2]</td><td>depth texture for positional timewarp. Must map 1:1 to the {@code ColorTexture}.</td></tr>
+ * <tr><td>ProjectionDesc</td><td class="nw">ovrTimewarpProjectionDesc</td><td>specifies how to convert {@code DepthTexture} information into meters</td></tr>
+ * </table>
  */
 public class OVRLayerEyeFovDepth extends Struct {
 
@@ -74,68 +90,84 @@ public class OVRLayerEyeFovDepth extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public OVRLayerHeader getHeader() { return ngetHeader(address()); }
-	public int getHeaderType() { return ngetHeaderType(address()); }
-	public int getHeaderFlags() { return ngetHeaderFlags(address()); }
-	public void getColorTexture(PointerBuffer ColorTexture) { ngetColorTexture(address(), ColorTexture); }
-	public OVRSwapTextureSet getColorTexture(int index) { return ngetColorTexture(address(), index); }
-	public void getViewport(ByteBuffer Viewport) { ngetViewport(address(), Viewport); }
-	public OVRRecti getViewport(int index) { return ngetViewport(address(), index); }
-	public void getFov(ByteBuffer Fov) { ngetFov(address(), Fov); }
-	public OVRFovPort getFov(int index) { return ngetFov(address(), index); }
-	public void getRenderPose(ByteBuffer RenderPose) { ngetRenderPose(address(), RenderPose); }
-	public OVRPosef getRenderPose(int index) { return ngetRenderPose(address(), index); }
-	public double getSensorSampleTime() { return ngetSensorSampleTime(address()); }
-	public void getDepthTexture(PointerBuffer DepthTexture) { ngetDepthTexture(address(), DepthTexture); }
-	public OVRSwapTextureSet getDepthTexture(int index) { return ngetDepthTexture(address(), index); }
-	public OVRTimewarpProjectionDesc getProjectionDesc() { return ngetProjectionDesc(address()); }
-	public float getProjectionDescProjection22() { return ngetProjectionDescProjection22(address()); }
-	public float getProjectionDescProjection23() { return ngetProjectionDescProjection23(address()); }
-	public float getProjectionDescProjection32() { return ngetProjectionDescProjection32(address()); }
+	/** Returns a {@link OVRLayerHeader} view of the {@code Header} field. */
+	public OVRLayerHeader Header() { return nHeader(address()); }
+	/** Returns a {@link PointerBuffer} view of the {@code ColorTexture} field. */
+	public PointerBuffer ColorTexture() { return nColorTexture(address()); }
+	/** Returns a {@link OVRSwapTextureSet} view of the pointer at the specified index of the {@code ColorTexture}. */
+	public OVRSwapTextureSet ColorTexture(int index) { return nColorTexture(address(), index); }
+	/** Returns a {@link OVRRecti}.Buffer view of the {@code Viewport} field. */
+	public OVRRecti.Buffer Viewport() { return nViewport(address()); }
+	/** Returns a {@link OVRRecti} view of the struct at the specified index of the {@code Viewport} field. */
+	public OVRRecti Viewport(int index) { return nViewport(address(), index); }
+	/** Returns a {@link OVRFovPort}.Buffer view of the {@code Fov} field. */
+	public OVRFovPort.Buffer Fov() { return nFov(address()); }
+	/** Returns a {@link OVRFovPort} view of the struct at the specified index of the {@code Fov} field. */
+	public OVRFovPort Fov(int index) { return nFov(address(), index); }
+	/** Returns a {@link OVRPosef}.Buffer view of the {@code RenderPose} field. */
+	public OVRPosef.Buffer RenderPose() { return nRenderPose(address()); }
+	/** Returns a {@link OVRPosef} view of the struct at the specified index of the {@code RenderPose} field. */
+	public OVRPosef RenderPose(int index) { return nRenderPose(address(), index); }
+	/** Returns the value of the {@code SensorSampleTime} field. */
+	public double SensorSampleTime() { return nSensorSampleTime(address()); }
+	/** Returns a {@link PointerBuffer} view of the {@code DepthTexture} field. */
+	public PointerBuffer DepthTexture() { return nDepthTexture(address()); }
+	/** Returns a {@link OVRSwapTextureSet} view of the pointer at the specified index of the {@code DepthTexture}. */
+	public OVRSwapTextureSet DepthTexture(int index) { return nDepthTexture(address(), index); }
+	/** Returns a {@link OVRTimewarpProjectionDesc} view of the {@code ProjectionDesc} field. */
+	public OVRTimewarpProjectionDesc ProjectionDesc() { return nProjectionDesc(address()); }
 
-	public OVRLayerEyeFovDepth setHeader(OVRLayerHeader Header) { nsetHeader(address(), Header); return this; }
-	public OVRLayerEyeFovDepth setHeaderType(int Type) { nsetHeaderType(address(), Type); return this; }
-	public OVRLayerEyeFovDepth setHeaderFlags(int Flags) { nsetHeaderFlags(address(), Flags); return this; }
-	public OVRLayerEyeFovDepth setColorTexture(PointerBuffer ColorTexture) { nsetColorTexture(address(), ColorTexture); return this; }
-	public OVRLayerEyeFovDepth setColorTexture(int index, OVRSwapTextureSet ColorTexture) { nsetColorTexture(address(), index, ColorTexture); return this; }
-	public OVRLayerEyeFovDepth setViewport(ByteBuffer Viewport) { nsetViewport(address(), Viewport); return this; }
-	public OVRLayerEyeFovDepth setViewport(int index, OVRRecti Viewport) { nsetViewport(address(), index, Viewport); return this; }
-	public OVRLayerEyeFovDepth setFov(ByteBuffer Fov) { nsetFov(address(), Fov); return this; }
-	public OVRLayerEyeFovDepth setFov(int index, OVRFovPort Fov) { nsetFov(address(), index, Fov); return this; }
-	public OVRLayerEyeFovDepth setRenderPose(ByteBuffer RenderPose) { nsetRenderPose(address(), RenderPose); return this; }
-	public OVRLayerEyeFovDepth setRenderPose(int index, OVRPosef RenderPose) { nsetRenderPose(address(), index, RenderPose); return this; }
-	public OVRLayerEyeFovDepth setSensorSampleTime(double SensorSampleTime) { nsetSensorSampleTime(address(), SensorSampleTime); return this; }
-	public OVRLayerEyeFovDepth setDepthTexture(PointerBuffer DepthTexture) { nsetDepthTexture(address(), DepthTexture); return this; }
-	public OVRLayerEyeFovDepth setDepthTexture(int index, OVRSwapTextureSet DepthTexture) { nsetDepthTexture(address(), index, DepthTexture); return this; }
-	public OVRLayerEyeFovDepth setProjectionDesc(OVRTimewarpProjectionDesc ProjectionDesc) { nsetProjectionDesc(address(), ProjectionDesc); return this; }
-	public OVRLayerEyeFovDepth setProjectionDescProjection22(float Projection22) { nsetProjectionDescProjection22(address(), Projection22); return this; }
-	public OVRLayerEyeFovDepth setProjectionDescProjection23(float Projection23) { nsetProjectionDescProjection23(address(), Projection23); return this; }
-	public OVRLayerEyeFovDepth setProjectionDescProjection32(float Projection32) { nsetProjectionDescProjection32(address(), Projection32); return this; }
+	/** Copies the specified {@link OVRLayerHeader} to the {@code Header} field. */
+	public OVRLayerEyeFovDepth Header(OVRLayerHeader value) { nHeader(address(), value); return this; }
+	/** Copies the specified {@link PointerBuffer} to the {@code ColorTexture} field. */
+	public OVRLayerEyeFovDepth ColorTexture(PointerBuffer value) { nColorTexture(address(), value); return this; }
+	/** Copies the address of the specified {@link OVRSwapTextureSet} at the specified index of the {@code ColorTexture} field. */
+	public OVRLayerEyeFovDepth ColorTexture(int index, OVRSwapTextureSet value) { nColorTexture(address(), index, value); return this; }
+	/** Copies the specified {@link OVRRecti.Buffer} to the {@code Viewport} field. */
+	public OVRLayerEyeFovDepth Viewport(OVRRecti.Buffer value) { nViewport(address(), value); return this; }
+	/** Copies the specified {@link OVRRecti} at the specified index of the {@code Viewport} field. */
+	public OVRLayerEyeFovDepth Viewport(int index, OVRRecti value) { nViewport(address(), index, value); return this; }
+	/** Copies the specified {@link OVRFovPort.Buffer} to the {@code Fov} field. */
+	public OVRLayerEyeFovDepth Fov(OVRFovPort.Buffer value) { nFov(address(), value); return this; }
+	/** Copies the specified {@link OVRFovPort} at the specified index of the {@code Fov} field. */
+	public OVRLayerEyeFovDepth Fov(int index, OVRFovPort value) { nFov(address(), index, value); return this; }
+	/** Copies the specified {@link OVRPosef.Buffer} to the {@code RenderPose} field. */
+	public OVRLayerEyeFovDepth RenderPose(OVRPosef.Buffer value) { nRenderPose(address(), value); return this; }
+	/** Copies the specified {@link OVRPosef} at the specified index of the {@code RenderPose} field. */
+	public OVRLayerEyeFovDepth RenderPose(int index, OVRPosef value) { nRenderPose(address(), index, value); return this; }
+	/** Sets the specified value to the {@code SensorSampleTime} field. */
+	public OVRLayerEyeFovDepth SensorSampleTime(double value) { nSensorSampleTime(address(), value); return this; }
+	/** Copies the specified {@link PointerBuffer} to the {@code DepthTexture} field. */
+	public OVRLayerEyeFovDepth DepthTexture(PointerBuffer value) { nDepthTexture(address(), value); return this; }
+	/** Copies the address of the specified {@link OVRSwapTextureSet} at the specified index of the {@code DepthTexture} field. */
+	public OVRLayerEyeFovDepth DepthTexture(int index, OVRSwapTextureSet value) { nDepthTexture(address(), index, value); return this; }
+	/** Copies the specified {@link OVRTimewarpProjectionDesc} to the {@code ProjectionDesc} field. */
+	public OVRLayerEyeFovDepth ProjectionDesc(OVRTimewarpProjectionDesc value) { nProjectionDesc(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public OVRLayerEyeFovDepth set(
 		OVRLayerHeader Header,
 		PointerBuffer ColorTexture,
-		ByteBuffer Viewport,
-		ByteBuffer Fov,
-		ByteBuffer RenderPose,
+		OVRRecti.Buffer Viewport,
+		OVRFovPort.Buffer Fov,
+		OVRPosef.Buffer RenderPose,
 		double SensorSampleTime,
 		PointerBuffer DepthTexture,
 		OVRTimewarpProjectionDesc ProjectionDesc
 	) {
-		setHeader(Header);
-		setColorTexture(ColorTexture);
-		setViewport(Viewport);
-		setFov(Fov);
-		setRenderPose(RenderPose);
-		setSensorSampleTime(SensorSampleTime);
-		setDepthTexture(DepthTexture);
-		setProjectionDesc(ProjectionDesc);
+		Header(Header);
+		ColorTexture(ColorTexture);
+		Viewport(Viewport);
+		Fov(Fov);
+		RenderPose(RenderPose);
+		SensorSampleTime(SensorSampleTime);
+		DepthTexture(DepthTexture);
+		ProjectionDesc(ProjectionDesc);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(OVRLayerEyeFovDepth) set}. */
 	public OVRLayerEyeFovDepth nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -152,7 +184,7 @@ public class OVRLayerEyeFovDepth extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(OVRLayerEyeFovDepth) set}. */
 	public OVRLayerEyeFovDepth set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -213,133 +245,94 @@ public class OVRLayerEyeFovDepth extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static OVRLayerHeader ngetHeader(long struct) { return OVRLayerHeader.malloc().nset(struct + HEADER); }
-	/** Returns a copy of the {@code Header} {@link OVRLayerHeader} struct. */
-	public static OVRLayerHeader getHeader(ByteBuffer struct) { return ngetHeader(memAddress(struct)); }
-	public static int ngetHeaderType(long struct) { return memGetInt(struct + HEADER + OVRLayerHeader.TYPE); }
-	public static int getHeaderType(ByteBuffer struct) { return ngetHeaderType(memAddress(struct)); }
-	public static int ngetHeaderFlags(long struct) { return memGetInt(struct + HEADER + OVRLayerHeader.FLAGS); }
-	public static int getHeaderFlags(ByteBuffer struct) { return ngetHeaderFlags(memAddress(struct)); }
-	public static void ngetColorTexture(long struct, PointerBuffer ColorTexture) {
-		if ( CHECKS ) checkBufferGT(ColorTexture, 2);
-		memCopy(struct + COLORTEXTURE, memAddress(ColorTexture), ColorTexture.remaining() * POINTER_SIZE);
+	/** Unsafe version of {@link #Header}. */
+	public static OVRLayerHeader nHeader(long struct) { return new OVRLayerHeader(struct + OVRLayerEyeFovDepth.HEADER); }
+	/** Unsafe version of {@link #ColorTexture}. */
+	public static PointerBuffer nColorTexture(long struct) {
+		return memPointerBuffer(struct + OVRLayerEyeFovDepth.COLORTEXTURE, 2);
 	}
-	public static void getColorTexture(ByteBuffer struct, PointerBuffer ColorTexture) { ngetColorTexture(memAddress(struct), ColorTexture); }
-	public static OVRSwapTextureSet ngetColorTexture(long struct, int index) {
-		return new OVRSwapTextureSet(struct + COLORTEXTURE + index * POINTER_SIZE);
+	/** Unsafe version of {@link #ColorTexture(int) ColorTexture}. */
+	public static OVRSwapTextureSet nColorTexture(long struct, int index) {
+		return new OVRSwapTextureSet(memGetAddress(struct + OVRLayerEyeFovDepth.COLORTEXTURE + index * POINTER_SIZE));
 	}
-	public static OVRSwapTextureSet getColorTexture(ByteBuffer struct, int index) { return ngetColorTexture(memAddress(struct), index); }
-	public static void ngetViewport(long struct, ByteBuffer Viewport) {
-		if ( CHECKS ) checkBufferGT(Viewport, 2 * OVRRecti.SIZEOF);
-		memCopy(struct + VIEWPORT, memAddress(Viewport), Viewport.remaining());
+	/** Unsafe version of {@link #Viewport}. */
+	public static OVRRecti.Buffer nViewport(long struct) {
+		return OVRRecti.createBuffer(struct + OVRLayerEyeFovDepth.VIEWPORT, 2);
 	}
-	public static void getViewport(ByteBuffer struct, ByteBuffer Viewport) { ngetViewport(memAddress(struct), Viewport); }
-	public static OVRRecti ngetViewport(long struct, int index) {
-		return OVRRecti.malloc().nset(struct + VIEWPORT + index * OVRRecti.SIZEOF);
+	/** Unsafe version of {@link #Viewport(int) Viewport}. */
+	public static OVRRecti nViewport(long struct, int index) {
+		return new OVRRecti(struct + OVRLayerEyeFovDepth.VIEWPORT + index * OVRRecti.SIZEOF);
 	}
-	public static OVRRecti getViewport(ByteBuffer struct, int index) { return ngetViewport(memAddress(struct), index); }
-	public static void ngetFov(long struct, ByteBuffer Fov) {
-		if ( CHECKS ) checkBufferGT(Fov, 2 * OVRFovPort.SIZEOF);
-		memCopy(struct + FOV, memAddress(Fov), Fov.remaining());
+	/** Unsafe version of {@link #Fov}. */
+	public static OVRFovPort.Buffer nFov(long struct) {
+		return OVRFovPort.createBuffer(struct + OVRLayerEyeFovDepth.FOV, 2);
 	}
-	public static void getFov(ByteBuffer struct, ByteBuffer Fov) { ngetFov(memAddress(struct), Fov); }
-	public static OVRFovPort ngetFov(long struct, int index) {
-		return OVRFovPort.malloc().nset(struct + FOV + index * OVRFovPort.SIZEOF);
+	/** Unsafe version of {@link #Fov(int) Fov}. */
+	public static OVRFovPort nFov(long struct, int index) {
+		return new OVRFovPort(struct + OVRLayerEyeFovDepth.FOV + index * OVRFovPort.SIZEOF);
 	}
-	public static OVRFovPort getFov(ByteBuffer struct, int index) { return ngetFov(memAddress(struct), index); }
-	public static void ngetRenderPose(long struct, ByteBuffer RenderPose) {
-		if ( CHECKS ) checkBufferGT(RenderPose, 2 * OVRPosef.SIZEOF);
-		memCopy(struct + RENDERPOSE, memAddress(RenderPose), RenderPose.remaining());
+	/** Unsafe version of {@link #RenderPose}. */
+	public static OVRPosef.Buffer nRenderPose(long struct) {
+		return OVRPosef.createBuffer(struct + OVRLayerEyeFovDepth.RENDERPOSE, 2);
 	}
-	public static void getRenderPose(ByteBuffer struct, ByteBuffer RenderPose) { ngetRenderPose(memAddress(struct), RenderPose); }
-	public static OVRPosef ngetRenderPose(long struct, int index) {
-		return OVRPosef.malloc().nset(struct + RENDERPOSE + index * OVRPosef.SIZEOF);
+	/** Unsafe version of {@link #RenderPose(int) RenderPose}. */
+	public static OVRPosef nRenderPose(long struct, int index) {
+		return new OVRPosef(struct + OVRLayerEyeFovDepth.RENDERPOSE + index * OVRPosef.SIZEOF);
 	}
-	public static OVRPosef getRenderPose(ByteBuffer struct, int index) { return ngetRenderPose(memAddress(struct), index); }
-	public static double ngetSensorSampleTime(long struct) { return memGetDouble(struct + SENSORSAMPLETIME); }
-	public static double getSensorSampleTime(ByteBuffer struct) { return ngetSensorSampleTime(memAddress(struct)); }
-	public static void ngetDepthTexture(long struct, PointerBuffer DepthTexture) {
-		if ( CHECKS ) checkBufferGT(DepthTexture, 2);
-		memCopy(struct + DEPTHTEXTURE, memAddress(DepthTexture), DepthTexture.remaining() * POINTER_SIZE);
+	/** Unsafe version of {@link #SensorSampleTime}. */
+	public static double nSensorSampleTime(long struct) { return memGetDouble(struct + OVRLayerEyeFovDepth.SENSORSAMPLETIME); }
+	/** Unsafe version of {@link #DepthTexture}. */
+	public static PointerBuffer nDepthTexture(long struct) {
+		return memPointerBuffer(struct + OVRLayerEyeFovDepth.DEPTHTEXTURE, 2);
 	}
-	public static void getDepthTexture(ByteBuffer struct, PointerBuffer DepthTexture) { ngetDepthTexture(memAddress(struct), DepthTexture); }
-	public static OVRSwapTextureSet ngetDepthTexture(long struct, int index) {
-		return new OVRSwapTextureSet(struct + DEPTHTEXTURE + index * POINTER_SIZE);
+	/** Unsafe version of {@link #DepthTexture(int) DepthTexture}. */
+	public static OVRSwapTextureSet nDepthTexture(long struct, int index) {
+		return new OVRSwapTextureSet(memGetAddress(struct + OVRLayerEyeFovDepth.DEPTHTEXTURE + index * POINTER_SIZE));
 	}
-	public static OVRSwapTextureSet getDepthTexture(ByteBuffer struct, int index) { return ngetDepthTexture(memAddress(struct), index); }
-	public static OVRTimewarpProjectionDesc ngetProjectionDesc(long struct) { return OVRTimewarpProjectionDesc.malloc().nset(struct + PROJECTIONDESC); }
-	/** Returns a copy of the {@code ProjectionDesc} {@link OVRTimewarpProjectionDesc} struct. */
-	public static OVRTimewarpProjectionDesc getProjectionDesc(ByteBuffer struct) { return ngetProjectionDesc(memAddress(struct)); }
-	public static float ngetProjectionDescProjection22(long struct) { return memGetFloat(struct + PROJECTIONDESC + OVRTimewarpProjectionDesc.PROJECTION22); }
-	public static float getProjectionDescProjection22(ByteBuffer struct) { return ngetProjectionDescProjection22(memAddress(struct)); }
-	public static float ngetProjectionDescProjection23(long struct) { return memGetFloat(struct + PROJECTIONDESC + OVRTimewarpProjectionDesc.PROJECTION23); }
-	public static float getProjectionDescProjection23(ByteBuffer struct) { return ngetProjectionDescProjection23(memAddress(struct)); }
-	public static float ngetProjectionDescProjection32(long struct) { return memGetFloat(struct + PROJECTIONDESC + OVRTimewarpProjectionDesc.PROJECTION32); }
-	public static float getProjectionDescProjection32(ByteBuffer struct) { return ngetProjectionDescProjection32(memAddress(struct)); }
+	/** Unsafe version of {@link #ProjectionDesc}. */
+	public static OVRTimewarpProjectionDesc nProjectionDesc(long struct) { return new OVRTimewarpProjectionDesc(struct + OVRLayerEyeFovDepth.PROJECTIONDESC); }
 
-	public static void nsetHeader(long struct, OVRLayerHeader Header) { memCopy(Header.address(), struct + HEADER, OVRLayerHeader.SIZEOF); }
-	/** Copies the specified {@link OVRLayerHeader} struct to the nested {@code Header} struct. */
-	public static void setHeader(ByteBuffer struct, OVRLayerHeader Header) { nsetHeader(memAddress(struct), Header); }
-	public static void nsetHeaderType(long struct, int Type) { memPutInt(struct + HEADER + OVRLayerHeader.TYPE, Type); }
-	public static void setHeaderType(ByteBuffer struct, int Type) { nsetHeaderType(memAddress(struct), Type); }
-	public static void nsetHeaderFlags(long struct, int Flags) { memPutInt(struct + HEADER + OVRLayerHeader.FLAGS, Flags); }
-	public static void setHeaderFlags(ByteBuffer struct, int Flags) { nsetHeaderFlags(memAddress(struct), Flags); }
-	public static void nsetColorTexture(long struct, PointerBuffer ColorTexture) {
-		if ( CHECKS ) checkBufferGT(ColorTexture, 2);
-		memCopy(memAddress(ColorTexture), struct + COLORTEXTURE, ColorTexture.remaining() * POINTER_SIZE);
+	/** Unsafe version of {@link #Header(OVRLayerHeader) Header}. */
+	public static void nHeader(long struct, OVRLayerHeader value) { memCopy(value.address(), struct + OVRLayerEyeFovDepth.HEADER, OVRLayerHeader.SIZEOF); }
+	/** Unsafe version of {@link #ColorTexture(PointerBuffer) ColorTexture}. */
+	public static void nColorTexture(long struct, PointerBuffer value) {
+		if ( CHECKS ) checkBufferGT(value, 2);
+		memCopy(memAddress(value), struct + OVRLayerEyeFovDepth.COLORTEXTURE, value.remaining() * POINTER_SIZE);
 	}
-	public static void setColorTexture(ByteBuffer struct, PointerBuffer ColorTexture) { nsetColorTexture(memAddress(struct), ColorTexture); }
-	public static void nsetColorTexture(long struct, int index, OVRSwapTextureSet ColorTexture) {
-		memPutAddress(struct + COLORTEXTURE + index * POINTER_SIZE, ColorTexture.address());
+	/** Unsafe version of {@link #ColorTexture(int, OVRSwapTextureSet) ColorTexture}. */
+	public static void nColorTexture(long struct, int index, OVRSwapTextureSet value) { memPutAddress(struct + OVRLayerEyeFovDepth.COLORTEXTURE + index * POINTER_SIZE, value.address()); }
+	/** Unsafe version of {@link #Viewport(OVRRecti.Buffer) Viewport}. */
+	public static void nViewport(long struct, OVRRecti.Buffer value) {
+		if ( CHECKS ) checkBufferGT(value, 2);
+		memCopy(value.address(), struct + OVRLayerEyeFovDepth.VIEWPORT, value.remaining() * OVRRecti.SIZEOF);
 	}
-	public static void setColorTexture(ByteBuffer struct, int index, OVRSwapTextureSet ColorTexture) { nsetColorTexture(memAddress(struct), index, ColorTexture); }
-	public static void nsetViewport(long struct, ByteBuffer Viewport) {
-		if ( CHECKS ) checkBufferGT(Viewport, 2 * OVRRecti.SIZEOF);
-		memCopy(memAddress(Viewport), struct + VIEWPORT, Viewport.remaining());
+	/** Unsafe version of {@link #Viewport(int, OVRRecti) Viewport}. */
+	public static void nViewport(long struct, int index, OVRRecti value) { memCopy(value.address(), struct + OVRLayerEyeFovDepth.VIEWPORT + index * OVRRecti.SIZEOF, OVRRecti.SIZEOF); }
+	/** Unsafe version of {@link #Fov(OVRFovPort.Buffer) Fov}. */
+	public static void nFov(long struct, OVRFovPort.Buffer value) {
+		if ( CHECKS ) checkBufferGT(value, 2);
+		memCopy(value.address(), struct + OVRLayerEyeFovDepth.FOV, value.remaining() * OVRFovPort.SIZEOF);
 	}
-	public static void setViewport(ByteBuffer struct, ByteBuffer Viewport) { nsetViewport(memAddress(struct), Viewport); }
-	public static void nsetViewport(long struct, int index, OVRRecti Viewport) {
-		memCopy(Viewport.address(), struct + VIEWPORT + index * OVRRecti.SIZEOF, OVRRecti.SIZEOF);
+	/** Unsafe version of {@link #Fov(int, OVRFovPort) Fov}. */
+	public static void nFov(long struct, int index, OVRFovPort value) { memCopy(value.address(), struct + OVRLayerEyeFovDepth.FOV + index * OVRFovPort.SIZEOF, OVRFovPort.SIZEOF); }
+	/** Unsafe version of {@link #RenderPose(OVRPosef.Buffer) RenderPose}. */
+	public static void nRenderPose(long struct, OVRPosef.Buffer value) {
+		if ( CHECKS ) checkBufferGT(value, 2);
+		memCopy(value.address(), struct + OVRLayerEyeFovDepth.RENDERPOSE, value.remaining() * OVRPosef.SIZEOF);
 	}
-	public static void setViewport(ByteBuffer struct, int index, OVRRecti Viewport) { nsetViewport(memAddress(struct), index, Viewport); }
-	public static void nsetFov(long struct, ByteBuffer Fov) {
-		if ( CHECKS ) checkBufferGT(Fov, 2 * OVRFovPort.SIZEOF);
-		memCopy(memAddress(Fov), struct + FOV, Fov.remaining());
+	/** Unsafe version of {@link #RenderPose(int, OVRPosef) RenderPose}. */
+	public static void nRenderPose(long struct, int index, OVRPosef value) { memCopy(value.address(), struct + OVRLayerEyeFovDepth.RENDERPOSE + index * OVRPosef.SIZEOF, OVRPosef.SIZEOF); }
+	/** Unsafe version of {@link #SensorSampleTime(double) SensorSampleTime}. */
+	public static void nSensorSampleTime(long struct, double value) { memPutDouble(struct + OVRLayerEyeFovDepth.SENSORSAMPLETIME, value); }
+	/** Unsafe version of {@link #DepthTexture(PointerBuffer) DepthTexture}. */
+	public static void nDepthTexture(long struct, PointerBuffer value) {
+		if ( CHECKS ) checkBufferGT(value, 2);
+		memCopy(memAddress(value), struct + OVRLayerEyeFovDepth.DEPTHTEXTURE, value.remaining() * POINTER_SIZE);
 	}
-	public static void setFov(ByteBuffer struct, ByteBuffer Fov) { nsetFov(memAddress(struct), Fov); }
-	public static void nsetFov(long struct, int index, OVRFovPort Fov) {
-		memCopy(Fov.address(), struct + FOV + index * OVRFovPort.SIZEOF, OVRFovPort.SIZEOF);
-	}
-	public static void setFov(ByteBuffer struct, int index, OVRFovPort Fov) { nsetFov(memAddress(struct), index, Fov); }
-	public static void nsetRenderPose(long struct, ByteBuffer RenderPose) {
-		if ( CHECKS ) checkBufferGT(RenderPose, 2 * OVRPosef.SIZEOF);
-		memCopy(memAddress(RenderPose), struct + RENDERPOSE, RenderPose.remaining());
-	}
-	public static void setRenderPose(ByteBuffer struct, ByteBuffer RenderPose) { nsetRenderPose(memAddress(struct), RenderPose); }
-	public static void nsetRenderPose(long struct, int index, OVRPosef RenderPose) {
-		memCopy(RenderPose.address(), struct + RENDERPOSE + index * OVRPosef.SIZEOF, OVRPosef.SIZEOF);
-	}
-	public static void setRenderPose(ByteBuffer struct, int index, OVRPosef RenderPose) { nsetRenderPose(memAddress(struct), index, RenderPose); }
-	public static void nsetSensorSampleTime(long struct, double SensorSampleTime) { memPutDouble(struct + SENSORSAMPLETIME, SensorSampleTime); }
-	public static void setSensorSampleTime(ByteBuffer struct, double SensorSampleTime) { nsetSensorSampleTime(memAddress(struct), SensorSampleTime); }
-	public static void nsetDepthTexture(long struct, PointerBuffer DepthTexture) {
-		if ( CHECKS ) checkBufferGT(DepthTexture, 2);
-		memCopy(memAddress(DepthTexture), struct + DEPTHTEXTURE, DepthTexture.remaining() * POINTER_SIZE);
-	}
-	public static void setDepthTexture(ByteBuffer struct, PointerBuffer DepthTexture) { nsetDepthTexture(memAddress(struct), DepthTexture); }
-	public static void nsetDepthTexture(long struct, int index, OVRSwapTextureSet DepthTexture) {
-		memPutAddress(struct + DEPTHTEXTURE + index * POINTER_SIZE, DepthTexture.address());
-	}
-	public static void setDepthTexture(ByteBuffer struct, int index, OVRSwapTextureSet DepthTexture) { nsetDepthTexture(memAddress(struct), index, DepthTexture); }
-	public static void nsetProjectionDesc(long struct, OVRTimewarpProjectionDesc ProjectionDesc) { memCopy(ProjectionDesc.address(), struct + PROJECTIONDESC, OVRTimewarpProjectionDesc.SIZEOF); }
-	/** Copies the specified {@link OVRTimewarpProjectionDesc} struct to the nested {@code ProjectionDesc} struct. */
-	public static void setProjectionDesc(ByteBuffer struct, OVRTimewarpProjectionDesc ProjectionDesc) { nsetProjectionDesc(memAddress(struct), ProjectionDesc); }
-	public static void nsetProjectionDescProjection22(long struct, float Projection22) { memPutFloat(struct + PROJECTIONDESC + OVRTimewarpProjectionDesc.PROJECTION22, Projection22); }
-	public static void setProjectionDescProjection22(ByteBuffer struct, float Projection22) { nsetProjectionDescProjection22(memAddress(struct), Projection22); }
-	public static void nsetProjectionDescProjection23(long struct, float Projection23) { memPutFloat(struct + PROJECTIONDESC + OVRTimewarpProjectionDesc.PROJECTION23, Projection23); }
-	public static void setProjectionDescProjection23(ByteBuffer struct, float Projection23) { nsetProjectionDescProjection23(memAddress(struct), Projection23); }
-	public static void nsetProjectionDescProjection32(long struct, float Projection32) { memPutFloat(struct + PROJECTIONDESC + OVRTimewarpProjectionDesc.PROJECTION32, Projection32); }
-	public static void setProjectionDescProjection32(ByteBuffer struct, float Projection32) { nsetProjectionDescProjection32(memAddress(struct), Projection32); }
+	/** Unsafe version of {@link #DepthTexture(int, OVRSwapTextureSet) DepthTexture}. */
+	public static void nDepthTexture(long struct, int index, OVRSwapTextureSet value) { memPutAddress(struct + OVRLayerEyeFovDepth.DEPTHTEXTURE + index * POINTER_SIZE, value.address()); }
+	/** Unsafe version of {@link #ProjectionDesc(OVRTimewarpProjectionDesc) ProjectionDesc}. */
+	public static void nProjectionDesc(long struct, OVRTimewarpProjectionDesc value) { memCopy(value.address(), struct + OVRLayerEyeFovDepth.PROJECTIONDESC, OVRTimewarpProjectionDesc.SIZEOF); }
 
 	// -----------------------------------
 
@@ -383,43 +376,59 @@ public class OVRLayerEyeFovDepth extends Struct {
 			return SIZEOF;
 		}
 
-		public OVRLayerHeader getHeader() { return ngetHeader(address()); }
-		public int getHeaderType() { return ngetHeaderType(address()); }
-		public int getHeaderFlags() { return ngetHeaderFlags(address()); }
-		public void getColorTexture(PointerBuffer ColorTexture) { ngetColorTexture(address(), ColorTexture); }
-		public OVRSwapTextureSet getColorTexture(int index) { return ngetColorTexture(address(), index); }
-		public void getViewport(ByteBuffer Viewport) { ngetViewport(address(), Viewport); }
-		public OVRRecti getViewport(int index) { return ngetViewport(address(), index); }
-		public void getFov(ByteBuffer Fov) { ngetFov(address(), Fov); }
-		public OVRFovPort getFov(int index) { return ngetFov(address(), index); }
-		public void getRenderPose(ByteBuffer RenderPose) { ngetRenderPose(address(), RenderPose); }
-		public OVRPosef getRenderPose(int index) { return ngetRenderPose(address(), index); }
-		public double getSensorSampleTime() { return ngetSensorSampleTime(address()); }
-		public void getDepthTexture(PointerBuffer DepthTexture) { ngetDepthTexture(address(), DepthTexture); }
-		public OVRSwapTextureSet getDepthTexture(int index) { return ngetDepthTexture(address(), index); }
-		public OVRTimewarpProjectionDesc getProjectionDesc() { return ngetProjectionDesc(address()); }
-		public float getProjectionDescProjection22() { return ngetProjectionDescProjection22(address()); }
-		public float getProjectionDescProjection23() { return ngetProjectionDescProjection23(address()); }
-		public float getProjectionDescProjection32() { return ngetProjectionDescProjection32(address()); }
+		/** Returns a {@link OVRLayerHeader} view of the {@code Header} field. */
+		public OVRLayerHeader Header() { return nHeader(address()); }
+		/** Returns a {@link PointerBuffer} view of the {@code ColorTexture} field. */
+		public PointerBuffer ColorTexture() { return nColorTexture(address()); }
+		/** Returns a {@link OVRSwapTextureSet} view of the pointer at the specified index of the {@code ColorTexture}. */
+		public OVRSwapTextureSet ColorTexture(int index) { return nColorTexture(address(), index); }
+		/** Returns a {@link OVRRecti}.Buffer view of the {@code Viewport} field. */
+		public OVRRecti.Buffer Viewport() { return nViewport(address()); }
+		/** Returns a {@link OVRRecti} view of the struct at the specified index of the {@code Viewport} field. */
+		public OVRRecti Viewport(int index) { return nViewport(address(), index); }
+		/** Returns a {@link OVRFovPort}.Buffer view of the {@code Fov} field. */
+		public OVRFovPort.Buffer Fov() { return nFov(address()); }
+		/** Returns a {@link OVRFovPort} view of the struct at the specified index of the {@code Fov} field. */
+		public OVRFovPort Fov(int index) { return nFov(address(), index); }
+		/** Returns a {@link OVRPosef}.Buffer view of the {@code RenderPose} field. */
+		public OVRPosef.Buffer RenderPose() { return nRenderPose(address()); }
+		/** Returns a {@link OVRPosef} view of the struct at the specified index of the {@code RenderPose} field. */
+		public OVRPosef RenderPose(int index) { return nRenderPose(address(), index); }
+		/** Returns the value of the {@code SensorSampleTime} field. */
+		public double SensorSampleTime() { return nSensorSampleTime(address()); }
+		/** Returns a {@link PointerBuffer} view of the {@code DepthTexture} field. */
+		public PointerBuffer DepthTexture() { return nDepthTexture(address()); }
+		/** Returns a {@link OVRSwapTextureSet} view of the pointer at the specified index of the {@code DepthTexture}. */
+		public OVRSwapTextureSet DepthTexture(int index) { return nDepthTexture(address(), index); }
+		/** Returns a {@link OVRTimewarpProjectionDesc} view of the {@code ProjectionDesc} field. */
+		public OVRTimewarpProjectionDesc ProjectionDesc() { return nProjectionDesc(address()); }
 
-		public OVRLayerEyeFovDepth.Buffer setHeader(OVRLayerHeader Header) { nsetHeader(address(), Header); return this; }
-		public OVRLayerEyeFovDepth.Buffer setHeaderType(int Type) { nsetHeaderType(address(), Type); return this; }
-		public OVRLayerEyeFovDepth.Buffer setHeaderFlags(int Flags) { nsetHeaderFlags(address(), Flags); return this; }
-		public OVRLayerEyeFovDepth.Buffer setColorTexture(PointerBuffer ColorTexture) { nsetColorTexture(address(), ColorTexture); return this; }
-		public OVRLayerEyeFovDepth.Buffer setColorTexture(int index, OVRSwapTextureSet ColorTexture) { nsetColorTexture(address(), index, ColorTexture); return this; }
-		public OVRLayerEyeFovDepth.Buffer setViewport(ByteBuffer Viewport) { nsetViewport(address(), Viewport); return this; }
-		public OVRLayerEyeFovDepth.Buffer setViewport(int index, OVRRecti Viewport) { nsetViewport(address(), index, Viewport); return this; }
-		public OVRLayerEyeFovDepth.Buffer setFov(ByteBuffer Fov) { nsetFov(address(), Fov); return this; }
-		public OVRLayerEyeFovDepth.Buffer setFov(int index, OVRFovPort Fov) { nsetFov(address(), index, Fov); return this; }
-		public OVRLayerEyeFovDepth.Buffer setRenderPose(ByteBuffer RenderPose) { nsetRenderPose(address(), RenderPose); return this; }
-		public OVRLayerEyeFovDepth.Buffer setRenderPose(int index, OVRPosef RenderPose) { nsetRenderPose(address(), index, RenderPose); return this; }
-		public OVRLayerEyeFovDepth.Buffer setSensorSampleTime(double SensorSampleTime) { nsetSensorSampleTime(address(), SensorSampleTime); return this; }
-		public OVRLayerEyeFovDepth.Buffer setDepthTexture(PointerBuffer DepthTexture) { nsetDepthTexture(address(), DepthTexture); return this; }
-		public OVRLayerEyeFovDepth.Buffer setDepthTexture(int index, OVRSwapTextureSet DepthTexture) { nsetDepthTexture(address(), index, DepthTexture); return this; }
-		public OVRLayerEyeFovDepth.Buffer setProjectionDesc(OVRTimewarpProjectionDesc ProjectionDesc) { nsetProjectionDesc(address(), ProjectionDesc); return this; }
-		public OVRLayerEyeFovDepth.Buffer setProjectionDescProjection22(float Projection22) { nsetProjectionDescProjection22(address(), Projection22); return this; }
-		public OVRLayerEyeFovDepth.Buffer setProjectionDescProjection23(float Projection23) { nsetProjectionDescProjection23(address(), Projection23); return this; }
-		public OVRLayerEyeFovDepth.Buffer setProjectionDescProjection32(float Projection32) { nsetProjectionDescProjection32(address(), Projection32); return this; }
+		/** Copies the specified {@link OVRLayerHeader} to the {@code Header} field. */
+		public OVRLayerEyeFovDepth.Buffer Header(OVRLayerHeader value) { nHeader(address(), value); return this; }
+		/** Copies the specified {@link PointerBuffer} to the {@code ColorTexture} field. */
+		public OVRLayerEyeFovDepth.Buffer ColorTexture(PointerBuffer value) { nColorTexture(address(), value); return this; }
+		/** Copies the address of the specified {@link OVRSwapTextureSet} at the specified index of the {@code ColorTexture} field. */
+		public OVRLayerEyeFovDepth.Buffer ColorTexture(int index, OVRSwapTextureSet value) { nColorTexture(address(), index, value); return this; }
+		/** Copies the specified {@link OVRRecti.Buffer} to the {@code Viewport} field. */
+		public OVRLayerEyeFovDepth.Buffer Viewport(OVRRecti.Buffer value) { nViewport(address(), value); return this; }
+		/** Copies the specified {@link OVRRecti} at the specified index of the {@code Viewport} field. */
+		public OVRLayerEyeFovDepth.Buffer Viewport(int index, OVRRecti value) { nViewport(address(), index, value); return this; }
+		/** Copies the specified {@link OVRFovPort.Buffer} to the {@code Fov} field. */
+		public OVRLayerEyeFovDepth.Buffer Fov(OVRFovPort.Buffer value) { nFov(address(), value); return this; }
+		/** Copies the specified {@link OVRFovPort} at the specified index of the {@code Fov} field. */
+		public OVRLayerEyeFovDepth.Buffer Fov(int index, OVRFovPort value) { nFov(address(), index, value); return this; }
+		/** Copies the specified {@link OVRPosef.Buffer} to the {@code RenderPose} field. */
+		public OVRLayerEyeFovDepth.Buffer RenderPose(OVRPosef.Buffer value) { nRenderPose(address(), value); return this; }
+		/** Copies the specified {@link OVRPosef} at the specified index of the {@code RenderPose} field. */
+		public OVRLayerEyeFovDepth.Buffer RenderPose(int index, OVRPosef value) { nRenderPose(address(), index, value); return this; }
+		/** Sets the specified value to the {@code SensorSampleTime} field. */
+		public OVRLayerEyeFovDepth.Buffer SensorSampleTime(double value) { nSensorSampleTime(address(), value); return this; }
+		/** Copies the specified {@link PointerBuffer} to the {@code DepthTexture} field. */
+		public OVRLayerEyeFovDepth.Buffer DepthTexture(PointerBuffer value) { nDepthTexture(address(), value); return this; }
+		/** Copies the address of the specified {@link OVRSwapTextureSet} at the specified index of the {@code DepthTexture} field. */
+		public OVRLayerEyeFovDepth.Buffer DepthTexture(int index, OVRSwapTextureSet value) { nDepthTexture(address(), index, value); return this; }
+		/** Copies the specified {@link OVRTimewarpProjectionDesc} to the {@code ProjectionDesc} field. */
+		public OVRLayerEyeFovDepth.Buffer ProjectionDesc(OVRTimewarpProjectionDesc value) { nProjectionDesc(address(), value); return this; }
 
 	}
 

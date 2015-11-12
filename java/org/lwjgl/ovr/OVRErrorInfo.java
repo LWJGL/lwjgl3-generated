@@ -10,10 +10,18 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Provides information about the last error. */
+/**
+ * Provides information about the last error.
+ * 
+ * <h3>ovrErrorInfo members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>Result</td><td class="nw">ovrResult</td><td>the result from the last API call that generated an error ovrResult</td></tr>
+ * <tr><td>ErrorString</td><td class="nw">char[512]</td><td>a UTF8-encoded null-terminated English string describing the problem. The format of this string is subject to change in future versions</td></tr>
+ * </table>
+ */
 public class OVRErrorInfo extends Struct {
 
 	/** The struct size in bytes. */
@@ -59,8 +67,12 @@ public class OVRErrorInfo extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public int getResult() { return ngetResult(address()); }
-	public void getErrorString(ByteBuffer ErrorString) { ngetErrorString(address(), ErrorString); }
+	/** Returns the value of the {@code Result} field. */
+	public int Result() { return nResult(address()); }
+	/** Returns a {@link ByteBuffer} view of the {@code ErrorString} field. */
+	public ByteBuffer ErrorString() { return nErrorString(address()); }
+	/** Returns the value at the specified index of the {@code ErrorString} field. */
+	public byte ErrorString(int index) { return nErrorString(address(), index); }
 
 	// -----------------------------------
 
@@ -116,15 +128,14 @@ public class OVRErrorInfo extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static int ngetResult(long struct) { return memGetInt(struct + RESULT); }
-	public static int getResult(ByteBuffer struct) { return ngetResult(memAddress(struct)); }
-	public static void ngetErrorString(long struct, ByteBuffer ErrorString) {
-		if ( CHECKS ) checkBufferGT(ErrorString, 512 * 1);
-		memCopy(struct + ERRORSTRING, memAddress(ErrorString), ErrorString.remaining());
+	/** Unsafe version of {@link #Result}. */
+	public static int nResult(long struct) { return memGetInt(struct + OVRErrorInfo.RESULT); }
+	/** Unsafe version of {@link #ErrorString}. */
+	public static ByteBuffer nErrorString(long struct) {
+		return memByteBuffer(struct + OVRErrorInfo.ERRORSTRING, 512);
 	}
-	public static void getErrorString(ByteBuffer struct, ByteBuffer ErrorString) { ngetErrorString(memAddress(struct), ErrorString); }
-	public static byte ngetErrorString(long struct, int index) { return memGetByte(struct + ERRORSTRING + index * 1); }
-	public static byte getErrorString(ByteBuffer struct, int index) { return ngetErrorString(memAddress(struct), index); }
+	/** Unsafe version of {@link #ErrorString(int) ErrorString}. */
+	public static byte nErrorString(long struct, int index) { return memGetByte(struct + OVRErrorInfo.ERRORSTRING + index * 1); }
 
 	// -----------------------------------
 
@@ -168,8 +179,12 @@ public class OVRErrorInfo extends Struct {
 			return SIZEOF;
 		}
 
-		public int getResult() { return ngetResult(address()); }
-		public void getErrorString(ByteBuffer ErrorString) { ngetErrorString(address(), ErrorString); }
+		/** Returns the value of the {@code Result} field. */
+		public int Result() { return nResult(address()); }
+		/** Returns a {@link ByteBuffer} view of the {@code ErrorString} field. */
+		public ByteBuffer ErrorString() { return nErrorString(address()); }
+		/** Returns the value at the specified index of the {@code ErrorString} field. */
+		public byte ErrorString(int index) { return nErrorString(address(), index); }
 
 	}
 

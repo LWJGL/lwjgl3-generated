@@ -10,10 +10,18 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** The struct returned by {@link CL10#clGetDeviceInfo} with {@code param_name} set to {@link AMDDeviceTopology#CL_DEVICE_TOPOLOGY_AMD}. */
+/**
+ * The struct returned by {@link CL10#clGetDeviceInfo} with {@code param_name} set to {@link AMDDeviceTopology#CL_DEVICE_TOPOLOGY_AMD}.
+ * 
+ * <h3>cl_device_topology_amd members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>raw</td><td class="nw">*</td><td></td></tr>
+ * <tr><td>pcie</td><td class="nw">*</td><td></td></tr>
+ * </table>
+ */
 public class CLDeviceTopologyAMD extends Struct {
 
 	/** The struct size in bytes. */
@@ -71,12 +79,20 @@ public class CLDeviceTopologyAMD extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public int getRawType() { return ngetRawType(address()); }
-	public void getRawData(ByteBuffer data) { ngetRawData(address(), data); }
-	public int getPcieType() { return ngetPcieType(address()); }
-	public int getPcieBus() { return ngetPcieBus(address()); }
-	public int getPcieDevice() { return ngetPcieDevice(address()); }
-	public int getPcieFunction() { return ngetPcieFunction(address()); }
+	/** Returns the value of the {@code raw_type} field. */
+	public int raw_type() { return nraw_type(address()); }
+	/** Returns a {@link IntBuffer} view of the {@code raw_data} field. */
+	public IntBuffer raw_data() { return nraw_data(address()); }
+	/** Returns the value at the specified index of the {@code raw_data} field. */
+	public int raw_data(int index) { return nraw_data(address(), index); }
+	/** Returns the value of the {@code pcie_type} field. */
+	public int pcie_type() { return npcie_type(address()); }
+	/** Returns the value of the {@code pcie_bus} field. */
+	public byte pcie_bus() { return npcie_bus(address()); }
+	/** Returns the value of the {@code pcie_device} field. */
+	public byte pcie_device() { return npcie_device(address()); }
+	/** Returns the value of the {@code pcie_function} field. */
+	public byte pcie_function() { return npcie_function(address()); }
 
 	// -----------------------------------
 
@@ -132,23 +148,22 @@ public class CLDeviceTopologyAMD extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static int ngetRawType(long struct) { return memGetInt(struct + RAW_TYPE); }
-	public static int getRawType(ByteBuffer struct) { return ngetRawType(memAddress(struct)); }
-	public static void ngetRawData(long struct, ByteBuffer data) {
-		if ( CHECKS ) checkBufferGT(data, 5 * 4);
-		memCopy(struct + RAW_DATA, memAddress(data), data.remaining());
+	/** Unsafe version of {@link #raw_type}. */
+	public static int nraw_type(long struct) { return memGetInt(struct + CLDeviceTopologyAMD.RAW_TYPE); }
+	/** Unsafe version of {@link #raw_data}. */
+	public static IntBuffer nraw_data(long struct) {
+		return memIntBuffer(struct + CLDeviceTopologyAMD.RAW_DATA, 5);
 	}
-	public static void getRawData(ByteBuffer struct, ByteBuffer data) { ngetRawData(memAddress(struct), data); }
-	public static int ngetRawData(long struct, int index) { return memGetInt(struct + RAW_DATA + index * 4); }
-	public static int getRawData(ByteBuffer struct, int index) { return ngetRawData(memAddress(struct), index); }
-	public static int ngetPcieType(long struct) { return memGetInt(struct + PCIE_TYPE); }
-	public static int getPcieType(ByteBuffer struct) { return ngetPcieType(memAddress(struct)); }
-	public static int ngetPcieBus(long struct) { return memGetByte(struct + PCIE_BUS); }
-	public static int getPcieBus(ByteBuffer struct) { return ngetPcieBus(memAddress(struct)); }
-	public static int ngetPcieDevice(long struct) { return memGetByte(struct + PCIE_DEVICE); }
-	public static int getPcieDevice(ByteBuffer struct) { return ngetPcieDevice(memAddress(struct)); }
-	public static int ngetPcieFunction(long struct) { return memGetByte(struct + PCIE_FUNCTION); }
-	public static int getPcieFunction(ByteBuffer struct) { return ngetPcieFunction(memAddress(struct)); }
+	/** Unsafe version of {@link #raw_data(int) raw_data}. */
+	public static int nraw_data(long struct, int index) { return memGetInt(struct + CLDeviceTopologyAMD.RAW_DATA + index * 4); }
+	/** Unsafe version of {@link #pcie_type}. */
+	public static int npcie_type(long struct) { return memGetInt(struct + CLDeviceTopologyAMD.PCIE_TYPE); }
+	/** Unsafe version of {@link #pcie_bus}. */
+	public static byte npcie_bus(long struct) { return memGetByte(struct + CLDeviceTopologyAMD.PCIE_BUS); }
+	/** Unsafe version of {@link #pcie_device}. */
+	public static byte npcie_device(long struct) { return memGetByte(struct + CLDeviceTopologyAMD.PCIE_DEVICE); }
+	/** Unsafe version of {@link #pcie_function}. */
+	public static byte npcie_function(long struct) { return memGetByte(struct + CLDeviceTopologyAMD.PCIE_FUNCTION); }
 
 	// -----------------------------------
 
@@ -192,12 +207,20 @@ public class CLDeviceTopologyAMD extends Struct {
 			return SIZEOF;
 		}
 
-		public int getRawType() { return ngetRawType(address()); }
-		public void getRawData(ByteBuffer data) { ngetRawData(address(), data); }
-		public int getPcieType() { return ngetPcieType(address()); }
-		public int getPcieBus() { return ngetPcieBus(address()); }
-		public int getPcieDevice() { return ngetPcieDevice(address()); }
-		public int getPcieFunction() { return ngetPcieFunction(address()); }
+		/** Returns the value of the {@code raw_type} field. */
+		public int raw_type() { return nraw_type(address()); }
+		/** Returns a {@link IntBuffer} view of the {@code raw_data} field. */
+		public IntBuffer raw_data() { return nraw_data(address()); }
+		/** Returns the value at the specified index of the {@code raw_data} field. */
+		public int raw_data(int index) { return nraw_data(address(), index); }
+		/** Returns the value of the {@code pcie_type} field. */
+		public int pcie_type() { return npcie_type(address()); }
+		/** Returns the value of the {@code pcie_bus} field. */
+		public byte pcie_bus() { return npcie_bus(address()); }
+		/** Returns the value of the {@code pcie_device} field. */
+		public byte pcie_device() { return npcie_device(address()); }
+		/** Returns the value of the {@code pcie_function} field. */
+		public byte pcie_function() { return npcie_function(address()); }
 
 	}
 

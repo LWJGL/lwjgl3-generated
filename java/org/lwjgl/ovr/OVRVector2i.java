@@ -13,7 +13,16 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** A 2D vector with integer components. */
+/**
+ * A 2D vector with integer components.
+ * 
+ * <h3>ovrVector2i members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>x</td><td class="nw">int</td><td>the vector x component</td></tr>
+ * <tr><td>y</td><td class="nw">int</td><td>the vector y component</td></tr>
+ * </table>
+ */
 public class OVRVector2i extends Struct {
 
 	/** The struct size in bytes. */
@@ -59,24 +68,28 @@ public class OVRVector2i extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public int getX() { return ngetX(address()); }
-	public int getY() { return ngetY(address()); }
+	/** Returns the value of the {@code x} field. */
+	public int x() { return nx(address()); }
+	/** Returns the value of the {@code y} field. */
+	public int y() { return ny(address()); }
 
-	public OVRVector2i setX(int x) { nsetX(address(), x); return this; }
-	public OVRVector2i setY(int y) { nsetY(address(), y); return this; }
+	/** Sets the specified value to the {@code x} field. */
+	public OVRVector2i x(int value) { nx(address(), value); return this; }
+	/** Sets the specified value to the {@code y} field. */
+	public OVRVector2i y(int value) { ny(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public OVRVector2i set(
 		int x,
 		int y
 	) {
-		setX(x);
-		setY(y);
+		x(x);
+		y(y);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(OVRVector2i) set}. */
 	public OVRVector2i nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -93,7 +106,7 @@ public class OVRVector2i extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(OVRVector2i) set}. */
 	public OVRVector2i set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -154,15 +167,15 @@ public class OVRVector2i extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static int ngetX(long struct) { return memGetInt(struct + X); }
-	public static int getX(ByteBuffer struct) { return ngetX(memAddress(struct)); }
-	public static int ngetY(long struct) { return memGetInt(struct + Y); }
-	public static int getY(ByteBuffer struct) { return ngetY(memAddress(struct)); }
+	/** Unsafe version of {@link #x}. */
+	public static int nx(long struct) { return memGetInt(struct + OVRVector2i.X); }
+	/** Unsafe version of {@link #y}. */
+	public static int ny(long struct) { return memGetInt(struct + OVRVector2i.Y); }
 
-	public static void nsetX(long struct, int x) { memPutInt(struct + X, x); }
-	public static void setX(ByteBuffer struct, int x) { nsetX(memAddress(struct), x); }
-	public static void nsetY(long struct, int y) { memPutInt(struct + Y, y); }
-	public static void setY(ByteBuffer struct, int y) { nsetY(memAddress(struct), y); }
+	/** Unsafe version of {@link #x(int) x}. */
+	public static void nx(long struct, int value) { memPutInt(struct + OVRVector2i.X, value); }
+	/** Unsafe version of {@link #y(int) y}. */
+	public static void ny(long struct, int value) { memPutInt(struct + OVRVector2i.Y, value); }
 
 	// -----------------------------------
 
@@ -206,11 +219,15 @@ public class OVRVector2i extends Struct {
 			return SIZEOF;
 		}
 
-		public int getX() { return ngetX(address()); }
-		public int getY() { return ngetY(address()); }
+		/** Returns the value of the {@code x} field. */
+		public int x() { return nx(address()); }
+		/** Returns the value of the {@code y} field. */
+		public int y() { return ny(address()); }
 
-		public OVRVector2i.Buffer setX(int x) { nsetX(address(), x); return this; }
-		public OVRVector2i.Buffer setY(int y) { nsetY(address(), y); return this; }
+		/** Sets the specified value to the {@code x} field. */
+		public OVRVector2i.Buffer x(int value) { nx(address(), value); return this; }
+		/** Sets the specified value to the {@code y} field. */
+		public OVRVector2i.Buffer y(int value) { ny(address(), value); return this; }
 
 	}
 

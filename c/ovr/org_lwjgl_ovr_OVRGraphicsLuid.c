@@ -11,12 +11,8 @@ ENABLE_WARNINGS()
 
 EXTERN_C_EXIT
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRGraphicsLuid_offsets(JNIEnv *__env, jclass clazz, jlong bufferAddress) {
-	jint *buffer = (jint *)(intptr_t)bufferAddress;
-
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRGraphicsLuid_offsets(JNIEnv *__env, jclass clazz) {
 	UNUSED_PARAMS(__env, clazz)
-
-	buffer[0] = (jint)offsetof(ovrGraphicsLuid, Reserved);
 
 	return sizeof(ovrGraphicsLuid);
 }

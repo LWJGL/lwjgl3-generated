@@ -21,6 +21,32 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>ovrSwapTextureSets must be created by either the ovr_CreateSwapTextureSetD3D11 or {@link OVRGL#ovr_CreateSwapTextureSetGL} factory function, and must
  * be destroyed by {@link OVR#ovr_DestroySwapTextureSet}.</p>
+ * 
+ * <h3>ovrSwapTextureSet members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>Textures</td><td class="nw">ovrTexture *</td><td>points to an array of ovrTextures</td></tr>
+ * <tr><td>TextureCount</td><td class="nw">int</td><td>the number of textures referenced by the Textures array</td></tr>
+ * <tr><td>CurrentIndex</td><td class="nw">int</td><td>CurrentIndex specifies which of the Textures will be used by the {@link OVR#ovr_SubmitFrame} call. This is manually incremented by the application, typically
+ * in a round-robin manner.
+ * 
+ * <p>Before selecting a {@code Texture} as a rendertarget, the application should increment {@code CurrentIndex} by 1 and wrap it back to 0 if
+ * {@code CurrentIndex == TextureCount}, so that it gets a fresh rendertarget,	one that is not currently being used for display. It can then render to
+ * {@code Textures[CurrentIndex]}.</p>
+ * 
+ * <p>After rendering, the application calls {@link OVR#ovr_SubmitFrame} using that same {@code CurrentIndex} value	to display the new rendertarget.</p>
+ * 
+ * <p>The application can submit multiple frames with the same {@code ovrSwapTextureSet} and {@code CurrentIndex} value if the rendertarget does not need to
+ * be updated, for example when displaying an	information display whose text has not changed since the previous frame.</p>
+ * 
+ * <p>Multiple layers can use the same {@code ovrSwapTextureSet} at the same time - there is no need to create a unique {@code ovrSwapTextureSet} for each
+ * layer. However, all the layers using a particular {@code ovrSwapTextureSet} will share the same value of {@code CurrentIndex}, so they cannot use
+ * different textures within the {@code ovrSwapTextureSet}.</p>
+ * 
+ * <p>Once a particular {@code Textures[CurrentIndex]} has been sent to {@link OVR#ovr_SubmitFrame}, that texture should not be rendered to until a subsequent
+ * {@link OVR#ovr_SubmitFrame} is made (either with a different {@code CurrentIndex} value, or with a different {@code ovrSwapTextureSet}, or disabling the
+ * layer).</td></tr>
+ * </table></p>
  */
 public class OVRSwapTextureSet extends Struct {
 
@@ -69,13 +95,19 @@ public class OVRSwapTextureSet extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public OVRTexture getTextures() { return ngetTexturesStruct(address()); }
-	public int getTextureCount() { return ngetTextureCount(address()); }
-	public int getCurrentIndex() { return ngetCurrentIndex(address()); }
+	/** Returns a {@link OVRTexture} view of the struct pointed to by the {@code Textures} field. */
+	public OVRTexture Textures() { return nTexturesStruct(address()); }
+	/** Returns the value of the {@code TextureCount} field. */
+	public int TextureCount() { return nTextureCount(address()); }
+	/** Returns the value of the {@code CurrentIndex} field. */
+	public int CurrentIndex() { return nCurrentIndex(address()); }
 
-	public OVRSwapTextureSet setTextures(OVRTexture Textures) { nsetTextures(address(), Textures); return this; }
-	public OVRSwapTextureSet setTextureCount(int TextureCount) { nsetTextureCount(address(), TextureCount); return this; }
-	public OVRSwapTextureSet setCurrentIndex(int CurrentIndex) { nsetCurrentIndex(address(), CurrentIndex); return this; }
+	/** Sets the address of the specified {@link OVRTexture} to the {@code Textures} field. */
+	public OVRSwapTextureSet Textures(OVRTexture value) { nTextures(address(), value); return this; }
+	/** Sets the specified value to the {@code TextureCount} field. */
+	public OVRSwapTextureSet TextureCount(int value) { nTextureCount(address(), value); return this; }
+	/** Sets the specified value to the {@code CurrentIndex} field. */
+	public OVRSwapTextureSet CurrentIndex(int value) { nCurrentIndex(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public OVRSwapTextureSet set(
@@ -83,14 +115,14 @@ public class OVRSwapTextureSet extends Struct {
 		int TextureCount,
 		int CurrentIndex
 	) {
-		setTextures(Textures);
-		setTextureCount(TextureCount);
-		setCurrentIndex(CurrentIndex);
+		Textures(Textures);
+		TextureCount(TextureCount);
+		CurrentIndex(CurrentIndex);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(OVRSwapTextureSet) set}. */
 	public OVRSwapTextureSet nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -107,7 +139,7 @@ public class OVRSwapTextureSet extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(OVRSwapTextureSet) set}. */
 	public OVRSwapTextureSet set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -168,21 +200,19 @@ public class OVRSwapTextureSet extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static long ngetTextures(long struct) { return memGetAddress(struct + TEXTURES); }
-	public static OVRTexture ngetTexturesStruct(long struct) { return new OVRTexture(ngetTextures(struct)); }
-	public static OVRTexture getTextures(ByteBuffer struct) { return ngetTexturesStruct(memAddress(struct)); }
-	public static int ngetTextureCount(long struct) { return memGetInt(struct + TEXTURECOUNT); }
-	public static int getTextureCount(ByteBuffer struct) { return ngetTextureCount(memAddress(struct)); }
-	public static int ngetCurrentIndex(long struct) { return memGetInt(struct + CURRENTINDEX); }
-	public static int getCurrentIndex(ByteBuffer struct) { return ngetCurrentIndex(memAddress(struct)); }
+	/** Unsafe version of {@link #Textures}. */
+	public static OVRTexture nTexturesStruct(long struct) { return new OVRTexture(memGetAddress(struct + OVRSwapTextureSet.TEXTURES)); }
+	/** Unsafe version of {@link #TextureCount}. */
+	public static int nTextureCount(long struct) { return memGetInt(struct + OVRSwapTextureSet.TEXTURECOUNT); }
+	/** Unsafe version of {@link #CurrentIndex}. */
+	public static int nCurrentIndex(long struct) { return memGetInt(struct + OVRSwapTextureSet.CURRENTINDEX); }
 
-	public static void nsetTextures(long struct, long Textures) { memPutAddress(struct + TEXTURES, Textures); }
-	public static void nsetTextures(long struct, OVRTexture Textures) { nsetTextures(struct, Textures.address()); }
-	public static void setTextures(ByteBuffer struct, OVRTexture Textures) { nsetTextures(memAddress(struct), Textures); }
-	public static void nsetTextureCount(long struct, int TextureCount) { memPutInt(struct + TEXTURECOUNT, TextureCount); }
-	public static void setTextureCount(ByteBuffer struct, int TextureCount) { nsetTextureCount(memAddress(struct), TextureCount); }
-	public static void nsetCurrentIndex(long struct, int CurrentIndex) { memPutInt(struct + CURRENTINDEX, CurrentIndex); }
-	public static void setCurrentIndex(ByteBuffer struct, int CurrentIndex) { nsetCurrentIndex(memAddress(struct), CurrentIndex); }
+	/** Unsafe version of {@link #Textures(OVRTexture) Textures}. */
+	public static void nTextures(long struct, OVRTexture value) { memPutAddress(struct + OVRSwapTextureSet.TEXTURES, value.address()); }
+	/** Unsafe version of {@link #TextureCount(int) TextureCount}. */
+	public static void nTextureCount(long struct, int value) { memPutInt(struct + OVRSwapTextureSet.TEXTURECOUNT, value); }
+	/** Unsafe version of {@link #CurrentIndex(int) CurrentIndex}. */
+	public static void nCurrentIndex(long struct, int value) { memPutInt(struct + OVRSwapTextureSet.CURRENTINDEX, value); }
 
 	// -----------------------------------
 
@@ -226,13 +256,19 @@ public class OVRSwapTextureSet extends Struct {
 			return SIZEOF;
 		}
 
-		public OVRTexture getTextures() { return ngetTexturesStruct(address()); }
-		public int getTextureCount() { return ngetTextureCount(address()); }
-		public int getCurrentIndex() { return ngetCurrentIndex(address()); }
+		/** Returns a {@link OVRTexture} view of the struct pointed to by the {@code Textures} field. */
+		public OVRTexture Textures() { return nTexturesStruct(address()); }
+		/** Returns the value of the {@code TextureCount} field. */
+		public int TextureCount() { return nTextureCount(address()); }
+		/** Returns the value of the {@code CurrentIndex} field. */
+		public int CurrentIndex() { return nCurrentIndex(address()); }
 
-		public OVRSwapTextureSet.Buffer setTextures(OVRTexture Textures) { nsetTextures(address(), Textures); return this; }
-		public OVRSwapTextureSet.Buffer setTextureCount(int TextureCount) { nsetTextureCount(address(), TextureCount); return this; }
-		public OVRSwapTextureSet.Buffer setCurrentIndex(int CurrentIndex) { nsetCurrentIndex(address(), CurrentIndex); return this; }
+		/** Sets the address of the specified {@link OVRTexture} to the {@code Textures} field. */
+		public OVRSwapTextureSet.Buffer Textures(OVRTexture value) { nTextures(address(), value); return this; }
+		/** Sets the specified value to the {@code TextureCount} field. */
+		public OVRSwapTextureSet.Buffer TextureCount(int value) { nTextureCount(address(), value); return this; }
+		/** Sets the specified value to the {@code CurrentIndex} field. */
+		public OVRSwapTextureSet.Buffer CurrentIndex(int value) { nCurrentIndex(address(), value); return this; }
 
 	}
 

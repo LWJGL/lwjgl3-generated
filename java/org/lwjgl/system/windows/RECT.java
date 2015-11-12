@@ -13,7 +13,18 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Defines the coordinates of the upper-left and lower-right corners of a rectangle. */
+/**
+ * Defines the coordinates of the upper-left and lower-right corners of a rectangle.
+ * 
+ * <h3>RECT members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>left</td><td class="nw">LONG</td><td>the x-coordinate of the upper-left corner of the rectangle</td></tr>
+ * <tr><td>top</td><td class="nw">LONG</td><td>the y-coordinate of the upper-left corner of the rectangle</td></tr>
+ * <tr><td>right</td><td class="nw">LONG</td><td>the x-coordinate of the lower-right corner of the rectangle</td></tr>
+ * <tr><td>bottom</td><td class="nw">LONG</td><td>the y-coordinate of the lower-right corner of the rectangle</td></tr>
+ * </table>
+ */
 public class RECT extends Struct {
 
 	/** The struct size in bytes. */
@@ -63,15 +74,23 @@ public class RECT extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public int getLeft() { return ngetLeft(address()); }
-	public int getTop() { return ngetTop(address()); }
-	public int getRight() { return ngetRight(address()); }
-	public int getBottom() { return ngetBottom(address()); }
+	/** Returns the value of the {@code left} field. */
+	public int left() { return nleft(address()); }
+	/** Returns the value of the {@code top} field. */
+	public int top() { return ntop(address()); }
+	/** Returns the value of the {@code right} field. */
+	public int right() { return nright(address()); }
+	/** Returns the value of the {@code bottom} field. */
+	public int bottom() { return nbottom(address()); }
 
-	public RECT setLeft(int left) { nsetLeft(address(), left); return this; }
-	public RECT setTop(int top) { nsetTop(address(), top); return this; }
-	public RECT setRight(int right) { nsetRight(address(), right); return this; }
-	public RECT setBottom(int bottom) { nsetBottom(address(), bottom); return this; }
+	/** Sets the specified value to the {@code left} field. */
+	public RECT left(int value) { nleft(address(), value); return this; }
+	/** Sets the specified value to the {@code top} field. */
+	public RECT top(int value) { ntop(address(), value); return this; }
+	/** Sets the specified value to the {@code right} field. */
+	public RECT right(int value) { nright(address(), value); return this; }
+	/** Sets the specified value to the {@code bottom} field. */
+	public RECT bottom(int value) { nbottom(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public RECT set(
@@ -80,15 +99,15 @@ public class RECT extends Struct {
 		int right,
 		int bottom
 	) {
-		setLeft(left);
-		setTop(top);
-		setRight(right);
-		setBottom(bottom);
+		left(left);
+		top(top);
+		right(right);
+		bottom(bottom);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(RECT) set}. */
 	public RECT nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -105,7 +124,7 @@ public class RECT extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(RECT) set}. */
 	public RECT set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -166,23 +185,23 @@ public class RECT extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static int ngetLeft(long struct) { return memGetInt(struct + LEFT); }
-	public static int getLeft(ByteBuffer struct) { return ngetLeft(memAddress(struct)); }
-	public static int ngetTop(long struct) { return memGetInt(struct + TOP); }
-	public static int getTop(ByteBuffer struct) { return ngetTop(memAddress(struct)); }
-	public static int ngetRight(long struct) { return memGetInt(struct + RIGHT); }
-	public static int getRight(ByteBuffer struct) { return ngetRight(memAddress(struct)); }
-	public static int ngetBottom(long struct) { return memGetInt(struct + BOTTOM); }
-	public static int getBottom(ByteBuffer struct) { return ngetBottom(memAddress(struct)); }
+	/** Unsafe version of {@link #left}. */
+	public static int nleft(long struct) { return memGetInt(struct + RECT.LEFT); }
+	/** Unsafe version of {@link #top}. */
+	public static int ntop(long struct) { return memGetInt(struct + RECT.TOP); }
+	/** Unsafe version of {@link #right}. */
+	public static int nright(long struct) { return memGetInt(struct + RECT.RIGHT); }
+	/** Unsafe version of {@link #bottom}. */
+	public static int nbottom(long struct) { return memGetInt(struct + RECT.BOTTOM); }
 
-	public static void nsetLeft(long struct, int left) { memPutInt(struct + LEFT, left); }
-	public static void setLeft(ByteBuffer struct, int left) { nsetLeft(memAddress(struct), left); }
-	public static void nsetTop(long struct, int top) { memPutInt(struct + TOP, top); }
-	public static void setTop(ByteBuffer struct, int top) { nsetTop(memAddress(struct), top); }
-	public static void nsetRight(long struct, int right) { memPutInt(struct + RIGHT, right); }
-	public static void setRight(ByteBuffer struct, int right) { nsetRight(memAddress(struct), right); }
-	public static void nsetBottom(long struct, int bottom) { memPutInt(struct + BOTTOM, bottom); }
-	public static void setBottom(ByteBuffer struct, int bottom) { nsetBottom(memAddress(struct), bottom); }
+	/** Unsafe version of {@link #left(int) left}. */
+	public static void nleft(long struct, int value) { memPutInt(struct + RECT.LEFT, value); }
+	/** Unsafe version of {@link #top(int) top}. */
+	public static void ntop(long struct, int value) { memPutInt(struct + RECT.TOP, value); }
+	/** Unsafe version of {@link #right(int) right}. */
+	public static void nright(long struct, int value) { memPutInt(struct + RECT.RIGHT, value); }
+	/** Unsafe version of {@link #bottom(int) bottom}. */
+	public static void nbottom(long struct, int value) { memPutInt(struct + RECT.BOTTOM, value); }
 
 	// -----------------------------------
 
@@ -226,15 +245,23 @@ public class RECT extends Struct {
 			return SIZEOF;
 		}
 
-		public int getLeft() { return ngetLeft(address()); }
-		public int getTop() { return ngetTop(address()); }
-		public int getRight() { return ngetRight(address()); }
-		public int getBottom() { return ngetBottom(address()); }
+		/** Returns the value of the {@code left} field. */
+		public int left() { return nleft(address()); }
+		/** Returns the value of the {@code top} field. */
+		public int top() { return ntop(address()); }
+		/** Returns the value of the {@code right} field. */
+		public int right() { return nright(address()); }
+		/** Returns the value of the {@code bottom} field. */
+		public int bottom() { return nbottom(address()); }
 
-		public RECT.Buffer setLeft(int left) { nsetLeft(address(), left); return this; }
-		public RECT.Buffer setTop(int top) { nsetTop(address(), top); return this; }
-		public RECT.Buffer setRight(int right) { nsetRight(address(), right); return this; }
-		public RECT.Buffer setBottom(int bottom) { nsetBottom(address(), bottom); return this; }
+		/** Sets the specified value to the {@code left} field. */
+		public RECT.Buffer left(int value) { nleft(address(), value); return this; }
+		/** Sets the specified value to the {@code top} field. */
+		public RECT.Buffer top(int value) { ntop(address(), value); return this; }
+		/** Sets the specified value to the {@code right} field. */
+		public RECT.Buffer right(int value) { nright(address(), value); return this; }
+		/** Sets the specified value to the {@code bottom} field. */
+		public RECT.Buffer bottom(int value) { nbottom(address(), value); return this; }
 
 	}
 

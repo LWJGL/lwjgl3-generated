@@ -13,7 +13,15 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** A 4x4 matrix with float components. */
+/**
+ * A 4x4 matrix with float components.
+ * 
+ * <h3>ovrMatrix4f members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>M</td><td class="nw">float[16]</td><td>the matrix components</td></tr>
+ * </table>
+ */
 public class OVRMatrix4f extends Struct {
 
 	/** The struct size in bytes. */
@@ -57,12 +65,17 @@ public class OVRMatrix4f extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public void getM(ByteBuffer m) { ngetM(address(), m); }
+	/** Returns a {@link FloatBuffer} view of the {@code M} field. */
+	public FloatBuffer M() { return nM(address()); }
+	/** Returns the value at the specified index of the {@code M} field. */
+	public float M(int index) { return nM(address(), index); }
 
-	public OVRMatrix4f setM(ByteBuffer m) { nsetM(address(), m); return this; }
-	public OVRMatrix4f setM(int index, float m) { nsetM(address(), index, m); return this; }
+	/** Copies the specified {@link FloatBuffer} to the {@code M} field. */
+	public OVRMatrix4f M(FloatBuffer value) { nM(address(), value); return this; }
+	/** Sets the specified value at the specified index of the {@code M} field. */
+	public OVRMatrix4f M(int index, float value) { nM(address(), index, value); return this; }
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(OVRMatrix4f) set}. */
 	public OVRMatrix4f nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -79,7 +92,7 @@ public class OVRMatrix4f extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(OVRMatrix4f) set}. */
 	public OVRMatrix4f set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -140,23 +153,20 @@ public class OVRMatrix4f extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static void ngetM(long struct, ByteBuffer m) {
-		if ( CHECKS ) checkBufferGT(m, 16 * 4);
-		memCopy(struct + M, memAddress(m), m.remaining());
+	/** Unsafe version of {@link #M}. */
+	public static FloatBuffer nM(long struct) {
+		return memFloatBuffer(struct + OVRMatrix4f.M, 16);
 	}
-	public static void getM(ByteBuffer struct, ByteBuffer m) { ngetM(memAddress(struct), m); }
-	public static float ngetM(long struct, int index) { return memGetFloat(struct + M + index * 4); }
-	public static float getM(ByteBuffer struct, int index) { return ngetM(memAddress(struct), index); }
+	/** Unsafe version of {@link #M(int) M}. */
+	public static float nM(long struct, int index) { return memGetFloat(struct + OVRMatrix4f.M + index * 4); }
 
-	public static void nsetM(long struct, ByteBuffer m) {
-		if ( CHECKS ) {
-			checkBufferGT(m, 16 * 4);
-		}
-		memCopy(memAddress(m), struct + M, m.remaining());
+	/** Unsafe version of {@link #M(FloatBuffer) M}. */
+	public static void nM(long struct, FloatBuffer value) {
+		if ( CHECKS ) checkBufferGT(value, 16);
+		memCopy(memAddress(value), struct + OVRMatrix4f.M, value.remaining() * 4);
 	}
-	public static void setM(ByteBuffer struct, ByteBuffer m) { nsetM(memAddress(struct), m); }
-	public static void nsetM(long struct, int index, float m) { memPutFloat(struct + M + index * 4, m); }
-	public static void setM(ByteBuffer struct, int index, float m) { nsetM(memAddress(struct), index, m); }
+	/** Unsafe version of {@link #M(int, float) M}. */
+	public static void nM(long struct, int index, float value) { memPutFloat(struct + OVRMatrix4f.M + index * 4, value); }
 
 	// -----------------------------------
 
@@ -200,10 +210,15 @@ public class OVRMatrix4f extends Struct {
 			return SIZEOF;
 		}
 
-		public void getM(ByteBuffer m) { ngetM(address(), m); }
+		/** Returns a {@link FloatBuffer} view of the {@code M} field. */
+		public FloatBuffer M() { return nM(address()); }
+		/** Returns the value at the specified index of the {@code M} field. */
+		public float M(int index) { return nM(address(), index); }
 
-		public OVRMatrix4f.Buffer setM(ByteBuffer m) { nsetM(address(), m); return this; }
-		public OVRMatrix4f.Buffer setM(int index, float m) { nsetM(address(), index, m); return this; }
+		/** Copies the specified {@link FloatBuffer} to the {@code M} field. */
+		public OVRMatrix4f.Buffer M(FloatBuffer value) { nM(address(), value); return this; }
+		/** Sets the specified value at the specified index of the {@code M} field. */
+		public OVRMatrix4f.Buffer M(int index, float value) { nM(address(), index, value); return this; }
 
 	}
 

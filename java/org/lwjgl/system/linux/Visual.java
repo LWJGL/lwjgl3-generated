@@ -13,7 +13,21 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Visual structure; contains information about colormapping possible. */
+/**
+ * Visual structure; contains information about colormapping possible.
+ * 
+ * <h3>Visual members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>visualid</td><td class="nw">VisualID</td><td></td></tr>
+ * <tr><td>class</td><td class="nw">int</td><td></td></tr>
+ * <tr><td>red_mask</td><td class="nw">unsigned long</td><td></td></tr>
+ * <tr><td>green_mask</td><td class="nw">unsigned long</td><td></td></tr>
+ * <tr><td>blue_mask</td><td class="nw">unsigned long</td><td></td></tr>
+ * <tr><td>bits_per_rgb</td><td class="nw">int</td><td></td></tr>
+ * <tr><td>map_entries</td><td class="nw">int</td><td></td></tr>
+ * </table>
+ */
 public class Visual extends Struct {
 
 	/** The struct size in bytes. */
@@ -22,7 +36,7 @@ public class Visual extends Struct {
 	/** The struct member offsets. */
 	public static final int
 		VISUALID,
-		CLAZZ,
+		CLASS,
 		RED_MASK,
 		GREEN_MASK,
 		BLUE_MASK,
@@ -35,7 +49,7 @@ public class Visual extends Struct {
 		SIZEOF = offsets(memAddress(offsets));
 
 		VISUALID = offsets.get(0);
-		CLAZZ = offsets.get(1);
+		CLASS = offsets.get(1);
 		RED_MASK = offsets.get(2);
 		GREEN_MASK = offsets.get(3);
 		BLUE_MASK = offsets.get(4);
@@ -69,44 +83,58 @@ public class Visual extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public long getVisualid() { return ngetVisualid(address()); }
-	public int getClazz() { return ngetClazz(address()); }
-	public long getRedMask() { return ngetRedMask(address()); }
-	public long getGreenMask() { return ngetGreenMask(address()); }
-	public long getBlueMask() { return ngetBlueMask(address()); }
-	public int getBitsPerRgb() { return ngetBitsPerRgb(address()); }
-	public int getMapEntries() { return ngetMapEntries(address()); }
+	/** Returns the value of the {@code visualid} field. */
+	public long visualid() { return nvisualid(address()); }
+	/** Returns the value of the {@code class$} field. */
+	public int class$() { return nclass$(address()); }
+	/** Returns the value of the {@code red_mask} field. */
+	public long red_mask() { return nred_mask(address()); }
+	/** Returns the value of the {@code green_mask} field. */
+	public long green_mask() { return ngreen_mask(address()); }
+	/** Returns the value of the {@code blue_mask} field. */
+	public long blue_mask() { return nblue_mask(address()); }
+	/** Returns the value of the {@code bits_per_rgb} field. */
+	public int bits_per_rgb() { return nbits_per_rgb(address()); }
+	/** Returns the value of the {@code map_entries} field. */
+	public int map_entries() { return nmap_entries(address()); }
 
-	public Visual setVisualid(long visualid) { nsetVisualid(address(), visualid); return this; }
-	public Visual setClazz(int clazz) { nsetClazz(address(), clazz); return this; }
-	public Visual setRedMask(long red_mask) { nsetRedMask(address(), red_mask); return this; }
-	public Visual setGreenMask(long green_mask) { nsetGreenMask(address(), green_mask); return this; }
-	public Visual setBlueMask(long blue_mask) { nsetBlueMask(address(), blue_mask); return this; }
-	public Visual setBitsPerRgb(int bits_per_rgb) { nsetBitsPerRgb(address(), bits_per_rgb); return this; }
-	public Visual setMapEntries(int map_entries) { nsetMapEntries(address(), map_entries); return this; }
+	/** Sets the specified value to the {@code visualid} field. */
+	public Visual visualid(long value) { nvisualid(address(), value); return this; }
+	/** Sets the specified value to the {@code class} field. */
+	public Visual class$(int value) { nclass$(address(), value); return this; }
+	/** Sets the specified value to the {@code red_mask} field. */
+	public Visual red_mask(long value) { nred_mask(address(), value); return this; }
+	/** Sets the specified value to the {@code green_mask} field. */
+	public Visual green_mask(long value) { ngreen_mask(address(), value); return this; }
+	/** Sets the specified value to the {@code blue_mask} field. */
+	public Visual blue_mask(long value) { nblue_mask(address(), value); return this; }
+	/** Sets the specified value to the {@code bits_per_rgb} field. */
+	public Visual bits_per_rgb(int value) { nbits_per_rgb(address(), value); return this; }
+	/** Sets the specified value to the {@code map_entries} field. */
+	public Visual map_entries(int value) { nmap_entries(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public Visual set(
 		long visualid,
-		int clazz,
+		int class$,
 		long red_mask,
 		long green_mask,
 		long blue_mask,
 		int bits_per_rgb,
 		int map_entries
 	) {
-		setVisualid(visualid);
-		setClazz(clazz);
-		setRedMask(red_mask);
-		setGreenMask(green_mask);
-		setBlueMask(blue_mask);
-		setBitsPerRgb(bits_per_rgb);
-		setMapEntries(map_entries);
+		visualid(visualid);
+		class$(class$);
+		red_mask(red_mask);
+		green_mask(green_mask);
+		blue_mask(blue_mask);
+		bits_per_rgb(bits_per_rgb);
+		map_entries(map_entries);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(Visual) set}. */
 	public Visual nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -123,7 +151,7 @@ public class Visual extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(Visual) set}. */
 	public Visual set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -184,35 +212,35 @@ public class Visual extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static long ngetVisualid(long struct) { return memGetAddress(struct + VISUALID); }
-	public static long getVisualid(ByteBuffer struct) { return ngetVisualid(memAddress(struct)); }
-	public static int ngetClazz(long struct) { return memGetInt(struct + CLAZZ); }
-	public static int getClazz(ByteBuffer struct) { return ngetClazz(memAddress(struct)); }
-	public static long ngetRedMask(long struct) { return memGetAddress(struct + RED_MASK); }
-	public static long getRedMask(ByteBuffer struct) { return ngetRedMask(memAddress(struct)); }
-	public static long ngetGreenMask(long struct) { return memGetAddress(struct + GREEN_MASK); }
-	public static long getGreenMask(ByteBuffer struct) { return ngetGreenMask(memAddress(struct)); }
-	public static long ngetBlueMask(long struct) { return memGetAddress(struct + BLUE_MASK); }
-	public static long getBlueMask(ByteBuffer struct) { return ngetBlueMask(memAddress(struct)); }
-	public static int ngetBitsPerRgb(long struct) { return memGetInt(struct + BITS_PER_RGB); }
-	public static int getBitsPerRgb(ByteBuffer struct) { return ngetBitsPerRgb(memAddress(struct)); }
-	public static int ngetMapEntries(long struct) { return memGetInt(struct + MAP_ENTRIES); }
-	public static int getMapEntries(ByteBuffer struct) { return ngetMapEntries(memAddress(struct)); }
+	/** Unsafe version of {@link #visualid}. */
+	public static long nvisualid(long struct) { return memGetAddress(struct + Visual.VISUALID); }
+	/** Unsafe version of {@link #class$}. */
+	public static int nclass$(long struct) { return memGetInt(struct + Visual.CLASS); }
+	/** Unsafe version of {@link #red_mask}. */
+	public static long nred_mask(long struct) { return memGetAddress(struct + Visual.RED_MASK); }
+	/** Unsafe version of {@link #green_mask}. */
+	public static long ngreen_mask(long struct) { return memGetAddress(struct + Visual.GREEN_MASK); }
+	/** Unsafe version of {@link #blue_mask}. */
+	public static long nblue_mask(long struct) { return memGetAddress(struct + Visual.BLUE_MASK); }
+	/** Unsafe version of {@link #bits_per_rgb}. */
+	public static int nbits_per_rgb(long struct) { return memGetInt(struct + Visual.BITS_PER_RGB); }
+	/** Unsafe version of {@link #map_entries}. */
+	public static int nmap_entries(long struct) { return memGetInt(struct + Visual.MAP_ENTRIES); }
 
-	public static void nsetVisualid(long struct, long visualid) { memPutAddress(struct + VISUALID, visualid); }
-	public static void setVisualid(ByteBuffer struct, long visualid) { nsetVisualid(memAddress(struct), visualid); }
-	public static void nsetClazz(long struct, int clazz) { memPutInt(struct + CLAZZ, clazz); }
-	public static void setClazz(ByteBuffer struct, int clazz) { nsetClazz(memAddress(struct), clazz); }
-	public static void nsetRedMask(long struct, long red_mask) { memPutAddress(struct + RED_MASK, red_mask); }
-	public static void setRedMask(ByteBuffer struct, long red_mask) { nsetRedMask(memAddress(struct), red_mask); }
-	public static void nsetGreenMask(long struct, long green_mask) { memPutAddress(struct + GREEN_MASK, green_mask); }
-	public static void setGreenMask(ByteBuffer struct, long green_mask) { nsetGreenMask(memAddress(struct), green_mask); }
-	public static void nsetBlueMask(long struct, long blue_mask) { memPutAddress(struct + BLUE_MASK, blue_mask); }
-	public static void setBlueMask(ByteBuffer struct, long blue_mask) { nsetBlueMask(memAddress(struct), blue_mask); }
-	public static void nsetBitsPerRgb(long struct, int bits_per_rgb) { memPutInt(struct + BITS_PER_RGB, bits_per_rgb); }
-	public static void setBitsPerRgb(ByteBuffer struct, int bits_per_rgb) { nsetBitsPerRgb(memAddress(struct), bits_per_rgb); }
-	public static void nsetMapEntries(long struct, int map_entries) { memPutInt(struct + MAP_ENTRIES, map_entries); }
-	public static void setMapEntries(ByteBuffer struct, int map_entries) { nsetMapEntries(memAddress(struct), map_entries); }
+	/** Unsafe version of {@link #visualid(long) visualid}. */
+	public static void nvisualid(long struct, long value) { memPutAddress(struct + Visual.VISUALID, value); }
+	/** Unsafe version of {@link #class$(int) class$}. */
+	public static void nclass$(long struct, int value) { memPutInt(struct + Visual.CLASS, value); }
+	/** Unsafe version of {@link #red_mask(long) red_mask}. */
+	public static void nred_mask(long struct, long value) { memPutAddress(struct + Visual.RED_MASK, value); }
+	/** Unsafe version of {@link #green_mask(long) green_mask}. */
+	public static void ngreen_mask(long struct, long value) { memPutAddress(struct + Visual.GREEN_MASK, value); }
+	/** Unsafe version of {@link #blue_mask(long) blue_mask}. */
+	public static void nblue_mask(long struct, long value) { memPutAddress(struct + Visual.BLUE_MASK, value); }
+	/** Unsafe version of {@link #bits_per_rgb(int) bits_per_rgb}. */
+	public static void nbits_per_rgb(long struct, int value) { memPutInt(struct + Visual.BITS_PER_RGB, value); }
+	/** Unsafe version of {@link #map_entries(int) map_entries}. */
+	public static void nmap_entries(long struct, int value) { memPutInt(struct + Visual.MAP_ENTRIES, value); }
 
 	// -----------------------------------
 
@@ -256,21 +284,35 @@ public class Visual extends Struct {
 			return SIZEOF;
 		}
 
-		public long getVisualid() { return ngetVisualid(address()); }
-		public int getClazz() { return ngetClazz(address()); }
-		public long getRedMask() { return ngetRedMask(address()); }
-		public long getGreenMask() { return ngetGreenMask(address()); }
-		public long getBlueMask() { return ngetBlueMask(address()); }
-		public int getBitsPerRgb() { return ngetBitsPerRgb(address()); }
-		public int getMapEntries() { return ngetMapEntries(address()); }
+		/** Returns the value of the {@code visualid} field. */
+		public long visualid() { return nvisualid(address()); }
+		/** Returns the value of the {@code class$} field. */
+		public int class$() { return nclass$(address()); }
+		/** Returns the value of the {@code red_mask} field. */
+		public long red_mask() { return nred_mask(address()); }
+		/** Returns the value of the {@code green_mask} field. */
+		public long green_mask() { return ngreen_mask(address()); }
+		/** Returns the value of the {@code blue_mask} field. */
+		public long blue_mask() { return nblue_mask(address()); }
+		/** Returns the value of the {@code bits_per_rgb} field. */
+		public int bits_per_rgb() { return nbits_per_rgb(address()); }
+		/** Returns the value of the {@code map_entries} field. */
+		public int map_entries() { return nmap_entries(address()); }
 
-		public Visual.Buffer setVisualid(long visualid) { nsetVisualid(address(), visualid); return this; }
-		public Visual.Buffer setClazz(int clazz) { nsetClazz(address(), clazz); return this; }
-		public Visual.Buffer setRedMask(long red_mask) { nsetRedMask(address(), red_mask); return this; }
-		public Visual.Buffer setGreenMask(long green_mask) { nsetGreenMask(address(), green_mask); return this; }
-		public Visual.Buffer setBlueMask(long blue_mask) { nsetBlueMask(address(), blue_mask); return this; }
-		public Visual.Buffer setBitsPerRgb(int bits_per_rgb) { nsetBitsPerRgb(address(), bits_per_rgb); return this; }
-		public Visual.Buffer setMapEntries(int map_entries) { nsetMapEntries(address(), map_entries); return this; }
+		/** Sets the specified value to the {@code visualid} field. */
+		public Visual.Buffer visualid(long value) { nvisualid(address(), value); return this; }
+		/** Sets the specified value to the {@code class} field. */
+		public Visual.Buffer class$(int value) { nclass$(address(), value); return this; }
+		/** Sets the specified value to the {@code red_mask} field. */
+		public Visual.Buffer red_mask(long value) { nred_mask(address(), value); return this; }
+		/** Sets the specified value to the {@code green_mask} field. */
+		public Visual.Buffer green_mask(long value) { ngreen_mask(address(), value); return this; }
+		/** Sets the specified value to the {@code blue_mask} field. */
+		public Visual.Buffer blue_mask(long value) { nblue_mask(address(), value); return this; }
+		/** Sets the specified value to the {@code bits_per_rgb} field. */
+		public Visual.Buffer bits_per_rgb(int value) { nbits_per_rgb(address(), value); return this; }
+		/** Sets the specified value to the {@code map_entries} field. */
+		public Visual.Buffer map_entries(int value) { nmap_entries(address(), value); return this; }
 
 	}
 

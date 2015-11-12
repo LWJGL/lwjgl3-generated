@@ -13,7 +13,39 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Image description struct. */
+/**
+ * Describes the type and dimensions of the image or image array.
+ * 
+ * <h3>cl_image_desc members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>image_type</td><td class="nw">cl_mem_object_type</td><td>describes the image type</td></tr>
+ * <tr><td>image_width</td><td class="nw">size_t</td><td>the width of the image in pixels. For a 2D image and image array, the image width must be &le; {@link CL10#CL_DEVICE_IMAGE2D_MAX_WIDTH}. For a 3D image, the
+ * image width must be &le; {@link CL10#CL_DEVICE_IMAGE3D_MAX_WIDTH}. For a 1D image buffer, the image width must be &le; {@link CL10#CL_DEVICE_IMAGE_MAX_BUFFER_SIZE}.
+ * For a 1D image and 1D image array, the image width must be &le; {@link CL10#CL_DEVICE_IMAGE2D_MAX_WIDTH}.</td></tr>
+ * <tr><td>image_height</td><td class="nw">size_t</td><td>the height of the image in pixels. This is only used if the image is a 2D, 3D or 2D image array. For a 2D image or image array, the image height must
+ * be &le; {@link CL10#CL_DEVICE_IMAGE2D_MAX_HEIGHT}. For a 3D image, the image height must be &le; {@link CL10#CL_DEVICE_IMAGE3D_MAX_HEIGHT}.</td></tr>
+ * <tr><td>image_depth</td><td class="nw">size_t</td><td>the depth of the image in pixels. This is only used if the image is a 3D image and must be a value &ge; 1 and &le; {@link CL10#CL_DEVICE_IMAGE3D_MAX_DEPTH}.</td></tr>
+ * <tr><td>image_array_size</td><td class="nw">size_t</td><td>the number of images in the image array. This is only used if the image is a 1D or 2D image array. The values for {@code image_array_size}, if
+ * specified, must be a value &ge; 1 and &le; {@link CL10#CL_DEVICE_IMAGE_MAX_ARRAY_SIZE}.
+ * 
+ * <p>Note that reading and writing 2D image arrays from a kernel with {@code image_array_size = 1} may be lower performance than 2D images.</td></tr>
+ * <tr><td>image_row_pitch</td><td class="nw">size_t</td><td>the scan-line pitch in bytes. This must be 0 if {@code host_ptr} is {@code NULL} and can be either 0 or &ge; {@code image_width * size} of element in bytes if
+ * {@code host_ptr} is not {@code NULL}. If {@code host_ptr} is not {@code NULL} and {@code image_row_pitch = 0}, {@code image_row_pitch} is calculated as
+ * {@code image_width * size} of element in bytes. If {@code image_row_pitch} is not 0, it must be a multiple of the image element size in bytes.</td></tr>
+ * <tr><td>image_slice_pitch</td><td class="nw">size_t</td><td>the size in bytes of each 2D slice in the 3D image or the size in bytes of each image in a 1D or 2D image array. This must be 0 if {@code host_ptr} is
+ * {@code NULL}. If {@code host_ptr} is not {@code NULL}, {@code image_slice_pitch} can be either 0 or &ge; {@code image_row_pitch * image_height} for a 2D image array
+ * or 3D image and can be either 0 or &ge; {@code image_row_pitch} for a 1D image array. If {@code host_ptr} is not {@code NULL} and
+ * {@code image_slice_pitch = 0}, {@code image_slice_pitch} is calculated as {@code image_row_pitch * image_height} for a 2D image array or 3D image and
+ * {@code image_row_pitch} for a 1D image array. If {@code image_slice_pitch} is not 0, it must be a multiple of the {@code image_row_pitch}.</td></tr>
+ * <tr><td>num_mip_levels</td><td class="nw">cl_uint</td><td>must be 0</td></tr>
+ * <tr><td>num_samples</td><td class="nw">cl_uint</td><td>must be 0</td></tr>
+ * <tr><td>buffer</td><td class="nw">cl_mem</td><td>refers to a valid buffer memory object if {@code image_type} is {@link CL10#CL_MEM_OBJECT_IMAGE1D_BUFFER}. Otherwise it must be {@code NULL}. For a 1D image buffer
+ * object, the image pixels are taken from the buffer object's data store. When the contents of a buffer object's data store are modified, those changes
+ * are reflected in the contents of the 1D image buffer object and vice-versa at corresponding sychronization points. The {@code image_width * size} of
+ * element in bytes must be &le; size of buffer object data store.</td></tr>
+ * </table></p>
+ */
 public class CLImageDesc extends Struct {
 
 	/** The struct size in bytes. */
@@ -75,27 +107,47 @@ public class CLImageDesc extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public int getImageType() { return ngetImageType(address()); }
-	public long getImageWidth() { return ngetImageWidth(address()); }
-	public long getImageHeight() { return ngetImageHeight(address()); }
-	public long getImageDepth() { return ngetImageDepth(address()); }
-	public long getImageArraySize() { return ngetImageArraySize(address()); }
-	public long getImageRowPitch() { return ngetImageRowPitch(address()); }
-	public long getImageSlicePitch() { return ngetImageSlicePitch(address()); }
-	public int getNumMipLevels() { return ngetNumMipLevels(address()); }
-	public int getNumSamples() { return ngetNumSamples(address()); }
-	public long getBuffer() { return ngetBuffer(address()); }
+	/** Returns the value of the {@code image_type} field. */
+	public int image_type() { return nimage_type(address()); }
+	/** Returns the value of the {@code image_width} field. */
+	public long image_width() { return nimage_width(address()); }
+	/** Returns the value of the {@code image_height} field. */
+	public long image_height() { return nimage_height(address()); }
+	/** Returns the value of the {@code image_depth} field. */
+	public long image_depth() { return nimage_depth(address()); }
+	/** Returns the value of the {@code image_array_size} field. */
+	public long image_array_size() { return nimage_array_size(address()); }
+	/** Returns the value of the {@code image_row_pitch} field. */
+	public long image_row_pitch() { return nimage_row_pitch(address()); }
+	/** Returns the value of the {@code image_slice_pitch} field. */
+	public long image_slice_pitch() { return nimage_slice_pitch(address()); }
+	/** Returns the value of the {@code num_mip_levels} field. */
+	public int num_mip_levels() { return nnum_mip_levels(address()); }
+	/** Returns the value of the {@code num_samples} field. */
+	public int num_samples() { return nnum_samples(address()); }
+	/** Returns the value of the {@code buffer} field. */
+	public long buffer() { return nbuffer(address()); }
 
-	public CLImageDesc setImageType(int image_type) { nsetImageType(address(), image_type); return this; }
-	public CLImageDesc setImageWidth(long image_width) { nsetImageWidth(address(), image_width); return this; }
-	public CLImageDesc setImageHeight(long image_height) { nsetImageHeight(address(), image_height); return this; }
-	public CLImageDesc setImageDepth(long image_depth) { nsetImageDepth(address(), image_depth); return this; }
-	public CLImageDesc setImageArraySize(long image_array_size) { nsetImageArraySize(address(), image_array_size); return this; }
-	public CLImageDesc setImageRowPitch(long image_row_pitch) { nsetImageRowPitch(address(), image_row_pitch); return this; }
-	public CLImageDesc setImageSlicePitch(long image_slice_pitch) { nsetImageSlicePitch(address(), image_slice_pitch); return this; }
-	public CLImageDesc setNumMipLevels(int num_mip_levels) { nsetNumMipLevels(address(), num_mip_levels); return this; }
-	public CLImageDesc setNumSamples(int num_samples) { nsetNumSamples(address(), num_samples); return this; }
-	public CLImageDesc setBuffer(long buffer) { nsetBuffer(address(), buffer); return this; }
+	/** Sets the specified value to the {@code image_type} field. */
+	public CLImageDesc image_type(int value) { nimage_type(address(), value); return this; }
+	/** Sets the specified value to the {@code image_width} field. */
+	public CLImageDesc image_width(long value) { nimage_width(address(), value); return this; }
+	/** Sets the specified value to the {@code image_height} field. */
+	public CLImageDesc image_height(long value) { nimage_height(address(), value); return this; }
+	/** Sets the specified value to the {@code image_depth} field. */
+	public CLImageDesc image_depth(long value) { nimage_depth(address(), value); return this; }
+	/** Sets the specified value to the {@code image_array_size} field. */
+	public CLImageDesc image_array_size(long value) { nimage_array_size(address(), value); return this; }
+	/** Sets the specified value to the {@code image_row_pitch} field. */
+	public CLImageDesc image_row_pitch(long value) { nimage_row_pitch(address(), value); return this; }
+	/** Sets the specified value to the {@code image_slice_pitch} field. */
+	public CLImageDesc image_slice_pitch(long value) { nimage_slice_pitch(address(), value); return this; }
+	/** Sets the specified value to the {@code num_mip_levels} field. */
+	public CLImageDesc num_mip_levels(int value) { nnum_mip_levels(address(), value); return this; }
+	/** Sets the specified value to the {@code num_samples} field. */
+	public CLImageDesc num_samples(int value) { nnum_samples(address(), value); return this; }
+	/** Sets the specified value to the {@code buffer} field. */
+	public CLImageDesc buffer(long value) { nbuffer(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public CLImageDesc set(
@@ -110,21 +162,21 @@ public class CLImageDesc extends Struct {
 		int num_samples,
 		long buffer
 	) {
-		setImageType(image_type);
-		setImageWidth(image_width);
-		setImageHeight(image_height);
-		setImageDepth(image_depth);
-		setImageArraySize(image_array_size);
-		setImageRowPitch(image_row_pitch);
-		setImageSlicePitch(image_slice_pitch);
-		setNumMipLevels(num_mip_levels);
-		setNumSamples(num_samples);
-		setBuffer(buffer);
+		image_type(image_type);
+		image_width(image_width);
+		image_height(image_height);
+		image_depth(image_depth);
+		image_array_size(image_array_size);
+		image_row_pitch(image_row_pitch);
+		image_slice_pitch(image_slice_pitch);
+		num_mip_levels(num_mip_levels);
+		num_samples(num_samples);
+		buffer(buffer);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(CLImageDesc) set}. */
 	public CLImageDesc nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -141,7 +193,7 @@ public class CLImageDesc extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(CLImageDesc) set}. */
 	public CLImageDesc set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -202,47 +254,47 @@ public class CLImageDesc extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static int ngetImageType(long struct) { return memGetInt(struct + IMAGE_TYPE); }
-	public static int getImageType(ByteBuffer struct) { return ngetImageType(memAddress(struct)); }
-	public static long ngetImageWidth(long struct) { return memGetAddress(struct + IMAGE_WIDTH); }
-	public static long getImageWidth(ByteBuffer struct) { return ngetImageWidth(memAddress(struct)); }
-	public static long ngetImageHeight(long struct) { return memGetAddress(struct + IMAGE_HEIGHT); }
-	public static long getImageHeight(ByteBuffer struct) { return ngetImageHeight(memAddress(struct)); }
-	public static long ngetImageDepth(long struct) { return memGetAddress(struct + IMAGE_DEPTH); }
-	public static long getImageDepth(ByteBuffer struct) { return ngetImageDepth(memAddress(struct)); }
-	public static long ngetImageArraySize(long struct) { return memGetAddress(struct + IMAGE_ARRAY_SIZE); }
-	public static long getImageArraySize(ByteBuffer struct) { return ngetImageArraySize(memAddress(struct)); }
-	public static long ngetImageRowPitch(long struct) { return memGetAddress(struct + IMAGE_ROW_PITCH); }
-	public static long getImageRowPitch(ByteBuffer struct) { return ngetImageRowPitch(memAddress(struct)); }
-	public static long ngetImageSlicePitch(long struct) { return memGetAddress(struct + IMAGE_SLICE_PITCH); }
-	public static long getImageSlicePitch(ByteBuffer struct) { return ngetImageSlicePitch(memAddress(struct)); }
-	public static int ngetNumMipLevels(long struct) { return memGetInt(struct + NUM_MIP_LEVELS); }
-	public static int getNumMipLevels(ByteBuffer struct) { return ngetNumMipLevels(memAddress(struct)); }
-	public static int ngetNumSamples(long struct) { return memGetInt(struct + NUM_SAMPLES); }
-	public static int getNumSamples(ByteBuffer struct) { return ngetNumSamples(memAddress(struct)); }
-	public static long ngetBuffer(long struct) { return memGetAddress(struct + BUFFER); }
-	public static long getBuffer(ByteBuffer struct) { return ngetBuffer(memAddress(struct)); }
+	/** Unsafe version of {@link #image_type}. */
+	public static int nimage_type(long struct) { return memGetInt(struct + CLImageDesc.IMAGE_TYPE); }
+	/** Unsafe version of {@link #image_width}. */
+	public static long nimage_width(long struct) { return memGetAddress(struct + CLImageDesc.IMAGE_WIDTH); }
+	/** Unsafe version of {@link #image_height}. */
+	public static long nimage_height(long struct) { return memGetAddress(struct + CLImageDesc.IMAGE_HEIGHT); }
+	/** Unsafe version of {@link #image_depth}. */
+	public static long nimage_depth(long struct) { return memGetAddress(struct + CLImageDesc.IMAGE_DEPTH); }
+	/** Unsafe version of {@link #image_array_size}. */
+	public static long nimage_array_size(long struct) { return memGetAddress(struct + CLImageDesc.IMAGE_ARRAY_SIZE); }
+	/** Unsafe version of {@link #image_row_pitch}. */
+	public static long nimage_row_pitch(long struct) { return memGetAddress(struct + CLImageDesc.IMAGE_ROW_PITCH); }
+	/** Unsafe version of {@link #image_slice_pitch}. */
+	public static long nimage_slice_pitch(long struct) { return memGetAddress(struct + CLImageDesc.IMAGE_SLICE_PITCH); }
+	/** Unsafe version of {@link #num_mip_levels}. */
+	public static int nnum_mip_levels(long struct) { return memGetInt(struct + CLImageDesc.NUM_MIP_LEVELS); }
+	/** Unsafe version of {@link #num_samples}. */
+	public static int nnum_samples(long struct) { return memGetInt(struct + CLImageDesc.NUM_SAMPLES); }
+	/** Unsafe version of {@link #buffer}. */
+	public static long nbuffer(long struct) { return memGetAddress(struct + CLImageDesc.BUFFER); }
 
-	public static void nsetImageType(long struct, int image_type) { memPutInt(struct + IMAGE_TYPE, image_type); }
-	public static void setImageType(ByteBuffer struct, int image_type) { nsetImageType(memAddress(struct), image_type); }
-	public static void nsetImageWidth(long struct, long image_width) { memPutAddress(struct + IMAGE_WIDTH, image_width); }
-	public static void setImageWidth(ByteBuffer struct, long image_width) { nsetImageWidth(memAddress(struct), image_width); }
-	public static void nsetImageHeight(long struct, long image_height) { memPutAddress(struct + IMAGE_HEIGHT, image_height); }
-	public static void setImageHeight(ByteBuffer struct, long image_height) { nsetImageHeight(memAddress(struct), image_height); }
-	public static void nsetImageDepth(long struct, long image_depth) { memPutAddress(struct + IMAGE_DEPTH, image_depth); }
-	public static void setImageDepth(ByteBuffer struct, long image_depth) { nsetImageDepth(memAddress(struct), image_depth); }
-	public static void nsetImageArraySize(long struct, long image_array_size) { memPutAddress(struct + IMAGE_ARRAY_SIZE, image_array_size); }
-	public static void setImageArraySize(ByteBuffer struct, long image_array_size) { nsetImageArraySize(memAddress(struct), image_array_size); }
-	public static void nsetImageRowPitch(long struct, long image_row_pitch) { memPutAddress(struct + IMAGE_ROW_PITCH, image_row_pitch); }
-	public static void setImageRowPitch(ByteBuffer struct, long image_row_pitch) { nsetImageRowPitch(memAddress(struct), image_row_pitch); }
-	public static void nsetImageSlicePitch(long struct, long image_slice_pitch) { memPutAddress(struct + IMAGE_SLICE_PITCH, image_slice_pitch); }
-	public static void setImageSlicePitch(ByteBuffer struct, long image_slice_pitch) { nsetImageSlicePitch(memAddress(struct), image_slice_pitch); }
-	public static void nsetNumMipLevels(long struct, int num_mip_levels) { memPutInt(struct + NUM_MIP_LEVELS, num_mip_levels); }
-	public static void setNumMipLevels(ByteBuffer struct, int num_mip_levels) { nsetNumMipLevels(memAddress(struct), num_mip_levels); }
-	public static void nsetNumSamples(long struct, int num_samples) { memPutInt(struct + NUM_SAMPLES, num_samples); }
-	public static void setNumSamples(ByteBuffer struct, int num_samples) { nsetNumSamples(memAddress(struct), num_samples); }
-	public static void nsetBuffer(long struct, long buffer) { memPutAddress(struct + BUFFER, buffer); }
-	public static void setBuffer(ByteBuffer struct, long buffer) { nsetBuffer(memAddress(struct), buffer); }
+	/** Unsafe version of {@link #image_type(int) image_type}. */
+	public static void nimage_type(long struct, int value) { memPutInt(struct + CLImageDesc.IMAGE_TYPE, value); }
+	/** Unsafe version of {@link #image_width(long) image_width}. */
+	public static void nimage_width(long struct, long value) { memPutAddress(struct + CLImageDesc.IMAGE_WIDTH, value); }
+	/** Unsafe version of {@link #image_height(long) image_height}. */
+	public static void nimage_height(long struct, long value) { memPutAddress(struct + CLImageDesc.IMAGE_HEIGHT, value); }
+	/** Unsafe version of {@link #image_depth(long) image_depth}. */
+	public static void nimage_depth(long struct, long value) { memPutAddress(struct + CLImageDesc.IMAGE_DEPTH, value); }
+	/** Unsafe version of {@link #image_array_size(long) image_array_size}. */
+	public static void nimage_array_size(long struct, long value) { memPutAddress(struct + CLImageDesc.IMAGE_ARRAY_SIZE, value); }
+	/** Unsafe version of {@link #image_row_pitch(long) image_row_pitch}. */
+	public static void nimage_row_pitch(long struct, long value) { memPutAddress(struct + CLImageDesc.IMAGE_ROW_PITCH, value); }
+	/** Unsafe version of {@link #image_slice_pitch(long) image_slice_pitch}. */
+	public static void nimage_slice_pitch(long struct, long value) { memPutAddress(struct + CLImageDesc.IMAGE_SLICE_PITCH, value); }
+	/** Unsafe version of {@link #num_mip_levels(int) num_mip_levels}. */
+	public static void nnum_mip_levels(long struct, int value) { memPutInt(struct + CLImageDesc.NUM_MIP_LEVELS, value); }
+	/** Unsafe version of {@link #num_samples(int) num_samples}. */
+	public static void nnum_samples(long struct, int value) { memPutInt(struct + CLImageDesc.NUM_SAMPLES, value); }
+	/** Unsafe version of {@link #buffer(long) buffer}. */
+	public static void nbuffer(long struct, long value) { memPutAddress(struct + CLImageDesc.BUFFER, value); }
 
 	// -----------------------------------
 
@@ -286,27 +338,47 @@ public class CLImageDesc extends Struct {
 			return SIZEOF;
 		}
 
-		public int getImageType() { return ngetImageType(address()); }
-		public long getImageWidth() { return ngetImageWidth(address()); }
-		public long getImageHeight() { return ngetImageHeight(address()); }
-		public long getImageDepth() { return ngetImageDepth(address()); }
-		public long getImageArraySize() { return ngetImageArraySize(address()); }
-		public long getImageRowPitch() { return ngetImageRowPitch(address()); }
-		public long getImageSlicePitch() { return ngetImageSlicePitch(address()); }
-		public int getNumMipLevels() { return ngetNumMipLevels(address()); }
-		public int getNumSamples() { return ngetNumSamples(address()); }
-		public long getBuffer() { return ngetBuffer(address()); }
+		/** Returns the value of the {@code image_type} field. */
+		public int image_type() { return nimage_type(address()); }
+		/** Returns the value of the {@code image_width} field. */
+		public long image_width() { return nimage_width(address()); }
+		/** Returns the value of the {@code image_height} field. */
+		public long image_height() { return nimage_height(address()); }
+		/** Returns the value of the {@code image_depth} field. */
+		public long image_depth() { return nimage_depth(address()); }
+		/** Returns the value of the {@code image_array_size} field. */
+		public long image_array_size() { return nimage_array_size(address()); }
+		/** Returns the value of the {@code image_row_pitch} field. */
+		public long image_row_pitch() { return nimage_row_pitch(address()); }
+		/** Returns the value of the {@code image_slice_pitch} field. */
+		public long image_slice_pitch() { return nimage_slice_pitch(address()); }
+		/** Returns the value of the {@code num_mip_levels} field. */
+		public int num_mip_levels() { return nnum_mip_levels(address()); }
+		/** Returns the value of the {@code num_samples} field. */
+		public int num_samples() { return nnum_samples(address()); }
+		/** Returns the value of the {@code buffer} field. */
+		public long buffer() { return nbuffer(address()); }
 
-		public CLImageDesc.Buffer setImageType(int image_type) { nsetImageType(address(), image_type); return this; }
-		public CLImageDesc.Buffer setImageWidth(long image_width) { nsetImageWidth(address(), image_width); return this; }
-		public CLImageDesc.Buffer setImageHeight(long image_height) { nsetImageHeight(address(), image_height); return this; }
-		public CLImageDesc.Buffer setImageDepth(long image_depth) { nsetImageDepth(address(), image_depth); return this; }
-		public CLImageDesc.Buffer setImageArraySize(long image_array_size) { nsetImageArraySize(address(), image_array_size); return this; }
-		public CLImageDesc.Buffer setImageRowPitch(long image_row_pitch) { nsetImageRowPitch(address(), image_row_pitch); return this; }
-		public CLImageDesc.Buffer setImageSlicePitch(long image_slice_pitch) { nsetImageSlicePitch(address(), image_slice_pitch); return this; }
-		public CLImageDesc.Buffer setNumMipLevels(int num_mip_levels) { nsetNumMipLevels(address(), num_mip_levels); return this; }
-		public CLImageDesc.Buffer setNumSamples(int num_samples) { nsetNumSamples(address(), num_samples); return this; }
-		public CLImageDesc.Buffer setBuffer(long buffer) { nsetBuffer(address(), buffer); return this; }
+		/** Sets the specified value to the {@code image_type} field. */
+		public CLImageDesc.Buffer image_type(int value) { nimage_type(address(), value); return this; }
+		/** Sets the specified value to the {@code image_width} field. */
+		public CLImageDesc.Buffer image_width(long value) { nimage_width(address(), value); return this; }
+		/** Sets the specified value to the {@code image_height} field. */
+		public CLImageDesc.Buffer image_height(long value) { nimage_height(address(), value); return this; }
+		/** Sets the specified value to the {@code image_depth} field. */
+		public CLImageDesc.Buffer image_depth(long value) { nimage_depth(address(), value); return this; }
+		/** Sets the specified value to the {@code image_array_size} field. */
+		public CLImageDesc.Buffer image_array_size(long value) { nimage_array_size(address(), value); return this; }
+		/** Sets the specified value to the {@code image_row_pitch} field. */
+		public CLImageDesc.Buffer image_row_pitch(long value) { nimage_row_pitch(address(), value); return this; }
+		/** Sets the specified value to the {@code image_slice_pitch} field. */
+		public CLImageDesc.Buffer image_slice_pitch(long value) { nimage_slice_pitch(address(), value); return this; }
+		/** Sets the specified value to the {@code num_mip_levels} field. */
+		public CLImageDesc.Buffer num_mip_levels(int value) { nnum_mip_levels(address(), value); return this; }
+		/** Sets the specified value to the {@code num_samples} field. */
+		public CLImageDesc.Buffer num_samples(int value) { nnum_samples(address(), value); return this; }
+		/** Sets the specified value to the {@code buffer} field. */
+		public CLImageDesc.Buffer buffer(long value) { nbuffer(address(), value); return this; }
 
 	}
 

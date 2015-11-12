@@ -13,7 +13,17 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** A 3D vector with float components. */
+/**
+ * A 3D vector with float components.
+ * 
+ * <h3>ovrVector3f members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>x</td><td class="nw">float</td><td>the vector x component</td></tr>
+ * <tr><td>y</td><td class="nw">float</td><td>the vector y component</td></tr>
+ * <tr><td>z</td><td class="nw">float</td><td>the vector z component</td></tr>
+ * </table>
+ */
 public class OVRVector3f extends Struct {
 
 	/** The struct size in bytes. */
@@ -61,13 +71,19 @@ public class OVRVector3f extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public float getX() { return ngetX(address()); }
-	public float getY() { return ngetY(address()); }
-	public float getZ() { return ngetZ(address()); }
+	/** Returns the value of the {@code x} field. */
+	public float x() { return nx(address()); }
+	/** Returns the value of the {@code y} field. */
+	public float y() { return ny(address()); }
+	/** Returns the value of the {@code z} field. */
+	public float z() { return nz(address()); }
 
-	public OVRVector3f setX(float x) { nsetX(address(), x); return this; }
-	public OVRVector3f setY(float y) { nsetY(address(), y); return this; }
-	public OVRVector3f setZ(float z) { nsetZ(address(), z); return this; }
+	/** Sets the specified value to the {@code x} field. */
+	public OVRVector3f x(float value) { nx(address(), value); return this; }
+	/** Sets the specified value to the {@code y} field. */
+	public OVRVector3f y(float value) { ny(address(), value); return this; }
+	/** Sets the specified value to the {@code z} field. */
+	public OVRVector3f z(float value) { nz(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public OVRVector3f set(
@@ -75,14 +91,14 @@ public class OVRVector3f extends Struct {
 		float y,
 		float z
 	) {
-		setX(x);
-		setY(y);
-		setZ(z);
+		x(x);
+		y(y);
+		z(z);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(OVRVector3f) set}. */
 	public OVRVector3f nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -99,7 +115,7 @@ public class OVRVector3f extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(OVRVector3f) set}. */
 	public OVRVector3f set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -160,19 +176,19 @@ public class OVRVector3f extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static float ngetX(long struct) { return memGetFloat(struct + X); }
-	public static float getX(ByteBuffer struct) { return ngetX(memAddress(struct)); }
-	public static float ngetY(long struct) { return memGetFloat(struct + Y); }
-	public static float getY(ByteBuffer struct) { return ngetY(memAddress(struct)); }
-	public static float ngetZ(long struct) { return memGetFloat(struct + Z); }
-	public static float getZ(ByteBuffer struct) { return ngetZ(memAddress(struct)); }
+	/** Unsafe version of {@link #x}. */
+	public static float nx(long struct) { return memGetFloat(struct + OVRVector3f.X); }
+	/** Unsafe version of {@link #y}. */
+	public static float ny(long struct) { return memGetFloat(struct + OVRVector3f.Y); }
+	/** Unsafe version of {@link #z}. */
+	public static float nz(long struct) { return memGetFloat(struct + OVRVector3f.Z); }
 
-	public static void nsetX(long struct, float x) { memPutFloat(struct + X, x); }
-	public static void setX(ByteBuffer struct, float x) { nsetX(memAddress(struct), x); }
-	public static void nsetY(long struct, float y) { memPutFloat(struct + Y, y); }
-	public static void setY(ByteBuffer struct, float y) { nsetY(memAddress(struct), y); }
-	public static void nsetZ(long struct, float z) { memPutFloat(struct + Z, z); }
-	public static void setZ(ByteBuffer struct, float z) { nsetZ(memAddress(struct), z); }
+	/** Unsafe version of {@link #x(float) x}. */
+	public static void nx(long struct, float value) { memPutFloat(struct + OVRVector3f.X, value); }
+	/** Unsafe version of {@link #y(float) y}. */
+	public static void ny(long struct, float value) { memPutFloat(struct + OVRVector3f.Y, value); }
+	/** Unsafe version of {@link #z(float) z}. */
+	public static void nz(long struct, float value) { memPutFloat(struct + OVRVector3f.Z, value); }
 
 	// -----------------------------------
 
@@ -216,13 +232,19 @@ public class OVRVector3f extends Struct {
 			return SIZEOF;
 		}
 
-		public float getX() { return ngetX(address()); }
-		public float getY() { return ngetY(address()); }
-		public float getZ() { return ngetZ(address()); }
+		/** Returns the value of the {@code x} field. */
+		public float x() { return nx(address()); }
+		/** Returns the value of the {@code y} field. */
+		public float y() { return ny(address()); }
+		/** Returns the value of the {@code z} field. */
+		public float z() { return nz(address()); }
 
-		public OVRVector3f.Buffer setX(float x) { nsetX(address(), x); return this; }
-		public OVRVector3f.Buffer setY(float y) { nsetY(address(), y); return this; }
-		public OVRVector3f.Buffer setZ(float z) { nsetZ(address(), z); return this; }
+		/** Sets the specified value to the {@code x} field. */
+		public OVRVector3f.Buffer x(float value) { nx(address(), value); return this; }
+		/** Sets the specified value to the {@code y} field. */
+		public OVRVector3f.Buffer y(float value) { ny(address(), value); return this; }
+		/** Sets the specified value to the {@code z} field. */
+		public OVRVector3f.Buffer z(float value) { nz(address(), value); return this; }
 
 	}
 

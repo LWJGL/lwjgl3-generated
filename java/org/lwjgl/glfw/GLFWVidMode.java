@@ -10,10 +10,22 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Video mode. */
+/**
+ * Describes a single video mode.
+ * 
+ * <h3>GLFWvidmode members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>width</td><td class="nw">int</td><td>the width, in screen coordinates, of the video mode</td></tr>
+ * <tr><td>height</td><td class="nw">int</td><td>the height, in screen coordinates, of the video mode</td></tr>
+ * <tr><td>redBits</td><td class="nw">int</td><td>the bit depth of the red channel of the video mode</td></tr>
+ * <tr><td>greenBits</td><td class="nw">int</td><td>the bit depth of the green channel of the video mode</td></tr>
+ * <tr><td>blueBits</td><td class="nw">int</td><td>the bit depth of the blue channel of the video mode</td></tr>
+ * <tr><td>refreshRate</td><td class="nw">int</td><td>the refresh rate, in Hz, of the video mode</td></tr>
+ * </table>
+ */
 public class GLFWVidMode extends Struct {
 
 	/** The struct size in bytes. */
@@ -67,12 +79,18 @@ public class GLFWVidMode extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public int getWidth() { return ngetWidth(address()); }
-	public int getHeight() { return ngetHeight(address()); }
-	public int getRedBits() { return ngetRedBits(address()); }
-	public int getGreenBits() { return ngetGreenBits(address()); }
-	public int getBlueBits() { return ngetBlueBits(address()); }
-	public int getRefreshRate() { return ngetRefreshRate(address()); }
+	/** Returns the value of the {@code width} field. */
+	public int width() { return nwidth(address()); }
+	/** Returns the value of the {@code height} field. */
+	public int height() { return nheight(address()); }
+	/** Returns the value of the {@code redBits} field. */
+	public int redBits() { return nredBits(address()); }
+	/** Returns the value of the {@code greenBits} field. */
+	public int greenBits() { return ngreenBits(address()); }
+	/** Returns the value of the {@code blueBits} field. */
+	public int blueBits() { return nblueBits(address()); }
+	/** Returns the value of the {@code refreshRate} field. */
+	public int refreshRate() { return nrefreshRate(address()); }
 
 	// -----------------------------------
 
@@ -128,18 +146,18 @@ public class GLFWVidMode extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static int ngetWidth(long struct) { return memGetInt(struct + WIDTH); }
-	public static int getWidth(ByteBuffer struct) { return ngetWidth(memAddress(struct)); }
-	public static int ngetHeight(long struct) { return memGetInt(struct + HEIGHT); }
-	public static int getHeight(ByteBuffer struct) { return ngetHeight(memAddress(struct)); }
-	public static int ngetRedBits(long struct) { return memGetInt(struct + REDBITS); }
-	public static int getRedBits(ByteBuffer struct) { return ngetRedBits(memAddress(struct)); }
-	public static int ngetGreenBits(long struct) { return memGetInt(struct + GREENBITS); }
-	public static int getGreenBits(ByteBuffer struct) { return ngetGreenBits(memAddress(struct)); }
-	public static int ngetBlueBits(long struct) { return memGetInt(struct + BLUEBITS); }
-	public static int getBlueBits(ByteBuffer struct) { return ngetBlueBits(memAddress(struct)); }
-	public static int ngetRefreshRate(long struct) { return memGetInt(struct + REFRESHRATE); }
-	public static int getRefreshRate(ByteBuffer struct) { return ngetRefreshRate(memAddress(struct)); }
+	/** Unsafe version of {@link #width}. */
+	public static int nwidth(long struct) { return memGetInt(struct + GLFWVidMode.WIDTH); }
+	/** Unsafe version of {@link #height}. */
+	public static int nheight(long struct) { return memGetInt(struct + GLFWVidMode.HEIGHT); }
+	/** Unsafe version of {@link #redBits}. */
+	public static int nredBits(long struct) { return memGetInt(struct + GLFWVidMode.REDBITS); }
+	/** Unsafe version of {@link #greenBits}. */
+	public static int ngreenBits(long struct) { return memGetInt(struct + GLFWVidMode.GREENBITS); }
+	/** Unsafe version of {@link #blueBits}. */
+	public static int nblueBits(long struct) { return memGetInt(struct + GLFWVidMode.BLUEBITS); }
+	/** Unsafe version of {@link #refreshRate}. */
+	public static int nrefreshRate(long struct) { return memGetInt(struct + GLFWVidMode.REFRESHRATE); }
 
 	// -----------------------------------
 
@@ -183,12 +201,18 @@ public class GLFWVidMode extends Struct {
 			return SIZEOF;
 		}
 
-		public int getWidth() { return ngetWidth(address()); }
-		public int getHeight() { return ngetHeight(address()); }
-		public int getRedBits() { return ngetRedBits(address()); }
-		public int getGreenBits() { return ngetGreenBits(address()); }
-		public int getBlueBits() { return ngetBlueBits(address()); }
-		public int getRefreshRate() { return ngetRefreshRate(address()); }
+		/** Returns the value of the {@code width} field. */
+		public int width() { return nwidth(address()); }
+		/** Returns the value of the {@code height} field. */
+		public int height() { return nheight(address()); }
+		/** Returns the value of the {@code redBits} field. */
+		public int redBits() { return nredBits(address()); }
+		/** Returns the value of the {@code greenBits} field. */
+		public int greenBits() { return ngreenBits(address()); }
+		/** Returns the value of the {@code blueBits} field. */
+		public int blueBits() { return nblueBits(address()); }
+		/** Returns the value of the {@code refreshRate} field. */
+		public int refreshRate() { return nrefreshRate(address()); }
 
 	}
 

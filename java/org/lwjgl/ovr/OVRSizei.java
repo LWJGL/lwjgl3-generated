@@ -13,7 +13,16 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** A 2D size with integer components. */
+/**
+ * A 2D size with integer components.
+ * 
+ * <h3>ovrSizei members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>w</td><td class="nw">int</td><td>the width</td></tr>
+ * <tr><td>h</td><td class="nw">int</td><td>the height</td></tr>
+ * </table>
+ */
 public class OVRSizei extends Struct {
 
 	/** The struct size in bytes. */
@@ -59,24 +68,28 @@ public class OVRSizei extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public int getW() { return ngetW(address()); }
-	public int getH() { return ngetH(address()); }
+	/** Returns the value of the {@code w} field. */
+	public int w() { return nw(address()); }
+	/** Returns the value of the {@code h} field. */
+	public int h() { return nh(address()); }
 
-	public OVRSizei setW(int w) { nsetW(address(), w); return this; }
-	public OVRSizei setH(int h) { nsetH(address(), h); return this; }
+	/** Sets the specified value to the {@code w} field. */
+	public OVRSizei w(int value) { nw(address(), value); return this; }
+	/** Sets the specified value to the {@code h} field. */
+	public OVRSizei h(int value) { nh(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public OVRSizei set(
 		int w,
 		int h
 	) {
-		setW(w);
-		setH(h);
+		w(w);
+		h(h);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(OVRSizei) set}. */
 	public OVRSizei nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -93,7 +106,7 @@ public class OVRSizei extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(OVRSizei) set}. */
 	public OVRSizei set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -154,15 +167,15 @@ public class OVRSizei extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static int ngetW(long struct) { return memGetInt(struct + W); }
-	public static int getW(ByteBuffer struct) { return ngetW(memAddress(struct)); }
-	public static int ngetH(long struct) { return memGetInt(struct + H); }
-	public static int getH(ByteBuffer struct) { return ngetH(memAddress(struct)); }
+	/** Unsafe version of {@link #w}. */
+	public static int nw(long struct) { return memGetInt(struct + OVRSizei.W); }
+	/** Unsafe version of {@link #h}. */
+	public static int nh(long struct) { return memGetInt(struct + OVRSizei.H); }
 
-	public static void nsetW(long struct, int w) { memPutInt(struct + W, w); }
-	public static void setW(ByteBuffer struct, int w) { nsetW(memAddress(struct), w); }
-	public static void nsetH(long struct, int h) { memPutInt(struct + H, h); }
-	public static void setH(ByteBuffer struct, int h) { nsetH(memAddress(struct), h); }
+	/** Unsafe version of {@link #w(int) w}. */
+	public static void nw(long struct, int value) { memPutInt(struct + OVRSizei.W, value); }
+	/** Unsafe version of {@link #h(int) h}. */
+	public static void nh(long struct, int value) { memPutInt(struct + OVRSizei.H, value); }
 
 	// -----------------------------------
 
@@ -206,11 +219,15 @@ public class OVRSizei extends Struct {
 			return SIZEOF;
 		}
 
-		public int getW() { return ngetW(address()); }
-		public int getH() { return ngetH(address()); }
+		/** Returns the value of the {@code w} field. */
+		public int w() { return nw(address()); }
+		/** Returns the value of the {@code h} field. */
+		public int h() { return nh(address()); }
 
-		public OVRSizei.Buffer setW(int w) { nsetW(address(), w); return this; }
-		public OVRSizei.Buffer setH(int h) { nsetH(address(), h); return this; }
+		/** Sets the specified value to the {@code w} field. */
+		public OVRSizei.Buffer w(int value) { nw(address(), value); return this; }
+		/** Sets the specified value to the {@code h} field. */
+		public OVRSizei.Buffer h(int value) { nh(address(), value); return this; }
 
 	}
 

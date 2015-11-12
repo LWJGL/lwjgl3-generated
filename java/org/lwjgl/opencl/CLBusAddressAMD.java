@@ -13,7 +13,16 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Used in {@link AMDBusAddressableMemory#clEnqueueMakeBuffersResidentAMD}. */
+/**
+ * Bus address information used in {@link AMDBusAddressableMemory#clEnqueueMakeBuffersResidentAMD}.
+ * 
+ * <h3>cl_bus_address_amd members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>surfbusaddress</td><td class="nw">cl_long</td><td>contains the page aligned physical starting address of the backing store preallocated by the application on a remote device</td></tr>
+ * <tr><td>signalbusaddress</td><td class="nw">cl_long</td><td>contains the page aligned physical starting address of preallocated signaling surface</td></tr>
+ * </table>
+ */
 public class CLBusAddressAMD extends Struct {
 
 	/** The struct size in bytes. */
@@ -21,16 +30,16 @@ public class CLBusAddressAMD extends Struct {
 
 	/** The struct member offsets. */
 	public static final int
-		SURFACE_BUS_ADDRESS,
-		MARKER_BUS_ADDRESS;
+		SURFBUSADDRESS,
+		SIGNALBUSADDRESS;
 
 	static {
 		IntBuffer offsets = memAllocInt(2);
 
 		SIZEOF = offsets(memAddress(offsets));
 
-		SURFACE_BUS_ADDRESS = offsets.get(0);
-		MARKER_BUS_ADDRESS = offsets.get(1);
+		SURFBUSADDRESS = offsets.get(0);
+		SIGNALBUSADDRESS = offsets.get(1);
 
 		memFree(offsets);
 	}
@@ -59,24 +68,28 @@ public class CLBusAddressAMD extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public long getSurfaceBusAddress() { return ngetSurfaceBusAddress(address()); }
-	public long getMarkerBusAddress() { return ngetMarkerBusAddress(address()); }
+	/** Returns the value of the {@code surfbusaddress} field. */
+	public long surfbusaddress() { return nsurfbusaddress(address()); }
+	/** Returns the value of the {@code signalbusaddress} field. */
+	public long signalbusaddress() { return nsignalbusaddress(address()); }
 
-	public CLBusAddressAMD setSurfaceBusAddress(long surface_bus_address) { nsetSurfaceBusAddress(address(), surface_bus_address); return this; }
-	public CLBusAddressAMD setMarkerBusAddress(long marker_bus_address) { nsetMarkerBusAddress(address(), marker_bus_address); return this; }
+	/** Sets the specified value to the {@code surfbusaddress} field. */
+	public CLBusAddressAMD surfbusaddress(long value) { nsurfbusaddress(address(), value); return this; }
+	/** Sets the specified value to the {@code signalbusaddress} field. */
+	public CLBusAddressAMD signalbusaddress(long value) { nsignalbusaddress(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public CLBusAddressAMD set(
-		long surface_bus_address,
-		long marker_bus_address
+		long surfbusaddress,
+		long signalbusaddress
 	) {
-		setSurfaceBusAddress(surface_bus_address);
-		setMarkerBusAddress(marker_bus_address);
+		surfbusaddress(surfbusaddress);
+		signalbusaddress(signalbusaddress);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(CLBusAddressAMD) set}. */
 	public CLBusAddressAMD nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -93,7 +106,7 @@ public class CLBusAddressAMD extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(CLBusAddressAMD) set}. */
 	public CLBusAddressAMD set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -154,15 +167,15 @@ public class CLBusAddressAMD extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static long ngetSurfaceBusAddress(long struct) { return memGetLong(struct + SURFACE_BUS_ADDRESS); }
-	public static long getSurfaceBusAddress(ByteBuffer struct) { return ngetSurfaceBusAddress(memAddress(struct)); }
-	public static long ngetMarkerBusAddress(long struct) { return memGetLong(struct + MARKER_BUS_ADDRESS); }
-	public static long getMarkerBusAddress(ByteBuffer struct) { return ngetMarkerBusAddress(memAddress(struct)); }
+	/** Unsafe version of {@link #surfbusaddress}. */
+	public static long nsurfbusaddress(long struct) { return memGetLong(struct + CLBusAddressAMD.SURFBUSADDRESS); }
+	/** Unsafe version of {@link #signalbusaddress}. */
+	public static long nsignalbusaddress(long struct) { return memGetLong(struct + CLBusAddressAMD.SIGNALBUSADDRESS); }
 
-	public static void nsetSurfaceBusAddress(long struct, long surface_bus_address) { memPutLong(struct + SURFACE_BUS_ADDRESS, surface_bus_address); }
-	public static void setSurfaceBusAddress(ByteBuffer struct, long surface_bus_address) { nsetSurfaceBusAddress(memAddress(struct), surface_bus_address); }
-	public static void nsetMarkerBusAddress(long struct, long marker_bus_address) { memPutLong(struct + MARKER_BUS_ADDRESS, marker_bus_address); }
-	public static void setMarkerBusAddress(ByteBuffer struct, long marker_bus_address) { nsetMarkerBusAddress(memAddress(struct), marker_bus_address); }
+	/** Unsafe version of {@link #surfbusaddress(long) surfbusaddress}. */
+	public static void nsurfbusaddress(long struct, long value) { memPutLong(struct + CLBusAddressAMD.SURFBUSADDRESS, value); }
+	/** Unsafe version of {@link #signalbusaddress(long) signalbusaddress}. */
+	public static void nsignalbusaddress(long struct, long value) { memPutLong(struct + CLBusAddressAMD.SIGNALBUSADDRESS, value); }
 
 	// -----------------------------------
 
@@ -206,11 +219,15 @@ public class CLBusAddressAMD extends Struct {
 			return SIZEOF;
 		}
 
-		public long getSurfaceBusAddress() { return ngetSurfaceBusAddress(address()); }
-		public long getMarkerBusAddress() { return ngetMarkerBusAddress(address()); }
+		/** Returns the value of the {@code surfbusaddress} field. */
+		public long surfbusaddress() { return nsurfbusaddress(address()); }
+		/** Returns the value of the {@code signalbusaddress} field. */
+		public long signalbusaddress() { return nsignalbusaddress(address()); }
 
-		public CLBusAddressAMD.Buffer setSurfaceBusAddress(long surface_bus_address) { nsetSurfaceBusAddress(address(), surface_bus_address); return this; }
-		public CLBusAddressAMD.Buffer setMarkerBusAddress(long marker_bus_address) { nsetMarkerBusAddress(address(), marker_bus_address); return this; }
+		/** Sets the specified value to the {@code surfbusaddress} field. */
+		public CLBusAddressAMD.Buffer surfbusaddress(long value) { nsurfbusaddress(address(), value); return this; }
+		/** Sets the specified value to the {@code signalbusaddress} field. */
+		public CLBusAddressAMD.Buffer signalbusaddress(long value) { nsignalbusaddress(address(), value); return this; }
 
 	}
 

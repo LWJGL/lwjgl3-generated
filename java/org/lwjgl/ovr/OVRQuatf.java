@@ -13,7 +13,18 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** A quaternion rotation. */
+/**
+ * A quaternion rotation.
+ * 
+ * <h3>ovrQuatf members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>x</td><td class="nw">float</td><td>the vector x component</td></tr>
+ * <tr><td>y</td><td class="nw">float</td><td>the vector y component</td></tr>
+ * <tr><td>z</td><td class="nw">float</td><td>the vector z component</td></tr>
+ * <tr><td>w</td><td class="nw">float</td><td>the vector w component</td></tr>
+ * </table>
+ */
 public class OVRQuatf extends Struct {
 
 	/** The struct size in bytes. */
@@ -63,15 +74,23 @@ public class OVRQuatf extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public float getX() { return ngetX(address()); }
-	public float getY() { return ngetY(address()); }
-	public float getZ() { return ngetZ(address()); }
-	public float getW() { return ngetW(address()); }
+	/** Returns the value of the {@code x} field. */
+	public float x() { return nx(address()); }
+	/** Returns the value of the {@code y} field. */
+	public float y() { return ny(address()); }
+	/** Returns the value of the {@code z} field. */
+	public float z() { return nz(address()); }
+	/** Returns the value of the {@code w} field. */
+	public float w() { return nw(address()); }
 
-	public OVRQuatf setX(float x) { nsetX(address(), x); return this; }
-	public OVRQuatf setY(float y) { nsetY(address(), y); return this; }
-	public OVRQuatf setZ(float z) { nsetZ(address(), z); return this; }
-	public OVRQuatf setW(float w) { nsetW(address(), w); return this; }
+	/** Sets the specified value to the {@code x} field. */
+	public OVRQuatf x(float value) { nx(address(), value); return this; }
+	/** Sets the specified value to the {@code y} field. */
+	public OVRQuatf y(float value) { ny(address(), value); return this; }
+	/** Sets the specified value to the {@code z} field. */
+	public OVRQuatf z(float value) { nz(address(), value); return this; }
+	/** Sets the specified value to the {@code w} field. */
+	public OVRQuatf w(float value) { nw(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public OVRQuatf set(
@@ -80,15 +99,15 @@ public class OVRQuatf extends Struct {
 		float z,
 		float w
 	) {
-		setX(x);
-		setY(y);
-		setZ(z);
-		setW(w);
+		x(x);
+		y(y);
+		z(z);
+		w(w);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(OVRQuatf) set}. */
 	public OVRQuatf nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -105,7 +124,7 @@ public class OVRQuatf extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(OVRQuatf) set}. */
 	public OVRQuatf set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -166,23 +185,23 @@ public class OVRQuatf extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static float ngetX(long struct) { return memGetFloat(struct + X); }
-	public static float getX(ByteBuffer struct) { return ngetX(memAddress(struct)); }
-	public static float ngetY(long struct) { return memGetFloat(struct + Y); }
-	public static float getY(ByteBuffer struct) { return ngetY(memAddress(struct)); }
-	public static float ngetZ(long struct) { return memGetFloat(struct + Z); }
-	public static float getZ(ByteBuffer struct) { return ngetZ(memAddress(struct)); }
-	public static float ngetW(long struct) { return memGetFloat(struct + W); }
-	public static float getW(ByteBuffer struct) { return ngetW(memAddress(struct)); }
+	/** Unsafe version of {@link #x}. */
+	public static float nx(long struct) { return memGetFloat(struct + OVRQuatf.X); }
+	/** Unsafe version of {@link #y}. */
+	public static float ny(long struct) { return memGetFloat(struct + OVRQuatf.Y); }
+	/** Unsafe version of {@link #z}. */
+	public static float nz(long struct) { return memGetFloat(struct + OVRQuatf.Z); }
+	/** Unsafe version of {@link #w}. */
+	public static float nw(long struct) { return memGetFloat(struct + OVRQuatf.W); }
 
-	public static void nsetX(long struct, float x) { memPutFloat(struct + X, x); }
-	public static void setX(ByteBuffer struct, float x) { nsetX(memAddress(struct), x); }
-	public static void nsetY(long struct, float y) { memPutFloat(struct + Y, y); }
-	public static void setY(ByteBuffer struct, float y) { nsetY(memAddress(struct), y); }
-	public static void nsetZ(long struct, float z) { memPutFloat(struct + Z, z); }
-	public static void setZ(ByteBuffer struct, float z) { nsetZ(memAddress(struct), z); }
-	public static void nsetW(long struct, float w) { memPutFloat(struct + W, w); }
-	public static void setW(ByteBuffer struct, float w) { nsetW(memAddress(struct), w); }
+	/** Unsafe version of {@link #x(float) x}. */
+	public static void nx(long struct, float value) { memPutFloat(struct + OVRQuatf.X, value); }
+	/** Unsafe version of {@link #y(float) y}. */
+	public static void ny(long struct, float value) { memPutFloat(struct + OVRQuatf.Y, value); }
+	/** Unsafe version of {@link #z(float) z}. */
+	public static void nz(long struct, float value) { memPutFloat(struct + OVRQuatf.Z, value); }
+	/** Unsafe version of {@link #w(float) w}. */
+	public static void nw(long struct, float value) { memPutFloat(struct + OVRQuatf.W, value); }
 
 	// -----------------------------------
 
@@ -226,15 +245,23 @@ public class OVRQuatf extends Struct {
 			return SIZEOF;
 		}
 
-		public float getX() { return ngetX(address()); }
-		public float getY() { return ngetY(address()); }
-		public float getZ() { return ngetZ(address()); }
-		public float getW() { return ngetW(address()); }
+		/** Returns the value of the {@code x} field. */
+		public float x() { return nx(address()); }
+		/** Returns the value of the {@code y} field. */
+		public float y() { return ny(address()); }
+		/** Returns the value of the {@code z} field. */
+		public float z() { return nz(address()); }
+		/** Returns the value of the {@code w} field. */
+		public float w() { return nw(address()); }
 
-		public OVRQuatf.Buffer setX(float x) { nsetX(address(), x); return this; }
-		public OVRQuatf.Buffer setY(float y) { nsetY(address(), y); return this; }
-		public OVRQuatf.Buffer setZ(float z) { nsetZ(address(), z); return this; }
-		public OVRQuatf.Buffer setW(float w) { nsetW(address(), w); return this; }
+		/** Sets the specified value to the {@code x} field. */
+		public OVRQuatf.Buffer x(float value) { nx(address(), value); return this; }
+		/** Sets the specified value to the {@code y} field. */
+		public OVRQuatf.Buffer y(float value) { ny(address(), value); return this; }
+		/** Sets the specified value to the {@code z} field. */
+		public OVRQuatf.Buffer z(float value) { nz(address(), value); return this; }
+		/** Sets the specified value to the {@code w} field. */
+		public OVRQuatf.Buffer w(float value) { nw(address(), value); return this; }
 
 	}
 

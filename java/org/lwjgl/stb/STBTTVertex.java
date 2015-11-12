@@ -10,10 +10,21 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Vertex data. */
+/**
+ * Vertex data.
+ * 
+ * <h3>stbtt_vertex members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>x</td><td class="nw">stbtt_vertex_type</td><td></td></tr>
+ * <tr><td>y</td><td class="nw">stbtt_vertex_type</td><td></td></tr>
+ * <tr><td>cx</td><td class="nw">stbtt_vertex_type</td><td></td></tr>
+ * <tr><td>cy</td><td class="nw">stbtt_vertex_type</td><td></td></tr>
+ * <tr><td>type</td><td class="nw">unsigned char</td><td></td></tr>
+ * </table>
+ */
 public class STBTTVertex extends Struct {
 
 	/** The struct size in bytes. */
@@ -65,11 +76,16 @@ public class STBTTVertex extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public int getX() { return ngetX(address()); }
-	public int getY() { return ngetY(address()); }
-	public int getCx() { return ngetCx(address()); }
-	public int getCy() { return ngetCy(address()); }
-	public int getType() { return ngetType(address()); }
+	/** Returns the value of the {@code x} field. */
+	public short x() { return nx(address()); }
+	/** Returns the value of the {@code y} field. */
+	public short y() { return ny(address()); }
+	/** Returns the value of the {@code cx} field. */
+	public short cx() { return ncx(address()); }
+	/** Returns the value of the {@code cy} field. */
+	public short cy() { return ncy(address()); }
+	/** Returns the value of the {@code type} field. */
+	public byte type() { return ntype(address()); }
 
 	// -----------------------------------
 
@@ -125,16 +141,16 @@ public class STBTTVertex extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static int ngetX(long struct) { return memGetShort(struct + X); }
-	public static int getX(ByteBuffer struct) { return ngetX(memAddress(struct)); }
-	public static int ngetY(long struct) { return memGetShort(struct + Y); }
-	public static int getY(ByteBuffer struct) { return ngetY(memAddress(struct)); }
-	public static int ngetCx(long struct) { return memGetShort(struct + CX); }
-	public static int getCx(ByteBuffer struct) { return ngetCx(memAddress(struct)); }
-	public static int ngetCy(long struct) { return memGetShort(struct + CY); }
-	public static int getCy(ByteBuffer struct) { return ngetCy(memAddress(struct)); }
-	public static int ngetType(long struct) { return memGetByte(struct + TYPE) & 0xFF; }
-	public static int getType(ByteBuffer struct) { return ngetType(memAddress(struct)); }
+	/** Unsafe version of {@link #x}. */
+	public static short nx(long struct) { return memGetShort(struct + STBTTVertex.X); }
+	/** Unsafe version of {@link #y}. */
+	public static short ny(long struct) { return memGetShort(struct + STBTTVertex.Y); }
+	/** Unsafe version of {@link #cx}. */
+	public static short ncx(long struct) { return memGetShort(struct + STBTTVertex.CX); }
+	/** Unsafe version of {@link #cy}. */
+	public static short ncy(long struct) { return memGetShort(struct + STBTTVertex.CY); }
+	/** Unsafe version of {@link #type}. */
+	public static byte ntype(long struct) { return memGetByte(struct + STBTTVertex.TYPE); }
 
 	// -----------------------------------
 
@@ -178,11 +194,16 @@ public class STBTTVertex extends Struct {
 			return SIZEOF;
 		}
 
-		public int getX() { return ngetX(address()); }
-		public int getY() { return ngetY(address()); }
-		public int getCx() { return ngetCx(address()); }
-		public int getCy() { return ngetCy(address()); }
-		public int getType() { return ngetType(address()); }
+		/** Returns the value of the {@code x} field. */
+		public short x() { return nx(address()); }
+		/** Returns the value of the {@code y} field. */
+		public short y() { return ny(address()); }
+		/** Returns the value of the {@code cx} field. */
+		public short cx() { return ncx(address()); }
+		/** Returns the value of the {@code cy} field. */
+		public short cy() { return ncy(address()); }
+		/** Returns the value of the {@code type} field. */
+		public byte type() { return ntype(address()); }
 
 	}
 

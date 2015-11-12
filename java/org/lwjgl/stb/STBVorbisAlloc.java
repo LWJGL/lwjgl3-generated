@@ -13,7 +13,16 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** A buffer to use for allocations by {@link STBVorbis} */
+/**
+ * A buffer to use for allocations by {@link STBVorbis}
+ * 
+ * <h3>stb_vorbis_alloc members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>alloc_buffer</td><td class="nw">char</td><td></td></tr>
+ * <tr><td>alloc_buffer_length_in_bytes</td><td class="nw">int</td><td></td></tr>
+ * </table>
+ */
 public class STBVorbisAlloc extends Struct {
 
 	/** The struct size in bytes. */
@@ -59,24 +68,32 @@ public class STBVorbisAlloc extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public ByteBuffer getAllocBuffer(int capacity) { return ngetAllocBuffer(address(), capacity); }
-	public int getAllocBufferLengthInBytes() { return ngetAllocBufferLengthInBytes(address()); }
+	/**
+	 * Returns a {@link ByteBuffer} view of the data pointed to by the {@code alloc_buffer} field.
+	 *
+	 * @param capacity the number of elements in the returned {@link ByteBuffer}
+	 */
+	public ByteBuffer alloc_buffer(int capacity) { return nalloc_buffer(address(), capacity); }
+	/** Returns the value of the {@code alloc_buffer_length_in_bytes} field. */
+	public int alloc_buffer_length_in_bytes() { return nalloc_buffer_length_in_bytes(address()); }
 
-	public STBVorbisAlloc setAllocBuffer(ByteBuffer alloc_buffer) { nsetAllocBuffer(address(), alloc_buffer); return this; }
-	public STBVorbisAlloc setAllocBufferLengthInBytes(int alloc_buffer_length_in_bytes) { nsetAllocBufferLengthInBytes(address(), alloc_buffer_length_in_bytes); return this; }
+	/** Sets the address of the specified {@link ByteBuffer} to the {@code alloc_buffer} field. */
+	public STBVorbisAlloc alloc_buffer(ByteBuffer value) { nalloc_buffer(address(), value); return this; }
+	/** Sets the specified value to the {@code alloc_buffer_length_in_bytes} field. */
+	public STBVorbisAlloc alloc_buffer_length_in_bytes(int value) { nalloc_buffer_length_in_bytes(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public STBVorbisAlloc set(
 		ByteBuffer alloc_buffer,
 		int alloc_buffer_length_in_bytes
 	) {
-		setAllocBuffer(alloc_buffer);
-		setAllocBufferLengthInBytes(alloc_buffer_length_in_bytes);
+		alloc_buffer(alloc_buffer);
+		alloc_buffer_length_in_bytes(alloc_buffer_length_in_bytes);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(STBVorbisAlloc) set}. */
 	public STBVorbisAlloc nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -93,7 +110,7 @@ public class STBVorbisAlloc extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(STBVorbisAlloc) set}. */
 	public STBVorbisAlloc set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -154,17 +171,15 @@ public class STBVorbisAlloc extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static long ngetAllocBuffer(long struct) { return memGetAddress(struct + ALLOC_BUFFER); }
-	public static ByteBuffer ngetAllocBuffer(long struct, int capacity) { return memByteBuffer(ngetAllocBuffer(struct), capacity); }
-	public static ByteBuffer getAllocBuffer(ByteBuffer struct, int capacity) { return ngetAllocBuffer(memAddress(struct), capacity); }
-	public static int ngetAllocBufferLengthInBytes(long struct) { return memGetInt(struct + ALLOC_BUFFER_LENGTH_IN_BYTES); }
-	public static int getAllocBufferLengthInBytes(ByteBuffer struct) { return ngetAllocBufferLengthInBytes(memAddress(struct)); }
+	/** Unsafe version of {@link #alloc_buffer(int) alloc_buffer}. */
+	public static ByteBuffer nalloc_buffer(long struct, int capacity) { return memByteBuffer(memGetAddress(struct + STBVorbisAlloc.ALLOC_BUFFER), capacity); }
+	/** Unsafe version of {@link #alloc_buffer_length_in_bytes}. */
+	public static int nalloc_buffer_length_in_bytes(long struct) { return memGetInt(struct + STBVorbisAlloc.ALLOC_BUFFER_LENGTH_IN_BYTES); }
 
-	public static void nsetAllocBuffer(long struct, long alloc_buffer) { memPutAddress(struct + ALLOC_BUFFER, alloc_buffer); }
-	public static void nsetAllocBuffer(long struct, ByteBuffer alloc_buffer) { nsetAllocBuffer(struct, memAddressSafe(alloc_buffer)); }
-	public static void setAllocBuffer(ByteBuffer struct, ByteBuffer alloc_buffer) { nsetAllocBuffer(memAddress(struct), alloc_buffer); }
-	public static void nsetAllocBufferLengthInBytes(long struct, int alloc_buffer_length_in_bytes) { memPutInt(struct + ALLOC_BUFFER_LENGTH_IN_BYTES, alloc_buffer_length_in_bytes); }
-	public static void setAllocBufferLengthInBytes(ByteBuffer struct, int alloc_buffer_length_in_bytes) { nsetAllocBufferLengthInBytes(memAddress(struct), alloc_buffer_length_in_bytes); }
+	/** Unsafe version of {@link #alloc_buffer(ByteBuffer) alloc_buffer}. */
+	public static void nalloc_buffer(long struct, ByteBuffer value) { memPutAddress(struct + STBVorbisAlloc.ALLOC_BUFFER, memAddressSafe(value)); }
+	/** Unsafe version of {@link #alloc_buffer_length_in_bytes(int) alloc_buffer_length_in_bytes}. */
+	public static void nalloc_buffer_length_in_bytes(long struct, int value) { memPutInt(struct + STBVorbisAlloc.ALLOC_BUFFER_LENGTH_IN_BYTES, value); }
 
 	// -----------------------------------
 
@@ -208,11 +223,19 @@ public class STBVorbisAlloc extends Struct {
 			return SIZEOF;
 		}
 
-		public ByteBuffer getAllocBuffer(int capacity) { return ngetAllocBuffer(address(), capacity); }
-		public int getAllocBufferLengthInBytes() { return ngetAllocBufferLengthInBytes(address()); }
+		/**
+		 * Returns a {@link ByteBuffer} view of the data pointed to by the {@code alloc_buffer} field.
+		 *
+		 * @param capacity the number of elements in the returned {@link ByteBuffer}
+		 */
+		public ByteBuffer alloc_buffer(int capacity) { return nalloc_buffer(address(), capacity); }
+		/** Returns the value of the {@code alloc_buffer_length_in_bytes} field. */
+		public int alloc_buffer_length_in_bytes() { return nalloc_buffer_length_in_bytes(address()); }
 
-		public STBVorbisAlloc.Buffer setAllocBuffer(ByteBuffer alloc_buffer) { nsetAllocBuffer(address(), alloc_buffer); return this; }
-		public STBVorbisAlloc.Buffer setAllocBufferLengthInBytes(int alloc_buffer_length_in_bytes) { nsetAllocBufferLengthInBytes(address(), alloc_buffer_length_in_bytes); return this; }
+		/** Sets the address of the specified {@link ByteBuffer} to the {@code alloc_buffer} field. */
+		public STBVorbisAlloc.Buffer alloc_buffer(ByteBuffer value) { nalloc_buffer(address(), value); return this; }
+		/** Sets the specified value to the {@code alloc_buffer_length_in_bytes} field. */
+		public STBVorbisAlloc.Buffer alloc_buffer_length_in_bytes(int value) { nalloc_buffer_length_in_bytes(address(), value); return this; }
 
 	}
 

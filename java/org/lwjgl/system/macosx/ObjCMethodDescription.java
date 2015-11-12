@@ -10,10 +10,18 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Defines a method. */
+/**
+ * Defines a method.
+ * 
+ * <h3>objc_method_description members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>name</td><td class="nw">SEL</td><td>the name of the method at runtime</td></tr>
+ * <tr><td>types</td><td class="nw">char</td><td>the types of the method arguments</td></tr>
+ * </table>
+ */
 public class ObjCMethodDescription extends Struct {
 
 	/** The struct size in bytes. */
@@ -59,9 +67,12 @@ public class ObjCMethodDescription extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public long getName() { return ngetName(address()); }
-	public ByteBuffer getTypesBuffer() { return ngetTypesBuffer(address()); }
-	public String getTypesString() { return ngetTypesString(address()); }
+	/** Returns the value of the {@code name} field. */
+	public long name() { return nname(address()); }
+	/** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code types} field. */
+	public ByteBuffer types() { return ntypes(address()); }
+	/** Decodes the null-terminated string pointed to by the {@code types} field. */
+	public String typesString() { return ntypesString(address()); }
 
 	// -----------------------------------
 
@@ -117,13 +128,12 @@ public class ObjCMethodDescription extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static long ngetName(long struct) { return memGetAddress(struct + NAME); }
-	public static long getName(ByteBuffer struct) { return ngetName(memAddress(struct)); }
-	public static long ngetTypes(long struct) { return memGetAddress(struct + TYPES); }
-	public static ByteBuffer ngetTypesBuffer(long struct) { return memByteBufferNT1(ngetTypes(struct)); }
-	public static ByteBuffer getTypesBuffer(ByteBuffer struct) { return ngetTypesBuffer(memAddress(struct)); }
-	public static String ngetTypesString(long struct) { return memDecodeUTF8(ngetTypes(struct)); }
-	public static String getTypesString(ByteBuffer struct) { return ngetTypesString(memAddress(struct)); }
+	/** Unsafe version of {@link #name}. */
+	public static long nname(long struct) { return memGetAddress(struct + ObjCMethodDescription.NAME); }
+	/** Unsafe version of {@link #types}. */
+	public static ByteBuffer ntypes(long struct) { return memByteBufferNT1(memGetAddress(struct + ObjCMethodDescription.TYPES)); }
+	/** Unsafe version of {@link #typesString}. */
+	public static String ntypesString(long struct) { return memDecodeUTF8(memGetAddress(struct + ObjCMethodDescription.TYPES)); }
 
 	// -----------------------------------
 
@@ -167,9 +177,12 @@ public class ObjCMethodDescription extends Struct {
 			return SIZEOF;
 		}
 
-		public long getName() { return ngetName(address()); }
-		public ByteBuffer getTypesBuffer() { return ngetTypesBuffer(address()); }
-		public String getTypesString() { return ngetTypesString(address()); }
+		/** Returns the value of the {@code name} field. */
+		public long name() { return nname(address()); }
+		/** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code types} field. */
+		public ByteBuffer types() { return ntypes(address()); }
+		/** Decodes the null-terminated string pointed to by the {@code types} field. */
+		public String typesString() { return ntypesString(address()); }
 
 	}
 

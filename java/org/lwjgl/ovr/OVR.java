@@ -32,7 +32,7 @@ import static org.lwjgl.system.Pointer.*;
  * <h3>Application Loop</h3>
  * <ul>
  * <li>Call {@link #ovr_GetPredictedDisplayTime GetPredictedDisplayTime} to get the current frame timing information.</li>
- * <li>Call {@link #ovr_GetTrackingState GetTrackingState} and {@link #ovr_CalcEyePoses CalcEyePoses} to obtain the predicted rendering pose for each eye based on timing.</li>
+ * <li>Call {@link #ovr_GetTrackingState GetTrackingState} and {@link OVRUtil#ovr_CalcEyePoses CalcEyePoses} to obtain the predicted rendering pose for each eye based on timing.</li>
  * <li>Increment {@code ovrTextureSet::CurrentIndex} for each layer you will be rendering to in the next step.</li>
  * <li>Render the scene content into {@code ovrTextureSet::CurrentIndex} for each eye and layer you plan to update this frame.</li>
  * <li>Call {@link #ovr_SubmitFrame SubmitFrame} to render the distorted layers to the back buffer and present them on the HMD. If {@link #ovr_SubmitFrame SubmitFrame} returns

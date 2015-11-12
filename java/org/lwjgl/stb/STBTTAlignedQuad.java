@@ -10,10 +10,24 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Quad used for drawing a baked character, returned by {@link STBTruetype#stbtt_GetBakedQuad}. */
+/**
+ * Quad used for drawing a baked character, returned by {@link STBTruetype#stbtt_GetBakedQuad}.
+ * 
+ * <h3>stbtt_aligned_quad members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>x0</td><td class="nw">float</td><td></td></tr>
+ * <tr><td>y0</td><td class="nw">float</td><td></td></tr>
+ * <tr><td>s0</td><td class="nw">float</td><td></td></tr>
+ * <tr><td>t0</td><td class="nw">float</td><td></td></tr>
+ * <tr><td>x1</td><td class="nw">float</td><td></td></tr>
+ * <tr><td>y1</td><td class="nw">float</td><td></td></tr>
+ * <tr><td>s1</td><td class="nw">float</td><td></td></tr>
+ * <tr><td>t1</td><td class="nw">float</td><td></td></tr>
+ * </table>
+ */
 public class STBTTAlignedQuad extends Struct {
 
 	/** The struct size in bytes. */
@@ -71,14 +85,22 @@ public class STBTTAlignedQuad extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public float getX0() { return ngetX0(address()); }
-	public float getY0() { return ngetY0(address()); }
-	public float getS0() { return ngetS0(address()); }
-	public float getT0() { return ngetT0(address()); }
-	public float getX1() { return ngetX1(address()); }
-	public float getY1() { return ngetY1(address()); }
-	public float getS1() { return ngetS1(address()); }
-	public float getT1() { return ngetT1(address()); }
+	/** Returns the value of the {@code x0} field. */
+	public float x0() { return nx0(address()); }
+	/** Returns the value of the {@code y0} field. */
+	public float y0() { return ny0(address()); }
+	/** Returns the value of the {@code s0} field. */
+	public float s0() { return ns0(address()); }
+	/** Returns the value of the {@code t0} field. */
+	public float t0() { return nt0(address()); }
+	/** Returns the value of the {@code x1} field. */
+	public float x1() { return nx1(address()); }
+	/** Returns the value of the {@code y1} field. */
+	public float y1() { return ny1(address()); }
+	/** Returns the value of the {@code s1} field. */
+	public float s1() { return ns1(address()); }
+	/** Returns the value of the {@code t1} field. */
+	public float t1() { return nt1(address()); }
 
 	// -----------------------------------
 
@@ -134,22 +156,22 @@ public class STBTTAlignedQuad extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static float ngetX0(long struct) { return memGetFloat(struct + X0); }
-	public static float getX0(ByteBuffer struct) { return ngetX0(memAddress(struct)); }
-	public static float ngetY0(long struct) { return memGetFloat(struct + Y0); }
-	public static float getY0(ByteBuffer struct) { return ngetY0(memAddress(struct)); }
-	public static float ngetS0(long struct) { return memGetFloat(struct + S0); }
-	public static float getS0(ByteBuffer struct) { return ngetS0(memAddress(struct)); }
-	public static float ngetT0(long struct) { return memGetFloat(struct + T0); }
-	public static float getT0(ByteBuffer struct) { return ngetT0(memAddress(struct)); }
-	public static float ngetX1(long struct) { return memGetFloat(struct + X1); }
-	public static float getX1(ByteBuffer struct) { return ngetX1(memAddress(struct)); }
-	public static float ngetY1(long struct) { return memGetFloat(struct + Y1); }
-	public static float getY1(ByteBuffer struct) { return ngetY1(memAddress(struct)); }
-	public static float ngetS1(long struct) { return memGetFloat(struct + S1); }
-	public static float getS1(ByteBuffer struct) { return ngetS1(memAddress(struct)); }
-	public static float ngetT1(long struct) { return memGetFloat(struct + T1); }
-	public static float getT1(ByteBuffer struct) { return ngetT1(memAddress(struct)); }
+	/** Unsafe version of {@link #x0}. */
+	public static float nx0(long struct) { return memGetFloat(struct + STBTTAlignedQuad.X0); }
+	/** Unsafe version of {@link #y0}. */
+	public static float ny0(long struct) { return memGetFloat(struct + STBTTAlignedQuad.Y0); }
+	/** Unsafe version of {@link #s0}. */
+	public static float ns0(long struct) { return memGetFloat(struct + STBTTAlignedQuad.S0); }
+	/** Unsafe version of {@link #t0}. */
+	public static float nt0(long struct) { return memGetFloat(struct + STBTTAlignedQuad.T0); }
+	/** Unsafe version of {@link #x1}. */
+	public static float nx1(long struct) { return memGetFloat(struct + STBTTAlignedQuad.X1); }
+	/** Unsafe version of {@link #y1}. */
+	public static float ny1(long struct) { return memGetFloat(struct + STBTTAlignedQuad.Y1); }
+	/** Unsafe version of {@link #s1}. */
+	public static float ns1(long struct) { return memGetFloat(struct + STBTTAlignedQuad.S1); }
+	/** Unsafe version of {@link #t1}. */
+	public static float nt1(long struct) { return memGetFloat(struct + STBTTAlignedQuad.T1); }
 
 	// -----------------------------------
 
@@ -193,14 +215,22 @@ public class STBTTAlignedQuad extends Struct {
 			return SIZEOF;
 		}
 
-		public float getX0() { return ngetX0(address()); }
-		public float getY0() { return ngetY0(address()); }
-		public float getS0() { return ngetS0(address()); }
-		public float getT0() { return ngetT0(address()); }
-		public float getX1() { return ngetX1(address()); }
-		public float getY1() { return ngetY1(address()); }
-		public float getS1() { return ngetS1(address()); }
-		public float getT1() { return ngetT1(address()); }
+		/** Returns the value of the {@code x0} field. */
+		public float x0() { return nx0(address()); }
+		/** Returns the value of the {@code y0} field. */
+		public float y0() { return ny0(address()); }
+		/** Returns the value of the {@code s0} field. */
+		public float s0() { return ns0(address()); }
+		/** Returns the value of the {@code t0} field. */
+		public float t0() { return nt0(address()); }
+		/** Returns the value of the {@code x1} field. */
+		public float x1() { return nx1(address()); }
+		/** Returns the value of the {@code y1} field. */
+		public float y1() { return ny1(address()); }
+		/** Returns the value of the {@code s1} field. */
+		public float s1() { return ns1(address()); }
+		/** Returns the value of the {@code t1} field. */
+		public float t1() { return nt1(address()); }
 
 	}
 

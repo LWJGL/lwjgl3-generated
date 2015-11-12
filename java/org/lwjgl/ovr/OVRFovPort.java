@@ -17,6 +17,15 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Field Of View (FOV) in tangent of the angle units. As an example, for a standard 90 degree vertical FOV, we would have:
  * <pre><code style="font-family: monospace">
  * { UpTan = tan(90 degrees / 2), DownTan = tan(90 degrees / 2) }</code></pre>.
+ * 
+ * <h3>ovrFovPort members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>UpTan</td><td class="nw">float</td><td>the tangent of the angle between the viewing vector and the top edge of the field of view</td></tr>
+ * <tr><td>DownTan</td><td class="nw">float</td><td>the tangent of the angle between the viewing vector and the bottom edge of the field of view</td></tr>
+ * <tr><td>LeftTan</td><td class="nw">float</td><td>the tangent of the angle between the viewing vector and the left edge of the field of view</td></tr>
+ * <tr><td>RightTan</td><td class="nw">float</td><td>the tangent of the angle between the viewing vector and the right edge of the field of view</td></tr>
+ * </table>
  */
 public class OVRFovPort extends Struct {
 
@@ -67,15 +76,23 @@ public class OVRFovPort extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public float getUpTan() { return ngetUpTan(address()); }
-	public float getDownTan() { return ngetDownTan(address()); }
-	public float getLeftTan() { return ngetLeftTan(address()); }
-	public float getRightTan() { return ngetRightTan(address()); }
+	/** Returns the value of the {@code UpTan} field. */
+	public float UpTan() { return nUpTan(address()); }
+	/** Returns the value of the {@code DownTan} field. */
+	public float DownTan() { return nDownTan(address()); }
+	/** Returns the value of the {@code LeftTan} field. */
+	public float LeftTan() { return nLeftTan(address()); }
+	/** Returns the value of the {@code RightTan} field. */
+	public float RightTan() { return nRightTan(address()); }
 
-	public OVRFovPort setUpTan(float UpTan) { nsetUpTan(address(), UpTan); return this; }
-	public OVRFovPort setDownTan(float DownTan) { nsetDownTan(address(), DownTan); return this; }
-	public OVRFovPort setLeftTan(float LeftTan) { nsetLeftTan(address(), LeftTan); return this; }
-	public OVRFovPort setRightTan(float RightTan) { nsetRightTan(address(), RightTan); return this; }
+	/** Sets the specified value to the {@code UpTan} field. */
+	public OVRFovPort UpTan(float value) { nUpTan(address(), value); return this; }
+	/** Sets the specified value to the {@code DownTan} field. */
+	public OVRFovPort DownTan(float value) { nDownTan(address(), value); return this; }
+	/** Sets the specified value to the {@code LeftTan} field. */
+	public OVRFovPort LeftTan(float value) { nLeftTan(address(), value); return this; }
+	/** Sets the specified value to the {@code RightTan} field. */
+	public OVRFovPort RightTan(float value) { nRightTan(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public OVRFovPort set(
@@ -84,15 +101,15 @@ public class OVRFovPort extends Struct {
 		float LeftTan,
 		float RightTan
 	) {
-		setUpTan(UpTan);
-		setDownTan(DownTan);
-		setLeftTan(LeftTan);
-		setRightTan(RightTan);
+		UpTan(UpTan);
+		DownTan(DownTan);
+		LeftTan(LeftTan);
+		RightTan(RightTan);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(OVRFovPort) set}. */
 	public OVRFovPort nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -109,7 +126,7 @@ public class OVRFovPort extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(OVRFovPort) set}. */
 	public OVRFovPort set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -170,23 +187,23 @@ public class OVRFovPort extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static float ngetUpTan(long struct) { return memGetFloat(struct + UPTAN); }
-	public static float getUpTan(ByteBuffer struct) { return ngetUpTan(memAddress(struct)); }
-	public static float ngetDownTan(long struct) { return memGetFloat(struct + DOWNTAN); }
-	public static float getDownTan(ByteBuffer struct) { return ngetDownTan(memAddress(struct)); }
-	public static float ngetLeftTan(long struct) { return memGetFloat(struct + LEFTTAN); }
-	public static float getLeftTan(ByteBuffer struct) { return ngetLeftTan(memAddress(struct)); }
-	public static float ngetRightTan(long struct) { return memGetFloat(struct + RIGHTTAN); }
-	public static float getRightTan(ByteBuffer struct) { return ngetRightTan(memAddress(struct)); }
+	/** Unsafe version of {@link #UpTan}. */
+	public static float nUpTan(long struct) { return memGetFloat(struct + OVRFovPort.UPTAN); }
+	/** Unsafe version of {@link #DownTan}. */
+	public static float nDownTan(long struct) { return memGetFloat(struct + OVRFovPort.DOWNTAN); }
+	/** Unsafe version of {@link #LeftTan}. */
+	public static float nLeftTan(long struct) { return memGetFloat(struct + OVRFovPort.LEFTTAN); }
+	/** Unsafe version of {@link #RightTan}. */
+	public static float nRightTan(long struct) { return memGetFloat(struct + OVRFovPort.RIGHTTAN); }
 
-	public static void nsetUpTan(long struct, float UpTan) { memPutFloat(struct + UPTAN, UpTan); }
-	public static void setUpTan(ByteBuffer struct, float UpTan) { nsetUpTan(memAddress(struct), UpTan); }
-	public static void nsetDownTan(long struct, float DownTan) { memPutFloat(struct + DOWNTAN, DownTan); }
-	public static void setDownTan(ByteBuffer struct, float DownTan) { nsetDownTan(memAddress(struct), DownTan); }
-	public static void nsetLeftTan(long struct, float LeftTan) { memPutFloat(struct + LEFTTAN, LeftTan); }
-	public static void setLeftTan(ByteBuffer struct, float LeftTan) { nsetLeftTan(memAddress(struct), LeftTan); }
-	public static void nsetRightTan(long struct, float RightTan) { memPutFloat(struct + RIGHTTAN, RightTan); }
-	public static void setRightTan(ByteBuffer struct, float RightTan) { nsetRightTan(memAddress(struct), RightTan); }
+	/** Unsafe version of {@link #UpTan(float) UpTan}. */
+	public static void nUpTan(long struct, float value) { memPutFloat(struct + OVRFovPort.UPTAN, value); }
+	/** Unsafe version of {@link #DownTan(float) DownTan}. */
+	public static void nDownTan(long struct, float value) { memPutFloat(struct + OVRFovPort.DOWNTAN, value); }
+	/** Unsafe version of {@link #LeftTan(float) LeftTan}. */
+	public static void nLeftTan(long struct, float value) { memPutFloat(struct + OVRFovPort.LEFTTAN, value); }
+	/** Unsafe version of {@link #RightTan(float) RightTan}. */
+	public static void nRightTan(long struct, float value) { memPutFloat(struct + OVRFovPort.RIGHTTAN, value); }
 
 	// -----------------------------------
 
@@ -230,15 +247,23 @@ public class OVRFovPort extends Struct {
 			return SIZEOF;
 		}
 
-		public float getUpTan() { return ngetUpTan(address()); }
-		public float getDownTan() { return ngetDownTan(address()); }
-		public float getLeftTan() { return ngetLeftTan(address()); }
-		public float getRightTan() { return ngetRightTan(address()); }
+		/** Returns the value of the {@code UpTan} field. */
+		public float UpTan() { return nUpTan(address()); }
+		/** Returns the value of the {@code DownTan} field. */
+		public float DownTan() { return nDownTan(address()); }
+		/** Returns the value of the {@code LeftTan} field. */
+		public float LeftTan() { return nLeftTan(address()); }
+		/** Returns the value of the {@code RightTan} field. */
+		public float RightTan() { return nRightTan(address()); }
 
-		public OVRFovPort.Buffer setUpTan(float UpTan) { nsetUpTan(address(), UpTan); return this; }
-		public OVRFovPort.Buffer setDownTan(float DownTan) { nsetDownTan(address(), DownTan); return this; }
-		public OVRFovPort.Buffer setLeftTan(float LeftTan) { nsetLeftTan(address(), LeftTan); return this; }
-		public OVRFovPort.Buffer setRightTan(float RightTan) { nsetRightTan(address(), RightTan); return this; }
+		/** Sets the specified value to the {@code UpTan} field. */
+		public OVRFovPort.Buffer UpTan(float value) { nUpTan(address(), value); return this; }
+		/** Sets the specified value to the {@code DownTan} field. */
+		public OVRFovPort.Buffer DownTan(float value) { nDownTan(address(), value); return this; }
+		/** Sets the specified value to the {@code LeftTan} field. */
+		public OVRFovPort.Buffer LeftTan(float value) { nLeftTan(address(), value); return this; }
+		/** Sets the specified value to the {@code RightTan} field. */
+		public OVRFovPort.Buffer RightTan(float value) { nRightTan(address(), value); return this; }
 
 	}
 

@@ -13,7 +13,17 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Image IO callbacks, used by {@link STBImage#stbi_load_from_callbacks}. */
+/**
+ * Image IO callbacks, used by {@link STBImage#stbi_load_from_callbacks}.
+ * 
+ * <h3>stbi_io_callbacks members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>read</td><td class="nw">stbi_io_callbacks.read</td><td>fill {@code data} with {@code size} bytes. Return number of bytes actually read.</td></tr>
+ * <tr><td>skip</td><td class="nw">stbi_io_callbacks.skip</td><td>skip the next {@code n} bytes, or {@code unget} the last -n bytes if negative</td></tr>
+ * <tr><td>eof</td><td class="nw">stbi_io_callbacks.eof</td><td>returns nonzero if we are at end of file/data</td></tr>
+ * </table>
+ */
 public class STBIIOCallbacks extends Struct {
 
 	/** The struct size in bytes. */
@@ -61,13 +71,19 @@ public class STBIIOCallbacks extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public long getRead() { return ngetRead(address()); }
-	public long getSkip() { return ngetSkip(address()); }
-	public long getEof() { return ngetEof(address()); }
+	/** Returns the {@code STBIReadCallback} instance at the {@code read} field. */
+	public STBIReadCallback read() { return nread(address()); }
+	/** Returns the {@code STBISkipCallback} instance at the {@code skip} field. */
+	public STBISkipCallback skip() { return nskip(address()); }
+	/** Returns the {@code STBIEOFCallback} instance at the {@code eof} field. */
+	public STBIEOFCallback eof() { return neof(address()); }
 
-	public STBIIOCallbacks setRead(long read) { nsetRead(address(), read); return this; }
-	public STBIIOCallbacks setSkip(long skip) { nsetSkip(address(), skip); return this; }
-	public STBIIOCallbacks setEof(long eof) { nsetEof(address(), eof); return this; }
+	/** Sets the specified value to the {@code read} field. */
+	public STBIIOCallbacks read(long value) { nread(address(), value); return this; }
+	/** Sets the specified value to the {@code skip} field. */
+	public STBIIOCallbacks skip(long value) { nskip(address(), value); return this; }
+	/** Sets the specified value to the {@code eof} field. */
+	public STBIIOCallbacks eof(long value) { neof(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public STBIIOCallbacks set(
@@ -75,14 +91,14 @@ public class STBIIOCallbacks extends Struct {
 		long skip,
 		long eof
 	) {
-		setRead(read);
-		setSkip(skip);
-		setEof(eof);
+		read(read);
+		skip(skip);
+		eof(eof);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(STBIIOCallbacks) set}. */
 	public STBIIOCallbacks nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -99,7 +115,7 @@ public class STBIIOCallbacks extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(STBIIOCallbacks) set}. */
 	public STBIIOCallbacks set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -160,19 +176,19 @@ public class STBIIOCallbacks extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static long ngetRead(long struct) { return memGetAddress(struct + READ); }
-	public static long getRead(ByteBuffer struct) { return ngetRead(memAddress(struct)); }
-	public static long ngetSkip(long struct) { return memGetAddress(struct + SKIP); }
-	public static long getSkip(ByteBuffer struct) { return ngetSkip(memAddress(struct)); }
-	public static long ngetEof(long struct) { return memGetAddress(struct + EOF); }
-	public static long getEof(ByteBuffer struct) { return ngetEof(memAddress(struct)); }
+	/** Unsafe version of {@link #read}. */
+	public static STBIReadCallback nread(long struct) { return org.lwjgl.system.libffi.Closure.create(memGetAddress(struct + STBIIOCallbacks.READ)); }
+	/** Unsafe version of {@link #skip}. */
+	public static STBISkipCallback nskip(long struct) { return org.lwjgl.system.libffi.Closure.create(memGetAddress(struct + STBIIOCallbacks.SKIP)); }
+	/** Unsafe version of {@link #eof}. */
+	public static STBIEOFCallback neof(long struct) { return org.lwjgl.system.libffi.Closure.create(memGetAddress(struct + STBIIOCallbacks.EOF)); }
 
-	public static void nsetRead(long struct, long read) { memPutAddress(struct + READ, read); }
-	public static void setRead(ByteBuffer struct, long read) { nsetRead(memAddress(struct), read); }
-	public static void nsetSkip(long struct, long skip) { memPutAddress(struct + SKIP, skip); }
-	public static void setSkip(ByteBuffer struct, long skip) { nsetSkip(memAddress(struct), skip); }
-	public static void nsetEof(long struct, long eof) { memPutAddress(struct + EOF, eof); }
-	public static void setEof(ByteBuffer struct, long eof) { nsetEof(memAddress(struct), eof); }
+	/** Unsafe version of {@link #read(long) read}. */
+	public static void nread(long struct, long value) { memPutAddress(struct + STBIIOCallbacks.READ, value); }
+	/** Unsafe version of {@link #skip(long) skip}. */
+	public static void nskip(long struct, long value) { memPutAddress(struct + STBIIOCallbacks.SKIP, value); }
+	/** Unsafe version of {@link #eof(long) eof}. */
+	public static void neof(long struct, long value) { memPutAddress(struct + STBIIOCallbacks.EOF, value); }
 
 	// -----------------------------------
 
@@ -216,13 +232,19 @@ public class STBIIOCallbacks extends Struct {
 			return SIZEOF;
 		}
 
-		public long getRead() { return ngetRead(address()); }
-		public long getSkip() { return ngetSkip(address()); }
-		public long getEof() { return ngetEof(address()); }
+		/** Returns the {@code STBIReadCallback} instance at the {@code read} field. */
+		public STBIReadCallback read() { return nread(address()); }
+		/** Returns the {@code STBISkipCallback} instance at the {@code skip} field. */
+		public STBISkipCallback skip() { return nskip(address()); }
+		/** Returns the {@code STBIEOFCallback} instance at the {@code eof} field. */
+		public STBIEOFCallback eof() { return neof(address()); }
 
-		public STBIIOCallbacks.Buffer setRead(long read) { nsetRead(address(), read); return this; }
-		public STBIIOCallbacks.Buffer setSkip(long skip) { nsetSkip(address(), skip); return this; }
-		public STBIIOCallbacks.Buffer setEof(long eof) { nsetEof(address(), eof); return this; }
+		/** Sets the specified value to the {@code read} field. */
+		public STBIIOCallbacks.Buffer read(long value) { nread(address(), value); return this; }
+		/** Sets the specified value to the {@code skip} field. */
+		public STBIIOCallbacks.Buffer skip(long value) { nskip(address(), value); return this; }
+		/** Sets the specified value to the {@code eof} field. */
+		public STBIIOCallbacks.Buffer eof(long value) { neof(address(), value); return this; }
 
 	}
 

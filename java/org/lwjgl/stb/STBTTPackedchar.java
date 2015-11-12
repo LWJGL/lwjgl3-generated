@@ -10,10 +10,25 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Packed character data, returned by {@link STBTruetype#stbtt_PackFontRange} */
+/**
+ * Packed character data, returned by {@link STBTruetype#stbtt_PackFontRange}
+ * 
+ * <h3>stbtt_packedchar members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>x0</td><td class="nw">unsigned short</td><td></td></tr>
+ * <tr><td>y0</td><td class="nw">unsigned short</td><td></td></tr>
+ * <tr><td>x1</td><td class="nw">unsigned short</td><td></td></tr>
+ * <tr><td>y1</td><td class="nw">unsigned short</td><td></td></tr>
+ * <tr><td>xoff</td><td class="nw">float</td><td></td></tr>
+ * <tr><td>yoff</td><td class="nw">float</td><td></td></tr>
+ * <tr><td>xadvance</td><td class="nw">float</td><td></td></tr>
+ * <tr><td>xoff2</td><td class="nw">float</td><td></td></tr>
+ * <tr><td>yoff2</td><td class="nw">float</td><td></td></tr>
+ * </table>
+ */
 public class STBTTPackedchar extends Struct {
 
 	/** The struct size in bytes. */
@@ -73,15 +88,24 @@ public class STBTTPackedchar extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public int getX0() { return ngetX0(address()); }
-	public int getY0() { return ngetY0(address()); }
-	public int getX1() { return ngetX1(address()); }
-	public int getY1() { return ngetY1(address()); }
-	public float getXoff() { return ngetXoff(address()); }
-	public float getYoff() { return ngetYoff(address()); }
-	public float getXadvance() { return ngetXadvance(address()); }
-	public float getXoff2() { return ngetXoff2(address()); }
-	public float getYoff2() { return ngetYoff2(address()); }
+	/** Returns the value of the {@code x0} field. */
+	public short x0() { return nx0(address()); }
+	/** Returns the value of the {@code y0} field. */
+	public short y0() { return ny0(address()); }
+	/** Returns the value of the {@code x1} field. */
+	public short x1() { return nx1(address()); }
+	/** Returns the value of the {@code y1} field. */
+	public short y1() { return ny1(address()); }
+	/** Returns the value of the {@code xoff} field. */
+	public float xoff() { return nxoff(address()); }
+	/** Returns the value of the {@code yoff} field. */
+	public float yoff() { return nyoff(address()); }
+	/** Returns the value of the {@code xadvance} field. */
+	public float xadvance() { return nxadvance(address()); }
+	/** Returns the value of the {@code xoff2} field. */
+	public float xoff2() { return nxoff2(address()); }
+	/** Returns the value of the {@code yoff2} field. */
+	public float yoff2() { return nyoff2(address()); }
 
 	// -----------------------------------
 
@@ -137,24 +161,24 @@ public class STBTTPackedchar extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static int ngetX0(long struct) { return memGetShort(struct + X0) & 0xFFFF; }
-	public static int getX0(ByteBuffer struct) { return ngetX0(memAddress(struct)); }
-	public static int ngetY0(long struct) { return memGetShort(struct + Y0) & 0xFFFF; }
-	public static int getY0(ByteBuffer struct) { return ngetY0(memAddress(struct)); }
-	public static int ngetX1(long struct) { return memGetShort(struct + X1) & 0xFFFF; }
-	public static int getX1(ByteBuffer struct) { return ngetX1(memAddress(struct)); }
-	public static int ngetY1(long struct) { return memGetShort(struct + Y1) & 0xFFFF; }
-	public static int getY1(ByteBuffer struct) { return ngetY1(memAddress(struct)); }
-	public static float ngetXoff(long struct) { return memGetFloat(struct + XOFF); }
-	public static float getXoff(ByteBuffer struct) { return ngetXoff(memAddress(struct)); }
-	public static float ngetYoff(long struct) { return memGetFloat(struct + YOFF); }
-	public static float getYoff(ByteBuffer struct) { return ngetYoff(memAddress(struct)); }
-	public static float ngetXadvance(long struct) { return memGetFloat(struct + XADVANCE); }
-	public static float getXadvance(ByteBuffer struct) { return ngetXadvance(memAddress(struct)); }
-	public static float ngetXoff2(long struct) { return memGetFloat(struct + XOFF2); }
-	public static float getXoff2(ByteBuffer struct) { return ngetXoff2(memAddress(struct)); }
-	public static float ngetYoff2(long struct) { return memGetFloat(struct + YOFF2); }
-	public static float getYoff2(ByteBuffer struct) { return ngetYoff2(memAddress(struct)); }
+	/** Unsafe version of {@link #x0}. */
+	public static short nx0(long struct) { return memGetShort(struct + STBTTPackedchar.X0); }
+	/** Unsafe version of {@link #y0}. */
+	public static short ny0(long struct) { return memGetShort(struct + STBTTPackedchar.Y0); }
+	/** Unsafe version of {@link #x1}. */
+	public static short nx1(long struct) { return memGetShort(struct + STBTTPackedchar.X1); }
+	/** Unsafe version of {@link #y1}. */
+	public static short ny1(long struct) { return memGetShort(struct + STBTTPackedchar.Y1); }
+	/** Unsafe version of {@link #xoff}. */
+	public static float nxoff(long struct) { return memGetFloat(struct + STBTTPackedchar.XOFF); }
+	/** Unsafe version of {@link #yoff}. */
+	public static float nyoff(long struct) { return memGetFloat(struct + STBTTPackedchar.YOFF); }
+	/** Unsafe version of {@link #xadvance}. */
+	public static float nxadvance(long struct) { return memGetFloat(struct + STBTTPackedchar.XADVANCE); }
+	/** Unsafe version of {@link #xoff2}. */
+	public static float nxoff2(long struct) { return memGetFloat(struct + STBTTPackedchar.XOFF2); }
+	/** Unsafe version of {@link #yoff2}. */
+	public static float nyoff2(long struct) { return memGetFloat(struct + STBTTPackedchar.YOFF2); }
 
 	// -----------------------------------
 
@@ -198,15 +222,24 @@ public class STBTTPackedchar extends Struct {
 			return SIZEOF;
 		}
 
-		public int getX0() { return ngetX0(address()); }
-		public int getY0() { return ngetY0(address()); }
-		public int getX1() { return ngetX1(address()); }
-		public int getY1() { return ngetY1(address()); }
-		public float getXoff() { return ngetXoff(address()); }
-		public float getYoff() { return ngetYoff(address()); }
-		public float getXadvance() { return ngetXadvance(address()); }
-		public float getXoff2() { return ngetXoff2(address()); }
-		public float getYoff2() { return ngetYoff2(address()); }
+		/** Returns the value of the {@code x0} field. */
+		public short x0() { return nx0(address()); }
+		/** Returns the value of the {@code y0} field. */
+		public short y0() { return ny0(address()); }
+		/** Returns the value of the {@code x1} field. */
+		public short x1() { return nx1(address()); }
+		/** Returns the value of the {@code y1} field. */
+		public short y1() { return ny1(address()); }
+		/** Returns the value of the {@code xoff} field. */
+		public float xoff() { return nxoff(address()); }
+		/** Returns the value of the {@code yoff} field. */
+		public float yoff() { return nyoff(address()); }
+		/** Returns the value of the {@code xadvance} field. */
+		public float xadvance() { return nxadvance(address()); }
+		/** Returns the value of the {@code xoff2} field. */
+		public float xoff2() { return nxoff2(address()); }
+		/** Returns the value of the {@code yoff2} field. */
+		public float yoff2() { return nyoff2(address()); }
 
 	}
 

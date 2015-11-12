@@ -13,7 +13,16 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Defines a property attribute. */
+/**
+ * Defines a property attribute.
+ * 
+ * <h3>objc_property_attribute_t members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>name</td><td class="nw">char</td><td>the name of the attribute</td></tr>
+ * <tr><td>value</td><td class="nw">char</td><td>the value of the attribute (usually empty)</td></tr>
+ * </table>
+ */
 public class ObjCPropertyAttribute extends Struct {
 
 	/** The struct size in bytes. */
@@ -59,28 +68,44 @@ public class ObjCPropertyAttribute extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public ByteBuffer getNameBuffer() { return ngetNameBuffer(address()); }
-	public String getNameString() { return ngetNameString(address()); }
-	public ByteBuffer getValueBuffer() { return ngetValueBuffer(address()); }
-	public String getValueString() { return ngetValueString(address()); }
+	/** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code name} field. */
+	public ByteBuffer name() { return nname(address()); }
+	/** Decodes the null-terminated string pointed to by the {@code name} field. */
+	public String nameString() { return nnameString(address()); }
+	/** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code value} field. */
+	public ByteBuffer value() { return nvalue(address()); }
+	/** Decodes the null-terminated string pointed to by the {@code value} field. */
+	public String valueString() { return nvalueString(address()); }
 
-	public ObjCPropertyAttribute setName(ByteBuffer name) { nsetName(address(), name); return this; }
-	public ObjCPropertyAttribute setName(CharSequence name) { nsetName(address(), name); return this; }
-	public ObjCPropertyAttribute setValue(ByteBuffer value) { nsetValue(address(), value); return this; }
-	public ObjCPropertyAttribute setValue(CharSequence value) { nsetValue(address(), value); return this; }
+	/** Sets the address of the specified encoded string to the {@code name} field. */
+	public ObjCPropertyAttribute name(ByteBuffer value) { nname(address(), value); return this; }
+	/**
+	 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code name} field.
+	 *
+	 * <p>The encoded string must be explicitly freed with {@link MemoryUtil#memFree memFree}.</p>
+	*/
+	public ObjCPropertyAttribute name(CharSequence value) { nname(address(), value); return this; }
+	/** Sets the address of the specified encoded string to the {@code value} field. */
+	public ObjCPropertyAttribute value(ByteBuffer value) { nvalue(address(), value); return this; }
+	/**
+	 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code value} field.
+	 *
+	 * <p>The encoded string must be explicitly freed with {@link MemoryUtil#memFree memFree}.</p>
+	*/
+	public ObjCPropertyAttribute value(CharSequence value) { nvalue(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public ObjCPropertyAttribute set(
 		ByteBuffer name,
 		ByteBuffer value
 	) {
-		setName(name);
-		setValue(value);
+		name(name);
+		value(value);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(ObjCPropertyAttribute) set}. */
 	public ObjCPropertyAttribute nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -97,7 +122,7 @@ public class ObjCPropertyAttribute extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(ObjCPropertyAttribute) set}. */
 	public ObjCPropertyAttribute set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -158,29 +183,29 @@ public class ObjCPropertyAttribute extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static long ngetName(long struct) { return memGetAddress(struct + NAME); }
-	public static ByteBuffer ngetNameBuffer(long struct) { return memByteBufferNT1(ngetName(struct)); }
-	public static ByteBuffer getNameBuffer(ByteBuffer struct) { return ngetNameBuffer(memAddress(struct)); }
-	public static String ngetNameString(long struct) { return memDecodeUTF8(ngetName(struct)); }
-	public static String getNameString(ByteBuffer struct) { return ngetNameString(memAddress(struct)); }
-	public static long ngetValue(long struct) { return memGetAddress(struct + VALUE); }
-	public static ByteBuffer ngetValueBuffer(long struct) { return memByteBufferNT1(ngetValue(struct)); }
-	public static ByteBuffer getValueBuffer(ByteBuffer struct) { return ngetValueBuffer(memAddress(struct)); }
-	public static String ngetValueString(long struct) { return memDecodeUTF8(ngetValue(struct)); }
-	public static String getValueString(ByteBuffer struct) { return ngetValueString(memAddress(struct)); }
+	/** Unsafe version of {@link #name}. */
+	public static ByteBuffer nname(long struct) { return memByteBufferNT1(memGetAddress(struct + ObjCPropertyAttribute.NAME)); }
+	/** Unsafe version of {@link #nameString}. */
+	public static String nnameString(long struct) { return memDecodeUTF8(memGetAddress(struct + ObjCPropertyAttribute.NAME)); }
+	/** Unsafe version of {@link #value}. */
+	public static ByteBuffer nvalue(long struct) { return memByteBufferNT1(memGetAddress(struct + ObjCPropertyAttribute.VALUE)); }
+	/** Unsafe version of {@link #valueString}. */
+	public static String nvalueString(long struct) { return memDecodeUTF8(memGetAddress(struct + ObjCPropertyAttribute.VALUE)); }
 
-	public static void nsetName(long struct, long name) { memPutAddress(struct + NAME, name); }
-	public static void nsetName(long struct, ByteBuffer name) { if ( CHECKS && name != null ) checkNT1(name); nsetName(struct, memAddressSafe(name)); }
-	public static void setName(ByteBuffer struct, ByteBuffer name) { nsetName(memAddress(struct), name); }
-	public static void nsetName(long struct, CharSequence name) { nsetName(struct, memEncodeUTF8(name, BufferAllocator.MALLOC)); }
-	/** Encodes the specified {@link CharSequence} to a newly allocated buffer and sets its address to the {@code name} field. The allocated buffer must be explicitly freed. */
-	public static void setName(ByteBuffer struct, CharSequence name) { nsetName(memAddress(struct), name); }
-	public static void nsetValue(long struct, long value) { memPutAddress(struct + VALUE, value); }
-	public static void nsetValue(long struct, ByteBuffer value) { if ( CHECKS && value != null ) checkNT1(value); nsetValue(struct, memAddressSafe(value)); }
-	public static void setValue(ByteBuffer struct, ByteBuffer value) { nsetValue(memAddress(struct), value); }
-	public static void nsetValue(long struct, CharSequence value) { nsetValue(struct, memEncodeUTF8(value, BufferAllocator.MALLOC)); }
-	/** Encodes the specified {@link CharSequence} to a newly allocated buffer and sets its address to the {@code value} field. The allocated buffer must be explicitly freed. */
-	public static void setValue(ByteBuffer struct, CharSequence value) { nsetValue(memAddress(struct), value); }
+	/** Unsafe version of {@link #name(ByteBuffer) name}. */
+	public static void nname(long struct, ByteBuffer value) { 
+		if ( CHECKS && value != null ) checkNT1(value); 
+		memPutAddress(struct + ObjCPropertyAttribute.NAME, memAddressSafe(value));
+	}
+	/** Unsafe version of {@link #name(CharSequence) name}. */
+	public static void nname(long struct, CharSequence value) { nname(struct, memEncodeUTF8(value, BufferAllocator.MALLOC)); }
+	/** Unsafe version of {@link #value(ByteBuffer) value}. */
+	public static void nvalue(long struct, ByteBuffer value) { 
+		if ( CHECKS && value != null ) checkNT1(value); 
+		memPutAddress(struct + ObjCPropertyAttribute.VALUE, memAddressSafe(value));
+	}
+	/** Unsafe version of {@link #value(CharSequence) value}. */
+	public static void nvalue(long struct, CharSequence value) { nvalue(struct, memEncodeUTF8(value, BufferAllocator.MALLOC)); }
 
 	// -----------------------------------
 
@@ -224,15 +249,31 @@ public class ObjCPropertyAttribute extends Struct {
 			return SIZEOF;
 		}
 
-		public ByteBuffer getNameBuffer() { return ngetNameBuffer(address()); }
-		public String getNameString() { return ngetNameString(address()); }
-		public ByteBuffer getValueBuffer() { return ngetValueBuffer(address()); }
-		public String getValueString() { return ngetValueString(address()); }
+		/** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code name} field. */
+		public ByteBuffer name() { return nname(address()); }
+		/** Decodes the null-terminated string pointed to by the {@code name} field. */
+		public String nameString() { return nnameString(address()); }
+		/** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code value} field. */
+		public ByteBuffer value() { return nvalue(address()); }
+		/** Decodes the null-terminated string pointed to by the {@code value} field. */
+		public String valueString() { return nvalueString(address()); }
 
-		public ObjCPropertyAttribute.Buffer setName(ByteBuffer name) { nsetName(address(), name); return this; }
-		public ObjCPropertyAttribute.Buffer setName(CharSequence name) { nsetName(address(), name); return this; }
-		public ObjCPropertyAttribute.Buffer setValue(ByteBuffer value) { nsetValue(address(), value); return this; }
-		public ObjCPropertyAttribute.Buffer setValue(CharSequence value) { nsetValue(address(), value); return this; }
+		/** Sets the address of the specified encoded string to the {@code name} field. */
+		public ObjCPropertyAttribute.Buffer name(ByteBuffer value) { nname(address(), value); return this; }
+	/**
+	 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code name} field.
+	 *
+	 * <p>The encoded string must be explicitly freed with {@link MemoryUtil#memFree memFree}.</p>
+	*/
+		public ObjCPropertyAttribute.Buffer name(CharSequence value) { nname(address(), value); return this; }
+		/** Sets the address of the specified encoded string to the {@code value} field. */
+		public ObjCPropertyAttribute.Buffer value(ByteBuffer value) { nvalue(address(), value); return this; }
+	/**
+	 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code value} field.
+	 *
+	 * <p>The encoded string must be explicitly freed with {@link MemoryUtil#memFree memFree}.</p>
+	*/
+		public ObjCPropertyAttribute.Buffer value(CharSequence value) { nvalue(address(), value); return this; }
 
 	}
 

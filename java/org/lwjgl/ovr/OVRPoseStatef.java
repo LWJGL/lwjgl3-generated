@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -18,6 +17,17 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Body refers to any object for which ovrPoseStatef is providing data.  It can be the HMD, Touch controller, camera or something else. The context
  * depends on the usage of the struct.</p>
+ * 
+ * <h3>ovrPoseStatef members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>ThePose</td><td class="nw">ovrPosef</td><td>position and orientation</td></tr>
+ * <tr><td>AngularVelocity</td><td class="nw">ovrVector3f</td><td>angular velocity in radians per second</td></tr>
+ * <tr><td>LinearVelocity</td><td class="nw">ovrVector3f</td><td>velocity in meters per second</td></tr>
+ * <tr><td>AngularAcceleration</td><td class="nw">ovrVector3f</td><td>angular acceleration in radians per second per second</td></tr>
+ * <tr><td>LinearAcceleration</td><td class="nw">ovrVector3f</td><td>acceleration in meters per second per second</td></tr>
+ * <tr><td>TimeInSeconds</td><td class="nw">double</td><td>absolute time of this state sample</td></tr>
+ * </table>
  */
 public class OVRPoseStatef extends Struct {
 
@@ -72,33 +82,18 @@ public class OVRPoseStatef extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public OVRPosef getThePose() { return ngetThePose(address()); }
-	public OVRQuatf getThePoseOrientation() { return ngetThePoseOrientation(address()); }
-	public float getThePoseOrientationX() { return ngetThePoseOrientationX(address()); }
-	public float getThePoseOrientationY() { return ngetThePoseOrientationY(address()); }
-	public float getThePoseOrientationZ() { return ngetThePoseOrientationZ(address()); }
-	public float getThePoseOrientationW() { return ngetThePoseOrientationW(address()); }
-	public OVRVector3f getThePosePosition() { return ngetThePosePosition(address()); }
-	public float getThePosePositionX() { return ngetThePosePositionX(address()); }
-	public float getThePosePositionY() { return ngetThePosePositionY(address()); }
-	public float getThePosePositionZ() { return ngetThePosePositionZ(address()); }
-	public OVRVector3f getAngularVelocity() { return ngetAngularVelocity(address()); }
-	public float getAngularVelocityX() { return ngetAngularVelocityX(address()); }
-	public float getAngularVelocityY() { return ngetAngularVelocityY(address()); }
-	public float getAngularVelocityZ() { return ngetAngularVelocityZ(address()); }
-	public OVRVector3f getLinearVelocity() { return ngetLinearVelocity(address()); }
-	public float getLinearVelocityX() { return ngetLinearVelocityX(address()); }
-	public float getLinearVelocityY() { return ngetLinearVelocityY(address()); }
-	public float getLinearVelocityZ() { return ngetLinearVelocityZ(address()); }
-	public OVRVector3f getAngularAcceleration() { return ngetAngularAcceleration(address()); }
-	public float getAngularAccelerationX() { return ngetAngularAccelerationX(address()); }
-	public float getAngularAccelerationY() { return ngetAngularAccelerationY(address()); }
-	public float getAngularAccelerationZ() { return ngetAngularAccelerationZ(address()); }
-	public OVRVector3f getLinearAcceleration() { return ngetLinearAcceleration(address()); }
-	public float getLinearAccelerationX() { return ngetLinearAccelerationX(address()); }
-	public float getLinearAccelerationY() { return ngetLinearAccelerationY(address()); }
-	public float getLinearAccelerationZ() { return ngetLinearAccelerationZ(address()); }
-	public double getTimeInSeconds() { return ngetTimeInSeconds(address()); }
+	/** Returns a {@link OVRPosef} view of the {@code ThePose} field. */
+	public OVRPosef ThePose() { return nThePose(address()); }
+	/** Returns a {@link OVRVector3f} view of the {@code AngularVelocity} field. */
+	public OVRVector3f AngularVelocity() { return nAngularVelocity(address()); }
+	/** Returns a {@link OVRVector3f} view of the {@code LinearVelocity} field. */
+	public OVRVector3f LinearVelocity() { return nLinearVelocity(address()); }
+	/** Returns a {@link OVRVector3f} view of the {@code AngularAcceleration} field. */
+	public OVRVector3f AngularAcceleration() { return nAngularAcceleration(address()); }
+	/** Returns a {@link OVRVector3f} view of the {@code LinearAcceleration} field. */
+	public OVRVector3f LinearAcceleration() { return nLinearAcceleration(address()); }
+	/** Returns the value of the {@code TimeInSeconds} field. */
+	public double TimeInSeconds() { return nTimeInSeconds(address()); }
 
 	// -----------------------------------
 
@@ -154,67 +149,18 @@ public class OVRPoseStatef extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static OVRPosef ngetThePose(long struct) { return OVRPosef.malloc().nset(struct + THEPOSE); }
-	/** Returns a copy of the {@code ThePose} {@link OVRPosef} struct. */
-	public static OVRPosef getThePose(ByteBuffer struct) { return ngetThePose(memAddress(struct)); }
-	public static OVRQuatf ngetThePoseOrientation(long struct) { return OVRQuatf.malloc().nset(struct + THEPOSE + OVRPosef.ORIENTATION); }
-	/** Returns a copy of the {@code Orientation} {@link OVRQuatf} struct. */
-	public static OVRQuatf getThePoseOrientation(ByteBuffer struct) { return ngetThePoseOrientation(memAddress(struct)); }
-	public static float ngetThePoseOrientationX(long struct) { return memGetFloat(struct + THEPOSE + OVRPosef.ORIENTATION + OVRQuatf.X); }
-	public static float getThePoseOrientationX(ByteBuffer struct) { return ngetThePoseOrientationX(memAddress(struct)); }
-	public static float ngetThePoseOrientationY(long struct) { return memGetFloat(struct + THEPOSE + OVRPosef.ORIENTATION + OVRQuatf.Y); }
-	public static float getThePoseOrientationY(ByteBuffer struct) { return ngetThePoseOrientationY(memAddress(struct)); }
-	public static float ngetThePoseOrientationZ(long struct) { return memGetFloat(struct + THEPOSE + OVRPosef.ORIENTATION + OVRQuatf.Z); }
-	public static float getThePoseOrientationZ(ByteBuffer struct) { return ngetThePoseOrientationZ(memAddress(struct)); }
-	public static float ngetThePoseOrientationW(long struct) { return memGetFloat(struct + THEPOSE + OVRPosef.ORIENTATION + OVRQuatf.W); }
-	public static float getThePoseOrientationW(ByteBuffer struct) { return ngetThePoseOrientationW(memAddress(struct)); }
-	public static OVRVector3f ngetThePosePosition(long struct) { return OVRVector3f.malloc().nset(struct + THEPOSE + OVRPosef.POSITION); }
-	/** Returns a copy of the {@code Position} {@link OVRVector3f} struct. */
-	public static OVRVector3f getThePosePosition(ByteBuffer struct) { return ngetThePosePosition(memAddress(struct)); }
-	public static float ngetThePosePositionX(long struct) { return memGetFloat(struct + THEPOSE + OVRPosef.POSITION + OVRVector3f.X); }
-	public static float getThePosePositionX(ByteBuffer struct) { return ngetThePosePositionX(memAddress(struct)); }
-	public static float ngetThePosePositionY(long struct) { return memGetFloat(struct + THEPOSE + OVRPosef.POSITION + OVRVector3f.Y); }
-	public static float getThePosePositionY(ByteBuffer struct) { return ngetThePosePositionY(memAddress(struct)); }
-	public static float ngetThePosePositionZ(long struct) { return memGetFloat(struct + THEPOSE + OVRPosef.POSITION + OVRVector3f.Z); }
-	public static float getThePosePositionZ(ByteBuffer struct) { return ngetThePosePositionZ(memAddress(struct)); }
-	public static OVRVector3f ngetAngularVelocity(long struct) { return OVRVector3f.malloc().nset(struct + ANGULARVELOCITY); }
-	/** Returns a copy of the {@code AngularVelocity} {@link OVRVector3f} struct. */
-	public static OVRVector3f getAngularVelocity(ByteBuffer struct) { return ngetAngularVelocity(memAddress(struct)); }
-	public static float ngetAngularVelocityX(long struct) { return memGetFloat(struct + ANGULARVELOCITY + OVRVector3f.X); }
-	public static float getAngularVelocityX(ByteBuffer struct) { return ngetAngularVelocityX(memAddress(struct)); }
-	public static float ngetAngularVelocityY(long struct) { return memGetFloat(struct + ANGULARVELOCITY + OVRVector3f.Y); }
-	public static float getAngularVelocityY(ByteBuffer struct) { return ngetAngularVelocityY(memAddress(struct)); }
-	public static float ngetAngularVelocityZ(long struct) { return memGetFloat(struct + ANGULARVELOCITY + OVRVector3f.Z); }
-	public static float getAngularVelocityZ(ByteBuffer struct) { return ngetAngularVelocityZ(memAddress(struct)); }
-	public static OVRVector3f ngetLinearVelocity(long struct) { return OVRVector3f.malloc().nset(struct + LINEARVELOCITY); }
-	/** Returns a copy of the {@code LinearVelocity} {@link OVRVector3f} struct. */
-	public static OVRVector3f getLinearVelocity(ByteBuffer struct) { return ngetLinearVelocity(memAddress(struct)); }
-	public static float ngetLinearVelocityX(long struct) { return memGetFloat(struct + LINEARVELOCITY + OVRVector3f.X); }
-	public static float getLinearVelocityX(ByteBuffer struct) { return ngetLinearVelocityX(memAddress(struct)); }
-	public static float ngetLinearVelocityY(long struct) { return memGetFloat(struct + LINEARVELOCITY + OVRVector3f.Y); }
-	public static float getLinearVelocityY(ByteBuffer struct) { return ngetLinearVelocityY(memAddress(struct)); }
-	public static float ngetLinearVelocityZ(long struct) { return memGetFloat(struct + LINEARVELOCITY + OVRVector3f.Z); }
-	public static float getLinearVelocityZ(ByteBuffer struct) { return ngetLinearVelocityZ(memAddress(struct)); }
-	public static OVRVector3f ngetAngularAcceleration(long struct) { return OVRVector3f.malloc().nset(struct + ANGULARACCELERATION); }
-	/** Returns a copy of the {@code AngularAcceleration} {@link OVRVector3f} struct. */
-	public static OVRVector3f getAngularAcceleration(ByteBuffer struct) { return ngetAngularAcceleration(memAddress(struct)); }
-	public static float ngetAngularAccelerationX(long struct) { return memGetFloat(struct + ANGULARACCELERATION + OVRVector3f.X); }
-	public static float getAngularAccelerationX(ByteBuffer struct) { return ngetAngularAccelerationX(memAddress(struct)); }
-	public static float ngetAngularAccelerationY(long struct) { return memGetFloat(struct + ANGULARACCELERATION + OVRVector3f.Y); }
-	public static float getAngularAccelerationY(ByteBuffer struct) { return ngetAngularAccelerationY(memAddress(struct)); }
-	public static float ngetAngularAccelerationZ(long struct) { return memGetFloat(struct + ANGULARACCELERATION + OVRVector3f.Z); }
-	public static float getAngularAccelerationZ(ByteBuffer struct) { return ngetAngularAccelerationZ(memAddress(struct)); }
-	public static OVRVector3f ngetLinearAcceleration(long struct) { return OVRVector3f.malloc().nset(struct + LINEARACCELERATION); }
-	/** Returns a copy of the {@code LinearAcceleration} {@link OVRVector3f} struct. */
-	public static OVRVector3f getLinearAcceleration(ByteBuffer struct) { return ngetLinearAcceleration(memAddress(struct)); }
-	public static float ngetLinearAccelerationX(long struct) { return memGetFloat(struct + LINEARACCELERATION + OVRVector3f.X); }
-	public static float getLinearAccelerationX(ByteBuffer struct) { return ngetLinearAccelerationX(memAddress(struct)); }
-	public static float ngetLinearAccelerationY(long struct) { return memGetFloat(struct + LINEARACCELERATION + OVRVector3f.Y); }
-	public static float getLinearAccelerationY(ByteBuffer struct) { return ngetLinearAccelerationY(memAddress(struct)); }
-	public static float ngetLinearAccelerationZ(long struct) { return memGetFloat(struct + LINEARACCELERATION + OVRVector3f.Z); }
-	public static float getLinearAccelerationZ(ByteBuffer struct) { return ngetLinearAccelerationZ(memAddress(struct)); }
-	public static double ngetTimeInSeconds(long struct) { return memGetDouble(struct + TIMEINSECONDS); }
-	public static double getTimeInSeconds(ByteBuffer struct) { return ngetTimeInSeconds(memAddress(struct)); }
+	/** Unsafe version of {@link #ThePose}. */
+	public static OVRPosef nThePose(long struct) { return new OVRPosef(struct + OVRPoseStatef.THEPOSE); }
+	/** Unsafe version of {@link #AngularVelocity}. */
+	public static OVRVector3f nAngularVelocity(long struct) { return new OVRVector3f(struct + OVRPoseStatef.ANGULARVELOCITY); }
+	/** Unsafe version of {@link #LinearVelocity}. */
+	public static OVRVector3f nLinearVelocity(long struct) { return new OVRVector3f(struct + OVRPoseStatef.LINEARVELOCITY); }
+	/** Unsafe version of {@link #AngularAcceleration}. */
+	public static OVRVector3f nAngularAcceleration(long struct) { return new OVRVector3f(struct + OVRPoseStatef.ANGULARACCELERATION); }
+	/** Unsafe version of {@link #LinearAcceleration}. */
+	public static OVRVector3f nLinearAcceleration(long struct) { return new OVRVector3f(struct + OVRPoseStatef.LINEARACCELERATION); }
+	/** Unsafe version of {@link #TimeInSeconds}. */
+	public static double nTimeInSeconds(long struct) { return memGetDouble(struct + OVRPoseStatef.TIMEINSECONDS); }
 
 	// -----------------------------------
 
@@ -258,33 +204,18 @@ public class OVRPoseStatef extends Struct {
 			return SIZEOF;
 		}
 
-		public OVRPosef getThePose() { return ngetThePose(address()); }
-		public OVRQuatf getThePoseOrientation() { return ngetThePoseOrientation(address()); }
-		public float getThePoseOrientationX() { return ngetThePoseOrientationX(address()); }
-		public float getThePoseOrientationY() { return ngetThePoseOrientationY(address()); }
-		public float getThePoseOrientationZ() { return ngetThePoseOrientationZ(address()); }
-		public float getThePoseOrientationW() { return ngetThePoseOrientationW(address()); }
-		public OVRVector3f getThePosePosition() { return ngetThePosePosition(address()); }
-		public float getThePosePositionX() { return ngetThePosePositionX(address()); }
-		public float getThePosePositionY() { return ngetThePosePositionY(address()); }
-		public float getThePosePositionZ() { return ngetThePosePositionZ(address()); }
-		public OVRVector3f getAngularVelocity() { return ngetAngularVelocity(address()); }
-		public float getAngularVelocityX() { return ngetAngularVelocityX(address()); }
-		public float getAngularVelocityY() { return ngetAngularVelocityY(address()); }
-		public float getAngularVelocityZ() { return ngetAngularVelocityZ(address()); }
-		public OVRVector3f getLinearVelocity() { return ngetLinearVelocity(address()); }
-		public float getLinearVelocityX() { return ngetLinearVelocityX(address()); }
-		public float getLinearVelocityY() { return ngetLinearVelocityY(address()); }
-		public float getLinearVelocityZ() { return ngetLinearVelocityZ(address()); }
-		public OVRVector3f getAngularAcceleration() { return ngetAngularAcceleration(address()); }
-		public float getAngularAccelerationX() { return ngetAngularAccelerationX(address()); }
-		public float getAngularAccelerationY() { return ngetAngularAccelerationY(address()); }
-		public float getAngularAccelerationZ() { return ngetAngularAccelerationZ(address()); }
-		public OVRVector3f getLinearAcceleration() { return ngetLinearAcceleration(address()); }
-		public float getLinearAccelerationX() { return ngetLinearAccelerationX(address()); }
-		public float getLinearAccelerationY() { return ngetLinearAccelerationY(address()); }
-		public float getLinearAccelerationZ() { return ngetLinearAccelerationZ(address()); }
-		public double getTimeInSeconds() { return ngetTimeInSeconds(address()); }
+		/** Returns a {@link OVRPosef} view of the {@code ThePose} field. */
+		public OVRPosef ThePose() { return nThePose(address()); }
+		/** Returns a {@link OVRVector3f} view of the {@code AngularVelocity} field. */
+		public OVRVector3f AngularVelocity() { return nAngularVelocity(address()); }
+		/** Returns a {@link OVRVector3f} view of the {@code LinearVelocity} field. */
+		public OVRVector3f LinearVelocity() { return nLinearVelocity(address()); }
+		/** Returns a {@link OVRVector3f} view of the {@code AngularAcceleration} field. */
+		public OVRVector3f AngularAcceleration() { return nAngularAcceleration(address()); }
+		/** Returns a {@link OVRVector3f} view of the {@code LinearAcceleration} field. */
+		public OVRVector3f LinearAcceleration() { return nLinearAcceleration(address()); }
+		/** Returns the value of the {@code TimeInSeconds} field. */
+		public double TimeInSeconds() { return nTimeInSeconds(address()); }
 
 	}
 

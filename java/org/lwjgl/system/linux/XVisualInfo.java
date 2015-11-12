@@ -13,7 +13,24 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Information used by the visual utility routines to find desired visual type from the many visuals a display may support. */
+/**
+ * Information used by the visual utility routines to find desired visual type from the many visuals a display may support.
+ * 
+ * <h3>XVisualInfo members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>visual</td><td class="nw">Visual *</td><td></td></tr>
+ * <tr><td>visualid</td><td class="nw">VisualID</td><td></td></tr>
+ * <tr><td>screen</td><td class="nw">int</td><td></td></tr>
+ * <tr><td>depth</td><td class="nw">int</td><td></td></tr>
+ * <tr><td>class</td><td class="nw">int</td><td></td></tr>
+ * <tr><td>red_mask</td><td class="nw">unsigned long</td><td></td></tr>
+ * <tr><td>green_mask</td><td class="nw">unsigned long</td><td></td></tr>
+ * <tr><td>blue_mask</td><td class="nw">unsigned long</td><td></td></tr>
+ * <tr><td>colormap_size</td><td class="nw">int</td><td></td></tr>
+ * <tr><td>bits_per_rgb</td><td class="nw">int</td><td></td></tr>
+ * </table>
+ */
 public class XVisualInfo extends Struct {
 
 	/** The struct size in bytes. */
@@ -25,7 +42,7 @@ public class XVisualInfo extends Struct {
 		VISUALID,
 		SCREEN,
 		DEPTH,
-		CLAZZ,
+		CLASS,
 		RED_MASK,
 		GREEN_MASK,
 		BLUE_MASK,
@@ -41,7 +58,7 @@ public class XVisualInfo extends Struct {
 		VISUALID = offsets.get(1);
 		SCREEN = offsets.get(2);
 		DEPTH = offsets.get(3);
-		CLAZZ = offsets.get(4);
+		CLASS = offsets.get(4);
 		RED_MASK = offsets.get(5);
 		GREEN_MASK = offsets.get(6);
 		BLUE_MASK = offsets.get(7);
@@ -75,27 +92,47 @@ public class XVisualInfo extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public Visual getVisual() { return ngetVisualStruct(address()); }
-	public long getVisualid() { return ngetVisualid(address()); }
-	public int getScreen() { return ngetScreen(address()); }
-	public int getDepth() { return ngetDepth(address()); }
-	public int getClazz() { return ngetClazz(address()); }
-	public long getRedMask() { return ngetRedMask(address()); }
-	public long getGreenMask() { return ngetGreenMask(address()); }
-	public long getBlueMask() { return ngetBlueMask(address()); }
-	public int getColormapSize() { return ngetColormapSize(address()); }
-	public int getBitsPerRgb() { return ngetBitsPerRgb(address()); }
+	/** Returns a {@link Visual} view of the struct pointed to by the {@code visual} field. */
+	public Visual visual() { return nvisualStruct(address()); }
+	/** Returns the value of the {@code visualid} field. */
+	public long visualid() { return nvisualid(address()); }
+	/** Returns the value of the {@code screen} field. */
+	public int screen() { return nscreen(address()); }
+	/** Returns the value of the {@code depth} field. */
+	public int depth() { return ndepth(address()); }
+	/** Returns the value of the {@code class$} field. */
+	public int class$() { return nclass$(address()); }
+	/** Returns the value of the {@code red_mask} field. */
+	public long red_mask() { return nred_mask(address()); }
+	/** Returns the value of the {@code green_mask} field. */
+	public long green_mask() { return ngreen_mask(address()); }
+	/** Returns the value of the {@code blue_mask} field. */
+	public long blue_mask() { return nblue_mask(address()); }
+	/** Returns the value of the {@code colormap_size} field. */
+	public int colormap_size() { return ncolormap_size(address()); }
+	/** Returns the value of the {@code bits_per_rgb} field. */
+	public int bits_per_rgb() { return nbits_per_rgb(address()); }
 
-	public XVisualInfo setVisual(Visual visual) { nsetVisual(address(), visual); return this; }
-	public XVisualInfo setVisualid(long visualid) { nsetVisualid(address(), visualid); return this; }
-	public XVisualInfo setScreen(int screen) { nsetScreen(address(), screen); return this; }
-	public XVisualInfo setDepth(int depth) { nsetDepth(address(), depth); return this; }
-	public XVisualInfo setClazz(int clazz) { nsetClazz(address(), clazz); return this; }
-	public XVisualInfo setRedMask(long red_mask) { nsetRedMask(address(), red_mask); return this; }
-	public XVisualInfo setGreenMask(long green_mask) { nsetGreenMask(address(), green_mask); return this; }
-	public XVisualInfo setBlueMask(long blue_mask) { nsetBlueMask(address(), blue_mask); return this; }
-	public XVisualInfo setColormapSize(int colormap_size) { nsetColormapSize(address(), colormap_size); return this; }
-	public XVisualInfo setBitsPerRgb(int bits_per_rgb) { nsetBitsPerRgb(address(), bits_per_rgb); return this; }
+	/** Sets the address of the specified {@link Visual} to the {@code visual} field. */
+	public XVisualInfo visual(Visual value) { nvisual(address(), value); return this; }
+	/** Sets the specified value to the {@code visualid} field. */
+	public XVisualInfo visualid(long value) { nvisualid(address(), value); return this; }
+	/** Sets the specified value to the {@code screen} field. */
+	public XVisualInfo screen(int value) { nscreen(address(), value); return this; }
+	/** Sets the specified value to the {@code depth} field. */
+	public XVisualInfo depth(int value) { ndepth(address(), value); return this; }
+	/** Sets the specified value to the {@code class} field. */
+	public XVisualInfo class$(int value) { nclass$(address(), value); return this; }
+	/** Sets the specified value to the {@code red_mask} field. */
+	public XVisualInfo red_mask(long value) { nred_mask(address(), value); return this; }
+	/** Sets the specified value to the {@code green_mask} field. */
+	public XVisualInfo green_mask(long value) { ngreen_mask(address(), value); return this; }
+	/** Sets the specified value to the {@code blue_mask} field. */
+	public XVisualInfo blue_mask(long value) { nblue_mask(address(), value); return this; }
+	/** Sets the specified value to the {@code colormap_size} field. */
+	public XVisualInfo colormap_size(int value) { ncolormap_size(address(), value); return this; }
+	/** Sets the specified value to the {@code bits_per_rgb} field. */
+	public XVisualInfo bits_per_rgb(int value) { nbits_per_rgb(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public XVisualInfo set(
@@ -103,28 +140,28 @@ public class XVisualInfo extends Struct {
 		long visualid,
 		int screen,
 		int depth,
-		int clazz,
+		int class$,
 		long red_mask,
 		long green_mask,
 		long blue_mask,
 		int colormap_size,
 		int bits_per_rgb
 	) {
-		setVisual(visual);
-		setVisualid(visualid);
-		setScreen(screen);
-		setDepth(depth);
-		setClazz(clazz);
-		setRedMask(red_mask);
-		setGreenMask(green_mask);
-		setBlueMask(blue_mask);
-		setColormapSize(colormap_size);
-		setBitsPerRgb(bits_per_rgb);
+		visual(visual);
+		visualid(visualid);
+		screen(screen);
+		depth(depth);
+		class$(class$);
+		red_mask(red_mask);
+		green_mask(green_mask);
+		blue_mask(blue_mask);
+		colormap_size(colormap_size);
+		bits_per_rgb(bits_per_rgb);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(XVisualInfo) set}. */
 	public XVisualInfo nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -141,7 +178,7 @@ public class XVisualInfo extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(XVisualInfo) set}. */
 	public XVisualInfo set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -202,49 +239,47 @@ public class XVisualInfo extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static long ngetVisual(long struct) { return memGetAddress(struct + VISUAL); }
-	public static Visual ngetVisualStruct(long struct) { return new Visual(ngetVisual(struct)); }
-	public static Visual getVisual(ByteBuffer struct) { return ngetVisualStruct(memAddress(struct)); }
-	public static long ngetVisualid(long struct) { return memGetAddress(struct + VISUALID); }
-	public static long getVisualid(ByteBuffer struct) { return ngetVisualid(memAddress(struct)); }
-	public static int ngetScreen(long struct) { return memGetInt(struct + SCREEN); }
-	public static int getScreen(ByteBuffer struct) { return ngetScreen(memAddress(struct)); }
-	public static int ngetDepth(long struct) { return memGetInt(struct + DEPTH); }
-	public static int getDepth(ByteBuffer struct) { return ngetDepth(memAddress(struct)); }
-	public static int ngetClazz(long struct) { return memGetInt(struct + CLAZZ); }
-	public static int getClazz(ByteBuffer struct) { return ngetClazz(memAddress(struct)); }
-	public static long ngetRedMask(long struct) { return memGetAddress(struct + RED_MASK); }
-	public static long getRedMask(ByteBuffer struct) { return ngetRedMask(memAddress(struct)); }
-	public static long ngetGreenMask(long struct) { return memGetAddress(struct + GREEN_MASK); }
-	public static long getGreenMask(ByteBuffer struct) { return ngetGreenMask(memAddress(struct)); }
-	public static long ngetBlueMask(long struct) { return memGetAddress(struct + BLUE_MASK); }
-	public static long getBlueMask(ByteBuffer struct) { return ngetBlueMask(memAddress(struct)); }
-	public static int ngetColormapSize(long struct) { return memGetInt(struct + COLORMAP_SIZE); }
-	public static int getColormapSize(ByteBuffer struct) { return ngetColormapSize(memAddress(struct)); }
-	public static int ngetBitsPerRgb(long struct) { return memGetInt(struct + BITS_PER_RGB); }
-	public static int getBitsPerRgb(ByteBuffer struct) { return ngetBitsPerRgb(memAddress(struct)); }
+	/** Unsafe version of {@link #visual}. */
+	public static Visual nvisualStruct(long struct) { return new Visual(memGetAddress(struct + XVisualInfo.VISUAL)); }
+	/** Unsafe version of {@link #visualid}. */
+	public static long nvisualid(long struct) { return memGetAddress(struct + XVisualInfo.VISUALID); }
+	/** Unsafe version of {@link #screen}. */
+	public static int nscreen(long struct) { return memGetInt(struct + XVisualInfo.SCREEN); }
+	/** Unsafe version of {@link #depth}. */
+	public static int ndepth(long struct) { return memGetInt(struct + XVisualInfo.DEPTH); }
+	/** Unsafe version of {@link #class$}. */
+	public static int nclass$(long struct) { return memGetInt(struct + XVisualInfo.CLASS); }
+	/** Unsafe version of {@link #red_mask}. */
+	public static long nred_mask(long struct) { return memGetAddress(struct + XVisualInfo.RED_MASK); }
+	/** Unsafe version of {@link #green_mask}. */
+	public static long ngreen_mask(long struct) { return memGetAddress(struct + XVisualInfo.GREEN_MASK); }
+	/** Unsafe version of {@link #blue_mask}. */
+	public static long nblue_mask(long struct) { return memGetAddress(struct + XVisualInfo.BLUE_MASK); }
+	/** Unsafe version of {@link #colormap_size}. */
+	public static int ncolormap_size(long struct) { return memGetInt(struct + XVisualInfo.COLORMAP_SIZE); }
+	/** Unsafe version of {@link #bits_per_rgb}. */
+	public static int nbits_per_rgb(long struct) { return memGetInt(struct + XVisualInfo.BITS_PER_RGB); }
 
-	public static void nsetVisual(long struct, long visual) { memPutAddress(struct + VISUAL, visual); }
-	public static void nsetVisual(long struct, Visual visual) { nsetVisual(struct, visual.address()); }
-	public static void setVisual(ByteBuffer struct, Visual visual) { nsetVisual(memAddress(struct), visual); }
-	public static void nsetVisualid(long struct, long visualid) { memPutAddress(struct + VISUALID, visualid); }
-	public static void setVisualid(ByteBuffer struct, long visualid) { nsetVisualid(memAddress(struct), visualid); }
-	public static void nsetScreen(long struct, int screen) { memPutInt(struct + SCREEN, screen); }
-	public static void setScreen(ByteBuffer struct, int screen) { nsetScreen(memAddress(struct), screen); }
-	public static void nsetDepth(long struct, int depth) { memPutInt(struct + DEPTH, depth); }
-	public static void setDepth(ByteBuffer struct, int depth) { nsetDepth(memAddress(struct), depth); }
-	public static void nsetClazz(long struct, int clazz) { memPutInt(struct + CLAZZ, clazz); }
-	public static void setClazz(ByteBuffer struct, int clazz) { nsetClazz(memAddress(struct), clazz); }
-	public static void nsetRedMask(long struct, long red_mask) { memPutAddress(struct + RED_MASK, red_mask); }
-	public static void setRedMask(ByteBuffer struct, long red_mask) { nsetRedMask(memAddress(struct), red_mask); }
-	public static void nsetGreenMask(long struct, long green_mask) { memPutAddress(struct + GREEN_MASK, green_mask); }
-	public static void setGreenMask(ByteBuffer struct, long green_mask) { nsetGreenMask(memAddress(struct), green_mask); }
-	public static void nsetBlueMask(long struct, long blue_mask) { memPutAddress(struct + BLUE_MASK, blue_mask); }
-	public static void setBlueMask(ByteBuffer struct, long blue_mask) { nsetBlueMask(memAddress(struct), blue_mask); }
-	public static void nsetColormapSize(long struct, int colormap_size) { memPutInt(struct + COLORMAP_SIZE, colormap_size); }
-	public static void setColormapSize(ByteBuffer struct, int colormap_size) { nsetColormapSize(memAddress(struct), colormap_size); }
-	public static void nsetBitsPerRgb(long struct, int bits_per_rgb) { memPutInt(struct + BITS_PER_RGB, bits_per_rgb); }
-	public static void setBitsPerRgb(ByteBuffer struct, int bits_per_rgb) { nsetBitsPerRgb(memAddress(struct), bits_per_rgb); }
+	/** Unsafe version of {@link #visual(Visual) visual}. */
+	public static void nvisual(long struct, Visual value) { memPutAddress(struct + XVisualInfo.VISUAL, value.address()); }
+	/** Unsafe version of {@link #visualid(long) visualid}. */
+	public static void nvisualid(long struct, long value) { memPutAddress(struct + XVisualInfo.VISUALID, value); }
+	/** Unsafe version of {@link #screen(int) screen}. */
+	public static void nscreen(long struct, int value) { memPutInt(struct + XVisualInfo.SCREEN, value); }
+	/** Unsafe version of {@link #depth(int) depth}. */
+	public static void ndepth(long struct, int value) { memPutInt(struct + XVisualInfo.DEPTH, value); }
+	/** Unsafe version of {@link #class$(int) class$}. */
+	public static void nclass$(long struct, int value) { memPutInt(struct + XVisualInfo.CLASS, value); }
+	/** Unsafe version of {@link #red_mask(long) red_mask}. */
+	public static void nred_mask(long struct, long value) { memPutAddress(struct + XVisualInfo.RED_MASK, value); }
+	/** Unsafe version of {@link #green_mask(long) green_mask}. */
+	public static void ngreen_mask(long struct, long value) { memPutAddress(struct + XVisualInfo.GREEN_MASK, value); }
+	/** Unsafe version of {@link #blue_mask(long) blue_mask}. */
+	public static void nblue_mask(long struct, long value) { memPutAddress(struct + XVisualInfo.BLUE_MASK, value); }
+	/** Unsafe version of {@link #colormap_size(int) colormap_size}. */
+	public static void ncolormap_size(long struct, int value) { memPutInt(struct + XVisualInfo.COLORMAP_SIZE, value); }
+	/** Unsafe version of {@link #bits_per_rgb(int) bits_per_rgb}. */
+	public static void nbits_per_rgb(long struct, int value) { memPutInt(struct + XVisualInfo.BITS_PER_RGB, value); }
 
 	// -----------------------------------
 
@@ -288,27 +323,47 @@ public class XVisualInfo extends Struct {
 			return SIZEOF;
 		}
 
-		public Visual getVisual() { return ngetVisualStruct(address()); }
-		public long getVisualid() { return ngetVisualid(address()); }
-		public int getScreen() { return ngetScreen(address()); }
-		public int getDepth() { return ngetDepth(address()); }
-		public int getClazz() { return ngetClazz(address()); }
-		public long getRedMask() { return ngetRedMask(address()); }
-		public long getGreenMask() { return ngetGreenMask(address()); }
-		public long getBlueMask() { return ngetBlueMask(address()); }
-		public int getColormapSize() { return ngetColormapSize(address()); }
-		public int getBitsPerRgb() { return ngetBitsPerRgb(address()); }
+		/** Returns a {@link Visual} view of the struct pointed to by the {@code visual} field. */
+		public Visual visual() { return nvisualStruct(address()); }
+		/** Returns the value of the {@code visualid} field. */
+		public long visualid() { return nvisualid(address()); }
+		/** Returns the value of the {@code screen} field. */
+		public int screen() { return nscreen(address()); }
+		/** Returns the value of the {@code depth} field. */
+		public int depth() { return ndepth(address()); }
+		/** Returns the value of the {@code class$} field. */
+		public int class$() { return nclass$(address()); }
+		/** Returns the value of the {@code red_mask} field. */
+		public long red_mask() { return nred_mask(address()); }
+		/** Returns the value of the {@code green_mask} field. */
+		public long green_mask() { return ngreen_mask(address()); }
+		/** Returns the value of the {@code blue_mask} field. */
+		public long blue_mask() { return nblue_mask(address()); }
+		/** Returns the value of the {@code colormap_size} field. */
+		public int colormap_size() { return ncolormap_size(address()); }
+		/** Returns the value of the {@code bits_per_rgb} field. */
+		public int bits_per_rgb() { return nbits_per_rgb(address()); }
 
-		public XVisualInfo.Buffer setVisual(Visual visual) { nsetVisual(address(), visual); return this; }
-		public XVisualInfo.Buffer setVisualid(long visualid) { nsetVisualid(address(), visualid); return this; }
-		public XVisualInfo.Buffer setScreen(int screen) { nsetScreen(address(), screen); return this; }
-		public XVisualInfo.Buffer setDepth(int depth) { nsetDepth(address(), depth); return this; }
-		public XVisualInfo.Buffer setClazz(int clazz) { nsetClazz(address(), clazz); return this; }
-		public XVisualInfo.Buffer setRedMask(long red_mask) { nsetRedMask(address(), red_mask); return this; }
-		public XVisualInfo.Buffer setGreenMask(long green_mask) { nsetGreenMask(address(), green_mask); return this; }
-		public XVisualInfo.Buffer setBlueMask(long blue_mask) { nsetBlueMask(address(), blue_mask); return this; }
-		public XVisualInfo.Buffer setColormapSize(int colormap_size) { nsetColormapSize(address(), colormap_size); return this; }
-		public XVisualInfo.Buffer setBitsPerRgb(int bits_per_rgb) { nsetBitsPerRgb(address(), bits_per_rgb); return this; }
+		/** Sets the address of the specified {@link Visual} to the {@code visual} field. */
+		public XVisualInfo.Buffer visual(Visual value) { nvisual(address(), value); return this; }
+		/** Sets the specified value to the {@code visualid} field. */
+		public XVisualInfo.Buffer visualid(long value) { nvisualid(address(), value); return this; }
+		/** Sets the specified value to the {@code screen} field. */
+		public XVisualInfo.Buffer screen(int value) { nscreen(address(), value); return this; }
+		/** Sets the specified value to the {@code depth} field. */
+		public XVisualInfo.Buffer depth(int value) { ndepth(address(), value); return this; }
+		/** Sets the specified value to the {@code class} field. */
+		public XVisualInfo.Buffer class$(int value) { nclass$(address(), value); return this; }
+		/** Sets the specified value to the {@code red_mask} field. */
+		public XVisualInfo.Buffer red_mask(long value) { nred_mask(address(), value); return this; }
+		/** Sets the specified value to the {@code green_mask} field. */
+		public XVisualInfo.Buffer green_mask(long value) { ngreen_mask(address(), value); return this; }
+		/** Sets the specified value to the {@code blue_mask} field. */
+		public XVisualInfo.Buffer blue_mask(long value) { nblue_mask(address(), value); return this; }
+		/** Sets the specified value to the {@code colormap_size} field. */
+		public XVisualInfo.Buffer colormap_size(int value) { ncolormap_size(address(), value); return this; }
+		/** Sets the specified value to the {@code bits_per_rgb} field. */
+		public XVisualInfo.Buffer bits_per_rgb(int value) { nbits_per_rgb(address(), value); return this; }
 
 	}
 

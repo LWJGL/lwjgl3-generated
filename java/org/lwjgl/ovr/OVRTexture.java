@@ -13,7 +13,16 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Contains platform-specific information about a texture. Aliases to one of ovrD3D11Texture or {@link OVRGLTexture}. */
+/**
+ * Contains platform-specific information about a texture. Aliases to one of ovrD3D11Texture or {@link OVRGLTexture}.
+ * 
+ * <h3>ovrTexture members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>Header</td><td class="nw">ovrTextureHeader</td><td>API-independent header</td></tr>
+ * <tr><td>PlatformData</td><td class="nw">uintptr_t[8]</td><td>specialized in {@link OVRGLTextureData}, {@code ovrD3D11TextureData} etc</td></tr>
+ * </table>
+ */
 public class OVRTexture extends Struct {
 
 	/** The struct size in bytes. */
@@ -59,33 +68,32 @@ public class OVRTexture extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public OVRTextureHeader getHeader() { return ngetHeader(address()); }
-	public int getHeaderAPI() { return ngetHeaderAPI(address()); }
-	public OVRSizei getHeaderTextureSize() { return ngetHeaderTextureSize(address()); }
-	public int getHeaderTextureSizeW() { return ngetHeaderTextureSizeW(address()); }
-	public int getHeaderTextureSizeH() { return ngetHeaderTextureSizeH(address()); }
-	public void getPlatformData(ByteBuffer PlatformData) { ngetPlatformData(address(), PlatformData); }
+	/** Returns a {@link OVRTextureHeader} view of the {@code Header} field. */
+	public OVRTextureHeader Header() { return nHeader(address()); }
+	/** Returns a {@link PointerBuffer} view of the {@code PlatformData} field. */
+	public PointerBuffer PlatformData() { return nPlatformData(address()); }
+	/** Returns the value at the specified index of the {@code PlatformData} field. */
+	public long PlatformData(int index) { return nPlatformData(address(), index); }
 
-	public OVRTexture setHeader(OVRTextureHeader Header) { nsetHeader(address(), Header); return this; }
-	public OVRTexture setHeaderAPI(int API) { nsetHeaderAPI(address(), API); return this; }
-	public OVRTexture setHeaderTextureSize(OVRSizei TextureSize) { nsetHeaderTextureSize(address(), TextureSize); return this; }
-	public OVRTexture setHeaderTextureSizeW(int w) { nsetHeaderTextureSizeW(address(), w); return this; }
-	public OVRTexture setHeaderTextureSizeH(int h) { nsetHeaderTextureSizeH(address(), h); return this; }
-	public OVRTexture setPlatformData(ByteBuffer PlatformData) { nsetPlatformData(address(), PlatformData); return this; }
-	public OVRTexture setPlatformData(int index, long PlatformData) { nsetPlatformData(address(), index, PlatformData); return this; }
+	/** Copies the specified {@link OVRTextureHeader} to the {@code Header} field. */
+	public OVRTexture Header(OVRTextureHeader value) { nHeader(address(), value); return this; }
+	/** Copies the specified {@link PointerBuffer} to the {@code PlatformData} field. */
+	public OVRTexture PlatformData(PointerBuffer value) { nPlatformData(address(), value); return this; }
+	/** Sets the specified value at the specified index of the {@code PlatformData} field. */
+	public OVRTexture PlatformData(int index, long value) { nPlatformData(address(), index, value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public OVRTexture set(
 		OVRTextureHeader Header,
-		ByteBuffer PlatformData
+		PointerBuffer PlatformData
 	) {
-		setHeader(Header);
-		setPlatformData(PlatformData);
+		Header(Header);
+		PlatformData(PlatformData);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(OVRTexture) set}. */
 	public OVRTexture nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -102,7 +110,7 @@ public class OVRTexture extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(OVRTexture) set}. */
 	public OVRTexture set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -163,47 +171,24 @@ public class OVRTexture extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static OVRTextureHeader ngetHeader(long struct) { return OVRTextureHeader.malloc().nset(struct + HEADER); }
-	/** Returns a copy of the {@code Header} {@link OVRTextureHeader} struct. */
-	public static OVRTextureHeader getHeader(ByteBuffer struct) { return ngetHeader(memAddress(struct)); }
-	public static int ngetHeaderAPI(long struct) { return memGetInt(struct + HEADER + OVRTextureHeader.API); }
-	public static int getHeaderAPI(ByteBuffer struct) { return ngetHeaderAPI(memAddress(struct)); }
-	public static OVRSizei ngetHeaderTextureSize(long struct) { return OVRSizei.malloc().nset(struct + HEADER + OVRTextureHeader.TEXTURESIZE); }
-	/** Returns a copy of the {@code TextureSize} {@link OVRSizei} struct. */
-	public static OVRSizei getHeaderTextureSize(ByteBuffer struct) { return ngetHeaderTextureSize(memAddress(struct)); }
-	public static int ngetHeaderTextureSizeW(long struct) { return memGetInt(struct + HEADER + OVRTextureHeader.TEXTURESIZE + OVRSizei.W); }
-	public static int getHeaderTextureSizeW(ByteBuffer struct) { return ngetHeaderTextureSizeW(memAddress(struct)); }
-	public static int ngetHeaderTextureSizeH(long struct) { return memGetInt(struct + HEADER + OVRTextureHeader.TEXTURESIZE + OVRSizei.H); }
-	public static int getHeaderTextureSizeH(ByteBuffer struct) { return ngetHeaderTextureSizeH(memAddress(struct)); }
-	public static void ngetPlatformData(long struct, ByteBuffer PlatformData) {
-		if ( CHECKS ) checkBufferGT(PlatformData, 8 * 8);
-		memCopy(struct + PLATFORMDATA, memAddress(PlatformData), PlatformData.remaining());
+	/** Unsafe version of {@link #Header}. */
+	public static OVRTextureHeader nHeader(long struct) { return new OVRTextureHeader(struct + OVRTexture.HEADER); }
+	/** Unsafe version of {@link #PlatformData}. */
+	public static PointerBuffer nPlatformData(long struct) {
+		return memPointerBuffer(struct + OVRTexture.PLATFORMDATA, 8);
 	}
-	public static void getPlatformData(ByteBuffer struct, ByteBuffer PlatformData) { ngetPlatformData(memAddress(struct), PlatformData); }
-	public static long ngetPlatformData(long struct, int index) { return memGetAddress(struct + PLATFORMDATA + index * 8); }
-	public static long getPlatformData(ByteBuffer struct, int index) { return ngetPlatformData(memAddress(struct), index); }
+	/** Unsafe version of {@link #PlatformData(int) PlatformData}. */
+	public static long nPlatformData(long struct, int index) { return memGetAddress(struct + OVRTexture.PLATFORMDATA + index * 8); }
 
-	public static void nsetHeader(long struct, OVRTextureHeader Header) { memCopy(Header.address(), struct + HEADER, OVRTextureHeader.SIZEOF); }
-	/** Copies the specified {@link OVRTextureHeader} struct to the nested {@code Header} struct. */
-	public static void setHeader(ByteBuffer struct, OVRTextureHeader Header) { nsetHeader(memAddress(struct), Header); }
-	public static void nsetHeaderAPI(long struct, int API) { memPutInt(struct + HEADER + OVRTextureHeader.API, API); }
-	public static void setHeaderAPI(ByteBuffer struct, int API) { nsetHeaderAPI(memAddress(struct), API); }
-	public static void nsetHeaderTextureSize(long struct, OVRSizei TextureSize) { memCopy(TextureSize.address(), struct + HEADER + OVRTextureHeader.TEXTURESIZE, OVRSizei.SIZEOF); }
-	/** Copies the specified {@link OVRSizei} struct to the nested {@code TextureSize} struct. */
-	public static void setHeaderTextureSize(ByteBuffer struct, OVRSizei TextureSize) { nsetHeaderTextureSize(memAddress(struct), TextureSize); }
-	public static void nsetHeaderTextureSizeW(long struct, int w) { memPutInt(struct + HEADER + OVRTextureHeader.TEXTURESIZE + OVRSizei.W, w); }
-	public static void setHeaderTextureSizeW(ByteBuffer struct, int w) { nsetHeaderTextureSizeW(memAddress(struct), w); }
-	public static void nsetHeaderTextureSizeH(long struct, int h) { memPutInt(struct + HEADER + OVRTextureHeader.TEXTURESIZE + OVRSizei.H, h); }
-	public static void setHeaderTextureSizeH(ByteBuffer struct, int h) { nsetHeaderTextureSizeH(memAddress(struct), h); }
-	public static void nsetPlatformData(long struct, ByteBuffer PlatformData) {
-		if ( CHECKS ) {
-			checkBufferGT(PlatformData, 8 * POINTER_SIZE);
-		}
-		memCopy(memAddress(PlatformData), struct + PLATFORMDATA, PlatformData.remaining());
+	/** Unsafe version of {@link #Header(OVRTextureHeader) Header}. */
+	public static void nHeader(long struct, OVRTextureHeader value) { memCopy(value.address(), struct + OVRTexture.HEADER, OVRTextureHeader.SIZEOF); }
+	/** Unsafe version of {@link #PlatformData(PointerBuffer) PlatformData}. */
+	public static void nPlatformData(long struct, PointerBuffer value) {
+		if ( CHECKS ) checkBufferGT(value, 8);
+		memCopy(memAddress(value), struct + OVRTexture.PLATFORMDATA, value.remaining() * POINTER_SIZE);
 	}
-	public static void setPlatformData(ByteBuffer struct, ByteBuffer PlatformData) { nsetPlatformData(memAddress(struct), PlatformData); }
-	public static void nsetPlatformData(long struct, int index, long PlatformData) { memPutAddress(struct + PLATFORMDATA + index * POINTER_SIZE, PlatformData); }
-	public static void setPlatformData(ByteBuffer struct, int index, long PlatformData) { nsetPlatformData(memAddress(struct), index, PlatformData); }
+	/** Unsafe version of {@link #PlatformData(int, long) PlatformData}. */
+	public static void nPlatformData(long struct, int index, long value) { memPutAddress(struct + OVRTexture.PLATFORMDATA + index * POINTER_SIZE, value); }
 
 	// -----------------------------------
 
@@ -247,20 +232,19 @@ public class OVRTexture extends Struct {
 			return SIZEOF;
 		}
 
-		public OVRTextureHeader getHeader() { return ngetHeader(address()); }
-		public int getHeaderAPI() { return ngetHeaderAPI(address()); }
-		public OVRSizei getHeaderTextureSize() { return ngetHeaderTextureSize(address()); }
-		public int getHeaderTextureSizeW() { return ngetHeaderTextureSizeW(address()); }
-		public int getHeaderTextureSizeH() { return ngetHeaderTextureSizeH(address()); }
-		public void getPlatformData(ByteBuffer PlatformData) { ngetPlatformData(address(), PlatformData); }
+		/** Returns a {@link OVRTextureHeader} view of the {@code Header} field. */
+		public OVRTextureHeader Header() { return nHeader(address()); }
+		/** Returns a {@link PointerBuffer} view of the {@code PlatformData} field. */
+		public PointerBuffer PlatformData() { return nPlatformData(address()); }
+		/** Returns the value at the specified index of the {@code PlatformData} field. */
+		public long PlatformData(int index) { return nPlatformData(address(), index); }
 
-		public OVRTexture.Buffer setHeader(OVRTextureHeader Header) { nsetHeader(address(), Header); return this; }
-		public OVRTexture.Buffer setHeaderAPI(int API) { nsetHeaderAPI(address(), API); return this; }
-		public OVRTexture.Buffer setHeaderTextureSize(OVRSizei TextureSize) { nsetHeaderTextureSize(address(), TextureSize); return this; }
-		public OVRTexture.Buffer setHeaderTextureSizeW(int w) { nsetHeaderTextureSizeW(address(), w); return this; }
-		public OVRTexture.Buffer setHeaderTextureSizeH(int h) { nsetHeaderTextureSizeH(address(), h); return this; }
-		public OVRTexture.Buffer setPlatformData(ByteBuffer PlatformData) { nsetPlatformData(address(), PlatformData); return this; }
-		public OVRTexture.Buffer setPlatformData(int index, long PlatformData) { nsetPlatformData(address(), index, PlatformData); return this; }
+		/** Copies the specified {@link OVRTextureHeader} to the {@code Header} field. */
+		public OVRTexture.Buffer Header(OVRTextureHeader value) { nHeader(address(), value); return this; }
+		/** Copies the specified {@link PointerBuffer} to the {@code PlatformData} field. */
+		public OVRTexture.Buffer PlatformData(PointerBuffer value) { nPlatformData(address(), value); return this; }
+		/** Sets the specified value at the specified index of the {@code PlatformData} field. */
+		public OVRTexture.Buffer PlatformData(int index, long value) { nPlatformData(address(), index, value); return this; }
 
 	}
 

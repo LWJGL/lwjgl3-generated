@@ -10,10 +10,36 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** A complete descriptor of the HMD. */
+/**
+ * A complete descriptor of the HMD.
+ * 
+ * <h3>ovrHmdDesc members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>Type</td><td class="nw">ovrHmdType</td><td>this HMD's type</td></tr>
+ * <tr><td>ProductName</td><td class="nw">char[64]</td><td>name string describing the product: "Oculus Rift DK1", etc.</td></tr>
+ * <tr><td>Manufacturer</td><td class="nw">char[64]</td><td>string describing the manufacturer. Usually "Oculus".</td></tr>
+ * <tr><td>VendorId</td><td class="nw">short</td><td>HID Vendor ID of the device</td></tr>
+ * <tr><td>ProductId</td><td class="nw">short</td><td>HID Product ID of the device</td></tr>
+ * <tr><td>SerialNumber</td><td class="nw">char[24]</td><td>sensor (and display) serial number</td></tr>
+ * <tr><td>FirmwareMajor</td><td class="nw">short</td><td>sensor firmware major version number</td></tr>
+ * <tr><td>FirmwareMinor</td><td class="nw">short</td><td>sensor firmware minor version number</td></tr>
+ * <tr><td>CameraFrustumHFovInRadians</td><td class="nw">float</td><td>horizontal field-of-view</td></tr>
+ * <tr><td>CameraFrustumVFovInRadians</td><td class="nw">float</td><td>vertical field-of-view</td></tr>
+ * <tr><td>CameraFrustumNearZInMeters</td><td class="nw">float</td><td>near clip distance</td></tr>
+ * <tr><td>CameraFrustumFarZInMeters</td><td class="nw">float</td><td>far clip distance</td></tr>
+ * <tr><td>AvailableHmdCaps</td><td class="nw">unsigned int</td><td>capability bits described by {@code ovrHmdCaps} which the HMD currently supports</td></tr>
+ * <tr><td>DefaultHmdCaps</td><td class="nw">unsigned int</td><td>capability bits described by {@code ovrHmdCaps} which are default for the current {@code Hmd}</td></tr>
+ * <tr><td>AvailableTrackingCaps</td><td class="nw">unsigned int</td><td>capability bits described by {@code ovrTrackingCaps} which the system currently supports</td></tr>
+ * <tr><td>DefaultTrackingCaps</td><td class="nw">unsigned int</td><td>capability bits described by {@code ovrTrackingCaps} which are default for the current system</td></tr>
+ * <tr><td>DefaultEyeFov</td><td class="nw">ovrFovPort[2]</td><td>the recommended optical FOV for the HMD</td></tr>
+ * <tr><td>MaxEyeFov</td><td class="nw">ovrFovPort[2]</td><td>the maximum optical FOV for the HMD</td></tr>
+ * <tr><td>Resolution</td><td class="nw">ovrSizei</td><td>resolution of the full HMD screen (both eyes) in pixels</td></tr>
+ * <tr><td>DisplayRefreshRate</td><td class="nw">float</td><td>nominal refresh rate of the display in cycles per second at the time of HMD creation</td></tr>
+ * </table>
+ */
 public class OVRHmdDesc extends Struct {
 
 	/** The struct size in bytes. */
@@ -95,36 +121,56 @@ public class OVRHmdDesc extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public int getType() { return ngetType(address()); }
-	public void getProductName(ByteBuffer ProductName) { ngetProductName(address(), ProductName); }
-	public String getProductNameString() { return ngetProductNameString(address()); }
-	public String getProductNameString(int byteLen) { return ngetProductNameString(address(), byteLen); }
-	public void getManufacturer(ByteBuffer Manufacturer) { ngetManufacturer(address(), Manufacturer); }
-	public String getManufacturerString() { return ngetManufacturerString(address()); }
-	public String getManufacturerString(int byteLen) { return ngetManufacturerString(address(), byteLen); }
-	public int getVendorId() { return ngetVendorId(address()); }
-	public int getProductId() { return ngetProductId(address()); }
-	public void getSerialNumber(ByteBuffer SerialNumber) { ngetSerialNumber(address(), SerialNumber); }
-	public String getSerialNumberString() { return ngetSerialNumberString(address()); }
-	public String getSerialNumberString(int byteLen) { return ngetSerialNumberString(address(), byteLen); }
-	public int getFirmwareMajor() { return ngetFirmwareMajor(address()); }
-	public int getFirmwareMinor() { return ngetFirmwareMinor(address()); }
-	public float getCameraFrustumHFovInRadians() { return ngetCameraFrustumHFovInRadians(address()); }
-	public float getCameraFrustumVFovInRadians() { return ngetCameraFrustumVFovInRadians(address()); }
-	public float getCameraFrustumNearZInMeters() { return ngetCameraFrustumNearZInMeters(address()); }
-	public float getCameraFrustumFarZInMeters() { return ngetCameraFrustumFarZInMeters(address()); }
-	public int getAvailableHmdCaps() { return ngetAvailableHmdCaps(address()); }
-	public int getDefaultHmdCaps() { return ngetDefaultHmdCaps(address()); }
-	public int getAvailableTrackingCaps() { return ngetAvailableTrackingCaps(address()); }
-	public int getDefaultTrackingCaps() { return ngetDefaultTrackingCaps(address()); }
-	public void getDefaultEyeFov(ByteBuffer DefaultEyeFov) { ngetDefaultEyeFov(address(), DefaultEyeFov); }
-	public OVRFovPort getDefaultEyeFov(int index) { return ngetDefaultEyeFov(address(), index); }
-	public void getMaxEyeFov(ByteBuffer MaxEyeFov) { ngetMaxEyeFov(address(), MaxEyeFov); }
-	public OVRFovPort getMaxEyeFov(int index) { return ngetMaxEyeFov(address(), index); }
-	public OVRSizei getResolution() { return ngetResolution(address()); }
-	public int getResolutionW() { return ngetResolutionW(address()); }
-	public int getResolutionH() { return ngetResolutionH(address()); }
-	public float getDisplayRefreshRate() { return ngetDisplayRefreshRate(address()); }
+	/** Returns the value of the {@code Type} field. */
+	public int Type() { return nType(address()); }
+	/** Returns a {@link ByteBuffer} view of the {@code ProductName} field. */
+	public ByteBuffer ProductName() { return nProductName(address()); }
+	/** Decodes the null-terminated string stored in the {@code ProductName} field. */
+	public String ProductNameString() { return nProductNameString(address()); }
+	/** Returns a {@link ByteBuffer} view of the {@code Manufacturer} field. */
+	public ByteBuffer Manufacturer() { return nManufacturer(address()); }
+	/** Decodes the null-terminated string stored in the {@code Manufacturer} field. */
+	public String ManufacturerString() { return nManufacturerString(address()); }
+	/** Returns the value of the {@code VendorId} field. */
+	public short VendorId() { return nVendorId(address()); }
+	/** Returns the value of the {@code ProductId} field. */
+	public short ProductId() { return nProductId(address()); }
+	/** Returns a {@link ByteBuffer} view of the {@code SerialNumber} field. */
+	public ByteBuffer SerialNumber() { return nSerialNumber(address()); }
+	/** Decodes the null-terminated string stored in the {@code SerialNumber} field. */
+	public String SerialNumberString() { return nSerialNumberString(address()); }
+	/** Returns the value of the {@code FirmwareMajor} field. */
+	public short FirmwareMajor() { return nFirmwareMajor(address()); }
+	/** Returns the value of the {@code FirmwareMinor} field. */
+	public short FirmwareMinor() { return nFirmwareMinor(address()); }
+	/** Returns the value of the {@code CameraFrustumHFovInRadians} field. */
+	public float CameraFrustumHFovInRadians() { return nCameraFrustumHFovInRadians(address()); }
+	/** Returns the value of the {@code CameraFrustumVFovInRadians} field. */
+	public float CameraFrustumVFovInRadians() { return nCameraFrustumVFovInRadians(address()); }
+	/** Returns the value of the {@code CameraFrustumNearZInMeters} field. */
+	public float CameraFrustumNearZInMeters() { return nCameraFrustumNearZInMeters(address()); }
+	/** Returns the value of the {@code CameraFrustumFarZInMeters} field. */
+	public float CameraFrustumFarZInMeters() { return nCameraFrustumFarZInMeters(address()); }
+	/** Returns the value of the {@code AvailableHmdCaps} field. */
+	public int AvailableHmdCaps() { return nAvailableHmdCaps(address()); }
+	/** Returns the value of the {@code DefaultHmdCaps} field. */
+	public int DefaultHmdCaps() { return nDefaultHmdCaps(address()); }
+	/** Returns the value of the {@code AvailableTrackingCaps} field. */
+	public int AvailableTrackingCaps() { return nAvailableTrackingCaps(address()); }
+	/** Returns the value of the {@code DefaultTrackingCaps} field. */
+	public int DefaultTrackingCaps() { return nDefaultTrackingCaps(address()); }
+	/** Returns a {@link OVRFovPort}.Buffer view of the {@code DefaultEyeFov} field. */
+	public OVRFovPort.Buffer DefaultEyeFov() { return nDefaultEyeFov(address()); }
+	/** Returns a {@link OVRFovPort} view of the struct at the specified index of the {@code DefaultEyeFov} field. */
+	public OVRFovPort DefaultEyeFov(int index) { return nDefaultEyeFov(address(), index); }
+	/** Returns a {@link OVRFovPort}.Buffer view of the {@code MaxEyeFov} field. */
+	public OVRFovPort.Buffer MaxEyeFov() { return nMaxEyeFov(address()); }
+	/** Returns a {@link OVRFovPort} view of the struct at the specified index of the {@code MaxEyeFov} field. */
+	public OVRFovPort MaxEyeFov(int index) { return nMaxEyeFov(address(), index); }
+	/** Returns a {@link OVRSizei} view of the {@code Resolution} field. */
+	public OVRSizei Resolution() { return nResolution(address()); }
+	/** Returns the value of the {@code DisplayRefreshRate} field. */
+	public float DisplayRefreshRate() { return nDisplayRefreshRate(address()); }
 
 	// -----------------------------------
 
@@ -180,86 +226,64 @@ public class OVRHmdDesc extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static int ngetType(long struct) { return memGetInt(struct + TYPE); }
-	public static int getType(ByteBuffer struct) { return ngetType(memAddress(struct)); }
-	public static void ngetProductName(long struct, ByteBuffer ProductName) {
-		if ( CHECKS ) checkBufferGT(ProductName, 64 * 1);
-		memCopy(struct + PRODUCTNAME, memAddress(ProductName), ProductName.remaining());
+	/** Unsafe version of {@link #Type}. */
+	public static int nType(long struct) { return memGetInt(struct + OVRHmdDesc.TYPE); }
+	/** Unsafe version of {@link #ProductName}. */
+	public static ByteBuffer nProductName(long struct) { return memByteBuffer(struct + OVRHmdDesc.PRODUCTNAME, 64); }
+	/** Unsafe version of {@link #ProductNameString}. */
+	public static String nProductNameString(long struct) { return memDecodeUTF8(struct + OVRHmdDesc.PRODUCTNAME); }
+	/** Unsafe version of {@link #Manufacturer}. */
+	public static ByteBuffer nManufacturer(long struct) { return memByteBuffer(struct + OVRHmdDesc.MANUFACTURER, 64); }
+	/** Unsafe version of {@link #ManufacturerString}. */
+	public static String nManufacturerString(long struct) { return memDecodeUTF8(struct + OVRHmdDesc.MANUFACTURER); }
+	/** Unsafe version of {@link #VendorId}. */
+	public static short nVendorId(long struct) { return memGetShort(struct + OVRHmdDesc.VENDORID); }
+	/** Unsafe version of {@link #ProductId}. */
+	public static short nProductId(long struct) { return memGetShort(struct + OVRHmdDesc.PRODUCTID); }
+	/** Unsafe version of {@link #SerialNumber}. */
+	public static ByteBuffer nSerialNumber(long struct) { return memByteBuffer(struct + OVRHmdDesc.SERIALNUMBER, 24); }
+	/** Unsafe version of {@link #SerialNumberString}. */
+	public static String nSerialNumberString(long struct) { return memDecodeASCII(struct + OVRHmdDesc.SERIALNUMBER); }
+	/** Unsafe version of {@link #FirmwareMajor}. */
+	public static short nFirmwareMajor(long struct) { return memGetShort(struct + OVRHmdDesc.FIRMWAREMAJOR); }
+	/** Unsafe version of {@link #FirmwareMinor}. */
+	public static short nFirmwareMinor(long struct) { return memGetShort(struct + OVRHmdDesc.FIRMWAREMINOR); }
+	/** Unsafe version of {@link #CameraFrustumHFovInRadians}. */
+	public static float nCameraFrustumHFovInRadians(long struct) { return memGetFloat(struct + OVRHmdDesc.CAMERAFRUSTUMHFOVINRADIANS); }
+	/** Unsafe version of {@link #CameraFrustumVFovInRadians}. */
+	public static float nCameraFrustumVFovInRadians(long struct) { return memGetFloat(struct + OVRHmdDesc.CAMERAFRUSTUMVFOVINRADIANS); }
+	/** Unsafe version of {@link #CameraFrustumNearZInMeters}. */
+	public static float nCameraFrustumNearZInMeters(long struct) { return memGetFloat(struct + OVRHmdDesc.CAMERAFRUSTUMNEARZINMETERS); }
+	/** Unsafe version of {@link #CameraFrustumFarZInMeters}. */
+	public static float nCameraFrustumFarZInMeters(long struct) { return memGetFloat(struct + OVRHmdDesc.CAMERAFRUSTUMFARZINMETERS); }
+	/** Unsafe version of {@link #AvailableHmdCaps}. */
+	public static int nAvailableHmdCaps(long struct) { return memGetInt(struct + OVRHmdDesc.AVAILABLEHMDCAPS); }
+	/** Unsafe version of {@link #DefaultHmdCaps}. */
+	public static int nDefaultHmdCaps(long struct) { return memGetInt(struct + OVRHmdDesc.DEFAULTHMDCAPS); }
+	/** Unsafe version of {@link #AvailableTrackingCaps}. */
+	public static int nAvailableTrackingCaps(long struct) { return memGetInt(struct + OVRHmdDesc.AVAILABLETRACKINGCAPS); }
+	/** Unsafe version of {@link #DefaultTrackingCaps}. */
+	public static int nDefaultTrackingCaps(long struct) { return memGetInt(struct + OVRHmdDesc.DEFAULTTRACKINGCAPS); }
+	/** Unsafe version of {@link #DefaultEyeFov}. */
+	public static OVRFovPort.Buffer nDefaultEyeFov(long struct) {
+		return OVRFovPort.createBuffer(struct + OVRHmdDesc.DEFAULTEYEFOV, 2);
 	}
-	public static void getProductName(ByteBuffer struct, ByteBuffer ProductName) { ngetProductName(memAddress(struct), ProductName); }
-	public static String ngetProductNameString(long struct) { return memDecodeUTF8(struct + PRODUCTNAME); }
-	public static String getProductNameString(ByteBuffer struct) { return ngetProductNameString(memAddress(struct)); }
-	public static String ngetProductNameString(long struct, int byteLen) { return memDecodeUTF8(memByteBuffer(struct + PRODUCTNAME, byteLen)); }
-	public static String getProductNameString(ByteBuffer struct, int byteLen) { return ngetProductNameString(memAddress(struct), byteLen); }
-	public static void ngetManufacturer(long struct, ByteBuffer Manufacturer) {
-		if ( CHECKS ) checkBufferGT(Manufacturer, 64 * 1);
-		memCopy(struct + MANUFACTURER, memAddress(Manufacturer), Manufacturer.remaining());
+	/** Unsafe version of {@link #DefaultEyeFov(int) DefaultEyeFov}. */
+	public static OVRFovPort nDefaultEyeFov(long struct, int index) {
+		return new OVRFovPort(struct + OVRHmdDesc.DEFAULTEYEFOV + index * OVRFovPort.SIZEOF);
 	}
-	public static void getManufacturer(ByteBuffer struct, ByteBuffer Manufacturer) { ngetManufacturer(memAddress(struct), Manufacturer); }
-	public static String ngetManufacturerString(long struct) { return memDecodeUTF8(struct + MANUFACTURER); }
-	public static String getManufacturerString(ByteBuffer struct) { return ngetManufacturerString(memAddress(struct)); }
-	public static String ngetManufacturerString(long struct, int byteLen) { return memDecodeUTF8(memByteBuffer(struct + MANUFACTURER, byteLen)); }
-	public static String getManufacturerString(ByteBuffer struct, int byteLen) { return ngetManufacturerString(memAddress(struct), byteLen); }
-	public static int ngetVendorId(long struct) { return memGetShort(struct + VENDORID); }
-	public static int getVendorId(ByteBuffer struct) { return ngetVendorId(memAddress(struct)); }
-	public static int ngetProductId(long struct) { return memGetShort(struct + PRODUCTID); }
-	public static int getProductId(ByteBuffer struct) { return ngetProductId(memAddress(struct)); }
-	public static void ngetSerialNumber(long struct, ByteBuffer SerialNumber) {
-		if ( CHECKS ) checkBufferGT(SerialNumber, 24 * 1);
-		memCopy(struct + SERIALNUMBER, memAddress(SerialNumber), SerialNumber.remaining());
+	/** Unsafe version of {@link #MaxEyeFov}. */
+	public static OVRFovPort.Buffer nMaxEyeFov(long struct) {
+		return OVRFovPort.createBuffer(struct + OVRHmdDesc.MAXEYEFOV, 2);
 	}
-	public static void getSerialNumber(ByteBuffer struct, ByteBuffer SerialNumber) { ngetSerialNumber(memAddress(struct), SerialNumber); }
-	public static String ngetSerialNumberString(long struct) { return memDecodeASCII(struct + SERIALNUMBER); }
-	public static String getSerialNumberString(ByteBuffer struct) { return ngetSerialNumberString(memAddress(struct)); }
-	public static String ngetSerialNumberString(long struct, int byteLen) { return memDecodeASCII(memByteBuffer(struct + SERIALNUMBER, byteLen)); }
-	public static String getSerialNumberString(ByteBuffer struct, int byteLen) { return ngetSerialNumberString(memAddress(struct), byteLen); }
-	public static int ngetFirmwareMajor(long struct) { return memGetShort(struct + FIRMWAREMAJOR); }
-	public static int getFirmwareMajor(ByteBuffer struct) { return ngetFirmwareMajor(memAddress(struct)); }
-	public static int ngetFirmwareMinor(long struct) { return memGetShort(struct + FIRMWAREMINOR); }
-	public static int getFirmwareMinor(ByteBuffer struct) { return ngetFirmwareMinor(memAddress(struct)); }
-	public static float ngetCameraFrustumHFovInRadians(long struct) { return memGetFloat(struct + CAMERAFRUSTUMHFOVINRADIANS); }
-	public static float getCameraFrustumHFovInRadians(ByteBuffer struct) { return ngetCameraFrustumHFovInRadians(memAddress(struct)); }
-	public static float ngetCameraFrustumVFovInRadians(long struct) { return memGetFloat(struct + CAMERAFRUSTUMVFOVINRADIANS); }
-	public static float getCameraFrustumVFovInRadians(ByteBuffer struct) { return ngetCameraFrustumVFovInRadians(memAddress(struct)); }
-	public static float ngetCameraFrustumNearZInMeters(long struct) { return memGetFloat(struct + CAMERAFRUSTUMNEARZINMETERS); }
-	public static float getCameraFrustumNearZInMeters(ByteBuffer struct) { return ngetCameraFrustumNearZInMeters(memAddress(struct)); }
-	public static float ngetCameraFrustumFarZInMeters(long struct) { return memGetFloat(struct + CAMERAFRUSTUMFARZINMETERS); }
-	public static float getCameraFrustumFarZInMeters(ByteBuffer struct) { return ngetCameraFrustumFarZInMeters(memAddress(struct)); }
-	public static int ngetAvailableHmdCaps(long struct) { return memGetInt(struct + AVAILABLEHMDCAPS); }
-	public static int getAvailableHmdCaps(ByteBuffer struct) { return ngetAvailableHmdCaps(memAddress(struct)); }
-	public static int ngetDefaultHmdCaps(long struct) { return memGetInt(struct + DEFAULTHMDCAPS); }
-	public static int getDefaultHmdCaps(ByteBuffer struct) { return ngetDefaultHmdCaps(memAddress(struct)); }
-	public static int ngetAvailableTrackingCaps(long struct) { return memGetInt(struct + AVAILABLETRACKINGCAPS); }
-	public static int getAvailableTrackingCaps(ByteBuffer struct) { return ngetAvailableTrackingCaps(memAddress(struct)); }
-	public static int ngetDefaultTrackingCaps(long struct) { return memGetInt(struct + DEFAULTTRACKINGCAPS); }
-	public static int getDefaultTrackingCaps(ByteBuffer struct) { return ngetDefaultTrackingCaps(memAddress(struct)); }
-	public static void ngetDefaultEyeFov(long struct, ByteBuffer DefaultEyeFov) {
-		if ( CHECKS ) checkBufferGT(DefaultEyeFov, 2 * OVRFovPort.SIZEOF);
-		memCopy(struct + DEFAULTEYEFOV, memAddress(DefaultEyeFov), DefaultEyeFov.remaining());
+	/** Unsafe version of {@link #MaxEyeFov(int) MaxEyeFov}. */
+	public static OVRFovPort nMaxEyeFov(long struct, int index) {
+		return new OVRFovPort(struct + OVRHmdDesc.MAXEYEFOV + index * OVRFovPort.SIZEOF);
 	}
-	public static void getDefaultEyeFov(ByteBuffer struct, ByteBuffer DefaultEyeFov) { ngetDefaultEyeFov(memAddress(struct), DefaultEyeFov); }
-	public static OVRFovPort ngetDefaultEyeFov(long struct, int index) {
-		return OVRFovPort.malloc().nset(struct + DEFAULTEYEFOV + index * OVRFovPort.SIZEOF);
-	}
-	public static OVRFovPort getDefaultEyeFov(ByteBuffer struct, int index) { return ngetDefaultEyeFov(memAddress(struct), index); }
-	public static void ngetMaxEyeFov(long struct, ByteBuffer MaxEyeFov) {
-		if ( CHECKS ) checkBufferGT(MaxEyeFov, 2 * OVRFovPort.SIZEOF);
-		memCopy(struct + MAXEYEFOV, memAddress(MaxEyeFov), MaxEyeFov.remaining());
-	}
-	public static void getMaxEyeFov(ByteBuffer struct, ByteBuffer MaxEyeFov) { ngetMaxEyeFov(memAddress(struct), MaxEyeFov); }
-	public static OVRFovPort ngetMaxEyeFov(long struct, int index) {
-		return OVRFovPort.malloc().nset(struct + MAXEYEFOV + index * OVRFovPort.SIZEOF);
-	}
-	public static OVRFovPort getMaxEyeFov(ByteBuffer struct, int index) { return ngetMaxEyeFov(memAddress(struct), index); }
-	public static OVRSizei ngetResolution(long struct) { return OVRSizei.malloc().nset(struct + RESOLUTION); }
-	/** Returns a copy of the {@code Resolution} {@link OVRSizei} struct. */
-	public static OVRSizei getResolution(ByteBuffer struct) { return ngetResolution(memAddress(struct)); }
-	public static int ngetResolutionW(long struct) { return memGetInt(struct + RESOLUTION + OVRSizei.W); }
-	public static int getResolutionW(ByteBuffer struct) { return ngetResolutionW(memAddress(struct)); }
-	public static int ngetResolutionH(long struct) { return memGetInt(struct + RESOLUTION + OVRSizei.H); }
-	public static int getResolutionH(ByteBuffer struct) { return ngetResolutionH(memAddress(struct)); }
-	public static float ngetDisplayRefreshRate(long struct) { return memGetFloat(struct + DISPLAYREFRESHRATE); }
-	public static float getDisplayRefreshRate(ByteBuffer struct) { return ngetDisplayRefreshRate(memAddress(struct)); }
+	/** Unsafe version of {@link #Resolution}. */
+	public static OVRSizei nResolution(long struct) { return new OVRSizei(struct + OVRHmdDesc.RESOLUTION); }
+	/** Unsafe version of {@link #DisplayRefreshRate}. */
+	public static float nDisplayRefreshRate(long struct) { return memGetFloat(struct + OVRHmdDesc.DISPLAYREFRESHRATE); }
 
 	// -----------------------------------
 
@@ -303,36 +327,56 @@ public class OVRHmdDesc extends Struct {
 			return SIZEOF;
 		}
 
-		public int getType() { return ngetType(address()); }
-		public void getProductName(ByteBuffer ProductName) { ngetProductName(address(), ProductName); }
-		public String getProductNameString() { return ngetProductNameString(address()); }
-		public String getProductNameString(int byteLen) { return ngetProductNameString(address(), byteLen); }
-		public void getManufacturer(ByteBuffer Manufacturer) { ngetManufacturer(address(), Manufacturer); }
-		public String getManufacturerString() { return ngetManufacturerString(address()); }
-		public String getManufacturerString(int byteLen) { return ngetManufacturerString(address(), byteLen); }
-		public int getVendorId() { return ngetVendorId(address()); }
-		public int getProductId() { return ngetProductId(address()); }
-		public void getSerialNumber(ByteBuffer SerialNumber) { ngetSerialNumber(address(), SerialNumber); }
-		public String getSerialNumberString() { return ngetSerialNumberString(address()); }
-		public String getSerialNumberString(int byteLen) { return ngetSerialNumberString(address(), byteLen); }
-		public int getFirmwareMajor() { return ngetFirmwareMajor(address()); }
-		public int getFirmwareMinor() { return ngetFirmwareMinor(address()); }
-		public float getCameraFrustumHFovInRadians() { return ngetCameraFrustumHFovInRadians(address()); }
-		public float getCameraFrustumVFovInRadians() { return ngetCameraFrustumVFovInRadians(address()); }
-		public float getCameraFrustumNearZInMeters() { return ngetCameraFrustumNearZInMeters(address()); }
-		public float getCameraFrustumFarZInMeters() { return ngetCameraFrustumFarZInMeters(address()); }
-		public int getAvailableHmdCaps() { return ngetAvailableHmdCaps(address()); }
-		public int getDefaultHmdCaps() { return ngetDefaultHmdCaps(address()); }
-		public int getAvailableTrackingCaps() { return ngetAvailableTrackingCaps(address()); }
-		public int getDefaultTrackingCaps() { return ngetDefaultTrackingCaps(address()); }
-		public void getDefaultEyeFov(ByteBuffer DefaultEyeFov) { ngetDefaultEyeFov(address(), DefaultEyeFov); }
-		public OVRFovPort getDefaultEyeFov(int index) { return ngetDefaultEyeFov(address(), index); }
-		public void getMaxEyeFov(ByteBuffer MaxEyeFov) { ngetMaxEyeFov(address(), MaxEyeFov); }
-		public OVRFovPort getMaxEyeFov(int index) { return ngetMaxEyeFov(address(), index); }
-		public OVRSizei getResolution() { return ngetResolution(address()); }
-		public int getResolutionW() { return ngetResolutionW(address()); }
-		public int getResolutionH() { return ngetResolutionH(address()); }
-		public float getDisplayRefreshRate() { return ngetDisplayRefreshRate(address()); }
+		/** Returns the value of the {@code Type} field. */
+		public int Type() { return nType(address()); }
+		/** Returns a {@link ByteBuffer} view of the {@code ProductName} field. */
+		public ByteBuffer ProductName() { return nProductName(address()); }
+		/** Decodes the null-terminated string stored in the {@code ProductName} field. */
+		public String ProductNameString() { return nProductNameString(address()); }
+		/** Returns a {@link ByteBuffer} view of the {@code Manufacturer} field. */
+		public ByteBuffer Manufacturer() { return nManufacturer(address()); }
+		/** Decodes the null-terminated string stored in the {@code Manufacturer} field. */
+		public String ManufacturerString() { return nManufacturerString(address()); }
+		/** Returns the value of the {@code VendorId} field. */
+		public short VendorId() { return nVendorId(address()); }
+		/** Returns the value of the {@code ProductId} field. */
+		public short ProductId() { return nProductId(address()); }
+		/** Returns a {@link ByteBuffer} view of the {@code SerialNumber} field. */
+		public ByteBuffer SerialNumber() { return nSerialNumber(address()); }
+		/** Decodes the null-terminated string stored in the {@code SerialNumber} field. */
+		public String SerialNumberString() { return nSerialNumberString(address()); }
+		/** Returns the value of the {@code FirmwareMajor} field. */
+		public short FirmwareMajor() { return nFirmwareMajor(address()); }
+		/** Returns the value of the {@code FirmwareMinor} field. */
+		public short FirmwareMinor() { return nFirmwareMinor(address()); }
+		/** Returns the value of the {@code CameraFrustumHFovInRadians} field. */
+		public float CameraFrustumHFovInRadians() { return nCameraFrustumHFovInRadians(address()); }
+		/** Returns the value of the {@code CameraFrustumVFovInRadians} field. */
+		public float CameraFrustumVFovInRadians() { return nCameraFrustumVFovInRadians(address()); }
+		/** Returns the value of the {@code CameraFrustumNearZInMeters} field. */
+		public float CameraFrustumNearZInMeters() { return nCameraFrustumNearZInMeters(address()); }
+		/** Returns the value of the {@code CameraFrustumFarZInMeters} field. */
+		public float CameraFrustumFarZInMeters() { return nCameraFrustumFarZInMeters(address()); }
+		/** Returns the value of the {@code AvailableHmdCaps} field. */
+		public int AvailableHmdCaps() { return nAvailableHmdCaps(address()); }
+		/** Returns the value of the {@code DefaultHmdCaps} field. */
+		public int DefaultHmdCaps() { return nDefaultHmdCaps(address()); }
+		/** Returns the value of the {@code AvailableTrackingCaps} field. */
+		public int AvailableTrackingCaps() { return nAvailableTrackingCaps(address()); }
+		/** Returns the value of the {@code DefaultTrackingCaps} field. */
+		public int DefaultTrackingCaps() { return nDefaultTrackingCaps(address()); }
+		/** Returns a {@link OVRFovPort}.Buffer view of the {@code DefaultEyeFov} field. */
+		public OVRFovPort.Buffer DefaultEyeFov() { return nDefaultEyeFov(address()); }
+		/** Returns a {@link OVRFovPort} view of the struct at the specified index of the {@code DefaultEyeFov} field. */
+		public OVRFovPort DefaultEyeFov(int index) { return nDefaultEyeFov(address(), index); }
+		/** Returns a {@link OVRFovPort}.Buffer view of the {@code MaxEyeFov} field. */
+		public OVRFovPort.Buffer MaxEyeFov() { return nMaxEyeFov(address()); }
+		/** Returns a {@link OVRFovPort} view of the struct at the specified index of the {@code MaxEyeFov} field. */
+		public OVRFovPort MaxEyeFov(int index) { return nMaxEyeFov(address(), index); }
+		/** Returns a {@link OVRSizei} view of the {@code Resolution} field. */
+		public OVRSizei Resolution() { return nResolution(address()); }
+		/** Returns the value of the {@code DisplayRefreshRate} field. */
+		public float DisplayRefreshRate() { return nDisplayRefreshRate(address()); }
 
 	}
 

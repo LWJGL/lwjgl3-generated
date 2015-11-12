@@ -13,7 +13,16 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** API-independent part of a texture descriptor. */
+/**
+ * API-independent part of a texture descriptor.
+ * 
+ * <h3>ovrTextureHeader members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>API</td><td class="nw">ovrRenderAPIType</td><td>the graphics API in use</td></tr>
+ * <tr><td>TextureSize</td><td class="nw">ovrSizei</td><td>the size of the texture</td></tr>
+ * </table>
+ */
 public class OVRTextureHeader extends Struct {
 
 	/** The struct size in bytes. */
@@ -59,28 +68,28 @@ public class OVRTextureHeader extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public int getAPI() { return ngetAPI(address()); }
-	public OVRSizei getTextureSize() { return ngetTextureSize(address()); }
-	public int getTextureSizeW() { return ngetTextureSizeW(address()); }
-	public int getTextureSizeH() { return ngetTextureSizeH(address()); }
+	/** Returns the value of the {@code API} field. */
+	public int API() { return nAPI(address()); }
+	/** Returns a {@link OVRSizei} view of the {@code TextureSize} field. */
+	public OVRSizei TextureSize() { return nTextureSize(address()); }
 
-	public OVRTextureHeader setAPI(int api) { nsetAPI(address(), api); return this; }
-	public OVRTextureHeader setTextureSize(OVRSizei TextureSize) { nsetTextureSize(address(), TextureSize); return this; }
-	public OVRTextureHeader setTextureSizeW(int w) { nsetTextureSizeW(address(), w); return this; }
-	public OVRTextureHeader setTextureSizeH(int h) { nsetTextureSizeH(address(), h); return this; }
+	/** Sets the specified value to the {@code API} field. */
+	public OVRTextureHeader API(int value) { nAPI(address(), value); return this; }
+	/** Copies the specified {@link OVRSizei} to the {@code TextureSize} field. */
+	public OVRTextureHeader TextureSize(OVRSizei value) { nTextureSize(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public OVRTextureHeader set(
 		int API,
 		OVRSizei TextureSize
 	) {
-		setAPI(API);
-		setTextureSize(TextureSize);
+		API(API);
+		TextureSize(TextureSize);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(OVRTextureHeader) set}. */
 	public OVRTextureHeader nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -97,7 +106,7 @@ public class OVRTextureHeader extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(OVRTextureHeader) set}. */
 	public OVRTextureHeader set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -158,25 +167,15 @@ public class OVRTextureHeader extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static int ngetAPI(long struct) { return memGetInt(struct + API); }
-	public static int getAPI(ByteBuffer struct) { return ngetAPI(memAddress(struct)); }
-	public static OVRSizei ngetTextureSize(long struct) { return OVRSizei.malloc().nset(struct + TEXTURESIZE); }
-	/** Returns a copy of the {@code TextureSize} {@link OVRSizei} struct. */
-	public static OVRSizei getTextureSize(ByteBuffer struct) { return ngetTextureSize(memAddress(struct)); }
-	public static int ngetTextureSizeW(long struct) { return memGetInt(struct + TEXTURESIZE + OVRSizei.W); }
-	public static int getTextureSizeW(ByteBuffer struct) { return ngetTextureSizeW(memAddress(struct)); }
-	public static int ngetTextureSizeH(long struct) { return memGetInt(struct + TEXTURESIZE + OVRSizei.H); }
-	public static int getTextureSizeH(ByteBuffer struct) { return ngetTextureSizeH(memAddress(struct)); }
+	/** Unsafe version of {@link #API}. */
+	public static int nAPI(long struct) { return memGetInt(struct + OVRTextureHeader.API); }
+	/** Unsafe version of {@link #TextureSize}. */
+	public static OVRSizei nTextureSize(long struct) { return new OVRSizei(struct + OVRTextureHeader.TEXTURESIZE); }
 
-	public static void nsetAPI(long struct, int api) { memPutInt(struct + API, api); }
-	public static void setAPI(ByteBuffer struct, int api) { nsetAPI(memAddress(struct), api); }
-	public static void nsetTextureSize(long struct, OVRSizei TextureSize) { memCopy(TextureSize.address(), struct + TEXTURESIZE, OVRSizei.SIZEOF); }
-	/** Copies the specified {@link OVRSizei} struct to the nested {@code TextureSize} struct. */
-	public static void setTextureSize(ByteBuffer struct, OVRSizei TextureSize) { nsetTextureSize(memAddress(struct), TextureSize); }
-	public static void nsetTextureSizeW(long struct, int w) { memPutInt(struct + TEXTURESIZE + OVRSizei.W, w); }
-	public static void setTextureSizeW(ByteBuffer struct, int w) { nsetTextureSizeW(memAddress(struct), w); }
-	public static void nsetTextureSizeH(long struct, int h) { memPutInt(struct + TEXTURESIZE + OVRSizei.H, h); }
-	public static void setTextureSizeH(ByteBuffer struct, int h) { nsetTextureSizeH(memAddress(struct), h); }
+	/** Unsafe version of {@link #API(int) API}. */
+	public static void nAPI(long struct, int value) { memPutInt(struct + OVRTextureHeader.API, value); }
+	/** Unsafe version of {@link #TextureSize(OVRSizei) TextureSize}. */
+	public static void nTextureSize(long struct, OVRSizei value) { memCopy(value.address(), struct + OVRTextureHeader.TEXTURESIZE, OVRSizei.SIZEOF); }
 
 	// -----------------------------------
 
@@ -220,15 +219,15 @@ public class OVRTextureHeader extends Struct {
 			return SIZEOF;
 		}
 
-		public int getAPI() { return ngetAPI(address()); }
-		public OVRSizei getTextureSize() { return ngetTextureSize(address()); }
-		public int getTextureSizeW() { return ngetTextureSizeW(address()); }
-		public int getTextureSizeH() { return ngetTextureSizeH(address()); }
+		/** Returns the value of the {@code API} field. */
+		public int API() { return nAPI(address()); }
+		/** Returns a {@link OVRSizei} view of the {@code TextureSize} field. */
+		public OVRSizei TextureSize() { return nTextureSize(address()); }
 
-		public OVRTextureHeader.Buffer setAPI(int api) { nsetAPI(address(), api); return this; }
-		public OVRTextureHeader.Buffer setTextureSize(OVRSizei TextureSize) { nsetTextureSize(address(), TextureSize); return this; }
-		public OVRTextureHeader.Buffer setTextureSizeW(int w) { nsetTextureSizeW(address(), w); return this; }
-		public OVRTextureHeader.Buffer setTextureSizeH(int h) { nsetTextureSizeH(address(), h); return this; }
+		/** Sets the specified value to the {@code API} field. */
+		public OVRTextureHeader.Buffer API(int value) { nAPI(address(), value); return this; }
+		/** Copies the specified {@link OVRSizei} to the {@code TextureSize} field. */
+		public OVRTextureHeader.Buffer TextureSize(OVRSizei value) { nTextureSize(address(), value); return this; }
 
 	}
 

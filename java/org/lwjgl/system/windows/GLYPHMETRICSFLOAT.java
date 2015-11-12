@@ -10,10 +10,21 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Contains information about the placement and orientation of a glyph in a character cell. */
+/**
+ * Contains information about the placement and orientation of a glyph in a character cell.
+ * 
+ * <h3>GLYPHMETRICSFLOAT members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>gmfBlackBoxX</td><td class="nw">FLOAT</td><td>specifies the width of the smallest rectangle (the glyph's black box) that completely encloses the glyph</td></tr>
+ * <tr><td>gmfBlackBoxY</td><td class="nw">FLOAT</td><td>specifies the height of the smallest rectangle (the glyph's black box) that completely encloses the glyph</td></tr>
+ * <tr><td>gmfptGlyphOrigin</td><td class="nw">POINTFLOAT</td><td>specifies the x and y coordinates of the upper-left corner of the smallest rectangle that completely encloses the glyph</td></tr>
+ * <tr><td>gmfCellIncX</td><td class="nw">FLOAT</td><td>specifies the horizontal distance from the origin of the current character cell to the origin of the next character cell</td></tr>
+ * <tr><td>gmfCellIncY</td><td class="nw">FLOAT</td><td>specifies the vertical distance from the origin of the current character cell to the origin of the next character cell</td></tr>
+ * </table>
+ */
 public class GLYPHMETRICSFLOAT extends Struct {
 
 	/** The struct size in bytes. */
@@ -21,22 +32,22 @@ public class GLYPHMETRICSFLOAT extends Struct {
 
 	/** The struct member offsets. */
 	public static final int
-		BLACKBOXX,
-		BLOCKBOXY,
-		GLYPHORIGIN,
-		CELLINCX,
-		CELLINCY;
+		GMFBLACKBOXX,
+		GMFBLACKBOXY,
+		GMFPTGLYPHORIGIN,
+		GMFCELLINCX,
+		GMFCELLINCY;
 
 	static {
 		IntBuffer offsets = memAllocInt(5);
 
 		SIZEOF = offsets(memAddress(offsets));
 
-		BLACKBOXX = offsets.get(0);
-		BLOCKBOXY = offsets.get(1);
-		GLYPHORIGIN = offsets.get(2);
-		CELLINCX = offsets.get(3);
-		CELLINCY = offsets.get(4);
+		GMFBLACKBOXX = offsets.get(0);
+		GMFBLACKBOXY = offsets.get(1);
+		GMFPTGLYPHORIGIN = offsets.get(2);
+		GMFCELLINCX = offsets.get(3);
+		GMFCELLINCY = offsets.get(4);
 
 		memFree(offsets);
 	}
@@ -65,13 +76,16 @@ public class GLYPHMETRICSFLOAT extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public float getBlackBoxX() { return ngetBlackBoxX(address()); }
-	public float getBlockBoxY() { return ngetBlockBoxY(address()); }
-	public POINTFLOAT getGlyphOrigin() { return ngetGlyphOrigin(address()); }
-	public float getGlyphOriginX() { return ngetGlyphOriginX(address()); }
-	public float getGlyphOriginY() { return ngetGlyphOriginY(address()); }
-	public float getCellIncX() { return ngetCellIncX(address()); }
-	public float getCellIncY() { return ngetCellIncY(address()); }
+	/** Returns the value of the {@code gmfBlackBoxX} field. */
+	public float gmfBlackBoxX() { return ngmfBlackBoxX(address()); }
+	/** Returns the value of the {@code gmfBlackBoxY} field. */
+	public float gmfBlackBoxY() { return ngmfBlackBoxY(address()); }
+	/** Returns a {@link POINTFLOAT} view of the {@code gmfptGlyphOrigin} field. */
+	public POINTFLOAT gmfptGlyphOrigin() { return ngmfptGlyphOrigin(address()); }
+	/** Returns the value of the {@code gmfCellIncX} field. */
+	public float gmfCellIncX() { return ngmfCellIncX(address()); }
+	/** Returns the value of the {@code gmfCellIncY} field. */
+	public float gmfCellIncY() { return ngmfCellIncY(address()); }
 
 	// -----------------------------------
 
@@ -127,21 +141,16 @@ public class GLYPHMETRICSFLOAT extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static float ngetBlackBoxX(long struct) { return memGetFloat(struct + BLACKBOXX); }
-	public static float getBlackBoxX(ByteBuffer struct) { return ngetBlackBoxX(memAddress(struct)); }
-	public static float ngetBlockBoxY(long struct) { return memGetFloat(struct + BLOCKBOXY); }
-	public static float getBlockBoxY(ByteBuffer struct) { return ngetBlockBoxY(memAddress(struct)); }
-	public static POINTFLOAT ngetGlyphOrigin(long struct) { return POINTFLOAT.malloc().nset(struct + GLYPHORIGIN); }
-	/** Returns a copy of the {@code glyphOrigin} {@link POINTFLOAT} struct. */
-	public static POINTFLOAT getGlyphOrigin(ByteBuffer struct) { return ngetGlyphOrigin(memAddress(struct)); }
-	public static float ngetGlyphOriginX(long struct) { return memGetFloat(struct + GLYPHORIGIN + POINTFLOAT.X); }
-	public static float getGlyphOriginX(ByteBuffer struct) { return ngetGlyphOriginX(memAddress(struct)); }
-	public static float ngetGlyphOriginY(long struct) { return memGetFloat(struct + GLYPHORIGIN + POINTFLOAT.Y); }
-	public static float getGlyphOriginY(ByteBuffer struct) { return ngetGlyphOriginY(memAddress(struct)); }
-	public static float ngetCellIncX(long struct) { return memGetFloat(struct + CELLINCX); }
-	public static float getCellIncX(ByteBuffer struct) { return ngetCellIncX(memAddress(struct)); }
-	public static float ngetCellIncY(long struct) { return memGetFloat(struct + CELLINCY); }
-	public static float getCellIncY(ByteBuffer struct) { return ngetCellIncY(memAddress(struct)); }
+	/** Unsafe version of {@link #gmfBlackBoxX}. */
+	public static float ngmfBlackBoxX(long struct) { return memGetFloat(struct + GLYPHMETRICSFLOAT.GMFBLACKBOXX); }
+	/** Unsafe version of {@link #gmfBlackBoxY}. */
+	public static float ngmfBlackBoxY(long struct) { return memGetFloat(struct + GLYPHMETRICSFLOAT.GMFBLACKBOXY); }
+	/** Unsafe version of {@link #gmfptGlyphOrigin}. */
+	public static POINTFLOAT ngmfptGlyphOrigin(long struct) { return new POINTFLOAT(struct + GLYPHMETRICSFLOAT.GMFPTGLYPHORIGIN); }
+	/** Unsafe version of {@link #gmfCellIncX}. */
+	public static float ngmfCellIncX(long struct) { return memGetFloat(struct + GLYPHMETRICSFLOAT.GMFCELLINCX); }
+	/** Unsafe version of {@link #gmfCellIncY}. */
+	public static float ngmfCellIncY(long struct) { return memGetFloat(struct + GLYPHMETRICSFLOAT.GMFCELLINCY); }
 
 	// -----------------------------------
 
@@ -185,13 +194,16 @@ public class GLYPHMETRICSFLOAT extends Struct {
 			return SIZEOF;
 		}
 
-		public float getBlackBoxX() { return ngetBlackBoxX(address()); }
-		public float getBlockBoxY() { return ngetBlockBoxY(address()); }
-		public POINTFLOAT getGlyphOrigin() { return ngetGlyphOrigin(address()); }
-		public float getGlyphOriginX() { return ngetGlyphOriginX(address()); }
-		public float getGlyphOriginY() { return ngetGlyphOriginY(address()); }
-		public float getCellIncX() { return ngetCellIncX(address()); }
-		public float getCellIncY() { return ngetCellIncY(address()); }
+		/** Returns the value of the {@code gmfBlackBoxX} field. */
+		public float gmfBlackBoxX() { return ngmfBlackBoxX(address()); }
+		/** Returns the value of the {@code gmfBlackBoxY} field. */
+		public float gmfBlackBoxY() { return ngmfBlackBoxY(address()); }
+		/** Returns a {@link POINTFLOAT} view of the {@code gmfptGlyphOrigin} field. */
+		public POINTFLOAT gmfptGlyphOrigin() { return ngmfptGlyphOrigin(address()); }
+		/** Returns the value of the {@code gmfCellIncX} field. */
+		public float gmfCellIncX() { return ngmfCellIncX(address()); }
+		/** Returns the value of the {@code gmfCellIncY} field. */
+		public float gmfCellIncY() { return ngmfCellIncY(address()); }
 
 	}
 

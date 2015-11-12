@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** A system specific graphics adapter identifier. */
@@ -19,21 +18,11 @@ public class OVRGraphicsLuid extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
-	/** The struct member offsets. */
-	public static final int
-		RESERVED;
-
 	static {
-		IntBuffer offsets = memAllocInt(1);
-
-		SIZEOF = offsets(memAddress(offsets));
-
-		RESERVED = offsets.get(0);
-
-		memFree(offsets);
+		SIZEOF = offsets();
 	}
 
-	private static native int offsets(long buffer);
+	private static native int offsets();
 
 	OVRGraphicsLuid(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);
@@ -56,8 +45,6 @@ public class OVRGraphicsLuid extends Struct {
 
 	@Override
 	public int sizeof() { return SIZEOF; }
-
-	public void getReserved(ByteBuffer Reserved) { ngetReserved(address(), Reserved); }
 
 	// -----------------------------------
 
@@ -113,14 +100,6 @@ public class OVRGraphicsLuid extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static void ngetReserved(long struct, ByteBuffer Reserved) {
-		if ( CHECKS ) checkBufferGT(Reserved, 8 * 1);
-		memCopy(struct + RESERVED, memAddress(Reserved), Reserved.remaining());
-	}
-	public static void getReserved(ByteBuffer struct, ByteBuffer Reserved) { ngetReserved(memAddress(struct), Reserved); }
-	public static byte ngetReserved(long struct, int index) { return memGetByte(struct + RESERVED + index * 1); }
-	public static byte getReserved(ByteBuffer struct, int index) { return ngetReserved(memAddress(struct), index); }
-
 	// -----------------------------------
 
 	/** An array of {@link OVRGraphicsLuid} structs. */
@@ -162,8 +141,6 @@ public class OVRGraphicsLuid extends Struct {
 		protected int sizeof() {
 			return SIZEOF;
 		}
-
-		public void getReserved(ByteBuffer Reserved) { ngetReserved(address(), Reserved); }
 
 	}
 

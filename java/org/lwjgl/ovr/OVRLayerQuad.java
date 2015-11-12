@@ -22,6 +22,16 @@ import static org.lwjgl.system.MemoryUtil.*;
  * fidelity of the GUI.</p>
  * 
  * <p>Quad layers are visible from both sides; they are not back-face culled.</p>
+ * 
+ * <h3>ovrLayerQuad members</h3>
+ * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>Header</td><td class="nw">ovrLayerHeader</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_Quad}</td></tr>
+ * <tr><td>ColorTexture</td><td class="nw">ovrSwapTextureSet *</td><td>contains a single image, never with any stereo view</td></tr>
+ * <tr><td>Viewport</td><td class="nw">ovrRecti</td><td>specifies the ColorTexture sub-rect UV coordinates</td></tr>
+ * <tr><td>QuadPoseCenter</td><td class="nw">ovrPosef</td><td>position and orientation of the center of the quad. Position is specified in meters.</td></tr>
+ * <tr><td>QuadSize</td><td class="nw">ovrVector2f</td><td>width and height (respectively) of the quad in meters</td></tr>
+ * </table>
  */
 public class OVRLayerQuad extends Struct {
 
@@ -74,55 +84,27 @@ public class OVRLayerQuad extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	public OVRLayerHeader getHeader() { return ngetHeader(address()); }
-	public int getHeaderType() { return ngetHeaderType(address()); }
-	public int getHeaderFlags() { return ngetHeaderFlags(address()); }
-	public OVRSwapTextureSet getColorTexture() { return ngetColorTextureStruct(address()); }
-	public OVRRecti getViewport() { return ngetViewport(address()); }
-	public OVRVector2i getViewportPos() { return ngetViewportPos(address()); }
-	public int getViewportPosX() { return ngetViewportPosX(address()); }
-	public int getViewportPosY() { return ngetViewportPosY(address()); }
-	public OVRSizei getViewportSize() { return ngetViewportSize(address()); }
-	public int getViewportSizeW() { return ngetViewportSizeW(address()); }
-	public int getViewportSizeH() { return ngetViewportSizeH(address()); }
-	public OVRPosef getQuadPoseCenter() { return ngetQuadPoseCenter(address()); }
-	public OVRQuatf getQuadPoseCenterOrientation() { return ngetQuadPoseCenterOrientation(address()); }
-	public float getQuadPoseCenterOrientationX() { return ngetQuadPoseCenterOrientationX(address()); }
-	public float getQuadPoseCenterOrientationY() { return ngetQuadPoseCenterOrientationY(address()); }
-	public float getQuadPoseCenterOrientationZ() { return ngetQuadPoseCenterOrientationZ(address()); }
-	public float getQuadPoseCenterOrientationW() { return ngetQuadPoseCenterOrientationW(address()); }
-	public OVRVector3f getQuadPoseCenterPosition() { return ngetQuadPoseCenterPosition(address()); }
-	public float getQuadPoseCenterPositionX() { return ngetQuadPoseCenterPositionX(address()); }
-	public float getQuadPoseCenterPositionY() { return ngetQuadPoseCenterPositionY(address()); }
-	public float getQuadPoseCenterPositionZ() { return ngetQuadPoseCenterPositionZ(address()); }
-	public OVRVector2f getQuadSize() { return ngetQuadSize(address()); }
-	public float getQuadSizeX() { return ngetQuadSizeX(address()); }
-	public float getQuadSizeY() { return ngetQuadSizeY(address()); }
+	/** Returns a {@link OVRLayerHeader} view of the {@code Header} field. */
+	public OVRLayerHeader Header() { return nHeader(address()); }
+	/** Returns a {@link OVRSwapTextureSet} view of the struct pointed to by the {@code ColorTexture} field. */
+	public OVRSwapTextureSet ColorTexture() { return nColorTextureStruct(address()); }
+	/** Returns a {@link OVRRecti} view of the {@code Viewport} field. */
+	public OVRRecti Viewport() { return nViewport(address()); }
+	/** Returns a {@link OVRPosef} view of the {@code QuadPoseCenter} field. */
+	public OVRPosef QuadPoseCenter() { return nQuadPoseCenter(address()); }
+	/** Returns a {@link OVRVector2f} view of the {@code QuadSize} field. */
+	public OVRVector2f QuadSize() { return nQuadSize(address()); }
 
-	public OVRLayerQuad setHeader(OVRLayerHeader Header) { nsetHeader(address(), Header); return this; }
-	public OVRLayerQuad setHeaderType(int Type) { nsetHeaderType(address(), Type); return this; }
-	public OVRLayerQuad setHeaderFlags(int Flags) { nsetHeaderFlags(address(), Flags); return this; }
-	public OVRLayerQuad setColorTexture(OVRSwapTextureSet ColorTexture) { nsetColorTexture(address(), ColorTexture); return this; }
-	public OVRLayerQuad setViewport(OVRRecti Viewport) { nsetViewport(address(), Viewport); return this; }
-	public OVRLayerQuad setViewportPos(OVRVector2i Pos) { nsetViewportPos(address(), Pos); return this; }
-	public OVRLayerQuad setViewportPosX(int x) { nsetViewportPosX(address(), x); return this; }
-	public OVRLayerQuad setViewportPosY(int y) { nsetViewportPosY(address(), y); return this; }
-	public OVRLayerQuad setViewportSize(OVRSizei Size) { nsetViewportSize(address(), Size); return this; }
-	public OVRLayerQuad setViewportSizeW(int w) { nsetViewportSizeW(address(), w); return this; }
-	public OVRLayerQuad setViewportSizeH(int h) { nsetViewportSizeH(address(), h); return this; }
-	public OVRLayerQuad setQuadPoseCenter(OVRPosef QuadPoseCenter) { nsetQuadPoseCenter(address(), QuadPoseCenter); return this; }
-	public OVRLayerQuad setQuadPoseCenterOrientation(OVRQuatf Orientation) { nsetQuadPoseCenterOrientation(address(), Orientation); return this; }
-	public OVRLayerQuad setQuadPoseCenterOrientationX(float x) { nsetQuadPoseCenterOrientationX(address(), x); return this; }
-	public OVRLayerQuad setQuadPoseCenterOrientationY(float y) { nsetQuadPoseCenterOrientationY(address(), y); return this; }
-	public OVRLayerQuad setQuadPoseCenterOrientationZ(float z) { nsetQuadPoseCenterOrientationZ(address(), z); return this; }
-	public OVRLayerQuad setQuadPoseCenterOrientationW(float w) { nsetQuadPoseCenterOrientationW(address(), w); return this; }
-	public OVRLayerQuad setQuadPoseCenterPosition(OVRVector3f Position) { nsetQuadPoseCenterPosition(address(), Position); return this; }
-	public OVRLayerQuad setQuadPoseCenterPositionX(float x) { nsetQuadPoseCenterPositionX(address(), x); return this; }
-	public OVRLayerQuad setQuadPoseCenterPositionY(float y) { nsetQuadPoseCenterPositionY(address(), y); return this; }
-	public OVRLayerQuad setQuadPoseCenterPositionZ(float z) { nsetQuadPoseCenterPositionZ(address(), z); return this; }
-	public OVRLayerQuad setQuadSize(OVRVector2f QuadSize) { nsetQuadSize(address(), QuadSize); return this; }
-	public OVRLayerQuad setQuadSizeX(float x) { nsetQuadSizeX(address(), x); return this; }
-	public OVRLayerQuad setQuadSizeY(float y) { nsetQuadSizeY(address(), y); return this; }
+	/** Copies the specified {@link OVRLayerHeader} to the {@code Header} field. */
+	public OVRLayerQuad Header(OVRLayerHeader value) { nHeader(address(), value); return this; }
+	/** Sets the address of the specified {@link OVRSwapTextureSet} to the {@code ColorTexture} field. */
+	public OVRLayerQuad ColorTexture(OVRSwapTextureSet value) { nColorTexture(address(), value); return this; }
+	/** Copies the specified {@link OVRRecti} to the {@code Viewport} field. */
+	public OVRLayerQuad Viewport(OVRRecti value) { nViewport(address(), value); return this; }
+	/** Copies the specified {@link OVRPosef} to the {@code QuadPoseCenter} field. */
+	public OVRLayerQuad QuadPoseCenter(OVRPosef value) { nQuadPoseCenter(address(), value); return this; }
+	/** Copies the specified {@link OVRVector2f} to the {@code QuadSize} field. */
+	public OVRLayerQuad QuadSize(OVRVector2f value) { nQuadSize(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public OVRLayerQuad set(
@@ -132,16 +114,16 @@ public class OVRLayerQuad extends Struct {
 		OVRPosef QuadPoseCenter,
 		OVRVector2f QuadSize
 	) {
-		setHeader(Header);
-		setColorTexture(ColorTexture);
-		setViewport(Viewport);
-		setQuadPoseCenter(QuadPoseCenter);
-		setQuadSize(QuadSize);
+		Header(Header);
+		ColorTexture(ColorTexture);
+		Viewport(Viewport);
+		QuadPoseCenter(QuadPoseCenter);
+		QuadSize(QuadSize);
 
 		return this;
 	}
 
-	/** Unsafe version of {@link #set}. */
+	/** Unsafe version of {@link #set(OVRLayerQuad) set}. */
 	public OVRLayerQuad nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
 		return this;
@@ -158,7 +140,7 @@ public class OVRLayerQuad extends Struct {
 		return nset(src.address());
 	}
 
-	/** {@link ByteBuffer} version of {@link #set}. */
+	/** {@link ByteBuffer} version of {@link #set(OVRLayerQuad) set}. */
 	public OVRLayerQuad set(ByteBuffer struct) {
 		if ( CHECKS )
 			checkBuffer(struct, SIZEOF);
@@ -219,121 +201,27 @@ public class OVRLayerQuad extends Struct {
 		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
 	}
 
-	public static OVRLayerHeader ngetHeader(long struct) { return OVRLayerHeader.malloc().nset(struct + HEADER); }
-	/** Returns a copy of the {@code Header} {@link OVRLayerHeader} struct. */
-	public static OVRLayerHeader getHeader(ByteBuffer struct) { return ngetHeader(memAddress(struct)); }
-	public static int ngetHeaderType(long struct) { return memGetInt(struct + HEADER + OVRLayerHeader.TYPE); }
-	public static int getHeaderType(ByteBuffer struct) { return ngetHeaderType(memAddress(struct)); }
-	public static int ngetHeaderFlags(long struct) { return memGetInt(struct + HEADER + OVRLayerHeader.FLAGS); }
-	public static int getHeaderFlags(ByteBuffer struct) { return ngetHeaderFlags(memAddress(struct)); }
-	public static long ngetColorTexture(long struct) { return memGetAddress(struct + COLORTEXTURE); }
-	public static OVRSwapTextureSet ngetColorTextureStruct(long struct) { return new OVRSwapTextureSet(ngetColorTexture(struct)); }
-	public static OVRSwapTextureSet getColorTexture(ByteBuffer struct) { return ngetColorTextureStruct(memAddress(struct)); }
-	public static OVRRecti ngetViewport(long struct) { return OVRRecti.malloc().nset(struct + VIEWPORT); }
-	/** Returns a copy of the {@code Viewport} {@link OVRRecti} struct. */
-	public static OVRRecti getViewport(ByteBuffer struct) { return ngetViewport(memAddress(struct)); }
-	public static OVRVector2i ngetViewportPos(long struct) { return OVRVector2i.malloc().nset(struct + VIEWPORT + OVRRecti.POS); }
-	/** Returns a copy of the {@code Pos} {@link OVRVector2i} struct. */
-	public static OVRVector2i getViewportPos(ByteBuffer struct) { return ngetViewportPos(memAddress(struct)); }
-	public static int ngetViewportPosX(long struct) { return memGetInt(struct + VIEWPORT + OVRRecti.POS + OVRVector2i.X); }
-	public static int getViewportPosX(ByteBuffer struct) { return ngetViewportPosX(memAddress(struct)); }
-	public static int ngetViewportPosY(long struct) { return memGetInt(struct + VIEWPORT + OVRRecti.POS + OVRVector2i.Y); }
-	public static int getViewportPosY(ByteBuffer struct) { return ngetViewportPosY(memAddress(struct)); }
-	public static OVRSizei ngetViewportSize(long struct) { return OVRSizei.malloc().nset(struct + VIEWPORT + OVRRecti.SIZE); }
-	/** Returns a copy of the {@code Size} {@link OVRSizei} struct. */
-	public static OVRSizei getViewportSize(ByteBuffer struct) { return ngetViewportSize(memAddress(struct)); }
-	public static int ngetViewportSizeW(long struct) { return memGetInt(struct + VIEWPORT + OVRRecti.SIZE + OVRSizei.W); }
-	public static int getViewportSizeW(ByteBuffer struct) { return ngetViewportSizeW(memAddress(struct)); }
-	public static int ngetViewportSizeH(long struct) { return memGetInt(struct + VIEWPORT + OVRRecti.SIZE + OVRSizei.H); }
-	public static int getViewportSizeH(ByteBuffer struct) { return ngetViewportSizeH(memAddress(struct)); }
-	public static OVRPosef ngetQuadPoseCenter(long struct) { return OVRPosef.malloc().nset(struct + QUADPOSECENTER); }
-	/** Returns a copy of the {@code QuadPoseCenter} {@link OVRPosef} struct. */
-	public static OVRPosef getQuadPoseCenter(ByteBuffer struct) { return ngetQuadPoseCenter(memAddress(struct)); }
-	public static OVRQuatf ngetQuadPoseCenterOrientation(long struct) { return OVRQuatf.malloc().nset(struct + QUADPOSECENTER + OVRPosef.ORIENTATION); }
-	/** Returns a copy of the {@code Orientation} {@link OVRQuatf} struct. */
-	public static OVRQuatf getQuadPoseCenterOrientation(ByteBuffer struct) { return ngetQuadPoseCenterOrientation(memAddress(struct)); }
-	public static float ngetQuadPoseCenterOrientationX(long struct) { return memGetFloat(struct + QUADPOSECENTER + OVRPosef.ORIENTATION + OVRQuatf.X); }
-	public static float getQuadPoseCenterOrientationX(ByteBuffer struct) { return ngetQuadPoseCenterOrientationX(memAddress(struct)); }
-	public static float ngetQuadPoseCenterOrientationY(long struct) { return memGetFloat(struct + QUADPOSECENTER + OVRPosef.ORIENTATION + OVRQuatf.Y); }
-	public static float getQuadPoseCenterOrientationY(ByteBuffer struct) { return ngetQuadPoseCenterOrientationY(memAddress(struct)); }
-	public static float ngetQuadPoseCenterOrientationZ(long struct) { return memGetFloat(struct + QUADPOSECENTER + OVRPosef.ORIENTATION + OVRQuatf.Z); }
-	public static float getQuadPoseCenterOrientationZ(ByteBuffer struct) { return ngetQuadPoseCenterOrientationZ(memAddress(struct)); }
-	public static float ngetQuadPoseCenterOrientationW(long struct) { return memGetFloat(struct + QUADPOSECENTER + OVRPosef.ORIENTATION + OVRQuatf.W); }
-	public static float getQuadPoseCenterOrientationW(ByteBuffer struct) { return ngetQuadPoseCenterOrientationW(memAddress(struct)); }
-	public static OVRVector3f ngetQuadPoseCenterPosition(long struct) { return OVRVector3f.malloc().nset(struct + QUADPOSECENTER + OVRPosef.POSITION); }
-	/** Returns a copy of the {@code Position} {@link OVRVector3f} struct. */
-	public static OVRVector3f getQuadPoseCenterPosition(ByteBuffer struct) { return ngetQuadPoseCenterPosition(memAddress(struct)); }
-	public static float ngetQuadPoseCenterPositionX(long struct) { return memGetFloat(struct + QUADPOSECENTER + OVRPosef.POSITION + OVRVector3f.X); }
-	public static float getQuadPoseCenterPositionX(ByteBuffer struct) { return ngetQuadPoseCenterPositionX(memAddress(struct)); }
-	public static float ngetQuadPoseCenterPositionY(long struct) { return memGetFloat(struct + QUADPOSECENTER + OVRPosef.POSITION + OVRVector3f.Y); }
-	public static float getQuadPoseCenterPositionY(ByteBuffer struct) { return ngetQuadPoseCenterPositionY(memAddress(struct)); }
-	public static float ngetQuadPoseCenterPositionZ(long struct) { return memGetFloat(struct + QUADPOSECENTER + OVRPosef.POSITION + OVRVector3f.Z); }
-	public static float getQuadPoseCenterPositionZ(ByteBuffer struct) { return ngetQuadPoseCenterPositionZ(memAddress(struct)); }
-	public static OVRVector2f ngetQuadSize(long struct) { return OVRVector2f.malloc().nset(struct + QUADSIZE); }
-	/** Returns a copy of the {@code QuadSize} {@link OVRVector2f} struct. */
-	public static OVRVector2f getQuadSize(ByteBuffer struct) { return ngetQuadSize(memAddress(struct)); }
-	public static float ngetQuadSizeX(long struct) { return memGetFloat(struct + QUADSIZE + OVRVector2f.X); }
-	public static float getQuadSizeX(ByteBuffer struct) { return ngetQuadSizeX(memAddress(struct)); }
-	public static float ngetQuadSizeY(long struct) { return memGetFloat(struct + QUADSIZE + OVRVector2f.Y); }
-	public static float getQuadSizeY(ByteBuffer struct) { return ngetQuadSizeY(memAddress(struct)); }
+	/** Unsafe version of {@link #Header}. */
+	public static OVRLayerHeader nHeader(long struct) { return new OVRLayerHeader(struct + OVRLayerQuad.HEADER); }
+	/** Unsafe version of {@link #ColorTexture}. */
+	public static OVRSwapTextureSet nColorTextureStruct(long struct) { return new OVRSwapTextureSet(memGetAddress(struct + OVRLayerQuad.COLORTEXTURE)); }
+	/** Unsafe version of {@link #Viewport}. */
+	public static OVRRecti nViewport(long struct) { return new OVRRecti(struct + OVRLayerQuad.VIEWPORT); }
+	/** Unsafe version of {@link #QuadPoseCenter}. */
+	public static OVRPosef nQuadPoseCenter(long struct) { return new OVRPosef(struct + OVRLayerQuad.QUADPOSECENTER); }
+	/** Unsafe version of {@link #QuadSize}. */
+	public static OVRVector2f nQuadSize(long struct) { return new OVRVector2f(struct + OVRLayerQuad.QUADSIZE); }
 
-	public static void nsetHeader(long struct, OVRLayerHeader Header) { memCopy(Header.address(), struct + HEADER, OVRLayerHeader.SIZEOF); }
-	/** Copies the specified {@link OVRLayerHeader} struct to the nested {@code Header} struct. */
-	public static void setHeader(ByteBuffer struct, OVRLayerHeader Header) { nsetHeader(memAddress(struct), Header); }
-	public static void nsetHeaderType(long struct, int Type) { memPutInt(struct + HEADER + OVRLayerHeader.TYPE, Type); }
-	public static void setHeaderType(ByteBuffer struct, int Type) { nsetHeaderType(memAddress(struct), Type); }
-	public static void nsetHeaderFlags(long struct, int Flags) { memPutInt(struct + HEADER + OVRLayerHeader.FLAGS, Flags); }
-	public static void setHeaderFlags(ByteBuffer struct, int Flags) { nsetHeaderFlags(memAddress(struct), Flags); }
-	public static void nsetColorTexture(long struct, long ColorTexture) { memPutAddress(struct + COLORTEXTURE, ColorTexture); }
-	public static void nsetColorTexture(long struct, OVRSwapTextureSet ColorTexture) { nsetColorTexture(struct, ColorTexture.address()); }
-	public static void setColorTexture(ByteBuffer struct, OVRSwapTextureSet ColorTexture) { nsetColorTexture(memAddress(struct), ColorTexture); }
-	public static void nsetViewport(long struct, OVRRecti Viewport) { memCopy(Viewport.address(), struct + VIEWPORT, OVRRecti.SIZEOF); }
-	/** Copies the specified {@link OVRRecti} struct to the nested {@code Viewport} struct. */
-	public static void setViewport(ByteBuffer struct, OVRRecti Viewport) { nsetViewport(memAddress(struct), Viewport); }
-	public static void nsetViewportPos(long struct, OVRVector2i Pos) { memCopy(Pos.address(), struct + VIEWPORT + OVRRecti.POS, OVRVector2i.SIZEOF); }
-	/** Copies the specified {@link OVRVector2i} struct to the nested {@code Pos} struct. */
-	public static void setViewportPos(ByteBuffer struct, OVRVector2i Pos) { nsetViewportPos(memAddress(struct), Pos); }
-	public static void nsetViewportPosX(long struct, int x) { memPutInt(struct + VIEWPORT + OVRRecti.POS + OVRVector2i.X, x); }
-	public static void setViewportPosX(ByteBuffer struct, int x) { nsetViewportPosX(memAddress(struct), x); }
-	public static void nsetViewportPosY(long struct, int y) { memPutInt(struct + VIEWPORT + OVRRecti.POS + OVRVector2i.Y, y); }
-	public static void setViewportPosY(ByteBuffer struct, int y) { nsetViewportPosY(memAddress(struct), y); }
-	public static void nsetViewportSize(long struct, OVRSizei Size) { memCopy(Size.address(), struct + VIEWPORT + OVRRecti.SIZE, OVRSizei.SIZEOF); }
-	/** Copies the specified {@link OVRSizei} struct to the nested {@code Size} struct. */
-	public static void setViewportSize(ByteBuffer struct, OVRSizei Size) { nsetViewportSize(memAddress(struct), Size); }
-	public static void nsetViewportSizeW(long struct, int w) { memPutInt(struct + VIEWPORT + OVRRecti.SIZE + OVRSizei.W, w); }
-	public static void setViewportSizeW(ByteBuffer struct, int w) { nsetViewportSizeW(memAddress(struct), w); }
-	public static void nsetViewportSizeH(long struct, int h) { memPutInt(struct + VIEWPORT + OVRRecti.SIZE + OVRSizei.H, h); }
-	public static void setViewportSizeH(ByteBuffer struct, int h) { nsetViewportSizeH(memAddress(struct), h); }
-	public static void nsetQuadPoseCenter(long struct, OVRPosef QuadPoseCenter) { memCopy(QuadPoseCenter.address(), struct + QUADPOSECENTER, OVRPosef.SIZEOF); }
-	/** Copies the specified {@link OVRPosef} struct to the nested {@code QuadPoseCenter} struct. */
-	public static void setQuadPoseCenter(ByteBuffer struct, OVRPosef QuadPoseCenter) { nsetQuadPoseCenter(memAddress(struct), QuadPoseCenter); }
-	public static void nsetQuadPoseCenterOrientation(long struct, OVRQuatf Orientation) { memCopy(Orientation.address(), struct + QUADPOSECENTER + OVRPosef.ORIENTATION, OVRQuatf.SIZEOF); }
-	/** Copies the specified {@link OVRQuatf} struct to the nested {@code Orientation} struct. */
-	public static void setQuadPoseCenterOrientation(ByteBuffer struct, OVRQuatf Orientation) { nsetQuadPoseCenterOrientation(memAddress(struct), Orientation); }
-	public static void nsetQuadPoseCenterOrientationX(long struct, float x) { memPutFloat(struct + QUADPOSECENTER + OVRPosef.ORIENTATION + OVRQuatf.X, x); }
-	public static void setQuadPoseCenterOrientationX(ByteBuffer struct, float x) { nsetQuadPoseCenterOrientationX(memAddress(struct), x); }
-	public static void nsetQuadPoseCenterOrientationY(long struct, float y) { memPutFloat(struct + QUADPOSECENTER + OVRPosef.ORIENTATION + OVRQuatf.Y, y); }
-	public static void setQuadPoseCenterOrientationY(ByteBuffer struct, float y) { nsetQuadPoseCenterOrientationY(memAddress(struct), y); }
-	public static void nsetQuadPoseCenterOrientationZ(long struct, float z) { memPutFloat(struct + QUADPOSECENTER + OVRPosef.ORIENTATION + OVRQuatf.Z, z); }
-	public static void setQuadPoseCenterOrientationZ(ByteBuffer struct, float z) { nsetQuadPoseCenterOrientationZ(memAddress(struct), z); }
-	public static void nsetQuadPoseCenterOrientationW(long struct, float w) { memPutFloat(struct + QUADPOSECENTER + OVRPosef.ORIENTATION + OVRQuatf.W, w); }
-	public static void setQuadPoseCenterOrientationW(ByteBuffer struct, float w) { nsetQuadPoseCenterOrientationW(memAddress(struct), w); }
-	public static void nsetQuadPoseCenterPosition(long struct, OVRVector3f Position) { memCopy(Position.address(), struct + QUADPOSECENTER + OVRPosef.POSITION, OVRVector3f.SIZEOF); }
-	/** Copies the specified {@link OVRVector3f} struct to the nested {@code Position} struct. */
-	public static void setQuadPoseCenterPosition(ByteBuffer struct, OVRVector3f Position) { nsetQuadPoseCenterPosition(memAddress(struct), Position); }
-	public static void nsetQuadPoseCenterPositionX(long struct, float x) { memPutFloat(struct + QUADPOSECENTER + OVRPosef.POSITION + OVRVector3f.X, x); }
-	public static void setQuadPoseCenterPositionX(ByteBuffer struct, float x) { nsetQuadPoseCenterPositionX(memAddress(struct), x); }
-	public static void nsetQuadPoseCenterPositionY(long struct, float y) { memPutFloat(struct + QUADPOSECENTER + OVRPosef.POSITION + OVRVector3f.Y, y); }
-	public static void setQuadPoseCenterPositionY(ByteBuffer struct, float y) { nsetQuadPoseCenterPositionY(memAddress(struct), y); }
-	public static void nsetQuadPoseCenterPositionZ(long struct, float z) { memPutFloat(struct + QUADPOSECENTER + OVRPosef.POSITION + OVRVector3f.Z, z); }
-	public static void setQuadPoseCenterPositionZ(ByteBuffer struct, float z) { nsetQuadPoseCenterPositionZ(memAddress(struct), z); }
-	public static void nsetQuadSize(long struct, OVRVector2f QuadSize) { memCopy(QuadSize.address(), struct + QUADSIZE, OVRVector2f.SIZEOF); }
-	/** Copies the specified {@link OVRVector2f} struct to the nested {@code QuadSize} struct. */
-	public static void setQuadSize(ByteBuffer struct, OVRVector2f QuadSize) { nsetQuadSize(memAddress(struct), QuadSize); }
-	public static void nsetQuadSizeX(long struct, float x) { memPutFloat(struct + QUADSIZE + OVRVector2f.X, x); }
-	public static void setQuadSizeX(ByteBuffer struct, float x) { nsetQuadSizeX(memAddress(struct), x); }
-	public static void nsetQuadSizeY(long struct, float y) { memPutFloat(struct + QUADSIZE + OVRVector2f.Y, y); }
-	public static void setQuadSizeY(ByteBuffer struct, float y) { nsetQuadSizeY(memAddress(struct), y); }
+	/** Unsafe version of {@link #Header(OVRLayerHeader) Header}. */
+	public static void nHeader(long struct, OVRLayerHeader value) { memCopy(value.address(), struct + OVRLayerQuad.HEADER, OVRLayerHeader.SIZEOF); }
+	/** Unsafe version of {@link #ColorTexture(OVRSwapTextureSet) ColorTexture}. */
+	public static void nColorTexture(long struct, OVRSwapTextureSet value) { memPutAddress(struct + OVRLayerQuad.COLORTEXTURE, value.address()); }
+	/** Unsafe version of {@link #Viewport(OVRRecti) Viewport}. */
+	public static void nViewport(long struct, OVRRecti value) { memCopy(value.address(), struct + OVRLayerQuad.VIEWPORT, OVRRecti.SIZEOF); }
+	/** Unsafe version of {@link #QuadPoseCenter(OVRPosef) QuadPoseCenter}. */
+	public static void nQuadPoseCenter(long struct, OVRPosef value) { memCopy(value.address(), struct + OVRLayerQuad.QUADPOSECENTER, OVRPosef.SIZEOF); }
+	/** Unsafe version of {@link #QuadSize(OVRVector2f) QuadSize}. */
+	public static void nQuadSize(long struct, OVRVector2f value) { memCopy(value.address(), struct + OVRLayerQuad.QUADSIZE, OVRVector2f.SIZEOF); }
 
 	// -----------------------------------
 
@@ -377,55 +265,27 @@ public class OVRLayerQuad extends Struct {
 			return SIZEOF;
 		}
 
-		public OVRLayerHeader getHeader() { return ngetHeader(address()); }
-		public int getHeaderType() { return ngetHeaderType(address()); }
-		public int getHeaderFlags() { return ngetHeaderFlags(address()); }
-		public OVRSwapTextureSet getColorTexture() { return ngetColorTextureStruct(address()); }
-		public OVRRecti getViewport() { return ngetViewport(address()); }
-		public OVRVector2i getViewportPos() { return ngetViewportPos(address()); }
-		public int getViewportPosX() { return ngetViewportPosX(address()); }
-		public int getViewportPosY() { return ngetViewportPosY(address()); }
-		public OVRSizei getViewportSize() { return ngetViewportSize(address()); }
-		public int getViewportSizeW() { return ngetViewportSizeW(address()); }
-		public int getViewportSizeH() { return ngetViewportSizeH(address()); }
-		public OVRPosef getQuadPoseCenter() { return ngetQuadPoseCenter(address()); }
-		public OVRQuatf getQuadPoseCenterOrientation() { return ngetQuadPoseCenterOrientation(address()); }
-		public float getQuadPoseCenterOrientationX() { return ngetQuadPoseCenterOrientationX(address()); }
-		public float getQuadPoseCenterOrientationY() { return ngetQuadPoseCenterOrientationY(address()); }
-		public float getQuadPoseCenterOrientationZ() { return ngetQuadPoseCenterOrientationZ(address()); }
-		public float getQuadPoseCenterOrientationW() { return ngetQuadPoseCenterOrientationW(address()); }
-		public OVRVector3f getQuadPoseCenterPosition() { return ngetQuadPoseCenterPosition(address()); }
-		public float getQuadPoseCenterPositionX() { return ngetQuadPoseCenterPositionX(address()); }
-		public float getQuadPoseCenterPositionY() { return ngetQuadPoseCenterPositionY(address()); }
-		public float getQuadPoseCenterPositionZ() { return ngetQuadPoseCenterPositionZ(address()); }
-		public OVRVector2f getQuadSize() { return ngetQuadSize(address()); }
-		public float getQuadSizeX() { return ngetQuadSizeX(address()); }
-		public float getQuadSizeY() { return ngetQuadSizeY(address()); }
+		/** Returns a {@link OVRLayerHeader} view of the {@code Header} field. */
+		public OVRLayerHeader Header() { return nHeader(address()); }
+		/** Returns a {@link OVRSwapTextureSet} view of the struct pointed to by the {@code ColorTexture} field. */
+		public OVRSwapTextureSet ColorTexture() { return nColorTextureStruct(address()); }
+		/** Returns a {@link OVRRecti} view of the {@code Viewport} field. */
+		public OVRRecti Viewport() { return nViewport(address()); }
+		/** Returns a {@link OVRPosef} view of the {@code QuadPoseCenter} field. */
+		public OVRPosef QuadPoseCenter() { return nQuadPoseCenter(address()); }
+		/** Returns a {@link OVRVector2f} view of the {@code QuadSize} field. */
+		public OVRVector2f QuadSize() { return nQuadSize(address()); }
 
-		public OVRLayerQuad.Buffer setHeader(OVRLayerHeader Header) { nsetHeader(address(), Header); return this; }
-		public OVRLayerQuad.Buffer setHeaderType(int Type) { nsetHeaderType(address(), Type); return this; }
-		public OVRLayerQuad.Buffer setHeaderFlags(int Flags) { nsetHeaderFlags(address(), Flags); return this; }
-		public OVRLayerQuad.Buffer setColorTexture(OVRSwapTextureSet ColorTexture) { nsetColorTexture(address(), ColorTexture); return this; }
-		public OVRLayerQuad.Buffer setViewport(OVRRecti Viewport) { nsetViewport(address(), Viewport); return this; }
-		public OVRLayerQuad.Buffer setViewportPos(OVRVector2i Pos) { nsetViewportPos(address(), Pos); return this; }
-		public OVRLayerQuad.Buffer setViewportPosX(int x) { nsetViewportPosX(address(), x); return this; }
-		public OVRLayerQuad.Buffer setViewportPosY(int y) { nsetViewportPosY(address(), y); return this; }
-		public OVRLayerQuad.Buffer setViewportSize(OVRSizei Size) { nsetViewportSize(address(), Size); return this; }
-		public OVRLayerQuad.Buffer setViewportSizeW(int w) { nsetViewportSizeW(address(), w); return this; }
-		public OVRLayerQuad.Buffer setViewportSizeH(int h) { nsetViewportSizeH(address(), h); return this; }
-		public OVRLayerQuad.Buffer setQuadPoseCenter(OVRPosef QuadPoseCenter) { nsetQuadPoseCenter(address(), QuadPoseCenter); return this; }
-		public OVRLayerQuad.Buffer setQuadPoseCenterOrientation(OVRQuatf Orientation) { nsetQuadPoseCenterOrientation(address(), Orientation); return this; }
-		public OVRLayerQuad.Buffer setQuadPoseCenterOrientationX(float x) { nsetQuadPoseCenterOrientationX(address(), x); return this; }
-		public OVRLayerQuad.Buffer setQuadPoseCenterOrientationY(float y) { nsetQuadPoseCenterOrientationY(address(), y); return this; }
-		public OVRLayerQuad.Buffer setQuadPoseCenterOrientationZ(float z) { nsetQuadPoseCenterOrientationZ(address(), z); return this; }
-		public OVRLayerQuad.Buffer setQuadPoseCenterOrientationW(float w) { nsetQuadPoseCenterOrientationW(address(), w); return this; }
-		public OVRLayerQuad.Buffer setQuadPoseCenterPosition(OVRVector3f Position) { nsetQuadPoseCenterPosition(address(), Position); return this; }
-		public OVRLayerQuad.Buffer setQuadPoseCenterPositionX(float x) { nsetQuadPoseCenterPositionX(address(), x); return this; }
-		public OVRLayerQuad.Buffer setQuadPoseCenterPositionY(float y) { nsetQuadPoseCenterPositionY(address(), y); return this; }
-		public OVRLayerQuad.Buffer setQuadPoseCenterPositionZ(float z) { nsetQuadPoseCenterPositionZ(address(), z); return this; }
-		public OVRLayerQuad.Buffer setQuadSize(OVRVector2f QuadSize) { nsetQuadSize(address(), QuadSize); return this; }
-		public OVRLayerQuad.Buffer setQuadSizeX(float x) { nsetQuadSizeX(address(), x); return this; }
-		public OVRLayerQuad.Buffer setQuadSizeY(float y) { nsetQuadSizeY(address(), y); return this; }
+		/** Copies the specified {@link OVRLayerHeader} to the {@code Header} field. */
+		public OVRLayerQuad.Buffer Header(OVRLayerHeader value) { nHeader(address(), value); return this; }
+		/** Sets the address of the specified {@link OVRSwapTextureSet} to the {@code ColorTexture} field. */
+		public OVRLayerQuad.Buffer ColorTexture(OVRSwapTextureSet value) { nColorTexture(address(), value); return this; }
+		/** Copies the specified {@link OVRRecti} to the {@code Viewport} field. */
+		public OVRLayerQuad.Buffer Viewport(OVRRecti value) { nViewport(address(), value); return this; }
+		/** Copies the specified {@link OVRPosef} to the {@code QuadPoseCenter} field. */
+		public OVRLayerQuad.Buffer QuadPoseCenter(OVRPosef value) { nQuadPoseCenter(address(), value); return this; }
+		/** Copies the specified {@link OVRVector2f} to the {@code QuadSize} field. */
+		public OVRLayerQuad.Buffer QuadSize(OVRVector2f value) { nQuadSize(address(), value); return this; }
 
 	}
 
