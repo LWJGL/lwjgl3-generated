@@ -461,6 +461,7 @@ public class GLFW {
 		PostEmptyEvent,
 		GetInputMode,
 		SetInputMode,
+		GetKeyName,
 		GetKey,
 		GetMouseButton,
 		GetCursorPos,
@@ -550,6 +551,7 @@ public class GLFW {
 		PostEmptyEvent = checkFunctionAddress(provider.getFunctionAddress("glfwPostEmptyEvent"));
 		GetInputMode = checkFunctionAddress(provider.getFunctionAddress("glfwGetInputMode"));
 		SetInputMode = checkFunctionAddress(provider.getFunctionAddress("glfwSetInputMode"));
+		GetKeyName = checkFunctionAddress(provider.getFunctionAddress("glfwGetKeyName"));
 		GetKey = checkFunctionAddress(provider.getFunctionAddress("glfwGetKey"));
 		GetMouseButton = checkFunctionAddress(provider.getFunctionAddress("glfwGetMouseButton"));
 		GetCursorPos = checkFunctionAddress(provider.getFunctionAddress("glfwGetCursorPos"));
@@ -2101,6 +2103,37 @@ public class GLFW {
 		invokePIIV(__functionAddress, window, mode, value);
 	}
 
+	// --- [ glfwGetKeyName ] ---
+
+	/** Unsafe version of {@link #glfwGetKeyName GetKeyName} */
+	@JavadocExclude
+	public static long nglfwGetKeyName(int key, int scancode) {
+		long __functionAddress = getInstance().GetKeyName;
+		return invokeIIP(__functionAddress, key, scancode);
+	}
+
+	/**
+	 * Returns the localized name of the specified printable key.
+	 * 
+	 * <p>If the key is {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN}, the scancode is used, otherwise the scancode is ignored.</p>
+	 * 
+	 * <p>The returned string is allocated and freed by GLFW. You should not free it yourself. It is valid until the next call to {@link #glfwGetKeyName GetKeyName}, or until the
+	 * library is terminated.</p>
+	 * 
+	 * <p>This function may only be called from the main thread.</p>
+	 *
+	 * @param key      the key to query, or {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN}
+	 * @param scancode the scancode of the key to query
+	 *
+	 * @return the localized name of the key
+	 *
+	 * @since GLFW 3.2
+	 */
+	public static String glfwGetKeyName(int key, int scancode) {
+		long __result = nglfwGetKeyName(key, scancode);
+		return memDecodeUTF8(__result);
+	}
+
 	// --- [ glfwGetKey ] ---
 
 	/**
@@ -2114,6 +2147,8 @@ public class GLFW {
 	 * Unicode character callback instead.</p>
 	 * 
 	 * <p>The modifier key bit masks are not key tokens and cannot be used with this function.</p>
+	 * 
+	 * <p><b>Do not use this function</b> to implement <a href="http://www.glfw.org/docs/latest/input.html#input_char">text input</a>.</p>
 	 * 
 	 * <p>Notes:
 	 * <ul>
@@ -2773,6 +2808,8 @@ public class GLFW {
 	 * <a href="https://www.opengl.org/registry/specs/KHR/context_flush_control.txt">GL_KHR_context_flush_control</a>, you can control whether a context
 	 * performs this flush by setting the {@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR} <a href="http://www.glfw.org/docs/latest/window.html#window_hints_ctx">window hint</a>.</p>
 	 * 
+	 * <p>The specified window must have an OpenGL or OpenGL ES context. Specifying a window without a context will generate a {@link #GLFW_NO_WINDOW_CONTEXT NO_WINDOW_CONTEXT} error.</p>
+	 * 
 	 * <p>This function may be called from any thread.</p>
 	 *
 	 * @param window the window whose context to make current, or {@code NULL} to detach the current context
@@ -2805,6 +2842,8 @@ public class GLFW {
 	/**
 	 * Swaps the front and back buffers of the specified window. If the swap interval is greater than zero, the GPU driver waits the specified number of screen
 	 * updates before swapping the buffers.
+	 * 
+	 * <p>The specified window must have an OpenGL or OpenGL ES context. Specifying a window without a context will generate a {@link #GLFW_NO_WINDOW_CONTEXT NO_WINDOW_CONTEXT} error.</p>
 	 * 
 	 * <p>This function may be called from any thread.</p>
 	 *

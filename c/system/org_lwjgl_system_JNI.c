@@ -1641,6 +1641,11 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_JNI_invokeIIJV(JNIEnv *__env, jclas
 	((void (*) (jint, jint, jlong))(intptr_t)__functionAddress)(param0, param1, param2);
 }
 
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_JNI_invokeIIP(JNIEnv *__env, jclass clazz, jlong __functionAddress, jint param0, jint param1) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)((void * (*) (jint, jint))(intptr_t)__functionAddress)(param0, param1);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_system_JNI_invokeIIPIIV(JNIEnv *__env, jclass clazz, jlong __functionAddress, jint param0, jint param1, jlong param2, jint param3, jint param4) {
 	UNUSED_PARAMS(__env, clazz)
 	((void (*) (jint, jint, void *, jint, jint))(intptr_t)__functionAddress)(param0, param1, (void *)(intptr_t)param2, param3, param4);

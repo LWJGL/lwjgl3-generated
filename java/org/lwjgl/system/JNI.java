@@ -349,6 +349,7 @@ public final class JNI {
 	public static native void invokeIIIV(long __functionAddress, int param0, int param1, int param2);
 	public static native void invokeIIJJJV(long __functionAddress, int param0, int param1, long param2, long param3, long param4);
 	public static native void invokeIIJV(long __functionAddress, int param0, int param1, long param2);
+	public static native long invokeIIP(long __functionAddress, int param0, int param1);
 	public static native void invokeIIPIIV(long __functionAddress, int param0, int param1, long param2, int param3, int param4);
 	public static native long invokeIIPPPP(long __functionAddress, int param0, int param1, long param2, long param3, long param4);
 	public static native void invokeIIPPPV(long __functionAddress, int param0, int param1, long param2, long param3, long param4);
