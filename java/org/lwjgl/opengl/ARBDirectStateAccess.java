@@ -1358,12 +1358,13 @@ public class ARBDirectStateAccess {
 	 *
 	 * @param framebuffer the framebuffer name
 	 * @param buffer      the buffer to clear. Must be:<br>{@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}
+	 * @param drawbuffer  the draw buffer to clear
 	 * @param depth       the depth value to clear the buffer to
 	 * @param stencil     the stencil value to clear the buffer to
 	 */
-	public static void glClearNamedFramebufferfi(int framebuffer, int buffer, float depth, int stencil) {
+	public static void glClearNamedFramebufferfi(int framebuffer, int buffer, int drawbuffer, float depth, int stencil) {
 		long __functionAddress = getInstance().ClearNamedFramebufferfi;
-		callIIFIV(__functionAddress, framebuffer, buffer, depth, stencil);
+		callIIIFIV(__functionAddress, framebuffer, buffer, drawbuffer, depth, stencil);
 	}
 
 	// --- [ glBlitNamedFramebuffer ] ---

@@ -74,6 +74,7 @@ public final class JNI {
 	public static native void callIIIDV(long __functionAddress, int param0, int param1, int param2, double param3);
 	public static native float callIIIF(long __functionAddress, int param0, int param1, int param2);
 	public static native void callIIIFFFFV(long __functionAddress, int param0, int param1, int param2, float param3, float param4, float param5, float param6);
+	public static native void callIIIFIV(long __functionAddress, int param0, int param1, int param2, float param3, int param4);
 	public static native boolean callIIIFPPPPZ(long __functionAddress, int param0, int param1, int param2, float param3, long param4, long param5, long param6, long param7);
 	public static native void callIIIFV(long __functionAddress, int param0, int param1, int param2, float param3);
 	public static native void callIIIIIIIIIIIIIIIV(long __functionAddress, int param0, int param1, int param2, int param3, int param4, int param5, int param6, int param7, int param8, int param9, int param10, int param11, int param12, int param13, int param14);
