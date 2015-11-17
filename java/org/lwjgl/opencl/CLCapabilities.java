@@ -24,6 +24,7 @@ public class CLCapabilities {
 	final CL12                                __CL12;
 	final CL12GL                              __CL12GL;
 	final CL20                                __CL20;
+	final CL21                                __CL21;
 	final AMDBusAddressableMemory             __AMDBusAddressableMemory;
 	final APPLECommandQueuePriority           __APPLECommandQueuePriority;
 	final APPLECommandQueueSelectComputeUnits __APPLECommandQueueSelectComputeUnits;
@@ -31,6 +32,8 @@ public class CLCapabilities {
 	final APPLEGLSharing                      __APPLEGLSharing;
 	final EXTMigrateMemobject                 __EXTMigrateMemobject;
 	final INTELAccelerator                    __INTELAccelerator;
+	final KHREGLEvent                         __KHREGLEvent;
+	final KHREGLImage                         __KHREGLImage;
 	final KHRGLEvent                          __KHRGLEvent;
 	final KHRGLSharing                        __KHRGLSharing;
 	final KHRTerminateContext                 __KHRTerminateContext;
@@ -53,6 +56,8 @@ public class CLCapabilities {
 	public final boolean OpenCL12GL;
 	/** When true, {@link CL20} is supported. */
 	public final boolean OpenCL20;
+	/** When true, {@link CL21} is supported. */
+	public final boolean OpenCL21;
 	/** When true, {@link AMDBusAddressableMemory} is supported. */
 	public final boolean cl_amd_bus_addressable_memory;
 	/**
@@ -489,6 +494,10 @@ public class CLCapabilities {
 	 * local memory instead of just <code style="font-family: monospace">local void *</code>.</p>
 	 */
 	public final boolean cl_khr_device_enqueue_local_arg_types;
+	/** When true, {@link KHREGLEvent} is supported. */
+	public final boolean cl_khr_egl_event;
+	/** When true, {@link KHREGLImage} is supported. */
+	public final boolean cl_khr_egl_image;
 	/** When true, {@link KHRFP16} is supported. */
 	public final boolean cl_khr_fp16;
 	/** When true, {@link KHRFP64} is supported. */
@@ -543,6 +552,16 @@ public class CLCapabilities {
 	 * <p>This extension adds extended atomic operations on 32-bit integers in local memory.</p>
 	 */
 	public final boolean cl_khr_local_int32_extended_atomics;
+	/** When true, {@link KHRMipmapImage} is supported. */
+	public final boolean cl_khr_mipmap_image;
+	/**
+	 * When true, the <strong>khr_mipmap_image_writes</strong> extension is supported.
+	 * 
+	 * <p>This extension adds built-in functions that can be used to write a mip-mapped image in an OpenCL C program.</p>
+	 */
+	public final boolean cl_khr_mipmap_image_writes;
+	/** When true, {@link KHRPriorityHints} is supported. */
+	public final boolean cl_khr_priority_hints;
 	/**
 	 * When true, the <strong>khr_select_fprounding_mode</strong> extension is supported.
 	 * 
@@ -578,6 +597,8 @@ public class CLCapabilities {
 	public final boolean cl_khr_spir;
 	/** When true, {@link KHRTerminateContext} is supported. */
 	public final boolean cl_khr_terminate_context;
+	/** When true, {@link KHRThrottleHints} is supported. */
+	public final boolean cl_khr_throttle_hints;
 	/**
 	 * When true, the <a href="http://www.khronos.org/registry/cl/extensions/nv/cl_nv_compiler_options.txt">nv_compiler_options</a> extension is supported.
 	 * 
@@ -650,6 +671,7 @@ public class CLCapabilities {
 		OpenCL12 = (__CL12 = CL12.create(provider)) != null;
 		OpenCL12GL = (__CL12GL = CL12GL.create(provider)) != null;
 		OpenCL20 = (__CL20 = CL20.create(provider)) != null;
+		OpenCL21 = (__CL21 = CL21.create(provider)) != null;
 		cl_amd_bus_addressable_memory = (__AMDBusAddressableMemory = AMDBusAddressableMemory.create(provider)) != null;
 		cl_amd_compile_options = false;
 		cl_amd_device_attribute_query = false;
@@ -690,6 +712,8 @@ public class CLCapabilities {
 		cl_khr_byte_addressable_store = false;
 		cl_khr_depth_images = false;
 		cl_khr_device_enqueue_local_arg_types = false;
+		cl_khr_egl_event = (__KHREGLEvent = KHREGLEvent.create(provider)) != null;
+		cl_khr_egl_image = (__KHREGLImage = KHREGLImage.create(provider)) != null;
 		cl_khr_fp16 = false;
 		cl_khr_fp64 = false;
 		cl_khr_gl_depth_images = false;
@@ -705,9 +729,13 @@ public class CLCapabilities {
 		cl_khr_int64_extended_atomics = false;
 		cl_khr_local_int32_base_atomics = false;
 		cl_khr_local_int32_extended_atomics = false;
+		cl_khr_mipmap_image = false;
+		cl_khr_mipmap_image_writes = false;
+		cl_khr_priority_hints = false;
 		cl_khr_select_fprounding_mode = false;
 		cl_khr_spir = false;
 		cl_khr_terminate_context = (__KHRTerminateContext = KHRTerminateContext.create(provider)) != null;
+		cl_khr_throttle_hints = false;
 		cl_nv_compiler_options = false;
 		cl_nv_device_attribute_query = false;
 		cl_nv_pragma_unroll = false;
@@ -723,6 +751,7 @@ public class CLCapabilities {
 		OpenCL12 = (__CL12 = CL.checkExtension(ext, "OpenCL12", caps.__CL12)) != null;
 		OpenCL12GL = (__CL12GL = CL.checkExtension(ext, "OpenCL12GL", caps.__CL12GL)) != null;
 		OpenCL20 = (__CL20 = CL.checkExtension(ext, "OpenCL20", caps.__CL20)) != null;
+		OpenCL21 = (__CL21 = CL.checkExtension(ext, "OpenCL21", caps.__CL21)) != null;
 		cl_amd_bus_addressable_memory = (__AMDBusAddressableMemory = CL.checkExtension(ext, "cl_amd_bus_addressable_memory", caps.__AMDBusAddressableMemory)) != null;
 		cl_amd_compile_options = ext.contains("cl_amd_compile_options");
 		cl_amd_device_attribute_query = ext.contains("cl_amd_device_attribute_query");
@@ -763,6 +792,8 @@ public class CLCapabilities {
 		cl_khr_byte_addressable_store = ext.contains("cl_khr_byte_addressable_store");
 		cl_khr_depth_images = ext.contains("cl_khr_depth_images");
 		cl_khr_device_enqueue_local_arg_types = ext.contains("cl_khr_device_enqueue_local_arg_types");
+		cl_khr_egl_event = (__KHREGLEvent = CL.checkExtension(ext, "cl_khr_egl_event", caps.__KHREGLEvent)) != null;
+		cl_khr_egl_image = (__KHREGLImage = CL.checkExtension(ext, "cl_khr_egl_image", caps.__KHREGLImage)) != null;
 		cl_khr_fp16 = ext.contains("cl_khr_fp16");
 		cl_khr_fp64 = ext.contains("cl_khr_fp64");
 		cl_khr_gl_depth_images = ext.contains("cl_khr_gl_depth_images");
@@ -778,9 +809,13 @@ public class CLCapabilities {
 		cl_khr_int64_extended_atomics = ext.contains("cl_khr_int64_extended_atomics");
 		cl_khr_local_int32_base_atomics = ext.contains("cl_khr_local_int32_base_atomics");
 		cl_khr_local_int32_extended_atomics = ext.contains("cl_khr_local_int32_extended_atomics");
+		cl_khr_mipmap_image = ext.contains("cl_khr_mipmap_image");
+		cl_khr_mipmap_image_writes = ext.contains("cl_khr_mipmap_image_writes");
+		cl_khr_priority_hints = ext.contains("cl_khr_priority_hints");
 		cl_khr_select_fprounding_mode = ext.contains("cl_khr_select_fprounding_mode");
 		cl_khr_spir = ext.contains("cl_khr_spir");
 		cl_khr_terminate_context = (__KHRTerminateContext = CL.checkExtension(ext, "cl_khr_terminate_context", caps.__KHRTerminateContext)) != null;
+		cl_khr_throttle_hints = ext.contains("cl_khr_throttle_hints");
 		cl_nv_compiler_options = ext.contains("cl_nv_compiler_options");
 		cl_nv_device_attribute_query = ext.contains("cl_nv_device_attribute_query");
 		cl_nv_pragma_unroll = ext.contains("cl_nv_pragma_unroll");
@@ -832,6 +867,8 @@ public class CLCapabilities {
 		if ( cl_khr_byte_addressable_store ) buf.append("cl_khr_byte_addressable_store ");
 		if ( cl_khr_depth_images ) buf.append("cl_khr_depth_images ");
 		if ( cl_khr_device_enqueue_local_arg_types ) buf.append("cl_khr_device_enqueue_local_arg_types ");
+		if ( cl_khr_egl_event ) buf.append("cl_khr_egl_event ");
+		if ( cl_khr_egl_image ) buf.append("cl_khr_egl_image ");
 		if ( cl_khr_fp16 ) buf.append("cl_khr_fp16 ");
 		if ( cl_khr_fp64 ) buf.append("cl_khr_fp64 ");
 		if ( cl_khr_gl_depth_images ) buf.append("cl_khr_gl_depth_images ");
@@ -847,9 +884,13 @@ public class CLCapabilities {
 		if ( cl_khr_int64_extended_atomics ) buf.append("cl_khr_int64_extended_atomics ");
 		if ( cl_khr_local_int32_base_atomics ) buf.append("cl_khr_local_int32_base_atomics ");
 		if ( cl_khr_local_int32_extended_atomics ) buf.append("cl_khr_local_int32_extended_atomics ");
+		if ( cl_khr_mipmap_image ) buf.append("cl_khr_mipmap_image ");
+		if ( cl_khr_mipmap_image_writes ) buf.append("cl_khr_mipmap_image_writes ");
+		if ( cl_khr_priority_hints ) buf.append("cl_khr_priority_hints ");
 		if ( cl_khr_select_fprounding_mode ) buf.append("cl_khr_select_fprounding_mode ");
 		if ( cl_khr_spir ) buf.append("cl_khr_spir ");
 		if ( cl_khr_terminate_context ) buf.append("cl_khr_terminate_context ");
+		if ( cl_khr_throttle_hints ) buf.append("cl_khr_throttle_hints ");
 		if ( cl_nv_compiler_options ) buf.append("cl_nv_compiler_options ");
 		if ( cl_nv_device_attribute_query ) buf.append("cl_nv_device_attribute_query ");
 		if ( cl_nv_pragma_unroll ) buf.append("cl_nv_pragma_unroll ");

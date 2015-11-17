@@ -23,8 +23,8 @@ public class CL20 {
 
 	/** Error Codes */
 	public static final int
-		CL_INVALID_PIPE_SIZE    = 0xFFFFFFBB,
-		CL_INVALID_DEVICE_QUEUE = 0xFFFFFFBA;
+		CL_INVALID_PIPE_SIZE    = -69,
+		CL_INVALID_DEVICE_QUEUE = -70;
 
 	/** cl_device_info */
 	public static final int
@@ -216,16 +216,20 @@ public class CL20 {
 	 *         </ul>
 	 */
 	public static long clCreateCommandQueueWithProperties(long context, long device, ByteBuffer properties, ByteBuffer errcode_ret) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			if ( properties != null ) checkNT8(properties);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
-		return nclCreateCommandQueueWithProperties(context, device, memAddress(properties), memAddressSafe(errcode_ret));
+		}
+		return nclCreateCommandQueueWithProperties(context, device, memAddressSafe(properties), memAddressSafe(errcode_ret));
 	}
 
 	/** Alternative version of: {@link #clCreateCommandQueueWithProperties CreateCommandQueueWithProperties} */
 	public static long clCreateCommandQueueWithProperties(long context, long device, LongBuffer properties, IntBuffer errcode_ret) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			if ( properties != null ) checkNT(properties);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		return nclCreateCommandQueueWithProperties(context, device, memAddress(properties), memAddressSafe(errcode_ret));
+		}
+		return nclCreateCommandQueueWithProperties(context, device, memAddressSafe(properties), memAddressSafe(errcode_ret));
 	}
 
 	// --- [ clCreatePipe ] ---
@@ -265,16 +269,20 @@ public class CL20 {
 	 *         </ul>
 	 */
 	public static long clCreatePipe(long context, long flags, int pipe_packet_size, int pipe_max_packets, ByteBuffer properties, ByteBuffer errcode_ret) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			if ( properties != null ) checkNT4(properties);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
-		return nclCreatePipe(context, flags, pipe_packet_size, pipe_max_packets, memAddress(properties), memAddressSafe(errcode_ret));
+		}
+		return nclCreatePipe(context, flags, pipe_packet_size, pipe_max_packets, memAddressSafe(properties), memAddressSafe(errcode_ret));
 	}
 
 	/** Alternative version of: {@link #clCreatePipe CreatePipe} */
 	public static long clCreatePipe(long context, long flags, int pipe_packet_size, int pipe_max_packets, IntBuffer properties, IntBuffer errcode_ret) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			if ( properties != null ) checkNT(properties);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
-		return nclCreatePipe(context, flags, pipe_packet_size, pipe_max_packets, memAddress(properties), memAddressSafe(errcode_ret));
+		}
+		return nclCreatePipe(context, flags, pipe_packet_size, pipe_max_packets, memAddressSafe(properties), memAddressSafe(errcode_ret));
 	}
 
 	// --- [ clGetPipeInfo ] ---

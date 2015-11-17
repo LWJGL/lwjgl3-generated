@@ -241,6 +241,7 @@ public final class JNI {
 	public static native int callPIPPI(long __functionAddress, long param0, int param1, long param2, long param3);
 	public static native long callPIPPIPPPP(long __functionAddress, long param0, int param1, long param2, long param3, int param4, long param5, long param6, long param7);
 	public static native int callPIPPIPPPPI(long __functionAddress, long param0, int param1, long param2, long param3, int param4, long param5, long param6, long param7, long param8);
+	public static native int callPIPPJIPPI(long __functionAddress, long param0, int param1, long param2, long param3, long param4, int param5, long param6, long param7);
 	public static native long callPIPPP(long __functionAddress, long param0, int param1, long param2, long param3);
 	public static native int callPIPPPI(long __functionAddress, long param0, int param1, long param2, long param3, long param4);
 	public static native int callPIPPPIPPI(long __functionAddress, long param0, int param1, long param2, long param3, long param4, int param5, long param6, long param7);
@@ -288,6 +289,7 @@ public final class JNI {
 	public static native long callPPIPPP(long __functionAddress, long param0, long param1, int param2, long param3, long param4);
 	public static native int callPPIPPPI(long __functionAddress, long param0, long param1, int param2, long param3, long param4, long param5);
 	public static native int callPPIPPPIPPI(long __functionAddress, long param0, long param1, int param2, long param3, long param4, long param5, int param6, long param7, long param8);
+	public static native int callPPIPPPPPI(long __functionAddress, long param0, long param1, int param2, long param3, long param4, long param5, long param6, long param7);
 	public static native int callPPIPPPPPIPPI(long __functionAddress, long param0, long param1, int param2, long param3, long param4, long param5, long param6, long param7, int param8, long param9, long param10);
 	public static native int callPPIPPPPPPPPIPPI(long __functionAddress, long param0, long param1, int param2, long param3, long param4, long param5, long param6, long param7, long param8, long param9, long param10, int param11, long param12, long param13);
 	public static native void callPPIPV(long __functionAddress, long param0, long param1, int param2, long param3);
@@ -303,6 +305,7 @@ public final class JNI {
 	public static native int callPPPIPPI(long __functionAddress, long param0, long param1, long param2, int param3, long param4, long param5);
 	public static native boolean callPPPIPZ(long __functionAddress, long param0, long param1, long param2, int param3, long param4);
 	public static native boolean callPPPIZ(long __functionAddress, long param0, long param1, long param2, int param3);
+	public static native long callPPPJPPP(long __functionAddress, long param0, long param1, long param2, long param3, long param4, long param5);
 	public static native long callPPPP(long __functionAddress, long param0, long param1, long param2);
 	public static native int callPPPPI(long __functionAddress, long param0, long param1, long param2, long param3);
 	public static native int callPPPPIPPIPPI(long __functionAddress, long param0, long param1, long param2, long param3, int param4, long param5, long param6, int param7, long param8, long param9);

@@ -777,7 +777,7 @@ public class CL10 {
 	 */
 	public static long clCreateContext(ByteBuffer properties, int num_devices, ByteBuffer devices, CLContextCallback pfn_notify, long user_data, ByteBuffer errcode_ret) {
 		if ( CHECKS ) {
-			checkBuffer(properties, 3 << POINTER_SHIFT);
+			checkNTP(properties);
 			checkBuffer(devices, num_devices << POINTER_SHIFT);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
@@ -787,7 +787,7 @@ public class CL10 {
 	/** Alternative version of: {@link #clCreateContext CreateContext} */
 	public static long clCreateContext(PointerBuffer properties, PointerBuffer devices, CLContextCallback pfn_notify, long user_data, IntBuffer errcode_ret) {
 		if ( CHECKS ) {
-			checkBuffer(properties, 3);
+			checkNT(properties);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		return nclCreateContext(memAddress(properties), devices.remaining(), memAddress(devices), pfn_notify == null ? NULL : pfn_notify.address(), user_data, memAddressSafe(errcode_ret));
@@ -796,7 +796,7 @@ public class CL10 {
 	/** Single value version of: {@link #clCreateContext CreateContext} */
 	public static long clCreateContext(PointerBuffer properties, long device, CLContextCallback pfn_notify, long user_data, IntBuffer errcode_ret) {
 		if ( CHECKS ) {
-			checkBuffer(properties, 3);
+			checkNT(properties);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		APIBuffer __buffer = apiBuffer();
@@ -825,7 +825,7 @@ public class CL10 {
 	 */
 	public static long clCreateContextFromType(ByteBuffer properties, long device_type, CLContextCallback pfn_notify, long user_data, ByteBuffer errcode_ret) {
 		if ( CHECKS ) {
-			checkBuffer(properties, 3 << POINTER_SHIFT);
+			checkNTP(properties);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1 << 2);
 		}
 		return nclCreateContextFromType(memAddress(properties), device_type, pfn_notify == null ? NULL : pfn_notify.address(), user_data, memAddressSafe(errcode_ret));
@@ -834,7 +834,7 @@ public class CL10 {
 	/** Alternative version of: {@link #clCreateContextFromType CreateContextFromType} */
 	public static long clCreateContextFromType(PointerBuffer properties, long device_type, CLContextCallback pfn_notify, long user_data, IntBuffer errcode_ret) {
 		if ( CHECKS ) {
-			checkBuffer(properties, 3);
+			checkNT(properties);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		return nclCreateContextFromType(memAddress(properties), device_type, pfn_notify == null ? NULL : pfn_notify.address(), user_data, memAddressSafe(errcode_ret));
