@@ -31,6 +31,9 @@ public class STBVorbisInfo extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		SAMPLE_RATE,
@@ -41,21 +44,25 @@ public class STBVorbisInfo extends Struct {
 		MAX_FRAME_SIZE;
 
 	static {
-		IntBuffer offsets = memAllocInt(6);
+		Layout layout = __struct(
+			__member(4),
+			__member(4),
+			__member(4),
+			__member(4),
+			__member(4),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		SAMPLE_RATE = offsets.get(0);
-		CHANNELS = offsets.get(1);
-		SETUP_MEMORY_REQUIRED = offsets.get(2);
-		SETUP_TEMP_MEMORY_REQUIRED = offsets.get(3);
-		TEMP_MEMORY_REQUIRED = offsets.get(4);
-		MAX_FRAME_SIZE = offsets.get(5);
-
-		memFree(offsets);
+		SAMPLE_RATE = layout.offsetof(0);
+		CHANNELS = layout.offsetof(1);
+		SETUP_MEMORY_REQUIRED = layout.offsetof(2);
+		SETUP_TEMP_MEMORY_REQUIRED = layout.offsetof(3);
+		TEMP_MEMORY_REQUIRED = layout.offsetof(4);
+		MAX_FRAME_SIZE = layout.offsetof(5);
 	}
-
-	private static native int offsets(long buffer);
 
 	STBVorbisInfo(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

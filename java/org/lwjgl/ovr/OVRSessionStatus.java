@@ -27,23 +27,26 @@ public class OVRSessionStatus extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		HASVRFOCUS,
 		HMDPRESENT;
 
 	static {
-		IntBuffer offsets = memAllocInt(2);
+		Layout layout = __struct(
+			__member(1),
+			__member(1)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		HASVRFOCUS = offsets.get(0);
-		HMDPRESENT = offsets.get(1);
-
-		memFree(offsets);
+		HASVRFOCUS = layout.offsetof(0);
+		HMDPRESENT = layout.offsetof(1);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRSessionStatus(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

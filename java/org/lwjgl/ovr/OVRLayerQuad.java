@@ -26,17 +26,20 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>ovrLayerQuad members</h3>
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Header</td><td class="nw">ovrLayerHeader</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_Quad}</td></tr>
+ * <tr><td>Header</td><td class="nw">{@link OVRLayerHeader ovrLayerHeader}</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_Quad}</td></tr>
  * <tr><td>ColorTexture</td><td class="nw">ovrSwapTextureSet *</td><td>contains a single image, never with any stereo view</td></tr>
- * <tr><td>Viewport</td><td class="nw">ovrRecti</td><td>specifies the ColorTexture sub-rect UV coordinates</td></tr>
- * <tr><td>QuadPoseCenter</td><td class="nw">ovrPosef</td><td>position and orientation of the center of the quad. Position is specified in meters.</td></tr>
- * <tr><td>QuadSize</td><td class="nw">ovrVector2f</td><td>width and height (respectively) of the quad in meters</td></tr>
+ * <tr><td>Viewport</td><td class="nw">{@link OVRRecti ovrRecti}</td><td>specifies the ColorTexture sub-rect UV coordinates</td></tr>
+ * <tr><td>QuadPoseCenter</td><td class="nw">{@link OVRPosef ovrPosef}</td><td>position and orientation of the center of the quad. Position is specified in meters.</td></tr>
+ * <tr><td>QuadSize</td><td class="nw">{@link OVRVector2f ovrVector2f}</td><td>width and height (respectively) of the quad in meters</td></tr>
  * </table>
  */
 public class OVRLayerQuad extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
+
+	@JavadocExclude
+	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
 	public static final int
@@ -47,20 +50,23 @@ public class OVRLayerQuad extends Struct {
 		QUADSIZE;
 
 	static {
-		IntBuffer offsets = memAllocInt(5);
+		Layout layout = __struct(
+			__member(OVRLayerHeader.SIZEOF, OVRLayerHeader.__ALIGNMENT),
+			__member(Pointer.POINTER_SIZE),
+			__member(OVRRecti.SIZEOF, OVRRecti.__ALIGNMENT),
+			__member(OVRPosef.SIZEOF, OVRPosef.__ALIGNMENT),
+			__member(OVRVector2f.SIZEOF, OVRVector2f.__ALIGNMENT)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		HEADER = offsets.get(0);
-		COLORTEXTURE = offsets.get(1);
-		VIEWPORT = offsets.get(2);
-		QUADPOSECENTER = offsets.get(3);
-		QUADSIZE = offsets.get(4);
-
-		memFree(offsets);
+		HEADER = layout.offsetof(0);
+		COLORTEXTURE = layout.offsetof(1);
+		VIEWPORT = layout.offsetof(2);
+		QUADPOSECENTER = layout.offsetof(3);
+		QUADSIZE = layout.offsetof(4);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRLayerQuad(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

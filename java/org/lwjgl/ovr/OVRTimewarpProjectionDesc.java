@@ -31,6 +31,9 @@ public class OVRTimewarpProjectionDesc extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		PROJECTION22,
@@ -38,18 +41,19 @@ public class OVRTimewarpProjectionDesc extends Struct {
 		PROJECTION32;
 
 	static {
-		IntBuffer offsets = memAllocInt(3);
+		Layout layout = __struct(
+			__member(4),
+			__member(4),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		PROJECTION22 = offsets.get(0);
-		PROJECTION23 = offsets.get(1);
-		PROJECTION32 = offsets.get(2);
-
-		memFree(offsets);
+		PROJECTION22 = layout.offsetof(0);
+		PROJECTION23 = layout.offsetof(1);
+		PROJECTION32 = layout.offsetof(2);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRTimewarpProjectionDesc(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

@@ -27,21 +27,23 @@ public class OVRMatrix4f extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		M;
 
 	static {
-		IntBuffer offsets = memAllocInt(1);
+		Layout layout = __struct(
+			__array(4, 16)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		M = offsets.get(0);
-
-		memFree(offsets);
+		M = layout.offsetof(0);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRMatrix4f(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

@@ -30,6 +30,9 @@ public class FFIType extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		SIZE,
@@ -38,19 +41,21 @@ public class FFIType extends Struct {
 		ELEMENTS;
 
 	static {
-		IntBuffer offsets = memAllocInt(4);
+		Layout layout = __struct(
+			__member(Pointer.POINTER_SIZE),
+			__member(2),
+			__member(2),
+			__member(Pointer.POINTER_SIZE)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		SIZE = offsets.get(0);
-		ALIGNMENT = offsets.get(1);
-		TYPE = offsets.get(2);
-		ELEMENTS = offsets.get(3);
-
-		memFree(offsets);
+		SIZE = layout.offsetof(0);
+		ALIGNMENT = layout.offsetof(1);
+		TYPE = layout.offsetof(2);
+		ELEMENTS = layout.offsetof(3);
 	}
-
-	private static native int offsets(long buffer);
 
 	FFIType(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

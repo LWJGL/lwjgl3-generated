@@ -32,6 +32,9 @@ public class CLMotionEstimationDescINTEL extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		MB_BLOCK_TYPE,
@@ -40,19 +43,21 @@ public class CLMotionEstimationDescINTEL extends Struct {
 		SEARCH_PATH_TYPE;
 
 	static {
-		IntBuffer offsets = memAllocInt(4);
+		Layout layout = __struct(
+			__member(4),
+			__member(4),
+			__member(4),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		MB_BLOCK_TYPE = offsets.get(0);
-		SUBPIXEL_MODE = offsets.get(1);
-		SAD_ADJUST_MODE = offsets.get(2);
-		SEARCH_PATH_TYPE = offsets.get(3);
-
-		memFree(offsets);
+		MB_BLOCK_TYPE = layout.offsetof(0);
+		SUBPIXEL_MODE = layout.offsetof(1);
+		SAD_ADJUST_MODE = layout.offsetof(2);
+		SEARCH_PATH_TYPE = layout.offsetof(3);
 	}
-
-	private static native int offsets(long buffer);
 
 	CLMotionEstimationDescINTEL(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

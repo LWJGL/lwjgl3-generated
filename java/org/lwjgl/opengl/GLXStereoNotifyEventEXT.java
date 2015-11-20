@@ -31,6 +31,9 @@ public class GLXStereoNotifyEventEXT extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		TYPE,
@@ -43,23 +46,29 @@ public class GLXStereoNotifyEventEXT extends Struct {
 		STEREO_TREE;
 
 	static {
-		IntBuffer offsets = memAllocInt(8);
+		Layout layout = __struct(
+			__member(4),
+			__member(Pointer.POINTER_SIZE),
+			__member(4),
+			__member(Pointer.POINTER_SIZE),
+			__member(4),
+			__member(4),
+			__member(Pointer.POINTER_SIZE),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		TYPE = offsets.get(0);
-		SERIAL = offsets.get(1);
-		SEND_EVENT = offsets.get(2);
-		DISPLAY = offsets.get(3);
-		EXTENSION = offsets.get(4);
-		EVTYPE = offsets.get(5);
-		WINDOW = offsets.get(6);
-		STEREO_TREE = offsets.get(7);
-
-		memFree(offsets);
+		TYPE = layout.offsetof(0);
+		SERIAL = layout.offsetof(1);
+		SEND_EVENT = layout.offsetof(2);
+		DISPLAY = layout.offsetof(3);
+		EXTENSION = layout.offsetof(4);
+		EVTYPE = layout.offsetof(5);
+		WINDOW = layout.offsetof(6);
+		STEREO_TREE = layout.offsetof(7);
 	}
-
-	private static native int offsets(long buffer);
 
 	GLXStereoNotifyEventEXT(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

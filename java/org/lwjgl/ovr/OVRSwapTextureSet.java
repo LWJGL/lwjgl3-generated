@@ -53,6 +53,9 @@ public class OVRSwapTextureSet extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		TEXTURES,
@@ -60,18 +63,19 @@ public class OVRSwapTextureSet extends Struct {
 		CURRENTINDEX;
 
 	static {
-		IntBuffer offsets = memAllocInt(3);
+		Layout layout = __struct(
+			__member(Pointer.POINTER_SIZE),
+			__member(4),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		TEXTURES = offsets.get(0);
-		TEXTURECOUNT = offsets.get(1);
-		CURRENTINDEX = offsets.get(2);
-
-		memFree(offsets);
+		TEXTURES = layout.offsetof(0);
+		TEXTURECOUNT = layout.offsetof(1);
+		CURRENTINDEX = layout.offsetof(2);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRSwapTextureSet(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

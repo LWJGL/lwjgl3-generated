@@ -23,12 +23,12 @@ import org.lwjgl.system.windows.*;
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>cb</td><td class="nw">DWORD</td><td>the size of the {@code GPU_DEVICE} structure. Before calling {@link WGLNVGPUAffinity#wglEnumGpuDevicesNV}, set {@code cb} to the size, in bytes, of
  * {@code GPU_DEVICE}.</td></tr>
- * <tr><td>DeviceName</td><td class="nw">TCHAR[32]</td><td>a string identifying the display device name. This will be the same string as stored in the {@code DeviceName} field of the {@code DISPLAY_DEVICE}
+ * <tr><td>DeviceName</td><td class="nw">CHAR[32]</td><td>a string identifying the display device name. This will be the same string as stored in the {@code DeviceName} field of the {@code DISPLAY_DEVICE}
  * structure, which is filled in by {@code EnumDisplayDevices}.</td></tr>
- * <tr><td>DeviceString</td><td class="nw">TCHAR[128]</td><td>a string describing the GPU for this display device. It is the same string as stored in the {@code DeviceString} field in the
+ * <tr><td>DeviceString</td><td class="nw">CHAR[128]</td><td>a string describing the GPU for this display device. It is the same string as stored in the {@code DeviceString} field in the
  * {@code DISPLAY_DEVICE} structure that is filled in by {@code EnumDisplayDevices} when it describes a display adapter (and not a monitor).</td></tr>
  * <tr><td>Flags</td><td class="nw">DWORD</td><td>indicates the state of the display device</td></tr>
- * <tr><td>rcVirtualScreen</td><td class="nw">RECT</td><td>specifies the display device rectangle, in virtual screen coordinates. The value of {@code rcVirtualScreen} is undefined if the device is not part
+ * <tr><td>rcVirtualScreen</td><td class="nw">{@link RECT RECT}</td><td>specifies the display device rectangle, in virtual screen coordinates. The value of {@code rcVirtualScreen} is undefined if the device is not part
  * of the desktop, i.e. {@code DISPLAY_DEVICE_ATTACHED_TO_DESKTOP} is not set in the {@code Flags} field.</td></tr>
  * </table>
  */
@@ -36,6 +36,9 @@ public class GPU_DEVICE extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
+
+	@JavadocExclude
+	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
 	public static final int
@@ -46,20 +49,23 @@ public class GPU_DEVICE extends Struct {
 		RCVIRTUALSCREEN;
 
 	static {
-		IntBuffer offsets = memAllocInt(5);
+		Layout layout = __struct(
+			__member(4),
+			__array(1, 32),
+			__array(1, 128),
+			__member(4),
+			__member(RECT.SIZEOF, RECT.__ALIGNMENT)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		CB = offsets.get(0);
-		DEVICENAME = offsets.get(1);
-		DEVICESTRING = offsets.get(2);
-		FLAGS = offsets.get(3);
-		RCVIRTUALSCREEN = offsets.get(4);
-
-		memFree(offsets);
+		CB = layout.offsetof(0);
+		DEVICENAME = layout.offsetof(1);
+		DEVICESTRING = layout.offsetof(2);
+		FLAGS = layout.offsetof(3);
+		RCVIRTUALSCREEN = layout.offsetof(4);
 	}
-
-	private static native int offsets(long buffer);
 
 	GPU_DEVICE(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);
@@ -155,13 +161,13 @@ public class GPU_DEVICE extends Struct {
 	/** Unsafe version of {@link #cb}. */
 	public static int ncb(long struct) { return memGetInt(struct + GPU_DEVICE.CB); }
 	/** Unsafe version of {@link #DeviceName}. */
-	public static ByteBuffer nDeviceName(long struct) { return memByteBuffer(struct + GPU_DEVICE.DEVICENAME, 64); }
+	public static ByteBuffer nDeviceName(long struct) { return memByteBuffer(struct + GPU_DEVICE.DEVICENAME, 32); }
 	/** Unsafe version of {@link #DeviceNameString}. */
-	public static String nDeviceNameString(long struct) { return memDecodeUTF16(struct + GPU_DEVICE.DEVICENAME); }
+	public static String nDeviceNameString(long struct) { return memDecodeASCII(struct + GPU_DEVICE.DEVICENAME); }
 	/** Unsafe version of {@link #DeviceString}. */
-	public static ByteBuffer nDeviceString(long struct) { return memByteBuffer(struct + GPU_DEVICE.DEVICESTRING, 256); }
+	public static ByteBuffer nDeviceString(long struct) { return memByteBuffer(struct + GPU_DEVICE.DEVICESTRING, 128); }
 	/** Unsafe version of {@link #DeviceStringString}. */
-	public static String nDeviceStringString(long struct) { return memDecodeUTF16(struct + GPU_DEVICE.DEVICESTRING); }
+	public static String nDeviceStringString(long struct) { return memDecodeASCII(struct + GPU_DEVICE.DEVICESTRING); }
 	/** Unsafe version of {@link #Flags}. */
 	public static int nFlags(long struct) { return memGetInt(struct + GPU_DEVICE.FLAGS); }
 	/** Unsafe version of {@link #rcVirtualScreen}. */

@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>ovrLayerEyeFov members</h3>
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Header</td><td class="nw">ovrLayerHeader</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_EyeFov}.</td></tr>
+ * <tr><td>Header</td><td class="nw">{@link OVRLayerHeader ovrLayerHeader}</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_EyeFov}.</td></tr>
  * <tr><td>ColorTexture</td><td class="nw">ovrSwapTextureSet *[2]</td><td>{@code ovrSwapTextureSets} for the left and right eye respectively. The second one of which can be {@code NULL}.</td></tr>
  * <tr><td>Viewport</td><td class="nw">ovrRecti[2]</td><td>specifies the ColorTexture sub-rect UV coordinates. Both {@code Viewport[0]} and {@code Viewport[1]} must be valid.</td></tr>
  * <tr><td>Fov</td><td class="nw">ovrFovPort[2]</td><td>the viewport field of view</td></tr>
@@ -36,6 +36,9 @@ public class OVRLayerEyeFov extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		HEADER,
@@ -46,21 +49,25 @@ public class OVRLayerEyeFov extends Struct {
 		SENSORSAMPLETIME;
 
 	static {
-		IntBuffer offsets = memAllocInt(6);
+		Layout layout = __struct(
+			__member(OVRLayerHeader.SIZEOF, OVRLayerHeader.__ALIGNMENT),
+			__array(Pointer.POINTER_SIZE, 2),
+			__array(OVRRecti.SIZEOF, OVRRecti.__ALIGNMENT, 2),
+			__array(OVRFovPort.SIZEOF, OVRFovPort.__ALIGNMENT, 2),
+			__array(OVRPosef.SIZEOF, OVRPosef.__ALIGNMENT, 2),
+			__member(8)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		HEADER = offsets.get(0);
-		COLORTEXTURE = offsets.get(1);
-		VIEWPORT = offsets.get(2);
-		FOV = offsets.get(3);
-		RENDERPOSE = offsets.get(4);
-		SENSORSAMPLETIME = offsets.get(5);
-
-		memFree(offsets);
+		HEADER = layout.offsetof(0);
+		COLORTEXTURE = layout.offsetof(1);
+		VIEWPORT = layout.offsetof(2);
+		FOV = layout.offsetof(3);
+		RENDERPOSE = layout.offsetof(4);
+		SENSORSAMPLETIME = layout.offsetof(5);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRLayerEyeFov(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

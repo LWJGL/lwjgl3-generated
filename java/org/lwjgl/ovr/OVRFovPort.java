@@ -32,6 +32,9 @@ public class OVRFovPort extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		UPTAN,
@@ -40,19 +43,21 @@ public class OVRFovPort extends Struct {
 		RIGHTTAN;
 
 	static {
-		IntBuffer offsets = memAllocInt(4);
+		Layout layout = __struct(
+			__member(4),
+			__member(4),
+			__member(4),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		UPTAN = offsets.get(0);
-		DOWNTAN = offsets.get(1);
-		LEFTTAN = offsets.get(2);
-		RIGHTTAN = offsets.get(3);
-
-		memFree(offsets);
+		UPTAN = layout.offsetof(0);
+		DOWNTAN = layout.offsetof(1);
+		LEFTTAN = layout.offsetof(2);
+		RIGHTTAN = layout.offsetof(3);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRFovPort(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

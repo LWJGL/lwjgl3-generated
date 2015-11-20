@@ -34,6 +34,9 @@ public class OVRInputState extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		TIMEINSECONDS,
@@ -45,22 +48,27 @@ public class OVRInputState extends Struct {
 		THUMBSTICK;
 
 	static {
-		IntBuffer offsets = memAllocInt(7);
+		Layout layout = __struct(
+			__member(8),
+			__member(4),
+			__member(4),
+			__member(4),
+			__array(4, 2),
+			__array(4, 2),
+			__array(OVRVector2f.SIZEOF, OVRVector2f.__ALIGNMENT, 2)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		TIMEINSECONDS = offsets.get(0);
-		CONNECTEDCONTROLLERTYPES = offsets.get(1);
-		BUTTONS = offsets.get(2);
-		TOUCHES = offsets.get(3);
-		INDEXTRIGGER = offsets.get(4);
-		HANDTRIGGER = offsets.get(5);
-		THUMBSTICK = offsets.get(6);
-
-		memFree(offsets);
+		TIMEINSECONDS = layout.offsetof(0);
+		CONNECTEDCONTROLLERTYPES = layout.offsetof(1);
+		BUTTONS = layout.offsetof(2);
+		TOUCHES = layout.offsetof(3);
+		INDEXTRIGGER = layout.offsetof(4);
+		HANDTRIGGER = layout.offsetof(5);
+		THUMBSTICK = layout.offsetof(6);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRInputState(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

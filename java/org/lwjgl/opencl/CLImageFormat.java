@@ -29,23 +29,26 @@ public class CLImageFormat extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		IMAGE_CHANNEL_ORDER,
 		IMAGE_CHANNEL_DATA_TYPE;
 
 	static {
-		IntBuffer offsets = memAllocInt(2);
+		Layout layout = __struct(
+			__member(4),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		IMAGE_CHANNEL_ORDER = offsets.get(0);
-		IMAGE_CHANNEL_DATA_TYPE = offsets.get(1);
-
-		memFree(offsets);
+		IMAGE_CHANNEL_ORDER = layout.offsetof(0);
+		IMAGE_CHANNEL_DATA_TYPE = layout.offsetof(1);
 	}
-
-	private static native int offsets(long buffer);
 
 	CLImageFormat(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

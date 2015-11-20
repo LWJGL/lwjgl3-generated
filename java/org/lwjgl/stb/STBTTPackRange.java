@@ -23,12 +23,16 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <tr><td>array_of_unicode_codepoints</td><td class="nw">int</td><td>if non-zero, then this is an array of unicode codepoints</td></tr>
  * <tr><td>num_chars</td><td class="nw">int</td><td></td></tr>
  * <tr><td>chardata_for_range</td><td class="nw">stbtt_packedchar *</td><td>output</td></tr>
+ * <tr><td>*</td><td class="nw">char[2]</td><td></td></tr>
  * </table>
  */
 public class STBTTPackRange extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
+
+	@JavadocExclude
+	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
 	public static final int
@@ -39,20 +43,24 @@ public class STBTTPackRange extends Struct {
 		CHARDATA_FOR_RANGE;
 
 	static {
-		IntBuffer offsets = memAllocInt(5);
+		Layout layout = __struct(
+			__member(4),
+			__member(4),
+			__member(Pointer.POINTER_SIZE),
+			__member(4),
+			__member(Pointer.POINTER_SIZE),
+			__padding(2, true)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		FONT_SIZE = offsets.get(0);
-		FIRST_UNICODE_CODEPOINT_IN_RANGE = offsets.get(1);
-		ARRAY_OF_UNICODE_CODEPOINTS = offsets.get(2);
-		NUM_CHARS = offsets.get(3);
-		CHARDATA_FOR_RANGE = offsets.get(4);
-
-		memFree(offsets);
+		FONT_SIZE = layout.offsetof(0);
+		FIRST_UNICODE_CODEPOINT_IN_RANGE = layout.offsetof(1);
+		ARRAY_OF_UNICODE_CODEPOINTS = layout.offsetof(2);
+		NUM_CHARS = layout.offsetof(3);
+		CHARDATA_FOR_RANGE = layout.offsetof(4);
 	}
-
-	private static native int offsets(long buffer);
 
 	STBTTPackRange(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

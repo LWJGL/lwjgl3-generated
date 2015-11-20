@@ -26,6 +26,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <tr><td>IsOculusHMDConnected</td><td class="nw">ovrBool</td><td>is {@link OVR#ovrFalse} when an Oculus HMD is not detected. If the Oculus Service is not running, this will be {@link OVR#ovrFalse}.</p>
  * 
  * <p>is {@link OVR#ovrTrue} when an Oculus HMD is detected. This implies that the Oculus Service is also installed and running.</td></tr>
+ * <tr><td>*</td><td class="nw">char[6]</td><td></td></tr>
  * </table></p>
  */
 public class OVRDetectResult extends Struct {
@@ -33,23 +34,27 @@ public class OVRDetectResult extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		ISOCULUSSERVICERUNNING,
 		ISOCULUSHMDCONNECTED;
 
 	static {
-		IntBuffer offsets = memAllocInt(2);
+		Layout layout = __struct(
+			__member(1),
+			__member(1),
+			__padding(6, true)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		ISOCULUSSERVICERUNNING = offsets.get(0);
-		ISOCULUSHMDCONNECTED = offsets.get(1);
-
-		memFree(offsets);
+		ISOCULUSSERVICERUNNING = layout.offsetof(0);
+		ISOCULUSHMDCONNECTED = layout.offsetof(1);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRDetectResult(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

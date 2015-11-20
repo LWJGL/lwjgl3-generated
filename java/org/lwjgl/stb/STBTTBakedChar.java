@@ -32,6 +32,9 @@ public class STBTTBakedChar extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		X0,
@@ -43,22 +46,27 @@ public class STBTTBakedChar extends Struct {
 		XADVANCE;
 
 	static {
-		IntBuffer offsets = memAllocInt(7);
+		Layout layout = __struct(
+			__member(2),
+			__member(2),
+			__member(2),
+			__member(2),
+			__member(4),
+			__member(4),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		X0 = offsets.get(0);
-		Y0 = offsets.get(1);
-		X1 = offsets.get(2);
-		Y1 = offsets.get(3);
-		XOFF = offsets.get(4);
-		YOFF = offsets.get(5);
-		XADVANCE = offsets.get(6);
-
-		memFree(offsets);
+		X0 = layout.offsetof(0);
+		Y0 = layout.offsetof(1);
+		X1 = layout.offsetof(2);
+		Y1 = layout.offsetof(3);
+		XOFF = layout.offsetof(4);
+		YOFF = layout.offsetof(5);
+		XADVANCE = layout.offsetof(6);
 	}
-
-	private static native int offsets(long buffer);
 
 	STBTTBakedChar(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

@@ -19,8 +19,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>ovrRecti members</h3>
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Pos</td><td class="nw">ovrVector2i</td><td>the rectangle position</td></tr>
- * <tr><td>Size</td><td class="nw">ovrSizei</td><td>the rectangle size</td></tr>
+ * <tr><td>Pos</td><td class="nw">{@link OVRVector2i ovrVector2i}</td><td>the rectangle position</td></tr>
+ * <tr><td>Size</td><td class="nw">{@link OVRSizei ovrSizei}</td><td>the rectangle size</td></tr>
  * </table>
  */
 public class OVRRecti extends Struct {
@@ -28,23 +28,26 @@ public class OVRRecti extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		POS,
 		SIZE;
 
 	static {
-		IntBuffer offsets = memAllocInt(2);
+		Layout layout = __struct(
+			__member(OVRVector2i.SIZEOF, OVRVector2i.__ALIGNMENT),
+			__member(OVRSizei.SIZEOF, OVRSizei.__ALIGNMENT)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		POS = offsets.get(0);
-		SIZE = offsets.get(1);
-
-		memFree(offsets);
+		POS = layout.offsetof(0);
+		SIZE = layout.offsetof(1);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRRecti(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

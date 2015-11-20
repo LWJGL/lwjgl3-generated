@@ -18,9 +18,9 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>ovrSensorData members</h3>
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Accelerometer</td><td class="nw">ovrVector3f</td><td>acceleration reading in m/s^2</td></tr>
- * <tr><td>Gyro</td><td class="nw">ovrVector3f</td><td>rotation rate in rad/s</td></tr>
- * <tr><td>Magnetometer</td><td class="nw">ovrVector3f</td><td>magnetic field in Gauss</td></tr>
+ * <tr><td>Accelerometer</td><td class="nw">{@link OVRVector3f ovrVector3f}</td><td>acceleration reading in m/s^2</td></tr>
+ * <tr><td>Gyro</td><td class="nw">{@link OVRVector3f ovrVector3f}</td><td>rotation rate in rad/s</td></tr>
+ * <tr><td>Magnetometer</td><td class="nw">{@link OVRVector3f ovrVector3f}</td><td>magnetic field in Gauss</td></tr>
  * <tr><td>Temperature</td><td class="nw">float</td><td>temperature of the sensor in degrees Celsius</td></tr>
  * <tr><td>TimeInSeconds</td><td class="nw">float</td><td>time when the reported IMU reading took place, in seconds</td></tr>
  * </table>
@@ -29,6 +29,9 @@ public class OVRSensorData extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
+
+	@JavadocExclude
+	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
 	public static final int
@@ -39,20 +42,23 @@ public class OVRSensorData extends Struct {
 		TIMEINSECONDS;
 
 	static {
-		IntBuffer offsets = memAllocInt(5);
+		Layout layout = __struct(
+			__member(OVRVector3f.SIZEOF, OVRVector3f.__ALIGNMENT),
+			__member(OVRVector3f.SIZEOF, OVRVector3f.__ALIGNMENT),
+			__member(OVRVector3f.SIZEOF, OVRVector3f.__ALIGNMENT),
+			__member(4),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		ACCELEROMETER = offsets.get(0);
-		GYRO = offsets.get(1);
-		MAGNETOMETER = offsets.get(2);
-		TEMPERATURE = offsets.get(3);
-		TIMEINSECONDS = offsets.get(4);
-
-		memFree(offsets);
+		ACCELEROMETER = layout.offsetof(0);
+		GYRO = layout.offsetof(1);
+		MAGNETOMETER = layout.offsetof(2);
+		TEMPERATURE = layout.offsetof(3);
+		TIMEINSECONDS = layout.offsetof(4);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRSensorData(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

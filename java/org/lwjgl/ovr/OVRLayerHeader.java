@@ -28,23 +28,26 @@ public class OVRLayerHeader extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		TYPE,
 		FLAGS;
 
 	static {
-		IntBuffer offsets = memAllocInt(2);
+		Layout layout = __struct(
+			__member(4),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		TYPE = offsets.get(0);
-		FLAGS = offsets.get(1);
-
-		memFree(offsets);
+		TYPE = layout.offsetof(0);
+		FLAGS = layout.offsetof(1);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRLayerHeader(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

@@ -26,12 +26,16 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <tr><td>UserData</td><td class="nw">uintptr_t</td><td>user-supplied data which is passed as-is to LogCallback. Typically this is used to store an application-specific pointer which is read in the callback
  * function.</td></tr>
  * <tr><td>ConnectionTimeoutMS</td><td class="nw">uint32_t</td><td>number of milliseconds to wait for a connection to the server. Pass 0 for the default timeout</td></tr>
+ * <tr><td>*</td><td class="nw">char[4]</td><td></td></tr>
  * </table>
  */
 public class OVRInitParams extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
+
+	@JavadocExclude
+	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
 	public static final int
@@ -42,20 +46,24 @@ public class OVRInitParams extends Struct {
 		CONNECTIONTIMEOUTMS;
 
 	static {
-		IntBuffer offsets = memAllocInt(5);
+		Layout layout = __struct(
+			__member(4),
+			__member(4),
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE),
+			__member(4),
+			__padding(4, true)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		FLAGS = offsets.get(0);
-		REQUESTEDMINORVERSION = offsets.get(1);
-		LOGCALLBACK = offsets.get(2);
-		USERDATA = offsets.get(3);
-		CONNECTIONTIMEOUTMS = offsets.get(4);
-
-		memFree(offsets);
+		FLAGS = layout.offsetof(0);
+		REQUESTEDMINORVERSION = layout.offsetof(1);
+		LOGCALLBACK = layout.offsetof(2);
+		USERDATA = layout.offsetof(3);
+		CONNECTIONTIMEOUTMS = layout.offsetof(4);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRInitParams(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

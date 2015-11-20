@@ -51,6 +51,9 @@ public class CLImageDesc extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		IMAGE_TYPE,
@@ -65,25 +68,33 @@ public class CLImageDesc extends Struct {
 		BUFFER;
 
 	static {
-		IntBuffer offsets = memAllocInt(10);
+		Layout layout = __struct(
+			__member(4),
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE),
+			__member(4),
+			__member(4),
+			__member(Pointer.POINTER_SIZE)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		IMAGE_TYPE = offsets.get(0);
-		IMAGE_WIDTH = offsets.get(1);
-		IMAGE_HEIGHT = offsets.get(2);
-		IMAGE_DEPTH = offsets.get(3);
-		IMAGE_ARRAY_SIZE = offsets.get(4);
-		IMAGE_ROW_PITCH = offsets.get(5);
-		IMAGE_SLICE_PITCH = offsets.get(6);
-		NUM_MIP_LEVELS = offsets.get(7);
-		NUM_SAMPLES = offsets.get(8);
-		BUFFER = offsets.get(9);
-
-		memFree(offsets);
+		IMAGE_TYPE = layout.offsetof(0);
+		IMAGE_WIDTH = layout.offsetof(1);
+		IMAGE_HEIGHT = layout.offsetof(2);
+		IMAGE_DEPTH = layout.offsetof(3);
+		IMAGE_ARRAY_SIZE = layout.offsetof(4);
+		IMAGE_ROW_PITCH = layout.offsetof(5);
+		IMAGE_SLICE_PITCH = layout.offsetof(6);
+		NUM_MIP_LEVELS = layout.offsetof(7);
+		NUM_SAMPLES = layout.offsetof(8);
+		BUFFER = layout.offsetof(9);
 	}
-
-	private static native int offsets(long buffer);
 
 	CLImageDesc(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

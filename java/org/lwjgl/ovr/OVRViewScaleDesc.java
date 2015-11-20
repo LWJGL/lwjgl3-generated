@@ -35,23 +35,26 @@ public class OVRViewScaleDesc extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		HMDTOEYEVIEWOFFSET,
 		HMDSPACETOWORLDSCALEINMETERS;
 
 	static {
-		IntBuffer offsets = memAllocInt(2);
+		Layout layout = __struct(
+			__array(OVRVector3f.SIZEOF, OVRVector3f.__ALIGNMENT, 2),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		HMDTOEYEVIEWOFFSET = offsets.get(0);
-		HMDSPACETOWORLDSCALEINMETERS = offsets.get(1);
-
-		memFree(offsets);
+		HMDTOEYEVIEWOFFSET = layout.offsetof(0);
+		HMDSPACETOWORLDSCALEINMETERS = layout.offsetof(1);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRViewScaleDesc(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

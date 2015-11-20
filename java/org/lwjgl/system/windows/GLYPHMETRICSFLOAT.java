@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>gmfBlackBoxX</td><td class="nw">FLOAT</td><td>specifies the width of the smallest rectangle (the glyph's black box) that completely encloses the glyph</td></tr>
  * <tr><td>gmfBlackBoxY</td><td class="nw">FLOAT</td><td>specifies the height of the smallest rectangle (the glyph's black box) that completely encloses the glyph</td></tr>
- * <tr><td>gmfptGlyphOrigin</td><td class="nw">POINTFLOAT</td><td>specifies the x and y coordinates of the upper-left corner of the smallest rectangle that completely encloses the glyph</td></tr>
+ * <tr><td>gmfptGlyphOrigin</td><td class="nw">{@link POINTFLOAT POINTFLOAT}</td><td>specifies the x and y coordinates of the upper-left corner of the smallest rectangle that completely encloses the glyph</td></tr>
  * <tr><td>gmfCellIncX</td><td class="nw">FLOAT</td><td>specifies the horizontal distance from the origin of the current character cell to the origin of the next character cell</td></tr>
  * <tr><td>gmfCellIncY</td><td class="nw">FLOAT</td><td>specifies the vertical distance from the origin of the current character cell to the origin of the next character cell</td></tr>
  * </table>
@@ -29,6 +29,9 @@ public class GLYPHMETRICSFLOAT extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
+
+	@JavadocExclude
+	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
 	public static final int
@@ -39,20 +42,23 @@ public class GLYPHMETRICSFLOAT extends Struct {
 		GMFCELLINCY;
 
 	static {
-		IntBuffer offsets = memAllocInt(5);
+		Layout layout = __struct(
+			__member(4),
+			__member(4),
+			__member(POINTFLOAT.SIZEOF, POINTFLOAT.__ALIGNMENT),
+			__member(4),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		GMFBLACKBOXX = offsets.get(0);
-		GMFBLACKBOXY = offsets.get(1);
-		GMFPTGLYPHORIGIN = offsets.get(2);
-		GMFCELLINCX = offsets.get(3);
-		GMFCELLINCY = offsets.get(4);
-
-		memFree(offsets);
+		GMFBLACKBOXX = layout.offsetof(0);
+		GMFBLACKBOXY = layout.offsetof(1);
+		GMFPTGLYPHORIGIN = layout.offsetof(2);
+		GMFCELLINCX = layout.offsetof(3);
+		GMFCELLINCY = layout.offsetof(4);
 	}
-
-	private static native int offsets(long buffer);
 
 	GLYPHMETRICSFLOAT(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

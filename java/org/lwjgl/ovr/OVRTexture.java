@@ -19,7 +19,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>ovrTexture members</h3>
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Header</td><td class="nw">ovrTextureHeader</td><td>API-independent header</td></tr>
+ * <tr><td>Header</td><td class="nw">{@link OVRTextureHeader ovrTextureHeader}</td><td>API-independent header</td></tr>
  * <tr><td>PlatformData</td><td class="nw">uintptr_t[8]</td><td>specialized in {@link OVRGLTextureData}, {@code ovrD3D11TextureData} etc</td></tr>
  * </table>
  */
@@ -28,23 +28,26 @@ public class OVRTexture extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		HEADER,
 		PLATFORMDATA;
 
 	static {
-		IntBuffer offsets = memAllocInt(2);
+		Layout layout = __struct(
+			__member(OVRTextureHeader.SIZEOF, OVRTextureHeader.__ALIGNMENT),
+			__array(Pointer.POINTER_SIZE, 8)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		HEADER = offsets.get(0);
-		PLATFORMDATA = offsets.get(1);
-
-		memFree(offsets);
+		HEADER = layout.offsetof(0);
+		PLATFORMDATA = layout.offsetof(1);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRTexture(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);
@@ -178,7 +181,7 @@ public class OVRTexture extends Struct {
 		return memPointerBuffer(struct + OVRTexture.PLATFORMDATA, 8);
 	}
 	/** Unsafe version of {@link #PlatformData(int) PlatformData}. */
-	public static long nPlatformData(long struct, int index) { return memGetAddress(struct + OVRTexture.PLATFORMDATA + index * 8); }
+	public static long nPlatformData(long struct, int index) { return memGetAddress(struct + OVRTexture.PLATFORMDATA + index * 2147483647); }
 
 	/** Unsafe version of {@link #Header(OVRTextureHeader) Header}. */
 	public static void nHeader(long struct, OVRTextureHeader value) { memCopy(value.address(), struct + OVRTexture.HEADER, OVRTextureHeader.SIZEOF); }

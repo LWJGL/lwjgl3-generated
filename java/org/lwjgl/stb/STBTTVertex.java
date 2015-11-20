@@ -30,6 +30,9 @@ public class STBTTVertex extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		X,
@@ -39,20 +42,23 @@ public class STBTTVertex extends Struct {
 		TYPE;
 
 	static {
-		IntBuffer offsets = memAllocInt(5);
+		Layout layout = __struct(
+			__member(2),
+			__member(2),
+			__member(2),
+			__member(2),
+			__member(1)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		X = offsets.get(0);
-		Y = offsets.get(1);
-		CX = offsets.get(2);
-		CY = offsets.get(3);
-		TYPE = offsets.get(4);
-
-		memFree(offsets);
+		X = layout.offsetof(0);
+		Y = layout.offsetof(1);
+		CX = layout.offsetof(2);
+		CY = layout.offsetof(3);
+		TYPE = layout.offsetof(4);
 	}
-
-	private static native int offsets(long buffer);
 
 	STBTTVertex(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

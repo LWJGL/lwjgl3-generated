@@ -28,23 +28,26 @@ public class CLBufferRegion extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		ORIGIN,
 		SIZE;
 
 	static {
-		IntBuffer offsets = memAllocInt(2);
+		Layout layout = __struct(
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		ORIGIN = offsets.get(0);
-		SIZE = offsets.get(1);
-
-		memFree(offsets);
+		ORIGIN = layout.offsetof(0);
+		SIZE = layout.offsetof(1);
 	}
-
-	private static native int offsets(long buffer);
 
 	CLBufferRegion(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

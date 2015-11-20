@@ -29,6 +29,9 @@ public class GLFWImage extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		WIDTH,
@@ -36,18 +39,19 @@ public class GLFWImage extends Struct {
 		PIXELS;
 
 	static {
-		IntBuffer offsets = memAllocInt(3);
+		Layout layout = __struct(
+			__member(4),
+			__member(4),
+			__member(Pointer.POINTER_SIZE)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		WIDTH = offsets.get(0);
-		HEIGHT = offsets.get(1);
-		PIXELS = offsets.get(2);
-
-		memFree(offsets);
+		WIDTH = layout.offsetof(0);
+		HEIGHT = layout.offsetof(1);
+		PIXELS = layout.offsetof(2);
 	}
-
-	private static native int offsets(long buffer);
 
 	GLFWImage(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

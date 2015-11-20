@@ -19,7 +19,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>ovrGLTextureData members</h3>
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Header</td><td class="nw">ovrTextureHeader</td><td>general device settings</td></tr>
+ * <tr><td>Header</td><td class="nw">{@link OVRTextureHeader ovrTextureHeader}</td><td>general device settings</td></tr>
  * <tr><td>TexId</td><td class="nw">GLuint</td><td>the OpenGL name for this texture</td></tr>
  * </table>
  */
@@ -28,23 +28,26 @@ public class OVRGLTextureData extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		HEADER,
 		TEXID;
 
 	static {
-		IntBuffer offsets = memAllocInt(2);
+		Layout layout = __struct(
+			__member(OVRTextureHeader.SIZEOF, OVRTextureHeader.__ALIGNMENT),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		HEADER = offsets.get(0);
-		TEXID = offsets.get(1);
-
-		memFree(offsets);
+		HEADER = layout.offsetof(0);
+		TEXID = layout.offsetof(1);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRGLTextureData(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

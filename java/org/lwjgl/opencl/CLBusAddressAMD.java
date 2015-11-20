@@ -28,23 +28,26 @@ public class CLBusAddressAMD extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		SURFBUSADDRESS,
 		SIGNALBUSADDRESS;
 
 	static {
-		IntBuffer offsets = memAllocInt(2);
+		Layout layout = __struct(
+			__member(8),
+			__member(8)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		SURFBUSADDRESS = offsets.get(0);
-		SIGNALBUSADDRESS = offsets.get(1);
-
-		memFree(offsets);
+		SURFBUSADDRESS = layout.offsetof(0);
+		SIGNALBUSADDRESS = layout.offsetof(1);
 	}
-
-	private static native int offsets(long buffer);
 
 	CLBusAddressAMD(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

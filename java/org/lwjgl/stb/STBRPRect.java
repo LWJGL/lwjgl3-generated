@@ -32,6 +32,9 @@ public class STBRPRect extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		ID,
@@ -42,21 +45,25 @@ public class STBRPRect extends Struct {
 		WAS_PACKED;
 
 	static {
-		IntBuffer offsets = memAllocInt(6);
+		Layout layout = __struct(
+			__member(4),
+			__member(2),
+			__member(2),
+			__member(2),
+			__member(2),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		ID = offsets.get(0);
-		W = offsets.get(1);
-		H = offsets.get(2);
-		X = offsets.get(3);
-		Y = offsets.get(4);
-		WAS_PACKED = offsets.get(5);
-
-		memFree(offsets);
+		ID = layout.offsetof(0);
+		W = layout.offsetof(1);
+		H = layout.offsetof(2);
+		X = layout.offsetof(3);
+		Y = layout.offsetof(4);
+		WAS_PACKED = layout.offsetof(5);
 	}
-
-	private static native int offsets(long buffer);
 
 	STBRPRect(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

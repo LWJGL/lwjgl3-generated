@@ -20,16 +20,19 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>Eye</td><td class="nw">ovrEyeType</td><td>the eye index this instance corresponds to</td></tr>
- * <tr><td>Fov</td><td class="nw">ovrFovPort</td><td>the field of view</td></tr>
- * <tr><td>DistortedViewport</td><td class="nw">ovrRecti</td><td>distortion viewport</td></tr>
- * <tr><td>PixelsPerTanAngleAtCenter</td><td class="nw">ovrVector2f</td><td>wow many display pixels will fit in tan(angle) = 1</td></tr>
- * <tr><td>HmdToEyeViewOffset</td><td class="nw">ovrVector3f</td><td>translation to be applied to view matrix for each eye offset</td></tr>
+ * <tr><td>Fov</td><td class="nw">{@link OVRFovPort ovrFovPort}</td><td>the field of view</td></tr>
+ * <tr><td>DistortedViewport</td><td class="nw">{@link OVRRecti ovrRecti}</td><td>distortion viewport</td></tr>
+ * <tr><td>PixelsPerTanAngleAtCenter</td><td class="nw">{@link OVRVector2f ovrVector2f}</td><td>wow many display pixels will fit in tan(angle) = 1</td></tr>
+ * <tr><td>HmdToEyeViewOffset</td><td class="nw">{@link OVRVector3f ovrVector3f}</td><td>translation to be applied to view matrix for each eye offset</td></tr>
  * </table>
  */
 public class OVREyeRenderDesc extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
+
+	@JavadocExclude
+	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
 	public static final int
@@ -40,20 +43,23 @@ public class OVREyeRenderDesc extends Struct {
 		HMDTOEYEVIEWOFFSET;
 
 	static {
-		IntBuffer offsets = memAllocInt(5);
+		Layout layout = __struct(
+			__member(4),
+			__member(OVRFovPort.SIZEOF, OVRFovPort.__ALIGNMENT),
+			__member(OVRRecti.SIZEOF, OVRRecti.__ALIGNMENT),
+			__member(OVRVector2f.SIZEOF, OVRVector2f.__ALIGNMENT),
+			__member(OVRVector3f.SIZEOF, OVRVector3f.__ALIGNMENT)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		EYE = offsets.get(0);
-		FOV = offsets.get(1);
-		DISTORTEDVIEWPORT = offsets.get(2);
-		PIXELSPERTANANGLEATCENTER = offsets.get(3);
-		HMDTOEYEVIEWOFFSET = offsets.get(4);
-
-		memFree(offsets);
+		EYE = layout.offsetof(0);
+		FOV = layout.offsetof(1);
+		DISTORTEDVIEWPORT = layout.offsetof(2);
+		PIXELSPERTANANGLEATCENTER = layout.offsetof(3);
+		HMDTOEYEVIEWOFFSET = layout.offsetof(4);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVREyeRenderDesc(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

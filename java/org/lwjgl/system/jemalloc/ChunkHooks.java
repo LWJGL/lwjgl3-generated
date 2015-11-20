@@ -38,6 +38,9 @@ public class ChunkHooks extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		ALLOC,
@@ -49,22 +52,27 @@ public class ChunkHooks extends Struct {
 		MERGE;
 
 	static {
-		IntBuffer offsets = memAllocInt(7);
+		Layout layout = __struct(
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		ALLOC = offsets.get(0);
-		DALLOC = offsets.get(1);
-		COMMIT = offsets.get(2);
-		DECOMMIT = offsets.get(3);
-		PURGE = offsets.get(4);
-		SPLIT = offsets.get(5);
-		MERGE = offsets.get(6);
-
-		memFree(offsets);
+		ALLOC = layout.offsetof(0);
+		DALLOC = layout.offsetof(1);
+		COMMIT = layout.offsetof(2);
+		DECOMMIT = layout.offsetof(3);
+		PURGE = layout.offsetof(4);
+		SPLIT = layout.offsetof(5);
+		MERGE = layout.offsetof(6);
 	}
-
-	private static native int offsets(long buffer);
 
 	ChunkHooks(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

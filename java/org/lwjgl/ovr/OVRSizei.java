@@ -28,23 +28,26 @@ public class OVRSizei extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		W,
 		H;
 
 	static {
-		IntBuffer offsets = memAllocInt(2);
+		Layout layout = __struct(
+			__member(4),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		W = offsets.get(0);
-		H = offsets.get(1);
-
-		memFree(offsets);
+		W = layout.offsetof(0);
+		H = layout.offsetof(1);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRSizei(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

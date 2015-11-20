@@ -33,6 +33,9 @@ public class STBTTAlignedQuad extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		X0,
@@ -45,23 +48,29 @@ public class STBTTAlignedQuad extends Struct {
 		T1;
 
 	static {
-		IntBuffer offsets = memAllocInt(8);
+		Layout layout = __struct(
+			__member(4),
+			__member(4),
+			__member(4),
+			__member(4),
+			__member(4),
+			__member(4),
+			__member(4),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		X0 = offsets.get(0);
-		Y0 = offsets.get(1);
-		S0 = offsets.get(2);
-		T0 = offsets.get(3);
-		X1 = offsets.get(4);
-		Y1 = offsets.get(5);
-		S1 = offsets.get(6);
-		T1 = offsets.get(7);
-
-		memFree(offsets);
+		X0 = layout.offsetof(0);
+		Y0 = layout.offsetof(1);
+		S0 = layout.offsetof(2);
+		T0 = layout.offsetof(3);
+		X1 = layout.offsetof(4);
+		Y1 = layout.offsetof(5);
+		S1 = layout.offsetof(6);
+		T1 = layout.offsetof(7);
 	}
-
-	private static native int offsets(long buffer);
 
 	STBTTAlignedQuad(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

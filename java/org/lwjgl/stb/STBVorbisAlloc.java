@@ -28,23 +28,26 @@ public class STBVorbisAlloc extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		ALLOC_BUFFER,
 		ALLOC_BUFFER_LENGTH_IN_BYTES;
 
 	static {
-		IntBuffer offsets = memAllocInt(2);
+		Layout layout = __struct(
+			__member(Pointer.POINTER_SIZE),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		ALLOC_BUFFER = offsets.get(0);
-		ALLOC_BUFFER_LENGTH_IN_BYTES = offsets.get(1);
-
-		memFree(offsets);
+		ALLOC_BUFFER = layout.offsetof(0);
+		ALLOC_BUFFER_LENGTH_IN_BYTES = layout.offsetof(1);
 	}
-
-	private static native int offsets(long buffer);
 
 	STBVorbisAlloc(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

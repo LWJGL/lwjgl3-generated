@@ -31,6 +31,9 @@ public class FFICIF extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		ABI,
@@ -41,21 +44,25 @@ public class FFICIF extends Struct {
 		FLAGS;
 
 	static {
-		IntBuffer offsets = memAllocInt(6);
+		Layout layout = __struct(
+			__member(4),
+			__member(4),
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE),
+			__member(4),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		ABI = offsets.get(0);
-		NARGS = offsets.get(1);
-		ARG_TYPES = offsets.get(2);
-		RTYPE = offsets.get(3);
-		BYTES = offsets.get(4);
-		FLAGS = offsets.get(5);
-
-		memFree(offsets);
+		ABI = layout.offsetof(0);
+		NARGS = layout.offsetof(1);
+		ARG_TYPES = layout.offsetof(2);
+		RTYPE = layout.offsetof(3);
+		BYTES = layout.offsetof(4);
+		FLAGS = layout.offsetof(5);
 	}
-
-	private static native int offsets(long buffer);
 
 	FFICIF(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

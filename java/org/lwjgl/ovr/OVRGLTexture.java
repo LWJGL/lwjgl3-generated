@@ -19,8 +19,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>ovrGLTexture members</h3>
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Texture</td><td class="nw">ovrTexture</td><td>general device settings</td></tr>
- * <tr><td>OGL</td><td class="nw">ovrGLTextureData</td><td>OpenGL-specific settings</td></tr>
+ * <tr><td>Texture</td><td class="nw">{@link OVRTexture ovrTexture}</td><td>general device settings</td></tr>
+ * <tr><td>OGL</td><td class="nw">{@link OVRGLTextureData ovrGLTextureData}</td><td>OpenGL-specific settings</td></tr>
  * </table>
  */
 public class OVRGLTexture extends Struct {
@@ -28,23 +28,26 @@ public class OVRGLTexture extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		TEXTURE,
 		OGL;
 
 	static {
-		IntBuffer offsets = memAllocInt(2);
+		Layout layout = __union(
+			__member(OVRTexture.SIZEOF, OVRTexture.__ALIGNMENT),
+			__member(OVRGLTextureData.SIZEOF, OVRGLTextureData.__ALIGNMENT)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		TEXTURE = offsets.get(0);
-		OGL = offsets.get(1);
-
-		memFree(offsets);
+		TEXTURE = layout.offsetof(0);
+		OGL = layout.offsetof(1);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRGLTexture(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

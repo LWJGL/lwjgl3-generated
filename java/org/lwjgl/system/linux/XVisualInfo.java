@@ -36,6 +36,9 @@ public class XVisualInfo extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		VISUAL,
@@ -50,25 +53,33 @@ public class XVisualInfo extends Struct {
 		BITS_PER_RGB;
 
 	static {
-		IntBuffer offsets = memAllocInt(10);
+		Layout layout = __struct(
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE),
+			__member(4),
+			__member(4),
+			__member(4),
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE),
+			__member(4),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		VISUAL = offsets.get(0);
-		VISUALID = offsets.get(1);
-		SCREEN = offsets.get(2);
-		DEPTH = offsets.get(3);
-		CLASS = offsets.get(4);
-		RED_MASK = offsets.get(5);
-		GREEN_MASK = offsets.get(6);
-		BLUE_MASK = offsets.get(7);
-		COLORMAP_SIZE = offsets.get(8);
-		BITS_PER_RGB = offsets.get(9);
-
-		memFree(offsets);
+		VISUAL = layout.offsetof(0);
+		VISUALID = layout.offsetof(1);
+		SCREEN = layout.offsetof(2);
+		DEPTH = layout.offsetof(3);
+		CLASS = layout.offsetof(4);
+		RED_MASK = layout.offsetof(5);
+		GREEN_MASK = layout.offsetof(6);
+		BLUE_MASK = layout.offsetof(7);
+		COLORMAP_SIZE = layout.offsetof(8);
+		BITS_PER_RGB = layout.offsetof(9);
 	}
-
-	private static native int offsets(long buffer);
 
 	XVisualInfo(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

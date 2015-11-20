@@ -19,17 +19,20 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>ovrLayer_Union members</h3>
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Header</td><td class="nw">ovrLayerHeader</td><td>the layer header</td></tr>
- * <tr><td>EyeFov</td><td class="nw">ovrLayerEyeFov</td><td>an {@link OVRLayerEyeFov}</td></tr>
- * <tr><td>EyeFovDepth</td><td class="nw">ovrLayerEyeFovDepth</td><td>an {@link OVRLayerEyeFovDepth}</td></tr>
- * <tr><td>Quad</td><td class="nw">ovrLayerQuad</td><td>an {@link OVRLayerQuad}</td></tr>
- * <tr><td>Direct</td><td class="nw">ovrLayerDirect</td><td>an {@link OVRLayerDirect}</td></tr>
+ * <tr><td>Header</td><td class="nw">{@link OVRLayerHeader ovrLayerHeader}</td><td>the layer header</td></tr>
+ * <tr><td>EyeFov</td><td class="nw">{@link OVRLayerEyeFov ovrLayerEyeFov}</td><td></td></tr>
+ * <tr><td>EyeFovDepth</td><td class="nw">{@link OVRLayerEyeFovDepth ovrLayerEyeFovDepth}</td><td></td></tr>
+ * <tr><td>Quad</td><td class="nw">{@link OVRLayerQuad ovrLayerQuad}</td><td></td></tr>
+ * <tr><td>Direct</td><td class="nw">{@link OVRLayerDirect ovrLayerDirect}</td><td></td></tr>
  * </table>
  */
 public class OVRLayerUnion extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
+
+	@JavadocExclude
+	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
 	public static final int
@@ -40,20 +43,23 @@ public class OVRLayerUnion extends Struct {
 		DIRECT;
 
 	static {
-		IntBuffer offsets = memAllocInt(5);
+		Layout layout = __union(
+			__member(OVRLayerHeader.SIZEOF, OVRLayerHeader.__ALIGNMENT),
+			__member(OVRLayerEyeFov.SIZEOF, OVRLayerEyeFov.__ALIGNMENT),
+			__member(OVRLayerEyeFovDepth.SIZEOF, OVRLayerEyeFovDepth.__ALIGNMENT),
+			__member(OVRLayerQuad.SIZEOF, OVRLayerQuad.__ALIGNMENT),
+			__member(OVRLayerDirect.SIZEOF, OVRLayerDirect.__ALIGNMENT)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		HEADER = offsets.get(0);
-		EYEFOV = offsets.get(1);
-		EYEFOVDEPTH = offsets.get(2);
-		QUAD = offsets.get(3);
-		DIRECT = offsets.get(4);
-
-		memFree(offsets);
+		HEADER = layout.offsetof(0);
+		EYEFOV = layout.offsetof(1);
+		EYEFOVDEPTH = layout.offsetof(2);
+		QUAD = layout.offsetof(3);
+		DIRECT = layout.offsetof(4);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRLayerUnion(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

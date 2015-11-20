@@ -19,6 +19,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>Type</td><td class="nw">ovrHmdType</td><td>this HMD's type</td></tr>
+ * <tr><td>*</td><td class="nw">char[4]</td><td></td></tr>
  * <tr><td>ProductName</td><td class="nw">char[64]</td><td>name string describing the product: "Oculus Rift DK1", etc.</td></tr>
  * <tr><td>Manufacturer</td><td class="nw">char[64]</td><td>string describing the manufacturer. Usually "Oculus".</td></tr>
  * <tr><td>VendorId</td><td class="nw">short</td><td>HID Vendor ID of the device</td></tr>
@@ -36,14 +37,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <tr><td>DefaultTrackingCaps</td><td class="nw">unsigned int</td><td>capability bits described by {@code ovrTrackingCaps} which are default for the current system</td></tr>
  * <tr><td>DefaultEyeFov</td><td class="nw">ovrFovPort[2]</td><td>the recommended optical FOV for the HMD</td></tr>
  * <tr><td>MaxEyeFov</td><td class="nw">ovrFovPort[2]</td><td>the maximum optical FOV for the HMD</td></tr>
- * <tr><td>Resolution</td><td class="nw">ovrSizei</td><td>resolution of the full HMD screen (both eyes) in pixels</td></tr>
+ * <tr><td>Resolution</td><td class="nw">{@link OVRSizei ovrSizei}</td><td>resolution of the full HMD screen (both eyes) in pixels</td></tr>
  * <tr><td>DisplayRefreshRate</td><td class="nw">float</td><td>nominal refresh rate of the display in cycles per second at the time of HMD creation</td></tr>
+ * <tr><td>*</td><td class="nw">char[4]</td><td></td></tr>
  * </table>
  */
 public class OVRHmdDesc extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
+
+	@JavadocExclude
+	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
 	public static final int
@@ -69,35 +74,55 @@ public class OVRHmdDesc extends Struct {
 		DISPLAYREFRESHRATE;
 
 	static {
-		IntBuffer offsets = memAllocInt(20);
+		Layout layout = __struct(
+			__member(4),
+			__padding(4, Pointer.BITS64),
+			__array(1, 64),
+			__array(1, 64),
+			__member(2),
+			__member(2),
+			__array(1, 24),
+			__member(2),
+			__member(2),
+			__member(4),
+			__member(4),
+			__member(4),
+			__member(4),
+			__member(4),
+			__member(4),
+			__member(4),
+			__member(4),
+			__array(OVRFovPort.SIZEOF, OVRFovPort.__ALIGNMENT, 2),
+			__array(OVRFovPort.SIZEOF, OVRFovPort.__ALIGNMENT, 2),
+			__member(OVRSizei.SIZEOF, OVRSizei.__ALIGNMENT),
+			__member(4),
+			__padding(4, Pointer.BITS64)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		TYPE = offsets.get(0);
-		PRODUCTNAME = offsets.get(1);
-		MANUFACTURER = offsets.get(2);
-		VENDORID = offsets.get(3);
-		PRODUCTID = offsets.get(4);
-		SERIALNUMBER = offsets.get(5);
-		FIRMWAREMAJOR = offsets.get(6);
-		FIRMWAREMINOR = offsets.get(7);
-		CAMERAFRUSTUMHFOVINRADIANS = offsets.get(8);
-		CAMERAFRUSTUMVFOVINRADIANS = offsets.get(9);
-		CAMERAFRUSTUMNEARZINMETERS = offsets.get(10);
-		CAMERAFRUSTUMFARZINMETERS = offsets.get(11);
-		AVAILABLEHMDCAPS = offsets.get(12);
-		DEFAULTHMDCAPS = offsets.get(13);
-		AVAILABLETRACKINGCAPS = offsets.get(14);
-		DEFAULTTRACKINGCAPS = offsets.get(15);
-		DEFAULTEYEFOV = offsets.get(16);
-		MAXEYEFOV = offsets.get(17);
-		RESOLUTION = offsets.get(18);
-		DISPLAYREFRESHRATE = offsets.get(19);
-
-		memFree(offsets);
+		TYPE = layout.offsetof(0);
+		PRODUCTNAME = layout.offsetof(2);
+		MANUFACTURER = layout.offsetof(3);
+		VENDORID = layout.offsetof(4);
+		PRODUCTID = layout.offsetof(5);
+		SERIALNUMBER = layout.offsetof(6);
+		FIRMWAREMAJOR = layout.offsetof(7);
+		FIRMWAREMINOR = layout.offsetof(8);
+		CAMERAFRUSTUMHFOVINRADIANS = layout.offsetof(9);
+		CAMERAFRUSTUMVFOVINRADIANS = layout.offsetof(10);
+		CAMERAFRUSTUMNEARZINMETERS = layout.offsetof(11);
+		CAMERAFRUSTUMFARZINMETERS = layout.offsetof(12);
+		AVAILABLEHMDCAPS = layout.offsetof(13);
+		DEFAULTHMDCAPS = layout.offsetof(14);
+		AVAILABLETRACKINGCAPS = layout.offsetof(15);
+		DEFAULTTRACKINGCAPS = layout.offsetof(16);
+		DEFAULTEYEFOV = layout.offsetof(17);
+		MAXEYEFOV = layout.offsetof(18);
+		RESOLUTION = layout.offsetof(19);
+		DISPLAYREFRESHRATE = layout.offsetof(20);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRHmdDesc(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

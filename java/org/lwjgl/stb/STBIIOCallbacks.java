@@ -29,6 +29,9 @@ public class STBIIOCallbacks extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		READ,
@@ -36,18 +39,19 @@ public class STBIIOCallbacks extends Struct {
 		EOF;
 
 	static {
-		IntBuffer offsets = memAllocInt(3);
+		Layout layout = __struct(
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		READ = offsets.get(0);
-		SKIP = offsets.get(1);
-		EOF = offsets.get(2);
-
-		memFree(offsets);
+		READ = layout.offsetof(0);
+		SKIP = layout.offsetof(1);
+		EOF = layout.offsetof(2);
 	}
-
-	private static native int offsets(long buffer);
 
 	STBIIOCallbacks(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

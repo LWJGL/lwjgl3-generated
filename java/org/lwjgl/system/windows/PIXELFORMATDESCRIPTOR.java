@@ -55,6 +55,9 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		NSIZE,
@@ -85,41 +88,65 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 		DWDAMAGEMASK;
 
 	static {
-		IntBuffer offsets = memAllocInt(26);
+		Layout layout = __struct(
+			__member(2),
+			__member(2),
+			__member(4),
+			__member(1),
+			__member(1),
+			__member(1),
+			__member(1),
+			__member(1),
+			__member(1),
+			__member(1),
+			__member(1),
+			__member(1),
+			__member(1),
+			__member(1),
+			__member(1),
+			__member(1),
+			__member(1),
+			__member(1),
+			__member(1),
+			__member(1),
+			__member(1),
+			__member(1),
+			__member(1),
+			__member(4),
+			__member(4),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		NSIZE = offsets.get(0);
-		NVERSION = offsets.get(1);
-		DWFLAGS = offsets.get(2);
-		IPIXELTYPE = offsets.get(3);
-		CCOLORBITS = offsets.get(4);
-		CREDBITS = offsets.get(5);
-		CREDSHIFT = offsets.get(6);
-		CGREENBITS = offsets.get(7);
-		CGREENSHIFT = offsets.get(8);
-		CBLUEBITS = offsets.get(9);
-		CBLUESHIFT = offsets.get(10);
-		CALPHABITS = offsets.get(11);
-		CALPHASHIFT = offsets.get(12);
-		CACCUMBITS = offsets.get(13);
-		CACCUMREDBITS = offsets.get(14);
-		CACCUMGREENBITS = offsets.get(15);
-		CACCUMBLUEBITS = offsets.get(16);
-		CACCUMALPHABITS = offsets.get(17);
-		CDEPTHBITS = offsets.get(18);
-		CSTENCILBITS = offsets.get(19);
-		CAUXBUFFERS = offsets.get(20);
-		ILAYERTYPE = offsets.get(21);
-		BRESERVED = offsets.get(22);
-		DWLAYERMASK = offsets.get(23);
-		DWVISIBLEMASK = offsets.get(24);
-		DWDAMAGEMASK = offsets.get(25);
-
-		memFree(offsets);
+		NSIZE = layout.offsetof(0);
+		NVERSION = layout.offsetof(1);
+		DWFLAGS = layout.offsetof(2);
+		IPIXELTYPE = layout.offsetof(3);
+		CCOLORBITS = layout.offsetof(4);
+		CREDBITS = layout.offsetof(5);
+		CREDSHIFT = layout.offsetof(6);
+		CGREENBITS = layout.offsetof(7);
+		CGREENSHIFT = layout.offsetof(8);
+		CBLUEBITS = layout.offsetof(9);
+		CBLUESHIFT = layout.offsetof(10);
+		CALPHABITS = layout.offsetof(11);
+		CALPHASHIFT = layout.offsetof(12);
+		CACCUMBITS = layout.offsetof(13);
+		CACCUMREDBITS = layout.offsetof(14);
+		CACCUMGREENBITS = layout.offsetof(15);
+		CACCUMBLUEBITS = layout.offsetof(16);
+		CACCUMALPHABITS = layout.offsetof(17);
+		CDEPTHBITS = layout.offsetof(18);
+		CSTENCILBITS = layout.offsetof(19);
+		CAUXBUFFERS = layout.offsetof(20);
+		ILAYERTYPE = layout.offsetof(21);
+		BRESERVED = layout.offsetof(22);
+		DWLAYERMASK = layout.offsetof(23);
+		DWVISIBLEMASK = layout.offsetof(24);
+		DWDAMAGEMASK = layout.offsetof(25);
 	}
-
-	private static native int offsets(long buffer);
 
 	PIXELFORMATDESCRIPTOR(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

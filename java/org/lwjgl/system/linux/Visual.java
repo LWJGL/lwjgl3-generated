@@ -33,6 +33,9 @@ public class Visual extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		VISUALID,
@@ -44,22 +47,27 @@ public class Visual extends Struct {
 		MAP_ENTRIES;
 
 	static {
-		IntBuffer offsets = memAllocInt(7);
+		Layout layout = __struct(
+			__member(Pointer.POINTER_SIZE),
+			__member(4),
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE),
+			__member(4),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		VISUALID = offsets.get(0);
-		CLASS = offsets.get(1);
-		RED_MASK = offsets.get(2);
-		GREEN_MASK = offsets.get(3);
-		BLUE_MASK = offsets.get(4);
-		BITS_PER_RGB = offsets.get(5);
-		MAP_ENTRIES = offsets.get(6);
-
-		memFree(offsets);
+		VISUALID = layout.offsetof(0);
+		CLASS = layout.offsetof(1);
+		RED_MASK = layout.offsetof(2);
+		GREEN_MASK = layout.offsetof(3);
+		BLUE_MASK = layout.offsetof(4);
+		BITS_PER_RGB = layout.offsetof(5);
+		MAP_ENTRIES = layout.offsetof(6);
 	}
-
-	private static native int offsets(long buffer);
 
 	Visual(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

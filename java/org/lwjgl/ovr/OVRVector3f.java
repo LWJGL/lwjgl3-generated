@@ -29,6 +29,9 @@ public class OVRVector3f extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		X,
@@ -36,18 +39,19 @@ public class OVRVector3f extends Struct {
 		Z;
 
 	static {
-		IntBuffer offsets = memAllocInt(3);
+		Layout layout = __struct(
+			__member(4),
+			__member(4),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		X = offsets.get(0);
-		Y = offsets.get(1);
-		Z = offsets.get(2);
-
-		memFree(offsets);
+		X = layout.offsetof(0);
+		Y = layout.offsetof(1);
+		Z = layout.offsetof(2);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRVector3f(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

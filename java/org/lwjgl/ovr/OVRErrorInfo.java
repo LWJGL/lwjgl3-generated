@@ -27,23 +27,26 @@ public class OVRErrorInfo extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		RESULT,
 		ERRORSTRING;
 
 	static {
-		IntBuffer offsets = memAllocInt(2);
+		Layout layout = __struct(
+			__member(4),
+			__array(1, 512)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		RESULT = offsets.get(0);
-		ERRORSTRING = offsets.get(1);
-
-		memFree(offsets);
+		RESULT = layout.offsetof(0);
+		ERRORSTRING = layout.offsetof(1);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRErrorInfo(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

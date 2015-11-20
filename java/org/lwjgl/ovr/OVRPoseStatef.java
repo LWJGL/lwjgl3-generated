@@ -21,11 +21,11 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>ovrPoseStatef members</h3>
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>ThePose</td><td class="nw">ovrPosef</td><td>position and orientation</td></tr>
- * <tr><td>AngularVelocity</td><td class="nw">ovrVector3f</td><td>angular velocity in radians per second</td></tr>
- * <tr><td>LinearVelocity</td><td class="nw">ovrVector3f</td><td>velocity in meters per second</td></tr>
- * <tr><td>AngularAcceleration</td><td class="nw">ovrVector3f</td><td>angular acceleration in radians per second per second</td></tr>
- * <tr><td>LinearAcceleration</td><td class="nw">ovrVector3f</td><td>acceleration in meters per second per second</td></tr>
+ * <tr><td>ThePose</td><td class="nw">{@link OVRPosef ovrPosef}</td><td>position and orientation</td></tr>
+ * <tr><td>AngularVelocity</td><td class="nw">{@link OVRVector3f ovrVector3f}</td><td>angular velocity in radians per second</td></tr>
+ * <tr><td>LinearVelocity</td><td class="nw">{@link OVRVector3f ovrVector3f}</td><td>velocity in meters per second</td></tr>
+ * <tr><td>AngularAcceleration</td><td class="nw">{@link OVRVector3f ovrVector3f}</td><td>angular acceleration in radians per second per second</td></tr>
+ * <tr><td>LinearAcceleration</td><td class="nw">{@link OVRVector3f ovrVector3f}</td><td>acceleration in meters per second per second</td></tr>
  * <tr><td>TimeInSeconds</td><td class="nw">double</td><td>absolute time of this state sample</td></tr>
  * </table>
  */
@@ -33,6 +33,9 @@ public class OVRPoseStatef extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
+
+	@JavadocExclude
+	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
 	public static final int
@@ -44,21 +47,25 @@ public class OVRPoseStatef extends Struct {
 		TIMEINSECONDS;
 
 	static {
-		IntBuffer offsets = memAllocInt(6);
+		Layout layout = __struct(
+			__member(OVRPosef.SIZEOF, OVRPosef.__ALIGNMENT),
+			__member(OVRVector3f.SIZEOF, OVRVector3f.__ALIGNMENT),
+			__member(OVRVector3f.SIZEOF, OVRVector3f.__ALIGNMENT),
+			__member(OVRVector3f.SIZEOF, OVRVector3f.__ALIGNMENT),
+			__member(OVRVector3f.SIZEOF, OVRVector3f.__ALIGNMENT),
+			__member(8)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		THEPOSE = offsets.get(0);
-		ANGULARVELOCITY = offsets.get(1);
-		LINEARVELOCITY = offsets.get(2);
-		ANGULARACCELERATION = offsets.get(3);
-		LINEARACCELERATION = offsets.get(4);
-		TIMEINSECONDS = offsets.get(5);
-
-		memFree(offsets);
+		THEPOSE = layout.offsetof(0);
+		ANGULARVELOCITY = layout.offsetof(1);
+		LINEARVELOCITY = layout.offsetof(2);
+		ANGULARACCELERATION = layout.offsetof(3);
+		LINEARACCELERATION = layout.offsetof(4);
+		TIMEINSECONDS = layout.offsetof(5);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRPoseStatef(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

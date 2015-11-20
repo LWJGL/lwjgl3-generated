@@ -18,14 +18,28 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>cl_device_topology_amd members</h3>
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>raw</td><td class="nw">*</td><td></td></tr>
- * <tr><td>pcie</td><td class="nw">*</td><td></td></tr>
+ * <tr><td>raw</td><td><table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>type</td><td class="nw">cl_uint</td><td></td></tr>
+ * <tr><td>data</td><td class="nw">cl_uint[5]</td><td></td></tr>
+ * </table></td><td></td></tr>
+ * <tr><td>pcie</td><td><table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
+ * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+ * <tr><td>type</td><td class="nw">cl_uint</td><td></td></tr>
+ * <tr><td>*</td><td class="nw">char[17]</td><td></td></tr>
+ * <tr><td>bus</td><td class="nw">cl_char</td><td></td></tr>
+ * <tr><td>device</td><td class="nw">cl_char</td><td></td></tr>
+ * <tr><td>function</td><td class="nw">cl_char</td><td></td></tr>
+ * </table></td><td></td></tr>
  * </table>
  */
 public class CLDeviceTopologyAMD extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
+
+	@JavadocExclude
+	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
 	public static final int
@@ -39,23 +53,32 @@ public class CLDeviceTopologyAMD extends Struct {
 			PCIE_FUNCTION;
 
 	static {
-		IntBuffer offsets = memAllocInt(8);
+		Layout layout = __union(
+			__struct(
+				__member(4),
+				__array(4, 5)
+			),
+			__struct(
+				__member(4),
+				__padding(17, true),
+				__member(1),
+				__member(1),
+				__member(1)
+			)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		RAW = offsets.get(0);
-			RAW_TYPE = offsets.get(1);
-			RAW_DATA = offsets.get(2);
-		PCIE = offsets.get(3);
-			PCIE_TYPE = offsets.get(4);
-			PCIE_BUS = offsets.get(5);
-			PCIE_DEVICE = offsets.get(6);
-			PCIE_FUNCTION = offsets.get(7);
-
-		memFree(offsets);
+		RAW = layout.offsetof(0);
+			RAW_TYPE = layout.offsetof(1);
+			RAW_DATA = layout.offsetof(2);
+		PCIE = layout.offsetof(3);
+			PCIE_TYPE = layout.offsetof(4);
+			PCIE_BUS = layout.offsetof(6);
+			PCIE_DEVICE = layout.offsetof(7);
+			PCIE_FUNCTION = layout.offsetof(8);
 	}
-
-	private static native int offsets(long buffer);
 
 	CLDeviceTopologyAMD(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Defines a method.
  * 
- * <h3>objc_method_description members</h3>
+ * <h3>struct objc_method_description members</h3>
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>name</td><td class="nw">SEL</td><td>the name of the method at runtime</td></tr>
@@ -27,23 +27,26 @@ public class ObjCMethodDescription extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		NAME,
 		TYPES;
 
 	static {
-		IntBuffer offsets = memAllocInt(2);
+		Layout layout = __struct(
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		NAME = offsets.get(0);
-		TYPES = offsets.get(1);
-
-		memFree(offsets);
+		NAME = layout.offsetof(0);
+		TYPES = layout.offsetof(1);
 	}
-
-	private static native int offsets(long buffer);
 
 	ObjCMethodDescription(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

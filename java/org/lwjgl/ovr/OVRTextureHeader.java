@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>API</td><td class="nw">ovrRenderAPIType</td><td>the graphics API in use</td></tr>
- * <tr><td>TextureSize</td><td class="nw">ovrSizei</td><td>the size of the texture</td></tr>
+ * <tr><td>TextureSize</td><td class="nw">{@link OVRSizei ovrSizei}</td><td>the size of the texture</td></tr>
  * </table>
  */
 public class OVRTextureHeader extends Struct {
@@ -28,23 +28,26 @@ public class OVRTextureHeader extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		API,
 		TEXTURESIZE;
 
 	static {
-		IntBuffer offsets = memAllocInt(2);
+		Layout layout = __struct(
+			__member(4),
+			__member(OVRSizei.SIZEOF, OVRSizei.__ALIGNMENT)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		API = offsets.get(0);
-		TEXTURESIZE = offsets.get(1);
-
-		memFree(offsets);
+		API = layout.offsetof(0);
+		TEXTURESIZE = layout.offsetof(1);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRTextureHeader(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

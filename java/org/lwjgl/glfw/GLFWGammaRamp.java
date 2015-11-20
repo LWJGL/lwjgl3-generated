@@ -30,6 +30,9 @@ public class GLFWGammaRamp extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		RED,
@@ -38,19 +41,21 @@ public class GLFWGammaRamp extends Struct {
 		SIZE;
 
 	static {
-		IntBuffer offsets = memAllocInt(4);
+		Layout layout = __struct(
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE),
+			__member(Pointer.POINTER_SIZE),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		RED = offsets.get(0);
-		GREEN = offsets.get(1);
-		BLUE = offsets.get(2);
-		SIZE = offsets.get(3);
-
-		memFree(offsets);
+		RED = layout.offsetof(0);
+		GREEN = layout.offsetof(1);
+		BLUE = layout.offsetof(2);
+		SIZE = layout.offsetof(3);
 	}
-
-	private static native int offsets(long buffer);
 
 	GLFWGammaRamp(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

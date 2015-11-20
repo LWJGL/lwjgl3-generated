@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Specifies the width, height, stride, format and memory pointer of the pixmap to be used by the function {@link HIClientpixmap#eglCreatePixmapSurfaceHI} to
  * create the {@code PixmapSurface}.
  * 
- * <h3>EGLClientPixmapHI members</h3>
+ * <h3>struct EGLClientPixmapHI members</h3>
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>pData</td><td class="nw">void</td><td>pointer to a memory buffer allocated by the application that will contain the result of the drawing operations. It is up to the application to ensure
@@ -33,6 +33,9 @@ public class EGLClientPixmapHI extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		PDATA,
@@ -41,19 +44,21 @@ public class EGLClientPixmapHI extends Struct {
 		ISTRIDE;
 
 	static {
-		IntBuffer offsets = memAllocInt(4);
+		Layout layout = __struct(
+			__member(Pointer.POINTER_SIZE),
+			__member(4),
+			__member(4),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		PDATA = offsets.get(0);
-		IWIDTH = offsets.get(1);
-		IHEIGHT = offsets.get(2);
-		ISTRIDE = offsets.get(3);
-
-		memFree(offsets);
+		PDATA = layout.offsetof(0);
+		IWIDTH = layout.offsetof(1);
+		IHEIGHT = layout.offsetof(2);
+		ISTRIDE = layout.offsetof(3);
 	}
-
-	private static native int offsets(long buffer);
 
 	EGLClientPixmapHI(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

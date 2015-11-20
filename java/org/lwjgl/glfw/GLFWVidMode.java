@@ -31,6 +31,9 @@ public class GLFWVidMode extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		WIDTH,
@@ -41,21 +44,25 @@ public class GLFWVidMode extends Struct {
 		REFRESHRATE;
 
 	static {
-		IntBuffer offsets = memAllocInt(6);
+		Layout layout = __struct(
+			__member(4),
+			__member(4),
+			__member(4),
+			__member(4),
+			__member(4),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		WIDTH = offsets.get(0);
-		HEIGHT = offsets.get(1);
-		REDBITS = offsets.get(2);
-		GREENBITS = offsets.get(3);
-		BLUEBITS = offsets.get(4);
-		REFRESHRATE = offsets.get(5);
-
-		memFree(offsets);
+		WIDTH = layout.offsetof(0);
+		HEIGHT = layout.offsetof(1);
+		REDBITS = layout.offsetof(2);
+		GREENBITS = layout.offsetof(3);
+		BLUEBITS = layout.offsetof(4);
+		REFRESHRATE = layout.offsetof(5);
 	}
-
-	private static native int offsets(long buffer);
 
 	GLFWVidMode(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

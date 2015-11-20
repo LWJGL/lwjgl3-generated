@@ -18,15 +18,15 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>ovrTrackingState members</h3>
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>HeadPose</td><td class="nw">ovrPoseStatef</td><td>Predicted head pose (and derivatives) at the requested absolute time. The look-ahead interval is equal to
+ * <tr><td>HeadPose</td><td class="nw">{@link OVRPoseStatef ovrPoseStatef}</td><td>Predicted head pose (and derivatives) at the requested absolute time. The look-ahead interval is equal to
  * {@code (HeadPose.TimeInSeconds - RawSensorData.TimeInSeconds)}.</td></tr>
- * <tr><td>CameraPose</td><td class="nw">ovrPosef</td><td>Current pose of the external camera (if present). This pose includes camera tilt (roll and pitch). For a leveled coordinate system use
+ * <tr><td>CameraPose</td><td class="nw">{@link OVRPosef ovrPosef}</td><td>Current pose of the external camera (if present). This pose includes camera tilt (roll and pitch). For a leveled coordinate system use
  * {@code LeveledCameraPose}.</td></tr>
- * <tr><td>LeveledCameraPose</td><td class="nw">ovrPosef</td><td>Camera frame aligned with gravity. This value includes position and yaw of the camera, but not roll and pitch. It can be used as a reference point to
+ * <tr><td>LeveledCameraPose</td><td class="nw">{@link OVRPosef ovrPosef}</td><td>Camera frame aligned with gravity. This value includes position and yaw of the camera, but not roll and pitch. It can be used as a reference point to
  * render real-world objects in the correct location.</td></tr>
  * <tr><td>HandPoses</td><td class="nw">ovrPoseStatef[2]</td><td>The most recent calculated pose for each hand when hand controller tracking is present. {@code HandPoses[ovrHand_Left]} refers to the left hand and
  * {@code HandPoses[ovrHand_Right]} to the right hand. These values can be combined with {@code ovrInputState} for complete hand controller information.</td></tr>
- * <tr><td>RawSensorData</td><td class="nw">ovrSensorData</td><td>the most recent sensor data received from the HMD</td></tr>
+ * <tr><td>RawSensorData</td><td class="nw">{@link OVRSensorData ovrSensorData}</td><td>the most recent sensor data received from the HMD</td></tr>
  * <tr><td>StatusFlags</td><td class="nw">unsigned int</td><td>tracking status described by {@code ovrStatusBits}</td></tr>
  * <tr><td>HandStatusFlags</td><td class="nw">unsigned int[2]</td><td>hand status flags described by {@code ovrStatusBits}. Only {@link OVR#ovrStatus_OrientationTracked} and {@link OVR#ovrStatus_PositionTracked} are reported.</td></tr>
  * <tr><td>LastCameraFrameCounter</td><td class="nw">uint32_t</td><td>tag the vision processing results to a certain frame counter number</td></tr>
@@ -36,6 +36,9 @@ public class OVRTrackingState extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
+
+	@JavadocExclude
+	public static final int __ALIGNMENT;
 
 	/** The struct member offsets. */
 	public static final int
@@ -49,23 +52,29 @@ public class OVRTrackingState extends Struct {
 		LASTCAMERAFRAMECOUNTER;
 
 	static {
-		IntBuffer offsets = memAllocInt(8);
+		Layout layout = __struct(
+			__member(OVRPoseStatef.SIZEOF, OVRPoseStatef.__ALIGNMENT),
+			__member(OVRPosef.SIZEOF, OVRPosef.__ALIGNMENT),
+			__member(OVRPosef.SIZEOF, OVRPosef.__ALIGNMENT),
+			__array(OVRPoseStatef.SIZEOF, OVRPoseStatef.__ALIGNMENT, 2),
+			__member(OVRSensorData.SIZEOF, OVRSensorData.__ALIGNMENT),
+			__member(4),
+			__array(4, 2),
+			__member(4)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		HEADPOSE = offsets.get(0);
-		CAMERAPOSE = offsets.get(1);
-		LEVELEDCAMERAPOSE = offsets.get(2);
-		HANDPOSES = offsets.get(3);
-		RAWSENSORDATA = offsets.get(4);
-		STATUSFLAGS = offsets.get(5);
-		HANDSTATUSFLAGS = offsets.get(6);
-		LASTCAMERAFRAMECOUNTER = offsets.get(7);
-
-		memFree(offsets);
+		HEADPOSE = layout.offsetof(0);
+		CAMERAPOSE = layout.offsetof(1);
+		LEVELEDCAMERAPOSE = layout.offsetof(2);
+		HANDPOSES = layout.offsetof(3);
+		RAWSENSORDATA = layout.offsetof(4);
+		STATUSFLAGS = layout.offsetof(5);
+		HANDSTATUSFLAGS = layout.offsetof(6);
+		LASTCAMERAFRAMECOUNTER = layout.offsetof(7);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRTrackingState(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);

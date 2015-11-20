@@ -19,8 +19,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>ovrPosef members</h3>
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Orientation</td><td class="nw">ovrQuatf</td><td>the pose orientation</td></tr>
- * <tr><td>Position</td><td class="nw">ovrVector3f</td><td>the pose position</td></tr>
+ * <tr><td>Orientation</td><td class="nw">{@link OVRQuatf ovrQuatf}</td><td>the pose orientation</td></tr>
+ * <tr><td>Position</td><td class="nw">{@link OVRVector3f ovrVector3f}</td><td>the pose position</td></tr>
  * </table>
  */
 public class OVRPosef extends Struct {
@@ -28,23 +28,26 @@ public class OVRPosef extends Struct {
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
 
+	@JavadocExclude
+	public static final int __ALIGNMENT;
+
 	/** The struct member offsets. */
 	public static final int
 		ORIENTATION,
 		POSITION;
 
 	static {
-		IntBuffer offsets = memAllocInt(2);
+		Layout layout = __struct(
+			__member(OVRQuatf.SIZEOF, OVRQuatf.__ALIGNMENT),
+			__member(OVRVector3f.SIZEOF, OVRVector3f.__ALIGNMENT)
+		);
 
-		SIZEOF = offsets(memAddress(offsets));
+		SIZEOF = layout.getSize();
+		__ALIGNMENT = layout.getAlignment();
 
-		ORIENTATION = offsets.get(0);
-		POSITION = offsets.get(1);
-
-		memFree(offsets);
+		ORIENTATION = layout.offsetof(0);
+		POSITION = layout.offsetof(1);
 	}
-
-	private static native int offsets(long buffer);
 
 	OVRPosef(long address, ByteBuffer container) {
 		super(address, container, SIZEOF);
