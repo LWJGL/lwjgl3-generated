@@ -330,7 +330,7 @@ public class CL21 {
 	 * @param kernel               the kernel object being queried
 	 * @param device               a specific device in the list of devices associated with {@code kernel}. The list of devices is the list of devices in the OpenCL context that is
 	 *                             associated with {@code kernel}. If the list of devices associated with kernel is a single device, device can be a {@code NULL} value.
-	 * @param param_name           the information to query
+	 * @param param_name           the information to query. One of:<br>{@link #CL_KERNEL_MAX_NUM_SUB_GROUPS KERNEL_MAX_NUM_SUB_GROUPS}, {@link #CL_KERNEL_COMPILE_NUM_SUB_GROUPS KERNEL_COMPILE_NUM_SUB_GROUPS}, {@link #CL_KERNEL_MAX_SUB_GROUP_SIZE_FOR_NDRANGE KERNEL_MAX_SUB_GROUP_SIZE_FOR_NDRANGE}, {@link #CL_KERNEL_SUB_GROUP_COUNT_FOR_NDRANGE KERNEL_SUB_GROUP_COUNT_FOR_NDRANGE}, {@link #CL_KERNEL_LOCAL_SIZE_FOR_SUB_GROUP_COUNT KERNEL_LOCAL_SIZE_FOR_SUB_GROUP_COUNT}
 	 * @param input_value_size     the size in bytes of memory pointed to by {@code input_value}
 	 * @param input_value          a pointer to memory where the appropriate parameterization of the query is passed from. If {@code input_value} is {@code NULL}, it is ignored.
 	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
@@ -339,7 +339,7 @@ public class CL21 {
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         <ul>
-	 *         <li>{@link CL10#CL_INVALID_DEVICE INVALID_DEVICE} if {@code device} is not in the list of devices associated with {@code kernel} or if {@code device is {@code NULL} but there is more than
+	 *         <li>{@link CL10#CL_INVALID_DEVICE INVALID_DEVICE} if {@code device} is not in the list of devices associated with {@code kernel} or if {@code device} is {@code NULL} but there is more than
 	 *         one device associated with {@code kernel}.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value} is &lt size of return type and
 	 *         {@code param_value} is not {@code NULL}.</li>
@@ -352,6 +352,7 @@ public class CL21 {
 	 */
 	public static int clGetKernelSubGroupInfo(long kernel, long device, int param_name, long input_value_size, ByteBuffer input_value, long param_value_size, ByteBuffer param_value, ByteBuffer param_value_size_ret) {
 		if ( CHECKS ) {
+			if ( input_value != null ) checkBuffer(input_value, input_value_size);
 			if ( param_value != null ) checkBuffer(param_value, param_value_size);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1 << POINTER_SHIFT);
 		}
@@ -359,17 +360,17 @@ public class CL21 {
 	}
 
 	/** Alternative version of: {@link #clGetKernelSubGroupInfo GetKernelSubGroupInfo} */
-	public static int clGetKernelSubGroupInfo(long kernel, long device, int param_name, long input_value_size, ByteBuffer input_value, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetKernelSubGroupInfo(long kernel, long device, int param_name, ByteBuffer input_value, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetKernelSubGroupInfo(kernel, device, param_name, input_value_size, memAddressSafe(input_value), param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetKernelSubGroupInfo(kernel, device, param_name, input_value == null ? 0 : input_value.remaining(), memAddressSafe(input_value), param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetKernelSubGroupInfo GetKernelSubGroupInfo} */
-	public static int clGetKernelSubGroupInfo(long kernel, long device, int param_name, long input_value_size, ByteBuffer input_value, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
+	public static int clGetKernelSubGroupInfo(long kernel, long device, int param_name, ByteBuffer input_value, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetKernelSubGroupInfo(kernel, device, param_name, input_value_size, memAddressSafe(input_value), (param_value == null ? 0 : param_value.remaining() << POINTER_SHIFT), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetKernelSubGroupInfo(kernel, device, param_name, input_value == null ? 0 : input_value.remaining(), memAddressSafe(input_value), (param_value == null ? 0 : param_value.remaining() << POINTER_SHIFT), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	// --- [ clEnqueueSVMMigrateMem ] ---
