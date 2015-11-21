@@ -48,12 +48,12 @@ public class GLXStereoNotifyEventEXT extends Struct {
 	static {
 		Layout layout = __struct(
 			__member(4),
-			__member(Pointer.POINTER_SIZE),
+			__member(POINTER_SIZE),
 			__member(4),
-			__member(Pointer.POINTER_SIZE),
+			__member(POINTER_SIZE),
 			__member(4),
 			__member(4),
-			__member(Pointer.POINTER_SIZE),
+			__member(POINTER_SIZE),
 			__member(4)
 		);
 

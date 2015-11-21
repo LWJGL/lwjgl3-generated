@@ -65,7 +65,7 @@ public class OVRLayerEyeMatrix extends Struct {
 	static {
 		Layout layout = __struct(
 			__member(OVRLayerHeader.SIZEOF, OVRLayerHeader.__ALIGNMENT),
-			__array(Pointer.POINTER_SIZE, 2),
+			__array(POINTER_SIZE, 2),
 			__array(OVRRecti.SIZEOF, OVRRecti.__ALIGNMENT, 2),
 			__array(OVRPosef.SIZEOF, OVRPosef.__ALIGNMENT, 2),
 			__array(OVRMatrix4f.SIZEOF, OVRMatrix4f.__ALIGNMENT, 2),

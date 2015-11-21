@@ -39,7 +39,7 @@ public class OVRTexture extends Struct {
 	static {
 		Layout layout = __struct(
 			__member(OVRTextureHeader.SIZEOF, OVRTextureHeader.__ALIGNMENT),
-			__array(Pointer.POINTER_SIZE, 8)
+			__array(POINTER_SIZE, 8)
 		);
 
 		SIZEOF = layout.getSize();

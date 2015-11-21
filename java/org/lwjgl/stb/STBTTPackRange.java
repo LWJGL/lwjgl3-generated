@@ -46,9 +46,9 @@ public class STBTTPackRange extends Struct {
 		Layout layout = __struct(
 			__member(4),
 			__member(4),
-			__member(Pointer.POINTER_SIZE),
+			__member(POINTER_SIZE),
 			__member(4),
-			__member(Pointer.POINTER_SIZE),
+			__member(POINTER_SIZE),
 			__padding(2, true)
 		);
 

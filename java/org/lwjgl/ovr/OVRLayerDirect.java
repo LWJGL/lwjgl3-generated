@@ -43,7 +43,7 @@ public class OVRLayerDirect extends Struct {
 	static {
 		Layout layout = __struct(
 			__member(OVRLayerHeader.SIZEOF, OVRLayerHeader.__ALIGNMENT),
-			__array(Pointer.POINTER_SIZE, 2),
+			__array(POINTER_SIZE, 2),
 			__array(OVRRecti.SIZEOF, OVRRecti.__ALIGNMENT, 2)
 		);
 

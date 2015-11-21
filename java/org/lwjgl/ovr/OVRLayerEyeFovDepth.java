@@ -55,12 +55,12 @@ public class OVRLayerEyeFovDepth extends Struct {
 	static {
 		Layout layout = __struct(
 			__member(OVRLayerHeader.SIZEOF, OVRLayerHeader.__ALIGNMENT),
-			__array(Pointer.POINTER_SIZE, 2),
+			__array(POINTER_SIZE, 2),
 			__array(OVRRecti.SIZEOF, OVRRecti.__ALIGNMENT, 2),
 			__array(OVRFovPort.SIZEOF, OVRFovPort.__ALIGNMENT, 2),
 			__array(OVRPosef.SIZEOF, OVRPosef.__ALIGNMENT, 2),
 			__member(8),
-			__array(Pointer.POINTER_SIZE, 2),
+			__array(POINTER_SIZE, 2),
 			__member(OVRTimewarpProjectionDesc.SIZEOF, OVRTimewarpProjectionDesc.__ALIGNMENT)
 		);
 

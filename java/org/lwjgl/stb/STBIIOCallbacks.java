@@ -40,9 +40,9 @@ public class STBIIOCallbacks extends Struct {
 
 	static {
 		Layout layout = __struct(
-			__member(Pointer.POINTER_SIZE),
-			__member(Pointer.POINTER_SIZE),
-			__member(Pointer.POINTER_SIZE)
+			__member(POINTER_SIZE),
+			__member(POINTER_SIZE),
+			__member(POINTER_SIZE)
 		);
 
 		SIZEOF = layout.getSize();

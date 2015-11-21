@@ -52,7 +52,7 @@ public class OVRLayerQuad extends Struct {
 	static {
 		Layout layout = __struct(
 			__member(OVRLayerHeader.SIZEOF, OVRLayerHeader.__ALIGNMENT),
-			__member(Pointer.POINTER_SIZE),
+			__member(POINTER_SIZE),
 			__member(OVRRecti.SIZEOF, OVRRecti.__ALIGNMENT),
 			__member(OVRPosef.SIZEOF, OVRPosef.__ALIGNMENT),
 			__member(OVRVector2f.SIZEOF, OVRVector2f.__ALIGNMENT)
