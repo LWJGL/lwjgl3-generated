@@ -19,8 +19,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>cif</td><td class="nw">ffi_cif *</td><td></td></tr>
- * <tr><td>fun</td><td class="nw">void</td><td></td></tr>
- * <tr><td>user_data</td><td class="nw">void</td><td></td></tr>
+ * <tr><td>fun</td><td class="nw">void *</td><td></td></tr>
+ * <tr><td>user_data</td><td class="nw">void *</td><td></td></tr>
  * </table>
  */
 public class FFIClosure extends Struct {

@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <tr><td>size</td><td class="nw">size_t</td><td>set by libffi; you should initialize it to zero.</td></tr>
  * <tr><td>alignment</td><td class="nw">unsigned short</td><td>set by libffi; you should initialize it to zero.</td></tr>
  * <tr><td>type</td><td class="nw">unsigned short</td><td>for a structure, this should be set to {@link LibFFI#FFI_TYPE_STRUCT}.</td></tr>
- * <tr><td>elements</td><td class="nw">ffi_type *</td><td>a null-terminated array of pointers to {@code ffi_type} objects. There is one element per field of the struct.</td></tr>
+ * <tr><td>elements</td><td class="nw">ffi_type **</td><td>a null-terminated array of pointers to {@code ffi_type} objects. There is one element per field of the struct.</td></tr>
  * </table>
  */
 public class FFIType extends Struct {

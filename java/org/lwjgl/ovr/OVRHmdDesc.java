@@ -35,8 +35,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <tr><td>DefaultHmdCaps</td><td class="nw">unsigned int</td><td>capability bits described by {@code ovrHmdCaps} which are default for the current {@code Hmd}</td></tr>
  * <tr><td>AvailableTrackingCaps</td><td class="nw">unsigned int</td><td>capability bits described by {@code ovrTrackingCaps} which the system currently supports</td></tr>
  * <tr><td>DefaultTrackingCaps</td><td class="nw">unsigned int</td><td>capability bits described by {@code ovrTrackingCaps} which are default for the current system</td></tr>
- * <tr><td>DefaultEyeFov</td><td class="nw">ovrFovPort[2]</td><td>the recommended optical FOV for the HMD</td></tr>
- * <tr><td>MaxEyeFov</td><td class="nw">ovrFovPort[2]</td><td>the maximum optical FOV for the HMD</td></tr>
+ * <tr><td>DefaultEyeFov</td><td class="nw">{@link OVRFovPort ovrFovPort}[2]</td><td>the recommended optical FOV for the HMD</td></tr>
+ * <tr><td>MaxEyeFov</td><td class="nw">{@link OVRFovPort ovrFovPort}[2]</td><td>the maximum optical FOV for the HMD</td></tr>
  * <tr><td>Resolution</td><td class="nw">{@link OVRSizei ovrSizei}</td><td>resolution of the full HMD screen (both eyes) in pixels</td></tr>
  * <tr><td>DisplayRefreshRate</td><td class="nw">float</td><td>nominal refresh rate of the display in cycles per second at the time of HMD creation</td></tr>
  * <tr><td>*</td><td class="nw">char[4]</td><td></td></tr>

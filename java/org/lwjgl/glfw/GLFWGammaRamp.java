@@ -19,9 +19,9 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>GLFWgammaramp members</h3>
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>red</td><td class="nw">unsigned short</td><td>an array of value describing the response of the red channel</td></tr>
- * <tr><td>green</td><td class="nw">unsigned short</td><td>an array of value describing the response of the green channel</td></tr>
- * <tr><td>blue</td><td class="nw">unsigned short</td><td>an array of value describing the response of the blue channel</td></tr>
+ * <tr><td>red</td><td class="nw">unsigned short *</td><td>an array of value describing the response of the red channel</td></tr>
+ * <tr><td>green</td><td class="nw">unsigned short *</td><td>an array of value describing the response of the green channel</td></tr>
+ * <tr><td>blue</td><td class="nw">unsigned short *</td><td>an array of value describing the response of the blue channel</td></tr>
  * <tr><td>size</td><td class="nw">unsigned int</td><td>the number of elements in each array</td></tr>
  * </table>
  */

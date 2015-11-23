@@ -26,7 +26,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <tr><td>Touches</td><td class="nw">unsigned int</td><td>touch values for buttons and sensors as described by {@code ovrTouch}.</td></tr>
  * <tr><td>IndexTrigger</td><td class="nw">float[2]</td><td>left and right finger trigger values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range 0.0 to 1.0f.</td></tr>
  * <tr><td>HandTrigger</td><td class="nw">float[2]</td><td>left and right hand trigger values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range 0.0 to 1.0f.</td></tr>
- * <tr><td>Thumbstick</td><td class="nw">ovrVector2f[2]</td><td>horizontal and vertical thumbstick axis values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range -1.0f to 1.0f.</td></tr>
+ * <tr><td>Thumbstick</td><td class="nw">{@link OVRVector2f ovrVector2f}[2]</td><td>horizontal and vertical thumbstick axis values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range -1.0f to 1.0f.</td></tr>
  * </table>
  */
 public class OVRInputState extends Struct {

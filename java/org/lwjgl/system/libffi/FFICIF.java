@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>abi</td><td class="nw">ffi_abi</td><td></td></tr>
  * <tr><td>nargs</td><td class="nw">unsigned</td><td></td></tr>
- * <tr><td>arg_types</td><td class="nw">ffi_type *</td><td></td></tr>
+ * <tr><td>arg_types</td><td class="nw">ffi_type **</td><td></td></tr>
  * <tr><td>rtype</td><td class="nw">ffi_type *</td><td></td></tr>
  * <tr><td>bytes</td><td class="nw">unsigned</td><td></td></tr>
  * <tr><td>flags</td><td class="nw">unsigned</td><td></td></tr>

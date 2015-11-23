@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>width</td><td class="nw">int</td><td>the width, in pixels, of this image</td></tr>
  * <tr><td>height</td><td class="nw">int</td><td>the height, in pixels, of this image</td></tr>
- * <tr><td>pixels</td><td class="nw">unsigned char</td><td>the pixel data of this image, arranged left-to-right, top-to-bottom</td></tr>
+ * <tr><td>pixels</td><td class="nw">unsigned char *</td><td>the pixel data of this image, arranged left-to-right, top-to-bottom</td></tr>
  * </table>
  */
 public class GLFWImage extends Struct {

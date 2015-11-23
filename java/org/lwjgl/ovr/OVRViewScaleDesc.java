@@ -26,7 +26,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>ovrViewScaleDesc members</h3>
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>HmdToEyeViewOffset</td><td class="nw">ovrVector3f[2]</td><td>translation of each eye</td></tr>
+ * <tr><td>HmdToEyeViewOffset</td><td class="nw">{@link OVRVector3f ovrVector3f}[2]</td><td>translation of each eye</td></tr>
  * <tr><td>HmdSpaceToWorldScaleInMeters</td><td class="nw">float</td><td>ratio of viewer units to meter units</td></tr>
  * </table>
  */

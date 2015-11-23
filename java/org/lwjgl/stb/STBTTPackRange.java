@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>font_size</td><td class="nw">float</td><td></td></tr>
  * <tr><td>first_unicode_codepoint_in_range</td><td class="nw">int</td><td>if non-zero, then the chars are continuous, and this is the first codepoint</td></tr>
- * <tr><td>array_of_unicode_codepoints</td><td class="nw">int</td><td>if non-zero, then this is an array of unicode codepoints</td></tr>
+ * <tr><td>array_of_unicode_codepoints</td><td class="nw">int *</td><td>if non-zero, then this is an array of unicode codepoints</td></tr>
  * <tr><td>num_chars</td><td class="nw">int</td><td></td></tr>
  * <tr><td>chardata_for_range</td><td class="nw">stbtt_packedchar *</td><td>output</td></tr>
  * <tr><td>*</td><td class="nw">char[2]</td><td></td></tr>

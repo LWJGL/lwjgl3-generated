@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>struct EGLClientPixmapHI members</h3>
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>pData</td><td class="nw">void</td><td>pointer to a memory buffer allocated by the application that will contain the result of the drawing operations. It is up to the application to ensure
+ * <tr><td>pData</td><td class="nw">void *</td><td>pointer to a memory buffer allocated by the application that will contain the result of the drawing operations. It is up to the application to ensure
  * that the buffer size corresponds to {@code iHeight * iStride * sizeof(pixel)}.</td></tr>
  * <tr><td>iWidth</td><td class="nw">EGLint</td><td>width of the buffer in pixels</td></tr>
  * <tr><td>iHeight</td><td class="nw">EGLint</td><td>height of the buffer in pixels. The height of the buffer can be negative; in that case the result of the drawing operations will be vertically swapped.

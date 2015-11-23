@@ -19,7 +19,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>name</td><td class="nw">SEL</td><td>the name of the method at runtime</td></tr>
- * <tr><td>types</td><td class="nw">char</td><td>the types of the method arguments</td></tr>
+ * <tr><td>types</td><td class="nw">char *</td><td>the types of the method arguments</td></tr>
  * </table>
  */
 public class ObjCMethodDescription extends Struct {

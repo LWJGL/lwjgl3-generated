@@ -24,7 +24,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * {@code LeveledCameraPose}.</td></tr>
  * <tr><td>LeveledCameraPose</td><td class="nw">{@link OVRPosef ovrPosef}</td><td>Camera frame aligned with gravity. This value includes position and yaw of the camera, but not roll and pitch. It can be used as a reference point to
  * render real-world objects in the correct location.</td></tr>
- * <tr><td>HandPoses</td><td class="nw">ovrPoseStatef[2]</td><td>The most recent calculated pose for each hand when hand controller tracking is present. {@code HandPoses[ovrHand_Left]} refers to the left hand and
+ * <tr><td>HandPoses</td><td class="nw">{@link OVRPoseStatef ovrPoseStatef}[2]</td><td>The most recent calculated pose for each hand when hand controller tracking is present. {@code HandPoses[ovrHand_Left]} refers to the left hand and
  * {@code HandPoses[ovrHand_Right]} to the right hand. These values can be combined with {@code ovrInputState} for complete hand controller information.</td></tr>
  * <tr><td>RawSensorData</td><td class="nw">{@link OVRSensorData ovrSensorData}</td><td>the most recent sensor data received from the HMD</td></tr>
  * <tr><td>StatusFlags</td><td class="nw">unsigned int</td><td>tracking status described by {@code ovrStatusBits}</td></tr>

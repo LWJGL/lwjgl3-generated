@@ -19,8 +19,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>objc_property_attribute_t members</h3>
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>name</td><td class="nw">char</td><td>the name of the attribute</td></tr>
- * <tr><td>value</td><td class="nw">char</td><td>the value of the attribute (usually empty)</td></tr>
+ * <tr><td>name</td><td class="nw">char *</td><td>the name of the attribute</td></tr>
+ * <tr><td>value</td><td class="nw">char *</td><td>the value of the attribute (usually empty)</td></tr>
  * </table>
  */
 public class ObjCPropertyAttribute extends Struct {

@@ -19,7 +19,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>stb_vorbis_alloc members</h3>
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>alloc_buffer</td><td class="nw">char</td><td></td></tr>
+ * <tr><td>alloc_buffer</td><td class="nw">char *</td><td></td></tr>
  * <tr><td>alloc_buffer_length_in_bytes</td><td class="nw">int</td><td></td></tr>
  * </table>
  */
