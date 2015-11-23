@@ -93,7 +93,7 @@ public class CL20 {
 	/** cl_program_build_info */
 	public static final int CL_PROGRAM_BUILD_GLOBAL_VARIABLE_TOTAL_SIZE = 0x1185;
 
-	/** cl_kernel_arg_type_qualifer */
+	/** cl_kernel_arg_type_qualifier */
 	public static final int CL_KERNEL_ARG_TYPE_PIPE = 1 << 3;
 
 	/** cl_kernel_exec_info */
@@ -822,7 +822,7 @@ public class CL20 {
 	 * default value used is {@link CL10#CL_TRUE TRUE} (system pointers might be passed); otherwise, the default is {@link CL10#CL_FALSE FALSE}.</p>
 	 *
 	 * @param kernel           the kernel object being queried
-	 * @param param_name       the information to be passed to {@code kernel}
+	 * @param param_name       the information to be passed to {@code kernel}. One of:<br>{@link #CL_KERNEL_EXEC_INFO_SVM_PTRS KERNEL_EXEC_INFO_SVM_PTRS}, {@link #CL_KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM KERNEL_EXEC_INFO_SVM_FINE_GRAIN_SYSTEM}
 	 * @param param_value_size the size in bytes of the memory pointed to by {@code param_value}
 	 * @param param_value      a pointer to memory where the appropriate values determined by {@code param_name} are specified
 	 *

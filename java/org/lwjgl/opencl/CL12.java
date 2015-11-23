@@ -180,10 +180,10 @@ public class CL12 {
 
 	/** cl_kernel_arg_type_qualifier */
 	public static final int
-		CL_CL_KERNEL_ARG_TYPE_NONE     = 0x0,
-		CL_CL_KERNEL_ARG_TYPE_CONST    = 1 << 0,
-		CL_CL_KERNEL_ARG_TYPE_RESTRICT = 1 << 1,
-		CL_CL_KERNEL_ARG_TYPE_VOLATILE = 1 << 2;
+		CL_KERNEL_ARG_TYPE_NONE     = 0x0,
+		CL_KERNEL_ARG_TYPE_CONST    = 1 << 0,
+		CL_KERNEL_ARG_TYPE_RESTRICT = 1 << 1,
+		CL_KERNEL_ARG_TYPE_VOLATILE = 1 << 2;
 
 	/** cl_kernel_work_group_info */
 	public static final int CL_KERNEL_GLOBAL_WORK_SIZE = 0x11B5;

@@ -25,18 +25,23 @@ public class CLCapabilities {
 	final CL12GL                              __CL12GL;
 	final CL20                                __CL20;
 	final CL21                                __CL21;
+	final ALTERALiveObjectTracking            __ALTERALiveObjectTracking;
 	final AMDBusAddressableMemory             __AMDBusAddressableMemory;
 	final APPLECommandQueuePriority           __APPLECommandQueuePriority;
 	final APPLECommandQueueSelectComputeUnits __APPLECommandQueueSelectComputeUnits;
 	final APPLEContextLoggingFunctions        __APPLEContextLoggingFunctions;
 	final APPLEGLSharing                      __APPLEGLSharing;
+	final EXTDeviceFission                    __EXTDeviceFission;
 	final EXTMigrateMemobject                 __EXTMigrateMemobject;
 	final INTELAccelerator                    __INTELAccelerator;
+	final INTELSubgroups                      __INTELSubgroups;
+	final INTELVAAPIMediaSharing              __INTELVAAPIMediaSharing;
 	final KHREGLEvent                         __KHREGLEvent;
 	final KHREGLImage                         __KHREGLImage;
 	final KHRGLEvent                          __KHRGLEvent;
 	final KHRGLSharing                        __KHRGLSharing;
 	final KHRTerminateContext                 __KHRTerminateContext;
+	final QCOMEXTHostPtr                      __QCOMEXTHostPtr;
 
 	/** The OpenCL major version. */
 	public final int majorVersion;
@@ -58,6 +63,12 @@ public class CLCapabilities {
 	public final boolean OpenCL20;
 	/** When true, {@link CL21} is supported. */
 	public final boolean OpenCL21;
+	/** When true, {@link ALTERACompilerMode} is supported. */
+	public final boolean cl_altera_compiler_mode;
+	/** When true, {@link ALTERADeviceTemperature} is supported. */
+	public final boolean cl_altera_device_temperature;
+	/** When true, {@link ALTERALiveObjectTracking} is supported. */
+	public final boolean cl_altera_live_object_tracking;
 	/** When true, {@link AMDBusAddressableMemory} is supported. */
 	public final boolean cl_amd_bus_addressable_memory;
 	/**
@@ -442,22 +453,24 @@ public class CLCapabilities {
 	/** When true, {@link APPLEQueryKernelNames} is supported. */
 	public final boolean cl_APPLE_query_kernel_names;
 	/**
-	 * When true, the <a href="http://www.khronos.org/registry/cl/extensions/arm/cl_arm_get_core_id.txt">arm_get_core_id</a> extension is supported.
+	 * When true, the <a href="http://www.khronos.org/registry/cl/extensions/arm/cl_arm_get_core_id.txt">arm_core_id</a> extension is supported.
 	 * 
-	 * <p>This extension provides a built-in function which returns the physical core id (OpenCL Compute Unit) that a work-group is running on. This value is
-	 * uniform for a work-group.</p>
+	 * <p>This extension provides a built-in function ({@code uint arm_get_core_id( void )}) which returns the physical core id (OpenCL Compute Unit) that a
+	 * work-group is running on. This value is uniform for a work-group.</p>
 	 * 
 	 * <p>This value can be used for a core-specific cache or atomic pool where the storage is required to be in global memory and persistent (but not ordered)
 	 * between work-groups. This does not provide any additional ordering on top of the existing guarantees between workgroups, nor does it provide any
 	 * guarantee of concurrent execution.</p>
 	 */
-	public final boolean cl_arm_get_core_id;
+	public final boolean cl_arm_core_id;
 	/** When true, {@link ARMPrintf} is supported. */
 	public final boolean cl_arm_printf;
 	/** When true, {@link EXTAtomicCounters32} is supported. */
 	public final boolean cl_ext_atomic_counters_32;
 	/** When true, {@link EXTAtomicCounters64} is supported. */
 	public final boolean cl_ext_atomic_counters_64;
+	/** When true, {@link EXTDeviceFission} is supported. */
+	public final boolean cl_ext_device_fission;
 	/** When true, {@link EXTMigrateMemobject} is supported. */
 	public final boolean cl_ext_migrate_memobject;
 	/** When true, {@link INTELAccelerator} is supported. */
@@ -466,13 +479,19 @@ public class CLCapabilities {
 	public final boolean cl_intel_advanced_motion_estimation;
 	/** When true, {@link INTELDevicePartitionByNames} is supported. */
 	public final boolean cl_intel_device_partition_by_names;
+	/** When true, {@link INTELEGLImageYUV} is supported. */
+	public final boolean cl_intel_egl_image_yuv;
 	/** When true, {@link INTELMotionEstimation} is supported. */
 	public final boolean cl_intel_motion_estimation;
 	public final boolean cl_intel_printf;
 	/** When true, {@link INTELSimultaneousSharing} is supported. */
 	public final boolean cl_intel_simultaneous_sharing;
+	/** When true, {@link INTELSubgroups} is supported. */
+	public final boolean cl_intel_subgroups;
 	/** When true, {@link INTELThreadLocalExec} is supported. */
 	public final boolean cl_intel_thread_local_exec;
+	/** When true, {@link INTELVAAPIMediaSharing} is supported. */
+	public final boolean cl_intel_va_api_media_sharing;
 	/**
 	 * When true, the <strong>khr_3d_image_writes</strong> extension is supported.
 	 * 
@@ -660,6 +679,8 @@ public class CLCapabilities {
 	 * <p>A complete unroll specification has no effect if the trip count of the loop is not compile-time computable.</p>
 	 */
 	public final boolean cl_nv_pragma_unroll;
+	/** When true, {@link QCOMEXTHostPtr} is supported. */
+	public final boolean cl_qcom_ext_host_ptr;
 
 	CLCapabilities(FunctionProvider provider) {
 		this.majorVersion = 0;
@@ -672,6 +693,9 @@ public class CLCapabilities {
 		OpenCL12GL = (__CL12GL = CL12GL.create(provider)) != null;
 		OpenCL20 = (__CL20 = CL20.create(provider)) != null;
 		OpenCL21 = (__CL21 = CL21.create(provider)) != null;
+		cl_altera_compiler_mode = false;
+		cl_altera_device_temperature = false;
+		cl_altera_live_object_tracking = (__ALTERALiveObjectTracking = ALTERALiveObjectTracking.create(provider)) != null;
 		cl_amd_bus_addressable_memory = (__AMDBusAddressableMemory = AMDBusAddressableMemory.create(provider)) != null;
 		cl_amd_compile_options = false;
 		cl_amd_device_attribute_query = false;
@@ -696,18 +720,22 @@ public class CLCapabilities {
 		cl_APPLE_fp64_basic_ops = false;
 		cl_APPLE_gl_sharing = (__APPLEGLSharing = APPLEGLSharing.create(provider)) != null;
 		cl_APPLE_query_kernel_names = false;
-		cl_arm_get_core_id = false;
+		cl_arm_core_id = false;
 		cl_arm_printf = false;
 		cl_ext_atomic_counters_32 = false;
 		cl_ext_atomic_counters_64 = false;
+		cl_ext_device_fission = (__EXTDeviceFission = EXTDeviceFission.create(provider)) != null;
 		cl_ext_migrate_memobject = (__EXTMigrateMemobject = EXTMigrateMemobject.create(provider)) != null;
 		cl_intel_accelerator = (__INTELAccelerator = INTELAccelerator.create(provider)) != null;
 		cl_intel_advanced_motion_estimation = false;
 		cl_intel_device_partition_by_names = false;
+		cl_intel_egl_image_yuv = false;
 		cl_intel_motion_estimation = false;
 		cl_intel_printf = false;
 		cl_intel_simultaneous_sharing = false;
+		cl_intel_subgroups = (__INTELSubgroups = INTELSubgroups.create(provider)) != null;
 		cl_intel_thread_local_exec = false;
+		cl_intel_va_api_media_sharing = (__INTELVAAPIMediaSharing = INTELVAAPIMediaSharing.create(provider)) != null;
 		cl_khr_3d_image_writes = false;
 		cl_khr_byte_addressable_store = false;
 		cl_khr_depth_images = false;
@@ -739,6 +767,7 @@ public class CLCapabilities {
 		cl_nv_compiler_options = false;
 		cl_nv_device_attribute_query = false;
 		cl_nv_pragma_unroll = false;
+		cl_qcom_ext_host_ptr = (__QCOMEXTHostPtr = QCOMEXTHostPtr.create(provider)) != null;
 	}
 
 	CLCapabilities(int majorVersion, int minorVersion, Set<String> ext, CLCapabilities caps) {
@@ -752,6 +781,9 @@ public class CLCapabilities {
 		OpenCL12GL = (__CL12GL = CL.checkExtension(ext, "OpenCL12GL", caps.__CL12GL)) != null;
 		OpenCL20 = (__CL20 = CL.checkExtension(ext, "OpenCL20", caps.__CL20)) != null;
 		OpenCL21 = (__CL21 = CL.checkExtension(ext, "OpenCL21", caps.__CL21)) != null;
+		cl_altera_compiler_mode = ext.contains("cl_altera_compiler_mode");
+		cl_altera_device_temperature = ext.contains("cl_altera_device_temperature");
+		cl_altera_live_object_tracking = (__ALTERALiveObjectTracking = CL.checkExtension(ext, "cl_altera_live_object_tracking", caps.__ALTERALiveObjectTracking)) != null;
 		cl_amd_bus_addressable_memory = (__AMDBusAddressableMemory = CL.checkExtension(ext, "cl_amd_bus_addressable_memory", caps.__AMDBusAddressableMemory)) != null;
 		cl_amd_compile_options = ext.contains("cl_amd_compile_options");
 		cl_amd_device_attribute_query = ext.contains("cl_amd_device_attribute_query");
@@ -776,18 +808,22 @@ public class CLCapabilities {
 		cl_APPLE_fp64_basic_ops = ext.contains("cl_APPLE_fp64_basic_ops");
 		cl_APPLE_gl_sharing = (__APPLEGLSharing = CL.checkExtension(ext, "cl_APPLE_gl_sharing", caps.__APPLEGLSharing)) != null;
 		cl_APPLE_query_kernel_names = ext.contains("cl_APPLE_query_kernel_names");
-		cl_arm_get_core_id = ext.contains("cl_arm_get_core_id");
+		cl_arm_core_id = ext.contains("cl_arm_core_id");
 		cl_arm_printf = ext.contains("cl_arm_printf");
 		cl_ext_atomic_counters_32 = ext.contains("cl_ext_atomic_counters_32");
 		cl_ext_atomic_counters_64 = ext.contains("cl_ext_atomic_counters_64");
+		cl_ext_device_fission = (__EXTDeviceFission = CL.checkExtension(ext, "cl_ext_device_fission", caps.__EXTDeviceFission)) != null;
 		cl_ext_migrate_memobject = (__EXTMigrateMemobject = CL.checkExtension(ext, "cl_ext_migrate_memobject", caps.__EXTMigrateMemobject)) != null;
 		cl_intel_accelerator = (__INTELAccelerator = CL.checkExtension(ext, "cl_intel_accelerator", caps.__INTELAccelerator)) != null;
 		cl_intel_advanced_motion_estimation = ext.contains("cl_intel_advanced_motion_estimation");
 		cl_intel_device_partition_by_names = ext.contains("cl_intel_device_partition_by_names");
+		cl_intel_egl_image_yuv = ext.contains("cl_intel_egl_image_yuv");
 		cl_intel_motion_estimation = ext.contains("cl_intel_motion_estimation");
 		cl_intel_printf = ext.contains("cl_intel_printf");
 		cl_intel_simultaneous_sharing = ext.contains("cl_intel_simultaneous_sharing");
+		cl_intel_subgroups = (__INTELSubgroups = CL.checkExtension(ext, "cl_intel_subgroups", caps.__INTELSubgroups)) != null;
 		cl_intel_thread_local_exec = ext.contains("cl_intel_thread_local_exec");
+		cl_intel_va_api_media_sharing = (__INTELVAAPIMediaSharing = CL.checkExtension(ext, "cl_intel_va_api_media_sharing", caps.__INTELVAAPIMediaSharing)) != null;
 		cl_khr_3d_image_writes = ext.contains("cl_khr_3d_image_writes");
 		cl_khr_byte_addressable_store = ext.contains("cl_khr_byte_addressable_store");
 		cl_khr_depth_images = ext.contains("cl_khr_depth_images");
@@ -819,6 +855,7 @@ public class CLCapabilities {
 		cl_nv_compiler_options = ext.contains("cl_nv_compiler_options");
 		cl_nv_device_attribute_query = ext.contains("cl_nv_device_attribute_query");
 		cl_nv_pragma_unroll = ext.contains("cl_nv_pragma_unroll");
+		cl_qcom_ext_host_ptr = (__QCOMEXTHostPtr = CL.checkExtension(ext, "cl_qcom_ext_host_ptr", caps.__QCOMEXTHostPtr)) != null;
 	}
 
 	public String toString() {
@@ -827,6 +864,9 @@ public class CLCapabilities {
 		buf.append("OpenCL ").append(majorVersion).append('.').append(minorVersion);
 		buf.append(" - Extensions: ");
 
+		if ( cl_altera_compiler_mode ) buf.append("cl_altera_compiler_mode ");
+		if ( cl_altera_device_temperature ) buf.append("cl_altera_device_temperature ");
+		if ( cl_altera_live_object_tracking ) buf.append("cl_altera_live_object_tracking ");
 		if ( cl_amd_bus_addressable_memory ) buf.append("cl_amd_bus_addressable_memory ");
 		if ( cl_amd_compile_options ) buf.append("cl_amd_compile_options ");
 		if ( cl_amd_device_attribute_query ) buf.append("cl_amd_device_attribute_query ");
@@ -851,18 +891,22 @@ public class CLCapabilities {
 		if ( cl_APPLE_fp64_basic_ops ) buf.append("cl_APPLE_fp64_basic_ops ");
 		if ( cl_APPLE_gl_sharing ) buf.append("cl_APPLE_gl_sharing ");
 		if ( cl_APPLE_query_kernel_names ) buf.append("cl_APPLE_query_kernel_names ");
-		if ( cl_arm_get_core_id ) buf.append("cl_arm_get_core_id ");
+		if ( cl_arm_core_id ) buf.append("cl_arm_core_id ");
 		if ( cl_arm_printf ) buf.append("cl_arm_printf ");
 		if ( cl_ext_atomic_counters_32 ) buf.append("cl_ext_atomic_counters_32 ");
 		if ( cl_ext_atomic_counters_64 ) buf.append("cl_ext_atomic_counters_64 ");
+		if ( cl_ext_device_fission ) buf.append("cl_ext_device_fission ");
 		if ( cl_ext_migrate_memobject ) buf.append("cl_ext_migrate_memobject ");
 		if ( cl_intel_accelerator ) buf.append("cl_intel_accelerator ");
 		if ( cl_intel_advanced_motion_estimation ) buf.append("cl_intel_advanced_motion_estimation ");
 		if ( cl_intel_device_partition_by_names ) buf.append("cl_intel_device_partition_by_names ");
+		if ( cl_intel_egl_image_yuv ) buf.append("cl_intel_egl_image_yuv ");
 		if ( cl_intel_motion_estimation ) buf.append("cl_intel_motion_estimation ");
 		if ( cl_intel_printf ) buf.append("cl_intel_printf ");
 		if ( cl_intel_simultaneous_sharing ) buf.append("cl_intel_simultaneous_sharing ");
+		if ( cl_intel_subgroups ) buf.append("cl_intel_subgroups ");
 		if ( cl_intel_thread_local_exec ) buf.append("cl_intel_thread_local_exec ");
+		if ( cl_intel_va_api_media_sharing ) buf.append("cl_intel_va_api_media_sharing ");
 		if ( cl_khr_3d_image_writes ) buf.append("cl_khr_3d_image_writes ");
 		if ( cl_khr_byte_addressable_store ) buf.append("cl_khr_byte_addressable_store ");
 		if ( cl_khr_depth_images ) buf.append("cl_khr_depth_images ");
@@ -894,6 +938,7 @@ public class CLCapabilities {
 		if ( cl_nv_compiler_options ) buf.append("cl_nv_compiler_options ");
 		if ( cl_nv_device_attribute_query ) buf.append("cl_nv_device_attribute_query ");
 		if ( cl_nv_pragma_unroll ) buf.append("cl_nv_pragma_unroll ");
+		if ( cl_qcom_ext_host_ptr ) buf.append("cl_qcom_ext_host_ptr ");
 
 		return buf.toString();
 	}
