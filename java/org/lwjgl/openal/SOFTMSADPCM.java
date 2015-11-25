@@ -12,7 +12,7 @@ package org.lwjgl.openal;
  */
 public final class SOFTMSADPCM {
 
-	/** Accepted by the {@code format} parameter of alBufferData. */
+	/** Accepted by the {@code format} parameter of {@link AL10#alBufferData BufferData}. */
 	public static final int
 		AL_FORMAT_MONO_MSADPCM_SOFT   = 0x1302,
 		AL_FORMAT_STEREO_MSADPCM_SOFT = 0x1303;

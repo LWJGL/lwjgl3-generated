@@ -157,6 +157,7 @@ public class AL10 {
 		GetSource3f,
 		GetSourcefv,
 		GetSourcei,
+		GetSourceiv,
 		SourceQueueBuffers,
 		SourceUnqueueBuffers,
 		SourcePlay,
@@ -219,6 +220,7 @@ public class AL10 {
 		GetSource3f = provider.getFunctionAddress("alGetSource3f");
 		GetSourcefv = provider.getFunctionAddress("alGetSourcefv");
 		GetSourcei = provider.getFunctionAddress("alGetSourcei");
+		GetSourceiv = provider.getFunctionAddress("alGetSourceiv");
 		SourceQueueBuffers = provider.getFunctionAddress("alSourceQueueBuffers");
 		SourceUnqueueBuffers = provider.getFunctionAddress("alSourceUnqueueBuffers");
 		SourcePlay = provider.getFunctionAddress("alSourcePlay");
@@ -257,9 +259,9 @@ public class AL10 {
 			funcs.GetBooleanv, funcs.GetIntegerv, funcs.GetFloatv, funcs.GetDoublev, funcs.GetString, funcs.DistanceModel, funcs.DopplerFactor, 
 			funcs.DopplerVelocity, funcs.Listenerf, funcs.Listeneri, funcs.Listener3f, funcs.Listenerfv, funcs.GetListenerf, funcs.GetListeneri, 
 			funcs.GetListener3f, funcs.GetListenerfv, funcs.GenSources, funcs.DeleteSources, funcs.IsSource, funcs.Sourcef, funcs.Source3f, funcs.Sourcefv, 
-			funcs.Sourcei, funcs.GetSourcef, funcs.GetSource3f, funcs.GetSourcefv, funcs.GetSourcei, funcs.SourceQueueBuffers, funcs.SourceUnqueueBuffers, 
-			funcs.SourcePlay, funcs.SourcePause, funcs.SourceStop, funcs.SourceRewind, funcs.SourcePlayv, funcs.SourcePausev, funcs.SourceStopv, 
-			funcs.SourceRewindv, funcs.GenBuffers, funcs.DeleteBuffers, funcs.IsBuffer, funcs.GetBufferf, funcs.GetBufferi, funcs.BufferData, 
+			funcs.Sourcei, funcs.GetSourcef, funcs.GetSource3f, funcs.GetSourcefv, funcs.GetSourcei, funcs.GetSourceiv, funcs.SourceQueueBuffers, 
+			funcs.SourceUnqueueBuffers, funcs.SourcePlay, funcs.SourcePause, funcs.SourceStop, funcs.SourceRewind, funcs.SourcePlayv, funcs.SourcePausev, 
+			funcs.SourceStopv, funcs.SourceRewindv, funcs.GenBuffers, funcs.DeleteBuffers, funcs.IsBuffer, funcs.GetBufferf, funcs.GetBufferi, funcs.BufferData, 
 			funcs.GetEnumValue, funcs.GetProcAddress, funcs.IsExtensionPresent
 		);
 
@@ -1079,6 +1081,35 @@ public class AL10 {
 		return __buffer.intValue(value);
 	}
 
+	// --- [ alGetSourceiv ] ---
+
+	/** Unsafe version of {@link #alGetSourceiv GetSourceiv} */
+	@JavadocExclude
+	public static void nalGetSourceiv(int source, int param, long values) {
+		long __functionAddress = getInstance().GetSourceiv;
+		invokeIIPV(__functionAddress, source, param, values);
+	}
+
+	/**
+	 * Returns the integer values of the specified source parameter.
+	 *
+	 * @param source the source to query
+	 * @param param  the parameter to query. One of:<br>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}, {@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}, {@link #AL_PITCH PITCH}, {@link #AL_DIRECTION DIRECTION}, {@link #AL_LOOPING LOOPING}, {@link #AL_BUFFER BUFFER}, {@link #AL_SOURCE_STATE SOURCE_STATE}, {@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}, {@link #AL_SOURCE_TYPE SOURCE_TYPE}, {@link #AL_POSITION POSITION}, {@link #AL_VELOCITY VELOCITY}, {@link #AL_GAIN GAIN}, {@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}, {@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}, {@link #AL_MAX_DISTANCE MAX_DISTANCE}
+	 * @param values the parameter values
+	 */
+	public static void alGetSourceiv(int source, int param, ByteBuffer values) {
+		if ( CHECKS )
+			checkBuffer(values, 1 << 2);
+		nalGetSourceiv(source, param, memAddress(values));
+	}
+
+	/** Alternative version of: {@link #alGetSourceiv GetSourceiv} */
+	public static void alGetSourceiv(int source, int param, IntBuffer values) {
+		if ( CHECKS )
+			checkBuffer(values, 1);
+		nalGetSourceiv(source, param, memAddress(values));
+	}
+
 	// --- [ alSourceQueueBuffers ] ---
 
 	/** Unsafe version of {@link #alSourceQueueBuffers SourceQueueBuffers} */
@@ -1530,6 +1561,11 @@ public class AL10 {
 
 	/** IntBuffer version of: {@link #alBufferData BufferData} */
 	public static void alBufferData(int bufferName, int format, IntBuffer data, int frequency) {
+		nalBufferData(bufferName, format, memAddress(data), data.remaining() << 2, frequency);
+	}
+
+	/** FloatBuffer version of: {@link #alBufferData BufferData} */
+	public static void alBufferData(int bufferName, int format, FloatBuffer data, int frequency) {
 		nalBufferData(bufferName, format, memAddress(data), data.remaining() << 2, frequency);
 	}
 

@@ -5,10 +5,10 @@
  */
 package org.lwjgl.openal;
 
-/** bindings to AL_EXT_ALAW extension. */
+/** Native bindings to the {@code AL_EXT_ALAW} extension. */
 public final class EXTAlaw {
 
-	/** AL_EXT_ALAW tokens. */
+	/** Buffer formats. */
 	public static final int
 		AL_FORMAT_MONO_ALAW_EXT   = 0x10016,
 		AL_FORMAT_STEREO_ALAW_EXT = 0x10017;

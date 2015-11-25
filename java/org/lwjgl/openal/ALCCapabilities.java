@@ -13,7 +13,9 @@ public final class ALCCapabilities {
 
 	final ALC10                 __ALC10;
 	final ALC11                 __ALC11;
+	final EXTCapture            __EXTCapture;
 	final EXTThreadLocalContext __EXTThreadLocalContext;
+	final SOFTHRTF              __SOFTHRTF;
 	final SOFTLoopback          __SOFTLoopback;
 	final SOFTPauseDevice       __SOFTPauseDevice;
 
@@ -23,10 +25,14 @@ public final class ALCCapabilities {
 		OpenALC11,
 		ALC_ENUMERATE_ALL_EXT,
 		ALC_ENUMERATION_EXT,
+		ALC_EXT_CAPTURE,
 		ALC_EXT_DEDICATED,
+		ALC_EXT_DEFAULT_FILTER_ORDER,
 		ALC_EXT_disconnect,
 		ALC_EXT_EFX,
 		ALC_EXT_thread_local_context,
+		ALC_LOKI_audio_channel,
+		ALC_SOFT_HRTF,
 		ALC_SOFT_loopback,
 		ALC_SOFT_pause_device;
 
@@ -35,10 +41,14 @@ public final class ALCCapabilities {
 		OpenALC11 = (__ALC11 = ALC11.create(ext, provider)) != null;
 		ALC_ENUMERATE_ALL_EXT = ext.contains("ALC_ENUMERATE_ALL_EXT");
 		ALC_ENUMERATION_EXT = ext.contains("ALC_ENUMERATION_EXT");
+		ALC_EXT_CAPTURE = (__EXTCapture = EXTCapture.create(ext, provider, device)) != null;
 		ALC_EXT_DEDICATED = ext.contains("ALC_EXT_DEDICATED");
+		ALC_EXT_DEFAULT_FILTER_ORDER = ext.contains("ALC_EXT_DEFAULT_FILTER_ORDER");
 		ALC_EXT_disconnect = ext.contains("ALC_EXT_disconnect");
 		ALC_EXT_EFX = ext.contains("ALC_EXT_EFX");
 		ALC_EXT_thread_local_context = (__EXTThreadLocalContext = EXTThreadLocalContext.create(ext, provider, device)) != null;
+		ALC_LOKI_audio_channel = ext.contains("ALC_LOKI_audio_channel");
+		ALC_SOFT_HRTF = (__SOFTHRTF = SOFTHRTF.create(ext, provider, device)) != null;
 		ALC_SOFT_loopback = (__SOFTLoopback = SOFTLoopback.create(ext, provider, device)) != null;
 		ALC_SOFT_pause_device = (__SOFTPauseDevice = SOFTPauseDevice.create(ext, provider, device)) != null;
 	}

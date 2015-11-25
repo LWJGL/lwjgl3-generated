@@ -33,7 +33,10 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class SOFTBufferSamples {
 
-	/** Accepted by the {@code internalformat} parameter of alBufferSamplesSOFT (values are shared with standard OpenAL, AL_EXT_FLOAT32, and AL_EXT_MCFORMATS). */
+	/**
+	 * Accepted by the {@code internalformat} parameter of {@link #alBufferSamplesSOFT BufferSamplesSOFT} (values are shared with standard OpenAL, {@link EXTFloat32 EXT_FLOAT32}, and
+	 * {@link EXTMCFormats EXT_MCFORMATS}).
+	 */
 	public static final int
 		AL_MONO8_SOFT       = 0x1100,
 		AL_MONO16_SOFT      = 0x1101,
@@ -57,7 +60,7 @@ public class SOFTBufferSamples {
 		AL_7POINT1_16_SOFT  = 0x1211,
 		AL_7POINT1_32F_SOFT = 0x1212;
 
-	/** Accepted by the {@code channels} parameter of alBufferSamplesSOFT, alBufferSubSamplesSOFT, and alGetBufferSamplesSOFT. */
+	/** Accepted by the {@code channels} parameter of {@link #alBufferSamplesSOFT BufferSamplesSOFT}, {@link #alBufferSubSamplesSOFT BufferSubSamplesSOFT}, and {@link #alGetBufferSamplesSOFT GetBufferSamplesSOFT}. */
 	public static final int
 		AL_MONO_SOFT    = 0x1500,
 		AL_STEREO_SOFT  = 0x1501,
@@ -67,7 +70,7 @@ public class SOFTBufferSamples {
 		AL_6POINT1_SOFT = 0x1505,
 		AL_7POINT1_SOFT = 0x1506;
 
-	/** Accepted by the {@code type} parameter of alBufferSamplesSOFT, alBufferSubSamplesSOFT, and alGetBufferSamplesSOFT. */
+	/** Accepted by the {@code type} parameter of {@link #alBufferSamplesSOFT BufferSamplesSOFT}, {@link #alBufferSubSamplesSOFT BufferSubSamplesSOFT}, and {@link #alGetBufferSamplesSOFT GetBufferSamplesSOFT}. */
 	public static final int
 		AL_BYTE_SOFT           = 0x1400,
 		AL_UNSIGNED_BYTE_SOFT  = 0x1401,
@@ -80,16 +83,16 @@ public class SOFTBufferSamples {
 		AL_BYTE3_SOFT          = 0x1408,
 		AL_UNSIGNED_BYTE3_SOFT = 0x1409;
 
-	/** Accepted by the {@code paramName} parameter of alGetBufferi and alGetBufferiv. */
+	/** Accepted by the {@code paramName} parameter of {@link AL11#alGetBufferi GetBufferi} and {@link AL11#alGetBufferiv GetBufferiv}. */
 	public static final int
 		AL_INTERNAL_FORMAT_SOFT = 0x2008,
 		AL_BYTE_LENGTH_SOFT     = 0x2009,
 		AL_SAMPLE_LENGTH_SOFT   = 0x200A;
 
-	/** Accepted by the {@code paramName} parameter of alGetBufferf and alGetBufferfv. */
+	/** Accepted by the {@code paramName} parameter of {@link AL10#alGetBufferf GetBufferf} and {@link AL11#alGetBufferfv GetBufferfv}. */
 	public static final int AL_SEC_LENGTH_SOFT = 0x200B;
 
-	/** Accepted by the {@code paramName} parameter of alGetSourceiv and alGetSourcefv (these are the same as in AL_SOFT_buffer_sub_data). */
+	/** Accepted by the {@code paramName} parameter of {@link AL10#alGetSourceiv GetSourceiv} and {@link AL10#alGetSourcefv GetSourcefv} (these are the same as in {@link SOFTBufferSubData SOFT_buffer_sub_data}). */
 	public static final int
 		AL_BYTE_RW_OFFSETS_SOFT   = 0x1031,
 		AL_SAMPLE_RW_OFFSETS_SOFT = 0x1032;
@@ -155,8 +158,7 @@ public class SOFTBufferSamples {
 	 * <p>The {@code data} pointer should hold enough data as specified by the {@code channels}, {@code type}, and {@code samples} parameters, and will be copied
 	 * and converted into the buffer's storage. It may also be {@code NULL}, in which case the stored data will be undefined.</p>
 	 * 
-	 * <p>If {@link SOFTLoopPoints AL_SOFT_loop_points} is supported, a successful call will reset the start and end loop points to 0 and {@code samples}
-	 * respectively.</p>
+	 * <p>If {@link SOFTLoopPoints SOFT_loop_points} is supported, a successful call will reset the start and end loop points to 0 and {@code samples} respectively.</p>
 	 *
 	 * @param buffer         the buffer ID
 	 * @param samplerate     the number of sample frames per second the data will play at
@@ -173,7 +175,7 @@ public class SOFTBufferSamples {
 	// --- [ alIsBufferFormatSupportedSOFT ] ---
 
 	/**
-	 * Queries if a storage format is supported by the implementation
+	 * Queries if a storage format is supported by the implementation.
 	 *
 	 * @param format the format to query. One of:<br>{@link #AL_MONO8_SOFT MONO8_SOFT}, {@link #AL_MONO16_SOFT MONO16_SOFT}, {@link #AL_MONO32F_SOFT MONO32F_SOFT}, {@link #AL_STEREO8_SOFT STEREO8_SOFT}, {@link #AL_STEREO16_SOFT STEREO16_SOFT}, {@link #AL_STEREO32F_SOFT STEREO32F_SOFT}, {@link #AL_QUAD8_SOFT QUAD8_SOFT}, {@link #AL_QUAD16_SOFT QUAD16_SOFT}, {@link #AL_QUAD32F_SOFT QUAD32F_SOFT}, {@link #AL_REAR8_SOFT REAR8_SOFT}, {@link #AL_REAR16_SOFT REAR16_SOFT}, {@link #AL_REAR32F_SOFT REAR32F_SOFT}, {@link #AL_5POINT1_8_SOFT 5POINT1_8_SOFT}, {@link #AL_5POINT1_16_SOFT 5POINT1_16_SOFT}, {@link #AL_5POINT1_32F_SOFT 5POINT1_32F_SOFT}, {@link #AL_6POINT1_8_SOFT 6POINT1_8_SOFT}, {@link #AL_6POINT1_16_SOFT 6POINT1_16_SOFT}, {@link #AL_6POINT1_32F_SOFT 6POINT1_32F_SOFT}, {@link #AL_7POINT1_8_SOFT 7POINT1_8_SOFT}, {@link #AL_7POINT1_16_SOFT 7POINT1_16_SOFT}, {@link #AL_7POINT1_32F_SOFT 7POINT1_32F_SOFT}
 	 *
@@ -236,7 +238,7 @@ public class SOFTBufferSamples {
 	 * @param samples  the number of sample frames to read
 	 * @param channels the target channel configuration. One of:<br>{@link #AL_MONO_SOFT MONO_SOFT}, {@link #AL_STEREO_SOFT STEREO_SOFT}, {@link #AL_QUAD_SOFT QUAD_SOFT}, {@link #AL_REAR_SOFT REAR_SOFT}, {@link #AL_5POINT1_SOFT 5POINT1_SOFT}, {@link #AL_6POINT1_SOFT 6POINT1_SOFT}, {@link #AL_7POINT1_SOFT 7POINT1_SOFT}
 	 * @param type     the target sample type. One of:<br>{@link #AL_BYTE_SOFT BYTE_SOFT}, {@link #AL_UNSIGNED_BYTE_SOFT UNSIGNED_BYTE_SOFT}, {@link #AL_SHORT_SOFT SHORT_SOFT}, {@link #AL_UNSIGNED_SHORT_SOFT UNSIGNED_SHORT_SOFT}, {@link #AL_INT_SOFT INT_SOFT}, {@link #AL_UNSIGNED_INT_SOFT UNSIGNED_INT_SOFT}, {@link #AL_FLOAT_SOFT FLOAT_SOFT}, {@link #AL_DOUBLE_SOFT DOUBLE_SOFT}, {@link #AL_BYTE3_SOFT BYTE3_SOFT}, {@link #AL_UNSIGNED_BYTE3_SOFT UNSIGNED_BYTE3_SOFT}
-	 * @param data     buffer to write to
+	 * @param data     thr buffer to write to
 	 */
 	public static void alGetBufferSamplesSOFT(int buffer, int offset, int samples, int channels, int type, ByteBuffer data) {
 		nalGetBufferSamplesSOFT(buffer, offset, samples, channels, type, memAddress(data));

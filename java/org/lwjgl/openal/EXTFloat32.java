@@ -5,10 +5,10 @@
  */
 package org.lwjgl.openal;
 
-/** bindings to AL_EXT_FLOAT32 extension. */
+/** Native bindings to the {@code AL_EXT_FLOAT32} extension. */
 public final class EXTFloat32 {
 
-	/** AL_EXT_FLOAT32 tokens. */
+	/** Buffer formats. */
 	public static final int
 		AL_FORMAT_MONO_FLOAT32   = 0x10010,
 		AL_FORMAT_STEREO_FLOAT32 = 0x10011;

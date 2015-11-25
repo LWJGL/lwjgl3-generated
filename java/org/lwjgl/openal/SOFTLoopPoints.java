@@ -13,7 +13,7 @@ package org.lwjgl.openal;
  */
 public final class SOFTLoopPoints {
 
-	/** Accepted by the {@code paramName} parameter of alBufferiv and alGetBufferiv. */
+	/** Accepted by the {@code paramName} parameter of {@link AL11#alBufferiv Bufferiv} and {@link AL11#alGetBufferiv GetBufferiv}. */
 	public static final int AL_LOOP_POINTS_SOFT = 0x2015;
 
 	private SOFTLoopPoints() {}

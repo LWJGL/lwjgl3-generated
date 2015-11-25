@@ -5,10 +5,15 @@
  */
 package org.lwjgl.openal;
 
-/** bindings to AL_EXT_EXPONENT_DISTANCE extension. */
+/**
+ * Native bindings to the {@code AL_EXT_EXPONENT_DISTANCE} extension.
+ * 
+ * <p>An OpenAL 1.1 implementation will always support the {@code AL_EXT_EXPONENT_DISTANCE} extension. This allows an application written to the OpenAL 1.0 specification to
+ * access the exponent distance abilities.</p>
+ */
 public final class EXTExponentDistance {
 
-	/** AL_EXT_EXPONENT_DISTANCE tokens. */
+	/** {@code AL_EXT_EXPONENT_DISTANCE} tokens. */
 	public static final int
 		AL_EXPONENT_DISTANCE         = 0xD005,
 		AL_EXPONENT_DISTANCE_CLAMPED = 0xD006;

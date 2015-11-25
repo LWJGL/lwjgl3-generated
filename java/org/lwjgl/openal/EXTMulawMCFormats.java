@@ -5,10 +5,10 @@
  */
 package org.lwjgl.openal;
 
-/** bindings to AL_EXT_MULAW_MCFORMATS extension. */
+/** Native bindings to the {@code AL_EXT_MULAW_MCFORMATS} extension. */
 public final class EXTMulawMCFormats {
 
-	/** AL_EXT_MULAW_MCFORMATS tokens. */
+	/** Buffer formats. */
 	public static final int
 		AL_FORMAT_MONO_MULAW   = 0x10014,
 		AL_FORMAT_STEREO_MULAW = 0x10015,

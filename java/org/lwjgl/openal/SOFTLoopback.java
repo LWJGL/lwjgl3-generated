@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class SOFTLoopback {
 
-	/** Accepted by the {@code type} parameter of alcIsRenderFormatSupportedSOFT. */
+	/** Accepted by the {@code type} parameter of {@link #alcIsRenderFormatSupportedSOFT IsRenderFormatSupportedSOFT}. */
 	public static final int
 		ALC_BYTE_SOFT           = 0x1400,
 		ALC_UNSIGNED_BYTE_SOFT  = 0x1401,
@@ -32,7 +32,7 @@ public class SOFTLoopback {
 		ALC_UNSIGNED_INT_SOFT   = 0x1405,
 		ALC_FLOAT_SOFT          = 0x1406;
 
-	/** Accepted by the {@code channels} parameter of alcIsRenderFormatSupportedSOFT. */
+	/** Accepted by the {@code channels} parameter of {@link #alcIsRenderFormatSupportedSOFT IsRenderFormatSupportedSOFT}. */
 	public static final int
 		ALC_MONO_SOFT    = 0x1500,
 		ALC_STEREO_SOFT  = 0x1501,
@@ -41,7 +41,7 @@ public class SOFTLoopback {
 		ALC_6POINT1_SOFT = 0x1505,
 		ALC_7POINT1_SOFT = 0x1506;
 
-	/** Accepted as part of the {@code attrList} parameter of alcCreateContext. */
+	/** Accepted as part of the {@code attrList} parameter of {@link ALC10#alcCreateContext CreateContext}. */
 	public static final int
 		ALC_FORMAT_CHANNELS_SOFT = 0x1990,
 		ALC_FORMAT_TYPE_SOFT     = 0x1991;
@@ -111,8 +111,8 @@ public class SOFTLoopback {
 	 * <p>Note that loopback devices do not have either the {@link ALC10#ALC_SYNC SYNC} or {@link ALC10#ALC_REFRESH REFRESH} attributes. Attempting to query them will result in an {@link ALC10#ALC_INVALID_ENUM INVALID_ENUM}
 	 * error.</p>
 	 *
-	 * @param deviceName which device or device driver to use for subsequent rendering. This may be {@code NULL} for an implementation-defined default, otherwise it must be a valid
-	 *                   name returned by enumeration (and further must be a device capable of loopback rendering).
+	 * @param deviceName which device or device driver to use for subsequent rendering. This may be {@code NULL} for an implementation-defined default, otherwise it must be a
+	 *                   valid name returned by enumeration (and further must be a device capable of loopback rendering).
 	 */
 	public static long alcLoopbackOpenDeviceSOFT(ByteBuffer deviceName) {
 		if ( CHECKS )
@@ -167,6 +167,21 @@ public class SOFTLoopback {
 	 * @param samples the number of sample frames to render
 	 */
 	public static void alcRenderSamplesSOFT(long device, ByteBuffer buffer, int samples) {
+		nalcRenderSamplesSOFT(device, memAddress(buffer), samples);
+	}
+
+	/** ShortBuffer version of: {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
+	public static void alcRenderSamplesSOFT(long device, ShortBuffer buffer, int samples) {
+		nalcRenderSamplesSOFT(device, memAddress(buffer), samples);
+	}
+
+	/** IntBuffer version of: {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
+	public static void alcRenderSamplesSOFT(long device, IntBuffer buffer, int samples) {
+		nalcRenderSamplesSOFT(device, memAddress(buffer), samples);
+	}
+
+	/** FloatBuffer version of: {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
+	public static void alcRenderSamplesSOFT(long device, FloatBuffer buffer, int samples) {
 		nalcRenderSamplesSOFT(device, memAddress(buffer), samples);
 	}
 

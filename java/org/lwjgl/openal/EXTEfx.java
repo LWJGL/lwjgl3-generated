@@ -14,7 +14,11 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** bindings to ALC_EXT_EFX extension. */
+/**
+ * Native bindings to the {@code ALC_EXT_EFX} extension.
+ * 
+ * <p>The Effects Extension is designed to provide a generic, cross-platform framework for adding advanced DSP effects to OpenAL.</p>
+ */
 public class EXTEfx {
 
 	/** ALC tokens. */

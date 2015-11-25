@@ -5,10 +5,10 @@
  */
 package org.lwjgl.openal;
 
-/** bindings to AL_EXT_IMA4 extension. */
+/** Native bindings to the {@code AL_EXT_IMA4} extension. */
 public final class EXTIma4 {
 
-	/** AL_EXT_IMA4 tokens. */
+	/** Buffer formats. */
 	public static final int
 		AL_FORMAT_MONO_IMA4   = 0x1300,
 		AL_FORMAT_STEREO_IMA4 = 0x1301;

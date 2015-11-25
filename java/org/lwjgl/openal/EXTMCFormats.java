@@ -5,10 +5,10 @@
  */
 package org.lwjgl.openal;
 
-/** bindings to AL_EXT_MCFORMATS extension. */
+/** Native bindings to the {@code AL_EXT_MCFORMATS} extension. */
 public final class EXTMCFormats {
 
-	/** AL_EXT_MCFORMATS tokens. */
+	/** Buffer formats. */
 	public static final int
 		AL_FORMAT_QUAD8   = 0x1204,
 		AL_FORMAT_QUAD16  = 0x1205,

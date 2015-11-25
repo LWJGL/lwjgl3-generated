@@ -76,7 +76,7 @@ public class EXTThreadLocalContext {
 
 	// --- [ alcGetThreadContext ] ---
 
-	/** Retrieve a handle to the thread-specific context of the calling thread. This function will return {@code NULL} if no thread- specific context is set. */
+	/** Retrieves a handle to the thread-specific context of the calling thread. This function will return {@code NULL} if no thread-specific context is set. */
 	public static long alcGetThreadContext() {
 		long __functionAddress = getInstance().GetThreadContext;
 		return invokeP(__functionAddress);

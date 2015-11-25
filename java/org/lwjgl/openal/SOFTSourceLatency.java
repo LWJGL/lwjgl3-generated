@@ -9,6 +9,7 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -32,10 +33,35 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class SOFTSourceLatency {
 
-	/** Can be used to retrieve a high-precision source offset and playback latency. */
-	public static final int
-		AL_SAMPLE_OFFSET_LATENCY_SOFT = 0x1200,
-		AL_SEC_OFFSET_LATENCY_SOFT    = 0x1201;
+	/**
+	 * The playback position, expressed in fixed-point samples, along with the playback latency, expressed in nanoseconds (1/1000000000ths of a second). This
+	 * attribute is read-only.
+	 * 
+	 * <p>The first value in the returned vector is the sample offset, which is a 32.32 fixed-point value. The whole number is stored in the upper 32 bits and
+	 * the fractional component is in the lower 32 bits. The value is similar to that returned by {@link AL11#AL_SAMPLE_OFFSET SAMPLE_OFFSET}, just with more precision.</p>
+	 * 
+	 * <p>The second value is the latency, in nanoseconds. It represents the length of time it will take for the audio at the current offset to actually reach
+	 * the speakers or DAC. This value should be considered volatile, as it may change very often during playback (it can depend on a number of factors,
+	 * including how full the mixing buffer OpenAL may be using is timer jitter, or other changes deeper in the audio pipeline).</p>
+	 * 
+	 * <p>The retrieved offset and latency should be considered atomic, with respect to one another. This means the returned latency was measured exactly when
+	 * the source was at the returned offset.</p>
+	 */
+	public static final int AL_SAMPLE_OFFSET_LATENCY_SOFT = 0x1200;
+
+	/**
+	 * The playback position, along with the playback latency, both expressed in seconds. This attribute is read-only.
+	 * 
+	 * <p>The first value in the returned vector is the offset in seconds. The value is similar to that returned by {@link AL11#AL_SEC_OFFSET SEC_OFFSET}, just with more precision.</p>
+	 * 
+	 * <p>The second value is the latency, in seconds. It represents the length of time it will take for the audio at the current offset to actually reach the
+	 * speakers or DAC. This value should be considered volatile, as it may change very often during playback (it can depend on a number of factors, including
+	 * how full the mixing buffer OpenAL may be using is, timer jitter, or other changes deeper in the audio pipeline).</p>
+	 * 
+	 * <p>The retrieved offset and latency should be considered atomic with respect to one another. This means the returned latency was measured exactly when the
+	 * source was at the returned offset.</p>
+	 */
+	public static final int AL_SEC_OFFSET_LATENCY_SOFT = 0x1201;
 
 	/** Function address. */
 	@JavadocExclude
@@ -166,12 +192,24 @@ public class SOFTSourceLatency {
 	 * @param value  the parameter values
 	 */
 	public static void alGetSourcedSOFT(int source, int param, ByteBuffer value) {
+		if ( CHECKS )
+			checkBuffer(value, 1 << 3);
 		nalGetSourcedSOFT(source, param, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #alGetSourcedSOFT GetSourcedSOFT} */
 	public static void alGetSourcedSOFT(int source, int param, DoubleBuffer value) {
+		if ( CHECKS )
+			checkBuffer(value, 1);
 		nalGetSourcedSOFT(source, param, memAddress(value));
+	}
+
+	/** Single return value version of: {@link #alGetSourcedSOFT GetSourcedSOFT} */
+	public static double alGetSourcedSOFT(int source, int param) {
+		APIBuffer __buffer = apiBuffer();
+		int value = __buffer.doubleParam();
+		nalGetSourcedSOFT(source, param, __buffer.address(value));
+		return __buffer.doubleValue(value);
 	}
 
 	// --- [ alGetSource3dSOFT ] ---
@@ -193,11 +231,21 @@ public class SOFTSourceLatency {
 	 * @param value3 the third value
 	 */
 	public static void alGetSource3dSOFT(int source, int param, ByteBuffer value1, ByteBuffer value2, ByteBuffer value3) {
+		if ( CHECKS ) {
+			checkBuffer(value1, 1 << 3);
+			checkBuffer(value2, 1 << 3);
+			checkBuffer(value3, 1 << 3);
+		}
 		nalGetSource3dSOFT(source, param, memAddress(value1), memAddress(value2), memAddress(value3));
 	}
 
 	/** Alternative version of: {@link #alGetSource3dSOFT GetSource3dSOFT} */
 	public static void alGetSource3dSOFT(int source, int param, DoubleBuffer value1, DoubleBuffer value2, DoubleBuffer value3) {
+		if ( CHECKS ) {
+			checkBuffer(value1, 1);
+			checkBuffer(value2, 1);
+			checkBuffer(value3, 1);
+		}
 		nalGetSource3dSOFT(source, param, memAddress(value1), memAddress(value2), memAddress(value3));
 	}
 
@@ -211,7 +259,7 @@ public class SOFTSourceLatency {
 	}
 
 	/**
-	 * Pointer version of {@link #alGetSourcedSOFT GetSourcedSOFT}
+	 * Array version of {@link #alGetSourcedSOFT GetSourcedSOFT}
 	 *
 	 * @param source the source to query
 	 * @param param  the parameter to query
@@ -266,7 +314,7 @@ public class SOFTSourceLatency {
 	}
 
 	/**
-	 * Pointer version of {@link #alSourcei64SOFT Sourcei64SOFT}
+	 * Array version of {@link #alSourcei64SOFT Sourcei64SOFT}
 	 *
 	 * @param source the source to modify
 	 * @param param  the parameter to modify
@@ -298,12 +346,24 @@ public class SOFTSourceLatency {
 	 * @param value  the parameter values
 	 */
 	public static void alGetSourcei64SOFT(int source, int param, ByteBuffer value) {
+		if ( CHECKS )
+			checkBuffer(value, 1 << 3);
 		nalGetSourcei64SOFT(source, param, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #alGetSourcei64SOFT GetSourcei64SOFT} */
 	public static void alGetSourcei64SOFT(int source, int param, LongBuffer value) {
+		if ( CHECKS )
+			checkBuffer(value, 1);
 		nalGetSourcei64SOFT(source, param, memAddress(value));
+	}
+
+	/** Single return value version of: {@link #alGetSourcei64SOFT GetSourcei64SOFT} */
+	public static long alGetSourcei64SOFT(int source, int param) {
+		APIBuffer __buffer = apiBuffer();
+		int value = __buffer.longParam();
+		nalGetSourcei64SOFT(source, param, __buffer.address(value));
+		return __buffer.longValue(value);
 	}
 
 	// --- [ alGetSource3i64SOFT ] ---
@@ -325,11 +385,21 @@ public class SOFTSourceLatency {
 	 * @param value3 the third value
 	 */
 	public static void alGetSource3i64SOFT(int source, int param, ByteBuffer value1, ByteBuffer value2, ByteBuffer value3) {
+		if ( CHECKS ) {
+			checkBuffer(value1, 1 << 3);
+			checkBuffer(value2, 1 << 3);
+			checkBuffer(value3, 1 << 3);
+		}
 		nalGetSource3i64SOFT(source, param, memAddress(value1), memAddress(value2), memAddress(value3));
 	}
 
 	/** Alternative version of: {@link #alGetSource3i64SOFT GetSource3i64SOFT} */
 	public static void alGetSource3i64SOFT(int source, int param, LongBuffer value1, LongBuffer value2, LongBuffer value3) {
+		if ( CHECKS ) {
+			checkBuffer(value1, 1);
+			checkBuffer(value2, 1);
+			checkBuffer(value3, 1);
+		}
 		nalGetSource3i64SOFT(source, param, memAddress(value1), memAddress(value2), memAddress(value3));
 	}
 
@@ -343,7 +413,7 @@ public class SOFTSourceLatency {
 	}
 
 	/**
-	 * Pointer version of {@link #alGetSourcei64SOFT GetSourcei64SOFT}
+	 * Array version of {@link #alGetSourcei64SOFT GetSourcei64SOFT}
 	 *
 	 * @param source the source to query
 	 * @param param  the parameter to query

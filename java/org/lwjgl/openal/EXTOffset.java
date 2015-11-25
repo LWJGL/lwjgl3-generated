@@ -5,10 +5,15 @@
  */
 package org.lwjgl.openal;
 
-/** bindings to AL_EXT_OFFSET extension. */
+/**
+ * Native bindings to the {@code AL_EXT_OFFSET} extension.
+ * 
+ * <p>An OpenAL 1.1 implementation will always support the {@code AL_EXT_OFFSET} extension. This allows an application written to the OpenAL 1.0 specification to
+ * access the offset abilities.</p>
+ */
 public final class EXTOffset {
 
-	/** AL_EXT_OFFSET tokens. */
+	/** {@code AL_EXT_OFFSET} tokens. */
 	public static final int
 		AL_SEC_OFFSET    = 0x1024,
 		AL_SAMPLE_OFFSET = 0x1025,
