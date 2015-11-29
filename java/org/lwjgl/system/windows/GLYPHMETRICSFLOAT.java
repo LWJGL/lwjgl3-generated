@@ -16,6 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Contains information about the placement and orientation of a glyph in a character cell.
  * 
  * <h3>GLYPHMETRICSFLOAT members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>gmfBlackBoxX</td><td class="nw">FLOAT</td><td>specifies the width of the smallest rectangle (the glyph's black box) that completely encloses the glyph</td></tr>

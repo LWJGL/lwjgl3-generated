@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Bus address information used in {@link AMDBusAddressableMemory#clEnqueueMakeBuffersResidentAMD}.
  * 
  * <h3>cl_bus_address_amd members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>surfbusaddress</td><td class="nw">cl_long</td><td>contains the page aligned physical starting address of the backing store preallocated by the application on a remote device</td></tr>

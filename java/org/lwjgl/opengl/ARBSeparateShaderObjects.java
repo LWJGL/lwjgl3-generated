@@ -294,7 +294,8 @@ public class ARBSeparateShaderObjects {
 	/**
 	 * Creates a stand-alone program from an array of null-terminated source code strings.
 	 * 
-	 * <p>{@code glCreateShaderProgram} is equivalent (assuming no errors are generated) to:
+	 * <p>{@code glCreateShaderProgram} is equivalent (assuming no errors are generated) to:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * const GLuint shader = glCreateShader(type);
 	 * if (shader) {
@@ -317,7 +318,8 @@ public class ARBSeparateShaderObjects {
 	 * } else {
 	 * 	return 0;
 	 * }</code></pre>
-	 * The program object created by glCreateShaderProgram has its GL_PROGRAM_SEPARABLE status set to GL_TRUE.</p>
+	 * 
+	 * <p>The program object created by glCreateShaderProgram has its GL_PROGRAM_SEPARABLE status set to GL_TRUE.</p>
 	 *
 	 * @param type    the type of shader to create
 	 * @param count   the number of source code strings in the array {@code strings}

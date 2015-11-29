@@ -34,8 +34,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * dereferences in the shading language.</p>
  * 
  * <p>As a very simple example, imagine packing a group of similar objects' constants into a single buffer object and pointing your program at object
- * &lt;i&gt; by setting <pre><code style="font-family: monospace">
- * glVertexAttribI1iEXT(attrLoc, i);</code></pre> and using a shader as such:
+ * &lt;i&gt; by setting <code style="font-family: monospace">glVertexAttribI1iEXT(attrLoc, i);</code> and using a shader as such:</p>
+ * 
  * <pre><code style="font-family: monospace">
  * struct MyObjectType {
  * 	mat4x4 modelView;
@@ -49,13 +49,15 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * mat4x4 thisObjectsMatrix = allObjects[objectID].modelView;
  * // do transform, shading, etc.</code></pre>
- * This is beneficial in much the same way that texture arrays allow choosing between similar, but independent, texture maps with a single coordinate
+ * 
+ * <p>This is beneficial in much the same way that texture arrays allow choosing between similar, but independent, texture maps with a single coordinate
  * identifying which slice of the texture to use. It also resembles instancing, where a lightweight change (incrementing the instance ID) can be used to
  * generate a different and interesting result, but with additional flexibility over instancing because the values are app-controlled and not a single incrementing counter.</p>
  * 
  * <p>Dependent pointer fetches are allowed, so more complex scene graph structures can be built into buffer objects providing significant new flexibility in
  * the use of shaders. Another simple example, showing something you can't do with existing functionality, is to do dependent fetches into many buffer
- * objects:
+ * objects:</p>
+ * 
  * <pre><code style="font-family: monospace">
  * GenBuffers(N, dataBuffers);
  * GenBuffers(1, &pointerBuffer);
@@ -81,7 +83,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * // now in the shader, we can use a double indirection
  * vec4 **ptrToBuffers = pointerBufferAddr;
  * vec4 *ptrToBufferI = ptrToBuffers[i];</code></pre>
- * This allows simultaneous access to more buffers than <a href="http://www.opengl.org/registry/specs/EXT/bindable_uniform.txt">EXT_bindable_uniform</a> (MAX_VERTEX_BINDABLE_UNIFORMS, etc.) and each can be
+ * 
+ * <p>This allows simultaneous access to more buffers than <a href="http://www.opengl.org/registry/specs/EXT/bindable_uniform.txt">EXT_bindable_uniform</a> (MAX_VERTEX_BINDABLE_UNIFORMS, etc.) and each can be
  * larger than MAX_BINDABLE_UNIFORM_SIZE.</p>
  */
 public class NVShaderBufferLoad {

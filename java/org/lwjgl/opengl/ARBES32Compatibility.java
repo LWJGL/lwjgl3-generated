@@ -16,13 +16,15 @@ import static org.lwjgl.system.JNI.*;
  * <p>This extension adds support for features of OpenGL ES 3.2 that are missing from OpenGL 4.5. Enabling these features will ease the process of porting
  * applications from OpenGL ES 3.2 to OpenGL.</p>
  * 
- * <p>In particular this adds the following features:
+ * <p>In particular this adds the following features:</p>
+ * 
  * <ul>
  * <li>Bounding box used to optimization tessellation processing (OES_primitive_bounding_box)</li>
  * <li>query for {@link #GL_MULTISAMPLE_LINE_WIDTH_RANGE_ARB MULTISAMPLE_LINE_WIDTH_RANGE_ARB}</li>
  * <li>support for the OpenGL ES 3.20 shading language</li>
  * </ul>
- * For full OpenGL ES 3.2 compatibility the implementation must support {@link KHRBlendEquationAdvanced KHR_blend_equation_advanced} and {@link KHRTextureCompressionASTCLDR KHR_texture_compression_astc_ldr}.
+ * 
+ * <p>For full OpenGL ES 3.2 compatibility the implementation must support {@link KHRBlendEquationAdvanced KHR_blend_equation_advanced} and {@link KHRTextureCompressionASTCLDR KHR_texture_compression_astc_ldr}.
  * Those features are not defined in this extension spec since they are already defined at the KHR level.</p>
  * 
  * <p>Requires {@link GL45 OpenGL 4.5}, {@link ARBES2Compatibility ARB_ES2_compatibility}, {@link ARBES3Compatibility ARB_ES3_compatibility} and {@link ARBES31Compatibility ARB_ES3_1_compatibility}.</p>

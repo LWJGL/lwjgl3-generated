@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * A packed rectangle.
  * 
  * <h3>stbrp_rect members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>id</td><td class="nw">int</td><td>reserved for your use</td></tr>

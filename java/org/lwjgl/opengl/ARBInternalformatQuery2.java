@@ -23,13 +23,15 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>This extension allows the remainder of the texture-style targets to be specified along with any possible internal format. We add queries for additional
  * properties supported for an internal format in addition to the multisample-related information that was added in ARB_internalformat_query.</p>
  * 
- * <p>The goals of this extension are to:
+ * <p>The goals of this extension are to:</p>
+ * 
  * <ol type=a>
  * <li>provide a mechanism for implementations to declare support *above* the minimum required by the specification</li>
  * <li>provide API to allow universally constant information to be queried</li>
  * <li>provide a user-friendly way of finding out about version- or implementation-specific limitations.</li>
  * </ol>
- * While much of this information can be determined for a single GL version by careful examination of the specification, support for many of these
+ * 
+ * <p>While much of this information can be determined for a single GL version by careful examination of the specification, support for many of these
  * properties has been gradually introduced over a number of API revisions. This can observed when considering the range in functionality between the
  * various versions of GL 2, 3, and 4, as well as GL ES 2 and 3.</p>
  * 

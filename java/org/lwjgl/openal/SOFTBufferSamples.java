@@ -18,13 +18,15 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>This extension provides a more flexible mechanism for loading buffer data, as well as a method to retrieve buffer data. Unextended OpenAL only provides
  * a method to specify a single buffer format when loading data, which defines the data given by the application. The AL is given leeway in converting the
- * data, so that it is possible or more efficient to use internally. However, there are some drawbacks to this approach:
+ * data, so that it is possible or more efficient to use internally. However, there are some drawbacks to this approach:</p>
+ * 
  * <ul>
  * <li>The conversion done by the implementation is hidden from the app. This makes it difficult for the app to know what kind of precision it will have,
  * and impossible to request a storage precision.</li>
  * <li>Conversion is not guaranteed, so the application can be restricted in the formats that can be loaded depending on the implementation.</li>
  * </ul>
- * If the application could specify the internal storage format, as well as use a separate format to specify the incoming data's format, it would allow to
+ * 
+ * <p>If the application could specify the internal storage format, as well as use a separate format to specify the incoming data's format, it would allow to
  * add more input formats (signed 8-bit, 32-bit int, and float, for example), with no undue burden placed on the implementation beyond needing some
  * conversion routines. The application can then be assured that many different formats can be loaded, even if storage is restricted to a comparatively
  * small subset.</p>

@@ -15,15 +15,18 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * Contains the data necessary to properly calculate position info for various layer types.
+ * 
  * <ul>
  * <li>{@code HmdToEyeViewOffset} is the same value pair provided in {@link OVREyeRenderDesc}.</li>
  * <li>{@code HmdSpaceToWorldScaleInMeters} is used to scale player motion into in-application units.</li>
  * </ul>
- * In other words, it is how big an in-application unit is in the player's physical meters. For example, if the application uses inches as its units then
+ * 
+ * <p>In other words, it is how big an in-application unit is in the player's physical meters. For example, if the application uses inches as its units then
  * {@code HmdSpaceToWorldScaleInMeters} would be 0.0254. Note that if you are scaling the player in size, this must also scale. So if your application
- * units are inches, but you're shrinking the player to half their normal size, then {@code HmdSpaceToWorldScaleInMeters} would be {@code 0.0254*2.0}.
+ * units are inches, but you're shrinking the player to half their normal size, then {@code HmdSpaceToWorldScaleInMeters} would be {@code 0.0254*2.0}.</p>
  * 
  * <h3>ovrViewScaleDesc members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>HmdToEyeViewOffset</td><td class="nw">{@link OVRVector3f ovrVector3f}[2]</td><td>translation of each eye</td></tr>

@@ -19,7 +19,8 @@ import static org.lwjgl.system.Pointer.*;
 /**
  * The core OpenGL 1.1 functionality.
  * 
- * <p>Extensions promoted to core in this release:
+ * <p>Extensions promoted to core in this release:</p>
+ * 
  * <ul>
  * <li><a href="http://www.opengl.org/registry/specs/EXT/vertex_array.txt">EXT_vertex_array</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/EXT/polygon_offset.txt">EXT_polygon_offset</a></li>
@@ -28,7 +29,7 @@ import static org.lwjgl.system.Pointer.*;
  * <li><a href="http://www.opengl.org/registry/specs/EXT/copy_texture.txt">EXT_copy_texture</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/EXT/subtexture.txt">EXT_subtexture</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/EXT/texture_object.txt">EXT_texture_object</a></li>
- * </ul></p>
+ * </ul>
  */
 public class GL11 {
 
@@ -5407,13 +5408,14 @@ Clears the selection name stack.
 	 * 
 	 * Sets the current matrix to a 4 &times; 4 matrix in column-major order.
 	 * 
-	 * <p>The matrix is stored as 16 consecutive values, i.e. as:
+	 * <p>The matrix is stored as 16 consecutive values, i.e. as:</p>
+	 * 
 	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
 	 * <tr><td>a1</td><td>a5</td><td>a9</td><td>a13</td></tr>
 	 * <tr><td>a2</td><td>a6</td><td>a10</td><td>a14</td></tr>
 	 * <tr><td>a3</td><td>a7</td><td>a11</td><td>a15</td></tr>
 	 * <tr><td>a4</td><td>a8</td><td>a12</td><td>a16</td></tr>
-	 * </table></p>
+	 * </table>
 	 * 
 	 * <p>This differs from the standard row-major ordering for matrix elements. If the standard ordering is used, all of the subsequent transformation equations
 	 * are transposed, and the columns representing vectors become rows.</p>
@@ -5471,13 +5473,14 @@ Clears the selection name stack.
 	 * 
 	 * Sets the current matrix to the identity matrix.
 	 * 
-	 * <p>Calling this function is equivalent to calling {@link #glLoadMatrixf LoadMatrixf} with the following matrix:
+	 * <p>Calling this function is equivalent to calling {@link #glLoadMatrixf LoadMatrixf} with the following matrix:</p>
+	 * 
 	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
 	 * <tr><td>1</td><td>0</td><td>0</td><td>0</td></tr>
 	 * <tr><td>0</td><td>1</td><td>0</td><td>0</td></tr>
 	 * <tr><td>0</td><td>0</td><td>1</td><td>0</td></tr>
 	 * <tr><td>0</td><td>0</td><td>0</td><td>1</td></tr>
-	 * </table></p>
+	 * </table>
 	 */
 	public static void glLoadIdentity() {
 		long __functionAddress = getInstance().LoadIdentity;
@@ -5937,13 +5940,14 @@ Clears the selection name stack.
 	 * window, respectively (assuming that the eye is located at <code style="font-family: monospace">(0 0 0)<sup>T</sup></code>). {@code f} gives the distance from the eye to the far clipping
 	 * plane.
 	 * 
-	 * <p>Calling this function is equivalent to calling {@link #glMultMatrixf MultMatrixf} with the following matrix:
+	 * <p>Calling this function is equivalent to calling {@link #glMultMatrixf MultMatrixf} with the following matrix:</p>
+	 * 
 	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
 	 * <tr><td>2n / (r - l)</td><td>0</td><td>(r + l) / (r - l)</td><td>0</td></tr>
 	 * <tr><td>0</td><td>2n / (t - b)</td><td>(t + b) / (t - b)</td><td>0</td></tr>
 	 * <tr><td>0</td><td>0</td><td>- (f + n) / (f - n)</td><td>- (2fn) / (f - n)</td></tr>
 	 * <tr><td>0</td><td>0</td><td>-1</td><td>0</td></tr>
-	 * </table></p>
+	 * </table>
 	 *
 	 * @param l the left frustum plane
 	 * @param r the right frustum plane
@@ -6293,13 +6297,14 @@ Clears the selection name stack.
 	 * window, respectively (assuming that the eye is located at <code style="font-family: monospace">(0 0 0)<sup>T</sup></code>). {@code f} gives the distance from the eye to the far clipping
 	 * plane.
 	 * 
-	 * <p>Calling this function is equivalent to calling {@link #glMultMatrixf MultMatrixf} with the following matrix:
+	 * <p>Calling this function is equivalent to calling {@link #glMultMatrixf MultMatrixf} with the following matrix:</p>
+	 * 
 	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
 	 * <tr><td>2 / (r - l)</td><td>0</td><td>0</td><td>- (r + l) / (r - l)</td></tr>
 	 * <tr><td>0</td><td>2 / (t - b)</td><td>0</td><td>- (t + b) / (t - b)</td></tr>
 	 * <tr><td>0</td><td>0</td><td>- 2 / (f - n)</td><td>- (f + n) / (f - n)</td></tr>
 	 * <tr><td>0</td><td>0</td><td>0</td><td>1</td></tr>
-	 * </table></p>
+	 * </table>
 	 *
 	 * @param l the left frustum plane
 	 * @param r the right frustum plane
@@ -7735,20 +7740,22 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * 
 	 * <p>{@code angle} gives an angle of rotation in degrees; the coordinates of a vector v are given by <code style="font-family: monospace">v = (x y z)<sup>T</sup></code>. The computed matrix
 	 * is a counter-clockwise rotation about the line through the origin with the specified axis when that axis is pointing up (i.e. the right-hand rule
-	 * determines the sense of the rotation angle). The matrix is thus
+	 * determines the sense of the rotation angle). The matrix is thus</p>
+	 * 
 	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
 	 * <tr><td colspan=3 rowspan=3><b>R</b></td><td>0</td></tr>
 	 * <tr><td>0</td></tr>
 	 * <tr><td>0</td></tr>
 	 * <tr><td>0</td><td>0</td><td>0</td><td>1</td></tr>
-	 * </table></p>
+	 * </table>
 	 * 
-	 * <p>Let <code>u = v / ||v|| = (x' y' z')<sup>T</sup></code>. If <b>S</b> =
+	 * <p>Let <code>u = v / ||v|| = (x' y' z')<sup>T</sup></code>. If <b>S</b> =</p>
+	 * 
 	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
 	 * <tr><td>0</td><td>-z'</td><td>y'</td></tr>
 	 * <tr><td>z'</td><td>0</td><td>-x'</td></tr>
 	 * <tr><td>-y'</td><td>x'</td><td>0</td></tr>
-	 * </table></p>
+	 * </table>
 	 * 
 	 * <p>then <code style="font-family: monospace"><b>R</b> = uu<sup>T</sup> + cos(angle)(I - uu<sup>T</sup>) + sin(angle)<b>S</b></code></p>
 	 *
@@ -7790,13 +7797,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * 
 	 * Manipulates the current matrix with a general scaling matrix along the x-, y- and z- axes.
 	 * 
-	 * <p>Calling this function is equivalent to calling {@link #glMultMatrixf MultMatrixf} with the following matrix:
+	 * <p>Calling this function is equivalent to calling {@link #glMultMatrixf MultMatrixf} with the following matrix:</p>
+	 * 
 	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
 	 * <tr><td>x</td><td>0</td><td>0</td><td>0</td></tr>
 	 * <tr><td>0</td><td>y</td><td>0</td><td>0</td></tr>
 	 * <tr><td>0</td><td>0</td><td>z</td><td>0</td></tr>
 	 * <tr><td>0</td><td>0</td><td>0</td><td>1</td></tr>
-	 * </table></p>
+	 * </table>
 	 *
 	 * @param x the x-axis scaling factor
 	 * @param y the y-axis scaling factor
@@ -9508,13 +9516,14 @@ Pushes the current matrix stack down by one, duplicating the current matrix in b
 	 * 
 	 * Manipulates the current matrix with a translation matrix along the x-, y- and z- axes.
 	 * 
-	 * <p>Calling this function is equivalent to calling {@link #glMultMatrixf MultMatrixf} with the following matrix:
+	 * <p>Calling this function is equivalent to calling {@link #glMultMatrixf MultMatrixf} with the following matrix:</p>
+	 * 
 	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
 	 * <tr><td>1</td><td>0</td><td>0</td><td>x</td></tr>
 	 * <tr><td>0</td><td>1</td><td>0</td><td>y</td></tr>
 	 * <tr><td>0</td><td>0</td><td>1</td><td>z</td></tr>
 	 * <tr><td>0</td><td>0</td><td>0</td><td>1</td></tr>
-	 * </table></p>
+	 * </table>
 	 *
 	 * @param x the x-axis translation
 	 * @param y the y-axis translation

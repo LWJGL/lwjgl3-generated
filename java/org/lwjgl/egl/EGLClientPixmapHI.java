@@ -18,6 +18,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * create the {@code PixmapSurface}.
  * 
  * <h3>struct EGLClientPixmapHI members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>pData</td><td class="nw">void *</td><td>pointer to a memory buffer allocated by the application that will contain the result of the drawing operations. It is up to the application to ensure

@@ -33,9 +33,11 @@ import org.lwjgl.opengl.GL31;
  * <strong>cl_khr_gl_sharing</strong>.</p>
  * 
  * <p>Any supported OpenGL object defined within the GL share group object, or the share group associated with the GL context from which the CL context is
- * created, may be shared, with the exception of the default OpenGL objects (i.e. objects named zero), which may not be shared.
+ * created, may be shared, with the exception of the default OpenGL objects (i.e. objects named zero), which may not be shared.</p>
+ * 
  * <h3>Lifetime of Shared Objects</h3>
- * An OpenCL memory object created from an OpenGL object (hereinafter refered to as a “shared CL/GL object”) remains valid as long as the corresponding GL
+ * 
+ * <p>An OpenCL memory object created from an OpenGL object (hereinafter refered to as a “shared CL/GL object”) remains valid as long as the corresponding GL
  * object has not been deleted. If the GL object is deleted through the GL API (e.g. {@link GL15#glDeleteBuffers}, {@link GL11#glDeleteTextures}, or
  * {@link GL30#glDeleteRenderbuffers}), subsequent use of the CL buffer or image object will result in undefined behavior, including but not limited to
  * possible CL errors and data corruption, but may not result in program termination.</p>
@@ -43,9 +45,11 @@ import org.lwjgl.opengl.GL31;
  * <p>The CL context and corresponding command-queues are dependent on the existence of the GL share group object, or the share group associated with the GL
  * context from which the CL context is created. If the GL share group object or all GL contexts in the share group are destroyed, any use of the CL
  * context or command-queue(s) will result in undefined behavior, which may include program termination. Applications should destroy the CL
- * command-queue(s) and CL context before destroying the corresponding GL share group or contexts.
+ * command-queue(s) and CL context before destroying the corresponding GL share group or contexts.</p>
+ * 
  * <h3>Synchronizing OpenCL and OpenGL Access to Shared Objects</h3>
- * The application is responsible for maintaining the proper order of operations if the CL and GL contexts are in separate threads.</p>
+ * 
+ * <p>The application is responsible for maintaining the proper order of operations if the CL and GL contexts are in separate threads.</p>
  * 
  * <p>If a GL context is bound to a thread other than the one in which {@link #clEnqueueReleaseGLObjects EnqueueReleaseGLObjects} is called, changes to any of the objects in
  * {@code mem_objects} may not be visible to that context without additional steps being taken by the application. For an OpenGL 3.1 (or later) context,
@@ -155,6 +159,7 @@ public class CL10GL {
 	 *
 	 * @return a valid non-zero OpenCL buffer object and {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the buffer object is created successfully. Otherwise, it returns a {@code NULL}
 	 *         value with one of the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context or was not created from a GL context.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if values specified in {@code flags} are not valid.</li>
@@ -209,6 +214,7 @@ public class CL10GL {
 	 *
 	 * @return a valid non-zero OpenCL image object and {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the image object is created successfully. Otherwise, it returns a {@code NULL}
 	 *         value with one of the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context or was not created from a GL context.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if values specified in {@code flags} are not valid or if value specified in {@code texture_target} is not one of the
@@ -269,6 +275,7 @@ public class CL10GL {
 	 *
 	 * @return a valid non-zero image object and {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the image object is created successfully. Otherwise, it returns a {@code NULL} value
 	 *         with one of the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context or was not created from a GL context.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if values specified in {@code flags} are not valid or if value specified in {@code texture_target} is not one of the
@@ -327,6 +334,7 @@ public class CL10GL {
 	 *
 	 * @return a valid non-zero OpenCL image object and {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the image object is created successfully. Otherwise, it returns a {@code NULL}
 	 *         value with one of the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context or was not created from a GL context.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if values specified in {@code flags} are not valid.</li>
@@ -370,6 +378,7 @@ public class CL10GL {
 	 * @param gl_object_name the GL object name used to create {@code memobj}. If {@code gl_object_name} is {@code NULL}, it is ignored.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the call was executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if {@code memobj} is not a valid OpenCL memory object.</li>
 	 *         <li>{@link #CL_INVALID_GL_OBJECT INVALID_GL_OBJECT} if there is no GL object associated with {@code memobj}.</li>
@@ -407,6 +416,7 @@ public class CL10GL {
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if {@code memobj} is not a valid OpenCL memory object.</li>
 	 *         <li>{@link #CL_INVALID_GL_OBJECT INVALID_GL_OBJECT} if there is no GL texture object associated with {@code memobj}.</li>
@@ -476,6 +486,7 @@ public class CL10GL {
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. If {@code num_objects} is 0 and {@code mem_objects} is {@code NULL} the function does nothing and returns
 	 *         {@link CL10#CL_SUCCESS SUCCESS}. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code num_objects} is zero and {@code mem_objects} is not a {@code NULL} value or if {@code num_objects} &gt; 0 and
 	 *         {@code mem_objects} is {@code NULL}.</li>
@@ -548,6 +559,7 @@ public class CL10GL {
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. If {@code num_objects} is 0 and {@code mem_objects} is {@code NULL} the function does nothing and returns
 	 *         {@link CL10#CL_SUCCESS SUCCESS}. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code num_objects} is zero and {@code mem_objects} is not a {@code NULL} value or if {@code num_objects} &gt; 0 and
 	 *         {@code mem_objects} is {@code NULL}.</li>

@@ -16,6 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Describes a single video mode.
  * 
  * <h3>GLFWvidmode members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>width</td><td class="nw">int</td><td>the width, in screen coordinates, of the video mode</td></tr>

@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * included here as it can be specified separately and modified per frame by passing different viewport values in the layer structure.
  * 
  * <h3>ovrEyeRenderDesc members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>Eye</td><td class="nw">ovrEyeType</td><td>the eye index this instance corresponds to</td></tr>

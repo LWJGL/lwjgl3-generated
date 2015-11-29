@@ -19,6 +19,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * scaling and translation is supported, no rotations or shears. Easy API downsamples w/Mitchell filter, upsamples w/cubic interpolation.</p>
  * 
  * <h3>QUICKSTART</h3>
+ * 
  * <pre><code style="font-family: monospace">
  * stbir_resize_uint8(      input_pixels , in_w , in_h , 0,
  *                          output_pixels, out_w, out_h, 0, num_channels)
@@ -31,9 +32,11 @@ import static org.lwjgl.system.MemoryUtil.*;
  *                          output_pixels, out_w, out_h, 0,
  *                          num_channels , alpha_chan  , 0, STBIR_EDGE_CLAMP)
  *                                                       // WRAP/REFLECT/ZERO</code></pre>
+ * 
  * <h3>ALPHA CHANNEL</h3>
  * 
- * <p>Most of the resizing functions provide the ability to control how the alpha channel of an image is processed. The important things to know about this:
+ * <p>Most of the resizing functions provide the ability to control how the alpha channel of an image is processed. The important things to know about this:</p>
+ * 
  * <ol>
  * <li>The best mathematically-behaved version of alpha to use is called "premultiplied alpha", in which the other color channels have had the alpha value
  * multiplied in. If you use premultiplied alpha, linear filtering (such as image resampling done by this library, or performed in texture units on
@@ -56,7 +59,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * channel of every image, and then subtracting or clamping it at the end.)</li>
  * <li>You can separately control whether the alpha channel is interpreted as linear or affected by the colorspace. By default it is linear; you almost
  * never want to apply the colorspace. (For example, graphics hardware does not apply sRGB conversion to the alpha channel.)</li>
- * </ol></p>
+ * </ol>
  */
 public class STBImageResize {
 
@@ -124,13 +127,15 @@ public class STBImageResize {
 
 	/**
 	 * Easy-to-use API for resizing images.
+	 * 
 	 * <ul>
 	 * <li>The colorspace is linear.</li>
 	 * <li>The alpha channel is treated identically to other channels.</li>
 	 * <li>Memory required grows approximately linearly with input and output size, but with discontinuities at {@code input_w == output_w} and
 	 * {@code input_h == output_h}.</li>
 	 * </ul>
-	 * This function uses the default resampling filter defined at compile time. For a different filter, use the medium-complexity API.
+	 * 
+	 * <p>This function uses the default resampling filter defined at compile time. For a different filter, use the medium-complexity API.</p>
 	 *
 	 * @param input_pixels           the source image data
 	 * @param input_w                the source image width
@@ -198,12 +203,14 @@ public class STBImageResize {
 
 	/**
 	 * Easy-to-use API for resizing images.
+	 * 
 	 * <ul>
 	 * <li>The image data is interpreted as gamma-corrected sRGB.</li>
 	 * <li>Memory required grows approximately linearly with input and output size, but with discontinuities at {@code input_w == output_w} and
 	 * {@code input_h == output_h}.</li>
 	 * </ul>
-	 * This function uses the default resampling filter defined at compile time. For a different filter, use the medium-complexity API.
+	 * 
+	 * <p>This function uses the default resampling filter defined at compile time. For a different filter, use the medium-complexity API.</p>
 	 *
 	 * @param input_pixels           the source image data
 	 * @param input_w                the source image width

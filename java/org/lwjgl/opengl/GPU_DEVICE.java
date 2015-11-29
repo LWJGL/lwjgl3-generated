@@ -19,6 +19,7 @@ import org.lwjgl.system.windows.*;
  * function.
  * 
  * <h3>GPU_DEVICE members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>cb</td><td class="nw">DWORD</td><td>the size of the {@code GPU_DEVICE} structure. Before calling {@link WGLNVGPUAffinity#wglEnumGpuDevicesNV}, set {@code cb} to the size, in bytes, of

@@ -16,11 +16,12 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * The core OpenGL 2.1 functionality. OpenGL 2.1 implementations must support at least revision 1.20 of the OpenGL Shading Language.
  * 
- * <p>Extensions promoted to core in this release:
+ * <p>Extensions promoted to core in this release:</p>
+ * 
  * <ul>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/pixel_buffer_object.txt">ARB_pixel_buffer_object</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/EXT/texture_sRGB.txt">EXT_texture_sRGB</a></li>
- * </ul></p>
+ * </ul>
  */
 public class GL21 {
 

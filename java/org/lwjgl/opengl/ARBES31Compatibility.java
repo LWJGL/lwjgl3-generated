@@ -16,7 +16,8 @@ import static org.lwjgl.system.JNI.*;
  * <p>This extension adds support for features of OpenGL ES 3.1 that are missing from OpenGL 4.4. Enabling these features will ease the process of porting
  * applications from OpenGL ES 3.1 to OpenGL. Enabling these features will ease the process of porting applications from OpenGL ES 3.1 to OpenGL.</p>
  * 
- * <p>In particular this adds the following features:
+ * <p>In particular this adds the following features:</p>
+ * 
  * <ul>
  * <li>a new {@link #glMemoryBarrierByRegion MemoryBarrierByRegion} API which is potentially more efficient for specific localized memory access patterns.</li>
  * <li>increases the minimum required size of SSBOs to 2^27 (128 MB).</li>
@@ -33,7 +34,8 @@ import static org.lwjgl.system.JNI.*;
  * <li></li>
  * <li></li>
  * </ul>
- * Requires {@link GL44 OpenGL 4.4}, <a href="http://www.opengl.org/registry/specs/ARB/ES2_compatibility.txt">ARB_ES2_compatibility</a>, <a href="http://www.opengl.org/registry/specs/ARB/ES3_compatibility.txt">ARB_ES3_compatibility</a>. Promoted to core in {@link GL45 OpenGL 4.5}.</p>
+ * 
+ * <p>Requires {@link GL44 OpenGL 4.4}, <a href="http://www.opengl.org/registry/specs/ARB/ES2_compatibility.txt">ARB_ES2_compatibility</a>, <a href="http://www.opengl.org/registry/specs/ARB/ES3_compatibility.txt">ARB_ES3_compatibility</a>. Promoted to core in {@link GL45 OpenGL 4.5}.</p>
  */
 public class ARBES31Compatibility {
 

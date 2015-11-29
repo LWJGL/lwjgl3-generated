@@ -108,7 +108,7 @@ public class EXTDisjointTimerQuery {
 		EXTDisjointTimerQuery funcs = new EXTDisjointTimerQuery(provider);
 		boolean supported = checkFunctions(
 			funcs.GenQueriesEXT, funcs.DeleteQueriesEXT, funcs.IsQueryEXT, funcs.BeginQueryEXT, funcs.EndQueryEXT, funcs.QueryCounterEXT, funcs.GetQueryivEXT, 
-			funcs.GetQueryObjectivEXT, funcs.GetQueryObjectuivEXT, funcs.GetQueryObjecti64vEXT, funcs.GetQueryObjectui64vEXT
+			funcs.GetQueryObjectuivEXT, funcs.GetQueryObjecti64vEXT, funcs.GetQueryObjectui64vEXT
 		);
 
 		return GLES.checkExtension("GL_EXT_disjoint_timer_query", funcs, supported);
@@ -233,6 +233,8 @@ public class EXTDisjointTimerQuery {
 	@JavadocExclude
 	public static void nglGetQueryObjectivEXT(int id, int pname, long params) {
 		long __functionAddress = getInstance().GetQueryObjectivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, id, pname, params);
 	}
 

@@ -74,7 +74,8 @@ public class CLCapabilities {
 	/**
 	 * When true, the <a href="http://www.khronos.org/registry/cl/extensions/amd/cl_amd_compile_options.txt">amd_compile_options</a> extension is supported.
 	 * 
-	 * <p>This extension adds the following options, which are not part of the OpenCL specification:
+	 * <p>This extension adds the following options, which are not part of the OpenCL specification:</p>
+	 * 
 	 * <ul>
 	 * <li>-g &ndash; This is an experimental feature that lets you use the GNU project debugger, GDB, to debug kernels on x86 CPUs running Linux or
 	 * cygwin/minGW under Windows. This option does not affect the default optimization of the OpenCL code.</li>
@@ -85,11 +86,13 @@ public class CLCapabilities {
 	 * <li>-f[no-]bin-exe &ndash; Does [not] generate the executable (ISA) in .text section. By default, the executable IS generated.</li>
 	 * <li>-f[no-]bin-hsail &ndash; Does [not] generate HSAIL/BRIG in the binary. By default, HSA IL/BRIG is NOT generated.</li>
 	 * </ul>
-	 * To avoid source changes, there are two environment variables that can be used to change CL options during the runtime:
+	 * 
+	 * <p>To avoid source changes, there are two environment variables that can be used to change CL options during the runtime:</p>
+	 * 
 	 * <ul>
 	 * <li>AMD_OCL_BUILD_OPTIONS &ndash; Overrides the CL options specified in CL10#BuildProgram().</li>
 	 * <li>AMD_OCL_BUILD_OPTIONS_APPEND &ndash; Appends options to the options specified in CL10#BuildProgram().</li>
-	 * </ul></p>
+	 * </ul>
 	 */
 	public final boolean cl_amd_compile_options;
 	/** When true, {@link AMDDeviceAttributeQuery} is supported. */
@@ -121,7 +124,8 @@ public class CLCapabilities {
 	/**
 	 * When true, the <a href="http://www.khronos.org/registry/cl/extensions/amd/cl_amd_media_ops.txt">amd_media_ops</a> extension is supported.
 	 * 
-	 * <p>The directive when enabled adds the following built-in functions to the OpenCL language.
+	 * <p>The directive when enabled adds the following built-in functions to the OpenCL language.</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * Note: typen denote opencl scalar type {n = 1} and vector types {n = 4, 8, 16}.
 	 * 
@@ -218,13 +222,14 @@ public class CLCapabilities {
 	 *            abs(((src0.s3 >>  0) & 0xff) - ((src1.s3 >>  0) & 0xff)) +
 	 *            abs(((src0.s3 >>  8) & 0xff) - ((src1.s3 >>  8) & 0xff)) +
 	 *            abs(((src0.s3 >> 16) & 0xff) - ((src1.s3 >> 16) & 0xff)) +
-	 *            abs(((src0.s3 >> 24) & 0xff) - ((src1.s3 >> 24) & 0xff));</code></pre></p>
+	 *            abs(((src0.s3 >> 24) & 0xff) - ((src1.s3 >> 24) & 0xff));</code></pre>
 	 */
 	public final boolean cl_amd_media_ops;
 	/**
 	 * When true, the <a href="http://www.khronos.org/registry/cl/extensions/amd/cl_amd_media_ops2.txt">amd_media_ops2</a> extension is supported.
 	 * 
-	 * <p>The directive when enabled adds the following built-in functions to the OpenCL language.
+	 * <p>The directive when enabled adds the following built-in functions to the OpenCL language.</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * Note: typen denote open scalar type { n = 1 } and vector types { n = 2, 4, 8, 16 }.
 	 * 
@@ -335,7 +340,7 @@ public class CLCapabilities {
 	 *    uintn amd_max3 (uintn src0, uintn src1, uintn src2)
 	 *    floatn amd_max3 (floatn src0, floatn src1, floattn src2)
 	 * Description
-	 *    returns max of src0, src1, and src2</code></pre></p>
+	 *    returns max of src0, src1, and src2</code></pre>
 	 */
 	public final boolean cl_amd_media_ops2;
 	/** When true, {@link AMDOfflineDevices} is supported. */
@@ -354,6 +359,7 @@ public class CLCapabilities {
 	 * being compiled.</p>
 	 * 
 	 * <h3>GPU devices</h3>
+	 * 
 	 * <ul>
 	 * <li>__Barts__</li>
 	 * <li>__BeaverCreek__</li>
@@ -393,12 +399,14 @@ public class CLCapabilities {
 	 * </ul>
 	 * 
 	 * <h3>CPU devices<h3>
+	 * 
 	 * <ul>
 	 * <li>__CPU__</li>
 	 * <li>__X86__</li>
 	 * <li>__X86_64__</li>
 	 * </ul>
-	 * Note that __GPU__ or __CPU__ are predefined whenever a GPU or CPU device is the compilation target.
+	 * 
+	 * <p>Note that __GPU__ or __CPU__ are predefined whenever a GPU or CPU device is the compilation target.</p>
 	 */
 	public final boolean cl_amd_predefined_macros;
 	/**
@@ -406,19 +414,22 @@ public class CLCapabilities {
 	 * 
 	 * <p>This extension adds the built-in function <code style="font-family: monospace">printf(__constant char * restrict format, …);</code></p>
 	 * 
-	 * <p>This function writes output to the stdout stream associated with the host application. The format string is a character sequence that:
+	 * <p>This function writes output to the stdout stream associated with the host application. The format string is a character sequence that:</p>
+	 * 
 	 * <ul>
 	 * <li>is null-terminated and composed of zero and more directives,</li>
 	 * <li>ordinary characters (i.e. not %), which are copied directly to the output stream unchanged, and</li>
 	 * <li>conversion specifications, each of which can result in fetching zero or more arguments, converting them, and then writing the final result to the
 	 * output stream.</li>
 	 * </ul>
-	 * The format string must be resolvable at compile time; thus, it cannot be dynamically created by the executing program. (Note that the use of variadic
+	 * 
+	 * <p>The format string must be resolvable at compile time; thus, it cannot be dynamically created by the executing program. (Note that the use of variadic
 	 * arguments in the built-in printf does not imply its use in other builtins; more importantly, it is not valid to use printf in user-defined functions or
 	 * kernels.)</p>
 	 * 
 	 * <p>The OpenCL C printf closely matches the definition found as part of the C99 standard. Note that conversions introduced in the format string with % are
-	 * supported with the following guidelines:
+	 * supported with the following guidelines:</p>
+	 * 
 	 * <ul>
 	 * <li>A 32-bit floating point argument is not converted to a 64-bit double, unless the extension cl_khr_fp64 is supported and enabled. This includes the
 	 * double variants if cl_khr_fp64 is supported and defined in the corresponding compilation unit.</li>
@@ -428,7 +439,7 @@ public class CLCapabilities {
 	 * the original conversion specifier for the vector’s component type (for example, to print a float4 %v4f). Since vn is a conversion specifier, it is
 	 * valid to apply optional flags, such as field width and precision, just as it is when printing the component types. Since a vector is an aggregate
 	 * type, the comma separator is used between the components: 0:1, … , n-2:n-1.</li>
-	 * </ul></p>
+	 * </ul>
 	 */
 	public final boolean cl_amd_printf;
 	/**
@@ -594,13 +605,15 @@ public class CLCapabilities {
 	 * functions do not inherit the rounding mode of the caller function.</p>
 	 * 
 	 * <p>If this extension is enabled, the {@code __ROUNDING_MODE__} preprocessor symbol shall be defined to be one of the following according to the current
-	 * rounding mode:
+	 * rounding mode:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * #define __ROUNDING_MODE__ rte
 	 * #define __ROUNDING_MODE__ rtz
 	 * #define __ROUNDING_MODE__ rtp
 	 * #define __ROUNDING_MODE__ rtz</code></pre>
-	 * The default rounding mode is round to nearest even. The built-in math functions, the common functions, and the geometric functions are implemented with
+	 * 
+	 * <p>The default rounding mode is round to nearest even. The built-in math functions, the common functions, and the geometric functions are implemented with
 	 * the round to nearest even rounding mode.</p>
 	 * 
 	 * <p>Various built-in conversions and the vstore_half and vstorea_halfn built-in functions that do not specify a rounding mode inherit the current rounding
@@ -621,7 +634,8 @@ public class CLCapabilities {
 	/**
 	 * When true, the <a href="http://www.khronos.org/registry/cl/extensions/nv/cl_nv_compiler_options.txt">nv_compiler_options</a> extension is supported.
 	 * 
-	 * <p>This extension allows the programmer to pass options to the PTX assembler allowing greater control over code generation.
+	 * <p>This extension allows the programmer to pass options to the PTX assembler allowing greater control over code generation.</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * -cl-nv-maxrregcount <N>
 	 *     Passed on to ptxas as --maxrregcount <N>
@@ -648,7 +662,7 @@ public class CLCapabilities {
 	 *     Passed on to ptxas as --verbose
 	 *     Enable verbose mode.
 	 *     Output will be reported in the build log (accessible through the
-	 *     callback parameter to clBuildProgram).</code></pre></p>
+	 *     callback parameter to clBuildProgram).</code></pre>
 	 */
 	public final boolean cl_nv_compiler_options;
 	/** When true, {@link NVDeviceAttributeQuery} is supported. */
@@ -657,15 +671,18 @@ public class CLCapabilities {
 	 * When true, the <a href="http://www.khronos.org/registry/cl/extensions/nv/cl_nv_pragma_unroll.txt">nv_pragma_unroll</a> extension is supported.
 	 * 
 	 * <h3>Overview</h3>
-	 * This extension extends the OpenCL C language with a hint that allows loops to be unrolled. This pragma must be used for a loop and can be used to
-	 * specify full unrolling or partial unrolling by a certain amount. This is a hint and the compiler may ignore this pragma for any reason.
+	 * 
+	 * <p>This extension extends the OpenCL C language with a hint that allows loops to be unrolled. This pragma must be used for a loop and can be used to
+	 * specify full unrolling or partial unrolling by a certain amount. This is a hint and the compiler may ignore this pragma for any reason.</p>
 	 * 
 	 * <h3>Goals</h3>
-	 * The principal goal of the pragma unroll is to improve the performance of loops via unrolling. Typically this enables other optimizations or improves
-	 * instruction level parallelism of a thread.
+	 * 
+	 * <p>The principal goal of the pragma unroll is to improve the performance of loops via unrolling. Typically this enables other optimizations or improves
+	 * instruction level parallelism of a thread.</p>
 	 * 
 	 * <h3>Details</h3>
-	 * A user may specify that a loop in the source program be unrolled. This is done via a pragma. The syntax of this pragma is as follows
+	 * 
+	 * <p>A user may specify that a loop in the source program be unrolled. This is done via a pragma. The syntax of this pragma is as follows</p>
 	 * 
 	 * <p><code style="font-family: monospace">#pragma unroll [unroll-factor]</code></p>
 	 * 

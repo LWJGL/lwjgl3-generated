@@ -22,6 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * automatically coalesce and split, e.g. Windows.
  * 
  * <h3>chunk_hooks_t members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>alloc</td><td class="nw">chunk_alloc_t</td><td>the chunk allocation hook</td></tr>

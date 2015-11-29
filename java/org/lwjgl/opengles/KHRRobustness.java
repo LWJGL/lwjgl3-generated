@@ -36,7 +36,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Older hardware may require extra checks to enforce well-defined (and termination free) behavior, but this expense is warranted when processing
  * potentially untrusted content.</p>
  * 
- * <p>The intent of this extension is to address some specific robustness goals:
+ * <p>The intent of this extension is to address some specific robustness goals:</p>
+ * 
  * <ul>
  * <li>For all existing GL queries, provide additional "safe" APIs that limit data written to user pointers to a buffer size in bytes that is an explicit
  * additional parameter of the query.</li>
@@ -46,7 +47,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>Provide an enable to guarantee that out-of-bounds buffer object accesses by the GPU will have deterministic behavior and preclude application
  * instability or termination due to an incorrect buffer access. Such accesses include vertex buffer fetches of attributes and indices, and indexed
  * reads of uniforms or parameters from buffers.</li>
- * </ul></p>
+ * </ul>
  * 
  * <p>Requires {@link GLES20 GLES 2.0}.</p>
  */
@@ -121,14 +122,16 @@ public class KHRRobustness {
 
 	/**
 	 * Indicates if the GL context has been in a reset state at any point since the last call to GetGraphicsResetStatus:
+	 * 
 	 * <ul>
 	 * <li>{@link GLES20#GL_NO_ERROR NO_ERROR} indicates that the GL context has not been in a reset state since the last call.</li>
 	 * <li>{@link #GL_GUILTY_CONTEXT_RESET_KHR GUILTY_CONTEXT_RESET_KHR} indicates that a reset has been detected that is attributable to the current GL context.</li>
 	 * <li>{@link #GL_INNOCENT_CONTEXT_RESET_KHR INNOCENT_CONTEXT_RESET_KHR} indicates a reset has been detected that is not attributable to the current GL context.</li>
 	 * <li>{@link #GL_UNKNOWN_CONTEXT_RESET_KHR UNKNOWN_CONTEXT_RESET_KHR} indicates a detected graphics reset whose cause is unknown.</li>
 	 * </ul>
-	 * If a reset status other than NO_ERROR is returned and subsequent calls return NO_ERROR, the context reset was encountered and completed. If a reset
-	 * status is repeatedly returned, the context may be in the process of resetting.
+	 * 
+	 * <p>If a reset status other than NO_ERROR is returned and subsequent calls return NO_ERROR, the context reset was encountered and completed. If a reset
+	 * status is repeatedly returned, the context may be in the process of resetting.</p>
 	 * 
 	 * <p>Reset notification behavior is determined at context creation time, and may be queried by calling GetIntegerv with the symbolic constant
 	 * {@link #GL_RESET_NOTIFICATION_STRATEGY_KHR RESET_NOTIFICATION_STRATEGY_KHR}.</p>
@@ -143,13 +146,14 @@ public class KHRRobustness {
 	 * 
 	 * <p>After a graphics reset has occurred on a context, subsequent GL commands on that context (or any context which shares with that context) will generate a
 	 * {@link #GL_CONTEXT_LOST_KHR CONTEXT_LOST_KHR} error. Such commands will not have side effects (in particular, they will not modify memory passed by pointer for query results,
-	 * and may not block indefinitely or cause termination of the application. Exceptions to this behavior include:
+	 * and may not block indefinitely or cause termination of the application. Exceptions to this behavior include:</p>
+	 * 
 	 * <ul>
 	 * <li>{@link GLES20#glGetError GetError} and {@link #glGetGraphicsResetStatusKHR GetGraphicsResetStatusKHR} behave normally following a graphics reset, so that the application can determine a reset has
 	 * occurred, and when it is safe to destroy and recreate the context.</li>
 	 * <li>Any commands which might cause a polling application to block indefinitely will generate a {@link #GL_CONTEXT_LOST_KHR CONTEXT_LOST_KHR} error, but will also return a value
 	 * indicating completion to the application.</li>
-	 * </ul></p>
+	 * </ul>
 	 */
 	public static int glGetGraphicsResetStatusKHR() {
 		long __functionAddress = getInstance().GetGraphicsResetStatusKHR;

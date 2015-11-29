@@ -97,6 +97,7 @@ public class ARBMultiBind {
 	 * Binds {@code count} existing buffer objects to bindings numbered {@code first} through {@code first+count-1} in the array of buffer binding points
 	 * corresponding to {@code target}. If {@code buffers} is not {@code NULL}, it specifies an array of {@code count} values, each of which must be zero or the name
 	 * of an existing buffer object. It is equivalent to:
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * for ( i = 0; i < count; i++ ) {
 	 * 	if ( buffers == NULL ) {
@@ -105,7 +106,8 @@ public class ARBMultiBind {
 	 * 		glBindBufferBase(target, first + i, buffers[i]);
 	 * 	}
 	 * }</code></pre>
-	 * except that the single general buffer binding corresponding to {@code target} is unmodified, and that buffers will not be created if they do not exist.
+	 * 
+	 * <p>except that the single general buffer binding corresponding to {@code target} is unmodified, and that buffers will not be created if they do not exist.</p>
 	 *
 	 * @param target  the buffer object target. One of:<br>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}, {@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}
 	 * @param first   the first binding
@@ -138,6 +140,7 @@ public class ARBMultiBind {
 	 * If {@code buffers} is {@code NULL}, all bindings from {@code first} through {@code first+count-1} are reset to their unbound (zero) state. In this
 	 * case, the offsets and sizes associated with the binding points are set to default values, ignoring {@code offsets} and {@code sizes}. It is equivalent
 	 * to:
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * for ( i = 0; i < count; i++ ) {
 	 * 	if ( buffers == NULL ) {
@@ -146,7 +149,8 @@ public class ARBMultiBind {
 	 * 		glBindBufferRange(target, first + i, buffers[i], offsets[i], sizes[i]);
 	 * 	}
 	 * }</code></pre>
-	 * except that the single general buffer binding corresponding to {@code target} is unmodified, and that buffers will not be created if they do not exist.
+	 * 
+	 * <p>except that the single general buffer binding corresponding to {@code target} is unmodified, and that buffers will not be created if they do not exist.</p>
 	 * 
 	 * <p>The values specified in {@code buffers}, {@code offsets}, and {@code sizes} will be checked separately for each binding point. When values for a
 	 * specific binding point are invalid, the state for that binding point will be unchanged and an error will be generated. However, state for other binding
@@ -194,7 +198,8 @@ public class ARBMultiBind {
 	 * texture for the corresponding texture image unit. If {@code textures} is {@code NULL}, each target of each affected texture image unit from {@code first}
 	 * through {@code first+count-1} is reset to its default texture.
 	 * 
-	 * <p>{@code BindTextures} is equivalent to:
+	 * <p>{@code BindTextures} is equivalent to:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * for ( i = 0; i < count; i++ ) {
 	 * 	uint texture;
@@ -213,7 +218,8 @@ public class ARBMultiBind {
 	 * 		}
 	 * 	}
 	 * }</code></pre>
-	 * except that the active texture selector retains its original value upon completion of the command, and that textures will not be created if they do not
+	 * 
+	 * <p>except that the active texture selector retains its original value upon completion of the command, and that textures will not be created if they do not
 	 * exist.</p>
 	 * 
 	 * <p>The values specified in {@code textures} will be checked separately for each texture image unit. When a value for a specific texture image unit is
@@ -249,7 +255,8 @@ public class ARBMultiBind {
 	 * {@code NULL}, it specifies an array of {@code count} values, each of which must be zero or the name of an existing sampler object. If {@code samplers} is {@code NULL},
 	 * each affected texture image unit from {@code first} through {@code first+count-1} will be reset to have no bound sampler object.
 	 * 
-	 * <p>{@code BindSamplers} is equivalent to:
+	 * <p>{@code BindSamplers} is equivalent to:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * for ( i = 0; i < count; i++ ) {
 	 * 	if ( samplers == NULL ) {
@@ -258,7 +265,8 @@ public class ARBMultiBind {
 	 * 		glBindSampler(first + i, samplers[i]);
 	 * 	}
 	 * }</code></pre>
-	 * The values specified in {@code samplers} will be checked separately for each texture image unit. When a value for a specific texture image unit is
+	 * 
+	 * <p>The values specified in {@code samplers} will be checked separately for each texture image unit. When a value for a specific texture image unit is
 	 * invalid, the state for that texture image unit will be unchanged and an error will be generated. However, state for other texture image units will still
 	 * be changed if their corresponding values are valid.</p>
 	 *
@@ -300,7 +308,8 @@ public class ARBMultiBind {
 	 * <p>When unbinding a texture object from an image unit, the image unit parameters {@code level}, {@code layered}, {@code layer}, and {@code format} will be
 	 * reset to their default values of zero, {@link GL11#GL_FALSE FALSE}, 0, and {@link GL30#GL_R8 R8}, respectively.</p>
 	 * 
-	 * <p>{@code BindImageTextures} is equivalent to:
+	 * <p>{@code BindImageTextures} is equivalent to:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * for ( i = 0; i < count; i++ ) {
 	 * 	if ( textures == NULL || textures[i] = 0 ) {
@@ -309,7 +318,8 @@ public class ARBMultiBind {
 	 * 		glBindImageTexture(first + i, textures[i], 0, TRUE, 0, READ_WRITE, lookupInternalFormat(textures[i]));
 	 * 	}
 	 * }</code></pre>
-	 * where {@code lookupInternalFormat} returns the internal format of the specified texture object.</p>
+	 * 
+	 * <p>where {@code lookupInternalFormat} returns the internal format of the specified texture object.</p>
 	 * 
 	 * <p>The values specified in {@code textures} will be checked separately for each image unit. When a value for a specific image unit is invalid, the state
 	 * for that image unit will be unchanged and an error will be generated. However, state for other image units will still be changed if their corresponding
@@ -347,7 +357,8 @@ public class ARBMultiBind {
 	 * have no bound buffer object. In this case, the offsets and strides associated with the binding points are set to default values, ignoring
 	 * {@code offsets} and {@code strides}.
 	 * 
-	 * <p>{@code BindVertexBuffers} is equivalent to:
+	 * <p>{@code BindVertexBuffers} is equivalent to:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * for ( i = 0; i < count; i++ ) {
 	 * 	if ( buffers == NULL ) {
@@ -356,7 +367,8 @@ public class ARBMultiBind {
 	 * 		glBindVertexBuffer(first + i, buffers[i], offsets[i], strides[i]);
 	 * 	}
 	 * }</code></pre>
-	 * except that buffers will not be created if they do not exist.</p>
+	 * 
+	 * <p>except that buffers will not be created if they do not exist.</p>
 	 * 
 	 * <p>The values specified in {@code buffers}, {@code offsets}, and {@code strides} will be checked separately for each vertex buffer binding point. When a
 	 * value for a specific binding point is invalid, the state for that binding point will be unchanged and an error will be generated. However, state for

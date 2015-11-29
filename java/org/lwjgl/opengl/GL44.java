@@ -18,7 +18,8 @@ import static org.lwjgl.system.Pointer.*;
 /**
  * The core OpenGL 4.4 functionality. OpenGL 4.4 implementations support revision 4.40 of the OpenGL Shading Language.
  * 
- * <p>Extensions promoted to core in this release:
+ * <p>Extensions promoted to core in this release:</p>
+ * 
  * <ul>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/buffer_storage.txt">ARB_buffer_storage</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/clear_texture.txt">ARB_clear_texture</a></li>
@@ -28,7 +29,7 @@ import static org.lwjgl.system.Pointer.*;
  * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_mirror_clamp_to_edge.txt">ARB_texture_mirror_clamp_to_edge</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_stencil8.txt">ARB_texture_stencil8</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/vertex_type_10f_11f_11f_rev.txt">ARB_vertex_type_10f_11f_11f_rev</a></li>
- * </ul></p>
+ * </ul>
  */
 public class GL44 {
 
@@ -179,6 +180,7 @@ public class GL44 {
 	 *               buffer is created, but contains undefined data. Otherwise, {@code data} should point to an array of at least {@code size} basic machine units.
 	 * @param flags  the bitwise {@code OR} of flags describing the intended usage of the buffer object's data store by the application. Valid flags and their meanings
 	 *               are as follows:
+	 *               
 	 *               <ul>
 	 *               <li>{@link #GL_DYNAMIC_STORAGE_BIT DYNAMIC_STORAGE_BIT} &ndash; The contents of the data store may be updated after creation through calls to
 	 *               {@link GL15#glBufferSubData BufferSubData}. If this bit is not set, the buffer content may not be directly updated by the client. The {@code data}
@@ -194,6 +196,7 @@ public class GL44 {
 	 *               <li>{@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} &ndash; Shared access to buffers that are simultaneously mapped for client access and are used by the server will be
 	 *               coherent, so long as that mapping is performed using MapBufferRange. That is, data written to the store by either the client or server will be
 	 *               immediately visible to the other with no further action taken by the application. In particular:
+	 *               
 	 *               <ul>
 	 *               <li>If {@code MAP_COHERENT_BIT} is not set and the client performs a write followed by a call to the {@link GL42#glMemoryBarrier MemoryBarrier} command with
 	 *               the {@link #GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT CLIENT_MAPPED_BUFFER_BARRIER_BIT} set, then in subsequent commands the server will see the writes.</li>
@@ -207,7 +210,8 @@ public class GL44 {
 	 *               <li>{@link #GL_CLIENT_STORAGE_BIT CLIENT_STORAGE_BIT} &ndash; When all other criteria for the buffer storage allocation are met, this bit may be used by an
 	 *               implementation to determine whether to use storage that is local to the server or to the client to serve as the backing store for the buffer.</li>
 	 *               </ul>
-	 *               If {@code flags} contains {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}, it must also contain at least one of {@link GL30#GL_MAP_READ_BIT MAP_READ_BIT} or {@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}.
+	 *               
+	 *               <p>If {@code flags} contains {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}, it must also contain at least one of {@link GL30#GL_MAP_READ_BIT MAP_READ_BIT} or {@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}.</p>
 	 *               
 	 *               <p>It is an error to specify {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
 	 */
@@ -373,6 +377,7 @@ public class GL44 {
 	 * Binds {@code count} existing buffer objects to bindings numbered {@code first} through {@code first+count-1} in the array of buffer binding points
 	 * corresponding to {@code target}. If {@code buffers} is not {@code NULL}, it specifies an array of {@code count} values, each of which must be zero or the name
 	 * of an existing buffer object. It is equivalent to:
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * for ( i = 0; i < count; i++ ) {
 	 * 	if ( buffers == NULL ) {
@@ -381,7 +386,8 @@ public class GL44 {
 	 * 		glBindBufferBase(target, first + i, buffers[i]);
 	 * 	}
 	 * }</code></pre>
-	 * except that the single general buffer binding corresponding to {@code target} is unmodified, and that buffers will not be created if they do not exist.
+	 * 
+	 * <p>except that the single general buffer binding corresponding to {@code target} is unmodified, and that buffers will not be created if they do not exist.</p>
 	 *
 	 * @param target  the buffer object target. One of:<br>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}, {@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}
 	 * @param first   the first binding
@@ -416,6 +422,7 @@ public class GL44 {
 	 * If {@code buffers} is {@code NULL}, all bindings from {@code first} through {@code first+count-1} are reset to their unbound (zero) state. In this
 	 * case, the offsets and sizes associated with the binding points are set to default values, ignoring {@code offsets} and {@code sizes}. It is equivalent
 	 * to:
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * for ( i = 0; i < count; i++ ) {
 	 * 	if ( buffers == NULL ) {
@@ -424,7 +431,8 @@ public class GL44 {
 	 * 		glBindBufferRange(target, first + i, buffers[i], offsets[i], sizes[i]);
 	 * 	}
 	 * }</code></pre>
-	 * except that the single general buffer binding corresponding to {@code target} is unmodified, and that buffers will not be created if they do not exist.
+	 * 
+	 * <p>except that the single general buffer binding corresponding to {@code target} is unmodified, and that buffers will not be created if they do not exist.</p>
 	 * 
 	 * <p>The values specified in {@code buffers}, {@code offsets}, and {@code sizes} will be checked separately for each binding point. When values for a
 	 * specific binding point are invalid, the state for that binding point will be unchanged and an error will be generated. However, state for other binding
@@ -474,7 +482,8 @@ public class GL44 {
 	 * texture for the corresponding texture image unit. If {@code textures} is {@code NULL}, each target of each affected texture image unit from {@code first}
 	 * through {@code first+count-1} is reset to its default texture.
 	 * 
-	 * <p>{@code BindTextures} is equivalent to:
+	 * <p>{@code BindTextures} is equivalent to:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * for ( i = 0; i < count; i++ ) {
 	 * 	uint texture;
@@ -493,7 +502,8 @@ public class GL44 {
 	 * 		}
 	 * 	}
 	 * }</code></pre>
-	 * except that the active texture selector retains its original value upon completion of the command, and that textures will not be created if they do not
+	 * 
+	 * <p>except that the active texture selector retains its original value upon completion of the command, and that textures will not be created if they do not
 	 * exist.</p>
 	 * 
 	 * <p>The values specified in {@code textures} will be checked separately for each texture image unit. When a value for a specific texture image unit is
@@ -531,7 +541,8 @@ public class GL44 {
 	 * {@code NULL}, it specifies an array of {@code count} values, each of which must be zero or the name of an existing sampler object. If {@code samplers} is {@code NULL},
 	 * each affected texture image unit from {@code first} through {@code first+count-1} will be reset to have no bound sampler object.
 	 * 
-	 * <p>{@code BindSamplers} is equivalent to:
+	 * <p>{@code BindSamplers} is equivalent to:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * for ( i = 0; i < count; i++ ) {
 	 * 	if ( samplers == NULL ) {
@@ -540,7 +551,8 @@ public class GL44 {
 	 * 		glBindSampler(first + i, samplers[i]);
 	 * 	}
 	 * }</code></pre>
-	 * The values specified in {@code samplers} will be checked separately for each texture image unit. When a value for a specific texture image unit is
+	 * 
+	 * <p>The values specified in {@code samplers} will be checked separately for each texture image unit. When a value for a specific texture image unit is
 	 * invalid, the state for that texture image unit will be unchanged and an error will be generated. However, state for other texture image units will still
 	 * be changed if their corresponding values are valid.</p>
 	 *
@@ -584,7 +596,8 @@ public class GL44 {
 	 * <p>When unbinding a texture object from an image unit, the image unit parameters {@code level}, {@code layered}, {@code layer}, and {@code format} will be
 	 * reset to their default values of zero, {@link GL11#GL_FALSE FALSE}, 0, and {@link GL30#GL_R8 R8}, respectively.</p>
 	 * 
-	 * <p>{@code BindImageTextures} is equivalent to:
+	 * <p>{@code BindImageTextures} is equivalent to:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * for ( i = 0; i < count; i++ ) {
 	 * 	if ( textures == NULL || textures[i] = 0 ) {
@@ -593,7 +606,8 @@ public class GL44 {
 	 * 		glBindImageTexture(first + i, textures[i], 0, TRUE, 0, READ_WRITE, lookupInternalFormat(textures[i]));
 	 * 	}
 	 * }</code></pre>
-	 * where {@code lookupInternalFormat} returns the internal format of the specified texture object.</p>
+	 * 
+	 * <p>where {@code lookupInternalFormat} returns the internal format of the specified texture object.</p>
 	 * 
 	 * <p>The values specified in {@code textures} will be checked separately for each image unit. When a value for a specific image unit is invalid, the state
 	 * for that image unit will be unchanged and an error will be generated. However, state for other image units will still be changed if their corresponding
@@ -633,7 +647,8 @@ public class GL44 {
 	 * have no bound buffer object. In this case, the offsets and strides associated with the binding points are set to default values, ignoring
 	 * {@code offsets} and {@code strides}.
 	 * 
-	 * <p>{@code BindVertexBuffers} is equivalent to:
+	 * <p>{@code BindVertexBuffers} is equivalent to:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * for ( i = 0; i < count; i++ ) {
 	 * 	if ( buffers == NULL ) {
@@ -642,7 +657,8 @@ public class GL44 {
 	 * 		glBindVertexBuffer(first + i, buffers[i], offsets[i], strides[i]);
 	 * 	}
 	 * }</code></pre>
-	 * except that buffers will not be created if they do not exist.</p>
+	 * 
+	 * <p>except that buffers will not be created if they do not exist.</p>
 	 * 
 	 * <p>The values specified in {@code buffers}, {@code offsets}, and {@code strides} will be checked separately for each vertex buffer binding point. When a
 	 * value for a specific binding point is invalid, the state for that binding point will be unchanged and an error will be generated. However, state for

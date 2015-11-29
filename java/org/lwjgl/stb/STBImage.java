@@ -18,7 +18,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>Quick notes</h3>
  * 
- * <p>Primarily of interest to game developers and other people who can avoid problematic images and only need the trivial interface. Supported formats:
+ * <p>Primarily of interest to game developers and other people who can avoid problematic images and only need the trivial interface. Supported formats:</p>
+ * 
  * <ul>
  * <li>JPEG baseline & progressive (12 bpc/arithmetic not supported, same as stock IJG lib</li>
  * <li>PNG 1/2/4/8-bit-per-channel (16 bpc not supported)</li>
@@ -29,27 +30,30 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>HDR (radiance rgbE format)</li>
  * <li>PIC (Softimage PIC)</li>
  * <li>PNM (PPM and PGM binary only)</li>
- * </ul></p>
+ * </ul>
  * 
  * <p>Animated GIF still needs a proper API, but <a href="http://gist.github.com/urraka/685d9a6340b26b830d49">here</a>'s one way to do it.</p>
  * 
- * <p>Features:
+ * <p>Features:</p>
+ * 
  * <ul>
  * <li>decode from memory <s>or through FILE (define STBI_NO_STDIO to remove code)</s></li>
  * <li>decode from arbitrary I/O callbacks</li>
  * <li>SIMD acceleration on x86/x64 (SSE2) and ARM (NEON)</li>
- * </ul></p>
+ * </ul>
  * 
- * <p>Limitations:
+ * <p>Limitations:</p>
+ * 
  * <ul>
  * <li>no 16-bit-per-channel PNG</li>
  * <li>no 12-bit-per-channel JPEG</li>
  * <li>no JPEGs with arithmetic coding</li>
  * <li>no 1-bit BMP</li>
  * <li>GIF always returns *comp=4</li>
- * </ul></p>
+ * </ul>
  * 
- * <p>Basic usage (see HDR discussion below for HDR usage):
+ * <p>Basic usage (see HDR discussion below for HDR usage):</p>
+ * 
  * <pre><code style="font-family: monospace">
  * int x,y,n;
  * unsigned char *data = stbi_load(filename, &x, &y, &n, 0);
@@ -57,34 +61,42 @@ import static org.lwjgl.system.MemoryUtil.*;
  * // ... x = width, y = height, n = # 8-bit components per pixel ...
  * // ... replace '0' with '1'..'4' to force that many components per pixel
  * // ... but 'n' will always be the number that it would have been if you said 0
- * stbi_image_free(data)</code></pre></p>
+ * stbi_image_free(data)</code></pre>
  * 
  * <h3>HDR image support</h3>
  * 
  * <p>stb_image now supports loading HDR images in general, and currently the Radiance .HDR file format, although the support is provided generically. You
  * can still load any file through the existing interface; if you attempt to load an HDR file, it will be automatically remapped to LDR, assuming gamma
- * 2.2 and an arbitrary scale factor defaulting to 1; both of these constants can be reconfigured through this interface:
+ * 2.2 and an arbitrary scale factor defaulting to 1; both of these constants can be reconfigured through this interface:</p>
+ * 
  * <pre><code style="font-family: monospace">
  * stbi_hdr_to_ldr_gamma(2.2f);
  * stbi_hdr_to_ldr_scale(1.0f);</code></pre>
- * (note, do not use <em>inverse</em> constants; stbi_image will invert them appropriately).</p>
  * 
- * <p>Additionally, there is a new, parallel interface for loading files as (linear) floats to preserve the full dynamic range:
+ * <p>(note, do not use <em>inverse</em> constants; stbi_image will invert them appropriately).</p>
+ * 
+ * <p>Additionally, there is a new, parallel interface for loading files as (linear) floats to preserve the full dynamic range:</p>
+ * 
  * <pre><code style="font-family: monospace">
  * float *data = stbi_loadf(filename, &x, &y, &n, 0);</code></pre>
- * If you load LDR images through this interface, those images will be promoted to floating point values, run through the inverse of constants
- * corresponding to the above:
+ * 
+ * <p>If you load LDR images through this interface, those images will be promoted to floating point values, run through the inverse of constants
+ * corresponding to the above:</p>
+ * 
  * <pre><code style="font-family: monospace">
  * stbi_ldr_to_hdr_scale(1.0f);
  * stbi_ldr_to_hdr_gamma(2.2f);</code></pre>
- * Finally, given a filename (or an open file or memory block) containing image data, you can query for the "most appropriate" interface to use (that is,
- * whether the image is HDR or not), using:
+ * 
+ * <p>Finally, given a filename (or an open file or memory block) containing image data, you can query for the "most appropriate" interface to use (that is,
+ * whether the image is HDR or not), using:</p>
+ * 
  * <pre><code style="font-family: monospace">
- * stbi_is_hdr(char *filename);</code></pre></p>
+ * stbi_is_hdr(char *filename);</code></pre>
  * 
  * <h3>iPhone PNG support</h3>
- * By default we convert iphone-formatted PNGs back to RGB, even though they are internally encoded differently. You can disable this conversion by
- * calling {@link #stbi_convert_iphone_png_to_rgb convert_iphone_png_to_rgb}(0), in which case you will always just get the native iphone "format" through (which is BGR stored in RGB).
+ * 
+ * <p>By default we convert iphone-formatted PNGs back to RGB, even though they are internally encoded differently. You can disable this conversion by
+ * calling {@link #stbi_convert_iphone_png_to_rgb convert_iphone_png_to_rgb}(0), in which case you will always just get the native iphone "format" through (which is BGR stored in RGB).</p>
  * 
  * <p>Call {@link #stbi_set_unpremultiply_on_load set_unpremultiply_on_load}(1) as well to force a divide per pixel to remove any premultiplied alpha *only* if the image file explicitly says
  * there's premultiplied data (currently only happens in iPhone images, and only if iPhone convert-to-rgb processing is on).</p>
@@ -124,14 +136,16 @@ public class STBImage {
 	 * {@code *comp} has the number of components that <i>would</i> have been output otherwise. E.g. if you set {@code req_comp} to 4, you will always get
 	 * RGBA output, but you can check {@code *comp} to see if it's trivially opaque because e.g. there were only 3 channels in the source image.</p>
 	 * 
-	 * <p>An output image with N components has the following components interleaved in this order in each pixel:
+	 * <p>An output image with N components has the following components interleaved in this order in each pixel:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * N=#comp     components
 	 *   1           grey
 	 *   2           grey, alpha
 	 *   3           red, green, blue
 	 *   4           red, green, blue, alpha</code></pre>
-	 * If image loading fails for any reason, the return value will be {@code NULL}, and {@code *x}, {@code *y}, {@code *comp} will be unchanged. The function
+	 * 
+	 * <p>If image loading fails for any reason, the return value will be {@code NULL}, and {@code *x}, {@code *y}, {@code *comp} will be unchanged. The function
 	 * {@link #stbi_failure_reason failure_reason} can be queried for an extremely brief, end-user unfriendly explanation of why the load failed.</p>
 	 * 
 	 * <p>Paletted PNG, BMP, GIF, and PIC images are automatically depalettized.</p>

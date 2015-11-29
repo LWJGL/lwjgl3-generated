@@ -19,7 +19,8 @@ import static org.lwjgl.system.Pointer.*;
 /**
  * The core OpenGL 4.5 functionality. OpenGL 4.5 implementations support revision 4.50 of the OpenGL Shading Language.
  * 
- * <p>Extensions promoted to core in this release:
+ * <p>Extensions promoted to core in this release:</p>
+ * 
  * <ul>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/clip_control.txt">ARB_clip_control</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/cull_distance.txt">ARB_cull_distance</a></li>
@@ -32,7 +33,7 @@ import static org.lwjgl.system.Pointer.*;
  * <li><a href="http://www.opengl.org/registry/specs/KHR/robustness.txt">KHR_robustness</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/shader_texture_image_samples.txt">ARB_shader_texture_image_samples</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_barrier.txt">ARB_texture_barrier</a></li>
- * </ul></p>
+ * </ul>
  */
 public class GL45 {
 
@@ -661,6 +662,7 @@ public class GL45 {
 	 *               buffer is created, but contains undefined data. Otherwise, {@code data} should point to an array of at least {@code size} basic machine units.
 	 * @param flags  the bitwise {@code OR} of flags describing the intended usage of the buffer object's data store by the application. Valid flags and their meanings
 	 *               are as follows:
+	 *               
 	 *               <ul>
 	 *               <li>{@link GL44#GL_DYNAMIC_STORAGE_BIT DYNAMIC_STORAGE_BIT} &ndash; The contents of the data store may be updated after creation through calls to
 	 *               {@link GL15#glBufferSubData BufferSubData}. If this bit is not set, the buffer content may not be directly updated by the client. The {@code data}
@@ -676,6 +678,7 @@ public class GL45 {
 	 *               <li>{@link GL44#GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} &ndash; Shared access to buffers that are simultaneously mapped for client access and are used by the server will be
 	 *               coherent, so long as that mapping is performed using MapBufferRange. That is, data written to the store by either the client or server will be
 	 *               immediately visible to the other with no further action taken by the application. In particular:
+	 *               
 	 *               <ul>
 	 *               <li>If {@code MAP_COHERENT_BIT} is not set and the client performs a write followed by a call to the {@link GL42#glMemoryBarrier MemoryBarrier} command with
 	 *               the {@link GL44#GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT CLIENT_MAPPED_BUFFER_BARRIER_BIT} set, then in subsequent commands the server will see the writes.</li>
@@ -689,7 +692,8 @@ public class GL45 {
 	 *               <li>{@link GL44#GL_CLIENT_STORAGE_BIT CLIENT_STORAGE_BIT} &ndash; When all other criteria for the buffer storage allocation are met, this bit may be used by an
 	 *               implementation to determine whether to use storage that is local to the server or to the client to serve as the backing store for the buffer.</li>
 	 *               </ul>
-	 *               If {@code flags} contains {@link GL44#GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}, it must also contain at least one of {@link GL30#GL_MAP_READ_BIT MAP_READ_BIT} or {@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}.
+	 *               
+	 *               <p>If {@code flags} contains {@link GL44#GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}, it must also contain at least one of {@link GL30#GL_MAP_READ_BIT MAP_READ_BIT} or {@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}.</p>
 	 *               
 	 *               <p>It is an error to specify {@link GL44#GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link GL44#GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
 	 */
@@ -3624,14 +3628,16 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetGraphicsResetStatus.xhtml">OpenGL SDK Reference</a></p>
 	 * 
 	 * Indicates if the GL context has been in a reset state at any point since the last call to GetGraphicsResetStatus:
+	 * 
 	 * <ul>
 	 * <li>{@link GL11#GL_NO_ERROR NO_ERROR} indicates that the GL context has not been in a reset state since the last call.</li>
 	 * <li>{@link #GL_GUILTY_CONTEXT_RESET GUILTY_CONTEXT_RESET} indicates that a reset has been detected that is attributable to the current GL context.</li>
 	 * <li>{@link #GL_INNOCENT_CONTEXT_RESET INNOCENT_CONTEXT_RESET} indicates a reset has been detected that is not attributable to the current GL context.</li>
 	 * <li>{@link #GL_UNKNOWN_CONTEXT_RESET UNKNOWN_CONTEXT_RESET} indicates a detected graphics reset whose cause is unknown.</li>
 	 * </ul>
-	 * If a reset status other than NO_ERROR is returned and subsequent calls return NO_ERROR, the context reset was encountered and completed. If a reset
-	 * status is repeatedly returned, the context may be in the process of resetting.
+	 * 
+	 * <p>If a reset status other than NO_ERROR is returned and subsequent calls return NO_ERROR, the context reset was encountered and completed. If a reset
+	 * status is repeatedly returned, the context may be in the process of resetting.</p>
 	 * 
 	 * <p>Reset notification behavior is determined at context creation time, and may be queried by calling GetIntegerv with the symbolic constant
 	 * {@link #GL_RESET_NOTIFICATION_STRATEGY RESET_NOTIFICATION_STRATEGY}.</p>
@@ -3646,13 +3652,14 @@ Guarantees that writes have completed and caches have been invalidated before su
 	 * 
 	 * <p>After a graphics reset has occurred on a context, subsequent GL commands on that context (or any context which shares with that context) will generate a
 	 * {@link #GL_CONTEXT_LOST CONTEXT_LOST} error. Such commands will not have side effects (in particular, they will not modify memory passed by pointer for query results,
-	 * and may not block indefinitely or cause termination of the application. Exceptions to this behavior include:
+	 * and may not block indefinitely or cause termination of the application. Exceptions to this behavior include:</p>
+	 * 
 	 * <ul>
 	 * <li>{@link GL11#glGetError GetError} and GetGraphicsResetStatus behave normally following a graphics reset, so that the application can determine a reset has
 	 * occurred, and when it is safe to destroy and recreate the context.</li>
 	 * <li>Any commands which might cause a polling application to block indefinitely will generate a CONTEXT_LOST error, but will also return a value
 	 * indicating completion to the application.</li>
-	 * </ul></p>
+	 * </ul>
 	 */
 	public static int glGetGraphicsResetStatus() {
 		long __functionAddress = getInstance().GetGraphicsResetStatus;

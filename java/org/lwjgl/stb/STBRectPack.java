@@ -86,12 +86,14 @@ public class STBRectPack {
 	 * <p>There is no "shutdown" function. The {@code nodes} memory must stay valid for the following {@link #stbrp_pack_rects pack_rects} call (or calls), but can be freed after the
 	 * call (or calls) finish.</p>
 	 * 
-	 * <p>Note: to guarantee best results, either:
+	 * <p>Note: to guarantee best results, either:</p>
+	 * 
 	 * <ol>
 	 * <li>make sure {@code num_nodes &ge; width}</li>
 	 * <li>or, call {@link #stbrp_setup_allow_out_of_mem setup_allow_out_of_mem} with {@code allow_out_of_mem = 1}</li>
 	 * </ol>
-	 * If you don't do either of the above things, widths will be quantized to multiples of small integers to guarantee the algorithm doesn't run out of
+	 * 
+	 * <p>If you don't do either of the above things, widths will be quantized to multiples of small integers to guarantee the algorithm doesn't run out of
 	 * temporary storage.</p>
 	 * 
 	 * <p>If you do #2, then the non-quantized algorithm will be used, but the algorithm may run out of temporary storage and be unable to pack some rectangles.</p>

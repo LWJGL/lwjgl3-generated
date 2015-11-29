@@ -43,12 +43,14 @@ import static org.lwjgl.system.JNI.*;
  * buffer across multiple drawables. Under EXT_framebuffer_object, however, a mechanism exists for sharing a framebuffer-attachable image across several
  * framebuffer objects, as well as sharing an image between a framebuffer object and a texture. If we had retained the "implicit"
  * resolve from traditional multisampled rendering, and allowed the creation of "multisample" format renderbuffers, then this type of sharing would have
- * lead to two problematic situations:
+ * lead to two problematic situations:</p>
+ * 
  * <ul>
  * <li>Two contexts, which shared renderbuffers, might perform competing resolve operations into the same single-sample buffer with ambiguous results.</li>
  * <li>It would have introduced the unfortunate ability to use the single-sample buffer as a texture while MULTISAMPLE is ENABLED.</li>
  * </ul>
- * By using the BlitFramebufferEXT from EXT_framebuffer_blit as an explicit resolve to serialize access to the multisampled contents and eliminate the
+ * 
+ * <p>By using the BlitFramebufferEXT from EXT_framebuffer_blit as an explicit resolve to serialize access to the multisampled contents and eliminate the
  * implicit per-sample resolve operation, we avoid both of these problems.</p>
  * 
  * <p>Promoted to core in {@link GL30 OpenGL 3.0}.</p>

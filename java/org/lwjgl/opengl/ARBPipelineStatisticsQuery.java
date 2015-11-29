@@ -8,7 +8,8 @@ package org.lwjgl.opengl;
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/pipeline_statistics_query.txt">ARB_pipeline_statistics_query</a> extension.
  * 
- * <p>This extension introduces new query types that allow applications to get statistics information about different parts of the pipeline:
+ * <p>This extension introduces new query types that allow applications to get statistics information about different parts of the pipeline:</p>
+ * 
  * <ul>
  * <li>Number of vertices and primitives issued to the GL.</li>
  * <li>Number of times a vertex shader, tessellation evaluation shader, geometry shader, fragment shader, and compute shader was invoked.</li>
@@ -17,7 +18,8 @@ package org.lwjgl.opengl;
  * <li>Number of primitives that entered the primitive clipping stage.</li>
  * <li>Number of primitives that are output by the primitive clipping stage.</li>
  * </ul>
- * Requires {@link GL30 OpenGL 3.0}.</p>
+ * 
+ * <p>Requires {@link GL30 OpenGL 3.0}.</p>
  */
 public final class ARBPipelineStatisticsQuery {
 

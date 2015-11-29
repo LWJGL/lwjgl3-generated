@@ -30,15 +30,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * increase the dynamic range of the raster brightness of points. In other words, the alpha component of a point may be decreased (and its transparency
  * increased) as its area shrinks below a defined threshold.</p>
  * 
- * <p>This extension defines a derived point size to be closely related to point brightness. The brightness of a point is given by:
+ * <p>This extension defines a derived point size to be closely related to point brightness. The brightness of a point is given by:</p>
+ * 
  * <pre><code style="font-family: monospace">
  * 						1
  * dist_atten(d) = -------------------
  *                 a + b * d + c * d^2
  * 
  * brightness(Pe) = Brightness * dist_atten(|Pe|)</code></pre>
- * where 'Pe' is the point in eye coordinates, and 'Brightness' is some initial value proportional to the square of the size provided with glPointSize.
- * Here we simplify the raster brightness to be a function of the rasterized point area and point transparency.
+ * 
+ * <p>where 'Pe' is the point in eye coordinates, and 'Brightness' is some initial value proportional to the square of the size provided with glPointSize.
+ * Here we simplify the raster brightness to be a function of the rasterized point area and point transparency.</p>
+ * 
  * <pre><code style="font-family: monospace">
  * 			brightness(Pe)      brightness(Pe) >= Threshold_Area
  * area(Pe) =
@@ -47,7 +50,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * factor(Pe) = brightness(Pe)/Threshold_Area
  * 
  * alpha(Pe) = Alpha * factor(Pe)</code></pre>
- * where 'Alpha' comes with the point color (possibly modified by lighting).</p>
+ * 
+ * <p>where 'Alpha' comes with the point color (possibly modified by lighting).</p>
  * 
  * <p>'Threshold_Area' above is in area units. Thus, it is proportional to the square of the threshold provided by the programmer through this extension.</p>
  * 

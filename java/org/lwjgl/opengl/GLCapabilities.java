@@ -310,12 +310,14 @@ public final class GLCapabilities {
 	 * GLX_ARB_robustness_share_group_isolation provides stronger guarantees about the possible side-effects of a graphics reset.</p>
 	 * 
 	 * <p>If the graphics driver advertises the GLX_ARB_robustness_share_group_isolation extension string, then the driver guarantees that if a context in a
-	 * particular share group causes a graphics reset to occur:
+	 * particular share group causes a graphics reset to occur:</p>
+	 * 
 	 * <ol>
 	 * <li>No other share group within the application, nor any other application on the system, is affected by the graphics reset.</li>
 	 * <li>No other share group within the application, nor any other application on the system, receives any notification that the graphics reset occurred.</li>
 	 * </ol>
-	 * Requires {@link GLX14 GLX 1.4} and {@link GLXARBCreateContextRobustness GLX_ARB_create_context_robustness}.</p>
+	 * 
+	 * <p>Requires {@link GLX14 GLX 1.4} and {@link GLXARBCreateContextRobustness GLX_ARB_create_context_robustness}.</p>
 	 */
 	public final boolean GLX_ARB_robustness_share_group_isolation;
 	/** When true, {@link GLXARBVertexBufferObject} is supported. */
@@ -592,22 +594,28 @@ public final class GLCapabilities {
 	 * value for all 4 pixels. For the fine-granularity derivative, two derivatives could be computed for each 2x2 group of pixels; one for the top row and one
 	 * for the bottom row. Implementations vary somewhat on how this is done.</p>
 	 * 
-	 * <p>To select the coarse derivative, use:
+	 * <p>To select the coarse derivative, use:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * dFdxCoarse(p)
 	 * dFdyCoarse(p)
 	 * fwidthCoarse(p)</code></pre>
-	 * To select the fine derivative, use:
+	 * 
+	 * <p>To select the fine derivative, use:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * dFdxFine(p)
 	 * dFdyFine(p)
 	 * fwidthFine(p)</code></pre>
-	 * To select which ever is "better" (based on performance, API hints, or other factors), use:
+	 * 
+	 * <p>To select which ever is "better" (based on performance, API hints, or other factors), use:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * dFdx(p)
 	 * dFdy(p)
 	 * fwidth(p)</code></pre>
-	 * This last set is the set of previously existing built-ins for derivatives, and continues to work in a backward compatible way.</p>
+	 * 
+	 * <p>This last set is the set of previously existing built-ins for derivatives, and continues to work in a backward compatible way.</p>
 	 * 
 	 * <p>Requires {@link GL40 OpenGL 4.0} and GLSL 4.00. Promoted to core in {@link GL45 OpenGL 4.5}.</p>
 	 */
@@ -659,12 +667,14 @@ public final class GLCapabilities {
 	 * and window-space conventions involves adjusting existing OpenGL state. However it is non-trivial to massage an arbitrary fragment shader or program to
 	 * adopt a different window-space coordinate system because such shaders are encoded in various textual representations.</p>
 	 * 
-	 * <p>The dominant 2D and 3D rendering APIs make two basic choices of convention when locating fragments in window space. The two choices are:
+	 * <p>The dominant 2D and 3D rendering APIs make two basic choices of convention when locating fragments in window space. The two choices are:</p>
+	 * 
 	 * <ol>
 	 * <li>Is the origin nearest the lower-left- or upper-left-most pixel of the window?</li>
 	 * <li>Is the (x,y) location of the pixel nearest the origin at (0,0) or (0.5,0.5)?</li>
 	 * </ol>
-	 * OpenGL assumes a lower-left origin for window coordinates and assumes pixel centers are located at half-pixel coordinates. This means the XY location
+	 * 
+	 * <p>OpenGL assumes a lower-left origin for window coordinates and assumes pixel centers are located at half-pixel coordinates. This means the XY location
 	 * (0.5,0.5) corresponds to the lower-left-most pixel in a window.</p>
 	 * 
 	 * <p>Other window coordinate conventions exist for other rendering APIs. X11, GDI, and Direct3D version through DirectX 9 assume an upper-left window origin
@@ -715,13 +725,15 @@ public final class GLCapabilities {
 	 * <p>In unextended OpenGL 4.5, applications may produce a large number of fragment shader invocations that perform loads and stores to memory using image
 	 * uniforms, atomic counter uniforms, buffer variables, or pointers. The order in which loads and stores to common addresses are performed by different
 	 * fragment shader invocations is largely undefined. For algorithms that use shader writes and touch the same pixels more than once, one or more of the
-	 * following techniques may be required to ensure proper execution ordering:
+	 * following techniques may be required to ensure proper execution ordering:</p>
+	 * 
 	 * <ul>
 	 * <li>inserting Finish or WaitSync commands to drain the pipeline between different "passes" or "layers";</li>
 	 * <li>using only atomic memory operations to write to shader memory (which may be relatively slow and limits how memory may be updated); or</li>
 	 * <li>injecting spin loops into shaders to prevent multiple shader invocations from touching the same memory concurrently.</li>
 	 * </ul>
-	 * This extension provides new GLSL built-in functions beginInvocationInterlockARB() and endInvocationInterlockARB() that delimit a critical section of
+	 * 
+	 * <p>This extension provides new GLSL built-in functions beginInvocationInterlockARB() and endInvocationInterlockARB() that delimit a critical section of
 	 * fragment shader code. For pairs of shader invocations with "overlapping" coverage in a given pixel, the OpenGL implementation will guarantee that the
 	 * critical section of the fragment shader will be executed for only one fragment at a time.</p>
 	 * 
@@ -811,10 +823,12 @@ public final class GLCapabilities {
 	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/post_depth_coverage.txt">ARB_post_depth_coverage</a> extension is supported.
 	 * 
 	 * <p>This extension allows the fragment shader to control whether values in {@code gl_SampleMaskIn[]} reflect the coverage after application of the early
-	 * depth and stencil tests. This feature can be enabled with the following layout qualifier in the fragment shader:
+	 * depth and stencil tests. This feature can be enabled with the following layout qualifier in the fragment shader:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * 		layout(post_depth_coverage) in;</code></pre>
-	 * Use of this feature implicitly enables early fragment tests.</p>
+	 * 
+	 * <p>Use of this feature implicitly enables early fragment tests.</p>
 	 */
 	public final boolean GL_ARB_post_depth_coverage;
 	/** When true, {@link ARBProgramInterfaceQuery} is supported. */
@@ -868,14 +882,16 @@ public final class GLCapabilities {
 	 * 
 	 * <p>The {@link ARBShaderAtomicCounters ARB_shader_atomic_counters} extension introduced atomic counters, but it limits list of potential operations that can be performed on them
 	 * to increment, decrement, and query. This extension extends the list of GLSL built-in functions that can operate on atomic counters. The list of new
-	 * operations include:
+	 * operations include:</p>
+	 * 
 	 * <ul>
 	 * <li>Addition and subtraction</li>
 	 * <li>Minimum and maximum</li>
 	 * <li>Bitwise operators (AND, OR, XOR, etc.)</li>
 	 * <li>Exchange, and compare and exchange operators</li>
 	 * </ul>
-	 * Requires {@link GL42 OpenGL 4.2} or {@link ARBShaderAtomicCounters ARB_shader_atomic_counters}.</p>
+	 * 
+	 * <p>Requires {@link GL42 OpenGL 4.2} or {@link ARBShaderAtomicCounters ARB_shader_atomic_counters}.</p>
 	 */
 	public final boolean GL_ARB_shader_atomic_counter_ops;
 	/** When true, {@link ARBShaderAtomicCounters} is supported. */
@@ -935,26 +951,30 @@ public final class GLCapabilities {
 	 * group -- a pair of shader invocations in a single compute shader work group may end up in different sets used by these built-ins.</p>
 	 * 
 	 * <p>Compute shaders operate on an explicitly specified group of threads (a local work group), but many implementations of OpenGL 4.3 will even group
-	 * non-compute shader invocations and execute them in a SIMD fashion. When executing code like
+	 * non-compute shader invocations and execute them in a SIMD fashion. When executing code like</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * if (condition) {
 	 * 	result = do_fast_path();
 	 * } else {
 	 * 	result = do_general_path();
 	 * }</code></pre>
-	 * where {@code condition} diverges between invocations, a SIMD implementation might first call do_fast_path() for the invocations where {@code condition}
+	 * 
+	 * <p>where {@code condition} diverges between invocations, a SIMD implementation might first call do_fast_path() for the invocations where {@code condition}
 	 * is true and leave the other invocations dormant. Once do_fast_path() returns, it might call do_general_path() for invocations where {@code condition} is
 	 * false and leave the other invocations dormant. In this case, the shader executes *both* the fast and the general path and might be better off just using
 	 * the general path for all invocations.</p>
 	 * 
-	 * <p>This extension provides the ability to avoid divergent execution by evaluting a condition across an entire SIMD invocation group using code like:
+	 * <p>This extension provides the ability to avoid divergent execution by evaluting a condition across an entire SIMD invocation group using code like:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * if (allInvocationsARB(condition)) {
 	 * 	result = do_fast_path();
 	 * } else {
 	 * 	result = do_general_path();
 	 * }</code></pre>
-	 * The built-in function allInvocationsARB() will return the same value for all invocations in the group, so the group will either execute do_fast_path()
+	 * 
+	 * <p>The built-in function allInvocationsARB() will return the same value for all invocations in the group, so the group will either execute do_fast_path()
 	 * or do_general_path(), but never both. For example, shader code might want to evaluate a complex function iteratively by starting with an approximation
 	 * of the result and then refining the approximation. Some input values may require a small number of iterations to generate an accurate result
 	 * (do_fast_path) while others require a larger number (do_general_path). In another example, shader code might want to evaluate a complex function
@@ -1026,18 +1046,20 @@ public final class GLCapabilities {
 	 * Isotropic texture functions return defined texels for mipmap texture fetches, even inside non-uniform control flow. However, isotropic texture functions
 	 * return undefined texels for anisotropic texture fetches.</p>
 	 * 
-	 * <p>The existing isotropic vertex texture functions:
+	 * <p>The existing isotropic vertex texture functions:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * texture1DLod,   texture1DProjLod,
 	 * texture2DLod,   texture2DProjLod,
 	 * texture3DLod,   texture3DProjLod,
 	 * textureCubeLod,
 	 * shadow1DLod,    shadow1DProjLod,
-	 * shadow2DLod,    shadow2DProjLod</code></pre></p>
+	 * shadow2DLod,    shadow2DProjLod</code></pre>
 	 * 
 	 * <p>are added to the built-in functions for fragment shaders.</p>
 	 * 
-	 * <p>New anisotropic texture functions, providing explicit derivatives:
+	 * <p>New anisotropic texture functions, providing explicit derivatives:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * texture1DGradARB(
 	 * 	sampler1D sampler,
@@ -1095,7 +1117,7 @@ public final class GLCapabilities {
 	 * 	vec3 P, vec2 dPdx, vec2 dPdy);
 	 * shadow2DRectProjGradARB(
 	 * 	sampler2DRectShadow sampler,
-	 * 	vec4 P, vec2 dPdx, vec2 dPdy);</code></pre></p>
+	 * 	vec4 P, vec2 dPdx, vec2 dPdy);</code></pre>
 	 * 
 	 * <p>are added to the built-in functions for vertex shaders and fragment shaders.</p>
 	 * 
@@ -1124,7 +1146,8 @@ public final class GLCapabilities {
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/shading_language_420pack.txt">ARB_shading_language_420pack</a> extension is supported.
 	 * 
-	 * <p>This is a language feature only extension formed from changes made to version 4.20 of GLSL. It includes:
+	 * <p>This is a language feature only extension formed from changes made to version 4.20 of GLSL. It includes:</p>
+	 * 
 	 * <ul>
 	 * <li>Add line-continuation using '', as in C++.</li>
 	 * <li>Change from ASCII to UTF-8 for the language character set and also allow any characters inside comments.</li>
@@ -1141,7 +1164,8 @@ public final class GLCapabilities {
 	 * <li>Allow swizzle operations on scalars.</li>
 	 * <li>Built-in constants for {@code gl_MinProgramTexelOffset} and {@code gl_MaxProgramTexelOffset}.</li>
 	 * </ul>
-	 * Requires GLSL 1.30. Requires GLSL 1.40 for uniform block bindings. Promoted to core in {@link GL42 OpenGL 4.2}.</p>
+	 * 
+	 * <p>Requires GLSL 1.30. Requires GLSL 1.40 for uniform block bindings. Promoted to core in {@link GL42 OpenGL 4.2}.</p>
 	 */
 	public final boolean GL_ARB_shading_language_420pack;
 	/** When true, {@link ARBShadingLanguageInclude} is supported. */
@@ -1175,7 +1199,8 @@ public final class GLCapabilities {
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/sparse_texture2.txt">ARB_sparse_texture2</a> extension is supported.
 	 * 
-	 * <p>This extension builds on the {@link ARBSparseTexture ARB_sparse_texture} extension, providing the following new functionality:
+	 * <p>This extension builds on the {@link ARBSparseTexture ARB_sparse_texture} extension, providing the following new functionality:</p>
+	 * 
 	 * <ul>
 	 * <li>New built-in GLSL texture lookup and image load functions are provided that return information on whether the texels accessed for the texture
 	 * lookup accessed uncommitted texture memory.</li>
@@ -1190,7 +1215,8 @@ public final class GLCapabilities {
 	 * <li>Support for creating sparse multisample and multisample array textures is added. However, the virtual page sizes for such textures remain fully
 	 * implementation-dependent.</li>
 	 * </ul>
-	 * Requires {@link ARBSparseTexture ARB_sparse_texture}</p>
+	 * 
+	 * <p>Requires {@link ARBSparseTexture ARB_sparse_texture}</p>
 	 */
 	public final boolean GL_ARB_sparse_texture2;
 	/**
@@ -1451,12 +1477,15 @@ public final class GLCapabilities {
 	 * When true, the <a href="http://www.opengl.org/registry/specs/EXT/post_depth_coverage.txt">EXT_post_depth_coverage</a> extension is supported.
 	 * 
 	 * <p>This extension allows the fragment shader to control whether values in {@code gl_SampleMaskIn[]} reflect the coverage after application of the early
-	 * depth and stencil tests.  This feature can be enabled with the following layout qualifier in the fragment shader:
+	 * depth and stencil tests.  This feature can be enabled with the following layout qualifier in the fragment shader:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * layout(post_depth_coverage) in;</code></pre>
-	 * To use this feature, early fragment tests must also be enabled in the fragment shader via:
+	 * 
+	 * <p>To use this feature, early fragment tests must also be enabled in the fragment shader via:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
-	 * layout(early_fragment_tests) in;</code></pre></p>
+	 * layout(early_fragment_tests) in;</code></pre>
 	 */
 	public final boolean GL_EXT_post_depth_coverage;
 	/** When true, {@link EXTProvokingVertex} is supported. */
@@ -1500,10 +1529,11 @@ public final class GLCapabilities {
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/EXT/sparse_texture2.txt">EXT_sparse_texture2</a> extension is supported.
 	 * 
-	 * <p>This extension builds on the {@link ARBSparseTexture ARB_sparse_texture} extension, providing the following new functionality:
+	 * <p>This extension builds on the {@link ARBSparseTexture ARB_sparse_texture} extension, providing the following new functionality:</p>
+	 * 
 	 * <ul>
 	 * <li>New built-in GLSL texture lookup and image load functions are provided that return information on whether the texels accessed for the texture
-	 * lookup accessed uncommitted texture memory.</p>
+	 * lookup accessed uncommitted texture memory.
 	 * 
 	 * <p>New built-in GLSL texture lookup functions are provided that specify a minimum level of detail to use for lookups where the level of detail is
 	 * computed automatically. This allows shaders to avoid accessing unpopulated portions of high-resolution levels of detail when it knows that the
@@ -1576,12 +1606,14 @@ public final class GLCapabilities {
 	 * DXGI_FORMAT_B8G8R8A8_UNORM format.</p>
 	 * 
 	 * <p>For an OpenGL application to source color data from a vertex buffer formatted for Direct3D's color array format conventions, the application is forced
-	 * to either:
+	 * to either:</p>
+	 * 
 	 * <ol>
 	 * <li>Rely on a vertex program or shader to swizzle the color components from the BGRA to conventional RGBA order.</li>
 	 * <li>Re-order the color data components in the vertex buffer from Direct3D's native BGRA order to OpenGL's native RGBA order.</li>
 	 * </ol>
-	 * Neither option is entirely satisfactory.</p>
+	 * 
+	 * <p>Neither option is entirely satisfactory.</p>
 	 * 
 	 * <p>Option 1 means vertex shaders have to be re-written to source colors differently. If the same vertex shader is used with vertex arrays configured to
 	 * source the color as 4 floating-point color components, the swizzle for BGRA colors stored as 4 unsigned bytes is no longer appropriate. The shader's
@@ -1719,13 +1751,15 @@ public final class GLCapabilities {
 	 * <p>In unextended OpenGL 4.3, applications may produce a large number of fragment shader invocations that perform loads and stores to memory using image
 	 * uniforms, atomic counter uniforms, buffer variables, or pointers. The order in which loads and stores to common addresses are performed by different
 	 * fragment shader invocations is largely undefined. For algorithms that use shader writes and touch the same pixels more than once, one or more of the
-	 * following techniques may be required to ensure proper execution ordering:
+	 * following techniques may be required to ensure proper execution ordering:</p>
+	 * 
 	 * <ul>
 	 * <li>inserting Finish or WaitSync commands to drain the pipeline between different "passes" or "layers";</li>
 	 * <li>using only atomic memory operations to write to shader memory (which may be relatively slow and limits how memory may be updated); or</li>
 	 * <li>injecting spin loops into shaders to prevent multiple shader invocations from touching the same memory concurrently.</li>
 	 * </ul>
-	 * This extension provides new GLSL built-in functions beginInvocationInterlockNV() and endInvocationInterlockNV() that delimit a critical section of
+	 * 
+	 * <p>This extension provides new GLSL built-in functions beginInvocationInterlockNV() and endInvocationInterlockNV() that delimit a critical section of
 	 * fragment shader code. For pairs of shader invocations with "overlapping" coverage in a given pixel, the OpenGL implementation will guarantee that the
 	 * critical section of the fragment shader will be executed for only one fragment at a time.</p>
 	 * 
@@ -1756,14 +1790,16 @@ public final class GLCapabilities {
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/geometry_shader4.txt">NV_geometry_shader4</a> extension is supported.
 	 * 
-	 * <p>This extension builds upon the {@link #GL_EXT_geometry_shader4 EXT_geometry_shader4} specification to provide two additional capabilities:
+	 * <p>This extension builds upon the {@link #GL_EXT_geometry_shader4 EXT_geometry_shader4} specification to provide two additional capabilities:</p>
+	 * 
 	 * <ul>
 	 * <li>Support for QUADS, QUAD_STRIP, and POLYGON primitive types when geometry shaders are enabled.  Such primitives will be tessellated into individual
 	 * triangles.</li>
 	 * <li>Setting the value of GEOMETRY_VERTICES_OUT_EXT will take effect immediately. It is not necessary to link the program object in order for this change
 	 * to take effect, as is the case in the EXT version of this extension.</li>
 	 * </ul>
-	 * Requires {@link #GL_EXT_geometry_shader4 EXT_geometry_shader4}.</p>
+	 * 
+	 * <p>Requires {@link #GL_EXT_geometry_shader4 EXT_geometry_shader4}.</p>
 	 */
 	public final boolean GL_NV_geometry_shader4;
 	/**
@@ -1947,13 +1983,14 @@ public final class GLCapabilities {
 	 * WGL_ARB_robustness_share_group_isolation provides stronger guarantees about the possible side-effects of a graphics reset.</p>
 	 * 
 	 * <p>If the graphics driver advertises the WGL_ARB_robustness_share_group_isolation extension string, then the driver guarantees that if a context in a
-	 * particular share group causes a graphics reset to occur:
+	 * particular share group causes a graphics reset to occur:</p>
+	 * 
 	 * <ol>
 	 * <li>No other share group within the application is affected by the graphics reset. Additionally, no other application on the system is affected by the
 	 * graphics reset.</li>
 	 * <li>No other share group within the application receives any notification that the graphics reset occurred. Additionally, no other application on the
 	 * system receives any notification that the graphics reset occurred.</li>
-	 * </ol></p>
+	 * </ol>
 	 * 
 	 * <p>Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string} and {@link WGLARBCreateContextRobustness WGL_ARB_create_context_robustness}.</p>
 	 */

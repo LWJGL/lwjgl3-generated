@@ -11,12 +11,13 @@ package org.lwjgl.opengles;
  * <p>This extension enables support for ATC compressed texture formats. ATC is AMD's proprietary compression algorithm for compressing textures for handheld
  * devices to save on power consumption, memory footprint and bandwidth.</p>
  * 
- * <p>Three compression formats are introduced:
+ * <p>Three compression formats are introduced:</p>
+ * 
  * <ul>
  * <li>A compression format for RGB textures.</li>
  * <li>A compression format for RGBA textures using explicit alpha encoding.</li>
  * <li>A compression format for RGBA textures using interpolated alpha encoding.</li>
- * </ul></p>
+ * </ul>
  */
 public final class AMDCompressedATCTexture {
 

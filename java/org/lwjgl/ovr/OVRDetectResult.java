@@ -16,6 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Return values for {@link OVRUtil#ovr_Detect}
  * 
  * <h3>ovrDetectResult members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>IsOculusServiceRunning</td><td class="nw">ovrBool</td><td>is {@link OVR#ovrFalse} when the Oculus Service is not running. This means that the Oculus Service is either uninstalled or stopped.

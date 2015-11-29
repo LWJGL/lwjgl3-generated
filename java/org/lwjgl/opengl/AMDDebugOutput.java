@@ -128,6 +128,7 @@ public class AMDDebugOutput {
 	 * Allows disabling or enabling generation of subsets of messages. If {@code enabled} is {@link GL11#GL_TRUE TRUE}, the referenced subset of messages is enabled. If
 	 * {@link GL11#GL_FALSE FALSE}, then those messages are disabled. This command can reference different subsets of messages by varying its parameter values in the following
 	 * ways:
+	 * 
 	 * <ol>
 	 * <li>To reference all messages, let {@code category}, {@code severity}, and {@code count} all be zero. The value of {@code ids} is ignored in this case.</li>
 	 * <li>To reference all messages across all categories with a specific severity level, let {@code category} and {@code count} be zero and let
@@ -140,10 +141,11 @@ public class AMDDebugOutput {
 	 * {@code count} be greater than zero and let {@code ids} identify the IDs of {@code count} messages within the identified category. Operations on
 	 * message IDs that are not valid within the category are silently ignored.</li>
 	 * </ol>
-	 * In all of the above cases, if {@code category} is non-zero and specifies an invalid category, the error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated. Similarly if
+	 * 
+	 * <p>In all of the above cases, if {@code category} is non-zero and specifies an invalid category, the error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated. Similarly if
 	 * {@code severity} is non-zero and is an invalid severity level, the error {@link GL11#GL_INVALID_ENUM INVALID_ENUM} is generated. If {@code count} is less than zero, the error
 	 * {@link GL11#GL_INVALID_VALUE INVALID_VALUE} is generated. If the parameters do not fall into one of the cases defined above, the error {@link GL11#GL_INVALID_VALUE INVALID_VALUE} is generated. The error
-	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated if this command is called in a non-debug context.
+	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated if this command is called in a non-debug context.</p>
 	 * 
 	 * <p>Although messages are grouped into categories and severities, and entire groups of messages can be turned off with a single call, there is no explicit
 	 * per-category or per-severity enabled state. Instead the enabled state is stored individually for each message. There is no difference between disabling

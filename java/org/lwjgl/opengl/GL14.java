@@ -18,7 +18,8 @@ import static org.lwjgl.system.Pointer.*;
 /**
  * The core OpenGL 1.4 functionality.
  * 
- * <p>Extensions promoted to core in this release:
+ * <p>Extensions promoted to core in this release:</p>
+ * 
  * <ul>
  * <li><a href="http://www.opengl.org/registry/specs/SGIS/generate_mipmap.txt">SGIS_generate_mipmap</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/NV/blend_square.txt">NV_blend_square</a></li>
@@ -33,7 +34,7 @@ import static org.lwjgl.system.Pointer.*;
  * <li><a href="http://www.opengl.org/registry/specs/EXT/texture_lod_bias.txt">EXT_texture_lod_bias</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_mirrored_repeat.txt">ARB_texture_mirrored_repeat</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/window_pos.txt">ARB_window_pos</a></li>
- * </ul></p>
+ * </ul>
  */
 public class GL14 {
 

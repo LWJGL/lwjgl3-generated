@@ -275,18 +275,21 @@ public class ARBVertexBufferObject {
 	 * <p>{@code usage} is a hint to the GL implementation as to how a buffer object's data store will be accessed. This enables the GL implementation to make
 	 * more intelligent decisions that may significantly impact buffer object performance. It does not, however, constrain the actual usage of the data store.
 	 * {@code usage} can be broken down into two parts: first, the frequency of access (modification and usage), and second, the nature of that access. The
-	 * frequency of access may be one of these:
+	 * frequency of access may be one of these:</p>
+	 * 
 	 * <ul>
 	 * <li><em>STREAM</em> - The data store contents will be modified once and used at most a few times.</li>
 	 * <li><em>STATIC</em> - The data store contents will be modified once and used many times.</li>
 	 * <li><em>DYNAMIC</em> - The data store contents will be modified repeatedly and used many times.</li>
 	 * </ul>
-	 * The nature of access may be one of these:
+	 * 
+	 * <p>The nature of access may be one of these:</p>
+	 * 
 	 * <ul>
 	 * <li><em>DRAW</em> - The data store contents are modified by the application, and used as the source for GL drawing and image specification commands.</li>
 	 * <li><em>READ</em> - The data store contents are modified by reading data from the GL, and used to return that data when queried by the application.</li>
 	 * <li><em>COPY</em> - The data store contents are modified by reading data from the GL, and used as the source for GL drawing and image specification commands.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param target the target buffer object. One of:<br>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}, {@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}
 	 * @param size   the size in bytes of the buffer object's new data store
@@ -417,12 +420,13 @@ public class ARBVertexBufferObject {
 	/**
 	 * Maps a buffer object's data store.
 	 * 
-	 * <p><b>LWJGL note</b>: This method comes in 3 flavors:
+	 * <p><b>LWJGL note</b>: This method comes in 3 flavors:</p>
+	 * 
 	 * <ol>
 	 * <li>{@link #glMapBufferARB(int, int)} - Calls {@link #glGetBufferParameteriARB GetBufferParameteriARB} to retrieve the buffer size and a new ByteBuffer instance is always returned.</li>
 	 * <li>{@link #glMapBufferARB(int, int, ByteBuffer)} - Calls {@link #glGetBufferParameteriARB GetBufferParameteriARB} to retrieve the buffer size and the {@code old_buffer} parameter is reused if not null.</li>
 	 * <li>{@link #glMapBufferARB(int, int, long, ByteBuffer)} - The buffer size is explicitly specified and the {@code old_buffer} parameter is reused if not null. This is the most efficient method.</li>
-	 * </ol></p>
+	 * </ol>
 	 *
 	 * @param target the target buffer object being mapped. One of:<br>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}, {@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}
 	 * @param access the access policy, indicating whether it will be possible to read from, write to, or both read from and write to the buffer object's mapped data store. One of:<br>{@link #GL_READ_ONLY_ARB READ_ONLY_ARB}, {@link #GL_WRITE_ONLY_ARB WRITE_ONLY_ARB}, {@link #GL_READ_WRITE_ARB READ_WRITE_ARB}

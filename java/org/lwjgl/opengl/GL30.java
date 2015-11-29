@@ -20,7 +20,8 @@ import static org.lwjgl.system.Pointer.*;
  * The core OpenGL 3.0 functionality. OpenGL 3.0 implementations are guaranteed to support at least versions 1.10, 1.20 and 1.30 of the shading language,
  * although versions 1.10 and 1.20 are deprecated in a forward-compatible context.
  * 
- * <p>Extensions promoted to core in this release:
+ * <p>Extensions promoted to core in this release:</p>
+ * 
  * <ul>
  * <li><a href="http://www.opengl.org/registry/specs/EXT/gpu_shader4.txt">EXT_gpu_shader4</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/NV/conditional_render.txt">NV_conditional_render</a></li>
@@ -38,7 +39,7 @@ import static org.lwjgl.system.Pointer.*;
  * <li><a href="http://www.opengl.org/registry/specs/EXT/transform_feedback.txt">EXT_transform_feedback</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/APPLE/vertex_array_object.txt">APPLE_vertex_array_object</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/EXT/framebuffer_sRGB.txt">EXT_framebuffer_sRGB</a></li>
- * </ul></p>
+ * </ul>
  */
 public class GL30 {
 
@@ -1753,11 +1754,12 @@ Ends conditional rendering.
 	 * 
 	 * Maps a section of a buffer object's data store.
 	 * 
-	 * <p><b>LWJGL note</b>: This method comes in 2 flavors:
+	 * <p><b>LWJGL note</b>: This method comes in 2 flavors:</p>
+	 * 
 	 * <ol>
 	 * <li>{@link #glMapBufferRange(int, long, long, int)} - Always returns a new ByteBuffer instance.</li>
 	 * <li>{@link #glMapBufferRange(int, long, long, int, ByteBuffer)} - The {@code old_buffer} parameter is reused if not null.</li>
-	 * </ol></p>
+	 * </ol>
 	 *
 	 * @param target a binding to which the target buffer is bound. One of:<br>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}, {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}, {@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}, {@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}, {@link #GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}, {@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}, {@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}, {@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}, {@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}, {@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}, {@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}, {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}, {@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}, {@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}
 	 * @param offset the starting offset within the buffer of the range to be mapped

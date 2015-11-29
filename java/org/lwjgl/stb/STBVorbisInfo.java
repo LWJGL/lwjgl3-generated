@@ -16,6 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Information about a Vorbis stream.
  * 
  * <h3>stb_vorbis_info members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>sample_rate</td><td class="nw">unsigned int</td><td></td></tr>

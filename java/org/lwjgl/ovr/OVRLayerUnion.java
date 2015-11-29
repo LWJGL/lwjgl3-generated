@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Union that combines {@code ovrLayer} types in a way that allows them to be used in a polymorphic way.
  * 
  * <h3>ovrLayer_Union members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>Header</td><td class="nw">{@link OVRLayerHeader ovrLayerHeader}</td><td>the layer header</td></tr>

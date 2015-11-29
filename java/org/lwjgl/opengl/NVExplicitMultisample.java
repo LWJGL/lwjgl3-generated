@@ -17,14 +17,15 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/explicit_multisample.txt">NV_explicit_multisample</a> extension.
  * 
  * <p>In traditional multisample specs, the API only allows access to the samples indirectly through methods such as coverage values and downsampled
- * readbacks. NV_explicit_multisample adds a set of new capabilities to allow more precise control over the use of multisamples. Specifically, it adds:
+ * readbacks. NV_explicit_multisample adds a set of new capabilities to allow more precise control over the use of multisamples. Specifically, it adds:</p>
+ * 
  * <ul>
  * <li>A query in the API to query the location of samples within the pixel</li>
  * <li>An explicit control for the multisample sample mask to augment the control provided by SampleCoverage</li>
  * <li>A new texture target to wrap a renderbuffer and allow a restricted class of accesses to the samples</li>
  * <li>The ability to fetch a specific sample from a multisampled texture from within a shader</li>
  * <li>A program option to enable the new behavior</li>
- * </ul></p>
+ * </ul>
  * 
  * <p>Requires {@link GL20 OpenGL 2.0} and {@link ARBMultisample ARB_multisample}.</p>
  */

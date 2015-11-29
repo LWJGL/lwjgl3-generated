@@ -126,6 +126,7 @@ public class INTELAccelerator {
 	 *
 	 * @return a valid non-zero accelerator object, and {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the accelerator object is created successfully. Otherwise, it returns a
 	 *         {@code NULL} value with one of the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link #CL_INVALID_ACCELERATOR_TYPE_INTEL INVALID_ACCELERATOR_TYPE_INTEL} if the supplied accelerator type is not valid.</li>
@@ -160,6 +161,7 @@ public class INTELAccelerator {
 	 * @param accelerator a valid accelerator object
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_ACCELERATOR_INTEL INVALID_ACCELERATOR_INTEL} if accelerator is a not a valid accelerator object.</li>
 	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -182,6 +184,7 @@ public class INTELAccelerator {
 	 * @param accelerator a valid accelerator object
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_ACCELERATOR_INTEL INVALID_ACCELERATOR_INTEL} if accelerator is a not a valid accelerator object.</li>
 	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -216,6 +219,7 @@ public class INTELAccelerator {
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not valid or if size in bytes specified by {@code param_value_size} is &lt; size of return type and
 	 *         {@code param_value} is not {@code NULL}.</li>

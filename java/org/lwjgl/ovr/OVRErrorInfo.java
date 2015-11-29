@@ -16,6 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Provides information about the last error.
  * 
  * <h3>ovrErrorInfo members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>Result</td><td class="nw">ovrResult</td><td>the result from the last API call that generated an error ovrResult</td></tr>

@@ -24,7 +24,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>This extension provides increased flexibility in how vertex attributes can be written to buffer objects. Previous extensions allowed applications to
  * record a set of attributes interleaved into a single buffer object (interleaved mode) or to record into multiple objects, but with only a single
  * attribute per buffer (separate mode). This extension extends interleaved mode to write into multiple buffers, with multiple attributes per buffer. This
- * capability is supported for all three styles of transform feedback:
+ * capability is supported for all three styles of transform feedback:</p>
+ * 
  * <ul>
  * <li>"EXT"-style GLSL transform feedback (<a href="http://www.opengl.org/registry/specs/EXT/transform_feedback.txt">EXT_transform_feedback</a>), where a list of varyings is provided prior to linking a
  * program object and is used whenever that program object is used.</li>
@@ -33,7 +34,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * varyings to capture can be changed without relinking.</li>
  * <li>Transform feedback for fixed-function or assembly vertex/geometry shaders (<a href="http://www.opengl.org/registry/specs/NV/transform_feedback2.txt">NV_transform_feedback2</a>), where applications
  * specify a set of canonical attribute enums/numbers to capture.</li>
- * </ul></p>
+ * </ul>
  * 
  * <p>Additionally, this extension adds new support for multiple separate vertex streams. New geometry shader functionality provided by the
  * {@link ARBGPUShader5 ARB_gpu_shader5} and <a href="http://www.opengl.org/registry/specs/NV/gpu_program5.txt">NV_gpu_program5</a> extensions allows geometry shaders to direct each vertex arbitrarily at a specified

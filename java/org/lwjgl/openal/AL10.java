@@ -524,7 +524,8 @@ public class AL10 {
 	 * <p>The Doppler Effect depends on the velocities of source and listener relative to the medium, and the propagation speed of sound in that medium. The
 	 * application might want to emphasize or de-emphasize the Doppler Effect as physically accurate calculation might not give the desired results. The amount
 	 * of frequency shift (pitch change) is proportional to the speed of listener and source along their line of sight. The Doppler Effect as implemented by
-	 * OpenAL is described by the formula below. Effects of the medium (air, water) moving with respect to listener and source are ignored.
+	 * OpenAL is described by the formula below. Effects of the medium (air, water) moving with respect to listener and source are ignored.</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * SS: AL_SPEED_OF_SOUND = speed of sound (default value 343.3)
 	 * DF: AL_DOPPLER_FACTOR = Doppler factor (default 1.0)
@@ -551,7 +552,8 @@ public class AL10 {
 	 * vls = min(vls, SS / DF)
 	 * 
 	 * f' = f * (SS - DF * vls) / (SS - DF * vss)</code></pre>
-	 * The {@code dopplerFactor} is a simple scaling of source and listener velocities to exaggerate or deemphasize the Doppler (pitch) shift resulting from
+	 * 
+	 * <p>The {@code dopplerFactor} is a simple scaling of source and listener velocities to exaggerate or deemphasize the Doppler (pitch) shift resulting from
 	 * the calculation.</p>
 	 *
 	 * @param dopplerFactor the doppler factor
@@ -569,13 +571,15 @@ public class AL10 {
 	 * <p>The OpenAL 1.1 Doppler implementation is different than that of OpenAL 1.0, because the older implementation was confusing and not implemented
 	 * consistently. The new "speed of sound" property makes the 1.1 implementation more intuitive than the old implementation. If your implementation wants to
 	 * support the AL_DOPPLER_VELOCITY parameter (the alDopplerVelocity call will remain as an entry point so that 1.0 applications can link with a 1.1
-	 * library), the above formula can be changed to the following:
+	 * library), the above formula can be changed to the following:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * vss = min(vss, (SS * DV)/DF)
 	 * vls = min(vls, (SS * DV)/DF)
 	 * 
 	 * f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
-	 * OpenAL 1.1 programmers would never use AL_DOPPLER_VELOCITY (which defaults to 1.0).</p>
+	 * 
+	 * <p>OpenAL 1.1 programmers would never use AL_DOPPLER_VELOCITY (which defaults to 1.0).</p>
 	 *
 	 * @param dopplerVelocity the doppler velocity
 	 */

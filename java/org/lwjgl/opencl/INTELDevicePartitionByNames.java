@@ -19,12 +19,13 @@ package org.lwjgl.opencl;
  * 
  * <p>[ {@link #CL_DEVICE_PARTITION_BY_NAMES_INTEL DEVICE_PARTITION_BY_NAMES_INTEL}, 0, 1, 3, {@link #CL_PARTITION_BY_NAMES_LIST_END_INTEL PARTITION_BY_NAMES_LIST_END_INTEL}, 0 ]</p>
  * 
- * <p>The meaning of these numbers are, in order:
+ * <p>The meaning of these numbers are, in order:</p>
+ * 
  * <ul>
  * <li>0 the name of the first compute unit in the sub-device</li>
  * <li>1 the name of the second compute unit in the sub-device</li>
  * <li>3 the name of the third compute unit in the sub-device</li>
- * </ul></p>
+ * </ul>
  */
 public final class INTELDevicePartitionByNames {
 

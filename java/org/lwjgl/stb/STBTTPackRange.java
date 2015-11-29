@@ -16,6 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * A range of packed character data, returned by {@link STBTruetype#stbtt_PackFontRanges}
  * 
  * <h3>stbtt_pack_range members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>font_size</td><td class="nw">float</td><td></td></tr>

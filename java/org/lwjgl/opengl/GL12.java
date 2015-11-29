@@ -16,7 +16,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * The core OpenGL 1.2 functionality.
  * 
- * <p>Extensions promoted to core in this release:
+ * <p>Extensions promoted to core in this release:</p>
+ * 
  * <ul>
  * <li><a href="http://www.opengl.org/registry/specs/EXT/texture3D.txt">EXT_texture3D</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/EXT/bgra.txt">EXT_bgra</a></li>
@@ -26,9 +27,10 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li><a href="http://www.opengl.org/registry/specs/SGIS/texture_edge_clamp.txt">SGIS_texture_edge_clamp</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/SGIS/texture_lod.txt">SGIS_texture_lod</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/EXT/draw_range_elements.txt">EXT_draw_range_elements</a></li>
- * </ul></p>
+ * </ul>
  * 
- * <p>Extensions part of the <em>imaging subset</em>:
+ * <p>Extensions part of the <em>imaging subset</em>:</p>
+ * 
  * <ul>
  * <li><a href="http://www.opengl.org/registry/specs/EXT/color_table.txt">EXT_color_table</a> and <a href="http://www.opengl.org/registry/specs/EXT/color_subtable.txt">EXT_color_subtable</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/EXT/convolution.txt">EXT_convolution</a> and <a href="http://www.opengl.org/registry/specs/HP/convolution_border_modes.txt">HP_convolution_border_modes</a></li>
@@ -36,7 +38,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li><a href="http://www.opengl.org/registry/specs/EXT/histogram.txt">EXT_histogram</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/EXT/blend_color.txt">EXT_blend_color</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/EXT/blend_minmax.txt">EXT_blend_minmax</a> and <a href="http://www.opengl.org/registry/specs/EXT/EXT_blend_subtract.txt">EXT_EXT_blend_subtract</a></li>
- * </ul></p>
+ * </ul>
  */
 public class GL12 {
 
@@ -363,10 +365,13 @@ public class GL12 {
 	 * enabled, each is used.</p>
 	 * 
 	 * <p>Vertex attributes that are modified by glDrawRangeElements have an unspecified value after glDrawRangeElements returns. Attributes that aren't modified
-	 * maintain their previous values.
+	 * maintain their previous values.</p>
+	 * 
 	 * <h3>Errors</h3>
-	 * It is an error for indices to lie outside the range start end, but implementations may not check for this situation. Such indices cause
-	 * implementation-dependent behavior.
+	 * 
+	 * <p>It is an error for indices to lie outside the range start end, but implementations may not check for this situation. Such indices cause
+	 * implementation-dependent behavior.</p>
+	 * 
 	 * <ul>
 	 * <li>GL_INVALID_ENUM is generated if mode is not an accepted value.</li>
 	 * <li>GL_INVALID_VALUE is generated if count is negative.</li>
@@ -375,7 +380,7 @@ public class GL12 {
 	 * currently installed program object.</li>
 	 * <li>GL_INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and the buffer object's data
 	 * store is currently mapped.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param mode    the kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param start   the minimum array index contained in {@code indices}

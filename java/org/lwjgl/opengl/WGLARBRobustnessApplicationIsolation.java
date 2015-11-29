@@ -12,11 +12,12 @@ package org.lwjgl.opengl;
  * WGL_ARB_robustness_application_isolation provides stronger guarantees about the possible side-effects of a graphics reset.</p>
  * 
  * <p>If the graphics driver advertises the WGL_ARB_robustness_application_isolation extension string, then the driver guarantees that if a particular
- * application causes a graphics reset to occur:
+ * application causes a graphics reset to occur:</p>
+ * 
  * <ol>
  * <li>No other application on the system is affected by the graphics reset.</li>
  * <li>No other application on the system receives any notification that the graphics reset occurred.</li>
- * </ol></p>
+ * </ol>
  * 
  * <p>Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string} and {@link WGLARBCreateContextRobustness WGL_ARB_create_context_robustness}.</p>
  */

@@ -18,7 +18,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * The core OpenGL 4.3 functionality. OpenGL 4.3 implementations support revision 4.30 of the OpenGL Shading Language.
  * 
- * <p>Extensions promoted to core in this release:
+ * <p>Extensions promoted to core in this release:</p>
+ * 
  * <ul>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/arrays_of_arrays.txt">ARB_arrays_of_arrays</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/ES3_compatibility.txt">ARB_ES3_compatibility</a></li>
@@ -45,7 +46,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_storage_multisample.txt">ARB_texture_storage_multisample</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_view.txt">ARB_texture_view</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/vertex_attrib_binding.txt">ARB_vertex_attrib_binding</a></li>
- * </ul></p>
+ * </ul>
  */
 public class GL43 {
 
@@ -681,18 +682,20 @@ public class GL43 {
 	 * 
 	 * Launches one or more compute work groups using parameters stored in a buffer.
 	 * 
-	 * <p>The parameters addressed by indirect are packed a structure, which takes the form (in C):
+	 * <p>The parameters addressed by indirect are packed a structure, which takes the form (in C):</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * typedef struct {
 	 * 	uint num_groups_x;
 	 * 	uint num_groups_y;
 	 * 	uint num_groups_z;
-	 * } DispatchIndirectCommand;</code></pre></p>
+	 * } DispatchIndirectCommand;</code></pre>
 	 * 
-	 * <p>A call to {@code glDispatchComputeIndirect} is equivalent, assuming no errors are generated, to:
+	 * <p>A call to {@code glDispatchComputeIndirect} is equivalent, assuming no errors are generated, to:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * cmd = (const DispatchIndirectCommand *)indirect;
-	 * glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</code></pre></p>
+	 * glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</code></pre>
 	 *
 	 * @param indirect the offset into the buffer object currently bound to the {@link #GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER} buffer target at which the dispatch parameters are
 	 *                 stored.
@@ -749,7 +752,8 @@ public class GL43 {
 	 * <p>If {@code enabled} is {@link GL11#GL_TRUE TRUE}, the referenced subset of messages will be enabled. If {@link GL11#GL_FALSE FALSE}, then those messages will be disabled.</p>
 	 * 
 	 * <p>This command can reference different subsets of messages by first considering the set of all messages, and filtering out messages based on the following
-	 * ways:
+	 * ways:</p>
+	 * 
 	 * <ul>
 	 * <li>If {@code source}, {@code type}, or {@code severity} is {@link GL11#GL_DONT_CARE DONT_CARE}, the messages from all sources, of all types, or of all severities are
 	 * referenced respectively.</li>
@@ -758,7 +762,7 @@ public class GL43 {
 	 * <li>If {@code count} is greater than zero, then {@code ids} is an array of {@code count} message IDs for the specified combination of {@code source} and
 	 * {@code type}. In this case, if {@code source} or {@code type} is {@link GL11#GL_DONT_CARE DONT_CARE}, or {@code severity} is not {@link GL11#GL_DONT_CARE DONT_CARE}, the error
 	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated.</li>
-	 * </ul></p>
+	 * </ul>
 	 * 
 	 * <p>Unrecognized message IDs in {@code ids} are ignored. If {@code count} is zero, the value if {@code ids} is ignored.</p>
 	 * 
@@ -1452,16 +1456,18 @@ public class GL43 {
 	 * 
 	 * Renders multiple sets of primitives from array data, taking parameters from memory.
 	 * 
-	 * <p>The parameters addressed by {@code indirect} are packed into an array of structures, each element of which takes the form (in C):
+	 * <p>The parameters addressed by {@code indirect} are packed into an array of structures, each element of which takes the form (in C):</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * typedef struct {
 	 * 	uint count;
 	 * 	uint primCount;
 	 * 	uint first;
 	 * 	uint baseInstance;
-	 * } DrawArraysIndirectCommand;</code></pre></p>
+	 * } DrawArraysIndirectCommand;</code></pre>
 	 * 
-	 * <p>A single call to {@code glMultiDrawArraysIndirect} is equivalent, assuming no errors are generated to:
+	 * <p>A single call to {@code glMultiDrawArraysIndirect} is equivalent, assuming no errors are generated to:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * const ubyte *ptr = (const ubyte *)indirect;
 	 * for ( i = 0; i < primcount; i++ ) {
@@ -1470,7 +1476,7 @@ public class GL43 {
 	 * 		ptr += sizeof(DrawArraysIndirectCommand);
 	 * 	else
 	 * 		ptr += stride;
-	 * }</code></pre></p>
+	 * }</code></pre>
 	 *
 	 * @param mode      what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param indirect  an array of structures containing the draw parameters
@@ -1515,7 +1521,8 @@ public class GL43 {
 	 * 
 	 * Renders multiple indexed primitives from array data, taking parameters from memory.
 	 * 
-	 * <p>The parameters addressed by indirect are packed into a structure that takes the form (in C):
+	 * <p>The parameters addressed by indirect are packed into a structure that takes the form (in C):</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * typedef struct {
 	 * 	uint count;
@@ -1523,9 +1530,10 @@ public class GL43 {
 	 * 	uint firstIndex;
 	 * 	uint baseVertex;
 	 * 	uint baseInstance;
-	 * } DrawElementsIndirectCommand;</code></pre></p>
+	 * } DrawElementsIndirectCommand;</code></pre>
 	 * 
-	 * <p>A single call to {@code glMultiDrawElementsIndirect} is equivalent, assuming no errors are generated to:
+	 * <p>A single call to {@code glMultiDrawElementsIndirect} is equivalent, assuming no errors are generated to:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * const ubyte *ptr = (const ubyte *)indirect;
 	 * for ( i = 0; i < primcount; i++ ) {
@@ -1534,7 +1542,7 @@ public class GL43 {
 	 * 		ptr += sizeof(DrawElementsIndirectCommand);
 	 * 	else
 	 * 		ptr += stride;
-	 * }</code></pre></p>
+	 * }</code></pre>
 	 *
 	 * @param mode      what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param type      the type of data in the buffer bound to the GL_ELEMENT_ARRAY_BUFFER binding. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}

@@ -25,23 +25,29 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h3>USAGE</h3>
  * 
- * <p>There are four functions, one for each image file format:
+ * <p>There are four functions, one for each image file format:</p>
+ * 
  * <pre><code style="font-family: monospace">
  * int stbi_write_png(char const *filename, int w, int h, int comp, const void *data, int stride_in_bytes);
  * int stbi_write_bmp(char const *filename, int w, int h, int comp, const void *data);
  * int stbi_write_tga(char const *filename, int w, int h, int comp, const void *data);
  * int stbi_write_hdr(char const *filename, int w, int h, int comp, const void *data);</code></pre>
- * There are also four equivalent functions that use an arbitrary write function. You are expected to open/close your file-equivalent before and after
- * calling these:
+ * 
+ * <p>There are also four equivalent functions that use an arbitrary write function. You are expected to open/close your file-equivalent before and after
+ * calling these:</p>
+ * 
  * <pre><code style="font-family: monospace">
  * int stbi_write_png_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data, int stride_in_bytes);
  * int stbi_write_bmp_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data);
  * int stbi_write_tga_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data);
  * int stbi_write_hdr_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const float *data);</code></pre>
- * where the callback is:
+ * 
+ * <p>where the callback is:</p>
+ * 
  * <pre><code style="font-family: monospace">
  * void stbi_write_func(void *context, void *data, int size);</code></pre>
- * The functions create an image file defined by the parameters. The image is a rectangle of pixels stored from left-to-right, top-to-bottom. Each pixel
+ * 
+ * <p>The functions create an image file defined by the parameters. The image is a rectangle of pixels stored from left-to-right, top-to-bottom. Each pixel
  * contains {@code comp} channels of data stored interleaved with 8-bits per channel, in the following order: 1=Y, 2=YA, 3=RGB, 4=RGBA. (Y is monochrome
  * color.) The rectangle is {@code w} pixels wide and {@code h} pixels tall. The {@code *data} pointer points to the first byte of the top-left-most
  * pixel.</p>

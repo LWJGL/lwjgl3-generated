@@ -550,6 +550,7 @@ public class JEmalloc {
 	 * value of {@code *miblenp}. Thus it is possible to pass a {@code *miblenp} that is smaller than the number of period-separated name components, which
 	 * results in a partial MIB that can be used as the basis for constructing a complete MIB. For name components that are integers (e.g. the 2 in
 	 * "arenas.bin.2.size"), the corresponding MIB component will always be that integer. Therefore, it is legitimate to construct code like the following:
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * unsigned nbins, i;
 	 * size_t mib[4];

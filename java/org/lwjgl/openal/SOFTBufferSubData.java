@@ -80,12 +80,14 @@ public class SOFTBufferSubData {
 	 * {@link AL10#alBufferData BufferData}, or an {@link AL10#AL_INVALID_ENUM INVALID_ENUM} error is generated.</p>
 	 * 
 	 * <p>When modifying a playing source's buffer, an application must take care to not modify the section that is currently being played. The read-only source
-	 * attributes:
+	 * attributes:</p>
+	 * 
 	 * <ul>
 	 * <li>{@link #AL_BYTE_RW_OFFSETS_SOFT BYTE_RW_OFFSETS_SOFT}</li>
 	 * <li>{@link #AL_SAMPLE_RW_OFFSETS_SOFT SAMPLE_RW_OFFSETS_SOFT}</li>
 	 * </ul>
-	 * may be used to retrieve the read and write cursor offsets. Behavior is undefined if an attempt is made to modify buffer data between the read and write
+	 * 
+	 * <p>may be used to retrieve the read and write cursor offsets. Behavior is undefined if an attempt is made to modify buffer data between the read and write
 	 * offsets.</p>
 	 *
 	 * @param buffer ID of the buffer to modify

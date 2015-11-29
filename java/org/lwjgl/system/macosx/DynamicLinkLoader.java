@@ -63,38 +63,43 @@ public class DynamicLinkLoader {
 	 * <p>The order in which the search paths are searched depends on whether path is a filename (it does not contain a slash) or a pathname (it contains at least
 	 * one slash).</p>
 	 * 
-	 * <p>When path is a filename, the dynamic loader searches for the library in the search paths in the following order:
+	 * <p>When path is a filename, the dynamic loader searches for the library in the search paths in the following order:</p>
+	 * 
 	 * <ul>
 	 * <li>$LD_LIBRARY_PATH</li>
 	 * <li>$DYLD_LIBRARY_PATH</li>
 	 * <li>The process's working directory</li>
 	 * <li>$DYLD_FALLBACK_LIBRARY_PATH</li>
 	 * </ul>
-	 * When path is a pathname, the dynamic loader searches for the library in the search paths in the following order:
+	 * 
+	 * <p>When path is a pathname, the dynamic loader searches for the library in the search paths in the following order:</p>
+	 * 
 	 * <ul>
 	 * <li>$DYLD_LIBRARY_PATH</li>
 	 * <li>The given pathname</li>
 	 * <li>$DYLD_FALLBACK_LIBRARY_PATH using the filename</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param path path to the image to open
 	 * @param mode specifies when the loaded image's external symbols are bound to their definitions in dependent libraries (lazy or at load time) and the visibility
 	 *             of the image's exported symbols (global or local). The value of this parameter is made up by ORing one binding behavior value with one visibility
 	 *             specification value.
 	 *             
-	 *             <p>The following values specify the binding behavior:
+	 *             <p>The following values specify the binding behavior:</p>
+	 *             
 	 *             <ul>
 	 *             <li>{@link #RTLD_LAZY} (default): Each external symbol reference is bound the first time it's used.</li>
 	 *             <li>{@link #RTLD_NOW}: All external symbol references are bound immediately.</li>
-	 *             </ul></p>
+	 *             </ul>
 	 *             
-	 *             <p>The following values specify external symbol visibility:
+	 *             <p>The following values specify external symbol visibility:</p>
+	 *             
 	 *             <ul>
 	 *             <li>{@link #RTLD_GLOBAL} (default): The loaded image's exported symbols are available to any images that use a flat namespace or to calls to
 	 *             dlsym when using a special handle (see {@link #dlsym} for details).</li>
 	 *             <li>{@link #RTLD_LOCAL}: The loaded image's exported symbols are generally hidden. They are available only to {@link #dlsym} invocations that
 	 *             use the handle returned by this function.</li>
-	 *             </ul></p>
+	 *             </ul>
 	 */
 	public static long dlopen(ByteBuffer path, int mode) {
 		if ( CHECKS )
@@ -139,13 +144,14 @@ public class DynamicLinkLoader {
 	 * Returns the address of a symbol.
 	 * 
 	 * <p>The value of handle specifies what images this function searches for to locate the symbol specified by the symbol parameter. The following table
-	 * describes the possible values for the handle parameter:
+	 * describes the possible values for the handle parameter:</p>
+	 * 
 	 * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
 	 * <tr><th>Handle value</th><th>Search scope</th></tr>
 	 * <tr><td>{@code dlopen} handle</td><td>Image associated with the {@link #dlopen} handle.</td></tr>
 	 * <tr><td>{@link #RTLD_DEFAULT}</td><td>Every dependent library or {@link #RTLD_GLOBAL}–opened library in the current process, in the order they were loaded.</td></tr>
 	 * <tr><td>{@link #RTLD_NEXT}</td><td>Dependent libraries that were loaded after the one calling this function. Libraries opened with {@link #dlopen} are not searched.</td></tr>
-	 * </table></p>
+	 * </table>
 	 * 
 	 * <p>Unlike in the NS... functions, the symbol parameter doesn't require a leading underscore to be part of the symbol name.</p>
 	 *

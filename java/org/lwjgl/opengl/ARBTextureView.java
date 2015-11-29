@@ -19,13 +19,14 @@ import static org.lwjgl.system.JNI.*;
  * <p>The goals of this extension are to avoid having these alternate views become shared mutable containers of shared mutable objects, and to add the views
  * to the API in a minimally invasive way.</p>
  * 
- * <p>No new object types are added. Conceptually, a texture object is split into the following parts:
+ * <p>No new object types are added. Conceptually, a texture object is split into the following parts:</p>
+ * 
  * <ul>
  * <li>A data store holding texel data.</li>
  * <li>State describing which portions of the data store to use, and how to interpret the data elements.</li>
  * <li>An embedded sampler object.</li>
  * <li>Various other texture parameters.</li>
- * </ul></p>
+ * </ul>
  * 
  * <p>With this extension, multiple textures can share a data store and have different state describing which portions of the data store to use and how to
  * interpret the data elements. The data store is refcounted and not destroyed until the last texture sharing it is deleted.</p>

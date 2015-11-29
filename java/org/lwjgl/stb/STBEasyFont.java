@@ -16,7 +16,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Native bindings to stb_easy_font.h from the <a href="https://github.com/nothings/stb">stb library</a>.
  * 
- * <p>Bitmap font for use in 3D APIs:
+ * <p>Bitmap font for use in 3D APIs:</p>
+ * 
  * <ul>
  * <li>Easy-to-deploy</li>
  * <li>reasonably compact</li>
@@ -24,13 +25,15 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>crappy-looking</li>
  * <li>ASCII-only</li>
  * </ul>
- * Intended for when you just want to get some text displaying in a 3D app as quickly as possible.</p>
+ * 
+ * <p>Intended for when you just want to get some text displaying in a 3D app as quickly as possible.</p>
  * 
  * <p>Doesn't use any textures, instead builds characters out of quads.</p>
  * 
  * <h3>SAMPLE CODE</h3>
  * 
- * <p>Here's sample code for old OpenGL; it's a lot more complicated to make work on modern APIs, and that's your problem.
+ * <p>Here's sample code for old OpenGL; it's a lot more complicated to make work on modern APIs, and that's your problem.</p>
+ * 
  * <pre><code style="font-family: monospace">
  * void print_string(float x, float y, char *text, float r, float g, float b)
  * {
@@ -44,7 +47,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 	glVertexPointer(2, GL_FLOAT, 16, buffer);
  * 	glDrawArrays(GL_QUADS, 0, num_quads*4);
  * 	glDisableClientState(GL_VERTEX_ARRAY);
- * }</code></pre></p>
+ * }</code></pre>
  */
 public class STBEasyFont {
 
@@ -93,13 +96,15 @@ public class STBEasyFont {
 	 * 
 	 * <p>The vertex data is divided into quads, i.e. there are four vertices in the vertex buffer for each quad.</p>
 	 * 
-	 * <p>The vertices are stored in an interleaved format:
+	 * <p>The vertices are stored in an interleaved format:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * x:float
 	 * y:float
 	 * z:float
 	 * color:uint8[4]</code></pre>
-	 * You can ignore z and color if you get them from elsewhere. This format was chosen in the hopes it would make it easier for you to reuse existing
+	 * 
+	 * <p>You can ignore z and color if you get them from elsewhere. This format was chosen in the hopes it would make it easier for you to reuse existing
 	 * buffer-drawing code.</p>
 	 * 
 	 * <p>If you pass in {@code NULL} for color, it becomes {@code 255,255,255,255}.</p>

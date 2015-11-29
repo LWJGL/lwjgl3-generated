@@ -21,11 +21,12 @@ package org.lwjgl.opengl;
  * DXGI_FORMAT_B8G8R8A8_UNORM format.</p>
  * 
  * <p>For an OpenGL application to source color data from a vertex buffer formatted for Direct3D's color array format conventions, the application is forced
- * to either:
+ * to either:</p>
+ * 
  * <ol>
  * <li>Rely on a vertex program or shader to swizzle the color components from the BGRA to conventional RGBA order.</li>
  * <li>Re-order the color data components in the vertex buffer from Direct3D's native BGRA order to OpenGL's native RGBA order.</li>
- * </ol></p>
+ * </ol>
  * 
  * <p>Neither option is entirely satisfactory.</p>
  * 

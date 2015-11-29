@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * The image format descriptor struct.
  * 
  * <h3>cl_image_format members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>image_channel_order</td><td class="nw">cl_channel_order</td><td>specifies the number of channels and the channel layout i.e. the memory layout in which channels are stored in the image</td></tr>

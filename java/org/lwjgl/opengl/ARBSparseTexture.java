@@ -123,14 +123,16 @@ public class ARBSparseTexture {
 	 * <p>An {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} error is generated if {@code xoffset} + {@code width} or {@code yoffset} + {@code height} is greater than the width or height,
 	 * respectively, of level {@code level} of the texture bound to {@code target}.</p>
 	 * 
-	 * <p>An {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} error is generated if {@code zoffset} + {@code depth} is greater than
+	 * <p>An {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} error is generated if {@code zoffset} + {@code depth} is greater than</p>
+	 * 
 	 * <ul>
 	 * <li>the depth of level {@code level} of the texture bound to {@code target}, if {@code target} is {@link GL12#GL_TEXTURE_3D TEXTURE_3D};</li>
 	 * <li>the number of layers of level {@code level} of the texture bound to {@code target}, if {@code target} is {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY};</li>
 	 * <li>six times the number of layers of level {@code level} of the texture bound to {@code target}, if {@code target} is {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}; or</li>
 	 * <li>one, for all other targets.</li>
 	 * </ul>
-	 * An {@link GL11#GL_INVALID_VALUE INVALID_VALUE} error is generated if {@code xoffset}, {@code yoffset}, or {@code zoffset} is not a multiple of {@link #GL_VIRTUAL_PAGE_SIZE_X_ARB VIRTUAL_PAGE_SIZE_X_ARB},
+	 * 
+	 * <p>An {@link GL11#GL_INVALID_VALUE INVALID_VALUE} error is generated if {@code xoffset}, {@code yoffset}, or {@code zoffset} is not a multiple of {@link #GL_VIRTUAL_PAGE_SIZE_X_ARB VIRTUAL_PAGE_SIZE_X_ARB},
 	 * {@link #GL_VIRTUAL_PAGE_SIZE_Y_ARB VIRTUAL_PAGE_SIZE_Y_ARB}, or {@link #GL_VIRTUAL_PAGE_SIZE_Z_ARB VIRTUAL_PAGE_SIZE_Z_ARB}, respectively, of the texture bound to {@code target}.</p>
 	 * 
 	 * <p>An {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} error is generated if {@code width} is not an integer multiple of {@link #GL_VIRTUAL_PAGE_SIZE_X_ARB VIRTUAL_PAGE_SIZE_X_ARB} and {@code width} plus
@@ -140,14 +142,16 @@ public class ARBSparseTexture {
 	 * {@code yoffset} is not equal to the height of level {@code level} of the texture bound to {@code target}.</p>
 	 * 
 	 * <p>An {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} error is generated if {@code depth} is not an integer multiple of {@link #GL_VIRTUAL_PAGE_SIZE_Z_ARB VIRTUAL_PAGE_SIZE_Z_ARB} and {@code depth} plus
-	 * {@code zoffset} is not equal to
+	 * {@code zoffset} is not equal to</p>
+	 * 
 	 * <ul>
 	 * <li>the depth of level {@code level} of the texture bound to {@code target}, if {@code target} is TEXTURE_3D;</li>
 	 * <li>the number of layers of level {@code level} of the texture bound to {@code target}, if {@code target} is TEXTURE_2D_ARRAY;</li>
 	 * <li>six times the number of layers of level {@code level} of the texture bound to {@code target}, if {@code target} is TEXTURE_CUBE_MAP_ARRAY; or</li>
 	 * <li>one, for all other targets.</li>
 	 * </ul>
-	 * An {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} error is generated if the value of {@link GL42#GL_TEXTURE_IMMUTABLE_FORMAT TEXTURE_IMMUTABLE_FORMAT} or {@link #GL_TEXTURE_SPARSE_ARB TEXTURE_SPARSE_ARB} for the texture bound to
+	 * 
+	 * <p>An {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} error is generated if the value of {@link GL42#GL_TEXTURE_IMMUTABLE_FORMAT TEXTURE_IMMUTABLE_FORMAT} or {@link #GL_TEXTURE_SPARSE_ARB TEXTURE_SPARSE_ARB} for the texture bound to
 	 * {@code target} is {@link GL11#GL_FALSE FALSE}.</p>
 	 *
 	 * @param target  the texture target. One of:<br>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}, {@link GL11#GL_TEXTURE_2D TEXTURE_2D}, {@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}, {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}, {@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}, {@link GL12#GL_TEXTURE_3D TEXTURE_3D}, {@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}, {@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}

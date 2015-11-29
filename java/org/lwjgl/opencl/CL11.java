@@ -166,6 +166,7 @@ public class CL11 {
 	 * @param errcode_ret        will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if {@code buffer} is not a valid buffer object or is a sub-buffer object.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code buffer} was created with {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} and {@code flags} specifies {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}
@@ -212,6 +213,7 @@ public class CL11 {
 	 * @param user_data  will be passed as the {@code user_data} argument when {@code pfn_notify} is called. {@code user_data} can be {@code NULL}.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if {@code memobj} is not a valid memory object.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code pfn_notify} is NULL.</li>
@@ -244,13 +246,14 @@ public class CL11 {
 	 * 
 	 * <p>Calling {@code clEnqueueReadBufferRect} to read a region of the buffer object with the {@code ptr} argument value set to {@code host_ptr} and
 	 * {@code host_origin}, {@code buffer_origin} values are the same, where {@code host_ptr} is a pointer to the memory region specified when the buffer
-	 * object being read is created with {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet the following requirements in order to avoid undefined behavior:
+	 * object being read is created with {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet the following requirements in order to avoid undefined behavior:</p>
+	 * 
 	 * <ul>
 	 * <li>All commands that use this buffer object or a memory object (buffer or image) created from this buffer object have finished execution before the
 	 * read command begins execution.</li>
 	 * <li>The buffer object or memory objects created from this buffer object are not mapped.</li>
 	 * <li>The buffer object or memory objects created from this buffer object are not used by any command-queue until the read command has finished execution.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param command_queue           the command-queue in which the read command will be queued. {@code command_queue} and {@code buffer} must be created with the same OpenCL context.
 	 * @param buffer                  a valid buffer object
@@ -288,6 +291,7 @@ public class CL11 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code buffer} are not the same or if the context associated
@@ -397,12 +401,13 @@ public class CL11 {
 	 * <p>Calling {@code clEnqueueWriteBufferRect} to update the latest bits in a region of the buffer object with the {@code ptr} argument value set to
 	 * {@code host_ptr} and {@code host_origin}, {@code buffer_origin} values are the same, where {@code host_ptr} is a pointer to the memory region specified
 	 * when the buffer object being written is created with {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet the following requirements in order to avoid undefined
-	 * behavior:
+	 * behavior:</p>
+	 * 
 	 * <ul>
 	 * <li>The host memory region given by {@code (buffer_origin region)} contains the latest bits when the enqueued write command begins execution.</li>
 	 * <li>The buffer object or memory objects created from this buffer object are not mapped.</li>
 	 * <li>The buffer object or memory objects created from this buffer object are not used by any command-queue until the write command has finished execution.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param command_queue           the command-queue in which the write command will be queued. {@code command_queue} and {@code buffer} must be created with the same OpenCL context.
 	 * @param buffer                  a valid buffer object
@@ -440,6 +445,7 @@ public class CL11 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code buffer} are not the same or if the context associated
@@ -582,6 +588,7 @@ public class CL11 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue}, {@code src_buffer} and {@code dst_buffer} are not the same or
@@ -655,6 +662,7 @@ public class CL11 {
 	 *
 	 * @return a valid non-zero event object and {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the user event object is created successfully. Otherwise, it returns a {@code NULL}
 	 *         value with one of the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -683,20 +691,23 @@ public class CL11 {
 	 * that the status of these user events being waited on are set using {@code clSetUserEventStatus} before any OpenCL APIs that release OpenCL objects
 	 * except for event objects are called; otherwise the behavior is undefined.</p>
 	 * 
-	 * <p>For example, the following code sequence will result in undefined behavior of {@link CL10#clReleaseMemObject ReleaseMemObject}.
+	 * <p>For example, the following code sequence will result in undefined behavior of {@link CL10#clReleaseMemObject ReleaseMemObject}.</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * ev1 = clCreateUserEvent(ctx, NULL);
 	 * clEnqueueWriteBuffer(cq, buf1, CL_FALSE, ..., 1, &ev1, NULL);
 	 * clEnqueueWriteBuffer(cq, buf2, CL_FALSE, ...);
 	 * clReleaseMemObject(buf2);
 	 * clSetUserEventStatus(ev1, CL_COMPLETE);</code></pre>
-	 * The following code sequence, however, works correctly.
+	 * 
+	 * <p>The following code sequence, however, works correctly.</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * ev1 = clCreateUserEvent(ctx, NULL);
 	 * clEnqueueWriteBuffer(cq, buf1, CL_FALSE, ..., 1, &ev1, NULL);
 	 * clEnqueueWriteBuffer(cq, buf2, CL_FALSE, ...);
 	 * clSetUserEventStatus(ev1, CL_COMPLETE);
-	 * clReleaseMemObject(buf2);</code></pre></p>
+	 * clReleaseMemObject(buf2);</code></pre>
 	 *
 	 * @param event            a user event object created using {@link #clCreateUserEvent CreateUserEvent}
 	 * @param execution_status the new execution status to be set and can be {@link CL10#CL_COMPLETE COMPLETE} or a negative integer value to indicate an error. A negative integer value
@@ -704,6 +715,7 @@ public class CL11 {
 	 *                         execution status of event.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function was executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_EVENT INVALID_EVENT} if {@code event} is not a valid user event object.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if the {@code execution_status} is not {@link CL10#CL_COMPLETE COMPLETE} or a negative integer value.</li>
@@ -730,7 +742,8 @@ public class CL11 {
 	 * 
 	 * <p>All callbacks registered for an event object must be called. All enqueued callbacks shall be called before the event object is destroyed. Callbacks must
 	 * return promptly. The behavior of calling expensive system routines, OpenCL API calls to create contexts or command-queues, or blocking OpenCL operations
-	 * from the following list below, in a callback is undefined.
+	 * from the following list below, in a callback is undefined.</p>
+	 * 
 	 * <ul>
 	 * <li>{@link CL10#clFinish Finish},</li>
 	 * <li>{@link CL10#clWaitForEvents WaitForEvents},</li>
@@ -739,7 +752,8 @@ public class CL11 {
 	 * <li>blocking calls to {@link CL10#clEnqueueMapBuffer EnqueueMapBuffer} and {@link CL10#clEnqueueMapImage EnqueueMapImage},</li>
 	 * <li>blocking calls to {@link CL10#clBuildProgram BuildProgram}, {@link CL12#clCompileProgram CompileProgram} or {@link CL12#clLinkProgram LinkProgram}</li>
 	 * </ul>
-	 * If an application needs to wait for completion of a routine from the above list in a callback, please use the non-blocking form of the function, and
+	 * 
+	 * <p>If an application needs to wait for completion of a routine from the above list in a callback, please use the non-blocking form of the function, and
 	 * assign a completion callback to it to do the remainder of your work. Note that when a callback (or other code) enqueues commands to a command-queue, the
 	 * commands are not required to begin execution until the queue is flushed. In standard usage, blocking enqueue calls serve this role by implicitly
 	 * flushing the queue. Since blocking calls are not permitted in callbacks, those callbacks that enqueue commands on a command queue should either call
@@ -756,6 +770,7 @@ public class CL11 {
 	 * @param user_data                  will be passed as the {@code user_data} argument when {@code pfn_notify} is called. {@code user_data} can be {@code NULL}.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_EVENT INVALID_EVENT} if {@code event} is not a valid event object.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code pfn_event_notify} is {@code NULL} or if {@code command_exec_callback_type} is not {@link CL10#CL_SUBMITTED SUBMITTED},

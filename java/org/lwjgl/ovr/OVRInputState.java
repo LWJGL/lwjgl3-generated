@@ -18,6 +18,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * their inputs are combined.
  * 
  * <h3>ovrInputState members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>TimeInSeconds</td><td class="nw">double</td><td>system type when the controller state was last updated</td></tr>

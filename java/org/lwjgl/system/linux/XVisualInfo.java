@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Information used by the visual utility routines to find desired visual type from the many visuals a display may support.
  * 
  * <h3>XVisualInfo members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>visual</td><td class="nw">Visual *</td><td></td></tr>

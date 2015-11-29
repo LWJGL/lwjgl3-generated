@@ -19,7 +19,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>This extension defines functionality and behavior for EGL implementations that support multiple platforms at runtime. For example, on Linux an EGL
  * implementation could support X11, Wayland, GBM (Generic Buffer Manager), Surface Flinger, and perhaps other platforms.</p>
  * 
- * <p>In particular, this extension defines the following:
+ * <p>In particular, this extension defines the following:</p>
+ * 
  * <ol>
  * <li>A mechanism by which an EGL client can detect which platforms the EGL implementation supports.</li>
  * <li>New functions that enable an EGL client to specify to which platform a native resource belongs when creating an EGL resource from that native
@@ -28,7 +29,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>That an EGL client is not restricted to interacting with a single platform per process. A client process can create and manage EGL resources from
  * multiple platforms.</li>
  * </ol>
- * The generic term 'platform' is used throughout this extension specification rather than 'window system' because not all EGL platforms are window
+ * 
+ * <p>The generic term 'platform' is used throughout this extension specification rather than 'window system' because not all EGL platforms are window
  * systems. In particular, those platforms that allow headless rendering without a display server, such as GBM, are not window systems.</p>
  * 
  * <p>This extension does not specify behavior specific to any platform, nor does it specify the set of platforms that an EGL implementation may support.

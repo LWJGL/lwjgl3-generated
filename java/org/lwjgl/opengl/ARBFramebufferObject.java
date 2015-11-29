@@ -20,10 +20,12 @@ import org.lwjgl.system.linux.*;
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/framebuffer_object.txt">ARB_framebuffer_object</a> extension.
  * 
- * <p>ARB_framebuffer_object is an extension intended to address the following goals:
+ * <p>ARB_framebuffer_object is an extension intended to address the following goals:</p>
+ * 
  * <ul>
  * <li>Reflect FBO-related functionality found in the OpenGL 3.0 specification.</li>
  * <li>Integrate multiple disjoint extensions into a single ARB extension. These extensions are:
+ * 
  * <ul>
  * <li><a href="http://www.opengl.org/registry/specs/EXT/framebuffer_object.txt">EXT_framebuffer_object</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/EXT/framebuffer_blit.txt">EXT_framebuffer_blit</a></li>
@@ -33,7 +35,8 @@ import org.lwjgl.system.linux.*;
  * <li>Where appropriate, relax some of the constraints expressed by previous FBO-related extensions. In particular the requirement of matching attachment
  * dimensions and component sizes has been relaxed, to allow implementations the freedom to support more flexible usages where possible.</li>
  * </ul>
- * ARB_framebuffer_object defines an interface for drawing to rendering destinations other than the buffers provided to the GL by the window-system.</p>
+ * 
+ * <p>ARB_framebuffer_object defines an interface for drawing to rendering destinations other than the buffers provided to the GL by the window-system.</p>
  * 
  * <p>In this extension, these newly defined rendering destinations are known collectively as "framebuffer-attachable images". This extension provides a
  * mechanism for attaching framebuffer-attachable images to the GL framebuffer as one of the standard GL logical buffers: color, depth, and stencil.
@@ -107,11 +110,12 @@ import org.lwjgl.system.linux.*;
  * buffer across multiple drawables. Under ARB_framebuffer_object, however, a mechanism exists for sharing a framebuffer-attachable image across several
  * framebuffer objects, as well as sharing an image between a framebuffer object and a texture. If we had retained the "implicit" resolve from traditional
  * multisampled rendering, and allowed the creation of "multisample" format renderbuffers, then this type of sharing would have lead to two problematic
- * situations:
+ * situations:</p>
+ * 
  * <ul>
  * <li>Two contexts, which shared renderbuffers, might perform competing resolve operations into the same single-sample buffer with ambiguous results.</li>
  * <li>It would have introduced the unfortunate ability to use the single-sample buffer as a texture while {@link GL13#GL_MULTISAMPLE MULTISAMPLE} is enabled.</li>
- * </ul></p>
+ * </ul>
  * 
  * <p>Using {@link #glBlitFramebuffer BlitFramebuffer} as an explicit resolve to serialize access to the multisampled contents and eliminate the implicit per-sample resolve operation, we avoid both of these problems.</p>
  * 
@@ -161,7 +165,8 @@ import org.lwjgl.system.linux.*;
  * with TexImage or CopyTexImage, and can be read with {@link GL11#glGetTexImage GetTexImage}. When a {@link #GL_DEPTH_STENCIL DEPTH_STENCIL} image is attached to the stencil attachment of the bound
  * framebuffer object, the stencil data can be accessed through any operation that reads from or writes to the framebuffer's stencil buffer.</p>
  * 
- * <p>Glossary of Helpful Terms
+ * <p>Glossary of Helpful Terms</p>
+ * 
  * <ul>
  * <li><b>logical buffer</b> &ndash; One of the color, depth, or stencil buffers of the framebuffer.</li>
  * <li>framebuffer: The collection of logical buffers and associated state defining where the output of GL rendering is directed.</li>
@@ -177,7 +182,7 @@ import org.lwjgl.system.linux.*;
  * <li><b>attachment point</b> &ndash; The set of state which references a specific framebuffer-attachable image, and allows that framebuffer-attachable
  * image to be used to store the contents of a logical buffer of a framebuffer object. There is an attachment point state vector for each color, depth,
  * and stencil buffer of a framebuffer.</li>
- * <li><b>attach</b> &ndash; The act of connecting one object to another object.</p>
+ * <li><b>attach</b> &ndash; The act of connecting one object to another object.
  * 
  * <p>An "attach" operation is similar to a "bind" operation in that both represent a reference to the attached or bound object for the purpose of
  * managing object lifetimes and both enable manipulation of the state of the attached or bound object.</p>
@@ -191,8 +196,9 @@ import org.lwjgl.system.linux.*;
  * framebuffer attachment points.</li>
  * <li><b>framebuffer completeness</b> &ndash; Similar to texture "mipmap cube completeness", defines a composite set of "completeness" requirements and
  * relationships among the attached framebuffer-attachable images.</li>
- * </ul>
- * Promoted to core in {@link GL30 OpenGL 3.0}.</p>
+ * </ul></p>
+ * 
+ * <p>Promoted to core in {@link GL30 OpenGL 3.0}.</p>
  */
 public class ARBFramebufferObject {
 

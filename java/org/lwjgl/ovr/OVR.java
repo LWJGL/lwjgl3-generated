@@ -21,6 +21,7 @@ import static org.lwjgl.system.Pointer.*;
  * <p>Overview of the API:</p>
  * 
  * <h3>Setup</h3>
+ * 
  * <ul>
  * <li>{@link #ovr_Initialize Initialize}</li>
  * <li>{@link #ovr_Create Create}(&hmd, &graphicsId)</li>
@@ -30,6 +31,7 @@ import static org.lwjgl.system.Pointer.*;
  * </ul>
  * 
  * <h3>Application Loop</h3>
+ * 
  * <ul>
  * <li>Call {@link #ovr_GetPredictedDisplayTime GetPredictedDisplayTime} to get the current frame timing information.</li>
  * <li>Call {@link #ovr_GetTrackingState GetTrackingState} and {@link OVRUtil#ovr_CalcEyePoses CalcEyePoses} to obtain the predicted rendering pose for each eye based on timing.</li>
@@ -41,6 +43,7 @@ import static org.lwjgl.system.Pointer.*;
  * </ul>
  * 
  * <h3>Shutdown</h3>
+ * 
  * <ul>
  * <li>{@link #ovr_Destroy Destroy}</li>
  * <li>{@link #ovr_Shutdown Shutdown}</li>
@@ -201,10 +204,11 @@ public class OVR {
 	 * Performance HUD enables the HMD user to see information critical to the real-time operation of the VR application such as latency timing, and CPU & GPU
 	 * performance metrics.
 	 * 
-	 * <p>App can toggle performance HUD modes as such:
+	 * <p>App can toggle performance HUD modes as such:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * ovrPerfHudMode PerfHudMode = ovrPerfHud_LatencyTiming;
-	 * ovr_SetInt(Hmd, OVR_PERF_HUD_MODE, (int)PerfHudMode);</code></pre></p>
+	 * ovr_SetInt(Hmd, OVR_PERF_HUD_MODE, (int)PerfHudMode);</code></pre>
 	 */
 	public static final int
 		ovrPerfHud_Off           = 0x0,
@@ -245,19 +249,21 @@ public class OVR {
 	 * {@link #ovr_Shutdown Shutdown}. ovr_Initialize calls are idempotent. Calling ovr_Initialize twice does not require two matching calls to {@link #ovr_Shutdown Shutdown}. If already
 	 * initialized, the return value is {@link OVRErrorCode#ovrSuccess Success}.
 	 * 
-	 * <p>LibOVRRT shared library search order:
+	 * <p>LibOVRRT shared library search order:</p>
+	 * 
 	 * <ol>
 	 * <li>Current working directory (often the same as the application directory).</li>
 	 * <li>Module directory (usually the same as the application directory, but not if the module is a separate shared library).</li>
 	 * <li>Application directory</li>
 	 * <li>Development directory (only if OVR_ENABLE_DEVELOPER_SEARCH is enabled, which is off by default).</li>
 	 * <li>Standard OS shared library search location(s) (OS-specific).</li>
-	 * </ol></p>
+	 * </ol>
 	 *
 	 * @param params an {@link OVRInitParams} struct that cpecifies custom initialization options. May be {@code NULL} to indicate default options.
 	 *
 	 * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link #ovr_GetLastErrorInfo GetLastErrorInfo} to get more information. Example failed results
 	 *         include:
+	 *         
 	 *         <ul>
 	 *         <li>{@link OVRErrorCode#ovrError_Initialize Error_Initialize}: Generic initialization error.</li>
 	 *         <li>{@link OVRErrorCode#ovrError_LibLoad Error_LibLoad}: Couldn't load LibOVRRT.</li>
@@ -724,7 +730,8 @@ public class OVR {
 	 * Submits layers for distortion and display.
 	 * 
 	 * <p>ovr_SubmitFrame triggers distortion and processing which might happen asynchronously. The function will return when there is room in the submission
-	 * queue and surfaces are available. Distortion might or might not have completed.
+	 * queue and surfaces are available. Distortion might or might not have completed.</p>
+	 * 
 	 * <ul>
 	 * <li>Layers are drawn in the order they are specified in the array, regardless of the layer type.</li>
 	 * <li>Layers are not remembered between successive calls to ovr_SubmitFrame. A layer must be specified in every call to ovr_SubmitFrame or it won't
@@ -733,9 +740,10 @@ public class OVR {
 	 * that layer is no longer displayed.</li>
 	 * <li>A {@code layerPtrList} entry can be of any layer type and multiple entries of the same layer type are allowed. No {@code layerPtrList} entry may be
 	 * duplicated (i.e. the same pointer as an earlier entry).</li>
-	 * </ul></p>
+	 * </ul>
 	 * 
 	 * <h3>Example code</h3>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * ovrLayerEyeFov  layer0;
 	 * ovrLayerQuad    layer1;
@@ -754,6 +762,7 @@ public class OVR {
 	 *                      a future version.
 	 *
 	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon one of the possible success values:
+	 *         
 	 *         <ul>
 	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: rendering completed successfully.</li>
 	 *         <li>{@link OVRErrorCode#ovrSuccess_NotVisible Success_NotVisible}: rendering completed successfully but was not displayed on the HMD, usually because another application currently

@@ -47,7 +47,8 @@ import static org.lwjgl.system.Pointer.*;
  * In many cases, selectors and latched state were introduced by extensions as OpenGL evolved to minimize the disruption to the OpenGL API when new
  * functionality, particularly the pluralization of existing functionality as when texture objects and later multiple texture units, was introduced.</p>
  * 
- * <p>The OpenGL API involves several selectors (listed in historical order of introduction):
+ * <p>The OpenGL API involves several selectors (listed in historical order of introduction):</p>
+ * 
  * <ul>
  * <li>The matrix mode.</li>
  * <li>The current bound texture for each supported texture target.</li>
@@ -57,26 +58,30 @@ import static org.lwjgl.system.Pointer.*;
  * <li>The current bound buffer for each supported buffer target.</li>
  * <li>The current GLSL program.</li>
  * <li>The current framebuffer object.</li>
- * </ul>  The new selector-free update commands can be compiled into display lists.</p>
+ * </ul>  The new selector-free update commands can be compiled into display lists.
  * 
  * <p>The OpenGL API has latched state for vertex array buffer objects and pixel store state. When an application issues a GL command to unpack or pack pixels
  * (for example, glTexImage2D or glReadPixels respectively), the current unpack and pack pixel store state determines how the pixels are unpacked
- * from/packed to client memory or pixel buffer objects. For example, consider:
+ * from/packed to client memory or pixel buffer objects. For example, consider:</p>
+ * 
  * <pre><code style="font-family: monospace">
  * glPixelStorei(GL_UNPACK_SWAP_BYTES, GL_TRUE);
  * glPixelStorei(GL_UNPACK_ROW_LENGTH, 640);
  * glBindBuffer(GL_PIXEL_UNPACK_BUFFER, 47);
  * glDrawPixels(100, 100, GL_RGB, GL_FLOAT, pixels);</code></pre>
- * The unpack swap bytes and row length state set by the preceding glPixelStorei commands (as well as the 6 other unpack pixel store state variables)
+ * 
+ * <p>The unpack swap bytes and row length state set by the preceding glPixelStorei commands (as well as the 6 other unpack pixel store state variables)
  * control how data is read (unpacked) from buffer of data pointed to by pixels. The glBindBuffer command also specifies an unpack buffer object (47) so
  * the pixel pointer is actually treated as a byte offset into buffer object 47.</p>
  * 
  * <p>When an application issues a command to configure a vertex array, the current array buffer state is latched as the binding for the particular vertex
- * array being specified. For example, consider:
+ * array being specified. For example, consider:</p>
+ * 
  * <pre><code style="font-family: monospace">
  * glBindBuffer(GL_ARRAY_BUFFER, 23);
  * glVertexPointer(3, GL_FLOAT, 12, pointer);</code></pre>
- * The glBindBuffer command updates the array buffering binding (GL_ARRAY_BUFFER_BINDING) to the buffer object named 23. The subsequent glVertexPointer
+ * 
+ * <p>The glBindBuffer command updates the array buffering binding (GL_ARRAY_BUFFER_BINDING) to the buffer object named 23. The subsequent glVertexPointer
  * command specifies explicit parameters for the size, type, stride, and pointer to access the position vertex array BUT ALSO latches the current array
  * buffer binding for the vertex array buffer binding (GL_VERTEX_ARRAY_BUFFER_BINDING). Effectively the current array buffer binding buffer object becomes
  * an implicit fifth parameter to glVertexPointer and this applies to all the gl*Pointer vertex array specification commands.</p>
@@ -93,7 +98,8 @@ import static org.lwjgl.system.Pointer.*;
  * 
  * <h3>EXAMPLE USAGE OF THIS EXTENSION'S FUNCTIONALITY</h3>
  * 
- * <p>Consider the following routine to set the modelview matrix involving the matrix mode selector:
+ * <p>Consider the following routine to set the modelview matrix involving the matrix mode selector:</p>
+ * 
  * <pre><code style="font-family: monospace">
  * void setModelviewMatrix(const GLfloat matrix[16])
  * {
@@ -104,7 +110,8 @@ import static org.lwjgl.system.Pointer.*;
  * 	glLoadMatrixf(matrix);
  * 	glMatrixMode(savedMatrixMode);
  * }</code></pre>
- * Notice that four OpenGL commands are required to update the current modelview matrix without disturbing the matrix mode selector.</p>
+ * 
+ * <p>Notice that four OpenGL commands are required to update the current modelview matrix without disturbing the matrix mode selector.</p>
  * 
  * <p>OpenGL query commands can also substantially reduce the performance of modern OpenGL implementations which may off-load OpenGL state processing to
  * another CPU core/thread or to the GPU itself.</p>
@@ -117,20 +124,24 @@ import static org.lwjgl.system.Pointer.*;
  * <p>The reliability and performance of layered libraries and applications can be improved by adding to the OpenGL API a new set of commands to access
  * directly OpenGL state that otherwise involves selectors to access.</p>
  * 
- * <p>The above example can be reimplemented more efficiently and without selector side-effects:
+ * <p>The above example can be reimplemented more efficiently and without selector side-effects:</p>
+ * 
  * <pre><code style="font-family: monospace">
  * void setModelviewMatrix(const GLfloat matrix[16])
  * {
  * 	glMatrixLoadfEXT(GL_MODELVIEW, matrix);
  * }</code></pre>
- * Consider a layered library seeking to load a texture:
+ * 
+ * <p>Consider a layered library seeking to load a texture:</p>
+ * 
  * <pre><code style="font-family: monospace">
  * void loadTexture(GLint texobj, GLint width, GLint height, void *data)
  * {
  * 	glBindTexture(GL_TEXTURE_2D, texobj);
  * 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, width, height, GL_RGB, GL_FLOAT, data);
  * }</code></pre>
- * The library expects the data to be packed into the buffer pointed to by data. But what if the current pixel unpack buffer binding is not zero so the
+ * 
+ * <p>The library expects the data to be packed into the buffer pointed to by data. But what if the current pixel unpack buffer binding is not zero so the
  * current pixel unpack buffer, rather than client memory, will be read? Or what if the application has modified the GL_UNPACK_ROW_LENGTH pixel store state
  * before loadTexture is called?</p>
  * 
@@ -138,7 +149,8 @@ import static org.lwjgl.system.Pointer.*;
  * loadTexture routine expects, but this is expensive. It also risks disturbing the state so when loadTexture returns to the application, the application
  * doesn't realize the current texture object (for whatever texture unit the current active texture happens to be) and pixel store state has changed.</p>
  * 
- * <p>We can more efficiently implement this routine without disturbing selector or latched state as follows:
+ * <p>We can more efficiently implement this routine without disturbing selector or latched state as follows:</p>
+ * 
  * <pre><code style="font-family: monospace">
  * void loadTexture(GLint texobj, GLint width, GLint height, void *data)
  * {
@@ -146,7 +158,8 @@ import static org.lwjgl.system.Pointer.*;
  * 	glTextureImage2D(texobj, GL_TEXTURE_2D, 0, GL_RGB8, width, height, GL_RGB, GL_FLOAT, data);
  * 	glPopClientAttrib();
  * }</code></pre>
- * Now loadTexture does not have to worry about inappropriately configured pixel store state or a non-zero pixel unpack buffer binding. And loadTexture has
+ * 
+ * <p>Now loadTexture does not have to worry about inappropriately configured pixel store state or a non-zero pixel unpack buffer binding. And loadTexture has
  * no unintended side-effects for selector or latched state (assuming the client attrib state does not overflow).</p>
  */
 public class EXTDirectStateAccess {

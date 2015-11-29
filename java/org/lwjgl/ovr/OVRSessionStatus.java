@@ -16,6 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Specifies status information for the current session.
  * 
  * <h3>ovrSessionStatus members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>HasVrFocus</td><td class="nw">ovrBool</td><td>true if the process has VR focus and thus is visible in the HMD</td></tr>

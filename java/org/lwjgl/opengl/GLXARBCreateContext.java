@@ -107,12 +107,14 @@ public class GLXARBCreateContext {
 	 *                      server context state for all sharing contexts must exist in a single address space.
 	 * @param direct        direct rendering is requested if {@code direct} is {@code True}, and indirect rendering if {@code direct} is {@code False}. If
 	 *                      {@code direct} is {@code True}, the implementation may nonetheless create an indirect rendering context if any of the following conditions hold:
+	 *                      
 	 *                      <ul>
 	 *                      <li>The implementation does not support direct rendering.</li>
 	 *                      <li>{@code display} is not a local X server.</li>
 	 *                      <li>Implementation-dependent limits on the number of direct rendering contexts that can be supported simultaneously are exceeded.</li>
 	 *                      </ul>
-	 *                      Use {@link GLX#glXIsDirect IsDirect} to determine whether or not a request for a direct rendering context succeeded.
+	 *                      
+	 *                      <p>Use {@link GLX#glXIsDirect IsDirect} to determine whether or not a request for a direct rendering context succeeded.</p>
 	 * @param attrib_list   an optional list of attributes for the context, terminated with {@code None}
 	 */
 	public static long glXCreateContextAttribsARB(long display, long config, long share_context, int direct, ByteBuffer attrib_list) {

@@ -16,6 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Vertex data.
  * 
  * <h3>stbtt_vertex members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>x</td><td class="nw">stbtt_vertex_type</td><td></td></tr>

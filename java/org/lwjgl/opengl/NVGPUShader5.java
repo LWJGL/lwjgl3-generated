@@ -18,15 +18,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/gpu_shader5.txt">NV_gpu_shader5</a> extension.
  * 
  * <p>This extension provides a set of new features to the OpenGL Shading Language and related APIs to support capabilities of new GPUs. Shaders using the
- * new functionality provided by this extension should enable this functionality via the construct
+ * new functionality provided by this extension should enable this functionality via the construct</p>
+ * 
  * <pre><code style="font-family: monospace">
  * \#extension GL_NV_gpu_shader5 : require (or enable)</code></pre>
- * This extension was developed concurrently with the ARB_gpu_shader5 extension, and provides a superset of the features provided there. The features
+ * 
+ * <p>This extension was developed concurrently with the ARB_gpu_shader5 extension, and provides a superset of the features provided there. The features
  * common to both extensions are documented in the ARB_gpu_shader5 specification; this document describes only the addition language features not
  * available via ARB_gpu_shader5. A shader that enables this extension via an \#extension directive also implicitly enables the common capabilities
  * provided by ARB_gpu_shader5.</p>
  * 
- * <p>In addition to the capabilities of ARB_gpu_shader5, this extension provides a variety of new features for all shader types, including:
+ * <p>In addition to the capabilities of ARB_gpu_shader5, this extension provides a variety of new features for all shader types, including:</p>
+ * 
  * <ul>
  * <li>support for a full set of 8-, 16-, 32-, and 64-bit scalar and vector data types, including uniform API, uniform buffer object, and shader input and
  * output support;</li>
@@ -40,15 +43,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>extending texel offset support to allow loading texel offsets from regular integer operands computed at run-time, except for lookups with gradients
  * (textureGrad*).</li>
  * </ul>
- * This extension also provides additional support for processing patch primitives (introduced by ARB_tessellation_shader). ARB_tessellation_shader
+ * 
+ * <p>This extension also provides additional support for processing patch primitives (introduced by ARB_tessellation_shader). ARB_tessellation_shader
  * requires the use of a tessellation evaluation shader when processing patches, which means that patches will never survive past the tessellation
- * pipeline stage. This extension lifts that restriction, and allows patches to proceed further in the pipeline and be used
+ * pipeline stage. This extension lifts that restriction, and allows patches to proceed further in the pipeline and be used</p>
+ * 
  * <ul>
  * <li>as input to a geometry shader, using a new "patches" layout qualifier;</li>
  * <li>as input to transform feedback;</li>
  * <li>by fixed-function rasterization stages, in which case the patches are drawn as independent points.</li>
  * </ul>
- * Additionally, it allows geometry shaders to read per-patch attributes written by a tessellation control shader using input variables declared with
+ * 
+ * <p>Additionally, it allows geometry shaders to read per-patch attributes written by a tessellation control shader using input variables declared with
  * "patch in".</p>
  * 
  * <p>Requires {@link GL32 OpenGL 3.2}, GLSL 1.50 and {@link ARBGPUShader5 ARB_gpu_shader5}.</p>

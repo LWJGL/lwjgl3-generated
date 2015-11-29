@@ -20,9 +20,11 @@ import static org.lwjgl.system.JNI.*;
  * <p>This extension also separates the vertex binding update from the vertex attribute format update, which saves applications the effort of redundantly
  * specifying the same format state over and over.</p>
  * 
- * <p>Conceptually, this extension splits the state for generic vertex attribute arrays into:
+ * <p>Conceptually, this extension splits the state for generic vertex attribute arrays into:</p>
+ * 
  * <ul>
  * <li>An array of vertex buffer binding points, each of which specifies:
+ * 
  * <ul>
  * <li>a bound buffer object</li>
  * <li>a starting offset for the vertex attribute data in that buffer object</li>
@@ -30,13 +32,15 @@ import static org.lwjgl.system.JNI.*;
  * <li>a frequency divisor used by all attributes using that binding point.</li>
  * </ul></li>
  * <li>An array of generic vertex attribute format information records, each of which specifies:
+ * 
  * <ul>
  * <li>a reference to one of the new buffer binding points above</li>
  * <li>a component count and format, and a normalization flag for the attribute data, and</li>
  * <li>the offset of the attribute data relative to the base offset of each vertex found at the associated binding point.</li>
  * </ul></li>
  * </ul>
- * Promoted to core in {@link GL43 OpenGL 4.3}.</p>
+ * 
+ * <p>Promoted to core in {@link GL43 OpenGL 4.3}.</p>
  */
 public class ARBVertexAttribBinding {
 

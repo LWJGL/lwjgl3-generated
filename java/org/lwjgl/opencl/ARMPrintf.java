@@ -21,14 +21,16 @@ public final class ARMPrintf {
 	 * 
 	 * <p>Property value: <code style="font-family: monospace">void printf_callback(const char *buffer, size_t len, size_t complete, void *user_data)</code></p>
 	 * 
-	 * <p>Specifies a pointer to function to be invoked when printf data is available. Upon invocation the arguments are set to the following values.
+	 * <p>Specifies a pointer to function to be invoked when printf data is available. Upon invocation the arguments are set to the following values.</p>
+	 * 
 	 * <ul>
 	 * <li>{@code buffer} is a pointer to a character array of size {@code len} created by printf.</li>
 	 * <li>{@code len} is the number of new characters in {@code buffer}.</li>
 	 * <li>{@code complete} is set to a non zero value if there is no more data in the device's printf buffer.</li>
 	 * <li>{@code user_data} is the {@code user_data} parameter specified to {@link CL10#clCreateContext CreateContext}.</li>
 	 * </ul>
-	 * If this property is not specified, no callback will be registered and any printf output from a kernel will be discarded.</p>
+	 * 
+	 * <p>If this property is not specified, no callback will be registered and any printf output from a kernel will be discarded.</p>
 	 */
 	public static final int CL_PRINTF_CALLBACK_ARM = 0x40B0;
 

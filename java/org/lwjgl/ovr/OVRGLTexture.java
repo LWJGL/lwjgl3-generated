@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Contains OpenGL-specific texture information.
  * 
  * <h3>ovrGLTexture members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>Texture</td><td class="nw">{@link OVRTexture ovrTexture}</td><td>general device settings</td></tr>

@@ -234,7 +234,8 @@ public class KHRDebug {
 	 * <p>If {@code enabled} is {@link GLES20#GL_TRUE TRUE}, the referenced subset of messages will be enabled. If {@link GLES20#GL_FALSE FALSE}, then those messages will be disabled.</p>
 	 * 
 	 * <p>This command can reference different subsets of messages by first considering the set of all messages, and filtering out messages based on the following
-	 * ways:
+	 * ways:</p>
+	 * 
 	 * <ul>
 	 * <li>If {@code source}, {@code type}, or {@code severity} is {@link GLES20#GL_DONT_CARE DONT_CARE}, the messages from all sources, of all types, or of all severities are
 	 * referenced respectively.</li>
@@ -244,7 +245,8 @@ public class KHRDebug {
 	 * {@code type}. In this case, if {@code source} or {@code type} is {@link GLES20#GL_DONT_CARE DONT_CARE}, or {@code severity} is not {@link GLES20#GL_DONT_CARE DONT_CARE}, the error
 	 * {@link GLES20#GL_INVALID_OPERATION INVALID_OPERATION} is generated.</li>
 	 * </ul>
-	 * Unrecognized message IDs in {@code ids} are ignored. If {@code count} is zero, the value if {@code ids} is ignored.</p>
+	 * 
+	 * <p>Unrecognized message IDs in {@code ids} are ignored. If {@code count} is zero, the value if {@code ids} is ignored.</p>
 	 * 
 	 * <p>Although messages are grouped into an implicit hierarchy by their sources and types, there is no explicit per-source, per-type or per-severity enabled
 	 * state. Instead, the enabled state is stored individually for each message. There is no difference between disabling all messages from one source in a

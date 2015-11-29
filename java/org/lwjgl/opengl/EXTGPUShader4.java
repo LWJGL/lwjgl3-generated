@@ -18,7 +18,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/gpu_shader4.txt">EXT_gpu_shader4</a> extension.
  * 
  * <p>This extension provides a set of new features to the OpenGL Shading Language and related APIs to support capabilities of new hardware. In particular,
- * this extension provides the following functionality:
+ * this extension provides the following functionality:</p>
+ * 
  * <ul>
  * <li>New texture lookup functions are provided that allow shaders to access individual texels using integer coordinates referring to the texel location
  * and level of detail. No filtering is performed. These functions allow applications to use textures as one-, two-, and three-dimensional arrays.</li>
@@ -36,6 +37,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>The ability to specify if varying variables are interpolated in a non-perspective correct manner, if they are flat shaded or, if multi-sampling, if
  * centroid sampling should be performed.</li>
  * <li>Full signed integer and unsigned integer support in the OpenGL Shading Language:
+ * 
  * <ul>
  * <li>Integers are defined as 32 bit values using two's complement.</li>
  * <li>Unsigned integers and vectors thereof are added.</li>
@@ -57,7 +59,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>A new built-in variable accessible from within fragment and geometry shaders that hold the index of the currently processed primitive. This is
  * called the primitive ID.</li>
  * </ul>
- * This extension also briefly mentions a new shader type, called a geometry shader. A geometry shader is run after vertices are transformed, but before
+ * 
+ * <p>This extension also briefly mentions a new shader type, called a geometry shader. A geometry shader is run after vertices are transformed, but before
  * clipping. A geometry shader begins with a single primitive (point, line, triangle. It can read the attributes of any of the vertices in the primitive
  * and use them to generate new primitives. A geometry shader has a fixed output primitive type (point, line strip, or triangle strip) and emits vertices
  * to define a new primitive. Geometry shaders are discussed in detail in the GL_EXT_geometry_shader4 specification.</p>

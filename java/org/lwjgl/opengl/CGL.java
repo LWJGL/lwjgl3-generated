@@ -1142,13 +1142,15 @@ public class CGL {
 	 * calling this function, you should programmatically determine if it’s possible to attach a pixel buffer to a context by querying GL_EXTENSIONS in the
 	 * context and looking for GL_APPLE_pixel_buffer. If that extension is not present, the renderer won’t allow setting the pixel buffer.</p>
 	 * 
-	 * <p>In order of performance, these are the renderers you should consider using when setting up a rendering context to attach to a pixel buffer:
+	 * <p>In order of performance, these are the renderers you should consider using when setting up a rendering context to attach to a pixel buffer:</p>
+	 * 
 	 * <ul>
 	 * <li>A hardware renderer.</li>
 	 * <li>The generic render, but only with an offscreen pixel format and glTexSubImage.</li>
 	 * <li>The Apple software renderer, which supports pixel buffers in OS X v10.4.8 and later.</li>
 	 * </ul>
-	 * Deprecated in OS X v10.7.</p>
+	 * 
+	 * <p>Deprecated in OS X v10.7.</p>
 	 *
 	 * @param ctx     the rendering context to attach the pixel buffer to
 	 * @param pbuffer a pixel buffer object

@@ -18,6 +18,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * {@link OVR#ovr_SubmitFrame}, as it is the kind of layer used to render a 3D stereoscopic view.
  * 
  * <h3>ovrLayerEyeFov members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>Header</td><td class="nw">{@link OVRLayerHeader ovrLayerHeader}</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_EyeFov}.</td></tr>

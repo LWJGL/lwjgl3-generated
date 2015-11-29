@@ -16,6 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Contains information about a libffi call interface.
  * 
  * <h3>ffi_cif members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>abi</td><td class="nw">ffi_abi</td><td></td></tr>

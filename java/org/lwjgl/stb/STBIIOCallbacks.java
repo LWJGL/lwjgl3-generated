@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Image IO callbacks, used by {@link STBImage#stbi_load_from_callbacks}.
  * 
  * <h3>stbi_io_callbacks members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>read</td><td class="nw">stbi_io_callbacks.read</td><td>fill {@code data} with {@code size} bytes. Return number of bytes actually read.</td></tr>

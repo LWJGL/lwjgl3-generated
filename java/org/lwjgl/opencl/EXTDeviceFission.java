@@ -19,13 +19,15 @@ import static org.lwjgl.system.Pointer.*;
  * Native bindings to the <a href="http://www.khronos.org/registry/cl/extensions/ext/cl_ext_device_fission.txt">ext_device_fission</a> extension.
  * 
  * <p>This extension provides an interface for sub-dividing an OpenCL device into multiple sub-devices. There are a number of cases in which a typical user
- * would like to subdivide a device:
+ * would like to subdivide a device:</p>
+ * 
  * <ol>
  * <li>To reserve part of the device for use for high priority / latency-sensitive tasks</li>
  * <li>To more directly control the assignment of work to individual compute units</li>
  * <li>To subdivide compute devices along some shared hardware feature like a cache</li>
  * </ol>
- * Typically these are areas where some level of additional control is required to get optimal performance beyond that provided by standard OpenCL 1.1
+ * 
+ * <p>Typically these are areas where some level of additional control is required to get optimal performance beyond that provided by standard OpenCL 1.1
  * APIs. Proper use of this interface assumes some detailed knowledge of the devices in question.</p>
  */
 public class EXTDeviceFission {

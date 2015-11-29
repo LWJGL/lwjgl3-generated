@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Defines a property attribute.
  * 
  * <h3>objc_property_attribute_t members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>name</td><td class="nw">char *</td><td>the name of the attribute</td></tr>

@@ -35,18 +35,22 @@ import static org.lwjgl.system.MemoryUtil.*;
  * output values.</p>
  * 
  * <p>This extension does not enforce type consistency for texture accesses or between fragment shaders and the corresponding framebuffer attachments. The
- * results of a texture lookup from an integer texture are undefined:
+ * results of a texture lookup from an integer texture are undefined:</p>
+ * 
  * <ul>
  * <li>for fixed-function fragment processing, or</li>
  * <li>for shader texture accesses expecting floating-point return values.</li>
  * </ul>
- * The color components used for per-fragment operations and written into a color buffer are undefined:
+ * 
+ * <p>The color components used for per-fragment operations and written into a color buffer are undefined:</p>
+ * 
  * <ul>
  * <li>for fixed-function fragment processing with an integer color buffer,</li>
  * <li>for fragment shaders that write floating-point color components to an integer color buffer, or</li>
  * <li>for fragment shaders that write integer color components to a color buffer with floating point or normalized integer components.</li>
  * </ul>
- * Requires {@link GL20 OpenGL 2.0} and <a href="http://www.opengl.org/registry/specs/NV/gpu_program4.txt">NV_gpu_program4</a> or <a href="http://www.opengl.org/registry/specs/EXT/gpu_shader4.txt">EXT_gpu_shader4</a>. Promoted to core in {@link GL30 OpenGL 3.0}.</p>
+ * 
+ * <p>Requires {@link GL20 OpenGL 2.0} and <a href="http://www.opengl.org/registry/specs/NV/gpu_program4.txt">NV_gpu_program4</a> or <a href="http://www.opengl.org/registry/specs/EXT/gpu_shader4.txt">EXT_gpu_shader4</a>. Promoted to core in {@link GL30 OpenGL 3.0}.</p>
  */
 public class EXTTextureInteger {
 

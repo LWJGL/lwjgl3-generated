@@ -18,16 +18,18 @@ import static org.lwjgl.system.MemoryUtil.*;
  * essentially the same thing as {@link OVRLayerEyeFov} but using a much lower level. This is mainly to provide compatibility with specific apps. Unless the
  * application really requires this flexibility, it is usually better to use {@link OVRLayerEyeFov}.
  * 
- * <p>Three options exist with respect to mono/stereo texture usage:
+ * <p>Three options exist with respect to mono/stereo texture usage:</p>
+ * 
  * <ul>
  * <li>ColorTexture[0] and ColorTexture[1] contain the left and right stereo renderings, respectively. Viewport[0] and Viewport[1] refer to
  * ColorTexture[0] and ColorTexture[1], respectively.</li>
  * <li>ColorTexture[0] contains both the left and right renderings, ColorTexture[1] is NULL, and Viewport[0] and Viewport[1] refer to sub-rects with
  * ColorTexture[0].</li>
  * <li>ColorTexture[0] contains a single monoscopic rendering, and Viewport[0] and Viewport[1] both refer to that rendering.</li>
- * </ul></p>
+ * </ul>
  * 
  * <h3>ovrLayerEyeMatrix members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>Header</td><td class="nw">{@link OVRLayerHeader ovrLayerHeader}</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_EyeMatrix}</td></tr>
@@ -36,6 +38,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <tr><td>RenderPose</td><td class="nw">{@link OVRPosef ovrPosef}[2]</td><td>specifies the position and orientation of each eye view, with the position specified in meters. RenderPose will typically be the value returned from
  * {@link OVRUtil#ovr_CalcEyePoses}, but can be different in special cases if a different head pose is used for rendering.</td></tr>
  * <tr><td>Matrix</td><td class="nw">{@link OVRMatrix4f ovrMatrix4f}[2]</td><td>specifies the mapping from a view-space vector to a UV coordinate on the textures given above.
+ * 
  * <pre><code style="font-family: monospace">
  * P = (x,y,z,1)*Matrix
  * TexU  = P.x/P.z

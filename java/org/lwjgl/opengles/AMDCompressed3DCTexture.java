@@ -8,13 +8,15 @@ package org.lwjgl.opengles;
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/AMD/AMD_compressed_3DC_texture.txt">AMD_compressed_3DC_texture</a> extension.
  * 
- * <p>Two compression formats are introduced:
+ * <p>Two compression formats are introduced:</p>
+ * 
  * <ul>
  * <li>A compression format for two component textures. When used to store normal vectors, the two components are commonly used with a fragment shader
  * that derives the third component.</li>
  * <li>A compression format for single component textures. The single component may be used as a luminance or an alpha value.</li>
  * </ul>
- * There are a large number of games that use luminance only and/or alpha only textures. For example, monochrome light maps used in a few popular games
+ * 
+ * <p>There are a large number of games that use luminance only and/or alpha only textures. For example, monochrome light maps used in a few popular games
  * are 8-bit luminance textures. This extension describes a compression format that provides a 2:1 compression ratio for 8-bit single channel textures.</p>
  * 
  * <p>Normal maps are special textures that are used to add detail to 3D surfaces. They are an extension of earlier "bump map" textures, which contained per-

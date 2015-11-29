@@ -44,10 +44,11 @@ import static org.lwjgl.opengl.GL11.*;
  * <p>Paths can also be stroked whereby, conceptually, a fixed-width "brush" is pulled along the path such that the brush remains orthogonal to the gradient
  * of each path segment. Samples within the sweep of this brush are considered inside the stroke of the path.</p>
  * 
- * <p>This extension supports path rendering through a sequence of three operations:
+ * <p>This extension supports path rendering through a sequence of three operations:</p>
+ * 
  * <ol>
  * <li>Path specification is the process of creating and updating a path object consisting of a set of path commands and a corresponding set of 2D
- * vertices.</p>
+ * vertices.
  * 
  * <p>Path commands can be specified explicitly from path command and coordinate data, parsed from a string based on standard grammars for representing
  * paths, or specified by a particular glyph of standard font representations. Also new paths can be specified by weighting one or more existing paths
@@ -70,8 +71,9 @@ import static org.lwjgl.opengl.GL11.*;
  * <p>Path covering can cover either the filled or stroked coverage of a path.</p>
  * 
  * <p>The details of path covering are explained within the core of the specification.</li>
- * </ol>
- * To render a path object into the color buffer, an application specifies a path object and then uses a two-step rendering process. First, the path
+ * </ol></p>
+ * 
+ * <p>To render a path object into the color buffer, an application specifies a path object and then uses a two-step rendering process. First, the path
  * object is stenciled whereby the path object's stroked or filled coverage is rasterized into the stencil buffer. Second, the path object is covered
  * whereby conservative bounding geometry for the path is transformed and rasterized with stencil testing configured to test against the coverage
  * information written to the stencil buffer in the first step so that only fragments covered by the path are written during this second step. Also during

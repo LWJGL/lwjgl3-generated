@@ -20,7 +20,8 @@ import static org.lwjgl.system.Pointer.*;
  * Native bindings to the Objective-C Runtime.
  * 
  * <p>Due to the nature of the {@code objc_msgSend*} functions, they are not directly exposed in this binding. Advanced users with good understanding of
- * the complexity involved with using these functions, may access them via the {@link #getLibrary} method:
+ * the complexity involved with using these functions, may access them via the {@link #getLibrary} method:</p>
+ * 
  * <pre><code style="font-family: monospace">
  * SharedLibrary objc = ObjCRuntime.getLibrary();
  * long objc_msgSend = objc.getFunctionAddress("objc_msgSend");
@@ -28,17 +29,19 @@ import static org.lwjgl.system.Pointer.*;
  * // example usage
  * long NSThread = objc_getClass("NSThread");
  * long currentThread = invokePPP(objc_msgSend, NSThread, sel_getUid("currentThread"));</code></pre>
- * The safe way to use objc_msgSend in C code is to cast it to an appropriate function pointer. This is exactly what the
+ * 
+ * <p>The safe way to use objc_msgSend in C code is to cast it to an appropriate function pointer. This is exactly what the
  * {@link org.lwjgl.system.JNI JNI} class does. If a particular function signature is not available, {@link org.lwjgl.system.libffi.LibFFI LibFFI} may
  * be used to invoke it.</p>
  * 
- * <p>The functions not exposed are:
+ * <p>The functions not exposed are:</p>
+ * 
  * <ul>
  * <li>objc_msgSend</li>
  * <li>objc_msgSend_stret</li>
  * <li>objc_msgSendSuper</li>
  * <li>objc_msgSendSuper_stret</li>
- * </ul></p>
+ * </ul>
  */
 public class ObjCRuntime {
 
@@ -688,8 +691,9 @@ public class ObjCRuntime {
 	 * register them with the {@link #objc_allocateClassPair} and {@link #objc_registerClassPair} functions.</p>
 	 * 
 	 * <h3>Special Considerations</h3>
-	 * You cannot assume that class objects you get from this function are classes that inherit from NSObject, so you cannot safely call any methods on such
-	 * classes without detecting that the method is implemented first.
+	 * 
+	 * <p>You cannot assume that class objects you get from this function are classes that inherit from NSObject, so you cannot safely call any methods on such
+	 * classes without detecting that the method is implemented first.</p>
 	 *
 	 * @param buffer      an array of Class values. On output, each Class value points to one class definition, up to either {@code bufferCount} or the total number of
 	 *                    registered classes, whichever is less. You can pass {@code NULL} to obtain the total number of registered class definitions without actually retrieving
@@ -1210,19 +1214,23 @@ public class ObjCRuntime {
 	 * Adds a new method to a class with a given name and implementation.
 	 * 
 	 * <h3>Discussion</h3>
-	 * class_addMethod will add an override of a superclass's implementation, but will not replace an existing implementation in this class. To change an
-	 * existing implementation, use {@link #method_setImplementation}.
+	 * 
+	 * <p>class_addMethod will add an override of a superclass's implementation, but will not replace an existing implementation in this class. To change an
+	 * existing implementation, use {@link #method_setImplementation}.</p>
 	 * 
 	 * <p>An Objective-C method is simply a C function that takes at least two arguments &ndash; {@code self} and {@code _cmd}. For example, given the following
-	 * function:
+	 * function:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * void myMethodIMP(id self, SEL _cmd)
 	 * {
 	 * 	// implementation ....
 	 * }</code></pre>
-	 * you can dynamically add it to a class as a method (called {@code resolveThisMethodDynamically}) like this:
+	 * 
+	 * <p>you can dynamically add it to a class as a method (called {@code resolveThisMethodDynamically}) like this:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
-	 * class_addMethod([self class], @selector(resolveThisMethodDynamically), (IMP) myMethodIMP, "v@:");</code></pre></p>
+	 * class_addMethod([self class], @selector(resolveThisMethodDynamically), (IMP) myMethodIMP, "v@:");</code></pre>
 	 *
 	 * @param cls   the class to which to add a method
 	 * @param name  a selector that specifies the name of the method being added
@@ -1264,7 +1272,9 @@ public class ObjCRuntime {
 	 * Replaces the implementation of a method for a given class.
 	 * 
 	 * <h3>Discussion</h3>
-	 * This function behaves in two different ways:
+	 * 
+	 * <p>This function behaves in two different ways:</p>
+	 * 
 	 * <ul>
 	 * <li>If the method identified by name does not yet exist, it is added as if class_addMethod were called. The type encoding specified by types is used as
 	 * given.</li>
@@ -1547,8 +1557,9 @@ public class ObjCRuntime {
 	 * <p>This method does nothing if obj is {@link #nil}.</p>
 	 * 
 	 * <h3>Important</h3>
-	 * The garbage collector does not call this function. As a result, if you edit this function, you should also edit finalize. That said, Core Foundation
-	 * and other clients do call this function under garbage collection.
+	 * 
+	 * <p>The garbage collector does not call this function. As a result, if you edit this function, you should also edit finalize. That said, Core Foundation
+	 * and other clients do call this function under garbage collection.</p>
 	 *
 	 * @param obj the instance to destroy
 	 */
@@ -2101,7 +2112,8 @@ public class ObjCRuntime {
 	 * Returns a Boolean value that indicates whether one protocol conforms to another protocol.
 	 * 
 	 * <h3>Discussion</h3>
-	 * One protocol can incorporate other protocols using the same syntax that classes use to adopt a protocol:
+	 * 
+	 * <p>One protocol can incorporate other protocols using the same syntax that classes use to adopt a protocol:</p>
 	 * 
 	 * <p><code style="font-family: monospace">@protocol ProtocolName < protocol list ></code></p>
 	 * 

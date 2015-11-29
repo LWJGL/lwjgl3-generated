@@ -615,12 +615,13 @@ public class GLFW {
 	 * 
 	 * <p>Additional calls to this function after successful initialization but before termination will return {@link #GLFW_TRUE TRUE} immediately.</p>
 	 * 
-	 * <p>Notes:
+	 * <p>Notes:</p>
+	 * 
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>Mac OS X</b>: This function will change the current directory of the application to the `Contents/Resources` subdirectory of the application's
 	 * bundle, if present.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @return {@link #GLFW_TRUE TRUE} if successful, or {@link #GLFW_FALSE FALSE} if an error occured.
 	 *
@@ -640,13 +641,14 @@ public class GLFW {
 	 * <p>If GLFW has been successfully initialized, this function should be called before the application exits. If initialization fails, there is no need to
 	 * call this function, as it is called by {@link #glfwInit Init} before it returns failure.</p>
 	 * 
-	 * <p>Notes:
+	 * <p>Notes:</p>
+	 * 
 	 * <ul>
 	 * <li>This function may be called before {@link #glfwInit Init}.</li>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>This function may not be called from a callback.</li>
 	 * <li>No window's context may be current on another thread when this function is called.</li>
-	 * </ul></p>
+	 * </ul>
 	 */
 	public static void glfwTerminate() {
 		long __functionAddress = getInstance().Terminate;
@@ -666,13 +668,14 @@ public class GLFW {
 	 * Retrieves the major, minor and revision numbers of the GLFW library. It is intended for when you are using GLFW as a shared library and want to ensure
 	 * that you are using the minimum required version.
 	 * 
-	 * <p>Notes:
+	 * <p>Notes:</p>
+	 * 
 	 * <ul>
 	 * <li>Any or all of the version arguments may be {@code NULL}.</li>
 	 * <li>This function always succeeds.</li>
 	 * <li>This function may be called before {@link #glfwInit Init}.</li>
 	 * <li>This function may be called from any thread.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param major where to store the major version number, or {@code NULL}
 	 * @param minor where to store the minor version number, or {@code NULL}
@@ -715,13 +718,14 @@ public class GLFW {
 	 * <p><b>Do not use the version string</b> to parse the GLFW library version. The {@link #glfwGetVersion GetVersion} function already provides the version of the
 	 * running library binary.</p>
 	 * 
-	 * <p>Notes:
+	 * <p>Notes:</p>
+	 * 
 	 * <ul>
 	 * <li>This function always succeeds.</li>
 	 * <li>This function may be called before {@link #glfwInit Init}.</li>
 	 * <li>This function may be called from any thread.</li>
 	 * <li>The returned string is static and compile-time generated.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @return the GLFW version string
 	 *
@@ -745,11 +749,12 @@ public class GLFW {
 	 * 
 	 * <p>Once set, the error callback remains set even after the library has been terminated.</p>
 	 * 
-	 * <p>Notes:
+	 * <p>Notes:</p>
+	 * 
 	 * <ul>
 	 * <li>This function may be called before {@link #glfwInit Init}.</li>
 	 * <li>This function may only be called from the main thread.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param cbfun the new callback or {@code NULL} to remove the currently set callback
 	 *
@@ -870,11 +875,12 @@ public class GLFW {
 	 * 
 	 * <p>Any or all of the size arguments may be {@code NULL}. If an error occurs, all non-{@code NULL} size arguments will be set to zero.</p>
 	 * 
-	 * <p>Notes:
+	 * <p>Notes:</p>
+	 * 
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>Windows</b>: The OS calculates the returned physical size from the current resolution and system DPI instead of querying the monitor EDID data.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param monitor  the monitor to query
 	 * @param widthMM  where to store the width, in millimetres, of the monitor's display area, or {@code NULL}
@@ -1079,13 +1085,14 @@ public class GLFW {
 	 * Sets the current gamma ramp for the specified monitor. The original gamma ramp for that monitor is saved by GLFW the first time this function is called
 	 * and is restored by {@link #glfwTerminate Terminate}.
 	 * 
-	 * <p>Notes:
+	 * <p>Notes:</p>
+	 * 
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>Gamma ramp sizes other than 256 are not supported by all hardware</li>
 	 * <li><b>Windows</b>: The gamma ramp size must be 256.</li>
 	 * <li>The specified gamma ramp is copied before this function returns.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param monitor the monitor whose gamma ramp to set
 	 * @param ramp    the gamma ramp to use
@@ -1115,6 +1122,7 @@ public class GLFW {
 	 * {@link #glfwDefaultWindowHints DefaultWindowHints}, or until the library is terminated.
 	 * 
 	 * <h3>Supported and default values</h3>
+	 * 
 	 * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
 	 * <tr><th>Name</th><th>Default value</th><th>Supported values</th></tr>
 	 * <tr><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
@@ -1200,7 +1208,8 @@ public class GLFW {
 	 * <p>The <a href="http://www.glfw.org/docs/latest/window.html#buffer_swap">swap interval</a> is not set during window creation and the initial value may vary
 	 * depending on driver settings and defaults.</p>
 	 * 
-	 * <p>Notes:
+	 * <p>Notes:</p>
+	 * 
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>This function may not be called from a callback.</li>
@@ -1224,7 +1233,7 @@ public class GLFW {
 	 * <li><b>X11</b>: Some window managers will not respect the placement of initially hidden windows.</li>
 	 * <li><b>X11</b>: Due to the asynchronous nature of X11, it may take a moment for a window to reach its requested state. This means you may not be able
 	 * to query the final size, position or other attributes directly after window creation.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param width   the desired width, in screen coordinates, of the window
 	 * @param height  the desired height, in screen coordinates, of the window
@@ -1258,12 +1267,13 @@ public class GLFW {
 	 * 
 	 * <p>If the context of the specified window is current on the main thread, it is detached before being destroyed.</p>
 	 * 
-	 * <p>Notes:
+	 * <p>Notes:</p>
+	 * 
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>This function may not be called from a callback.</li>
 	 * <li>The context of the specified window must not be current on any other thread when this function is called.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param window the window to destroy
 	 *
@@ -1849,11 +1859,12 @@ public class GLFW {
 	 * 
 	 * <p>The close callback is not triggered by {@link #glfwDestroyWindow DestroyWindow}.</p>
 	 * 
-	 * <p>Notes:
+	 * <p>Notes:</p>
+	 * 
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>Mac OS X:</b> Selecting Quit from the application menu will trigger the close callback for all windows.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param window the window whose callback to set
 	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -1982,11 +1993,12 @@ public class GLFW {
 	 * 
 	 * <p>Event processing is not required for joystick input to work.</p>
 	 * 
-	 * <p>Notes:
+	 * <p>Notes:</p>
+	 * 
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>This function may not be called from a callback.</li>
-	 * </ul></p>
+	 * </ul>
 	 */
 	public static void glfwPollEvents() {
 		long __functionAddress = getInstance().PollEvents;
@@ -2017,12 +2029,13 @@ public class GLFW {
 	 * 
 	 * <p>Event processing is not required for joystick input to work.</p>
 	 * 
-	 * <p>Notes:
+	 * <p>Notes:</p>
+	 * 
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>This function may not be called from a callback.</li>
 	 * <li>On some platforms, certain callbacks may be called outside of a call to one of the event processing functions.</li>
-	 * </ul></p>
+	 * </ul>
 	 */
 	public static void glfwWaitEvents() {
 		long __functionAddress = getInstance().WaitEvents;
@@ -2071,13 +2084,14 @@ public class GLFW {
 	/**
 	 * Sets an input option for the specified window.
 	 * 
-	 * <p>If {@code mode} is {@link #GLFW_CURSOR CURSOR}, the value must be one of the following cursor modes:
+	 * <p>If {@code mode} is {@link #GLFW_CURSOR CURSOR}, the value must be one of the following cursor modes:</p>
+	 * 
 	 * <ul>
 	 * <li>{@link #GLFW_CURSOR_NORMAL CURSOR_NORMAL} makes the cursor visible and behaving normally.</li>
 	 * <li>{@link #GLFW_CURSOR_HIDDEN CURSOR_HIDDEN} makes the cursor invisible when it is over the client area of the window but does not restrict the cursor from leaving.</li>
 	 * <li>{@link #GLFW_CURSOR_DISABLED CURSOR_DISABLED} hides and grabs the cursor, providing virtual and unlimited cursor movement. This is useful for implementing for example 3D camera
 	 * controls.</li>
-	 * </ul></p>
+	 * </ul>
 	 * 
 	 * <p>If {@code mode} is {@link #GLFW_STICKY_KEYS STICKY_KEYS}, the value must be either {@link #GLFW_TRUE TRUE} to enable sticky keys, or {@link #GLFW_FALSE FALSE} to disable it. If sticky keys are
 	 * enabled, a key press will ensure that {@link #glfwGetKey GetKey} returns {@link #GLFW_PRESS PRESS} the next time it is called even if the key had been released before the call. This is
@@ -2150,11 +2164,12 @@ public class GLFW {
 	 * 
 	 * <p><b>Do not use this function</b> to implement <a href="http://www.glfw.org/docs/latest/input.html#input_char">text input</a>.</p>
 	 * 
-	 * <p>Notes:
+	 * <p>Notes:</p>
+	 * 
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>{@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN} is not a valid key for this function.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param window the desired window
 	 * @param key    the desired keyboard key
@@ -2253,12 +2268,13 @@ public class GLFW {
 	 * 
 	 * <p>If the cursor mode is {@link #GLFW_CURSOR_DISABLED CURSOR_DISABLED} then the cursor position is unconstrained and limited only by the minimum and maximum values of <b>double</b>.</p>
 	 * 
-	 * <p>Notes:
+	 * <p>Notes:</p>
+	 * 
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li><b>X11:</b> Due to the asynchronous nature of X11, it may take a moment for the window focus event to arrive. This means you may not be able to set
 	 * the cursor position directly after window creation.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param window the desired window
 	 * @param xpos   the desired x-coordinate, relative to the left edge of the client area
@@ -2292,12 +2308,13 @@ public class GLFW {
 	 * <p>The cursor hotspot is specified in pixels, relative to the upper-left corner of the cursor image. Like all other coordinate systems in GLFW, the X-axis
 	 * points to the right and the Y-axis points down.</p>
 	 * 
-	 * <p>Notes:
+	 * <p>Notes:</p>
+	 * 
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>This function may not be called from a callback.</li>
 	 * <li>The specified image data is copied before this function returns.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param image the desired cursor image
 	 * @param xhot  the desired x-coordinate, in pixels, of the cursor hotspot
@@ -2316,12 +2333,13 @@ public class GLFW {
 	/**
 	 * Returns a cursor with a standard shape, that can be set for a window with {@link #glfwSetCursor SetCursor}.
 	 * 
-	 * <p>Notes:
+	 * <p>Notes:</p>
+	 * 
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>This function may not be called from a callback.</li>
 	 * <li>The specified image data is copied before this function returns.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param shape one of the standard shapes. One of:<br>{@link #GLFW_ARROW_CURSOR ARROW_CURSOR}, {@link #GLFW_IBEAM_CURSOR IBEAM_CURSOR}, {@link #GLFW_CROSSHAIR_CURSOR CROSSHAIR_CURSOR}, {@link #GLFW_HAND_CURSOR HAND_CURSOR}, {@link #GLFW_HRESIZE_CURSOR HRESIZE_CURSOR}, {@link #GLFW_VRESIZE_CURSOR VRESIZE_CURSOR}
 	 *
@@ -2339,11 +2357,12 @@ public class GLFW {
 	/**
 	 * Destroys a cursor previously created with {@link #glfwCreateCursor CreateCursor}. Any remaining cursors will be destroyed by {@link #glfwTerminate Terminate}.
 	 * 
-	 * <p>Notes:
+	 * <p>Notes:</p>
+	 * 
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>This function may not be called from a callback.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param cursor the cursor object to destroy
 	 *
@@ -2741,12 +2760,13 @@ public class GLFW {
 	 * <p>The returned string is allocated and freed by GLFW. You should not free it yourself. It is valid until the next call to {@link #glfwGetClipboardString GetClipboardString} or
 	 * {@link #glfwSetClipboardString SetClipboardString}, or until the library is terminated.</p>
 	 * 
-	 * <p>Notes:
+	 * <p>Notes:</p>
+	 * 
 	 * <ul>
 	 * <li>This function may only be called from the main thread.</li>
 	 * <li>The returned string is allocated and freed by GLFW.  You should not free it yourself.</li>
 	 * <li>The returned string is valid only until the next call to {@link #glfwGetClipboardString GetClipboardString} or {@link #glfwSetClipboardString SetClipboardString}.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param window the window that will request the clipboard contents
 	 *
@@ -2871,14 +2891,15 @@ public class GLFW {
 	 * 
 	 * <p>A context must be current on the calling thread. Calling this function without a current context will cause a {@link #GLFW_NO_CURRENT_CONTEXT NO_CURRENT_CONTEXT} error.</p>
 	 * 
-	 * <p>Notes:
+	 * <p>Notes:</p>
+	 * 
 	 * <ul>
 	 * <li>This function may be called from any thread.</li>
 	 * <li>This function is not called during window creation, leaving the swap interval set to whatever is the default on that platform. This is done because
 	 * some swap interval extensions used by GLFW do not allow the swap interval to be reset to zero once it has been set to a non-zero value.</li>
 	 * <li>Some GPU drivers do not honor the requested swap interval, either because of a user setting that overrides the application's request or due to bugs
 	 * in the driver.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param interval the minimum number of screen updates to wait for until the buffers are swapped by {@link #glfwSwapBuffers SwapBuffers}
 	 *
@@ -2943,14 +2964,15 @@ public class GLFW {
 	 * 
 	 * <p>A context must be current on the calling thread.  Calling this function without a current context will cause a {@link #GLFW_NO_CURRENT_CONTEXT NO_CURRENT_CONTEXT} error.</p>
 	 * 
-	 * <p>Notes:
+	 * <p>Notes:</p>
+	 * 
 	 * <ul>
 	 * <li>The address of a given function is not guaranteed to be the same between contexts.</li>
 	 * <li>This function may return a non-{@code NULL} address despite the associated version or extension not being available. Always check the context version or
 	 * extension string first.</li>
 	 * <li>The returned function pointer is valid until the context is destroyed or the library is terminated.</li>
 	 * <li>This function may be called from any thread.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param procname the ASCII encoded name of the function
 	 *

@@ -268,10 +268,13 @@ public final class GLESCapabilities {
 	 * 
 	 * <p>This extension provides a set of new features to the OpenGL ES Shading Language and related APIs to support capabilities of new GPUs, extending the
 	 * capabilities of version 3.10 of the OpenGL ES Shading Language. Shaders using the new functionality provided by this extension should enable this
-	 * functionality via the construct
+	 * functionality via the construct</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * 	#extension GL_EXT_gpu_shader5 : require (or enable)</code></pre>
-	 * This extension provides a variety of new features for all shader types, including:
+	 * 
+	 * <p>This extension provides a variety of new features for all shader types, including:</p>
+	 * 
 	 * <ul>
 	 * <li>support for indexing into arrays of opaque types (samplers, and atomic counters) using dynamically uniform integer expressions;</li>
 	 * <li>support for indexing into arrays of images and shader storage blocks using only constant integral expressions;</li>
@@ -279,15 +282,17 @@ public final class GLESCapabilities {
 	 * <li>a "precise" qualifier allowing computations to be carried out exactly as specified in the shader source to avoid optimization-induced invariance
 	 * issues (which might cause cracking in tessellation);</li>
 	 * <li>new built-in functions supporting:
+	 * 
 	 * <ul>
 	 * <li>fused floating-point multiply-add operations;</li>
 	 * </ul></li>
 	 * <li>extending the textureGather() built-in functions provided by OpenGL ES Shading Language 3.10:
+	 * 
 	 * <ul>
 	 * <li>allowing shaders to use arbitrary offsets computed at run-time to select a 2x2 footprint to gather from; and</li>
 	 * <li>allowing shaders to use separate independent offsets for each of the four texels returned, instead of requiring a fixed 2x2 footprint.</li>
 	 * </ul></li>
-	 * </ul></p>
+	 * </ul>
 	 * 
 	 * <p>Requires {@link GLES31 GLES 3.1}.</p>
 	 */
@@ -312,13 +317,17 @@ public final class GLESCapabilities {
 	 * When true, the <a href="https://www.khronos.org/registry/gles/extensions/EXT/post_depth_coverage.txt">EXT_post_depth_coverage</a> extension is supported.
 	 * 
 	 * <p>This extension allows the fragment shader to control whether values in gl_SampleMaskIn[] reflect the coverage after application of the early depth and
-	 * stencil tests. This feature can be enabled with the following layout qualifier in the fragment shader:
+	 * stencil tests. This feature can be enabled with the following layout qualifier in the fragment shader:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * 	layout(post_depth_coverage) in;</code></pre>
-	 * To use this feature, early fragment tests must also be enabled in the fragment shader via:
+	 * 
+	 * <p>To use this feature, early fragment tests must also be enabled in the fragment shader via:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * 	layout(early_fragment_tests) in;</code></pre>
-	 * Requires {@link #GL_OES_sample_variables OES_sample_variables}.</p>
+	 * 
+	 * <p>Requires {@link #GL_OES_sample_variables OES_sample_variables}.</p>
 	 */
 	public final boolean GL_EXT_post_depth_coverage;
 	/** When true, {@link EXTPrimitiveBoundingBox} is supported. */
@@ -393,7 +402,8 @@ public final class GLESCapabilities {
 	 * Isotropic texture functions return defined texels for mipmap texture fetches, even inside non-uniform control flow. However, isotropic texture
 	 * functions return undefined texels for anisotropic texture fetches.</p>
 	 * 
-	 * <p>The existing isotropic vertex texture functions:
+	 * <p>The existing isotropic vertex texture functions:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * 	vec4 texture2DLodEXT(sampler2D sampler,
 	 * 	                     vec2 coord,
@@ -408,9 +418,11 @@ public final class GLESCapabilities {
 	 * 	vec4 textureCubeLodEXT(samplerCube sampler,
 	 * 	                       vec3 coord,
 	 * 	                       float lod);</code></pre>
-	 * are added to the built-in functions for fragment shaders with "EXT" suffix appended.</p>
 	 * 
-	 * <p>New anisotropic texture functions, providing explicit derivatives:
+	 * <p>are added to the built-in functions for fragment shaders with "EXT" suffix appended.</p>
+	 * 
+	 * <p>New anisotropic texture functions, providing explicit derivatives:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * 	vec4 texture2DGradEXT(sampler2D sampler,
 	 * 	                      vec2 P,
@@ -429,7 +441,8 @@ public final class GLESCapabilities {
 	 * 	                        vec3 P,
 	 * 	                        vec3 dPdx,
 	 * 	                        vec3 dPdy);</code></pre>
-	 * are added to the built-in functions for vertex shaders and fragment shaders.</p>
+	 * 
+	 * <p>are added to the built-in functions for vertex shaders and fragment shaders.</p>
 	 */
 	public final boolean GL_EXT_shader_texture_lod;
 	/** When true, {@link EXTShadowSamplers} is supported. */
@@ -588,13 +601,15 @@ public final class GLESCapabilities {
 	 * <p>In unextended OpenGL 4.3 or OpenGL ES 3.1, applications may produce a large number of fragment shader invocations that perform loads and stores to
 	 * memory using image uniforms, atomic counter uniforms, buffer variables, or pointers. The order in which loads and stores to common addresses are
 	 * performed by different fragment shader invocations is largely undefined. For algorithms that use shader writes and touch the same pixels more than
-	 * once, one or more of the following techniques may be required to ensure proper execution ordering:
+	 * once, one or more of the following techniques may be required to ensure proper execution ordering:</p>
+	 * 
 	 * <ul>
 	 * <li>inserting Finish or WaitSync commands to drain the pipeline between different "passes" or "layers";</li>
 	 * <li>using only atomic memory operations to write to shader memory (which may be relatively slow and limits how memory may be updated); or</li>
 	 * <li>injecting spin loops into shaders to prevent multiple shader invocations from touching the same memory concurrently.</li>
 	 * </ul>
-	 * This extension provides new GLSL built-in functions beginInvocationInterlockNV() and endInvocationInterlockNV() that delimit a critical section of
+	 * 
+	 * <p>This extension provides new GLSL built-in functions beginInvocationInterlockNV() and endInvocationInterlockNV() that delimit a critical section of
 	 * fragment shader code. For pairs of shader invocations with "overlapping" coverage in a given pixel, the OpenGL implementation will guarantee that the
 	 * critical section of the fragment shader will be executed for only one fragment at a time.</p>
 	 * 
@@ -642,7 +657,8 @@ public final class GLESCapabilities {
 	 * user-defined per-primitive attributes (e.g., gl_Layer) to be assigned to all the vertices of the output primitive.</p>
 	 * 
 	 * <p>This extension provides a shading language abstraction to express such shaders without requiring explicit logic to manually copy attributes from input
-	 * vertices to output vertices. For example, consider the following simple geometry shader in unextended OpenGL:
+	 * vertices to output vertices. For example, consider the following simple geometry shader in unextended OpenGL:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 *       layout(triangles) in;
 	 *       layout(triangle_strip) out;
@@ -668,10 +684,12 @@ public final class GLESCapabilities {
 	 *           EmitVertex();
 	 *         }
 	 *       }</code></pre>
-	 * In this shader, the inputs "gl_Position", "Inputs.texcoord", and "Inputs.baseColor" are simply copied from the input vertex to the corresponding output
+	 * 
+	 * <p>In this shader, the inputs "gl_Position", "Inputs.texcoord", and "Inputs.baseColor" are simply copied from the input vertex to the corresponding output
 	 * vertex. The only "interesting" work done by the geometry shader is computing and emitting a gl_Layer value for the primitive.</p>
 	 * 
-	 * <p>The following geometry shader, using this extension, is equivalent:
+	 * <p>The following geometry shader, using this extension, is equivalent:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 *       #extension GL_NV_geometry_shader_passthrough : require
 	 * 
@@ -697,7 +715,8 @@ public final class GLESCapabilities {
 	 *         // loop over three vertices or call EmitVertex().
 	 *         gl_Layer = compute_layer();
 	 *       }</code></pre>
-	 * Requires {@link GLES31 GLES 3.1}.</p>
+	 * 
+	 * <p>Requires {@link GLES31 GLES 3.1}.</p>
 	 */
 	public final boolean GL_NV_geometry_shader_passthrough;
 	/**
@@ -766,10 +785,12 @@ public final class GLESCapabilities {
 	 * 
 	 * <p>This extension allows the fragment shader to control whether the gl_SampleMask output can enable samples that were not covered by the original
 	 * primitive, or that failed the early depth/stencil tests. This can be enabled by redeclaring the gl_SampleMask output with the "override_coverage"
-	 * layout qualifier:
+	 * layout qualifier:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * 	layout(override_coverage) out int gl_SampleMask[];</code></pre>
-	 * Requires {@link #GL_OES_sample_variables OES_sample_variables}.</p>
+	 * 
+	 * <p>Requires {@link #GL_OES_sample_variables OES_sample_variables}.</p>
 	 */
 	public final boolean GL_NV_sample_mask_override_coverage;
 	/**
@@ -818,12 +839,13 @@ public final class GLESCapabilities {
 	 * <p>Conventional OpenGL ES 2.0 allows the use of non-power-of-two (NPOT) textures with the limitation that mipmap minification filters can not be used.
 	 * This extension relaxes this restriction and adds limited mipmap support for 2D NPOT textures.</p>
 	 * 
-	 * <p>With this extension, NPOT textures are specified and applied identically to mipmapped power-of-two 2D textures with the following limitations:
+	 * <p>With this extension, NPOT textures are specified and applied identically to mipmapped power-of-two 2D textures with the following limitations:</p>
+	 * 
 	 * <ul>
 	 * <li>The texture wrap modes must be CLAMP_TO_EDGE.</li>
 	 * <li>Coordinates used for texture sampling on an NPOT texture using a mipmapped minification filter must lie within the range [0,1]. Coordinate clamping
 	 * is not performed by the GL in this case, causing values outside this range to produce undefined results.</li>
-	 * </ul></p>
+	 * </ul>
 	 */
 	public final boolean GL_NV_texture_npot_2D_mipmap;
 	/** When true, {@link NVViewportArray} is supported. */
@@ -914,10 +936,13 @@ public final class GLESCapabilities {
 	 * 
 	 * <p>This extension provides a set of new features to the OpenGL ES Shading Language and related APIs to support capabilities of new GPUs, extending the
 	 * capabilities of version 3.10 of the OpenGL ES Shading Language. Shaders using the new functionality provided by this extension should enable this
-	 * functionality via the construct
+	 * functionality via the construct</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * 	#extension GL_OES_gpu_shader5 : require (or enable)</code></pre>
-	 * This extension provides a variety of new features for all shader types, including:
+	 * 
+	 * <p>This extension provides a variety of new features for all shader types, including:</p>
+	 * 
 	 * <ul>
 	 * <li>support for indexing into arrays of opaque types (samplers, and atomic counters) using dynamically uniform integer expressions;</li>
 	 * <li>support for indexing into arrays of images and shader storage blocks using only constant integral expressions;</li>
@@ -925,16 +950,19 @@ public final class GLESCapabilities {
 	 * <li>a "precise" qualifier allowing computations to be carried out exactly as specified in the shader source to avoid optimization-induced invariance
 	 * issues (which might cause cracking in tessellation);</li>
 	 * <li>new built-in functions supporting:
+	 * 
 	 * <ul>
 	 * <li>fused floating-point multiply-add operations;</li>
 	 * </ul></li>
 	 * <li>extending the textureGather() built-in functions provided by OpenGL ES Shading Language 3.10:
+	 * 
 	 * <ul>
 	 * <li>allowing shaders to use arbitrary offsets computed at run-time to select a 2x2 footprint to gather from; and</li>
 	 * <li>allowing shaders to use separate independent offsets for each of the four texels returned, instead of requiring a fixed 2x2 footprint.</li>
 	 * </ul></li>
 	 * </ul>
-	 * Requires {@link GLES31 GLES 3.1}.</p>
+	 * 
+	 * <p>Requires {@link GLES31 GLES 3.1}.</p>
 	 */
 	public final boolean GL_OES_gpu_shader5;
 	/** When true, {@link OESMapbuffer} is supported. */

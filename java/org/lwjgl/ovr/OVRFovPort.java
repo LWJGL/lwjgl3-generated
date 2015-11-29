@@ -15,10 +15,12 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * Field Of View (FOV) in tangent of the angle units. As an example, for a standard 90 degree vertical FOV, we would have:
+ * 
  * <pre><code style="font-family: monospace">
  * { UpTan = tan(90 degrees / 2), DownTan = tan(90 degrees / 2) }</code></pre>
  * 
  * <h3>ovrFovPort members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>UpTan</td><td class="nw">float</td><td>the tangent of the angle between the viewing vector and the top edge of the field of view</td></tr>

@@ -33,7 +33,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * using the coverage information to antialias path edges. With this two-step process, internal edges are fully covered when antialiasing is applied and
  * there is no corruption on these edges.</p>
  * 
- * <p>The key features of this extension are:
+ * <p>The key features of this extension are:</p>
+ * 
  * <ul>
  * <li>It allows a framebuffer object to be considered complete when its depth or stencil samples are a multiple of the number of color samples.</li>
  * <li>It redefines SAMPLES to be the number of depth/stencil samples (if any); otherwise, it uses the number of color samples. SAMPLE_BUFFERS is one if
@@ -42,7 +43,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>A coverage reduction step is added to Per-Fragment Operations which converts a set of covered raster/depth/stencil samples to a set of covered
  * color samples. The coverage reduction step also includes an optional coverage modulation step, multiplying color values by a fractional opacity
  * corresponding to the number of associated raster/depth/stencil samples covered.</li>
- * </ul></p>
+ * </ul>
  */
 public class NVFramebufferMixedSamples {
 

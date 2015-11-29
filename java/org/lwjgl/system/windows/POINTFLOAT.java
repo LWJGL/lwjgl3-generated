@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Contains the x and y coordinates of a point.
  * 
  * <h3>POINTFLOAT members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>x</td><td class="nw">FLOAT</td><td>specifies the horizontal (x) coordinate of a point</td></tr>

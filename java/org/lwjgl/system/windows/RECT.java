@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Defines the coordinates of the upper-left and lower-right corners of a rectangle.
  * 
  * <h3>RECT members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>left</td><td class="nw">LONG</td><td>the x-coordinate of the upper-left corner of the rectangle</td></tr>

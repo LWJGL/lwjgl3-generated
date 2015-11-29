@@ -97,11 +97,12 @@ public class ARBInstancedArrays {
 	 * <a href="http://www.opengl.org/registry/specs/EXT/direct_state_access.txt">EXT_direct_state_access</a> version of {@link #glVertexAttribDivisorARB VertexAttribDivisorARB}.
 	 * 
 	 * <p>This function was added to the extension specification in July 2013. Implemenations are allowed to expose ARB_instanced_arrays without providing this
-	 * function. The correct way to test its availability is:
+	 * function. The correct way to test its availability is:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * GLCapabilities caps = GL.getCapabilities();
 	 * if ( caps.GL_ARB_instanced_arrays && ARBInstancedArrays.getInstance().VertexArrayVertexAttribDivisorEXT != NULL )
-	 * 	glVertexArrayVertexAttribDivisorEXT(...); // the DSA function can now be used</code></pre></p>
+	 * 	glVertexArrayVertexAttribDivisorEXT(...); // the DSA function can now be used</code></pre>
 	 *
 	 * @param vaobj   the vertex array object
 	 * @param index   the attribute index

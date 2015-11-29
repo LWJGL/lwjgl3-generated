@@ -21,7 +21,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * inputs, outputs, and uniforms.</p>
  * 
  * <p>The shading language supports various arithmetic and comparison operators on double-precision scalar, vector, and matrix types, and provides a set of
- * built-in functions including:
+ * built-in functions including:</p>
+ * 
  * <ul>
  * <li>square roots and inverse square roots;</li>
  * <li>fused floating-point multiply-add operations;</li>
@@ -32,7 +33,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>packing and unpacking doubles into a pair of 32-bit unsigned integers;</li>
  * <li>matrix component-wise multiplication, and computation of outer products, transposes, determinants, and inverses; and</li>
  * <li>vector relational functions.</li>
- * </ul></p>
+ * </ul>
  * 
  * <p>Double-precision versions of angle, trigonometry, and exponential functions are not supported.</p>
  * 

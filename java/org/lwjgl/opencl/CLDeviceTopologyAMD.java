@@ -16,6 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * The struct returned by {@link CL10#clGetDeviceInfo} with {@code param_name} set to {@link AMDDeviceTopology#CL_DEVICE_TOPOLOGY_AMD}.
  * 
  * <h3>cl_device_topology_amd members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>raw</td><td><table border=1 cellspacing=0 cellpadding=2 class=lwjgl>

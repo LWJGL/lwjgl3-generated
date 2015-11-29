@@ -97,7 +97,8 @@ public class ARBDrawIndirect {
 	 * <p>{@code glDrawArraysIndirect} behaves similarly to {@link GL42#glDrawArraysInstancedBaseInstance DrawArraysInstancedBaseInstance}, except that the parameters to
 	 * glDrawArraysInstancedBaseInstance are stored in memory at the address given by {@code indirect}.</p>
 	 * 
-	 * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):
+	 * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * typedef struct {
 	 * 	uint count;
@@ -107,7 +108,7 @@ public class ARBDrawIndirect {
 	 * } DrawArraysIndirectCommand;
 	 * 
 	 * const DrawArraysIndirectCommand *cmd = (const DrawArraysIndirectCommand *)indirect;
-	 * glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, cmd->baseInstance);</code></pre></p>
+	 * glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, cmd->baseInstance);</code></pre>
 	 *
 	 * @param mode     what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param indirect a structure containing the draw parameters
@@ -151,7 +152,8 @@ public class ARBDrawIndirect {
 	 * <p>{@code glDrawElementsIndirect} behaves similarly to {@link GL42#glDrawElementsInstancedBaseVertexBaseInstance DrawElementsInstancedBaseVertexBaseInstance}, execpt that the parameters to
 	 * glDrawElementsInstancedBaseVertexBaseInstance are stored in memory at the address given by {@code indirect}.</p>
 	 * 
-	 * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):
+	 * <p>The parameters addressed by {@code indirect} are packed into a structure that takes the form (in C):</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * typedef struct {
 	 * 	uint count;
@@ -159,9 +161,10 @@ public class ARBDrawIndirect {
 	 * 	uint firstIndex;
 	 * 	uint baseVertex;
 	 * 	uint baseInstance;
-	 * } DrawElementsIndirectCommand;</code></pre></p>
+	 * } DrawElementsIndirectCommand;</code></pre>
 	 * 
-	 * <p>{@code glDrawElementsIndirect} is equivalent to:
+	 * <p>{@code glDrawElementsIndirect} is equivalent to:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * void glDrawElementsIndirect(GLenum mode, GLenum type, const void *indirect) {
 	 * 	const DrawElementsIndirectCommand *cmd  = (const DrawElementsIndirectCommand *)indirect;
@@ -174,7 +177,7 @@ public class ARBDrawIndirect {
 	 * 		cmd->baseVertex,
 	 * 		cmd->baseInstance
 	 * 	);
-	 * }</code></pre></p>
+	 * }</code></pre>
 	 *
 	 * @param mode     what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param type     the type of data in the buffer bound to the {@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER} binding. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}

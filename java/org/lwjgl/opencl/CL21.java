@@ -110,6 +110,7 @@ public class CL21 {
 	 * @param command_queue a valid command-queue for {@code device}
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link CL10#CL_INVALID_DEVICE INVALID_DEVICE} if {@code device} is not a valid device or is not associated with {@code context}.</li>
@@ -153,6 +154,7 @@ public class CL21 {
 	 *                         returned. The resolution of the timer may be queried via {@link CL10#clGetPlatformInfo GetPlatformInfo} and the flag {@link #CL_PLATFORM_HOST_TIMER_RESOLUTION PLATFORM_HOST_TIMER_RESOLUTION}.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} with a time value in {@code host_timestamp} if provided. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_DEVICE INVALID_DEVICE} if {@code device} is not a valid OpenCL device.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code host_timestamp} or {@code device_timestamp} is {@code NULL}.</li>
@@ -200,6 +202,7 @@ public class CL21 {
 	 *                       flag {@link #CL_PLATFORM_HOST_TIMER_RESOLUTION PLATFORM_HOST_TIMER_RESOLUTION}.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} with a time value in {@code host_timestamp} if provided. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_DEVICE INVALID_DEVICE} if {@code device} is not a valid OpenCL device.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code host_timestamp} is {@code NULL}.</li>
@@ -237,6 +240,7 @@ public class CL21 {
 	 *
 	 * @return a valid non-zero program object and {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the program object is created successfully. Otherwise, it returns a {@code NULL}
 	 *         value with one of the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code il} is {@code NULL} or if {@code length} is zero.</li>
@@ -294,6 +298,7 @@ public class CL21 {
 	 *
 	 * @return a valid non-zero kernel object and {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the kernel is successfully copied. Otherwise it returns a {@code NULL} value with
 	 *         one of the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_KERNEL INVALID_KERNEL} if {@code source_kernel} is not a valid kernel object.</li>
 	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -338,6 +343,7 @@ public class CL21 {
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_DEVICE INVALID_DEVICE} if {@code device} is not in the list of devices associated with {@code kernel} or if {@code device} is {@code NULL} but there is more than
 	 *         one device associated with {@code kernel}.</li>
@@ -410,6 +416,7 @@ public class CL21 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and events in {@code event_wait_list} are not the same</li>

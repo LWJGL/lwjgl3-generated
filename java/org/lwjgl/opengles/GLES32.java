@@ -575,7 +575,8 @@ public class GLES32 {
 	 * <p>If {@code enabled} is {@link GLES20#GL_TRUE TRUE}, the referenced subset of messages will be enabled. If {@link GLES20#GL_FALSE FALSE}, then those messages will be disabled.</p>
 	 * 
 	 * <p>This command can reference different subsets of messages by first considering the set of all messages, and filtering out messages based on the following
-	 * ways:
+	 * ways:</p>
+	 * 
 	 * <ul>
 	 * <li>If {@code source}, {@code type}, or {@code severity} is {@link GLES20#GL_DONT_CARE DONT_CARE}, the messages from all sources, of all types, or of all severities are
 	 * referenced respectively.</li>
@@ -585,7 +586,8 @@ public class GLES32 {
 	 * {@code type}. In this case, if {@code source} or {@code type} is {@link GLES20#GL_DONT_CARE DONT_CARE}, or {@code severity} is not {@link GLES20#GL_DONT_CARE DONT_CARE}, the error
 	 * {@link GLES20#GL_INVALID_OPERATION INVALID_OPERATION} is generated.</li>
 	 * </ul>
-	 * Unrecognized message IDs in {@code ids} are ignored. If {@code count} is zero, the value if {@code ids} is ignored.</p>
+	 * 
+	 * <p>Unrecognized message IDs in {@code ids} are ignored. If {@code count} is zero, the value if {@code ids} is ignored.</p>
 	 * 
 	 * <p>Although messages are grouped into an implicit hierarchy by their sources and types, there is no explicit per-source, per-type or per-severity enabled
 	 * state. Instead, the enabled state is stored individually for each message. There is no difference between disabling all messages from one source in a
@@ -1287,14 +1289,16 @@ public class GLES32 {
 
 	/**
 	 * Indicates if the GL context has been in a reset state at any point since the last call to GetGraphicsResetStatus:
+	 * 
 	 * <ul>
 	 * <li>{@link GLES20#GL_NO_ERROR NO_ERROR} indicates that the GL context has not been in a reset state since the last call.</li>
 	 * <li>{@link #GL_GUILTY_CONTEXT_RESET GUILTY_CONTEXT_RESET} indicates that a reset has been detected that is attributable to the current GL context.</li>
 	 * <li>{@link #GL_INNOCENT_CONTEXT_RESET INNOCENT_CONTEXT_RESET} indicates a reset has been detected that is not attributable to the current GL context.</li>
 	 * <li>{@link #GL_UNKNOWN_CONTEXT_RESET UNKNOWN_CONTEXT_RESET} indicates a detected graphics reset whose cause is unknown.</li>
 	 * </ul>
-	 * If a reset status other than NO_ERROR is returned and subsequent calls return NO_ERROR, the context reset was encountered and completed. If a reset
-	 * status is repeatedly returned, the context may be in the process of resetting.
+	 * 
+	 * <p>If a reset status other than NO_ERROR is returned and subsequent calls return NO_ERROR, the context reset was encountered and completed. If a reset
+	 * status is repeatedly returned, the context may be in the process of resetting.</p>
 	 * 
 	 * <p>Reset notification behavior is determined at context creation time, and may be queried by calling GetIntegerv with the symbolic constant
 	 * {@link #GL_RESET_NOTIFICATION_STRATEGY RESET_NOTIFICATION_STRATEGY}.</p>
@@ -1309,13 +1313,14 @@ public class GLES32 {
 	 * 
 	 * <p>After a graphics reset has occurred on a context, subsequent GL commands on that context (or any context which shares with that context) will generate a
 	 * {@link #GL_CONTEXT_LOST CONTEXT_LOST} error. Such commands will not have side effects (in particular, they will not modify memory passed by pointer for query results,
-	 * and may not block indefinitely or cause termination of the application. Exceptions to this behavior include:
+	 * and may not block indefinitely or cause termination of the application. Exceptions to this behavior include:</p>
+	 * 
 	 * <ul>
 	 * <li>{@link GLES20#glGetError GetError} and GetGraphicsResetStatus behave normally following a graphics reset, so that the application can determine a reset has
 	 * occurred, and when it is safe to destroy and recreate the context.</li>
 	 * <li>Any commands which might cause a polling application to block indefinitely will generate a CONTEXT_LOST error, but will also return a value
 	 * indicating completion to the application.</li>
-	 * </ul></p>
+	 * </ul>
 	 */
 	public static int glGetGraphicsResetStatus() {
 		long __functionAddress = getInstance().GetGraphicsResetStatus;

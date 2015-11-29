@@ -106,24 +106,28 @@ public class KHRGLSharing {
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. If no device(s) exist corresponding to {@code param_name}, the call will not fail, but the value
 	 *         of {@code param_value_size_ret} will be zero.
 	 *         
-	 *         <p>Returns {@link #CL_INVALID_GL_SHAREGROUP_REFERENCE_KHR INVALID_GL_SHAREGROUP_REFERENCE_KHR} if a context was specified by any of the following means:
+	 *         <p>Returns {@link #CL_INVALID_GL_SHAREGROUP_REFERENCE_KHR INVALID_GL_SHAREGROUP_REFERENCE_KHR} if a context was specified by any of the following means:</p>
+	 *         
 	 *         <ul>
 	 *         <li>A context was specified for an EGL-based OpenGL ES or OpenGL implementation by setting the attributes {@link #CL_GL_CONTEXT_KHR GL_CONTEXT_KHR} and {@link #CL_EGL_DISPLAY_KHR EGL_DISPLAY_KHR}.</li>
 	 *         <li>A context was specified for a GLX-based OpenGL implementation by setting the attributes {@link #CL_GL_CONTEXT_KHR GL_CONTEXT_KHR} and {@link #CL_GLX_DISPLAY_KHR GLX_DISPLAY_KHR}.</li>
 	 *         <li>A context was specified for a WGL-based OpenGL implementation by setting the attributes {@link #CL_GL_CONTEXT_KHR GL_CONTEXT_KHR} and {@link #CL_WGL_HDC_KHR WGL_HDC_KHR}.</li>
 	 *         </ul>
-	 *         and any of the following conditions hold:
+	 *         
+	 *         <p>and any of the following conditions hold:</p>
+	 *         
 	 *         <ul>
 	 *         <li>The specified display and context attributes do not identify a valid OpenGL or OpenGL ES context.</li>
 	 *         <li>The specified context does not support buffer and renderbuffer objects.</li>
 	 *         <li>The specified context is not compatible with the OpenCL context being created (for example, it exists in a physically distinct address space, such
 	 *         as another hardware device; or it does not support sharing data with OpenCL due to implementation restrictions).</li>
-	 *         </ul></p>
+	 *         </ul>
 	 *         
 	 *         <p>Returns {@link #CL_INVALID_GL_SHAREGROUP_REFERENCE_KHR INVALID_GL_SHAREGROUP_REFERENCE_KHR} if a share group was specified for a CGL-based OpenGL implementation by setting the attribute
 	 *         {@link #CL_CGL_SHAREGROUP_KHR CGL_SHAREGROUP_KHR}, and the specified share group does not identify a valid CGL share group object.</p>
 	 *         
-	 *         <p>Returns {@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} if a context was specified as described above and any of the following conditions hold:
+	 *         <p>Returns {@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} if a context was specified as described above and any of the following conditions hold:</p>
+	 *         
 	 *         <ul>
 	 *         <li>A context or share group object was specified for one of CGL, EGL, GLX, or WGL and the OpenGL implementation does not support that window-system
 	 *         binding API.</li>
@@ -131,7 +135,7 @@ public class KHRGLSharing {
 	 *         {@link #CL_WGL_HDC_KHR WGL_HDC_KHR} is set to a non-default value.</li>
 	 *         <li>Both of the attributes {@link #CL_CGL_SHAREGROUP_KHR CGL_SHAREGROUP_KHR} and {@link #CL_GL_CONTEXT_KHR GL_CONTEXT_KHR} are set to non-default values.</li>
 	 *         <li>Any of the devices specified in the {@code devices} argument cannot support OpenCL objects which share the data store of an OpenGL object.</li>
-	 *         </ul></p>
+	 *         </ul>
 	 *         
 	 *         <p>Returns {@link CL10#CL_INVALID_VALUE INVALID_VALUE} if an invalid attribute name is specified in {@code properties}.</p>
 	 *         

@@ -18,16 +18,18 @@ import static org.lwjgl.system.Pointer.*;
 /**
  * Native bindings to stb_truetype.h from the <a href="https://github.com/nothings/stb">stb library</a>.
  * 
- * <p>This library processes TrueType files:
+ * <p>This library processes TrueType files:</p>
+ * 
  * <ul>
  * <li>parse files</li>
  * <li>extract glyph metrics</li>
  * <li>extract glyph shapes</li>
  * <li>render glyphs to one-channel bitmaps with antialiasing (box filter)</li>
- * </ul></p>
+ * </ul>
  * 
  * <h3>ADDITIONAL DOCUMENTATION</h3>
- * Some important concepts to understand to use this library:
+ * 
+ * <p>Some important concepts to understand to use this library:</p>
  * 
  * <p><b>Codepoint</b></p>
  * 
@@ -68,19 +70,22 @@ import static org.lwjgl.system.Pointer.*;
  * 
  * <h3>ADVANCED USAGE</h3>
  * 
- * <p>Quality:
+ * <p>Quality:</p>
+ * 
  * <ul>
  * <li>Use the functions with Subpixel at the end to allow your characters to have subpixel positioning. Since the font is anti-aliased, not hinted, this
  * is very important for quality. (This is not possible with baked fonts.)</li>
  * <li>Kerning is now supported, and if you're supporting subpixel rendering then kerning is worth using to give your text a polished look.</li>
  * </ul>
- * Performance:
+ * 
+ * <p>Performance:</p>
+ * 
  * <ul>
  * <li>Convert Unicode codepoints to glyph indexes and operate on the glyphs; if you don't do this, stb_truetype is forced to do the conversion on every
  * call.</li>
  * <li>There are a lot of memory allocations. We should modify it to take a temp buffer and allocate from the temp buffer (without freeing), should help
  * performance a lot.</li>
- * </ul></p>
+ * </ul>
  * 
  * <h3>NOTES</h3>
  * 
@@ -92,7 +97,8 @@ import static org.lwjgl.system.Pointer.*;
  * 
  * <h3>SAMPLE PROGRAMS</h3>
  * 
- * <p>Incomplete text-in-3d-api example, which draws quads properly aligned to be lossless:
+ * <p>Incomplete text-in-3d-api example, which draws quads properly aligned to be lossless:</p>
+ * 
  * <pre><code style="font-family: monospace">
  * unsigned char ttf_buffer[1<<20];
  * unsigned char temp_bitmap[512*512];
@@ -131,7 +137,9 @@ import static org.lwjgl.system.Pointer.*;
  *    }
  *    glEnd();
  * }</code></pre>
- * Complete program (this compiles): get a single bitmap, print as ASCII art:
+ * 
+ * <p>Complete program (this compiles): get a single bitmap, print as ASCII art:</p>
+ * 
  * <pre><code style="font-family: monospace">
  * char ttf_buffer[1<<25];
  * 
@@ -153,7 +161,9 @@ import static org.lwjgl.system.Pointer.*;
  *    }
  *    return 0;
  * }</code></pre>
- * Complete program: print "Hello World!" banner, with bugs:
+ * 
+ * <p>Complete program: print "Hello World!" banner, with bugs:</p>
+ * 
  * <pre><code style="font-family: monospace">
  * char buffer[24<<20];
  * unsigned char screen[20][79];
@@ -196,20 +206,22 @@ import static org.lwjgl.system.Pointer.*;
  * 
  *    return 0;
  * }</code></pre>
- * <h3>Finding the right font...</h3></p>
+ * 
+ * <h3>Finding the right font...</h3>
  * 
  * <p>You should really just solve this offline, keep your own tables of what font is what, and don't try to get it out of the .ttf file. That's because
  * getting it out of the .ttf file is really hard, because the names in the file can appear in many possible encodings, in many possible languages, and
  * e.g. if you need a case-insensitive comparison, the details of that depend on the encoding & language in a complex way (actually underspecified in
  * truetype, but also gigantic).</p>
  * 
- * <p>But you can use the provided functions in two possible ways:
+ * <p>But you can use the provided functions in two possible ways:</p>
+ * 
  * <ul>
  * <li>{@link #stbtt_FindMatchingFont FindMatchingFont} will use *case-sensitive* comparisons on unicode-encoded names to try to find the font you want; you can run this before
  * calling {@link #stbtt_InitFont InitFont}</li>
  * <li>{@link #stbtt_GetFontNameString GetFontNameString} lets you get any of the various strings from the file yourself and do your own comparisons on them. You have to have called
  * {@link #stbtt_InitFont InitFont} first.</li>
- * </ul></p>
+ * </ul>
  */
 public class STBTruetype {
 
@@ -454,6 +466,7 @@ public class STBTruetype {
 	 * @param font_index                  the font index (use 0 if you don't know what that is
 	 * @param font_size                   the full height of the character from ascender to descender, as computed by {@link #stbtt_ScaleForPixelHeight ScaleForPixelHeight}. To use a point size as computed by
 	 *                                    {@link #stbtt_ScaleForMappingEmToPixels ScaleForMappingEmToPixels}, wrap the font size in {@link #STBTT_POINT_SIZE} and pass the result, i.e.:
+	 *                                    
 	 *                                    <pre><code style="font-family: monospace">
 	 *                                    ...,                  20 , ... // font max minus min y is 20 pixels tall
 	 *                                    ..., STBTT_POINT_SIZE(20), ... // 'M' is 20 pixels tall</code></pre>
@@ -719,9 +732,11 @@ public class STBTruetype {
 	/**
 	 * Computes a scale factor to produce a font whose "height" is {@code pixels} tall. Height is measured as the distance from the highest ascender to the
 	 * lowest descender; in other words, it's equivalent to calling {@link #stbtt_GetFontVMetrics GetFontVMetrics} and computing:
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * scale = pixels / (ascent - descent)</code></pre>
-	 * so if you prefer to measure height by the ascent only, use a similar calculation.
+	 * 
+	 * <p>so if you prefer to measure height by the ascent only, use a similar calculation.</p>
 	 *
 	 * @param info   an {@link STBTTFontinfo} struct
 	 * @param pixels the font height, in pixels
@@ -1618,11 +1633,12 @@ public class STBTruetype {
 	/**
 	 * Returns the string (which may be big-endian double byte, e.g. for unicode) and puts the length in bytes in {@code *length}.
 	 * 
-	 * <p>See the truetype spec:
+	 * <p>See the truetype spec:</p>
+	 * 
 	 * <ul>
 	 * <li><a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6name.html">TrueType Reference Manual - The 'name' table</a></li>
 	 * <li><a href="http://www.microsoft.com/typography/otspec/name.htm">OpenType™ Specification - The Naming Table</a></li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param font       an {@link STBTTFontinfo} struct
 	 * @param platformID the platform ID. One of:<br>{@link #STBTT_PLATFORM_ID_UNICODE PLATFORM_ID_UNICODE}, {@link #STBTT_PLATFORM_ID_MAC PLATFORM_ID_MAC}, {@link #STBTT_PLATFORM_ID_ISO PLATFORM_ID_ISO}, {@link #STBTT_PLATFORM_ID_MICROSOFT PLATFORM_ID_MICROSOFT}

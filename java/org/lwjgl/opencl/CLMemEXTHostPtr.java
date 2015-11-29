@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Accepted by the {@code host_ptr} argument of {@link CL10#clCreateBuffer}, {@link CL10#clCreateImage2D} and {@link CL10#clCreateImage3D}.
  * 
  * <h3>cl_mem_ext_host_ptr members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>allocation_type</td><td class="nw">cl_uint</td><td>type of external memory allocation. Legal values will be defined in layered extensions.</td></tr>

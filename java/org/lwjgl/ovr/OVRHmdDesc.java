@@ -16,6 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * A complete descriptor of the HMD.
  * 
  * <h3>ovrHmdDesc members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>Type</td><td class="nw">ovrHmdType</td><td>this HMD's type</td></tr>

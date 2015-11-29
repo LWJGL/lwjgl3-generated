@@ -20,7 +20,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>This extension was developed based on the NV_gpu_shader5 extension to allow implementations supporting 64-bit integers to expose the feature without
  * the additional requirements that are present in NV_gpu_shader5.</p>
  * 
- * <p>The extension introduces the following features for all shader types:
+ * <p>The extension introduces the following features for all shader types:</p>
+ * 
  * <ul>
  * <li>support for 64-bit scalar and vector integer data types, including uniform API, uniform buffer object, transform feedback, and shader input and
  * output support;</li>
@@ -29,7 +30,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>vector relational functions supporting comparisons of vectors of 64-bit integer types; and</li>
  * <li>common functions abs, sign, min, max, clamp, and mix supporting arguments of 64-bit integer types.</li>
  * </ul>
- * This extension is designed to be a functional superset of the 64-bit integer support introduced by NV_gpu_shader5 and to be source code compatible with
+ * 
+ * <p>This extension is designed to be a functional superset of the 64-bit integer support introduced by NV_gpu_shader5 and to be source code compatible with
  * that, thus the new procedures, functions, and tokens are identical to those found in that extension.</p>
  * 
  * <p>Requires {@link GL40 OpenGL 4.0} and GLSL 4.00.</p>

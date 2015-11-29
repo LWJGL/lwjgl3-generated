@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * reside and in the same memory format and layout required by texturing. The functionality is similar to CopyTexImage1D and CopyTexImage2D. However, some
  * changes were made to make it easier to avoid copying data:</p>
  * 
- * <p><ul>
+ * <ul>
  * <li>Only color buffers of a pbuffer can be bound as a texture. It is not possible to use the color buffer of a window as a texture.</li>
  * <li>The texture internal format is determined when the color buffer is associated with the texture, guaranteeing that the color buffer format is equivalent
  * to the texture internal format.</li>
@@ -35,7 +35,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <a href="http://www.opengl.org/registry/specs/SGIS/generate_mipmap.txt">SGIS_generate_mipmap</a> is supported, they can be automatically generated when the color buffer is bound as a texture.</li>
  * <li>A texture target is associated with the pbuffer, so that cubemap images can be rendered into a single color buffer.</li>
  * </ul>
- * Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string}, {@link WGLARBPixelFormat WGL_ARB_pixel_format}, {@link WGLARBPbuffer WGL_ARB_pbuffer}.</p>
+ * 
+ * <p>Requires {@link WGLARBExtensionsString WGL_ARB_extensions_string}, {@link WGLARBPixelFormat WGL_ARB_pixel_format}, {@link WGLARBPbuffer WGL_ARB_pbuffer}.</p>
  */
 public class WGLARBRenderTexture {
 

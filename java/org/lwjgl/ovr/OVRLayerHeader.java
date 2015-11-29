@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Defines properties shared by all ovrLayer structs, such as {@link OVRLayerEyeFov}.
  * 
  * <h3>ovrLayerHeader members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>Type</td><td class="nw">ovrLayerType</td><td>described by {@code ovrLayerType}</td></tr>

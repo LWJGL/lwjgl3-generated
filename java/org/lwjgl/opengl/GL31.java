@@ -19,7 +19,8 @@ import static org.lwjgl.system.Pointer.*;
 /**
  * The core OpenGL 3.1 functionality. OpenGL 3.1 implementations support revision 1.40 of the OpenGL Shading Language.
  * 
- * <p>Extensions promoted to core in this release:
+ * <p>Extensions promoted to core in this release:</p>
+ * 
  * <ul>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/draw_instanced.txt">ARB_draw_instanced</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/copy_buffer.txt">ARB_copy_buffer</a></li>
@@ -27,7 +28,7 @@ import static org.lwjgl.system.Pointer.*;
  * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_buffer_object.txt">ARB_texture_buffer_object</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/texture_rectangle.txt">ARB_texture_rectangle</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/uniform_buffer_object.txt">ARB_uniform_buffer_object</a></li>
- * </ul></p>
+ * </ul>
  */
 public class GL31 {
 

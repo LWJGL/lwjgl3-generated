@@ -16,6 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Packed character data, returned by {@link STBTruetype#stbtt_PackFontRange}
  * 
  * <h3>stbtt_packedchar members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>x0</td><td class="nw">unsigned short</td><td></td></tr>

@@ -23,6 +23,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * be destroyed by {@link OVR#ovr_DestroySwapTextureSet}.</p>
  * 
  * <h3>ovrSwapTextureSet members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>Textures</td><td class="nw">ovrTexture *</td><td>points to an array of ovrTextures</td></tr>

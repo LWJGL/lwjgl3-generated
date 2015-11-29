@@ -16,6 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Tracking state at a given absolute time (describes predicted HMD pose etc). Returned by {@link OVR#ovr_GetTrackingState}.
  * 
  * <h3>ovrTrackingState members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>HeadPose</td><td class="nw">{@link OVRPoseStatef ovrPoseStatef}</td><td>Predicted head pose (and derivatives) at the requested absolute time. The look-ahead interval is equal to

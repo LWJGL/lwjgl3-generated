@@ -556,6 +556,7 @@ public class CL10 {
 	 * @param num_platforms returns the number of OpenCL platforms available. If {@code num_platforms} is {@code NULL}, this argument is ignored.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if {@code num_entries} is equal to zero and {@code platforms} is not {@code NULL} or if both {@code num_platforms} and
 	 *         {@code platforms} are {@code NULL}.</li>
@@ -598,6 +599,7 @@ public class CL10 {
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_PLATFORM INVALID_PLATFORM} if {@code platform} is not a valid platform.</li>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not one of the supported values or if size in bytes specified by {@code param_value_size} is &lt;
@@ -650,6 +652,7 @@ public class CL10 {
 	 * @param num_devices returns the number of OpenCL devices available that match {@code device_type}. If {@code num_devices} is {@code NULL}, this argument is ignored.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_PLATFORM INVALID_PLATFORM} if {@code platform} is not a valid platform.</li>
 	 *         <li>{@link #CL_INVALID_DEVICE_TYPE INVALID_DEVICE_TYPE} if {@code device_type} is not a valid value.</li>
@@ -696,6 +699,7 @@ public class CL10 {
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_DEVICE INVALID_DEVICE} if {@code device} is not valid.</li>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not one of the supported values or if size in bytes specified by {@code param_value_size} is &lt;
@@ -768,6 +772,7 @@ public class CL10 {
 	 *
 	 * @return a valid non-zero context and {@code errcode_ret} is set to {@link #CL_SUCCESS SUCCESS} if the context is created successfully. Otherwise, it returns a {@code NULL} value with the
 	 *         following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_PLATFORM INVALID_PLATFORM} if {@code properties} is {@code NULL} and no platform could be selected or if platform value specified in properties is not a
 	 *         valid platform.</li>
@@ -859,6 +864,7 @@ public class CL10 {
 	 * @param context the context to retain
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link #CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -883,6 +889,7 @@ public class CL10 {
 	 * @param context the context to release
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link #CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -917,6 +924,7 @@ public class CL10 {
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not one of the supported values or if size in bytes specified by {@code param_value_size} is &lt;
@@ -983,6 +991,7 @@ public class CL10 {
 	 *
 	 * @return a valid non-zero command-queue and {@code errcode_ret} is set to {@link #CL_SUCCESS SUCCESS} if the command-queue is created successfully. Otherwise, it returns a {@code NULL} value
 	 *         with one of the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link #CL_INVALID_DEVICE INVALID_DEVICE} if {@code device} is not a valid device or is not associated with {@code context}.</li>
@@ -1017,6 +1026,7 @@ public class CL10 {
 	 * @param command_queue the command-queue to retain
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link #CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -1043,6 +1053,7 @@ public class CL10 {
 	 * @param command_queue the command-queue to release
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link #CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -1077,6 +1088,7 @@ public class CL10 {
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not one of the supported values or if size in bytes specified by {@code param_value_size} is &lt;
@@ -1145,6 +1157,7 @@ public class CL10 {
 	 *
 	 * @return a valid non-zero buffer object and {@code errcode_ret} is set to {@link #CL_SUCCESS SUCCESS} if the buffer object is created successfully. Otherwise, it returns a {@code NULL} value
 	 *         with one of the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if values specified in flags are not valid.</li>
@@ -1225,13 +1238,14 @@ public class CL10 {
 	 * 
 	 * <p>Calling {@code clEnqueueReadBuffer} to read a region of the buffer object with the {@code ptr} argument value set to {@code host_ptr + offset}, where
 	 * {@code host_ptr} is a pointer to the memory region specified when the buffer object being read is created with {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet
-	 * the following requirements in order to avoid undefined behavior:
+	 * the following requirements in order to avoid undefined behavior:</p>
+	 * 
 	 * <ul>
 	 * <li>All commands that use this buffer object or a memory object (buffer or image) created from this buffer object have finished execution before the
 	 * read command begins execution.</li>
 	 * <li>The buffer object or memory objects created from this buffer object are not mapped.</li>
 	 * <li>The buffer object or memory objects created from this buffer object are not used by any command-queue until the read command has finished execution.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param command_queue           the command-queue in which the read command will be queued. {@code command_queue} and {@code buffer} must be created with the same OpenCL context.
 	 * @param buffer                  a valid buffer object
@@ -1257,6 +1271,7 @@ public class CL10 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code buffer} are not the same or if the context associated
@@ -1339,12 +1354,13 @@ public class CL10 {
 	 * 
 	 * <p>Calling {@code clEnqueueWriteBuffer} to update the latest bits in a region of the buffer object with the {@code ptr} argument value set to
 	 * {@code host_ptr + offset}, where {@code host_ptr} is a pointer to the memory region specified when the buffer object being written is created with
-	 * {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet the following requirements in order to avoid undefined behavior:
+	 * {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet the following requirements in order to avoid undefined behavior:</p>
+	 * 
 	 * <ul>
 	 * <li>The host memory region given by {@code (host_ptr + offset, cb)} contains the latest bits when the enqueued write command begins execution.</li>
 	 * <li>The buffer object or memory objects created from this buffer object are not mapped.</li>
 	 * <li>The buffer object or memory objects created from this buffer object are not used by any command-queue until the write command has finished execution.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param command_queue           the command-queue in which the write command will be queued. {@code command_queue} and {@code buffer} must be created with the same OpenCL context.
 	 * @param buffer                  a valid buffer object
@@ -1370,6 +1386,7 @@ public class CL10 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code buffer} are not the same or if the context associated
@@ -1468,6 +1485,7 @@ public class CL10 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue}, {@code src_buffer} and {@code dst_buffer} are not the same or if
@@ -1525,12 +1543,13 @@ public class CL10 {
 	 * <p>The pointer returned maps a region starting at {@code offset} and is at least {@code size} bytes in size. The result of a memory access outside this
 	 * region is undefined.</p>
 	 * 
-	 * <p>If the buffer object is created with {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR} set in {@code mem_flags}, the following will be true:
+	 * <p>If the buffer object is created with {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR} set in {@code mem_flags}, the following will be true:</p>
+	 * 
 	 * <ul>
 	 * <li>The {@code host_ptr} specified in {@link #clCreateBuffer CreateBuffer} is guaranteed to contain the latest bits in the region being mapped when the
 	 * {@code clEnqueueMapBuffer} command has completed.</li>
 	 * <li>The pointer value returned by {@code clEnqueueMapBuffer} will be derived from the {@code host_ptr} specified when the buffer object is created.</li>
-	 * </ul></p>
+	 * </ul>
 	 * 
 	 * <p>Mapped buffer objects are unmapped using {@link #clEnqueueUnmapMemObject EnqueueUnmapMemObject}.</p>
 	 *
@@ -1560,6 +1579,7 @@ public class CL10 {
 	 *
 	 * @return a pointer to the mapped region. The {@code errcode_ret} is set to {@link #CL_SUCCESS SUCCESS}. A {@code NULL} pointer is returned otherwise with one of the following error values
 	 *         returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if context associated with {@code command_queue} and {@code buffer} are not the same or if the context associated with
@@ -1632,6 +1652,7 @@ public class CL10 {
 	 *
 	 * @return a valid non-zero image object and {@code errcode_ret} is set to {@link #CL_SUCCESS SUCCESS} if the image object is created successfully. Otherwise, it returns a {@code NULL} value
 	 *         with one of the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if values specified in {@code flags} are not valid.</li>
@@ -1718,6 +1739,7 @@ public class CL10 {
 	 *
 	 * @return a valid non-zero image object and {@code errcode_ret} is set to {@link #CL_SUCCESS SUCCESS} if the image object is created successfully. Otherwise, it returns a {@code NULL} value
 	 *         with one of the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if values specified in {@code flags} are not valid.</li>
@@ -1784,6 +1806,7 @@ public class CL10 {
 	/**
 	 * Can be used to get the list of image formats supported by an OpenCL implementation when the following information about an image memory object is
 	 * specified:
+	 * 
 	 * <ul>
 	 * <li>Context</li>
 	 * <li>Image type – 1D, 2D, or 3D image, 1D image buffer, 1D or 2D image array</li>
@@ -1802,6 +1825,7 @@ public class CL10 {
 	 *                          is ignored.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if {@code flags} or {@code image_type} are not valid, or if {@code num_entries} is 0 and {@code image_formats} is not {@code NULL}.</li>
@@ -1843,13 +1867,14 @@ public class CL10 {
 	 * <p>Calling {@code clEnqueueReadImage} to read a region of the image with the {@code ptr} argument value set to
 	 * <code style="font-family: monospace">host_ptr + (origin[2] * image slice pitch + origin[1] * image row pitch + origin[0] * bytes per pixel)</code>, where {@code host_ptr} is a pointer
 	 * to the memory region specified when the image being read is created with {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet the following requirements in order to
-	 * avoid undefined behavior:
+	 * avoid undefined behavior:</p>
+	 * 
 	 * <ul>
 	 * <li>All commands that use this image object have finished execution before the read command begins execution.</li>
 	 * <li>The row_pitch and slice_pitch argument values in clEnqueueReadImage must be set to the image row pitch and slice pitch.</li>
 	 * <li>The image object is not mapped.</li>
 	 * <li>The image object is not used by any command-queue until the read command has finished execution.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param command_queue           the command-queue in which the read command will be queued. {@code command_queue} and {@code image} must be created with the same OpenCL context.
 	 * @param image                   a valid image or image array object
@@ -1887,6 +1912,7 @@ public class CL10 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code image} are not the same or if the context associated
@@ -1994,13 +2020,14 @@ public class CL10 {
 	 * <p>Calling {@code clEnqueueWriteImage} to update the latest bits in a region of the image with the {@code ptr} argument value set to
 	 * <code style="font-family: monospace">host_ptr + (origin[2] * image slice pitch + origin[1] * image row pitch + origin[0] * bytes per pixel)</code>, where {@code host_ptr} is a pointer
 	 * to the memory region specified when the image being written is created with {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet the following requirements in order
-	 * to avoid undefined behavior:
+	 * to avoid undefined behavior:</p>
+	 * 
 	 * <ul>
 	 * <li>The host memory region being written contains the latest bits when the enqueued write command begins execution.</li>
 	 * <li>The input_row_pitch and input_slice_pitch argument values in clEnqueueWriteImage must be set to the image row pitch and slice pitch.</li>
 	 * <li>The image object is not mapped.</li>
 	 * <li>The image object is not used by any command-queue until the write command has finished execution.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param command_queue           the command-queue in which the write command will be queued. {@code command_queue} and {@code image} must be created with the same OpenCL context.
 	 * @param image                   a valid image or image array object
@@ -2038,6 +2065,7 @@ public class CL10 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code image} are not the same or if the context associated
@@ -2143,6 +2171,7 @@ public class CL10 {
 	/**
 	 * Enqueues a command to copy image objects. {@code src_image} and {@code dst_image} can be 1D, 2D, 3D image or a 1D, 2D image array objects allowing us to
 	 * perform the following actions:
+	 * 
 	 * <ul>
 	 * <li>Copy a 1D image object to a 1D image object.</li>
 	 * <li>Copy a 1D image object to a scanline of a 2D image object and vice-versa.</li>
@@ -2185,6 +2214,7 @@ public class CL10 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue}, {@code src_image} and {@code dst_image} are not the same or if the
@@ -2278,6 +2308,7 @@ public class CL10 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue}, {@code src_image} and {@code dst_buffer} are not the same or if
@@ -2364,6 +2395,7 @@ public class CL10 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue}, {@code src_buffer} and {@code dst_image} are not the same or if
@@ -2430,13 +2462,15 @@ public class CL10 {
 	 * buffer or 1D image array, {@code (image_row_pitch * region[1])} pixels in size for a 2D image or 2D image array, and
 	 * {@code (image_slice_pitch * region[2])} pixels in size for a 3D image. The result of a memory access outside this region is undefined.</p>
 	 * 
-	 * <p>If the image object is created with {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR} set in {@code mem_flags}, the following will be true:
+	 * <p>If the image object is created with {@link #CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR} set in {@code mem_flags}, the following will be true:</p>
+	 * 
 	 * <ul>
 	 * <li>The {@code host_ptr} specified in {@link CL12#clCreateImage CreateImage} is guaranteed to contain the latest bits in the region being mapped when the
 	 * {@code clEnqueueMapImage} command has completed.</li>
 	 * <li>The pointer value returned by {@code clEnqueueMapImage} will be derived from the {@code host_ptr} specified when the image object is created.</li>
 	 * </ul>
-	 * Mapped image objects are unmapped using {@link #clEnqueueUnmapMemObject EnqueueUnmapMemObject}.</p>
+	 * 
+	 * <p>Mapped image objects are unmapped using {@link #clEnqueueUnmapMemObject EnqueueUnmapMemObject}.</p>
 	 *
 	 * @param command_queue           a valid command-queue
 	 * @param image                   a valid image object. The OpenCL context associated with {@code command_queue} and {@code image} must be the same.
@@ -2475,6 +2509,7 @@ public class CL10 {
 	 *
 	 * @return a pointer to the mapped region. The {@code errcode_ret} is set to {@link #CL_SUCCESS SUCCESS}. A {@code NULL} pointer is returned otherwise with one of the following error values
 	 *         returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if context associated with {@code command_queue} and image are not the same or if context associated with
@@ -2570,6 +2605,7 @@ public class CL10 {
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value_size} is &lt; size of return type
 	 *         and {@code param_value} is not {@code NULL}.</li>
@@ -2617,6 +2653,7 @@ public class CL10 {
 	 * @param memobj the memory object to retain
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if {@code memobj} is not a valid memory object (buffer or image object).</li>
 	 *         <li>{@link #CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -2642,6 +2679,7 @@ public class CL10 {
 	 * @param memobj the memory object to release
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if {@code memobj} is not a valid memory object.</li>
 	 *         <li>{@link #CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -2690,6 +2728,7 @@ public class CL10 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link #CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if {@code memobj} is not a valid memory object.</li>
@@ -2738,6 +2777,7 @@ public class CL10 {
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value_size} is &lt; size of return type
 	 *         and {@code param_value} is not {@code NULL}.</li>
@@ -2808,6 +2848,7 @@ public class CL10 {
 	 *
 	 * @return a valid non-zero sampler object and {@code errcode_ret} is set to {@link #CL_SUCCESS SUCCESS} if the sampler object is created successfully. Otherwise, it returns a {@code NULL} value
 	 *         with one of the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if {@code addressing_mode}, {@code filter_mode} or {@code normalized_coords} or combination of these argument values are
@@ -2839,6 +2880,7 @@ public class CL10 {
 	 * @param sampler the sample object to retain
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_SAMPLER INVALID_SAMPLER} if sampler is not a valid sampler object.</li>
 	 *         <li>{@link #CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -2861,6 +2903,7 @@ public class CL10 {
 	 * @param sampler the sample object to release
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_SAMPLER INVALID_SAMPLER} if {@code sampler} is not a valid sampler object.</li>
 	 *         <li>{@link #CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -2895,6 +2938,7 @@ public class CL10 {
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value_size} is &lt; size of return type
 	 *         and {@code param_value} is not {@code NULL}.</li>
@@ -2958,6 +3002,7 @@ public class CL10 {
 	 *
 	 * @return a valid non-zero program object and {@code errcode_ret} is set to {@link #CL_SUCCESS SUCCESS} if the program object is created successfully. Otherwise, it returns a {@code NULL} value
 	 *         with one of the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if {@code count} is zero or if {@code strings} or any entry in {@code strings} is {@code NULL}.</li>
@@ -3023,18 +3068,22 @@ public class CL10 {
 	/**
 	 * Creates a program object for a context, and loads the binary bits specified by {@code binary} into the program object.
 	 * 
-	 * <p>The program binaries specified by {@code binaries} contain the bits that describe one of the following:
+	 * <p>The program binaries specified by {@code binaries} contain the bits that describe one of the following:</p>
+	 * 
 	 * <ul>
 	 * <li>a program executable to be run on the device(s) associated with {@code context},</li>
 	 * <li>a compiled program for device(s) associated with {@code context}, or</li>
 	 * <li>a library of compiled programs for device(s) associated with {@code context}.</li>
 	 * </ul>
-	 * The program binary can consist of either or both:
+	 * 
+	 * <p>The program binary can consist of either or both:</p>
+	 * 
 	 * <ul>
 	 * <li>Device-specific code and/or,</li>
 	 * <li>Implementation-specific intermediate representation (IR) which will be converted to the device-specific code.</li>
 	 * </ul>
-	 * OpenCL allows applications to create a program object using the program source or binary and build appropriate program executables. This can be very
+	 * 
+	 * <p>OpenCL allows applications to create a program object using the program source or binary and build appropriate program executables. This can be very
 	 * useful as it allows applications to load program source and then compile and link to generate a program executable online on its first instance for
 	 * appropriate OpenCL devices in the system. These executables can now be queried and cached by the application. Future instances of the application
 	 * launching will no longer need to compile and link the program executables. The cached executables can be read and loaded by the application, which can
@@ -3056,6 +3105,7 @@ public class CL10 {
 	 *
 	 * @return a valid non-zero program object and {@code errcode_ret} is set to {@link #CL_SUCCESS SUCCESS} if the program object is created successfully. Otherwise, it returns a {@code NULL}
 	 *         value with one of the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if {@code device_list} is {@code NULL} or {@code num_devices} is zero.</li>
@@ -3120,6 +3170,7 @@ public class CL10 {
 	 * @param program the program object to retain
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_PROGRAM INVALID_PROGRAM} if {@code program} is not a valid program object.</li>
 	 *         <li>{@link #CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -3142,6 +3193,7 @@ public class CL10 {
 	 * @param program the program object to release
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_PROGRAM INVALID_PROGRAM} if {@code program} is not a valid program object.</li>
 	 *         <li>{@link #CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -3191,6 +3243,7 @@ public class CL10 {
 	 * @param user_data   will be passed as an argument when {@code pfn_notify} is called. {@code user_data} can be NULL.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_PROGRAM INVALID_PROGRAM} if {@code program} is not a valid program object.</li>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if {@code device_list} is {@code NULL} and {@code num_devices} is &gt; 0, or if {@code device_list} is not {@code NULL} and {@code num_devices} is 0.</li>
@@ -3275,6 +3328,7 @@ public class CL10 {
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value_size} is &lt; size of return type
 	 *         and {@code param_value} is not {@code NULL}.</li>
@@ -3338,6 +3392,7 @@ public class CL10 {
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_DEVICE INVALID_DEVICE} if {@code device} is not in the list of devices associated with program.</li>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value_size} is &lt; size of return type
@@ -3407,6 +3462,7 @@ public class CL10 {
 	 *
 	 * @return a valid non-zero kernel object and {@code errcode_ret} is set to {@link #CL_SUCCESS SUCCESS} if the kernel object is created successfully. Otherwise, it returns a {@code NULL} value
 	 *         with one of the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_PROGRAM INVALID_PROGRAM} if {@code program} is not a valid program object.</li>
 	 *         <li>{@link #CL_INVALID_PROGRAM_EXECUTABLE INVALID_PROGRAM_EXECUTABLE} if there is no successfully built executable for {@code program}.</li>
@@ -3466,6 +3522,7 @@ public class CL10 {
 	 * @param num_kernels_ret the number of kernels in {@code program}. If {@code num_kernels_ret} is {@code NULL}, it is ignored.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the kernel objects were successfully allocated. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_PROGRAM INVALID_PROGRAM} if {@code program} is not a valid program object.</li>
 	 *         <li>{@link #CL_INVALID_PROGRAM_EXECUTABLE INVALID_PROGRAM_EXECUTABLE} if there is no successfully built executable for any device in {@code program}.</li>
@@ -3497,6 +3554,7 @@ public class CL10 {
 	 * @param kernel the kernel to retain
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_KERNEL INVALID_KERNEL} if kernel is not a valid kernel object.</li>
 	 *         <li>{@link #CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -3521,6 +3579,7 @@ public class CL10 {
 	 * @param kernel the kernel to release
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_KERNEL INVALID_KERNEL} if kernel is not a valid kernel object.</li>
 	 *         <li>{@link #CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -3552,7 +3611,8 @@ public class CL10 {
 	 * @param arg_index the argument index. Arguments to the kernel are referred by indices that go from 0 for the leftmost argument to {@code n - 1}, where {@code n} is
 	 *                  the total number of arguments declared by a kernel.
 	 *                  
-	 *                  <p>For example, consider the following kernel:
+	 *                  <p>For example, consider the following kernel:</p>
+	 *                  
 	 *                  <pre><code style="font-family: monospace">
 	 *                  kernel void image_filter (
 	 *                  	int n, int m,
@@ -3562,7 +3622,8 @@ public class CL10 {
 	 *                  ) {
 	 *                  	&hellip;
 	 *                  }</code></pre>
-	 *                  Argument index values for image_filter will be 0 for {@code n}, 1 for {@code m}, 2 for {@code filter_weights}, 3 for {@code src_image} and 4 for
+	 *                  
+	 *                  <p>Argument index values for image_filter will be 0 for {@code n}, 1 for {@code m}, 2 for {@code filter_weights}, 3 for {@code src_image} and 4 for
 	 *                  {@code dst_image}.</p>
 	 *                  
 	 *                  <p><strong>NOTE</strong>: A kernel object does not update the reference count for objects such as memory, sampler objects specified as argument values
@@ -3598,6 +3659,7 @@ public class CL10 {
 	 *                  <p>For all other kernel arguments, the {@code arg_value} entry must be a pointer to the actual data to be used as argument value.</p>
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function was executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_KERNEL INVALID_KERNEL} if {@code kernel} is not a valid kernel object.</li>
 	 *         <li>{@link #CL_INVALID_ARG_INDEX INVALID_ARG_INDEX} if {@code arg_index} is not a valid argument index.</li>
@@ -3919,6 +3981,7 @@ public class CL10 {
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value_size} is &lt; size of return type
 	 *         and {@code param_value} is not {@code NULL}.</li>
@@ -3981,6 +4044,7 @@ public class CL10 {
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_DEVICE INVALID_DEVICE} if {@code device} is not in the list of devices associated with {@code kernel} or if {@code device} is {@code NULL} but there is
 	 *         more than one device associated with {@code kernel}.</li>
@@ -4079,6 +4143,7 @@ public class CL10 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the kernel execution was successfully queued. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_PROGRAM_EXECUTABLE INVALID_PROGRAM_EXECUTABLE} if there is no successfully built program executable available for device associated with {@code command_queue}.</li>
 	 *         <li>{@link #CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
@@ -4228,6 +4293,7 @@ public class CL10 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the user function execution instance was successfully queued. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if context associated with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
@@ -4296,6 +4362,7 @@ public class CL10 {
 	 * @param event_list the list of events
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the execution status of all events in event_list is {@link #CL_COMPLETE COMPLETE}. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if {@code num_events} is zero or {@code event_list} is {@code NULL}.</li>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if events specified in {@code event_list} do not belong to the same context.</li>
@@ -4348,6 +4415,7 @@ public class CL10 {
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value_size} is &lt; size of return type
 	 *         and {@code param_value} is not {@code NULL}.</li>
@@ -4394,6 +4462,7 @@ public class CL10 {
 	 * @param event the event to retain
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_EVENT INVALID_EVENT} if {@code event} is not a valid event object.</li>
 	 *         <li>{@link #CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -4426,6 +4495,7 @@ public class CL10 {
 	 * @param event the event to release
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_EVENT INVALID_EVENT} if {@code event} is not a valid event object.</li>
 	 *         <li>{@link #CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -4462,6 +4532,7 @@ public class CL10 {
 	 *                      {@code event_wait_list} array.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is successfully executed. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link #CL_INVALID_VALUE INVALID_VALUE} if {@code event} is a {@code NULL} value.</li>
@@ -4491,6 +4562,7 @@ public class CL10 {
 	 * @param command_queue the command-queue to insert the barrier to
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is successfully executed. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link #CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -4523,6 +4595,7 @@ public class CL10 {
 	 * @param event_list    the list of events
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function was successfully executed. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link #CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and events in {@code event_list} are not the same.</li>
@@ -4571,6 +4644,7 @@ public class CL10 {
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function is executed successfully and the profiling information has been recorded. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_PROFILING_INFO_NOT_AVAILABLE PROFILING_INFO_NOT_AVAILABLE} if the {@link #CL_QUEUE_PROFILING_ENABLE QUEUE_PROFILING_ENABLE} flag is not set for the command-queue, if the execution status of
 	 *         the command identified by {@code event} is not {@link #CL_COMPLETE COMPLETE} or if {@code event} is a user event object.</li>
@@ -4622,6 +4696,7 @@ public class CL10 {
 	 * @param command_queue the command-queue
 	 *
 	 * @return {@link #CL_SUCCESS SUCCESS} if the function call was executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link #CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link #CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>

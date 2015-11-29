@@ -37,7 +37,8 @@ import static org.lwjgl.system.Pointer.*;
  * <p>The locations in the tree are created or looked up by path strings. The path string "/" locates the root of the tree. The path "/foo" locates the child
  * "foo" of the root. Formally, a valid path is a sequence of tokens delimited by the beginning of the string, by the path-separator forward slash ( / ),
  * and by the end of the string. The string "foo/bar" has two tokens; "foo" and "bar". The string "/foo/./bar" has 3 tokens; "foo", ".", and "bar". The
- * string "/foo/.." has two tokens; "foo" and "..". The string "/foo/.bar" has two tokens; "foo" and ".bar". A path is invalid if
+ * string "/foo/.." has two tokens; "foo" and "..". The string "/foo/.bar" has two tokens; "foo" and ".bar". A path is invalid if</p>
+ * 
  * <ul>
  * <li>{@code path} contains any characters not listed in Section 3.1 "Character Set", or the double quote character, or angled brackets, or any white
  * space characters other than the space character.</li>
@@ -45,7 +46,8 @@ import static org.lwjgl.system.Pointer.*;
  * <li>{@code path} ends with a forward slash ( / )</li>
  * <li>{@code path} contains no characters.</li>
  * </ul>
- * There are no path escape characters, so there is no way to get the forward slash delimiter within a single token.</p>
+ * 
+ * <p>There are no path escape characters, so there is no way to get the forward slash delimiter within a single token.</p>
  * 
  * <p>When using a path to lookup a tree location, the path tokens are used to walk the tree. The initial location to start the walk is specified by the user
  * of the tree and is updated as follows by the tokens in the path. (Paths starting with "/" will start at the root.) Taken left to right:</p>

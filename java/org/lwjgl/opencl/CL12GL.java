@@ -78,6 +78,7 @@ public class CL12GL {
 
 	/**
 	 * Creates one of the following:
+	 * 
 	 * <ul>
 	 * <li>an OpenCL 2D image object from an OpenGL 2D texture object or a single face of an OpenGL cubemap texture object,</li>
 	 * <li>an OpenCL 2D image array object from an OpenGL 2D texture array object,</li>
@@ -106,6 +107,7 @@ public class CL12GL {
 	 *
 	 * @return a valid non-zero OpenCL image object and {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the image object is created successfully. Otherwise, it returns a {@code NULL}
 	 *         value with one of the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context or was not created from a GL context.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if values specified in {@code flags} are not valid or if value specified in {@code texture_target} is not one of the

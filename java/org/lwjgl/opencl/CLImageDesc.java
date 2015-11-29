@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Describes the type and dimensions of the image or image array.
  * 
  * <h3>cl_image_desc members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>image_type</td><td class="nw">cl_mem_object_type</td><td>describes the image type</td></tr>

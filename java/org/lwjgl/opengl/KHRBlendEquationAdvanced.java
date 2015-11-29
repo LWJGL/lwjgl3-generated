@@ -14,7 +14,8 @@ import static org.lwjgl.system.JNI.*;
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/KHR/blend_equation_advanced.txt">KHR_blend_equation_advanced</a> extension.
  * 
  * <p>This extension adds a number of "advanced" blending equations that can be used to perform new color blending operations, many of which are more complex
- * than the standard blend modes provided by unextended OpenGL. This extension provides two different extension string entries:
+ * than the standard blend modes provided by unextended OpenGL. This extension provides two different extension string entries:</p>
+ * 
  * <ul>
  * <li><b>KHR_blend_equation_advanced</b>:Provides the new blending equations, but guarantees defined results only if each sample is touched no more than
  * once in any single rendering pass. The command {@link #glBlendBarrierKHR BlendBarrierKHR} is provided to indicate a boundary between passes.</li>
@@ -22,7 +23,8 @@ import static org.lwjgl.system.JNI.*;
  * done coherently and in API primitive order. An enable is provided to allow implementations to opt out of fully coherent blending and instead behave
  * as though only KHR_blend_equation_advanced were supported.</li>
  * </ul>
- * Some implementations may support KHR_blend_equation_advanced without supporting KHR_blend_equation_advanced_coherent.</p>
+ * 
+ * <p>Some implementations may support KHR_blend_equation_advanced without supporting KHR_blend_equation_advanced_coherent.</p>
  * 
  * <p>In unextended OpenGL, the set of blending equations is limited, and can be expressed very simply. The {@link ARBImaging#GL_MIN MIN} and {@link ARBImaging#GL_MAX MAX} blend equations
  * simply compute component-wise minimums or maximums of source and destination color components. The {@link ARBImaging#GL_FUNC_ADD FUNC_ADD}, {@link ARBImaging#GL_FUNC_SUBTRACT FUNC_SUBTRACT}, and

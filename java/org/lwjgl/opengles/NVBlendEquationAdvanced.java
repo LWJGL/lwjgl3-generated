@@ -14,7 +14,8 @@ import static org.lwjgl.system.JNI.*;
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/blend_equation_advanced.txt">NV_blend_equation_advanced</a> extension.
  * 
  * <p>This extension adds a number of "advanced" blending equations that can be used to perform new color blending operations, many of which are more complex
- * than the standard blend modes provided by unextended OpenGL. This extension provides two different extension string entries:
+ * than the standard blend modes provided by unextended OpenGL. This extension provides two different extension string entries:</p>
+ * 
  * <ul>
  * <li>NV_blend_equation_advanced: Provides the new blending equations, but guarantees defined results only if each sample is touched no more than once in
  * any single rendering pass. The command BlendBarrierNV() is provided to indicate a boundary between passes.</li>
@@ -22,7 +23,8 @@ import static org.lwjgl.system.JNI.*;
  * ordering. An enable is provided to allow implementations to opt out of fully coherent blending and instead behave as though only
  * NV_blend_equation_advanced were supported.</li>
  * </ul>
- * Some implementations may support NV_blend_equation_advanced without supporting NV_blend_equation_advanced_coherent.</p>
+ * 
+ * <p>Some implementations may support NV_blend_equation_advanced without supporting NV_blend_equation_advanced_coherent.</p>
  * 
  * <p>In unextended OpenGL, the set of blending equations is limited, and can be expressed very simply. The MIN and MAX blend equations simply compute
  * component-wise minimums or maximums of source and destination color components. The FUNC_ADD, FUNC_SUBTRACT, and FUNC_REVERSE_SUBTRACT multiply the

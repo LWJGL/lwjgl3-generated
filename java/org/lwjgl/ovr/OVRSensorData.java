@@ -16,6 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Specifies a reading we can query from the sensor.
  * 
  * <h3>ovrSensorData members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>Accelerometer</td><td class="nw">{@link OVRVector3f ovrVector3f}</td><td>acceleration reading in m/s^2</td></tr>

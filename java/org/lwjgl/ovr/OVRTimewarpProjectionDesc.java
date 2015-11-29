@@ -19,6 +19,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Use the utility function {@link OVRUtil#ovrTimewarpProjectionDesc_FromProjection} to generate this structure from the application's projection matrix.</p>
  * 
  * <h3>ovrTimewarpProjectionDesc members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>Projection22</td><td class="nw">float</td><td>projection matrix element [2][2]</td></tr>

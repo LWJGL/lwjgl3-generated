@@ -25,7 +25,8 @@ import static org.lwjgl.system.Pointer.*;
  * 
  * <p>There is a large amount of overlap between the functionality in this extension and the functionality in the Khronos OpenCL 2.0 "cl_khr_subgroups"
  * extension, so this extension reuses many of the names, concepts, and functions already described in the cl_khr_subgroups extension. The key differences
- * between the Intel subgroups extension and the Khronos subgroups extension are:
+ * between the Intel subgroups extension and the Khronos subgroups extension are:</p>
+ * 
  * <ul>
  * <li>The Khronos subgroups extension requires OpenCL 2.0, but the Intel subgroups extension may be available on OpenCL 1.2 devices.</li>
  * <li>The Khronos subgroups extension guarantees that subgroups in a work group will make independent forward progress, but the Intel extension does not
@@ -38,7 +39,8 @@ import static org.lwjgl.system.Pointer.*;
  * <li>The Intel subgroups extension does not include the device-side kernel query functions for subgroups that are included as part of the Khronos
  * subgroups extension.</li>
  * </ul>
- * Requires {@link CL12 CL12}.</p>
+ * 
+ * <p>Requires {@link CL12 CL12}.</p>
  */
 public class INTELSubgroups {
 

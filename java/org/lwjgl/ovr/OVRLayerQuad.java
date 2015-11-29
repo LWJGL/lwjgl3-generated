@@ -24,6 +24,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Quad layers are visible from both sides; they are not back-face culled.</p>
  * 
  * <h3>ovrLayerQuad members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>Header</td><td class="nw">{@link OVRLayerHeader ovrLayerHeader}</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_Quad}</td></tr>

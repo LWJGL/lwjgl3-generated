@@ -23,6 +23,7 @@ import org.lwjgl.system.libc.Stdlib;
  * <p>Ogg Vorbis audio decoder.</p>
  * 
  * <h3>Limitations</h3>
+ * 
  * <ul>
  * <li>floor 0 not supported (used in old ogg vorbis files pre-2004)</li>
  * <li>lossless sample-truncation at beginning ignored</li>
@@ -223,12 +224,14 @@ public class STBVorbis {
 	 * @param samples                   place to write number of output samples
 	 *
 	 * @return the number of bytes we used from datablock. Possible cases:
+	 *         
 	 *         <ul>
 	 *         <li>0 bytes used, 0 samples output (need more data)</li>
 	 *         <li>N bytes used, 0 samples output (resynching the stream, keep going)</li>
 	 *         <li>N bytes used, M samples output (one frame of data)</li>
 	 *         </ul>
-	 *         Note that after opening a file, you will ALWAYS get one N-bytes,0-sample frame, because Vorbis always "discards" the first frame.
+	 *         
+	 *         <p>Note that after opening a file, you will ALWAYS get one N-bytes,0-sample frame, because Vorbis always "discards" the first frame.</p>
 	 */
 	public static int stb_vorbis_decode_frame_pushdata(long f, ByteBuffer datablock, int datablock_length_in_bytes, ByteBuffer channels, ByteBuffer output, ByteBuffer samples) {
 		if ( CHECKS ) {
@@ -591,14 +594,16 @@ public class STBVorbis {
 	 * <h3>Channel coercion rules</h3>
 	 * 
 	 * <p>Let M be the number of channels requested, and N the number of channels present, and Cn be the nth channel; let stereo L be the sum of all L and center
-	 * channels, and stereo R be the sum of all R and center channels (channel assignment from the vorbis spec).
+	 * channels, and stereo R be the sum of all R and center channels (channel assignment from the vorbis spec).</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * M    N      output
 	 * 1    k      sum(Ck) for all k
 	 * 2    *      stereo L, stereo R
 	 * k    l      k > l, the first l channels, then 0s
 	 * k    l      k <= l, the first k channels</code></pre>
-	 * Note that this is not <b>good</b> surround etc. mixing at all! It's just so you get something useful.</p>
+	 * 
+	 * <p>Note that this is not <b>good</b> surround etc. mixing at all! It's just so you get something useful.</p>
 	 *
 	 * @param f           an ogg vorbis file decoder
 	 * @param num_c       the number of channels

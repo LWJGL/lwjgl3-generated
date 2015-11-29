@@ -77,7 +77,8 @@ public class KHRTerminateContext {
 	 * Terminates all pending work associated with the context and renders all data owned by the context invalid. It is the responsibility of the application
 	 * to release all objects associated with the context being terminated.
 	 * 
-	 * <p>When a context is terminated:
+	 * <p>When a context is terminated:</p>
+	 * 
 	 * <ul>
 	 * <li>The execution status of enqueued commands will be {@link #CL_TERMINATED_KHR TERMINATED_KHR}. Event objects can be queried using {@link CL10#clGetEventInfo GetEventInfo}. Event
 	 * callbacks can be registered and registered event callbacks will be called with {@code event_command_exec_status} set to {@link #CL_TERMINATED_KHR TERMINATED_KHR}.
@@ -91,7 +92,7 @@ public class KHRTerminateContext {
 	 * that release OpenCL objects will continue to operate as though {@code clTerminateContextKHR} was not called.</li>
 	 * <li>The behavior of callbacks will remain unchanged, and will report appropriate error, if executing after termination of context. This behavior is
 	 * similar to enqueued commands, after the command queue has become invalid.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param context the context to terminate
 	 *

@@ -87,6 +87,7 @@ public class CL12 {
 	/**
 	 * Split the device into smaller aggregate devices containing one or more compute units that all share part of a cache hierarchy. The value accompanying
 	 * this property may be drawn from the following list:
+	 * 
 	 * <ul>
 	 * <li>{@link #CL_DEVICE_AFFINITY_DOMAIN_NUMA DEVICE_AFFINITY_DOMAIN_NUMA} &ndash; Split the device into sub-devices comprised of compute units that share a NUMA node.</li>
 	 * <li>{@link #CL_DEVICE_AFFINITY_DOMAIN_L4_CACHE DEVICE_AFFINITY_DOMAIN_L4_CACHE} &ndash; Split the device into sub-devices comprised of compute units that share a level 4 data cache.</li>
@@ -97,7 +98,8 @@ public class CL12 {
 	 * shall find the first level along which the device or sub-device may be further subdivided in the order NUMA, L4, L3, L2, L1, and partition the
 	 * device into sub-devices comprised of compute units that share memory subsystems at this level.</li>
 	 * </ul>
-	 * The user may determine what happened by calling {@link CL10#clGetDeviceInfo GetDeviceInfo}({@link #CL_DEVICE_PARTITION_TYPE DEVICE_PARTITION_TYPE}) on the sub-devices.
+	 * 
+	 * <p>The user may determine what happened by calling {@link CL10#clGetDeviceInfo GetDeviceInfo}({@link #CL_DEVICE_PARTITION_TYPE DEVICE_PARTITION_TYPE}) on the sub-devices.</p>
 	 */
 	public static final int CL_DEVICE_PARTITION_BY_AFFINITY_DOMAIN = 0x1088;
 
@@ -310,6 +312,7 @@ public class CL12 {
 	 * @param device the device to retain
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully or the device is a root-level device. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_DEVICE INVALID_DEVICE} if {@code device} is not a valid sub-device created by a call to {@link #clCreateSubDevices CreateSubDevices}.</li>
 	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -335,6 +338,7 @@ public class CL12 {
 	 * @param device the device to release
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_DEVICE INVALID_DEVICE} if {@code device} is not a valid sub-device created by a call to {@link #clCreateSubDevices CreateSubDevices}.</li>
 	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
@@ -365,7 +369,8 @@ public class CL12 {
 	 * building programs, further calls to {@code clCreateSubDevices} and creating command-queues. When a command-queue is created against a sub-device, the
 	 * commands enqueued on the queue are executed only on the sub-device.
 	 * 
-	 * <p>A few examples that describe how to specify partition properties in {@code properties} argument to {@code clCreateSubDevices} are given below:
+	 * <p>A few examples that describe how to specify partition properties in {@code properties} argument to {@code clCreateSubDevices} are given below:</p>
+	 * 
 	 * <ul>
 	 * <li>To partition a device containing 16 compute units into two sub-devices, each containing 8 compute units, pass the following in {@code properties}:<br>
 	 * [ {@link #CL_DEVICE_PARTITION_EQUALLY DEVICE_PARTITION_EQUALLY}, 8, 0 ]</li>
@@ -374,7 +379,7 @@ public class CL12 {
 	 * [ {@link #CL_DEVICE_PARTITION_BY_COUNTS DEVICE_PARTITION_BY_COUNTS}, 3, 1, {@link #CL_DEVICE_PARTITION_BY_COUNTS_LIST_END DEVICE_PARTITION_BY_COUNTS_LIST_END}, 0 ]</li>
 	 * <li>To split a device along the outermost cache line (if any), pass the following in {@code properties} argument:<br>
 	 * [ {@link #CL_DEVICE_PARTITION_BY_AFFINITY_DOMAIN DEVICE_PARTITION_BY_AFFINITY_DOMAIN}, {@link #CL_DEVICE_AFFINITY_DOMAIN_NEXT_PARTITIONABLE DEVICE_AFFINITY_DOMAIN_NEXT_PARTITIONABLE}, 0 ]</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param in_device       the device to be partitioned
 	 * @param properties      specifies how {@code in_device} is to be partition described by a partition name and its corresponding value. Each partition name is immediately
@@ -387,6 +392,7 @@ public class CL12 {
 	 *                        is {@code NULL}, it is ignored.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the partition is created successfully. Otherwise, it returns a {@code NULL} value with the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_DEVICE INVALID_DEVICE} if {@code in_device} is not valid.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if values specified in {@code properties} are not valid or if values specified in {@code properties} are valid but not
@@ -460,6 +466,7 @@ public class CL12 {
 	 * @param image_desc   a pointer to a {@link CLImageDesc} structure that describes type and dimensions of the image to be allocated
 	 * @param host_ptr     a pointer to the image data that may already be allocated by the application. Refer to table below for a description of how large the buffer that
 	 *                     {@code host_ptr} points to must be.
+	 *                     
 	 *                     <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
 	 *                     <tr><th>ImageType</th><th>Size of buffer that {@code host_ptr} points to</th></tr>
 	 *                     <tr><td>{@link #CL_MEM_OBJECT_IMAGE1D MEM_OBJECT_IMAGE1D}</td><td>&#x2265; {@code image_row_pitch}</td></tr>
@@ -473,6 +480,7 @@ public class CL12 {
 	 *
 	 * @return a valid non-zero image object and the {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the image object is created successfully. Otherwise, it returns a {@code NULL}
 	 *         value with one of the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if values specified in {@code flags} are not valid.</li>
@@ -558,6 +566,7 @@ public class CL12 {
 	 *
 	 * @return a valid non-zero program object and {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the program object is created successfully. Otherwise, it returns a {@code NULL}
 	 *         value with one of the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code device_list} is {@code NULL} or {@code num_devices} is zero.</li>
@@ -643,6 +652,7 @@ public class CL12 {
 	 * @param user_data            will be passed as an argument when {@code pfn_notify} is called. {@code user_data} can be NULL.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_PROGRAM INVALID_PROGRAM} if {@code program} is not a valid program object.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code device_list} is {@code NULL} and {@code num_devices} is greater than zero, or if {@code device_list} is not {@code NULL}
@@ -746,6 +756,7 @@ public class CL12 {
 	 * @param num_input_programs the number of programs in array referenced by {@code input_programs}
 	 * @param input_programs     an array of program objects that are compiled binaries or libraries that are to be linked to create the program executable. For each device in
 	 *                           {@code device_list} or if {@code device_list} is {@code NULL} the list of devices associated with {@code context}, the following cases occur:
+	 *                           
 	 *                           <ul>
 	 *                           <li>All programs specified by {@code input_programs} contain a compiled binary or library for the device. In this case, a link is performed to
 	 *                           generate a program executable for this device.</li>
@@ -775,7 +786,8 @@ public class CL12 {
 	 *         linking operation was successful or not.</p>
 	 *         
 	 *         <p>Otherwise {@code clLinkProgram} returns a {@code NULL} program object with an appropriate error in {@code errcode_ret}. The application should query the linker status
-	 *         of this program object to check if the link was successful or not. The list of errors that can be returned are:
+	 *         of this program object to check if the link was successful or not. The list of errors that can be returned are:</p>
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code device_list} is {@code NULL} and {@code num_devices} is greater than zero, or if {@code device_list} is not {@code NULL}
@@ -794,7 +806,7 @@ public class CL12 {
 	 *         <li>{@link #CL_LINK_PROGRAM_FAILURE LINK_PROGRAM_FAILURE} if there is a failure to link the compiled binaries and/or libraries.</li>
 	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
-	 *         </ul></p>
+	 *         </ul>
 	 */
 	public static long clLinkProgram(long context, int num_devices, ByteBuffer device_list, ByteBuffer options, int num_input_programs, ByteBuffer input_programs, CLProgramCallback pfn_notify, long user_data) {
 		if ( CHECKS ) {
@@ -836,6 +848,7 @@ public class CL12 {
 	 * @param platform the platform for which to unload the compiler
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_PLATFORM INVALID_PLATFORM} if {@code platform} is not a valid platform.</li>
 	 *         </ul>
@@ -872,6 +885,7 @@ public class CL12 {
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_ARG_INDEX INVALID_ARG_INDEX} if {@code arg_indx} is not a valid argument index.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value} size is &lt; size of return
@@ -947,6 +961,7 @@ public class CL12 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code buffer} are not the same or if the context
@@ -1024,6 +1039,7 @@ public class CL12 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code image} are not the same or if the context associated
@@ -1098,6 +1114,7 @@ public class CL12 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and memory objects in {@code mem_objects} are not the same or
@@ -1156,6 +1173,7 @@ public class CL12 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is successfully executed. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if context associated with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
@@ -1208,6 +1226,7 @@ public class CL12 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is successfully executed. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if context associated with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>

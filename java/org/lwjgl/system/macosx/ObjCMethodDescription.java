@@ -16,6 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Defines a method.
  * 
  * <h3>struct objc_method_description members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>name</td><td class="nw">SEL</td><td>the name of the method at runtime</td></tr>

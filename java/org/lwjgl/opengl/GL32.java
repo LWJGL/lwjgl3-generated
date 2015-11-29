@@ -19,7 +19,8 @@ import static org.lwjgl.system.Pointer.*;
 /**
  * The core OpenGL 3.2 functionality. OpenGL 3.2 implementations support revision 1.50 of the OpenGL Shading Language.
  * 
- * <p>Extensions promoted to core in this release:
+ * <p>Extensions promoted to core in this release:</p>
+ * 
  * <ul>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/vertex_array_bgra.txt">ARB_vertex_array_bgra</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/draw_elements_base_vertex.txt">ARB_draw_elements_base_vertex</a></li>
@@ -30,7 +31,7 @@ import static org.lwjgl.system.Pointer.*;
  * <li><a href="http://www.opengl.org/registry/specs/ARB/depth_clamp.txt">ARB_depth_clamp</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/geometry_shader4.txt">ARB_geometry_shader4</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/sync.txt">ARB_sync</a></li>
- * </ul></p>
+ * </ul>
  */
 public class GL32 {
 
@@ -721,13 +722,14 @@ public class GL32 {
 	 * Causes the client to block and wait for a sync object to become signaled. If {@code sync} is signaled when {@code glClientWaitSync} is called,
 	 * {@code glClientWaitSync} returns immediately, otherwise it will block and wait for up to timeout nanoseconds for {@code sync} to become signaled.
 	 * 
-	 * <p>The return value is one of four status values:
+	 * <p>The return value is one of four status values:</p>
+	 * 
 	 * <ul>
 	 * <li>{@link #GL_ALREADY_SIGNALED ALREADY_SIGNALED} indicates that sync was signaled at the time that glClientWaitSync was called.</li>
 	 * <li>{@link #GL_TIMEOUT_EXPIRED TIMEOUT_EXPIRED} indicates that at least timeout nanoseconds passed and sync did not become signaled.</li>
 	 * <li>{@link #GL_CONDITION_SATISFIED CONDITION_SATISFIED} indicates that sync was signaled before the timeout expired.</li>
 	 * <li>{@link #GL_WAIT_FAILED WAIT_FAILED} indicates that an error occurred. Additionally, an OpenGL error will be generated.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param sync    the sync object whose status to wait on
 	 * @param flags   a bitfield controlling the command flushing behavior. One or more of:<br>0, {@link #GL_SYNC_FLUSH_COMMANDS_BIT SYNC_FLUSH_COMMANDS_BIT}

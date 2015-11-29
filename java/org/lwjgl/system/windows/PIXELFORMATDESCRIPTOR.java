@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Describes the pixel format of a drawing surface.
  * 
  * <h3>PIXELFORMATDESCRIPTOR members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>nSize</td><td class="nw">WORD</td><td>specifies the size of this data structure. This value should be set to {@link #SIZEOF}.</td></tr>

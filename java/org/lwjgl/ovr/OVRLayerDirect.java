@@ -19,6 +19,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * application-based distortion rendering and can also be used for implementing a debug HUD that's viewed on the mirror texture.
  * 
  * <h3>ovrLayerDirect members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>Header</td><td class="nw">{@link OVRLayerHeader ovrLayerHeader}</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_Direct}</td></tr>

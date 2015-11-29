@@ -81,16 +81,18 @@ public class ARBMultiDrawIndirect {
 	/**
 	 * Renders multiple sets of primitives from array data, taking parameters from memory.
 	 * 
-	 * <p>The parameters addressed by {@code indirect} are packed into an array of structures, each element of which takes the form (in C):
+	 * <p>The parameters addressed by {@code indirect} are packed into an array of structures, each element of which takes the form (in C):</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * typedef struct {
 	 * 	uint count;
 	 * 	uint primCount;
 	 * 	uint first;
 	 * 	uint baseInstance;
-	 * } DrawArraysIndirectCommand;</code></pre></p>
+	 * } DrawArraysIndirectCommand;</code></pre>
 	 * 
-	 * <p>A single call to {@code glMultiDrawArraysIndirect} is equivalent, assuming no errors are generated to:
+	 * <p>A single call to {@code glMultiDrawArraysIndirect} is equivalent, assuming no errors are generated to:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * const ubyte *ptr = (const ubyte *)indirect;
 	 * for ( i = 0; i < primcount; i++ ) {
@@ -99,7 +101,7 @@ public class ARBMultiDrawIndirect {
 	 * 		ptr += sizeof(DrawArraysIndirectCommand);
 	 * 	else
 	 * 		ptr += stride;
-	 * }</code></pre></p>
+	 * }</code></pre>
 	 *
 	 * @param mode      what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param indirect  an array of structures containing the draw parameters
@@ -142,7 +144,8 @@ public class ARBMultiDrawIndirect {
 	/**
 	 * Renders multiple indexed primitives from array data, taking parameters from memory.
 	 * 
-	 * <p>The parameters addressed by indirect are packed into a structure that takes the form (in C):
+	 * <p>The parameters addressed by indirect are packed into a structure that takes the form (in C):</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * typedef struct {
 	 * 	uint count;
@@ -150,9 +153,10 @@ public class ARBMultiDrawIndirect {
 	 * 	uint firstIndex;
 	 * 	uint baseVertex;
 	 * 	uint baseInstance;
-	 * } DrawElementsIndirectCommand;</code></pre></p>
+	 * } DrawElementsIndirectCommand;</code></pre>
 	 * 
-	 * <p>A single call to {@code glMultiDrawElementsIndirect} is equivalent, assuming no errors are generated to:
+	 * <p>A single call to {@code glMultiDrawElementsIndirect} is equivalent, assuming no errors are generated to:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * const ubyte *ptr = (const ubyte *)indirect;
 	 * for ( i = 0; i < primcount; i++ ) {
@@ -161,7 +165,7 @@ public class ARBMultiDrawIndirect {
 	 * 		ptr += sizeof(DrawElementsIndirectCommand);
 	 * 	else
 	 * 		ptr += stride;
-	 * }</code></pre></p>
+	 * }</code></pre>
 	 *
 	 * @param mode      what kind of primitives to render. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINE_STRIP LINE_STRIP}, {@link GL11#GL_LINE_LOOP LINE_LOOP}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_POLYGON POLYGON}, {@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}, {@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUAD_STRIP QUAD_STRIP}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}
 	 * @param type      the type of data in the buffer bound to the GL_ELEMENT_ARRAY_BUFFER binding. One of:<br>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}, {@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}, {@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}

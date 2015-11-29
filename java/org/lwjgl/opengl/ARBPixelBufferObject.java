@@ -25,7 +25,8 @@ package org.lwjgl.opengl;
  * {@link GL11#glReadPixels ReadPixels} pack (write) their data into a buffer object. When a buffer object is bound to the {@link #GL_PIXEL_UNPACK_BUFFER_ARB PIXEL_UNPACK_BUFFER_ARB} target, commands such as
  * {@link GL11#glDrawPixels DrawPixels} and {@link GL11#glTexImage2D TexImage2D} unpack (read) their data from a buffer object.</p>
  * 
- * <p>There are a several approaches to improve graphics performance with PBOs. Some of the most interesting approaches are:
+ * <p>There are a several approaches to improve graphics performance with PBOs. Some of the most interesting approaches are:</p>
+ * 
  * <ul>
  * <li>Streaming texture updates: If the application uses {@link GL15#glMapBuffer MapBuffer}/{@link GL15#glUnmapBuffer UnmapBuffer} to write its data for glTexSubImage into a buffer object, at
  * least one of the data copies usually required to download a texture can be eliminated, significantly increasing texture download performance.</li>
@@ -41,7 +42,8 @@ package org.lwjgl.opengl;
  * <li>Render to vertex array: The application can use a fragment program to render some image into one of its buffers, then read this image out into a
  * buffer object via {@link GL11#glReadPixels ReadPixels}. Then, it can use this buffer object as a source of vertex data.</li>
  * </ul>
- * Requires {@link GL15 OpenGL 1.5} or {@link ARBVertexBufferObject ARB_vertex_buffer_object}. Promoted to core in {@link GL21 OpenGL 2.1}.</p>
+ * 
+ * <p>Requires {@link GL15 OpenGL 1.5} or {@link ARBVertexBufferObject ARB_vertex_buffer_object}. Promoted to core in {@link GL21 OpenGL 2.1}.</p>
  */
 public final class ARBPixelBufferObject {
 

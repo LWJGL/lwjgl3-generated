@@ -19,6 +19,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * depends on the usage of the struct.</p>
  * 
  * <h3>ovrPoseStatef members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>ThePose</td><td class="nw">{@link OVRPosef ovrPosef}</td><td>position and orientation</td></tr>

@@ -19,7 +19,8 @@ import static org.lwjgl.system.Pointer.*;
 /**
  * The core OpenGL 4.1 functionality. OpenGL 4.1 implementations support revision 4.10 of the OpenGL Shading Language.
  * 
- * <p>Extensions promoted to core in this release:
+ * <p>Extensions promoted to core in this release:</p>
+ * 
  * <ul>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/ES2_compatibility.txt">ARB_ES2_compatibility</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/get_program_binary.txt">ARB_get_program_binary</a></li>
@@ -27,7 +28,7 @@ import static org.lwjgl.system.Pointer.*;
  * <li><a href="http://www.opengl.org/registry/specs/ARB/shader_precision.txt">ARB_shader_precision</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/vertex_attrib_64bit.txt">ARB_vertex_attrib_64bit</a></li>
  * <li><a href="http://www.opengl.org/registry/specs/ARB/viewport_array.txt">ARB_viewport_array</a></li>
- * </ul></p>
+ * </ul>
  */
 public class GL41 {
 
@@ -600,7 +601,8 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * 
 	 * Creates a stand-alone program from an array of null-terminated source code strings.
 	 * 
-	 * <p>{@code glCreateShaderProgram} is equivalent (assuming no errors are generated) to:
+	 * <p>{@code glCreateShaderProgram} is equivalent (assuming no errors are generated) to:</p>
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * const GLuint shader = glCreateShader(type);
 	 * if (shader) {
@@ -623,7 +625,8 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 * } else {
 	 * 	return 0;
 	 * }</code></pre>
-	 * The program object created by glCreateShaderProgram has its GL_PROGRAM_SEPARABLE status set to GL_TRUE.</p>
+	 * 
+	 * <p>The program object created by glCreateShaderProgram has its GL_PROGRAM_SEPARABLE status set to GL_TRUE.</p>
 	 *
 	 * @param type    the type of shader to create
 	 * @param count   the number of source code strings in the array {@code strings}

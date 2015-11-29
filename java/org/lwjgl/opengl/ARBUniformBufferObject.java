@@ -27,11 +27,12 @@ import static org.lwjgl.system.Pointer.*;
  * 
  * <p>Prior to this extension, the existing interface for modification of uniform values allowed modification of large numbers of values using glUniform*
  * calls, but only for a single uniform name (or a uniform array) at a time. However, updating uniforms in this manner may not map well to heterogenous
- * uniform data structures defined for a GL application and in these cases, the application is forced to either:
+ * uniform data structures defined for a GL application and in these cases, the application is forced to either:</p>
+ * 
  * <ol type=A>
  * <li>restructure their uniform data definitions into arrays or</li>
  * <li>make an excessive number of calls through the GL interface to one of the Uniform* variants.</li>
- * </ol></p>
+ * </ol>
  * 
  * <p>These solutions have their disadvantages. Solution A imposes considerable development overhead on the application developer. Solution B may impose
  * considerable run-time overhead on the application if the number of uniforms modified in a given frame of rendering is sufficiently large.</p>
@@ -39,13 +40,16 @@ import static org.lwjgl.system.Pointer.*;
  * <p>This extension provides a better alternative to either (A) or (B) by allowing buffer object backing for the storage associated with all uniforms of a
  * given GLSL program.</p>
  * 
- * <p>Storing uniform blocks in buffer objects enables several key use cases:
+ * <p>Storing uniform blocks in buffer objects enables several key use cases:</p>
+ * 
  * <ul>
  * <li>sharing of uniform data storage between program objects and between program stages</li>
  * <li>rapid swapping of sets of previously defined uniforms by storing sets of uniform data on the GL server</li>
  * <li>rapid updates of uniform data from both the client and the server</li>
  * </ul>
- * The data storage for a uniform block can be declared to use one of three layouts in memory: packed, shared, or std140.
+ * 
+ * <p>The data storage for a uniform block can be declared to use one of three layouts in memory: packed, shared, or std140.</p>
+ * 
  * <ul>
  * <li>"packed" uniform blocks have an implementation-dependent data layout for efficiency, and unused uniforms may be eliminated by the compiler to save
  * space.</li>
@@ -53,7 +57,8 @@ import static org.lwjgl.system.Pointer.*;
  * by the structure of the block, allowing data storage to be shared across programs.</li>
  * <li>"std140" uniform blocks have a standard cross-platform cross-vendor layout (see below). Unused uniforms will not be eliminated.</li>
  * </ul>
- * Any uniforms not declared in a named uniform block are said to be part of the "default uniform block".</p>
+ * 
+ * <p>Any uniforms not declared in a named uniform block are said to be part of the "default uniform block".</p>
  * 
  * <p>While uniforms in the default uniform block are updated with glUniform* entry points and can have static initializers, uniforms in named uniform blocks
  * are not. Instead, uniform block data is updated using the routines that update buffer objects and can not use static initializers.</p>
@@ -66,7 +71,8 @@ import static org.lwjgl.system.Pointer.*;
  * <p>A "uniform block" only has a "uniform block index" used for queries and connecting the "uniform block" to a buffer object. A "uniform block" has no
  * "location" because "uniform blocks" are not updated directly. The buffer object APIs are used instead.</p>
  * 
- * <p>Properties of Uniforms and uniform blocks:
+ * <p>Properties of Uniforms and uniform blocks:</p>
+ * 
  * <ol type=a>
  * <li>A uniform is "active" if it exists in the database and has a valid u_index.</li>
  * <li>A "uniform block" is "active" if it exists in the database and has a valid ub_index.</li>
@@ -81,7 +87,8 @@ import static org.lwjgl.system.Pointer.*;
  * <li>A uniform location of -1 is silently ignored if given as a function argument.</li>
  * <li>Uniform block declarations may not be nested</li>
  * </ol>
- * Requires {@link GL20 OpenGL 2.0} or {@link ARBShaderObjects ARB_shader_objects} and {@link GL15 OpenGL 1.5} or {@link ARBVertexBufferObject ARB_vertex_buffer_object}. Promoted to core in {@link GL31 OpenGL 3.1}.</p>
+ * 
+ * <p>Requires {@link GL20 OpenGL 2.0} or {@link ARBShaderObjects ARB_shader_objects} and {@link GL15 OpenGL 1.5} or {@link ARBVertexBufferObject ARB_vertex_buffer_object}. Promoted to core in {@link GL31 OpenGL 3.1}.</p>
  */
 public class ARBUniformBufferObject {
 

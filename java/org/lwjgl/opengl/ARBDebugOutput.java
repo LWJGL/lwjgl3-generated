@@ -195,7 +195,8 @@ public class ARBDebugOutput {
 	 * <p>If {@code enabled} is {@link GL11#GL_TRUE TRUE}, the referenced subset of messages will be enabled. If {@link GL11#GL_FALSE FALSE}, then those messages will be disabled.</p>
 	 * 
 	 * <p>This command can reference different subsets of messages by first considering the set of all messages, and filtering out messages based on the following
-	 * ways:
+	 * ways:</p>
+	 * 
 	 * <ul>
 	 * <li>If {@code source} is not {@link GL11#GL_DONT_CARE DONT_CARE}, then all messages whose source does not match {@code source} will not be referenced.</li>
 	 * <li>If {@code type} is not {@link GL11#GL_DONT_CARE DONT_CARE}, then all messages whose type does not match {@code type} will not be referenced.</li>
@@ -204,7 +205,8 @@ public class ARBDebugOutput {
 	 * {@code type}. In this case, if {@code source} or {@code type} is {@link GL11#GL_DONT_CARE DONT_CARE}, or {@code severity} is not {@link GL11#GL_DONT_CARE DONT_CARE}, the error
 	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated. If {@code count} is zero, the value if {@code ids} is ignored.</li>
 	 * </ul>
-	 * Although messages are grouped into an implicit hierarchy by their sources and types, there is no explicit per-source, per-type or per-severity enabled
+	 * 
+	 * <p>Although messages are grouped into an implicit hierarchy by their sources and types, there is no explicit per-source, per-type or per-severity enabled
 	 * state. Instead, the enabled state is stored individually for each message. There is no difference between disabling all messages from one source in a
 	 * single call, and individually disabling all messages from that source using their types and IDs.</p>
 	 *

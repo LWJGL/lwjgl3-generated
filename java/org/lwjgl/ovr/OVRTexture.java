@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Contains platform-specific information about a texture. Aliases to one of ovrD3D11Texture or {@link OVRGLTexture}.
  * 
  * <h3>ovrTexture members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>Header</td><td class="nw">{@link OVRTextureHeader ovrTextureHeader}</td><td>API-independent header</td></tr>

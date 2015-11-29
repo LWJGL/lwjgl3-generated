@@ -84,6 +84,7 @@ public class NVBindlessMultiDrawIndirect {
 	/**
 	 * Behaves similar to {@link GL43#glMultiDrawArraysIndirect MultiDrawArraysIndirect}, except that {@code indirect} is treated as an array of {@code drawCount}
 	 * DrawArraysIndirectBindlessCommandNV structures:
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * typedef struct {
 	 *   GLuint   index;
@@ -119,6 +120,7 @@ public class NVBindlessMultiDrawIndirect {
 	/**
 	 * Behaves similar to {@link GL43#glMultiDrawElementsIndirect MultiDrawElementsIndirect}, except that {@code indirect} is treated as an array of {@code drawCount}
 	 * DrawElementsIndirectBindlessCommandNV structures:
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 *  typedef struct {
 	 *   GLuint   index;

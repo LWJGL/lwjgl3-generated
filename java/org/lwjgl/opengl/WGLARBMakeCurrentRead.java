@@ -78,7 +78,8 @@ public class WGLARBMakeCurrentRead {
 	 * passed to wglCreateContext and it must support the same pixel type as the pixel format of the {@code hdc} that was passed to wglCreateContext.</p>
 	 * 
 	 * <p>If {@code wglMakeContextCurrentARB} is used to associate a different device for reads than for draws, the "read" device will be used for the following
-	 * OpenGL operations:
+	 * OpenGL operations:</p>
+	 * 
 	 * <ol>
 	 * <li>Any pixel data that are sourced based on the value of {@link GL11#GL_READ_BUFFER}. Note, that accumulation operations use the value of
 	 * {@code READ_BUFFER}, but are not allowed when a different device context is used for reads.  In this case, the accumulation operation will generate
@@ -88,7 +89,8 @@ public class WGLARBMakeCurrentRead {
 	 * <li>Any stencil values that are retrieved by ReadPixels, CopyPixels, or any OpenGL extension that sources stencil images from the framebuffer in the
 	 * manner of ReadPixels and CopyPixels.</li>
 	 * </ol>
-	 * These frame buffer values are taken from the surface associated with the device context specified by {@code readDC}.</p>
+	 * 
+	 * <p>These frame buffer values are taken from the surface associated with the device context specified by {@code readDC}.</p>
 	 *
 	 * @param drawDC the "draw" device context
 	 * @param readDC the "read" device context

@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Parameters for {@link OVR#ovr_Initialize}.
  * 
  * <h3>ovrInitParams members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>Flags</td><td class="nw">uint32_t</td><td>combination of ovrInitFlags or 0</td></tr>

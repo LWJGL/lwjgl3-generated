@@ -17,6 +17,7 @@ public class OVRUtil {
 
 	/**
 	 * Use for generating a default projection matrix that is:
+	 * 
 	 * <ul>
 	 * <li>Left-handed.</li>
 	 * <li>Near depth values stored in the depth buffer are smaller than far depth values.</li>

@@ -14,14 +14,16 @@ package org.lwjgl.opencl;
  * using an online compiler. The second is to load a precompiled device binary.</p>
  * 
  * <p>This extension specifies mechanisms to enable alternative workflows for compiling and loading device code. They enable simplified or optimized support
- * for the following development and deployment scenarios:
+ * for the following development and deployment scenarios:</p>
+ * 
  * <ul>
  * <li>The target OpenCL device is not available in the development environment.</li>
  * <li>The platform does not provide an online compiler for the target OpenCL device, or full online compilation is not desirable during host application
  * development.</li>
  * <li>The application only requires one device program, and does not need read access to the device binary.</li>
  * </ul>
- * The development and deployment of a particular application may involve more than one of these scenarios.</p>
+ * 
+ * <p>The development and deployment of a particular application may involve more than one of these scenarios.</p>
  */
 public final class ALTERACompilerMode {
 

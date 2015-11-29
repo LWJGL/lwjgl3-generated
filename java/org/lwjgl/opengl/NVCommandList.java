@@ -19,14 +19,15 @@ import static org.lwjgl.system.Pointer.*;
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/command_list.txt">NV_command_list</a> extension.
  * 
- * <p>This extension adds a few new features designed to provide very low overhead batching and replay of rendering commands and state changes:
+ * <p>This extension adds a few new features designed to provide very low overhead batching and replay of rendering commands and state changes:</p>
+ * 
  * <ul>
  * <li>A state object, which stores a pre-validated representation of the state of (almost) the entire pipeline.</li>
  * <li>A more flexible and extensible MultiDrawIndirect (MDI) type of mechanism, using a token-based command stream, allowing to setup binding state and
  * emit draw calls.</li>
  * <li>A set of functions to execute a list of the token-based command streams with state object changes interleaved with the streams.</li>
  * <li>Command lists enabling compilation and reuse of sequences of command streams and state object changes.</li>
- * </ul></p>
+ * </ul>
  * 
  * <p>Because state objects reflect the state of the entire pipeline, it is expected that they can be pre-validated and executed efficiently. It is also
  * expected that when state objects are combined into a command list, the command list can diff consecutive state objects to produce a reduced/ optimized
@@ -36,6 +37,7 @@ import static org.lwjgl.system.Pointer.*;
  * work creation than the original MDI approach, which was limited to emitting draw calls only.</p>
  * 
  * <h3>Command structures</h3>
+ * 
  * <pre><code style="font-family: monospace">
  * typedef struct {
  *   uint  header;
@@ -335,7 +337,8 @@ public class NVCommandList {
 	/**
 	 * Captures the current state of the rendering pipeline into the object indicated by <code>state</code>.
 	 * 
-	 * <p>The captured rendering state includes:
+	 * <p>The captured rendering state includes:</p>
+	 * 
 	 * <ul>
 	 * <li>Vertex attribute enable state, formats, types, relative offsets and strides, but not bound vertex buffers or vertex unified addresses, nor their
 	 * offsets, nor bound index buffers/addresses.</li>
@@ -349,7 +352,7 @@ public class NVCommandList {
 	 * <li>Framebuffer attachment configuration: attachment state including attachment formats, drawbuffer state, and target/layer information, but not
 	 * including actual attachments or sizes of attachments (these are stored separately).</li>
 	 * <li>Framebuffer attachment textures (but not residency state).</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param state the state object into which to capture the current rendering state
 	 * @param mode  the basic Begin mode that this state object must be used with. One of:<br>{@link GL11#GL_POINTS POINTS}, {@link GL11#GL_LINES LINES}, {@link GL11#GL_TRIANGLES TRIANGLES}, {@link GL11#GL_QUADS QUADS}, {@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}, {@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}, {@link GL40#GL_PATCHES PATCHES}

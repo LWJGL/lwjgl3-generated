@@ -123,6 +123,7 @@ public class AMDBusAddressableMemory {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} is generated if the {@code buffer} parameter of clEnqueueWaitSignalAMD is not a valid buffer.</li>
 	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} is generated if the {@code command_queue} parameter of clEnqueueWaitSignalAMD is not a valid command queue.</li>
@@ -178,6 +179,7 @@ public class AMDBusAddressableMemory {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} is generated if the {@code buffer} parameter of clEnqueueWriteSignalAMD is not a valid buffer.</li>
 	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} is generated if the {@code command_queue} parameter of clEnqueueWriteSignalAMD is not a valid command queue.</li>
@@ -235,6 +237,7 @@ public class AMDBusAddressableMemory {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} is generated if any of the pointer parameters of clEnqueueMakeBuffersResidentAMD are {@code NULL} (and count is &gt; 0).</li>
 	 *         <li>{@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} is generated if any of the mem_objects passed to clEnqueueMakeBuffersResidentAMD was not a valid cl_mem object created with

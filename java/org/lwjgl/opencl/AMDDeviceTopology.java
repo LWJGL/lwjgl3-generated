@@ -15,14 +15,16 @@ public final class AMDDeviceTopology {
 	/**
 	 * Accepted as the {@code param_name} parameter of {@link CL10#clGetDeviceInfo GetDeviceInfo}. Returns a description of the topology used to connect the device to the
 	 * host, using the following 32-bytes union of structures:
+	 * 
 	 * <pre><code style="font-family: monospace">
 	 * typedef union
 	 * {
 	 * 	struct { cl_uint type; cl_uint data[5]; } raw;
 	 * 	struct { cl_uint type; cl_char unused[17]; cl_char bus; cl_char device; cl_char function; } pcie;
 	 * } cl_device_topology_amd;</code></pre>
-	 * The type of the structure returned can be queried by reading the first unsigned int of the returned data. The developer can use this type to cast the
-	 * returned union into the right structure type.
+	 * 
+	 * <p>The type of the structure returned can be queried by reading the first unsigned int of the returned data. The developer can use this type to cast the
+	 * returned union into the right structure type.</p>
 	 * 
 	 * <p>Currently, the only supported type in the structure above is {@link #CL_DEVICE_TOPOLOGY_TYPE_PCIE_AMD DEVICE_TOPOLOGY_TYPE_PCIE_AMD}. The information returned contains the PCI
 	 * Bus/Device/Function of the device, and is similar to the result of the lspci command in Linux. It enables the developer to match between the OpenCL

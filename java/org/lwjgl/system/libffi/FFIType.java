@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Contains information about a libffi type.
  * 
  * <h3>ffi_type members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>size</td><td class="nw">size_t</td><td>set by libffi; you should initialize it to zero.</td></tr>

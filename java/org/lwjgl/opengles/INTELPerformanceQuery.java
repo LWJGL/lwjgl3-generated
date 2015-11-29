@@ -17,7 +17,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/INTEL/performance_query.txt">INTEL_performance_query</a> extension.
  * 
- * <p>The purpose of this extension is to expose Intel proprietary hardware performance counters to the OpenGL applications. Performance counters may count:
+ * <p>The purpose of this extension is to expose Intel proprietary hardware performance counters to the OpenGL applications. Performance counters may count:</p>
+ * 
  * <ul>
  * <li>number of hardware events such as number of spawned vertex shaders. In this case the results represent the number of events.</li>
  * <li>duration of certain activity, like time took by all fragment shader invocations. In that case the result usually represents the number of clocks in
@@ -26,7 +27,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>used throughput of certain memory types such as texture memory. In that case the result of performance counter usually represents the number of
  * bytes transferred between GPU and memory.</li>
  * </ul>
- * This extension specifies universal API to manage performance counters on different Intel hardware platforms. Performance counters are grouped together
+ * 
+ * <p>This extension specifies universal API to manage performance counters on different Intel hardware platforms. Performance counters are grouped together
  * into proprietary, hardware-specific, fixed sets of counters that are measured together by the GPU.</p>
  * 
  * <p>It is assumed that performance counters are started and ended on any arbitrary boundaries during rendering.</p>

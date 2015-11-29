@@ -8,7 +8,8 @@ package org.lwjgl.opengles;
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_texture_format_BGRA8888.txt">EXT_texture_format_BGRA8888</a> extension.
  * 
- * <p>This extension provides an additional format and type combination for use when specifying texture data.  The current allowed combinations are:
+ * <p>This extension provides an additional format and type combination for use when specifying texture data.  The current allowed combinations are:</p>
+ * 
  * <pre><code style="font-family: monospace">
  * 	Internal Format     External Format Type                    Bytes per Pixel
  * 	---------------     --------------- ----                    ---------------
@@ -19,9 +20,10 @@ package org.lwjgl.opengles;
  * 	RGB                 RGB              UNSIGNED_SHORT_5_6_5   2
  * 	LUMINANCE_ALPHA     LUMINANCE_ALPHA  UNSIGNED_BYTE          2
  * 	LUMINANCE           LUMINANCE        UNSIGNED_BYTE          1
- * 	ALPHA               ALPHA            UNSIGNED_BYTE          1</code></pre></p>
+ * 	ALPHA               ALPHA            UNSIGNED_BYTE          1</code></pre>
  * 
- * <p>This table is extended to include format BGRA_EXT and type UNSIGNED_BYTE:
+ * <p>This table is extended to include format BGRA_EXT and type UNSIGNED_BYTE:</p>
+ * 
  * <pre><code style="font-family: monospace">
  * Internal Format     External Format Type                    Bytes per Pixel
  * ---------------     --------------- ----                    ---------------
@@ -33,7 +35,7 @@ package org.lwjgl.opengles;
  * RGB                 RGB             UNSIGNED_SHORT_5_6_5    2
  * LUMINANCE_ALPHA     LUMINANCE_ALPHA UNSIGNED_BYTE           2
  * LUMINANCE           LUMINANCE       UNSIGNED_BYTE           1
- * ALPHA               ALPHA           UNSIGNED_BYTE           1</code></pre></p>
+ * ALPHA               ALPHA           UNSIGNED_BYTE           1</code></pre>
  */
 public final class EXTTextureFormatBGRA8888 {
 

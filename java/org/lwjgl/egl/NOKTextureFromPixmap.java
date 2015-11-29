@@ -16,7 +16,8 @@ package org.lwjgl.egl;
  * 
  * <p>The functionality of this extension is similar to WGL_ARB_render_texture which was incorporated into EGL 1.1. However, the purpose of this extension is
  * not to provide "render to texture" like functionality but rather the ability to bind existing native drawables (for instance X pixmaps) to a texture.
- * Though, there is nothing that prohibits it from being used for "render to texture".
+ * Though, there is nothing that prohibits it from being used for "render to texture".</p>
+ * 
  * <ul>
  * <li>Windows are problematic as they can change size and therefore are not supported by this extension.</li>
  * <li>Only a color buffer of a EGL pixmap created using an EGLConfig with attribute EGL_BIND_TO_TEXTURE_RGB or EGL_BIND_TO_TEXTURE_RGBA set to TRUE can
@@ -24,7 +25,7 @@ package org.lwjgl.egl;
  * <li>The texture internal format is determined when the color buffer is associated with the texture, guaranteeing that the color buffer format is
  * equivalent to the texture internal format.</li>
  * <li>A client can create a complete set of mipmap images.</li>
- * </ul></p>
+ * </ul>
  * 
  * <p>Requires {@link EGL11 EGL L.1}.</p>
  */

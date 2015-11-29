@@ -27,12 +27,14 @@ package org.lwjgl.opengles;
  * instance. Further, since ES removes the ability to query the texture object to find out what internal format it chose, there is no way for the
  * application to find out that this has happened.</p>
  * 
- * <p>This extension addresses the situation in two ways:
+ * <p>This extension addresses the situation in two ways:</p>
+ * 
  * <ol>
  * <li>This extension introduces the ability for an application to specify the desired "sized" internal formats for texture image allocation.</li>
  * <li>This extension guarantees to maintain at least the specified precision of all available sized internal formats.</li>
  * </ol>
- * An implementation that exports this extension is committing to support all of the legal values for <internalformat> in Tables 3.4, 3.4.x, and 3.4.y,
+ * 
+ * <p>An implementation that exports this extension is committing to support all of the legal values for <internalformat> in Tables 3.4, 3.4.x, and 3.4.y,
  * subject to the extension dependencies described herein. That is to say, the implementation is guaranteeing that choosing an <internalformat> argument
  * with a value from these tables will not cause an image allocation request to fail. Furthermore, it is guaranteeing that for any sized internal format,
  * the renderbuffer or texture data will be stored with at least the precision prescribed by the sized internal format.</p>

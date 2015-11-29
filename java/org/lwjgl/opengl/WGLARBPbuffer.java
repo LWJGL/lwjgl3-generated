@@ -17,7 +17,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/wgl_pbuffer.txt">WGL_ARB_pbuffer</a> extension.
  * 
  * <p>This extension defines pixel buffers (pbuffer for short). Pbuffers are additional non-visible rendering buffers for an OpenGL renderer. Pbuffers are
- * equivalent to a window that has the same pixel format descriptor with the following exceptions:
+ * equivalent to a window that has the same pixel format descriptor with the following exceptions:</p>
+ * 
  * <ol>
  * <li>There is no rendering to a pbuffer by GDI.</li>
  * <li>The pixel format descriptors used for a pbuffer can only be those that are supported by the ICD.  Generic formats are not valid.</li>
@@ -25,7 +26,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>The pixel buffer might be lost if a display mode change occurs. A query is provided that can be called after a display mode change to determine the
  * state of the pixel buffer.</li>
  * </ol>
- * The intent of the pbuffer semantics is to enable implementations to allocate pbuffers in non-visible frame buffer memory. These pbuffers are intended to
+ * 
+ * <p>The intent of the pbuffer semantics is to enable implementations to allocate pbuffers in non-visible frame buffer memory. These pbuffers are intended to
  * be "static" resources in that a program will typically allocate them only once rather than as a part of its rendering loop.  (Pbuffers should be
  * deallocated when the program is no longer using them -- for example, if the program is iconified.)</p>
  * 

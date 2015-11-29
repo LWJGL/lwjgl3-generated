@@ -24,7 +24,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * application will render the major occluders in the scene, then perform an occlusion query for the bounding box of each detail object in the scene. Only
  * if said bounding box is visible, i.e., if at least one sample is drawn, should the corresponding object be drawn.</p>
  * 
- * <p>The earlier <a href="http://www.opengl.org/registry/specs/HP/occlusion_test.txt">HP_occlusion_test</a> extension defined a similar mechanism, but it had two major shortcomings.
+ * <p>The earlier <a href="http://www.opengl.org/registry/specs/HP/occlusion_test.txt">HP_occlusion_test</a> extension defined a similar mechanism, but it had two major shortcomings.</p>
+ * 
  * <ul>
  * <li>It returned the result as a simple {@link GL11#GL_TRUE TRUE}/{@link GL11#GL_FALSE FALSE} result, when in fact it is often useful to know exactly how many samples were drawn.</li>
  * <li>It provided only a simple "stop-and-wait" model for using multiple queries. The application begins an occlusion test and ends it; then, at some
@@ -32,12 +33,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  * application can even begin the next one. This is a very simple model, but its performance is mediocre when an application wishes to perform many
  * queries, and it eliminates most of the opportunities for parallelism between the CPU and GPU.</li>
  * </ul>
- * This extension solves both of those problems. It returns as its result the number of samples that pass the depth and stencil tests, and it encapsulates
+ * 
+ * <p>This extension solves both of those problems. It returns as its result the number of samples that pass the depth and stencil tests, and it encapsulates
  * occlusion queries in "query objects" that allow applications to issue many queries before asking for the result of any one. As a result, they can
  * overlap the time it takes for the occlusion query results to be returned with other, more useful work, such as rendering other parts of the scene or
  * performing other computations on the CPU.</p>
  * 
- * <p>There are many situations where a pixel/sample count, rather than a boolean result, is useful.
+ * <p>There are many situations where a pixel/sample count, rather than a boolean result, is useful.</p>
+ * 
  * <ul>
  * <li>Objects that are visible but cover only a very small number of pixels can be skipped at a minimal reduction of image quality.</li>
  * <li>Knowing exactly how many pixels an object might cover may help the application decide which level-of-detail model should be used. If only a few
@@ -49,7 +52,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>Occlusion queries can replace glReadPixels of the depth buffer to determine whether (for example) a light source is visible for the purposes of a
  * lens flare effect or a halo to simulate glare. Pixel counts allow you to compute the percentage of the light source that is visible, and the
  * brightness of these effects can be modulated accordingly.</li>
- * </ul></p>
+ * </ul>
  * 
  * <p>Promoted to core in {@link GL15 OpenGL 1.5}.</p>
  */

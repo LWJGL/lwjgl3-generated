@@ -24,7 +24,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * allocations between memory spaces. With this extension, an application can tell the GL that the contents of a texture or buffer are no longer needed,
  * and the implementation can avoid transferring the data unnecessarily.</p>
  * 
- * <p>Examples of when this may be useful include:
+ * <p>Examples of when this may be useful include:</p>
+ * 
  * <ol>
  * <li>invalidating a multisample texture after resolving it into a non-multisample texture.</li>
  * <li>invalidating depth/stencil buffers after using them to generate a color buffer.</li>
@@ -32,16 +33,19 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>invalidating dynamically generated data (e.g. textures written by FBO rendering or CopyTexSubImage, buffers written by transform feedback, etc.)
  * after it is no longer needed but before the end of the frame.</li>
  * </ol>
- * It is expected that the situations in which the GL will take advantage of this knowledge and achieve increased performance as a result of its use will
+ * 
+ * <p>It is expected that the situations in which the GL will take advantage of this knowledge and achieve increased performance as a result of its use will
  * be implementation-dependent. The first three examples may show benefit on tiled renderers where some data won't need to be copied into or out of on-chip
  * memory. The fourth example may show a benefit in multi-GPU systems where some data won't need to be copied between GPUs.</p>
  * 
- * <p>This extension is a superset of the <a href="http://www.opengl.org/registry/specs/EXT/discard_framebuffer.txt">EXT_discard_framebuffer</a> extension with the following additions:
+ * <p>This extension is a superset of the <a href="http://www.opengl.org/registry/specs/EXT/discard_framebuffer.txt">EXT_discard_framebuffer</a> extension with the following additions:</p>
+ * 
  * <ul>
  * <li>The parameters to InvalidateFramebufferEXT are extended for MRT support and Desktop-GL-only buffer enums.</li>
  * <li>New functions to invalidate a region of a texture image or buffer object data store.</li>
  * </ul>
- * Requires {@link GL20 OpenGL 2.0}. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
+ * 
+ * <p>Requires {@link GL20 OpenGL 2.0}. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
  */
 public class ARBInvalidateSubdata {
 

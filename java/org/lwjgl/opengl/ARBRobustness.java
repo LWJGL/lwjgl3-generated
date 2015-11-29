@@ -44,7 +44,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * non-fixed components in this case. Older GPUs may require extra checks to enforce well-defined (and termination free) behavior, but this expense is
  * warranted when processing potentially untrusted content.</p>
  * 
- * <p>The intent of this extension is to address some specific robustness goals:
+ * <p>The intent of this extension is to address some specific robustness goals:</p>
+ * 
  * <ul>
  * <li>For all existing OpenGL queries, provide additional "safe" APIs that limit data written to user pointers to a buffer size in bytes that is an
  * explicit additional parameter of the query.</li>
@@ -54,7 +55,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>Provide an enable to guarantee that out-of-bounds buffer object accesses by the GPU will have deterministic behavior and preclude application
  * instability or termination due to an incorrect buffer access. Such accesses include vertex buffer fetches of attributes and indices, and indexed
  * reads of uniforms or parameters from buffers.</li>
- * </ul></p>
+ * </ul>
  * 
  * <p>In one anticipated usage model, WebGL contexts may make use of these robust features to grant greater stability when using untrusted code. WebGL
  * contexts cannot call OpenGL commands directly but rather must route all OpenGL API calls through the web browser. It is then the web browser that

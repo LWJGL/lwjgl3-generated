@@ -82,12 +82,13 @@ public class GLX14 {
 	 * <p>GL function pointers returned by {@code glXGetProcAddress} are independent of the currently bound context and may be used by any context which
 	 * supports the extension.</p>
 	 * 
-	 * <p>{@code glXGetProcAddress} may be queried for all of the following functions:
+	 * <p>{@code glXGetProcAddress} may be queried for all of the following functions:</p>
+	 * 
 	 * <ul>
 	 * <li>All GL and GLX extension functions supported by the implementation (whether those extensions are supported by the current context or not).</li>
 	 * <li>All core (non-extension) functions in GL and GLX from version 1.0 up to and including the versions of those specifications supported by the
 	 * implementation, as determined by {@link GL11#glGetString}({@link GL11#GL_VERSION}) and {@link GLX#glXQueryVersion QueryVersion} queries.</li>
-	 * </ul></p>
+	 * </ul>
 	 *
 	 * @param procName the function name to query
 	 */

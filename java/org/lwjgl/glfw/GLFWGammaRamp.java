@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Describes the gamma ramp for a monitor.
  * 
  * <h3>GLFWgammaramp members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>red</td><td class="nw">unsigned short *</td><td>an array of value describing the response of the red channel</td></tr>

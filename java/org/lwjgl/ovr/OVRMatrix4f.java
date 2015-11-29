@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * A 4x4 matrix with float components.
  * 
  * <h3>ovrMatrix4f members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>M</td><td class="nw">float[16]</td><td>the matrix components</td></tr>

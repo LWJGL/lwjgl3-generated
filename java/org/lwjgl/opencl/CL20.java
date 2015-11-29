@@ -206,6 +206,7 @@ public class CL20 {
 	 *
 	 * @return a valid non-zero command-queue and {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the command-queue is created successfully. Otherwise, it returns a {@code NULL} value
 	 *         with one of the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link CL10#CL_INVALID_DEVICE INVALID_DEVICE} if {@code device} is not a valid device or is not associated with {@code context}.</li>
@@ -257,6 +258,7 @@ public class CL20 {
 	 *
 	 * @return a valid non-zero pipe object and {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the pipe object is created successfully. Otherwise, it returns a {@code NULL} value with
 	 *         one of the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if values specified in {@code flags} are invalid.</li>
@@ -306,6 +308,7 @@ public class CL20 {
 	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value_size} is &lt; size of return type and
 	 *         {@code param_value} is not {@code NULL}.</li>
@@ -382,6 +385,7 @@ public class CL20 {
 	 *
 	 * @return a valid non-{@code NULL} shared virtual memory address if the SVM buffer is successfully allocated. Otherwise, like {@code malloc}, it returns a {@code NULL} pointer
 	 *         value. {@code SVMAlloc} will fail if:
+	 *         
 	 *         <ul>
 	 *         <li>{@code context} is not a valid context.</li>
 	 *         <li>{@code flags} does not contain {@link #CL_MEM_SVM_FINE_GRAIN_BUFFER MEM_SVM_FINE_GRAIN_BUFFER} but does contain {@link #CL_MEM_SVM_ATOMICS MEM_SVM_ATOMICS}.</li>
@@ -462,6 +466,7 @@ public class CL20 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code num_svm_pointers} is {@code 0} or if {@code svm_pointers} is {@code NULL} or if any of the pointers specified in
@@ -528,6 +533,7 @@ public class CL20 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
@@ -592,6 +598,7 @@ public class CL20 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
@@ -660,6 +667,7 @@ public class CL20 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if context associated with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
@@ -717,6 +725,7 @@ public class CL20 {
 	 *                                {@code event_wait_list} array.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if context associated with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
@@ -767,6 +776,7 @@ public class CL20 {
 	 *                  specified as the argument value can be the pointer returned by {@link #clSVMAlloc SVMAlloc} or can be a pointer + offset into the SVM region.
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function was executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_KERNEL INVALID_KERNEL} if {@code kernel} is not a valid kernel object.</li>
 	 *         <li>{@link CL10#CL_INVALID_ARG_INDEX INVALID_ARG_INDEX} if {@code arg_index} is not a valid argument index.</li>
@@ -827,6 +837,7 @@ public class CL20 {
 	 * @param param_value      a pointer to memory where the appropriate values determined by {@code param_name} are specified
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_KERNEL INVALID_KERNEL} if {@code kernel} is a not a valid kernel object.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not valid, if {@code param_value} is {@code NULL} or if the size specified by {@code param_value_size} is not valid.</li>
@@ -879,6 +890,7 @@ public class CL20 {
 	 *
 	 * @return a valid non-zero sampler object and {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the sampler object is created successfully. Otherwise, it returns a {@code NULL} value
 	 *         with one of the following error values returned in {@code errcode_ret}:
+	 *         
 	 *         <ul>
 	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
 	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if the property name in {@code sampler_properties} is not a supported property name, if the value specified for a supported property

@@ -16,13 +16,15 @@ import static org.lwjgl.system.JNI.*;
  * <p>This extension allows an EGLStreamKHR object handle to be duplicated into another process so that the EGLStream producer can be in one process while
  * the EGLStream consumer can be in another process.</p>
  * 
- * <p>Duplicating the EGLStreamKHR object handle into another process is peformed in 3 steps
+ * <p>Duplicating the EGLStreamKHR object handle into another process is peformed in 3 steps</p>
+ * 
  * <ol>
  * <li>Get a file descriptor associated with the EGLStream.</li>
  * <li>Duplicate the file descriptor into another process.</li>
  * <li>Create an EGLStreamKHR from the duplicated file descriptor in the other process.</li>
  * </ol>
- * The file descriptor is obtained by calling eglGetStreamFileDescriptorKHR().</p>
+ * 
+ * <p>The file descriptor is obtained by calling eglGetStreamFileDescriptorKHR().</p>
  * 
  * <p>Duplicating the file descriptor into another process is outside the scope of this extension. See issue \#1 for an example of how to do this on a Linux
  * system.</p>

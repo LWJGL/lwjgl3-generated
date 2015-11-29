@@ -92,13 +92,14 @@ public class ARBTransposeMatrix {
 	/**
 	 * Sets the current matrix to a 4 &times; 4 matrix in row-major order.
 	 * 
-	 * <p>The matrix is stored as 16 consecutive values, i.e. as:
+	 * <p>The matrix is stored as 16 consecutive values, i.e. as:</p>
+	 * 
 	 * <table border=1 cellspacing=0 cellpadding=2 class="lwjgl matrix">
 	 * <tr><td>a1</td><td>a2</td><td>a3</td><td>a4</td></tr>
 	 * <tr><td>a5</td><td>a6</td><td>a7</td><td>a8</td></tr>
 	 * <tr><td>a9</td><td>a10</td><td>a11</td><td>a12</td></tr>
 	 * <tr><td>a13</td><td>a14</td><td>a15</td><td>a16</td></tr>
-	 * </table></p>
+	 * </table>
 	 *
 	 * @param m the matrix data
 	 */

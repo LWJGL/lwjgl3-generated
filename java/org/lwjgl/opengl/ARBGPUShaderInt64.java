@@ -17,7 +17,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/gpu_shader_int64.txt">ARB_gpu_shader_int64</a> extension.
  * 
- * <p>The extension introduces the following features for all shader types:
+ * <p>The extension introduces the following features for all shader types:</p>
+ * 
  * <ul>
  * <li>support for 64-bit scalar and vector integer data types, including uniform API, uniform buffer object, transform feedback, and shader input and
  * output support;</li>
@@ -25,7 +26,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>new built-in functions to convert double-precision floating-point values to or from their 64-bit integer bit encodings;</li>
  * <li>vector relational functions supporting comparisons of vectors of 64-bit integer types; and</li>
  * <li>common functions abs, sign, min, max, clamp, and mix supporting arguments of 64-bit integer types.</li>
- * </ul></p>
+ * </ul>
  * 
  * <p>Requires {@link GL40 GL40} and GLSL 4.00.</p>
  */

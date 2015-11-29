@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Visual structure; contains information about colormapping possible.
  * 
  * <h3>Visual members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>visualid</td><td class="nw">VisualID</td><td></td></tr>

@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Describes the configuration of the motion estimation algorithm.
  * 
  * <h3>cl_motion_estimation_desc_intel members</h3>
+ * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
  * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
  * <tr><td>mb_block_type</td><td class="nw">cl_uint</td><td>describes the size of the blocks described by the motion estimator</td></tr>
