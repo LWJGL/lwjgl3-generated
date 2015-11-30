@@ -49,7 +49,7 @@ public class SOFTPauseDevice {
 	}
 
 	static SOFTPauseDevice create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {
-		if ( !ext.contains("ALC_SOFT_pause_device") ) return null;
+		if ( device != 0L && !ext.contains("ALC_SOFT_pause_device") ) return null;
 
 		SOFTPauseDevice funcs = new SOFTPauseDevice(provider, device);
 
@@ -57,7 +57,7 @@ public class SOFTPauseDevice {
 			funcs.DevicePauseSOFT, funcs.DeviceResumeSOFT
 		);
 
-		return ALC.checkExtension("ALC_SOFT_pause_device", funcs, supported);
+		return device == 0L && !supported ? null : ALC.checkExtension("ALC_SOFT_pause_device", funcs, supported);
 	}
 
 	// --- [ alcDevicePauseSOFT ] ---

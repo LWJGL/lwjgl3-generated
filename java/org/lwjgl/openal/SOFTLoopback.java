@@ -78,7 +78,7 @@ public class SOFTLoopback {
 	}
 
 	static SOFTLoopback create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {
-		if ( !ext.contains("ALC_SOFT_loopback") ) return null;
+		if ( device != 0L && !ext.contains("ALC_SOFT_loopback") ) return null;
 
 		SOFTLoopback funcs = new SOFTLoopback(provider, device);
 
@@ -86,7 +86,7 @@ public class SOFTLoopback {
 			funcs.LoopbackOpenDeviceSOFT, funcs.IsRenderFormatSupportedSOFT, funcs.RenderSamplesSOFT
 		);
 
-		return ALC.checkExtension("ALC_SOFT_loopback", funcs, supported);
+		return device == 0L && !supported ? null : ALC.checkExtension("ALC_SOFT_loopback", funcs, supported);
 	}
 
 	// --- [ alcLoopbackOpenDeviceSOFT ] ---

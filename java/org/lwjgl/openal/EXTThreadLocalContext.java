@@ -48,7 +48,7 @@ public class EXTThreadLocalContext {
 	}
 
 	static EXTThreadLocalContext create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {
-		if ( !ext.contains("ALC_EXT_thread_local_context") ) return null;
+		if ( device != 0L && !ext.contains("ALC_EXT_thread_local_context") ) return null;
 
 		EXTThreadLocalContext funcs = new EXTThreadLocalContext(provider, device);
 
@@ -56,7 +56,7 @@ public class EXTThreadLocalContext {
 			funcs.SetThreadContext, funcs.GetThreadContext
 		);
 
-		return ALC.checkExtension("ALC_EXT_thread_local_context", funcs, supported);
+		return device == 0L && !supported ? null : ALC.checkExtension("ALC_EXT_thread_local_context", funcs, supported);
 	}
 
 	// --- [ alcSetThreadContext ] ---

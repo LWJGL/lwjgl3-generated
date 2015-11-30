@@ -66,7 +66,7 @@ public class EXTCapture {
 	}
 
 	static EXTCapture create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {
-		if ( !ext.contains("ALC_EXT_CAPTURE") ) return null;
+		if ( device != 0L && !ext.contains("ALC_EXT_CAPTURE") ) return null;
 
 		EXTCapture funcs = new EXTCapture(provider, device);
 
@@ -74,7 +74,7 @@ public class EXTCapture {
 			funcs.CaptureOpenDevice, funcs.CaptureCloseDevice, funcs.CaptureStart, funcs.CaptureStop, funcs.CaptureSamples
 		);
 
-		return ALC.checkExtension("ALC_EXT_CAPTURE", funcs, supported);
+		return device == 0L && !supported ? null : ALC.checkExtension("ALC_EXT_CAPTURE", funcs, supported);
 	}
 
 	// --- [ alcCaptureOpenDevice ] ---

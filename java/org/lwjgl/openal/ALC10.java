@@ -76,7 +76,7 @@ public class ALC10 {
 	}
 
 	@JavadocExclude
-	public ALC10(FunctionProviderLocal provider) {
+	public ALC10(FunctionProvider provider) {
 		OpenDevice = provider.getFunctionAddress("alcOpenDevice");
 		CloseDevice = provider.getFunctionAddress("alcCloseDevice");
 		CreateContext = provider.getFunctionAddress("alcCreateContext");
@@ -106,8 +106,8 @@ public class ALC10 {
 		return checkFunctionality(caps.__ALC10);
 	}
 
-	static ALC10 create(java.util.Set<String> ext, FunctionProviderLocal provider) {
-		if ( !ext.contains("OpenALC10") ) return null;
+	static ALC10 create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {
+		if ( device != 0L && !ext.contains("OpenALC10") ) return null;
 
 		ALC10 funcs = new ALC10(provider);
 
@@ -117,7 +117,7 @@ public class ALC10 {
 			funcs.GetError, funcs.GetString, funcs.GetIntegerv
 		);
 
-		return ALC.checkExtension("OpenALC10", funcs, supported);
+		return device == 0L && !supported ? null : ALC.checkExtension("OpenALC10", funcs, supported);
 	}
 
 	// --- [ alcOpenDevice ] ---
@@ -401,8 +401,6 @@ public class ALC10 {
 	 */
 	public static int alcGetError(long deviceHandle) {
 		long __functionAddress = getInstance().GetError;
-		if ( CHECKS )
-			checkPointer(deviceHandle);
 		return invokePI(__functionAddress, deviceHandle);
 	}
 

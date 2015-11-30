@@ -84,7 +84,7 @@ public class SOFTHRTF {
 	}
 
 	static SOFTHRTF create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {
-		if ( !ext.contains("ALC_SOFT_HRTF") ) return null;
+		if ( device != 0L && !ext.contains("ALC_SOFT_HRTF") ) return null;
 
 		SOFTHRTF funcs = new SOFTHRTF(provider, device);
 
@@ -92,7 +92,7 @@ public class SOFTHRTF {
 			funcs.GetStringiSOFT, funcs.ResetDeviceSOFT
 		);
 
-		return ALC.checkExtension("ALC_SOFT_HRTF", funcs, supported);
+		return device == 0L && !supported ? null : ALC.checkExtension("ALC_SOFT_HRTF", funcs, supported);
 	}
 
 	// --- [ alcGetStringiSOFT ] ---

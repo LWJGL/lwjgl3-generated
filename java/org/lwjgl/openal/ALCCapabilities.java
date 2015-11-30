@@ -37,8 +37,8 @@ public final class ALCCapabilities {
 		ALC_SOFT_pause_device;
 
 	ALCCapabilities(FunctionProviderLocal provider, long device, Set<String> ext) {
-		OpenALC10 = (__ALC10 = ALC10.create(ext, provider)) != null;
-		OpenALC11 = (__ALC11 = ALC11.create(ext, provider)) != null;
+		OpenALC10 = (__ALC10 = ALC10.create(ext, provider, device)) != null;
+		OpenALC11 = (__ALC11 = ALC11.create(ext, provider, device)) != null;
 		ALC_ENUMERATE_ALL_EXT = ext.contains("ALC_ENUMERATE_ALL_EXT");
 		ALC_ENUMERATION_EXT = ext.contains("ALC_ENUMERATION_EXT");
 		ALC_EXT_CAPTURE = (__EXTCapture = EXTCapture.create(ext, provider, device)) != null;

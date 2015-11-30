@@ -47,7 +47,7 @@ public class ALC11 {
 	}
 
 	@JavadocExclude
-	public ALC11(FunctionProviderLocal provider) {
+	public ALC11(FunctionProvider provider) {
 		CaptureOpenDevice = provider.getFunctionAddress("alcCaptureOpenDevice");
 		CaptureCloseDevice = provider.getFunctionAddress("alcCaptureCloseDevice");
 		CaptureStart = provider.getFunctionAddress("alcCaptureStart");
@@ -67,8 +67,8 @@ public class ALC11 {
 		return checkFunctionality(caps.__ALC11);
 	}
 
-	static ALC11 create(java.util.Set<String> ext, FunctionProviderLocal provider) {
-		if ( !ext.contains("OpenALC11") ) return null;
+	static ALC11 create(java.util.Set<String> ext, FunctionProviderLocal provider, long device) {
+		if ( device != 0L && !ext.contains("OpenALC11") ) return null;
 
 		ALC11 funcs = new ALC11(provider);
 
@@ -76,7 +76,7 @@ public class ALC11 {
 			funcs.CaptureOpenDevice, funcs.CaptureCloseDevice, funcs.CaptureStart, funcs.CaptureStop, funcs.CaptureSamples
 		);
 
-		return ALC.checkExtension("OpenALC11", funcs, supported);
+		return device == 0L && !supported ? null : ALC.checkExtension("OpenALC11", funcs, supported);
 	}
 
 	// --- [ alcCaptureOpenDevice ] ---

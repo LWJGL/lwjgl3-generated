@@ -54,13 +54,13 @@ public final class ALCapabilities {
 		AL_SOFT_source_latency,
 		AL_SOFT_source_length;
 
-	ALCapabilities(FunctionProvider provider, Set<String> ext) {
+	ALCapabilities(FunctionProvider provider, Set<String> ext, ALCCapabilities alcCaps) {
 		OpenAL10 = (__AL10 = AL10.create(ext, provider)) != null;
 		OpenAL11 = (__AL11 = AL11.create(ext, provider)) != null;
 		AL_EXT_ALAW = ext.contains("AL_EXT_ALAW");
 		AL_EXT_BFORMAT = ext.contains("AL_EXT_BFORMAT");
 		AL_EXT_DOUBLE = ext.contains("AL_EXT_DOUBLE");
-		if ( ALC.getCapabilities().ALC_EXT_EFX )
+		if ( alcCaps.ALC_EXT_EFX )
 			ext.add("ALC_EXT_EFX");
 		__EXTEfx = EXTEfx.create(ext, provider);
 		AL_EXT_EXPONENT_DISTANCE = ext.contains("AL_EXT_EXPONENT_DISTANCE");
