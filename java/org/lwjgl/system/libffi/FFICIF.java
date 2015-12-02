@@ -98,7 +98,7 @@ public class FFICIF extends Struct {
 	 */
 	public PointerBuffer arg_types(int capacity) { return narg_types(address(), capacity); }
 	/** Returns a {@link FFIType} view of the struct pointed to by the {@code rtype} field. */
-	public FFIType rtype() { return nrtypeStruct(address()); }
+	public FFIType rtype() { return nrtype(address()); }
 	/** Returns the value of the {@code bytes} field. */
 	public int bytes() { return nbytes(address()); }
 	/** Returns the value of the {@code flags} field. */
@@ -165,7 +165,7 @@ public class FFICIF extends Struct {
 	/** Unsafe version of {@link #arg_types(int) arg_types}. */
 	public static PointerBuffer narg_types(long struct, int capacity) { return memPointerBuffer(memGetAddress(struct + FFICIF.ARG_TYPES), capacity); }
 	/** Unsafe version of {@link #rtype}. */
-	public static FFIType nrtypeStruct(long struct) { return new FFIType(memGetAddress(struct + FFICIF.RTYPE)); }
+	public static FFIType nrtype(long struct) { return new FFIType(memGetAddress(struct + FFICIF.RTYPE)); }
 	/** Unsafe version of {@link #bytes}. */
 	public static int nbytes(long struct) { return memGetInt(struct + FFICIF.BYTES); }
 	/** Unsafe version of {@link #flags}. */
@@ -224,7 +224,7 @@ public class FFICIF extends Struct {
 		 */
 		public PointerBuffer arg_types(int capacity) { return narg_types(address(), capacity); }
 		/** Returns a {@link FFIType} view of the struct pointed to by the {@code rtype} field. */
-		public FFIType rtype() { return nrtypeStruct(address()); }
+		public FFIType rtype() { return nrtype(address()); }
 		/** Returns the value of the {@code bytes} field. */
 		public int bytes() { return nbytes(address()); }
 		/** Returns the value of the {@code flags} field. */

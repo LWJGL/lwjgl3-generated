@@ -94,7 +94,7 @@ public class OVRLayerQuad extends Struct {
 	/** Returns a {@link OVRLayerHeader} view of the {@code Header} field. */
 	public OVRLayerHeader Header() { return nHeader(address()); }
 	/** Returns a {@link OVRSwapTextureSet} view of the struct pointed to by the {@code ColorTexture} field. */
-	public OVRSwapTextureSet ColorTexture() { return nColorTextureStruct(address()); }
+	public OVRSwapTextureSet ColorTexture() { return nColorTexture(address()); }
 	/** Returns a {@link OVRRecti} view of the {@code Viewport} field. */
 	public OVRRecti Viewport() { return nViewport(address()); }
 	/** Returns a {@link OVRPosef} view of the {@code QuadPoseCenter} field. */
@@ -211,7 +211,7 @@ public class OVRLayerQuad extends Struct {
 	/** Unsafe version of {@link #Header}. */
 	public static OVRLayerHeader nHeader(long struct) { return new OVRLayerHeader(struct + OVRLayerQuad.HEADER); }
 	/** Unsafe version of {@link #ColorTexture}. */
-	public static OVRSwapTextureSet nColorTextureStruct(long struct) { return new OVRSwapTextureSet(memGetAddress(struct + OVRLayerQuad.COLORTEXTURE)); }
+	public static OVRSwapTextureSet nColorTexture(long struct) { return new OVRSwapTextureSet(memGetAddress(struct + OVRLayerQuad.COLORTEXTURE)); }
 	/** Unsafe version of {@link #Viewport}. */
 	public static OVRRecti nViewport(long struct) { return new OVRRecti(struct + OVRLayerQuad.VIEWPORT); }
 	/** Unsafe version of {@link #QuadPoseCenter}. */
@@ -275,7 +275,7 @@ public class OVRLayerQuad extends Struct {
 		/** Returns a {@link OVRLayerHeader} view of the {@code Header} field. */
 		public OVRLayerHeader Header() { return nHeader(address()); }
 		/** Returns a {@link OVRSwapTextureSet} view of the struct pointed to by the {@code ColorTexture} field. */
-		public OVRSwapTextureSet ColorTexture() { return nColorTextureStruct(address()); }
+		public OVRSwapTextureSet ColorTexture() { return nColorTexture(address()); }
 		/** Returns a {@link OVRRecti} view of the {@code Viewport} field. */
 		public OVRRecti Viewport() { return nViewport(address()); }
 		/** Returns a {@link OVRPosef} view of the {@code QuadPoseCenter} field. */

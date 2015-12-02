@@ -72,7 +72,7 @@ public class FFIClosure extends Struct {
 	public int sizeof() { return SIZEOF; }
 
 	/** Returns a {@link FFICIF} view of the struct pointed to by the {@code cif} field. */
-	public FFICIF cif() { return ncifStruct(address()); }
+	public FFICIF cif() { return ncif(address()); }
 	/** Returns the value of the {@code fun} field. */
 	public long fun() { return nfun(address()); }
 	/** Returns the value of the {@code user_data} field. */
@@ -133,7 +133,7 @@ public class FFIClosure extends Struct {
 	}
 
 	/** Unsafe version of {@link #cif}. */
-	public static FFICIF ncifStruct(long struct) { return new FFICIF(memGetAddress(struct + FFIClosure.CIF)); }
+	public static FFICIF ncif(long struct) { return new FFICIF(memGetAddress(struct + FFIClosure.CIF)); }
 	/** Unsafe version of {@link #fun}. */
 	public static long nfun(long struct) { return memGetAddress(struct + FFIClosure.FUN); }
 	/** Unsafe version of {@link #user_data}. */
@@ -182,7 +182,7 @@ public class FFIClosure extends Struct {
 		}
 
 		/** Returns a {@link FFICIF} view of the struct pointed to by the {@code cif} field. */
-		public FFICIF cif() { return ncifStruct(address()); }
+		public FFICIF cif() { return ncif(address()); }
 		/** Returns the value of the {@code fun} field. */
 		public long fun() { return nfun(address()); }
 		/** Returns the value of the {@code user_data} field. */

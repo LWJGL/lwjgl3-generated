@@ -105,7 +105,7 @@ public class XVisualInfo extends Struct {
 	public int sizeof() { return SIZEOF; }
 
 	/** Returns a {@link Visual} view of the struct pointed to by the {@code visual} field. */
-	public Visual visual() { return nvisualStruct(address()); }
+	public Visual visual() { return nvisual(address()); }
 	/** Returns the value of the {@code visualid} field. */
 	public long visualid() { return nvisualid(address()); }
 	/** Returns the value of the {@code screen} field. */
@@ -252,7 +252,7 @@ public class XVisualInfo extends Struct {
 	}
 
 	/** Unsafe version of {@link #visual}. */
-	public static Visual nvisualStruct(long struct) { return new Visual(memGetAddress(struct + XVisualInfo.VISUAL)); }
+	public static Visual nvisual(long struct) { return new Visual(memGetAddress(struct + XVisualInfo.VISUAL)); }
 	/** Unsafe version of {@link #visualid}. */
 	public static long nvisualid(long struct) { return memGetAddress(struct + XVisualInfo.VISUALID); }
 	/** Unsafe version of {@link #screen}. */
@@ -336,7 +336,7 @@ public class XVisualInfo extends Struct {
 		}
 
 		/** Returns a {@link Visual} view of the struct pointed to by the {@code visual} field. */
-		public Visual visual() { return nvisualStruct(address()); }
+		public Visual visual() { return nvisual(address()); }
 		/** Returns the value of the {@code visualid} field. */
 		public long visualid() { return nvisualid(address()); }
 		/** Returns the value of the {@code screen} field. */

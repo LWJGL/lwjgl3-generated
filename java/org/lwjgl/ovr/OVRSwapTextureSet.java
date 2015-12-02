@@ -101,7 +101,7 @@ public class OVRSwapTextureSet extends Struct {
 	public int sizeof() { return SIZEOF; }
 
 	/** Returns a {@link OVRTexture} view of the struct pointed to by the {@code Textures} field. */
-	public OVRTexture Textures() { return nTexturesStruct(address()); }
+	public OVRTexture Textures() { return nTextures(address()); }
 	/** Returns the value of the {@code TextureCount} field. */
 	public int TextureCount() { return nTextureCount(address()); }
 	/** Returns the value of the {@code CurrentIndex} field. */
@@ -206,7 +206,7 @@ public class OVRSwapTextureSet extends Struct {
 	}
 
 	/** Unsafe version of {@link #Textures}. */
-	public static OVRTexture nTexturesStruct(long struct) { return new OVRTexture(memGetAddress(struct + OVRSwapTextureSet.TEXTURES)); }
+	public static OVRTexture nTextures(long struct) { return new OVRTexture(memGetAddress(struct + OVRSwapTextureSet.TEXTURES)); }
 	/** Unsafe version of {@link #TextureCount}. */
 	public static int nTextureCount(long struct) { return memGetInt(struct + OVRSwapTextureSet.TEXTURECOUNT); }
 	/** Unsafe version of {@link #CurrentIndex}. */
@@ -262,7 +262,7 @@ public class OVRSwapTextureSet extends Struct {
 		}
 
 		/** Returns a {@link OVRTexture} view of the struct pointed to by the {@code Textures} field. */
-		public OVRTexture Textures() { return nTexturesStruct(address()); }
+		public OVRTexture Textures() { return nTextures(address()); }
 		/** Returns the value of the {@code TextureCount} field. */
 		public int TextureCount() { return nTextureCount(address()); }
 		/** Returns the value of the {@code CurrentIndex} field. */
