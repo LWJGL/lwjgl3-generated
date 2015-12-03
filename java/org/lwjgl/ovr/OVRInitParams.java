@@ -103,8 +103,8 @@ public class OVRInitParams extends Struct {
 	public OVRInitParams Flags(int value) { nFlags(address(), value); return this; }
 	/** Sets the specified value to the {@code RequestedMinorVersion} field. */
 	public OVRInitParams RequestedMinorVersion(int value) { nRequestedMinorVersion(address(), value); return this; }
-	/** Sets the specified value to the {@code LogCallback} field. */
-	public OVRInitParams LogCallback(long value) { nLogCallback(address(), value); return this; }
+	/** Sets the address of the specified {@link OVRLogCallback} to the {@code LogCallback} field. */
+	public OVRInitParams LogCallback(OVRLogCallback value) { nLogCallback(address(), value); return this; }
 	/** Sets the specified value to the {@code UserData} field. */
 	public OVRInitParams UserData(long value) { nUserData(address(), value); return this; }
 	/** Sets the specified value to the {@code ConnectionTimeoutMS} field. */
@@ -114,7 +114,7 @@ public class OVRInitParams extends Struct {
 	public OVRInitParams set(
 		int Flags,
 		int RequestedMinorVersion,
-		long LogCallback,
+		OVRLogCallback LogCallback,
 		long UserData,
 		int ConnectionTimeoutMS
 	) {
@@ -220,8 +220,8 @@ public class OVRInitParams extends Struct {
 	public static void nFlags(long struct, int value) { memPutInt(struct + OVRInitParams.FLAGS, value); }
 	/** Unsafe version of {@link #RequestedMinorVersion(int) RequestedMinorVersion}. */
 	public static void nRequestedMinorVersion(long struct, int value) { memPutInt(struct + OVRInitParams.REQUESTEDMINORVERSION, value); }
-	/** Unsafe version of {@link #LogCallback(long) LogCallback}. */
-	public static void nLogCallback(long struct, long value) { memPutAddress(struct + OVRInitParams.LOGCALLBACK, value); }
+	/** Unsafe version of {@link #LogCallback(OVRLogCallback) LogCallback}. */
+	public static void nLogCallback(long struct, OVRLogCallback value) { memPutAddress(struct+ OVRInitParams.LOGCALLBACK, value.address()); }
 	/** Unsafe version of {@link #UserData(long) UserData}. */
 	public static void nUserData(long struct, long value) { memPutAddress(struct + OVRInitParams.USERDATA, value); }
 	/** Unsafe version of {@link #ConnectionTimeoutMS(int) ConnectionTimeoutMS}. */
@@ -284,8 +284,8 @@ public class OVRInitParams extends Struct {
 		public OVRInitParams.Buffer Flags(int value) { nFlags(address(), value); return this; }
 		/** Sets the specified value to the {@code RequestedMinorVersion} field. */
 		public OVRInitParams.Buffer RequestedMinorVersion(int value) { nRequestedMinorVersion(address(), value); return this; }
-		/** Sets the specified value to the {@code LogCallback} field. */
-		public OVRInitParams.Buffer LogCallback(long value) { nLogCallback(address(), value); return this; }
+		/** Sets the address of the specified {@link OVRLogCallback} to the {@code LogCallback} field. */
+		public OVRInitParams.Buffer LogCallback(OVRLogCallback value) { nLogCallback(address(), value); return this; }
 		/** Sets the specified value to the {@code UserData} field. */
 		public OVRInitParams.Buffer UserData(long value) { nUserData(address(), value); return this; }
 		/** Sets the specified value to the {@code ConnectionTimeoutMS} field. */

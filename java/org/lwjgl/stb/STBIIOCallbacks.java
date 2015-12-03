@@ -83,18 +83,18 @@ public class STBIIOCallbacks extends Struct {
 	/** Returns the {@code STBIEOFCallback} instance at the {@code eof} field. */
 	public STBIEOFCallback eof() { return neof(address()); }
 
-	/** Sets the specified value to the {@code read} field. */
-	public STBIIOCallbacks read(long value) { nread(address(), value); return this; }
-	/** Sets the specified value to the {@code skip} field. */
-	public STBIIOCallbacks skip(long value) { nskip(address(), value); return this; }
-	/** Sets the specified value to the {@code eof} field. */
-	public STBIIOCallbacks eof(long value) { neof(address(), value); return this; }
+	/** Sets the address of the specified {@link STBIReadCallback} to the {@code read} field. */
+	public STBIIOCallbacks read(STBIReadCallback value) { nread(address(), value); return this; }
+	/** Sets the address of the specified {@link STBISkipCallback} to the {@code skip} field. */
+	public STBIIOCallbacks skip(STBISkipCallback value) { nskip(address(), value); return this; }
+	/** Sets the address of the specified {@link STBIEOFCallback} to the {@code eof} field. */
+	public STBIIOCallbacks eof(STBIEOFCallback value) { neof(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public STBIIOCallbacks set(
-		long read,
-		long skip,
-		long eof
+		STBIReadCallback read,
+		STBISkipCallback skip,
+		STBIEOFCallback eof
 	) {
 		read(read);
 		skip(skip);
@@ -188,12 +188,12 @@ public class STBIIOCallbacks extends Struct {
 	/** Unsafe version of {@link #eof}. */
 	public static STBIEOFCallback neof(long struct) { return org.lwjgl.system.libffi.Closure.create(memGetAddress(struct + STBIIOCallbacks.EOF)); }
 
-	/** Unsafe version of {@link #read(long) read}. */
-	public static void nread(long struct, long value) { memPutAddress(struct + STBIIOCallbacks.READ, value); }
-	/** Unsafe version of {@link #skip(long) skip}. */
-	public static void nskip(long struct, long value) { memPutAddress(struct + STBIIOCallbacks.SKIP, value); }
-	/** Unsafe version of {@link #eof(long) eof}. */
-	public static void neof(long struct, long value) { memPutAddress(struct + STBIIOCallbacks.EOF, value); }
+	/** Unsafe version of {@link #read(STBIReadCallback) read}. */
+	public static void nread(long struct, STBIReadCallback value) { memPutAddress(struct+ STBIIOCallbacks.READ, value.address()); }
+	/** Unsafe version of {@link #skip(STBISkipCallback) skip}. */
+	public static void nskip(long struct, STBISkipCallback value) { memPutAddress(struct+ STBIIOCallbacks.SKIP, value.address()); }
+	/** Unsafe version of {@link #eof(STBIEOFCallback) eof}. */
+	public static void neof(long struct, STBIEOFCallback value) { memPutAddress(struct+ STBIIOCallbacks.EOF, value.address()); }
 
 	// -----------------------------------
 
@@ -244,12 +244,12 @@ public class STBIIOCallbacks extends Struct {
 		/** Returns the {@code STBIEOFCallback} instance at the {@code eof} field. */
 		public STBIEOFCallback eof() { return neof(address()); }
 
-		/** Sets the specified value to the {@code read} field. */
-		public STBIIOCallbacks.Buffer read(long value) { nread(address(), value); return this; }
-		/** Sets the specified value to the {@code skip} field. */
-		public STBIIOCallbacks.Buffer skip(long value) { nskip(address(), value); return this; }
-		/** Sets the specified value to the {@code eof} field. */
-		public STBIIOCallbacks.Buffer eof(long value) { neof(address(), value); return this; }
+		/** Sets the address of the specified {@link STBIReadCallback} to the {@code read} field. */
+		public STBIIOCallbacks.Buffer read(STBIReadCallback value) { nread(address(), value); return this; }
+		/** Sets the address of the specified {@link STBISkipCallback} to the {@code skip} field. */
+		public STBIIOCallbacks.Buffer skip(STBISkipCallback value) { nskip(address(), value); return this; }
+		/** Sets the address of the specified {@link STBIEOFCallback} to the {@code eof} field. */
+		public STBIIOCallbacks.Buffer eof(STBIEOFCallback value) { neof(address(), value); return this; }
 
 	}
 
