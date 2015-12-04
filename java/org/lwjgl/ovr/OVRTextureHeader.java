@@ -16,12 +16,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * API-independent part of a texture descriptor.
  * 
- * <h3>ovrTextureHeader members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ovrTextureHeader {
+ *     ovrRenderAPIType API;
+ *     {@link OVRSizei ovrSizei} TextureSize;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>API</td><td class="nw">ovrRenderAPIType</td><td>the graphics API in use</td></tr>
- * <tr><td>TextureSize</td><td class="nw">{@link OVRSizei ovrSizei}</td><td>the size of the texture</td></tr>
+ * <tr><td>API</td><td>the graphics API in use</td></tr>
+ * <tr><td>TextureSize</td><td>the size of the texture</td></tr>
  * </table>
  */
 public class OVRTextureHeader extends Struct {
@@ -51,12 +58,7 @@ public class OVRTextureHeader extends Struct {
 	}
 
 	OVRTextureHeader(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVRTextureHeader} instance at the specified memory address. */
-	public OVRTextureHeader(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -66,7 +68,7 @@ public class OVRTextureHeader extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVRTextureHeader(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -121,12 +123,12 @@ public class OVRTextureHeader extends Struct {
 
 	/** Returns a new {@link OVRTextureHeader} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVRTextureHeader malloc() {
-		return new OVRTextureHeader(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVRTextureHeader} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVRTextureHeader calloc() {
-		return new OVRTextureHeader(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVRTextureHeader} instance allocated with {@link BufferUtils}. */
@@ -134,13 +136,18 @@ public class OVRTextureHeader extends Struct {
 		return new OVRTextureHeader(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVRTextureHeader} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVRTextureHeader create(long address) {
+		return address == NULL ? null : new OVRTextureHeader(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVRTextureHeader.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -148,8 +155,8 @@ public class OVRTextureHeader extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -157,8 +164,8 @@ public class OVRTextureHeader extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -167,14 +174,14 @@ public class OVRTextureHeader extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #API}. */
 	public static int nAPI(long struct) { return memGetInt(struct + OVRTextureHeader.API); }
 	/** Unsafe version of {@link #TextureSize}. */
-	public static OVRSizei nTextureSize(long struct) { return new OVRSizei(struct + OVRTextureHeader.TEXTURESIZE); }
+	public static OVRSizei nTextureSize(long struct) { return OVRSizei.create(struct + OVRTextureHeader.TEXTURESIZE); }
 
 	/** Unsafe version of {@link #API(int) API}. */
 	public static void nAPI(long struct, int value) { memPutInt(struct + OVRTextureHeader.API, value); }
@@ -196,11 +203,11 @@ public class OVRTextureHeader extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -209,8 +216,8 @@ public class OVRTextureHeader extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -224,14 +231,14 @@ public class OVRTextureHeader extends Struct {
 		}
 
 		/** Returns the value of the {@code API} field. */
-		public int API() { return nAPI(address()); }
+		public int API() { return OVRTextureHeader.nAPI(address()); }
 		/** Returns a {@link OVRSizei} view of the {@code TextureSize} field. */
-		public OVRSizei TextureSize() { return nTextureSize(address()); }
+		public OVRSizei TextureSize() { return OVRTextureHeader.nTextureSize(address()); }
 
 		/** Sets the specified value to the {@code API} field. */
-		public OVRTextureHeader.Buffer API(int value) { nAPI(address(), value); return this; }
+		public OVRTextureHeader.Buffer API(int value) { OVRTextureHeader.nAPI(address(), value); return this; }
 		/** Copies the specified {@link OVRSizei} to the {@code TextureSize} field. */
-		public OVRTextureHeader.Buffer TextureSize(OVRSizei value) { nTextureSize(address(), value); return this; }
+		public OVRTextureHeader.Buffer TextureSize(OVRSizei value) { OVRTextureHeader.nTextureSize(address(), value); return this; }
 
 	}
 

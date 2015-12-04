@@ -15,15 +15,25 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Specifies a reading we can query from the sensor.
  * 
- * <h3>ovrSensorData members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ovrSensorData {
+ *     {@link OVRVector3f ovrVector3f} Accelerometer;
+ *     {@link OVRVector3f ovrVector3f} Gyro;
+ *     {@link OVRVector3f ovrVector3f} Magnetometer;
+ *     float Temperature;
+ *     float TimeInSeconds;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Accelerometer</td><td class="nw">{@link OVRVector3f ovrVector3f}</td><td>acceleration reading in m/s^2</td></tr>
- * <tr><td>Gyro</td><td class="nw">{@link OVRVector3f ovrVector3f}</td><td>rotation rate in rad/s</td></tr>
- * <tr><td>Magnetometer</td><td class="nw">{@link OVRVector3f ovrVector3f}</td><td>magnetic field in Gauss</td></tr>
- * <tr><td>Temperature</td><td class="nw">float</td><td>temperature of the sensor in degrees Celsius</td></tr>
- * <tr><td>TimeInSeconds</td><td class="nw">float</td><td>time when the reported IMU reading took place, in seconds</td></tr>
+ * <tr><td>Accelerometer</td><td>acceleration reading in m/s^2</td></tr>
+ * <tr><td>Gyro</td><td>rotation rate in rad/s</td></tr>
+ * <tr><td>Magnetometer</td><td>magnetic field in Gauss</td></tr>
+ * <tr><td>Temperature</td><td>temperature of the sensor in degrees Celsius</td></tr>
+ * <tr><td>TimeInSeconds</td><td>time when the reported IMU reading took place, in seconds</td></tr>
  * </table>
  */
 public class OVRSensorData extends Struct {
@@ -62,12 +72,7 @@ public class OVRSensorData extends Struct {
 	}
 
 	OVRSensorData(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVRSensorData} instance at the specified memory address. */
-	public OVRSensorData(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -77,7 +82,7 @@ public class OVRSensorData extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVRSensorData(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -98,12 +103,12 @@ public class OVRSensorData extends Struct {
 
 	/** Returns a new {@link OVRSensorData} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVRSensorData malloc() {
-		return new OVRSensorData(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVRSensorData} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVRSensorData calloc() {
-		return new OVRSensorData(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVRSensorData} instance allocated with {@link BufferUtils}. */
@@ -111,13 +116,18 @@ public class OVRSensorData extends Struct {
 		return new OVRSensorData(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVRSensorData} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVRSensorData create(long address) {
+		return address == NULL ? null : new OVRSensorData(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVRSensorData.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -125,8 +135,8 @@ public class OVRSensorData extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -134,8 +144,8 @@ public class OVRSensorData extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -144,16 +154,16 @@ public class OVRSensorData extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #Accelerometer}. */
-	public static OVRVector3f nAccelerometer(long struct) { return new OVRVector3f(struct + OVRSensorData.ACCELEROMETER); }
+	public static OVRVector3f nAccelerometer(long struct) { return OVRVector3f.create(struct + OVRSensorData.ACCELEROMETER); }
 	/** Unsafe version of {@link #Gyro}. */
-	public static OVRVector3f nGyro(long struct) { return new OVRVector3f(struct + OVRSensorData.GYRO); }
+	public static OVRVector3f nGyro(long struct) { return OVRVector3f.create(struct + OVRSensorData.GYRO); }
 	/** Unsafe version of {@link #Magnetometer}. */
-	public static OVRVector3f nMagnetometer(long struct) { return new OVRVector3f(struct + OVRSensorData.MAGNETOMETER); }
+	public static OVRVector3f nMagnetometer(long struct) { return OVRVector3f.create(struct + OVRSensorData.MAGNETOMETER); }
 	/** Unsafe version of {@link #Temperature}. */
 	public static float nTemperature(long struct) { return memGetFloat(struct + OVRSensorData.TEMPERATURE); }
 	/** Unsafe version of {@link #TimeInSeconds}. */
@@ -174,11 +184,11 @@ public class OVRSensorData extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -187,8 +197,8 @@ public class OVRSensorData extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -202,15 +212,15 @@ public class OVRSensorData extends Struct {
 		}
 
 		/** Returns a {@link OVRVector3f} view of the {@code Accelerometer} field. */
-		public OVRVector3f Accelerometer() { return nAccelerometer(address()); }
+		public OVRVector3f Accelerometer() { return OVRSensorData.nAccelerometer(address()); }
 		/** Returns a {@link OVRVector3f} view of the {@code Gyro} field. */
-		public OVRVector3f Gyro() { return nGyro(address()); }
+		public OVRVector3f Gyro() { return OVRSensorData.nGyro(address()); }
 		/** Returns a {@link OVRVector3f} view of the {@code Magnetometer} field. */
-		public OVRVector3f Magnetometer() { return nMagnetometer(address()); }
+		public OVRVector3f Magnetometer() { return OVRSensorData.nMagnetometer(address()); }
 		/** Returns the value of the {@code Temperature} field. */
-		public float Temperature() { return nTemperature(address()); }
+		public float Temperature() { return OVRSensorData.nTemperature(address()); }
 		/** Returns the value of the {@code TimeInSeconds} field. */
-		public float TimeInSeconds() { return nTimeInSeconds(address()); }
+		public float TimeInSeconds() { return OVRSensorData.nTimeInSeconds(address()); }
 
 	}
 

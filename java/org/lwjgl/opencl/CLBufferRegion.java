@@ -16,12 +16,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Buffer region struct.
  * 
- * <h3>cl_buffer_region members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct cl_buffer_region {
+ *     size_t origin;
+ *     size_t size;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>origin</td><td class="nw">size_t</td><td>the region offset, in bytes</td></tr>
- * <tr><td>size</td><td class="nw">size_t</td><td>the region size, in bytes</td></tr>
+ * <tr><td>origin</td><td>the region offset, in bytes</td></tr>
+ * <tr><td>size</td><td>the region size, in bytes</td></tr>
  * </table>
  */
 public class CLBufferRegion extends Struct {
@@ -51,12 +58,7 @@ public class CLBufferRegion extends Struct {
 	}
 
 	CLBufferRegion(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link CLBufferRegion} instance at the specified memory address. */
-	public CLBufferRegion(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -66,7 +68,7 @@ public class CLBufferRegion extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public CLBufferRegion(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -121,12 +123,12 @@ public class CLBufferRegion extends Struct {
 
 	/** Returns a new {@link CLBufferRegion} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static CLBufferRegion malloc() {
-		return new CLBufferRegion(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link CLBufferRegion} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static CLBufferRegion calloc() {
-		return new CLBufferRegion(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link CLBufferRegion} instance allocated with {@link BufferUtils}. */
@@ -134,13 +136,18 @@ public class CLBufferRegion extends Struct {
 		return new CLBufferRegion(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link CLBufferRegion} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static CLBufferRegion create(long address) {
+		return address == NULL ? null : new CLBufferRegion(address, null);
+	}
+
 	/**
 	 * Returns a new {@link CLBufferRegion.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -148,8 +155,8 @@ public class CLBufferRegion extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -157,8 +164,8 @@ public class CLBufferRegion extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -167,8 +174,8 @@ public class CLBufferRegion extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #origin}. */
@@ -196,11 +203,11 @@ public class CLBufferRegion extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -209,8 +216,8 @@ public class CLBufferRegion extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -224,14 +231,14 @@ public class CLBufferRegion extends Struct {
 		}
 
 		/** Returns the value of the {@code origin} field. */
-		public long origin() { return norigin(address()); }
+		public long origin() { return CLBufferRegion.norigin(address()); }
 		/** Returns the value of the {@code size} field. */
-		public long size() { return nsize(address()); }
+		public long size() { return CLBufferRegion.nsize(address()); }
 
 		/** Sets the specified value to the {@code origin} field. */
-		public CLBufferRegion.Buffer origin(long value) { norigin(address(), value); return this; }
+		public CLBufferRegion.Buffer origin(long value) { CLBufferRegion.norigin(address(), value); return this; }
 		/** Sets the specified value to the {@code size} field. */
-		public CLBufferRegion.Buffer size(long value) { nsize(address(), value); return this; }
+		public CLBufferRegion.Buffer size(long value) { CLBufferRegion.nsize(address(), value); return this; }
 
 	}
 

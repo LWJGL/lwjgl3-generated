@@ -41,7 +41,7 @@ class LibFFIConstants {
 	/** Returns the address of the {@code ffi_type_void} struct. */
 	static FFIType ffi_type_void() {
 		long __result = nffi_type_void();
-		return new FFIType(__result);
+		return FFIType.create(__result);
 	}
 
 	// --- [ ffi_type_uint8 ] ---
@@ -53,7 +53,7 @@ class LibFFIConstants {
 	/** Returns the address of the {@code ffi_type_uint8} struct. */
 	static FFIType ffi_type_uint8() {
 		long __result = nffi_type_uint8();
-		return new FFIType(__result);
+		return FFIType.create(__result);
 	}
 
 	// --- [ ffi_type_sint8 ] ---
@@ -65,7 +65,7 @@ class LibFFIConstants {
 	/** Returns the address of the {@code ffi_type_sint8} struct. */
 	static FFIType ffi_type_sint8() {
 		long __result = nffi_type_sint8();
-		return new FFIType(__result);
+		return FFIType.create(__result);
 	}
 
 	// --- [ ffi_type_uint16 ] ---
@@ -77,7 +77,7 @@ class LibFFIConstants {
 	/** Returns the address of the {@code ffi_type_uint16} struct. */
 	static FFIType ffi_type_uint16() {
 		long __result = nffi_type_uint16();
-		return new FFIType(__result);
+		return FFIType.create(__result);
 	}
 
 	// --- [ ffi_type_sint16 ] ---
@@ -89,7 +89,7 @@ class LibFFIConstants {
 	/** Returns the address of the {@code ffi_type_sint16} struct. */
 	static FFIType ffi_type_sint16() {
 		long __result = nffi_type_sint16();
-		return new FFIType(__result);
+		return FFIType.create(__result);
 	}
 
 	// --- [ ffi_type_uint32 ] ---
@@ -101,7 +101,7 @@ class LibFFIConstants {
 	/** Returns the address of the {@code ffi_type_uint32} struct. */
 	static FFIType ffi_type_uint32() {
 		long __result = nffi_type_uint32();
-		return new FFIType(__result);
+		return FFIType.create(__result);
 	}
 
 	// --- [ ffi_type_sint32 ] ---
@@ -113,7 +113,7 @@ class LibFFIConstants {
 	/** Returns the address of the {@code ffi_type_sint32} struct. */
 	static FFIType ffi_type_sint32() {
 		long __result = nffi_type_sint32();
-		return new FFIType(__result);
+		return FFIType.create(__result);
 	}
 
 	// --- [ ffi_type_uint64 ] ---
@@ -125,7 +125,7 @@ class LibFFIConstants {
 	/** Returns the address of the {@code ffi_type_uint64} struct. */
 	static FFIType ffi_type_uint64() {
 		long __result = nffi_type_uint64();
-		return new FFIType(__result);
+		return FFIType.create(__result);
 	}
 
 	// --- [ ffi_type_sint64 ] ---
@@ -137,7 +137,7 @@ class LibFFIConstants {
 	/** Returns the address of the {@code ffi_type_sint64} struct. */
 	static FFIType ffi_type_sint64() {
 		long __result = nffi_type_sint64();
-		return new FFIType(__result);
+		return FFIType.create(__result);
 	}
 
 	// --- [ ffi_type_uchar ] ---
@@ -149,7 +149,7 @@ class LibFFIConstants {
 	/** Returns the address of the {@code ffi_type_uchar} struct. */
 	static FFIType ffi_type_uchar() {
 		long __result = nffi_type_uchar();
-		return new FFIType(__result);
+		return FFIType.create(__result);
 	}
 
 	// --- [ ffi_type_schar ] ---
@@ -161,7 +161,7 @@ class LibFFIConstants {
 	/** Returns the address of the {@code ffi_type_schar} struct. */
 	static FFIType ffi_type_schar() {
 		long __result = nffi_type_schar();
-		return new FFIType(__result);
+		return FFIType.create(__result);
 	}
 
 	// --- [ ffi_type_ushort ] ---
@@ -173,7 +173,7 @@ class LibFFIConstants {
 	/** Returns the address of the {@code ffi_type_ushort} struct. */
 	static FFIType ffi_type_ushort() {
 		long __result = nffi_type_ushort();
-		return new FFIType(__result);
+		return FFIType.create(__result);
 	}
 
 	// --- [ ffi_type_sshort ] ---
@@ -185,7 +185,7 @@ class LibFFIConstants {
 	/** Returns the address of the {@code ffi_type_sshort} struct. */
 	static FFIType ffi_type_sshort() {
 		long __result = nffi_type_sshort();
-		return new FFIType(__result);
+		return FFIType.create(__result);
 	}
 
 	// --- [ ffi_type_uint ] ---
@@ -197,7 +197,7 @@ class LibFFIConstants {
 	/** Returns the address of the {@code ffi_type_uint} struct. */
 	static FFIType ffi_type_uint() {
 		long __result = nffi_type_uint();
-		return new FFIType(__result);
+		return FFIType.create(__result);
 	}
 
 	// --- [ ffi_type_sint ] ---
@@ -209,7 +209,7 @@ class LibFFIConstants {
 	/** Returns the address of the {@code ffi_type_sint} struct. */
 	static FFIType ffi_type_sint() {
 		long __result = nffi_type_sint();
-		return new FFIType(__result);
+		return FFIType.create(__result);
 	}
 
 	// --- [ ffi_type_ulong ] ---
@@ -221,7 +221,7 @@ class LibFFIConstants {
 	/** Returns the address of the {@code ffi_type_ulong} struct. */
 	static FFIType ffi_type_ulong() {
 		long __result = nffi_type_ulong();
-		return new FFIType(__result);
+		return FFIType.create(__result);
 	}
 
 	// --- [ ffi_type_slong ] ---
@@ -233,7 +233,7 @@ class LibFFIConstants {
 	/** Returns the address of the {@code ffi_type_slong} struct. */
 	static FFIType ffi_type_slong() {
 		long __result = nffi_type_slong();
-		return new FFIType(__result);
+		return FFIType.create(__result);
 	}
 
 	// --- [ ffi_type_float ] ---
@@ -245,7 +245,7 @@ class LibFFIConstants {
 	/** Returns the address of the {@code ffi_type_float} struct. */
 	static FFIType ffi_type_float() {
 		long __result = nffi_type_float();
-		return new FFIType(__result);
+		return FFIType.create(__result);
 	}
 
 	// --- [ ffi_type_double ] ---
@@ -257,7 +257,7 @@ class LibFFIConstants {
 	/** Returns the address of the {@code ffi_type_double} struct. */
 	static FFIType ffi_type_double() {
 		long __result = nffi_type_double();
-		return new FFIType(__result);
+		return FFIType.create(__result);
 	}
 
 	// --- [ ffi_type_longdouble ] ---
@@ -269,7 +269,7 @@ class LibFFIConstants {
 	/** Returns the address of the {@code ffi_type_longdouble} struct. */
 	static FFIType ffi_type_longdouble() {
 		long __result = nffi_type_longdouble();
-		return new FFIType(__result);
+		return FFIType.create(__result);
 	}
 
 	// --- [ ffi_type_pointer ] ---
@@ -281,7 +281,7 @@ class LibFFIConstants {
 	/** Returns the address of the {@code ffi_type_pointer} struct. */
 	static FFIType ffi_type_pointer() {
 		long __result = nffi_type_pointer();
-		return new FFIType(__result);
+		return FFIType.create(__result);
 	}
 
 }

@@ -15,19 +15,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Quad used for drawing a baked character, returned by {@link STBTruetype#stbtt_GetBakedQuad}.
  * 
- * <h3>stbtt_aligned_quad members</h3>
+ * <h3>Layout</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>x0</td><td class="nw">float</td><td></td></tr>
- * <tr><td>y0</td><td class="nw">float</td><td></td></tr>
- * <tr><td>s0</td><td class="nw">float</td><td></td></tr>
- * <tr><td>t0</td><td class="nw">float</td><td></td></tr>
- * <tr><td>x1</td><td class="nw">float</td><td></td></tr>
- * <tr><td>y1</td><td class="nw">float</td><td></td></tr>
- * <tr><td>s1</td><td class="nw">float</td><td></td></tr>
- * <tr><td>t1</td><td class="nw">float</td><td></td></tr>
- * </table>
+ * <pre><code style="font-family: monospace">
+ * struct stbtt_aligned_quad {
+ *     float x0;
+ *     float y0;
+ *     float s0;
+ *     float t0;
+ *     float x1;
+ *     float y1;
+ *     float s1;
+ *     float t1;
+ * }</code></pre>
  */
 public class STBTTAlignedQuad extends Struct {
 
@@ -74,12 +74,7 @@ public class STBTTAlignedQuad extends Struct {
 	}
 
 	STBTTAlignedQuad(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link STBTTAlignedQuad} instance at the specified memory address. */
-	public STBTTAlignedQuad(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -89,7 +84,7 @@ public class STBTTAlignedQuad extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public STBTTAlignedQuad(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -116,12 +111,12 @@ public class STBTTAlignedQuad extends Struct {
 
 	/** Returns a new {@link STBTTAlignedQuad} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static STBTTAlignedQuad malloc() {
-		return new STBTTAlignedQuad(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link STBTTAlignedQuad} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static STBTTAlignedQuad calloc() {
-		return new STBTTAlignedQuad(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link STBTTAlignedQuad} instance allocated with {@link BufferUtils}. */
@@ -129,13 +124,18 @@ public class STBTTAlignedQuad extends Struct {
 		return new STBTTAlignedQuad(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link STBTTAlignedQuad} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static STBTTAlignedQuad create(long address) {
+		return address == NULL ? null : new STBTTAlignedQuad(address, null);
+	}
+
 	/**
 	 * Returns a new {@link STBTTAlignedQuad.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -143,8 +143,8 @@ public class STBTTAlignedQuad extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -152,8 +152,8 @@ public class STBTTAlignedQuad extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -162,8 +162,8 @@ public class STBTTAlignedQuad extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #x0}. */
@@ -198,11 +198,11 @@ public class STBTTAlignedQuad extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -211,8 +211,8 @@ public class STBTTAlignedQuad extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -226,21 +226,21 @@ public class STBTTAlignedQuad extends Struct {
 		}
 
 		/** Returns the value of the {@code x0} field. */
-		public float x0() { return nx0(address()); }
+		public float x0() { return STBTTAlignedQuad.nx0(address()); }
 		/** Returns the value of the {@code y0} field. */
-		public float y0() { return ny0(address()); }
+		public float y0() { return STBTTAlignedQuad.ny0(address()); }
 		/** Returns the value of the {@code s0} field. */
-		public float s0() { return ns0(address()); }
+		public float s0() { return STBTTAlignedQuad.ns0(address()); }
 		/** Returns the value of the {@code t0} field. */
-		public float t0() { return nt0(address()); }
+		public float t0() { return STBTTAlignedQuad.nt0(address()); }
 		/** Returns the value of the {@code x1} field. */
-		public float x1() { return nx1(address()); }
+		public float x1() { return STBTTAlignedQuad.nx1(address()); }
 		/** Returns the value of the {@code y1} field. */
-		public float y1() { return ny1(address()); }
+		public float y1() { return STBTTAlignedQuad.ny1(address()); }
 		/** Returns the value of the {@code s1} field. */
-		public float s1() { return ns1(address()); }
+		public float s1() { return STBTTAlignedQuad.ns1(address()); }
 		/** Returns the value of the {@code t1} field. */
-		public float t1() { return nt1(address()); }
+		public float t1() { return STBTTAlignedQuad.nt1(address()); }
 
 	}
 

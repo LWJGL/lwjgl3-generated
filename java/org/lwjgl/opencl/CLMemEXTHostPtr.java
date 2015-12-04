@@ -16,12 +16,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Accepted by the {@code host_ptr} argument of {@link CL10#clCreateBuffer}, {@link CL10#clCreateImage2D} and {@link CL10#clCreateImage3D}.
  * 
- * <h3>cl_mem_ext_host_ptr members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct cl_mem_ext_host_ptr {
+ *     cl_uint allocation_type;
+ *     cl_uint host_cache_policy;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>allocation_type</td><td class="nw">cl_uint</td><td>type of external memory allocation. Legal values will be defined in layered extensions.</td></tr>
- * <tr><td>host_cache_policy</td><td class="nw">cl_uint</td><td>host cache policy for this external memory allocation</td></tr>
+ * <tr><td>allocation_type</td><td>type of external memory allocation. Legal values will be defined in layered extensions.</td></tr>
+ * <tr><td>host_cache_policy</td><td>host cache policy for this external memory allocation</td></tr>
  * </table>
  */
 public class CLMemEXTHostPtr extends Struct {
@@ -51,12 +58,7 @@ public class CLMemEXTHostPtr extends Struct {
 	}
 
 	CLMemEXTHostPtr(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link CLMemEXTHostPtr} instance at the specified memory address. */
-	public CLMemEXTHostPtr(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -66,7 +68,7 @@ public class CLMemEXTHostPtr extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public CLMemEXTHostPtr(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -121,12 +123,12 @@ public class CLMemEXTHostPtr extends Struct {
 
 	/** Returns a new {@link CLMemEXTHostPtr} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static CLMemEXTHostPtr malloc() {
-		return new CLMemEXTHostPtr(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link CLMemEXTHostPtr} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static CLMemEXTHostPtr calloc() {
-		return new CLMemEXTHostPtr(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link CLMemEXTHostPtr} instance allocated with {@link BufferUtils}. */
@@ -134,13 +136,18 @@ public class CLMemEXTHostPtr extends Struct {
 		return new CLMemEXTHostPtr(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link CLMemEXTHostPtr} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static CLMemEXTHostPtr create(long address) {
+		return address == NULL ? null : new CLMemEXTHostPtr(address, null);
+	}
+
 	/**
 	 * Returns a new {@link CLMemEXTHostPtr.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -148,8 +155,8 @@ public class CLMemEXTHostPtr extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -157,8 +164,8 @@ public class CLMemEXTHostPtr extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -167,8 +174,8 @@ public class CLMemEXTHostPtr extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #allocation_type}. */
@@ -196,11 +203,11 @@ public class CLMemEXTHostPtr extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -209,8 +216,8 @@ public class CLMemEXTHostPtr extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -224,14 +231,14 @@ public class CLMemEXTHostPtr extends Struct {
 		}
 
 		/** Returns the value of the {@code allocation_type} field. */
-		public int allocation_type() { return nallocation_type(address()); }
+		public int allocation_type() { return CLMemEXTHostPtr.nallocation_type(address()); }
 		/** Returns the value of the {@code host_cache_policy} field. */
-		public int host_cache_policy() { return nhost_cache_policy(address()); }
+		public int host_cache_policy() { return CLMemEXTHostPtr.nhost_cache_policy(address()); }
 
 		/** Sets the specified value to the {@code allocation_type} field. */
-		public CLMemEXTHostPtr.Buffer allocation_type(int value) { nallocation_type(address(), value); return this; }
+		public CLMemEXTHostPtr.Buffer allocation_type(int value) { CLMemEXTHostPtr.nallocation_type(address(), value); return this; }
 		/** Sets the specified value to the {@code host_cache_policy} field. */
-		public CLMemEXTHostPtr.Buffer host_cache_policy(int value) { nhost_cache_policy(address(), value); return this; }
+		public CLMemEXTHostPtr.Buffer host_cache_policy(int value) { CLMemEXTHostPtr.nhost_cache_policy(address(), value); return this; }
 
 	}
 

@@ -240,7 +240,7 @@ public class GLXSGIXFBConfig {
 	 */
 	public static XVisualInfo glXGetVisualFromFBConfigSGIX(long display, long config) {
 		long __result = nglXGetVisualFromFBConfigSGIX(display, config);
-		return new XVisualInfo(__result);
+		return XVisualInfo.create(__result);
 	}
 
 	// --- [ glXGetFBConfigFromVisualSGIX ] ---

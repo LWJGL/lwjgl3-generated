@@ -15,19 +15,26 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Return values for {@link OVRUtil#ovr_Detect}
  * 
- * <h3>ovrDetectResult members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ovrDetectResult {
+ *     ovrBool IsOculusServiceRunning;
+ *     ovrBool IsOculusHMDConnected;
+ *     char[6];
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>IsOculusServiceRunning</td><td class="nw">ovrBool</td><td>is {@link OVR#ovrFalse} when the Oculus Service is not running. This means that the Oculus Service is either uninstalled or stopped.
+ * <tr><td>IsOculusServiceRunning</td><td>is {@link OVR#ovrFalse} when the Oculus Service is not running. This means that the Oculus Service is either uninstalled or stopped.
  * {@code IsOculusHMDConnected} will be {@link OVR#ovrFalse} in this case.
  * 
  * <p>is {@link OVR#ovrTrue} when the Oculus Service is running. This means that the Oculus Service is installed and running. {@code IsOculusHMDConnected} will
  * reflect the state of the HMD.</td></tr>
- * <tr><td>IsOculusHMDConnected</td><td class="nw">ovrBool</td><td>is {@link OVR#ovrFalse} when an Oculus HMD is not detected. If the Oculus Service is not running, this will be {@link OVR#ovrFalse}.</p>
+ * <tr><td>IsOculusHMDConnected</td><td>is {@link OVR#ovrFalse} when an Oculus HMD is not detected. If the Oculus Service is not running, this will be {@link OVR#ovrFalse}.</p>
  * 
  * <p>is {@link OVR#ovrTrue} when an Oculus HMD is detected. This implies that the Oculus Service is also installed and running.</td></tr>
- * <tr><td>*</td><td class="nw">char[6]</td><td></td></tr>
  * </table></p>
  */
 public class OVRDetectResult extends Struct {
@@ -58,12 +65,7 @@ public class OVRDetectResult extends Struct {
 	}
 
 	OVRDetectResult(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVRDetectResult} instance at the specified memory address. */
-	public OVRDetectResult(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -73,7 +75,7 @@ public class OVRDetectResult extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVRDetectResult(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -88,12 +90,12 @@ public class OVRDetectResult extends Struct {
 
 	/** Returns a new {@link OVRDetectResult} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVRDetectResult malloc() {
-		return new OVRDetectResult(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVRDetectResult} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVRDetectResult calloc() {
-		return new OVRDetectResult(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVRDetectResult} instance allocated with {@link BufferUtils}. */
@@ -101,13 +103,18 @@ public class OVRDetectResult extends Struct {
 		return new OVRDetectResult(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVRDetectResult} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVRDetectResult create(long address) {
+		return address == NULL ? null : new OVRDetectResult(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVRDetectResult.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -115,8 +122,8 @@ public class OVRDetectResult extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -124,8 +131,8 @@ public class OVRDetectResult extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -134,8 +141,8 @@ public class OVRDetectResult extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #IsOculusServiceRunning}. */
@@ -158,11 +165,11 @@ public class OVRDetectResult extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -171,8 +178,8 @@ public class OVRDetectResult extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -186,9 +193,9 @@ public class OVRDetectResult extends Struct {
 		}
 
 		/** Returns the value of the {@code IsOculusServiceRunning} field. */
-		public boolean IsOculusServiceRunning() { return nIsOculusServiceRunning(address()); }
+		public boolean IsOculusServiceRunning() { return OVRDetectResult.nIsOculusServiceRunning(address()); }
 		/** Returns the value of the {@code IsOculusHMDConnected} field. */
-		public boolean IsOculusHMDConnected() { return nIsOculusHMDConnected(address()); }
+		public boolean IsOculusHMDConnected() { return OVRDetectResult.nIsOculusHMDConnected(address()); }
 
 	}
 

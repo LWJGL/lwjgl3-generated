@@ -15,17 +15,17 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Contains information about a libffi call interface.
  * 
- * <h3>ffi_cif members</h3>
+ * <h3>Layout</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>abi</td><td class="nw">ffi_abi</td><td></td></tr>
- * <tr><td>nargs</td><td class="nw">unsigned</td><td></td></tr>
- * <tr><td>arg_types</td><td class="nw">ffi_type **</td><td></td></tr>
- * <tr><td>rtype</td><td class="nw">ffi_type *</td><td></td></tr>
- * <tr><td>bytes</td><td class="nw">unsigned</td><td></td></tr>
- * <tr><td>flags</td><td class="nw">unsigned</td><td></td></tr>
- * </table>
+ * <pre><code style="font-family: monospace">
+ * struct ffi_cif {
+ *     ffi_abi abi;
+ *     unsigned nargs;
+ *     ffi_type ** arg_types;
+ *     ffi_type * rtype;
+ *     unsigned bytes;
+ *     unsigned flags;
+ * }</code></pre>
  */
 public class FFICIF extends Struct {
 
@@ -66,12 +66,7 @@ public class FFICIF extends Struct {
 	}
 
 	FFICIF(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link FFICIF} instance at the specified memory address. */
-	public FFICIF(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -81,7 +76,7 @@ public class FFICIF extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public FFICIF(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -108,12 +103,12 @@ public class FFICIF extends Struct {
 
 	/** Returns a new {@link FFICIF} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static FFICIF malloc() {
-		return new FFICIF(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link FFICIF} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static FFICIF calloc() {
-		return new FFICIF(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link FFICIF} instance allocated with {@link BufferUtils}. */
@@ -121,13 +116,18 @@ public class FFICIF extends Struct {
 		return new FFICIF(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link FFICIF} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static FFICIF create(long address) {
+		return address == NULL ? null : new FFICIF(address, null);
+	}
+
 	/**
 	 * Returns a new {@link FFICIF.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -135,8 +135,8 @@ public class FFICIF extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -144,8 +144,8 @@ public class FFICIF extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -154,8 +154,8 @@ public class FFICIF extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #abi}. */
@@ -165,7 +165,7 @@ public class FFICIF extends Struct {
 	/** Unsafe version of {@link #arg_types(int) arg_types}. */
 	public static PointerBuffer narg_types(long struct, int capacity) { return memPointerBuffer(memGetAddress(struct + FFICIF.ARG_TYPES), capacity); }
 	/** Unsafe version of {@link #rtype}. */
-	public static FFIType nrtype(long struct) { return new FFIType(memGetAddress(struct + FFICIF.RTYPE)); }
+	public static FFIType nrtype(long struct) { return FFIType.create(memGetAddress(struct + FFICIF.RTYPE)); }
 	/** Unsafe version of {@link #bytes}. */
 	public static int nbytes(long struct) { return memGetInt(struct + FFICIF.BYTES); }
 	/** Unsafe version of {@link #flags}. */
@@ -186,11 +186,11 @@ public class FFICIF extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -199,8 +199,8 @@ public class FFICIF extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -214,21 +214,21 @@ public class FFICIF extends Struct {
 		}
 
 		/** Returns the value of the {@code abi} field. */
-		public int abi() { return nabi(address()); }
+		public int abi() { return FFICIF.nabi(address()); }
 		/** Returns the value of the {@code nargs} field. */
-		public int nargs() { return nnargs(address()); }
+		public int nargs() { return FFICIF.nnargs(address()); }
 		/**
 		 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code arg_types} field.
 		 *
 		 * @param capacity the number of elements in the returned {@link PointerBuffer}
 		 */
-		public PointerBuffer arg_types(int capacity) { return narg_types(address(), capacity); }
+		public PointerBuffer arg_types(int capacity) { return FFICIF.narg_types(address(), capacity); }
 		/** Returns a {@link FFIType} view of the struct pointed to by the {@code rtype} field. */
-		public FFIType rtype() { return nrtype(address()); }
+		public FFIType rtype() { return FFICIF.nrtype(address()); }
 		/** Returns the value of the {@code bytes} field. */
-		public int bytes() { return nbytes(address()); }
+		public int bytes() { return FFICIF.nbytes(address()); }
 		/** Returns the value of the {@code flags} field. */
-		public int flags() { return nflags(address()); }
+		public int flags() { return FFICIF.nflags(address()); }
 
 	}
 

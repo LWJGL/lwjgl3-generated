@@ -15,22 +15,35 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Tracking state at a given absolute time (describes predicted HMD pose etc). Returned by {@link OVR#ovr_GetTrackingState}.
  * 
- * <h3>ovrTrackingState members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ovrTrackingState {
+ *     {@link OVRPoseStatef ovrPoseStatef} HeadPose;
+ *     {@link OVRPosef ovrPosef} CameraPose;
+ *     {@link OVRPosef ovrPosef} LeveledCameraPose;
+ *     {@link OVRPoseStatef ovrPoseStatef}[2] HandPoses;
+ *     {@link OVRSensorData ovrSensorData} RawSensorData;
+ *     unsigned int StatusFlags;
+ *     unsigned int[2] HandStatusFlags;
+ *     uint32_t LastCameraFrameCounter;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>HeadPose</td><td class="nw">{@link OVRPoseStatef ovrPoseStatef}</td><td>Predicted head pose (and derivatives) at the requested absolute time. The look-ahead interval is equal to
+ * <tr><td>HeadPose</td><td>Predicted head pose (and derivatives) at the requested absolute time. The look-ahead interval is equal to
  * {@code (HeadPose.TimeInSeconds - RawSensorData.TimeInSeconds)}.</td></tr>
- * <tr><td>CameraPose</td><td class="nw">{@link OVRPosef ovrPosef}</td><td>Current pose of the external camera (if present). This pose includes camera tilt (roll and pitch). For a leveled coordinate system use
+ * <tr><td>CameraPose</td><td>Current pose of the external camera (if present). This pose includes camera tilt (roll and pitch). For a leveled coordinate system use
  * {@code LeveledCameraPose}.</td></tr>
- * <tr><td>LeveledCameraPose</td><td class="nw">{@link OVRPosef ovrPosef}</td><td>Camera frame aligned with gravity. This value includes position and yaw of the camera, but not roll and pitch. It can be used as a reference point to
+ * <tr><td>LeveledCameraPose</td><td>Camera frame aligned with gravity. This value includes position and yaw of the camera, but not roll and pitch. It can be used as a reference point to
  * render real-world objects in the correct location.</td></tr>
- * <tr><td>HandPoses</td><td class="nw">{@link OVRPoseStatef ovrPoseStatef}[2]</td><td>The most recent calculated pose for each hand when hand controller tracking is present. {@code HandPoses[ovrHand_Left]} refers to the left hand and
+ * <tr><td>HandPoses</td><td>The most recent calculated pose for each hand when hand controller tracking is present. {@code HandPoses[ovrHand_Left]} refers to the left hand and
  * {@code HandPoses[ovrHand_Right]} to the right hand. These values can be combined with {@code ovrInputState} for complete hand controller information.</td></tr>
- * <tr><td>RawSensorData</td><td class="nw">{@link OVRSensorData ovrSensorData}</td><td>the most recent sensor data received from the HMD</td></tr>
- * <tr><td>StatusFlags</td><td class="nw">unsigned int</td><td>tracking status described by {@code ovrStatusBits}</td></tr>
- * <tr><td>HandStatusFlags</td><td class="nw">unsigned int[2]</td><td>hand status flags described by {@code ovrStatusBits}. Only {@link OVR#ovrStatus_OrientationTracked} and {@link OVR#ovrStatus_PositionTracked} are reported.</td></tr>
- * <tr><td>LastCameraFrameCounter</td><td class="nw">uint32_t</td><td>tag the vision processing results to a certain frame counter number</td></tr>
+ * <tr><td>RawSensorData</td><td>the most recent sensor data received from the HMD</td></tr>
+ * <tr><td>StatusFlags</td><td>tracking status described by {@code ovrStatusBits}</td></tr>
+ * <tr><td>HandStatusFlags</td><td>hand status flags described by {@code ovrStatusBits}. Only {@link OVR#ovrStatus_OrientationTracked} and {@link OVR#ovrStatus_PositionTracked} are reported.</td></tr>
+ * <tr><td>LastCameraFrameCounter</td><td>tag the vision processing results to a certain frame counter number</td></tr>
  * </table>
  */
 public class OVRTrackingState extends Struct {
@@ -78,12 +91,7 @@ public class OVRTrackingState extends Struct {
 	}
 
 	OVRTrackingState(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVRTrackingState} instance at the specified memory address. */
-	public OVRTrackingState(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -93,7 +101,7 @@ public class OVRTrackingState extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVRTrackingState(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -124,12 +132,12 @@ public class OVRTrackingState extends Struct {
 
 	/** Returns a new {@link OVRTrackingState} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVRTrackingState malloc() {
-		return new OVRTrackingState(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVRTrackingState} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVRTrackingState calloc() {
-		return new OVRTrackingState(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVRTrackingState} instance allocated with {@link BufferUtils}. */
@@ -137,13 +145,18 @@ public class OVRTrackingState extends Struct {
 		return new OVRTrackingState(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVRTrackingState} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVRTrackingState create(long address) {
+		return address == NULL ? null : new OVRTrackingState(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVRTrackingState.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -151,8 +164,8 @@ public class OVRTrackingState extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -160,8 +173,8 @@ public class OVRTrackingState extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -170,26 +183,26 @@ public class OVRTrackingState extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #HeadPose}. */
-	public static OVRPoseStatef nHeadPose(long struct) { return new OVRPoseStatef(struct + OVRTrackingState.HEADPOSE); }
+	public static OVRPoseStatef nHeadPose(long struct) { return OVRPoseStatef.create(struct + OVRTrackingState.HEADPOSE); }
 	/** Unsafe version of {@link #CameraPose}. */
-	public static OVRPosef nCameraPose(long struct) { return new OVRPosef(struct + OVRTrackingState.CAMERAPOSE); }
+	public static OVRPosef nCameraPose(long struct) { return OVRPosef.create(struct + OVRTrackingState.CAMERAPOSE); }
 	/** Unsafe version of {@link #LeveledCameraPose}. */
-	public static OVRPosef nLeveledCameraPose(long struct) { return new OVRPosef(struct + OVRTrackingState.LEVELEDCAMERAPOSE); }
+	public static OVRPosef nLeveledCameraPose(long struct) { return OVRPosef.create(struct + OVRTrackingState.LEVELEDCAMERAPOSE); }
 	/** Unsafe version of {@link #HandPoses}. */
 	public static OVRPoseStatef.Buffer nHandPoses(long struct) {
-		return OVRPoseStatef.createBuffer(struct + OVRTrackingState.HANDPOSES, 2);
+		return OVRPoseStatef.create(struct + OVRTrackingState.HANDPOSES, 2);
 	}
 	/** Unsafe version of {@link #HandPoses(int) HandPoses}. */
 	public static OVRPoseStatef nHandPoses(long struct, int index) {
-		return new OVRPoseStatef(struct + OVRTrackingState.HANDPOSES + index * OVRPoseStatef.SIZEOF);
+		return OVRPoseStatef.create(struct + OVRTrackingState.HANDPOSES + index * OVRPoseStatef.SIZEOF);
 	}
 	/** Unsafe version of {@link #RawSensorData}. */
-	public static OVRSensorData nRawSensorData(long struct) { return new OVRSensorData(struct + OVRTrackingState.RAWSENSORDATA); }
+	public static OVRSensorData nRawSensorData(long struct) { return OVRSensorData.create(struct + OVRTrackingState.RAWSENSORDATA); }
 	/** Unsafe version of {@link #StatusFlags}. */
 	public static int nStatusFlags(long struct) { return memGetInt(struct + OVRTrackingState.STATUSFLAGS); }
 	/** Unsafe version of {@link #HandStatusFlags}. */
@@ -216,11 +229,11 @@ public class OVRTrackingState extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -229,8 +242,8 @@ public class OVRTrackingState extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -244,25 +257,25 @@ public class OVRTrackingState extends Struct {
 		}
 
 		/** Returns a {@link OVRPoseStatef} view of the {@code HeadPose} field. */
-		public OVRPoseStatef HeadPose() { return nHeadPose(address()); }
+		public OVRPoseStatef HeadPose() { return OVRTrackingState.nHeadPose(address()); }
 		/** Returns a {@link OVRPosef} view of the {@code CameraPose} field. */
-		public OVRPosef CameraPose() { return nCameraPose(address()); }
+		public OVRPosef CameraPose() { return OVRTrackingState.nCameraPose(address()); }
 		/** Returns a {@link OVRPosef} view of the {@code LeveledCameraPose} field. */
-		public OVRPosef LeveledCameraPose() { return nLeveledCameraPose(address()); }
+		public OVRPosef LeveledCameraPose() { return OVRTrackingState.nLeveledCameraPose(address()); }
 		/** Returns a {@link OVRPoseStatef}.Buffer view of the {@code HandPoses} field. */
-		public OVRPoseStatef.Buffer HandPoses() { return nHandPoses(address()); }
+		public OVRPoseStatef.Buffer HandPoses() { return OVRTrackingState.nHandPoses(address()); }
 		/** Returns a {@link OVRPoseStatef} view of the struct at the specified index of the {@code HandPoses} field. */
-		public OVRPoseStatef HandPoses(int index) { return nHandPoses(address(), index); }
+		public OVRPoseStatef HandPoses(int index) { return OVRTrackingState.nHandPoses(address(), index); }
 		/** Returns a {@link OVRSensorData} view of the {@code RawSensorData} field. */
-		public OVRSensorData RawSensorData() { return nRawSensorData(address()); }
+		public OVRSensorData RawSensorData() { return OVRTrackingState.nRawSensorData(address()); }
 		/** Returns the value of the {@code StatusFlags} field. */
-		public int StatusFlags() { return nStatusFlags(address()); }
+		public int StatusFlags() { return OVRTrackingState.nStatusFlags(address()); }
 		/** Returns a {@link IntBuffer} view of the {@code HandStatusFlags} field. */
-		public IntBuffer HandStatusFlags() { return nHandStatusFlags(address()); }
+		public IntBuffer HandStatusFlags() { return OVRTrackingState.nHandStatusFlags(address()); }
 		/** Returns the value at the specified index of the {@code HandStatusFlags} field. */
-		public int HandStatusFlags(int index) { return nHandStatusFlags(address(), index); }
+		public int HandStatusFlags(int index) { return OVRTrackingState.nHandStatusFlags(address(), index); }
 		/** Returns the value of the {@code LastCameraFrameCounter} field. */
-		public int LastCameraFrameCounter() { return nLastCameraFrameCounter(address()); }
+		public int LastCameraFrameCounter() { return OVRTrackingState.nLastCameraFrameCounter(address()); }
 
 	}
 

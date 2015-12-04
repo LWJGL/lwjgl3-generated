@@ -16,15 +16,25 @@ import static org.lwjgl.system.MemoryUtil.*;
  * rendering information for each eye. Computed by either {@link OVR#ovr_GetRenderDesc} based on the specified FOV. Note that the rendering viewport is not
  * included here as it can be specified separately and modified per frame by passing different viewport values in the layer structure.
  * 
- * <h3>ovrEyeRenderDesc members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ovrEyeRenderDesc {
+ *     ovrEyeType Eye;
+ *     {@link OVRFovPort ovrFovPort} Fov;
+ *     {@link OVRRecti ovrRecti} DistortedViewport;
+ *     {@link OVRVector2f ovrVector2f} PixelsPerTanAngleAtCenter;
+ *     {@link OVRVector3f ovrVector3f} HmdToEyeViewOffset;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Eye</td><td class="nw">ovrEyeType</td><td>the eye index this instance corresponds to</td></tr>
- * <tr><td>Fov</td><td class="nw">{@link OVRFovPort ovrFovPort}</td><td>the field of view</td></tr>
- * <tr><td>DistortedViewport</td><td class="nw">{@link OVRRecti ovrRecti}</td><td>distortion viewport</td></tr>
- * <tr><td>PixelsPerTanAngleAtCenter</td><td class="nw">{@link OVRVector2f ovrVector2f}</td><td>wow many display pixels will fit in tan(angle) = 1</td></tr>
- * <tr><td>HmdToEyeViewOffset</td><td class="nw">{@link OVRVector3f ovrVector3f}</td><td>translation to be applied to view matrix for each eye offset</td></tr>
+ * <tr><td>Eye</td><td>the eye index this instance corresponds to</td></tr>
+ * <tr><td>Fov</td><td>the field of view</td></tr>
+ * <tr><td>DistortedViewport</td><td>distortion viewport</td></tr>
+ * <tr><td>PixelsPerTanAngleAtCenter</td><td>wow many display pixels will fit in tan(angle) = 1</td></tr>
+ * <tr><td>HmdToEyeViewOffset</td><td>translation to be applied to view matrix for each eye offset</td></tr>
  * </table>
  */
 public class OVREyeRenderDesc extends Struct {
@@ -63,12 +73,7 @@ public class OVREyeRenderDesc extends Struct {
 	}
 
 	OVREyeRenderDesc(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVREyeRenderDesc} instance at the specified memory address. */
-	public OVREyeRenderDesc(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -78,7 +83,7 @@ public class OVREyeRenderDesc extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVREyeRenderDesc(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -99,12 +104,12 @@ public class OVREyeRenderDesc extends Struct {
 
 	/** Returns a new {@link OVREyeRenderDesc} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVREyeRenderDesc malloc() {
-		return new OVREyeRenderDesc(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVREyeRenderDesc} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVREyeRenderDesc calloc() {
-		return new OVREyeRenderDesc(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVREyeRenderDesc} instance allocated with {@link BufferUtils}. */
@@ -112,13 +117,18 @@ public class OVREyeRenderDesc extends Struct {
 		return new OVREyeRenderDesc(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVREyeRenderDesc} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVREyeRenderDesc create(long address) {
+		return address == NULL ? null : new OVREyeRenderDesc(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVREyeRenderDesc.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -126,8 +136,8 @@ public class OVREyeRenderDesc extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -135,8 +145,8 @@ public class OVREyeRenderDesc extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -145,20 +155,20 @@ public class OVREyeRenderDesc extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #Eye}. */
 	public static int nEye(long struct) { return memGetInt(struct + OVREyeRenderDesc.EYE); }
 	/** Unsafe version of {@link #Fov}. */
-	public static OVRFovPort nFov(long struct) { return new OVRFovPort(struct + OVREyeRenderDesc.FOV); }
+	public static OVRFovPort nFov(long struct) { return OVRFovPort.create(struct + OVREyeRenderDesc.FOV); }
 	/** Unsafe version of {@link #DistortedViewport}. */
-	public static OVRRecti nDistortedViewport(long struct) { return new OVRRecti(struct + OVREyeRenderDesc.DISTORTEDVIEWPORT); }
+	public static OVRRecti nDistortedViewport(long struct) { return OVRRecti.create(struct + OVREyeRenderDesc.DISTORTEDVIEWPORT); }
 	/** Unsafe version of {@link #PixelsPerTanAngleAtCenter}. */
-	public static OVRVector2f nPixelsPerTanAngleAtCenter(long struct) { return new OVRVector2f(struct + OVREyeRenderDesc.PIXELSPERTANANGLEATCENTER); }
+	public static OVRVector2f nPixelsPerTanAngleAtCenter(long struct) { return OVRVector2f.create(struct + OVREyeRenderDesc.PIXELSPERTANANGLEATCENTER); }
 	/** Unsafe version of {@link #HmdToEyeViewOffset}. */
-	public static OVRVector3f nHmdToEyeViewOffset(long struct) { return new OVRVector3f(struct + OVREyeRenderDesc.HMDTOEYEVIEWOFFSET); }
+	public static OVRVector3f nHmdToEyeViewOffset(long struct) { return OVRVector3f.create(struct + OVREyeRenderDesc.HMDTOEYEVIEWOFFSET); }
 
 	// -----------------------------------
 
@@ -175,11 +185,11 @@ public class OVREyeRenderDesc extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -188,8 +198,8 @@ public class OVREyeRenderDesc extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -203,15 +213,15 @@ public class OVREyeRenderDesc extends Struct {
 		}
 
 		/** Returns the value of the {@code Eye} field. */
-		public int Eye() { return nEye(address()); }
+		public int Eye() { return OVREyeRenderDesc.nEye(address()); }
 		/** Returns a {@link OVRFovPort} view of the {@code Fov} field. */
-		public OVRFovPort Fov() { return nFov(address()); }
+		public OVRFovPort Fov() { return OVREyeRenderDesc.nFov(address()); }
 		/** Returns a {@link OVRRecti} view of the {@code DistortedViewport} field. */
-		public OVRRecti DistortedViewport() { return nDistortedViewport(address()); }
+		public OVRRecti DistortedViewport() { return OVREyeRenderDesc.nDistortedViewport(address()); }
 		/** Returns a {@link OVRVector2f} view of the {@code PixelsPerTanAngleAtCenter} field. */
-		public OVRVector2f PixelsPerTanAngleAtCenter() { return nPixelsPerTanAngleAtCenter(address()); }
+		public OVRVector2f PixelsPerTanAngleAtCenter() { return OVREyeRenderDesc.nPixelsPerTanAngleAtCenter(address()); }
 		/** Returns a {@link OVRVector3f} view of the {@code HmdToEyeViewOffset} field. */
-		public OVRVector3f HmdToEyeViewOffset() { return nHmdToEyeViewOffset(address()); }
+		public OVRVector3f HmdToEyeViewOffset() { return OVREyeRenderDesc.nHmdToEyeViewOffset(address()); }
 
 	}
 

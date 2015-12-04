@@ -1062,7 +1062,7 @@ public class STBTruetype {
 		APIBuffer __buffer = apiBuffer();
 		int vertices = __buffer.pointerParam();
 		int __result = nstbtt_GetCodepointShape(info.address(), unicode_codepoint, __buffer.address(vertices));
-		return STBTTVertex.createBuffer(__buffer.pointerValue(vertices), __result);
+		return STBTTVertex.create(__buffer.pointerValue(vertices), __result);
 	}
 
 	// --- [ stbtt_GetGlyphShape ] ---
@@ -1096,7 +1096,7 @@ public class STBTruetype {
 		APIBuffer __buffer = apiBuffer();
 		int vertices = __buffer.pointerParam();
 		int __result = nstbtt_GetGlyphShape(info.address(), glyph_index, __buffer.address(vertices));
-		return STBTTVertex.createBuffer(__buffer.pointerValue(vertices), __result);
+		return STBTTVertex.create(__buffer.pointerValue(vertices), __result);
 	}
 
 	// --- [ stbtt_FreeShape ] ---

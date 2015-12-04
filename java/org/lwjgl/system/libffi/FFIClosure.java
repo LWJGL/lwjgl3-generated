@@ -15,14 +15,14 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * The libffi closure structure.
  * 
- * <h3>ffi_closure members</h3>
+ * <h3>Layout</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>cif</td><td class="nw">ffi_cif *</td><td></td></tr>
- * <tr><td>fun</td><td class="nw">void *</td><td></td></tr>
- * <tr><td>user_data</td><td class="nw">void *</td><td></td></tr>
- * </table>
+ * <pre><code style="font-family: monospace">
+ * struct ffi_closure {
+ *     ffi_cif * cif;
+ *     void * fun;
+ *     void * user_data;
+ * }</code></pre>
  */
 public class FFIClosure extends Struct {
 
@@ -50,12 +50,7 @@ public class FFIClosure extends Struct {
 	private static native int offsets(long buffer);
 
 	FFIClosure(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link FFIClosure} instance at the specified memory address. */
-	public FFIClosure(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -65,7 +60,7 @@ public class FFIClosure extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public FFIClosure(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -82,12 +77,12 @@ public class FFIClosure extends Struct {
 
 	/** Returns a new {@link FFIClosure} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static FFIClosure malloc() {
-		return new FFIClosure(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link FFIClosure} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static FFIClosure calloc() {
-		return new FFIClosure(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link FFIClosure} instance allocated with {@link BufferUtils}. */
@@ -95,13 +90,18 @@ public class FFIClosure extends Struct {
 		return new FFIClosure(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link FFIClosure} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static FFIClosure create(long address) {
+		return address == NULL ? null : new FFIClosure(address, null);
+	}
+
 	/**
 	 * Returns a new {@link FFIClosure.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -109,8 +109,8 @@ public class FFIClosure extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -118,8 +118,8 @@ public class FFIClosure extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -128,12 +128,12 @@ public class FFIClosure extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #cif}. */
-	public static FFICIF ncif(long struct) { return new FFICIF(memGetAddress(struct + FFIClosure.CIF)); }
+	public static FFICIF ncif(long struct) { return FFICIF.create(memGetAddress(struct + FFIClosure.CIF)); }
 	/** Unsafe version of {@link #fun}. */
 	public static long nfun(long struct) { return memGetAddress(struct + FFIClosure.FUN); }
 	/** Unsafe version of {@link #user_data}. */
@@ -154,11 +154,11 @@ public class FFIClosure extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -167,8 +167,8 @@ public class FFIClosure extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -182,11 +182,11 @@ public class FFIClosure extends Struct {
 		}
 
 		/** Returns a {@link FFICIF} view of the struct pointed to by the {@code cif} field. */
-		public FFICIF cif() { return ncif(address()); }
+		public FFICIF cif() { return FFIClosure.ncif(address()); }
 		/** Returns the value of the {@code fun} field. */
-		public long fun() { return nfun(address()); }
+		public long fun() { return FFIClosure.nfun(address()); }
 		/** Returns the value of the {@code user_data} field. */
-		public long user_data() { return nuser_data(address()); }
+		public long user_data() { return FFIClosure.nuser_data(address()); }
 
 	}
 

@@ -15,23 +15,32 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * The struct returned by {@link CL10#clGetDeviceInfo} with {@code param_name} set to {@link AMDDeviceTopology#CL_DEVICE_TOPOLOGY_AMD}.
  * 
- * <h3>cl_device_topology_amd members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * union cl_device_topology_amd {
+ *     struct {
+ *         cl_uint type;
+ *         cl_uint[5] data;
+ *     } raw;
+ *     struct {
+ *         cl_uint type;
+ *         char[17];
+ *         cl_char bus;
+ *         cl_char device;
+ *         cl_char function;
+ *     } pcie;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>raw</td><td><table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>type</td><td class="nw">cl_uint</td><td></td></tr>
- * <tr><td>data</td><td class="nw">cl_uint[5]</td><td></td></tr>
- * </table></td><td></td></tr>
- * <tr><td>pcie</td><td><table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>type</td><td class="nw">cl_uint</td><td></td></tr>
- * <tr><td>*</td><td class="nw">char[17]</td><td></td></tr>
- * <tr><td>bus</td><td class="nw">cl_char</td><td></td></tr>
- * <tr><td>device</td><td class="nw">cl_char</td><td></td></tr>
- * <tr><td>function</td><td class="nw">cl_char</td><td></td></tr>
- * </table></td><td></td></tr>
+ * <tr><td>raw.type</td><td>the raw type</td></tr>
+ * <tr><td>raw.data</td><td>the raw data</td></tr>
+ * <tr><td>pcie.type</td><td>the pcie type</td></tr>
+ * <tr><td>pcie.bus</td><td>the pcie bus</td></tr>
+ * <tr><td>pcie.device</td><td>the pcie device</td></tr>
+ * <tr><td>pcie.function</td><td>the pcie function</td></tr>
  * </table>
  */
 public class CLDeviceTopologyAMD extends Struct {
@@ -82,12 +91,7 @@ public class CLDeviceTopologyAMD extends Struct {
 	}
 
 	CLDeviceTopologyAMD(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link CLDeviceTopologyAMD} instance at the specified memory address. */
-	public CLDeviceTopologyAMD(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -97,7 +101,7 @@ public class CLDeviceTopologyAMD extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public CLDeviceTopologyAMD(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -122,12 +126,12 @@ public class CLDeviceTopologyAMD extends Struct {
 
 	/** Returns a new {@link CLDeviceTopologyAMD} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static CLDeviceTopologyAMD malloc() {
-		return new CLDeviceTopologyAMD(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link CLDeviceTopologyAMD} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static CLDeviceTopologyAMD calloc() {
-		return new CLDeviceTopologyAMD(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link CLDeviceTopologyAMD} instance allocated with {@link BufferUtils}. */
@@ -135,13 +139,18 @@ public class CLDeviceTopologyAMD extends Struct {
 		return new CLDeviceTopologyAMD(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link CLDeviceTopologyAMD} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static CLDeviceTopologyAMD create(long address) {
+		return address == NULL ? null : new CLDeviceTopologyAMD(address, null);
+	}
+
 	/**
 	 * Returns a new {@link CLDeviceTopologyAMD.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -149,8 +158,8 @@ public class CLDeviceTopologyAMD extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -158,8 +167,8 @@ public class CLDeviceTopologyAMD extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -168,8 +177,8 @@ public class CLDeviceTopologyAMD extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #raw_type}. */
@@ -204,11 +213,11 @@ public class CLDeviceTopologyAMD extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -217,8 +226,8 @@ public class CLDeviceTopologyAMD extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -232,19 +241,19 @@ public class CLDeviceTopologyAMD extends Struct {
 		}
 
 		/** Returns the value of the {@code raw_type} field. */
-		public int raw_type() { return nraw_type(address()); }
+		public int raw_type() { return CLDeviceTopologyAMD.nraw_type(address()); }
 		/** Returns a {@link IntBuffer} view of the {@code raw_data} field. */
-		public IntBuffer raw_data() { return nraw_data(address()); }
+		public IntBuffer raw_data() { return CLDeviceTopologyAMD.nraw_data(address()); }
 		/** Returns the value at the specified index of the {@code raw_data} field. */
-		public int raw_data(int index) { return nraw_data(address(), index); }
+		public int raw_data(int index) { return CLDeviceTopologyAMD.nraw_data(address(), index); }
 		/** Returns the value of the {@code pcie_type} field. */
-		public int pcie_type() { return npcie_type(address()); }
+		public int pcie_type() { return CLDeviceTopologyAMD.npcie_type(address()); }
 		/** Returns the value of the {@code pcie_bus} field. */
-		public byte pcie_bus() { return npcie_bus(address()); }
+		public byte pcie_bus() { return CLDeviceTopologyAMD.npcie_bus(address()); }
 		/** Returns the value of the {@code pcie_device} field. */
-		public byte pcie_device() { return npcie_device(address()); }
+		public byte pcie_device() { return CLDeviceTopologyAMD.npcie_device(address()); }
 		/** Returns the value of the {@code pcie_function} field. */
-		public byte pcie_function() { return npcie_function(address()); }
+		public byte pcie_function() { return CLDeviceTopologyAMD.npcie_function(address()); }
 
 	}
 

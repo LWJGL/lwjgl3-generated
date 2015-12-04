@@ -15,16 +15,27 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Describes a single video mode.
  * 
- * <h3>GLFWvidmode members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct GLFWvidmode {
+ *     int width;
+ *     int height;
+ *     int redBits;
+ *     int greenBits;
+ *     int blueBits;
+ *     int refreshRate;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>width</td><td class="nw">int</td><td>the width, in screen coordinates, of the video mode</td></tr>
- * <tr><td>height</td><td class="nw">int</td><td>the height, in screen coordinates, of the video mode</td></tr>
- * <tr><td>redBits</td><td class="nw">int</td><td>the bit depth of the red channel of the video mode</td></tr>
- * <tr><td>greenBits</td><td class="nw">int</td><td>the bit depth of the green channel of the video mode</td></tr>
- * <tr><td>blueBits</td><td class="nw">int</td><td>the bit depth of the blue channel of the video mode</td></tr>
- * <tr><td>refreshRate</td><td class="nw">int</td><td>the refresh rate, in Hz, of the video mode</td></tr>
+ * <tr><td>width</td><td>the width, in screen coordinates, of the video mode</td></tr>
+ * <tr><td>height</td><td>the height, in screen coordinates, of the video mode</td></tr>
+ * <tr><td>redBits</td><td>the bit depth of the red channel of the video mode</td></tr>
+ * <tr><td>greenBits</td><td>the bit depth of the green channel of the video mode</td></tr>
+ * <tr><td>blueBits</td><td>the bit depth of the blue channel of the video mode</td></tr>
+ * <tr><td>refreshRate</td><td>the refresh rate, in Hz, of the video mode</td></tr>
  * </table>
  */
 public class GLFWVidMode extends Struct {
@@ -66,12 +77,7 @@ public class GLFWVidMode extends Struct {
 	}
 
 	GLFWVidMode(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link GLFWVidMode} instance at the specified memory address. */
-	public GLFWVidMode(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -81,7 +87,7 @@ public class GLFWVidMode extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public GLFWVidMode(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -104,12 +110,12 @@ public class GLFWVidMode extends Struct {
 
 	/** Returns a new {@link GLFWVidMode} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static GLFWVidMode malloc() {
-		return new GLFWVidMode(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link GLFWVidMode} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static GLFWVidMode calloc() {
-		return new GLFWVidMode(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link GLFWVidMode} instance allocated with {@link BufferUtils}. */
@@ -117,13 +123,18 @@ public class GLFWVidMode extends Struct {
 		return new GLFWVidMode(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link GLFWVidMode} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static GLFWVidMode create(long address) {
+		return address == NULL ? null : new GLFWVidMode(address, null);
+	}
+
 	/**
 	 * Returns a new {@link GLFWVidMode.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -131,8 +142,8 @@ public class GLFWVidMode extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -140,8 +151,8 @@ public class GLFWVidMode extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -150,8 +161,8 @@ public class GLFWVidMode extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #width}. */
@@ -182,11 +193,11 @@ public class GLFWVidMode extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -195,8 +206,8 @@ public class GLFWVidMode extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -210,17 +221,17 @@ public class GLFWVidMode extends Struct {
 		}
 
 		/** Returns the value of the {@code width} field. */
-		public int width() { return nwidth(address()); }
+		public int width() { return GLFWVidMode.nwidth(address()); }
 		/** Returns the value of the {@code height} field. */
-		public int height() { return nheight(address()); }
+		public int height() { return GLFWVidMode.nheight(address()); }
 		/** Returns the value of the {@code redBits} field. */
-		public int redBits() { return nredBits(address()); }
+		public int redBits() { return GLFWVidMode.nredBits(address()); }
 		/** Returns the value of the {@code greenBits} field. */
-		public int greenBits() { return ngreenBits(address()); }
+		public int greenBits() { return GLFWVidMode.ngreenBits(address()); }
 		/** Returns the value of the {@code blueBits} field. */
-		public int blueBits() { return nblueBits(address()); }
+		public int blueBits() { return GLFWVidMode.nblueBits(address()); }
 		/** Returns the value of the {@code refreshRate} field. */
-		public int refreshRate() { return nrefreshRate(address()); }
+		public int refreshRate() { return GLFWVidMode.nrefreshRate(address()); }
 
 	}
 

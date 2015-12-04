@@ -16,11 +16,17 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * A 4x4 matrix with float components.
  * 
- * <h3>ovrMatrix4f members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ovrMatrix4f {
+ *     float[16] M;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>M</td><td class="nw">float[16]</td><td>the matrix components</td></tr>
+ * <tr><td>M</td><td>the matrix components</td></tr>
  * </table>
  */
 public class OVRMatrix4f extends Struct {
@@ -47,12 +53,7 @@ public class OVRMatrix4f extends Struct {
 	}
 
 	OVRMatrix4f(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVRMatrix4f} instance at the specified memory address. */
-	public OVRMatrix4f(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -62,7 +63,7 @@ public class OVRMatrix4f extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVRMatrix4f(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -106,12 +107,12 @@ public class OVRMatrix4f extends Struct {
 
 	/** Returns a new {@link OVRMatrix4f} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVRMatrix4f malloc() {
-		return new OVRMatrix4f(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVRMatrix4f} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVRMatrix4f calloc() {
-		return new OVRMatrix4f(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVRMatrix4f} instance allocated with {@link BufferUtils}. */
@@ -119,13 +120,18 @@ public class OVRMatrix4f extends Struct {
 		return new OVRMatrix4f(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVRMatrix4f} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVRMatrix4f create(long address) {
+		return address == NULL ? null : new OVRMatrix4f(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVRMatrix4f.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -133,8 +139,8 @@ public class OVRMatrix4f extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -142,8 +148,8 @@ public class OVRMatrix4f extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -152,8 +158,8 @@ public class OVRMatrix4f extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #M}. */
@@ -186,11 +192,11 @@ public class OVRMatrix4f extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -199,8 +205,8 @@ public class OVRMatrix4f extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -214,14 +220,14 @@ public class OVRMatrix4f extends Struct {
 		}
 
 		/** Returns a {@link FloatBuffer} view of the {@code M} field. */
-		public FloatBuffer M() { return nM(address()); }
+		public FloatBuffer M() { return OVRMatrix4f.nM(address()); }
 		/** Returns the value at the specified index of the {@code M} field. */
-		public float M(int index) { return nM(address(), index); }
+		public float M(int index) { return OVRMatrix4f.nM(address(), index); }
 
 		/** Copies the specified {@link FloatBuffer} to the {@code M} field. */
-		public OVRMatrix4f.Buffer M(FloatBuffer value) { nM(address(), value); return this; }
+		public OVRMatrix4f.Buffer M(FloatBuffer value) { OVRMatrix4f.nM(address(), value); return this; }
 		/** Sets the specified value at the specified index of the {@code M} field. */
-		public OVRMatrix4f.Buffer M(int index, float value) { nM(address(), index, value); return this; }
+		public OVRMatrix4f.Buffer M(int index, float value) { OVRMatrix4f.nM(address(), index, value); return this; }
 
 	}
 

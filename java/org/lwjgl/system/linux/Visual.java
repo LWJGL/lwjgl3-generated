@@ -16,18 +16,18 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Visual structure; contains information about colormapping possible.
  * 
- * <h3>Visual members</h3>
+ * <h3>Layout</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>visualid</td><td class="nw">VisualID</td><td></td></tr>
- * <tr><td>class</td><td class="nw">int</td><td></td></tr>
- * <tr><td>red_mask</td><td class="nw">unsigned long</td><td></td></tr>
- * <tr><td>green_mask</td><td class="nw">unsigned long</td><td></td></tr>
- * <tr><td>blue_mask</td><td class="nw">unsigned long</td><td></td></tr>
- * <tr><td>bits_per_rgb</td><td class="nw">int</td><td></td></tr>
- * <tr><td>map_entries</td><td class="nw">int</td><td></td></tr>
- * </table>
+ * <pre><code style="font-family: monospace">
+ * struct Visual {
+ *     VisualID visualid;
+ *     int class;
+ *     unsigned long red_mask;
+ *     unsigned long green_mask;
+ *     unsigned long blue_mask;
+ *     int bits_per_rgb;
+ *     int map_entries;
+ * }</code></pre>
  */
 public class Visual extends Struct {
 
@@ -71,12 +71,7 @@ public class Visual extends Struct {
 	}
 
 	Visual(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link Visual} instance at the specified memory address. */
-	public Visual(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -86,7 +81,7 @@ public class Visual extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public Visual(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -171,12 +166,12 @@ public class Visual extends Struct {
 
 	/** Returns a new {@link Visual} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static Visual malloc() {
-		return new Visual(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link Visual} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static Visual calloc() {
-		return new Visual(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link Visual} instance allocated with {@link BufferUtils}. */
@@ -184,13 +179,18 @@ public class Visual extends Struct {
 		return new Visual(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link Visual} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static Visual create(long address) {
+		return address == NULL ? null : new Visual(address, null);
+	}
+
 	/**
 	 * Returns a new {@link Visual.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -198,8 +198,8 @@ public class Visual extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -207,8 +207,8 @@ public class Visual extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -217,8 +217,8 @@ public class Visual extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #visualid}. */
@@ -266,11 +266,11 @@ public class Visual extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -279,8 +279,8 @@ public class Visual extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -294,34 +294,34 @@ public class Visual extends Struct {
 		}
 
 		/** Returns the value of the {@code visualid} field. */
-		public long visualid() { return nvisualid(address()); }
+		public long visualid() { return Visual.nvisualid(address()); }
 		/** Returns the value of the {@code class$} field. */
-		public int class$() { return nclass$(address()); }
+		public int class$() { return Visual.nclass$(address()); }
 		/** Returns the value of the {@code red_mask} field. */
-		public long red_mask() { return nred_mask(address()); }
+		public long red_mask() { return Visual.nred_mask(address()); }
 		/** Returns the value of the {@code green_mask} field. */
-		public long green_mask() { return ngreen_mask(address()); }
+		public long green_mask() { return Visual.ngreen_mask(address()); }
 		/** Returns the value of the {@code blue_mask} field. */
-		public long blue_mask() { return nblue_mask(address()); }
+		public long blue_mask() { return Visual.nblue_mask(address()); }
 		/** Returns the value of the {@code bits_per_rgb} field. */
-		public int bits_per_rgb() { return nbits_per_rgb(address()); }
+		public int bits_per_rgb() { return Visual.nbits_per_rgb(address()); }
 		/** Returns the value of the {@code map_entries} field. */
-		public int map_entries() { return nmap_entries(address()); }
+		public int map_entries() { return Visual.nmap_entries(address()); }
 
 		/** Sets the specified value to the {@code visualid} field. */
-		public Visual.Buffer visualid(long value) { nvisualid(address(), value); return this; }
+		public Visual.Buffer visualid(long value) { Visual.nvisualid(address(), value); return this; }
 		/** Sets the specified value to the {@code class} field. */
-		public Visual.Buffer class$(int value) { nclass$(address(), value); return this; }
+		public Visual.Buffer class$(int value) { Visual.nclass$(address(), value); return this; }
 		/** Sets the specified value to the {@code red_mask} field. */
-		public Visual.Buffer red_mask(long value) { nred_mask(address(), value); return this; }
+		public Visual.Buffer red_mask(long value) { Visual.nred_mask(address(), value); return this; }
 		/** Sets the specified value to the {@code green_mask} field. */
-		public Visual.Buffer green_mask(long value) { ngreen_mask(address(), value); return this; }
+		public Visual.Buffer green_mask(long value) { Visual.ngreen_mask(address(), value); return this; }
 		/** Sets the specified value to the {@code blue_mask} field. */
-		public Visual.Buffer blue_mask(long value) { nblue_mask(address(), value); return this; }
+		public Visual.Buffer blue_mask(long value) { Visual.nblue_mask(address(), value); return this; }
 		/** Sets the specified value to the {@code bits_per_rgb} field. */
-		public Visual.Buffer bits_per_rgb(int value) { nbits_per_rgb(address(), value); return this; }
+		public Visual.Buffer bits_per_rgb(int value) { Visual.nbits_per_rgb(address(), value); return this; }
 		/** Sets the specified value to the {@code map_entries} field. */
-		public Visual.Buffer map_entries(int value) { nmap_entries(address(), value); return this; }
+		public Visual.Buffer map_entries(int value) { Visual.nmap_entries(address(), value); return this; }
 
 	}
 

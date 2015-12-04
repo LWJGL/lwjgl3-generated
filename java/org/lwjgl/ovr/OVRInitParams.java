@@ -16,18 +16,28 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Parameters for {@link OVR#ovr_Initialize}.
  * 
- * <h3>ovrInitParams members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ovrInitParams {
+ *     uint32_t Flags;
+ *     uint32_t RequestedMinorVersion;
+ *     ovrLogCallback LogCallback;
+ *     uintptr_t UserData;
+ *     uint32_t ConnectionTimeoutMS;
+ *     char[4];
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Flags</td><td class="nw">uint32_t</td><td>combination of ovrInitFlags or 0</td></tr>
- * <tr><td>RequestedMinorVersion</td><td class="nw">uint32_t</td><td>request a specific minimum minor version of the LibOVR runtime. Flags must include ovrInit_RequestVersion or this will be ignored.</td></tr>
- * <tr><td>LogCallback</td><td class="nw">ovrLogCallback</td><td>log callback function, which may be called at any time asynchronously from multiple threads until {@link OVR#ovr_Shutdown} completes. Pass {@code NULL} for no log
+ * <tr><td>Flags</td><td>combination of ovrInitFlags or 0</td></tr>
+ * <tr><td>RequestedMinorVersion</td><td>request a specific minimum minor version of the LibOVR runtime. Flags must include ovrInit_RequestVersion or this will be ignored.</td></tr>
+ * <tr><td>LogCallback</td><td>log callback function, which may be called at any time asynchronously from multiple threads until {@link OVR#ovr_Shutdown} completes. Pass {@code NULL} for no log
  * callback.</td></tr>
- * <tr><td>UserData</td><td class="nw">uintptr_t</td><td>user-supplied data which is passed as-is to LogCallback. Typically this is used to store an application-specific pointer which is read in the callback
+ * <tr><td>UserData</td><td>user-supplied data which is passed as-is to LogCallback. Typically this is used to store an application-specific pointer which is read in the callback
  * function.</td></tr>
- * <tr><td>ConnectionTimeoutMS</td><td class="nw">uint32_t</td><td>number of milliseconds to wait for a connection to the server. Pass 0 for the default timeout</td></tr>
- * <tr><td>*</td><td class="nw">char[4]</td><td></td></tr>
+ * <tr><td>ConnectionTimeoutMS</td><td>number of milliseconds to wait for a connection to the server. Pass 0 for the default timeout</td></tr>
  * </table>
  */
 public class OVRInitParams extends Struct {
@@ -67,12 +77,7 @@ public class OVRInitParams extends Struct {
 	}
 
 	OVRInitParams(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVRInitParams} instance at the specified memory address. */
-	public OVRInitParams(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -82,7 +87,7 @@ public class OVRInitParams extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVRInitParams(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -155,12 +160,12 @@ public class OVRInitParams extends Struct {
 
 	/** Returns a new {@link OVRInitParams} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVRInitParams malloc() {
-		return new OVRInitParams(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVRInitParams} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVRInitParams calloc() {
-		return new OVRInitParams(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVRInitParams} instance allocated with {@link BufferUtils}. */
@@ -168,13 +173,18 @@ public class OVRInitParams extends Struct {
 		return new OVRInitParams(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVRInitParams} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVRInitParams create(long address) {
+		return address == NULL ? null : new OVRInitParams(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVRInitParams.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -182,8 +192,8 @@ public class OVRInitParams extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -191,8 +201,8 @@ public class OVRInitParams extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -201,8 +211,8 @@ public class OVRInitParams extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #Flags}. */
@@ -242,11 +252,11 @@ public class OVRInitParams extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -255,8 +265,8 @@ public class OVRInitParams extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -270,26 +280,26 @@ public class OVRInitParams extends Struct {
 		}
 
 		/** Returns the value of the {@code Flags} field. */
-		public int Flags() { return nFlags(address()); }
+		public int Flags() { return OVRInitParams.nFlags(address()); }
 		/** Returns the value of the {@code RequestedMinorVersion} field. */
-		public int RequestedMinorVersion() { return nRequestedMinorVersion(address()); }
+		public int RequestedMinorVersion() { return OVRInitParams.nRequestedMinorVersion(address()); }
 		/** Returns the {@code OVRLogCallback} instance at the {@code LogCallback} field. */
-		public OVRLogCallback LogCallback() { return nLogCallback(address()); }
+		public OVRLogCallback LogCallback() { return OVRInitParams.nLogCallback(address()); }
 		/** Returns the value of the {@code UserData} field. */
-		public long UserData() { return nUserData(address()); }
+		public long UserData() { return OVRInitParams.nUserData(address()); }
 		/** Returns the value of the {@code ConnectionTimeoutMS} field. */
-		public int ConnectionTimeoutMS() { return nConnectionTimeoutMS(address()); }
+		public int ConnectionTimeoutMS() { return OVRInitParams.nConnectionTimeoutMS(address()); }
 
 		/** Sets the specified value to the {@code Flags} field. */
-		public OVRInitParams.Buffer Flags(int value) { nFlags(address(), value); return this; }
+		public OVRInitParams.Buffer Flags(int value) { OVRInitParams.nFlags(address(), value); return this; }
 		/** Sets the specified value to the {@code RequestedMinorVersion} field. */
-		public OVRInitParams.Buffer RequestedMinorVersion(int value) { nRequestedMinorVersion(address(), value); return this; }
+		public OVRInitParams.Buffer RequestedMinorVersion(int value) { OVRInitParams.nRequestedMinorVersion(address(), value); return this; }
 		/** Sets the address of the specified {@link OVRLogCallback} to the {@code LogCallback} field. */
-		public OVRInitParams.Buffer LogCallback(OVRLogCallback value) { nLogCallback(address(), value); return this; }
+		public OVRInitParams.Buffer LogCallback(OVRLogCallback value) { OVRInitParams.nLogCallback(address(), value); return this; }
 		/** Sets the specified value to the {@code UserData} field. */
-		public OVRInitParams.Buffer UserData(long value) { nUserData(address(), value); return this; }
+		public OVRInitParams.Buffer UserData(long value) { OVRInitParams.nUserData(address(), value); return this; }
 		/** Sets the specified value to the {@code ConnectionTimeoutMS} field. */
-		public OVRInitParams.Buffer ConnectionTimeoutMS(int value) { nConnectionTimeoutMS(address(), value); return this; }
+		public OVRInitParams.Buffer ConnectionTimeoutMS(int value) { OVRInitParams.nConnectionTimeoutMS(address(), value); return this; }
 
 	}
 

@@ -2009,7 +2009,7 @@ public class ObjCRuntime {
 		APIBuffer __buffer = apiBuffer();
 		int outCount = __buffer.intParam();
 		long __result = nproperty_copyAttributeList(property, __buffer.address(outCount));
-		return new ObjCPropertyAttribute.Buffer(memByteBuffer(__result, __buffer.intValue(outCount) * ObjCPropertyAttribute.SIZEOF));
+		return ObjCPropertyAttribute.create(__result, __buffer.intValue(outCount));
 	}
 
 	// --- [ property_copyAttributeValue ] ---
@@ -2238,7 +2238,7 @@ public class ObjCRuntime {
 		APIBuffer __buffer = apiBuffer();
 		int outCount = __buffer.intParam();
 		long __result = nprotocol_copyMethodDescriptionList(p, isRequiredMethod, isInstanceMethod, __buffer.address(outCount));
-		return new ObjCMethodDescription.Buffer(memByteBuffer(__result, __buffer.intValue(outCount) * ObjCMethodDescription.SIZEOF));
+		return ObjCMethodDescription.create(__result, __buffer.intValue(outCount));
 	}
 
 	// --- [ protocol_getProperty ] ---

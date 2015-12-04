@@ -264,7 +264,7 @@ public class GLX {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list);
 		long __result = nglXChooseVisual(display, screen, memAddressSafe(attrib_list));
-		return new XVisualInfo(__result);
+		return XVisualInfo.create(__result);
 	}
 
 	/** Alternative version of: {@link #glXChooseVisual ChooseVisual} */
@@ -272,7 +272,7 @@ public class GLX {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);
 		long __result = nglXChooseVisual(display, screen, memAddressSafe(attrib_list));
-		return new XVisualInfo(__result);
+		return XVisualInfo.create(__result);
 	}
 
 	// --- [ glXCreateContext ] ---

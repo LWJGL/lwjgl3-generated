@@ -16,12 +16,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * A 2D size with integer components.
  * 
- * <h3>ovrSizei members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ovrSizei {
+ *     int w;
+ *     int h;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>w</td><td class="nw">int</td><td>the width</td></tr>
- * <tr><td>h</td><td class="nw">int</td><td>the height</td></tr>
+ * <tr><td>w</td><td>the width</td></tr>
+ * <tr><td>h</td><td>the height</td></tr>
  * </table>
  */
 public class OVRSizei extends Struct {
@@ -51,12 +58,7 @@ public class OVRSizei extends Struct {
 	}
 
 	OVRSizei(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVRSizei} instance at the specified memory address. */
-	public OVRSizei(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -66,7 +68,7 @@ public class OVRSizei extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVRSizei(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -121,12 +123,12 @@ public class OVRSizei extends Struct {
 
 	/** Returns a new {@link OVRSizei} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVRSizei malloc() {
-		return new OVRSizei(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVRSizei} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVRSizei calloc() {
-		return new OVRSizei(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVRSizei} instance allocated with {@link BufferUtils}. */
@@ -134,13 +136,18 @@ public class OVRSizei extends Struct {
 		return new OVRSizei(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVRSizei} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVRSizei create(long address) {
+		return address == NULL ? null : new OVRSizei(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVRSizei.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -148,8 +155,8 @@ public class OVRSizei extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -157,8 +164,8 @@ public class OVRSizei extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -167,8 +174,8 @@ public class OVRSizei extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #w}. */
@@ -196,11 +203,11 @@ public class OVRSizei extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -209,8 +216,8 @@ public class OVRSizei extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -224,14 +231,14 @@ public class OVRSizei extends Struct {
 		}
 
 		/** Returns the value of the {@code w} field. */
-		public int w() { return nw(address()); }
+		public int w() { return OVRSizei.nw(address()); }
 		/** Returns the value of the {@code h} field. */
-		public int h() { return nh(address()); }
+		public int h() { return OVRSizei.nh(address()); }
 
 		/** Sets the specified value to the {@code w} field. */
-		public OVRSizei.Buffer w(int value) { nw(address(), value); return this; }
+		public OVRSizei.Buffer w(int value) { OVRSizei.nw(address(), value); return this; }
 		/** Sets the specified value to the {@code h} field. */
-		public OVRSizei.Buffer h(int value) { nh(address(), value); return this; }
+		public OVRSizei.Buffer h(int value) { OVRSizei.nh(address(), value); return this; }
 
 	}
 

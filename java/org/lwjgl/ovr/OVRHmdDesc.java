@@ -15,32 +15,57 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * A complete descriptor of the HMD.
  * 
- * <h3>ovrHmdDesc members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ovrHmdDesc {
+ *     ovrHmdType Type;
+ *     char[4];
+ *     char[64] ProductName;
+ *     char[64] Manufacturer;
+ *     short VendorId;
+ *     short ProductId;
+ *     char[24] SerialNumber;
+ *     short FirmwareMajor;
+ *     short FirmwareMinor;
+ *     float CameraFrustumHFovInRadians;
+ *     float CameraFrustumVFovInRadians;
+ *     float CameraFrustumNearZInMeters;
+ *     float CameraFrustumFarZInMeters;
+ *     unsigned int AvailableHmdCaps;
+ *     unsigned int DefaultHmdCaps;
+ *     unsigned int AvailableTrackingCaps;
+ *     unsigned int DefaultTrackingCaps;
+ *     {@link OVRFovPort ovrFovPort}[2] DefaultEyeFov;
+ *     {@link OVRFovPort ovrFovPort}[2] MaxEyeFov;
+ *     {@link OVRSizei ovrSizei} Resolution;
+ *     float DisplayRefreshRate;
+ *     char[4];
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Type</td><td class="nw">ovrHmdType</td><td>this HMD's type</td></tr>
- * <tr><td>*</td><td class="nw">char[4]</td><td></td></tr>
- * <tr><td>ProductName</td><td class="nw">char[64]</td><td>name string describing the product: "Oculus Rift DK1", etc.</td></tr>
- * <tr><td>Manufacturer</td><td class="nw">char[64]</td><td>string describing the manufacturer. Usually "Oculus".</td></tr>
- * <tr><td>VendorId</td><td class="nw">short</td><td>HID Vendor ID of the device</td></tr>
- * <tr><td>ProductId</td><td class="nw">short</td><td>HID Product ID of the device</td></tr>
- * <tr><td>SerialNumber</td><td class="nw">char[24]</td><td>sensor (and display) serial number</td></tr>
- * <tr><td>FirmwareMajor</td><td class="nw">short</td><td>sensor firmware major version number</td></tr>
- * <tr><td>FirmwareMinor</td><td class="nw">short</td><td>sensor firmware minor version number</td></tr>
- * <tr><td>CameraFrustumHFovInRadians</td><td class="nw">float</td><td>horizontal field-of-view</td></tr>
- * <tr><td>CameraFrustumVFovInRadians</td><td class="nw">float</td><td>vertical field-of-view</td></tr>
- * <tr><td>CameraFrustumNearZInMeters</td><td class="nw">float</td><td>near clip distance</td></tr>
- * <tr><td>CameraFrustumFarZInMeters</td><td class="nw">float</td><td>far clip distance</td></tr>
- * <tr><td>AvailableHmdCaps</td><td class="nw">unsigned int</td><td>capability bits described by {@code ovrHmdCaps} which the HMD currently supports</td></tr>
- * <tr><td>DefaultHmdCaps</td><td class="nw">unsigned int</td><td>capability bits described by {@code ovrHmdCaps} which are default for the current {@code Hmd}</td></tr>
- * <tr><td>AvailableTrackingCaps</td><td class="nw">unsigned int</td><td>capability bits described by {@code ovrTrackingCaps} which the system currently supports</td></tr>
- * <tr><td>DefaultTrackingCaps</td><td class="nw">unsigned int</td><td>capability bits described by {@code ovrTrackingCaps} which are default for the current system</td></tr>
- * <tr><td>DefaultEyeFov</td><td class="nw">{@link OVRFovPort ovrFovPort}[2]</td><td>the recommended optical FOV for the HMD</td></tr>
- * <tr><td>MaxEyeFov</td><td class="nw">{@link OVRFovPort ovrFovPort}[2]</td><td>the maximum optical FOV for the HMD</td></tr>
- * <tr><td>Resolution</td><td class="nw">{@link OVRSizei ovrSizei}</td><td>resolution of the full HMD screen (both eyes) in pixels</td></tr>
- * <tr><td>DisplayRefreshRate</td><td class="nw">float</td><td>nominal refresh rate of the display in cycles per second at the time of HMD creation</td></tr>
- * <tr><td>*</td><td class="nw">char[4]</td><td></td></tr>
+ * <tr><td>Type</td><td>this HMD's type</td></tr>
+ * <tr><td>ProductName</td><td>name string describing the product: "Oculus Rift DK1", etc.</td></tr>
+ * <tr><td>Manufacturer</td><td>string describing the manufacturer. Usually "Oculus".</td></tr>
+ * <tr><td>VendorId</td><td>HID Vendor ID of the device</td></tr>
+ * <tr><td>ProductId</td><td>HID Product ID of the device</td></tr>
+ * <tr><td>SerialNumber</td><td>sensor (and display) serial number</td></tr>
+ * <tr><td>FirmwareMajor</td><td>sensor firmware major version number</td></tr>
+ * <tr><td>FirmwareMinor</td><td>sensor firmware minor version number</td></tr>
+ * <tr><td>CameraFrustumHFovInRadians</td><td>horizontal field-of-view</td></tr>
+ * <tr><td>CameraFrustumVFovInRadians</td><td>vertical field-of-view</td></tr>
+ * <tr><td>CameraFrustumNearZInMeters</td><td>near clip distance</td></tr>
+ * <tr><td>CameraFrustumFarZInMeters</td><td>far clip distance</td></tr>
+ * <tr><td>AvailableHmdCaps</td><td>capability bits described by {@code ovrHmdCaps} which the HMD currently supports</td></tr>
+ * <tr><td>DefaultHmdCaps</td><td>capability bits described by {@code ovrHmdCaps} which are default for the current {@code Hmd}</td></tr>
+ * <tr><td>AvailableTrackingCaps</td><td>capability bits described by {@code ovrTrackingCaps} which the system currently supports</td></tr>
+ * <tr><td>DefaultTrackingCaps</td><td>capability bits described by {@code ovrTrackingCaps} which are default for the current system</td></tr>
+ * <tr><td>DefaultEyeFov</td><td>the recommended optical FOV for the HMD</td></tr>
+ * <tr><td>MaxEyeFov</td><td>the maximum optical FOV for the HMD</td></tr>
+ * <tr><td>Resolution</td><td>resolution of the full HMD screen (both eyes) in pixels</td></tr>
+ * <tr><td>DisplayRefreshRate</td><td>nominal refresh rate of the display in cycles per second at the time of HMD creation</td></tr>
  * </table>
  */
 public class OVRHmdDesc extends Struct {
@@ -126,12 +151,7 @@ public class OVRHmdDesc extends Struct {
 	}
 
 	OVRHmdDesc(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVRHmdDesc} instance at the specified memory address. */
-	public OVRHmdDesc(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -141,7 +161,7 @@ public class OVRHmdDesc extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVRHmdDesc(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -202,12 +222,12 @@ public class OVRHmdDesc extends Struct {
 
 	/** Returns a new {@link OVRHmdDesc} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVRHmdDesc malloc() {
-		return new OVRHmdDesc(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVRHmdDesc} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVRHmdDesc calloc() {
-		return new OVRHmdDesc(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVRHmdDesc} instance allocated with {@link BufferUtils}. */
@@ -215,13 +235,18 @@ public class OVRHmdDesc extends Struct {
 		return new OVRHmdDesc(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVRHmdDesc} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVRHmdDesc create(long address) {
+		return address == NULL ? null : new OVRHmdDesc(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVRHmdDesc.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -229,8 +254,8 @@ public class OVRHmdDesc extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -238,8 +263,8 @@ public class OVRHmdDesc extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -248,8 +273,8 @@ public class OVRHmdDesc extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #Type}. */
@@ -292,22 +317,22 @@ public class OVRHmdDesc extends Struct {
 	public static int nDefaultTrackingCaps(long struct) { return memGetInt(struct + OVRHmdDesc.DEFAULTTRACKINGCAPS); }
 	/** Unsafe version of {@link #DefaultEyeFov}. */
 	public static OVRFovPort.Buffer nDefaultEyeFov(long struct) {
-		return OVRFovPort.createBuffer(struct + OVRHmdDesc.DEFAULTEYEFOV, 2);
+		return OVRFovPort.create(struct + OVRHmdDesc.DEFAULTEYEFOV, 2);
 	}
 	/** Unsafe version of {@link #DefaultEyeFov(int) DefaultEyeFov}. */
 	public static OVRFovPort nDefaultEyeFov(long struct, int index) {
-		return new OVRFovPort(struct + OVRHmdDesc.DEFAULTEYEFOV + index * OVRFovPort.SIZEOF);
+		return OVRFovPort.create(struct + OVRHmdDesc.DEFAULTEYEFOV + index * OVRFovPort.SIZEOF);
 	}
 	/** Unsafe version of {@link #MaxEyeFov}. */
 	public static OVRFovPort.Buffer nMaxEyeFov(long struct) {
-		return OVRFovPort.createBuffer(struct + OVRHmdDesc.MAXEYEFOV, 2);
+		return OVRFovPort.create(struct + OVRHmdDesc.MAXEYEFOV, 2);
 	}
 	/** Unsafe version of {@link #MaxEyeFov(int) MaxEyeFov}. */
 	public static OVRFovPort nMaxEyeFov(long struct, int index) {
-		return new OVRFovPort(struct + OVRHmdDesc.MAXEYEFOV + index * OVRFovPort.SIZEOF);
+		return OVRFovPort.create(struct + OVRHmdDesc.MAXEYEFOV + index * OVRFovPort.SIZEOF);
 	}
 	/** Unsafe version of {@link #Resolution}. */
-	public static OVRSizei nResolution(long struct) { return new OVRSizei(struct + OVRHmdDesc.RESOLUTION); }
+	public static OVRSizei nResolution(long struct) { return OVRSizei.create(struct + OVRHmdDesc.RESOLUTION); }
 	/** Unsafe version of {@link #DisplayRefreshRate}. */
 	public static float nDisplayRefreshRate(long struct) { return memGetFloat(struct + OVRHmdDesc.DISPLAYREFRESHRATE); }
 
@@ -326,11 +351,11 @@ public class OVRHmdDesc extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -339,8 +364,8 @@ public class OVRHmdDesc extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -354,55 +379,55 @@ public class OVRHmdDesc extends Struct {
 		}
 
 		/** Returns the value of the {@code Type} field. */
-		public int Type() { return nType(address()); }
+		public int Type() { return OVRHmdDesc.nType(address()); }
 		/** Returns a {@link ByteBuffer} view of the {@code ProductName} field. */
-		public ByteBuffer ProductName() { return nProductName(address()); }
+		public ByteBuffer ProductName() { return OVRHmdDesc.nProductName(address()); }
 		/** Decodes the null-terminated string stored in the {@code ProductName} field. */
-		public String ProductNameString() { return nProductNameString(address()); }
+		public String ProductNameString() { return OVRHmdDesc.nProductNameString(address()); }
 		/** Returns a {@link ByteBuffer} view of the {@code Manufacturer} field. */
-		public ByteBuffer Manufacturer() { return nManufacturer(address()); }
+		public ByteBuffer Manufacturer() { return OVRHmdDesc.nManufacturer(address()); }
 		/** Decodes the null-terminated string stored in the {@code Manufacturer} field. */
-		public String ManufacturerString() { return nManufacturerString(address()); }
+		public String ManufacturerString() { return OVRHmdDesc.nManufacturerString(address()); }
 		/** Returns the value of the {@code VendorId} field. */
-		public short VendorId() { return nVendorId(address()); }
+		public short VendorId() { return OVRHmdDesc.nVendorId(address()); }
 		/** Returns the value of the {@code ProductId} field. */
-		public short ProductId() { return nProductId(address()); }
+		public short ProductId() { return OVRHmdDesc.nProductId(address()); }
 		/** Returns a {@link ByteBuffer} view of the {@code SerialNumber} field. */
-		public ByteBuffer SerialNumber() { return nSerialNumber(address()); }
+		public ByteBuffer SerialNumber() { return OVRHmdDesc.nSerialNumber(address()); }
 		/** Decodes the null-terminated string stored in the {@code SerialNumber} field. */
-		public String SerialNumberString() { return nSerialNumberString(address()); }
+		public String SerialNumberString() { return OVRHmdDesc.nSerialNumberString(address()); }
 		/** Returns the value of the {@code FirmwareMajor} field. */
-		public short FirmwareMajor() { return nFirmwareMajor(address()); }
+		public short FirmwareMajor() { return OVRHmdDesc.nFirmwareMajor(address()); }
 		/** Returns the value of the {@code FirmwareMinor} field. */
-		public short FirmwareMinor() { return nFirmwareMinor(address()); }
+		public short FirmwareMinor() { return OVRHmdDesc.nFirmwareMinor(address()); }
 		/** Returns the value of the {@code CameraFrustumHFovInRadians} field. */
-		public float CameraFrustumHFovInRadians() { return nCameraFrustumHFovInRadians(address()); }
+		public float CameraFrustumHFovInRadians() { return OVRHmdDesc.nCameraFrustumHFovInRadians(address()); }
 		/** Returns the value of the {@code CameraFrustumVFovInRadians} field. */
-		public float CameraFrustumVFovInRadians() { return nCameraFrustumVFovInRadians(address()); }
+		public float CameraFrustumVFovInRadians() { return OVRHmdDesc.nCameraFrustumVFovInRadians(address()); }
 		/** Returns the value of the {@code CameraFrustumNearZInMeters} field. */
-		public float CameraFrustumNearZInMeters() { return nCameraFrustumNearZInMeters(address()); }
+		public float CameraFrustumNearZInMeters() { return OVRHmdDesc.nCameraFrustumNearZInMeters(address()); }
 		/** Returns the value of the {@code CameraFrustumFarZInMeters} field. */
-		public float CameraFrustumFarZInMeters() { return nCameraFrustumFarZInMeters(address()); }
+		public float CameraFrustumFarZInMeters() { return OVRHmdDesc.nCameraFrustumFarZInMeters(address()); }
 		/** Returns the value of the {@code AvailableHmdCaps} field. */
-		public int AvailableHmdCaps() { return nAvailableHmdCaps(address()); }
+		public int AvailableHmdCaps() { return OVRHmdDesc.nAvailableHmdCaps(address()); }
 		/** Returns the value of the {@code DefaultHmdCaps} field. */
-		public int DefaultHmdCaps() { return nDefaultHmdCaps(address()); }
+		public int DefaultHmdCaps() { return OVRHmdDesc.nDefaultHmdCaps(address()); }
 		/** Returns the value of the {@code AvailableTrackingCaps} field. */
-		public int AvailableTrackingCaps() { return nAvailableTrackingCaps(address()); }
+		public int AvailableTrackingCaps() { return OVRHmdDesc.nAvailableTrackingCaps(address()); }
 		/** Returns the value of the {@code DefaultTrackingCaps} field. */
-		public int DefaultTrackingCaps() { return nDefaultTrackingCaps(address()); }
+		public int DefaultTrackingCaps() { return OVRHmdDesc.nDefaultTrackingCaps(address()); }
 		/** Returns a {@link OVRFovPort}.Buffer view of the {@code DefaultEyeFov} field. */
-		public OVRFovPort.Buffer DefaultEyeFov() { return nDefaultEyeFov(address()); }
+		public OVRFovPort.Buffer DefaultEyeFov() { return OVRHmdDesc.nDefaultEyeFov(address()); }
 		/** Returns a {@link OVRFovPort} view of the struct at the specified index of the {@code DefaultEyeFov} field. */
-		public OVRFovPort DefaultEyeFov(int index) { return nDefaultEyeFov(address(), index); }
+		public OVRFovPort DefaultEyeFov(int index) { return OVRHmdDesc.nDefaultEyeFov(address(), index); }
 		/** Returns a {@link OVRFovPort}.Buffer view of the {@code MaxEyeFov} field. */
-		public OVRFovPort.Buffer MaxEyeFov() { return nMaxEyeFov(address()); }
+		public OVRFovPort.Buffer MaxEyeFov() { return OVRHmdDesc.nMaxEyeFov(address()); }
 		/** Returns a {@link OVRFovPort} view of the struct at the specified index of the {@code MaxEyeFov} field. */
-		public OVRFovPort MaxEyeFov(int index) { return nMaxEyeFov(address(), index); }
+		public OVRFovPort MaxEyeFov(int index) { return OVRHmdDesc.nMaxEyeFov(address(), index); }
 		/** Returns a {@link OVRSizei} view of the {@code Resolution} field. */
-		public OVRSizei Resolution() { return nResolution(address()); }
+		public OVRSizei Resolution() { return OVRHmdDesc.nResolution(address()); }
 		/** Returns the value of the {@code DisplayRefreshRate} field. */
-		public float DisplayRefreshRate() { return nDisplayRefreshRate(address()); }
+		public float DisplayRefreshRate() { return OVRHmdDesc.nDisplayRefreshRate(address()); }
 
 	}
 

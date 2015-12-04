@@ -15,20 +15,20 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Packed character data, returned by {@link STBTruetype#stbtt_PackFontRange}
  * 
- * <h3>stbtt_packedchar members</h3>
+ * <h3>Layout</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>x0</td><td class="nw">unsigned short</td><td></td></tr>
- * <tr><td>y0</td><td class="nw">unsigned short</td><td></td></tr>
- * <tr><td>x1</td><td class="nw">unsigned short</td><td></td></tr>
- * <tr><td>y1</td><td class="nw">unsigned short</td><td></td></tr>
- * <tr><td>xoff</td><td class="nw">float</td><td></td></tr>
- * <tr><td>yoff</td><td class="nw">float</td><td></td></tr>
- * <tr><td>xadvance</td><td class="nw">float</td><td></td></tr>
- * <tr><td>xoff2</td><td class="nw">float</td><td></td></tr>
- * <tr><td>yoff2</td><td class="nw">float</td><td></td></tr>
- * </table>
+ * <pre><code style="font-family: monospace">
+ * struct stbtt_packedchar {
+ *     unsigned short x0;
+ *     unsigned short y0;
+ *     unsigned short x1;
+ *     unsigned short y1;
+ *     float xoff;
+ *     float yoff;
+ *     float xadvance;
+ *     float xoff2;
+ *     float yoff2;
+ * }</code></pre>
  */
 public class STBTTPackedchar extends Struct {
 
@@ -78,12 +78,7 @@ public class STBTTPackedchar extends Struct {
 	}
 
 	STBTTPackedchar(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link STBTTPackedchar} instance at the specified memory address. */
-	public STBTTPackedchar(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -93,7 +88,7 @@ public class STBTTPackedchar extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public STBTTPackedchar(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -122,12 +117,12 @@ public class STBTTPackedchar extends Struct {
 
 	/** Returns a new {@link STBTTPackedchar} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static STBTTPackedchar malloc() {
-		return new STBTTPackedchar(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link STBTTPackedchar} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static STBTTPackedchar calloc() {
-		return new STBTTPackedchar(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link STBTTPackedchar} instance allocated with {@link BufferUtils}. */
@@ -135,13 +130,18 @@ public class STBTTPackedchar extends Struct {
 		return new STBTTPackedchar(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link STBTTPackedchar} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static STBTTPackedchar create(long address) {
+		return address == NULL ? null : new STBTTPackedchar(address, null);
+	}
+
 	/**
 	 * Returns a new {@link STBTTPackedchar.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -149,8 +149,8 @@ public class STBTTPackedchar extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -158,8 +158,8 @@ public class STBTTPackedchar extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -168,8 +168,8 @@ public class STBTTPackedchar extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #x0}. */
@@ -206,11 +206,11 @@ public class STBTTPackedchar extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -219,8 +219,8 @@ public class STBTTPackedchar extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -234,23 +234,23 @@ public class STBTTPackedchar extends Struct {
 		}
 
 		/** Returns the value of the {@code x0} field. */
-		public short x0() { return nx0(address()); }
+		public short x0() { return STBTTPackedchar.nx0(address()); }
 		/** Returns the value of the {@code y0} field. */
-		public short y0() { return ny0(address()); }
+		public short y0() { return STBTTPackedchar.ny0(address()); }
 		/** Returns the value of the {@code x1} field. */
-		public short x1() { return nx1(address()); }
+		public short x1() { return STBTTPackedchar.nx1(address()); }
 		/** Returns the value of the {@code y1} field. */
-		public short y1() { return ny1(address()); }
+		public short y1() { return STBTTPackedchar.ny1(address()); }
 		/** Returns the value of the {@code xoff} field. */
-		public float xoff() { return nxoff(address()); }
+		public float xoff() { return STBTTPackedchar.nxoff(address()); }
 		/** Returns the value of the {@code yoff} field. */
-		public float yoff() { return nyoff(address()); }
+		public float yoff() { return STBTTPackedchar.nyoff(address()); }
 		/** Returns the value of the {@code xadvance} field. */
-		public float xadvance() { return nxadvance(address()); }
+		public float xadvance() { return STBTTPackedchar.nxadvance(address()); }
 		/** Returns the value of the {@code xoff2} field. */
-		public float xoff2() { return nxoff2(address()); }
+		public float xoff2() { return STBTTPackedchar.nxoff2(address()); }
 		/** Returns the value of the {@code yoff2} field. */
-		public float yoff2() { return nyoff2(address()); }
+		public float yoff2() { return STBTTPackedchar.nyoff2(address()); }
 
 	}
 

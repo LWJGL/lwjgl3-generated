@@ -15,16 +15,16 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Vertex data.
  * 
- * <h3>stbtt_vertex members</h3>
+ * <h3>Layout</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>x</td><td class="nw">stbtt_vertex_type</td><td></td></tr>
- * <tr><td>y</td><td class="nw">stbtt_vertex_type</td><td></td></tr>
- * <tr><td>cx</td><td class="nw">stbtt_vertex_type</td><td></td></tr>
- * <tr><td>cy</td><td class="nw">stbtt_vertex_type</td><td></td></tr>
- * <tr><td>type</td><td class="nw">unsigned char</td><td></td></tr>
- * </table>
+ * <pre><code style="font-family: monospace">
+ * struct stbtt_vertex {
+ *     stbtt_vertex_type x;
+ *     stbtt_vertex_type y;
+ *     stbtt_vertex_type cx;
+ *     stbtt_vertex_type cy;
+ *     unsigned char type;
+ * }</code></pre>
  */
 public class STBTTVertex extends Struct {
 
@@ -62,12 +62,7 @@ public class STBTTVertex extends Struct {
 	}
 
 	STBTTVertex(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link STBTTVertex} instance at the specified memory address. */
-	public STBTTVertex(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -77,7 +72,7 @@ public class STBTTVertex extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public STBTTVertex(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -98,12 +93,12 @@ public class STBTTVertex extends Struct {
 
 	/** Returns a new {@link STBTTVertex} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static STBTTVertex malloc() {
-		return new STBTTVertex(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link STBTTVertex} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static STBTTVertex calloc() {
-		return new STBTTVertex(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link STBTTVertex} instance allocated with {@link BufferUtils}. */
@@ -111,13 +106,18 @@ public class STBTTVertex extends Struct {
 		return new STBTTVertex(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link STBTTVertex} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static STBTTVertex create(long address) {
+		return address == NULL ? null : new STBTTVertex(address, null);
+	}
+
 	/**
 	 * Returns a new {@link STBTTVertex.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -125,8 +125,8 @@ public class STBTTVertex extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -134,8 +134,8 @@ public class STBTTVertex extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -144,8 +144,8 @@ public class STBTTVertex extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #x}. */
@@ -174,11 +174,11 @@ public class STBTTVertex extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -187,8 +187,8 @@ public class STBTTVertex extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -202,15 +202,15 @@ public class STBTTVertex extends Struct {
 		}
 
 		/** Returns the value of the {@code x} field. */
-		public short x() { return nx(address()); }
+		public short x() { return STBTTVertex.nx(address()); }
 		/** Returns the value of the {@code y} field. */
-		public short y() { return ny(address()); }
+		public short y() { return STBTTVertex.ny(address()); }
 		/** Returns the value of the {@code cx} field. */
-		public short cx() { return ncx(address()); }
+		public short cx() { return STBTTVertex.ncx(address()); }
 		/** Returns the value of the {@code cy} field. */
-		public short cy() { return ncy(address()); }
+		public short cy() { return STBTTVertex.ncy(address()); }
 		/** Returns the value of the {@code type} field. */
-		public byte type() { return ntype(address()); }
+		public byte type() { return STBTTVertex.ntype(address()); }
 
 	}
 

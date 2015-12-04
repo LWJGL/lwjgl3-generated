@@ -16,14 +16,23 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Describes the gamma ramp for a monitor.
  * 
- * <h3>GLFWgammaramp members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct GLFWgammaramp {
+ *     unsigned short * red;
+ *     unsigned short * green;
+ *     unsigned short * blue;
+ *     unsigned int size;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>red</td><td class="nw">unsigned short *</td><td>an array of value describing the response of the red channel</td></tr>
- * <tr><td>green</td><td class="nw">unsigned short *</td><td>an array of value describing the response of the green channel</td></tr>
- * <tr><td>blue</td><td class="nw">unsigned short *</td><td>an array of value describing the response of the blue channel</td></tr>
- * <tr><td>size</td><td class="nw">unsigned int</td><td>the number of elements in each array</td></tr>
+ * <tr><td>red</td><td>an array of value describing the response of the red channel</td></tr>
+ * <tr><td>green</td><td>an array of value describing the response of the green channel</td></tr>
+ * <tr><td>blue</td><td>an array of value describing the response of the blue channel</td></tr>
+ * <tr><td>size</td><td>the number of elements in each array</td></tr>
  * </table>
  */
 public class GLFWGammaRamp extends Struct {
@@ -59,12 +68,7 @@ public class GLFWGammaRamp extends Struct {
 	}
 
 	GLFWGammaRamp(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link GLFWGammaRamp} instance at the specified memory address. */
-	public GLFWGammaRamp(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -74,7 +78,7 @@ public class GLFWGammaRamp extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public GLFWGammaRamp(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -153,12 +157,12 @@ public class GLFWGammaRamp extends Struct {
 
 	/** Returns a new {@link GLFWGammaRamp} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static GLFWGammaRamp malloc() {
-		return new GLFWGammaRamp(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link GLFWGammaRamp} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static GLFWGammaRamp calloc() {
-		return new GLFWGammaRamp(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link GLFWGammaRamp} instance allocated with {@link BufferUtils}. */
@@ -166,13 +170,18 @@ public class GLFWGammaRamp extends Struct {
 		return new GLFWGammaRamp(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link GLFWGammaRamp} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static GLFWGammaRamp create(long address) {
+		return address == NULL ? null : new GLFWGammaRamp(address, null);
+	}
+
 	/**
 	 * Returns a new {@link GLFWGammaRamp.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -180,8 +189,8 @@ public class GLFWGammaRamp extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -189,8 +198,8 @@ public class GLFWGammaRamp extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -199,8 +208,8 @@ public class GLFWGammaRamp extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #red(int) red}. */
@@ -236,11 +245,11 @@ public class GLFWGammaRamp extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -249,8 +258,8 @@ public class GLFWGammaRamp extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -268,30 +277,30 @@ public class GLFWGammaRamp extends Struct {
 		 *
 		 * @param capacity the number of elements in the returned {@link ShortBuffer}
 		 */
-		public ShortBuffer red(int capacity) { return nred(address(), capacity); }
+		public ShortBuffer red(int capacity) { return GLFWGammaRamp.nred(address(), capacity); }
 		/**
 		 * Returns a {@link ShortBuffer} view of the data pointed to by the {@code green} field.
 		 *
 		 * @param capacity the number of elements in the returned {@link ShortBuffer}
 		 */
-		public ShortBuffer green(int capacity) { return ngreen(address(), capacity); }
+		public ShortBuffer green(int capacity) { return GLFWGammaRamp.ngreen(address(), capacity); }
 		/**
 		 * Returns a {@link ShortBuffer} view of the data pointed to by the {@code blue} field.
 		 *
 		 * @param capacity the number of elements in the returned {@link ShortBuffer}
 		 */
-		public ShortBuffer blue(int capacity) { return nblue(address(), capacity); }
+		public ShortBuffer blue(int capacity) { return GLFWGammaRamp.nblue(address(), capacity); }
 		/** Returns the value of the {@code size} field. */
-		public int size() { return nsize(address()); }
+		public int size() { return GLFWGammaRamp.nsize(address()); }
 
 		/** Sets the address of the specified {@link ShortBuffer} to the {@code red} field. */
-		public GLFWGammaRamp.Buffer red(ShortBuffer value) { nred(address(), value); return this; }
+		public GLFWGammaRamp.Buffer red(ShortBuffer value) { GLFWGammaRamp.nred(address(), value); return this; }
 		/** Sets the address of the specified {@link ShortBuffer} to the {@code green} field. */
-		public GLFWGammaRamp.Buffer green(ShortBuffer value) { ngreen(address(), value); return this; }
+		public GLFWGammaRamp.Buffer green(ShortBuffer value) { GLFWGammaRamp.ngreen(address(), value); return this; }
 		/** Sets the address of the specified {@link ShortBuffer} to the {@code blue} field. */
-		public GLFWGammaRamp.Buffer blue(ShortBuffer value) { nblue(address(), value); return this; }
+		public GLFWGammaRamp.Buffer blue(ShortBuffer value) { GLFWGammaRamp.nblue(address(), value); return this; }
 		/** Sets the specified value to the {@code size} field. */
-		public GLFWGammaRamp.Buffer size(int value) { nsize(address(), value); return this; }
+		public GLFWGammaRamp.Buffer size(int value) { GLFWGammaRamp.nsize(address(), value); return this; }
 
 	}
 

@@ -15,12 +15,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Provides information about the last error.
  * 
- * <h3>ovrErrorInfo members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ovrErrorInfo {
+ *     ovrResult Result;
+ *     char[512] ErrorString;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Result</td><td class="nw">ovrResult</td><td>the result from the last API call that generated an error ovrResult</td></tr>
- * <tr><td>ErrorString</td><td class="nw">char[512]</td><td>a UTF8-encoded null-terminated English string describing the problem. The format of this string is subject to change in future versions</td></tr>
+ * <tr><td>Result</td><td>the result from the last API call that generated an error ovrResult</td></tr>
+ * <tr><td>ErrorString</td><td>a UTF8-encoded null-terminated English string describing the problem. The format of this string is subject to change in future versions</td></tr>
  * </table>
  */
 public class OVRErrorInfo extends Struct {
@@ -50,12 +57,7 @@ public class OVRErrorInfo extends Struct {
 	}
 
 	OVRErrorInfo(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVRErrorInfo} instance at the specified memory address. */
-	public OVRErrorInfo(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -65,7 +67,7 @@ public class OVRErrorInfo extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVRErrorInfo(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -82,12 +84,12 @@ public class OVRErrorInfo extends Struct {
 
 	/** Returns a new {@link OVRErrorInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVRErrorInfo malloc() {
-		return new OVRErrorInfo(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVRErrorInfo} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVRErrorInfo calloc() {
-		return new OVRErrorInfo(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVRErrorInfo} instance allocated with {@link BufferUtils}. */
@@ -95,13 +97,18 @@ public class OVRErrorInfo extends Struct {
 		return new OVRErrorInfo(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVRErrorInfo} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVRErrorInfo create(long address) {
+		return address == NULL ? null : new OVRErrorInfo(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVRErrorInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -109,8 +116,8 @@ public class OVRErrorInfo extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -118,8 +125,8 @@ public class OVRErrorInfo extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -128,8 +135,8 @@ public class OVRErrorInfo extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #Result}. */
@@ -156,11 +163,11 @@ public class OVRErrorInfo extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -169,8 +176,8 @@ public class OVRErrorInfo extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -184,11 +191,11 @@ public class OVRErrorInfo extends Struct {
 		}
 
 		/** Returns the value of the {@code Result} field. */
-		public int Result() { return nResult(address()); }
+		public int Result() { return OVRErrorInfo.nResult(address()); }
 		/** Returns a {@link ByteBuffer} view of the {@code ErrorString} field. */
-		public ByteBuffer ErrorString() { return nErrorString(address()); }
+		public ByteBuffer ErrorString() { return OVRErrorInfo.nErrorString(address()); }
 		/** Returns the value at the specified index of the {@code ErrorString} field. */
-		public byte ErrorString(int index) { return nErrorString(address(), index); }
+		public byte ErrorString(int index) { return OVRErrorInfo.nErrorString(address(), index); }
 
 	}
 

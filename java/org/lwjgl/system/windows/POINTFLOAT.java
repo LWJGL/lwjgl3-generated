@@ -16,12 +16,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Contains the x and y coordinates of a point.
  * 
- * <h3>POINTFLOAT members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct POINTFLOAT {
+ *     FLOAT x;
+ *     FLOAT y;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>x</td><td class="nw">FLOAT</td><td>specifies the horizontal (x) coordinate of a point</td></tr>
- * <tr><td>y</td><td class="nw">FLOAT</td><td>specifies the vertical (y) coordinate of a point</td></tr>
+ * <tr><td>x</td><td>specifies the horizontal (x) coordinate of a point</td></tr>
+ * <tr><td>y</td><td>specifies the vertical (y) coordinate of a point</td></tr>
  * </table>
  */
 public class POINTFLOAT extends Struct {
@@ -51,12 +58,7 @@ public class POINTFLOAT extends Struct {
 	}
 
 	POINTFLOAT(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link POINTFLOAT} instance at the specified memory address. */
-	public POINTFLOAT(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -66,7 +68,7 @@ public class POINTFLOAT extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public POINTFLOAT(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -121,12 +123,12 @@ public class POINTFLOAT extends Struct {
 
 	/** Returns a new {@link POINTFLOAT} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static POINTFLOAT malloc() {
-		return new POINTFLOAT(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link POINTFLOAT} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static POINTFLOAT calloc() {
-		return new POINTFLOAT(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link POINTFLOAT} instance allocated with {@link BufferUtils}. */
@@ -134,13 +136,18 @@ public class POINTFLOAT extends Struct {
 		return new POINTFLOAT(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link POINTFLOAT} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static POINTFLOAT create(long address) {
+		return address == NULL ? null : new POINTFLOAT(address, null);
+	}
+
 	/**
 	 * Returns a new {@link POINTFLOAT.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -148,8 +155,8 @@ public class POINTFLOAT extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -157,8 +164,8 @@ public class POINTFLOAT extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -167,8 +174,8 @@ public class POINTFLOAT extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #x}. */
@@ -196,11 +203,11 @@ public class POINTFLOAT extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -209,8 +216,8 @@ public class POINTFLOAT extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -224,14 +231,14 @@ public class POINTFLOAT extends Struct {
 		}
 
 		/** Returns the value of the {@code x} field. */
-		public float x() { return nx(address()); }
+		public float x() { return POINTFLOAT.nx(address()); }
 		/** Returns the value of the {@code y} field. */
-		public float y() { return ny(address()); }
+		public float y() { return POINTFLOAT.ny(address()); }
 
 		/** Sets the specified value to the {@code x} field. */
-		public POINTFLOAT.Buffer x(float value) { nx(address(), value); return this; }
+		public POINTFLOAT.Buffer x(float value) { POINTFLOAT.nx(address(), value); return this; }
 		/** Sets the specified value to the {@code y} field. */
-		public POINTFLOAT.Buffer y(float value) { ny(address(), value); return this; }
+		public POINTFLOAT.Buffer y(float value) { POINTFLOAT.ny(address(), value); return this; }
 
 	}
 

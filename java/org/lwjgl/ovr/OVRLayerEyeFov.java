@@ -17,17 +17,28 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Describes a layer that specifies a monoscopic or stereoscopic view. This is the kind of layer that's typically used as layer 0 to
  * {@link OVR#ovr_SubmitFrame}, as it is the kind of layer used to render a 3D stereoscopic view.
  * 
- * <h3>ovrLayerEyeFov members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ovrLayerEyeFov {
+ *     {@link OVRLayerHeader ovrLayerHeader} Header;
+ *     ovrSwapTextureSet *[2] ColorTexture;
+ *     {@link OVRRecti ovrRecti}[2] Viewport;
+ *     {@link OVRFovPort ovrFovPort}[2] Fov;
+ *     {@link OVRPosef ovrPosef}[2] RenderPose;
+ *     double SensorSampleTime;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Header</td><td class="nw">{@link OVRLayerHeader ovrLayerHeader}</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_EyeFov}.</td></tr>
- * <tr><td>ColorTexture</td><td class="nw">ovrSwapTextureSet *[2]</td><td>{@code ovrSwapTextureSets} for the left and right eye respectively. The second one of which can be {@code NULL}.</td></tr>
- * <tr><td>Viewport</td><td class="nw">{@link OVRRecti ovrRecti}[2]</td><td>specifies the ColorTexture sub-rect UV coordinates. Both {@code Viewport[0]} and {@code Viewport[1]} must be valid.</td></tr>
- * <tr><td>Fov</td><td class="nw">{@link OVRFovPort ovrFovPort}[2]</td><td>the viewport field of view</td></tr>
- * <tr><td>RenderPose</td><td class="nw">{@link OVRPosef ovrPosef}[2]</td><td>specifies the position and orientation of each eye view, with the position specified in meters. RenderPose will typically be the value returned from
+ * <tr><td>Header</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_EyeFov}.</td></tr>
+ * <tr><td>ColorTexture</td><td>{@code ovrSwapTextureSets} for the left and right eye respectively. The second one of which can be {@code NULL}.</td></tr>
+ * <tr><td>Viewport</td><td>specifies the ColorTexture sub-rect UV coordinates. Both {@code Viewport[0]} and {@code Viewport[1]} must be valid.</td></tr>
+ * <tr><td>Fov</td><td>the viewport field of view</td></tr>
+ * <tr><td>RenderPose</td><td>specifies the position and orientation of each eye view, with the position specified in meters. RenderPose will typically be the value returned from
  * {@link OVRUtil#ovr_CalcEyePoses}, but can be different in special cases if a different head pose is used for rendering.</td></tr>
- * <tr><td>SensorSampleTime</td><td class="nw">double</td><td>specifies the timestamp when the source {@link OVRPosef} (used in calculating RenderPose) was sampled from the SDK. Typically retrieved by calling
+ * <tr><td>SensorSampleTime</td><td>specifies the timestamp when the source {@link OVRPosef} (used in calculating RenderPose) was sampled from the SDK. Typically retrieved by calling
  * {@link OVR#ovr_GetTimeInSeconds} around the instant the application calls {@link OVR#ovr_GetTrackingState}. The main purpose for this is to accurately track app
  * tracking latency.</td></tr>
  * </table>
@@ -71,12 +82,7 @@ public class OVRLayerEyeFov extends Struct {
 	}
 
 	OVRLayerEyeFov(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVRLayerEyeFov} instance at the specified memory address. */
-	public OVRLayerEyeFov(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -86,7 +92,7 @@ public class OVRLayerEyeFov extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVRLayerEyeFov(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -181,12 +187,12 @@ public class OVRLayerEyeFov extends Struct {
 
 	/** Returns a new {@link OVRLayerEyeFov} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVRLayerEyeFov malloc() {
-		return new OVRLayerEyeFov(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVRLayerEyeFov} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVRLayerEyeFov calloc() {
-		return new OVRLayerEyeFov(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVRLayerEyeFov} instance allocated with {@link BufferUtils}. */
@@ -194,13 +200,18 @@ public class OVRLayerEyeFov extends Struct {
 		return new OVRLayerEyeFov(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVRLayerEyeFov} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVRLayerEyeFov create(long address) {
+		return address == NULL ? null : new OVRLayerEyeFov(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVRLayerEyeFov.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -208,8 +219,8 @@ public class OVRLayerEyeFov extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -217,8 +228,8 @@ public class OVRLayerEyeFov extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -227,43 +238,43 @@ public class OVRLayerEyeFov extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #Header}. */
-	public static OVRLayerHeader nHeader(long struct) { return new OVRLayerHeader(struct + OVRLayerEyeFov.HEADER); }
+	public static OVRLayerHeader nHeader(long struct) { return OVRLayerHeader.create(struct + OVRLayerEyeFov.HEADER); }
 	/** Unsafe version of {@link #ColorTexture}. */
 	public static PointerBuffer nColorTexture(long struct) {
 		return memPointerBuffer(struct + OVRLayerEyeFov.COLORTEXTURE, 2);
 	}
 	/** Unsafe version of {@link #ColorTexture(int) ColorTexture}. */
 	public static OVRSwapTextureSet nColorTexture(long struct, int index) {
-		return new OVRSwapTextureSet(memGetAddress(struct + OVRLayerEyeFov.COLORTEXTURE + index * POINTER_SIZE));
+		return OVRSwapTextureSet.create(memGetAddress(struct + OVRLayerEyeFov.COLORTEXTURE + index * POINTER_SIZE));
 	}
 	/** Unsafe version of {@link #Viewport}. */
 	public static OVRRecti.Buffer nViewport(long struct) {
-		return OVRRecti.createBuffer(struct + OVRLayerEyeFov.VIEWPORT, 2);
+		return OVRRecti.create(struct + OVRLayerEyeFov.VIEWPORT, 2);
 	}
 	/** Unsafe version of {@link #Viewport(int) Viewport}. */
 	public static OVRRecti nViewport(long struct, int index) {
-		return new OVRRecti(struct + OVRLayerEyeFov.VIEWPORT + index * OVRRecti.SIZEOF);
+		return OVRRecti.create(struct + OVRLayerEyeFov.VIEWPORT + index * OVRRecti.SIZEOF);
 	}
 	/** Unsafe version of {@link #Fov}. */
 	public static OVRFovPort.Buffer nFov(long struct) {
-		return OVRFovPort.createBuffer(struct + OVRLayerEyeFov.FOV, 2);
+		return OVRFovPort.create(struct + OVRLayerEyeFov.FOV, 2);
 	}
 	/** Unsafe version of {@link #Fov(int) Fov}. */
 	public static OVRFovPort nFov(long struct, int index) {
-		return new OVRFovPort(struct + OVRLayerEyeFov.FOV + index * OVRFovPort.SIZEOF);
+		return OVRFovPort.create(struct + OVRLayerEyeFov.FOV + index * OVRFovPort.SIZEOF);
 	}
 	/** Unsafe version of {@link #RenderPose}. */
 	public static OVRPosef.Buffer nRenderPose(long struct) {
-		return OVRPosef.createBuffer(struct + OVRLayerEyeFov.RENDERPOSE, 2);
+		return OVRPosef.create(struct + OVRLayerEyeFov.RENDERPOSE, 2);
 	}
 	/** Unsafe version of {@link #RenderPose(int) RenderPose}. */
 	public static OVRPosef nRenderPose(long struct, int index) {
-		return new OVRPosef(struct + OVRLayerEyeFov.RENDERPOSE + index * OVRPosef.SIZEOF);
+		return OVRPosef.create(struct + OVRLayerEyeFov.RENDERPOSE + index * OVRPosef.SIZEOF);
 	}
 	/** Unsafe version of {@link #SensorSampleTime}. */
 	public static double nSensorSampleTime(long struct) { return memGetDouble(struct + OVRLayerEyeFov.SENSORSAMPLETIME); }
@@ -316,11 +327,11 @@ public class OVRLayerEyeFov extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -329,8 +340,8 @@ public class OVRLayerEyeFov extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -344,46 +355,46 @@ public class OVRLayerEyeFov extends Struct {
 		}
 
 		/** Returns a {@link OVRLayerHeader} view of the {@code Header} field. */
-		public OVRLayerHeader Header() { return nHeader(address()); }
+		public OVRLayerHeader Header() { return OVRLayerEyeFov.nHeader(address()); }
 		/** Returns a {@link PointerBuffer} view of the {@code ColorTexture} field. */
-		public PointerBuffer ColorTexture() { return nColorTexture(address()); }
+		public PointerBuffer ColorTexture() { return OVRLayerEyeFov.nColorTexture(address()); }
 		/** Returns a {@link OVRSwapTextureSet} view of the pointer at the specified index of the {@code ColorTexture}. */
-		public OVRSwapTextureSet ColorTexture(int index) { return nColorTexture(address(), index); }
+		public OVRSwapTextureSet ColorTexture(int index) { return OVRLayerEyeFov.nColorTexture(address(), index); }
 		/** Returns a {@link OVRRecti}.Buffer view of the {@code Viewport} field. */
-		public OVRRecti.Buffer Viewport() { return nViewport(address()); }
+		public OVRRecti.Buffer Viewport() { return OVRLayerEyeFov.nViewport(address()); }
 		/** Returns a {@link OVRRecti} view of the struct at the specified index of the {@code Viewport} field. */
-		public OVRRecti Viewport(int index) { return nViewport(address(), index); }
+		public OVRRecti Viewport(int index) { return OVRLayerEyeFov.nViewport(address(), index); }
 		/** Returns a {@link OVRFovPort}.Buffer view of the {@code Fov} field. */
-		public OVRFovPort.Buffer Fov() { return nFov(address()); }
+		public OVRFovPort.Buffer Fov() { return OVRLayerEyeFov.nFov(address()); }
 		/** Returns a {@link OVRFovPort} view of the struct at the specified index of the {@code Fov} field. */
-		public OVRFovPort Fov(int index) { return nFov(address(), index); }
+		public OVRFovPort Fov(int index) { return OVRLayerEyeFov.nFov(address(), index); }
 		/** Returns a {@link OVRPosef}.Buffer view of the {@code RenderPose} field. */
-		public OVRPosef.Buffer RenderPose() { return nRenderPose(address()); }
+		public OVRPosef.Buffer RenderPose() { return OVRLayerEyeFov.nRenderPose(address()); }
 		/** Returns a {@link OVRPosef} view of the struct at the specified index of the {@code RenderPose} field. */
-		public OVRPosef RenderPose(int index) { return nRenderPose(address(), index); }
+		public OVRPosef RenderPose(int index) { return OVRLayerEyeFov.nRenderPose(address(), index); }
 		/** Returns the value of the {@code SensorSampleTime} field. */
-		public double SensorSampleTime() { return nSensorSampleTime(address()); }
+		public double SensorSampleTime() { return OVRLayerEyeFov.nSensorSampleTime(address()); }
 
 		/** Copies the specified {@link OVRLayerHeader} to the {@code Header} field. */
-		public OVRLayerEyeFov.Buffer Header(OVRLayerHeader value) { nHeader(address(), value); return this; }
+		public OVRLayerEyeFov.Buffer Header(OVRLayerHeader value) { OVRLayerEyeFov.nHeader(address(), value); return this; }
 		/** Copies the specified {@link PointerBuffer} to the {@code ColorTexture} field. */
-		public OVRLayerEyeFov.Buffer ColorTexture(PointerBuffer value) { nColorTexture(address(), value); return this; }
+		public OVRLayerEyeFov.Buffer ColorTexture(PointerBuffer value) { OVRLayerEyeFov.nColorTexture(address(), value); return this; }
 		/** Copies the address of the specified {@link OVRSwapTextureSet} at the specified index of the {@code ColorTexture} field. */
-		public OVRLayerEyeFov.Buffer ColorTexture(int index, OVRSwapTextureSet value) { nColorTexture(address(), index, value); return this; }
+		public OVRLayerEyeFov.Buffer ColorTexture(int index, OVRSwapTextureSet value) { OVRLayerEyeFov.nColorTexture(address(), index, value); return this; }
 		/** Copies the specified {@link OVRRecti.Buffer} to the {@code Viewport} field. */
-		public OVRLayerEyeFov.Buffer Viewport(OVRRecti.Buffer value) { nViewport(address(), value); return this; }
+		public OVRLayerEyeFov.Buffer Viewport(OVRRecti.Buffer value) { OVRLayerEyeFov.nViewport(address(), value); return this; }
 		/** Copies the specified {@link OVRRecti} at the specified index of the {@code Viewport} field. */
-		public OVRLayerEyeFov.Buffer Viewport(int index, OVRRecti value) { nViewport(address(), index, value); return this; }
+		public OVRLayerEyeFov.Buffer Viewport(int index, OVRRecti value) { OVRLayerEyeFov.nViewport(address(), index, value); return this; }
 		/** Copies the specified {@link OVRFovPort.Buffer} to the {@code Fov} field. */
-		public OVRLayerEyeFov.Buffer Fov(OVRFovPort.Buffer value) { nFov(address(), value); return this; }
+		public OVRLayerEyeFov.Buffer Fov(OVRFovPort.Buffer value) { OVRLayerEyeFov.nFov(address(), value); return this; }
 		/** Copies the specified {@link OVRFovPort} at the specified index of the {@code Fov} field. */
-		public OVRLayerEyeFov.Buffer Fov(int index, OVRFovPort value) { nFov(address(), index, value); return this; }
+		public OVRLayerEyeFov.Buffer Fov(int index, OVRFovPort value) { OVRLayerEyeFov.nFov(address(), index, value); return this; }
 		/** Copies the specified {@link OVRPosef.Buffer} to the {@code RenderPose} field. */
-		public OVRLayerEyeFov.Buffer RenderPose(OVRPosef.Buffer value) { nRenderPose(address(), value); return this; }
+		public OVRLayerEyeFov.Buffer RenderPose(OVRPosef.Buffer value) { OVRLayerEyeFov.nRenderPose(address(), value); return this; }
 		/** Copies the specified {@link OVRPosef} at the specified index of the {@code RenderPose} field. */
-		public OVRLayerEyeFov.Buffer RenderPose(int index, OVRPosef value) { nRenderPose(address(), index, value); return this; }
+		public OVRLayerEyeFov.Buffer RenderPose(int index, OVRPosef value) { OVRLayerEyeFov.nRenderPose(address(), index, value); return this; }
 		/** Sets the specified value to the {@code SensorSampleTime} field. */
-		public OVRLayerEyeFov.Buffer SensorSampleTime(double value) { nSensorSampleTime(address(), value); return this; }
+		public OVRLayerEyeFov.Buffer SensorSampleTime(double value) { OVRLayerEyeFov.nSensorSampleTime(address(), value); return this; }
 
 	}
 

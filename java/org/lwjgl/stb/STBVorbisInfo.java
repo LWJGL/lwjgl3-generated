@@ -15,17 +15,17 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Information about a Vorbis stream.
  * 
- * <h3>stb_vorbis_info members</h3>
+ * <h3>Layout</h3>
  * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>sample_rate</td><td class="nw">unsigned int</td><td></td></tr>
- * <tr><td>channels</td><td class="nw">int</td><td></td></tr>
- * <tr><td>setup_memory_required</td><td class="nw">unsigned int</td><td></td></tr>
- * <tr><td>setup_temp_memory_required</td><td class="nw">unsigned int</td><td></td></tr>
- * <tr><td>temp_memory_required</td><td class="nw">unsigned int</td><td></td></tr>
- * <tr><td>max_frame_size</td><td class="nw">int</td><td></td></tr>
- * </table>
+ * <pre><code style="font-family: monospace">
+ * struct stb_vorbis_info {
+ *     unsigned int sample_rate;
+ *     int channels;
+ *     unsigned int setup_memory_required;
+ *     unsigned int setup_temp_memory_required;
+ *     unsigned int temp_memory_required;
+ *     int max_frame_size;
+ * }</code></pre>
  */
 public class STBVorbisInfo extends Struct {
 
@@ -66,12 +66,7 @@ public class STBVorbisInfo extends Struct {
 	}
 
 	STBVorbisInfo(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link STBVorbisInfo} instance at the specified memory address. */
-	public STBVorbisInfo(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -81,7 +76,7 @@ public class STBVorbisInfo extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public STBVorbisInfo(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -104,12 +99,12 @@ public class STBVorbisInfo extends Struct {
 
 	/** Returns a new {@link STBVorbisInfo} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static STBVorbisInfo malloc() {
-		return new STBVorbisInfo(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link STBVorbisInfo} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static STBVorbisInfo calloc() {
-		return new STBVorbisInfo(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link STBVorbisInfo} instance allocated with {@link BufferUtils}. */
@@ -117,13 +112,18 @@ public class STBVorbisInfo extends Struct {
 		return new STBVorbisInfo(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link STBVorbisInfo} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static STBVorbisInfo create(long address) {
+		return address == NULL ? null : new STBVorbisInfo(address, null);
+	}
+
 	/**
 	 * Returns a new {@link STBVorbisInfo.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -131,8 +131,8 @@ public class STBVorbisInfo extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -140,8 +140,8 @@ public class STBVorbisInfo extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -150,8 +150,8 @@ public class STBVorbisInfo extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #sample_rate}. */
@@ -182,11 +182,11 @@ public class STBVorbisInfo extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -195,8 +195,8 @@ public class STBVorbisInfo extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -210,17 +210,17 @@ public class STBVorbisInfo extends Struct {
 		}
 
 		/** Returns the value of the {@code sample_rate} field. */
-		public int sample_rate() { return nsample_rate(address()); }
+		public int sample_rate() { return STBVorbisInfo.nsample_rate(address()); }
 		/** Returns the value of the {@code channels} field. */
-		public int channels() { return nchannels(address()); }
+		public int channels() { return STBVorbisInfo.nchannels(address()); }
 		/** Returns the value of the {@code setup_memory_required} field. */
-		public int setup_memory_required() { return nsetup_memory_required(address()); }
+		public int setup_memory_required() { return STBVorbisInfo.nsetup_memory_required(address()); }
 		/** Returns the value of the {@code setup_temp_memory_required} field. */
-		public int setup_temp_memory_required() { return nsetup_temp_memory_required(address()); }
+		public int setup_temp_memory_required() { return STBVorbisInfo.nsetup_temp_memory_required(address()); }
 		/** Returns the value of the {@code temp_memory_required} field. */
-		public int temp_memory_required() { return ntemp_memory_required(address()); }
+		public int temp_memory_required() { return STBVorbisInfo.ntemp_memory_required(address()); }
 		/** Returns the value of the {@code max_frame_size} field. */
-		public int max_frame_size() { return nmax_frame_size(address()); }
+		public int max_frame_size() { return STBVorbisInfo.nmax_frame_size(address()); }
 
 	}
 

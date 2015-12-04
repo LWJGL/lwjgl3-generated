@@ -15,15 +15,25 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Contains information about the placement and orientation of a glyph in a character cell.
  * 
- * <h3>GLYPHMETRICSFLOAT members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct GLYPHMETRICSFLOAT {
+ *     FLOAT gmfBlackBoxX;
+ *     FLOAT gmfBlackBoxY;
+ *     {@link POINTFLOAT POINTFLOAT} gmfptGlyphOrigin;
+ *     FLOAT gmfCellIncX;
+ *     FLOAT gmfCellIncY;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>gmfBlackBoxX</td><td class="nw">FLOAT</td><td>specifies the width of the smallest rectangle (the glyph's black box) that completely encloses the glyph</td></tr>
- * <tr><td>gmfBlackBoxY</td><td class="nw">FLOAT</td><td>specifies the height of the smallest rectangle (the glyph's black box) that completely encloses the glyph</td></tr>
- * <tr><td>gmfptGlyphOrigin</td><td class="nw">{@link POINTFLOAT POINTFLOAT}</td><td>specifies the x and y coordinates of the upper-left corner of the smallest rectangle that completely encloses the glyph</td></tr>
- * <tr><td>gmfCellIncX</td><td class="nw">FLOAT</td><td>specifies the horizontal distance from the origin of the current character cell to the origin of the next character cell</td></tr>
- * <tr><td>gmfCellIncY</td><td class="nw">FLOAT</td><td>specifies the vertical distance from the origin of the current character cell to the origin of the next character cell</td></tr>
+ * <tr><td>gmfBlackBoxX</td><td>specifies the width of the smallest rectangle (the glyph's black box) that completely encloses the glyph</td></tr>
+ * <tr><td>gmfBlackBoxY</td><td>specifies the height of the smallest rectangle (the glyph's black box) that completely encloses the glyph</td></tr>
+ * <tr><td>gmfptGlyphOrigin</td><td>specifies the x and y coordinates of the upper-left corner of the smallest rectangle that completely encloses the glyph</td></tr>
+ * <tr><td>gmfCellIncX</td><td>specifies the horizontal distance from the origin of the current character cell to the origin of the next character cell</td></tr>
+ * <tr><td>gmfCellIncY</td><td>specifies the vertical distance from the origin of the current character cell to the origin of the next character cell</td></tr>
  * </table>
  */
 public class GLYPHMETRICSFLOAT extends Struct {
@@ -62,12 +72,7 @@ public class GLYPHMETRICSFLOAT extends Struct {
 	}
 
 	GLYPHMETRICSFLOAT(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link GLYPHMETRICSFLOAT} instance at the specified memory address. */
-	public GLYPHMETRICSFLOAT(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -77,7 +82,7 @@ public class GLYPHMETRICSFLOAT extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public GLYPHMETRICSFLOAT(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -98,12 +103,12 @@ public class GLYPHMETRICSFLOAT extends Struct {
 
 	/** Returns a new {@link GLYPHMETRICSFLOAT} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static GLYPHMETRICSFLOAT malloc() {
-		return new GLYPHMETRICSFLOAT(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link GLYPHMETRICSFLOAT} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static GLYPHMETRICSFLOAT calloc() {
-		return new GLYPHMETRICSFLOAT(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link GLYPHMETRICSFLOAT} instance allocated with {@link BufferUtils}. */
@@ -111,13 +116,18 @@ public class GLYPHMETRICSFLOAT extends Struct {
 		return new GLYPHMETRICSFLOAT(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link GLYPHMETRICSFLOAT} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static GLYPHMETRICSFLOAT create(long address) {
+		return address == NULL ? null : new GLYPHMETRICSFLOAT(address, null);
+	}
+
 	/**
 	 * Returns a new {@link GLYPHMETRICSFLOAT.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -125,8 +135,8 @@ public class GLYPHMETRICSFLOAT extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -134,8 +144,8 @@ public class GLYPHMETRICSFLOAT extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -144,8 +154,8 @@ public class GLYPHMETRICSFLOAT extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #gmfBlackBoxX}. */
@@ -153,7 +163,7 @@ public class GLYPHMETRICSFLOAT extends Struct {
 	/** Unsafe version of {@link #gmfBlackBoxY}. */
 	public static float ngmfBlackBoxY(long struct) { return memGetFloat(struct + GLYPHMETRICSFLOAT.GMFBLACKBOXY); }
 	/** Unsafe version of {@link #gmfptGlyphOrigin}. */
-	public static POINTFLOAT ngmfptGlyphOrigin(long struct) { return new POINTFLOAT(struct + GLYPHMETRICSFLOAT.GMFPTGLYPHORIGIN); }
+	public static POINTFLOAT ngmfptGlyphOrigin(long struct) { return POINTFLOAT.create(struct + GLYPHMETRICSFLOAT.GMFPTGLYPHORIGIN); }
 	/** Unsafe version of {@link #gmfCellIncX}. */
 	public static float ngmfCellIncX(long struct) { return memGetFloat(struct + GLYPHMETRICSFLOAT.GMFCELLINCX); }
 	/** Unsafe version of {@link #gmfCellIncY}. */
@@ -174,11 +184,11 @@ public class GLYPHMETRICSFLOAT extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -187,8 +197,8 @@ public class GLYPHMETRICSFLOAT extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -202,15 +212,15 @@ public class GLYPHMETRICSFLOAT extends Struct {
 		}
 
 		/** Returns the value of the {@code gmfBlackBoxX} field. */
-		public float gmfBlackBoxX() { return ngmfBlackBoxX(address()); }
+		public float gmfBlackBoxX() { return GLYPHMETRICSFLOAT.ngmfBlackBoxX(address()); }
 		/** Returns the value of the {@code gmfBlackBoxY} field. */
-		public float gmfBlackBoxY() { return ngmfBlackBoxY(address()); }
+		public float gmfBlackBoxY() { return GLYPHMETRICSFLOAT.ngmfBlackBoxY(address()); }
 		/** Returns a {@link POINTFLOAT} view of the {@code gmfptGlyphOrigin} field. */
-		public POINTFLOAT gmfptGlyphOrigin() { return ngmfptGlyphOrigin(address()); }
+		public POINTFLOAT gmfptGlyphOrigin() { return GLYPHMETRICSFLOAT.ngmfptGlyphOrigin(address()); }
 		/** Returns the value of the {@code gmfCellIncX} field. */
-		public float gmfCellIncX() { return ngmfCellIncX(address()); }
+		public float gmfCellIncX() { return GLYPHMETRICSFLOAT.ngmfCellIncX(address()); }
 		/** Returns the value of the {@code gmfCellIncY} field. */
-		public float gmfCellIncY() { return ngmfCellIncY(address()); }
+		public float gmfCellIncY() { return GLYPHMETRICSFLOAT.ngmfCellIncY(address()); }
 
 	}
 

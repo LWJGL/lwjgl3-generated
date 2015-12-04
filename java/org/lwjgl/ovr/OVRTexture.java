@@ -16,12 +16,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Contains platform-specific information about a texture. Aliases to one of ovrD3D11Texture or {@link OVRGLTexture}.
  * 
- * <h3>ovrTexture members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ovrTexture {
+ *     {@link OVRTextureHeader ovrTextureHeader} Header;
+ *     uintptr_t[8] PlatformData;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Header</td><td class="nw">{@link OVRTextureHeader ovrTextureHeader}</td><td>API-independent header</td></tr>
- * <tr><td>PlatformData</td><td class="nw">uintptr_t[8]</td><td>specialized in {@link OVRGLTextureData}, {@code ovrD3D11TextureData} etc</td></tr>
+ * <tr><td>Header</td><td>API-independent header</td></tr>
+ * <tr><td>PlatformData</td><td>specialized in {@link OVRGLTextureData}, {@code ovrD3D11TextureData} etc</td></tr>
  * </table>
  */
 public class OVRTexture extends Struct {
@@ -51,12 +58,7 @@ public class OVRTexture extends Struct {
 	}
 
 	OVRTexture(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVRTexture} instance at the specified memory address. */
-	public OVRTexture(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -66,7 +68,7 @@ public class OVRTexture extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVRTexture(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -125,12 +127,12 @@ public class OVRTexture extends Struct {
 
 	/** Returns a new {@link OVRTexture} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVRTexture malloc() {
-		return new OVRTexture(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVRTexture} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVRTexture calloc() {
-		return new OVRTexture(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVRTexture} instance allocated with {@link BufferUtils}. */
@@ -138,13 +140,18 @@ public class OVRTexture extends Struct {
 		return new OVRTexture(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVRTexture} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVRTexture create(long address) {
+		return address == NULL ? null : new OVRTexture(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVRTexture.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -152,8 +159,8 @@ public class OVRTexture extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -161,8 +168,8 @@ public class OVRTexture extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -171,12 +178,12 @@ public class OVRTexture extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #Header}. */
-	public static OVRTextureHeader nHeader(long struct) { return new OVRTextureHeader(struct + OVRTexture.HEADER); }
+	public static OVRTextureHeader nHeader(long struct) { return OVRTextureHeader.create(struct + OVRTexture.HEADER); }
 	/** Unsafe version of {@link #PlatformData}. */
 	public static PointerBuffer nPlatformData(long struct) {
 		return memPointerBuffer(struct + OVRTexture.PLATFORMDATA, 8);
@@ -209,11 +216,11 @@ public class OVRTexture extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -222,8 +229,8 @@ public class OVRTexture extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -237,18 +244,18 @@ public class OVRTexture extends Struct {
 		}
 
 		/** Returns a {@link OVRTextureHeader} view of the {@code Header} field. */
-		public OVRTextureHeader Header() { return nHeader(address()); }
+		public OVRTextureHeader Header() { return OVRTexture.nHeader(address()); }
 		/** Returns a {@link PointerBuffer} view of the {@code PlatformData} field. */
-		public PointerBuffer PlatformData() { return nPlatformData(address()); }
+		public PointerBuffer PlatformData() { return OVRTexture.nPlatformData(address()); }
 		/** Returns the value at the specified index of the {@code PlatformData} field. */
-		public long PlatformData(int index) { return nPlatformData(address(), index); }
+		public long PlatformData(int index) { return OVRTexture.nPlatformData(address(), index); }
 
 		/** Copies the specified {@link OVRTextureHeader} to the {@code Header} field. */
-		public OVRTexture.Buffer Header(OVRTextureHeader value) { nHeader(address(), value); return this; }
+		public OVRTexture.Buffer Header(OVRTextureHeader value) { OVRTexture.nHeader(address(), value); return this; }
 		/** Copies the specified {@link PointerBuffer} to the {@code PlatformData} field. */
-		public OVRTexture.Buffer PlatformData(PointerBuffer value) { nPlatformData(address(), value); return this; }
+		public OVRTexture.Buffer PlatformData(PointerBuffer value) { OVRTexture.nPlatformData(address(), value); return this; }
 		/** Sets the specified value at the specified index of the {@code PlatformData} field. */
-		public OVRTexture.Buffer PlatformData(int index, long value) { nPlatformData(address(), index, value); return this; }
+		public OVRTexture.Buffer PlatformData(int index, long value) { OVRTexture.nPlatformData(address(), index, value); return this; }
 
 	}
 

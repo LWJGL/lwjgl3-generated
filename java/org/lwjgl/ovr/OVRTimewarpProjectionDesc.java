@@ -18,13 +18,21 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Use the utility function {@link OVRUtil#ovrTimewarpProjectionDesc_FromProjection} to generate this structure from the application's projection matrix.</p>
  * 
- * <h3>ovrTimewarpProjectionDesc members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ovrTimewarpProjectionDesc {
+ *     float Projection22;
+ *     float Projection23;
+ *     float Projection32;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Projection22</td><td class="nw">float</td><td>projection matrix element [2][2]</td></tr>
- * <tr><td>Projection23</td><td class="nw">float</td><td>projection matrix element [2][3]</td></tr>
- * <tr><td>Projection32</td><td class="nw">float</td><td>projection matrix element [3][2]</td></tr>
+ * <tr><td>Projection22</td><td>projection matrix element [2][2]</td></tr>
+ * <tr><td>Projection23</td><td>projection matrix element [2][3]</td></tr>
+ * <tr><td>Projection32</td><td>projection matrix element [3][2]</td></tr>
  * </table>
  */
 public class OVRTimewarpProjectionDesc extends Struct {
@@ -57,12 +65,7 @@ public class OVRTimewarpProjectionDesc extends Struct {
 	}
 
 	OVRTimewarpProjectionDesc(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVRTimewarpProjectionDesc} instance at the specified memory address. */
-	public OVRTimewarpProjectionDesc(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -72,7 +75,7 @@ public class OVRTimewarpProjectionDesc extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVRTimewarpProjectionDesc(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -133,12 +136,12 @@ public class OVRTimewarpProjectionDesc extends Struct {
 
 	/** Returns a new {@link OVRTimewarpProjectionDesc} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVRTimewarpProjectionDesc malloc() {
-		return new OVRTimewarpProjectionDesc(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVRTimewarpProjectionDesc} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVRTimewarpProjectionDesc calloc() {
-		return new OVRTimewarpProjectionDesc(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVRTimewarpProjectionDesc} instance allocated with {@link BufferUtils}. */
@@ -146,13 +149,18 @@ public class OVRTimewarpProjectionDesc extends Struct {
 		return new OVRTimewarpProjectionDesc(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVRTimewarpProjectionDesc} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVRTimewarpProjectionDesc create(long address) {
+		return address == NULL ? null : new OVRTimewarpProjectionDesc(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVRTimewarpProjectionDesc.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -160,8 +168,8 @@ public class OVRTimewarpProjectionDesc extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -169,8 +177,8 @@ public class OVRTimewarpProjectionDesc extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -179,8 +187,8 @@ public class OVRTimewarpProjectionDesc extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #Projection22}. */
@@ -212,11 +220,11 @@ public class OVRTimewarpProjectionDesc extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -225,8 +233,8 @@ public class OVRTimewarpProjectionDesc extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -240,18 +248,18 @@ public class OVRTimewarpProjectionDesc extends Struct {
 		}
 
 		/** Returns the value of the {@code Projection22} field. */
-		public float Projection22() { return nProjection22(address()); }
+		public float Projection22() { return OVRTimewarpProjectionDesc.nProjection22(address()); }
 		/** Returns the value of the {@code Projection23} field. */
-		public float Projection23() { return nProjection23(address()); }
+		public float Projection23() { return OVRTimewarpProjectionDesc.nProjection23(address()); }
 		/** Returns the value of the {@code Projection32} field. */
-		public float Projection32() { return nProjection32(address()); }
+		public float Projection32() { return OVRTimewarpProjectionDesc.nProjection32(address()); }
 
 		/** Sets the specified value to the {@code Projection22} field. */
-		public OVRTimewarpProjectionDesc.Buffer Projection22(float value) { nProjection22(address(), value); return this; }
+		public OVRTimewarpProjectionDesc.Buffer Projection22(float value) { OVRTimewarpProjectionDesc.nProjection22(address(), value); return this; }
 		/** Sets the specified value to the {@code Projection23} field. */
-		public OVRTimewarpProjectionDesc.Buffer Projection23(float value) { nProjection23(address(), value); return this; }
+		public OVRTimewarpProjectionDesc.Buffer Projection23(float value) { OVRTimewarpProjectionDesc.nProjection23(address(), value); return this; }
 		/** Sets the specified value to the {@code Projection32} field. */
-		public OVRTimewarpProjectionDesc.Buffer Projection32(float value) { nProjection32(address(), value); return this; }
+		public OVRTimewarpProjectionDesc.Buffer Projection32(float value) { OVRTimewarpProjectionDesc.nProjection32(address(), value); return this; }
 
 	}
 

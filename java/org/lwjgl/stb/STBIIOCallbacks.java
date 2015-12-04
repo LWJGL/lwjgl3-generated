@@ -16,13 +16,21 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Image IO callbacks, used by {@link STBImage#stbi_load_from_callbacks}.
  * 
- * <h3>stbi_io_callbacks members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct stbi_io_callbacks {
+ *     stbi_io_callbacks.read read;
+ *     stbi_io_callbacks.skip skip;
+ *     stbi_io_callbacks.eof eof;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>read</td><td class="nw">stbi_io_callbacks.read</td><td>fill {@code data} with {@code size} bytes. Return number of bytes actually read.</td></tr>
- * <tr><td>skip</td><td class="nw">stbi_io_callbacks.skip</td><td>skip the next {@code n} bytes, or {@code unget} the last -n bytes if negative</td></tr>
- * <tr><td>eof</td><td class="nw">stbi_io_callbacks.eof</td><td>returns nonzero if we are at end of file/data</td></tr>
+ * <tr><td>read</td><td>fill {@code data} with {@code size} bytes. Return number of bytes actually read.</td></tr>
+ * <tr><td>skip</td><td>skip the next {@code n} bytes, or {@code unget} the last -n bytes if negative</td></tr>
+ * <tr><td>eof</td><td>returns nonzero if we are at end of file/data</td></tr>
  * </table>
  */
 public class STBIIOCallbacks extends Struct {
@@ -55,12 +63,7 @@ public class STBIIOCallbacks extends Struct {
 	}
 
 	STBIIOCallbacks(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link STBIIOCallbacks} instance at the specified memory address. */
-	public STBIIOCallbacks(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -70,7 +73,7 @@ public class STBIIOCallbacks extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public STBIIOCallbacks(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -131,12 +134,12 @@ public class STBIIOCallbacks extends Struct {
 
 	/** Returns a new {@link STBIIOCallbacks} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static STBIIOCallbacks malloc() {
-		return new STBIIOCallbacks(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link STBIIOCallbacks} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static STBIIOCallbacks calloc() {
-		return new STBIIOCallbacks(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link STBIIOCallbacks} instance allocated with {@link BufferUtils}. */
@@ -144,13 +147,18 @@ public class STBIIOCallbacks extends Struct {
 		return new STBIIOCallbacks(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link STBIIOCallbacks} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static STBIIOCallbacks create(long address) {
+		return address == NULL ? null : new STBIIOCallbacks(address, null);
+	}
+
 	/**
 	 * Returns a new {@link STBIIOCallbacks.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -158,8 +166,8 @@ public class STBIIOCallbacks extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -167,8 +175,8 @@ public class STBIIOCallbacks extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -177,8 +185,8 @@ public class STBIIOCallbacks extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #read}. */
@@ -210,11 +218,11 @@ public class STBIIOCallbacks extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -223,8 +231,8 @@ public class STBIIOCallbacks extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -238,18 +246,18 @@ public class STBIIOCallbacks extends Struct {
 		}
 
 		/** Returns the {@code STBIReadCallback} instance at the {@code read} field. */
-		public STBIReadCallback read() { return nread(address()); }
+		public STBIReadCallback read() { return STBIIOCallbacks.nread(address()); }
 		/** Returns the {@code STBISkipCallback} instance at the {@code skip} field. */
-		public STBISkipCallback skip() { return nskip(address()); }
+		public STBISkipCallback skip() { return STBIIOCallbacks.nskip(address()); }
 		/** Returns the {@code STBIEOFCallback} instance at the {@code eof} field. */
-		public STBIEOFCallback eof() { return neof(address()); }
+		public STBIEOFCallback eof() { return STBIIOCallbacks.neof(address()); }
 
 		/** Sets the address of the specified {@link STBIReadCallback} to the {@code read} field. */
-		public STBIIOCallbacks.Buffer read(STBIReadCallback value) { nread(address(), value); return this; }
+		public STBIIOCallbacks.Buffer read(STBIReadCallback value) { STBIIOCallbacks.nread(address(), value); return this; }
 		/** Sets the address of the specified {@link STBISkipCallback} to the {@code skip} field. */
-		public STBIIOCallbacks.Buffer skip(STBISkipCallback value) { nskip(address(), value); return this; }
+		public STBIIOCallbacks.Buffer skip(STBISkipCallback value) { STBIIOCallbacks.nskip(address(), value); return this; }
 		/** Sets the address of the specified {@link STBIEOFCallback} to the {@code eof} field. */
-		public STBIIOCallbacks.Buffer eof(STBIEOFCallback value) { neof(address(), value); return this; }
+		public STBIIOCallbacks.Buffer eof(STBIEOFCallback value) { STBIIOCallbacks.neof(address(), value); return this; }
 
 	}
 

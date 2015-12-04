@@ -22,13 +22,21 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>ovrSwapTextureSets must be created by either the ovr_CreateSwapTextureSetD3D11 or {@link OVRGL#ovr_CreateSwapTextureSetGL} factory function, and must
  * be destroyed by {@link OVR#ovr_DestroySwapTextureSet}.</p>
  * 
- * <h3>ovrSwapTextureSet members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ovrSwapTextureSet {
+ *     ovrTexture * Textures;
+ *     int TextureCount;
+ *     int CurrentIndex;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Textures</td><td class="nw">ovrTexture *</td><td>points to an array of ovrTextures</td></tr>
- * <tr><td>TextureCount</td><td class="nw">int</td><td>the number of textures referenced by the Textures array</td></tr>
- * <tr><td>CurrentIndex</td><td class="nw">int</td><td>CurrentIndex specifies which of the Textures will be used by the {@link OVR#ovr_SubmitFrame} call. This is manually incremented by the application, typically
+ * <tr><td>Textures</td><td>points to an array of ovrTextures</td></tr>
+ * <tr><td>TextureCount</td><td>the number of textures referenced by the Textures array</td></tr>
+ * <tr><td>CurrentIndex</td><td>CurrentIndex specifies which of the Textures will be used by the {@link OVR#ovr_SubmitFrame} call. This is manually incremented by the application, typically
  * in a round-robin manner.
  * 
  * <p>Before selecting a {@code Texture} as a rendertarget, the application should increment {@code CurrentIndex} by 1 and wrap it back to 0 if
@@ -79,12 +87,7 @@ public class OVRSwapTextureSet extends Struct {
 	}
 
 	OVRSwapTextureSet(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVRSwapTextureSet} instance at the specified memory address. */
-	public OVRSwapTextureSet(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -94,7 +97,7 @@ public class OVRSwapTextureSet extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVRSwapTextureSet(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -155,12 +158,12 @@ public class OVRSwapTextureSet extends Struct {
 
 	/** Returns a new {@link OVRSwapTextureSet} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVRSwapTextureSet malloc() {
-		return new OVRSwapTextureSet(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVRSwapTextureSet} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVRSwapTextureSet calloc() {
-		return new OVRSwapTextureSet(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVRSwapTextureSet} instance allocated with {@link BufferUtils}. */
@@ -168,13 +171,18 @@ public class OVRSwapTextureSet extends Struct {
 		return new OVRSwapTextureSet(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVRSwapTextureSet} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVRSwapTextureSet create(long address) {
+		return address == NULL ? null : new OVRSwapTextureSet(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVRSwapTextureSet.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -182,8 +190,8 @@ public class OVRSwapTextureSet extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -191,8 +199,8 @@ public class OVRSwapTextureSet extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -201,12 +209,12 @@ public class OVRSwapTextureSet extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #Textures}. */
-	public static OVRTexture.Buffer nTextures(long struct, int capacity) { return OVRTexture.createBuffer(memGetAddress(struct + OVRSwapTextureSet.TEXTURES), capacity); }
+	public static OVRTexture.Buffer nTextures(long struct, int capacity) { return OVRTexture.create(memGetAddress(struct + OVRSwapTextureSet.TEXTURES), capacity); }
 	/** Unsafe version of {@link #TextureCount}. */
 	public static int nTextureCount(long struct) { return memGetInt(struct + OVRSwapTextureSet.TEXTURECOUNT); }
 	/** Unsafe version of {@link #CurrentIndex}. */
@@ -234,11 +242,11 @@ public class OVRSwapTextureSet extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -247,8 +255,8 @@ public class OVRSwapTextureSet extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -262,18 +270,18 @@ public class OVRSwapTextureSet extends Struct {
 		}
 
 		/** Returns a {@link OVRTexture.Buffer} view of the struct array pointed to by the {@code Textures} field. */
-		public OVRTexture.Buffer Textures(int capacity) { return nTextures(address(), capacity); }
+		public OVRTexture.Buffer Textures(int capacity) { return OVRSwapTextureSet.nTextures(address(), capacity); }
 		/** Returns the value of the {@code TextureCount} field. */
-		public int TextureCount() { return nTextureCount(address()); }
+		public int TextureCount() { return OVRSwapTextureSet.nTextureCount(address()); }
 		/** Returns the value of the {@code CurrentIndex} field. */
-		public int CurrentIndex() { return nCurrentIndex(address()); }
+		public int CurrentIndex() { return OVRSwapTextureSet.nCurrentIndex(address()); }
 
 		/** Sets the address of the specified {@link OVRTexture.Buffer} to the {@code Textures} field. */
-		public OVRSwapTextureSet.Buffer Textures(OVRTexture.Buffer value) { nTextures(address(), value); return this; }
+		public OVRSwapTextureSet.Buffer Textures(OVRTexture.Buffer value) { OVRSwapTextureSet.nTextures(address(), value); return this; }
 		/** Sets the specified value to the {@code TextureCount} field. */
-		public OVRSwapTextureSet.Buffer TextureCount(int value) { nTextureCount(address(), value); return this; }
+		public OVRSwapTextureSet.Buffer TextureCount(int value) { OVRSwapTextureSet.nTextureCount(address(), value); return this; }
 		/** Sets the specified value to the {@code CurrentIndex} field. */
-		public OVRSwapTextureSet.Buffer CurrentIndex(int value) { nCurrentIndex(address(), value); return this; }
+		public OVRSwapTextureSet.Buffer CurrentIndex(int value) { OVRSwapTextureSet.nCurrentIndex(address(), value); return this; }
 
 	}
 

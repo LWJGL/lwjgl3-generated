@@ -15,16 +15,24 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * A range of packed character data, returned by {@link STBTruetype#stbtt_PackFontRanges}
  * 
- * <h3>stbtt_pack_range members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct stbtt_pack_range {
+ *     float font_size;
+ *     int first_unicode_codepoint_in_range;
+ *     int * array_of_unicode_codepoints;
+ *     int num_chars;
+ *     stbtt_packedchar * chardata_for_range;
+ *     char[2];
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>font_size</td><td class="nw">float</td><td></td></tr>
- * <tr><td>first_unicode_codepoint_in_range</td><td class="nw">int</td><td>if non-zero, then the chars are continuous, and this is the first codepoint</td></tr>
- * <tr><td>array_of_unicode_codepoints</td><td class="nw">int *</td><td>if non-zero, then this is an array of unicode codepoints</td></tr>
- * <tr><td>num_chars</td><td class="nw">int</td><td></td></tr>
- * <tr><td>chardata_for_range</td><td class="nw">stbtt_packedchar *</td><td>output</td></tr>
- * <tr><td>*</td><td class="nw">char[2]</td><td></td></tr>
+ * <tr><td>first_unicode_codepoint_in_range</td><td>if non-zero, then the chars are continuous, and this is the first codepoint</td></tr>
+ * <tr><td>array_of_unicode_codepoints</td><td>if non-zero, then this is an array of unicode codepoints</td></tr>
+ * <tr><td>chardata_for_range</td><td>output</td></tr>
  * </table>
  */
 public class STBTTPackRange extends Struct {
@@ -64,12 +72,7 @@ public class STBTTPackRange extends Struct {
 	}
 
 	STBTTPackRange(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link STBTTPackRange} instance at the specified memory address. */
-	public STBTTPackRange(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -79,7 +82,7 @@ public class STBTTPackRange extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public STBTTPackRange(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -104,12 +107,12 @@ public class STBTTPackRange extends Struct {
 
 	/** Returns a new {@link STBTTPackRange} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static STBTTPackRange malloc() {
-		return new STBTTPackRange(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link STBTTPackRange} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static STBTTPackRange calloc() {
-		return new STBTTPackRange(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link STBTTPackRange} instance allocated with {@link BufferUtils}. */
@@ -117,13 +120,18 @@ public class STBTTPackRange extends Struct {
 		return new STBTTPackRange(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link STBTTPackRange} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static STBTTPackRange create(long address) {
+		return address == NULL ? null : new STBTTPackRange(address, null);
+	}
+
 	/**
 	 * Returns a new {@link STBTTPackRange.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -131,8 +139,8 @@ public class STBTTPackRange extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -140,8 +148,8 @@ public class STBTTPackRange extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -150,8 +158,8 @@ public class STBTTPackRange extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #font_size}. */
@@ -163,7 +171,7 @@ public class STBTTPackRange extends Struct {
 	/** Unsafe version of {@link #num_chars}. */
 	public static int nnum_chars(long struct) { return memGetInt(struct + STBTTPackRange.NUM_CHARS); }
 	/** Unsafe version of {@link #chardata_for_range}. */
-	public static STBTTPackedchar.Buffer nchardata_for_range(long struct, int capacity) { return STBTTPackedchar.createBuffer(memGetAddress(struct + STBTTPackRange.CHARDATA_FOR_RANGE), capacity); }
+	public static STBTTPackedchar.Buffer nchardata_for_range(long struct, int capacity) { return STBTTPackedchar.create(memGetAddress(struct + STBTTPackRange.CHARDATA_FOR_RANGE), capacity); }
 
 	// -----------------------------------
 
@@ -180,11 +188,11 @@ public class STBTTPackRange extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -193,8 +201,8 @@ public class STBTTPackRange extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -208,19 +216,19 @@ public class STBTTPackRange extends Struct {
 		}
 
 		/** Returns the value of the {@code font_size} field. */
-		public float font_size() { return nfont_size(address()); }
+		public float font_size() { return STBTTPackRange.nfont_size(address()); }
 		/** Returns the value of the {@code first_unicode_codepoint_in_range} field. */
-		public int first_unicode_codepoint_in_range() { return nfirst_unicode_codepoint_in_range(address()); }
+		public int first_unicode_codepoint_in_range() { return STBTTPackRange.nfirst_unicode_codepoint_in_range(address()); }
 		/**
 		 * Returns a {@link IntBuffer} view of the data pointed to by the {@code array_of_unicode_codepoints} field.
 		 *
 		 * @param capacity the number of elements in the returned {@link IntBuffer}
 		 */
-		public IntBuffer array_of_unicode_codepoints(int capacity) { return narray_of_unicode_codepoints(address(), capacity); }
+		public IntBuffer array_of_unicode_codepoints(int capacity) { return STBTTPackRange.narray_of_unicode_codepoints(address(), capacity); }
 		/** Returns the value of the {@code num_chars} field. */
-		public int num_chars() { return nnum_chars(address()); }
+		public int num_chars() { return STBTTPackRange.nnum_chars(address()); }
 		/** Returns a {@link STBTTPackedchar.Buffer} view of the struct array pointed to by the {@code chardata_for_range} field. */
-		public STBTTPackedchar.Buffer chardata_for_range(int capacity) { return nchardata_for_range(address(), capacity); }
+		public STBTTPackedchar.Buffer chardata_for_range(int capacity) { return STBTTPackRange.nchardata_for_range(address(), capacity); }
 
 	}
 

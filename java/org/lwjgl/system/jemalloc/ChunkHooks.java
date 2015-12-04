@@ -21,17 +21,29 @@ import static org.lwjgl.system.MemoryUtil.*;
  * opted out of, but this is mainly intended to support platforms on which virtual memory mappings provided by the operating system kernel do not
  * automatically coalesce and split, e.g. Windows.
  * 
- * <h3>chunk_hooks_t members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct chunk_hooks_t {
+ *     chunk_alloc_t alloc;
+ *     chunk_dalloc_t dalloc;
+ *     chunk_commit_t commit;
+ *     chunk_decommit_t decommit;
+ *     chunk_purge_t purge;
+ *     chunk_split_t split;
+ *     chunk_merge_t merge;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>alloc</td><td class="nw">chunk_alloc_t</td><td>the chunk allocation hook</td></tr>
- * <tr><td>dalloc</td><td class="nw">chunk_dalloc_t</td><td>the chunk deallocation hook</td></tr>
- * <tr><td>commit</td><td class="nw">chunk_commit_t</td><td>the chunk commit hook</td></tr>
- * <tr><td>decommit</td><td class="nw">chunk_decommit_t</td><td>the chunk decommit hook</td></tr>
- * <tr><td>purge</td><td class="nw">chunk_purge_t</td><td>the chunk purge hook</td></tr>
- * <tr><td>split</td><td class="nw">chunk_split_t</td><td>the chunk split hook</td></tr>
- * <tr><td>merge</td><td class="nw">chunk_merge_t</td><td>the chunk merge hook</td></tr>
+ * <tr><td>alloc</td><td>the chunk allocation hook</td></tr>
+ * <tr><td>dalloc</td><td>the chunk deallocation hook</td></tr>
+ * <tr><td>commit</td><td>the chunk commit hook</td></tr>
+ * <tr><td>decommit</td><td>the chunk decommit hook</td></tr>
+ * <tr><td>purge</td><td>the chunk purge hook</td></tr>
+ * <tr><td>split</td><td>the chunk split hook</td></tr>
+ * <tr><td>merge</td><td>the chunk merge hook</td></tr>
  * </table>
  */
 public class ChunkHooks extends Struct {
@@ -76,12 +88,7 @@ public class ChunkHooks extends Struct {
 	}
 
 	ChunkHooks(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link ChunkHooks} instance at the specified memory address. */
-	public ChunkHooks(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -91,7 +98,7 @@ public class ChunkHooks extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public ChunkHooks(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -176,12 +183,12 @@ public class ChunkHooks extends Struct {
 
 	/** Returns a new {@link ChunkHooks} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static ChunkHooks malloc() {
-		return new ChunkHooks(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link ChunkHooks} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static ChunkHooks calloc() {
-		return new ChunkHooks(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link ChunkHooks} instance allocated with {@link BufferUtils}. */
@@ -189,13 +196,18 @@ public class ChunkHooks extends Struct {
 		return new ChunkHooks(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link ChunkHooks} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static ChunkHooks create(long address) {
+		return address == NULL ? null : new ChunkHooks(address, null);
+	}
+
 	/**
 	 * Returns a new {@link ChunkHooks.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -203,8 +215,8 @@ public class ChunkHooks extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -212,8 +224,8 @@ public class ChunkHooks extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -222,8 +234,8 @@ public class ChunkHooks extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #alloc}. */
@@ -271,11 +283,11 @@ public class ChunkHooks extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -284,8 +296,8 @@ public class ChunkHooks extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -299,34 +311,34 @@ public class ChunkHooks extends Struct {
 		}
 
 		/** Returns the {@code ChunkAlloc} instance at the {@code alloc} field. */
-		public ChunkAlloc alloc() { return nalloc(address()); }
+		public ChunkAlloc alloc() { return ChunkHooks.nalloc(address()); }
 		/** Returns the {@code ChunkDalloc} instance at the {@code dalloc} field. */
-		public ChunkDalloc dalloc() { return ndalloc(address()); }
+		public ChunkDalloc dalloc() { return ChunkHooks.ndalloc(address()); }
 		/** Returns the {@code ChunkCommit} instance at the {@code commit} field. */
-		public ChunkCommit commit() { return ncommit(address()); }
+		public ChunkCommit commit() { return ChunkHooks.ncommit(address()); }
 		/** Returns the {@code ChunkDecommit} instance at the {@code decommit} field. */
-		public ChunkDecommit decommit() { return ndecommit(address()); }
+		public ChunkDecommit decommit() { return ChunkHooks.ndecommit(address()); }
 		/** Returns the {@code ChunkPurge} instance at the {@code purge} field. */
-		public ChunkPurge purge() { return npurge(address()); }
+		public ChunkPurge purge() { return ChunkHooks.npurge(address()); }
 		/** Returns the {@code ChunkSplit} instance at the {@code split} field. */
-		public ChunkSplit split() { return nsplit(address()); }
+		public ChunkSplit split() { return ChunkHooks.nsplit(address()); }
 		/** Returns the {@code ChunkMerge} instance at the {@code merge} field. */
-		public ChunkMerge merge() { return nmerge(address()); }
+		public ChunkMerge merge() { return ChunkHooks.nmerge(address()); }
 
 		/** Sets the address of the specified {@link ChunkAlloc} to the {@code alloc} field. */
-		public ChunkHooks.Buffer alloc(ChunkAlloc value) { nalloc(address(), value); return this; }
+		public ChunkHooks.Buffer alloc(ChunkAlloc value) { ChunkHooks.nalloc(address(), value); return this; }
 		/** Sets the address of the specified {@link ChunkDalloc} to the {@code dalloc} field. */
-		public ChunkHooks.Buffer dalloc(ChunkDalloc value) { ndalloc(address(), value); return this; }
+		public ChunkHooks.Buffer dalloc(ChunkDalloc value) { ChunkHooks.ndalloc(address(), value); return this; }
 		/** Sets the address of the specified {@link ChunkCommit} to the {@code commit} field. */
-		public ChunkHooks.Buffer commit(ChunkCommit value) { ncommit(address(), value); return this; }
+		public ChunkHooks.Buffer commit(ChunkCommit value) { ChunkHooks.ncommit(address(), value); return this; }
 		/** Sets the address of the specified {@link ChunkDecommit} to the {@code decommit} field. */
-		public ChunkHooks.Buffer decommit(ChunkDecommit value) { ndecommit(address(), value); return this; }
+		public ChunkHooks.Buffer decommit(ChunkDecommit value) { ChunkHooks.ndecommit(address(), value); return this; }
 		/** Sets the address of the specified {@link ChunkPurge} to the {@code purge} field. */
-		public ChunkHooks.Buffer purge(ChunkPurge value) { npurge(address(), value); return this; }
+		public ChunkHooks.Buffer purge(ChunkPurge value) { ChunkHooks.npurge(address(), value); return this; }
 		/** Sets the address of the specified {@link ChunkSplit} to the {@code split} field. */
-		public ChunkHooks.Buffer split(ChunkSplit value) { nsplit(address(), value); return this; }
+		public ChunkHooks.Buffer split(ChunkSplit value) { ChunkHooks.nsplit(address(), value); return this; }
 		/** Sets the address of the specified {@link ChunkMerge} to the {@code merge} field. */
-		public ChunkHooks.Buffer merge(ChunkMerge value) { nmerge(address(), value); return this; }
+		public ChunkHooks.Buffer merge(ChunkMerge value) { ChunkHooks.nmerge(address(), value); return this; }
 
 	}
 

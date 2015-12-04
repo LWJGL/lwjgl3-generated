@@ -19,14 +19,23 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <pre><code style="font-family: monospace">
  * { UpTan = tan(90 degrees / 2), DownTan = tan(90 degrees / 2) }</code></pre>
  * 
- * <h3>ovrFovPort members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ovrFovPort {
+ *     float UpTan;
+ *     float DownTan;
+ *     float LeftTan;
+ *     float RightTan;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>UpTan</td><td class="nw">float</td><td>the tangent of the angle between the viewing vector and the top edge of the field of view</td></tr>
- * <tr><td>DownTan</td><td class="nw">float</td><td>the tangent of the angle between the viewing vector and the bottom edge of the field of view</td></tr>
- * <tr><td>LeftTan</td><td class="nw">float</td><td>the tangent of the angle between the viewing vector and the left edge of the field of view</td></tr>
- * <tr><td>RightTan</td><td class="nw">float</td><td>the tangent of the angle between the viewing vector and the right edge of the field of view</td></tr>
+ * <tr><td>UpTan</td><td>the tangent of the angle between the viewing vector and the top edge of the field of view</td></tr>
+ * <tr><td>DownTan</td><td>the tangent of the angle between the viewing vector and the bottom edge of the field of view</td></tr>
+ * <tr><td>LeftTan</td><td>the tangent of the angle between the viewing vector and the left edge of the field of view</td></tr>
+ * <tr><td>RightTan</td><td>the tangent of the angle between the viewing vector and the right edge of the field of view</td></tr>
  * </table>
  */
 public class OVRFovPort extends Struct {
@@ -62,12 +71,7 @@ public class OVRFovPort extends Struct {
 	}
 
 	OVRFovPort(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVRFovPort} instance at the specified memory address. */
-	public OVRFovPort(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -77,7 +81,7 @@ public class OVRFovPort extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVRFovPort(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -144,12 +148,12 @@ public class OVRFovPort extends Struct {
 
 	/** Returns a new {@link OVRFovPort} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVRFovPort malloc() {
-		return new OVRFovPort(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVRFovPort} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVRFovPort calloc() {
-		return new OVRFovPort(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVRFovPort} instance allocated with {@link BufferUtils}. */
@@ -157,13 +161,18 @@ public class OVRFovPort extends Struct {
 		return new OVRFovPort(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVRFovPort} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVRFovPort create(long address) {
+		return address == NULL ? null : new OVRFovPort(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVRFovPort.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -171,8 +180,8 @@ public class OVRFovPort extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -180,8 +189,8 @@ public class OVRFovPort extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -190,8 +199,8 @@ public class OVRFovPort extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #UpTan}. */
@@ -227,11 +236,11 @@ public class OVRFovPort extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -240,8 +249,8 @@ public class OVRFovPort extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -255,22 +264,22 @@ public class OVRFovPort extends Struct {
 		}
 
 		/** Returns the value of the {@code UpTan} field. */
-		public float UpTan() { return nUpTan(address()); }
+		public float UpTan() { return OVRFovPort.nUpTan(address()); }
 		/** Returns the value of the {@code DownTan} field. */
-		public float DownTan() { return nDownTan(address()); }
+		public float DownTan() { return OVRFovPort.nDownTan(address()); }
 		/** Returns the value of the {@code LeftTan} field. */
-		public float LeftTan() { return nLeftTan(address()); }
+		public float LeftTan() { return OVRFovPort.nLeftTan(address()); }
 		/** Returns the value of the {@code RightTan} field. */
-		public float RightTan() { return nRightTan(address()); }
+		public float RightTan() { return OVRFovPort.nRightTan(address()); }
 
 		/** Sets the specified value to the {@code UpTan} field. */
-		public OVRFovPort.Buffer UpTan(float value) { nUpTan(address(), value); return this; }
+		public OVRFovPort.Buffer UpTan(float value) { OVRFovPort.nUpTan(address(), value); return this; }
 		/** Sets the specified value to the {@code DownTan} field. */
-		public OVRFovPort.Buffer DownTan(float value) { nDownTan(address(), value); return this; }
+		public OVRFovPort.Buffer DownTan(float value) { OVRFovPort.nDownTan(address(), value); return this; }
 		/** Sets the specified value to the {@code LeftTan} field. */
-		public OVRFovPort.Buffer LeftTan(float value) { nLeftTan(address(), value); return this; }
+		public OVRFovPort.Buffer LeftTan(float value) { OVRFovPort.nLeftTan(address(), value); return this; }
 		/** Sets the specified value to the {@code RightTan} field. */
-		public OVRFovPort.Buffer RightTan(float value) { nRightTan(address(), value); return this; }
+		public OVRFovPort.Buffer RightTan(float value) { OVRFovPort.nRightTan(address(), value); return this; }
 
 	}
 

@@ -16,12 +16,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Contains OpenGL-specific texture information.
  * 
- * <h3>ovrGLTexture members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * union ovrGLTexture {
+ *     {@link OVRTexture ovrTexture} Texture;
+ *     {@link OVRGLTextureData ovrGLTextureData} OGL;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Texture</td><td class="nw">{@link OVRTexture ovrTexture}</td><td>general device settings</td></tr>
- * <tr><td>OGL</td><td class="nw">{@link OVRGLTextureData ovrGLTextureData}</td><td>OpenGL-specific settings</td></tr>
+ * <tr><td>Texture</td><td>general device settings</td></tr>
+ * <tr><td>OGL</td><td>OpenGL-specific settings</td></tr>
  * </table>
  */
 public class OVRGLTexture extends Struct {
@@ -51,12 +58,7 @@ public class OVRGLTexture extends Struct {
 	}
 
 	OVRGLTexture(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVRGLTexture} instance at the specified memory address. */
-	public OVRGLTexture(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -66,7 +68,7 @@ public class OVRGLTexture extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVRGLTexture(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -121,12 +123,12 @@ public class OVRGLTexture extends Struct {
 
 	/** Returns a new {@link OVRGLTexture} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVRGLTexture malloc() {
-		return new OVRGLTexture(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVRGLTexture} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVRGLTexture calloc() {
-		return new OVRGLTexture(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVRGLTexture} instance allocated with {@link BufferUtils}. */
@@ -134,13 +136,18 @@ public class OVRGLTexture extends Struct {
 		return new OVRGLTexture(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVRGLTexture} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVRGLTexture create(long address) {
+		return address == NULL ? null : new OVRGLTexture(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVRGLTexture.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -148,8 +155,8 @@ public class OVRGLTexture extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -157,8 +164,8 @@ public class OVRGLTexture extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -167,14 +174,14 @@ public class OVRGLTexture extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #Texture}. */
-	public static OVRTexture nTexture(long struct) { return new OVRTexture(struct + OVRGLTexture.TEXTURE); }
+	public static OVRTexture nTexture(long struct) { return OVRTexture.create(struct + OVRGLTexture.TEXTURE); }
 	/** Unsafe version of {@link #OGL}. */
-	public static OVRGLTextureData nOGL(long struct) { return new OVRGLTextureData(struct + OVRGLTexture.OGL); }
+	public static OVRGLTextureData nOGL(long struct) { return OVRGLTextureData.create(struct + OVRGLTexture.OGL); }
 
 	/** Unsafe version of {@link #Texture(OVRTexture) Texture}. */
 	public static void nTexture(long struct, OVRTexture value) { memCopy(value.address(), struct + OVRGLTexture.TEXTURE, OVRTexture.SIZEOF); }
@@ -196,11 +203,11 @@ public class OVRGLTexture extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -209,8 +216,8 @@ public class OVRGLTexture extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -224,14 +231,14 @@ public class OVRGLTexture extends Struct {
 		}
 
 		/** Returns a {@link OVRTexture} view of the {@code Texture} field. */
-		public OVRTexture Texture() { return nTexture(address()); }
+		public OVRTexture Texture() { return OVRGLTexture.nTexture(address()); }
 		/** Returns a {@link OVRGLTextureData} view of the {@code OGL} field. */
-		public OVRGLTextureData OGL() { return nOGL(address()); }
+		public OVRGLTextureData OGL() { return OVRGLTexture.nOGL(address()); }
 
 		/** Copies the specified {@link OVRTexture} to the {@code Texture} field. */
-		public OVRGLTexture.Buffer Texture(OVRTexture value) { nTexture(address(), value); return this; }
+		public OVRGLTexture.Buffer Texture(OVRTexture value) { OVRGLTexture.nTexture(address(), value); return this; }
 		/** Copies the specified {@link OVRGLTextureData} to the {@code OGL} field. */
-		public OVRGLTexture.Buffer OGL(OVRGLTextureData value) { nOGL(address(), value); return this; }
+		public OVRGLTexture.Buffer OGL(OVRGLTextureData value) { OVRGLTexture.nOGL(address(), value); return this; }
 
 	}
 

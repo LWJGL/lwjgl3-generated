@@ -15,12 +15,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Defines a method.
  * 
- * <h3>struct objc_method_description members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct objc_method_description {
+ *     SEL name;
+ *     char * types;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>name</td><td class="nw">SEL</td><td>the name of the method at runtime</td></tr>
- * <tr><td>types</td><td class="nw">char *</td><td>the types of the method arguments</td></tr>
+ * <tr><td>name</td><td>the name of the method at runtime</td></tr>
+ * <tr><td>types</td><td>the types of the method arguments</td></tr>
  * </table>
  */
 public class ObjCMethodDescription extends Struct {
@@ -50,12 +57,7 @@ public class ObjCMethodDescription extends Struct {
 	}
 
 	ObjCMethodDescription(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link ObjCMethodDescription} instance at the specified memory address. */
-	public ObjCMethodDescription(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -65,7 +67,7 @@ public class ObjCMethodDescription extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public ObjCMethodDescription(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -82,12 +84,12 @@ public class ObjCMethodDescription extends Struct {
 
 	/** Returns a new {@link ObjCMethodDescription} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static ObjCMethodDescription malloc() {
-		return new ObjCMethodDescription(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link ObjCMethodDescription} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static ObjCMethodDescription calloc() {
-		return new ObjCMethodDescription(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link ObjCMethodDescription} instance allocated with {@link BufferUtils}. */
@@ -95,13 +97,18 @@ public class ObjCMethodDescription extends Struct {
 		return new ObjCMethodDescription(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link ObjCMethodDescription} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static ObjCMethodDescription create(long address) {
+		return address == NULL ? null : new ObjCMethodDescription(address, null);
+	}
+
 	/**
 	 * Returns a new {@link ObjCMethodDescription.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -109,8 +116,8 @@ public class ObjCMethodDescription extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -118,8 +125,8 @@ public class ObjCMethodDescription extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -128,8 +135,8 @@ public class ObjCMethodDescription extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #name}. */
@@ -154,11 +161,11 @@ public class ObjCMethodDescription extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -167,8 +174,8 @@ public class ObjCMethodDescription extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -182,11 +189,11 @@ public class ObjCMethodDescription extends Struct {
 		}
 
 		/** Returns the value of the {@code name} field. */
-		public long name() { return nname(address()); }
+		public long name() { return ObjCMethodDescription.nname(address()); }
 		/** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code types} field. */
-		public ByteBuffer types() { return ntypes(address()); }
+		public ByteBuffer types() { return ObjCMethodDescription.ntypes(address()); }
 		/** Decodes the null-terminated string pointed to by the {@code types} field. */
-		public String typesString() { return ntypesString(address()); }
+		public String typesString() { return ObjCMethodDescription.ntypesString(address()); }
 
 	}
 

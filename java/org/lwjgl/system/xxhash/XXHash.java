@@ -94,7 +94,7 @@ public class XXHash {
 	 */
 	public static XXH32State XXH32_createState() {
 		long __result = nXXH32_createState();
-		return new XXH32State(__result);
+		return XXH32State.create(__result);
 	}
 
 	// --- [ XXH32_freeState ] ---
@@ -123,7 +123,7 @@ public class XXHash {
 	/** 64-bit version of {@link #XXH32_createState 32_createState}. */
 	public static XXH64State XXH64_createState() {
 		long __result = nXXH64_createState();
-		return new XXH64State(__result);
+		return XXH64State.create(__result);
 	}
 
 	// --- [ XXH64_freeState ] ---

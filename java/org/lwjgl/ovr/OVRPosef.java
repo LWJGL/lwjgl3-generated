@@ -16,12 +16,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Position and orientation together.
  * 
- * <h3>ovrPosef members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ovrPosef {
+ *     {@link OVRQuatf ovrQuatf} Orientation;
+ *     {@link OVRVector3f ovrVector3f} Position;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Orientation</td><td class="nw">{@link OVRQuatf ovrQuatf}</td><td>the pose orientation</td></tr>
- * <tr><td>Position</td><td class="nw">{@link OVRVector3f ovrVector3f}</td><td>the pose position</td></tr>
+ * <tr><td>Orientation</td><td>the pose orientation</td></tr>
+ * <tr><td>Position</td><td>the pose position</td></tr>
  * </table>
  */
 public class OVRPosef extends Struct {
@@ -51,12 +58,7 @@ public class OVRPosef extends Struct {
 	}
 
 	OVRPosef(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVRPosef} instance at the specified memory address. */
-	public OVRPosef(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -66,7 +68,7 @@ public class OVRPosef extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVRPosef(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -121,12 +123,12 @@ public class OVRPosef extends Struct {
 
 	/** Returns a new {@link OVRPosef} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVRPosef malloc() {
-		return new OVRPosef(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVRPosef} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVRPosef calloc() {
-		return new OVRPosef(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVRPosef} instance allocated with {@link BufferUtils}. */
@@ -134,13 +136,18 @@ public class OVRPosef extends Struct {
 		return new OVRPosef(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVRPosef} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVRPosef create(long address) {
+		return address == NULL ? null : new OVRPosef(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVRPosef.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -148,8 +155,8 @@ public class OVRPosef extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -157,8 +164,8 @@ public class OVRPosef extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -167,14 +174,14 @@ public class OVRPosef extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #Orientation}. */
-	public static OVRQuatf nOrientation(long struct) { return new OVRQuatf(struct + OVRPosef.ORIENTATION); }
+	public static OVRQuatf nOrientation(long struct) { return OVRQuatf.create(struct + OVRPosef.ORIENTATION); }
 	/** Unsafe version of {@link #Position}. */
-	public static OVRVector3f nPosition(long struct) { return new OVRVector3f(struct + OVRPosef.POSITION); }
+	public static OVRVector3f nPosition(long struct) { return OVRVector3f.create(struct + OVRPosef.POSITION); }
 
 	/** Unsafe version of {@link #Orientation(OVRQuatf) Orientation}. */
 	public static void nOrientation(long struct, OVRQuatf value) { memCopy(value.address(), struct + OVRPosef.ORIENTATION, OVRQuatf.SIZEOF); }
@@ -196,11 +203,11 @@ public class OVRPosef extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -209,8 +216,8 @@ public class OVRPosef extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -224,14 +231,14 @@ public class OVRPosef extends Struct {
 		}
 
 		/** Returns a {@link OVRQuatf} view of the {@code Orientation} field. */
-		public OVRQuatf Orientation() { return nOrientation(address()); }
+		public OVRQuatf Orientation() { return OVRPosef.nOrientation(address()); }
 		/** Returns a {@link OVRVector3f} view of the {@code Position} field. */
-		public OVRVector3f Position() { return nPosition(address()); }
+		public OVRVector3f Position() { return OVRPosef.nPosition(address()); }
 
 		/** Copies the specified {@link OVRQuatf} to the {@code Orientation} field. */
-		public OVRPosef.Buffer Orientation(OVRQuatf value) { nOrientation(address(), value); return this; }
+		public OVRPosef.Buffer Orientation(OVRQuatf value) { OVRPosef.nOrientation(address(), value); return this; }
 		/** Copies the specified {@link OVRVector3f} to the {@code Position} field. */
-		public OVRPosef.Buffer Position(OVRVector3f value) { nPosition(address(), value); return this; }
+		public OVRPosef.Buffer Position(OVRVector3f value) { OVRPosef.nPosition(address(), value); return this; }
 
 	}
 

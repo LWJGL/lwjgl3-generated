@@ -16,14 +16,23 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * A quaternion rotation.
  * 
- * <h3>ovrQuatf members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ovrQuatf {
+ *     float x;
+ *     float y;
+ *     float z;
+ *     float w;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>x</td><td class="nw">float</td><td>the vector x component</td></tr>
- * <tr><td>y</td><td class="nw">float</td><td>the vector y component</td></tr>
- * <tr><td>z</td><td class="nw">float</td><td>the vector z component</td></tr>
- * <tr><td>w</td><td class="nw">float</td><td>the vector w component</td></tr>
+ * <tr><td>x</td><td>the vector x component</td></tr>
+ * <tr><td>y</td><td>the vector y component</td></tr>
+ * <tr><td>z</td><td>the vector z component</td></tr>
+ * <tr><td>w</td><td>the vector w component</td></tr>
  * </table>
  */
 public class OVRQuatf extends Struct {
@@ -59,12 +68,7 @@ public class OVRQuatf extends Struct {
 	}
 
 	OVRQuatf(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVRQuatf} instance at the specified memory address. */
-	public OVRQuatf(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -74,7 +78,7 @@ public class OVRQuatf extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVRQuatf(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -141,12 +145,12 @@ public class OVRQuatf extends Struct {
 
 	/** Returns a new {@link OVRQuatf} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVRQuatf malloc() {
-		return new OVRQuatf(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVRQuatf} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVRQuatf calloc() {
-		return new OVRQuatf(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVRQuatf} instance allocated with {@link BufferUtils}. */
@@ -154,13 +158,18 @@ public class OVRQuatf extends Struct {
 		return new OVRQuatf(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVRQuatf} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVRQuatf create(long address) {
+		return address == NULL ? null : new OVRQuatf(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVRQuatf.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -168,8 +177,8 @@ public class OVRQuatf extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -177,8 +186,8 @@ public class OVRQuatf extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -187,8 +196,8 @@ public class OVRQuatf extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #x}. */
@@ -224,11 +233,11 @@ public class OVRQuatf extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -237,8 +246,8 @@ public class OVRQuatf extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -252,22 +261,22 @@ public class OVRQuatf extends Struct {
 		}
 
 		/** Returns the value of the {@code x} field. */
-		public float x() { return nx(address()); }
+		public float x() { return OVRQuatf.nx(address()); }
 		/** Returns the value of the {@code y} field. */
-		public float y() { return ny(address()); }
+		public float y() { return OVRQuatf.ny(address()); }
 		/** Returns the value of the {@code z} field. */
-		public float z() { return nz(address()); }
+		public float z() { return OVRQuatf.nz(address()); }
 		/** Returns the value of the {@code w} field. */
-		public float w() { return nw(address()); }
+		public float w() { return OVRQuatf.nw(address()); }
 
 		/** Sets the specified value to the {@code x} field. */
-		public OVRQuatf.Buffer x(float value) { nx(address(), value); return this; }
+		public OVRQuatf.Buffer x(float value) { OVRQuatf.nx(address(), value); return this; }
 		/** Sets the specified value to the {@code y} field. */
-		public OVRQuatf.Buffer y(float value) { ny(address(), value); return this; }
+		public OVRQuatf.Buffer y(float value) { OVRQuatf.ny(address(), value); return this; }
 		/** Sets the specified value to the {@code z} field. */
-		public OVRQuatf.Buffer z(float value) { nz(address(), value); return this; }
+		public OVRQuatf.Buffer z(float value) { OVRQuatf.nz(address(), value); return this; }
 		/** Sets the specified value to the {@code w} field. */
-		public OVRQuatf.Buffer w(float value) { nw(address(), value); return this; }
+		public OVRQuatf.Buffer w(float value) { OVRQuatf.nw(address(), value); return this; }
 
 	}
 

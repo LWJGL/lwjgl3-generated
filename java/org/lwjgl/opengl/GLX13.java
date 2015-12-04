@@ -267,7 +267,7 @@ public class GLX13 {
 	 */
 	public static XVisualInfo glXGetVisualFromFBConfig(long display, long config) {
 		long __result = nglXGetVisualFromFBConfig(display, config);
-		return new XVisualInfo(__result);
+		return XVisualInfo.create(__result);
 	}
 
 	// --- [ glXCreateWindow ] ---

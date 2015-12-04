@@ -18,16 +18,27 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Body refers to any object for which ovrPoseStatef is providing data.  It can be the HMD, Touch controller, camera or something else. The context
  * depends on the usage of the struct.</p>
  * 
- * <h3>ovrPoseStatef members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ovrPoseStatef {
+ *     {@link OVRPosef ovrPosef} ThePose;
+ *     {@link OVRVector3f ovrVector3f} AngularVelocity;
+ *     {@link OVRVector3f ovrVector3f} LinearVelocity;
+ *     {@link OVRVector3f ovrVector3f} AngularAcceleration;
+ *     {@link OVRVector3f ovrVector3f} LinearAcceleration;
+ *     double TimeInSeconds;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>ThePose</td><td class="nw">{@link OVRPosef ovrPosef}</td><td>position and orientation</td></tr>
- * <tr><td>AngularVelocity</td><td class="nw">{@link OVRVector3f ovrVector3f}</td><td>angular velocity in radians per second</td></tr>
- * <tr><td>LinearVelocity</td><td class="nw">{@link OVRVector3f ovrVector3f}</td><td>velocity in meters per second</td></tr>
- * <tr><td>AngularAcceleration</td><td class="nw">{@link OVRVector3f ovrVector3f}</td><td>angular acceleration in radians per second per second</td></tr>
- * <tr><td>LinearAcceleration</td><td class="nw">{@link OVRVector3f ovrVector3f}</td><td>acceleration in meters per second per second</td></tr>
- * <tr><td>TimeInSeconds</td><td class="nw">double</td><td>absolute time of this state sample</td></tr>
+ * <tr><td>ThePose</td><td>position and orientation</td></tr>
+ * <tr><td>AngularVelocity</td><td>angular velocity in radians per second</td></tr>
+ * <tr><td>LinearVelocity</td><td>velocity in meters per second</td></tr>
+ * <tr><td>AngularAcceleration</td><td>angular acceleration in radians per second per second</td></tr>
+ * <tr><td>LinearAcceleration</td><td>acceleration in meters per second per second</td></tr>
+ * <tr><td>TimeInSeconds</td><td>absolute time of this state sample</td></tr>
  * </table>
  */
 public class OVRPoseStatef extends Struct {
@@ -69,12 +80,7 @@ public class OVRPoseStatef extends Struct {
 	}
 
 	OVRPoseStatef(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVRPoseStatef} instance at the specified memory address. */
-	public OVRPoseStatef(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -84,7 +90,7 @@ public class OVRPoseStatef extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVRPoseStatef(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -107,12 +113,12 @@ public class OVRPoseStatef extends Struct {
 
 	/** Returns a new {@link OVRPoseStatef} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVRPoseStatef malloc() {
-		return new OVRPoseStatef(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVRPoseStatef} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVRPoseStatef calloc() {
-		return new OVRPoseStatef(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVRPoseStatef} instance allocated with {@link BufferUtils}. */
@@ -120,13 +126,18 @@ public class OVRPoseStatef extends Struct {
 		return new OVRPoseStatef(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVRPoseStatef} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVRPoseStatef create(long address) {
+		return address == NULL ? null : new OVRPoseStatef(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVRPoseStatef.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -134,8 +145,8 @@ public class OVRPoseStatef extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -143,8 +154,8 @@ public class OVRPoseStatef extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -153,20 +164,20 @@ public class OVRPoseStatef extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #ThePose}. */
-	public static OVRPosef nThePose(long struct) { return new OVRPosef(struct + OVRPoseStatef.THEPOSE); }
+	public static OVRPosef nThePose(long struct) { return OVRPosef.create(struct + OVRPoseStatef.THEPOSE); }
 	/** Unsafe version of {@link #AngularVelocity}. */
-	public static OVRVector3f nAngularVelocity(long struct) { return new OVRVector3f(struct + OVRPoseStatef.ANGULARVELOCITY); }
+	public static OVRVector3f nAngularVelocity(long struct) { return OVRVector3f.create(struct + OVRPoseStatef.ANGULARVELOCITY); }
 	/** Unsafe version of {@link #LinearVelocity}. */
-	public static OVRVector3f nLinearVelocity(long struct) { return new OVRVector3f(struct + OVRPoseStatef.LINEARVELOCITY); }
+	public static OVRVector3f nLinearVelocity(long struct) { return OVRVector3f.create(struct + OVRPoseStatef.LINEARVELOCITY); }
 	/** Unsafe version of {@link #AngularAcceleration}. */
-	public static OVRVector3f nAngularAcceleration(long struct) { return new OVRVector3f(struct + OVRPoseStatef.ANGULARACCELERATION); }
+	public static OVRVector3f nAngularAcceleration(long struct) { return OVRVector3f.create(struct + OVRPoseStatef.ANGULARACCELERATION); }
 	/** Unsafe version of {@link #LinearAcceleration}. */
-	public static OVRVector3f nLinearAcceleration(long struct) { return new OVRVector3f(struct + OVRPoseStatef.LINEARACCELERATION); }
+	public static OVRVector3f nLinearAcceleration(long struct) { return OVRVector3f.create(struct + OVRPoseStatef.LINEARACCELERATION); }
 	/** Unsafe version of {@link #TimeInSeconds}. */
 	public static double nTimeInSeconds(long struct) { return memGetDouble(struct + OVRPoseStatef.TIMEINSECONDS); }
 
@@ -185,11 +196,11 @@ public class OVRPoseStatef extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -198,8 +209,8 @@ public class OVRPoseStatef extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -213,17 +224,17 @@ public class OVRPoseStatef extends Struct {
 		}
 
 		/** Returns a {@link OVRPosef} view of the {@code ThePose} field. */
-		public OVRPosef ThePose() { return nThePose(address()); }
+		public OVRPosef ThePose() { return OVRPoseStatef.nThePose(address()); }
 		/** Returns a {@link OVRVector3f} view of the {@code AngularVelocity} field. */
-		public OVRVector3f AngularVelocity() { return nAngularVelocity(address()); }
+		public OVRVector3f AngularVelocity() { return OVRPoseStatef.nAngularVelocity(address()); }
 		/** Returns a {@link OVRVector3f} view of the {@code LinearVelocity} field. */
-		public OVRVector3f LinearVelocity() { return nLinearVelocity(address()); }
+		public OVRVector3f LinearVelocity() { return OVRPoseStatef.nLinearVelocity(address()); }
 		/** Returns a {@link OVRVector3f} view of the {@code AngularAcceleration} field. */
-		public OVRVector3f AngularAcceleration() { return nAngularAcceleration(address()); }
+		public OVRVector3f AngularAcceleration() { return OVRPoseStatef.nAngularAcceleration(address()); }
 		/** Returns a {@link OVRVector3f} view of the {@code LinearAcceleration} field. */
-		public OVRVector3f LinearAcceleration() { return nLinearAcceleration(address()); }
+		public OVRVector3f LinearAcceleration() { return OVRPoseStatef.nLinearAcceleration(address()); }
 		/** Returns the value of the {@code TimeInSeconds} field. */
-		public double TimeInSeconds() { return nTimeInSeconds(address()); }
+		public double TimeInSeconds() { return OVRPoseStatef.nTimeInSeconds(address()); }
 
 	}
 

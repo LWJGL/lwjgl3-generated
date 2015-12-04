@@ -28,22 +28,33 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>ColorTexture[0] contains a single monoscopic rendering, and Viewport[0] and Viewport[1] both refer to that rendering.</li>
  * </ul>
  * 
- * <h3>ovrLayerEyeMatrix members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ovrLayerEyeMatrix {
+ *     {@link OVRLayerHeader ovrLayerHeader} Header;
+ *     ovrSwapTextureSet *[2] ColorTexture;
+ *     {@link OVRRecti ovrRecti}[2] Viewport;
+ *     {@link OVRPosef ovrPosef}[2] RenderPose;
+ *     {@link OVRMatrix4f ovrMatrix4f}[2] Matrix;
+ *     double SensorSampleTime;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Header</td><td class="nw">{@link OVRLayerHeader ovrLayerHeader}</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_EyeMatrix}</td></tr>
- * <tr><td>ColorTexture</td><td class="nw">ovrSwapTextureSet *[2]</td><td>{@code ovrSwapTextureSets} for the left and right eye respectively. The second one of which can be {@code NULL}</td></tr>
- * <tr><td>Viewport</td><td class="nw">{@link OVRRecti ovrRecti}[2]</td><td>specifies the {@code ColorTexture} sub-rect UV coordinates. Both {@code Viewport[0]} and {@code Viewport[1]} must be valid.</td></tr>
- * <tr><td>RenderPose</td><td class="nw">{@link OVRPosef ovrPosef}[2]</td><td>specifies the position and orientation of each eye view, with the position specified in meters. RenderPose will typically be the value returned from
+ * <tr><td>Header</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_EyeMatrix}</td></tr>
+ * <tr><td>ColorTexture</td><td>{@code ovrSwapTextureSets} for the left and right eye respectively. The second one of which can be {@code NULL}</td></tr>
+ * <tr><td>Viewport</td><td>specifies the {@code ColorTexture} sub-rect UV coordinates. Both {@code Viewport[0]} and {@code Viewport[1]} must be valid.</td></tr>
+ * <tr><td>RenderPose</td><td>specifies the position and orientation of each eye view, with the position specified in meters. RenderPose will typically be the value returned from
  * {@link OVRUtil#ovr_CalcEyePoses}, but can be different in special cases if a different head pose is used for rendering.</td></tr>
- * <tr><td>Matrix</td><td class="nw">{@link OVRMatrix4f ovrMatrix4f}[2]</td><td>specifies the mapping from a view-space vector to a UV coordinate on the textures given above.
+ * <tr><td>Matrix</td><td>specifies the mapping from a view-space vector to a UV coordinate on the textures given above.
  * 
  * <pre><code style="font-family: monospace">
  * P = (x,y,z,1)*Matrix
  * TexU  = P.x/P.z
  * TexV  = P.y/P.z</code></pre></td></tr>
- * <tr><td>SensorSampleTime</td><td class="nw">double</td><td>specifies the timestamp when the source {@link OVRPosef} (used in calculating RenderPose) was sampled from the SDK. Typically retrieved by calling
+ * <tr><td>SensorSampleTime</td><td>specifies the timestamp when the source {@link OVRPosef} (used in calculating RenderPose) was sampled from the SDK. Typically retrieved by calling
  * {@link OVR#ovr_GetTimeInSeconds} around the instant the application calls {@link OVR#ovr_GetTrackingState}. The main purpose for this is to accurately track app
  * tracking latency.</td></tr>
  * </table>
@@ -87,12 +98,7 @@ public class OVRLayerEyeMatrix extends Struct {
 	}
 
 	OVRLayerEyeMatrix(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVRLayerEyeMatrix} instance at the specified memory address. */
-	public OVRLayerEyeMatrix(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -102,7 +108,7 @@ public class OVRLayerEyeMatrix extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVRLayerEyeMatrix(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -197,12 +203,12 @@ public class OVRLayerEyeMatrix extends Struct {
 
 	/** Returns a new {@link OVRLayerEyeMatrix} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVRLayerEyeMatrix malloc() {
-		return new OVRLayerEyeMatrix(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVRLayerEyeMatrix} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVRLayerEyeMatrix calloc() {
-		return new OVRLayerEyeMatrix(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVRLayerEyeMatrix} instance allocated with {@link BufferUtils}. */
@@ -210,13 +216,18 @@ public class OVRLayerEyeMatrix extends Struct {
 		return new OVRLayerEyeMatrix(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVRLayerEyeMatrix} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVRLayerEyeMatrix create(long address) {
+		return address == NULL ? null : new OVRLayerEyeMatrix(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVRLayerEyeMatrix.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -224,8 +235,8 @@ public class OVRLayerEyeMatrix extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -233,8 +244,8 @@ public class OVRLayerEyeMatrix extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -243,43 +254,43 @@ public class OVRLayerEyeMatrix extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #Header}. */
-	public static OVRLayerHeader nHeader(long struct) { return new OVRLayerHeader(struct + OVRLayerEyeMatrix.HEADER); }
+	public static OVRLayerHeader nHeader(long struct) { return OVRLayerHeader.create(struct + OVRLayerEyeMatrix.HEADER); }
 	/** Unsafe version of {@link #ColorTexture}. */
 	public static PointerBuffer nColorTexture(long struct) {
 		return memPointerBuffer(struct + OVRLayerEyeMatrix.COLORTEXTURE, 2);
 	}
 	/** Unsafe version of {@link #ColorTexture(int) ColorTexture}. */
 	public static OVRSwapTextureSet nColorTexture(long struct, int index) {
-		return new OVRSwapTextureSet(memGetAddress(struct + OVRLayerEyeMatrix.COLORTEXTURE + index * POINTER_SIZE));
+		return OVRSwapTextureSet.create(memGetAddress(struct + OVRLayerEyeMatrix.COLORTEXTURE + index * POINTER_SIZE));
 	}
 	/** Unsafe version of {@link #Viewport}. */
 	public static OVRRecti.Buffer nViewport(long struct) {
-		return OVRRecti.createBuffer(struct + OVRLayerEyeMatrix.VIEWPORT, 2);
+		return OVRRecti.create(struct + OVRLayerEyeMatrix.VIEWPORT, 2);
 	}
 	/** Unsafe version of {@link #Viewport(int) Viewport}. */
 	public static OVRRecti nViewport(long struct, int index) {
-		return new OVRRecti(struct + OVRLayerEyeMatrix.VIEWPORT + index * OVRRecti.SIZEOF);
+		return OVRRecti.create(struct + OVRLayerEyeMatrix.VIEWPORT + index * OVRRecti.SIZEOF);
 	}
 	/** Unsafe version of {@link #RenderPose}. */
 	public static OVRPosef.Buffer nRenderPose(long struct) {
-		return OVRPosef.createBuffer(struct + OVRLayerEyeMatrix.RENDERPOSE, 2);
+		return OVRPosef.create(struct + OVRLayerEyeMatrix.RENDERPOSE, 2);
 	}
 	/** Unsafe version of {@link #RenderPose(int) RenderPose}. */
 	public static OVRPosef nRenderPose(long struct, int index) {
-		return new OVRPosef(struct + OVRLayerEyeMatrix.RENDERPOSE + index * OVRPosef.SIZEOF);
+		return OVRPosef.create(struct + OVRLayerEyeMatrix.RENDERPOSE + index * OVRPosef.SIZEOF);
 	}
 	/** Unsafe version of {@link #Matrix}. */
 	public static OVRMatrix4f.Buffer nMatrix(long struct) {
-		return OVRMatrix4f.createBuffer(struct + OVRLayerEyeMatrix.MATRIX, 2);
+		return OVRMatrix4f.create(struct + OVRLayerEyeMatrix.MATRIX, 2);
 	}
 	/** Unsafe version of {@link #Matrix(int) Matrix}. */
 	public static OVRMatrix4f nMatrix(long struct, int index) {
-		return new OVRMatrix4f(struct + OVRLayerEyeMatrix.MATRIX + index * OVRMatrix4f.SIZEOF);
+		return OVRMatrix4f.create(struct + OVRLayerEyeMatrix.MATRIX + index * OVRMatrix4f.SIZEOF);
 	}
 	/** Unsafe version of {@link #SensorSampleTime}. */
 	public static double nSensorSampleTime(long struct) { return memGetDouble(struct + OVRLayerEyeMatrix.SENSORSAMPLETIME); }
@@ -332,11 +343,11 @@ public class OVRLayerEyeMatrix extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -345,8 +356,8 @@ public class OVRLayerEyeMatrix extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -360,46 +371,46 @@ public class OVRLayerEyeMatrix extends Struct {
 		}
 
 		/** Returns a {@link OVRLayerHeader} view of the {@code Header} field. */
-		public OVRLayerHeader Header() { return nHeader(address()); }
+		public OVRLayerHeader Header() { return OVRLayerEyeMatrix.nHeader(address()); }
 		/** Returns a {@link PointerBuffer} view of the {@code ColorTexture} field. */
-		public PointerBuffer ColorTexture() { return nColorTexture(address()); }
+		public PointerBuffer ColorTexture() { return OVRLayerEyeMatrix.nColorTexture(address()); }
 		/** Returns a {@link OVRSwapTextureSet} view of the pointer at the specified index of the {@code ColorTexture}. */
-		public OVRSwapTextureSet ColorTexture(int index) { return nColorTexture(address(), index); }
+		public OVRSwapTextureSet ColorTexture(int index) { return OVRLayerEyeMatrix.nColorTexture(address(), index); }
 		/** Returns a {@link OVRRecti}.Buffer view of the {@code Viewport} field. */
-		public OVRRecti.Buffer Viewport() { return nViewport(address()); }
+		public OVRRecti.Buffer Viewport() { return OVRLayerEyeMatrix.nViewport(address()); }
 		/** Returns a {@link OVRRecti} view of the struct at the specified index of the {@code Viewport} field. */
-		public OVRRecti Viewport(int index) { return nViewport(address(), index); }
+		public OVRRecti Viewport(int index) { return OVRLayerEyeMatrix.nViewport(address(), index); }
 		/** Returns a {@link OVRPosef}.Buffer view of the {@code RenderPose} field. */
-		public OVRPosef.Buffer RenderPose() { return nRenderPose(address()); }
+		public OVRPosef.Buffer RenderPose() { return OVRLayerEyeMatrix.nRenderPose(address()); }
 		/** Returns a {@link OVRPosef} view of the struct at the specified index of the {@code RenderPose} field. */
-		public OVRPosef RenderPose(int index) { return nRenderPose(address(), index); }
+		public OVRPosef RenderPose(int index) { return OVRLayerEyeMatrix.nRenderPose(address(), index); }
 		/** Returns a {@link OVRMatrix4f}.Buffer view of the {@code Matrix} field. */
-		public OVRMatrix4f.Buffer Matrix() { return nMatrix(address()); }
+		public OVRMatrix4f.Buffer Matrix() { return OVRLayerEyeMatrix.nMatrix(address()); }
 		/** Returns a {@link OVRMatrix4f} view of the struct at the specified index of the {@code Matrix} field. */
-		public OVRMatrix4f Matrix(int index) { return nMatrix(address(), index); }
+		public OVRMatrix4f Matrix(int index) { return OVRLayerEyeMatrix.nMatrix(address(), index); }
 		/** Returns the value of the {@code SensorSampleTime} field. */
-		public double SensorSampleTime() { return nSensorSampleTime(address()); }
+		public double SensorSampleTime() { return OVRLayerEyeMatrix.nSensorSampleTime(address()); }
 
 		/** Copies the specified {@link OVRLayerHeader} to the {@code Header} field. */
-		public OVRLayerEyeMatrix.Buffer Header(OVRLayerHeader value) { nHeader(address(), value); return this; }
+		public OVRLayerEyeMatrix.Buffer Header(OVRLayerHeader value) { OVRLayerEyeMatrix.nHeader(address(), value); return this; }
 		/** Copies the specified {@link PointerBuffer} to the {@code ColorTexture} field. */
-		public OVRLayerEyeMatrix.Buffer ColorTexture(PointerBuffer value) { nColorTexture(address(), value); return this; }
+		public OVRLayerEyeMatrix.Buffer ColorTexture(PointerBuffer value) { OVRLayerEyeMatrix.nColorTexture(address(), value); return this; }
 		/** Copies the address of the specified {@link OVRSwapTextureSet} at the specified index of the {@code ColorTexture} field. */
-		public OVRLayerEyeMatrix.Buffer ColorTexture(int index, OVRSwapTextureSet value) { nColorTexture(address(), index, value); return this; }
+		public OVRLayerEyeMatrix.Buffer ColorTexture(int index, OVRSwapTextureSet value) { OVRLayerEyeMatrix.nColorTexture(address(), index, value); return this; }
 		/** Copies the specified {@link OVRRecti.Buffer} to the {@code Viewport} field. */
-		public OVRLayerEyeMatrix.Buffer Viewport(OVRRecti.Buffer value) { nViewport(address(), value); return this; }
+		public OVRLayerEyeMatrix.Buffer Viewport(OVRRecti.Buffer value) { OVRLayerEyeMatrix.nViewport(address(), value); return this; }
 		/** Copies the specified {@link OVRRecti} at the specified index of the {@code Viewport} field. */
-		public OVRLayerEyeMatrix.Buffer Viewport(int index, OVRRecti value) { nViewport(address(), index, value); return this; }
+		public OVRLayerEyeMatrix.Buffer Viewport(int index, OVRRecti value) { OVRLayerEyeMatrix.nViewport(address(), index, value); return this; }
 		/** Copies the specified {@link OVRPosef.Buffer} to the {@code RenderPose} field. */
-		public OVRLayerEyeMatrix.Buffer RenderPose(OVRPosef.Buffer value) { nRenderPose(address(), value); return this; }
+		public OVRLayerEyeMatrix.Buffer RenderPose(OVRPosef.Buffer value) { OVRLayerEyeMatrix.nRenderPose(address(), value); return this; }
 		/** Copies the specified {@link OVRPosef} at the specified index of the {@code RenderPose} field. */
-		public OVRLayerEyeMatrix.Buffer RenderPose(int index, OVRPosef value) { nRenderPose(address(), index, value); return this; }
+		public OVRLayerEyeMatrix.Buffer RenderPose(int index, OVRPosef value) { OVRLayerEyeMatrix.nRenderPose(address(), index, value); return this; }
 		/** Copies the specified {@link OVRMatrix4f.Buffer} to the {@code Matrix} field. */
-		public OVRLayerEyeMatrix.Buffer Matrix(OVRMatrix4f.Buffer value) { nMatrix(address(), value); return this; }
+		public OVRLayerEyeMatrix.Buffer Matrix(OVRMatrix4f.Buffer value) { OVRLayerEyeMatrix.nMatrix(address(), value); return this; }
 		/** Copies the specified {@link OVRMatrix4f} at the specified index of the {@code Matrix} field. */
-		public OVRLayerEyeMatrix.Buffer Matrix(int index, OVRMatrix4f value) { nMatrix(address(), index, value); return this; }
+		public OVRLayerEyeMatrix.Buffer Matrix(int index, OVRMatrix4f value) { OVRLayerEyeMatrix.nMatrix(address(), index, value); return this; }
 		/** Sets the specified value to the {@code SensorSampleTime} field. */
-		public OVRLayerEyeMatrix.Buffer SensorSampleTime(double value) { nSensorSampleTime(address(), value); return this; }
+		public OVRLayerEyeMatrix.Buffer SensorSampleTime(double value) { OVRLayerEyeMatrix.nSensorSampleTime(address(), value); return this; }
 
 	}
 

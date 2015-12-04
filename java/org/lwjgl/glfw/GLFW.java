@@ -986,7 +986,7 @@ public class GLFW {
 		APIBuffer __buffer = apiBuffer();
 		int count = __buffer.intParam();
 		long __result = nglfwGetVideoModes(monitor, __buffer.address(count));
-		return new GLFWVidMode.Buffer(memByteBuffer(__result, __buffer.intValue(count) * GLFWVidMode.SIZEOF));
+		return GLFWVidMode.create(__result, __buffer.intValue(count));
 	}
 
 	// --- [ glfwGetVideoMode ] ---
@@ -1017,7 +1017,7 @@ public class GLFW {
 	 */
 	public static GLFWVidMode glfwGetVideoMode(long monitor) {
 		long __result = nglfwGetVideoMode(monitor);
-		return new GLFWVidMode(__result);
+		return GLFWVidMode.create(__result);
 	}
 
 	// --- [ glfwSetGamma ] ---
@@ -1067,7 +1067,7 @@ public class GLFW {
 	 */
 	public static GLFWGammaRamp glfwGetGammaRamp(long monitor) {
 		long __result = nglfwGetGammaRamp(monitor);
-		return new GLFWGammaRamp(__result);
+		return GLFWGammaRamp.create(__result);
 	}
 
 	// --- [ glfwSetGammaRamp ] ---

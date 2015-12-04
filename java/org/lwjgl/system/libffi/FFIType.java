@@ -16,14 +16,23 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Contains information about a libffi type.
  * 
- * <h3>ffi_type members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ffi_type {
+ *     size_t size;
+ *     unsigned short alignment;
+ *     unsigned short type;
+ *     ffi_type ** elements;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>size</td><td class="nw">size_t</td><td>set by libffi; you should initialize it to zero.</td></tr>
- * <tr><td>alignment</td><td class="nw">unsigned short</td><td>set by libffi; you should initialize it to zero.</td></tr>
- * <tr><td>type</td><td class="nw">unsigned short</td><td>for a structure, this should be set to {@link LibFFI#FFI_TYPE_STRUCT}.</td></tr>
- * <tr><td>elements</td><td class="nw">ffi_type **</td><td>a null-terminated array of pointers to {@code ffi_type} objects. There is one element per field of the struct.</td></tr>
+ * <tr><td>size</td><td>set by libffi; you should initialize it to zero.</td></tr>
+ * <tr><td>alignment</td><td>set by libffi; you should initialize it to zero.</td></tr>
+ * <tr><td>type</td><td>for a structure, this should be set to {@link LibFFI#FFI_TYPE_STRUCT}.</td></tr>
+ * <tr><td>elements</td><td>a null-terminated array of pointers to {@code ffi_type} objects. There is one element per field of the struct.</td></tr>
  * </table>
  */
 public class FFIType extends Struct {
@@ -59,12 +68,7 @@ public class FFIType extends Struct {
 	}
 
 	FFIType(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link FFIType} instance at the specified memory address. */
-	public FFIType(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -74,7 +78,7 @@ public class FFIType extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public FFIType(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -145,12 +149,12 @@ public class FFIType extends Struct {
 
 	/** Returns a new {@link FFIType} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static FFIType malloc() {
-		return new FFIType(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link FFIType} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static FFIType calloc() {
-		return new FFIType(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link FFIType} instance allocated with {@link BufferUtils}. */
@@ -158,13 +162,18 @@ public class FFIType extends Struct {
 		return new FFIType(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link FFIType} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static FFIType create(long address) {
+		return address == NULL ? null : new FFIType(address, null);
+	}
+
 	/**
 	 * Returns a new {@link FFIType.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -172,8 +181,8 @@ public class FFIType extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -181,8 +190,8 @@ public class FFIType extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -191,8 +200,8 @@ public class FFIType extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #size}. */
@@ -228,11 +237,11 @@ public class FFIType extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -241,8 +250,8 @@ public class FFIType extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -256,26 +265,26 @@ public class FFIType extends Struct {
 		}
 
 		/** Returns the value of the {@code size} field. */
-		public long size() { return nsize(address()); }
+		public long size() { return FFIType.nsize(address()); }
 		/** Returns the value of the {@code alignment} field. */
-		public short alignment() { return nalignment(address()); }
+		public short alignment() { return FFIType.nalignment(address()); }
 		/** Returns the value of the {@code type} field. */
-		public short type() { return ntype(address()); }
+		public short type() { return FFIType.ntype(address()); }
 		/**
 		 * Returns a {@link PointerBuffer} view of the data pointed to by the {@code elements} field.
 		 *
 		 * @param capacity the number of elements in the returned {@link PointerBuffer}
 		 */
-		public PointerBuffer elements(int capacity) { return nelements(address(), capacity); }
+		public PointerBuffer elements(int capacity) { return FFIType.nelements(address(), capacity); }
 
 		/** Sets the specified value to the {@code size} field. */
-		public FFIType.Buffer size(long value) { nsize(address(), value); return this; }
+		public FFIType.Buffer size(long value) { FFIType.nsize(address(), value); return this; }
 		/** Sets the specified value to the {@code alignment} field. */
-		public FFIType.Buffer alignment(short value) { nalignment(address(), value); return this; }
+		public FFIType.Buffer alignment(short value) { FFIType.nalignment(address(), value); return this; }
 		/** Sets the specified value to the {@code type} field. */
-		public FFIType.Buffer type(short value) { ntype(address(), value); return this; }
+		public FFIType.Buffer type(short value) { FFIType.ntype(address(), value); return this; }
 		/** Sets the address of the specified {@link PointerBuffer} to the {@code elements} field. */
-		public FFIType.Buffer elements(PointerBuffer value) { nelements(address(), value); return this; }
+		public FFIType.Buffer elements(PointerBuffer value) { FFIType.nelements(address(), value); return this; }
 
 	}
 

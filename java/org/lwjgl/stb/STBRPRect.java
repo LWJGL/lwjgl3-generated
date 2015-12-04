@@ -16,16 +16,27 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * A packed rectangle.
  * 
- * <h3>stbrp_rect members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct stbrp_rect {
+ *     int id;
+ *     stbrp_coord w;
+ *     stbrp_coord h;
+ *     stbrp_coord x;
+ *     stbrp_coord y;
+ *     int was_packed;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>id</td><td class="nw">int</td><td>reserved for your use</td></tr>
- * <tr><td>w</td><td class="nw">stbrp_coord</td><td>input width</td></tr>
- * <tr><td>h</td><td class="nw">stbrp_coord</td><td>input height</td></tr>
- * <tr><td>x</td><td class="nw">stbrp_coord</td><td>output x coordinate</td></tr>
- * <tr><td>y</td><td class="nw">stbrp_coord</td><td>output y coordinate</td></tr>
- * <tr><td>was_packed</td><td class="nw">int</td><td>non-zero if valid packing</td></tr>
+ * <tr><td>id</td><td>reserved for your use</td></tr>
+ * <tr><td>w</td><td>input width</td></tr>
+ * <tr><td>h</td><td>input height</td></tr>
+ * <tr><td>x</td><td>output x coordinate</td></tr>
+ * <tr><td>y</td><td>output y coordinate</td></tr>
+ * <tr><td>was_packed</td><td>non-zero if valid packing</td></tr>
  * </table>
  */
 public class STBRPRect extends Struct {
@@ -67,12 +78,7 @@ public class STBRPRect extends Struct {
 	}
 
 	STBRPRect(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link STBRPRect} instance at the specified memory address. */
-	public STBRPRect(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -82,7 +88,7 @@ public class STBRPRect extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public STBRPRect(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -161,12 +167,12 @@ public class STBRPRect extends Struct {
 
 	/** Returns a new {@link STBRPRect} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static STBRPRect malloc() {
-		return new STBRPRect(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link STBRPRect} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static STBRPRect calloc() {
-		return new STBRPRect(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link STBRPRect} instance allocated with {@link BufferUtils}. */
@@ -174,13 +180,18 @@ public class STBRPRect extends Struct {
 		return new STBRPRect(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link STBRPRect} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static STBRPRect create(long address) {
+		return address == NULL ? null : new STBRPRect(address, null);
+	}
+
 	/**
 	 * Returns a new {@link STBRPRect.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -188,8 +199,8 @@ public class STBRPRect extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -197,8 +208,8 @@ public class STBRPRect extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -207,8 +218,8 @@ public class STBRPRect extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #id}. */
@@ -252,11 +263,11 @@ public class STBRPRect extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -265,8 +276,8 @@ public class STBRPRect extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -280,30 +291,30 @@ public class STBRPRect extends Struct {
 		}
 
 		/** Returns the value of the {@code id} field. */
-		public int id() { return nid(address()); }
+		public int id() { return STBRPRect.nid(address()); }
 		/** Returns the value of the {@code w} field. */
-		public short w() { return nw(address()); }
+		public short w() { return STBRPRect.nw(address()); }
 		/** Returns the value of the {@code h} field. */
-		public short h() { return nh(address()); }
+		public short h() { return STBRPRect.nh(address()); }
 		/** Returns the value of the {@code x} field. */
-		public short x() { return nx(address()); }
+		public short x() { return STBRPRect.nx(address()); }
 		/** Returns the value of the {@code y} field. */
-		public short y() { return ny(address()); }
+		public short y() { return STBRPRect.ny(address()); }
 		/** Returns the value of the {@code was_packed} field. */
-		public int was_packed() { return nwas_packed(address()); }
+		public int was_packed() { return STBRPRect.nwas_packed(address()); }
 
 		/** Sets the specified value to the {@code id} field. */
-		public STBRPRect.Buffer id(int value) { nid(address(), value); return this; }
+		public STBRPRect.Buffer id(int value) { STBRPRect.nid(address(), value); return this; }
 		/** Sets the specified value to the {@code w} field. */
-		public STBRPRect.Buffer w(short value) { nw(address(), value); return this; }
+		public STBRPRect.Buffer w(short value) { STBRPRect.nw(address(), value); return this; }
 		/** Sets the specified value to the {@code h} field. */
-		public STBRPRect.Buffer h(short value) { nh(address(), value); return this; }
+		public STBRPRect.Buffer h(short value) { STBRPRect.nh(address(), value); return this; }
 		/** Sets the specified value to the {@code x} field. */
-		public STBRPRect.Buffer x(short value) { nx(address(), value); return this; }
+		public STBRPRect.Buffer x(short value) { STBRPRect.nx(address(), value); return this; }
 		/** Sets the specified value to the {@code y} field. */
-		public STBRPRect.Buffer y(short value) { ny(address(), value); return this; }
+		public STBRPRect.Buffer y(short value) { STBRPRect.ny(address(), value); return this; }
 		/** Sets the specified value to the {@code was_packed} field. */
-		public STBRPRect.Buffer was_packed(int value) { nwas_packed(address(), value); return this; }
+		public STBRPRect.Buffer was_packed(int value) { STBRPRect.nwas_packed(address(), value); return this; }
 
 	}
 

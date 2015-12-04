@@ -17,16 +17,25 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Specifies the width, height, stride, format and memory pointer of the pixmap to be used by the function {@link HIClientpixmap#eglCreatePixmapSurfaceHI} to
  * create the {@code PixmapSurface}.
  * 
- * <h3>struct EGLClientPixmapHI members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct EGLClientPixmapHI {
+ *     void * pData;
+ *     EGLint iWidth;
+ *     EGLint iHeight;
+ *     EGLint iStride;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>pData</td><td class="nw">void *</td><td>pointer to a memory buffer allocated by the application that will contain the result of the drawing operations. It is up to the application to ensure
+ * <tr><td>pData</td><td>pointer to a memory buffer allocated by the application that will contain the result of the drawing operations. It is up to the application to ensure
  * that the buffer size corresponds to {@code iHeight * iStride * sizeof(pixel)}.</td></tr>
- * <tr><td>iWidth</td><td class="nw">EGLint</td><td>width of the buffer in pixels</td></tr>
- * <tr><td>iHeight</td><td class="nw">EGLint</td><td>height of the buffer in pixels. The height of the buffer can be negative; in that case the result of the drawing operations will be vertically swapped.
+ * <tr><td>iWidth</td><td>width of the buffer in pixels</td></tr>
+ * <tr><td>iHeight</td><td>height of the buffer in pixels. The height of the buffer can be negative; in that case the result of the drawing operations will be vertically swapped.
  * When positive, {@code pData} will point at the bottom-left corner of the image; when negative, to the top-left corner.</td></tr>
- * <tr><td>iStride</td><td class="nw">EGLint</td><td>stride of the buffer, in pixels. It is important to note that each row of the buffer must start on 32-bit boundaries.</td></tr>
+ * <tr><td>iStride</td><td>stride of the buffer, in pixels. It is important to note that each row of the buffer must start on 32-bit boundaries.</td></tr>
  * </table>
  */
 public class EGLClientPixmapHI extends Struct {
@@ -62,12 +71,7 @@ public class EGLClientPixmapHI extends Struct {
 	}
 
 	EGLClientPixmapHI(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link EGLClientPixmapHI} instance at the specified memory address. */
-	public EGLClientPixmapHI(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -77,7 +81,7 @@ public class EGLClientPixmapHI extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public EGLClientPixmapHI(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -148,12 +152,12 @@ public class EGLClientPixmapHI extends Struct {
 
 	/** Returns a new {@link EGLClientPixmapHI} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static EGLClientPixmapHI malloc() {
-		return new EGLClientPixmapHI(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link EGLClientPixmapHI} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static EGLClientPixmapHI calloc() {
-		return new EGLClientPixmapHI(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link EGLClientPixmapHI} instance allocated with {@link BufferUtils}. */
@@ -161,13 +165,18 @@ public class EGLClientPixmapHI extends Struct {
 		return new EGLClientPixmapHI(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link EGLClientPixmapHI} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static EGLClientPixmapHI create(long address) {
+		return address == NULL ? null : new EGLClientPixmapHI(address, null);
+	}
+
 	/**
 	 * Returns a new {@link EGLClientPixmapHI.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -175,8 +184,8 @@ public class EGLClientPixmapHI extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -184,8 +193,8 @@ public class EGLClientPixmapHI extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -194,8 +203,8 @@ public class EGLClientPixmapHI extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #pData(int) pData}. */
@@ -231,11 +240,11 @@ public class EGLClientPixmapHI extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -244,8 +253,8 @@ public class EGLClientPixmapHI extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -263,22 +272,22 @@ public class EGLClientPixmapHI extends Struct {
 		 *
 		 * @param capacity the number of elements in the returned {@link ByteBuffer}
 		 */
-		public ByteBuffer pData(int capacity) { return npData(address(), capacity); }
+		public ByteBuffer pData(int capacity) { return EGLClientPixmapHI.npData(address(), capacity); }
 		/** Returns the value of the {@code iWidth} field. */
-		public int iWidth() { return niWidth(address()); }
+		public int iWidth() { return EGLClientPixmapHI.niWidth(address()); }
 		/** Returns the value of the {@code iHeight} field. */
-		public int iHeight() { return niHeight(address()); }
+		public int iHeight() { return EGLClientPixmapHI.niHeight(address()); }
 		/** Returns the value of the {@code iStride} field. */
-		public int iStride() { return niStride(address()); }
+		public int iStride() { return EGLClientPixmapHI.niStride(address()); }
 
 		/** Sets the address of the specified {@link ByteBuffer} to the {@code pData} field. */
-		public EGLClientPixmapHI.Buffer pData(ByteBuffer value) { npData(address(), value); return this; }
+		public EGLClientPixmapHI.Buffer pData(ByteBuffer value) { EGLClientPixmapHI.npData(address(), value); return this; }
 		/** Sets the specified value to the {@code iWidth} field. */
-		public EGLClientPixmapHI.Buffer iWidth(int value) { niWidth(address(), value); return this; }
+		public EGLClientPixmapHI.Buffer iWidth(int value) { EGLClientPixmapHI.niWidth(address(), value); return this; }
 		/** Sets the specified value to the {@code iHeight} field. */
-		public EGLClientPixmapHI.Buffer iHeight(int value) { niHeight(address(), value); return this; }
+		public EGLClientPixmapHI.Buffer iHeight(int value) { EGLClientPixmapHI.niHeight(address(), value); return this; }
 		/** Sets the specified value to the {@code iStride} field. */
-		public EGLClientPixmapHI.Buffer iStride(int value) { niStride(address(), value); return this; }
+		public EGLClientPixmapHI.Buffer iStride(int value) { EGLClientPixmapHI.niStride(address(), value); return this; }
 
 	}
 

@@ -17,17 +17,29 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Describes the complete controller input state, including Oculus Touch, and XBox gamepad. If multiple inputs are connected and used at the same time,
  * their inputs are combined.
  * 
- * <h3>ovrInputState members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ovrInputState {
+ *     double TimeInSeconds;
+ *     unsigned int ConnectedControllerTypes;
+ *     unsigned int Buttons;
+ *     unsigned int Touches;
+ *     float[2] IndexTrigger;
+ *     float[2] HandTrigger;
+ *     {@link OVRVector2f ovrVector2f}[2] Thumbstick;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>TimeInSeconds</td><td class="nw">double</td><td>system type when the controller state was last updated</td></tr>
- * <tr><td>ConnectedControllerTypes</td><td class="nw">unsigned int</td><td>described by {@code ovrControllerType}. Indicates which ControllerTypes are present.</td></tr>
- * <tr><td>Buttons</td><td class="nw">unsigned int</td><td>values for buttons described by {@code ovrButton}</td></tr>
- * <tr><td>Touches</td><td class="nw">unsigned int</td><td>touch values for buttons and sensors as described by {@code ovrTouch}.</td></tr>
- * <tr><td>IndexTrigger</td><td class="nw">float[2]</td><td>left and right finger trigger values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range 0.0 to 1.0f.</td></tr>
- * <tr><td>HandTrigger</td><td class="nw">float[2]</td><td>left and right hand trigger values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range 0.0 to 1.0f.</td></tr>
- * <tr><td>Thumbstick</td><td class="nw">{@link OVRVector2f ovrVector2f}[2]</td><td>horizontal and vertical thumbstick axis values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range -1.0f to 1.0f.</td></tr>
+ * <tr><td>TimeInSeconds</td><td>system type when the controller state was last updated</td></tr>
+ * <tr><td>ConnectedControllerTypes</td><td>described by {@code ovrControllerType}. Indicates which ControllerTypes are present.</td></tr>
+ * <tr><td>Buttons</td><td>values for buttons described by {@code ovrButton}</td></tr>
+ * <tr><td>Touches</td><td>touch values for buttons and sensors as described by {@code ovrTouch}.</td></tr>
+ * <tr><td>IndexTrigger</td><td>left and right finger trigger values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range 0.0 to 1.0f.</td></tr>
+ * <tr><td>HandTrigger</td><td>left and right hand trigger values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range 0.0 to 1.0f.</td></tr>
+ * <tr><td>Thumbstick</td><td>horizontal and vertical thumbstick axis values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range -1.0f to 1.0f.</td></tr>
  * </table>
  */
 public class OVRInputState extends Struct {
@@ -72,12 +84,7 @@ public class OVRInputState extends Struct {
 	}
 
 	OVRInputState(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVRInputState} instance at the specified memory address. */
-	public OVRInputState(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -87,7 +94,7 @@ public class OVRInputState extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVRInputState(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -184,12 +191,12 @@ public class OVRInputState extends Struct {
 
 	/** Returns a new {@link OVRInputState} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVRInputState malloc() {
-		return new OVRInputState(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVRInputState} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVRInputState calloc() {
-		return new OVRInputState(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVRInputState} instance allocated with {@link BufferUtils}. */
@@ -197,13 +204,18 @@ public class OVRInputState extends Struct {
 		return new OVRInputState(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVRInputState} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVRInputState create(long address) {
+		return address == NULL ? null : new OVRInputState(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVRInputState.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -211,8 +223,8 @@ public class OVRInputState extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -220,8 +232,8 @@ public class OVRInputState extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -230,8 +242,8 @@ public class OVRInputState extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #TimeInSeconds}. */
@@ -256,11 +268,11 @@ public class OVRInputState extends Struct {
 	public static float nHandTrigger(long struct, int index) { return memGetFloat(struct + OVRInputState.HANDTRIGGER + index * 4); }
 	/** Unsafe version of {@link #Thumbstick}. */
 	public static OVRVector2f.Buffer nThumbstick(long struct) {
-		return OVRVector2f.createBuffer(struct + OVRInputState.THUMBSTICK, 2);
+		return OVRVector2f.create(struct + OVRInputState.THUMBSTICK, 2);
 	}
 	/** Unsafe version of {@link #Thumbstick(int) Thumbstick}. */
 	public static OVRVector2f nThumbstick(long struct, int index) {
-		return new OVRVector2f(struct + OVRInputState.THUMBSTICK + index * OVRVector2f.SIZEOF);
+		return OVRVector2f.create(struct + OVRInputState.THUMBSTICK + index * OVRVector2f.SIZEOF);
 	}
 
 	/** Unsafe version of {@link #TimeInSeconds(double) TimeInSeconds}. */
@@ -308,11 +320,11 @@ public class OVRInputState extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -321,8 +333,8 @@ public class OVRInputState extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -336,46 +348,46 @@ public class OVRInputState extends Struct {
 		}
 
 		/** Returns the value of the {@code TimeInSeconds} field. */
-		public double TimeInSeconds() { return nTimeInSeconds(address()); }
+		public double TimeInSeconds() { return OVRInputState.nTimeInSeconds(address()); }
 		/** Returns the value of the {@code ConnectedControllerTypes} field. */
-		public int ConnectedControllerTypes() { return nConnectedControllerTypes(address()); }
+		public int ConnectedControllerTypes() { return OVRInputState.nConnectedControllerTypes(address()); }
 		/** Returns the value of the {@code Buttons} field. */
-		public int Buttons() { return nButtons(address()); }
+		public int Buttons() { return OVRInputState.nButtons(address()); }
 		/** Returns the value of the {@code Touches} field. */
-		public int Touches() { return nTouches(address()); }
+		public int Touches() { return OVRInputState.nTouches(address()); }
 		/** Returns a {@link FloatBuffer} view of the {@code IndexTrigger} field. */
-		public FloatBuffer IndexTrigger() { return nIndexTrigger(address()); }
+		public FloatBuffer IndexTrigger() { return OVRInputState.nIndexTrigger(address()); }
 		/** Returns the value at the specified index of the {@code IndexTrigger} field. */
-		public float IndexTrigger(int index) { return nIndexTrigger(address(), index); }
+		public float IndexTrigger(int index) { return OVRInputState.nIndexTrigger(address(), index); }
 		/** Returns a {@link FloatBuffer} view of the {@code HandTrigger} field. */
-		public FloatBuffer HandTrigger() { return nHandTrigger(address()); }
+		public FloatBuffer HandTrigger() { return OVRInputState.nHandTrigger(address()); }
 		/** Returns the value at the specified index of the {@code HandTrigger} field. */
-		public float HandTrigger(int index) { return nHandTrigger(address(), index); }
+		public float HandTrigger(int index) { return OVRInputState.nHandTrigger(address(), index); }
 		/** Returns a {@link OVRVector2f}.Buffer view of the {@code Thumbstick} field. */
-		public OVRVector2f.Buffer Thumbstick() { return nThumbstick(address()); }
+		public OVRVector2f.Buffer Thumbstick() { return OVRInputState.nThumbstick(address()); }
 		/** Returns a {@link OVRVector2f} view of the struct at the specified index of the {@code Thumbstick} field. */
-		public OVRVector2f Thumbstick(int index) { return nThumbstick(address(), index); }
+		public OVRVector2f Thumbstick(int index) { return OVRInputState.nThumbstick(address(), index); }
 
 		/** Sets the specified value to the {@code TimeInSeconds} field. */
-		public OVRInputState.Buffer TimeInSeconds(double value) { nTimeInSeconds(address(), value); return this; }
+		public OVRInputState.Buffer TimeInSeconds(double value) { OVRInputState.nTimeInSeconds(address(), value); return this; }
 		/** Sets the specified value to the {@code ConnectedControllerTypes} field. */
-		public OVRInputState.Buffer ConnectedControllerTypes(int value) { nConnectedControllerTypes(address(), value); return this; }
+		public OVRInputState.Buffer ConnectedControllerTypes(int value) { OVRInputState.nConnectedControllerTypes(address(), value); return this; }
 		/** Sets the specified value to the {@code Buttons} field. */
-		public OVRInputState.Buffer Buttons(int value) { nButtons(address(), value); return this; }
+		public OVRInputState.Buffer Buttons(int value) { OVRInputState.nButtons(address(), value); return this; }
 		/** Sets the specified value to the {@code Touches} field. */
-		public OVRInputState.Buffer Touches(int value) { nTouches(address(), value); return this; }
+		public OVRInputState.Buffer Touches(int value) { OVRInputState.nTouches(address(), value); return this; }
 		/** Copies the specified {@link FloatBuffer} to the {@code IndexTrigger} field. */
-		public OVRInputState.Buffer IndexTrigger(FloatBuffer value) { nIndexTrigger(address(), value); return this; }
+		public OVRInputState.Buffer IndexTrigger(FloatBuffer value) { OVRInputState.nIndexTrigger(address(), value); return this; }
 		/** Sets the specified value at the specified index of the {@code IndexTrigger} field. */
-		public OVRInputState.Buffer IndexTrigger(int index, float value) { nIndexTrigger(address(), index, value); return this; }
+		public OVRInputState.Buffer IndexTrigger(int index, float value) { OVRInputState.nIndexTrigger(address(), index, value); return this; }
 		/** Copies the specified {@link FloatBuffer} to the {@code HandTrigger} field. */
-		public OVRInputState.Buffer HandTrigger(FloatBuffer value) { nHandTrigger(address(), value); return this; }
+		public OVRInputState.Buffer HandTrigger(FloatBuffer value) { OVRInputState.nHandTrigger(address(), value); return this; }
 		/** Sets the specified value at the specified index of the {@code HandTrigger} field. */
-		public OVRInputState.Buffer HandTrigger(int index, float value) { nHandTrigger(address(), index, value); return this; }
+		public OVRInputState.Buffer HandTrigger(int index, float value) { OVRInputState.nHandTrigger(address(), index, value); return this; }
 		/** Copies the specified {@link OVRVector2f.Buffer} to the {@code Thumbstick} field. */
-		public OVRInputState.Buffer Thumbstick(OVRVector2f.Buffer value) { nThumbstick(address(), value); return this; }
+		public OVRInputState.Buffer Thumbstick(OVRVector2f.Buffer value) { OVRInputState.nThumbstick(address(), value); return this; }
 		/** Copies the specified {@link OVRVector2f} at the specified index of the {@code Thumbstick} field. */
-		public OVRInputState.Buffer Thumbstick(int index, OVRVector2f value) { nThumbstick(address(), index, value); return this; }
+		public OVRInputState.Buffer Thumbstick(int index, OVRVector2f value) { OVRInputState.nThumbstick(address(), index, value); return this; }
 
 	}
 

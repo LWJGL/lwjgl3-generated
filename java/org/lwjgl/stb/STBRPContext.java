@@ -25,12 +25,7 @@ public class STBRPContext extends Struct {
 	private static native int offsets();
 
 	STBRPContext(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link STBRPContext} instance at the specified memory address. */
-	public STBRPContext(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -40,7 +35,7 @@ public class STBRPContext extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public STBRPContext(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -50,12 +45,12 @@ public class STBRPContext extends Struct {
 
 	/** Returns a new {@link STBRPContext} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static STBRPContext malloc() {
-		return new STBRPContext(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link STBRPContext} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static STBRPContext calloc() {
-		return new STBRPContext(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link STBRPContext} instance allocated with {@link BufferUtils}. */
@@ -63,13 +58,18 @@ public class STBRPContext extends Struct {
 		return new STBRPContext(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link STBRPContext} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static STBRPContext create(long address) {
+		return address == NULL ? null : new STBRPContext(address, null);
+	}
+
 	/**
 	 * Returns a new {@link STBRPContext.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -77,8 +77,8 @@ public class STBRPContext extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -86,8 +86,8 @@ public class STBRPContext extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -96,8 +96,8 @@ public class STBRPContext extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	// -----------------------------------
@@ -115,11 +115,11 @@ public class STBRPContext extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -128,8 +128,8 @@ public class STBRPContext extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override

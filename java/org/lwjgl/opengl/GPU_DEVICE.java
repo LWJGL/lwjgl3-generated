@@ -18,18 +18,28 @@ import org.lwjgl.system.windows.*;
  * Receives information about the display device specified by the {@code deviceIndex} parameter of the {@link WGLNVGPUAffinity#wglEnumGpuDevicesNV}
  * function.
  * 
- * <h3>GPU_DEVICE members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct GPU_DEVICE {
+ *     DWORD cb;
+ *     CHAR[32] DeviceName;
+ *     CHAR[128] DeviceString;
+ *     DWORD Flags;
+ *     {@link RECT RECT} rcVirtualScreen;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>cb</td><td class="nw">DWORD</td><td>the size of the {@code GPU_DEVICE} structure. Before calling {@link WGLNVGPUAffinity#wglEnumGpuDevicesNV}, set {@code cb} to the size, in bytes, of
+ * <tr><td>cb</td><td>the size of the {@code GPU_DEVICE} structure. Before calling {@link WGLNVGPUAffinity#wglEnumGpuDevicesNV}, set {@code cb} to the size, in bytes, of
  * {@code GPU_DEVICE}.</td></tr>
- * <tr><td>DeviceName</td><td class="nw">CHAR[32]</td><td>a string identifying the display device name. This will be the same string as stored in the {@code DeviceName} field of the {@code DISPLAY_DEVICE}
+ * <tr><td>DeviceName</td><td>a string identifying the display device name. This will be the same string as stored in the {@code DeviceName} field of the {@code DISPLAY_DEVICE}
  * structure, which is filled in by {@code EnumDisplayDevices}.</td></tr>
- * <tr><td>DeviceString</td><td class="nw">CHAR[128]</td><td>a string describing the GPU for this display device. It is the same string as stored in the {@code DeviceString} field in the
+ * <tr><td>DeviceString</td><td>a string describing the GPU for this display device. It is the same string as stored in the {@code DeviceString} field in the
  * {@code DISPLAY_DEVICE} structure that is filled in by {@code EnumDisplayDevices} when it describes a display adapter (and not a monitor).</td></tr>
- * <tr><td>Flags</td><td class="nw">DWORD</td><td>indicates the state of the display device</td></tr>
- * <tr><td>rcVirtualScreen</td><td class="nw">{@link RECT RECT}</td><td>specifies the display device rectangle, in virtual screen coordinates. The value of {@code rcVirtualScreen} is undefined if the device is not part
+ * <tr><td>Flags</td><td>indicates the state of the display device</td></tr>
+ * <tr><td>rcVirtualScreen</td><td>specifies the display device rectangle, in virtual screen coordinates. The value of {@code rcVirtualScreen} is undefined if the device is not part
  * of the desktop, i.e. {@code DISPLAY_DEVICE_ATTACHED_TO_DESKTOP} is not set in the {@code Flags} field.</td></tr>
  * </table>
  */
@@ -69,12 +79,7 @@ public class GPU_DEVICE extends Struct {
 	}
 
 	GPU_DEVICE(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link GPU_DEVICE} instance at the specified memory address. */
-	public GPU_DEVICE(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -84,7 +89,7 @@ public class GPU_DEVICE extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public GPU_DEVICE(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -109,12 +114,12 @@ public class GPU_DEVICE extends Struct {
 
 	/** Returns a new {@link GPU_DEVICE} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static GPU_DEVICE malloc() {
-		return new GPU_DEVICE(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link GPU_DEVICE} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static GPU_DEVICE calloc() {
-		return new GPU_DEVICE(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link GPU_DEVICE} instance allocated with {@link BufferUtils}. */
@@ -122,13 +127,18 @@ public class GPU_DEVICE extends Struct {
 		return new GPU_DEVICE(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link GPU_DEVICE} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static GPU_DEVICE create(long address) {
+		return address == NULL ? null : new GPU_DEVICE(address, null);
+	}
+
 	/**
 	 * Returns a new {@link GPU_DEVICE.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -136,8 +146,8 @@ public class GPU_DEVICE extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -145,8 +155,8 @@ public class GPU_DEVICE extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -155,8 +165,8 @@ public class GPU_DEVICE extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #cb}. */
@@ -172,7 +182,7 @@ public class GPU_DEVICE extends Struct {
 	/** Unsafe version of {@link #Flags}. */
 	public static int nFlags(long struct) { return memGetInt(struct + GPU_DEVICE.FLAGS); }
 	/** Unsafe version of {@link #rcVirtualScreen}. */
-	public static RECT nrcVirtualScreen(long struct) { return new RECT(struct + GPU_DEVICE.RCVIRTUALSCREEN); }
+	public static RECT nrcVirtualScreen(long struct) { return RECT.create(struct + GPU_DEVICE.RCVIRTUALSCREEN); }
 
 	// -----------------------------------
 
@@ -189,11 +199,11 @@ public class GPU_DEVICE extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -202,8 +212,8 @@ public class GPU_DEVICE extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -217,19 +227,19 @@ public class GPU_DEVICE extends Struct {
 		}
 
 		/** Returns the value of the {@code cb} field. */
-		public int cb() { return ncb(address()); }
+		public int cb() { return GPU_DEVICE.ncb(address()); }
 		/** Returns a {@link ByteBuffer} view of the {@code DeviceName} field. */
-		public ByteBuffer DeviceName() { return nDeviceName(address()); }
+		public ByteBuffer DeviceName() { return GPU_DEVICE.nDeviceName(address()); }
 		/** Decodes the null-terminated string stored in the {@code DeviceName} field. */
-		public String DeviceNameString() { return nDeviceNameString(address()); }
+		public String DeviceNameString() { return GPU_DEVICE.nDeviceNameString(address()); }
 		/** Returns a {@link ByteBuffer} view of the {@code DeviceString} field. */
-		public ByteBuffer DeviceString() { return nDeviceString(address()); }
+		public ByteBuffer DeviceString() { return GPU_DEVICE.nDeviceString(address()); }
 		/** Decodes the null-terminated string stored in the {@code DeviceString} field. */
-		public String DeviceStringString() { return nDeviceStringString(address()); }
+		public String DeviceStringString() { return GPU_DEVICE.nDeviceStringString(address()); }
 		/** Returns the value of the {@code Flags} field. */
-		public int Flags() { return nFlags(address()); }
+		public int Flags() { return GPU_DEVICE.nFlags(address()); }
 		/** Returns a {@link RECT} view of the {@code rcVirtualScreen} field. */
-		public RECT rcVirtualScreen() { return nrcVirtualScreen(address()); }
+		public RECT rcVirtualScreen() { return GPU_DEVICE.nrcVirtualScreen(address()); }
 
 	}
 

@@ -16,39 +16,70 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Describes the pixel format of a drawing surface.
  * 
- * <h3>PIXELFORMATDESCRIPTOR members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct PIXELFORMATDESCRIPTOR {
+ *     WORD nSize;
+ *     WORD nVersion;
+ *     DWORD dwFlags;
+ *     BYTE iPixelType;
+ *     BYTE cColorBits;
+ *     BYTE cRedBits;
+ *     BYTE cRedShift;
+ *     BYTE cGreenBits;
+ *     BYTE cGreenShift;
+ *     BYTE cBlueBits;
+ *     BYTE cBlueShift;
+ *     BYTE cAlphaBits;
+ *     BYTE cAlphaShift;
+ *     BYTE cAccumBits;
+ *     BYTE cAccumRedBits;
+ *     BYTE cAccumGreenBits;
+ *     BYTE cAccumBlueBits;
+ *     BYTE cAccumAlphaBits;
+ *     BYTE cDepthBits;
+ *     BYTE cStencilBits;
+ *     BYTE cAuxBuffers;
+ *     BYTE iLayerType;
+ *     BYTE bReserved;
+ *     DWORD dwLayerMask;
+ *     DWORD dwVisibleMask;
+ *     DWORD dwDamageMask;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>nSize</td><td class="nw">WORD</td><td>specifies the size of this data structure. This value should be set to {@link #SIZEOF}.</td></tr>
- * <tr><td>nVersion</td><td class="nw">WORD</td><td>specifies the version of this data structure. This value should be set to 1</td></tr>
- * <tr><td>dwFlags</td><td class="nw">DWORD</td><td>a set of bit flags that specify properties of the pixel buffer</td></tr>
- * <tr><td>iPixelType</td><td class="nw">BYTE</td><td>specifies the type of pixel data</td></tr>
- * <tr><td>cColorBits</td><td class="nw">BYTE</td><td>specifies the number of color bitplanes in each color buffer. For RGBA pixel types, it is the size of the color buffer, excluding the alpha bitplanes.
+ * <tr><td>nSize</td><td>specifies the size of this data structure. This value should be set to {@link #SIZEOF}.</td></tr>
+ * <tr><td>nVersion</td><td>specifies the version of this data structure. This value should be set to 1</td></tr>
+ * <tr><td>dwFlags</td><td>a set of bit flags that specify properties of the pixel buffer</td></tr>
+ * <tr><td>iPixelType</td><td>specifies the type of pixel data</td></tr>
+ * <tr><td>cColorBits</td><td>specifies the number of color bitplanes in each color buffer. For RGBA pixel types, it is the size of the color buffer, excluding the alpha bitplanes.
  * For color-index pixels, it is the size of the color-index buffer.</td></tr>
- * <tr><td>cRedBits</td><td class="nw">BYTE</td><td>specifies the number of red bitplanes in each RGBA color buffer</td></tr>
- * <tr><td>cRedShift</td><td class="nw">BYTE</td><td>specifies the shift count for red bitplanes in each RGBA color buffer</td></tr>
- * <tr><td>cGreenBits</td><td class="nw">BYTE</td><td>specifies the number of green bitplanes in each RGBA color buffer</td></tr>
- * <tr><td>cGreenShift</td><td class="nw">BYTE</td><td>specifies the shift count for green bitplanes in each RGBA color buffer</td></tr>
- * <tr><td>cBlueBits</td><td class="nw">BYTE</td><td>specifies the number of blue bitplanes in each RGBA color buffer</td></tr>
- * <tr><td>cBlueShift</td><td class="nw">BYTE</td><td>specifies the shift count for blue bitplanes in each RGBA color buffer</td></tr>
- * <tr><td>cAlphaBits</td><td class="nw">BYTE</td><td>specifies the number of alpha bitplanes in each RGBA color buffer. Alpha bitplanes are not supported</td></tr>
- * <tr><td>cAlphaShift</td><td class="nw">BYTE</td><td>specifies the shift count for alpha bitplanes in each RGBA color buffer. Alpha bitplanes are not supported</td></tr>
- * <tr><td>cAccumBits</td><td class="nw">BYTE</td><td>specifies the total number of bitplanes in the accumulation buffer</td></tr>
- * <tr><td>cAccumRedBits</td><td class="nw">BYTE</td><td>specifies the number of red bitplanes in the accumulation buffer</td></tr>
- * <tr><td>cAccumGreenBits</td><td class="nw">BYTE</td><td>specifies the number of green bitplanes in the accumulation buffer</td></tr>
- * <tr><td>cAccumBlueBits</td><td class="nw">BYTE</td><td>specifies the number of blue bitplanes in the accumulation buffer</td></tr>
- * <tr><td>cAccumAlphaBits</td><td class="nw">BYTE</td><td>specifies the number of alpha bitplanes in the accumulation buffer</td></tr>
- * <tr><td>cDepthBits</td><td class="nw">BYTE</td><td>specifies the depth of the depth (z-axis) buffer</td></tr>
- * <tr><td>cStencilBits</td><td class="nw">BYTE</td><td>specifies the depth of the stencil buffer</td></tr>
- * <tr><td>cAuxBuffers</td><td class="nw">BYTE</td><td>specifies the number of auxiliary buffers. Auxiliary buffers are not supported</td></tr>
- * <tr><td>iLayerType</td><td class="nw">BYTE</td><td>Ignored. Earlier implementations of OpenGL used this member, but it is no longer used.</td></tr>
- * <tr><td>bReserved</td><td class="nw">BYTE</td><td>specifies the number of overlay and underlay planes. Bits 0 through 3 specify up to 15 overlay planes and bits 4 through 7 specify up to 15 underlay
+ * <tr><td>cRedBits</td><td>specifies the number of red bitplanes in each RGBA color buffer</td></tr>
+ * <tr><td>cRedShift</td><td>specifies the shift count for red bitplanes in each RGBA color buffer</td></tr>
+ * <tr><td>cGreenBits</td><td>specifies the number of green bitplanes in each RGBA color buffer</td></tr>
+ * <tr><td>cGreenShift</td><td>specifies the shift count for green bitplanes in each RGBA color buffer</td></tr>
+ * <tr><td>cBlueBits</td><td>specifies the number of blue bitplanes in each RGBA color buffer</td></tr>
+ * <tr><td>cBlueShift</td><td>specifies the shift count for blue bitplanes in each RGBA color buffer</td></tr>
+ * <tr><td>cAlphaBits</td><td>specifies the number of alpha bitplanes in each RGBA color buffer. Alpha bitplanes are not supported</td></tr>
+ * <tr><td>cAlphaShift</td><td>specifies the shift count for alpha bitplanes in each RGBA color buffer. Alpha bitplanes are not supported</td></tr>
+ * <tr><td>cAccumBits</td><td>specifies the total number of bitplanes in the accumulation buffer</td></tr>
+ * <tr><td>cAccumRedBits</td><td>specifies the number of red bitplanes in the accumulation buffer</td></tr>
+ * <tr><td>cAccumGreenBits</td><td>specifies the number of green bitplanes in the accumulation buffer</td></tr>
+ * <tr><td>cAccumBlueBits</td><td>specifies the number of blue bitplanes in the accumulation buffer</td></tr>
+ * <tr><td>cAccumAlphaBits</td><td>specifies the number of alpha bitplanes in the accumulation buffer</td></tr>
+ * <tr><td>cDepthBits</td><td>specifies the depth of the depth (z-axis) buffer</td></tr>
+ * <tr><td>cStencilBits</td><td>specifies the depth of the stencil buffer</td></tr>
+ * <tr><td>cAuxBuffers</td><td>specifies the number of auxiliary buffers. Auxiliary buffers are not supported</td></tr>
+ * <tr><td>iLayerType</td><td>Ignored. Earlier implementations of OpenGL used this member, but it is no longer used.</td></tr>
+ * <tr><td>bReserved</td><td>specifies the number of overlay and underlay planes. Bits 0 through 3 specify up to 15 overlay planes and bits 4 through 7 specify up to 15 underlay
  * planes</td></tr>
- * <tr><td>dwLayerMask</td><td class="nw">DWORD</td><td>Ignored. Earlier implementations of OpenGL used this member, but it is no longer used.</td></tr>
- * <tr><td>dwVisibleMask</td><td class="nw">DWORD</td><td>specifies the transparent color or index of an underlay plane. When the pixel type is RGBA, {@code dwVisibleMask} is a transparent RGB color value.
+ * <tr><td>dwLayerMask</td><td>Ignored. Earlier implementations of OpenGL used this member, but it is no longer used.</td></tr>
+ * <tr><td>dwVisibleMask</td><td>specifies the transparent color or index of an underlay plane. When the pixel type is RGBA, {@code dwVisibleMask} is a transparent RGB color value.
  * When the pixel type is color index, it is a transparent index value.</td></tr>
- * <tr><td>dwDamageMask</td><td class="nw">DWORD</td><td>Ignored. Earlier implementations of OpenGL used this member, but it is no longer used.</td></tr>
+ * <tr><td>dwDamageMask</td><td>Ignored. Earlier implementations of OpenGL used this member, but it is no longer used.</td></tr>
  * </table>
  */
 public class PIXELFORMATDESCRIPTOR extends Struct {
@@ -150,12 +181,7 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 	}
 
 	PIXELFORMATDESCRIPTOR(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link PIXELFORMATDESCRIPTOR} instance at the specified memory address. */
-	public PIXELFORMATDESCRIPTOR(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -165,7 +191,7 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public PIXELFORMATDESCRIPTOR(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -364,12 +390,12 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 
 	/** Returns a new {@link PIXELFORMATDESCRIPTOR} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static PIXELFORMATDESCRIPTOR malloc() {
-		return new PIXELFORMATDESCRIPTOR(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link PIXELFORMATDESCRIPTOR} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static PIXELFORMATDESCRIPTOR calloc() {
-		return new PIXELFORMATDESCRIPTOR(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link PIXELFORMATDESCRIPTOR} instance allocated with {@link BufferUtils}. */
@@ -377,13 +403,18 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 		return new PIXELFORMATDESCRIPTOR(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link PIXELFORMATDESCRIPTOR} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static PIXELFORMATDESCRIPTOR create(long address) {
+		return address == NULL ? null : new PIXELFORMATDESCRIPTOR(address, null);
+	}
+
 	/**
 	 * Returns a new {@link PIXELFORMATDESCRIPTOR.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -391,8 +422,8 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -400,8 +431,8 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -410,8 +441,8 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #nSize}. */
@@ -535,11 +566,11 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -548,8 +579,8 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -563,110 +594,110 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 		}
 
 		/** Returns the value of the {@code nSize} field. */
-		public short nSize() { return nnSize(address()); }
+		public short nSize() { return PIXELFORMATDESCRIPTOR.nnSize(address()); }
 		/** Returns the value of the {@code nVersion} field. */
-		public short nVersion() { return nnVersion(address()); }
+		public short nVersion() { return PIXELFORMATDESCRIPTOR.nnVersion(address()); }
 		/** Returns the value of the {@code dwFlags} field. */
-		public int dwFlags() { return ndwFlags(address()); }
+		public int dwFlags() { return PIXELFORMATDESCRIPTOR.ndwFlags(address()); }
 		/** Returns the value of the {@code iPixelType} field. */
-		public byte iPixelType() { return niPixelType(address()); }
+		public byte iPixelType() { return PIXELFORMATDESCRIPTOR.niPixelType(address()); }
 		/** Returns the value of the {@code cColorBits} field. */
-		public byte cColorBits() { return ncColorBits(address()); }
+		public byte cColorBits() { return PIXELFORMATDESCRIPTOR.ncColorBits(address()); }
 		/** Returns the value of the {@code cRedBits} field. */
-		public byte cRedBits() { return ncRedBits(address()); }
+		public byte cRedBits() { return PIXELFORMATDESCRIPTOR.ncRedBits(address()); }
 		/** Returns the value of the {@code cRedShift} field. */
-		public byte cRedShift() { return ncRedShift(address()); }
+		public byte cRedShift() { return PIXELFORMATDESCRIPTOR.ncRedShift(address()); }
 		/** Returns the value of the {@code cGreenBits} field. */
-		public byte cGreenBits() { return ncGreenBits(address()); }
+		public byte cGreenBits() { return PIXELFORMATDESCRIPTOR.ncGreenBits(address()); }
 		/** Returns the value of the {@code cGreenShift} field. */
-		public byte cGreenShift() { return ncGreenShift(address()); }
+		public byte cGreenShift() { return PIXELFORMATDESCRIPTOR.ncGreenShift(address()); }
 		/** Returns the value of the {@code cBlueBits} field. */
-		public byte cBlueBits() { return ncBlueBits(address()); }
+		public byte cBlueBits() { return PIXELFORMATDESCRIPTOR.ncBlueBits(address()); }
 		/** Returns the value of the {@code cBlueShift} field. */
-		public byte cBlueShift() { return ncBlueShift(address()); }
+		public byte cBlueShift() { return PIXELFORMATDESCRIPTOR.ncBlueShift(address()); }
 		/** Returns the value of the {@code cAlphaBits} field. */
-		public byte cAlphaBits() { return ncAlphaBits(address()); }
+		public byte cAlphaBits() { return PIXELFORMATDESCRIPTOR.ncAlphaBits(address()); }
 		/** Returns the value of the {@code cAlphaShift} field. */
-		public byte cAlphaShift() { return ncAlphaShift(address()); }
+		public byte cAlphaShift() { return PIXELFORMATDESCRIPTOR.ncAlphaShift(address()); }
 		/** Returns the value of the {@code cAccumBits} field. */
-		public byte cAccumBits() { return ncAccumBits(address()); }
+		public byte cAccumBits() { return PIXELFORMATDESCRIPTOR.ncAccumBits(address()); }
 		/** Returns the value of the {@code cAccumRedBits} field. */
-		public byte cAccumRedBits() { return ncAccumRedBits(address()); }
+		public byte cAccumRedBits() { return PIXELFORMATDESCRIPTOR.ncAccumRedBits(address()); }
 		/** Returns the value of the {@code cAccumGreenBits} field. */
-		public byte cAccumGreenBits() { return ncAccumGreenBits(address()); }
+		public byte cAccumGreenBits() { return PIXELFORMATDESCRIPTOR.ncAccumGreenBits(address()); }
 		/** Returns the value of the {@code cAccumBlueBits} field. */
-		public byte cAccumBlueBits() { return ncAccumBlueBits(address()); }
+		public byte cAccumBlueBits() { return PIXELFORMATDESCRIPTOR.ncAccumBlueBits(address()); }
 		/** Returns the value of the {@code cAccumAlphaBits} field. */
-		public byte cAccumAlphaBits() { return ncAccumAlphaBits(address()); }
+		public byte cAccumAlphaBits() { return PIXELFORMATDESCRIPTOR.ncAccumAlphaBits(address()); }
 		/** Returns the value of the {@code cDepthBits} field. */
-		public byte cDepthBits() { return ncDepthBits(address()); }
+		public byte cDepthBits() { return PIXELFORMATDESCRIPTOR.ncDepthBits(address()); }
 		/** Returns the value of the {@code cStencilBits} field. */
-		public byte cStencilBits() { return ncStencilBits(address()); }
+		public byte cStencilBits() { return PIXELFORMATDESCRIPTOR.ncStencilBits(address()); }
 		/** Returns the value of the {@code cAuxBuffers} field. */
-		public byte cAuxBuffers() { return ncAuxBuffers(address()); }
+		public byte cAuxBuffers() { return PIXELFORMATDESCRIPTOR.ncAuxBuffers(address()); }
 		/** Returns the value of the {@code iLayerType} field. */
-		public byte iLayerType() { return niLayerType(address()); }
+		public byte iLayerType() { return PIXELFORMATDESCRIPTOR.niLayerType(address()); }
 		/** Returns the value of the {@code bReserved} field. */
-		public byte bReserved() { return nbReserved(address()); }
+		public byte bReserved() { return PIXELFORMATDESCRIPTOR.nbReserved(address()); }
 		/** Returns the value of the {@code dwLayerMask} field. */
-		public int dwLayerMask() { return ndwLayerMask(address()); }
+		public int dwLayerMask() { return PIXELFORMATDESCRIPTOR.ndwLayerMask(address()); }
 		/** Returns the value of the {@code dwVisibleMask} field. */
-		public int dwVisibleMask() { return ndwVisibleMask(address()); }
+		public int dwVisibleMask() { return PIXELFORMATDESCRIPTOR.ndwVisibleMask(address()); }
 		/** Returns the value of the {@code dwDamageMask} field. */
-		public int dwDamageMask() { return ndwDamageMask(address()); }
+		public int dwDamageMask() { return PIXELFORMATDESCRIPTOR.ndwDamageMask(address()); }
 
 		/** Sets the specified value to the {@code nSize} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer nSize(short value) { nnSize(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer nSize(short value) { PIXELFORMATDESCRIPTOR.nnSize(address(), value); return this; }
 		/** Sets the specified value to the {@code nVersion} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer nVersion(short value) { nnVersion(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer nVersion(short value) { PIXELFORMATDESCRIPTOR.nnVersion(address(), value); return this; }
 		/** Sets the specified value to the {@code dwFlags} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer dwFlags(int value) { ndwFlags(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer dwFlags(int value) { PIXELFORMATDESCRIPTOR.ndwFlags(address(), value); return this; }
 		/** Sets the specified value to the {@code iPixelType} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer iPixelType(byte value) { niPixelType(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer iPixelType(byte value) { PIXELFORMATDESCRIPTOR.niPixelType(address(), value); return this; }
 		/** Sets the specified value to the {@code cColorBits} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer cColorBits(byte value) { ncColorBits(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer cColorBits(byte value) { PIXELFORMATDESCRIPTOR.ncColorBits(address(), value); return this; }
 		/** Sets the specified value to the {@code cRedBits} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer cRedBits(byte value) { ncRedBits(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer cRedBits(byte value) { PIXELFORMATDESCRIPTOR.ncRedBits(address(), value); return this; }
 		/** Sets the specified value to the {@code cRedShift} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer cRedShift(byte value) { ncRedShift(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer cRedShift(byte value) { PIXELFORMATDESCRIPTOR.ncRedShift(address(), value); return this; }
 		/** Sets the specified value to the {@code cGreenBits} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer cGreenBits(byte value) { ncGreenBits(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer cGreenBits(byte value) { PIXELFORMATDESCRIPTOR.ncGreenBits(address(), value); return this; }
 		/** Sets the specified value to the {@code cGreenShift} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer cGreenShift(byte value) { ncGreenShift(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer cGreenShift(byte value) { PIXELFORMATDESCRIPTOR.ncGreenShift(address(), value); return this; }
 		/** Sets the specified value to the {@code cBlueBits} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer cBlueBits(byte value) { ncBlueBits(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer cBlueBits(byte value) { PIXELFORMATDESCRIPTOR.ncBlueBits(address(), value); return this; }
 		/** Sets the specified value to the {@code cBlueShift} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer cBlueShift(byte value) { ncBlueShift(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer cBlueShift(byte value) { PIXELFORMATDESCRIPTOR.ncBlueShift(address(), value); return this; }
 		/** Sets the specified value to the {@code cAlphaBits} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer cAlphaBits(byte value) { ncAlphaBits(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer cAlphaBits(byte value) { PIXELFORMATDESCRIPTOR.ncAlphaBits(address(), value); return this; }
 		/** Sets the specified value to the {@code cAlphaShift} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer cAlphaShift(byte value) { ncAlphaShift(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer cAlphaShift(byte value) { PIXELFORMATDESCRIPTOR.ncAlphaShift(address(), value); return this; }
 		/** Sets the specified value to the {@code cAccumBits} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer cAccumBits(byte value) { ncAccumBits(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer cAccumBits(byte value) { PIXELFORMATDESCRIPTOR.ncAccumBits(address(), value); return this; }
 		/** Sets the specified value to the {@code cAccumRedBits} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer cAccumRedBits(byte value) { ncAccumRedBits(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer cAccumRedBits(byte value) { PIXELFORMATDESCRIPTOR.ncAccumRedBits(address(), value); return this; }
 		/** Sets the specified value to the {@code cAccumGreenBits} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer cAccumGreenBits(byte value) { ncAccumGreenBits(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer cAccumGreenBits(byte value) { PIXELFORMATDESCRIPTOR.ncAccumGreenBits(address(), value); return this; }
 		/** Sets the specified value to the {@code cAccumBlueBits} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer cAccumBlueBits(byte value) { ncAccumBlueBits(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer cAccumBlueBits(byte value) { PIXELFORMATDESCRIPTOR.ncAccumBlueBits(address(), value); return this; }
 		/** Sets the specified value to the {@code cAccumAlphaBits} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer cAccumAlphaBits(byte value) { ncAccumAlphaBits(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer cAccumAlphaBits(byte value) { PIXELFORMATDESCRIPTOR.ncAccumAlphaBits(address(), value); return this; }
 		/** Sets the specified value to the {@code cDepthBits} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer cDepthBits(byte value) { ncDepthBits(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer cDepthBits(byte value) { PIXELFORMATDESCRIPTOR.ncDepthBits(address(), value); return this; }
 		/** Sets the specified value to the {@code cStencilBits} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer cStencilBits(byte value) { ncStencilBits(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer cStencilBits(byte value) { PIXELFORMATDESCRIPTOR.ncStencilBits(address(), value); return this; }
 		/** Sets the specified value to the {@code cAuxBuffers} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer cAuxBuffers(byte value) { ncAuxBuffers(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer cAuxBuffers(byte value) { PIXELFORMATDESCRIPTOR.ncAuxBuffers(address(), value); return this; }
 		/** Sets the specified value to the {@code iLayerType} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer iLayerType(byte value) { niLayerType(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer iLayerType(byte value) { PIXELFORMATDESCRIPTOR.niLayerType(address(), value); return this; }
 		/** Sets the specified value to the {@code bReserved} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer bReserved(byte value) { nbReserved(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer bReserved(byte value) { PIXELFORMATDESCRIPTOR.nbReserved(address(), value); return this; }
 		/** Sets the specified value to the {@code dwLayerMask} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer dwLayerMask(int value) { ndwLayerMask(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer dwLayerMask(int value) { PIXELFORMATDESCRIPTOR.ndwLayerMask(address(), value); return this; }
 		/** Sets the specified value to the {@code dwVisibleMask} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer dwVisibleMask(int value) { ndwVisibleMask(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer dwVisibleMask(int value) { PIXELFORMATDESCRIPTOR.ndwVisibleMask(address(), value); return this; }
 		/** Sets the specified value to the {@code dwDamageMask} field. */
-		public PIXELFORMATDESCRIPTOR.Buffer dwDamageMask(int value) { ndwDamageMask(address(), value); return this; }
+		public PIXELFORMATDESCRIPTOR.Buffer dwDamageMask(int value) { PIXELFORMATDESCRIPTOR.ndwDamageMask(address(), value); return this; }
 
 	}
 

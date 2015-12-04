@@ -16,14 +16,23 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Describes the configuration of the motion estimation algorithm.
  * 
- * <h3>cl_motion_estimation_desc_intel members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct cl_motion_estimation_desc_intel {
+ *     cl_uint mb_block_type;
+ *     cl_uint subpixel_mode;
+ *     cl_uint sad_adjust_mode;
+ *     cl_uint search_path_type;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>mb_block_type</td><td class="nw">cl_uint</td><td>describes the size of the blocks described by the motion estimator</td></tr>
- * <tr><td>subpixel_mode</td><td class="nw">cl_uint</td><td>defines the search precision (and hence, the precision of the returned motion vectors)</td></tr>
- * <tr><td>sad_adjust_mode</td><td class="nw">cl_uint</td><td>specifies distortion measure adjustment used for the motion search SAD comparison</td></tr>
- * <tr><td>search_path_type</td><td class="nw">cl_uint</td><td>specifies the search path and search radius when matching blocks in the neighborhood of each pixel block (optionally offset by the predicted motion
+ * <tr><td>mb_block_type</td><td>describes the size of the blocks described by the motion estimator</td></tr>
+ * <tr><td>subpixel_mode</td><td>defines the search precision (and hence, the precision of the returned motion vectors)</td></tr>
+ * <tr><td>sad_adjust_mode</td><td>specifies distortion measure adjustment used for the motion search SAD comparison</td></tr>
+ * <tr><td>search_path_type</td><td>specifies the search path and search radius when matching blocks in the neighborhood of each pixel block (optionally offset by the predicted motion
  * vector). Currently, all search algorithms match the source block with pixel blocks in the reference area exhaustively within a {@code [Rx, Ry]}
  * radius from the current source pixel block location (optionally offset by the predicted motion vector)</td></tr>
  * </table>
@@ -61,12 +70,7 @@ public class CLMotionEstimationDescINTEL extends Struct {
 	}
 
 	CLMotionEstimationDescINTEL(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link CLMotionEstimationDescINTEL} instance at the specified memory address. */
-	public CLMotionEstimationDescINTEL(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -76,7 +80,7 @@ public class CLMotionEstimationDescINTEL extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public CLMotionEstimationDescINTEL(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -143,12 +147,12 @@ public class CLMotionEstimationDescINTEL extends Struct {
 
 	/** Returns a new {@link CLMotionEstimationDescINTEL} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static CLMotionEstimationDescINTEL malloc() {
-		return new CLMotionEstimationDescINTEL(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link CLMotionEstimationDescINTEL} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static CLMotionEstimationDescINTEL calloc() {
-		return new CLMotionEstimationDescINTEL(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link CLMotionEstimationDescINTEL} instance allocated with {@link BufferUtils}. */
@@ -156,13 +160,18 @@ public class CLMotionEstimationDescINTEL extends Struct {
 		return new CLMotionEstimationDescINTEL(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link CLMotionEstimationDescINTEL} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static CLMotionEstimationDescINTEL create(long address) {
+		return address == NULL ? null : new CLMotionEstimationDescINTEL(address, null);
+	}
+
 	/**
 	 * Returns a new {@link CLMotionEstimationDescINTEL.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -170,8 +179,8 @@ public class CLMotionEstimationDescINTEL extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -179,8 +188,8 @@ public class CLMotionEstimationDescINTEL extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -189,8 +198,8 @@ public class CLMotionEstimationDescINTEL extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #mb_block_type}. */
@@ -226,11 +235,11 @@ public class CLMotionEstimationDescINTEL extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -239,8 +248,8 @@ public class CLMotionEstimationDescINTEL extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -254,22 +263,22 @@ public class CLMotionEstimationDescINTEL extends Struct {
 		}
 
 		/** Returns the value of the {@code mb_block_type} field. */
-		public int mb_block_type() { return nmb_block_type(address()); }
+		public int mb_block_type() { return CLMotionEstimationDescINTEL.nmb_block_type(address()); }
 		/** Returns the value of the {@code subpixel_mode} field. */
-		public int subpixel_mode() { return nsubpixel_mode(address()); }
+		public int subpixel_mode() { return CLMotionEstimationDescINTEL.nsubpixel_mode(address()); }
 		/** Returns the value of the {@code sad_adjust_mode} field. */
-		public int sad_adjust_mode() { return nsad_adjust_mode(address()); }
+		public int sad_adjust_mode() { return CLMotionEstimationDescINTEL.nsad_adjust_mode(address()); }
 		/** Returns the value of the {@code search_path_type} field. */
-		public int search_path_type() { return nsearch_path_type(address()); }
+		public int search_path_type() { return CLMotionEstimationDescINTEL.nsearch_path_type(address()); }
 
 		/** Sets the specified value to the {@code mb_block_type} field. */
-		public CLMotionEstimationDescINTEL.Buffer mb_block_type(int value) { nmb_block_type(address(), value); return this; }
+		public CLMotionEstimationDescINTEL.Buffer mb_block_type(int value) { CLMotionEstimationDescINTEL.nmb_block_type(address(), value); return this; }
 		/** Sets the specified value to the {@code subpixel_mode} field. */
-		public CLMotionEstimationDescINTEL.Buffer subpixel_mode(int value) { nsubpixel_mode(address(), value); return this; }
+		public CLMotionEstimationDescINTEL.Buffer subpixel_mode(int value) { CLMotionEstimationDescINTEL.nsubpixel_mode(address(), value); return this; }
 		/** Sets the specified value to the {@code sad_adjust_mode} field. */
-		public CLMotionEstimationDescINTEL.Buffer sad_adjust_mode(int value) { nsad_adjust_mode(address(), value); return this; }
+		public CLMotionEstimationDescINTEL.Buffer sad_adjust_mode(int value) { CLMotionEstimationDescINTEL.nsad_adjust_mode(address(), value); return this; }
 		/** Sets the specified value to the {@code search_path_type} field. */
-		public CLMotionEstimationDescINTEL.Buffer search_path_type(int value) { nsearch_path_type(address(), value); return this; }
+		public CLMotionEstimationDescINTEL.Buffer search_path_type(int value) { CLMotionEstimationDescINTEL.nsearch_path_type(address(), value); return this; }
 
 	}
 

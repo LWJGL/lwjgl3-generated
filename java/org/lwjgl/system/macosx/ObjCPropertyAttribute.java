@@ -16,12 +16,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Defines a property attribute.
  * 
- * <h3>objc_property_attribute_t members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct objc_property_attribute_t {
+ *     char * name;
+ *     char * value;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>name</td><td class="nw">char *</td><td>the name of the attribute</td></tr>
- * <tr><td>value</td><td class="nw">char *</td><td>the value of the attribute (usually empty)</td></tr>
+ * <tr><td>name</td><td>the name of the attribute</td></tr>
+ * <tr><td>value</td><td>the value of the attribute (usually empty)</td></tr>
  * </table>
  */
 public class ObjCPropertyAttribute extends Struct {
@@ -51,12 +58,7 @@ public class ObjCPropertyAttribute extends Struct {
 	}
 
 	ObjCPropertyAttribute(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link ObjCPropertyAttribute} instance at the specified memory address. */
-	public ObjCPropertyAttribute(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -66,7 +68,7 @@ public class ObjCPropertyAttribute extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public ObjCPropertyAttribute(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -137,12 +139,12 @@ public class ObjCPropertyAttribute extends Struct {
 
 	/** Returns a new {@link ObjCPropertyAttribute} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static ObjCPropertyAttribute malloc() {
-		return new ObjCPropertyAttribute(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link ObjCPropertyAttribute} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static ObjCPropertyAttribute calloc() {
-		return new ObjCPropertyAttribute(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link ObjCPropertyAttribute} instance allocated with {@link BufferUtils}. */
@@ -150,13 +152,18 @@ public class ObjCPropertyAttribute extends Struct {
 		return new ObjCPropertyAttribute(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link ObjCPropertyAttribute} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static ObjCPropertyAttribute create(long address) {
+		return address == NULL ? null : new ObjCPropertyAttribute(address, null);
+	}
+
 	/**
 	 * Returns a new {@link ObjCPropertyAttribute.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -164,8 +171,8 @@ public class ObjCPropertyAttribute extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -173,8 +180,8 @@ public class ObjCPropertyAttribute extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -183,8 +190,8 @@ public class ObjCPropertyAttribute extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #name}. */
@@ -226,11 +233,11 @@ public class ObjCPropertyAttribute extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -239,8 +246,8 @@ public class ObjCPropertyAttribute extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -254,30 +261,30 @@ public class ObjCPropertyAttribute extends Struct {
 		}
 
 		/** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code name} field. */
-		public ByteBuffer name() { return nname(address()); }
+		public ByteBuffer name() { return ObjCPropertyAttribute.nname(address()); }
 		/** Decodes the null-terminated string pointed to by the {@code name} field. */
-		public String nameString() { return nnameString(address()); }
+		public String nameString() { return ObjCPropertyAttribute.nnameString(address()); }
 		/** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code value} field. */
-		public ByteBuffer value() { return nvalue(address()); }
+		public ByteBuffer value() { return ObjCPropertyAttribute.nvalue(address()); }
 		/** Decodes the null-terminated string pointed to by the {@code value} field. */
-		public String valueString() { return nvalueString(address()); }
+		public String valueString() { return ObjCPropertyAttribute.nvalueString(address()); }
 
 		/** Sets the address of the specified encoded string to the {@code name} field. */
-		public ObjCPropertyAttribute.Buffer name(ByteBuffer value) { nname(address(), value); return this; }
+		public ObjCPropertyAttribute.Buffer name(ByteBuffer value) { ObjCPropertyAttribute.nname(address(), value); return this; }
 	/**
 	 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code name} field.
 	 *
 	 * <p>The encoded string must be explicitly freed with {@link MemoryUtil#memFree memFree}.</p>
 	*/
-		public ObjCPropertyAttribute.Buffer name(CharSequence value) { nname(address(), value); return this; }
+		public ObjCPropertyAttribute.Buffer name(CharSequence value) { ObjCPropertyAttribute.nname(address(), value); return this; }
 		/** Sets the address of the specified encoded string to the {@code value} field. */
-		public ObjCPropertyAttribute.Buffer value(ByteBuffer value) { nvalue(address(), value); return this; }
+		public ObjCPropertyAttribute.Buffer value(ByteBuffer value) { ObjCPropertyAttribute.nvalue(address(), value); return this; }
 	/**
 	 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code value} field.
 	 *
 	 * <p>The encoded string must be explicitly freed with {@link MemoryUtil#memFree memFree}.</p>
 	*/
-		public ObjCPropertyAttribute.Buffer value(CharSequence value) { nvalue(address(), value); return this; }
+		public ObjCPropertyAttribute.Buffer value(CharSequence value) { ObjCPropertyAttribute.nvalue(address(), value); return this; }
 
 	}
 

@@ -18,13 +18,21 @@ import static org.lwjgl.system.MemoryUtil.*;
  * to the HMD. The application can, however implement these kinds of effects itself before submitting the layer. This layer can be used for
  * application-based distortion rendering and can also be used for implementing a debug HUD that's viewed on the mirror texture.
  * 
- * <h3>ovrLayerDirect members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ovrLayerDirect {
+ *     {@link OVRLayerHeader ovrLayerHeader} Header;
+ *     ovrSwapTextureSet *[2] ColorTexture;
+ *     {@link OVRRecti ovrRecti}[2] Viewport;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Header</td><td class="nw">{@link OVRLayerHeader ovrLayerHeader}</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_Direct}</td></tr>
- * <tr><td>ColorTexture</td><td class="nw">ovrSwapTextureSet *[2]</td><td>{@code ovrSwapTextureSets} for the left and right eye respectively. The second one of which can be {@code NULL}.</td></tr>
- * <tr><td>Viewport</td><td class="nw">{@link OVRRecti ovrRecti}[2]</td><td>specifies the {@code ColorTexture} sub-rect UV coordinates. Both {@code Viewport[0]} and {@code Viewport[1]} must be valid.</td></tr>
+ * <tr><td>Header</td><td>{@code Header.Type} must be {@link OVR#ovrLayerType_Direct}</td></tr>
+ * <tr><td>ColorTexture</td><td>{@code ovrSwapTextureSets} for the left and right eye respectively. The second one of which can be {@code NULL}.</td></tr>
+ * <tr><td>Viewport</td><td>specifies the {@code ColorTexture} sub-rect UV coordinates. Both {@code Viewport[0]} and {@code Viewport[1]} must be valid.</td></tr>
  * </table>
  */
 public class OVRLayerDirect extends Struct {
@@ -57,12 +65,7 @@ public class OVRLayerDirect extends Struct {
 	}
 
 	OVRLayerDirect(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVRLayerDirect} instance at the specified memory address. */
-	public OVRLayerDirect(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -72,7 +75,7 @@ public class OVRLayerDirect extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVRLayerDirect(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -141,12 +144,12 @@ public class OVRLayerDirect extends Struct {
 
 	/** Returns a new {@link OVRLayerDirect} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVRLayerDirect malloc() {
-		return new OVRLayerDirect(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVRLayerDirect} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVRLayerDirect calloc() {
-		return new OVRLayerDirect(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVRLayerDirect} instance allocated with {@link BufferUtils}. */
@@ -154,13 +157,18 @@ public class OVRLayerDirect extends Struct {
 		return new OVRLayerDirect(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVRLayerDirect} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVRLayerDirect create(long address) {
+		return address == NULL ? null : new OVRLayerDirect(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVRLayerDirect.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -168,8 +176,8 @@ public class OVRLayerDirect extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -177,8 +185,8 @@ public class OVRLayerDirect extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -187,27 +195,27 @@ public class OVRLayerDirect extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #Header}. */
-	public static OVRLayerHeader nHeader(long struct) { return new OVRLayerHeader(struct + OVRLayerDirect.HEADER); }
+	public static OVRLayerHeader nHeader(long struct) { return OVRLayerHeader.create(struct + OVRLayerDirect.HEADER); }
 	/** Unsafe version of {@link #ColorTexture}. */
 	public static PointerBuffer nColorTexture(long struct) {
 		return memPointerBuffer(struct + OVRLayerDirect.COLORTEXTURE, 2);
 	}
 	/** Unsafe version of {@link #ColorTexture(int) ColorTexture}. */
 	public static OVRSwapTextureSet nColorTexture(long struct, int index) {
-		return new OVRSwapTextureSet(memGetAddress(struct + OVRLayerDirect.COLORTEXTURE + index * POINTER_SIZE));
+		return OVRSwapTextureSet.create(memGetAddress(struct + OVRLayerDirect.COLORTEXTURE + index * POINTER_SIZE));
 	}
 	/** Unsafe version of {@link #Viewport}. */
 	public static OVRRecti.Buffer nViewport(long struct) {
-		return OVRRecti.createBuffer(struct + OVRLayerDirect.VIEWPORT, 2);
+		return OVRRecti.create(struct + OVRLayerDirect.VIEWPORT, 2);
 	}
 	/** Unsafe version of {@link #Viewport(int) Viewport}. */
 	public static OVRRecti nViewport(long struct, int index) {
-		return new OVRRecti(struct + OVRLayerDirect.VIEWPORT + index * OVRRecti.SIZEOF);
+		return OVRRecti.create(struct + OVRLayerDirect.VIEWPORT + index * OVRRecti.SIZEOF);
 	}
 
 	/** Unsafe version of {@link #Header(OVRLayerHeader) Header}. */
@@ -242,11 +250,11 @@ public class OVRLayerDirect extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -255,8 +263,8 @@ public class OVRLayerDirect extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -270,26 +278,26 @@ public class OVRLayerDirect extends Struct {
 		}
 
 		/** Returns a {@link OVRLayerHeader} view of the {@code Header} field. */
-		public OVRLayerHeader Header() { return nHeader(address()); }
+		public OVRLayerHeader Header() { return OVRLayerDirect.nHeader(address()); }
 		/** Returns a {@link PointerBuffer} view of the {@code ColorTexture} field. */
-		public PointerBuffer ColorTexture() { return nColorTexture(address()); }
+		public PointerBuffer ColorTexture() { return OVRLayerDirect.nColorTexture(address()); }
 		/** Returns a {@link OVRSwapTextureSet} view of the pointer at the specified index of the {@code ColorTexture}. */
-		public OVRSwapTextureSet ColorTexture(int index) { return nColorTexture(address(), index); }
+		public OVRSwapTextureSet ColorTexture(int index) { return OVRLayerDirect.nColorTexture(address(), index); }
 		/** Returns a {@link OVRRecti}.Buffer view of the {@code Viewport} field. */
-		public OVRRecti.Buffer Viewport() { return nViewport(address()); }
+		public OVRRecti.Buffer Viewport() { return OVRLayerDirect.nViewport(address()); }
 		/** Returns a {@link OVRRecti} view of the struct at the specified index of the {@code Viewport} field. */
-		public OVRRecti Viewport(int index) { return nViewport(address(), index); }
+		public OVRRecti Viewport(int index) { return OVRLayerDirect.nViewport(address(), index); }
 
 		/** Copies the specified {@link OVRLayerHeader} to the {@code Header} field. */
-		public OVRLayerDirect.Buffer Header(OVRLayerHeader value) { nHeader(address(), value); return this; }
+		public OVRLayerDirect.Buffer Header(OVRLayerHeader value) { OVRLayerDirect.nHeader(address(), value); return this; }
 		/** Copies the specified {@link PointerBuffer} to the {@code ColorTexture} field. */
-		public OVRLayerDirect.Buffer ColorTexture(PointerBuffer value) { nColorTexture(address(), value); return this; }
+		public OVRLayerDirect.Buffer ColorTexture(PointerBuffer value) { OVRLayerDirect.nColorTexture(address(), value); return this; }
 		/** Copies the address of the specified {@link OVRSwapTextureSet} at the specified index of the {@code ColorTexture} field. */
-		public OVRLayerDirect.Buffer ColorTexture(int index, OVRSwapTextureSet value) { nColorTexture(address(), index, value); return this; }
+		public OVRLayerDirect.Buffer ColorTexture(int index, OVRSwapTextureSet value) { OVRLayerDirect.nColorTexture(address(), index, value); return this; }
 		/** Copies the specified {@link OVRRecti.Buffer} to the {@code Viewport} field. */
-		public OVRLayerDirect.Buffer Viewport(OVRRecti.Buffer value) { nViewport(address(), value); return this; }
+		public OVRLayerDirect.Buffer Viewport(OVRRecti.Buffer value) { OVRLayerDirect.nViewport(address(), value); return this; }
 		/** Copies the specified {@link OVRRecti} at the specified index of the {@code Viewport} field. */
-		public OVRLayerDirect.Buffer Viewport(int index, OVRRecti value) { nViewport(address(), index, value); return this; }
+		public OVRLayerDirect.Buffer Viewport(int index, OVRRecti value) { OVRLayerDirect.nViewport(address(), index, value); return this; }
 
 	}
 

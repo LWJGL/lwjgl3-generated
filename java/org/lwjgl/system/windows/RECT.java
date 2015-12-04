@@ -16,14 +16,23 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Defines the coordinates of the upper-left and lower-right corners of a rectangle.
  * 
- * <h3>RECT members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct RECT {
+ *     LONG left;
+ *     LONG top;
+ *     LONG right;
+ *     LONG bottom;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>left</td><td class="nw">LONG</td><td>the x-coordinate of the upper-left corner of the rectangle</td></tr>
- * <tr><td>top</td><td class="nw">LONG</td><td>the y-coordinate of the upper-left corner of the rectangle</td></tr>
- * <tr><td>right</td><td class="nw">LONG</td><td>the x-coordinate of the lower-right corner of the rectangle</td></tr>
- * <tr><td>bottom</td><td class="nw">LONG</td><td>the y-coordinate of the lower-right corner of the rectangle</td></tr>
+ * <tr><td>left</td><td>the x-coordinate of the upper-left corner of the rectangle</td></tr>
+ * <tr><td>top</td><td>the y-coordinate of the upper-left corner of the rectangle</td></tr>
+ * <tr><td>right</td><td>the x-coordinate of the lower-right corner of the rectangle</td></tr>
+ * <tr><td>bottom</td><td>the y-coordinate of the lower-right corner of the rectangle</td></tr>
  * </table>
  */
 public class RECT extends Struct {
@@ -59,12 +68,7 @@ public class RECT extends Struct {
 	}
 
 	RECT(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link RECT} instance at the specified memory address. */
-	public RECT(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -74,7 +78,7 @@ public class RECT extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public RECT(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -141,12 +145,12 @@ public class RECT extends Struct {
 
 	/** Returns a new {@link RECT} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static RECT malloc() {
-		return new RECT(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link RECT} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static RECT calloc() {
-		return new RECT(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link RECT} instance allocated with {@link BufferUtils}. */
@@ -154,13 +158,18 @@ public class RECT extends Struct {
 		return new RECT(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link RECT} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static RECT create(long address) {
+		return address == NULL ? null : new RECT(address, null);
+	}
+
 	/**
 	 * Returns a new {@link RECT.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -168,8 +177,8 @@ public class RECT extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -177,8 +186,8 @@ public class RECT extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -187,8 +196,8 @@ public class RECT extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #left}. */
@@ -224,11 +233,11 @@ public class RECT extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -237,8 +246,8 @@ public class RECT extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -252,22 +261,22 @@ public class RECT extends Struct {
 		}
 
 		/** Returns the value of the {@code left} field. */
-		public int left() { return nleft(address()); }
+		public int left() { return RECT.nleft(address()); }
 		/** Returns the value of the {@code top} field. */
-		public int top() { return ntop(address()); }
+		public int top() { return RECT.ntop(address()); }
 		/** Returns the value of the {@code right} field. */
-		public int right() { return nright(address()); }
+		public int right() { return RECT.nright(address()); }
 		/** Returns the value of the {@code bottom} field. */
-		public int bottom() { return nbottom(address()); }
+		public int bottom() { return RECT.nbottom(address()); }
 
 		/** Sets the specified value to the {@code left} field. */
-		public RECT.Buffer left(int value) { nleft(address(), value); return this; }
+		public RECT.Buffer left(int value) { RECT.nleft(address(), value); return this; }
 		/** Sets the specified value to the {@code top} field. */
-		public RECT.Buffer top(int value) { ntop(address(), value); return this; }
+		public RECT.Buffer top(int value) { RECT.ntop(address(), value); return this; }
 		/** Sets the specified value to the {@code right} field. */
-		public RECT.Buffer right(int value) { nright(address(), value); return this; }
+		public RECT.Buffer right(int value) { RECT.nright(address(), value); return this; }
 		/** Sets the specified value to the {@code bottom} field. */
-		public RECT.Buffer bottom(int value) { nbottom(address(), value); return this; }
+		public RECT.Buffer bottom(int value) { RECT.nbottom(address(), value); return this; }
 
 	}
 

@@ -16,12 +16,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * A 2D rectangle with a position and size. All components are integers.
  * 
- * <h3>ovrRecti members</h3>
+ * <h3>Layout</h3>
+ * 
+ * <pre><code style="font-family: monospace">
+ * struct ovrRecti {
+ *     {@link OVRVector2i ovrVector2i} Pos;
+ *     {@link OVRSizei ovrSizei} Size;
+ * }</code></pre>
+ * 
+ * <h3>Member documentation</h3>
  * 
  * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><th>Member</th><th>Type</th><th>Description</th></tr>
- * <tr><td>Pos</td><td class="nw">{@link OVRVector2i ovrVector2i}</td><td>the rectangle position</td></tr>
- * <tr><td>Size</td><td class="nw">{@link OVRSizei ovrSizei}</td><td>the rectangle size</td></tr>
+ * <tr><td>Pos</td><td>the rectangle position</td></tr>
+ * <tr><td>Size</td><td>the rectangle size</td></tr>
  * </table>
  */
 public class OVRRecti extends Struct {
@@ -51,12 +58,7 @@ public class OVRRecti extends Struct {
 	}
 
 	OVRRecti(long address, ByteBuffer container) {
-		super(address, container, SIZEOF);
-	}
-
-	/** Creates a {@link OVRRecti} instance at the specified memory address. */
-	public OVRRecti(long struct) {
-		this(struct, null);
+		super(address, container);
 	}
 
 	/**
@@ -66,7 +68,7 @@ public class OVRRecti extends Struct {
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
 	public OVRRecti(ByteBuffer container) {
-		this(memAddress(container), container);
+		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
@@ -121,12 +123,12 @@ public class OVRRecti extends Struct {
 
 	/** Returns a new {@link OVRRecti} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed. */
 	public static OVRRecti malloc() {
-		return new OVRRecti(nmemAlloc(SIZEOF));
+		return create(nmemAlloc(SIZEOF));
 	}
 
 	/** Returns a new {@link OVRRecti} instance allocated with {@link MemoryUtil#memCalloc}. The instance must be explicitly freed. */
 	public static OVRRecti calloc() {
-		return new OVRRecti(nmemCalloc(1, SIZEOF));
+		return create(nmemCalloc(1, SIZEOF));
 	}
 
 	/** Returns a new {@link OVRRecti} instance allocated with {@link BufferUtils}. */
@@ -134,13 +136,18 @@ public class OVRRecti extends Struct {
 		return new OVRRecti(BufferUtils.createByteBuffer(SIZEOF));
 	}
 
+	/** Returns a new {@link OVRRecti} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static OVRRecti create(long address) {
+		return address == NULL ? null : new OVRRecti(address, null);
+	}
+
 	/**
 	 * Returns a new {@link OVRRecti.Buffer} instance allocated with {@link MemoryUtil#memAlloc}. The instance must be explicitly freed.
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer mallocBuffer(int capacity) {
-		return new Buffer(memAlloc(capacity * SIZEOF));
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
 	}
 
 	/**
@@ -148,8 +155,8 @@ public class OVRRecti extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer callocBuffer(int capacity) {
-		return new Buffer(memCalloc(capacity, SIZEOF));
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
 	}
 
 	/**
@@ -157,8 +164,8 @@ public class OVRRecti extends Struct {
 	 *
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF), SIZEOF);
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -167,14 +174,14 @@ public class OVRRecti extends Struct {
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
 	 */
-	public static Buffer createBuffer(long address, int capacity) {
-		return address == NULL ? null : new Buffer(memByteBuffer(address, capacity * SIZEOF), SIZEOF);
+	public static Buffer create(long address, int capacity) {
+		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
 	}
 
 	/** Unsafe version of {@link #Pos}. */
-	public static OVRVector2i nPos(long struct) { return new OVRVector2i(struct + OVRRecti.POS); }
+	public static OVRVector2i nPos(long struct) { return OVRVector2i.create(struct + OVRRecti.POS); }
 	/** Unsafe version of {@link #Size}. */
-	public static OVRSizei nSize(long struct) { return new OVRSizei(struct + OVRRecti.SIZE); }
+	public static OVRSizei nSize(long struct) { return OVRSizei.create(struct + OVRRecti.SIZE); }
 
 	/** Unsafe version of {@link #Pos(OVRVector2i) Pos}. */
 	public static void nPos(long struct, OVRVector2i value) { memCopy(value.address(), struct + OVRRecti.POS, OVRVector2i.SIZEOF); }
@@ -196,11 +203,11 @@ public class OVRRecti extends Struct {
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
 		public Buffer(ByteBuffer container) {
-			this(container.slice(), SIZEOF);
+			super(container, container.remaining() / SIZEOF);
 		}
 
-		Buffer(ByteBuffer container, int SIZEOF) {
-			super(container, SIZEOF);
+		Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			super(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -209,8 +216,8 @@ public class OVRRecti extends Struct {
 		}
 
 		@Override
-		protected Buffer newBufferInstance(ByteBuffer buffer) {
-			return new Buffer(buffer);
+		protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+			return new Buffer(address, container, mark, pos, lim, cap);
 		}
 
 		@Override
@@ -224,14 +231,14 @@ public class OVRRecti extends Struct {
 		}
 
 		/** Returns a {@link OVRVector2i} view of the {@code Pos} field. */
-		public OVRVector2i Pos() { return nPos(address()); }
+		public OVRVector2i Pos() { return OVRRecti.nPos(address()); }
 		/** Returns a {@link OVRSizei} view of the {@code Size} field. */
-		public OVRSizei Size() { return nSize(address()); }
+		public OVRSizei Size() { return OVRRecti.nSize(address()); }
 
 		/** Copies the specified {@link OVRVector2i} to the {@code Pos} field. */
-		public OVRRecti.Buffer Pos(OVRVector2i value) { nPos(address(), value); return this; }
+		public OVRRecti.Buffer Pos(OVRVector2i value) { OVRRecti.nPos(address(), value); return this; }
 		/** Copies the specified {@link OVRSizei} to the {@code Size} field. */
-		public OVRRecti.Buffer Size(OVRSizei value) { nSize(address(), value); return this; }
+		public OVRRecti.Buffer Size(OVRSizei value) { OVRRecti.nSize(address(), value); return this; }
 
 	}
 
