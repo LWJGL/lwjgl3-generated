@@ -1164,13 +1164,13 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform3iv(int program, int location, int count, ByteBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, (count * 9) << 2);
+			checkBuffer(value, (count * 3) << 2);
 		nglProgramUniform3iv(program, location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniform3iv ProgramUniform3iv} */
 	public static void glProgramUniform3iv(int program, int location, IntBuffer value) {
-		nglProgramUniform3iv(program, location, value.remaining() / 9, memAddress(value));
+		nglProgramUniform3iv(program, location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glProgramUniform4iv ] ---
@@ -1284,13 +1284,13 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform3uiv(int program, int location, int count, ByteBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, (count * 9) << 2);
+			checkBuffer(value, (count * 3) << 2);
 		nglProgramUniform3uiv(program, location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniform3uiv ProgramUniform3uiv} */
 	public static void glProgramUniform3uiv(int program, int location, IntBuffer value) {
-		nglProgramUniform3uiv(program, location, value.remaining() / 9, memAddress(value));
+		nglProgramUniform3uiv(program, location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glProgramUniform4uiv ] ---
@@ -1404,13 +1404,13 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform3fv(int program, int location, int count, ByteBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, (count * 9) << 2);
+			checkBuffer(value, (count * 3) << 2);
 		nglProgramUniform3fv(program, location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniform3fv ProgramUniform3fv} */
 	public static void glProgramUniform3fv(int program, int location, FloatBuffer value) {
-		nglProgramUniform3fv(program, location, value.remaining() / 9, memAddress(value));
+		nglProgramUniform3fv(program, location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glProgramUniform4fv ] ---
@@ -1524,13 +1524,13 @@ Releases resources allocated by the shader compiler. This is a hint from the app
 	 */
 	public static void glProgramUniform3dv(int program, int location, int count, ByteBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, (count * 9) << 3);
+			checkBuffer(value, (count * 3) << 3);
 		nglProgramUniform3dv(program, location, count, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #glProgramUniform3dv ProgramUniform3dv} */
 	public static void glProgramUniform3dv(int program, int location, DoubleBuffer value) {
-		nglProgramUniform3dv(program, location, value.remaining() / 9, memAddress(value));
+		nglProgramUniform3dv(program, location, value.remaining() / 3, memAddress(value));
 	}
 
 	// --- [ glProgramUniform4dv ] ---

@@ -892,13 +892,13 @@ public class NVHalfFloat {
 
 	public static void glVertexAttribs4hvNV(int index, int n, ByteBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, (n << 4) << 1);
+			checkBuffer(v, (n << 2) << 1);
 		nglVertexAttribs4hvNV(index, n, memAddress(v));
 	}
 
 	/** Alternative version of: {@link #glVertexAttribs4hvNV VertexAttribs4hvNV} */
 	public static void glVertexAttribs4hvNV(int index, ShortBuffer v) {
-		nglVertexAttribs4hvNV(index, v.remaining() >> 4, memAddress(v));
+		nglVertexAttribs4hvNV(index, v.remaining() >> 2, memAddress(v));
 	}
 
 }
