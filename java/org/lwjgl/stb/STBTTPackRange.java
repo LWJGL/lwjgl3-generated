@@ -97,8 +97,8 @@ public class STBTTPackRange extends Struct {
 	public IntBuffer array_of_unicode_codepoints(int capacity) { return narray_of_unicode_codepoints(address(), capacity); }
 	/** Returns the value of the {@code num_chars} field. */
 	public int num_chars() { return nnum_chars(address()); }
-	/** Returns a {@link STBTTPackedchar} view of the struct pointed to by the {@code chardata_for_range} field. */
-	public STBTTPackedchar chardata_for_range() { return nchardata_for_range(address()); }
+	/** Returns a {@link STBTTPackedchar.Buffer} view of the struct array pointed to by the {@code chardata_for_range} field. */
+	public STBTTPackedchar.Buffer chardata_for_range(int capacity) { return nchardata_for_range(address(), capacity); }
 
 	// -----------------------------------
 
@@ -163,7 +163,7 @@ public class STBTTPackRange extends Struct {
 	/** Unsafe version of {@link #num_chars}. */
 	public static int nnum_chars(long struct) { return memGetInt(struct + STBTTPackRange.NUM_CHARS); }
 	/** Unsafe version of {@link #chardata_for_range}. */
-	public static STBTTPackedchar nchardata_for_range(long struct) { return new STBTTPackedchar(memGetAddress(struct + STBTTPackRange.CHARDATA_FOR_RANGE)); }
+	public static STBTTPackedchar.Buffer nchardata_for_range(long struct, int capacity) { return STBTTPackedchar.createBuffer(memGetAddress(struct + STBTTPackRange.CHARDATA_FOR_RANGE), capacity); }
 
 	// -----------------------------------
 
@@ -219,8 +219,8 @@ public class STBTTPackRange extends Struct {
 		public IntBuffer array_of_unicode_codepoints(int capacity) { return narray_of_unicode_codepoints(address(), capacity); }
 		/** Returns the value of the {@code num_chars} field. */
 		public int num_chars() { return nnum_chars(address()); }
-		/** Returns a {@link STBTTPackedchar} view of the struct pointed to by the {@code chardata_for_range} field. */
-		public STBTTPackedchar chardata_for_range() { return nchardata_for_range(address()); }
+		/** Returns a {@link STBTTPackedchar.Buffer} view of the struct array pointed to by the {@code chardata_for_range} field. */
+		public STBTTPackedchar.Buffer chardata_for_range(int capacity) { return nchardata_for_range(address(), capacity); }
 
 	}
 
