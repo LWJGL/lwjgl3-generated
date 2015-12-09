@@ -704,6 +704,8 @@ public class GL30 {
 	}
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetStringi.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Queries indexed string state.
 	 *
 	 * @param name  the indexed state to query. One of:<br>{@link GL11#GL_EXTENSIONS EXTENSIONS}, {@link GL20#GL_SHADING_LANGUAGE_VERSION SHADING_LANGUAGE_VERSION}

@@ -4281,6 +4281,8 @@ Causes all previously issued GL commands to complete in finite time (although su
 	}
 
 	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetString.xhtml">OpenGL SDK Reference</a></p>
+	 * 
 	 * Return strings describing properties of the current GL context.
 	 *
 	 * @param name the property to query. One of:<br>{@link #GL_RENDERER RENDERER}, {@link #GL_VENDOR VENDOR}, {@link #GL_EXTENSIONS EXTENSIONS}, {@link #GL_VERSION VERSION}, {@link GL20#GL_SHADING_LANGUAGE_VERSION SHADING_LANGUAGE_VERSION}
