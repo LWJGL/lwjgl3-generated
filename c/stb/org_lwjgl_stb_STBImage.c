@@ -9,7 +9,6 @@ DISABLE_WARNINGS()
 	__pragma(warning(disable : 4242 4244 4701 4702 4711 4738 4996))
 #endif
 #define STB_IMAGE_IMPLEMENTATION
-#define STB_IMAGE_STATIC
 #define STBI_FAILURE_USERMSG
 #define STBI_ASSERT(x)
 #include "stb_image.h"

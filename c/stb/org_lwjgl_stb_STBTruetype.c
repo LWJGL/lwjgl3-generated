@@ -9,7 +9,6 @@ DISABLE_WARNINGS()
 	__pragma(warning(disable : 4242 4244 4701 4702 4711 4738 4996))
 #endif
 #define STB_TRUETYPE_IMPLEMENTATION
-#define STBTT_STATIC
 #define STBTT_assert
 #include "stb_rect_pack.h"
 #include "stb_truetype.h"
