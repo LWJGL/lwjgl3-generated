@@ -22,9 +22,9 @@ import static org.lwjgl.system.Pointer.*;
  * <h3>Usage</h3>
  * 
  * <ul>
- * <li><a href="https://github.com/mlabbe/nativefiledialog/blob/master/test/test_opendialog.c">Single file open dialog</a></li>
- * <li><a href="https://github.com/mlabbe/nativefiledialog/blob/master/test/test_opendialogmultiple.c">Multiple file open dialog</a></li>
- * <li><a href="https://github.com/mlabbe/nativefiledialog/blob/master/test/test_savedialog.c">Save dialog</a></li>
+ * <li><a href="https://github.com/LWJGL/lwjgl3/blob/master/modules/core/src/test/java/org/lwjgl/demo/nfd/HelloNFD.java#L104">Single file open dialog</a></li>
+ * <li><a href="https://github.com/LWJGL/lwjgl3/blob/master/modules/core/src/test/java/org/lwjgl/demo/nfd/HelloNFD.java#L126">Multiple file open dialog</a></li>
+ * <li><a href="https://github.com/LWJGL/lwjgl3/blob/master/modules/core/src/test/java/org/lwjgl/demo/nfd/HelloNFD.java#L151">Save dialog</a></li>
  * </ul>
  * 
  * <h3>File Filter Syntax</h3>
