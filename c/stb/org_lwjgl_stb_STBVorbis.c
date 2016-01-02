@@ -11,7 +11,6 @@ DISABLE_WARNINGS()
 #ifdef LWJGL_LINUX
 	#include <alloca.h>
 #endif
-#define NDEBUG
 #include "stb_vorbis.c"
 ENABLE_WARNINGS()
 

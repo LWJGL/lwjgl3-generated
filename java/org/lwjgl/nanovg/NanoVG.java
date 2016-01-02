@@ -1737,7 +1737,9 @@ public class NanoVG {
 	public static native int nnvgCreateFontMem(long ctx, long name, long data, int ndata, int freeData);
 
 	/**
-	 * Creates image by loading it from the specified memory chunk.
+	 * Creates font by loading it from the specified memory chunk.
+	 * 
+	 * <p>The memory chunk must remain valid for as long as the font is used by NanoVG.</p>
 	 *
 	 * @param ctx      the NanoVG context
 	 * @param name     the font name

@@ -31,17 +31,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  *         cl_char function;
  *     } pcie;
  * }</code></pre>
- * 
- * <h3>Member documentation</h3>
- * 
- * <table border=1 cellspacing=0 cellpadding=2 class=lwjgl>
- * <tr><td>raw.type</td><td>the raw type</td></tr>
- * <tr><td>raw.data</td><td>the raw data</td></tr>
- * <tr><td>pcie.type</td><td>the pcie type</td></tr>
- * <tr><td>pcie.bus</td><td>the pcie bus</td></tr>
- * <tr><td>pcie.device</td><td>the pcie device</td></tr>
- * <tr><td>pcie.function</td><td>the pcie function</td></tr>
- * </table>
  */
 public class CLDeviceTopologyAMD extends Struct {
 

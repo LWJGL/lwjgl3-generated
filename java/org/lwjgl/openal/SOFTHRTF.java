@@ -26,15 +26,15 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class SOFTHRTF {
 
 	/**
-	 * Accepted as part of the {@code attrList} parameter of {@link ALC10#alcCreateContext CreateContext} and {@link #alcDeviceResetSOFT DeviceResetSOFT}, and as the {@code paramName} parameter of
+	 * Accepted as part of the {@code attrList} parameter of {@link ALC10#alcCreateContext CreateContext} and {@link #alcResetDeviceSOFT ResetDeviceSOFT}, and as the {@code paramName} parameter of
 	 * {@link ALC10#alcGetIntegerv GetIntegerv}.
 	 */
 	public static final int ALC_HRTF_SOFT = 0x1992;
 
-	/** Accepted as part of the {@code attrList} parameter of {@link ALC10#alcCreateContext CreateContext} and {@link #alcDeviceResetSOFT DeviceResetSOFT}. */
+	/** Accepted as part of the {@code attrList} parameter of {@link ALC10#alcCreateContext CreateContext} and {@link #alcResetDeviceSOFT ResetDeviceSOFT}. */
 	public static final int ALC_HRTF_ID_SOFT = 0x1996;
 
-	/** Accepted as part of the {@code attrList} parameter of {@link ALC10#alcCreateContext CreateContext} and {@link #alcDeviceResetSOFT DeviceResetSOFT}, for the {@link #ALC_HRTF_SOFT HRTF_SOFT} attribute. */
+	/** Accepted as part of the {@code attrList} parameter of {@link ALC10#alcCreateContext CreateContext} and {@link #alcResetDeviceSOFT ResetDeviceSOFT}, for the {@link #ALC_HRTF_SOFT HRTF_SOFT} attribute. */
 	public static final int ALC_DONT_CARE_SOFT = 0x2;
 
 	/** Accepted as the {@code paramName} parameter of {@link ALC10#alcGetIntegerv GetIntegerv}. */
