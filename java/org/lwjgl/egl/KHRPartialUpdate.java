@@ -67,23 +67,23 @@ public class KHRPartialUpdate {
 
 	/** Unsafe version of {@link #eglSetDamageRegionKHR SetDamageRegionKHR} */
 	@JavadocExclude
-	public static boolean neglSetDamageRegionKHR(long dpy, long surface, long rects, int n_rects) {
+	public static int neglSetDamageRegionKHR(long dpy, long surface, long rects, int n_rects) {
 		long __functionAddress = getInstance().SetDamageRegionKHR;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPPIZ(__functionAddress, dpy, surface, rects, n_rects);
+		return callPPPII(__functionAddress, dpy, surface, rects, n_rects);
 	}
 
-	public static boolean eglSetDamageRegionKHR(long dpy, long surface, ByteBuffer rects, int n_rects) {
+	public static int eglSetDamageRegionKHR(long dpy, long surface, ByteBuffer rects, int n_rects) {
 		if ( CHECKS )
 			if ( rects != null ) checkBuffer(rects, n_rects << 2);
 		return neglSetDamageRegionKHR(dpy, surface, memAddressSafe(rects), n_rects);
 	}
 
 	/** Alternative version of: {@link #eglSetDamageRegionKHR SetDamageRegionKHR} */
-	public static boolean eglSetDamageRegionKHR(long dpy, long surface, IntBuffer rects) {
+	public static int eglSetDamageRegionKHR(long dpy, long surface, IntBuffer rects) {
 		return neglSetDamageRegionKHR(dpy, surface, memAddressSafe(rects), rects == null ? 0 : rects.remaining());
 	}
 

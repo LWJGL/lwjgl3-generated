@@ -110,20 +110,20 @@ public class NVSync {
 
 	// --- [ eglDestroySyncNV ] ---
 
-	public static boolean eglDestroySyncNV(long sync) {
+	public static int eglDestroySyncNV(long sync) {
 		long __functionAddress = getInstance().DestroySyncNV;
 		if ( CHECKS )
 			checkPointer(sync);
-		return callPZ(__functionAddress, sync);
+		return callPI(__functionAddress, sync);
 	}
 
 	// --- [ eglFenceNV ] ---
 
-	public static boolean eglFenceNV(long sync) {
+	public static int eglFenceNV(long sync) {
 		long __functionAddress = getInstance().FenceNV;
 		if ( CHECKS )
 			checkPointer(sync);
-		return callPZ(__functionAddress, sync);
+		return callPI(__functionAddress, sync);
 	}
 
 	// --- [ eglClientWaitSyncNV ] ---
@@ -137,32 +137,32 @@ public class NVSync {
 
 	// --- [ eglSignalSyncNV ] ---
 
-	public static boolean eglSignalSyncNV(long sync, int mode) {
+	public static int eglSignalSyncNV(long sync, int mode) {
 		long __functionAddress = getInstance().SignalSyncNV;
 		if ( CHECKS )
 			checkPointer(sync);
-		return callPIZ(__functionAddress, sync, mode);
+		return callPII(__functionAddress, sync, mode);
 	}
 
 	// --- [ eglGetSyncAttribNV ] ---
 
 	/** Unsafe version of {@link #eglGetSyncAttribNV GetSyncAttribNV} */
 	@JavadocExclude
-	public static boolean neglGetSyncAttribNV(long sync, int attribute, long value) {
+	public static int neglGetSyncAttribNV(long sync, int attribute, long value) {
 		long __functionAddress = getInstance().GetSyncAttribNV;
 		if ( CHECKS )
 			checkPointer(sync);
-		return callPIPZ(__functionAddress, sync, attribute, value);
+		return callPIPI(__functionAddress, sync, attribute, value);
 	}
 
-	public static boolean eglGetSyncAttribNV(long sync, int attribute, ByteBuffer value) {
+	public static int eglGetSyncAttribNV(long sync, int attribute, ByteBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		return neglGetSyncAttribNV(sync, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglGetSyncAttribNV GetSyncAttribNV} */
-	public static boolean eglGetSyncAttribNV(long sync, int attribute, IntBuffer value) {
+	public static int eglGetSyncAttribNV(long sync, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglGetSyncAttribNV(sync, attribute, memAddress(value));

@@ -128,47 +128,47 @@ public class KHRStream {
 
 	// --- [ eglDestroyStreamKHR ] ---
 
-	public static boolean eglDestroyStreamKHR(long dpy, long stream) {
+	public static int eglDestroyStreamKHR(long dpy, long stream) {
 		long __functionAddress = getInstance().DestroyStreamKHR;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return callPPZ(__functionAddress, dpy, stream);
+		return callPPI(__functionAddress, dpy, stream);
 	}
 
 	// --- [ eglStreamAttribKHR ] ---
 
-	public static boolean eglStreamAttribKHR(long dpy, long stream, int attribute, int value) {
+	public static int eglStreamAttribKHR(long dpy, long stream, int attribute, int value) {
 		long __functionAddress = getInstance().StreamAttribKHR;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return callPPIIZ(__functionAddress, dpy, stream, attribute, value);
+		return callPPIII(__functionAddress, dpy, stream, attribute, value);
 	}
 
 	// --- [ eglQueryStreamKHR ] ---
 
 	/** Unsafe version of {@link #eglQueryStreamKHR QueryStreamKHR} */
 	@JavadocExclude
-	public static boolean neglQueryStreamKHR(long dpy, long stream, int attribute, long value) {
+	public static int neglQueryStreamKHR(long dpy, long stream, int attribute, long value) {
 		long __functionAddress = getInstance().QueryStreamKHR;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return callPPIPZ(__functionAddress, dpy, stream, attribute, value);
+		return callPPIPI(__functionAddress, dpy, stream, attribute, value);
 	}
 
-	public static boolean eglQueryStreamKHR(long dpy, long stream, int attribute, ByteBuffer value) {
+	public static int eglQueryStreamKHR(long dpy, long stream, int attribute, ByteBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		return neglQueryStreamKHR(dpy, stream, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQueryStreamKHR QueryStreamKHR} */
-	public static boolean eglQueryStreamKHR(long dpy, long stream, int attribute, IntBuffer value) {
+	public static int eglQueryStreamKHR(long dpy, long stream, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQueryStreamKHR(dpy, stream, attribute, memAddress(value));
@@ -178,23 +178,23 @@ public class KHRStream {
 
 	/** Unsafe version of {@link #eglQueryStreamu64KHR QueryStreamu64KHR} */
 	@JavadocExclude
-	public static boolean neglQueryStreamu64KHR(long dpy, long stream, int attribute, long value) {
+	public static int neglQueryStreamu64KHR(long dpy, long stream, int attribute, long value) {
 		long __functionAddress = getInstance().QueryStreamu64KHR;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return callPPIPZ(__functionAddress, dpy, stream, attribute, value);
+		return callPPIPI(__functionAddress, dpy, stream, attribute, value);
 	}
 
-	public static boolean eglQueryStreamu64KHR(long dpy, long stream, int attribute, ByteBuffer value) {
+	public static int eglQueryStreamu64KHR(long dpy, long stream, int attribute, ByteBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1 << 3);
 		return neglQueryStreamu64KHR(dpy, stream, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQueryStreamu64KHR QueryStreamu64KHR} */
-	public static boolean eglQueryStreamu64KHR(long dpy, long stream, int attribute, LongBuffer value) {
+	public static int eglQueryStreamu64KHR(long dpy, long stream, int attribute, LongBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQueryStreamu64KHR(dpy, stream, attribute, memAddress(value));

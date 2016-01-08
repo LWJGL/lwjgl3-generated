@@ -61,23 +61,23 @@ public class NOKSwapRegion2 {
 
 	/** Unsafe version of {@link #eglSwapBuffersRegion2NOK SwapBuffersRegion2NOK} */
 	@JavadocExclude
-	public static boolean neglSwapBuffersRegion2NOK(long dpy, long surface, int numRects, long rects) {
+	public static int neglSwapBuffersRegion2NOK(long dpy, long surface, int numRects, long rects) {
 		long __functionAddress = getInstance().SwapBuffersRegion2NOK;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPIPZ(__functionAddress, dpy, surface, numRects, rects);
+		return callPPIPI(__functionAddress, dpy, surface, numRects, rects);
 	}
 
-	public static boolean eglSwapBuffersRegion2NOK(long dpy, long surface, int numRects, ByteBuffer rects) {
+	public static int eglSwapBuffersRegion2NOK(long dpy, long surface, int numRects, ByteBuffer rects) {
 		if ( CHECKS )
 			if ( rects != null ) checkBuffer(rects, numRects << 2);
 		return neglSwapBuffersRegion2NOK(dpy, surface, numRects, memAddressSafe(rects));
 	}
 
 	/** Alternative version of: {@link #eglSwapBuffersRegion2NOK SwapBuffersRegion2NOK} */
-	public static boolean eglSwapBuffersRegion2NOK(long dpy, long surface, IntBuffer rects) {
+	public static int eglSwapBuffersRegion2NOK(long dpy, long surface, IntBuffer rects) {
 		return neglSwapBuffersRegion2NOK(dpy, surface, rects == null ? 0 : rects.remaining(), memAddressSafe(rects));
 	}
 

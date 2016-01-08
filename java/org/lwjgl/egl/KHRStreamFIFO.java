@@ -75,23 +75,23 @@ public class KHRStreamFIFO {
 
 	/** Unsafe version of {@link #eglQueryStreamTimeKHR QueryStreamTimeKHR} */
 	@JavadocExclude
-	public static boolean neglQueryStreamTimeKHR(long dpy, long stream, int attribute, long value) {
+	public static int neglQueryStreamTimeKHR(long dpy, long stream, int attribute, long value) {
 		long __functionAddress = getInstance().QueryStreamTimeKHR;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return callPPIPZ(__functionAddress, dpy, stream, attribute, value);
+		return callPPIPI(__functionAddress, dpy, stream, attribute, value);
 	}
 
-	public static boolean eglQueryStreamTimeKHR(long dpy, long stream, int attribute, ByteBuffer value) {
+	public static int eglQueryStreamTimeKHR(long dpy, long stream, int attribute, ByteBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1 << 3);
 		return neglQueryStreamTimeKHR(dpy, stream, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQueryStreamTimeKHR QueryStreamTimeKHR} */
-	public static boolean eglQueryStreamTimeKHR(long dpy, long stream, int attribute, LongBuffer value) {
+	public static int eglQueryStreamTimeKHR(long dpy, long stream, int attribute, LongBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQueryStreamTimeKHR(dpy, stream, attribute, memAddress(value));

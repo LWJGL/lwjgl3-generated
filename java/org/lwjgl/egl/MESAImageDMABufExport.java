@@ -59,16 +59,16 @@ public class MESAImageDMABufExport {
 
 	/** Unsafe version of {@link #eglExportDMABUFImageQueryMESA ExportDMABUFImageQueryMESA} */
 	@JavadocExclude
-	public static boolean neglExportDMABUFImageQueryMESA(long dpy, long image, long fourcc, long num_planes, long modifiers) {
+	public static int neglExportDMABUFImageQueryMESA(long dpy, long image, long fourcc, long num_planes, long modifiers) {
 		long __functionAddress = getInstance().ExportDMABUFImageQueryMESA;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(image);
 		}
-		return callPPPPPZ(__functionAddress, dpy, image, fourcc, num_planes, modifiers);
+		return callPPPPPI(__functionAddress, dpy, image, fourcc, num_planes, modifiers);
 	}
 
-	public static boolean eglExportDMABUFImageQueryMESA(long dpy, long image, ByteBuffer fourcc, ByteBuffer num_planes, ByteBuffer modifiers) {
+	public static int eglExportDMABUFImageQueryMESA(long dpy, long image, ByteBuffer fourcc, ByteBuffer num_planes, ByteBuffer modifiers) {
 		if ( CHECKS ) {
 			if ( fourcc != null ) checkBuffer(fourcc, 1 << 2);
 			if ( num_planes != null ) checkBuffer(num_planes, 1 << 2);
@@ -78,7 +78,7 @@ public class MESAImageDMABufExport {
 	}
 
 	/** Alternative version of: {@link #eglExportDMABUFImageQueryMESA ExportDMABUFImageQueryMESA} */
-	public static boolean eglExportDMABUFImageQueryMESA(long dpy, long image, IntBuffer fourcc, IntBuffer num_planes, LongBuffer modifiers) {
+	public static int eglExportDMABUFImageQueryMESA(long dpy, long image, IntBuffer fourcc, IntBuffer num_planes, LongBuffer modifiers) {
 		if ( CHECKS ) {
 			if ( fourcc != null ) checkBuffer(fourcc, 1);
 			if ( num_planes != null ) checkBuffer(num_planes, 1);
@@ -91,16 +91,16 @@ public class MESAImageDMABufExport {
 
 	/** Unsafe version of {@link #eglExportDMABUFImageMESA ExportDMABUFImageMESA} */
 	@JavadocExclude
-	public static boolean neglExportDMABUFImageMESA(long dpy, long image, long fds, long strides, long offsets) {
+	public static int neglExportDMABUFImageMESA(long dpy, long image, long fds, long strides, long offsets) {
 		long __functionAddress = getInstance().ExportDMABUFImageMESA;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(image);
 		}
-		return callPPPPPZ(__functionAddress, dpy, image, fds, strides, offsets);
+		return callPPPPPI(__functionAddress, dpy, image, fds, strides, offsets);
 	}
 
-	public static boolean eglExportDMABUFImageMESA(long dpy, long image, ByteBuffer fds, ByteBuffer strides, ByteBuffer offsets) {
+	public static int eglExportDMABUFImageMESA(long dpy, long image, ByteBuffer fds, ByteBuffer strides, ByteBuffer offsets) {
 		if ( CHECKS ) {
 			if ( fds != null ) checkBuffer(fds, 1 << 2);
 			if ( strides != null ) checkBuffer(strides, 1 << 2);
@@ -110,7 +110,7 @@ public class MESAImageDMABufExport {
 	}
 
 	/** Alternative version of: {@link #eglExportDMABUFImageMESA ExportDMABUFImageMESA} */
-	public static boolean eglExportDMABUFImageMESA(long dpy, long image, IntBuffer fds, IntBuffer strides, IntBuffer offsets) {
+	public static int eglExportDMABUFImageMESA(long dpy, long image, IntBuffer fds, IntBuffer strides, IntBuffer offsets) {
 		if ( CHECKS ) {
 			if ( fds != null ) checkBuffer(fds, 1);
 			if ( strides != null ) checkBuffer(strides, 1);

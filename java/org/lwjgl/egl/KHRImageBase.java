@@ -88,13 +88,13 @@ public class KHRImageBase {
 
 	// --- [ eglDestroyImageKHR ] ---
 
-	public static boolean eglDestroyImageKHR(long dpy, long image) {
+	public static int eglDestroyImageKHR(long dpy, long image) {
 		long __functionAddress = getInstance().DestroyImageKHR;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(image);
 		}
-		return callPPZ(__functionAddress, dpy, image);
+		return callPPI(__functionAddress, dpy, image);
 	}
 
 }

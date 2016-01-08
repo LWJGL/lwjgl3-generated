@@ -120,19 +120,19 @@ public class KHRDebug {
 
 	/** Unsafe version of {@link #eglQueryDebugKHR QueryDebugKHR} */
 	@JavadocExclude
-	public static boolean neglQueryDebugKHR(int attribute, long value) {
+	public static int neglQueryDebugKHR(int attribute, long value) {
 		long __functionAddress = getInstance().QueryDebugKHR;
-		return callIPZ(__functionAddress, attribute, value);
+		return callIPI(__functionAddress, attribute, value);
 	}
 
-	public static boolean eglQueryDebugKHR(int attribute, ByteBuffer value) {
+	public static int eglQueryDebugKHR(int attribute, ByteBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1 << POINTER_SHIFT);
 		return neglQueryDebugKHR(attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQueryDebugKHR QueryDebugKHR} */
-	public static boolean eglQueryDebugKHR(int attribute, PointerBuffer value) {
+	public static int eglQueryDebugKHR(int attribute, PointerBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQueryDebugKHR(attribute, memAddress(value));

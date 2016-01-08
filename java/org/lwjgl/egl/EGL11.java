@@ -65,44 +65,44 @@ public class EGL11 {
 
 	// --- [ eglBindTexImage ] ---
 
-	public static boolean eglBindTexImage(long dpy, long surface, int buffer) {
+	public static int eglBindTexImage(long dpy, long surface, int buffer) {
 		long __functionAddress = getInstance().BindTexImage;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPIZ(__functionAddress, dpy, surface, buffer);
+		return callPPII(__functionAddress, dpy, surface, buffer);
 	}
 
 	// --- [ eglReleaseTexImage ] ---
 
-	public static boolean eglReleaseTexImage(long dpy, long surface, int buffer) {
+	public static int eglReleaseTexImage(long dpy, long surface, int buffer) {
 		long __functionAddress = getInstance().ReleaseTexImage;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPIZ(__functionAddress, dpy, surface, buffer);
+		return callPPII(__functionAddress, dpy, surface, buffer);
 	}
 
 	// --- [ eglSurfaceAttrib ] ---
 
-	public static boolean eglSurfaceAttrib(long dpy, long surface, int attribute, int value) {
+	public static int eglSurfaceAttrib(long dpy, long surface, int attribute, int value) {
 		long __functionAddress = getInstance().SurfaceAttrib;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPIIZ(__functionAddress, dpy, surface, attribute, value);
+		return callPPIII(__functionAddress, dpy, surface, attribute, value);
 	}
 
 	// --- [ eglSwapInterval ] ---
 
-	public static boolean eglSwapInterval(long dpy, int interval) {
+	public static int eglSwapInterval(long dpy, int interval) {
 		long __functionAddress = getInstance().SwapInterval;
 		if ( CHECKS )
 			checkPointer(dpy);
-		return callPIZ(__functionAddress, dpy, interval);
+		return callPII(__functionAddress, dpy, interval);
 	}
 
 }

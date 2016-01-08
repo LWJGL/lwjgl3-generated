@@ -161,14 +161,14 @@ public class EGL10 {
 
 	/** Unsafe version of {@link #eglChooseConfig ChooseConfig} */
 	@JavadocExclude
-	public static boolean neglChooseConfig(long dpy, long attrib_list, long configs, int config_size, long num_config) {
+	public static int neglChooseConfig(long dpy, long attrib_list, long configs, int config_size, long num_config) {
 		long __functionAddress = getInstance().ChooseConfig;
 		if ( CHECKS )
 			checkPointer(dpy);
-		return callPPPIPZ(__functionAddress, dpy, attrib_list, configs, config_size, num_config);
+		return callPPPIPI(__functionAddress, dpy, attrib_list, configs, config_size, num_config);
 	}
 
-	public static boolean eglChooseConfig(long dpy, ByteBuffer attrib_list, ByteBuffer configs, int config_size, ByteBuffer num_config) {
+	public static int eglChooseConfig(long dpy, ByteBuffer attrib_list, ByteBuffer configs, int config_size, ByteBuffer num_config) {
 		if ( CHECKS ) {
 			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
 			if ( configs != null ) checkBuffer(configs, config_size << POINTER_SHIFT);
@@ -178,7 +178,7 @@ public class EGL10 {
 	}
 
 	/** Alternative version of: {@link #eglChooseConfig ChooseConfig} */
-	public static boolean eglChooseConfig(long dpy, IntBuffer attrib_list, PointerBuffer configs, IntBuffer num_config) {
+	public static int eglChooseConfig(long dpy, IntBuffer attrib_list, PointerBuffer configs, IntBuffer num_config) {
 		if ( CHECKS ) {
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
 			checkBuffer(num_config, 1);
@@ -188,14 +188,14 @@ public class EGL10 {
 
 	// --- [ eglCopyBuffers ] ---
 
-	public static boolean eglCopyBuffers(long dpy, long surface, long target) {
+	public static int eglCopyBuffers(long dpy, long surface, long target) {
 		long __functionAddress = getInstance().CopyBuffers;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 			checkPointer(target);
 		}
-		return callPPPZ(__functionAddress, dpy, surface, target);
+		return callPPPI(__functionAddress, dpy, surface, target);
 	}
 
 	// --- [ eglCreateContext ] ---
@@ -306,47 +306,47 @@ public class EGL10 {
 
 	// --- [ eglDestroyContext ] ---
 
-	public static boolean eglDestroyContext(long dpy, long ctx) {
+	public static int eglDestroyContext(long dpy, long ctx) {
 		long __functionAddress = getInstance().DestroyContext;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(ctx);
 		}
-		return callPPZ(__functionAddress, dpy, ctx);
+		return callPPI(__functionAddress, dpy, ctx);
 	}
 
 	// --- [ eglDestroySurface ] ---
 
-	public static boolean eglDestroySurface(long dpy, long surface) {
+	public static int eglDestroySurface(long dpy, long surface) {
 		long __functionAddress = getInstance().DestroySurface;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPZ(__functionAddress, dpy, surface);
+		return callPPI(__functionAddress, dpy, surface);
 	}
 
 	// --- [ eglGetConfigAttrib ] ---
 
 	/** Unsafe version of {@link #eglGetConfigAttrib GetConfigAttrib} */
 	@JavadocExclude
-	public static boolean neglGetConfigAttrib(long dpy, long config, int attribute, long value) {
+	public static int neglGetConfigAttrib(long dpy, long config, int attribute, long value) {
 		long __functionAddress = getInstance().GetConfigAttrib;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(config);
 		}
-		return callPPIPZ(__functionAddress, dpy, config, attribute, value);
+		return callPPIPI(__functionAddress, dpy, config, attribute, value);
 	}
 
-	public static boolean eglGetConfigAttrib(long dpy, long config, int attribute, ByteBuffer value) {
+	public static int eglGetConfigAttrib(long dpy, long config, int attribute, ByteBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		return neglGetConfigAttrib(dpy, config, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglGetConfigAttrib GetConfigAttrib} */
-	public static boolean eglGetConfigAttrib(long dpy, long config, int attribute, IntBuffer value) {
+	public static int eglGetConfigAttrib(long dpy, long config, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglGetConfigAttrib(dpy, config, attribute, memAddress(value));
@@ -356,14 +356,14 @@ public class EGL10 {
 
 	/** Unsafe version of {@link #eglGetConfigs GetConfigs} */
 	@JavadocExclude
-	public static boolean neglGetConfigs(long dpy, long configs, int config_size, long num_config) {
+	public static int neglGetConfigs(long dpy, long configs, int config_size, long num_config) {
 		long __functionAddress = getInstance().GetConfigs;
 		if ( CHECKS )
 			checkPointer(dpy);
-		return callPPIPZ(__functionAddress, dpy, configs, config_size, num_config);
+		return callPPIPI(__functionAddress, dpy, configs, config_size, num_config);
 	}
 
-	public static boolean eglGetConfigs(long dpy, ByteBuffer configs, int config_size, ByteBuffer num_config) {
+	public static int eglGetConfigs(long dpy, ByteBuffer configs, int config_size, ByteBuffer num_config) {
 		if ( CHECKS ) {
 			if ( configs != null ) checkBuffer(configs, config_size << POINTER_SHIFT);
 			checkBuffer(num_config, 1 << 2);
@@ -372,7 +372,7 @@ public class EGL10 {
 	}
 
 	/** Alternative version of: {@link #eglGetConfigs GetConfigs} */
-	public static boolean eglGetConfigs(long dpy, PointerBuffer configs, IntBuffer num_config) {
+	public static int eglGetConfigs(long dpy, PointerBuffer configs, IntBuffer num_config) {
 		if ( CHECKS )
 			checkBuffer(num_config, 1);
 		return neglGetConfigs(dpy, memAddressSafe(configs), configs == null ? 0 : configs.remaining(), memAddress(num_config));
@@ -432,14 +432,14 @@ public class EGL10 {
 
 	/** Unsafe version of {@link #eglInitialize Initialize} */
 	@JavadocExclude
-	public static boolean neglInitialize(long dpy, long major, long minor) {
+	public static int neglInitialize(long dpy, long major, long minor) {
 		long __functionAddress = getInstance().Initialize;
 		if ( CHECKS )
 			checkPointer(dpy);
-		return callPPPZ(__functionAddress, dpy, major, minor);
+		return callPPPI(__functionAddress, dpy, major, minor);
 	}
 
-	public static boolean eglInitialize(long dpy, ByteBuffer major, ByteBuffer minor) {
+	public static int eglInitialize(long dpy, ByteBuffer major, ByteBuffer minor) {
 		if ( CHECKS ) {
 			checkBuffer(major, 1 << 2);
 			checkBuffer(minor, 1 << 2);
@@ -448,7 +448,7 @@ public class EGL10 {
 	}
 
 	/** Alternative version of: {@link #eglInitialize Initialize} */
-	public static boolean eglInitialize(long dpy, IntBuffer major, IntBuffer minor) {
+	public static int eglInitialize(long dpy, IntBuffer major, IntBuffer minor) {
 		if ( CHECKS ) {
 			checkBuffer(major, 1);
 			checkBuffer(minor, 1);
@@ -458,7 +458,7 @@ public class EGL10 {
 
 	// --- [ eglMakeCurrent ] ---
 
-	public static boolean eglMakeCurrent(long dpy, long draw, long read, long ctx) {
+	public static int eglMakeCurrent(long dpy, long draw, long read, long ctx) {
 		long __functionAddress = getInstance().MakeCurrent;
 		if ( CHECKS ) {
 			checkPointer(dpy);
@@ -466,30 +466,30 @@ public class EGL10 {
 			checkPointer(read);
 			checkPointer(ctx);
 		}
-		return callPPPPZ(__functionAddress, dpy, draw, read, ctx);
+		return callPPPPI(__functionAddress, dpy, draw, read, ctx);
 	}
 
 	// --- [ eglQueryContext ] ---
 
 	/** Unsafe version of {@link #eglQueryContext QueryContext} */
 	@JavadocExclude
-	public static boolean neglQueryContext(long dpy, long ctx, int attribute, long value) {
+	public static int neglQueryContext(long dpy, long ctx, int attribute, long value) {
 		long __functionAddress = getInstance().QueryContext;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(ctx);
 		}
-		return callPPIPZ(__functionAddress, dpy, ctx, attribute, value);
+		return callPPIPI(__functionAddress, dpy, ctx, attribute, value);
 	}
 
-	public static boolean eglQueryContext(long dpy, long ctx, int attribute, ByteBuffer value) {
+	public static int eglQueryContext(long dpy, long ctx, int attribute, ByteBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		return neglQueryContext(dpy, ctx, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQueryContext QueryContext} */
-	public static boolean eglQueryContext(long dpy, long ctx, int attribute, IntBuffer value) {
+	public static int eglQueryContext(long dpy, long ctx, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQueryContext(dpy, ctx, attribute, memAddress(value));
@@ -513,23 +513,23 @@ public class EGL10 {
 
 	/** Unsafe version of {@link #eglQuerySurface QuerySurface} */
 	@JavadocExclude
-	public static boolean neglQuerySurface(long dpy, long surface, int attribute, long value) {
+	public static int neglQuerySurface(long dpy, long surface, int attribute, long value) {
 		long __functionAddress = getInstance().QuerySurface;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPIPZ(__functionAddress, dpy, surface, attribute, value);
+		return callPPIPI(__functionAddress, dpy, surface, attribute, value);
 	}
 
-	public static boolean eglQuerySurface(long dpy, long surface, int attribute, ByteBuffer value) {
+	public static int eglQuerySurface(long dpy, long surface, int attribute, ByteBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		return neglQuerySurface(dpy, surface, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQuerySurface QuerySurface} */
-	public static boolean eglQuerySurface(long dpy, long surface, int attribute, IntBuffer value) {
+	public static int eglQuerySurface(long dpy, long surface, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQuerySurface(dpy, surface, attribute, memAddress(value));
@@ -537,36 +537,36 @@ public class EGL10 {
 
 	// --- [ eglSwapBuffers ] ---
 
-	public static boolean eglSwapBuffers(long dpy, long surface) {
+	public static int eglSwapBuffers(long dpy, long surface) {
 		long __functionAddress = getInstance().SwapBuffers;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPZ(__functionAddress, dpy, surface);
+		return callPPI(__functionAddress, dpy, surface);
 	}
 
 	// --- [ eglTerminate ] ---
 
-	public static boolean eglTerminate(long dpy) {
+	public static int eglTerminate(long dpy) {
 		long __functionAddress = getInstance().Terminate;
 		if ( CHECKS )
 			checkPointer(dpy);
-		return callPZ(__functionAddress, dpy);
+		return callPI(__functionAddress, dpy);
 	}
 
 	// --- [ eglWaitGL ] ---
 
-	public static boolean eglWaitGL() {
+	public static int eglWaitGL() {
 		long __functionAddress = getInstance().WaitGL;
-		return callZ(__functionAddress);
+		return callI(__functionAddress);
 	}
 
 	// --- [ eglWaitNative ] ---
 
-	public static boolean eglWaitNative(int engine) {
+	public static int eglWaitNative(int engine) {
 		long __functionAddress = getInstance().WaitNative;
-		return callIZ(__functionAddress, engine);
+		return callII(__functionAddress, engine);
 	}
 
 }

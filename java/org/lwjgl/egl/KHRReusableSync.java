@@ -105,13 +105,13 @@ public class KHRReusableSync {
 
 	// --- [ eglDestroySyncKHR ] ---
 
-	public static boolean eglDestroySyncKHR(long dpy, long sync) {
+	public static int eglDestroySyncKHR(long dpy, long sync) {
 		long __functionAddress = getInstance().DestroySyncKHR;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return callPPZ(__functionAddress, dpy, sync);
+		return callPPI(__functionAddress, dpy, sync);
 	}
 
 	// --- [ eglClientWaitSyncKHR ] ---
@@ -127,36 +127,36 @@ public class KHRReusableSync {
 
 	// --- [ eglSignalSyncKHR ] ---
 
-	public static boolean eglSignalSyncKHR(long dpy, long sync, int mode) {
+	public static int eglSignalSyncKHR(long dpy, long sync, int mode) {
 		long __functionAddress = getInstance().SignalSyncKHR;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return callPPIZ(__functionAddress, dpy, sync, mode);
+		return callPPII(__functionAddress, dpy, sync, mode);
 	}
 
 	// --- [ eglGetSyncAttribKHR ] ---
 
 	/** Unsafe version of {@link #eglGetSyncAttribKHR GetSyncAttribKHR} */
 	@JavadocExclude
-	public static boolean neglGetSyncAttribKHR(long dpy, long sync, int attribute, long value) {
+	public static int neglGetSyncAttribKHR(long dpy, long sync, int attribute, long value) {
 		long __functionAddress = getInstance().GetSyncAttribKHR;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return callPPIPZ(__functionAddress, dpy, sync, attribute, value);
+		return callPPIPI(__functionAddress, dpy, sync, attribute, value);
 	}
 
-	public static boolean eglGetSyncAttribKHR(long dpy, long sync, int attribute, ByteBuffer value) {
+	public static int eglGetSyncAttribKHR(long dpy, long sync, int attribute, ByteBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1 << 2);
 		return neglGetSyncAttribKHR(dpy, sync, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglGetSyncAttribKHR GetSyncAttribKHR} */
-	public static boolean eglGetSyncAttribKHR(long dpy, long sync, int attribute, IntBuffer value) {
+	public static int eglGetSyncAttribKHR(long dpy, long sync, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglGetSyncAttribKHR(dpy, sync, attribute, memAddress(value));

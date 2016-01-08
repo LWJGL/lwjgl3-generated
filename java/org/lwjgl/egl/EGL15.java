@@ -138,13 +138,13 @@ public class EGL15 {
 
 	// --- [ eglDestroySync ] ---
 
-	public static boolean eglDestroySync(long dpy, long sync) {
+	public static int eglDestroySync(long dpy, long sync) {
 		long __functionAddress = getInstance().DestroySync;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return callPPZ(__functionAddress, dpy, sync);
+		return callPPI(__functionAddress, dpy, sync);
 	}
 
 	// --- [ eglClientWaitSync ] ---
@@ -162,23 +162,23 @@ public class EGL15 {
 
 	/** Unsafe version of {@link #eglGetSyncAttrib GetSyncAttrib} */
 	@JavadocExclude
-	public static boolean neglGetSyncAttrib(long dpy, long sync, int attribute, long value) {
+	public static int neglGetSyncAttrib(long dpy, long sync, int attribute, long value) {
 		long __functionAddress = getInstance().GetSyncAttrib;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return callPPIPZ(__functionAddress, dpy, sync, attribute, value);
+		return callPPIPI(__functionAddress, dpy, sync, attribute, value);
 	}
 
-	public static boolean eglGetSyncAttrib(long dpy, long sync, int attribute, ByteBuffer value) {
+	public static int eglGetSyncAttrib(long dpy, long sync, int attribute, ByteBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1 << POINTER_SHIFT);
 		return neglGetSyncAttrib(dpy, sync, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglGetSyncAttrib GetSyncAttrib} */
-	public static boolean eglGetSyncAttrib(long dpy, long sync, int attribute, PointerBuffer value) {
+	public static int eglGetSyncAttrib(long dpy, long sync, int attribute, PointerBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglGetSyncAttrib(dpy, sync, attribute, memAddress(value));
@@ -213,13 +213,13 @@ public class EGL15 {
 
 	// --- [ eglDestroyImage ] ---
 
-	public static boolean eglDestroyImage(long dpy, long image) {
+	public static int eglDestroyImage(long dpy, long image) {
 		long __functionAddress = getInstance().DestroyImage;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(image);
 		}
-		return callPPZ(__functionAddress, dpy, image);
+		return callPPI(__functionAddress, dpy, image);
 	}
 
 	// --- [ eglGetPlatformDisplay ] ---
@@ -302,13 +302,13 @@ public class EGL15 {
 
 	// --- [ eglWaitSync ] ---
 
-	public static boolean eglWaitSync(long dpy, long sync, int flags) {
+	public static int eglWaitSync(long dpy, long sync, int flags) {
 		long __functionAddress = getInstance().WaitSync;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return callPPIZ(__functionAddress, dpy, sync, flags);
+		return callPPII(__functionAddress, dpy, sync, flags);
 	}
 
 }

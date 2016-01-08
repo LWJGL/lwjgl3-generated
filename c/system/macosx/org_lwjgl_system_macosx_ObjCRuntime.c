@@ -11,7 +11,7 @@ typedef struct objc_method_description (*protocol_getMethodDescriptionPROC) (Pro
 
 EXTERN_C_ENTER
 
-JNIEXPORT void JNICALL Java_org_lwjgl_system_macosx_ObjCRuntime_nprotocol_1getMethodDescription(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong pAddress, jlong aSelAddress, jbyte isRequiredMethod, jbyte isInstanceMethod, jlong __result) {
+JNIEXPORT void JNICALL Java_org_lwjgl_system_macosx_ObjCRuntime_nprotocol_1getMethodDescription(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong pAddress, jlong aSelAddress, jboolean isRequiredMethod, jboolean isInstanceMethod, jlong __result) {
 	protocol_getMethodDescriptionPROC protocol_getMethodDescription = (protocol_getMethodDescriptionPROC)(intptr_t)__functionAddress;
 	Protocol *p = (Protocol *)(intptr_t)pAddress;
 	SEL aSel = (SEL)(intptr_t)aSelAddress;

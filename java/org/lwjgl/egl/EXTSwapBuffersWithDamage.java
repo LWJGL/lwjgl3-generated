@@ -56,23 +56,23 @@ public class EXTSwapBuffersWithDamage {
 
 	/** Unsafe version of {@link #eglSwapBuffersWithDamageEXT SwapBuffersWithDamageEXT} */
 	@JavadocExclude
-	public static boolean neglSwapBuffersWithDamageEXT(long dpy, long surface, long rects, int n_rects) {
+	public static int neglSwapBuffersWithDamageEXT(long dpy, long surface, long rects, int n_rects) {
 		long __functionAddress = getInstance().SwapBuffersWithDamageEXT;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPPIZ(__functionAddress, dpy, surface, rects, n_rects);
+		return callPPPII(__functionAddress, dpy, surface, rects, n_rects);
 	}
 
-	public static boolean eglSwapBuffersWithDamageEXT(long dpy, long surface, ByteBuffer rects, int n_rects) {
+	public static int eglSwapBuffersWithDamageEXT(long dpy, long surface, ByteBuffer rects, int n_rects) {
 		if ( CHECKS )
 			if ( rects != null ) checkBuffer(rects, n_rects << 2);
 		return neglSwapBuffersWithDamageEXT(dpy, surface, memAddressSafe(rects), n_rects);
 	}
 
 	/** Alternative version of: {@link #eglSwapBuffersWithDamageEXT SwapBuffersWithDamageEXT} */
-	public static boolean eglSwapBuffersWithDamageEXT(long dpy, long surface, IntBuffer rects) {
+	public static int eglSwapBuffersWithDamageEXT(long dpy, long surface, IntBuffer rects) {
 		return neglSwapBuffersWithDamageEXT(dpy, surface, memAddressSafe(rects), rects == null ? 0 : rects.remaining());
 	}
 

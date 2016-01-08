@@ -85,23 +85,23 @@ public class KHRLockSurface3 {
 
 	/** Unsafe version of {@link #eglLockSurfaceKHR LockSurfaceKHR} */
 	@JavadocExclude
-	public static boolean neglLockSurfaceKHR(long dpy, long surface, long attrib_list) {
+	public static int neglLockSurfaceKHR(long dpy, long surface, long attrib_list) {
 		long __functionAddress = getInstance().LockSurfaceKHR;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPPZ(__functionAddress, dpy, surface, attrib_list);
+		return callPPPI(__functionAddress, dpy, surface, attrib_list);
 	}
 
-	public static boolean eglLockSurfaceKHR(long dpy, long surface, ByteBuffer attrib_list) {
+	public static int eglLockSurfaceKHR(long dpy, long surface, ByteBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT4(attrib_list, EGL10.EGL_NONE);
 		return neglLockSurfaceKHR(dpy, surface, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #eglLockSurfaceKHR LockSurfaceKHR} */
-	public static boolean eglLockSurfaceKHR(long dpy, long surface, IntBuffer attrib_list) {
+	public static int eglLockSurfaceKHR(long dpy, long surface, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
 		return neglLockSurfaceKHR(dpy, surface, memAddressSafe(attrib_list));
@@ -109,36 +109,36 @@ public class KHRLockSurface3 {
 
 	// --- [ eglUnlockSurfaceKHR ] ---
 
-	public static boolean eglUnlockSurfaceKHR(long dpy, long surface) {
+	public static int eglUnlockSurfaceKHR(long dpy, long surface) {
 		long __functionAddress = getInstance().UnlockSurfaceKHR;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPZ(__functionAddress, dpy, surface);
+		return callPPI(__functionAddress, dpy, surface);
 	}
 
 	// --- [ eglQuerySurface64KHR ] ---
 
 	/** Unsafe version of {@link #eglQuerySurface64KHR QuerySurface64KHR} */
 	@JavadocExclude
-	public static boolean neglQuerySurface64KHR(long dpy, long surface, int attribute, long value) {
+	public static int neglQuerySurface64KHR(long dpy, long surface, int attribute, long value) {
 		long __functionAddress = getInstance().QuerySurface64KHR;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPIPZ(__functionAddress, dpy, surface, attribute, value);
+		return callPPIPI(__functionAddress, dpy, surface, attribute, value);
 	}
 
-	public static boolean eglQuerySurface64KHR(long dpy, long surface, int attribute, ByteBuffer value) {
+	public static int eglQuerySurface64KHR(long dpy, long surface, int attribute, ByteBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1 << POINTER_SHIFT);
 		return neglQuerySurface64KHR(dpy, surface, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQuerySurface64KHR QuerySurface64KHR} */
-	public static boolean eglQuerySurface64KHR(long dpy, long surface, int attribute, PointerBuffer value) {
+	public static int eglQuerySurface64KHR(long dpy, long surface, int attribute, PointerBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQuerySurface64KHR(dpy, surface, attribute, memAddress(value));

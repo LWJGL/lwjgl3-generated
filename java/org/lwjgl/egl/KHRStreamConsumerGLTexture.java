@@ -57,35 +57,35 @@ public class KHRStreamConsumerGLTexture {
 
 	// --- [ eglStreamConsumerGLTextureExternalKHR ] ---
 
-	public static boolean eglStreamConsumerGLTextureExternalKHR(long dpy, long stream) {
+	public static int eglStreamConsumerGLTextureExternalKHR(long dpy, long stream) {
 		long __functionAddress = getInstance().StreamConsumerGLTextureExternalKHR;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return callPPZ(__functionAddress, dpy, stream);
+		return callPPI(__functionAddress, dpy, stream);
 	}
 
 	// --- [ eglStreamConsumerAcquireKHR ] ---
 
-	public static boolean eglStreamConsumerAcquireKHR(long dpy, long stream) {
+	public static int eglStreamConsumerAcquireKHR(long dpy, long stream) {
 		long __functionAddress = getInstance().StreamConsumerAcquireKHR;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return callPPZ(__functionAddress, dpy, stream);
+		return callPPI(__functionAddress, dpy, stream);
 	}
 
 	// --- [ eglStreamConsumerReleaseKHR ] ---
 
-	public static boolean eglStreamConsumerReleaseKHR(long dpy, long stream) {
+	public static int eglStreamConsumerReleaseKHR(long dpy, long stream) {
 		long __functionAddress = getInstance().StreamConsumerReleaseKHR;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return callPPZ(__functionAddress, dpy, stream);
+		return callPPI(__functionAddress, dpy, stream);
 	}
 
 }

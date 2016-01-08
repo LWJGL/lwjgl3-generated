@@ -53,13 +53,13 @@ public class NVPostSubBuffer {
 
 	// --- [ eglPostSubBufferNV ] ---
 
-	public static boolean eglPostSubBufferNV(long dpy, long surface, int x, int y, int width, int height) {
+	public static int eglPostSubBufferNV(long dpy, long surface, int x, int y, int width, int height) {
 		long __functionAddress = getInstance().PostSubBufferNV;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPIIIIZ(__functionAddress, dpy, surface, x, y, width, height);
+		return callPPIIIII(__functionAddress, dpy, surface, x, y, width, height);
 	}
 
 }

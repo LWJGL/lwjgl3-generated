@@ -72,21 +72,21 @@ public class NVStreamConsumerGLTextureYUV {
 
 	/** Unsafe version of {@link #eglStreamConsumerGLTextureExternalAttribsNV StreamConsumerGLTextureExternalAttribsNV} */
 	@JavadocExclude
-	public static boolean neglStreamConsumerGLTextureExternalAttribsNV(long dpy, long stream, long attrib_list) {
+	public static int neglStreamConsumerGLTextureExternalAttribsNV(long dpy, long stream, long attrib_list) {
 		long __functionAddress = getInstance().StreamConsumerGLTextureExternalAttribsNV;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return callPPPZ(__functionAddress, dpy, stream, attrib_list);
+		return callPPPI(__functionAddress, dpy, stream, attrib_list);
 	}
 
-	public static boolean eglStreamConsumerGLTextureExternalAttribsNV(long dpy, long stream, ByteBuffer attrib_list) {
+	public static int eglStreamConsumerGLTextureExternalAttribsNV(long dpy, long stream, ByteBuffer attrib_list) {
 		return neglStreamConsumerGLTextureExternalAttribsNV(dpy, stream, memAddressSafe(attrib_list));
 	}
 
 	/** Alternative version of: {@link #eglStreamConsumerGLTextureExternalAttribsNV StreamConsumerGLTextureExternalAttribsNV} */
-	public static boolean eglStreamConsumerGLTextureExternalAttribsNV(long dpy, long stream, PointerBuffer attrib_list) {
+	public static int eglStreamConsumerGLTextureExternalAttribsNV(long dpy, long stream, PointerBuffer attrib_list) {
 		return neglStreamConsumerGLTextureExternalAttribsNV(dpy, stream, memAddressSafe(attrib_list));
 	}
 

@@ -89,14 +89,14 @@ public class EXTOutputBase {
 
 	/** Unsafe version of {@link #eglGetOutputLayersEXT GetOutputLayersEXT} */
 	@JavadocExclude
-	public static boolean neglGetOutputLayersEXT(long dpy, long attrib_list, long layers, int max_layers, long num_layers) {
+	public static int neglGetOutputLayersEXT(long dpy, long attrib_list, long layers, int max_layers, long num_layers) {
 		long __functionAddress = getInstance().GetOutputLayersEXT;
 		if ( CHECKS )
 			checkPointer(dpy);
-		return callPPPIPZ(__functionAddress, dpy, attrib_list, layers, max_layers, num_layers);
+		return callPPPIPI(__functionAddress, dpy, attrib_list, layers, max_layers, num_layers);
 	}
 
-	public static boolean eglGetOutputLayersEXT(long dpy, ByteBuffer attrib_list, ByteBuffer layers, int max_layers, ByteBuffer num_layers) {
+	public static int eglGetOutputLayersEXT(long dpy, ByteBuffer attrib_list, ByteBuffer layers, int max_layers, ByteBuffer num_layers) {
 		if ( CHECKS ) {
 			if ( attrib_list != null ) checkNTP(attrib_list, EGL10.EGL_NONE);
 			if ( layers != null ) checkBuffer(layers, max_layers << POINTER_SHIFT);
@@ -106,7 +106,7 @@ public class EXTOutputBase {
 	}
 
 	/** Alternative version of: {@link #eglGetOutputLayersEXT GetOutputLayersEXT} */
-	public static boolean eglGetOutputLayersEXT(long dpy, PointerBuffer attrib_list, PointerBuffer layers, IntBuffer num_layers) {
+	public static int eglGetOutputLayersEXT(long dpy, PointerBuffer attrib_list, PointerBuffer layers, IntBuffer num_layers) {
 		if ( CHECKS ) {
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
 			checkBuffer(num_layers, 1);
@@ -118,14 +118,14 @@ public class EXTOutputBase {
 
 	/** Unsafe version of {@link #eglGetOutputPortsEXT GetOutputPortsEXT} */
 	@JavadocExclude
-	public static boolean neglGetOutputPortsEXT(long dpy, long attrib_list, long ports, int max_ports, long num_ports) {
+	public static int neglGetOutputPortsEXT(long dpy, long attrib_list, long ports, int max_ports, long num_ports) {
 		long __functionAddress = getInstance().GetOutputPortsEXT;
 		if ( CHECKS )
 			checkPointer(dpy);
-		return callPPPIPZ(__functionAddress, dpy, attrib_list, ports, max_ports, num_ports);
+		return callPPPIPI(__functionAddress, dpy, attrib_list, ports, max_ports, num_ports);
 	}
 
-	public static boolean eglGetOutputPortsEXT(long dpy, ByteBuffer attrib_list, ByteBuffer ports, int max_ports, ByteBuffer num_ports) {
+	public static int eglGetOutputPortsEXT(long dpy, ByteBuffer attrib_list, ByteBuffer ports, int max_ports, ByteBuffer num_ports) {
 		if ( CHECKS ) {
 			if ( attrib_list != null ) checkNTP(attrib_list, EGL10.EGL_NONE);
 			if ( ports != null ) checkBuffer(ports, max_ports << POINTER_SHIFT);
@@ -135,7 +135,7 @@ public class EXTOutputBase {
 	}
 
 	/** Alternative version of: {@link #eglGetOutputPortsEXT GetOutputPortsEXT} */
-	public static boolean eglGetOutputPortsEXT(long dpy, PointerBuffer attrib_list, PointerBuffer ports, IntBuffer num_ports) {
+	public static int eglGetOutputPortsEXT(long dpy, PointerBuffer attrib_list, PointerBuffer ports, IntBuffer num_ports) {
 		if ( CHECKS ) {
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
 			checkBuffer(num_ports, 1);
@@ -145,36 +145,36 @@ public class EXTOutputBase {
 
 	// --- [ eglOutputLayerAttribEXT ] ---
 
-	public static boolean eglOutputLayerAttribEXT(long dpy, long layer, int attribute, long value) {
+	public static int eglOutputLayerAttribEXT(long dpy, long layer, int attribute, long value) {
 		long __functionAddress = getInstance().OutputLayerAttribEXT;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(layer);
 		}
-		return callPPIPZ(__functionAddress, dpy, layer, attribute, value);
+		return callPPIPI(__functionAddress, dpy, layer, attribute, value);
 	}
 
 	// --- [ eglQueryOutputLayerAttribEXT ] ---
 
 	/** Unsafe version of {@link #eglQueryOutputLayerAttribEXT QueryOutputLayerAttribEXT} */
 	@JavadocExclude
-	public static boolean neglQueryOutputLayerAttribEXT(long dpy, long layer, int attribute, long value) {
+	public static int neglQueryOutputLayerAttribEXT(long dpy, long layer, int attribute, long value) {
 		long __functionAddress = getInstance().QueryOutputLayerAttribEXT;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(layer);
 		}
-		return callPPIPZ(__functionAddress, dpy, layer, attribute, value);
+		return callPPIPI(__functionAddress, dpy, layer, attribute, value);
 	}
 
-	public static boolean eglQueryOutputLayerAttribEXT(long dpy, long layer, int attribute, ByteBuffer value) {
+	public static int eglQueryOutputLayerAttribEXT(long dpy, long layer, int attribute, ByteBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1 << POINTER_SHIFT);
 		return neglQueryOutputLayerAttribEXT(dpy, layer, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQueryOutputLayerAttribEXT QueryOutputLayerAttribEXT} */
-	public static boolean eglQueryOutputLayerAttribEXT(long dpy, long layer, int attribute, PointerBuffer value) {
+	public static int eglQueryOutputLayerAttribEXT(long dpy, long layer, int attribute, PointerBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQueryOutputLayerAttribEXT(dpy, layer, attribute, memAddress(value));
@@ -200,36 +200,36 @@ public class EXTOutputBase {
 
 	// --- [ eglOutputPortAttribEXT ] ---
 
-	public static boolean eglOutputPortAttribEXT(long dpy, long port, int attribute, long value) {
+	public static int eglOutputPortAttribEXT(long dpy, long port, int attribute, long value) {
 		long __functionAddress = getInstance().OutputPortAttribEXT;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(port);
 		}
-		return callPPIPZ(__functionAddress, dpy, port, attribute, value);
+		return callPPIPI(__functionAddress, dpy, port, attribute, value);
 	}
 
 	// --- [ eglQueryOutputPortAttribEXT ] ---
 
 	/** Unsafe version of {@link #eglQueryOutputPortAttribEXT QueryOutputPortAttribEXT} */
 	@JavadocExclude
-	public static boolean neglQueryOutputPortAttribEXT(long dpy, long port, int attribute, long value) {
+	public static int neglQueryOutputPortAttribEXT(long dpy, long port, int attribute, long value) {
 		long __functionAddress = getInstance().QueryOutputPortAttribEXT;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(port);
 		}
-		return callPPIPZ(__functionAddress, dpy, port, attribute, value);
+		return callPPIPI(__functionAddress, dpy, port, attribute, value);
 	}
 
-	public static boolean eglQueryOutputPortAttribEXT(long dpy, long port, int attribute, ByteBuffer value) {
+	public static int eglQueryOutputPortAttribEXT(long dpy, long port, int attribute, ByteBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1 << POINTER_SHIFT);
 		return neglQueryOutputPortAttribEXT(dpy, port, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQueryOutputPortAttribEXT QueryOutputPortAttribEXT} */
-	public static boolean eglQueryOutputPortAttribEXT(long dpy, long port, int attribute, PointerBuffer value) {
+	public static int eglQueryOutputPortAttribEXT(long dpy, long port, int attribute, PointerBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQueryOutputPortAttribEXT(dpy, port, attribute, memAddress(value));

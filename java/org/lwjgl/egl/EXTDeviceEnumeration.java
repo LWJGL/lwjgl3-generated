@@ -62,12 +62,12 @@ public class EXTDeviceEnumeration {
 
 	/** Unsafe version of {@link #eglQueryDevicesEXT QueryDevicesEXT} */
 	@JavadocExclude
-	public static boolean neglQueryDevicesEXT(int max_devices, long devices, long num_devices) {
+	public static int neglQueryDevicesEXT(int max_devices, long devices, long num_devices) {
 		long __functionAddress = getInstance().QueryDevicesEXT;
-		return callIPPZ(__functionAddress, max_devices, devices, num_devices);
+		return callIPPI(__functionAddress, max_devices, devices, num_devices);
 	}
 
-	public static boolean eglQueryDevicesEXT(int max_devices, ByteBuffer devices, ByteBuffer num_devices) {
+	public static int eglQueryDevicesEXT(int max_devices, ByteBuffer devices, ByteBuffer num_devices) {
 		if ( CHECKS ) {
 			if ( devices != null ) checkBuffer(devices, max_devices << POINTER_SHIFT);
 			checkBuffer(num_devices, 1 << 2);
@@ -76,7 +76,7 @@ public class EXTDeviceEnumeration {
 	}
 
 	/** Alternative version of: {@link #eglQueryDevicesEXT QueryDevicesEXT} */
-	public static boolean eglQueryDevicesEXT(PointerBuffer devices, IntBuffer num_devices) {
+	public static int eglQueryDevicesEXT(PointerBuffer devices, IntBuffer num_devices) {
 		if ( CHECKS )
 			checkBuffer(num_devices, 1);
 		return neglQueryDevicesEXT(devices == null ? 0 : devices.remaining(), memAddressSafe(devices), memAddress(num_devices));

@@ -52,23 +52,23 @@ public class ANGLEQuerySurfacePointer {
 
 	/** Unsafe version of {@link #eglQuerySurfacePointerANGLE QuerySurfacePointerANGLE} */
 	@JavadocExclude
-	public static boolean neglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, long value) {
+	public static int neglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, long value) {
 		long __functionAddress = getInstance().QuerySurfacePointerANGLE;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPIPZ(__functionAddress, dpy, surface, attribute, value);
+		return callPPIPI(__functionAddress, dpy, surface, attribute, value);
 	}
 
-	public static boolean eglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, ByteBuffer value) {
+	public static int eglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, ByteBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1 << POINTER_SHIFT);
 		return neglQuerySurfacePointerANGLE(dpy, surface, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQuerySurfacePointerANGLE QuerySurfacePointerANGLE} */
-	public static boolean eglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, PointerBuffer value) {
+	public static int eglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, PointerBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQuerySurfacePointerANGLE(dpy, surface, attribute, memAddress(value));

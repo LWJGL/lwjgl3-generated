@@ -85,9 +85,9 @@ public class EGL12 {
 
 	// --- [ eglBindAPI ] ---
 
-	public static boolean eglBindAPI(int api) {
+	public static int eglBindAPI(int api) {
 		long __functionAddress = getInstance().BindAPI;
-		return callIZ(__functionAddress, api);
+		return callII(__functionAddress, api);
 	}
 
 	// --- [ eglQueryAPI ] ---
@@ -126,16 +126,16 @@ public class EGL12 {
 
 	// --- [ eglReleaseThread ] ---
 
-	public static boolean eglReleaseThread() {
+	public static int eglReleaseThread() {
 		long __functionAddress = getInstance().ReleaseThread;
-		return callZ(__functionAddress);
+		return callI(__functionAddress);
 	}
 
 	// --- [ eglWaitClient ] ---
 
-	public static boolean eglWaitClient() {
+	public static int eglWaitClient() {
 		long __functionAddress = getInstance().WaitClient;
-		return callZ(__functionAddress);
+		return callI(__functionAddress);
 	}
 
 }

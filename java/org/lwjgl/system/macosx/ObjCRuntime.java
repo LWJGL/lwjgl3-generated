@@ -765,9 +765,9 @@ public class ObjCRuntime {
 	 *
 	 * @return {@link #YES} if cls is a metaclass, {@link #NO} if cls is a non-meta class, {@link #NO} if cls is Nil
 	 */
-	public static byte class_isMetaClass(long cls) {
+	public static boolean class_isMetaClass(long cls) {
 		long __functionAddress = getInstance().class_isMetaClass;
-		return invokePB(__functionAddress, cls);
+		return invokePZ(__functionAddress, cls);
 	}
 
 	// --- [ class_getSuperclass ] ---
@@ -1011,13 +1011,13 @@ public class ObjCRuntime {
 	 *
 	 * @return {@link #YES} if instances of the class respond to the selector, otherwise {@link #NO}
 	 */
-	public static byte class_respondsToSelector(long cls, long name) {
+	public static boolean class_respondsToSelector(long cls, long name) {
 		long __functionAddress = getInstance().class_respondsToSelector;
 		if ( CHECKS ) {
 			checkPointer(cls);
 			checkPointer(name);
 		}
-		return invokePPB(__functionAddress, cls, name);
+		return invokePPZ(__functionAddress, cls, name);
 	}
 
 	// --- [ class_copyMethodList ] ---
@@ -1058,13 +1058,13 @@ public class ObjCRuntime {
 	 *
 	 * @return {@link #YES} if {@code cls} conforms to {@code protocol}, otherwise {@link #NO}
 	 */
-	public static byte class_conformsToProtocol(long cls, long protocol) {
+	public static boolean class_conformsToProtocol(long cls, long protocol) {
 		long __functionAddress = getInstance().class_conformsToProtocol;
 		if ( CHECKS ) {
 			checkPointer(cls);
 			checkPointer(protocol);
 		}
-		return invokePPB(__functionAddress, cls, protocol);
+		return invokePPZ(__functionAddress, cls, protocol);
 	}
 
 	// --- [ class_copyProtocolList ] ---
@@ -1200,14 +1200,14 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #class_addMethod} */
 	@JavadocExclude
-	public static byte nclass_addMethod(long cls, long name, long imp, long types) {
+	public static boolean nclass_addMethod(long cls, long name, long imp, long types) {
 		long __functionAddress = getInstance().class_addMethod;
 		if ( CHECKS ) {
 			checkPointer(cls);
 			checkPointer(name);
 			checkPointer(imp);
 		}
-		return invokePPPPB(__functionAddress, cls, name, imp, types);
+		return invokePPPPZ(__functionAddress, cls, name, imp, types);
 	}
 
 	/**
@@ -1241,14 +1241,14 @@ public class ObjCRuntime {
 	 *
 	 * @return {@link #YES} if the method was added successfully, otherwise {@link #NO} (for example, the class already contains a method implementation with that name)
 	 */
-	public static byte class_addMethod(long cls, long name, long imp, ByteBuffer types) {
+	public static boolean class_addMethod(long cls, long name, long imp, ByteBuffer types) {
 		if ( CHECKS )
 			checkNT1(types);
 		return nclass_addMethod(cls, name, imp, memAddress(types));
 	}
 
 	/** CharSequence version of: {@link #class_addMethod} */
-	public static byte class_addMethod(long cls, long name, long imp, CharSequence types) {
+	public static boolean class_addMethod(long cls, long name, long imp, CharSequence types) {
 		APIBuffer __buffer = apiBuffer();
 		int typesEncoded = __buffer.stringParamUTF8(types, true);
 		return nclass_addMethod(cls, name, imp, __buffer.address(typesEncoded));
@@ -1308,11 +1308,11 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #class_addIvar} */
 	@JavadocExclude
-	public static byte nclass_addIvar(long cls, long name, long size, byte alignment, long types) {
+	public static boolean nclass_addIvar(long cls, long name, long size, byte alignment, long types) {
 		long __functionAddress = getInstance().class_addIvar;
 		if ( CHECKS )
 			checkPointer(cls);
-		return invokePPPBPB(__functionAddress, cls, name, size, alignment, types);
+		return invokePPPBPZ(__functionAddress, cls, name, size, alignment, types);
 	}
 
 	/**
@@ -1334,7 +1334,7 @@ public class ObjCRuntime {
 	 *
 	 * @return {@link #YES} if the instance variable was added successfully, otherwise {@link #NO} (for example, the class already contains an instance variable with that name)
 	 */
-	public static byte class_addIvar(long cls, ByteBuffer name, long size, byte alignment, ByteBuffer types) {
+	public static boolean class_addIvar(long cls, ByteBuffer name, long size, byte alignment, ByteBuffer types) {
 		if ( CHECKS ) {
 			checkNT1(name);
 			checkNT1(types);
@@ -1343,7 +1343,7 @@ public class ObjCRuntime {
 	}
 
 	/** CharSequence version of: {@link #class_addIvar} */
-	public static byte class_addIvar(long cls, CharSequence name, long size, byte alignment, CharSequence types) {
+	public static boolean class_addIvar(long cls, CharSequence name, long size, byte alignment, CharSequence types) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
 		int typesEncoded = __buffer.stringParamUTF8(types, true);
@@ -1360,24 +1360,24 @@ public class ObjCRuntime {
 	 *
 	 * @return {@link #YES} if the protocol was added successfully, otherwise {@link #NO} (for example, the class already conforms to that protocol)
 	 */
-	public static byte class_addProtocol(long cls, long protocol) {
+	public static boolean class_addProtocol(long cls, long protocol) {
 		long __functionAddress = getInstance().class_addProtocol;
 		if ( CHECKS ) {
 			checkPointer(cls);
 			checkPointer(protocol);
 		}
-		return invokePPB(__functionAddress, cls, protocol);
+		return invokePPZ(__functionAddress, cls, protocol);
 	}
 
 	// --- [ class_addProperty ] ---
 
 	/** Unsafe version of {@link #class_addProperty} */
 	@JavadocExclude
-	public static byte nclass_addProperty(long cls, long name, long attributes, int attributeCount) {
+	public static boolean nclass_addProperty(long cls, long name, long attributes, int attributeCount) {
 		long __functionAddress = getInstance().class_addProperty;
 		if ( CHECKS )
 			checkPointer(cls);
-		return invokePPPIB(__functionAddress, cls, name, attributes, attributeCount);
+		return invokePPPIZ(__functionAddress, cls, name, attributes, attributeCount);
 	}
 
 	/**
@@ -1390,7 +1390,7 @@ public class ObjCRuntime {
 	 *
 	 * @return {@link #YES} if the property was added successfully; otherwise {@link #NO} (for example, this function returns {@link #NO} if the class already has that property)
 	 */
-	public static byte class_addProperty(long cls, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes, int attributeCount) {
+	public static boolean class_addProperty(long cls, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes, int attributeCount) {
 		if ( CHECKS ) {
 			checkNT1(name);
 			checkBuffer(attributes, attributeCount);
@@ -1399,12 +1399,12 @@ public class ObjCRuntime {
 	}
 
 	/** Alternative version of: {@link #class_addProperty} */
-	public static byte class_addProperty(long cls, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes) {
+	public static boolean class_addProperty(long cls, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes) {
 		return nclass_addProperty(cls, memAddress(name), attributes.address(), attributes.remaining());
 	}
 
 	/** CharSequence version of: {@link #class_addProperty} */
-	public static byte class_addProperty(long cls, CharSequence name, ObjCPropertyAttribute.Buffer attributes) {
+	public static boolean class_addProperty(long cls, CharSequence name, ObjCPropertyAttribute.Buffer attributes) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
 		return nclass_addProperty(cls, __buffer.address(nameEncoded), attributes.address(), attributes.remaining());
@@ -2124,13 +2124,13 @@ public class ObjCRuntime {
 	 *
 	 * @return {@link #YES} if {@code proto} conforms to {@code other}, otherwise {@link #NO}
 	 */
-	public static byte protocol_conformsToProtocol(long proto, long other) {
+	public static boolean protocol_conformsToProtocol(long proto, long other) {
 		long __functionAddress = getInstance().protocol_conformsToProtocol;
 		if ( CHECKS ) {
 			checkPointer(proto);
 			checkPointer(other);
 		}
-		return invokePPB(__functionAddress, proto, other);
+		return invokePPZ(__functionAddress, proto, other);
 	}
 
 	// --- [ protocol_isEqual ] ---
@@ -2143,13 +2143,13 @@ public class ObjCRuntime {
 	 *
 	 * @return {@link #YES} if proto is the same as other, otherwise {@link #NO}
 	 */
-	public static byte protocol_isEqual(long proto, long other) {
+	public static boolean protocol_isEqual(long proto, long other) {
 		long __functionAddress = getInstance().protocol_isEqual;
 		if ( CHECKS ) {
 			checkPointer(proto);
 			checkPointer(other);
 		}
-		return invokePPB(__functionAddress, proto, other);
+		return invokePPZ(__functionAddress, proto, other);
 	}
 
 	// --- [ protocol_getName ] ---
@@ -2179,11 +2179,11 @@ public class ObjCRuntime {
 
 	/** JNI method for {@link #protocol_getMethodDescription} */
 	@JavadocExclude
-	public static native void nprotocol_getMethodDescription(long __functionAddress, long p, long aSel, byte isRequiredMethod, byte isInstanceMethod, long __result);
+	public static native void nprotocol_getMethodDescription(long __functionAddress, long p, long aSel, boolean isRequiredMethod, boolean isInstanceMethod, long __result);
 
 	/** Unsafe version of {@link #protocol_getMethodDescription} */
 	@JavadocExclude
-	public static void nprotocol_getMethodDescription(long p, long aSel, byte isRequiredMethod, byte isInstanceMethod, long __result) {
+	public static void nprotocol_getMethodDescription(long p, long aSel, boolean isRequiredMethod, boolean isInstanceMethod, long __result) {
 		long __functionAddress = getInstance().protocol_getMethodDescription;
 		if ( CHECKS ) {
 			checkPointer(p);
@@ -2204,7 +2204,7 @@ public class ObjCRuntime {
 	 *                         
 	 *                         <p>If the protocol does not contain the specified method, returns an objc_method_description structure with the value <code style="font-family: monospace">{NULL, NULL}</code>.</p>
 	 */
-	public static void protocol_getMethodDescription(long p, long aSel, byte isRequiredMethod, byte isInstanceMethod, ObjCMethodDescription __result) {
+	public static void protocol_getMethodDescription(long p, long aSel, boolean isRequiredMethod, boolean isInstanceMethod, ObjCMethodDescription __result) {
 		nprotocol_getMethodDescription(p, aSel, isRequiredMethod, isInstanceMethod, __result.address());
 	}
 
@@ -2212,11 +2212,11 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #protocol_copyMethodDescriptionList} */
 	@JavadocExclude
-	public static long nprotocol_copyMethodDescriptionList(long p, byte isRequiredMethod, byte isInstanceMethod, long outCount) {
+	public static long nprotocol_copyMethodDescriptionList(long p, boolean isRequiredMethod, boolean isInstanceMethod, long outCount) {
 		long __functionAddress = getInstance().protocol_copyMethodDescriptionList;
 		if ( CHECKS )
 			checkPointer(p);
-		return invokePBBPP(__functionAddress, p, isRequiredMethod, isInstanceMethod, outCount);
+		return invokePZZPP(__functionAddress, p, isRequiredMethod, isInstanceMethod, outCount);
 	}
 
 	/**
@@ -2234,7 +2234,7 @@ public class ObjCRuntime {
 	 *         
 	 *         <p>If the protocol declares no methods that meet the specification, {@code NULL} is returned and {@code *outCount} is 0.</p>
 	 */
-	public static ObjCMethodDescription.Buffer protocol_copyMethodDescriptionList(long p, byte isRequiredMethod, byte isInstanceMethod) {
+	public static ObjCMethodDescription.Buffer protocol_copyMethodDescriptionList(long p, boolean isRequiredMethod, boolean isInstanceMethod) {
 		APIBuffer __buffer = apiBuffer();
 		int outCount = __buffer.intParam();
 		long __result = nprotocol_copyMethodDescriptionList(p, isRequiredMethod, isInstanceMethod, __buffer.address(outCount));
@@ -2245,11 +2245,11 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #protocol_getProperty} */
 	@JavadocExclude
-	public static long nprotocol_getProperty(long proto, long name, byte isRequiredProperty, byte isInstanceProperty) {
+	public static long nprotocol_getProperty(long proto, long name, boolean isRequiredProperty, boolean isInstanceProperty) {
 		long __functionAddress = getInstance().protocol_getProperty;
 		if ( CHECKS )
 			checkPointer(proto);
-		return invokePPBBP(__functionAddress, proto, name, isRequiredProperty, isInstanceProperty);
+		return invokePPZZP(__functionAddress, proto, name, isRequiredProperty, isInstanceProperty);
 	}
 
 	/**
@@ -2263,14 +2263,14 @@ public class ObjCRuntime {
 	 * @return the property specified by {@code name}, {@code isRequiredProperty}, and {@code isInstanceProperty} for {@code proto}, or {@code NULL} if none of
 	 *         {@code proto}'s properties meets the specification
 	 */
-	public static long protocol_getProperty(long proto, ByteBuffer name, byte isRequiredProperty, byte isInstanceProperty) {
+	public static long protocol_getProperty(long proto, ByteBuffer name, boolean isRequiredProperty, boolean isInstanceProperty) {
 		if ( CHECKS )
 			checkNT1(name);
 		return nprotocol_getProperty(proto, memAddress(name), isRequiredProperty, isInstanceProperty);
 	}
 
 	/** CharSequence version of: {@link #protocol_getProperty} */
-	public static long protocol_getProperty(long proto, CharSequence name, byte isRequiredProperty, byte isInstanceProperty) {
+	public static long protocol_getProperty(long proto, CharSequence name, boolean isRequiredProperty, boolean isInstanceProperty) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
 		return nprotocol_getProperty(proto, __buffer.address(nameEncoded), isRequiredProperty, isInstanceProperty);
@@ -2386,13 +2386,13 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #protocol_addMethodDescription} */
 	@JavadocExclude
-	public static void nprotocol_addMethodDescription(long proto, long name, long types, byte isRequiredMethod, byte isInstanceMethod) {
+	public static void nprotocol_addMethodDescription(long proto, long name, long types, boolean isRequiredMethod, boolean isInstanceMethod) {
 		long __functionAddress = getInstance().protocol_addMethodDescription;
 		if ( CHECKS ) {
 			checkPointer(proto);
 			checkPointer(name);
 		}
-		invokePPPBBV(__functionAddress, proto, name, types, isRequiredMethod, isInstanceMethod);
+		invokePPPZZV(__functionAddress, proto, name, types, isRequiredMethod, isInstanceMethod);
 	}
 
 	/**
@@ -2408,14 +2408,14 @@ public class ObjCRuntime {
 	 *                         method is an optional method.
 	 * @param isInstanceMethod a Boolean indicating whether the method is an instance method. If {@link #YES}, the method is an instance method; if {@link #NO}, the method is a class method.
 	 */
-	public static void protocol_addMethodDescription(long proto, long name, ByteBuffer types, byte isRequiredMethod, byte isInstanceMethod) {
+	public static void protocol_addMethodDescription(long proto, long name, ByteBuffer types, boolean isRequiredMethod, boolean isInstanceMethod) {
 		if ( CHECKS )
 			checkNT1(types);
 		nprotocol_addMethodDescription(proto, name, memAddress(types), isRequiredMethod, isInstanceMethod);
 	}
 
 	/** CharSequence version of: {@link #protocol_addMethodDescription} */
-	public static void protocol_addMethodDescription(long proto, long name, CharSequence types, byte isRequiredMethod, byte isInstanceMethod) {
+	public static void protocol_addMethodDescription(long proto, long name, CharSequence types, boolean isRequiredMethod, boolean isInstanceMethod) {
 		APIBuffer __buffer = apiBuffer();
 		int typesEncoded = __buffer.stringParamUTF8(types, true);
 		nprotocol_addMethodDescription(proto, name, __buffer.address(typesEncoded), isRequiredMethod, isInstanceMethod);
@@ -2445,11 +2445,11 @@ public class ObjCRuntime {
 
 	/** Unsafe version of {@link #protocol_addProperty} */
 	@JavadocExclude
-	public static void nprotocol_addProperty(long proto, long name, long attributes, int attributeCount, byte isRequiredProperty, byte isInstanceProperty) {
+	public static void nprotocol_addProperty(long proto, long name, long attributes, int attributeCount, boolean isRequiredProperty, boolean isInstanceProperty) {
 		long __functionAddress = getInstance().protocol_addProperty;
 		if ( CHECKS )
 			checkPointer(proto);
-		invokePPPIBBV(__functionAddress, proto, name, attributes, attributeCount, isRequiredProperty, isInstanceProperty);
+		invokePPPIZZV(__functionAddress, proto, name, attributes, attributeCount, isRequiredProperty, isInstanceProperty);
 	}
 
 	/**
@@ -2467,7 +2467,7 @@ public class ObjCRuntime {
 	 * @param isInstanceProperty a Boolean indicating whether the property's accessor methods are instance methods. If {@link #YES}, the property's accessor methods are instance methods.
 	 *                           {@link #YES} is the only value allowed for a property. As a result, if you set this value to {@link #NO}, the property will not be added to the protocol.
 	 */
-	public static void protocol_addProperty(long proto, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes, int attributeCount, byte isRequiredProperty, byte isInstanceProperty) {
+	public static void protocol_addProperty(long proto, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes, int attributeCount, boolean isRequiredProperty, boolean isInstanceProperty) {
 		if ( CHECKS ) {
 			checkNT1(name);
 			checkBuffer(attributes, attributeCount);
@@ -2476,12 +2476,12 @@ public class ObjCRuntime {
 	}
 
 	/** Alternative version of: {@link #protocol_addProperty} */
-	public static void protocol_addProperty(long proto, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes, byte isRequiredProperty, byte isInstanceProperty) {
+	public static void protocol_addProperty(long proto, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes, boolean isRequiredProperty, boolean isInstanceProperty) {
 		nprotocol_addProperty(proto, memAddress(name), attributes.address(), attributes.remaining(), isRequiredProperty, isInstanceProperty);
 	}
 
 	/** CharSequence version of: {@link #protocol_addProperty} */
-	public static void protocol_addProperty(long proto, CharSequence name, ObjCPropertyAttribute.Buffer attributes, byte isRequiredProperty, byte isInstanceProperty) {
+	public static void protocol_addProperty(long proto, CharSequence name, ObjCPropertyAttribute.Buffer attributes, boolean isRequiredProperty, boolean isInstanceProperty) {
 		APIBuffer __buffer = apiBuffer();
 		int nameEncoded = __buffer.stringParamUTF8(name, true);
 		nprotocol_addProperty(proto, __buffer.address(nameEncoded), attributes.address(), attributes.remaining(), isRequiredProperty, isInstanceProperty);
@@ -2663,13 +2663,13 @@ public class ObjCRuntime {
 	 *
 	 * @return {@link #YES} if rhs and rhs are equal, otherwise {@link #NO}
 	 */
-	public static byte sel_isEqual(long lhs, long rhs) {
+	public static boolean sel_isEqual(long lhs, long rhs) {
 		long __functionAddress = getInstance().sel_isEqual;
 		if ( CHECKS ) {
 			checkPointer(lhs);
 			checkPointer(rhs);
 		}
-		return invokePPB(__functionAddress, lhs, rhs);
+		return invokePPZ(__functionAddress, lhs, rhs);
 	}
 
 	// --- [ objc_enumerationMutation ] ---
@@ -2745,11 +2745,11 @@ public class ObjCRuntime {
 	 * @return {@link #YES} if the block was released successfully; otherwise, {@link #NO} (for example, the function returns {@link #NO} if the block was not used to create {@code anImp}
 	 *         previously).
 	 */
-	public static byte imp_removeBlock(long anImp) {
+	public static boolean imp_removeBlock(long anImp) {
 		long __functionAddress = getInstance().imp_removeBlock;
 		if ( CHECKS )
 			checkPointer(anImp);
-		return invokePB(__functionAddress, anImp);
+		return invokePZ(__functionAddress, anImp);
 	}
 
 	// --- [ objc_loadWeak ] ---

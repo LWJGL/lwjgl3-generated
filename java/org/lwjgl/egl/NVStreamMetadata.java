@@ -90,21 +90,21 @@ public class NVStreamMetadata {
 
 	/** Unsafe version of {@link #eglQueryDisplayAttribNV QueryDisplayAttribNV} */
 	@JavadocExclude
-	public static boolean neglQueryDisplayAttribNV(long dpy, int attribute, long value) {
+	public static int neglQueryDisplayAttribNV(long dpy, int attribute, long value) {
 		long __functionAddress = getInstance().QueryDisplayAttribNV;
 		if ( CHECKS )
 			checkPointer(dpy);
-		return callPIPZ(__functionAddress, dpy, attribute, value);
+		return callPIPI(__functionAddress, dpy, attribute, value);
 	}
 
-	public static boolean eglQueryDisplayAttribNV(long dpy, int attribute, ByteBuffer value) {
+	public static int eglQueryDisplayAttribNV(long dpy, int attribute, ByteBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1 << POINTER_SHIFT);
 		return neglQueryDisplayAttribNV(dpy, attribute, memAddress(value));
 	}
 
 	/** Alternative version of: {@link #eglQueryDisplayAttribNV QueryDisplayAttribNV} */
-	public static boolean eglQueryDisplayAttribNV(long dpy, int attribute, PointerBuffer value) {
+	public static int eglQueryDisplayAttribNV(long dpy, int attribute, PointerBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQueryDisplayAttribNV(dpy, attribute, memAddress(value));
@@ -114,23 +114,23 @@ public class NVStreamMetadata {
 
 	/** Unsafe version of {@link #eglSetStreamMetadataNV SetStreamMetadataNV} */
 	@JavadocExclude
-	public static boolean neglSetStreamMetadataNV(long dpy, long stream, int n, int offset, int size, long data) {
+	public static int neglSetStreamMetadataNV(long dpy, long stream, int n, int offset, int size, long data) {
 		long __functionAddress = getInstance().SetStreamMetadataNV;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return callPPIIIPZ(__functionAddress, dpy, stream, n, offset, size, data);
+		return callPPIIIPI(__functionAddress, dpy, stream, n, offset, size, data);
 	}
 
-	public static boolean eglSetStreamMetadataNV(long dpy, long stream, int n, int offset, int size, ByteBuffer data) {
+	public static int eglSetStreamMetadataNV(long dpy, long stream, int n, int offset, int size, ByteBuffer data) {
 		if ( CHECKS )
 			checkBuffer(data, size);
 		return neglSetStreamMetadataNV(dpy, stream, n, offset, size, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #eglSetStreamMetadataNV SetStreamMetadataNV} */
-	public static boolean eglSetStreamMetadataNV(long dpy, long stream, int n, int offset, ByteBuffer data) {
+	public static int eglSetStreamMetadataNV(long dpy, long stream, int n, int offset, ByteBuffer data) {
 		return neglSetStreamMetadataNV(dpy, stream, n, offset, data.remaining(), memAddress(data));
 	}
 
@@ -138,23 +138,23 @@ public class NVStreamMetadata {
 
 	/** Unsafe version of {@link #eglQueryStreamMetadataNV QueryStreamMetadataNV} */
 	@JavadocExclude
-	public static boolean neglQueryStreamMetadataNV(long dpy, long stream, int name, int n, int offset, int size, long data) {
+	public static int neglQueryStreamMetadataNV(long dpy, long stream, int name, int n, int offset, int size, long data) {
 		long __functionAddress = getInstance().QueryStreamMetadataNV;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return callPPIIIIPZ(__functionAddress, dpy, stream, name, n, offset, size, data);
+		return callPPIIIIPI(__functionAddress, dpy, stream, name, n, offset, size, data);
 	}
 
-	public static boolean eglQueryStreamMetadataNV(long dpy, long stream, int name, int n, int offset, int size, ByteBuffer data) {
+	public static int eglQueryStreamMetadataNV(long dpy, long stream, int name, int n, int offset, int size, ByteBuffer data) {
 		if ( CHECKS )
 			checkBuffer(data, size);
 		return neglQueryStreamMetadataNV(dpy, stream, name, n, offset, size, memAddress(data));
 	}
 
 	/** Alternative version of: {@link #eglQueryStreamMetadataNV QueryStreamMetadataNV} */
-	public static boolean eglQueryStreamMetadataNV(long dpy, long stream, int name, int n, int offset, ByteBuffer data) {
+	public static int eglQueryStreamMetadataNV(long dpy, long stream, int name, int n, int offset, ByteBuffer data) {
 		return neglQueryStreamMetadataNV(dpy, stream, name, n, offset, data.remaining(), memAddress(data));
 	}
 

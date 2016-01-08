@@ -90,16 +90,16 @@ public class MESADRMImage {
 
 	/** Unsafe version of {@link #eglExportDRMImageMESA ExportDRMImageMESA} */
 	@JavadocExclude
-	public static boolean neglExportDRMImageMESA(long dpy, long image, long name, long handle, long stride) {
+	public static int neglExportDRMImageMESA(long dpy, long image, long name, long handle, long stride) {
 		long __functionAddress = getInstance().ExportDRMImageMESA;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(image);
 		}
-		return callPPPPPZ(__functionAddress, dpy, image, name, handle, stride);
+		return callPPPPPI(__functionAddress, dpy, image, name, handle, stride);
 	}
 
-	public static boolean eglExportDRMImageMESA(long dpy, long image, ByteBuffer name, ByteBuffer handle, ByteBuffer stride) {
+	public static int eglExportDRMImageMESA(long dpy, long image, ByteBuffer name, ByteBuffer handle, ByteBuffer stride) {
 		if ( CHECKS ) {
 			if ( name != null ) checkBuffer(name, 1 << 2);
 			if ( handle != null ) checkBuffer(handle, 1 << 2);
@@ -109,7 +109,7 @@ public class MESADRMImage {
 	}
 
 	/** Alternative version of: {@link #eglExportDRMImageMESA ExportDRMImageMESA} */
-	public static boolean eglExportDRMImageMESA(long dpy, long image, IntBuffer name, IntBuffer handle, IntBuffer stride) {
+	public static int eglExportDRMImageMESA(long dpy, long image, IntBuffer name, IntBuffer handle, IntBuffer stride) {
 		if ( CHECKS ) {
 			if ( name != null ) checkBuffer(name, 1);
 			if ( handle != null ) checkBuffer(handle, 1);

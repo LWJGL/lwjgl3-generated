@@ -209,7 +209,7 @@ public class CoreFoundation {
 
 	/** JNI method for {@link #CFURLCreateWithFileSystemPath} */
 	@JavadocExclude
-	public static native long nCFURLCreateWithFileSystemPath(long allocator, long filePath, long pathStyle, byte isDirectory);
+	public static native long nCFURLCreateWithFileSystemPath(long allocator, long filePath, long pathStyle, boolean isDirectory);
 
 	/**
 	 * Creates a {@code CFURL} object using a local file system path string.
@@ -221,7 +221,7 @@ public class CoreFoundation {
 	 * @param isDirectory a Boolean value that specifies whether filePath is treated as a directory path when resolving against relative path components. Pass true if the
 	 *                    pathname indicates a directory, false otherwise.
 	 */
-	public static long CFURLCreateWithFileSystemPath(long allocator, long filePath, long pathStyle, byte isDirectory) {
+	public static long CFURLCreateWithFileSystemPath(long allocator, long filePath, long pathStyle, boolean isDirectory) {
 		if ( CHECKS )
 			checkPointer(filePath);
 		return nCFURLCreateWithFileSystemPath(allocator, filePath, pathStyle, isDirectory);

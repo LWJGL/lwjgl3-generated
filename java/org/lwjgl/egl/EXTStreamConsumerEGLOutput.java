@@ -54,14 +54,14 @@ public class EXTStreamConsumerEGLOutput {
 
 	// --- [ eglStreamConsumerOutputEXT ] ---
 
-	public static boolean eglStreamConsumerOutputEXT(long dpy, long stream, long layer) {
+	public static int eglStreamConsumerOutputEXT(long dpy, long stream, long layer) {
 		long __functionAddress = getInstance().StreamConsumerOutputEXT;
 		if ( CHECKS ) {
 			checkPointer(dpy);
 			checkPointer(stream);
 			checkPointer(layer);
 		}
-		return callPPPZ(__functionAddress, dpy, stream, layer);
+		return callPPPI(__functionAddress, dpy, stream, layer);
 	}
 
 }
