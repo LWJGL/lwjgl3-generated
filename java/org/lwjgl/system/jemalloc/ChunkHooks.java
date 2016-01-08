@@ -254,19 +254,19 @@ public class ChunkHooks extends Struct {
 	public static ChunkMerge nmerge(long struct) { return org.lwjgl.system.libffi.Closure.create(memGetAddress(struct + ChunkHooks.MERGE)); }
 
 	/** Unsafe version of {@link #alloc(ChunkAlloc) alloc}. */
-	public static void nalloc(long struct, ChunkAlloc value) { memPutAddress(struct+ ChunkHooks.ALLOC, value.address()); }
+	public static void nalloc(long struct, ChunkAlloc value) { memPutAddress(struct + ChunkHooks.ALLOC, value.address()); }
 	/** Unsafe version of {@link #dalloc(ChunkDalloc) dalloc}. */
-	public static void ndalloc(long struct, ChunkDalloc value) { memPutAddress(struct+ ChunkHooks.DALLOC, value.address()); }
+	public static void ndalloc(long struct, ChunkDalloc value) { memPutAddress(struct + ChunkHooks.DALLOC, value.address()); }
 	/** Unsafe version of {@link #commit(ChunkCommit) commit}. */
-	public static void ncommit(long struct, ChunkCommit value) { memPutAddress(struct+ ChunkHooks.COMMIT, value.address()); }
+	public static void ncommit(long struct, ChunkCommit value) { memPutAddress(struct + ChunkHooks.COMMIT, value.address()); }
 	/** Unsafe version of {@link #decommit(ChunkDecommit) decommit}. */
-	public static void ndecommit(long struct, ChunkDecommit value) { memPutAddress(struct+ ChunkHooks.DECOMMIT, value.address()); }
+	public static void ndecommit(long struct, ChunkDecommit value) { memPutAddress(struct + ChunkHooks.DECOMMIT, value.address()); }
 	/** Unsafe version of {@link #purge(ChunkPurge) purge}. */
-	public static void npurge(long struct, ChunkPurge value) { memPutAddress(struct+ ChunkHooks.PURGE, value.address()); }
+	public static void npurge(long struct, ChunkPurge value) { memPutAddress(struct + ChunkHooks.PURGE, value.address()); }
 	/** Unsafe version of {@link #split(ChunkSplit) split}. */
-	public static void nsplit(long struct, ChunkSplit value) { memPutAddress(struct+ ChunkHooks.SPLIT, value.address()); }
+	public static void nsplit(long struct, ChunkSplit value) { memPutAddress(struct + ChunkHooks.SPLIT, value.address()); }
 	/** Unsafe version of {@link #merge(ChunkMerge) merge}. */
-	public static void nmerge(long struct, ChunkMerge value) { memPutAddress(struct+ ChunkHooks.MERGE, value.address()); }
+	public static void nmerge(long struct, ChunkMerge value) { memPutAddress(struct + ChunkHooks.MERGE, value.address()); }
 
 	// -----------------------------------
 

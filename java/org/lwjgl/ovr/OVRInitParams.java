@@ -231,7 +231,7 @@ public class OVRInitParams extends Struct {
 	/** Unsafe version of {@link #RequestedMinorVersion(int) RequestedMinorVersion}. */
 	public static void nRequestedMinorVersion(long struct, int value) { memPutInt(struct + OVRInitParams.REQUESTEDMINORVERSION, value); }
 	/** Unsafe version of {@link #LogCallback(OVRLogCallback) LogCallback}. */
-	public static void nLogCallback(long struct, OVRLogCallback value) { memPutAddress(struct+ OVRInitParams.LOGCALLBACK, value.address()); }
+	public static void nLogCallback(long struct, OVRLogCallback value) { memPutAddress(struct + OVRInitParams.LOGCALLBACK, value.address()); }
 	/** Unsafe version of {@link #UserData(long) UserData}. */
 	public static void nUserData(long struct, long value) { memPutAddress(struct + OVRInitParams.USERDATA, value); }
 	/** Unsafe version of {@link #ConnectionTimeoutMS(int) ConnectionTimeoutMS}. */

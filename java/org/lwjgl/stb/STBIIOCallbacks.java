@@ -197,11 +197,11 @@ public class STBIIOCallbacks extends Struct {
 	public static STBIEOFCallback neof(long struct) { return org.lwjgl.system.libffi.Closure.create(memGetAddress(struct + STBIIOCallbacks.EOF)); }
 
 	/** Unsafe version of {@link #read(STBIReadCallback) read}. */
-	public static void nread(long struct, STBIReadCallback value) { memPutAddress(struct+ STBIIOCallbacks.READ, value.address()); }
+	public static void nread(long struct, STBIReadCallback value) { memPutAddress(struct + STBIIOCallbacks.READ, value.address()); }
 	/** Unsafe version of {@link #skip(STBISkipCallback) skip}. */
-	public static void nskip(long struct, STBISkipCallback value) { memPutAddress(struct+ STBIIOCallbacks.SKIP, value.address()); }
+	public static void nskip(long struct, STBISkipCallback value) { memPutAddress(struct + STBIIOCallbacks.SKIP, value.address()); }
 	/** Unsafe version of {@link #eof(STBIEOFCallback) eof}. */
-	public static void neof(long struct, STBIEOFCallback value) { memPutAddress(struct+ STBIIOCallbacks.EOF, value.address()); }
+	public static void neof(long struct, STBIEOFCallback value) { memPutAddress(struct + STBIIOCallbacks.EOF, value.address()); }
 
 	// -----------------------------------
 
