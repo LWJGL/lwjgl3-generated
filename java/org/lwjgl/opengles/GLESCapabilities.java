@@ -43,10 +43,12 @@ public final class GLESCapabilities {
 	final EXTMultisampledRenderToTexture          __EXTMultisampledRenderToTexture;
 	final EXTMultiviewDrawBuffers                 __EXTMultiviewDrawBuffers;
 	final EXTOcclusionQueryBoolean                __EXTOcclusionQueryBoolean;
+	final EXTPolygonOffsetClamp                   __EXTPolygonOffsetClamp;
 	final EXTPrimitiveBoundingBox                 __EXTPrimitiveBoundingBox;
 	final EXTRasterMultisample                    __EXTRasterMultisample;
 	final EXTRobustness                           __EXTRobustness;
 	final EXTSeparateShaderObjects                __EXTSeparateShaderObjects;
+	final EXTShaderPixelLocalStorage2             __EXTShaderPixelLocalStorage2;
 	final EXTSparseTexture                        __EXTSparseTexture;
 	final EXTTessellationShader                   __EXTTessellationShader;
 	final EXTTextureBorderClamp                   __EXTTextureBorderClamp;
@@ -54,6 +56,7 @@ public final class GLESCapabilities {
 	final EXTTextureFilterMinmax                  __EXTTextureFilterMinmax;
 	final EXTTextureStorage                       __EXTTextureStorage;
 	final EXTTextureView                          __EXTTextureView;
+	final IMGFramebufferDownsample                __IMGFramebufferDownsample;
 	final IMGMultisampledRenderToTexture          __IMGMultisampledRenderToTexture;
 	final INTELFramebufferCMAA                    __INTELFramebufferCMAA;
 	final INTELPerformanceQuery                   __INTELPerformanceQuery;
@@ -313,6 +316,8 @@ public final class GLESCapabilities {
 	public final boolean GL_EXT_multiview_draw_buffers;
 	/** When true, {@link EXTOcclusionQueryBoolean} is supported. */
 	public final boolean GL_EXT_occlusion_query_boolean;
+	/** When true, {@link EXTPolygonOffsetClamp} is supported. */
+	public final boolean GL_EXT_polygon_offset_clamp;
 	/**
 	 * When true, the <a href="https://www.khronos.org/registry/gles/extensions/EXT/post_depth_coverage.txt">EXT_post_depth_coverage</a> extension is supported.
 	 * 
@@ -346,6 +351,44 @@ public final class GLESCapabilities {
 	public final boolean GL_EXT_separate_shader_objects;
 	/** When true, {@link EXTShaderFramebufferFetch} is supported. */
 	public final boolean GL_EXT_shader_framebuffer_fetch;
+	/**
+	 * This extension provides new built-in functions to compute the composite of a set of boolean conditions across a group of shader invocations. These
+	 * composite results may be used to execute shaders more efficiently on a single-instruction multiple-data (SIMD) processor. The set of shader invocations
+	 * across which boolean conditions are evaluated is implementation-dependent, and this extension provides no guarantee over how individual shader
+	 * invocations are assigned to such sets. In particular, the set of shader invocations has no necessary relationship with the compute shader local work
+	 * group -- a pair of shader invocations in a single compute shader work group may end up in different sets used by these built-ins.
+	 * 
+	 * <p>Compute shaders operate on an explicitly specified group of threads (a local work group), but many implementations of OpenGL ES 3.0 will even group
+	 * non-compute shader invocations and execute them in a SIMD fashion. When executing code like</p>
+	 * 
+	 * <pre><code style="font-family: monospace">
+	 * if (condition) {
+	 * 	result = do_fast_path();
+	 * } else {
+	 * 	result = do_general_path();
+	 * }</code></pre>
+	 * 
+	 * <p>where {@code condition} diverges between invocations, a SIMD implementation might first call do_fast_path() for the invocations where <condition> is
+	 * true and leave the other invocations dormant. Once do_fast_path() returns, it might call do_general_path() for invocations where <condition> is false
+	 * and leave the other invocations dormant. In this case, the shader executes *both* the fast and the general path and might be better off just using the
+	 * general path for all invocations.</p>
+	 * 
+	 * <p>This extension provides the ability to avoid divergent execution by evaluting a condition across an entire SIMD invocation group using code like:</p>
+	 * 
+	 * <pre><code style="font-family: monospace">
+	 * if (allInvocationsEXT(condition)) {
+	 * 	result = do_fast_path();
+	 * } else {
+	 * 	result = do_general_path();
+	 * }</code></pre>
+	 * 
+	 * <p>The built-in function allInvocationsEXT() will return the same value for all invocations in the group, so the group will either execute do_fast_path()
+	 * or do_general_path(), but never both. For example, shader code might want to evaluate a complex function iteratively by starting with an approximation
+	 * of the result and then refining the approximation. Some input values may require a small number of iterations to generate an accurate result
+	 * (do_fast_path) while others require a larger number (do_general_path). In another example, shader code might want to evaluate a complex function
+	 * (do_general_path) that can be greatly simplified when assuming a specific value for one of its inputs (do_fast_path).</p>
+	 */
+	public final boolean GL_EXT_shader_group_vote;
 	/**
 	 * When true, the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_shader_implicit_conversions.txt">EXT_shader_implicit_conversions</a> extension is supported.
 	 * 
@@ -386,6 +429,8 @@ public final class GLESCapabilities {
 	public final boolean GL_EXT_shader_io_blocks;
 	/** When true, {@link EXTShaderPixelLocalStorage} is supported. */
 	public final boolean GL_EXT_shader_pixel_local_storage;
+	/** When true, {@link EXTShaderPixelLocalStorage2} is supported. */
+	public final boolean GL_EXT_shader_pixel_local_storage2;
 	/**
 	 * When true, the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_shader_texture_lod.txt">EXT_shader_texture_lod</a> extension is supported.
 	 * 
@@ -495,6 +540,8 @@ public final class GLESCapabilities {
 	public final boolean GL_EXT_YUV_target;
 	/** When true, {@link FJShaderBinaryGCCSO} is supported. */
 	public final boolean GL_FJ_shader_binary_GCCSO;
+	/** When true, {@link IMGFramebufferDownsample} is supported. */
+	public final boolean GL_IMG_framebuffer_downsample;
 	/** When true, {@link IMGMultisampledRenderToTexture} is supported. */
 	public final boolean GL_IMG_multisampled_render_to_texture;
 	/** When true, {@link IMGProgramBinary} is supported. */
@@ -1217,6 +1264,7 @@ public final class GLESCapabilities {
 		GL_EXT_multisampled_render_to_texture = (__EXTMultisampledRenderToTexture = EXTMultisampledRenderToTexture.create(ext, provider)) != null;
 		GL_EXT_multiview_draw_buffers = (__EXTMultiviewDrawBuffers = EXTMultiviewDrawBuffers.create(ext, provider)) != null;
 		GL_EXT_occlusion_query_boolean = (__EXTOcclusionQueryBoolean = EXTOcclusionQueryBoolean.create(ext, provider)) != null;
+		GL_EXT_polygon_offset_clamp = (__EXTPolygonOffsetClamp = EXTPolygonOffsetClamp.create(ext, provider)) != null;
 		GL_EXT_post_depth_coverage = ext.contains("GL_EXT_post_depth_coverage");
 		GL_EXT_primitive_bounding_box = (__EXTPrimitiveBoundingBox = EXTPrimitiveBoundingBox.create(ext, provider)) != null;
 		GL_EXT_pvrtc_sRGB = ext.contains("GL_EXT_pvrtc_sRGB");
@@ -1226,10 +1274,12 @@ public final class GLESCapabilities {
 		GL_EXT_robustness = (__EXTRobustness = EXTRobustness.create(ext, provider)) != null;
 		GL_EXT_separate_shader_objects = (__EXTSeparateShaderObjects = EXTSeparateShaderObjects.create(ext, provider)) != null;
 		GL_EXT_shader_framebuffer_fetch = ext.contains("GL_EXT_shader_framebuffer_fetch");
+		GL_EXT_shader_group_vote = ext.contains("GL_EXT_shader_group_vote");
 		GL_EXT_shader_implicit_conversions = ext.contains("GL_EXT_shader_implicit_conversions");
 		GL_EXT_shader_integer_mix = ext.contains("GL_EXT_shader_integer_mix");
 		GL_EXT_shader_io_blocks = ext.contains("GL_EXT_shader_io_blocks");
 		GL_EXT_shader_pixel_local_storage = ext.contains("GL_EXT_shader_pixel_local_storage");
+		GL_EXT_shader_pixel_local_storage2 = (__EXTShaderPixelLocalStorage2 = EXTShaderPixelLocalStorage2.create(ext, provider)) != null;
 		GL_EXT_shader_texture_lod = ext.contains("GL_EXT_shader_texture_lod");
 		GL_EXT_shadow_samplers = ext.contains("GL_EXT_shadow_samplers");
 		GL_EXT_sparse_texture = (__EXTSparseTexture = EXTSparseTexture.create(ext, provider)) != null;
@@ -1256,6 +1306,7 @@ public final class GLESCapabilities {
 		GL_EXT_unpack_subimage = ext.contains("GL_EXT_unpack_subimage");
 		GL_EXT_YUV_target = ext.contains("GL_EXT_YUV_target");
 		GL_FJ_shader_binary_GCCSO = ext.contains("GL_FJ_shader_binary_GCCSO");
+		GL_IMG_framebuffer_downsample = (__IMGFramebufferDownsample = IMGFramebufferDownsample.create(ext, provider)) != null;
 		GL_IMG_multisampled_render_to_texture = (__IMGMultisampledRenderToTexture = IMGMultisampledRenderToTexture.create(ext, provider)) != null;
 		GL_IMG_program_binary = ext.contains("GL_IMG_program_binary");
 		GL_IMG_read_format = ext.contains("GL_IMG_read_format");

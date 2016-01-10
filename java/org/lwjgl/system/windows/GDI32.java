@@ -49,18 +49,11 @@ public class GDI32 {
 		PFD_OVERLAY_PLANE  = 0x1,
 		PFD_UNDERLAY_PLANE = 0xFFFFFFFF;
 
+	static { Library.initialize(); }
+
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		CreateCompatibleDC,
-		DeleteDC,
-		CancelDC,
-		SaveDC,
-		RestoreDC,
-		GetDCOrgEx,
-		GetDeviceCaps,
-		GetDeviceGammaRamp,
-		SetDeviceGammaRamp,
 		ChoosePixelFormat,
 		DescribePixelFormat,
 		GetPixelFormat,
@@ -74,15 +67,6 @@ public class GDI32 {
 
 	@JavadocExclude
 	public GDI32(FunctionProvider provider) {
-		CreateCompatibleDC = checkFunctionAddress(provider.getFunctionAddress("CreateCompatibleDC"));
-		DeleteDC = checkFunctionAddress(provider.getFunctionAddress("DeleteDC"));
-		CancelDC = checkFunctionAddress(provider.getFunctionAddress("CancelDC"));
-		SaveDC = checkFunctionAddress(provider.getFunctionAddress("SaveDC"));
-		RestoreDC = checkFunctionAddress(provider.getFunctionAddress("RestoreDC"));
-		GetDCOrgEx = checkFunctionAddress(provider.getFunctionAddress("GetDCOrgEx"));
-		GetDeviceCaps = checkFunctionAddress(provider.getFunctionAddress("GetDeviceCaps"));
-		GetDeviceGammaRamp = checkFunctionAddress(provider.getFunctionAddress("GetDeviceGammaRamp"));
-		SetDeviceGammaRamp = checkFunctionAddress(provider.getFunctionAddress("SetDeviceGammaRamp"));
 		ChoosePixelFormat = checkFunctionAddress(provider.getFunctionAddress("ChoosePixelFormat"));
 		DescribePixelFormat = checkFunctionAddress(provider.getFunctionAddress("DescribePixelFormat"));
 		GetPixelFormat = checkFunctionAddress(provider.getFunctionAddress("GetPixelFormat"));
@@ -111,154 +95,11 @@ public class GDI32 {
 		return instance;
 	}
 
-	// --- [ CreateCompatibleDC ] ---
-
-	/**
-	 * Creates a memory device context (DC) compatible with the specified device.
-	 *
-	 * @param hdc a handle to an existing DC. If this handle is {@code NULL}, the function creates a memory DC compatible with the application's current screen.
-	 */
-	public static long CreateCompatibleDC(long hdc) {
-		long __functionAddress = getInstance().CreateCompatibleDC;
-		return callPP(__functionAddress, hdc);
-	}
-
-	// --- [ DeleteDC ] ---
-
-	/**
-	 * Deletes the specified device context (DC).
-	 *
-	 * @param hdc a handle to the device context
-	 */
-	public static int DeleteDC(long hdc) {
-		long __functionAddress = getInstance().DeleteDC;
-		if ( CHECKS )
-			checkPointer(hdc);
-		return callPI(__functionAddress, hdc);
-	}
-
-	// --- [ CancelDC ] ---
-
-	/**
-	 * Cancels any pending operation on the specified device context (DC).
-	 *
-	 * @param hdc a handle to the DC
-	 */
-	public static int CancelDC(long hdc) {
-		long __functionAddress = getInstance().CancelDC;
-		if ( CHECKS )
-			checkPointer(hdc);
-		return callPI(__functionAddress, hdc);
-	}
-
-	// --- [ SaveDC ] ---
-
-	/**
-	 * Saves the current state of the specified device context (DC) by copying data describing selected objects and graphic modes (such as the bitmap, brush,
-	 * palette, font, pen, region, drawing mode, and mapping mode) to a context stack.
-	 *
-	 * @param hdc a handle to the DC whose state is to be saved
-	 */
-	public static int SaveDC(long hdc) {
-		long __functionAddress = getInstance().SaveDC;
-		if ( CHECKS )
-			checkPointer(hdc);
-		return callPI(__functionAddress, hdc);
-	}
-
-	// --- [ RestoreDC ] ---
-
-	/**
-	 * Restores a device context (DC) to the specified state. The DC is restored by popping state information off a stack created by earlier calls to the
-	 * {@link #SaveDC} function.
-	 *
-	 * @param hdc     a handle to the DC
-	 * @param savedDC the saved state to be restored. If this parameter is positive, {@code savedDC} represents a specific instance of the state to be restored. If this
-	 *                parameter is negative, {@code savedDC} represents an instance relative to the current state. For example, -1 restores the most recently saved state.
-	 */
-	public static int RestoreDC(long hdc, int savedDC) {
-		long __functionAddress = getInstance().RestoreDC;
-		if ( CHECKS )
-			checkPointer(hdc);
-		return callPII(__functionAddress, hdc, savedDC);
-	}
-
-	// --- [ GetDCOrgEx ] ---
-
-	/** Unsafe version of {@link #GetDCOrgEx} */
-	@JavadocExclude
-	public static int nGetDCOrgEx(long hdc, long point) {
-		long __functionAddress = getInstance().GetDCOrgEx;
-		if ( CHECKS )
-			checkPointer(hdc);
-		return callPPI(__functionAddress, hdc, point);
-	}
-
-	/**
-	 * Retrieves the final translation origin for a specified device context (DC). The final translation origin specifies an offset that the system uses to
-	 * translate device coordinates into client coordinates (for coordinates in an application's window).
-	 *
-	 * @param hdc   a handle to the DC whose final translation origin is to be retrieved
-	 * @param point a {@link POINT} structure that receives the final translation origin, in device coordinates
-	 */
-	public static int GetDCOrgEx(long hdc, POINT point) {
-		return nGetDCOrgEx(hdc, point.address());
-	}
-
-	// --- [ GetDeviceCaps ] ---
-
-	/**
-	 * Retrieves device-specific information for the specified device.
-	 *
-	 * @param hdc   a handle to the DC
-	 * @param index the item to be returned
-	 */
-	public static int GetDeviceCaps(long hdc, int index) {
-		long __functionAddress = getInstance().GetDeviceCaps;
-		if ( CHECKS )
-			checkPointer(hdc);
-		return callPII(__functionAddress, hdc, index);
-	}
-
-	// --- [ GetDeviceGammaRamp ] ---
-
-	/**
-	 * Sets the gamma ramp on direct color display boards having drivers that support downloadable gamma ramps in hardware.
-	 *
-	 * @param hdc    the device context of the direct color display board in question
-	 * @param lpRamp pointer to a buffer containing the gamma ramp to be set. The gamma ramp is specified in three arrays of 256 WORD elements each, which contain the
-	 *               mapping between RGB values in the frame buffer and digital-analog-converter (DAC ) values. The sequence of the arrays is red, green, blue. The RGB
-	 *               values must be stored in the most significant bits of each WORD to increase DAC independence.
-	 */
-	public static int GetDeviceGammaRamp(long hdc, long lpRamp) {
-		long __functionAddress = getInstance().GetDeviceGammaRamp;
-		if ( CHECKS ) {
-			checkPointer(hdc);
-			checkPointer(lpRamp);
-		}
-		return callPPI(__functionAddress, hdc, lpRamp);
-	}
-
-	// --- [ SetDeviceGammaRamp ] ---
-
-	/**
-	 * Gets the gamma ramp on direct color display boards having drivers that support downloadable gamma ramps in hardware.
-	 *
-	 * @param hdc    the device context of the direct color display board in question
-	 * @param lpRamp points to a buffer where the function can place the current gamma ramp of the color display board. The gamma ramp is specified in three arrays of
-	 *               256 WORD elements each, which contain the mapping between RGB values in the frame buffer and digital-analog-converter (DAC) values. The sequence of
-	 *               the arrays is red, green, blue.
-	 */
-	public static int SetDeviceGammaRamp(long hdc, long lpRamp) {
-		long __functionAddress = getInstance().SetDeviceGammaRamp;
-		if ( CHECKS ) {
-			checkPointer(hdc);
-			checkPointer(lpRamp);
-		}
-		return callPPI(__functionAddress, hdc, lpRamp);
-	}
-
 	// --- [ ChoosePixelFormat ] ---
+
+	/** JNI method for {@link #ChoosePixelFormat} */
+	@JavadocExclude
+	public static native int nChoosePixelFormat(long __functionAddress, long hdc, long pixelFormatDescriptor);
 
 	/** Unsafe version of {@link #ChoosePixelFormat} */
 	@JavadocExclude
@@ -266,7 +107,7 @@ public class GDI32 {
 		long __functionAddress = getInstance().ChoosePixelFormat;
 		if ( CHECKS )
 			checkPointer(hdc);
-		return callPPI(__functionAddress, hdc, pixelFormatDescriptor);
+		return nChoosePixelFormat(__functionAddress, hdc, pixelFormatDescriptor);
 	}
 
 	/**
@@ -281,13 +122,17 @@ public class GDI32 {
 
 	// --- [ DescribePixelFormat ] ---
 
+	/** JNI method for {@link #DescribePixelFormat} */
+	@JavadocExclude
+	public static native int nDescribePixelFormat(long __functionAddress, long hdc, int pixelFormat, int bytes, long pixelFormatDescriptor);
+
 	/** Unsafe version of {@link #DescribePixelFormat} */
 	@JavadocExclude
 	public static int nDescribePixelFormat(long hdc, int pixelFormat, int bytes, long pixelFormatDescriptor) {
 		long __functionAddress = getInstance().DescribePixelFormat;
 		if ( CHECKS )
 			checkPointer(hdc);
-		return callPIIPI(__functionAddress, hdc, pixelFormat, bytes, pixelFormatDescriptor);
+		return nDescribePixelFormat(__functionAddress, hdc, pixelFormat, bytes, pixelFormatDescriptor);
 	}
 
 	/**
@@ -314,6 +159,10 @@ public class GDI32 {
 
 	// --- [ GetPixelFormat ] ---
 
+	/** JNI method for {@link #GetPixelFormat} */
+	@JavadocExclude
+	public static native int nGetPixelFormat(long __functionAddress, long hdc);
+
 	/**
 	 * Obtains the index of the currently selected pixel format of the specified device context.
 	 *
@@ -323,10 +172,14 @@ public class GDI32 {
 		long __functionAddress = getInstance().GetPixelFormat;
 		if ( CHECKS )
 			checkPointer(hdc);
-		return callPI(__functionAddress, hdc);
+		return nGetPixelFormat(__functionAddress, hdc);
 	}
 
 	// --- [ SetPixelFormat ] ---
+
+	/** JNI method for {@link #SetPixelFormat} */
+	@JavadocExclude
+	public static native int nSetPixelFormat(long __functionAddress, long hdc, int pixelFormat, long pixelFormatDescriptor);
 
 	/** Unsafe version of {@link #SetPixelFormat} */
 	@JavadocExclude
@@ -334,7 +187,7 @@ public class GDI32 {
 		long __functionAddress = getInstance().SetPixelFormat;
 		if ( CHECKS )
 			checkPointer(hdc);
-		return callPIPI(__functionAddress, hdc, pixelFormat, pixelFormatDescriptor);
+		return nSetPixelFormat(__functionAddress, hdc, pixelFormat, pixelFormatDescriptor);
 	}
 
 	/**
@@ -351,6 +204,10 @@ public class GDI32 {
 
 	// --- [ SwapBuffers ] ---
 
+	/** JNI method for {@link #SwapBuffers} */
+	@JavadocExclude
+	public static native int nSwapBuffers(long __functionAddress, long dc);
+
 	/**
 	 * Exchanges the front and back buffers if the current pixel format for the window referenced by the specified device context includes a back buffer.
 	 *
@@ -361,7 +218,7 @@ public class GDI32 {
 		long __functionAddress = getInstance().SwapBuffers;
 		if ( CHECKS )
 			checkPointer(dc);
-		return callPI(__functionAddress, dc);
+		return nSwapBuffers(__functionAddress, dc);
 	}
 
 }

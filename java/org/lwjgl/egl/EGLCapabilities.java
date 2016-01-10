@@ -166,6 +166,8 @@ public class EGLCapabilities {
 	public final boolean EGL_HI_colorformats;
 	/** When true, {@link IMGContextPriority} is supported. */
 	public final boolean EGL_IMG_context_priority;
+	/** When true, {@link IMGImagePlaneAttribs} is supported. */
+	public final boolean EGL_IMG_image_plane_attribs;
 	/** When true, {@link KHRCLEvent2} is supported. */
 	public final boolean EGL_KHR_cl_event2;
 	/**
@@ -447,6 +449,7 @@ public class EGLCapabilities {
 		EGL_HI_clientpixmap = EGL.checkCapability(ext, "EGL_HI_clientpixmap", __HIClientpixmap) != null;
 		EGL_HI_colorformats = ext.contains("EGL_HI_colorformats");
 		EGL_IMG_context_priority = ext.contains("EGL_IMG_context_priority");
+		EGL_IMG_image_plane_attribs = ext.contains("EGL_IMG_image_plane_attribs");
 		EGL_KHR_cl_event2 = EGL.checkCapability(ext, "EGL_KHR_cl_event2", __KHRCLEvent2) != null;
 		EGL_KHR_client_get_all_proc_addresses = ext.contains("EGL_KHR_client_get_all_proc_addresses");
 		EGL_KHR_config_attribs = ext.contains("EGL_KHR_config_attribs");
@@ -556,6 +559,7 @@ public class EGLCapabilities {
 		EGL_HI_clientpixmap = (__HIClientpixmap = EGL.checkCapability(ext, "EGL_HI_clientpixmap", caps.__HIClientpixmap)) != null;
 		EGL_HI_colorformats = ext.contains("EGL_HI_colorformats");
 		EGL_IMG_context_priority = ext.contains("EGL_IMG_context_priority");
+		EGL_IMG_image_plane_attribs = ext.contains("EGL_IMG_image_plane_attribs");
 		EGL_KHR_cl_event2 = (__KHRCLEvent2 = EGL.checkCapability(ext, "EGL_KHR_cl_event2", caps.__KHRCLEvent2)) != null;
 		EGL_KHR_client_get_all_proc_addresses = ext.contains("EGL_KHR_client_get_all_proc_addresses");
 		EGL_KHR_config_attribs = ext.contains("EGL_KHR_config_attribs");
