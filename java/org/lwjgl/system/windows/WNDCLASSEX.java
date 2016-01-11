@@ -111,8 +111,10 @@ public class WNDCLASSEX extends Struct {
 	public int cbSize() { return ncbSize(address()); }
 	/** Returns the value of the {@code style} field. */
 	public int style() { return nstyle(address()); }
+	/** Returns the function address at the {@code lpfnWndProc} field. */
+	public long lpfnWndProc() { return nlpfnWndProc(address()); }
 	/** Returns the {@code WindowProc} instance at the {@code lpfnWndProc} field. */
-	public WindowProc lpfnWndProc() { return nlpfnWndProc(address()); }
+	public WindowProc lpfnWndProcClosure() { return nlpfnWndProcClosure(address()); }
 	/** Returns the value of the {@code cbClsExtra} field. */
 	public int cbClsExtra() { return ncbClsExtra(address()); }
 	/** Returns the value of the {@code cbWndExtra} field. */
@@ -140,8 +142,10 @@ public class WNDCLASSEX extends Struct {
 	public WNDCLASSEX cbSize(int value) { ncbSize(address(), value); return this; }
 	/** Sets the specified value to the {@code style} field. */
 	public WNDCLASSEX style(int value) { nstyle(address(), value); return this; }
+	/** Sets the specified function address to the {@code lpfnWndProc} field. */
+	public WNDCLASSEX lpfnWndProc(long value) { nlpfnWndProc(address(), value); return this; }
 	/** Sets the address of the specified {@link WindowProc} to the {@code lpfnWndProc} field. */
-	public WNDCLASSEX lpfnWndProc(WindowProc value) { nlpfnWndProc(address(), value); return this; }
+	public WNDCLASSEX lpfnWndProc(WindowProc value) { return lpfnWndProc(value.address()); }
 	/** Sets the specified value to the {@code cbClsExtra} field. */
 	public WNDCLASSEX cbClsExtra(int value) { ncbClsExtra(address(), value); return this; }
 	/** Sets the specified value to the {@code cbWndExtra} field. */
@@ -159,17 +163,21 @@ public class WNDCLASSEX extends Struct {
 	/**
 	 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code lpszMenuName} field.
 	 *
-	 * <p>The encoded string must be explicitly freed with {@link MemoryUtil#memFree memFree}.</p>
-	*/
+	 * <p>The encoded string must be explicitly freed with {@link #lpszMenuNameFree}.</p>
+	 */
 	public WNDCLASSEX lpszMenuName(CharSequence value) { nlpszMenuName(address(), value); return this; }
+	/** Frees the string encoded by {@link #lpszMenuName(CharSequence)} and stored in the {@code lpszMenuName} field. */
+	public WNDCLASSEX lpszMenuNameFree() { nlpszMenuNameFree(address()); return this; }
 	/** Sets the address of the specified encoded string to the {@code lpszClassName} field. */
 	public WNDCLASSEX lpszClassName(ByteBuffer value) { nlpszClassName(address(), value); return this; }
 	/**
 	 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code lpszClassName} field.
 	 *
-	 * <p>The encoded string must be explicitly freed with {@link MemoryUtil#memFree memFree}.</p>
-	*/
+	 * <p>The encoded string must be explicitly freed with {@link #lpszClassNameFree}.</p>
+	 */
 	public WNDCLASSEX lpszClassName(CharSequence value) { nlpszClassName(address(), value); return this; }
+	/** Frees the string encoded by {@link #lpszClassName(CharSequence)} and stored in the {@code lpszClassName} field. */
+	public WNDCLASSEX lpszClassNameFree() { nlpszClassNameFree(address()); return this; }
 	/** Sets the specified value to the {@code hIconSm} field. */
 	public WNDCLASSEX hIconSm(long value) { nhIconSm(address(), value); return this; }
 
@@ -292,7 +300,9 @@ public class WNDCLASSEX extends Struct {
 	/** Unsafe version of {@link #style}. */
 	public static int nstyle(long struct) { return memGetInt(struct + WNDCLASSEX.STYLE); }
 	/** Unsafe version of {@link #lpfnWndProc}. */
-	public static WindowProc nlpfnWndProc(long struct) { return org.lwjgl.system.libffi.Closure.create(memGetAddress(struct + WNDCLASSEX.LPFNWNDPROC)); }
+	public static long nlpfnWndProc(long struct) { return memGetAddress(struct + WNDCLASSEX.LPFNWNDPROC); }
+	/** Unsafe version of {@link #lpfnWndProcClosure}. */
+	public static WindowProc nlpfnWndProcClosure(long struct) { return org.lwjgl.system.libffi.Closure.create(nlpfnWndProc(struct)); }
 	/** Unsafe version of {@link #cbClsExtra}. */
 	public static int ncbClsExtra(long struct) { return memGetInt(struct + WNDCLASSEX.CBCLSEXTRA); }
 	/** Unsafe version of {@link #cbWndExtra}. */
@@ -320,8 +330,8 @@ public class WNDCLASSEX extends Struct {
 	public static void ncbSize(long struct, int value) { memPutInt(struct + WNDCLASSEX.CBSIZE, value); }
 	/** Unsafe version of {@link #style(int) style}. */
 	public static void nstyle(long struct, int value) { memPutInt(struct + WNDCLASSEX.STYLE, value); }
-	/** Unsafe version of {@link #lpfnWndProc(WindowProc) lpfnWndProc}. */
-	public static void nlpfnWndProc(long struct, WindowProc value) { memPutAddress(struct + WNDCLASSEX.LPFNWNDPROC, value.address()); }
+	/** Unsafe version of {@link #lpfnWndProc(long) lpfnWndProc}. */
+	public static void nlpfnWndProc(long struct, long value) { memPutAddress(struct + WNDCLASSEX.LPFNWNDPROC, value); }
 	/** Unsafe version of {@link #cbClsExtra(int) cbClsExtra}. */
 	public static void ncbClsExtra(long struct, int value) { memPutInt(struct + WNDCLASSEX.CBCLSEXTRA, value); }
 	/** Unsafe version of {@link #cbWndExtra(int) cbWndExtra}. */
@@ -341,6 +351,8 @@ public class WNDCLASSEX extends Struct {
 	}
 	/** Unsafe version of {@link #lpszMenuName(CharSequence) lpszMenuName}. */
 	public static void nlpszMenuName(long struct, CharSequence value) { nlpszMenuName(struct, memEncodeUTF16(value, BufferAllocator.MALLOC)); }
+	/** Unsafe version of {@link #lpszMenuNameFree}. */
+	public static void nlpszMenuNameFree(long struct) { nmemFree(memGetAddress(struct + WNDCLASSEX.LPSZMENUNAME)); }
 	/** Unsafe version of {@link #lpszClassName(ByteBuffer) lpszClassName}. */
 	public static void nlpszClassName(long struct, ByteBuffer value) { 
 		if ( CHECKS && value != null ) checkNT2(value); 
@@ -348,6 +360,8 @@ public class WNDCLASSEX extends Struct {
 	}
 	/** Unsafe version of {@link #lpszClassName(CharSequence) lpszClassName}. */
 	public static void nlpszClassName(long struct, CharSequence value) { nlpszClassName(struct, memEncodeUTF16(value, BufferAllocator.MALLOC)); }
+	/** Unsafe version of {@link #lpszClassNameFree}. */
+	public static void nlpszClassNameFree(long struct) { nmemFree(memGetAddress(struct + WNDCLASSEX.LPSZCLASSNAME)); }
 	/** Unsafe version of {@link #hIconSm(long) hIconSm}. */
 	public static void nhIconSm(long struct, long value) { memPutAddress(struct + WNDCLASSEX.HICONSM, value); }
 
@@ -397,8 +411,10 @@ public class WNDCLASSEX extends Struct {
 		public int cbSize() { return WNDCLASSEX.ncbSize(address()); }
 		/** Returns the value of the {@code style} field. */
 		public int style() { return WNDCLASSEX.nstyle(address()); }
+		/** Returns the function address at the {@code lpfnWndProc} field. */
+		public long lpfnWndProc() { return WNDCLASSEX.nlpfnWndProc(address()); }
 		/** Returns the {@code WindowProc} instance at the {@code lpfnWndProc} field. */
-		public WindowProc lpfnWndProc() { return WNDCLASSEX.nlpfnWndProc(address()); }
+		public WindowProc lpfnWndProcClosure() { return WNDCLASSEX.nlpfnWndProcClosure(address()); }
 		/** Returns the value of the {@code cbClsExtra} field. */
 		public int cbClsExtra() { return WNDCLASSEX.ncbClsExtra(address()); }
 		/** Returns the value of the {@code cbWndExtra} field. */
@@ -426,8 +442,10 @@ public class WNDCLASSEX extends Struct {
 		public WNDCLASSEX.Buffer cbSize(int value) { WNDCLASSEX.ncbSize(address(), value); return this; }
 		/** Sets the specified value to the {@code style} field. */
 		public WNDCLASSEX.Buffer style(int value) { WNDCLASSEX.nstyle(address(), value); return this; }
+		/** Sets the specified function address to the {@code lpfnWndProc} field. */
+		public WNDCLASSEX.Buffer lpfnWndProc(long value) { WNDCLASSEX.nlpfnWndProc(address(), value); return this; }
 		/** Sets the address of the specified {@link WindowProc} to the {@code lpfnWndProc} field. */
-		public WNDCLASSEX.Buffer lpfnWndProc(WindowProc value) { WNDCLASSEX.nlpfnWndProc(address(), value); return this; }
+		public WNDCLASSEX.Buffer lpfnWndProc(WindowProc value) { return lpfnWndProc(value.address()); }
 		/** Sets the specified value to the {@code cbClsExtra} field. */
 		public WNDCLASSEX.Buffer cbClsExtra(int value) { WNDCLASSEX.ncbClsExtra(address(), value); return this; }
 		/** Sets the specified value to the {@code cbWndExtra} field. */
@@ -442,20 +460,24 @@ public class WNDCLASSEX extends Struct {
 		public WNDCLASSEX.Buffer hbrBackground(long value) { WNDCLASSEX.nhbrBackground(address(), value); return this; }
 		/** Sets the address of the specified encoded string to the {@code lpszMenuName} field. */
 		public WNDCLASSEX.Buffer lpszMenuName(ByteBuffer value) { WNDCLASSEX.nlpszMenuName(address(), value); return this; }
-	/**
-	 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code lpszMenuName} field.
-	 *
-	 * <p>The encoded string must be explicitly freed with {@link MemoryUtil#memFree memFree}.</p>
-	*/
+		/**
+		 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code lpszMenuName} field.
+		 *
+		 * <p>The encoded string must be explicitly freed with {@link #lpszMenuNameFree}.</p>
+		 */
 		public WNDCLASSEX.Buffer lpszMenuName(CharSequence value) { WNDCLASSEX.nlpszMenuName(address(), value); return this; }
+		/** Frees the string encoded by {@link #lpszMenuName(CharSequence)} and stored in the {@code lpszMenuName} field. */
+		public WNDCLASSEX.Buffer lpszMenuNameFree() { WNDCLASSEX.nlpszMenuNameFree(address()); return this; }
 		/** Sets the address of the specified encoded string to the {@code lpszClassName} field. */
 		public WNDCLASSEX.Buffer lpszClassName(ByteBuffer value) { WNDCLASSEX.nlpszClassName(address(), value); return this; }
-	/**
-	 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code lpszClassName} field.
-	 *
-	 * <p>The encoded string must be explicitly freed with {@link MemoryUtil#memFree memFree}.</p>
-	*/
+		/**
+		 * Encodes the specified {@link CharSequence} and sets the address of the encoded string to the {@code lpszClassName} field.
+		 *
+		 * <p>The encoded string must be explicitly freed with {@link #lpszClassNameFree}.</p>
+		 */
 		public WNDCLASSEX.Buffer lpszClassName(CharSequence value) { WNDCLASSEX.nlpszClassName(address(), value); return this; }
+		/** Frees the string encoded by {@link #lpszClassName(CharSequence)} and stored in the {@code lpszClassName} field. */
+		public WNDCLASSEX.Buffer lpszClassNameFree() { WNDCLASSEX.nlpszClassNameFree(address()); return this; }
 		/** Sets the specified value to the {@code hIconSm} field. */
 		public WNDCLASSEX.Buffer hIconSm(long value) { WNDCLASSEX.nhIconSm(address(), value); return this; }
 

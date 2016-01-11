@@ -104,35 +104,63 @@ public class ChunkHooks extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
+	/** Returns the function address at the {@code alloc} field. */
+	public long alloc() { return nalloc(address()); }
 	/** Returns the {@code ChunkAlloc} instance at the {@code alloc} field. */
-	public ChunkAlloc alloc() { return nalloc(address()); }
+	public ChunkAlloc allocClosure() { return nallocClosure(address()); }
+	/** Returns the function address at the {@code dalloc} field. */
+	public long dalloc() { return ndalloc(address()); }
 	/** Returns the {@code ChunkDalloc} instance at the {@code dalloc} field. */
-	public ChunkDalloc dalloc() { return ndalloc(address()); }
+	public ChunkDalloc dallocClosure() { return ndallocClosure(address()); }
+	/** Returns the function address at the {@code commit} field. */
+	public long commit() { return ncommit(address()); }
 	/** Returns the {@code ChunkCommit} instance at the {@code commit} field. */
-	public ChunkCommit commit() { return ncommit(address()); }
+	public ChunkCommit commitClosure() { return ncommitClosure(address()); }
+	/** Returns the function address at the {@code decommit} field. */
+	public long decommit() { return ndecommit(address()); }
 	/** Returns the {@code ChunkDecommit} instance at the {@code decommit} field. */
-	public ChunkDecommit decommit() { return ndecommit(address()); }
+	public ChunkDecommit decommitClosure() { return ndecommitClosure(address()); }
+	/** Returns the function address at the {@code purge} field. */
+	public long purge() { return npurge(address()); }
 	/** Returns the {@code ChunkPurge} instance at the {@code purge} field. */
-	public ChunkPurge purge() { return npurge(address()); }
+	public ChunkPurge purgeClosure() { return npurgeClosure(address()); }
+	/** Returns the function address at the {@code split} field. */
+	public long split() { return nsplit(address()); }
 	/** Returns the {@code ChunkSplit} instance at the {@code split} field. */
-	public ChunkSplit split() { return nsplit(address()); }
+	public ChunkSplit splitClosure() { return nsplitClosure(address()); }
+	/** Returns the function address at the {@code merge} field. */
+	public long merge() { return nmerge(address()); }
 	/** Returns the {@code ChunkMerge} instance at the {@code merge} field. */
-	public ChunkMerge merge() { return nmerge(address()); }
+	public ChunkMerge mergeClosure() { return nmergeClosure(address()); }
 
+	/** Sets the specified function address to the {@code alloc} field. */
+	public ChunkHooks alloc(long value) { nalloc(address(), value); return this; }
 	/** Sets the address of the specified {@link ChunkAlloc} to the {@code alloc} field. */
-	public ChunkHooks alloc(ChunkAlloc value) { nalloc(address(), value); return this; }
+	public ChunkHooks alloc(ChunkAlloc value) { return alloc(value.address()); }
+	/** Sets the specified function address to the {@code dalloc} field. */
+	public ChunkHooks dalloc(long value) { ndalloc(address(), value); return this; }
 	/** Sets the address of the specified {@link ChunkDalloc} to the {@code dalloc} field. */
-	public ChunkHooks dalloc(ChunkDalloc value) { ndalloc(address(), value); return this; }
+	public ChunkHooks dalloc(ChunkDalloc value) { return dalloc(value.address()); }
+	/** Sets the specified function address to the {@code commit} field. */
+	public ChunkHooks commit(long value) { ncommit(address(), value); return this; }
 	/** Sets the address of the specified {@link ChunkCommit} to the {@code commit} field. */
-	public ChunkHooks commit(ChunkCommit value) { ncommit(address(), value); return this; }
+	public ChunkHooks commit(ChunkCommit value) { return commit(value.address()); }
+	/** Sets the specified function address to the {@code decommit} field. */
+	public ChunkHooks decommit(long value) { ndecommit(address(), value); return this; }
 	/** Sets the address of the specified {@link ChunkDecommit} to the {@code decommit} field. */
-	public ChunkHooks decommit(ChunkDecommit value) { ndecommit(address(), value); return this; }
+	public ChunkHooks decommit(ChunkDecommit value) { return decommit(value.address()); }
+	/** Sets the specified function address to the {@code purge} field. */
+	public ChunkHooks purge(long value) { npurge(address(), value); return this; }
 	/** Sets the address of the specified {@link ChunkPurge} to the {@code purge} field. */
-	public ChunkHooks purge(ChunkPurge value) { npurge(address(), value); return this; }
+	public ChunkHooks purge(ChunkPurge value) { return purge(value.address()); }
+	/** Sets the specified function address to the {@code split} field. */
+	public ChunkHooks split(long value) { nsplit(address(), value); return this; }
 	/** Sets the address of the specified {@link ChunkSplit} to the {@code split} field. */
-	public ChunkHooks split(ChunkSplit value) { nsplit(address(), value); return this; }
+	public ChunkHooks split(ChunkSplit value) { return split(value.address()); }
+	/** Sets the specified function address to the {@code merge} field. */
+	public ChunkHooks merge(long value) { nmerge(address(), value); return this; }
 	/** Sets the address of the specified {@link ChunkMerge} to the {@code merge} field. */
-	public ChunkHooks merge(ChunkMerge value) { nmerge(address(), value); return this; }
+	public ChunkHooks merge(ChunkMerge value) { return merge(value.address()); }
 
 	/** Initializes this struct with the specified values. */
 	public ChunkHooks set(
@@ -239,34 +267,48 @@ public class ChunkHooks extends Struct {
 	}
 
 	/** Unsafe version of {@link #alloc}. */
-	public static ChunkAlloc nalloc(long struct) { return org.lwjgl.system.libffi.Closure.create(memGetAddress(struct + ChunkHooks.ALLOC)); }
+	public static long nalloc(long struct) { return memGetAddress(struct + ChunkHooks.ALLOC); }
+	/** Unsafe version of {@link #allocClosure}. */
+	public static ChunkAlloc nallocClosure(long struct) { return org.lwjgl.system.libffi.Closure.create(nalloc(struct)); }
 	/** Unsafe version of {@link #dalloc}. */
-	public static ChunkDalloc ndalloc(long struct) { return org.lwjgl.system.libffi.Closure.create(memGetAddress(struct + ChunkHooks.DALLOC)); }
+	public static long ndalloc(long struct) { return memGetAddress(struct + ChunkHooks.DALLOC); }
+	/** Unsafe version of {@link #dallocClosure}. */
+	public static ChunkDalloc ndallocClosure(long struct) { return org.lwjgl.system.libffi.Closure.create(ndalloc(struct)); }
 	/** Unsafe version of {@link #commit}. */
-	public static ChunkCommit ncommit(long struct) { return org.lwjgl.system.libffi.Closure.create(memGetAddress(struct + ChunkHooks.COMMIT)); }
+	public static long ncommit(long struct) { return memGetAddress(struct + ChunkHooks.COMMIT); }
+	/** Unsafe version of {@link #commitClosure}. */
+	public static ChunkCommit ncommitClosure(long struct) { return org.lwjgl.system.libffi.Closure.create(ncommit(struct)); }
 	/** Unsafe version of {@link #decommit}. */
-	public static ChunkDecommit ndecommit(long struct) { return org.lwjgl.system.libffi.Closure.create(memGetAddress(struct + ChunkHooks.DECOMMIT)); }
+	public static long ndecommit(long struct) { return memGetAddress(struct + ChunkHooks.DECOMMIT); }
+	/** Unsafe version of {@link #decommitClosure}. */
+	public static ChunkDecommit ndecommitClosure(long struct) { return org.lwjgl.system.libffi.Closure.create(ndecommit(struct)); }
 	/** Unsafe version of {@link #purge}. */
-	public static ChunkPurge npurge(long struct) { return org.lwjgl.system.libffi.Closure.create(memGetAddress(struct + ChunkHooks.PURGE)); }
+	public static long npurge(long struct) { return memGetAddress(struct + ChunkHooks.PURGE); }
+	/** Unsafe version of {@link #purgeClosure}. */
+	public static ChunkPurge npurgeClosure(long struct) { return org.lwjgl.system.libffi.Closure.create(npurge(struct)); }
 	/** Unsafe version of {@link #split}. */
-	public static ChunkSplit nsplit(long struct) { return org.lwjgl.system.libffi.Closure.create(memGetAddress(struct + ChunkHooks.SPLIT)); }
+	public static long nsplit(long struct) { return memGetAddress(struct + ChunkHooks.SPLIT); }
+	/** Unsafe version of {@link #splitClosure}. */
+	public static ChunkSplit nsplitClosure(long struct) { return org.lwjgl.system.libffi.Closure.create(nsplit(struct)); }
 	/** Unsafe version of {@link #merge}. */
-	public static ChunkMerge nmerge(long struct) { return org.lwjgl.system.libffi.Closure.create(memGetAddress(struct + ChunkHooks.MERGE)); }
+	public static long nmerge(long struct) { return memGetAddress(struct + ChunkHooks.MERGE); }
+	/** Unsafe version of {@link #mergeClosure}. */
+	public static ChunkMerge nmergeClosure(long struct) { return org.lwjgl.system.libffi.Closure.create(nmerge(struct)); }
 
-	/** Unsafe version of {@link #alloc(ChunkAlloc) alloc}. */
-	public static void nalloc(long struct, ChunkAlloc value) { memPutAddress(struct + ChunkHooks.ALLOC, value.address()); }
-	/** Unsafe version of {@link #dalloc(ChunkDalloc) dalloc}. */
-	public static void ndalloc(long struct, ChunkDalloc value) { memPutAddress(struct + ChunkHooks.DALLOC, value.address()); }
-	/** Unsafe version of {@link #commit(ChunkCommit) commit}. */
-	public static void ncommit(long struct, ChunkCommit value) { memPutAddress(struct + ChunkHooks.COMMIT, value.address()); }
-	/** Unsafe version of {@link #decommit(ChunkDecommit) decommit}. */
-	public static void ndecommit(long struct, ChunkDecommit value) { memPutAddress(struct + ChunkHooks.DECOMMIT, value.address()); }
-	/** Unsafe version of {@link #purge(ChunkPurge) purge}. */
-	public static void npurge(long struct, ChunkPurge value) { memPutAddress(struct + ChunkHooks.PURGE, value.address()); }
-	/** Unsafe version of {@link #split(ChunkSplit) split}. */
-	public static void nsplit(long struct, ChunkSplit value) { memPutAddress(struct + ChunkHooks.SPLIT, value.address()); }
-	/** Unsafe version of {@link #merge(ChunkMerge) merge}. */
-	public static void nmerge(long struct, ChunkMerge value) { memPutAddress(struct + ChunkHooks.MERGE, value.address()); }
+	/** Unsafe version of {@link #alloc(long) alloc}. */
+	public static void nalloc(long struct, long value) { memPutAddress(struct + ChunkHooks.ALLOC, value); }
+	/** Unsafe version of {@link #dalloc(long) dalloc}. */
+	public static void ndalloc(long struct, long value) { memPutAddress(struct + ChunkHooks.DALLOC, value); }
+	/** Unsafe version of {@link #commit(long) commit}. */
+	public static void ncommit(long struct, long value) { memPutAddress(struct + ChunkHooks.COMMIT, value); }
+	/** Unsafe version of {@link #decommit(long) decommit}. */
+	public static void ndecommit(long struct, long value) { memPutAddress(struct + ChunkHooks.DECOMMIT, value); }
+	/** Unsafe version of {@link #purge(long) purge}. */
+	public static void npurge(long struct, long value) { memPutAddress(struct + ChunkHooks.PURGE, value); }
+	/** Unsafe version of {@link #split(long) split}. */
+	public static void nsplit(long struct, long value) { memPutAddress(struct + ChunkHooks.SPLIT, value); }
+	/** Unsafe version of {@link #merge(long) merge}. */
+	public static void nmerge(long struct, long value) { memPutAddress(struct + ChunkHooks.MERGE, value); }
 
 	// -----------------------------------
 
@@ -310,35 +352,63 @@ public class ChunkHooks extends Struct {
 			return SIZEOF;
 		}
 
+		/** Returns the function address at the {@code alloc} field. */
+		public long alloc() { return ChunkHooks.nalloc(address()); }
 		/** Returns the {@code ChunkAlloc} instance at the {@code alloc} field. */
-		public ChunkAlloc alloc() { return ChunkHooks.nalloc(address()); }
+		public ChunkAlloc allocClosure() { return ChunkHooks.nallocClosure(address()); }
+		/** Returns the function address at the {@code dalloc} field. */
+		public long dalloc() { return ChunkHooks.ndalloc(address()); }
 		/** Returns the {@code ChunkDalloc} instance at the {@code dalloc} field. */
-		public ChunkDalloc dalloc() { return ChunkHooks.ndalloc(address()); }
+		public ChunkDalloc dallocClosure() { return ChunkHooks.ndallocClosure(address()); }
+		/** Returns the function address at the {@code commit} field. */
+		public long commit() { return ChunkHooks.ncommit(address()); }
 		/** Returns the {@code ChunkCommit} instance at the {@code commit} field. */
-		public ChunkCommit commit() { return ChunkHooks.ncommit(address()); }
+		public ChunkCommit commitClosure() { return ChunkHooks.ncommitClosure(address()); }
+		/** Returns the function address at the {@code decommit} field. */
+		public long decommit() { return ChunkHooks.ndecommit(address()); }
 		/** Returns the {@code ChunkDecommit} instance at the {@code decommit} field. */
-		public ChunkDecommit decommit() { return ChunkHooks.ndecommit(address()); }
+		public ChunkDecommit decommitClosure() { return ChunkHooks.ndecommitClosure(address()); }
+		/** Returns the function address at the {@code purge} field. */
+		public long purge() { return ChunkHooks.npurge(address()); }
 		/** Returns the {@code ChunkPurge} instance at the {@code purge} field. */
-		public ChunkPurge purge() { return ChunkHooks.npurge(address()); }
+		public ChunkPurge purgeClosure() { return ChunkHooks.npurgeClosure(address()); }
+		/** Returns the function address at the {@code split} field. */
+		public long split() { return ChunkHooks.nsplit(address()); }
 		/** Returns the {@code ChunkSplit} instance at the {@code split} field. */
-		public ChunkSplit split() { return ChunkHooks.nsplit(address()); }
+		public ChunkSplit splitClosure() { return ChunkHooks.nsplitClosure(address()); }
+		/** Returns the function address at the {@code merge} field. */
+		public long merge() { return ChunkHooks.nmerge(address()); }
 		/** Returns the {@code ChunkMerge} instance at the {@code merge} field. */
-		public ChunkMerge merge() { return ChunkHooks.nmerge(address()); }
+		public ChunkMerge mergeClosure() { return ChunkHooks.nmergeClosure(address()); }
 
+		/** Sets the specified function address to the {@code alloc} field. */
+		public ChunkHooks.Buffer alloc(long value) { ChunkHooks.nalloc(address(), value); return this; }
 		/** Sets the address of the specified {@link ChunkAlloc} to the {@code alloc} field. */
-		public ChunkHooks.Buffer alloc(ChunkAlloc value) { ChunkHooks.nalloc(address(), value); return this; }
+		public ChunkHooks.Buffer alloc(ChunkAlloc value) { return alloc(value.address()); }
+		/** Sets the specified function address to the {@code dalloc} field. */
+		public ChunkHooks.Buffer dalloc(long value) { ChunkHooks.ndalloc(address(), value); return this; }
 		/** Sets the address of the specified {@link ChunkDalloc} to the {@code dalloc} field. */
-		public ChunkHooks.Buffer dalloc(ChunkDalloc value) { ChunkHooks.ndalloc(address(), value); return this; }
+		public ChunkHooks.Buffer dalloc(ChunkDalloc value) { return dalloc(value.address()); }
+		/** Sets the specified function address to the {@code commit} field. */
+		public ChunkHooks.Buffer commit(long value) { ChunkHooks.ncommit(address(), value); return this; }
 		/** Sets the address of the specified {@link ChunkCommit} to the {@code commit} field. */
-		public ChunkHooks.Buffer commit(ChunkCommit value) { ChunkHooks.ncommit(address(), value); return this; }
+		public ChunkHooks.Buffer commit(ChunkCommit value) { return commit(value.address()); }
+		/** Sets the specified function address to the {@code decommit} field. */
+		public ChunkHooks.Buffer decommit(long value) { ChunkHooks.ndecommit(address(), value); return this; }
 		/** Sets the address of the specified {@link ChunkDecommit} to the {@code decommit} field. */
-		public ChunkHooks.Buffer decommit(ChunkDecommit value) { ChunkHooks.ndecommit(address(), value); return this; }
+		public ChunkHooks.Buffer decommit(ChunkDecommit value) { return decommit(value.address()); }
+		/** Sets the specified function address to the {@code purge} field. */
+		public ChunkHooks.Buffer purge(long value) { ChunkHooks.npurge(address(), value); return this; }
 		/** Sets the address of the specified {@link ChunkPurge} to the {@code purge} field. */
-		public ChunkHooks.Buffer purge(ChunkPurge value) { ChunkHooks.npurge(address(), value); return this; }
+		public ChunkHooks.Buffer purge(ChunkPurge value) { return purge(value.address()); }
+		/** Sets the specified function address to the {@code split} field. */
+		public ChunkHooks.Buffer split(long value) { ChunkHooks.nsplit(address(), value); return this; }
 		/** Sets the address of the specified {@link ChunkSplit} to the {@code split} field. */
-		public ChunkHooks.Buffer split(ChunkSplit value) { ChunkHooks.nsplit(address(), value); return this; }
+		public ChunkHooks.Buffer split(ChunkSplit value) { return split(value.address()); }
+		/** Sets the specified function address to the {@code merge} field. */
+		public ChunkHooks.Buffer merge(long value) { ChunkHooks.nmerge(address(), value); return this; }
 		/** Sets the address of the specified {@link ChunkMerge} to the {@code merge} field. */
-		public ChunkHooks.Buffer merge(ChunkMerge value) { ChunkHooks.nmerge(address(), value); return this; }
+		public ChunkHooks.Buffer merge(ChunkMerge value) { return merge(value.address()); }
 
 	}
 

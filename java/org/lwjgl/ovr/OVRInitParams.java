@@ -97,8 +97,10 @@ public class OVRInitParams extends Struct {
 	public int Flags() { return nFlags(address()); }
 	/** Returns the value of the {@code RequestedMinorVersion} field. */
 	public int RequestedMinorVersion() { return nRequestedMinorVersion(address()); }
+	/** Returns the function address at the {@code LogCallback} field. */
+	public long LogCallback() { return nLogCallback(address()); }
 	/** Returns the {@code OVRLogCallback} instance at the {@code LogCallback} field. */
-	public OVRLogCallback LogCallback() { return nLogCallback(address()); }
+	public OVRLogCallback LogCallbackClosure() { return nLogCallbackClosure(address()); }
 	/** Returns the value of the {@code UserData} field. */
 	public long UserData() { return nUserData(address()); }
 	/** Returns the value of the {@code ConnectionTimeoutMS} field. */
@@ -108,8 +110,10 @@ public class OVRInitParams extends Struct {
 	public OVRInitParams Flags(int value) { nFlags(address(), value); return this; }
 	/** Sets the specified value to the {@code RequestedMinorVersion} field. */
 	public OVRInitParams RequestedMinorVersion(int value) { nRequestedMinorVersion(address(), value); return this; }
+	/** Sets the specified function address to the {@code LogCallback} field. */
+	public OVRInitParams LogCallback(long value) { nLogCallback(address(), value); return this; }
 	/** Sets the address of the specified {@link OVRLogCallback} to the {@code LogCallback} field. */
-	public OVRInitParams LogCallback(OVRLogCallback value) { nLogCallback(address(), value); return this; }
+	public OVRInitParams LogCallback(OVRLogCallback value) { return LogCallback(value.address()); }
 	/** Sets the specified value to the {@code UserData} field. */
 	public OVRInitParams UserData(long value) { nUserData(address(), value); return this; }
 	/** Sets the specified value to the {@code ConnectionTimeoutMS} field. */
@@ -220,7 +224,9 @@ public class OVRInitParams extends Struct {
 	/** Unsafe version of {@link #RequestedMinorVersion}. */
 	public static int nRequestedMinorVersion(long struct) { return memGetInt(struct + OVRInitParams.REQUESTEDMINORVERSION); }
 	/** Unsafe version of {@link #LogCallback}. */
-	public static OVRLogCallback nLogCallback(long struct) { return org.lwjgl.system.libffi.Closure.create(memGetAddress(struct + OVRInitParams.LOGCALLBACK)); }
+	public static long nLogCallback(long struct) { return memGetAddress(struct + OVRInitParams.LOGCALLBACK); }
+	/** Unsafe version of {@link #LogCallbackClosure}. */
+	public static OVRLogCallback nLogCallbackClosure(long struct) { return org.lwjgl.system.libffi.Closure.create(nLogCallback(struct)); }
 	/** Unsafe version of {@link #UserData}. */
 	public static long nUserData(long struct) { return memGetAddress(struct + OVRInitParams.USERDATA); }
 	/** Unsafe version of {@link #ConnectionTimeoutMS}. */
@@ -230,8 +236,8 @@ public class OVRInitParams extends Struct {
 	public static void nFlags(long struct, int value) { memPutInt(struct + OVRInitParams.FLAGS, value); }
 	/** Unsafe version of {@link #RequestedMinorVersion(int) RequestedMinorVersion}. */
 	public static void nRequestedMinorVersion(long struct, int value) { memPutInt(struct + OVRInitParams.REQUESTEDMINORVERSION, value); }
-	/** Unsafe version of {@link #LogCallback(OVRLogCallback) LogCallback}. */
-	public static void nLogCallback(long struct, OVRLogCallback value) { memPutAddress(struct + OVRInitParams.LOGCALLBACK, value.address()); }
+	/** Unsafe version of {@link #LogCallback(long) LogCallback}. */
+	public static void nLogCallback(long struct, long value) { memPutAddress(struct + OVRInitParams.LOGCALLBACK, value); }
 	/** Unsafe version of {@link #UserData(long) UserData}. */
 	public static void nUserData(long struct, long value) { memPutAddress(struct + OVRInitParams.USERDATA, value); }
 	/** Unsafe version of {@link #ConnectionTimeoutMS(int) ConnectionTimeoutMS}. */
@@ -283,8 +289,10 @@ public class OVRInitParams extends Struct {
 		public int Flags() { return OVRInitParams.nFlags(address()); }
 		/** Returns the value of the {@code RequestedMinorVersion} field. */
 		public int RequestedMinorVersion() { return OVRInitParams.nRequestedMinorVersion(address()); }
+		/** Returns the function address at the {@code LogCallback} field. */
+		public long LogCallback() { return OVRInitParams.nLogCallback(address()); }
 		/** Returns the {@code OVRLogCallback} instance at the {@code LogCallback} field. */
-		public OVRLogCallback LogCallback() { return OVRInitParams.nLogCallback(address()); }
+		public OVRLogCallback LogCallbackClosure() { return OVRInitParams.nLogCallbackClosure(address()); }
 		/** Returns the value of the {@code UserData} field. */
 		public long UserData() { return OVRInitParams.nUserData(address()); }
 		/** Returns the value of the {@code ConnectionTimeoutMS} field. */
@@ -294,8 +302,10 @@ public class OVRInitParams extends Struct {
 		public OVRInitParams.Buffer Flags(int value) { OVRInitParams.nFlags(address(), value); return this; }
 		/** Sets the specified value to the {@code RequestedMinorVersion} field. */
 		public OVRInitParams.Buffer RequestedMinorVersion(int value) { OVRInitParams.nRequestedMinorVersion(address(), value); return this; }
+		/** Sets the specified function address to the {@code LogCallback} field. */
+		public OVRInitParams.Buffer LogCallback(long value) { OVRInitParams.nLogCallback(address(), value); return this; }
 		/** Sets the address of the specified {@link OVRLogCallback} to the {@code LogCallback} field. */
-		public OVRInitParams.Buffer LogCallback(OVRLogCallback value) { OVRInitParams.nLogCallback(address(), value); return this; }
+		public OVRInitParams.Buffer LogCallback(OVRLogCallback value) { return LogCallback(value.address()); }
 		/** Sets the specified value to the {@code UserData} field. */
 		public OVRInitParams.Buffer UserData(long value) { OVRInitParams.nUserData(address(), value); return this; }
 		/** Sets the specified value to the {@code ConnectionTimeoutMS} field. */
