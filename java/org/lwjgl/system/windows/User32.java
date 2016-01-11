@@ -455,6 +455,12 @@ public class User32 {
 		HWND_TOPMOST   = 0xFFFFFFFFFFFFFFFFL,
 		HWND_NOTOPMOST = 0xFFFFFFFFFFFFFFFEL;
 
+	/**
+	 * Virtual window handle used by {@link #PostMessage} that matches all top-level windows in the system, including disabled or invisible unowned windows,
+	 * overlapped windows, and pop-up windows.
+	 */
+	public static final long HWND_BROADCAST = 0xFFFFL;
+
 	/** Window sizing and positiong flags used by the {@link #SetWindowPos} flags argument. */
 	public static final int
 		SWP_NOSIZE         = 0x1,
@@ -704,6 +710,7 @@ public class User32 {
 		TranslateMessage,
 		WaitMessage,
 		DispatchMessage,
+		PostMessage,
 		AdjustWindowRectEx,
 		GetWindowRect,
 		MoveWindow,
@@ -729,19 +736,20 @@ public class User32 {
 		ShowWindow = checkFunctionAddress(provider.getFunctionAddress("ShowWindow"));
 		UpdateWindow = checkFunctionAddress(provider.getFunctionAddress("UpdateWindow"));
 		SetWindowPos = checkFunctionAddress(provider.getFunctionAddress("SetWindowPos"));
-		SetWindowText = checkFunctionAddress(provider.getFunctionAddress("SetWindowText"));
-		GetMessage = checkFunctionAddress(provider.getFunctionAddress("GetMessage"));
-		PeekMessage = checkFunctionAddress(provider.getFunctionAddress("PeekMessage"));
+		SetWindowText = checkFunctionAddress(provider.getFunctionAddress("SetWindowTextW"));
+		GetMessage = checkFunctionAddress(provider.getFunctionAddress("GetMessageW"));
+		PeekMessage = checkFunctionAddress(provider.getFunctionAddress("PeekMessageW"));
 		TranslateMessage = checkFunctionAddress(provider.getFunctionAddress("TranslateMessage"));
 		WaitMessage = checkFunctionAddress(provider.getFunctionAddress("WaitMessage"));
-		DispatchMessage = checkFunctionAddress(provider.getFunctionAddress("DispatchMessage"));
+		DispatchMessage = checkFunctionAddress(provider.getFunctionAddress("DispatchMessageW"));
+		PostMessage = checkFunctionAddress(provider.getFunctionAddress("PostMessageW"));
 		AdjustWindowRectEx = checkFunctionAddress(provider.getFunctionAddress("AdjustWindowRectEx"));
 		GetWindowRect = checkFunctionAddress(provider.getFunctionAddress("GetWindowRect"));
 		MoveWindow = checkFunctionAddress(provider.getFunctionAddress("MoveWindow"));
-		SetWindowLongPtr = checkFunctionAddress(provider.getFunctionAddress("SetWindowLongPtr"));
-		GetWindowLongPtr = checkFunctionAddress(provider.getFunctionAddress("GetWindowLongPtr"));
-		SetClassLongPtr = checkFunctionAddress(provider.getFunctionAddress("SetClassLongPtr"));
-		GetClassLongPtr = checkFunctionAddress(provider.getFunctionAddress("GetClassLongPtr"));
+		SetWindowLongPtr = checkFunctionAddress(provider.getFunctionAddress("SetWindowLongPtrW"));
+		GetWindowLongPtr = checkFunctionAddress(provider.getFunctionAddress("GetWindowLongPtrW"));
+		SetClassLongPtr = checkFunctionAddress(provider.getFunctionAddress("SetClassLongPtrW"));
+		GetClassLongPtr = checkFunctionAddress(provider.getFunctionAddress("GetClassLongPtrW"));
 		GetDC = checkFunctionAddress(provider.getFunctionAddress("GetDC"));
 		ReleaseDC = checkFunctionAddress(provider.getFunctionAddress("ReleaseDC"));
 	}
@@ -841,7 +849,7 @@ public class User32 {
 	 * Creates an overlapped, pop-up, or child window with an extended window style; otherwise, this function is identical to the CreateWindow function.
 	 *
 	 * @param dwExStyle    the extended window style of the window being created
-	 * @param lpClassName  a null-terminated string or a class atom created by a previous call to the {@link #RegisterClassEx} function.
+	 * @param lpClassName  a null-terminated string or a class atom created by a previous call to the {@link #RegisterClassEx(WNDCLASSEX)} function.
 	 * @param lpWindowName the window name. If the window style specifies a title bar, the window title pointed to by {@code lpWindowName} is displayed in the title bar.
 	 * @param dwStyle      the style of the window being created
 	 * @param x            the initial horizontal position of the window
@@ -877,8 +885,8 @@ public class User32 {
 	public static native int nDestroyWindow(long __functionAddress, long hWnd);
 
 	/**
-	 * Destroys the specified window. The function sends WM_DESTROY and WM_NCDESTROY messages to the window to deactivate it and remove the keyboard focus from
-	 * it. The function also destroys the window's menu, flushes the thread message queue, destroys timers, removes clipboard ownership, and breaks the
+	 * Destroys the specified window. The function sends {@link #WM_DESTROY} and {@link #WM_NCDESTROY} messages to the window to deactivate it and remove the keyboard focus
+	 * from it. The function also destroys the window's menu, flushes the thread message queue, destroys timers, removes clipboard ownership, and breaks the
 	 * clipboard viewer chain (if the window is at the top of the viewer chain).
 	 * 
 	 * <p>If the specified window is a parent or owner window, DestroyWindow automatically destroys the associated child or owned windows when it destroys the
@@ -1101,6 +1109,28 @@ public class User32 {
 	 */
 	public static long DispatchMessage(MSG lpmsg) {
 		return nDispatchMessage(lpmsg.address());
+	}
+
+	// --- [ PostMessage ] ---
+
+	/**
+	 * Places (posts) a message in the message queue associated with the thread that created the specified window and returns without waiting for the thread
+	 * to process the message.
+	 *
+	 * @param hWnd   a handle to the window whose window procedure is to receive the message. The following values have special meanings:
+	 *               
+	 *               <ul>
+	 *               <li>{@link #HWND_BROADCAST} - The message is posted to all top-level windows in the system, including disabled or invisible unowned windows, overlapped
+	 *               windows, and pop-up windows. The message is not posted to child windows.</li>
+	 *               <li>{@code NULL} - The function behaves like a call to PostThreadMessage with the dwThreadId parameter set to the identifier of the current thread.</li>
+	 *               </ul>
+	 * @param Msg    the message to be posted
+	 * @param wParam additional message-specific information
+	 * @param lParam additional message-specific information
+	 */
+	public static int PostMessage(long hWnd, int Msg, long wParam, long lParam) {
+		long __functionAddress = getInstance().PostMessage;
+		return callPIPPI(__functionAddress, hWnd, Msg, wParam, lParam);
 	}
 
 	// --- [ AdjustWindowRectEx ] ---
