@@ -479,6 +479,38 @@ public class User32 {
 		SWP_DEFERERASE     = 0x2000,
 		SWP_ASYNCWINDOWPOS = 0x4000;
 
+	/** Standard Icon IDs. Use with {@link #LoadIcon}. */
+	public static final int
+		IDI_APPLICATION = 0x7F00,
+		IDI_HAND        = 0x7F01,
+		IDI_QUESTION    = 0x7F02,
+		IDI_EXCLAMATION = 0x7F03,
+		IDI_ASTERISK    = 0x7F04,
+		IDI_WINLOGO     = 0x7F05,
+		IDI_SHIELD      = 0x7F06,
+		IDI_WARNING     = IDI_EXCLAMATION,
+		IDI_ERROR       = IDI_HAND,
+		IDI_INFORMATION = IDI_ASTERISK;
+
+	/** Standard Cursor IDs. Use with {@link #LoadCursor}. */
+	public static final int
+		IDC_ARROW       = 0x7F00,
+		IDC_IBEAM       = 0x7F01,
+		IDC_WAIT        = 0x7F02,
+		IDC_CROSS       = 0x7F03,
+		IDC_UPARROW     = 0x7F04,
+		IDC_SIZE        = 0x7F80,
+		IDC_ICON        = 0x7F81,
+		IDC_SIZENWSE    = 0x7F82,
+		IDC_SIZENESW    = 0x7F83,
+		IDC_SIZEWE      = 0x7F84,
+		IDC_SIZENS      = 0x7F85,
+		IDC_SIZEALL     = 0x7F86,
+		IDC_NO          = 0x7F88,
+		IDC_HAND        = 0x7F89,
+		IDC_APPSTARTING = 0x7F8A,
+		IDC_HELP        = 0x7F8B;
+
 	/** Class field offsets for {@link #GetClassLongPtr}. */
 	public static final int
 		GCL_MENUNAME      = 0xFFFFFFF8,
@@ -718,6 +750,8 @@ public class User32 {
 		GetWindowLongPtr,
 		SetClassLongPtr,
 		GetClassLongPtr,
+		LoadIcon,
+		LoadCursor,
 		GetDC,
 		ReleaseDC;
 
@@ -750,6 +784,8 @@ public class User32 {
 		GetWindowLongPtr = checkFunctionAddress(provider.getFunctionAddress("GetWindowLongPtrW"));
 		SetClassLongPtr = checkFunctionAddress(provider.getFunctionAddress("SetClassLongPtrW"));
 		GetClassLongPtr = checkFunctionAddress(provider.getFunctionAddress("GetClassLongPtrW"));
+		LoadIcon = checkFunctionAddress(provider.getFunctionAddress("LoadIconW"));
+		LoadCursor = checkFunctionAddress(provider.getFunctionAddress("LoadCursorW"));
 		GetDC = checkFunctionAddress(provider.getFunctionAddress("GetDC"));
 		ReleaseDC = checkFunctionAddress(provider.getFunctionAddress("ReleaseDC"));
 	}
@@ -1275,6 +1311,63 @@ public class User32 {
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return callPIP(__functionAddress, hWnd, nIndex);
+	}
+
+	// --- [ LoadIcon ] ---
+
+	/** Unsafe version of {@link #LoadIcon} */
+	@JavadocExclude
+	public static long nLoadIcon(long instance, long iconName) {
+		long __functionAddress = getInstance().LoadIcon;
+		return callPPP(__functionAddress, instance, iconName);
+	}
+
+	/**
+	 * Loads the specified icon resource from the executable (.exe) file associated with an application instance.
+	 *
+	 * @param instance a handle to an instance of the module whose executable file contains the icon to be loaded. This parameter must be {@code NULL} when a standard icon is
+	 *                 being loaded.
+	 * @param iconName the name of the icon resource to be loaded or one of:<br>{@link #IDI_APPLICATION}, {@link #IDI_HAND}, {@link #IDI_QUESTION}, {@link #IDI_EXCLAMATION}, {@link #IDI_ASTERISK}, {@link #IDI_WINLOGO}, {@link #IDI_SHIELD}, {@link #IDI_WARNING}, {@link #IDI_ERROR}, {@link #IDI_INFORMATION}
+	 */
+	public static long LoadIcon(long instance, ByteBuffer iconName) {
+		if ( CHECKS )
+			checkNT2(iconName);
+		return nLoadIcon(instance, memAddress(iconName));
+	}
+
+	/** CharSequence version of: {@link #LoadIcon} */
+	public static long LoadIcon(long instance, CharSequence iconName) {
+		APIBuffer __buffer = apiBuffer();
+		int iconNameEncoded = __buffer.stringParamUTF16(iconName, true);
+		return nLoadIcon(instance, __buffer.address(iconNameEncoded));
+	}
+
+	// --- [ LoadCursor ] ---
+
+	/** Unsafe version of {@link #LoadCursor} */
+	@JavadocExclude
+	public static long nLoadCursor(long instance, long cursorName) {
+		long __functionAddress = getInstance().LoadCursor;
+		return callPPP(__functionAddress, instance, cursorName);
+	}
+
+	/**
+	 * Loads the specified cursor resource from the executable (.EXE) file associated with an application instance.
+	 *
+	 * @param instance   a handle to an instance of the module whose executable file contains the cursor to be loaded.
+	 * @param cursorName the name of the cursor resource to be loaded or one of:<br>{@link #IDC_ARROW}, {@link #IDC_IBEAM}, {@link #IDC_WAIT}, {@link #IDC_CROSS}, {@link #IDC_UPARROW}, {@link #IDC_SIZE}, {@link #IDC_ICON}, {@link #IDC_SIZENWSE}, {@link #IDC_SIZENESW}, {@link #IDC_SIZEWE}, {@link #IDC_SIZENS}, {@link #IDC_SIZEALL}, {@link #IDC_NO}, {@link #IDC_HAND}, {@link #IDC_APPSTARTING}, {@link #IDC_HELP}
+	 */
+	public static long LoadCursor(long instance, ByteBuffer cursorName) {
+		if ( CHECKS )
+			checkNT2(cursorName);
+		return nLoadCursor(instance, memAddress(cursorName));
+	}
+
+	/** CharSequence version of: {@link #LoadCursor} */
+	public static long LoadCursor(long instance, CharSequence cursorName) {
+		APIBuffer __buffer = apiBuffer();
+		int cursorNameEncoded = __buffer.stringParamUTF16(cursorName, true);
+		return nLoadCursor(instance, __buffer.address(cursorNameEncoded));
 	}
 
 	// --- [ GetDC ] ---
