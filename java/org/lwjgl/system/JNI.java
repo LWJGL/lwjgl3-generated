@@ -236,6 +236,7 @@ public final class JNI {
 	public static native void callPIJV(long __functionAddress, long param0, int param1, long param2);
 	public static native long callPIP(long __functionAddress, long param0, int param1);
 	public static native int callPIPI(long __functionAddress, long param0, int param1, long param2);
+	public static native int callPIPII(long __functionAddress, long param0, int param1, long param2, int param3);
 	public static native int callPIPIIPPI(long __functionAddress, long param0, int param1, long param2, int param3, int param4, long param5, long param6);
 	public static native int callPIPIPIPPI(long __functionAddress, long param0, int param1, long param2, int param3, long param4, int param5, long param6, long param7);
 	public static native int callPIPIPPI(long __functionAddress, long param0, int param1, long param2, int param3, long param4, long param5);

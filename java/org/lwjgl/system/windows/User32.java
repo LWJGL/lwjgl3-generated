@@ -723,6 +723,129 @@ public class User32 {
 	/** Value for rolling one detent. */
 	public static final int WHEEL_DELTA = 0x78;
 
+	/** {@link #GetSystemMetrics} codes. */
+	public static final int
+		SM_CXSCREEN                    = 0x0,
+		SM_CYSCREEN                    = 0x1,
+		SM_CXVSCROLL                   = 0x2,
+		SM_CYHSCROLL                   = 0x3,
+		SM_CYCAPTION                   = 0x4,
+		SM_CXBORDER                    = 0x5,
+		SM_CYBORDER                    = 0x6,
+		SM_CXDLGFRAME                  = 0x7,
+		SM_CYDLGFRAME                  = 0x8,
+		SM_CYVTHUMB                    = 0x9,
+		SM_CXHTHUMB                    = 0xA,
+		SM_CXICON                      = 0xB,
+		SM_CYICON                      = 0xC,
+		SM_CXCURSOR                    = 0xD,
+		SM_CYCURSOR                    = 0xE,
+		SM_CYMENU                      = 0xF,
+		SM_CXFULLSCREEN                = 0x10,
+		SM_CYFULLSCREEN                = 0x11,
+		SM_CYKANJIWINDOW               = 0x12,
+		SM_MOUSEPRESENT                = 0x13,
+		SM_CYVSCROLL                   = 0x14,
+		SM_CXHSCROLL                   = 0x15,
+		SM_DEBUG                       = 0x16,
+		SM_SWAPBUTTON                  = 0x17,
+		SM_RESERVED1                   = 0x18,
+		SM_RESERVED2                   = 0x19,
+		SM_RESERVED3                   = 0x1A,
+		SM_RESERVED4                   = 0x1B,
+		SM_CXMIN                       = 0x1C,
+		SM_CYMIN                       = 0x1D,
+		SM_CXSIZE                      = 0x1E,
+		SM_CYSIZE                      = 0x1F,
+		SM_CXFRAME                     = 0x20,
+		SM_CYFRAME                     = 0x21,
+		SM_CXMINTRACK                  = 0x22,
+		SM_CYMINTRACK                  = 0x23,
+		SM_CXDOUBLECLK                 = 0x24,
+		SM_CYDOUBLECLK                 = 0x25,
+		SM_CXICONSPACING               = 0x26,
+		SM_CYICONSPACING               = 0x27,
+		SM_MENUDROPALIGNMENT           = 0x28,
+		SM_PENWINDOWS                  = 0x29,
+		SM_DBCSENABLED                 = 0x2A,
+		SM_CMOUSEBUTTONS               = 0x2B,
+		SM_CXFIXEDFRAME                = SM_CXDLGFRAME,
+		SM_CYFIXEDFRAME                = SM_CYDLGFRAME,
+		SM_CXSIZEFRAME                 = SM_CXFRAME,
+		SM_CYSIZEFRAME                 = SM_CYFRAME,
+		SM_SECURE                      = 0x2C,
+		SM_CXEDGE                      = 0x2D,
+		SM_CYEDGE                      = 0x2E,
+		SM_CXMINSPACING                = 0x2F,
+		SM_CYMINSPACING                = 0x30,
+		SM_CXSMICON                    = 0x31,
+		SM_CYSMICON                    = 0x32,
+		SM_CYSMCAPTION                 = 0x33,
+		SM_CXSMSIZE                    = 0x34,
+		SM_CYSMSIZE                    = 0x35,
+		SM_CXMENUSIZE                  = 0x36,
+		SM_CYMENUSIZE                  = 0x37,
+		SM_ARRANGE                     = 0x38,
+		SM_CXMINIMIZED                 = 0x39,
+		SM_CYMINIMIZED                 = 0x3A,
+		SM_CXMAXTRACK                  = 0x3B,
+		SM_CYMAXTRACK                  = 0x3C,
+		SM_CXMAXIMIZED                 = 0x3D,
+		SM_CYMAXIMIZED                 = 0x3E,
+		SM_NETWORK                     = 0x3F,
+		SM_CLEANBOOT                   = 0x43,
+		SM_CXDRAG                      = 0x44,
+		SM_CYDRAG                      = 0x45,
+		SM_SHOWSOUNDS                  = 0x46,
+		SM_CXMENUCHECK                 = 0x47,
+		SM_CYMENUCHECK                 = 0x48,
+		SM_SLOWMACHINE                 = 0x49,
+		SM_MIDEASTENABLED              = 0x4A,
+		SM_MOUSEWHEELPRESENT           = 0x4B,
+		SM_XVIRTUALSCREEN              = 0x4C,
+		SM_YVIRTUALSCREEN              = 0x4D,
+		SM_CXVIRTUALSCREEN             = 0x4E,
+		SM_CYVIRTUALSCREEN             = 0x4F,
+		SM_CMONITORS                   = 0x50,
+		SM_SAMEDISPLAYFORMAT           = 0x51,
+		SM_IMMENABLED                  = 0x52,
+		SM_REMOTESESSION               = 0x1000,
+		SM_SHUTTINGDOWN                = 0x2000,
+		SM_REMOTECONTROL               = 0x2001,
+		SM_CARETBLINKINGENABLED        = 0x2002,
+		SM_CXFOCUSBORDER               = 0x53,
+		SM_CYFOCUSBORDER               = 0x54,
+		SM_TABLETPC                    = 0x56,
+		SM_MEDIACENTER                 = 0x57,
+		SM_STARTER                     = 0x58,
+		SM_SERVERR2                    = 0x59,
+		SM_MOUSEHORIZONTALWHEELPRESENT = 0x5B,
+		SM_CXPADDEDBORDER              = 0x5C,
+		SM_DIGITIZER                   = 0x5E,
+		SM_MAXIMUMTOUCHES              = 0x5F;
+
+	/** {@link #RegisterTouchWindow} flags. */
+	public static final int
+		TWF_FINETOUCH = 0x1,
+		TWF_WANTPALM  = 0x2;
+
+	/** Touch input flag values ({@link TOUCHINPUT#dwFlags}). */
+	public static final int
+		TOUCHEVENTF_MOVE       = 0x1,
+		TOUCHEVENTF_DOWN       = 0x2,
+		TOUCHEVENTF_UP         = 0x4,
+		TOUCHEVENTF_INRANGE    = 0x8,
+		TOUCHEVENTF_PRIMARY    = 0x10,
+		TOUCHEVENTF_NOCOALESCE = 0x20,
+		TOUCHEVENTF_PEN        = 0x40,
+		TOUCHEVENTF_PALM       = 0x80;
+
+	/** Touch input mask values ({@link TOUCHINPUT#dwMask}). */
+	public static final int
+		TOUCHINPUTMASKF_TIMEFROMSYSTEM = 0x1,
+		TOUCHINPUTMASKF_EXTRAINFO      = 0x2,
+		TOUCHINPUTMASKF_CONTACTAREA    = 0x4;
+
 	static { Library.initialize(); }
 
 	/** Function address. */
@@ -753,7 +876,13 @@ public class User32 {
 		LoadIcon,
 		LoadCursor,
 		GetDC,
-		ReleaseDC;
+		ReleaseDC,
+		GetSystemMetrics,
+		RegisterTouchWindow,
+		UnregisterTouchWindow,
+		IsTouchWindow,
+		GetTouchInputInfo,
+		CloseTouchInputHandle;
 
 	@JavadocExclude
 	protected User32() {
@@ -788,6 +917,12 @@ public class User32 {
 		LoadCursor = checkFunctionAddress(provider.getFunctionAddress("LoadCursorW"));
 		GetDC = checkFunctionAddress(provider.getFunctionAddress("GetDC"));
 		ReleaseDC = checkFunctionAddress(provider.getFunctionAddress("ReleaseDC"));
+		GetSystemMetrics = checkFunctionAddress(provider.getFunctionAddress("GetSystemMetrics"));
+		RegisterTouchWindow = provider.getFunctionAddress("RegisterTouchWindow");
+		UnregisterTouchWindow = provider.getFunctionAddress("UnregisterTouchWindow");
+		IsTouchWindow = provider.getFunctionAddress("IsTouchWindow");
+		GetTouchInputInfo = provider.getFunctionAddress("GetTouchInputInfo");
+		CloseTouchInputHandle = provider.getFunctionAddress("CloseTouchInputHandle");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -1399,6 +1534,151 @@ public class User32 {
 			checkPointer(hDC);
 		}
 		return callPPI(__functionAddress, hWnd, hDC);
+	}
+
+	// --- [ GetSystemMetrics ] ---
+
+	/**
+	 * Retrieves the specified system metric or system configuration setting.
+	 *
+	 * @param index the system metric or configuration setting to be retrieved. One of:<br>{@link #SM_CXSCREEN}, {@link #SM_CYSCREEN}, {@link #SM_CXVSCROLL}, {@link #SM_CYHSCROLL}, {@link #SM_CYCAPTION}, {@link #SM_CXBORDER}, {@link #SM_CYBORDER}, {@link #SM_CXDLGFRAME}, {@link #SM_CYDLGFRAME}, {@link #SM_CYVTHUMB}, {@link #SM_CXHTHUMB}, {@link #SM_CXICON}, {@link #SM_CYICON}, {@link #SM_CXCURSOR}, {@link #SM_CYCURSOR}, {@link #SM_CYMENU}, {@link #SM_CXFULLSCREEN}, {@link #SM_CYFULLSCREEN}, {@link #SM_CYKANJIWINDOW}, {@link #SM_MOUSEPRESENT}, {@link #SM_CYVSCROLL}, {@link #SM_CXHSCROLL}, {@link #SM_DEBUG}, {@link #SM_SWAPBUTTON}, {@link #SM_RESERVED1}, {@link #SM_RESERVED2}, {@link #SM_RESERVED3}, {@link #SM_RESERVED4}, {@link #SM_CXMIN}, {@link #SM_CYMIN}, {@link #SM_CXSIZE}, {@link #SM_CYSIZE}, {@link #SM_CXFRAME}, {@link #SM_CYFRAME}, {@link #SM_CXMINTRACK}, {@link #SM_CYMINTRACK}, {@link #SM_CXDOUBLECLK}, {@link #SM_CYDOUBLECLK}, {@link #SM_CXICONSPACING}, {@link #SM_CYICONSPACING}, {@link #SM_MENUDROPALIGNMENT}, {@link #SM_PENWINDOWS}, {@link #SM_DBCSENABLED}, {@link #SM_CMOUSEBUTTONS}, {@link #SM_CXFIXEDFRAME}, {@link #SM_CYFIXEDFRAME}, {@link #SM_CXSIZEFRAME}, {@link #SM_CYSIZEFRAME}, {@link #SM_SECURE}, {@link #SM_CXEDGE}, {@link #SM_CYEDGE}, {@link #SM_CXMINSPACING}, {@link #SM_CYMINSPACING}, {@link #SM_CXSMICON}, {@link #SM_CYSMICON}, {@link #SM_CYSMCAPTION}, {@link #SM_CXSMSIZE}, {@link #SM_CYSMSIZE}, {@link #SM_CXMENUSIZE}, {@link #SM_CYMENUSIZE}, {@link #SM_ARRANGE}, {@link #SM_CXMINIMIZED}, {@link #SM_CYMINIMIZED}, {@link #SM_CXMAXTRACK}, {@link #SM_CYMAXTRACK}, {@link #SM_CXMAXIMIZED}, {@link #SM_CYMAXIMIZED}, {@link #SM_NETWORK}, {@link #SM_CLEANBOOT}, {@link #SM_CXDRAG}, {@link #SM_CYDRAG}, {@link #SM_SHOWSOUNDS}, {@link #SM_CXMENUCHECK}, {@link #SM_CYMENUCHECK}, {@link #SM_SLOWMACHINE}, {@link #SM_MIDEASTENABLED}, {@link #SM_MOUSEWHEELPRESENT}, {@link #SM_XVIRTUALSCREEN}, {@link #SM_YVIRTUALSCREEN}, {@link #SM_CXVIRTUALSCREEN}, {@link #SM_CYVIRTUALSCREEN}, {@link #SM_CMONITORS}, {@link #SM_SAMEDISPLAYFORMAT}, {@link #SM_IMMENABLED}, {@link #SM_REMOTESESSION}, {@link #SM_SHUTTINGDOWN}, {@link #SM_REMOTECONTROL}, {@link #SM_CARETBLINKINGENABLED}, {@link #SM_CXFOCUSBORDER}, {@link #SM_CYFOCUSBORDER}, {@link #SM_TABLETPC}, {@link #SM_MEDIACENTER}, {@link #SM_STARTER}, {@link #SM_SERVERR2}, {@link #SM_MOUSEHORIZONTALWHEELPRESENT}, {@link #SM_CXPADDEDBORDER}, {@link #SM_DIGITIZER}, {@link #SM_MAXIMUMTOUCHES}
+	 */
+	public static int GetSystemMetrics(int index) {
+		long __functionAddress = getInstance().GetSystemMetrics;
+		return callII(__functionAddress, index);
+	}
+
+	// --- [ RegisterTouchWindow ] ---
+
+	/**
+	 * Registers a window as being touch-capable.
+	 * 
+	 * <p>{@code RegisterTouchWindow} must be called on every window that will be used for touch input. This means that if you have an application that has
+	 * multiple windows within it, {@code RegisterTouchWindow} must be called on every window in that application that uses touch features. Also, an
+	 * application can call {@code RegisterTouchWindow} any number of times for the same window if it desires to change the modifier flags. A window can be
+	 * marked as no longer requiring touch input using the {@link #UnregisterTouchWindow} function.</p>
+	 *
+	 * @param hWnd    the handle of the window being registered. The function fails with {@code ERROR_ACCESS_DENIED} if the calling thread does not own the specified
+	 *                window.
+	 * @param ulFlags a set of bit flags that specify optional modifications. This field may contain 0 or one or more of:<br>{@link #TWF_FINETOUCH}, {@link #TWF_WANTPALM}
+	 *
+	 * @since Windows 7 (desktop apps only)
+	 */
+	public static int RegisterTouchWindow(long hWnd, int ulFlags) {
+		long __functionAddress = getInstance().RegisterTouchWindow;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(hWnd);
+		}
+		return callPII(__functionAddress, hWnd, ulFlags);
+	}
+
+	// --- [ UnregisterTouchWindow ] ---
+
+	/**
+	 * Registers a window as no longer being touch-capable.
+	 *
+	 * @param hWnd the handle of the window. The function fails with {@code ERROR_ACCESS_DENIED} if the calling thread does not own the specified window.
+	 *
+	 * @since Windows 7 (desktop apps only)
+	 */
+	public static int UnregisterTouchWindow(long hWnd) {
+		long __functionAddress = getInstance().UnregisterTouchWindow;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(hWnd);
+		}
+		return callPI(__functionAddress, hWnd);
+	}
+
+	// --- [ IsTouchWindow ] ---
+
+	/** Unsafe version of {@link #IsTouchWindow} */
+	@JavadocExclude
+	public static int nIsTouchWindow(long hWnd, long pulFlags) {
+		long __functionAddress = getInstance().IsTouchWindow;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(hWnd);
+		}
+		return callPPI(__functionAddress, hWnd, pulFlags);
+	}
+
+	/**
+	 * Checks whether a specified window is touch-capable and, optionally, retrieves the modifier flags set for the window's touch capability.
+	 *
+	 * @param hWnd     the handle of the window. The function fails with {@code ERROR_ACCESS_DENIED} if the calling thread is not on the same desktop as the specified
+	 *                 window.
+	 * @param pulFlags an optional address of the {@code ULONG} variable to receive the modifier flags for the specified window's touch capability.
+	 *
+	 * @since Windows 7 (desktop apps only)
+	 */
+	public static int IsTouchWindow(long hWnd, ByteBuffer pulFlags) {
+		return nIsTouchWindow(hWnd, memAddressSafe(pulFlags));
+	}
+
+	/** Alternative version of: {@link #IsTouchWindow} */
+	public static int IsTouchWindow(long hWnd, IntBuffer pulFlags) {
+		return nIsTouchWindow(hWnd, memAddressSafe(pulFlags));
+	}
+
+	// --- [ GetTouchInputInfo ] ---
+
+	/** Unsafe version of {@link #GetTouchInputInfo} */
+	@JavadocExclude
+	public static int nGetTouchInputInfo(long hTouchInput, int cInputs, long pInputs, int cbSize) {
+		long __functionAddress = getInstance().GetTouchInputInfo;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(hTouchInput);
+		}
+		return callPIPII(__functionAddress, hTouchInput, cInputs, pInputs, cbSize);
+	}
+
+	/**
+	 * Retrieves detailed information about touch inputs associated with a particular touch input handle.
+	 *
+	 * @param hTouchInput the touch input handle received in the {@code LPARAM} of a touch message. The function fails with {@code ERROR_INVALID_HANDLE} if this handle is
+	 *                    not valid. Note that the handle is not valid after it has been used in a successful call to {@link #CloseTouchInputHandle} or after it has been passed to
+	 *                    {@link #DefWindowProc}, {@link #PostMessage}, {@link #SendMessage} or one of their variants.
+	 * @param cInputs     The number of structures in the {@code pInputs} array. This should ideally be at least equal to the number of touch points associated with the
+	 *                    message as indicated in the message {@code WPARAM}. If {@code cInputs} is less than the number of touch points, the function will still succeed and
+	 *                    populate the {@code pInputs} buffer with information about {@code cInputs} touch points.
+	 * @param pInputs     a pointer to an array of {@link TOUCHINPUT} structures to receive information about the touch points associated with the specified touch input handle
+	 * @param cbSize      the size, in bytes, of a single {@link TOUCHINPUT} structure. If {@code cbSize} is not the size of a single {@code TOUCHINPUT} structure, the function
+	 *                    fails with {@code ERROR_INVALID_PARAMETER}.
+	 *
+	 * @since Windows 7 (desktop apps only)
+	 */
+	public static int GetTouchInputInfo(long hTouchInput, int cInputs, TOUCHINPUT.Buffer pInputs, int cbSize) {
+		if ( CHECKS )
+			checkBuffer(pInputs, cInputs);
+		return nGetTouchInputInfo(hTouchInput, cInputs, pInputs.address(), cbSize);
+	}
+
+	/** Alternative version of: {@link #GetTouchInputInfo} */
+	public static int GetTouchInputInfo(long hTouchInput, TOUCHINPUT.Buffer pInputs, int cbSize) {
+		return nGetTouchInputInfo(hTouchInput, pInputs.remaining(), pInputs.address(), cbSize);
+	}
+
+	// --- [ CloseTouchInputHandle ] ---
+
+	/**
+	 * Closes a touch input handle, frees process memory associated with it, and invalidates the handle.
+	 *
+	 * @param hTouchInput the touch input handle received in the {@code LPARAM} of a touch message. The function fails with {@code ERROR_INVALID_HANDLE} if this handle is
+	 *                    not valid. Note that the handle is not valid after it has been used in a successful call to {@link #CloseTouchInputHandle} or after it has been passed to
+	 *                    {@link #DefWindowProc}, {@link #PostMessage}, {@link #SendMessage} or one of their variants.
+	 *
+	 * @since Windows 7 (desktop apps only)
+	 */
+	public static int CloseTouchInputHandle(long hTouchInput) {
+		long __functionAddress = getInstance().CloseTouchInputHandle;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(hTouchInput);
+		}
+		return callPI(__functionAddress, hTouchInput);
 	}
 
 }

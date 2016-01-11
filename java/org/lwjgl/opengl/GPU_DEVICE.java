@@ -15,8 +15,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import org.lwjgl.system.windows.*;
 
 /**
- * Receives information about the display device specified by the {@code deviceIndex} parameter of the {@link WGLNVGPUAffinity#wglEnumGpuDevicesNV}
- * function.
+ * Receives information about the display device specified by the {@code deviceIndex} parameter of the {@link WGLNVGPUAffinity#wglEnumGpuDevicesNV} function.
  * 
  * <h3>Layout</h3>
  * 
@@ -36,11 +35,11 @@ import org.lwjgl.system.windows.*;
  * {@code GPU_DEVICE}.</td></tr>
  * <tr><td>DeviceName</td><td>a string identifying the display device name. This will be the same string as stored in the {@code DeviceName} field of the {@code DISPLAY_DEVICE}
  * structure, which is filled in by {@code EnumDisplayDevices}.</td></tr>
- * <tr><td>DeviceString</td><td>a string describing the GPU for this display device. It is the same string as stored in the {@code DeviceString} field in the
- * {@code DISPLAY_DEVICE} structure that is filled in by {@code EnumDisplayDevices} when it describes a display adapter (and not a monitor).</td></tr>
+ * <tr><td>DeviceString</td><td>a string describing the GPU for this display device. It is the same string as stored in the {@code DeviceString} field in the {@code DISPLAY_DEVICE}
+ * structure that is filled in by {@code EnumDisplayDevices} when it describes a display adapter (and not a monitor).</td></tr>
  * <tr><td>Flags</td><td>indicates the state of the display device</td></tr>
- * <tr><td>rcVirtualScreen</td><td>specifies the display device rectangle, in virtual screen coordinates. The value of {@code rcVirtualScreen} is undefined if the device is not part
- * of the desktop, i.e. {@code DISPLAY_DEVICE_ATTACHED_TO_DESKTOP} is not set in the {@code Flags} field.</td></tr>
+ * <tr><td>rcVirtualScreen</td><td>specifies the display device rectangle, in virtual screen coordinates. The value of {@code rcVirtualScreen} is undefined if the device is not part of
+ * the desktop, i.e. {@code DISPLAY_DEVICE_ATTACHED_TO_DESKTOP} is not set in the {@code Flags} field.</td></tr>
  * </table>
  */
 public class GPU_DEVICE extends Struct {
