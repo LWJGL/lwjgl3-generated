@@ -72,7 +72,7 @@ public class JAWTFunctions {
 
 	@JavadocExclude
 	public JAWTFunctions(FunctionProvider provider) {
-		GetAWT = checkFunctionAddress(provider.getFunctionAddress("JAWT_GetAWT"));
+		GetAWT = checkFunctionAddress(provider.getFunctionAddress(Pointer.BITS64 || Platform.get() != Platform.WINDOWS ? "JAWT_GetAWT" : "_JAWT_GetAWT@8"));
 	}
 
 	// --- [ Function Addresses ] ---

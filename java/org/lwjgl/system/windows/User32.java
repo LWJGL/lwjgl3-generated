@@ -14,7 +14,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Native bindings to user32.dll */
+/** Native bindings to WinUser.h and user32.dll. */
 public class User32 {
 
 	/** Window Styles */
@@ -723,6 +723,12 @@ public class User32 {
 	/** Value for rolling one detent. */
 	public static final int WHEEL_DELTA = 0x78;
 
+	/** {@link WINDOWPLACEMENT} flags. */
+	public static final int
+		WPF_SETMINPOSITION       = 0x1,
+		WPF_RESTORETOMAXIMIZED   = 0x2,
+		WPF_ASYNCWINDOWPLACEMENT = 0x4;
+
 	/** {@link #GetSystemMetrics} codes. */
 	public static final int
 		SM_CXSCREEN                    = 0x0,
@@ -846,6 +852,53 @@ public class User32 {
 		TOUCHINPUTMASKF_EXTRAINFO      = 0x2,
 		TOUCHINPUTMASKF_CONTACTAREA    = 0x4;
 
+	/** {@link #MonitorFromWindow} flags. */
+	public static final int
+		MONITOR_DEFAULTTONULL    = 0x0,
+		MONITOR_DEFAULTTOPRIMARY = 0x1,
+		MONITOR_DEFAULTTONEAREST = 0x2;
+
+	/** {@link MONITORINFOEX} flags. */
+	public static final int MONITORINFOF_PRIMARY = 0x1;
+
+	/** Flag for {@link #EnumDisplayDevices}. */
+	public static final int EDD_GET_DEVICE_INTERFACE_NAME = 0x1;
+
+	/** {@link #EnumDisplaySettingsEx} mode. */
+	public static final int
+		ENUM_CURRENT_SETTINGS  = -1,
+		ENUM_REGISTRY_SETTINGS = -2;
+
+	/** Flags for {@link #EnumDisplaySettingsEx}. */
+	public static final int
+		EDS_RAWMODE     = 0x2,
+		EDS_ROTATEDMODE = 0x4;
+
+	/** Flags for {@link #ChangeDisplaySettingsEx}. */
+	public static final int
+		CDS_UPDATEREGISTRY       = 0x1,
+		CDS_TEST                 = 0x2,
+		CDS_FULLSCREEN           = 0x4,
+		CDS_GLOBAL               = 0x8,
+		CDS_SET_PRIMARY          = 0x10,
+		CDS_VIDEOPARAMETERS      = 0x20,
+		CDS_ENABLE_UNSAFE_MODES  = 0x100,
+		CDS_DISABLE_UNSAFE_MODES = 0x200,
+		CDS_RESET                = 0x40000000,
+		CDS_RESET_EX             = 0x20000000,
+		CDS_NORESET              = 0x10000000;
+
+	/** Return values for {@link #ChangeDisplaySettingsEx}. */
+	public static final int
+		DISP_CHANGE_SUCCESSFUL  = 0x0,
+		DISP_CHANGE_RESTART     = 0x1,
+		DISP_CHANGE_FAILED      = 0xFFFFFFFF,
+		DISP_CHANGE_BADMODE     = 0xFFFFFFFE,
+		DISP_CHANGE_NOTUPDATED  = 0xFFFFFFFD,
+		DISP_CHANGE_BADFLAGS    = 0xFFFFFFFC,
+		DISP_CHANGE_BADPARAM    = 0xFFFFFFFB,
+		DISP_CHANGE_BADDUALVIEW = 0xFFFFFFFA;
+
 	static { Library.initialize(); }
 
 	/** Function address. */
@@ -866,9 +919,16 @@ public class User32 {
 		__WaitMessage,
 		__DispatchMessage,
 		__PostMessage,
+		__SendMessage,
 		__AdjustWindowRectEx,
 		__GetWindowRect,
 		__MoveWindow,
+		__GetWindowPlacement,
+		__SetWindowPlacement,
+		__IsWindowVisible,
+		__IsIconic,
+		__IsZoomed,
+		__BringWindowToTop,
 		__SetWindowLongPtr,
 		__GetWindowLongPtr,
 		__SetClassLongPtr,
@@ -883,6 +943,11 @@ public class User32 {
 		__IsTouchWindow,
 		__GetTouchInputInfo,
 		__CloseTouchInputHandle,
+		__MonitorFromWindow,
+		__GetMonitorInfo,
+		__EnumDisplayDevices,
+		__EnumDisplaySettingsEx,
+		__ChangeDisplaySettingsEx;
 
 	@JavadocExclude
 	protected User32() {
@@ -906,13 +971,20 @@ public class User32 {
 		__WaitMessage = checkFunctionAddress(provider.getFunctionAddress("WaitMessage"));
 		__DispatchMessage = checkFunctionAddress(provider.getFunctionAddress("DispatchMessageW"));
 		__PostMessage = checkFunctionAddress(provider.getFunctionAddress("PostMessageW"));
+		__SendMessage = checkFunctionAddress(provider.getFunctionAddress("SendMessageW"));
 		__AdjustWindowRectEx = checkFunctionAddress(provider.getFunctionAddress("AdjustWindowRectEx"));
 		__GetWindowRect = checkFunctionAddress(provider.getFunctionAddress("GetWindowRect"));
 		__MoveWindow = checkFunctionAddress(provider.getFunctionAddress("MoveWindow"));
-		__SetWindowLongPtr = checkFunctionAddress(provider.getFunctionAddress("SetWindowLongPtrW"));
-		__GetWindowLongPtr = checkFunctionAddress(provider.getFunctionAddress("GetWindowLongPtrW"));
-		__SetClassLongPtr = checkFunctionAddress(provider.getFunctionAddress("SetClassLongPtrW"));
-		__GetClassLongPtr = checkFunctionAddress(provider.getFunctionAddress("GetClassLongPtrW"));
+		__GetWindowPlacement = checkFunctionAddress(provider.getFunctionAddress("GetWindowPlacement"));
+		__SetWindowPlacement = checkFunctionAddress(provider.getFunctionAddress("SetWindowPlacement"));
+		__IsWindowVisible = checkFunctionAddress(provider.getFunctionAddress("IsWindowVisible"));
+		__IsIconic = checkFunctionAddress(provider.getFunctionAddress("IsIconic"));
+		__IsZoomed = checkFunctionAddress(provider.getFunctionAddress("IsZoomed"));
+		__BringWindowToTop = checkFunctionAddress(provider.getFunctionAddress("BringWindowToTop"));
+		__SetWindowLongPtr = checkFunctionAddress(provider.getFunctionAddress(Pointer.BITS64 ? "SetWindowLongPtrW" : "SetWindowLongW"));
+		__GetWindowLongPtr = checkFunctionAddress(provider.getFunctionAddress(Pointer.BITS64 ? "GetWindowLongPtrW" : "GetWindowLongW"));
+		__SetClassLongPtr = checkFunctionAddress(provider.getFunctionAddress(Pointer.BITS64 ? "SetClassLongPtrW" : "SetClassLongW"));
+		__GetClassLongPtr = checkFunctionAddress(provider.getFunctionAddress(Pointer.BITS64 ? "GetClassLongPtrW" : "GetClassLongW"));
 		__LoadIcon = checkFunctionAddress(provider.getFunctionAddress("LoadIconW"));
 		__LoadCursor = checkFunctionAddress(provider.getFunctionAddress("LoadCursorW"));
 		__GetDC = checkFunctionAddress(provider.getFunctionAddress("GetDC"));
@@ -923,6 +995,11 @@ public class User32 {
 		__IsTouchWindow = provider.getFunctionAddress("IsTouchWindow");
 		__GetTouchInputInfo = provider.getFunctionAddress("GetTouchInputInfo");
 		__CloseTouchInputHandle = provider.getFunctionAddress("CloseTouchInputHandle");
+		__MonitorFromWindow = checkFunctionAddress(provider.getFunctionAddress("MonitorFromWindow"));
+		__GetMonitorInfo = checkFunctionAddress(provider.getFunctionAddress("GetMonitorInfoW"));
+		__EnumDisplayDevices = checkFunctionAddress(provider.getFunctionAddress("EnumDisplayDevicesW"));
+		__EnumDisplaySettingsEx = checkFunctionAddress(provider.getFunctionAddress("EnumDisplaySettingsExW"));
+		__ChangeDisplaySettingsEx = checkFunctionAddress(provider.getFunctionAddress("ChangeDisplaySettingsExW"));
 	}
 
 	// --- [ Function Addresses ] ---
@@ -1125,6 +1202,10 @@ public class User32 {
 
 	// --- [ SetWindowPos ] ---
 
+	/** JNI method for {@link #SetWindowPos} */
+	@JavadocExclude
+	public static native int nSetWindowPos(long __functionAddress, long hWnd, long hWndInsertAfter, int X, int Y, int cx, int cy, int uFlags);
+
 	/**
 	 * Changes the size, position, and Z order of a child, pop-up, or top-level window. These windows are ordered according to their appearance on the screen.
 	 * The topmost window receives the highest rank and is the first window in the Z order.
@@ -1141,10 +1222,14 @@ public class User32 {
 		long __functionAddress = getInstance().__SetWindowPos;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return callPPIIIIII(__functionAddress, hWnd, hWndInsertAfter, X, Y, cx, cy, uFlags);
+		return nSetWindowPos(__functionAddress, hWnd, hWndInsertAfter, X, Y, cx, cy, uFlags);
 	}
 
 	// --- [ SetWindowText ] ---
+
+	/** JNI method for {@link #SetWindowText} */
+	@JavadocExclude
+	public static native int nSetWindowText(long __functionAddress, long hWnd, long lpString);
 
 	/** Unsafe version of {@link #SetWindowText} */
 	@JavadocExclude
@@ -1152,7 +1237,7 @@ public class User32 {
 		long __functionAddress = getInstance().__SetWindowText;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return callPPI(__functionAddress, hWnd, lpString);
+		return nSetWindowText(__functionAddress, hWnd, lpString);
 	}
 
 	/**
@@ -1177,11 +1262,15 @@ public class User32 {
 
 	// --- [ GetMessage ] ---
 
+	/** JNI method for {@link #GetMessage} */
+	@JavadocExclude
+	public static native int nGetMessage(long __functionAddress, long lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax);
+
 	/** Unsafe version of {@link #GetMessage} */
 	@JavadocExclude
 	public static int nGetMessage(long lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax) {
 		long __functionAddress = getInstance().__GetMessage;
-		return callPPIII(__functionAddress, lpMsg, hWnd, wMsgFilterMin, wMsgFilterMax);
+		return nGetMessage(__functionAddress, lpMsg, hWnd, wMsgFilterMin, wMsgFilterMax);
 	}
 
 	/**
@@ -1255,13 +1344,17 @@ public class User32 {
 
 	// --- [ WaitMessage ] ---
 
+	/** JNI method for {@link #WaitMessage} */
+	@JavadocExclude
+	public static native int nWaitMessage(long __functionAddress);
+
 	/**
 	 * Yields control to other threads when a thread has no other messages in its message queue. The WaitMessage function suspends the thread and does not
 	 * return until a new message is placed in the thread's message queue.
 	 */
 	public static int WaitMessage() {
 		long __functionAddress = getInstance().__WaitMessage;
-		return callI(__functionAddress);
+		return nWaitMessage(__functionAddress);
 	}
 
 	// --- [ DispatchMessage ] ---
@@ -1284,6 +1377,10 @@ public class User32 {
 
 	// --- [ PostMessage ] ---
 
+	/** JNI method for {@link #PostMessage} */
+	@JavadocExclude
+	public static native int nPostMessage(long __functionAddress, long hWnd, int Msg, long wParam, long lParam);
+
 	/**
 	 * Places (posts) a message in the message queue associated with the thread that created the specified window and returns without waiting for the thread
 	 * to process the message.
@@ -1301,16 +1398,47 @@ public class User32 {
 	 */
 	public static int PostMessage(long hWnd, int Msg, long wParam, long lParam) {
 		long __functionAddress = getInstance().__PostMessage;
-		return callPIPPI(__functionAddress, hWnd, Msg, wParam, lParam);
+		return nPostMessage(__functionAddress, hWnd, Msg, wParam, lParam);
+	}
+
+	// --- [ SendMessage ] ---
+
+	/** JNI method for {@link #SendMessage} */
+	@JavadocExclude
+	public static native int nSendMessage(long __functionAddress, long hWnd, int Msg, long wParam, long lParam);
+
+	/**
+	 * Sends the specified message to a window or windows. The {@code SendMessage} function calls the window procedure for the specified window and does not
+	 * return until the window procedure has processed the message.
+	 *
+	 * @param hWnd   a handle to the window whose window procedure will receive the message. If this parameter is {@link #HWND_BROADCAST}, the message is sent to all top-level
+	 *               windows in the system, including disabled or invisible unowned windows, overlapped windows, and pop-up windows; but the message is not sent to
+	 *               child windows.
+	 *               
+	 *               <p>Message sending is subject to UIPI. The thread of a process can send messages only to message queues of threads in processes of lesser or equal
+	 *               integrity level.</p>
+	 * @param Msg    the message to be sent
+	 * @param wParam additional message-specific information
+	 * @param lParam additional message-specific information
+	 */
+	public static int SendMessage(long hWnd, int Msg, long wParam, long lParam) {
+		long __functionAddress = getInstance().__SendMessage;
+		if ( CHECKS )
+			checkPointer(hWnd);
+		return nSendMessage(__functionAddress, hWnd, Msg, wParam, lParam);
 	}
 
 	// --- [ AdjustWindowRectEx ] ---
+
+	/** JNI method for {@link #AdjustWindowRectEx} */
+	@JavadocExclude
+	public static native int nAdjustWindowRectEx(long __functionAddress, long lpRect, int dwStyle, int bMenu, int dwExStyle);
 
 	/** Unsafe version of {@link #AdjustWindowRectEx} */
 	@JavadocExclude
 	public static int nAdjustWindowRectEx(long lpRect, int dwStyle, int bMenu, int dwExStyle) {
 		long __functionAddress = getInstance().__AdjustWindowRectEx;
-		return callPIIII(__functionAddress, lpRect, dwStyle, bMenu, dwExStyle);
+		return nAdjustWindowRectEx(__functionAddress, lpRect, dwStyle, bMenu, dwExStyle);
 	}
 
 	/**
@@ -1330,13 +1458,17 @@ public class User32 {
 
 	// --- [ GetWindowRect ] ---
 
+	/** JNI method for {@link #GetWindowRect} */
+	@JavadocExclude
+	public static native int nGetWindowRect(long __functionAddress, long hWnd, long lpRect);
+
 	/** Unsafe version of {@link #GetWindowRect} */
 	@JavadocExclude
 	public static int nGetWindowRect(long hWnd, long lpRect) {
 		long __functionAddress = getInstance().__GetWindowRect;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return callPPI(__functionAddress, hWnd, lpRect);
+		return nGetWindowRect(__functionAddress, hWnd, lpRect);
 	}
 
 	/**
@@ -1351,6 +1483,10 @@ public class User32 {
 	}
 
 	// --- [ MoveWindow ] ---
+
+	/** JNI method for {@link #MoveWindow} */
+	@JavadocExclude
+	public static native int nMoveWindow(long __functionAddress, long hWnd, int X, int Y, int nWidth, int nHeight, int bRepaint);
 
 	/**
 	 * Changes the position and dimensions of the specified window. For a top-level window, the position and dimensions are relative to the upper-left corner
@@ -1369,10 +1505,127 @@ public class User32 {
 		long __functionAddress = getInstance().__MoveWindow;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return callPIIIIII(__functionAddress, hWnd, X, Y, nWidth, nHeight, bRepaint);
+		return nMoveWindow(__functionAddress, hWnd, X, Y, nWidth, nHeight, bRepaint);
+	}
+
+	// --- [ GetWindowPlacement ] ---
+
+	/** JNI method for {@link #GetWindowPlacement} */
+	@JavadocExclude
+	public static native int nGetWindowPlacement(long __functionAddress, long hWnd, long lpwndpl);
+
+	/** Unsafe version of {@link #GetWindowPlacement} */
+	@JavadocExclude
+	public static int nGetWindowPlacement(long hWnd, long lpwndpl) {
+		long __functionAddress = getInstance().__GetWindowPlacement;
+		if ( CHECKS )
+			checkPointer(hWnd);
+		return nGetWindowPlacement(__functionAddress, hWnd, lpwndpl);
+	}
+
+	/**
+	 * Retrieves the show state and the restored, minimized, and maximized positions of the specified window.
+	 *
+	 * @param hWnd    a handle to the window
+	 * @param lpwndpl a pointer to the {@link WINDOWPLACEMENT} structure that receives the show state and position information.
+	 *                
+	 *                <p>Before calling {@code GetWindowPlacement}, set the length member to {@link WINDOWPLACEMENT#SIZEOF}. {@code GetWindowPlacement} fails if
+	 *                {@code lpwndpl->length} is not set correctly.</p>
+	 */
+	public static int GetWindowPlacement(long hWnd, WINDOWPLACEMENT lpwndpl) {
+		return nGetWindowPlacement(hWnd, lpwndpl.address());
+	}
+
+	// --- [ SetWindowPlacement ] ---
+
+	/** JNI method for {@link #SetWindowPlacement} */
+	@JavadocExclude
+	public static native int nSetWindowPlacement(long __functionAddress, long hWnd, long lpwndpl);
+
+	/** Unsafe version of {@link #SetWindowPlacement} */
+	@JavadocExclude
+	public static int nSetWindowPlacement(long hWnd, long lpwndpl) {
+		long __functionAddress = getInstance().__SetWindowPlacement;
+		if ( CHECKS )
+			checkPointer(hWnd);
+		return nSetWindowPlacement(__functionAddress, hWnd, lpwndpl);
+	}
+
+	/**
+	 * Sets the show state and the restored, minimized, and maximized positions of the specified window.
+	 *
+	 * @param hWnd    a handle to the window
+	 * @param lpwndpl a pointer to the {@link WINDOWPLACEMENT} structure that specifies the new show state and window positions.
+	 *                
+	 *                <p>Before calling {@code SetWindowPlacement}, set the {@code length} member of the {@code WINDOWPLACEMENT} structure to {@link WINDOWPLACEMENT#SIZEOF}.
+	 *                {@code SetWindowPlacement} fails if the length member is not set correctly.</p>
+	 */
+	public static int SetWindowPlacement(long hWnd, WINDOWPLACEMENT lpwndpl) {
+		return nSetWindowPlacement(hWnd, lpwndpl.address());
+	}
+
+	// --- [ IsWindowVisible ] ---
+
+	/**
+	 * Determines the visibility state of the specified window.
+	 *
+	 * @param hWnd a handle to the window to be tested
+	 */
+	public static int IsWindowVisible(long hWnd) {
+		long __functionAddress = getInstance().__IsWindowVisible;
+		if ( CHECKS )
+			checkPointer(hWnd);
+		return callPI(__functionAddress, hWnd);
+	}
+
+	// --- [ IsIconic ] ---
+
+	/**
+	 * Determines whether the specified window is minimized (iconic).
+	 *
+	 * @param hWnd a handle to the window to be tested
+	 */
+	public static int IsIconic(long hWnd) {
+		long __functionAddress = getInstance().__IsIconic;
+		if ( CHECKS )
+			checkPointer(hWnd);
+		return callPI(__functionAddress, hWnd);
+	}
+
+	// --- [ IsZoomed ] ---
+
+	/**
+	 * Determines whether a window is maximized.
+	 *
+	 * @param hWnd a handle to the window to be tested
+	 */
+	public static int IsZoomed(long hWnd) {
+		long __functionAddress = getInstance().__IsZoomed;
+		if ( CHECKS )
+			checkPointer(hWnd);
+		return callPI(__functionAddress, hWnd);
+	}
+
+	// --- [ BringWindowToTop ] ---
+
+	/**
+	 * Brings the specified window to the top of the Z order. If the window is a top-level window, it is activated. If the window is a child window, the
+	 * top-level parent window associated with the child window is activated.
+	 *
+	 * @param hWnd a handle to the window to bring to the top of the Z order
+	 */
+	public static int BringWindowToTop(long hWnd) {
+		long __functionAddress = getInstance().__BringWindowToTop;
+		if ( CHECKS )
+			checkPointer(hWnd);
+		return callPI(__functionAddress, hWnd);
 	}
 
 	// --- [ SetWindowLongPtr ] ---
+
+	/** JNI method for {@link #SetWindowLongPtr} */
+	@JavadocExclude
+	public static native long nSetWindowLongPtr(long __functionAddress, long hWnd, int nIndex, long dwNewLong);
 
 	/**
 	 * Changes an attribute of the specified window. The function also sets a value at the specified offset in the extra window memory.
@@ -1388,10 +1641,14 @@ public class User32 {
 		long __functionAddress = getInstance().__SetWindowLongPtr;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return callPIPP(__functionAddress, hWnd, nIndex, dwNewLong);
+		return nSetWindowLongPtr(__functionAddress, hWnd, nIndex, dwNewLong);
 	}
 
 	// --- [ GetWindowLongPtr ] ---
+
+	/** JNI method for {@link #GetWindowLongPtr} */
+	@JavadocExclude
+	public static native long nGetWindowLongPtr(long __functionAddress, long hWnd, int nIndex);
 
 	/**
 	 * Retrieves information about the specified window. The function also retrieves the value at a specified offset into the extra window memory.
@@ -1404,10 +1661,14 @@ public class User32 {
 		long __functionAddress = getInstance().__GetWindowLongPtr;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return callPIP(__functionAddress, hWnd, nIndex);
+		return nGetWindowLongPtr(__functionAddress, hWnd, nIndex);
 	}
 
 	// --- [ SetClassLongPtr ] ---
+
+	/** JNI method for {@link #SetClassLongPtr} */
+	@JavadocExclude
+	public static native long nSetClassLongPtr(long __functionAddress, long hWnd, int nIndex, long dwNewLong);
 
 	/**
 	 * Replaces the specified value at the specified offset in the extra class memory or the {@link WNDCLASSEX} structure for the class to which the specified
@@ -1427,10 +1688,14 @@ public class User32 {
 		long __functionAddress = getInstance().__SetClassLongPtr;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return callPIPP(__functionAddress, hWnd, nIndex, dwNewLong);
+		return nSetClassLongPtr(__functionAddress, hWnd, nIndex, dwNewLong);
 	}
 
 	// --- [ GetClassLongPtr ] ---
+
+	/** JNI method for {@link #GetClassLongPtr} */
+	@JavadocExclude
+	public static native long nGetClassLongPtr(long __functionAddress, long hWnd, int nIndex);
 
 	/**
 	 * Retrieves the specified value from the {@link WNDCLASSEX} structure associated with the specified window.
@@ -1445,16 +1710,20 @@ public class User32 {
 		long __functionAddress = getInstance().__GetClassLongPtr;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return callPIP(__functionAddress, hWnd, nIndex);
+		return nGetClassLongPtr(__functionAddress, hWnd, nIndex);
 	}
 
 	// --- [ LoadIcon ] ---
+
+	/** JNI method for {@link #LoadIcon} */
+	@JavadocExclude
+	public static native long nLoadIcon(long __functionAddress, long instance, long iconName);
 
 	/** Unsafe version of {@link #LoadIcon} */
 	@JavadocExclude
 	public static long nLoadIcon(long instance, long iconName) {
 		long __functionAddress = getInstance().__LoadIcon;
-		return callPPP(__functionAddress, instance, iconName);
+		return nLoadIcon(__functionAddress, instance, iconName);
 	}
 
 	/**
@@ -1479,11 +1748,15 @@ public class User32 {
 
 	// --- [ LoadCursor ] ---
 
+	/** JNI method for {@link #LoadCursor} */
+	@JavadocExclude
+	public static native long nLoadCursor(long __functionAddress, long instance, long cursorName);
+
 	/** Unsafe version of {@link #LoadCursor} */
 	@JavadocExclude
 	public static long nLoadCursor(long instance, long cursorName) {
 		long __functionAddress = getInstance().__LoadCursor;
-		return callPPP(__functionAddress, instance, cursorName);
+		return nLoadCursor(__functionAddress, instance, cursorName);
 	}
 
 	/**
@@ -1550,6 +1823,10 @@ public class User32 {
 
 	// --- [ RegisterTouchWindow ] ---
 
+	/** JNI method for {@link #RegisterTouchWindow} */
+	@JavadocExclude
+	public static native int nRegisterTouchWindow(long __functionAddress, long hWnd, int ulFlags);
+
 	/**
 	 * Registers a window as being touch-capable.
 	 * 
@@ -1570,10 +1847,14 @@ public class User32 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hWnd);
 		}
-		return callPII(__functionAddress, hWnd, ulFlags);
+		return nRegisterTouchWindow(__functionAddress, hWnd, ulFlags);
 	}
 
 	// --- [ UnregisterTouchWindow ] ---
+
+	/** JNI method for {@link #UnregisterTouchWindow} */
+	@JavadocExclude
+	public static native int nUnregisterTouchWindow(long __functionAddress, long hWnd);
 
 	/**
 	 * Registers a window as no longer being touch-capable.
@@ -1588,7 +1869,7 @@ public class User32 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hWnd);
 		}
-		return callPI(__functionAddress, hWnd);
+		return nUnregisterTouchWindow(__functionAddress, hWnd);
 	}
 
 	// --- [ IsTouchWindow ] ---
@@ -1624,6 +1905,10 @@ public class User32 {
 
 	// --- [ GetTouchInputInfo ] ---
 
+	/** JNI method for {@link #GetTouchInputInfo} */
+	@JavadocExclude
+	public static native int nGetTouchInputInfo(long __functionAddress, long hTouchInput, int cInputs, long pInputs, int cbSize);
+
 	/** Unsafe version of {@link #GetTouchInputInfo} */
 	@JavadocExclude
 	public static int nGetTouchInputInfo(long hTouchInput, int cInputs, long pInputs, int cbSize) {
@@ -1632,7 +1917,7 @@ public class User32 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hTouchInput);
 		}
-		return callPIPII(__functionAddress, hTouchInput, cInputs, pInputs, cbSize);
+		return nGetTouchInputInfo(__functionAddress, hTouchInput, cInputs, pInputs, cbSize);
 	}
 
 	/**
@@ -1663,6 +1948,10 @@ public class User32 {
 
 	// --- [ CloseTouchInputHandle ] ---
 
+	/** JNI method for {@link #CloseTouchInputHandle} */
+	@JavadocExclude
+	public static native int nCloseTouchInputHandle(long __functionAddress, long hTouchInput);
+
 	/**
 	 * Closes a touch input handle, frees process memory associated with it, and invalidates the handle.
 	 *
@@ -1678,7 +1967,176 @@ public class User32 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hTouchInput);
 		}
-		return callPI(__functionAddress, hTouchInput);
+		return nCloseTouchInputHandle(__functionAddress, hTouchInput);
+	}
+
+	// --- [ MonitorFromWindow ] ---
+
+	/**
+	 * Retrieves a handle to the display monitor that has the largest area of intersection with the bounding rectangle of a specified window.
+	 *
+	 * @param hWnd    a handle to the window of interest
+	 * @param dwFlags determines the function's return value if the window does not intersect any display monitor. One of:<br>{@link #MONITOR_DEFAULTTONULL}, {@link #MONITOR_DEFAULTTOPRIMARY}, {@link #MONITOR_DEFAULTTONEAREST}
+	 */
+	public static long MonitorFromWindow(long hWnd, int dwFlags) {
+		long __functionAddress = getInstance().__MonitorFromWindow;
+		if ( CHECKS )
+			checkPointer(hWnd);
+		return callPIP(__functionAddress, hWnd, dwFlags);
+	}
+
+	// --- [ GetMonitorInfo ] ---
+
+	/** Unsafe version of {@link #GetMonitorInfo} */
+	@JavadocExclude
+	public static int nGetMonitorInfo(long hMonitor, long lpmi) {
+		long __functionAddress = getInstance().__GetMonitorInfo;
+		if ( CHECKS )
+			checkPointer(hMonitor);
+		return callPPI(__functionAddress, hMonitor, lpmi);
+	}
+
+	/**
+	 * Retrieves information about a display monitor.
+	 *
+	 * @param hMonitor a handle to the display monitor of interest
+	 * @param lpmi     a pointer to a {@link MONITORINFOEX} structure that receives information about the specified display monitor.
+	 *                 
+	 *                 <p>You must set the {@code cbSize} member of the structure to {@link MONITORINFOEX#SIZEOF} before calling the {@code GetMonitorInfo} function. Doing so lets
+	 *                 the function determine the type of structure you are passing to it.</p>
+	 */
+	public static int GetMonitorInfo(long hMonitor, MONITORINFOEX lpmi) {
+		return nGetMonitorInfo(hMonitor, lpmi.address());
+	}
+
+	// --- [ EnumDisplayDevices ] ---
+
+	/** Unsafe version of {@link #EnumDisplayDevices} */
+	@JavadocExclude
+	public static int nEnumDisplayDevices(long lpDevice, int iDevNum, long lpDisplayDevice, int dwFlags) {
+		long __functionAddress = getInstance().__EnumDisplayDevices;
+		return callPIPII(__functionAddress, lpDevice, iDevNum, lpDisplayDevice, dwFlags);
+	}
+
+	/**
+	 * Obtains information about the display devices in the current session.
+	 *
+	 * @param lpDevice        the device name. If {@code NULL}, function returns information for the display adapter(s) on the machine, based on {@code devNum}.
+	 * @param iDevNum         an index value that specifies the display device of interest.
+	 *                        
+	 *                        <p>The operating system identifies each display device in the current session with an index value. The index values are consecutive integers, starting
+	 *                        at 0. If the current session has three display devices, for example, they are specified by the index values 0, 1, and 2.</p>
+	 * @param lpDisplayDevice a pointer to a {@link DISPLAY_DEVICE} structure that receives information about the display device specified by {@code iDevNum}.
+	 *                        
+	 *                        <p>Before calling {@code EnumDisplayDevices}, you must initialize the {@code cb} member of {@code DISPLAY_DEVICE} to the size, in bytes, of
+	 *                        {@code DISPLAY_DEVICE}.</p>
+	 * @param dwFlags         set this flag to {@link #EDD_GET_DEVICE_INTERFACE_NAME} to retrieve the device interface name for {@code GUID_DEVINTERFACE_MONITOR}, which is registered by
+	 *                        the operating system on a per monitor basis. The value is placed in the {@code DeviceID} member of the {@link DISPLAY_DEVICE} structure returned in
+	 *                        {@code lpDisplayDevice}. The resulting device interface name can be used with SetupAPI functions and serves as a link between GDI monitor devices
+	 *                        and SetupAPI monitor devices.
+	 */
+	public static int EnumDisplayDevices(ByteBuffer lpDevice, int iDevNum, DISPLAY_DEVICE lpDisplayDevice, int dwFlags) {
+		if ( CHECKS )
+			if ( lpDevice != null ) checkNT2(lpDevice);
+		return nEnumDisplayDevices(memAddressSafe(lpDevice), iDevNum, lpDisplayDevice.address(), dwFlags);
+	}
+
+	/** CharSequence version of: {@link #EnumDisplayDevices} */
+	public static int EnumDisplayDevices(CharSequence lpDevice, int iDevNum, DISPLAY_DEVICE lpDisplayDevice, int dwFlags) {
+		APIBuffer __buffer = apiBuffer();
+		int lpDeviceEncoded = __buffer.stringParamUTF16(lpDevice, true);
+		return nEnumDisplayDevices(__buffer.addressSafe(lpDevice, lpDeviceEncoded), iDevNum, lpDisplayDevice.address(), dwFlags);
+	}
+
+	// --- [ EnumDisplaySettingsEx ] ---
+
+	/** Unsafe version of {@link #EnumDisplaySettingsEx} */
+	@JavadocExclude
+	public static int nEnumDisplaySettingsEx(long lpszDeviceName, int iModeNum, long lpDevMode, int dwFlags) {
+		long __functionAddress = getInstance().__EnumDisplaySettingsEx;
+		return callPIPII(__functionAddress, lpszDeviceName, iModeNum, lpDevMode, dwFlags);
+	}
+
+	/**
+	 * Retrieves information about one of the graphics modes for a display device. To retrieve information for all the graphics modes for a display device,
+	 * make a series of calls to this function.
+	 *
+	 * @param lpszDeviceName a pointer to a null-terminated string that specifies the display device about which graphics mode the function will obtain information.
+	 *                       
+	 *                       <p>This parameter is either {@code NULL} or a {@link DISPLAY_DEVICE#DeviceName} returned from {@link #EnumDisplayDevices}. A {@code NULL} value specifies the current display
+	 *                       device on the computer that the calling thread is running on.</p>
+	 * @param iModeNum       indicates the type of information to be retrieved.
+	 *                       
+	 *                       <p>Graphics mode indexes start at zero. To obtain information for all of a display device's graphics modes, make a series of calls to
+	 *                       {@code EnumDisplaySettingsEx}, as follows: Set {@code iModeNum} to zero for the first call, and increment {@code iModeNum} by one for each
+	 *                       subsequent call. Continue calling the function until the return value is zero.</p>
+	 *                       
+	 *                       <p>When you call {@code EnumDisplaySettingsEx} with {@code iModeNum} set to zero, the operating system initializes and caches information about the
+	 *                       display device. When you call {@code EnumDisplaySettingsEx} with {@code iModeNum} set to a nonzero value, the function returns the information that
+	 *                       was cached the last time the function was called with {@code iModeNum} set to zero.</p>
+	 *                       
+	 *                       <p>This value can be a graphics mode index or one of:<br>{@link #ENUM_CURRENT_SETTINGS}, {@link #ENUM_REGISTRY_SETTINGS}</p>
+	 * @param lpDevMode      a pointer to a {@link DEVMODE} structure into which the function stores information about the specified graphics mode. Before calling
+	 *                       {@code EnumDisplaySettingsEx}, set the {@code dmSize} member to {@link DEVMODE#SIZEOF}, and set the {@code dmDriverExtra} member to indicate the size, in
+	 *                       bytes, of the additional space available to receive private driver data.
+	 *                       
+	 *                       <p>The {@code EnumDisplaySettingsEx} function will populate the {@code dmFields} member of the {@code lpDevMode} and one or more other members of the
+	 *                       {@code DEVMODE} structure. To determine which members were set by the call to {@code EnumDisplaySettingsEx}, inspect the {@code dmFields} bitmask.</p>
+	 * @param dwFlags        this parameter can be one of:<br>{@link #EDS_RAWMODE}, {@link #EDS_ROTATEDMODE}
+	 */
+	public static int EnumDisplaySettingsEx(ByteBuffer lpszDeviceName, int iModeNum, DEVMODE lpDevMode, int dwFlags) {
+		if ( CHECKS )
+			if ( lpszDeviceName != null ) checkNT2(lpszDeviceName);
+		return nEnumDisplaySettingsEx(memAddressSafe(lpszDeviceName), iModeNum, lpDevMode.address(), dwFlags);
+	}
+
+	/** CharSequence version of: {@link #EnumDisplaySettingsEx} */
+	public static int EnumDisplaySettingsEx(CharSequence lpszDeviceName, int iModeNum, DEVMODE lpDevMode, int dwFlags) {
+		APIBuffer __buffer = apiBuffer();
+		int lpszDeviceNameEncoded = __buffer.stringParamUTF16(lpszDeviceName, true);
+		return nEnumDisplaySettingsEx(__buffer.addressSafe(lpszDeviceName, lpszDeviceNameEncoded), iModeNum, lpDevMode.address(), dwFlags);
+	}
+
+	// --- [ ChangeDisplaySettingsEx ] ---
+
+	/** Unsafe version of {@link #ChangeDisplaySettingsEx} */
+	@JavadocExclude
+	public static int nChangeDisplaySettingsEx(long lpszDeviceName, long lpDevMode, long hwnd, int dwflags, long lParam) {
+		long __functionAddress = getInstance().__ChangeDisplaySettingsEx;
+		return callPPPIPI(__functionAddress, lpszDeviceName, lpDevMode, hwnd, dwflags, lParam);
+	}
+
+	/**
+	 * Changes the settings of the specified display device to the specified graphics mode.
+	 *
+	 * @param lpszDeviceName a pointer to a null-terminated string that specifies the display device whose graphics mode will change. Only display device names as returned by
+	 *                       {@link #EnumDisplayDevices} are valid.
+	 *                       
+	 *                       <p>The {@code lpszDeviceName} parameter can be {@code NULL}. A {@code NULL} value specifies the default display device. The default device can be determined by
+	 *                       calling {@code EnumDisplayDevices} and checking for the {@link GDI32#DISPLAY_DEVICE_PRIMARY_DEVICE} flag.</p>
+	 * @param lpDevMode      a pointer to a {@link DEVMODE} structure that describes the new graphics mode. If {@code lpDevMode} is {@code NULL}, all the values currently in the registry
+	 *                       will be used for the display setting. Passing {@code NULL} for the {@code lpDevMode} parameter and 0 for the {@code dwFlags} parameter is the easiest way
+	 *                       to return to the default mode after a dynamic mode change.
+	 *                       
+	 *                       <p>The {@code dmSize} member must be initialized to the size, in bytes, of the {@code DEVMODE} structure. The {@code dmDriverExtra} member must be
+	 *                       initialized to indicate the number of bytes of private driver data following the {@code DEVMODE} structure.</p>
+	 * @param hwnd           reserved; must be {@code NULL}
+	 * @param dwflags        indicates how the graphics mode should be changed. One of:<br>{@link #CDS_UPDATEREGISTRY}, {@link #CDS_TEST}, {@link #CDS_FULLSCREEN}, {@link #CDS_GLOBAL}, {@link #CDS_SET_PRIMARY}, {@link #CDS_VIDEOPARAMETERS}, {@link #CDS_ENABLE_UNSAFE_MODES}, {@link #CDS_DISABLE_UNSAFE_MODES}, {@link #CDS_RESET}, {@link #CDS_RESET_EX}, {@link #CDS_NORESET}
+	 * @param lParam         if {@code flags} is {@link #CDS_VIDEOPARAMETERS}, {@code lParam} is a pointer to a {@code VIDEOPARAMETERS} structure. Otherwise {@code lParam} must be {@code NULL}.
+	 *
+	 * @return one of the following values: {@link #DISP_CHANGE_SUCCESSFUL} {@link #DISP_CHANGE_RESTART} {@link #DISP_CHANGE_FAILED} {@link #DISP_CHANGE_BADMODE} {@link #DISP_CHANGE_NOTUPDATED} {@link #DISP_CHANGE_BADFLAGS} {@link #DISP_CHANGE_BADPARAM} {@link #DISP_CHANGE_BADDUALVIEW}
+	 */
+	public static int ChangeDisplaySettingsEx(ByteBuffer lpszDeviceName, DEVMODE lpDevMode, long hwnd, int dwflags, long lParam) {
+		if ( CHECKS )
+			checkNT2(lpszDeviceName);
+		return nChangeDisplaySettingsEx(memAddress(lpszDeviceName), lpDevMode == null ? NULL : lpDevMode.address(), hwnd, dwflags, lParam);
+	}
+
+	/** CharSequence version of: {@link #ChangeDisplaySettingsEx} */
+	public static int ChangeDisplaySettingsEx(CharSequence lpszDeviceName, DEVMODE lpDevMode, long hwnd, int dwflags, long lParam) {
+		APIBuffer __buffer = apiBuffer();
+		int lpszDeviceNameEncoded = __buffer.stringParamUTF16(lpszDeviceName, true);
+		return nChangeDisplaySettingsEx(__buffer.address(lpszDeviceNameEncoded), lpDevMode == null ? NULL : lpDevMode.address(), hwnd, dwflags, lParam);
 	}
 
 }

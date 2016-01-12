@@ -13,8 +13,81 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Native bindings to gdi32.dll */
+/** Native bindings to wingdi.h and gdi32.dll. */
 public class GDI32 {
+
+	/** Display device state flags. */
+	public static final int
+		DISPLAY_DEVICE_ATTACHED_TO_DESKTOP = 0x1,
+		DISPLAY_DEVICE_MULTI_DRIVER        = 0x2,
+		DISPLAY_DEVICE_PRIMARY_DEVICE      = 0x4,
+		DISPLAY_DEVICE_MIRRORING_DRIVER    = 0x8,
+		DISPLAY_DEVICE_VGA_COMPATIBLE      = 0x10,
+		DISPLAY_DEVICE_REMOVABLE           = 0x20,
+		DISPLAY_DEVICE_MODESPRUNED         = 0x8000000,
+		DISPLAY_DEVICE_REMOTE              = 0x4000000,
+		DISPLAY_DEVICE_DISCONNECT          = 0x2000000,
+		DISPLAY_DEVICE_TS_COMPATIBLE       = 0x200000,
+		DISPLAY_DEVICE_UNSAFE_MODES_ON     = 0x80000;
+
+	/** Child display device state flags. */
+	public static final int
+		DISPLAY_DEVICE_ACTIVE   = 0x1,
+		DISPLAY_DEVICE_ATTACHED = 0x2;
+
+	/** {@link DEVMODE} specification version. */
+	public static final int DM_SPECVERSION = 0x401;
+
+	/** {@link DEVMODE} field selection bits. */
+	public static final int
+		DM_ORIENTATION        = 0x1,
+		DM_PAPERSIZE          = 0x2,
+		DM_PAPERLENGTH        = 0x4,
+		DM_PAPERWIDTH         = 0x8,
+		DM_SCALE              = 0x10,
+		DM_POSITION           = 0x20,
+		DM_NUP                = 0x40,
+		DM_DISPLAYORIENTATION = 0x80,
+		DM_COPIES             = 0x100,
+		DM_DEFAULTSOURCE      = 0x200,
+		DM_PRINTQUALITY       = 0x400,
+		DM_COLOR              = 0x800,
+		DM_DUPLEX             = 0x1000,
+		DM_YRESOLUTION        = 0x2000,
+		DM_TTOPTION           = 0x4000,
+		DM_COLLATE            = 0x8000,
+		DM_FORMNAME           = 0x10000,
+		DM_LOGPIXELS          = 0x20000,
+		DM_BITSPERPEL         = 0x40000,
+		DM_PELSWIDTH          = 0x80000,
+		DM_PELSHEIGHT         = 0x100000,
+		DM_DISPLAYFLAGS       = 0x200000,
+		DM_DISPLAYFREQUENCY   = 0x400000,
+		DM_ICMMETHOD          = 0x800000,
+		DM_ICMINTENT          = 0x1000000,
+		DM_MEDIATYPE          = 0x2000000,
+		DM_DITHERTYPE         = 0x4000000,
+		DM_PANNINGWIDTH       = 0x8000000,
+		DM_PANNINGHEIGHT      = 0x10000000,
+		DM_DISPLAYFIXEDOUTPUT = 0x20000000;
+
+	/** {@link DEVMODE} {@code dmDisplayOrientation} specifications. */
+	public static final int
+		DMDO_DEFAULT = 0x0,
+		DMDO_90      = 0x1,
+		DMDO_180     = 0x2,
+		DMDO_270     = 0x3;
+
+	/** {@link DEVMODE} {@code dmDisplayFixedOutput} specifications. */
+	public static final int
+		DMDFO_DEFAULT = 0x0,
+		DMDFO_STRETCH = 0x1,
+		DMDFO_CENTER  = 0x2;
+
+	/** {@link DEVMODE} {@code dmDisplayFlags} flags. */
+	public static final int
+		DM_INTERLACED           = 0x2,
+		DMDISPLAYFLAGS_TEXTMODE = 0x4;
 
 	/** {@link PIXELFORMATDESCRIPTOR} flags. */
 	public static final int

@@ -4,20 +4,20 @@
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 #include "common_tools.h"
-#include "WindowsLWJGL.h"
+#define APIENTRY __stdcall
 
-typedef int (APIENTRY *ChoosePixelFormatPROC) (HDC, const PIXELFORMATDESCRIPTOR *);
-typedef int (APIENTRY *DescribePixelFormatPROC) (HDC, int, UINT, LPPIXELFORMATDESCRIPTOR);
-typedef int (APIENTRY *GetPixelFormatPROC) (HDC);
-typedef BOOL (APIENTRY *SetPixelFormatPROC) (HDC, int, const PIXELFORMATDESCRIPTOR *);
-typedef BOOL (APIENTRY *SwapBuffersPROC) (HDC);
+typedef jint (APIENTRY *ChoosePixelFormatPROC) (intptr_t, const intptr_t);
+typedef jint (APIENTRY *DescribePixelFormatPROC) (intptr_t, jint, jint, intptr_t);
+typedef jint (APIENTRY *GetPixelFormatPROC) (intptr_t);
+typedef jint (APIENTRY *SetPixelFormatPROC) (intptr_t, jint, const intptr_t);
+typedef jint (APIENTRY *SwapBuffersPROC) (intptr_t);
 
 EXTERN_C_ENTER
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_GDI32_nChoosePixelFormat(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong hdcAddress, jlong pixelFormatDescriptorAddress) {
 	ChoosePixelFormatPROC ChoosePixelFormat = (ChoosePixelFormatPROC)(intptr_t)__functionAddress;
-	HDC hdc = (HDC)(intptr_t)hdcAddress;
-	const PIXELFORMATDESCRIPTOR *pixelFormatDescriptor = (const PIXELFORMATDESCRIPTOR *)(intptr_t)pixelFormatDescriptorAddress;
+	intptr_t hdc = (intptr_t)hdcAddress;
+	const intptr_t pixelFormatDescriptor = (const intptr_t)pixelFormatDescriptorAddress;
 	jint __result;
 	UNUSED_PARAMS(__env, clazz)
 	__result = (jint)ChoosePixelFormat(hdc, pixelFormatDescriptor);
@@ -27,8 +27,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_GDI32_nChoosePixelFormat(JN
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_GDI32_nDescribePixelFormat(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong hdcAddress, jint pixelFormat, jint bytes, jlong pixelFormatDescriptorAddress) {
 	DescribePixelFormatPROC DescribePixelFormat = (DescribePixelFormatPROC)(intptr_t)__functionAddress;
-	HDC hdc = (HDC)(intptr_t)hdcAddress;
-	LPPIXELFORMATDESCRIPTOR pixelFormatDescriptor = (LPPIXELFORMATDESCRIPTOR)(intptr_t)pixelFormatDescriptorAddress;
+	intptr_t hdc = (intptr_t)hdcAddress;
+	intptr_t pixelFormatDescriptor = (intptr_t)pixelFormatDescriptorAddress;
 	jint __result;
 	UNUSED_PARAMS(__env, clazz)
 	__result = (jint)DescribePixelFormat(hdc, pixelFormat, bytes, pixelFormatDescriptor);
@@ -38,7 +38,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_GDI32_nDescribePixelFormat(
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_GDI32_nGetPixelFormat(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong hdcAddress) {
 	GetPixelFormatPROC GetPixelFormat = (GetPixelFormatPROC)(intptr_t)__functionAddress;
-	HDC hdc = (HDC)(intptr_t)hdcAddress;
+	intptr_t hdc = (intptr_t)hdcAddress;
 	jint __result;
 	UNUSED_PARAMS(__env, clazz)
 	__result = (jint)GetPixelFormat(hdc);
@@ -48,8 +48,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_GDI32_nGetPixelFormat(JNIEn
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_GDI32_nSetPixelFormat(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong hdcAddress, jint pixelFormat, jlong pixelFormatDescriptorAddress) {
 	SetPixelFormatPROC SetPixelFormat = (SetPixelFormatPROC)(intptr_t)__functionAddress;
-	HDC hdc = (HDC)(intptr_t)hdcAddress;
-	const PIXELFORMATDESCRIPTOR *pixelFormatDescriptor = (const PIXELFORMATDESCRIPTOR *)(intptr_t)pixelFormatDescriptorAddress;
+	intptr_t hdc = (intptr_t)hdcAddress;
+	const intptr_t pixelFormatDescriptor = (const intptr_t)pixelFormatDescriptorAddress;
 	jint __result;
 	UNUSED_PARAMS(__env, clazz)
 	__result = (jint)SetPixelFormat(hdc, pixelFormat, pixelFormatDescriptor);
@@ -59,7 +59,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_GDI32_nSetPixelFormat(JNIEn
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_GDI32_nSwapBuffers(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong dcAddress) {
 	SwapBuffersPROC SwapBuffers = (SwapBuffersPROC)(intptr_t)__functionAddress;
-	HDC dc = (HDC)(intptr_t)dcAddress;
+	intptr_t dc = (intptr_t)dcAddress;
 	jint __result;
 	UNUSED_PARAMS(__env, clazz)
 	__result = (jint)SwapBuffers(dc);

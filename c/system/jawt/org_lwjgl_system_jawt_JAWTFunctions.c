@@ -11,17 +11,17 @@ ENABLE_WARNINGS()
 	#define APIENTRY
 #endif
 
-typedef jboolean (APIENTRY *JAWT_GetAWTPROC) (JNIEnv *, JAWT *);
-typedef JAWT_DrawingSurface * (APIENTRY *JAWT_GetDrawingSurfacePROC) (JNIEnv *, jobject);
+typedef jboolean (APIENTRY *JAWT_GetAWTPROC) (JNIEnv *, intptr_t);
+typedef intptr_t (APIENTRY *JAWT_GetDrawingSurfacePROC) (JNIEnv *, jobject);
 typedef void (APIENTRY *JAWT_LockPROC) (JNIEnv *);
 typedef void (APIENTRY *JAWT_UnlockPROC) (JNIEnv *);
-typedef jobject (APIENTRY *JAWT_GetComponentPROC) (JNIEnv *, void *);
+typedef jobject (APIENTRY *JAWT_GetComponentPROC) (JNIEnv *, intptr_t);
 
 EXTERN_C_ENTER
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_system_jawt_JAWTFunctions_nJAWT_1GetAWT(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong awtAddress) {
 	JAWT_GetAWTPROC JAWT_GetAWT = (JAWT_GetAWTPROC)(intptr_t)__functionAddress;
-	JAWT *awt = (JAWT *)(intptr_t)awtAddress;
+	intptr_t awt = (intptr_t)awtAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jboolean)JAWT_GetAWT(__env, awt);
 }
@@ -29,7 +29,7 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_system_jawt_JAWTFunctions_nJAWT_1GetAW
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_jawt_JAWTFunctions_nJAWT_1GetDrawingSurface(JNIEnv *__env, jclass clazz, jlong __functionAddress, jobject target) {
 	JAWT_GetDrawingSurfacePROC JAWT_GetDrawingSurface = (JAWT_GetDrawingSurfacePROC)(intptr_t)__functionAddress;
 	UNUSED_PARAMS(__env, clazz)
-	return (jlong)(intptr_t)JAWT_GetDrawingSurface(__env, target);
+	return (jlong)JAWT_GetDrawingSurface(__env, target);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_jawt_JAWTFunctions_nJAWT_1Lock(JNIEnv *__env, jclass clazz, jlong __functionAddress) {
@@ -46,7 +46,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_jawt_JAWTFunctions_nJAWT_1Unlock(JN
 
 JNIEXPORT jobject JNICALL Java_org_lwjgl_system_jawt_JAWTFunctions_nJAWT_1GetComponent(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong platformInfoAddress) {
 	JAWT_GetComponentPROC JAWT_GetComponent = (JAWT_GetComponentPROC)(intptr_t)__functionAddress;
-	void *platformInfo = (void *)(intptr_t)platformInfoAddress;
+	intptr_t platformInfo = (intptr_t)platformInfoAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jobject)JAWT_GetComponent(__env, platformInfo);
 }
