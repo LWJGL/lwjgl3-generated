@@ -110,7 +110,7 @@ public class DynamicLinkLoader {
 	/** CharSequence version of: {@link #dlopen} */
 	public static long dlopen(CharSequence path, int mode) {
 		APIBuffer __buffer = apiBuffer();
-		int pathEncoded = __buffer.stringParamASCII(path, true);
+		int pathEncoded = path == null ? 0 : __buffer.stringParamASCII(path, true);
 		return ndlopen(__buffer.addressSafe(path, pathEncoded), mode);
 	}
 

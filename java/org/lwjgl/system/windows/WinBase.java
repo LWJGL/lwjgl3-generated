@@ -75,7 +75,7 @@ public class WinBase {
 	/** CharSequence version of: {@link #GetModuleHandle} */
 	public static long GetModuleHandle(CharSequence moduleName) {
 		APIBuffer __buffer = apiBuffer();
-		int moduleNameEncoded = __buffer.stringParamUTF16(moduleName, true);
+		int moduleNameEncoded = moduleName == null ? 0 : __buffer.stringParamUTF16(moduleName, true);
 		return nGetModuleHandle(__buffer.addressSafe(moduleName, moduleNameEncoded));
 	}
 

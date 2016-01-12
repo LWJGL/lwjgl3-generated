@@ -123,7 +123,7 @@ public class SOFTLoopback {
 	/** CharSequence version of: {@link #alcLoopbackOpenDeviceSOFT LoopbackOpenDeviceSOFT} */
 	public static long alcLoopbackOpenDeviceSOFT(CharSequence deviceName) {
 		APIBuffer __buffer = apiBuffer();
-		int deviceNameEncoded = __buffer.stringParamUTF8(deviceName, true);
+		int deviceNameEncoded = deviceName == null ? 0 : __buffer.stringParamUTF8(deviceName, true);
 		return nalcLoopbackOpenDeviceSOFT(__buffer.addressSafe(deviceName, deviceNameEncoded));
 	}
 

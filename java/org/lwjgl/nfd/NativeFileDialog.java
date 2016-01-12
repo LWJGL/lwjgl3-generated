@@ -113,8 +113,8 @@ public class NativeFileDialog {
 		if ( CHECKS )
 			checkBuffer(outPath, 1);
 		APIBuffer __buffer = apiBuffer();
-		int filterListEncoded = __buffer.stringParamUTF8(filterList, true);
-		int defaultPathEncoded = __buffer.stringParamUTF8(defaultPath, true);
+		int filterListEncoded = filterList == null ? 0 : __buffer.stringParamUTF8(filterList, true);
+		int defaultPathEncoded = defaultPath == null ? 0 : __buffer.stringParamUTF8(defaultPath, true);
 		return nNFD_OpenDialog(__buffer.addressSafe(filterList, filterListEncoded), __buffer.addressSafe(defaultPath, defaultPathEncoded), memAddress(outPath));
 	}
 
@@ -145,8 +145,8 @@ public class NativeFileDialog {
 	/** CharSequence version of: {@link #NFD_OpenDialogMultiple OpenDialogMultiple} */
 	public static int NFD_OpenDialogMultiple(CharSequence filterList, CharSequence defaultPath, NFDPathSet outPaths) {
 		APIBuffer __buffer = apiBuffer();
-		int filterListEncoded = __buffer.stringParamUTF8(filterList, true);
-		int defaultPathEncoded = __buffer.stringParamUTF8(defaultPath, true);
+		int filterListEncoded = filterList == null ? 0 : __buffer.stringParamUTF8(filterList, true);
+		int defaultPathEncoded = defaultPath == null ? 0 : __buffer.stringParamUTF8(defaultPath, true);
 		return nNFD_OpenDialogMultiple(__buffer.addressSafe(filterList, filterListEncoded), __buffer.addressSafe(defaultPath, defaultPathEncoded), outPaths.address());
 	}
 
@@ -187,8 +187,8 @@ public class NativeFileDialog {
 		if ( CHECKS )
 			checkBuffer(outPath, 1);
 		APIBuffer __buffer = apiBuffer();
-		int filterListEncoded = __buffer.stringParamUTF8(filterList, true);
-		int defaultPathEncoded = __buffer.stringParamUTF8(defaultPath, true);
+		int filterListEncoded = filterList == null ? 0 : __buffer.stringParamUTF8(filterList, true);
+		int defaultPathEncoded = defaultPath == null ? 0 : __buffer.stringParamUTF8(defaultPath, true);
 		return nNFD_SaveDialog(__buffer.addressSafe(filterList, filterListEncoded), __buffer.addressSafe(defaultPath, defaultPathEncoded), memAddress(outPath));
 	}
 

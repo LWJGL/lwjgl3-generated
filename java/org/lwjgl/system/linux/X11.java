@@ -472,7 +472,7 @@ public class X11 {
 	/** CharSequence version of: {@link #XOpenDisplay} */
 	public static long XOpenDisplay(CharSequence display_name) {
 		APIBuffer __buffer = apiBuffer();
-		int display_nameEncoded = __buffer.stringParamASCII(display_name, true);
+		int display_nameEncoded = display_name == null ? 0 : __buffer.stringParamASCII(display_name, true);
 		return nXOpenDisplay(__buffer.addressSafe(display_name, display_nameEncoded));
 	}
 

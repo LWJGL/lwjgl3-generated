@@ -1184,7 +1184,7 @@ public class OVR {
 			checkPointer(session);
 		APIBuffer __buffer = apiBuffer();
 		int propertyNameEncoded = __buffer.stringParamASCII(propertyName, true);
-		int defaultValEncoded = __buffer.stringParamUTF8(defaultVal, true);
+		int defaultValEncoded = defaultVal == null ? 0 : __buffer.stringParamUTF8(defaultVal, true);
 		long __result = novr_GetString(session, __buffer.address(propertyNameEncoded), __buffer.addressSafe(defaultVal, defaultValEncoded));
 		return memDecodeUTF8(__result);
 	}

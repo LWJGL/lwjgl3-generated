@@ -108,7 +108,7 @@ public class ALC11 {
 	/** CharSequence version of: {@link #alcCaptureOpenDevice CaptureOpenDevice} */
 	public static long alcCaptureOpenDevice(CharSequence devicename, int frequency, int format, int buffersize) {
 		APIBuffer __buffer = apiBuffer();
-		int devicenameEncoded = __buffer.stringParamUTF8(devicename, true);
+		int devicenameEncoded = devicename == null ? 0 : __buffer.stringParamUTF8(devicename, true);
 		return nalcCaptureOpenDevice(__buffer.addressSafe(devicename, devicenameEncoded), frequency, format, buffersize);
 	}
 

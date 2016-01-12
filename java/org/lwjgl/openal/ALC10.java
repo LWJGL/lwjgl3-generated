@@ -146,7 +146,7 @@ public class ALC10 {
 	/** CharSequence version of: {@link #alcOpenDevice OpenDevice} */
 	public static long alcOpenDevice(CharSequence deviceSpecifier) {
 		APIBuffer __buffer = apiBuffer();
-		int deviceSpecifierEncoded = __buffer.stringParamUTF8(deviceSpecifier, true);
+		int deviceSpecifierEncoded = deviceSpecifier == null ? 0 : __buffer.stringParamUTF8(deviceSpecifier, true);
 		return nalcOpenDevice(__buffer.addressSafe(deviceSpecifier, deviceSpecifierEncoded));
 	}
 

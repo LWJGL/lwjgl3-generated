@@ -2044,7 +2044,7 @@ public class User32 {
 	/** CharSequence version of: {@link #EnumDisplayDevices} */
 	public static int EnumDisplayDevices(CharSequence lpDevice, int iDevNum, DISPLAY_DEVICE lpDisplayDevice, int dwFlags) {
 		APIBuffer __buffer = apiBuffer();
-		int lpDeviceEncoded = __buffer.stringParamUTF16(lpDevice, true);
+		int lpDeviceEncoded = lpDevice == null ? 0 : __buffer.stringParamUTF16(lpDevice, true);
 		return nEnumDisplayDevices(__buffer.addressSafe(lpDevice, lpDeviceEncoded), iDevNum, lpDisplayDevice.address(), dwFlags);
 	}
 
@@ -2093,7 +2093,7 @@ public class User32 {
 	/** CharSequence version of: {@link #EnumDisplaySettingsEx} */
 	public static int EnumDisplaySettingsEx(CharSequence lpszDeviceName, int iModeNum, DEVMODE lpDevMode, int dwFlags) {
 		APIBuffer __buffer = apiBuffer();
-		int lpszDeviceNameEncoded = __buffer.stringParamUTF16(lpszDeviceName, true);
+		int lpszDeviceNameEncoded = lpszDeviceName == null ? 0 : __buffer.stringParamUTF16(lpszDeviceName, true);
 		return nEnumDisplaySettingsEx(__buffer.addressSafe(lpszDeviceName, lpszDeviceNameEncoded), iModeNum, lpDevMode.address(), dwFlags);
 	}
 
@@ -2135,7 +2135,7 @@ public class User32 {
 	/** CharSequence version of: {@link #ChangeDisplaySettingsEx} */
 	public static int ChangeDisplaySettingsEx(CharSequence lpszDeviceName, DEVMODE lpDevMode, long hwnd, int dwflags, long lParam) {
 		APIBuffer __buffer = apiBuffer();
-		int lpszDeviceNameEncoded = __buffer.stringParamUTF16(lpszDeviceName, true);
+		int lpszDeviceNameEncoded = lpszDeviceName == null ? 0 : __buffer.stringParamUTF16(lpszDeviceName, true);
 		return nChangeDisplaySettingsEx(__buffer.addressSafe(lpszDeviceName, lpszDeviceNameEncoded), lpDevMode == null ? NULL : lpDevMode.address(), hwnd, dwflags, lParam);
 	}
 
