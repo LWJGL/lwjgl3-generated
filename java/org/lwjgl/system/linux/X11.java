@@ -396,14 +396,14 @@ public class X11 {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		XOpenDisplay,
-		XDefaultScreen,
-		XRootWindow,
-		XCreateColormap,
-		XFreeColormap,
-		XCreateWindow,
-		XDestroyWindow,
-		XFree;
+		__XOpenDisplay,
+		__XDefaultScreen,
+		__XRootWindow,
+		__XCreateColormap,
+		__XFreeColormap,
+		__XCreateWindow,
+		__XDestroyWindow,
+		__XFree;
 
 	@JavadocExclude
 	protected X11() {
@@ -412,14 +412,14 @@ public class X11 {
 
 	@JavadocExclude
 	public X11(FunctionProvider provider) {
-		XOpenDisplay = checkFunctionAddress(provider.getFunctionAddress("XOpenDisplay"));
-		XDefaultScreen = checkFunctionAddress(provider.getFunctionAddress("XDefaultScreen"));
-		XRootWindow = checkFunctionAddress(provider.getFunctionAddress("XRootWindow"));
-		XCreateColormap = checkFunctionAddress(provider.getFunctionAddress("XCreateColormap"));
-		XFreeColormap = checkFunctionAddress(provider.getFunctionAddress("XFreeColormap"));
-		XCreateWindow = checkFunctionAddress(provider.getFunctionAddress("XCreateWindow"));
-		XDestroyWindow = checkFunctionAddress(provider.getFunctionAddress("XDestroyWindow"));
-		XFree = checkFunctionAddress(provider.getFunctionAddress("XFree"));
+		__XOpenDisplay = checkFunctionAddress(provider.getFunctionAddress("XOpenDisplay"));
+		__XDefaultScreen = checkFunctionAddress(provider.getFunctionAddress("XDefaultScreen"));
+		__XRootWindow = checkFunctionAddress(provider.getFunctionAddress("XRootWindow"));
+		__XCreateColormap = checkFunctionAddress(provider.getFunctionAddress("XCreateColormap"));
+		__XFreeColormap = checkFunctionAddress(provider.getFunctionAddress("XFreeColormap"));
+		__XCreateWindow = checkFunctionAddress(provider.getFunctionAddress("XCreateWindow"));
+		__XDestroyWindow = checkFunctionAddress(provider.getFunctionAddress("XDestroyWindow"));
+		__XFree = checkFunctionAddress(provider.getFunctionAddress("XFree"));
 	}
 
 	// --- [ Function Addresses ] ---
@@ -448,7 +448,7 @@ public class X11 {
 	/** Unsafe version of {@link #XOpenDisplay} */
 	@JavadocExclude
 	public static long nXOpenDisplay(long display_name) {
-		long __functionAddress = getInstance().XOpenDisplay;
+		long __functionAddress = getInstance().__XOpenDisplay;
 		return invokePP(__functionAddress, display_name);
 	}
 
@@ -484,7 +484,7 @@ public class X11 {
 	 * @param display the connection to the X server
 	 */
 	public static int XDefaultScreen(long display) {
-		long __functionAddress = getInstance().XDefaultScreen;
+		long __functionAddress = getInstance().__XDefaultScreen;
 		if ( CHECKS )
 			checkPointer(display);
 		return invokePI(__functionAddress, display);
@@ -499,7 +499,7 @@ public class X11 {
 	 * @param screen_number the appropriate screen number on the host server
 	 */
 	public static long XRootWindow(long display, int screen_number) {
-		long __functionAddress = getInstance().XRootWindow;
+		long __functionAddress = getInstance().__XRootWindow;
 		if ( CHECKS )
 			checkPointer(display);
 		return invokePIP(__functionAddress, display, screen_number);
@@ -510,7 +510,7 @@ public class X11 {
 	/** Unsafe version of {@link #XCreateColormap} */
 	@JavadocExclude
 	public static long nXCreateColormap(long display, long w, long visual, int alloc) {
-		long __functionAddress = getInstance().XCreateColormap;
+		long __functionAddress = getInstance().__XCreateColormap;
 		if ( CHECKS )
 			checkPointer(display);
 		return invokePPPIP(__functionAddress, display, w, visual, alloc);
@@ -541,7 +541,7 @@ public class X11 {
 	 * @param colormap the colormap to destroy
 	 */
 	public static int XFreeColormap(long display, long colormap) {
-		long __functionAddress = getInstance().XFreeColormap;
+		long __functionAddress = getInstance().__XFreeColormap;
 		if ( CHECKS )
 			checkPointer(display);
 		return invokePPI(__functionAddress, display, colormap);
@@ -552,7 +552,7 @@ public class X11 {
 	/** Unsafe version of {@link #XCreateWindow} */
 	@JavadocExclude
 	public static long nXCreateWindow(long display, long parent, int x, int y, int width, int height, int border_width, int depth, int windowClass, long visual, long valuemask, long attributes) {
-		long __functionAddress = getInstance().XCreateWindow;
+		long __functionAddress = getInstance().__XCreateWindow;
 		if ( CHECKS )
 			checkPointer(display);
 		return invokePPIIIIIIIPPPP(__functionAddress, display, parent, x, y, width, height, border_width, depth, windowClass, visual, valuemask, attributes);
@@ -602,7 +602,7 @@ public class X11 {
 	 * @param w       the window
 	 */
 	public static int XDestroyWindow(long display, long w) {
-		long __functionAddress = getInstance().XDestroyWindow;
+		long __functionAddress = getInstance().__XDestroyWindow;
 		if ( CHECKS )
 			checkPointer(display);
 		return invokePPI(__functionAddress, display, w);
@@ -613,7 +613,7 @@ public class X11 {
 	/** Unsafe version of {@link #XFree} */
 	@JavadocExclude
 	public static int nXFree(long data) {
-		long __functionAddress = getInstance().XFree;
+		long __functionAddress = getInstance().__XFree;
 		return invokePI(__functionAddress, data);
 	}
 

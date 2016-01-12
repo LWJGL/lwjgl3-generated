@@ -851,38 +851,38 @@ public class User32 {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		RegisterClassEx,
-		UnregisterClass,
-		CreateWindowEx,
-		DestroyWindow,
-		DefWindowProc,
-		ShowWindow,
-		UpdateWindow,
-		SetWindowPos,
-		SetWindowText,
-		GetMessage,
-		PeekMessage,
-		TranslateMessage,
-		WaitMessage,
-		DispatchMessage,
-		PostMessage,
-		AdjustWindowRectEx,
-		GetWindowRect,
-		MoveWindow,
-		SetWindowLongPtr,
-		GetWindowLongPtr,
-		SetClassLongPtr,
-		GetClassLongPtr,
-		LoadIcon,
-		LoadCursor,
-		GetDC,
-		ReleaseDC,
-		GetSystemMetrics,
-		RegisterTouchWindow,
-		UnregisterTouchWindow,
-		IsTouchWindow,
-		GetTouchInputInfo,
-		CloseTouchInputHandle;
+		__RegisterClassEx,
+		__UnregisterClass,
+		__CreateWindowEx,
+		__DestroyWindow,
+		__DefWindowProc,
+		__ShowWindow,
+		__UpdateWindow,
+		__SetWindowPos,
+		__SetWindowText,
+		__GetMessage,
+		__PeekMessage,
+		__TranslateMessage,
+		__WaitMessage,
+		__DispatchMessage,
+		__PostMessage,
+		__AdjustWindowRectEx,
+		__GetWindowRect,
+		__MoveWindow,
+		__SetWindowLongPtr,
+		__GetWindowLongPtr,
+		__SetClassLongPtr,
+		__GetClassLongPtr,
+		__LoadIcon,
+		__LoadCursor,
+		__GetDC,
+		__ReleaseDC,
+		__GetSystemMetrics,
+		__RegisterTouchWindow,
+		__UnregisterTouchWindow,
+		__IsTouchWindow,
+		__GetTouchInputInfo,
+		__CloseTouchInputHandle,
 
 	@JavadocExclude
 	protected User32() {
@@ -891,38 +891,38 @@ public class User32 {
 
 	@JavadocExclude
 	public User32(FunctionProvider provider) {
-		RegisterClassEx = checkFunctionAddress(provider.getFunctionAddress("RegisterClassExW"));
-		UnregisterClass = checkFunctionAddress(provider.getFunctionAddress("UnregisterClassW"));
-		CreateWindowEx = checkFunctionAddress(provider.getFunctionAddress("CreateWindowExW"));
-		DestroyWindow = checkFunctionAddress(provider.getFunctionAddress("DestroyWindow"));
-		DefWindowProc = checkFunctionAddress(provider.getFunctionAddress("DefWindowProcW"));
-		ShowWindow = checkFunctionAddress(provider.getFunctionAddress("ShowWindow"));
-		UpdateWindow = checkFunctionAddress(provider.getFunctionAddress("UpdateWindow"));
-		SetWindowPos = checkFunctionAddress(provider.getFunctionAddress("SetWindowPos"));
-		SetWindowText = checkFunctionAddress(provider.getFunctionAddress("SetWindowTextW"));
-		GetMessage = checkFunctionAddress(provider.getFunctionAddress("GetMessageW"));
-		PeekMessage = checkFunctionAddress(provider.getFunctionAddress("PeekMessageW"));
-		TranslateMessage = checkFunctionAddress(provider.getFunctionAddress("TranslateMessage"));
-		WaitMessage = checkFunctionAddress(provider.getFunctionAddress("WaitMessage"));
-		DispatchMessage = checkFunctionAddress(provider.getFunctionAddress("DispatchMessageW"));
-		PostMessage = checkFunctionAddress(provider.getFunctionAddress("PostMessageW"));
-		AdjustWindowRectEx = checkFunctionAddress(provider.getFunctionAddress("AdjustWindowRectEx"));
-		GetWindowRect = checkFunctionAddress(provider.getFunctionAddress("GetWindowRect"));
-		MoveWindow = checkFunctionAddress(provider.getFunctionAddress("MoveWindow"));
-		SetWindowLongPtr = checkFunctionAddress(provider.getFunctionAddress("SetWindowLongPtrW"));
-		GetWindowLongPtr = checkFunctionAddress(provider.getFunctionAddress("GetWindowLongPtrW"));
-		SetClassLongPtr = checkFunctionAddress(provider.getFunctionAddress("SetClassLongPtrW"));
-		GetClassLongPtr = checkFunctionAddress(provider.getFunctionAddress("GetClassLongPtrW"));
-		LoadIcon = checkFunctionAddress(provider.getFunctionAddress("LoadIconW"));
-		LoadCursor = checkFunctionAddress(provider.getFunctionAddress("LoadCursorW"));
-		GetDC = checkFunctionAddress(provider.getFunctionAddress("GetDC"));
-		ReleaseDC = checkFunctionAddress(provider.getFunctionAddress("ReleaseDC"));
-		GetSystemMetrics = checkFunctionAddress(provider.getFunctionAddress("GetSystemMetrics"));
-		RegisterTouchWindow = provider.getFunctionAddress("RegisterTouchWindow");
-		UnregisterTouchWindow = provider.getFunctionAddress("UnregisterTouchWindow");
-		IsTouchWindow = provider.getFunctionAddress("IsTouchWindow");
-		GetTouchInputInfo = provider.getFunctionAddress("GetTouchInputInfo");
-		CloseTouchInputHandle = provider.getFunctionAddress("CloseTouchInputHandle");
+		__RegisterClassEx = checkFunctionAddress(provider.getFunctionAddress("RegisterClassExW"));
+		__UnregisterClass = checkFunctionAddress(provider.getFunctionAddress("UnregisterClassW"));
+		__CreateWindowEx = checkFunctionAddress(provider.getFunctionAddress("CreateWindowExW"));
+		__DestroyWindow = checkFunctionAddress(provider.getFunctionAddress("DestroyWindow"));
+		__DefWindowProc = checkFunctionAddress(provider.getFunctionAddress("DefWindowProcW"));
+		__ShowWindow = checkFunctionAddress(provider.getFunctionAddress("ShowWindow"));
+		__UpdateWindow = checkFunctionAddress(provider.getFunctionAddress("UpdateWindow"));
+		__SetWindowPos = checkFunctionAddress(provider.getFunctionAddress("SetWindowPos"));
+		__SetWindowText = checkFunctionAddress(provider.getFunctionAddress("SetWindowTextW"));
+		__GetMessage = checkFunctionAddress(provider.getFunctionAddress("GetMessageW"));
+		__PeekMessage = checkFunctionAddress(provider.getFunctionAddress("PeekMessageW"));
+		__TranslateMessage = checkFunctionAddress(provider.getFunctionAddress("TranslateMessage"));
+		__WaitMessage = checkFunctionAddress(provider.getFunctionAddress("WaitMessage"));
+		__DispatchMessage = checkFunctionAddress(provider.getFunctionAddress("DispatchMessageW"));
+		__PostMessage = checkFunctionAddress(provider.getFunctionAddress("PostMessageW"));
+		__AdjustWindowRectEx = checkFunctionAddress(provider.getFunctionAddress("AdjustWindowRectEx"));
+		__GetWindowRect = checkFunctionAddress(provider.getFunctionAddress("GetWindowRect"));
+		__MoveWindow = checkFunctionAddress(provider.getFunctionAddress("MoveWindow"));
+		__SetWindowLongPtr = checkFunctionAddress(provider.getFunctionAddress("SetWindowLongPtrW"));
+		__GetWindowLongPtr = checkFunctionAddress(provider.getFunctionAddress("GetWindowLongPtrW"));
+		__SetClassLongPtr = checkFunctionAddress(provider.getFunctionAddress("SetClassLongPtrW"));
+		__GetClassLongPtr = checkFunctionAddress(provider.getFunctionAddress("GetClassLongPtrW"));
+		__LoadIcon = checkFunctionAddress(provider.getFunctionAddress("LoadIconW"));
+		__LoadCursor = checkFunctionAddress(provider.getFunctionAddress("LoadCursorW"));
+		__GetDC = checkFunctionAddress(provider.getFunctionAddress("GetDC"));
+		__ReleaseDC = checkFunctionAddress(provider.getFunctionAddress("ReleaseDC"));
+		__GetSystemMetrics = checkFunctionAddress(provider.getFunctionAddress("GetSystemMetrics"));
+		__RegisterTouchWindow = provider.getFunctionAddress("RegisterTouchWindow");
+		__UnregisterTouchWindow = provider.getFunctionAddress("UnregisterTouchWindow");
+		__IsTouchWindow = provider.getFunctionAddress("IsTouchWindow");
+		__GetTouchInputInfo = provider.getFunctionAddress("GetTouchInputInfo");
+		__CloseTouchInputHandle = provider.getFunctionAddress("CloseTouchInputHandle");
 	}
 
 	// --- [ Function Addresses ] ---
@@ -955,7 +955,7 @@ public class User32 {
 	/** Unsafe version of {@link #RegisterClassEx} */
 	@JavadocExclude
 	public static short nRegisterClassEx(long lpwcx) {
-		long __functionAddress = getInstance().RegisterClassEx;
+		long __functionAddress = getInstance().__RegisterClassEx;
 		return nRegisterClassEx(__functionAddress, lpwcx);
 	}
 
@@ -977,7 +977,7 @@ public class User32 {
 	/** Unsafe version of {@link #UnregisterClass} */
 	@JavadocExclude
 	public static int nUnregisterClass(long lpClassName, long hInstance) {
-		long __functionAddress = getInstance().UnregisterClass;
+		long __functionAddress = getInstance().__UnregisterClass;
 		return nUnregisterClass(__functionAddress, lpClassName, hInstance);
 	}
 
@@ -1012,7 +1012,7 @@ public class User32 {
 	/** Unsafe version of {@link #CreateWindowEx} */
 	@JavadocExclude
 	public static long nCreateWindowEx(int dwExStyle, long lpClassName, long lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, long hWndParent, long hMenu, long hInstance, long lpParam) {
-		long __functionAddress = getInstance().CreateWindowEx;
+		long __functionAddress = getInstance().__CreateWindowEx;
 		return nCreateWindowEx(__functionAddress, dwExStyle, lpClassName, lpWindowName, dwStyle, x, y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
 	}
 
@@ -1066,7 +1066,7 @@ public class User32 {
 	 * @param hWnd a handle to the window to be destroyed
 	 */
 	public static int DestroyWindow(long hWnd) {
-		long __functionAddress = getInstance().DestroyWindow;
+		long __functionAddress = getInstance().__DestroyWindow;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return nDestroyWindow(__functionAddress, hWnd);
@@ -1084,7 +1084,7 @@ public class User32 {
 	 * @param lParam additional message information. The content of this parameter depends on the value of the {@code Msg} parameter.
 	 */
 	public static long DefWindowProc(long hWnd, int Msg, long wParam, long lParam) {
-		long __functionAddress = getInstance().DefWindowProc;
+		long __functionAddress = getInstance().__DefWindowProc;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return callPIPPP(__functionAddress, hWnd, Msg, wParam, lParam);
@@ -1101,7 +1101,7 @@ public class User32 {
 	 *                 value obtained by the {@code WinMain} function in its {@code nCmdShow} parameter. In subsequent calls, this parameter can be one of:<br>{@link #SW_HIDE}, {@link #SW_SHOWNORMAL}, {@link #SW_NORMAL}, {@link #SW_SHOWMINIMIZED}, {@link #SW_SHOWMAXIMIZED}, {@link #SW_MAXIMIZE}, {@link #SW_SHOWNOACTIVATE}, {@link #SW_SHOW}, {@link #SW_MINIMIZE}, {@link #SW_SHOWMINNOACTIVE}, {@link #SW_SHOWNA}, {@link #SW_RESTORE}, {@link #SW_SHOWDEFAULT}, {@link #SW_FORCEMINIMIZE}, {@link #SW_MAX}
 	 */
 	public static int ShowWindow(long hWnd, int nCmdShow) {
-		long __functionAddress = getInstance().ShowWindow;
+		long __functionAddress = getInstance().__ShowWindow;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return callPII(__functionAddress, hWnd, nCmdShow);
@@ -1117,7 +1117,7 @@ public class User32 {
 	 * @param hWnd handle to the window to be updated
 	 */
 	public static int UpdateWindow(long hWnd) {
-		long __functionAddress = getInstance().UpdateWindow;
+		long __functionAddress = getInstance().__UpdateWindow;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return callPI(__functionAddress, hWnd);
@@ -1138,7 +1138,7 @@ public class User32 {
 	 * @param uFlags          the window sizing and positioning flags. One or more of:<br>{@link #SWP_NOSIZE}, {@link #SWP_NOMOVE}, {@link #SWP_NOZORDER}, {@link #SWP_NOREDRAW}, {@link #SWP_NOACTIVATE}, {@link #SWP_FRAMECHANGED}, {@link #SWP_SHOWWINDOW}, {@link #SWP_HIDEWINDOW}, {@link #SWP_NOCOPYBITS}, {@link #SWP_NOOWNERZORDER}, {@link #SWP_NOSENDCHANGING}, {@link #SWP_DRAWFRAME}, {@link #SWP_NOREPOSITION}, {@link #SWP_DEFERERASE}, {@link #SWP_ASYNCWINDOWPOS}
 	 */
 	public static int SetWindowPos(long hWnd, long hWndInsertAfter, int X, int Y, int cx, int cy, int uFlags) {
-		long __functionAddress = getInstance().SetWindowPos;
+		long __functionAddress = getInstance().__SetWindowPos;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return callPPIIIIII(__functionAddress, hWnd, hWndInsertAfter, X, Y, cx, cy, uFlags);
@@ -1149,7 +1149,7 @@ public class User32 {
 	/** Unsafe version of {@link #SetWindowText} */
 	@JavadocExclude
 	public static int nSetWindowText(long hWnd, long lpString) {
-		long __functionAddress = getInstance().SetWindowText;
+		long __functionAddress = getInstance().__SetWindowText;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return callPPI(__functionAddress, hWnd, lpString);
@@ -1180,7 +1180,7 @@ public class User32 {
 	/** Unsafe version of {@link #GetMessage} */
 	@JavadocExclude
 	public static int nGetMessage(long lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax) {
-		long __functionAddress = getInstance().GetMessage;
+		long __functionAddress = getInstance().__GetMessage;
 		return callPPIII(__functionAddress, lpMsg, hWnd, wMsgFilterMin, wMsgFilterMax);
 	}
 
@@ -1209,7 +1209,7 @@ public class User32 {
 	/** Unsafe version of {@link #PeekMessage} */
 	@JavadocExclude
 	public static int nPeekMessage(long lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax, int wRemoveMsg) {
-		long __functionAddress = getInstance().PeekMessage;
+		long __functionAddress = getInstance().__PeekMessage;
 		return callPPIIII(__functionAddress, lpMsg, hWnd, wMsgFilterMin, wMsgFilterMax, wRemoveMsg);
 	}
 
@@ -1238,7 +1238,7 @@ public class User32 {
 	/** Unsafe version of {@link #TranslateMessage} */
 	@JavadocExclude
 	public static int nTranslateMessage(long lpMsg) {
-		long __functionAddress = getInstance().TranslateMessage;
+		long __functionAddress = getInstance().__TranslateMessage;
 		return callPI(__functionAddress, lpMsg);
 	}
 
@@ -1260,7 +1260,7 @@ public class User32 {
 	 * return until a new message is placed in the thread's message queue.
 	 */
 	public static int WaitMessage() {
-		long __functionAddress = getInstance().WaitMessage;
+		long __functionAddress = getInstance().__WaitMessage;
 		return callI(__functionAddress);
 	}
 
@@ -1269,7 +1269,7 @@ public class User32 {
 	/** Unsafe version of {@link #DispatchMessage} */
 	@JavadocExclude
 	public static long nDispatchMessage(long lpmsg) {
-		long __functionAddress = getInstance().DispatchMessage;
+		long __functionAddress = getInstance().__DispatchMessage;
 		return callPP(__functionAddress, lpmsg);
 	}
 
@@ -1300,7 +1300,7 @@ public class User32 {
 	 * @param lParam additional message-specific information
 	 */
 	public static int PostMessage(long hWnd, int Msg, long wParam, long lParam) {
-		long __functionAddress = getInstance().PostMessage;
+		long __functionAddress = getInstance().__PostMessage;
 		return callPIPPI(__functionAddress, hWnd, Msg, wParam, lParam);
 	}
 
@@ -1309,7 +1309,7 @@ public class User32 {
 	/** Unsafe version of {@link #AdjustWindowRectEx} */
 	@JavadocExclude
 	public static int nAdjustWindowRectEx(long lpRect, int dwStyle, int bMenu, int dwExStyle) {
-		long __functionAddress = getInstance().AdjustWindowRectEx;
+		long __functionAddress = getInstance().__AdjustWindowRectEx;
 		return callPIIII(__functionAddress, lpRect, dwStyle, bMenu, dwExStyle);
 	}
 
@@ -1333,7 +1333,7 @@ public class User32 {
 	/** Unsafe version of {@link #GetWindowRect} */
 	@JavadocExclude
 	public static int nGetWindowRect(long hWnd, long lpRect) {
-		long __functionAddress = getInstance().GetWindowRect;
+		long __functionAddress = getInstance().__GetWindowRect;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return callPPI(__functionAddress, hWnd, lpRect);
@@ -1366,7 +1366,7 @@ public class User32 {
 	 *                 window uncovered as a result of moving a child window.
 	 */
 	public static int MoveWindow(long hWnd, int X, int Y, int nWidth, int nHeight, int bRepaint) {
-		long __functionAddress = getInstance().MoveWindow;
+		long __functionAddress = getInstance().__MoveWindow;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return callPIIIIII(__functionAddress, hWnd, X, Y, nWidth, nHeight, bRepaint);
@@ -1385,7 +1385,7 @@ public class User32 {
 	 * @return the previous value at the given {@code index}
 	 */
 	public static long SetWindowLongPtr(long hWnd, int nIndex, long dwNewLong) {
-		long __functionAddress = getInstance().SetWindowLongPtr;
+		long __functionAddress = getInstance().__SetWindowLongPtr;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return callPIPP(__functionAddress, hWnd, nIndex, dwNewLong);
@@ -1401,7 +1401,7 @@ public class User32 {
 	 *               of an integer. To set any other value, specify one of:<br>{@link #GWL_WNDPROC}, {@link #GWL_HINSTANCE}, {@link #GWL_HWNDPARENT}, {@link #GWL_STYLE}, {@link #GWL_EXSTYLE}, {@link #GWL_USERDATA}, {@link #GWL_ID}
 	 */
 	public static long GetWindowLongPtr(long hWnd, int nIndex) {
-		long __functionAddress = getInstance().GetWindowLongPtr;
+		long __functionAddress = getInstance().__GetWindowLongPtr;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return callPIP(__functionAddress, hWnd, nIndex);
@@ -1424,7 +1424,7 @@ public class User32 {
 	 *         <p>If the function fails, the return value is zero. To get extended error information, call {@link WinBase#getLastError}.</p>
 	 */
 	public static long SetClassLongPtr(long hWnd, int nIndex, long dwNewLong) {
-		long __functionAddress = getInstance().SetClassLongPtr;
+		long __functionAddress = getInstance().__SetClassLongPtr;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return callPIPP(__functionAddress, hWnd, nIndex, dwNewLong);
@@ -1442,7 +1442,7 @@ public class User32 {
 	 *               structure, specify one of:<br>{@link #GCL_MENUNAME}, {@link #GCL_HBRBACKGROUND}, {@link #GCL_HCURSOR}, {@link #GCL_HICON}, {@link #GCL_HMODULE}, {@link #GCL_CBWNDEXTRA}, {@link #GCL_CBCLSEXTRA}, {@link #GCL_WNDPROC}, {@link #GCL_STYLE}, {@link #GCW_ATOM}, {@link #GCL_HICONSM}
 	 */
 	public static long GetClassLongPtr(long hWnd, int nIndex) {
-		long __functionAddress = getInstance().GetClassLongPtr;
+		long __functionAddress = getInstance().__GetClassLongPtr;
 		if ( CHECKS )
 			checkPointer(hWnd);
 		return callPIP(__functionAddress, hWnd, nIndex);
@@ -1453,7 +1453,7 @@ public class User32 {
 	/** Unsafe version of {@link #LoadIcon} */
 	@JavadocExclude
 	public static long nLoadIcon(long instance, long iconName) {
-		long __functionAddress = getInstance().LoadIcon;
+		long __functionAddress = getInstance().__LoadIcon;
 		return callPPP(__functionAddress, instance, iconName);
 	}
 
@@ -1482,7 +1482,7 @@ public class User32 {
 	/** Unsafe version of {@link #LoadCursor} */
 	@JavadocExclude
 	public static long nLoadCursor(long instance, long cursorName) {
-		long __functionAddress = getInstance().LoadCursor;
+		long __functionAddress = getInstance().__LoadCursor;
 		return callPPP(__functionAddress, instance, cursorName);
 	}
 
@@ -1514,7 +1514,7 @@ public class User32 {
 	 * @param hWnd a handle to the window whose DC is to be retrieved. If this value is {@code NULL}, GetDC retrieves the DC for the entire screen.
 	 */
 	public static long GetDC(long hWnd) {
-		long __functionAddress = getInstance().GetDC;
+		long __functionAddress = getInstance().__GetDC;
 		return callPP(__functionAddress, hWnd);
 	}
 
@@ -1528,7 +1528,7 @@ public class User32 {
 	 * @param hDC  a handle to the DC to be released
 	 */
 	public static int ReleaseDC(long hWnd, long hDC) {
-		long __functionAddress = getInstance().ReleaseDC;
+		long __functionAddress = getInstance().__ReleaseDC;
 		if ( CHECKS ) {
 			checkPointer(hWnd);
 			checkPointer(hDC);
@@ -1544,7 +1544,7 @@ public class User32 {
 	 * @param index the system metric or configuration setting to be retrieved. One of:<br>{@link #SM_CXSCREEN}, {@link #SM_CYSCREEN}, {@link #SM_CXVSCROLL}, {@link #SM_CYHSCROLL}, {@link #SM_CYCAPTION}, {@link #SM_CXBORDER}, {@link #SM_CYBORDER}, {@link #SM_CXDLGFRAME}, {@link #SM_CYDLGFRAME}, {@link #SM_CYVTHUMB}, {@link #SM_CXHTHUMB}, {@link #SM_CXICON}, {@link #SM_CYICON}, {@link #SM_CXCURSOR}, {@link #SM_CYCURSOR}, {@link #SM_CYMENU}, {@link #SM_CXFULLSCREEN}, {@link #SM_CYFULLSCREEN}, {@link #SM_CYKANJIWINDOW}, {@link #SM_MOUSEPRESENT}, {@link #SM_CYVSCROLL}, {@link #SM_CXHSCROLL}, {@link #SM_DEBUG}, {@link #SM_SWAPBUTTON}, {@link #SM_RESERVED1}, {@link #SM_RESERVED2}, {@link #SM_RESERVED3}, {@link #SM_RESERVED4}, {@link #SM_CXMIN}, {@link #SM_CYMIN}, {@link #SM_CXSIZE}, {@link #SM_CYSIZE}, {@link #SM_CXFRAME}, {@link #SM_CYFRAME}, {@link #SM_CXMINTRACK}, {@link #SM_CYMINTRACK}, {@link #SM_CXDOUBLECLK}, {@link #SM_CYDOUBLECLK}, {@link #SM_CXICONSPACING}, {@link #SM_CYICONSPACING}, {@link #SM_MENUDROPALIGNMENT}, {@link #SM_PENWINDOWS}, {@link #SM_DBCSENABLED}, {@link #SM_CMOUSEBUTTONS}, {@link #SM_CXFIXEDFRAME}, {@link #SM_CYFIXEDFRAME}, {@link #SM_CXSIZEFRAME}, {@link #SM_CYSIZEFRAME}, {@link #SM_SECURE}, {@link #SM_CXEDGE}, {@link #SM_CYEDGE}, {@link #SM_CXMINSPACING}, {@link #SM_CYMINSPACING}, {@link #SM_CXSMICON}, {@link #SM_CYSMICON}, {@link #SM_CYSMCAPTION}, {@link #SM_CXSMSIZE}, {@link #SM_CYSMSIZE}, {@link #SM_CXMENUSIZE}, {@link #SM_CYMENUSIZE}, {@link #SM_ARRANGE}, {@link #SM_CXMINIMIZED}, {@link #SM_CYMINIMIZED}, {@link #SM_CXMAXTRACK}, {@link #SM_CYMAXTRACK}, {@link #SM_CXMAXIMIZED}, {@link #SM_CYMAXIMIZED}, {@link #SM_NETWORK}, {@link #SM_CLEANBOOT}, {@link #SM_CXDRAG}, {@link #SM_CYDRAG}, {@link #SM_SHOWSOUNDS}, {@link #SM_CXMENUCHECK}, {@link #SM_CYMENUCHECK}, {@link #SM_SLOWMACHINE}, {@link #SM_MIDEASTENABLED}, {@link #SM_MOUSEWHEELPRESENT}, {@link #SM_XVIRTUALSCREEN}, {@link #SM_YVIRTUALSCREEN}, {@link #SM_CXVIRTUALSCREEN}, {@link #SM_CYVIRTUALSCREEN}, {@link #SM_CMONITORS}, {@link #SM_SAMEDISPLAYFORMAT}, {@link #SM_IMMENABLED}, {@link #SM_REMOTESESSION}, {@link #SM_SHUTTINGDOWN}, {@link #SM_REMOTECONTROL}, {@link #SM_CARETBLINKINGENABLED}, {@link #SM_CXFOCUSBORDER}, {@link #SM_CYFOCUSBORDER}, {@link #SM_TABLETPC}, {@link #SM_MEDIACENTER}, {@link #SM_STARTER}, {@link #SM_SERVERR2}, {@link #SM_MOUSEHORIZONTALWHEELPRESENT}, {@link #SM_CXPADDEDBORDER}, {@link #SM_DIGITIZER}, {@link #SM_MAXIMUMTOUCHES}
 	 */
 	public static int GetSystemMetrics(int index) {
-		long __functionAddress = getInstance().GetSystemMetrics;
+		long __functionAddress = getInstance().__GetSystemMetrics;
 		return callII(__functionAddress, index);
 	}
 
@@ -1565,7 +1565,7 @@ public class User32 {
 	 * @since Windows 7 (desktop apps only)
 	 */
 	public static int RegisterTouchWindow(long hWnd, int ulFlags) {
-		long __functionAddress = getInstance().RegisterTouchWindow;
+		long __functionAddress = getInstance().__RegisterTouchWindow;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hWnd);
@@ -1583,7 +1583,7 @@ public class User32 {
 	 * @since Windows 7 (desktop apps only)
 	 */
 	public static int UnregisterTouchWindow(long hWnd) {
-		long __functionAddress = getInstance().UnregisterTouchWindow;
+		long __functionAddress = getInstance().__UnregisterTouchWindow;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hWnd);
@@ -1596,7 +1596,7 @@ public class User32 {
 	/** Unsafe version of {@link #IsTouchWindow} */
 	@JavadocExclude
 	public static int nIsTouchWindow(long hWnd, long pulFlags) {
-		long __functionAddress = getInstance().IsTouchWindow;
+		long __functionAddress = getInstance().__IsTouchWindow;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hWnd);
@@ -1627,7 +1627,7 @@ public class User32 {
 	/** Unsafe version of {@link #GetTouchInputInfo} */
 	@JavadocExclude
 	public static int nGetTouchInputInfo(long hTouchInput, int cInputs, long pInputs, int cbSize) {
-		long __functionAddress = getInstance().GetTouchInputInfo;
+		long __functionAddress = getInstance().__GetTouchInputInfo;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hTouchInput);
@@ -1673,7 +1673,7 @@ public class User32 {
 	 * @since Windows 7 (desktop apps only)
 	 */
 	public static int CloseTouchInputHandle(long hTouchInput) {
-		long __functionAddress = getInstance().CloseTouchInputHandle;
+		long __functionAddress = getInstance().__CloseTouchInputHandle;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hTouchInput);

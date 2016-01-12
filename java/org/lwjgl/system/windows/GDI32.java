@@ -54,11 +54,11 @@ public class GDI32 {
 	/** Function address. */
 	@JavadocExclude
 	public final long
-		ChoosePixelFormat,
-		DescribePixelFormat,
-		GetPixelFormat,
-		SetPixelFormat,
-		SwapBuffers;
+		__ChoosePixelFormat,
+		__DescribePixelFormat,
+		__GetPixelFormat,
+		__SetPixelFormat,
+		__SwapBuffers;
 
 	@JavadocExclude
 	protected GDI32() {
@@ -67,11 +67,11 @@ public class GDI32 {
 
 	@JavadocExclude
 	public GDI32(FunctionProvider provider) {
-		ChoosePixelFormat = checkFunctionAddress(provider.getFunctionAddress("ChoosePixelFormat"));
-		DescribePixelFormat = checkFunctionAddress(provider.getFunctionAddress("DescribePixelFormat"));
-		GetPixelFormat = checkFunctionAddress(provider.getFunctionAddress("GetPixelFormat"));
-		SetPixelFormat = checkFunctionAddress(provider.getFunctionAddress("SetPixelFormat"));
-		SwapBuffers = checkFunctionAddress(provider.getFunctionAddress("SwapBuffers"));
+		__ChoosePixelFormat = checkFunctionAddress(provider.getFunctionAddress("ChoosePixelFormat"));
+		__DescribePixelFormat = checkFunctionAddress(provider.getFunctionAddress("DescribePixelFormat"));
+		__GetPixelFormat = checkFunctionAddress(provider.getFunctionAddress("GetPixelFormat"));
+		__SetPixelFormat = checkFunctionAddress(provider.getFunctionAddress("SetPixelFormat"));
+		__SwapBuffers = checkFunctionAddress(provider.getFunctionAddress("SwapBuffers"));
 	}
 
 	// --- [ Function Addresses ] ---
@@ -104,7 +104,7 @@ public class GDI32 {
 	/** Unsafe version of {@link #ChoosePixelFormat} */
 	@JavadocExclude
 	public static int nChoosePixelFormat(long hdc, long pixelFormatDescriptor) {
-		long __functionAddress = getInstance().ChoosePixelFormat;
+		long __functionAddress = getInstance().__ChoosePixelFormat;
 		if ( CHECKS )
 			checkPointer(hdc);
 		return nChoosePixelFormat(__functionAddress, hdc, pixelFormatDescriptor);
@@ -129,7 +129,7 @@ public class GDI32 {
 	/** Unsafe version of {@link #DescribePixelFormat} */
 	@JavadocExclude
 	public static int nDescribePixelFormat(long hdc, int pixelFormat, int bytes, long pixelFormatDescriptor) {
-		long __functionAddress = getInstance().DescribePixelFormat;
+		long __functionAddress = getInstance().__DescribePixelFormat;
 		if ( CHECKS )
 			checkPointer(hdc);
 		return nDescribePixelFormat(__functionAddress, hdc, pixelFormat, bytes, pixelFormatDescriptor);
@@ -169,7 +169,7 @@ public class GDI32 {
 	 * @param hdc the device context of the currently selected pixel format index returned by the function
 	 */
 	public static int GetPixelFormat(long hdc) {
-		long __functionAddress = getInstance().GetPixelFormat;
+		long __functionAddress = getInstance().__GetPixelFormat;
 		if ( CHECKS )
 			checkPointer(hdc);
 		return nGetPixelFormat(__functionAddress, hdc);
@@ -184,7 +184,7 @@ public class GDI32 {
 	/** Unsafe version of {@link #SetPixelFormat} */
 	@JavadocExclude
 	public static int nSetPixelFormat(long hdc, int pixelFormat, long pixelFormatDescriptor) {
-		long __functionAddress = getInstance().SetPixelFormat;
+		long __functionAddress = getInstance().__SetPixelFormat;
 		if ( CHECKS )
 			checkPointer(hdc);
 		return nSetPixelFormat(__functionAddress, hdc, pixelFormat, pixelFormatDescriptor);
@@ -215,7 +215,7 @@ public class GDI32 {
 	 *           front and back buffers.
 	 */
 	public static int SwapBuffers(long dc) {
-		long __functionAddress = getInstance().SwapBuffers;
+		long __functionAddress = getInstance().__SwapBuffers;
 		if ( CHECKS )
 			checkPointer(dc);
 		return nSwapBuffers(__functionAddress, dc);
