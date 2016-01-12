@@ -77,8 +77,8 @@ public class OVRErrorInfo extends Struct {
 	public int Result() { return nResult(address()); }
 	/** Returns a {@link ByteBuffer} view of the {@code ErrorString} field. */
 	public ByteBuffer ErrorString() { return nErrorString(address()); }
-	/** Returns the value at the specified index of the {@code ErrorString} field. */
-	public byte ErrorString(int index) { return nErrorString(address(), index); }
+	/** Decodes the null-terminated string stored in the {@code ErrorString} field. */
+	public String ErrorStringString() { return nErrorStringString(address()); }
 
 	// -----------------------------------
 
@@ -142,11 +142,9 @@ public class OVRErrorInfo extends Struct {
 	/** Unsafe version of {@link #Result}. */
 	public static int nResult(long struct) { return memGetInt(struct + OVRErrorInfo.RESULT); }
 	/** Unsafe version of {@link #ErrorString}. */
-	public static ByteBuffer nErrorString(long struct) {
-		return memByteBuffer(struct + OVRErrorInfo.ERRORSTRING, 512);
-	}
-	/** Unsafe version of {@link #ErrorString(int) ErrorString}. */
-	public static byte nErrorString(long struct, int index) { return memGetByte(struct + OVRErrorInfo.ERRORSTRING + index * 1); }
+	public static ByteBuffer nErrorString(long struct) { return memByteBuffer(struct + OVRErrorInfo.ERRORSTRING, 512); }
+	/** Unsafe version of {@link #ErrorStringString}. */
+	public static String nErrorStringString(long struct) { return memDecodeUTF8(struct + OVRErrorInfo.ERRORSTRING); }
 
 	// -----------------------------------
 
@@ -194,8 +192,8 @@ public class OVRErrorInfo extends Struct {
 		public int Result() { return OVRErrorInfo.nResult(address()); }
 		/** Returns a {@link ByteBuffer} view of the {@code ErrorString} field. */
 		public ByteBuffer ErrorString() { return OVRErrorInfo.nErrorString(address()); }
-		/** Returns the value at the specified index of the {@code ErrorString} field. */
-		public byte ErrorString(int index) { return OVRErrorInfo.nErrorString(address(), index); }
+		/** Decodes the null-terminated string stored in the {@code ErrorString} field. */
+		public String ErrorStringString() { return OVRErrorInfo.nErrorStringString(address()); }
 
 	}
 

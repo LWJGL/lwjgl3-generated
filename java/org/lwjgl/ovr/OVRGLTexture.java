@@ -84,17 +84,6 @@ public class OVRGLTexture extends Struct {
 	/** Copies the specified {@link OVRGLTextureData} to the {@code OGL} field. */
 	public OVRGLTexture OGL(OVRGLTextureData value) { nOGL(address(), value); return this; }
 
-	/** Initializes this struct with the specified values. */
-	public OVRGLTexture set(
-		OVRTexture Texture,
-		OVRGLTextureData OGL
-	) {
-		Texture(Texture);
-		OGL(OGL);
-
-		return this;
-	}
-
 	/** Unsafe version of {@link #set(OVRGLTexture) set}. */
 	public OVRGLTexture nset(long struct) {
 		memCopy(struct, address(), SIZEOF);

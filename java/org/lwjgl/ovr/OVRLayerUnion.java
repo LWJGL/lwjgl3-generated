@@ -107,23 +107,6 @@ public class OVRLayerUnion extends Struct {
 	/** Copies the specified {@link OVRLayerDirect} to the {@code Direct} field. */
 	public OVRLayerUnion Direct(OVRLayerDirect value) { nDirect(address(), value); return this; }
 
-	/** Initializes this struct with the specified values. */
-	public OVRLayerUnion set(
-		OVRLayerHeader Header,
-		OVRLayerEyeFov EyeFov,
-		OVRLayerEyeFovDepth EyeFovDepth,
-		OVRLayerQuad Quad,
-		OVRLayerDirect Direct
-	) {
-		Header(Header);
-		EyeFov(EyeFov);
-		EyeFovDepth(EyeFovDepth);
-		Quad(Quad);
-		Direct(Direct);
-
-		return this;
-	}
-
 	/** Unsafe version of {@link #set(OVRLayerUnion) set}. */
 	public OVRLayerUnion nset(long struct) {
 		memCopy(struct, address(), SIZEOF);
