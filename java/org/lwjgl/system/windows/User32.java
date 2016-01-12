@@ -2128,15 +2128,15 @@ public class User32 {
 	 */
 	public static int ChangeDisplaySettingsEx(ByteBuffer lpszDeviceName, DEVMODE lpDevMode, long hwnd, int dwflags, long lParam) {
 		if ( CHECKS )
-			checkNT2(lpszDeviceName);
-		return nChangeDisplaySettingsEx(memAddress(lpszDeviceName), lpDevMode == null ? NULL : lpDevMode.address(), hwnd, dwflags, lParam);
+			if ( lpszDeviceName != null ) checkNT2(lpszDeviceName);
+		return nChangeDisplaySettingsEx(memAddressSafe(lpszDeviceName), lpDevMode == null ? NULL : lpDevMode.address(), hwnd, dwflags, lParam);
 	}
 
 	/** CharSequence version of: {@link #ChangeDisplaySettingsEx} */
 	public static int ChangeDisplaySettingsEx(CharSequence lpszDeviceName, DEVMODE lpDevMode, long hwnd, int dwflags, long lParam) {
 		APIBuffer __buffer = apiBuffer();
 		int lpszDeviceNameEncoded = __buffer.stringParamUTF16(lpszDeviceName, true);
-		return nChangeDisplaySettingsEx(__buffer.address(lpszDeviceNameEncoded), lpDevMode == null ? NULL : lpDevMode.address(), hwnd, dwflags, lParam);
+		return nChangeDisplaySettingsEx(__buffer.addressSafe(lpszDeviceName, lpszDeviceNameEncoded), lpDevMode == null ? NULL : lpDevMode.address(), hwnd, dwflags, lParam);
 	}
 
 }
